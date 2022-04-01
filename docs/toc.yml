@@ -368,7 +368,7 @@ items:
                  href: example-scenario/ai/citizen-ai-power-platform.yml
                - name: Eventual consistency with Power Apps
                  href: reference-architectures/power-platform/eventual-consistency.yml
-               - name: Extract text from objects with Power Automate
+               - name: Extract text using Power Automate
                  href: example-scenario/ai/extract-object-text.yml
                - name: Power Automate deployment at scale
                  href: example-scenario/power-automate/power-automate.yml
@@ -382,7 +382,7 @@ items:
                 href: example-scenario/governance/governance-teams-guest-users.yml
               - name: Hybrid SharePoint farm with Microsoft 365
                 href: solution-ideas/articles/sharepoint-farm-microsoft-365.yml
-              - name: Manage M365 configuration with Azure DevOps
+              - name: Manage M365 configuration with DevOps
                 href: example-scenario/devops/manage-microsoft-365-tenant-configuration-microsoft365dsc-devops.yml
               - name: Real-time collaboration
                 href: solution-ideas/articles/collaboration-microsoft-365.yml           
@@ -400,7 +400,7 @@ items:
                 href: example-scenario/analytics/synapse-customer-insights.yml
               - name: Dynamics Business Central as a service
                 href: solution-ideas/articles/business-central.yml
-              - name: Enhanced customer dimension with Dynamics 365
+              - name: Enhanced customer dimension
                 href: solution-ideas/articles/customer-insights-synapse.yml
       - name: Cloud comparisons
         items:
@@ -569,7 +569,7 @@ items:
                   - name: Forecast bike rental demand
                     href: /azure/machine-learning/tutorial-automated-ml-forecast
                     maintainContext: true
-                  - name: Optimize and reuse a recommendation system
+                  - name: Optimize and reuse recommendations
                     href: industries/retail/recommendation-engine-optimization.yml
               - name: IoT in retail
                 items:
@@ -701,7 +701,7 @@ items:
                 href: example-scenario/data/data-analysis-regulated-industries.yml
               - name: Decentralized trust between banks
                 href: example-scenario/apps/decentralized-trust.yml
-              - name: Finance management apps using PostgreSQL
+              - name: Finance management using PostgreSQL
                 href: solution-ideas/articles/finance-management-apps-using-azure-database-for-postgresql.yml
               - name: Modernize mainframe & midrange data
                 href: reference-architectures/migration/modernize-mainframe-data-to-azure.yml
@@ -873,7 +873,7 @@ items:
                   - name: Health triage dashboard
                     href: /azure/iot-central/healthcare/tutorial-health-data-triage
                     maintainContext: true
-              - name: Healthcare for data management and analytics
+              - name: Healthcare for data management
                 href: /azure/cloud-adoption-framework/scenarios/data-management/architectures/reference-architecture-lamna
                 maintainContext: true
           - name: Architectures
@@ -892,7 +892,7 @@ items:
                 href: example-scenario/digital-health/health-portal.yml
               - name: Health data consortium
                 href: example-scenario/data/azure-health-data-consortium.yml
-              - name: IoT Connected Platform for COVID-19 detection
+              - name: IoT Connected Platform for COVID detection
                 href: solution-ideas/articles/iot-connected-platform.yml
               - name: Population health management
                 href: solution-ideas/articles/population-health-management-for-healthcare.yml
@@ -1085,12 +1085,12 @@ items:
                 href: solution-ideas/articles/anomaly-detector-process.yml
               - name: Build a speech-to-text transcription pipeline
                 href: reference-architectures/ai/speech-to-text-transcription-pipeline.yml
+              - name: Computer vision for manufacturing
+                href: reference-architectures/ai/end-to-end-smart-factory.yml
               - name: Connected factory hierarchy service
                 href: solution-ideas/articles/connected-factory-hierarchy-service.yml
               - name: Connected factory signal pipeline
                 href: example-scenario/iot/connected-factory-signal-pipeline.yml
-              - name: End-to-end computer vision for manufacturing
-                href: reference-architectures/ai/end-to-end-smart-factory.yml
               - name: Predictive maintenance with IoT
                 href: example-scenario/predictive-maintenance/iot-predictive-maintenance.yml
               - name: Quality assurance
@@ -1107,10 +1107,10 @@ items:
                 href: /gaming/playfab/what-is-playfab
                 maintainContext: true
               - name: Azure AD authentication for PlayFab
-                href: /gaming/playfab/features/authentication/aad-authentication
+                href: /gaming/playfab/features/authentication/aad-authentication/index
                 maintainContext: true
               - name: PlayFab CloudScript with Azure Functions
-                href: /gaming/playfab/features/automation/cloudscript-af
+                href: /gaming/playfab/features/automation/cloudscript-af/index
                 maintainContext: true
               - name: Multiplayer guidance
                 items:
@@ -1391,21 +1391,19 @@ items:
             items:
               - name: AI scenarios
                 items:
-                  - name: Create a Cognitive Search index for hotel data
+                  - name: Create a Cognitive Search index for hotels
                     href: /azure/search/search-get-started-portal
                     maintainContext: true
                   - name: Data science using Spark for airport travel
                     href: data-science-process/spark-overview.md
-              - name: IoT scenarios
-                items:
-                  - name: IoT spatial analytics - Car rental tracking
-                    href: /azure/azure-maps/tutorial-iot-hub-maps
-                    maintainContext: true
-                  - name: Observer pattern - Airport baggage claims
-                    href: /dotnet/standard/events/observer-design-pattern
-                    maintainContext: true
+              - name: IoT spatial analytics - Car rental tracking
+                href: /azure/azure-maps/tutorial-iot-hub-maps
+                maintainContext: true
               - name: No-code voice assistant for hospitality
                 href: /azure/azure-percept/tutorial-no-code-speech
+                maintainContext: true
+              - name: Observer pattern - Airport baggage claims
+                href: /dotnet/standard/events/observer-design-pattern
                 maintainContext: true
           - name: Architectures
             items:
@@ -1413,7 +1411,7 @@ items:
                 href: /azure/architecture/browse/?terms=travel
               - name: Build a chatbot for hotel booking
                 href: example-scenario/ai/commerce-chatbot.yml
-              - name: Build a delta lake in leisure and travel booking
+              - name: Build a delta lake in leisure and travel
                 href: solution-ideas/articles/build-data-lake-support-adhoc-queries-online.yml
               - name: Commerce chatbot as a hotel concierge
                 href: solution-ideas/articles/commerce-chatbot.yml
@@ -1528,7 +1526,7 @@ items:
                 href: /azure/architecture/solution-ideas/articles/iot-power-management
               - name: IoT device connectivity for industry
                 href: /azure/architecture/solution-ideas/articles/healthcare-network
-              - name: Low-latency network connections for industry 
+              - name: Low-latency network connections
                 href: /azure/architecture/solution-ideas/articles/low-latency-network
               - name: Predictive maintenance with AI IoT Edge
                 href: /azure/architecture/example-scenario/predictive-maintenance/iot-predictive-maintenance
@@ -1689,7 +1687,9 @@ items:
                 href: /azure/architecture/browse/?terms=aircraft
               - name: Advanced (AKS) microservices - drones
                 href: /azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced
-              - name: Predictive maintenance for aircraft monitoring
+              - name: Geospatial analysis of spaceborne data
+                href: industries/aerospace/geospatial-processing-analytics.yml
+              - name: Predictive maintenance for aircraft
                 href: /azure/architecture/solution-ideas/articles/predictive-maintenance
               - name: Serverless web app for drone delivery
                 href: reference-architectures/serverless/web-app.yml
@@ -1996,11 +1996,11 @@ items:
                 href: example-scenario/ai/customer-lifecycle-churn.yml
               - name: Distributed deep learning training
                 href: reference-architectures/ai/training-deep-learning.yml
-              - name: End-to-end computer vision for manufacturing
+              - name: End-to-end computer vision at the edge
                 href: reference-architectures/ai/end-to-end-smart-factory.yml
               - name: Enterprise-grade conversational bot
                 href: reference-architectures/ai/conversational-bot.yml
-              - name: Extract text from objects using Power Automate
+              - name: Extract text from objects with Power Automate
                 href: example-scenario/ai/extract-object-text.yml
               - name: Image classification
                 href: example-scenario/ai/intelligent-apps-image-processing.yml
@@ -2176,7 +2176,7 @@ items:
                 href: reference-architectures/data/enterprise-bi-adf.yml
               - name: Big data analytics on confidential computing
                 href: example-scenario/confidential/data-analytics-containers-spark-kubernetes-azure-sql.yml
-              - name: Customer 360 with Synapse and Dynamics 365
+              - name: Customer 360 with Azure Synapse and D365
                 href: example-scenario/analytics/synapse-customer-insights.yml      
               - name: Data analysis for regulated industries
                 href: example-scenario/data/data-analysis-regulated-industries.yml
@@ -2186,10 +2186,12 @@ items:
                 href: example-scenario/data/small-medium-data-warehouse.yml
               - name: Data warehousing and analytics
                 href: example-scenario/data/data-warehouse.yml
-              - name: Employee retention with Databricks and Kubernetes
+              - name: Employee retention with Databricks and AKS
                 href: example-scenario/ai/employee-retention-databricks-kubernetes.yml
               - name: Geospatial analysis for telecommunications
                 href: example-scenario/data/geospatial-analysis-telecommunications-industry.yml
+              - name: Geospatial analysis with Azure Synapse
+                href: industries/aerospace/geospatial-processing-analytics.yml
               - name: Geospatial data processing and analytics
                 href: example-scenario/data/geospatial-data-processing-analytics-azure.yml
               - name: High throughput stream ingestion
@@ -2334,7 +2336,7 @@ items:
                     href: /azure/azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview
                     maintainContext: true
                   - name: Best practices checklist
-                    href: /azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-vm-size
+                    href: /azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist
                     maintainContext: true
                   - name: VM size
                     href: /azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-vm-size
@@ -2383,9 +2385,9 @@ items:
                 href: solution-ideas/articles/move-azure-resources-across-regions.yml
               - name: Quantum computing solutions
                 items: 
-                  - name: Loosely coupled quantum computing on Azure
+                  - name: Loosely coupled quantum computing
                     href: example-scenario/quantum/loosely-coupled-quantum-computing-job.yml
-                  - name: Tightly coupled quantum computing on Azure
+                  - name: Tightly coupled quantum computing
                     href: example-scenario/quantum/tightly-coupled-quantum-computing-job.yml
               - name: Run a Linux VM on Azure
                 href: reference-architectures/n-tier/linux-vm.yml
@@ -2952,12 +2954,60 @@ items:
                     maintainContext: true
               - name: Azure Data Factory guidance
                 items:
-                  - name: Continuous integration in Azure Data Factory
+                  - name: Continuous integration in Data Factory
                     href: /azure/data-factory/continuous-integration-delivery
                     maintainContext: true
                   - name: Automated publishing for CI/CD
                     href: /azure/data-factory/continuous-integration-delivery-improvements
                     maintainContext: true
+              - name: Azure Databricks guidance
+                items:
+                  - name: Repos for Git integration
+                    href: /azure/databricks/repos/index
+                    maintainContext: true
+                  - name: GitHub version control
+                    href: /azure/databricks/notebooks/github-version-control
+                    maintainContext: true
+                  - name: Azure DevOps version control
+                    href: /azure/databricks/notebooks/azure-devops-services-version-control
+                    maintainContext: true
+                  - name: Bitbucket Cloud version control
+                    href: /azure/databricks/notebooks/bitbucket-cloud-version-control
+                    maintainContext: true
+                  - name: GitLab version control
+                    href: /azure/databricks/repos/gitlab-version-control
+                    maintainContext: true
+                  - name: CI/CD with Azure DevOps
+                    href: /azure/databricks/dev-tools/ci-cd/ci-cd-azure-devops
+                    maintainContext: true
+                  - name: CI/CD with Jenkins
+                    href: /azure/databricks/dev-tools/ci-cd/ci-cd-jenkins
+                    maintainContext: true
+              - name: Power BI guidance
+                items:
+                  - name: Power BI security
+                    href: /power-bi/guidance/whitepaper-powerbi-security
+                    maintainContext: true
+                  - name: Power BI enterprise deployment
+                    href: /power-bi/guidance/whitepaper-powerbi-enterprise-deployment
+                    maintainContext: true
+                  - name: Power BI Premium deployment
+                    href: /power-bi/guidance/whitepaper-powerbi-premium-deployment
+                    maintainContext: true
+                  - name: Deployment pipelines
+                    items:
+                      - name: Overview
+                        href: /power-bi/create-reports/deployment-pipelines-overview
+                        maintainContext: true
+                      - name: The deployment process
+                        href: /power-bi/create-reports/deployment-pipelines-process
+                        maintainContext: true
+                      - name: Best practices
+                        href: /power-bi/create-reports/deployment-pipelines-best-practices
+                        maintainContext: true
+                      - name: Automate your deployment pipeline
+                        href: /power-bi/create-reports/deployment-pipelines-automation
+                        maintainContext: true
               - name: Continuous integration for Azure Synapse
                 href: /azure/synapse-analytics/cicd/continuous-integration-delivery
                 maintainContext: true
@@ -2987,7 +3037,7 @@ items:
                 href: example-scenario/data/small-medium-data-warehouse.yml
               - name: Modernize mainframe and midrange data
                 href: reference-architectures/migration/modernize-mainframe-data-to-azure.yml
-              - name: Optimized storage with logical data classification
+              - name: Optimized storage with data classification
                 href: solution-ideas/articles/optimized-storage-logical-data-classification.yml
               - name: Master data management with Profisee
                 href: reference-architectures/data/profisee-master-data-management-data-factory.yml
@@ -3912,15 +3962,15 @@ items:
                     href: example-scenario/mainframe/migrate-ibm-i-series-to-azure-with-skytap.yml
                   - name: Refactor IBM z/OS mainframe CF
                     href: reference-architectures/zos/refactor-zos-coupling-facility.yml
-                  - name: Refactor mainframe applications with Astadia
+                  - name: Refactor mainframe apps with Astadia
                     href: example-scenario/mainframe/refactor-mainframe-applications-astadia.yml
                   - name: Refactor mainframe apps with Advanced
                     href: example-scenario/mainframe/refactor-mainframe-applications-advanced.yml
-                  - name: Refactor systems that run Adabas & Natural 
+                  - name: Refactor Adabas & Natural systems
                     href: example-scenario/mainframe/refactor-adabas-aks.yml
                   - name: Refactor mainframe with Raincode
                     href: reference-architectures/app-modernization/raincode-reference-architecture.yml
-                  - name: Rehost mainframe apps with NTT DATA UniKix
+                  - name: Rehost mainframe with NTT DATA UniKix
                     href: example-scenario/mainframe/rehost-mainframe-ntt-data-unikix.yml
                   - name: Unisys CPF rehost using virtualization
                     href: example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost.yml
@@ -4404,8 +4454,8 @@ items:
                   - name: Security baseline for DDoS Protection Standard
                     href: /security/benchmark/azure/baselines/ddos-protection-security-baseline
                     maintainContext: true
-              - name: Application Gateway framework review
-                href: networking/guide/waf-application-gateway.md
+              - name: Application Gateway v2 framework review
+                href: /azure/architecture/framework/services/networking/azure-application-gateway#security
               - name: Azure Firewall guidance
                 items:
                   - name: Azure Firewall architecture overview
@@ -5042,7 +5092,7 @@ items:
                 href: reference-architectures/app-service-web-app/multi-region.yml
               - name: "IaaS: Web app with relational database"
                 href: high-availability/ref-arch-iaas-web-and-db.yml
-              - name: Improved-security access to multitenant web apps
+              - name: Improved access to multitenant web apps
                 href: example-scenario/security/access-multitenant-web-app-from-on-premises.yml
               - name: Intelligent search engine for e-commerce
                 href: example-scenario/apps/ecommerce-search.yml
