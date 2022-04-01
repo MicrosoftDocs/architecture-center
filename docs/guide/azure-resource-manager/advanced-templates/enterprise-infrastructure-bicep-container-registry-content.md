@@ -1,28 +1,28 @@
 Modularizing your ARM template management enables you to reduce repetition, model best practices in infrastructure development, and have consistent standard deployments. 
 
-An example use case for this is standardizing a virtual machine (VM) deployment with the metaphor of t-shirt sizes. If you have deployed dozens or hundreds of VMs by using version 1.0.0 of your templates with a standard medium size of an older series, and you want to transition to a new series, that could require a brief outage. By building version 1.5.0, you can deploy new infrastructure with the updated standard while keeping the old infrastructure in a deployable state. This then allows your product and application teams to have a known-good configuration for the old infrastructure and the ability to upgrade on their own time.
+An example use case for implementing this modularization is standardizing a virtual machine (VM) deployment with the metaphor of t-shirt sizes. Suppose you have deployed dozens or hundreds of VMs. Those deployments use version 1.0.0 of your templates and have a standard medium size of an older series. To transition to a new series might require a brief outage. By building version 1.5.0, you can deploy new infrastructure with the updated standard while keeping the old infrastructure in a deployable state. By having bold versions of the infrastructure available, your product and application teams have a known-good configuration to rely on while upgrading to the new version as they have time.
 
 ## The Layer Cake of Repositories (An Example for Enterprises)
 
-When it comes to why you might want to have a strong preference for where your templates go, how they are updated, and so on, there are two primary considerations: _branching_ and _innersourcing_. 
+When it comes to why you might want to have a strong preference for where your templates go, how they're updated, and so on, there are two primary considerations: _branching_ and _innersourcing_. 
 
-- **Branching.** The following model is one method that enables you to branch according to a model that facilitates [GitFlow](https://jeffkreeftmeijer.com/git-flow/) or [GitHub Flow](https://docs.github.com/en/get-started/quickstart/github-flow).
+- **Branching.** The following model is one method that enables you to branch according to a model that facilitates [Gitflow](https://jeffkreeftmeijer.com/git-flow/) or [GitHub Flow](https://docs.github.com/en/get-started/quickstart/github-flow).
 
 - **Innersourcing.** The second is [innersourcing](https://resources.github.com/whitepapers/introduction-to-innersource/). You can more confidently share different templates and module source code without necessarily needing to worry about permissions for the deployment models themselves.
 
-Bicep has the capability to use Azure Container Registry as a private registry for hosting versioned Azure Resource Manager templates (ARM templates). This allows an enterprise to have a process of continuous integration and continuous delivery (CI/CD) for infrastructure. Integration and unit tests can be run as part of the CI process, and upon a successful build, the module can be delivered to the container registry. App teams are then able to continue to use older versions until they are ready to upgrade, or they can update sooner to take advantage of features in the newer version of the template. 
+Bicep has the capability to use Azure Container Registry as a private registry for hosting versioned Azure Resource Manager templates (ARM templates). Using Container Registry this way allows an enterprise to have a process of continuous integration and continuous delivery (CI/CD) for infrastructure. Integration and unit tests can be run as part of the CI process, and upon a successful build, the module can be delivered to the container registry. App teams are then able to continue to use older versions until they're ready to upgrade, or they can update sooner to take advantage of features in the newer version of the template. 
 
-In addition to this, an organization can combine this model with something like the [Azure Bicep ResourceModules](https://github.com/Azure/ResourceModules). This could work either by consuming from the public registry, or preferably, by monitoring the public repositories and pulling changes into your private registry for further use. Pulling changes into your own registry allows your organization to run tests against public modules while ensuring they aren't used in production until quality and security practices are incorporated.  
+In addition to this use of Container Registry, you can combine this model with something like the [Azure Bicep ResourceModules](https://github.com/Azure/ResourceModules). Your implementation could consume from the public registry, or preferably, monitor the public repositories and pull changes into your private registry for further use. Pulling changes into your own container registry allows your organization to run tests against public modules while ensuring that they aren't used in production until quality and security practices are incorporated.  
 
 ### Layers
 
-The proposed model is one that stacks. As you move up the stack, you have more frequent deployments and more bespoke bicep code. Development teams will build from the services and infrastructure below their layers. Layers should not reach _up_ the stack. This model creates _autonomy with alignment_. What that means is that we have:
+The proposed model is one that stacks. As you move up the stack, you have more frequent deployments and more bespoke bicep code. Development teams will build from the services and infrastructure below their layers. Layers shouldn't reach _up_ the stack. This model creates _autonomy with alignment_, which means having:
 
 - Common tools for enterprise ease (for example, everyone uses git for source control); everyone uses GitHub Actions for CI/CD, without overreaching (that is, we don't need to mandate all teams move to Bicep, they can use Terraform, ARM templates, and so on).
 
 - The ability to share best practices. This could take the form of ARM templates, golden images, or code snippets. It could also take the form of documenting specific techniques. For example, how to rotate keys in our environment and how to test our code.
 
-- Some services will move down the stack over time (for example, an app team may initially develop a template for deploying a Kubernetes cluster, which is eventually pulled into the product platform as a shared service. This template becomes so useful that it is pulled into the library of samples).
+- Some services will move down the stack over time (for example, an app team may initially develop a template for deploying a Kubernetes cluster, which is eventually pulled into the product platform as a shared service. This template becomes so useful that it's pulled into the library of samples).
 
 Layers
 
@@ -50,7 +50,7 @@ In addition, this layer could link to other known-good sources of sample code (f
 
 To be considered good sample code, your templates and modules should follow good development practices, including input validation for security and organizational requirements. To maintain this level of rigor, you should add branch policies to the main branch to require pull requests (PRs) and code review for proposed changes that would result in changes flowing to the main container registry if merged. 
 
-This layer feeds into Azure DevOps pipelines or GitHub Actions to automatically create versioned artifacts in Azure Container Registry. You can build automation for git commit messages to implement [semantic versioning](https://semver.org) of the artifacts. For this to work correctly, you need to have a deterministic naming standard, such as \<service\>.bicep, to make the automation maintainable over time. As discussed earlier, with proper branch policies, you can also add integration tests as a prerequisite for code reviews. This can be instrumented through tools like Pester.
+This layer feeds into Azure Pipelines or GitHub Actions to automatically create versioned artifacts in Azure Container Registry. You can build automation for git commit messages to implement [semantic versioning](https://semver.org) of the artifacts. For this to work correctly, you need to have a deterministic naming standard, such as \<service\>.bicep, to make the automation maintainable over time. As discussed earlier, with proper branch policies, you can also add integration tests as a prerequisite for code reviews. This can be instrumented through tools like Pester.
 
 With such policies and protections in place, the container registry can be the source of truth for all infrastructure modules in the enterprise that are ready to use. Your organization should consider standardizing change logs, as well as indices of available code samples, to allow for discoverability of this code. Unknown code is unused code!  
 
@@ -60,7 +60,7 @@ With such policies and protections in place, the container registry can be the s
 
 :::image type="content" alt-text="Screen shot of the contents of the 'infrastructure' and 'policy' folders in layer 1, global infrastructure (globally shared services)." source="media/enterprise-infrastructure-bicep-container-registry-layer-1.png":::
 
-This layer is your repository for _your_ Azure landing zone constructs. While Microsoft supplies templates for the deployment of Azure landing zones, you will want to modify certain components, as well as supply a parameters file. This is analogous to the way that you pull public registry and module repositories into Layer 0, as described earlier.
+This layer is your repository for _your_ Azure landing zone constructs. While Microsoft supplies templates for the deployment of Azure landing zones, you'll want to modify certain components and supply a parameters file. This is analogous to the way that you pull public registry and module repositories into Layer 0, as described earlier.
 
 Azure Container Registry is a critical part of this architecture. Even if your company has no plans to use containers, you must deploy Container Registry to be successful in versioning Bicep templates. Container Registry enables significant flexibility and reusability for your modules while providing enterprise-grade security and access control.  
 
@@ -72,7 +72,7 @@ Layer 1 should contain:
 - Core monitoring (log analytics)
 - Enterprise container registry
     
-You should configure branch protection to restrict the ability to push changes to this repository. Restrict approval of PRs from other developers to members of the CCOE or Cloud Governance. Contributors to this layer are primarily members of groups that are historically associated with the components in this layer—for example, the networking team builds the templates for the network, the operations team configures monitoring, and so on. However, you should grant read-only access to individuals who request it. You want to enable developers from other groups to suggest changes to the core infrastructures if they believe they have better solutions, but you won't allow their changes to be merged without approval and testing.
+You should configure branch protection to restrict the ability to push changes to this repository. Restrict approval of PRs from other developers to members of the CCOE or Cloud Governance. Contributors to this layer are primarily members of groups that are historically associated with the components in this layer. For example, the networking team builds the templates for the network, the operations team configures monitoring, and so on. However, you should grant read-only access to individuals who request it. You want to enable developers from other groups to suggest changes to the core infrastructures if they believe they have better solutions, but you won't allow their changes to be merged without approval and testing.
 
 These files should consume the modules in our container registry for standard components, but overall, there will be a Bicep file or series of Bicep files that are customized to your enterprise's implementation of Azure landing zones or a similar governance structure. 
     
@@ -80,7 +80,7 @@ These files should consume the modules in our container registry for standard co
 
 :::image type="content" alt-text="Screen shot of the contents of the 'infrastructure' and 'platform-code' folders in layer 2, product platform (shared services)." source="media/enterprise-infrastructure-bicep-container-registry-layer-2.png":::
 
-You can consider Layer 2, product platform, as the shared services for a particular product line or business unit. These components are not universal across the organization, but they are meant to fit a particular business need. This would be an appropriate layer for a virtual network that is a peer with the hub in Layer 1, global infrastructure. Another example is a key vault with shared secrets to a storage account or database that is shared by the different applications within this platform.
+You can consider Layer 2, product platform, as the shared services for a particular product line or business unit. These components aren't universal across the organization, but they're meant to fit a particular business need. This would be an appropriate layer for a virtual network that is a peer with the hub in Layer 1, global infrastructure. Another example is a key vault with shared secrets to a storage account or database that is shared by the different applications within this platform.
 
 Layer 2 should contain:
     
@@ -98,18 +98,18 @@ The application layer includes the components that are built on top of the produ
 Layer 3 should contain:
     
 - Application code in C#, Python, and so on
-- Infrastructure for individual components (that is, only used in this application): functions, Azure Container Instance, Event Hub.
+- Infrastructure for individual components (that is, only used in this application): functions, Azure Container Instance, Event Hubs.
 
-Permissions are restricted for the ability to push changes to this repository. You should continue to use branch protection to enable a team member of this application to approve a PR made by another team member. Team members should not be allowed to approve their own changes. Since this layer could contain proprietary architecture, business logic, or similar information, you might choose to restrict access to those in the organization who build this application. However, if that is the case, you should also build a process of harvesting good practices and snippets from this layer to share with the global library, Layer 0.
+Permissions are restricted for the ability to push changes to this repository. You should continue to use branch protection to enable a team member of this application to approve a PR made by another team member. Team members shouldn't be allowed to approve their own changes. Since this layer could contain proprietary architecture, business logic, or similar information, you might choose to restrict access to those in the organization who build this application. However, if that is the case, you should also build a process of harvesting good practices and snippets from this layer to share with the global library, Layer 0.
 
 
 ### Commonalities Across Layers
 
 While this article describes some specific details for each layer, there are also some qualities for all layers that you should be sure to consider. 
 
-Your infrastructure should operate as if it is an application. This means that you should have a continuous integration (CI) process in which new features are tested fully, with unit tests, smoke tests, and integration tests. You should only merge code into the main release branch that has passed these tests. 
+Your infrastructure should operate as if it's an application. This means that you should have a continuous integration (CI) process in which new features are tested fully, with unit tests, smoke tests, and integration tests. You should only merge code into the main release branch that has passed these tests. 
 
-You should also ensure that you have branch policies in place to prevent individuals from circumventing the process, even for expediency. If your CI process is seen as an impediment, it means that you have incurred technical debt that must be dealt with. It does not mean that you need to remove the policies and protections. 
+You should also ensure that you have branch policies in place to prevent individuals from circumventing the process, even for expediency. If your CI process is seen as an impediment, it means that you have incurred technical debt that must be dealt with. It doesn't mean that you need to remove the policies and protections. 
 
 Finally, though you might not have an index of all repositories and the code within, your organization should develop a process for individuals to request access to repositories. Certain rules could be fully automated—for example, because a user on the product team, she can be granted read access without review to any application under that product. Such rules can often be implemented with group-based membership and group-based role assignments in your environments. Configuring this kind of access should help to facilitate inner sourcing and organizational knowledge.
 
@@ -118,5 +118,5 @@ Finally, though you might not have an index of all repositories and the code wit
 - [Design area: Platform automation and DevOps](/azure/cloud-adoption-framework/ready/landing-zone/design-area/platform-automation-devops)
 - [Mature team structures](/azure/cloud-adoption-framework/organize/organization-structures)
 - [What is Infrastructure as Code?](/devops/deliver/what-is-infrastructure-as-code)
-- [Azure/ResourceModules](https://github.com/Azure/ResourceModules): This repository includes a CI platform for and collection of mature and curated Bicep modules. The platform supports both ARM and Bicep and can be leveraged using GitHub actions as well as Azure DevOps pipelines.
+- [Azure/ResourceModules](https://github.com/Azure/ResourceModules): This repository includes a CI platform for and collection of mature and curated Bicep modules. The platform supports both Azure Resource Manager and Bicep, and you can use its features with GitHub actions and Azure Pipelines.
 - [Create private registry for Bicep module](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/private-module-registry?tabs=azure-powershell)
