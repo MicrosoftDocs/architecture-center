@@ -2960,6 +2960,54 @@ items:
                   - name: Automated publishing for CI/CD
                     href: /azure/data-factory/continuous-integration-delivery-improvements
                     maintainContext: true
+              - name: Azure Databricks guidance
+                items:
+                  - name: Repos for Git integration
+                    href: /azure/databricks/repos/index
+                    maintainContext: true
+                  - name: GitHub version control
+                    href: /azure/databricks/notebooks/github-version-control
+                    maintainContext: true
+                  - name: Azure DevOps version control
+                    href: /azure/databricks/notebooks/azure-devops-services-version-control
+                    maintainContext: true
+                  - name: Bitbucket Cloud version control
+                    href: /azure/databricks/notebooks/bitbucket-cloud-version-control
+                    maintainContext: true
+                  - name: GitLab version control
+                    href: /azure/databricks/repos/gitlab-version-control
+                    maintainContext: true
+                  - name: CI/CD with Azure DevOps
+                    href: /azure/databricks/dev-tools/ci-cd/ci-cd-azure-devops
+                    maintainContext: true
+                  - name: CI/CD with Jenkins
+                    href: /azure/databricks/dev-tools/ci-cd/ci-cd-jenkins
+                    maintainContext: true
+              - name: Power BI guidance
+                items:
+                  - name: Power BI security
+                    href: /power-bi/guidance/whitepaper-powerbi-security
+                    maintainContext: true
+                  - name: Power BI enterprise deployment
+                    href: /power-bi/guidance/whitepaper-powerbi-enterprise-deployment
+                    maintainContext: true
+                  - name: Power BI Premium deployment
+                    href: /power-bi/guidance/whitepaper-powerbi-premium-deployment
+                    maintainContext: true
+                  - name: Deployment pipelines
+                    items:
+                      - name: Overview
+                        href: /power-bi/create-reports/deployment-pipelines-overview
+                        maintainContext: true
+                      - name: The deployment process
+                        href: /power-bi/create-reports/deployment-pipelines-process
+                        maintainContext: true
+                      - name: Best practices
+                        href: /power-bi/create-reports/deployment-pipelines-best-practices
+                        maintainContext: true
+                      - name: Automate your deployment pipeline
+                        href: /power-bi/create-reports/deployment-pipelines-automation
+                        maintainContext: true
               - name: Continuous integration for Azure Synapse
                 href: /azure/synapse-analytics/cicd/continuous-integration-delivery
                 maintainContext: true
