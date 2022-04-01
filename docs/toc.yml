@@ -402,6 +402,10 @@ items:
                 href: solution-ideas/articles/business-central.yml
               - name: Enhanced customer dimension
                 href: solution-ideas/articles/customer-insights-synapse.yml
+      - name: Microsoft partner and third-party scenarios
+        href: guide/partner-scenarios.md
+      - name: Scenarios with on-premises Microsoft technologies  
+        href: guide/on-premises-microsoft-technologies.md
       - name: Cloud comparisons
         items:
           - name: Azure for AWS professionals
