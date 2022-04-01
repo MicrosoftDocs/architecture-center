@@ -4,6 +4,7 @@ metadata:
   description: Reduce repetition, model best practices, and have consistent standard deployments by modularizing your Azure Resource Manager templates.
   author: tjsullivan1
   ms.author: tisulliv
+  ms.custom: fcp
   ms.date: 04/01/2022
   ms.topic: conceptual
   ms.service: architecture-center
