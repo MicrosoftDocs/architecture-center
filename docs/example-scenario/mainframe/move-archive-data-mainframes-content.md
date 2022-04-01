@@ -14,40 +14,41 @@ Archiving data to the cloud can help you:
 
 :::image type="content" border="false" source="media/mainframe-export-archive-data.png" alt-text="Diagram that shows an architecture for archiving mainframe data to Azure." lightbox="mainframe-export-archive-data.png"::: 
 
-visio link  
+*Download a [Visio file](https://arch-center.azureedge.net/archive-mainframe-data.vsdx) of this architecture.*
 
+This architecture outlines the archiving of mainframe and midrange data into Azure. The servicing channel is via mainframe and midrange only. At a high level, the solution consists of these components: 
+- **Micofosoft solutions.** 
+   - The Azure Data Factory FTP connector.
+   - The Data Factory copy activity, which can copy data to any Azure storage solution.
+   - A custom solution for moving data from the mainframe system to Azure via Job Control Language (JCL).
+- **Third-party archive solutions.** Solutions that you can easily integrate with mainframe systems, midrange systems, and Azure services.
+- **Data storage.** Archived data that can be stored in persistent storage in Azure.
+- **Data recall.**  A mechanism for retrieving data on request from Azure back to mainframe and midrange systems.
 
-This architecture outlines archival of Mainframe and Midrange data into Azure, where servicing channel is through  Mainframe/Midrange only. 
-- **1st Party solution:** ADF FTP Connector, ADF Copy activity, and custom solution to move data from Mainframe to Azure using a JCL
-- **3rd Party Archival solutions:** Usage of 3rd Party archival solutions which can be easily integrated with Mainframe/Midrange and Azure services. 
-- **Data Storage:** Archived data which can be stored in different persistent storage in Azure
-- **Data Retrieval:**  How data can be retrieved on request from Azure back to Mainframe/Midrange systems.
+### Workflow
 
-Architecture Annotations
+1. The Azure Data Factory FTP connector moves data from the mainframe system to Azure Blob Storage. For more information, see [Copy files from mainframe to Azure data platform](https://techcommunity.microsoft.com/t5/modernization-best-practices-and/copy-files-from-mainframe-to-azure-data-platform-using-adf-ftp/ba-p/3042555). This solution requires an intermediate virtual machine (VM) on which a self-hosted integration runtime is installed. 
+2.	The Data Factory copy activity connects to the Db2 database to copy data into Azure storage. For more information, see [Move data from Db2 by using the Data Factory copy activity](https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/data-factory/v1/data-factory-onprem-db2-connector.md). This solution requires an intermediate VM on which a self-hosted integration runtime is installed. 
+1. The Microsoft *Mainframe JCL to Azure Blob using Java* custom solution moves data between the mainframe system and Blob Storage, and vice versa. This solution is based on Java and runs on Unix System Services on the mainframe.    
 
-1. **1st Party Solution:** ADF has an FTP connector that can help in moving data from Mainframe to Azure Blob in a seamless way. Details about the solution have been highlighted [in this link]. This solution would need an intermediate VM which has Self-hosted integration runtime installed. 
-2.	**ADF also has a copy activity that can connect to the Db2 database and get data onto any storage solution on Azure.** More details on this solution are found [at this link]. This solution would need an intermediate VM which has Self-hosted integration runtime installed. 
-3. Microsoft has created a “Mainframe JCL to Azure Blob using Java” custom solution that can help in data movement between Mainframe to Azure Blob and vice versa. This is a java based and runs on Mainframe Unix system services(USS).    
+    a. You need to complete a one-time configuration of the solution. This configuration involves getting the Blob Storage access keys and moving required artifacts to the mainframe system. 
 
-    a. The user will have to do a one-time setup of the solution, which involves getting the Access keys of Azure Blob and moving required artifacts to the Mainframe. 
+    b. A JCL submission moves files to and from the mainframe and Blob Storage. 
 
-    b. On submission of a JCL, files can be moved to and from Mainframe to Blob. 
+    c. Files are stored in binary format in Azure. You can configure the custom solution to convert EBCDIC to ASCII for simple data types. 
+4.	Optionally, Azure Data Box can help you transfer mainframe data to Azure. This option is appropriate when a large amount of data needs to be migrated and online methods of transmission are taking too long, like more than a week.
+5.	Easy interaction with the mainframe or midrange environment is provided by third-party archive solutions. Some third-party solutions are available on [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?filters=partners&page=1&search=mainframe%20data). Each of these solutions requires unique configuration. Setting up these solutions is one of the primary tasks. 
+   
+    These solutions interact with the mainframe and handle various mainframe parameters, like data types, record types, storage types, and access methods. They serve as a bridge between Azure and the mainframe. Some third-party solutions connect a storage drive to the mainframe and help transfer data to Azure. 
+6.	Data is periodically synched and archived via the third-party archive solution. Data that needs to be archived is identified by application subject matter experts. To determine the amount of time between synchs, consider factors like business criticality, compliance needs, and frequency of data access. After the data is available via the third-party solution, the solution can easily push it to Azure cloud by using available connectors. 
+7.	Data is stored in Azure. Azure has a variety of options for different application and technical requirements, like frequent versus infrequent access, and structured versus unstructured data. You can set up various storage lifecycle configurations in Azure storage. You can define rules to manage the lifecycle. For an overview, see [Configure a lifecycle management policy](/azure/storage/blobs/lifecycle-management-policy-configure).
+8.	As needed, data is recalled from Azure back to mainframe or midrange systems. Recall of archived data is an important aspect of archived data. Few of the third-party solutions provide a seamless experience for recalling archived data. It's as simple as running command on-premises. The third-party agent automatically gets the data from Azure and ingests it back into the mainframe system. 
 
-    c. Files will be stored in Binary format in Azure. The solution is configurable to do the EBCDIC to ASCII conversion for simple datatypes. 
-4.	Azure data boxes also help in physically transferring mainframe data to Azure. This option is suited, when there is a huge amount of data to be migrated and online methods of transmission are taking an unacceptable amount of time like weeks together. The deciding factor on when to use Databox relies on multiple parameters which are decided by the customer & the workload needs. 
-5.	**3rd Party Integration:** Easy interaction with the Mainframe/Midrange environment is provided by third-party archival solutions. Some of the third-party solutions are available in [Azure Marketplace].  Each of these third-party solutions has a different configuration. Setting up these solutions would be one of the primary tasks. These archival solutions interact with the mainframe and understand various parameters of the mainframe like data types, record types, storage types, access methods. They help as a bridge between Azure and Mainframe. There are third-party solutions that connect a storage drive to the mainframe and help in transferring the data to Azure. 
-6.	**Data selection and movement:** Data that needs to be archived can be identified by application subject matter experts. This data can be periodically synced up with the 3rd Party archival solution. Period of archival can be decided based on various parameters like business criticality, compliance needs, frequency of data access.  Once the data is available with the 3rd party archival solution, it can then easily push this data into Azure cloud using connectors that are already tried and tested by these vendors. 
-7.	 **Azure Storage** has a wide variety of choices that can cater to different application and technical requirements like frequent/in-frequent access, structured / Unstructured, etc.  Various storage lifecycle configurations can be configured on the Azure storage. It can be easily managed using rules which are defined by the customer. An overview of how to set the rules is present in [this link].
-8.	**Data Recall:** Recall of Archived data is also an important aspect of archived data. Few of the 3rd party solutions provide a seamless experience for mainframe professionals to recall archived data. It is as simple as giving a command in on-premises and the 3rd party agent will automatically get the data from Azure and place it back into the mainframe. 
+## Components
 
-Components
-
-- Storage
-   - [Azure Storage Accounts / File Shares] - Durable, highly available, and massively scalable cloud storage. They are used for synchronization and data retention. It offers scalable, high-availability storage such as tables, queues, files, blobs.
-- Data Integrators 
-   - [Azure Data Factory] -is a hybrid data integration service that allows you to create, schedule, and orchestrate your ETL/ELT workflows. 
-- Data Movement:
-   - [Azure Data Box] – Physical solution to move data from on-premises to Azure.
+- [Azure storage](https://azure.microsoft.com/product-categories/storage) desc. [Azure Files](https://azure.microsoft.com/services/storage/files) desc. 
+- [Azure Data Factory] -is a hybrid data integration service that allows you to create, schedule, and orchestrate your ETL/ELT workflows. 
+- [Azure Data Box] – Physical solution to move data from on-premises to Azure.
 
 Recommendations
 
