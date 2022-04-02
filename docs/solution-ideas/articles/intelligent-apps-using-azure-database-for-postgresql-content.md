@@ -7,21 +7,22 @@ In this example of an intelligent app, PostgreSQL is the heart of the architectu
 ## Architecture
 
 ![Architecture Diagram](../media/intelligent-apps-using-azure-database-for-postgresql.png)
-*Download an [SVG](../media/intelligent-apps-using-azure-database-for-postgresql.svg) of this architecture.*
+*Download an [PNG](../media/intelligent-apps-using-azure-database-for-postgresql.png) of this architecture.*
 
 ### Data flow
 
-1. Data could come from various sources, such as Event Hubs for high volumes of data ingestion, or data that's uploaded to Blob Storage. An Azure Function App is triggered as new data is received.
-2. The Azure Function App calls the Text Analytics API in Azure Cognitive Services to analyze the data (for example, for Sentiment Analysis). The results of the analysis are returned in JSON format.
-    * The Text Analytics API can detect user language, key phrases used in a review, identify specific named entities and understand how customers really feel about products they purchased.
-3. The Azure Function App stores the data and results from Text Analytics in Azure Database for MySQL.
-4. Deep learning Natural Language Processing (NLP) models can then be applied on the API insights from PostgreSQL - or the initial raw data - through Azure Machine Learning Studio
+1. Azure function app could be triggered as a part of Azure data factory pipeline by creating an Azure Function Activity.
+2. Data could come from various sources, such as Event Hubs for high volumes of data ingestion, or data that's uploaded to Blob Storage. The Azure Function App is triggered as new data is received as part of the pipeline.
+3. The Azure Function App calls the Azure Cognitive Services API to analyze the data (for example, for Sentiment Analysis).
+4. The results of the analysis are returned in JSON format from Cognitive Services API(Text Analytics in this example)
+5. The Azure Function App stores the data and results from Cognitive Services API(Text Analytics in this example) in Azure Database for PostgreSQL.
+6. Azure Machine Learning Studio can be used to further analyze the data, using custom Machine Learning algorithms to gain further insights
     * If you're approaching the machine learning component of this architecture with a no-code perspective, you can implement further text analytics operations on the data, like feature hashing, Word2Vector and n-gram extraction. Instead, you can use your favorite open-source NLP model if you prefer a code-first approach and run your model as an Experiment in Azure Machine Learning.
     * Results from this further ML analysis are saved back to PostgreSQL
-5. Finally, human-interpretable insights can be explored in Power BI through the PostgreSQL connector.
+7. Finally, human-interpretable insights can be explored in Power BI through the PostgreSQL connector or a custom web application.
 
 ### Components
-
+* [Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/control-flow-azure-function-activity)
 * [Azure App Services](https://azure.microsoft.com/services/app-service/): A fully managed platform for quickly building, deploying, and scaling web apps and APIs.
 * [Azure Functions](/azure/azure-functions/functions-overview)
 * [Event Hubs](/azure/event-hubs/)
