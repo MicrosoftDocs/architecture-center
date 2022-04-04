@@ -4,8 +4,8 @@ metadata:
   titleSuffix: Azure Reference Architectures
   description: Learn how to implement a hub-spoke topology in Azure, where the hub is a virtual network and the spokes are virtual networks that peer with the hub.
   author: EdPrice-MSFT
-  ms.author: pnp
-  ms.date: 01/26/2021
+  ms.author: edprice
+  ms.date: 04/05/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture
