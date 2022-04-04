@@ -36,7 +36,7 @@ New and updated articles in Azure Architecture Center.
 
 ## March 2022
 
-### New Articles
+### New articles
 
 - [Geospatial analysis with Azure Synapse Analytics](./industries/aerospace/geospatial-processing-analytics.yml)
 - [Rehost mainframe applications by using NTT DATA UniKix](./example-scenario/mainframe/rehost-mainframe-ntt-data-unikix.yml)
