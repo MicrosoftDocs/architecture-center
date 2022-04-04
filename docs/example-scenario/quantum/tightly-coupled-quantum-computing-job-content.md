@@ -41,7 +41,7 @@ The tightly coupled approach is preferred in these cases:
 1. The client application monitors job execution by polling job status.
 1. As soon as the quantum job finishes, the client application gets the compute result from Storage.
 
-This workflow implements the [Asynchronous Request-Reply pattern](../../patterns/async-request-reply.md) and the steps defined for the [Azure Quantum job lifecycle](/azure/quantum/how-to-work-with-jobs#job-lifecycle).
+This workflow implements the [Asynchronous Request-Reply pattern](../../patterns/async-request-reply.yml) and the steps defined for the [Azure Quantum job lifecycle](/azure/quantum/how-to-work-with-jobs#job-lifecycle).
 
 ### Components
 * [Azure Quantum](https://azure.microsoft.com/services/quantum) provides a [workspace](/azure/quantum/how-to-create-workspace), accessible from the Azure portal, for assets associated with running quantum or optimization jobs on various targets. Jobs are run on quantum simulators, quantum hardware, or optimization solvers, depending on the provider you choose.
@@ -109,5 +109,5 @@ For the Azure Quantum service, consider these points:
 ## Related resources
 
 * [Operational excellence principles](/azure/architecture/framework/devops/principles)
-* [Asynchronous Request-Reply pattern](../../patterns/async-request-reply.md)
+* [Asynchronous Request-Reply pattern](../../patterns/async-request-reply.yml)
 * [Loosely coupled quantum computing](loosely-coupled-quantum-computing-job.yml)

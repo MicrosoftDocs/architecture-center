@@ -455,19 +455,19 @@ items:
           - name: Messaging
             href: patterns/category/messaging.md
       - name: Ambassador
-        href: patterns/ambassador.md
+        href: patterns/ambassador.yml
       - name: Anti-corruption Layer
-        href: patterns/anti-corruption-layer.md
+        href: patterns/anti-corruption-layer.yml
       - name: Asynchronous Request-Reply
-        href: patterns/async-request-reply.md
+        href: patterns/async-request-reply.yml
       - name: Backends for Frontends
-        href: patterns/backends-for-frontends.md
+        href: patterns/backends-for-frontends.yml
       - name: Bulkhead
-        href: patterns/bulkhead.md
+        href: patterns/bulkhead.yml
       - name: Cache-Aside
-        href: patterns/cache-aside.md
+        href: patterns/cache-aside.yml
       - name: Choreography
-        href: patterns/choreography.md
+        href: patterns/choreography.yml
       - name: Circuit Breaker
         href: patterns/circuit-breaker.yml
       - name: Claim Check

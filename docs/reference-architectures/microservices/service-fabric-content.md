@@ -179,7 +179,7 @@ Place your services in a node type other than the primary node type. The Service
 
 Consider constraining the resources of your services. See [Resource governance mechanism](/azure/service-fabric/service-fabric-resource-governance#resource-governance-mechanism).
 
-- Do not mix resource governed and resource non-governed services on the same node type. The non-governed services might consume too many resources, affecting the resource governed services. Specify [placement constraints](/azure/service-fabric/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies) to make sure that those types of services do not run on the same set of nodes. See [Specify resource governance](/azure/service-fabric/service-fabric-resource-governance#specify-resource-governance). (This is an example of the [Bulkhead pattern](../../patterns/bulkhead.md).)
+- Do not mix resource governed and resource non-governed services on the same node type. The non-governed services might consume too many resources, affecting the resource governed services. Specify [placement constraints](/azure/service-fabric/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies) to make sure that those types of services do not run on the same set of nodes. See [Specify resource governance](/azure/service-fabric/service-fabric-resource-governance#specify-resource-governance). (This is an example of the [Bulkhead pattern](../../patterns/bulkhead.yml).)
 - Specify the CPU cores and memory to reserve for a service instance. For information about usage and limitations of resource governance policies, see [Resource governance](/azure/service-fabric/service-fabric-resource-governance).
 
 Make sure every service's target instance or replica count is greater than 1 to avoid a single point of failure (SPOF). The largest number that you can use as service instance or replica count equals the number nodes that to which the service is constrained.
@@ -282,7 +282,7 @@ To recover from failures and maintain a fully functioning state, the application
 
 - [Retry pattern](../../patterns/retry.yml): To handle errors that are expected to be transient, such as resources being temporarily unavailable.
 - [Circuit breaker](../../patterns/circuit-breaker.yml): To address faults that might need longer to fix.
-- [Bulkhead pattern](../../patterns/bulkhead.md): To isolate resources per service.
+- [Bulkhead pattern](../../patterns/bulkhead.yml): To isolate resources per service.
 
 This reference implementation uses [Polly](https://github.com/App-vNext/Polly), an open-source option, to implement all of those patterns.
 

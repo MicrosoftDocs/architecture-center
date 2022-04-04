@@ -325,4 +325,4 @@ The following information may be relevant when implementing this pattern:
 
 ## Related guidance
 
-- [Backends for Frontends pattern](./backends-for-frontends.md)
+- [Backends for Frontends pattern](./backends-for-frontends.yml)

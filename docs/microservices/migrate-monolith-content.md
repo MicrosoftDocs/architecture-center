@@ -71,7 +71,7 @@ The  [glue code](https://en.wikipedia.org/wiki/Glue_code) (adapter pattern) effe
 
 Through the process of refactoring, teams can inventory the monolithic application and identify candidates for microservices refactoring while also establishing new functionality with new services.
 
-For more information about anti-corruption layers, see [Anti-Corruption Layer pattern](../patterns/anti-corruption-layer.md).
+For more information about anti-corruption layers, see [Anti-Corruption Layer pattern](../patterns/anti-corruption-layer.yml).
 
 ## Create a presentation layer
 
