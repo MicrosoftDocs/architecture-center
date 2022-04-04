@@ -1,27 +1,3 @@
----
-title: Choreography pattern
-titleSuffix: Cloud Design Patterns
-description: Let each service decide when and how a business operation is processed, instead of depending on a central orchestrator.
-author: PageWriter-MSFT
-ms.author: pnp
-ms.date: 02/24/2020
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: design-pattern
-products:
-  - azure-event-grid
-categories:
-  - integration
-ms.custom:
-  - design-pattern
-keywords:
-  - design pattern
----
-
-<!-- cSpell:ignore upsert typeof -->
-
-# Choreography pattern
-
 Have each component of the system participate in the decision-making process about the workflow of a business transaction, instead of relying on a central point of control.
 
 ## Context and problem
