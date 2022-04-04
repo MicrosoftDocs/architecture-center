@@ -2510,6 +2510,10 @@ items:
                 href: example-scenario/apps/build-cncf-incubated-graduated-projects-aks.yml  
               - name: CI/CD pipeline for container workloads
                 href: example-scenario/apps/devops-with-aks.yml
+              - name: Deploy microservices with Container Apps
+                href: example-scenario/serverless/microservices-with-container-apps.yml
+              - name: Deploy microservices with Container Apps and Dapr
+                href: example-scenario/serverless/microservices-with-container-apps-dapr.yml
               - name: Firewall protection for an AKS cluster
                 href: example-scenario/aks-firewall/aks-firewall.yml
               - name: GitOps for AKS

@@ -23,7 +23,7 @@ These other uses cases have similar design patterns:
 
 ## Architecture
 
-![Architecture Diagram](./media/microservices-with-container-apps-dapr.png)
+[![Architecture Diagram](./media/microservices-with-container-apps-dapr.png)](./media/microservices-with-container-apps-dapr.png#lightbox)
 
 This solution uses Bicep templates to execute the deployment of the Reddog Order Management System and its supporting Azure infrastructure. The architecture is composed of a single Container Apps Environment that hosts 10 .NET Core microservice applications. The .NET Core Dapr SDK is used to integrate with Azure resources through PubSub, State and Binding building blocks. While Dapr typically provides flexibility around the component implementations, this solution is opinionated. The services also make use of KEDA scale rules to allow for scaling based on event triggers as well as scale to zero scenarios.
 
@@ -102,7 +102,7 @@ ContainerAppConsoleLogs_CL |
 
 The Application Map in App Insights also showcases how the services are communicating in real time and can be used for debugging scenarios. Navigate to the Application Map under the Application Insights resource to view something similar to the following.
 
-![Application Map](./media/microservices-with-container-apps-dapr-appmap.png)
+[![Application Map](./media/microservices-with-container-apps-dapr-appmap.png)](./media/microservices-with-container-apps-dapr-appmap.png#lightbox)
 
 For more information on monitoring Container Apps, see [Monitor an app in Azure Container Apps](/azure/container-apps/monitor).
 
