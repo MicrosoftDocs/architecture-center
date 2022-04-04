@@ -1,4 +1,4 @@
-This article describes a collaboration between Microsoft and a major railroad company to create an [intelligent cloud and intelligent edge](https://azure.microsoft.com/overview/future-of-cloud) train maintenance and safety solution. The *internet-of-things (IoT) edge* brings data processing and storage closer to the data source. IoT Edge processing enables fast, consistent responses with less dependency on cloud connectivity and resources.
+This article describes a collaboration between Microsoft and a major railroad company to create an internet-of-things (IoT) train maintenance and safety solution. Azure IoT Edge enables data processing and storage closer to the data source. Processing workloads at the edge enables fast, consistent responses with less dependency on cloud connectivity and resources.
 
 Bringing machine learning (ML) and business logic closer to the data sources means devices can react faster to local changes and critical events. Devices can operate reliably offline or when connectivity is limited.
 
@@ -16,7 +16,7 @@ The pilot project for the IoT Edge solution is a train wheel health analysis sys
 - Listen for invisible wheel bearing defects or wheel cracks.
 - Identify missing or misplaced parts.
 
-Azure IoT Edge modules process and act on the continuous streaming detector data in near real-time. The IoT Edge modules run on server class hardware in trackside bungalows, allowing for future parallel deployment of other workloads. The IoT Edge system:
+Azure IoT Edge modules process and act on the continuous streaming data in near real-time. The IoT Edge modules run on server class hardware in trackside bungalows, allowing for future parallel deployment of other workloads. The IoT Edge-based solution:
 
 - Identifies at-risk equipment.
 - Determines repair urgency.
@@ -38,7 +38,7 @@ The wheel health analysis system provides early identification of potential equi
 ### Dataflow
 
 1. A Network Attached Storage (NAS) image file server in a trackside bungalow serves processed and categorized train wheel images. Three pictures of each wheel create a stitched image.
-1. On the IoT Edge device, the polling module alerts the device that new images are available for processing.
+1. The IoT Edge polling module alerts the IoT Edge device that new images are available for processing.
 1. The IoT Edge ML module runs a third-party ML model that processes the images and identifies wheel areas that need more inspection.
 1. The IoT Edge Alert Handler uploads all images into Azure Blob Storage, starting with images that have potential defects, and returns the image blob URIs.
 1. The IoT Edge Hub module associates the image URIs with image metadata, like Equipment or Car Number, Axle, Timestamp, and Detector Location. The module uploads the metadata and alerts to Azure IoT Hub.
