@@ -256,7 +256,7 @@ items:
                 href: /azure/cognitive-services/responsible-use-of-ai-overview
                 maintainContext: true
               - name: Machine learning
-                items: 
+                items:
                   - name: Responsible AI and machine learning
                     href: /azure/machine-learning/concept-responsible-ml
                     maintainContext: true
@@ -373,7 +373,7 @@ items:
                - name: Power Automate deployment at scale
                  href: example-scenario/power-automate/power-automate.yml
           - name: Azure and Microsoft 365 scenarios
-            items: 
+            items:
               - name: Overview
                 href: solutions/microsoft-365-scenarios.md
               - name: All Microsoft 365 architectures
@@ -410,7 +410,7 @@ items:
         items:
           - name: Azure for AWS professionals
             expanded: true
-            items:            
+            items:
               - name: Overview
                 href: aws-professional/index.md
               - name: Component information
@@ -437,7 +437,7 @@ items:
                 href: aws-professional/services.md
           - name: Azure for Google Cloud professionals
             expanded: true
-            items:            
+            items:
               - name: Overview
                 href: gcp-professional/index.md
               - name: Services comparison
@@ -548,7 +548,7 @@ items:
           - name: Overview
             href: industries/retail.md
           - name: Guides
-            items: 
+            items:
               - name: Microsoft Cloud for Retail
                 items:
                   - name: Overview
@@ -639,6 +639,17 @@ items:
                     maintainContext: true
                   - name: US Producer Price Index - Commodities
                     href: /azure/open-datasets/dataset-us-producer-price-index-commodities
+                    maintainContext: true
+                  - name: US Producer Price Index - Industry
+                    href: /azure/open-datasets/dataset-us-producer-price-index-industry
+                    maintainContext: true
+              - name: US Population
+                items:
+                  - name: US Population by County
+                    href: /azure/open-datasets/dataset-us-population-county
+                    maintainContext: true
+                  - name: US Population by ZIP code
+                    href: /azure/open-datasets/dataset-us-population-zip
                     maintainContext: true
           - name: Compliance solutions
             items:
@@ -752,6 +763,41 @@ items:
                         href: example-scenario/finance/swift-alliance-cloud-on-azure.yml
                       - name: SWIFT Alliance Lite2
                         href: example-scenario/finance/swift-alliance-lite2-on-azure.yml
+          - name: Datasets
+            items:
+              - name: US Consumer Price Index
+                items:
+                  - name: US Consumer Price Index
+                    href: /azure/open-datasets/dataset-us-consumer-price-index
+                    maintainContext: true
+                  - name: US Producer Price Index - Commodities
+                    href: /azure/open-datasets/dataset-us-producer-price-index-commodities
+                    maintainContext: true
+                  - name: US Producer Price Index - Industry
+                    href: /azure/open-datasets/dataset-us-producer-price-index-industry
+                    maintainContext: true
+              - name: US Employment
+                items:
+                  - name: US Labor Force Statistics
+                    href: /azure/open-datasets/dataset-us-labor-force
+                    maintainContext: true
+                  - name: US Local Area Unemployment
+                    href: /azure/open-datasets/dataset-us-local-unemployment
+                    maintainContext: true
+                  - name: US National Employment Hours
+                    href: /azure/open-datasets/dataset-us-national-employment-earnings     
+                    maintainContext: true
+                  - name: US State Employment Hours
+                    href: /azure/open-datasets/dataset-us-state-employment-earnings
+                    maintainContext: true
+              - name: US Population
+                items:
+                  - name: US Population by County
+                    href: /azure/open-datasets/dataset-us-population-county
+                    maintainContext: true
+                  - name: US Population by ZIP code
+                    href: /azure/open-datasets/dataset-us-population-zip
+                    maintainContext: true
           - name: Compliance solutions
             items:
               - name: FFIEC
@@ -923,6 +969,22 @@ items:
                 href: example-scenario/integrated-multiservices/virtual-network-integration.yml
               - name: Virtual visits with Cloud for Healthcare
                 href: example-scenario/mch-health/virtual-health-mch.yml
+          - name: Datasets
+            items:
+              - name: COVID-19 data lake
+                items:
+                  - name: Bing COVID-19 data
+                    href: /azure/open-datasets/dataset-bing-covid-19
+                    maintainContext: true
+                  - name: 
+                    href: 
+                    maintainContext: true
+                  - name: 
+                    href: 
+                    maintainContext: true
+                  - name: 
+                    href: 
+                    maintainContext: true
           - name: Compliance solutions
             items:
               - name: EPCS (US)
@@ -1037,6 +1099,16 @@ items:
                 href: hybrid/hybrid-security-monitoring.yml
               - name: Web app private database connectivity
                 href: example-scenario/private-web-app/private-web-app.yml
+          - name: Datasets
+            items:
+              - name: US Population
+                items:
+                  - name: US Population by County
+                    href: /azure/open-datasets/dataset-us-population-county
+                    maintainContext: true
+                  - name: US Population by ZIP code
+                    href: /azure/open-datasets/dataset-us-population-zip
+                    maintainContext: true
           - name: Compliance solutions
             items:
               - name: DoD overview
@@ -1046,7 +1118,7 @@ items:
                 href: /azure/compliance/offerings/offering-ear
                 maintainContext: true
               - name: FedRAMP
-                items:                
+                items:
                   - name: FedRAMP overview
                     href: /azure/compliance/offerings/offering-fedramp
                     maintainContext: true
@@ -1081,7 +1153,7 @@ items:
           - name: Overview
             href: industries/manufacturing.md
           - name: Guides
-            items:              
+            items:
               - name: HPC for manufacturing
                 href: industries/manufacturing/compute-manufacturing-overview.yml
               - name: Industrial IoT analytics
@@ -1495,7 +1567,7 @@ items:
               - name: Edge Workload Configuration pattern
                 href: /azure/architecture/patterns/edge-workload-configuration
               - name: Kubernetes at the edge
-                items:  
+                items:
                   - name: Choose a Kubernetes at the edge option
                     href: /azure/architecture/operator-guides/aks/choose-kubernetes-edge-compute-option
                   - name: Choose a bare-metal Kubernetes option
@@ -1561,7 +1633,7 @@ items:
                 href: /azure/compliance/offerings/offering-gsma
                 maintainContext: true
       - name: Facilities and Real Estate
-        items: 
+        items:
           - name: Overview
             href: industries/facilities-real-estate.md
           - name: Guides
@@ -2401,7 +2473,7 @@ items:
               - name: Move Azure resources across regions
                 href: solution-ideas/articles/move-azure-resources-across-regions.yml
               - name: Quantum computing solutions
-                items: 
+                items:
                   - name: Loosely coupled quantum computing
                     href: example-scenario/quantum/loosely-coupled-quantum-computing-job.yml
                   - name: Tightly coupled quantum computing
@@ -2926,7 +2998,7 @@ items:
                   - name: Helm-based deployments for Apache NiFi
                     href: guide/data/helm-deployments-apache-nifi.yml
               - name: Azure Purview guidance
-                items: 
+                items:
                   - name: Accounts architectures and best practices
                     href: /azure/purview/concept-best-practices-accounts
                     maintainContext: true
@@ -3489,7 +3561,7 @@ items:
                 - name: Run containers in a hybrid environment
                   href: hybrid/hybrid-containers.yml
               - name: Azure Automation solutions
-                items:                
+                items:
                   - name: Azure Automation hybrid environment
                     href: hybrid/azure-automation-hybrid.yml
                   - name: Azure Automation update management
@@ -4647,7 +4719,7 @@ items:
                 href: /azure/virtual-machines/workloads/oracle/oracle-disaster-recovery
                 maintainContext: true
               - name: Oracle WebLogic Server
-                items: 
+                items:
                   - name: Oracle WebLogic Server on Azure VMs
                     href: /azure/virtual-machines/workloads/oracle/oracle-weblogic
                     maintainContext: true
@@ -4857,7 +4929,7 @@ items:
               - name: FSLogix for the enterprise
                 href: example-scenario/wvd/windows-virtual-desktop-fslogix.yml              
               - name: Blob storage guidance
-                items: 
+                items:
                   - name: Authorize access to blobs with AAD
                     href: /azure/storage/blobs/authorize-access-azure-active-directory
                     maintainContext: true
@@ -4874,7 +4946,7 @@ items:
                     href: /azure/storage/blobs/storage-performance-checklist
                     maintainContext: true
               - name: Data Lake Storage guidance
-                items: 
+                items:
                   - name: Best practices
                     href: /azure/storage/blobs/data-lake-storage-best-practices
                     maintainContext: true
@@ -4882,7 +4954,7 @@ items:
                     href: /azure/data-lake-store/security-controls-policy
                     maintainContext: true
               - name: File storage guidance
-                items: 
+                items:
                   - name: Planning for deployment
                     href: /azure/storage/files/storage-files-planning
                     maintainContext: true
@@ -4899,7 +4971,7 @@ items:
                     href: /azure/backup/azure-file-share-backup-overview
                     maintainContext: true
               - name: Queue storage guidance
-                items: 
+                items:
                   - name: Authorize access with AAD
                     href: /azure/storage/queues/authorize-access-azure-active-directory
                     maintainContext: true
@@ -4907,7 +4979,7 @@ items:
                     href: /azure/storage/queues/storage-performance-checklist
                     maintainContext: true
               - name: Table storage guidance
-                items: 
+                items:
                   - name: Authorize access with AAD
                     href: /azure/storage/tables/authorize-access-azure-active-directory
                     maintainContext: true
@@ -4973,7 +5045,7 @@ items:
               - name: Azure files secured by AD DS
                 href: example-scenario/hybrid/azure-files-on-premises-authentication.yml
               - name: Azure NetApp Files solutions
-                items:                    
+                items:
                   - name: AKS data protection on ANF
                     href: example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files.yml
                   - name: Enterprise file shares with DR
