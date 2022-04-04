@@ -1,52 +1,54 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Globally, over 1 billion people lack access to electricity, and over 3 billion people have no internet access. Veriown is an energy provider working with Azure Internet-of-Things (IoT) cloud services to provide life-changing, low-cost electricity and connectivity to remote and rural customers. Veriown's IoT devices combine solar power with internet communications to deliver monumental improvements to users' quality of life.
+This solution idea describes how internet of things (IoT) devices can work with cloud services to provide life-changing, low-cost electricity and connectivity.
 
 Veriown has run large-scale network and telecommunications infrastructures for years, but has never before provided such a wide scope of services at such low cost. Veriown's Connect devices combine IoT hardware and mobile applications with Azure cloud capabilities to act as energy and internet hubs for homes and small businesses.
 
-The Connect IoT device uses a rooftop solar panel and charged battery to deliver clean electricity, light, and cellular internet connectivity for pennies a day, with high reliability and minimal downtime. An integrated SIM card and tablet provide individualized access to online content and services like telemedicine, education, news and weather, entertainment, and commerce.
+Connect IoT devices use a rooftop solar panel to charge a battery that delivers clean power, light, and internet connectivity for pennies a day, with high reliability and minimal downtime. An integrated SIM card and tablet provide individualized access to online content and services like telemedicine, education, news and weather, entertainment, and commerce.
 
-Azure supports two major workstreams in Veriown's IoT solution:
+an energy provider working with Azure Internet-of-Things (IoT) cloud services to provide Veriown's IoT devices combine solar power with internet communications to deliver monumental improvements to users' quality of life.
+Globally, over 1 billion people lack access to electricity, and over 3 billion people have no internet access. 
 
-- Real-time IoT device telemetry detects transient or long-running anomalies, and the system can respond in real time with chatbots and retrained device actions. For example, in low-power conditions a customer's device can automatically reduce power usage for background or inactive features, so the customer continues to get a good experience with the services they're actively using.
+Azure supports two major workstreams in the Connect IoT solution:
 
-- Post-processing data analytics evaluate usage and incidents to determine algorithms for future needs and preventive maintenance. For example, Veriown could send customers parts that are predicted to fail soon, or could improve the responses of an artificial intelligence (AI) chatbot.
+- Real-time IoT device telemetry detects transient or long-running anomalies. The system can respond in real-time with chatbots and retrained device actions. For example, in low-power conditions, a customer's device can automatically reduce power usage for background or inactive features. The customer continues to get a good experience with the services they're actively using.
 
-Since bandwidth is limited and expensive in emerging markets, analyzing usage patterns and incidents can help content and service owners target customers with only the content and services they currently need.
+- Post-processing data analytics evaluate usage and incidents to determine preventive maintenance and future needs. For example, alerts can notify customers about parts that are predicted to fail soon.
 
 ## Potential use cases
 
-This solution is ideal for the telecommunications, facilities, and energy industries. A solar-powered Connect device in a customer's home or business can provide:
-- LED light to replace kerosene lanterns
-- USB device charging
-- Telemedicine support
-- Online education
-- Commerce and banking services
-- News and weather
-- Entertainment programming
-- Emergency and support communications
+The basic Connect device provides LED light, USB device charging, internet connectivity, and customer support. Customers can get additional services and content ad hoc or by subscription. The following scenarios and industries can use these solar-powered, cloud-connected devices:
 
-The basic Connect device provides light, electricity, internet connectivity, and customer support. Customers can purchase additional services and content as one-offs or subscriptions.
+- In locations where centralized power and internet connectivity are limited.
+- News and media organizations, to provide news, weather, and entertainment programming.
+- Financial institutions, to provide online commerce and banking services.
+- Delivering and evaluating online learning.
+- Government agencies, to provide emergency and support communications.
 
 ## Architecture
 
 ![Diagram showing data stream coming from the power subsystem to Azure IoT edge and cloud components.](../media/iot-power-architecture.png)
 
-### Workflow
+### Dataflow
 
-1. Field sales and service agents use a mobile platform to interact with the cloud application via Azure Application Gateway. End users use a built-in device or mobile interface to access and control their devices and interact with content.
+1. Field sales and service agents use a mobile platform to interact with the cloud application via Azure Application Gateway. End users use a built-in interface or mobile app to access and control their devices.
 1. Application Gateway uses messaging protocols to interact with users and operators.
 1. The cloud app consists of containerized microservices that provide functions and interfaces like identity and access management, device upgrades, notifications, and commerce services.
 
-   The app uses Azure services and resources like [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction) for unstructured data storage, [Azure Cosmos DB](/azure/cosmos-db/introduction) for large structured databases, and [Azure Media Services](https://azure.microsoft.com/services/media-services/) to store and deliver entertainment content.
+   Depending on the functions used, the app accesses Azure services and resources like [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction) for unstructured data storage, [Azure Cosmos DB](/azure/cosmos-db/introduction) for large structured databases, and [Azure Media Services](https://azure.microsoft.com/services/media-services/) for entertainment content.
 
-The Connect devices also send streaming telemetry and user data to the cloud via Azure IoT Hub. In the business intelligence part of the process:
-1. [IoT Hub and Azure Event Hub](/azure/iot-hub/iot-hub-compare-event-hubs) receive the streaming data and route events.
+1. The Connect devices also send streaming telemetry and user data to the cloud via Azure IoT Hub.
+
+#### Analytics and business intelligence dataflow
+
+In the business intelligence part of the process:
+
+1. IoT Hub receives the streaming data and routes events.
 1. Azure Databricks *extracts, transforms, and loads (ETLs)* the event data.
-1. Azure Synapse, a SQL big-data warehouse, performs analytics and stores the transformed data.
+1. Azure Synapse performs analytics and stores the transformed data.
 1. The analyzed data populates Power BI reports for system evaluation and future planning.
 
-#### Analytics and machine learning data flow
+#### Machine learning dataflow
 
 The system includes the following data analysis and control loop:
 
