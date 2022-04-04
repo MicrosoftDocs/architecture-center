@@ -1,4 +1,4 @@
-This article describes a collaboration between Microsoft and a major railroad company to create an internet-of-things (IoT) train maintenance and safety solution. Azure IoT Edge enables data processing and storage closer to the data source. Processing workloads at the edge enables fast, consistent responses with less dependency on cloud connectivity and resources.
+This article describes a collaboration between Microsoft and a major railroad company to create an internet-of-things (IoT) train maintenance and safety solution. [Azure IoT Edge](/azure/iot-edge/about-iot-edge) enables data processing and storage closer to the data source. Processing workloads at the edge enables fast, consistent responses with less dependency on cloud connectivity and resources.
 
 Bringing machine learning (ML) and business logic closer to the data sources means devices can react faster to local changes and critical events. Devices can operate reliably offline or when connectivity is limited.
 
@@ -47,7 +47,7 @@ The wheel health analysis system provides early identification of potential equi
 
 ### Components
 
-This example deploys [Azure IoT Edge](/azure/iot-edge/about-iot-edge) devices in trackside bungalows, using server-class hardware with customized industrial automation cards and graphics processing units (GPUs) for performance.
+This example deploys [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge) devices in trackside bungalows, using server-class hardware with customized industrial automation cards and graphics processing units (GPUs) for performance.
 
 IoT Edge is made up of three components:
 
