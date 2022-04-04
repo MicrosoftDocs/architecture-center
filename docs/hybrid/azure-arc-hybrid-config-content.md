@@ -114,8 +114,10 @@ The Connected Machine agent for Linux and Windows communicates outbound securely
 
 ### Cost Optimization
 
+- Azure Arc control plane functionality, such as support for Resource organization through Azure management groups and tags, and Access control through Azure role-based access control (RBAC) is provided at no extra cost. Azure services used in conjunction to Azure Arc-enabled servers incur costs according to their usage. When deploying the Jumpstart ArcBox for IT Pros reference implementation for this architecture keep in mind  ArcBox resources generate Azure Consumption charges from the underlying Azure resources including core compute, storage, networking and auxillary services.
+- Consult [Cost governance for Azure Arc-enabled servers](/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-servers/eslz-cost-governance) for additional Azure Arc cost optimization guidance.
+- Other const optimization considerations for your solution are described in the [Principles of cost optimization][principles-cost-opt] section in the Microsoft Azure Well-Architected Framework.
 - Use the [Azure pricing calculator][pricing-calculator] to estimate costs.
-- Other considerations are described in the [Principles of cost optimization][principles-cost-opt] section in the Microsoft Azure Well-Architected Framework.
 
 ### Operational excellence
 
