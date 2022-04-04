@@ -976,15 +976,21 @@ items:
                   - name: Bing COVID-19 data
                     href: /azure/open-datasets/dataset-bing-covid-19
                     maintainContext: true
-                  - name: 
-                    href: 
+                  - name: COVID Tracking project
+                    href: /azure/open-datasets/dataset-covid-tracking
                     maintainContext: true
-                  - name: 
-                    href: 
+                  - name: ECDC COVID-19 cases
+                    href: /azure/open-datasets/dataset-ecdc-covid-cases
                     maintainContext: true
-                  - name: 
-                    href: 
+                  - name: Oxford COVID-19 Government Response
+                    href: /azure/open-datasets/dataset-oxford-covid-government-response-tracker
                     maintainContext: true
+              - name: COVID-19 Open Research
+                href: /azure/open-datasets/dataset-covid-19-open-research
+                maintainContext: true
+              - name: Diabetes dataset
+                href: /azure/open-datasets/dataset-diabetes
+                maintainContext: true
           - name: Compliance solutions
             items:
               - name: EPCS (US)
