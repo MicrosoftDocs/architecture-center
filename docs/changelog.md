@@ -30,7 +30,7 @@ New and updated articles in Azure Architecture Center.
 - [Scenarios that feature Microsoft on-premises technologies on Azure](./guide/on-premises-microsoft-technologies.md)
 - [Microsoft partner and third-party scenarios on Azure](./guide/partner-scenarios.md)
 
-### Updated Articles
+### Updated articles
 
 - [Forecast energy and power demand](./solution-ideas/articles/forecast-energy-power-demand.yml)  ([#2d72f5de4](https://github.com/MicrosoftDocs/architecture-center/commit/2d72f5de4))
 
