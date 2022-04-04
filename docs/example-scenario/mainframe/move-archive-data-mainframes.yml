@@ -9,9 +9,10 @@ metadata:
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
+  ms.custom: fcp 
 azureCategories:
   - migration
-  - database
+  - databases
 products:
   - azure-data-factory
   - azure-storage
