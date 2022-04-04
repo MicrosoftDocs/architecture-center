@@ -64,7 +64,7 @@ New and updated articles in Azure Architecture Center.
 - [Host name preservation](./best-practices/host-name-preservation.yml)
 - [Employee retention with Databricks and Kubernetes](./example-scenario/ai/employee-retention-databricks-kubernetes.yml)
 
-### Updated Articles
+### Updated articles
 
 - [IoT analytics with Azure Data Explorer](./solution-ideas/articles/iot-azure-data-explorer.yml)  ([#7d635b893](https://github.com/MicrosoftDocs/architecture-center/commit/7d635b893))
 - [Predictive maintenance with AI IoT Edge](./example-scenario/predictive-maintenance/iot-predictive-maintenance.yml)  ([#01eca30d6](https://github.com/MicrosoftDocs/architecture-center/commit/01eca30d6))
