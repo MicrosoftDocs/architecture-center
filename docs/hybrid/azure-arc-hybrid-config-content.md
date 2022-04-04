@@ -124,9 +124,12 @@ The Connected Machine agent for Linux and Windows communicates outbound securely
 
 ## Deploy the solution
 
-**TODO:** Complete this section
+The reference implementation of this architecture can be found in the [Jumpstart ArcBox for IT Pros](https://azurearcjumpstart.io/azure_jumpstart_arcbox/itpro), included as part of the [Arc Jumpstart](https://azurearcjumpstart.io/). ArcBox is designed to be completely self-contained within a single Azure subscription and resource group, which will make it easy for a user to get hands-on with all available Azure Arc technology with nothing more than an available Azure subscription.
 
-Deployment assets will come from [Jumpstart ArcBox for IT Pros](https://azurearcjumpstart.io/azure_jumpstart_arcbox/itpro/)
+To deploy the reference implementation, follow the steps in the GitHub repo.
+
+> [!div class="nextstepaction"]
+> [Jumpstart ArcBox for IT Pros](https://azurearcjumpstart.io/azure_jumpstart_arcbox/itpro/#deployment-options-and-automation-flow)
 
 ## Next steps
 
