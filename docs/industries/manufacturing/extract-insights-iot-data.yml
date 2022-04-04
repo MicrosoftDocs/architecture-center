@@ -1,0 +1,22 @@
+### YamlMime:Architecture
+metadata:
+  title: Extract actionable insights from IoT data
+  description: Extract insights from IoT data with Azure services.
+  author: ercenk
+  ms.author: ercenk
+  ms.date: 03/15/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - iot
+products:
+  - azure-event-hubs  
+  - azure-functions
+  - azure-hdinsight
+  - azure-iot-hub
+name: Extract actionable insights from IoT data
+summary: Extract insights from IoT data with Azure services.
+thumbnailUrl: /azure/architecture/browse/thumbs/lambda-architecture-all.png
+content: |
+  [!include[](extract-insights-iot-data-content.md)]

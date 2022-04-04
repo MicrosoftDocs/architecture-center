@@ -1,141 +1,154 @@
 ---
-title: Camera selection for IoT Edge Vision
+title: Camera selection for Azure IoT Edge vision AI
 titleSuffix: Azure Architecture Center
-description: Get information about camera selection in an Azure IoT Edge Vision solution. Explore camera features, camera placement, and the communication interface.
+description: Get information about camera selection in an Azure IoT Edge vision solution. Explore camera features, camera placement, and the communication interface.
 author: MSKeith
 ms.author: keith
-ms.date: 10/22/2020
+ms.date: 02/16/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
-ms.category:
-  - fcp
+categories: iot
 products:
   - azure-iot-edge
   - azure-machine-learning
 ms.custom:
   - guide
+  - fcp
 ---
 
-# Camera selection in Azure IoT Edge Vision
+# Camera selection for Azure IoT Edge vision AI
 
-One of the most critical components in any AI Vision workload is selecting the right camera. The items being identified by this camera must be presented in such a way that the artificial intelligence or machine learning models can evaluate them correctly. An in-depth understanding of the different camera types is required to understand this concept.
-
-> [!NOTE]
-> There are different manufacturers for **area**, **line**, and **smart** cameras. Instead of recommending any one vendor over another, Microsoft recommends that you select a vendor that fits your specific needs.
+One of the most critical components in a computer vision system is the camera. The camera must capture and present images that artificial intelligence (AI) or machine learning (ML) models can evaluate and identify correctly. This article provides an in-depth understanding of different camera types, capabilities, and considerations.
 
 ## Types of cameras
 
+Camera types include area scan, line scan, and embedded smart cameras. There are many different manufacturers for these cameras. Select a vendor that fits your specific needs.
+
 ### Area scan cameras
 
-This camera type generates the traditional camera image, where a 2D image is captured and then sent over to the Edge hardware to be evaluated. This camera typically has a matrix of pixel sensors.
+Area scan cameras generate a traditional camera image. This camera typically has a matrix of pixel sensors. The camera captures a 2D image and sends it to the Azure IoT Edge hardware for evaluation.
 
-As the name suggests, area scan cameras look at a large area and are great at detecting change in an area. Examples of workloads that could use an area scan camera would be workplace safety, or detecting or counting objects (people, animals, cars, and so on) in an environment.
+Area scan cameras look at a large area, and are good for detecting changes. Examples of workloads that can use area scan cameras are workplace safety, or detecting or counting objects in an environment.
 
-Examples of manufacturers of area scan cameras are [Basler](https://www.baslerweb.com/en/products/industrial-cameras/), [Axis](https://www.axis.com), [Sony](https://www.sony-semicon.co.jp/e/products/IS/industry/product.html), [Bosch](https://commerce.boschsecurity.com/us/en/IP-Cameras/c/10164917899), [FLIR](https://www.flir.com/), [Allied Vision](https://www.alliedvision.com/en/products/customization/).
+<!--Examples of manufacturers of area scan cameras are [Basler](https://www.baslerweb.com/en/products/industrial-cameras/), [Axis](https://www.axis.com), [Sony](https://www.sony-semicon.co.jp/e/products/IS/industry/product.html), [Bosch](https://commerce.boschsecurity.com/us/en/IP-Cameras/c/10164917899), [FLIR](https://www.flir.com/), [Allied Vision](https://www.alliedvision.com/en/products/customization/).-->
 
 ### Line scan cameras
 
-Unlike the area scan cameras, the line scan camera has a single row of linear pixel sensors. This allows the camera to take one-pixel width images in quick successions, and then stitches them together into a video stream. This video stream is then sent over to an Edge device for processing.
+A line scan camera has a single row of linear pixel sensors. The camera takes 1-pixel-width images in quick succession, stitches them together into a video stream, and sends the stream to the IoT Edge device for processing.
 
-Line scan cameras are great for vision workloads where the items to be identified are either moving past the camera, or need to be rotated to detect defects. The line scan camera would then be able to produce a continuous image stream for evaluation. Examples of workloads that would work best with a line scan camera are:
-- an item defect detection on parts that are moved on a conveyer belt,
-- workloads that require spinning to see a cylindrical object, or
-- any workload that requires rotation.
+Line scan cameras are good for vision workloads where items are either moving past the camera, or need to be rotated to detect defects. The line scan camera then produces a continuous image stream for evaluation. Examples of workloads that work best with line scan cameras are:
 
-Examples of manufacturers of line scan cameras are [Basler](https://www.baslerweb.com/en/products/industrial-cameras/), [Teledyne Dalsa](https://www.teledynedalsa.com/en/home/), [Hamamatsu Corporation](https://www.hamamatsu.com/index.html?nfxsid=5ede4ac8e12e41591626440), [DataLogic](https://www.datalogic.com/), [Vieworks](https://vieworks.com/), and [Xenics](https://www.xenics.com/).
+- Item defect detection on parts that are moving on a conveyer belt
+- Workloads that require spinning to see a cylindrical object
+- Workloads that require rotation
+
+<!--Examples of manufacturers of line scan cameras are [Basler](https://www.baslerweb.com/en/products/industrial-cameras/), [Teledyne Dalsa](https://www.teledynedalsa.com/en/home/), [Hamamatsu Corporation](https://www.hamamatsu.com/index.html?nfxsid=5ede4ac8e12e41591626440), [DataLogic](https://www.datalogic.com/), [Vieworks](https://vieworks.com/), and [Xenics](https://www.xenics.com/).-->
 
 ### Embedded smart cameras
 
-This type of camera can use either an area scan or a line scan camera for capturing the images, although a line scan smart camera is rare. An embedded smart camera can not only acquire an image, but can also process that image as it is a self-contained stand-alone system. They typically have either an RS232 or an Ethernet port output, which allows them to be integrated directly into a PLC or other IIoT interfaces.
+An embedded smart camera is a self-contained, standalone system that can process as well as acquire images. Embedded smart cameras can use either an area scan or a line scan camera for capturing images, although a line scan smart camera is rare. These cameras usually have either an RS232 or an Ethernet output port, so they can integrate directly into a programmable logic controller (PLC) or other industrial IoT (IIoT) controller.
 
-Examples of manufacturers of embedded smart cameras are [Basler](https://www.baslerweb.com/en/products/industrial-cameras/), [Lesuze Electronics](https://www.leuze.com).
+<!--Examples of manufacturers of embedded smart cameras are [Basler](https://www.baslerweb.com/en/products/industrial-cameras/), [Lesuze Electronics](https://www.leuze.com).-->
 
 ## Camera features
 
+There are several features to consider when selecting a camera for a vision workload. The following sections discuss sensor size, resolution, and speed. Other camera features to consider include:
+
+- Lens selection
+- Focal length
+- Monochrome or color depth
+- Stereo depth
+- Triggers
+- Physical size
+- Support
+
+Camera manufacturers can help you understand what specific features your application requires.
+
 ### Sensor size
 
-This is one of the most important factors to evaluate in any vision workload. A sensor is the hardware within a camera that captures the light and converts into signals, which then produce an image. The sensor contains millions of semiconducting photodetectors called photosites. A higher megapixel count does not always result in a better image. For example, let's look at two different sensor sizes for a 12-megapixel camera. Camera A has a ½ inch sensor with 12 million photosites and camera B has a 1-inch sensor with 12 million photosites. In the same lighting conditions, the camera that has the 1-inch sensor will be cleaner and sharper. Many cameras typically used in vision workloads have a sensor sized between ¼ inch to 1 inch. In some cases, much larger sensors might be required.
+Sensor size is one of the most important factors to evaluate in a camera. The sensor is the hardware within a camera that captures the target and converts it into signals, which then produce an image. The sensor contains millions of semiconducting photodetectors called *photosites*.
 
-If a camera has a choice between a larger sensor or a smaller sensor, some factors deciding why you might choose the larger sensor are:
-- need for precision measurements,
-- lower light conditions,
-- shorter exposure times, or fast-moving items.
+A higher megapixel count doesn't always result in a better image. For example, a camera with 12 million photosites and a 1-inch sensor produces a clearer, sharper image than a camera with 12 million photosites and a ½-inch sensor. Cameras for computer vision workloads usually have sensor sizes between ¼ inch and 1 inch. Some cases might require much larger sensors.
+
+Choose larger sensors if your vision workload has:
+
+- A need for precision measurements
+- Lower light conditions
+- Shorter exposure times or fast-moving items
 
 ### Resolution
 
-This is another important factor to both line scan and area scan camera workloads. If your workload must identify fine features, such as the writing on an IC chip, then you need greater resolution cameras. If your workload is trying to detect a face, then higher resolution is required. And if you need to identify a vehicle from a distance, again a higher resolution will be required.
+Resolution is another important factor in camera selection. You need higher resolution cameras if your workload:
+
+- Must identify fine features, such as the writing on an integrated circuit chip
+- Is trying to detect faces
+- Needs to identify vehicles from a distance
+
+The following images show the problem with using the wrong resolution for a given use case. Both images were taken 20 feet away from the car. The small red boxes represent one pixel.
+
+- The following image was taken with 480 horizontal pixels:
+
+  ![Photograph of a car at 480 pixels.](./images/car-image-low-pixel.png)
+
+- The following image was taken with 5184 horizontal pixels:
+
+  ![Photograph of a car at 5184 pixels.](./images/car-image-high-pixel.png)
 
 ### Speed
 
-Sensors come in two types- [*CCD* and *CMOS*](https://en.wikipedia.org/wiki/Image_sensor). If the vision workload requires high number of images to be captured per second, then two factors will come into play. The first is how fast is the connection on the interface of the camera. The second is what type of sensor it is. CMOS sensors have a direct readout from the photosites, because of which they typically offer a higher frame rate.
-
-> [!NOTE]
-> There are several other camera features to consider when selecting the correct camera for your vision workload. These include lens selection, focal length, monochrome, color depth, stereo depth, triggers, physical size, and support. Sensor manufacturers can help you understand the specific feature that your application may require.
+If your vision workload requires capturing many images per second, two factors are important. The first factor is the speed of the camera interface connection. The second factor is the type of sensor. Sensors come in two types, [charge-coupled devices (CCD) and active-pixel sensors (CMOS)](https://en.wikipedia.org/wiki/Image_sensor). CMOS sensors have a direct readout from the photosites, so they typically offer a higher frame rate.
 
 ## Camera placement
 
-The items that you are capturing in your vision workload will determine the location and angles that the camera should be placed. The camera location can also affect the sensor type, lens type, and camera body type.
-
-There are several different factors that can weigh into the overall decision for camera placement. Two of the most critical ones are the lighting and the field of view.
+The items you need to capture in your vision workload determine the locations and angles for camera placement. Camera location can also interact with sensor type, lens type, and camera body type. Two of the most critical factors for determining camera placement are lighting and field of view.
 
 ### Camera lighting
 
-In a computer vision workload, lighting is a critical component to camera placement. There are several different lighting conditions. While some of the lighting conditions would be useful for one vision workload, it might produce an undesirable effect in another. Types of lighting that are commonly used in computer vision workloads are:
+In a computer vision workload, lighting is critical to camera placement. You can apply several different lighting conditions. Lighting conditions that are useful for one vision workload might produce undesirable effects in a different workload.
 
-* **Direct lighting:** This is the most commonly used lighting condition.  This light source is projected at the object to be captured for evaluation.
+There are several common lighting types for computer vision workloads:
 
-* **Line lighting:** This is a single array of lights that are most used with line scan camera applications. This creates a single line of light at the focus of the camera.
+- *Direct lighting* is the most common lighting condition. The light source is projected at the object to be captured.
+- *Line lighting* is a single array of lights most used with line scan cameras. Line lighting creates a single line of light at the focus of the camera.
+- *Diffused lighting* illuminates an object but prevents harsh shadows. Diffused lighting is mostly used around specular, or reflective, objects.
+- *Axial diffused lighting* is often used with highly reflective objects, or to prevent shadows on the part to capture.
+- *Back lighting* is used behind the object, producing a silhouette of the object. Back lighting is most useful for measurements, edge detection, or object orientation.
+- *Custom grid lighting* is a structured lighting condition that lays out a grid of light on the object. The known grid projection provides more accurate measurements of item components, parts, and placement.
+- *Strobe lighting* is used for high speed moving parts. The strobe must be in sync with the camera to take a *freeze* of the object for evaluation. Strobe lighting helps prevent motion blurring effects.
+- *Dark field lighting* uses several lights with different angles to the part to be captured. For example, if the part is lying flat on a conveyor belt, the lights are at a 45-degree angle to the belt. Dark field lighting is most useful with highly reflective clear objects, and is commonly used for *lens scratch detections*.
 
-* **Diffused lighting:** This type of lighting is used to illuminate an object but prevent harsh shadows and is mostly used around specular objects.
+The following figure demonstrates the angular placement of light sources:
 
-* **Back lighting:** This type of light source is used behind the object, producing a silhouette of the object.  This is most useful when taking measurements, edge detection, or object orientation.
-
-* **Axial diffused lighting:** This type of light source is often used with highly reflective objects, or to prevent shadows on the part that will be captured for evaluation.
-
-* **Custom Grid lighting:** This is a structured lighting condition that lays out a grid of light on the object, the intent is to have a known grid projection to then provide more accurate measurements of components, parts, placement of items, and so on.
-
-* **Strobe lighting:** Strobe lighting is used for high speed moving parts. The strobe must be in sync with the camera to take a *freeze* of the object for evaluation, this lighting helps to prevent motion blurring effect.
-
-* **Dark Field lighting:** This type of light source uses several lights in conjunction with different angles to the part to be captured. For example, if the part is laying flat on a conveyor belt the lights would be placed at a 45-degree angle to it. This type of lighting is most useful when looking at highly reflective clear objects and is most commonly used with *lens scratch detections*.
-
-The figure below shows the angular placement of light:
-
-![Angular placement of light - IoT Edge Vision](./images/lighting-chart.png)
+![Diagram showing the angular placement of light sources for IoT Edge vision workloads.](./images/lighting-chart.png)
 
 ### Field of view
 
-In a vision workload, you need to know the distance to the object that you are trying to evaluate. This also will play a part in the camera selection, sensor selection, and lens configuration. Some of the components that make up the field of view are:
+In planning a vision workload, you need to know about the field of view (FOV) of the objects you're evaluating. FOV plays a part in camera selection, sensor selection, and lens configuration. FOV components include:
 
-* **Distance to object(s):** For example, is the object being monitored with computer vision on a conveyor belt and the camera is two feet above it, or is the object across a parking lot? As the distance changes, so does the camera's sensors and lens configurations.
-* **Area of coverage:** Is the area that the computer vision is trying to monitor small or large? This has direct correlation to the camera's resolution, lens, and sensor type.
-* **Direction of the sun:** If the computer vision workload is outside, such as monitoring a job construction site for worker safety, will the camera be pointed in the sun at any time? Keep in mind that if the sun is casting a shadow over the object that the vision workload is monitoring, items might be a bit obscured. Also, if the camera is getting direct sunlight in the lens, the camera might be *blinded* until the angle of the sun changes.
-* **Camera angle to the object(s):** Angle of the camera to the object that the vision workload is monitoring is also a critical component to think about. If the camera is too high, it might miss the details that the vision workload is trying to capture, and the same may be true if it is too low.
+- Distance to objects. For example, is the object being monitored on a conveyor belt with the camera two feet above it, or across a parking lot? Camera sensors and lens configurations are different for different distances.
+- Area of coverage. Is the area that the computer vision is trying to monitor small or large? This factor directly correlates to the camera's resolution, lens, and sensor type.
+- Direction of the sun. If the computer vision workload is outdoors, you should consider the direction of the sun throughout the day. The angle of the sun as it moves might impact the computer vision model. If the camera gets direct sunlight in the lens, it might be blinded until the angle of the sun changes. If the sun casts a shadow over the object being monitored, the object might be obscured.
+- Camera angle to the objects. If the camera is too high or too low, it might miss the details that the workload is trying to capture.
 
 ## Communication interface
 
-In building a computer vision workload, it is also important to understand how the system will interact with the output of the camera. Below are a few of the standard ways that a camera will communicate to IoT Edge:
+In planning a computer vision workload, it's important to understand how the camera output interacts with the rest of the system. There are several standard ways that cameras communicate to IoT Edge devices:
 
-* **Real Time Streaming Protocol (RTSP):** RTSP is a protocol that transfers real-time video data from a device (in our case, the camera) to an endpoint device (Edge compute) directly over a TCP/IP connection. It functions in a client-server application model that is at the application level in the network.
+- [Real Time Streaming Protocol (RTSP)](https://en.wikipedia.org/wiki/Real_Time_Streaming_Protocol) is an application-level network protocol that controls streaming video servers. RTSP transfers real-time video data from the camera to the IoT Edge compute endpoint over a TCP/IP connection.
+- [Open Network Video Interface Forum (ONVIF)](https://www.onvif.org) is a global, open industry forum that develops open standards for IP-based cameras. These standards describe communication between IP cameras and downstream systems, interoperability, and open source.
+- [Universal Serial Bus (USB)](https://en.wikipedia.org/wiki/USB)-connected cameras connect over the USB port directly to the IoT Edge compute device. This connection is less complex, but limits the distance the camera can be located from the IoT Edge device.
+- [Camera Serial Interface (CSI)](https://www.mipi.org/specifications/csi-2) includes several standards from the Mobile Industry Processor Interface (MIPI) Alliance. CSI describes how to communicate between a camera and a host processor. CSI-2, released in 2005, has several layers:
 
-* **Open Network Video Interface Forum (ONVIF):** A global and open industry forum that is developing open standards for IP-based cameras. This standard is aimed at standardization of communication between the IP camera and down stream systems, interoperability, and open source.
+  - Physical layer (either C-PHY or D-PHY)
+  - Lane merger layer
+  - Low-level protocol layer
+  - Pixel to byte conversion layer
+  - Application layer
 
-* **USB:** Unlike RTSP and ONVIF, USB connected cameras connect over the Universal Serial Bus directly on the Edge compute device. This is less complex, however, it limits the distance that the camera can be placed away from the Edge compute.
-
-* **Camera Serial Interface:**  CSI specification is from *Mobile Industry Processor Interface (MIPI)*. This interface describes how to communicate between a camera and a host processor.
-
-  There are several standards defined for CSI:
-
-  * **CSI-1**:  This was the original standard that MIPI started with.
-  * **CSI-2**:  This standard was released in 2005, and uses either D-PHY or C-PHY as physical layers options. This is further divided into several layers:
-    * Physical Layer (C-PHY, D-PHY)
-    * Lane Merger layer
-    * Low-Level Protocol Layer
-    * Pixel to Byte Conversion Layer
-    * Application layer
-
-  The specification was updated in 2017 to v2, which added support for RAW-24 color depth, *Unified Serial Link*, and *Smart Region of Interest*.
+  [CSI-2 v3.0](https://resources.mipi.org/blog/mipi-csi-2s-newest-frontier-machine-awareness) added support for RAW-24 color depth, Unified Serial Link, and Smart Region of Interest.
 
 ## Next steps
 
-Now that you know the camera considerations for your IoT Edge Vision workload, proceed to setting up the right hardware for your workload. Read [Hardware acceleration in Azure IoT Edge Vision](./hardware.md) for more information.
+> [!div class="nextstepaction"]
+> [Hardware acceleration in Azure IoT Edge vision AI](./hardware.md)

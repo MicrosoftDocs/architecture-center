@@ -1,0 +1,41 @@
+### YamlMime:Architecture
+metadata:
+  title: Tiered data for analytics
+  titleSuffix: Azure Example Scenarios
+  description: Learn how to use Azure Stack Hub and Azure to stage, analyze, process, sanitize, and store data across multiple on-premises and cloud locations.
+  author: EdPrice-MSFT
+  ms.author: bryanla
+  ms.date: 03/11/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.category:
+    - compute
+    - storage
+    - hybrid
+    - integration
+  ms.custom:
+    - acom-architecture
+    - Hybrid Connection
+    - Azure Hybrid Connection
+    - Hybrid Network
+    - Azure Hybrid Network
+    - hybrid-infrastructure
+    - interactive-diagram
+    - networking
+    - e2e-hybrid
+    - internal-intro
+    - fcp 
+azureCategories:
+  - compute
+  - storage
+  - hybrid
+  - integration
+products:
+  - azure-stack-hub
+  - azure-storage
+name: Tiered data for analytics
+summary: Learn how to use Azure Stack Hub and Azure to stage, analyze, process, sanitize, and store data across multiple on-premises and cloud locations.
+thumbnailUrl: /azure/architecture/browse/thumbs/hybrid-tiered-data-analytics.png
+content: |
+  [!include[](hybrid-tiered-data-analytics-content.md)]

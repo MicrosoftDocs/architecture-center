@@ -18,9 +18,9 @@ In this series, we walk through several cloud application scenarios, showing how
 
 Scenarios:
 
-- [Distributed business transaction](./distributed-transaction.md)
-- [Calling multiple backend services](./backend-services.md)
-- [Event stream processing](./event-streaming.md)
+- [Distributed business transaction](./distributed-transaction.yml)
+- [Calling multiple backend services](./backend-services.yml)
+- [Event stream processing](./event-streaming.yml)
 
 ## What is performance?
 
@@ -52,7 +52,7 @@ It can be especially challenging to diagnose performance issues in a distributed
 
 Performance tuning is both an art and a science, but it can be made closer to science by taking a systematic approach. Here are some best practices:
 
-- Enable telemetry to collect metrics. Instrument your code. Follow [best practices for monitoring](../best-practices/monitoring.md). Use correlated tracing so that you can view all the steps in a transaction.
+- Enable telemetry to collect metrics. Instrument your code. Follow [best practices for monitoring](../best-practices/monitoring.yml). Use correlated tracing so that you can view all the steps in a transaction.
 
 - Monitor the 90/95/99 percentiles, not just average. The average can mask outliers. The sampling rate for metrics also matters. If the sampling rate is too low, it can hide spikes or outliers that might indicate problems.
 
@@ -62,12 +62,12 @@ Performance tuning is both an art and a science, but it can be made closer to sc
 
 - Look for common [performance anti-patterns](../antipatterns/index.md).
 
-- Look for opportunities to parallelize. Two common sources of bottlenecks are message queues and databases. In both cases, sharding can help. For more information, see [Horizontal, vertical, and functional data partitioning](../best-practices/data-partitioning.md). Look for hot partitions that might indicate imbalanced read or write loads.
+- Look for opportunities to parallelize. Two common sources of bottlenecks are message queues and databases. In both cases, sharding can help. For more information, see [Horizontal, vertical, and functional data partitioning](../best-practices/data-partitioning.yml). Look for hot partitions that might indicate imbalanced read or write loads.
 
 ## Next steps
 
 Read the performance tuning scenarios
 
-- [Distributed business transaction](./distributed-transaction.md)
-- [Calling multiple backend services](./backend-services.md)
-- [Event stream processing](./event-streaming.md)
+- [Distributed business transaction](./distributed-transaction.yml)
+- [Calling multiple backend services](./backend-services.yml)
+- [Event stream processing](./event-streaming.yml)

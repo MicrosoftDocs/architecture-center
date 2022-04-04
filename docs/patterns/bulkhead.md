@@ -4,7 +4,7 @@ titleSuffix: Cloud Design Patterns
 description: Isolate elements of an application into pools so that if one fails, the others will continue to function.
 author: EdPrice-MSFT
 ms.author: pnp
-ms.date: 03/19/2020
+ms.date: 01/04/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: design-pattern
@@ -12,6 +12,10 @@ ms.custom:
   - design-pattern
 keywords:
   - design pattern
+products:
+  - azure
+categories:
+  - management-and-governance
 ---
 
 # Bulkhead pattern
@@ -94,10 +98,10 @@ spec:
 
 ## Related guidance
 
-- [Designing reliable Azure applications](../framework/resiliency/app-design.md)
-- [Circuit Breaker pattern](./circuit-breaker.md)
-- [Retry pattern](./retry.md)
-- [Throttling pattern](./throttling.md)
+- [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design)
+- [Circuit Breaker pattern](./circuit-breaker.yml)
+- [Retry pattern](./retry.yml)
+- [Throttling pattern](./throttling.yml)
 
 <!-- links -->
 

@@ -14,6 +14,8 @@ SDM significantly reduces the risk and complexity of legacy workload rehosting b
 [![Diagram showing the architecture and data flow described in detail by the accompanying article text.](./media/lzlabs-software-defined-mainframe-in-azure-architecture-inline.png)](./media/lzlabs-software-defined-mainframe-in-azure-architecture-expanded.png#lightbox)
 *Download an [SVG of this diagram](./media/lzlabs-software-defined-mainframe-in-azure-architecture.svg).*
 
+### Workflow
+
 1. LzLabs SDM applications are accessed just like ordinary mainframe applications via a 3270 terminal. You can use any terminal emulator you like. For management, administration, and other activities, the [LzWorkbench client](https://www.lzlabs.com/products/lzworkbench/) is used. The server component runs on the SDM VM.
 1. The port access is typically configured to adapt to the security requirements of the customer.
 1. For a secure implementation of SDM, a web services front end should be implemented that consists of:
@@ -42,7 +44,7 @@ SDM significantly reduces the risk and complexity of legacy workload rehosting b
 
 ## Considerations
 
-The following considerations, based on the [Azure Well-Architected Framework](../../framework/index.md), apply to this solution.
+The following considerations, based on the [Azure Well-Architected Framework](/azure/architecture/framework/index), apply to this solution.
 
 ### Availability
 

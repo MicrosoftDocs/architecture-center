@@ -1,0 +1,19 @@
+### YamlMime:Architecture
+metadata:
+  title: Scheduler Agent Supervisor pattern
+  description: Explore the Scheduler Agent Supervisor pattern, which coordinates a set of actions across a distributed set of services and other remote resources.
+  author: EdPrice-MSFT
+  ms.author: pnp
+  ms.date: 06/23/2017
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - networking
+products:
+  - azure
+name: Scheduler Agent Supervisor pattern
+summary: Explore the Scheduler Agent Supervisor pattern, which coordinates a set of actions across a distributed set of services and other remote resources.
+thumbnailUrl: /azure/architecture/browse/thumbs/scheduler-agent-supervisor-solution.png
+content: |
+  [!include[](scheduler-agent-supervisor-content.md)]

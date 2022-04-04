@@ -1,4 +1,3 @@
-
 This architecture shows how Security Operations Center (SOC) teams can incorporate Azure Active Directory (Azure AD) identity and access capabilities into an overall integrated and layered *zero-trust* security strategy.
 
 Network security dominated SOC operations when all services and devices were contained on managed networks in organizations. However, [Gartner](https://www.gartner.com/en/newsroom/press-releases/2019-04-02-gartner-forecasts-worldwide-public-cloud-revenue-to-g) predicts that through 2022, the market size of cloud services will grow at a rate nearly three times that of overall IT services. As more companies embrace cloud computing, there's a shift toward treating [user identity](/azure/security/fundamentals/identity-management-best-practices#treat-identity-as-the-primary-security-perimeter) as the primary security boundary.
@@ -19,7 +18,7 @@ The [Microsoft Cybersecurity Reference Architecture (MCRA)](https://gallery.tech
 
 This article advances the zero-trust, adaptive security approach to IDaaS, emphasizing components available on the Azure AD platform.
 
-## Use cases
+## Potential use cases
 
 - Design new security solutions
 - Enhance or integrate with existing implementations
@@ -28,6 +27,8 @@ This article advances the zero-trust, adaptive security approach to IDaaS, empha
 ## Architecture
 
 ![Azure AD related security capabilities](./media/architecture.png)
+
+### Workflow
 
 1. *Credential management* controls authentication.
 1. *Provisioning* and *entitlement management* define the access package, assign users to resources, and push data for *attestation*.
@@ -112,6 +113,8 @@ Azure AD can use the following conditional access controls with conditional acce
 
 - [Real-time remediation](/azure/active-directory/identity-protection/howto-identity-protection-remediate-unblock) allows users to unblock themselves by using SSPR and MFA to self-remediate some risk detections.
 
+## Considerations
+
 ### Logging
 
 Azure AD [audit reports](/azure/active-directory/reports-monitoring/concept-audit-logs) provide traceability for Azure activities with audit logs, sign-in logs, and risky sign-in and risky user reports. You can filter and search the log data based on several parameters, including service, category, activity, and status.
@@ -147,7 +150,7 @@ Azure Active Directory pricing ranges from free, for features like SSO and MFA, 
 
 - [Zero Trust security](https://www.microsoft.com/security/business/zero-trust)
 - [Zero Trust Deployment Guide for Microsoft Azure Active Directory](https://www.microsoft.com/security/blog/2020/04/30/zero-trust-deployment-guide-azure-active-directory/)
-- [Overview of the security pillar](../../framework/security/overview.md)
+- [Overview of the security pillar](/azure/architecture/framework/security/overview)
 - [Azure Security Compass](https://github.com/MarkSimos/MicrosoftSecurity/blob/master/Azure%20Security%20Compass%201.1/AzureSecurityCompassIndex.md)
 - [Azure Active Directory demo tenant](https://demos.microsoft.com/) (requires a Microsoft Partner Network account), or [Enterprise Mobility + Security free trial](https://www.microsoft.com/microsoft-365/enterprise-mobility-security)
 - [Azure Active Directory deployment plans](/azure/active-directory/fundamentals/active-directory-deployment-plans)

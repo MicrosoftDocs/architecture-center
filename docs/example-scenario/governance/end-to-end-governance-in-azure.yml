@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Example Scenarios
   description: When using CI/CD pipelines to automate deployments, apply RBAC not just on the ARM side, but also earlier in the process as developers check in their code.
   author: julie-ng
-  ms.author: edprice
+  ms.author: julng 
   ms.date: 05/31/2021
   ms.topic: conceptual
   ms.service: architecture-center

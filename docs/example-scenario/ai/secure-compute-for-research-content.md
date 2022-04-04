@@ -1,5 +1,3 @@
-[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
-
 This architecture shows a secure research environment intended to allow researchers to access sensitive data under a higher level of control and data protection. This article is applicable for organizations that are bound by regulatory compliance or other strict security requirements.
 
 ## Potential use cases
@@ -14,9 +12,9 @@ By following the guidance you can maintain full control of your research data, h
 
 ## Architecture
 
-:::image type="content" source="./media/secure-research-env.svg" alt-text="Diagram of a secure research environment.":::
+:::image type="content" source="./media/secure-research-env.png" alt-text="Diagram of a secure research environment.":::
 
-### Data flow
+### Dataflow
 
 1. Data owners upload datasets into a public blob storage account. The data is encrypted by using Microsoft-managed keys.
 
@@ -26,16 +24,16 @@ By following the guidance you can maintain full control of your research data, h
 
 4. The dataset in the secure storage account is presented to the data science VMs provisioned in a secure network environment for research work. Much of the data preparation is done on those VMs.
 
-5. The secure environment has Azure Machine Learning compute that can access the dataset through a private endpoint for users for AML capabilities, such as to train, deploy, automate, and manage machine learning models. At this point, models are created that meet regulatory guidelines. All model data is deidentified by removing personal information.
+5. The secure environment has Azure Machine Learning compute that can access the dataset through a private endpoint for users for AML capabilities, such as to train, deploy, automate, and manage machine learning models. At this point, models are created that meet regulatory guidelines. All model data is de-identified by removing personal information.
 
-6. Models or deidentified data is saved to a separate location on the secure storage (export path). When new data is added to the export path, a Logic App is triggered. In this architecture, the Logic App is outside the secure environment because no data is sent to the Logic App. Its only function is to send notification and start the manual approval process.
+6. Models or de-identified data is saved to a separate location on the secure storage (export path). When new data is added to the export path, a Logic App is triggered. In this architecture, the Logic App is outside the secure environment because no data is sent to the Logic App. Its only function is to send notification and start the manual approval process.
 
     The app starts an approval process requesting a review of data that is queued to be exported.  The manual reviewers ensure that sensitive data isn't exported. After the review process, the data is either approved or denied.
 
     > [!NOTE]
     > If an approval step is not required on exfiltration, the Logic App step could be omitted.
 
-7. If the deidentified data is approved, it's sent to the Data Factory instance.
+7. If the de-identified data is approved, it's sent to the Data Factory instance.
 
 8. Data Factory moves the data to the public storage account in a separate container to allow external researchers to have access to their exported data and models. Alternately, you can provision another storage account in a lower security environment.
 
@@ -79,6 +77,12 @@ These components continuously monitor the posture of the workload and its enviro
 
 - **Azure Policy** helps to enforce organizational standards and to assess compliance at-scale.
 
+### Alternatives
+
+- This solution uses Data Factory to move the data to the public storage account in a separate container, in order to allow external researchers to have access to their exported data and models. Alternately, you can provision another storage account in a lower security environment.
+- This solution uses Azure Virtual Desktop as a jump box to gain access to the resources in the secure environment, with streaming applications and a full desktop. Alternately, you can use Azure Bastion. But, Virtual Desktop has some advantages, which include the ability to stream an app, to limit copy/paste and screen captures, and to support AAC authentication. You can also consider configuring Point to Site VPN for offline training locally. This will also help save costs of having multiple VMs for workstations.
+- To secure data at rest, this solution encrypts all Azure Storage with Microsoft-managed keys using strong cryptography. Alternately, you can use customer-managed keys. The keys must be stored in a managed key store.
+
 ## Considerations
 
 ### Security
@@ -96,9 +100,15 @@ Azure resources that are used to store, test, and train research data sets are p
 
 The main blob storage in the secure environment is off the public internet. It's only accessible within the VNet through [private endpoint connections](/azure/storage/files/storage-files-networking-endpoints) and Azure Storage Firewalls. It's used to limit the networks from which clients can connect to Azure file shares.
 
-The secure environment has Azure Machine Learning compute that can access the dataset through a private endpoint.
+This architecture uses credential-based authentication for the main data store that is in the secure environment. In this case, the connection information like the subscription ID and token authorization is stored in a key vault. Another option is to create identity-based data access, where your Azure account is used to confirm if you have access to the Storage service. In an identity-based data access scenario, no authentication credentials are saved. For the details on how to use identity-based data access, see [Connect to storage by using identity-based data access](/azure/machine-learning/how-to-identity-based-data-access).
 
-For Azure services that cannot be configured effectively with private endpoints or to provide stateful packet inspection, consider using Azure Firewall or a third-party network virtual appliance (NVA).
+The compute cluster can solely communicate within the virtual network, by using the Azure Private Link ecosystem and service/private endpoints, rather than using Public IP for communication. Make sure you enable **No public IP**. For details about this feature, which is currently in preview (as of 3/7/2022), see [No public IP for compute instances](/azure/machine-learning/how-to-secure-training-vnet?tabs=azure-studio%2Cipaddress#no-public-ip).
+
+The secure environment uses Azure Machine Learning compute to access the dataset through a private endpoint. Additionally, Azure Firewall can be used to control outbound access from Azure Machine Learning compute. To learn about how to configure Azure Firewall to control access to Azure Machine Learning compute, which resides in a machine learning workspace, see [Configure inbound and outbound network traffic](/azure/machine-learning/how-to-access-azureml-behind-firewall).
+
+To learn one of the ways to secure an Azure Machine Learning environment, see the blog post, [Secure Azure Machine Learning Service (AMLS) Environment](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/secure-azure-machine-learning-service-amls-environment/ba-p/3162297).
+
+For Azure services that cannot be configured effectively with private endpoints, or to provide stateful packet inspection, consider using Azure Firewall or a third-party network virtual appliance (NVA).
 
 #### Identity management
 
@@ -132,7 +142,9 @@ Most research solutions are temporary workloads and don't need to be available f
 
 The size and type of the Data Science VMs should be appropriate to the style of work being performed. This architecture is intended to support a single research project and the scalability is achieved by adjusting the size and type of the VMs and the choices made for compute resources available to AML.
 
-The cost of DSVMs depends on the choice of the underlying VM series. Because the workload is temporary,  the consumption plan is recommended for the Logic App resource. Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs based on estimated sizing of resources needed.
+## Pricing
+
+The cost of DSVMs depends on the choice of the underlying VM series. Because the workload is temporary,  the consumption plan is recommended for the Logic App resource. Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs based on estimated sizing of resources needed.
 
 ## Next steps
 
@@ -142,8 +154,16 @@ The cost of DSVMs depends on the choice of the underlying VM series. Because the
 - [Azure Blob storage](/azure/storage/blobs/storage-blobs-introduction)
 - [Azure Data Factory](/azure/data-factory/introduction)
 - [Azure Virtual Desktop](/azure/virtual-desktop/overview)
-- [Microsoft Defender for Cloud](/azure/security-center/)
+- [Microsoft Defender for Cloud](/azure/security-center)
 - [Microsoft Sentinel](/azure/sentinel/overview)
 - [Azure Monitor](/azure/azure-monitor/overview)
 - [Azure Policy](/azure/governance/policy/overview)
 - [Azure Policy Guest Configuration](/azure/governance/policy/concepts/guest-configuration)
+
+## Related resources
+
+- [Compare the machine learning products and technologies from Microsoft](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
+- [Machine learning at scale](/azure/architecture/data-guide/big-data/machine-learning-at-scale)
+- [Azure Machine Learning architecture](/azure/architecture/solution-ideas/articles/azure-machine-learning-solution-architecture)
+- [Scale AI and machine learning initiatives in regulated industries](/azure/architecture/example-scenario/ai/scale-ai-and-machine-learning-in-regulated-industries)
+- [Many models machine learning (ML) at scale with Azure Machine Learning](/azure/architecture/example-scenario/ai/many-models-machine-learning-azure-machine-learning)

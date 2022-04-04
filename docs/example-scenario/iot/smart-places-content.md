@@ -318,7 +318,7 @@ Use the [Azure pricing calculator][Azure pricing calculator] to estimate the cos
 [Azure Digital Twins Explorer (preview)]: /azure/digital-twins/concepts-azure-digital-twins-explorer
 [Azure Digital Twins tools repository]: https://github.com/Azure/opendigitaltwins-tools
 [Azure Functions]: /azure/digital-twins/how-to-create-azure-function?tabs=cli
-[Azure Industrial IoT Analytics Guidance]: ../../guide/iiot-guidance/iiot-architecture.md
+[Azure Industrial IoT Analytics Guidance]: ../../guide/iiot-guidance/iiot-architecture.yml
 [Azure IoT Edge]: https://azure.microsoft.com/services/iot-edge
 [Azure IoT Hub]: https://azure.microsoft.com/services/iot-hub
 [Azure IoT reference architecture]: ../../reference-architectures/iot.yml
@@ -333,7 +333,7 @@ Use the [Azure pricing calculator][Azure pricing calculator] to estimate the cos
 [Azure Sphere]: https://azure.microsoft.com/services/azure-sphere/
 [Azure Synapse Analytics]: https://azure.microsoft.com/services/synapse-analytics
 [Brookfield sets a new standard for innovation in real estate with WillowTwin and Azure Digital Twins]: https://customers.microsoft.com/story/855907-brookfield-properties-professional-services-azure
-[Choose an Internet of Things (IoT) solution in Azure]: ./iot-central-iot-hub-cheat-sheet.md
+[Choose an Internet of Things (IoT) solution in Azure]: ./iot-central-iot-hub-cheat-sheet.yml
 [Cognizant Safe Buildings with IoT and Azure]: ../../solution-ideas/articles/safe-buildings.yml
 [COVID-19 safe environments with IoT Edge monitoring and alerting]: ../../solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml
 [Data Lake]: https://azure.microsoft.com/solutions/data-lake

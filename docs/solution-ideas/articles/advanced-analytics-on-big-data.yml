@@ -4,8 +4,8 @@ metadata:
   titleSuffix: Azure Solution Ideas
   description: This architecture allows you to combine any data at any scale with custom machine learning and get near real-time data analytics on streaming services.
   author: EdPrice-MSFT
-  ms.author: pnp
-  ms.date: 05/03/2021
+  ms.author: edprice
+  ms.date: 03/04/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea

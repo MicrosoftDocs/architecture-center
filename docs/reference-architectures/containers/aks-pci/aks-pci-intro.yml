@@ -3,7 +3,7 @@ metadata:
   title: AKS regulated cluster for PCI-DSS 3.2.1
   description: Get started on your architecture design by addressing the applicable PCI-DSS 3.2.1 requirements as a tenant on the AKS environment. The guidance covers the compliance aspects of the environment including infrastructure, interactions with the workload, operations, management, and interactions between services. Azure Kubernetes Service (AKS).
   author: PageWriter-MSFT
-  ms.author: pnp
+  ms.author: prwilk
   ms.date: 07/06/2021
   ms.topic: conceptual
   ms.service: architecture-center

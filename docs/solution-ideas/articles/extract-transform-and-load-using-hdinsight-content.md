@@ -10,7 +10,7 @@ Azure HDInsight can be used for a variety of scenarios in big data processing. I
 
 ![Architecture diagram](../media/extract-transform-and-load-using-hdinsight.png)
 
-## Data flow
+### Dataflow
 
 The data flows through the architecture as follows:
 
@@ -22,7 +22,7 @@ The data flows through the architecture as follows:
 
 4) Trigger the pipeline in Azure Data Factory. The architecture assumes Azure Data Lake store is being used as the file system in the Hadoop script being executed by the HDInsight activity created in Step 3. The script will be executed by an on-demand HDInsight cluster that will write data to a curated area of the data lake.
 
-## Components
+### Components
 
 - [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) - Cloud scale data integration service for orchestrating data flow.
 - [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/) - Scalable and cost-effective cloud storage for big data processing.

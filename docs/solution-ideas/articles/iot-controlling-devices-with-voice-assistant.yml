@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Solution Ideas
   description: Control smart devices by using Azure Speech Service, Language Understanding Service (LUIS), and Azure Bot Service to create natural conversational interfaces.
   author: khilscher
-  ms.author: pnp
+  ms.author: kehilsch
   ms.date: 02/04/2021
   ms.topic: conceptual
   ms.service: architecture-center
