@@ -25,7 +25,7 @@ New and updated articles in Azure Architecture Center.
 
 ## April 2022
 
-### New Articles
+### New articles
 
 - [Scenarios that feature Microsoft on-premises technologies on Azure](./guide/on-premises-microsoft-technologies.md)
 - [Microsoft partner and third-party scenarios on Azure](./guide/partner-scenarios.md)
