@@ -1095,8 +1095,6 @@ items:
                 href: solution-ideas/articles/connected-factory-hierarchy-service.yml
               - name: Connected factory signal pipeline
                 href: example-scenario/iot/connected-factory-signal-pipeline.yml
-              - name: End-to-end computer vision for manufacturing
-                href: reference-architectures/ai/end-to-end-smart-factory.yml
               - name: IoT Edge safety and maintenance system
                 href: example-scenario/predictive-maintenance/iot-predictive-maintenance.yml
               - name: Quality assurance
