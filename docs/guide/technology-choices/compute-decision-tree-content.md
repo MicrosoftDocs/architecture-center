@@ -161,9 +161,9 @@ Perform a more detailed evaluation looking at the following aspects of the servi
 
 [resource-manager-supported-services]: /azure/azure-resource-manager/resource-manager-supported-services
 
-[n-tier]: ../architecture-styles/n-tier.md
-[w-q-w]: ../architecture-styles/web-queue-worker.md
-[microservices]: ../architecture-styles/microservices.md
+[n-tier]: ../architecture-styles/n-tier.yml
+[w-q-w]: ../architecture-styles/web-queue-worker.yml
+[microservices]: ../architecture-styles/microservices.yml
 [event-driven]: ../architecture-styles/event-driven.yml
 [big-compute]: ../architecture-styles/big-compute.yml
 

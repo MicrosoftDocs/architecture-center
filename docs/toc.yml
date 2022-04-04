@@ -22,11 +22,11 @@ items:
           - name: Event-driven architecture
             href: guide/architecture-styles/event-driven.yml
           - name: Microservices
-            href: guide/architecture-styles/microservices.md
+            href: guide/architecture-styles/microservices.yml
           - name: N-tier application
-            href: guide/architecture-styles/n-tier.md
+            href: guide/architecture-styles/n-tier.yml
           - name: Web-queue-worker
-            href: guide/architecture-styles/web-queue-worker.md
+            href: guide/architecture-styles/web-queue-worker.yml
       - name: Design principles for Azure applications
         items:
           - name: Overview

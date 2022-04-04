@@ -1,23 +1,3 @@
----
-title: Web-Queue-Worker architecture style
-titleSuffix: Azure Application Architecture Guide
-description: Learn about the benefits, challenges, and best practices for Web-Queue-Worker architectures on Azure.
-author: EdPrice-MSFT
-ms.date: 04/10/2019
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
-categories:
-  - web
-products:
-  - azure-app-service
-ms.custom:
-  - seojan19
-  - guide
----
-
-# Web-Queue-Worker architecture style
-
 The core components of this architecture are a **web front end** that serves client requests, and a **worker** that performs resource-intensive tasks, long-running workflows, or batch jobs.  The web front end communicates with the worker through a **message queue**.
 
 ![Logical diagram of Web-Queue-Worker architecture style](./images/web-queue-worker-logical.svg)
