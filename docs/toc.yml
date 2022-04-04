@@ -4001,7 +4001,7 @@ items:
                   - name: Modernize mainframe and midrange data
                     href: reference-architectures/migration/modernize-mainframe-data-to-azure.yml
                   - name: Move mainframe archive data to Azure
-                    href: move-archive-data-mainframes.yml
+                    href: mainframe/move-archive-data-mainframes.yml
                   - name: Re-engineer mainframe batch apps
                     href: example-scenario/mainframe/reengineer-mainframe-batch-apps-azure.yml
                   - name: Replicate and sync mainframe data

@@ -5,7 +5,7 @@ Mainframe and midrange systems generate, process, and store huge amounts of data
 Archiving data to the cloud can help you: 
 - Free up storage resources in mainframe and midrange systems. 
 - Optimize performance for queries by storing only relevant data on the active system. 
-- Reduce operational costs by storing data in a more economic way.
+- Reduce operational costs by storing data in a more economical way.
 - Use archived data for analytics to create new opportunities and make better business decisions.
 
 ## Architecture 
@@ -21,7 +21,7 @@ To decide which method to use for moving data between the mainframe system and A
 - **Microsoft solutions.** 
    - The Azure Data Factory FTP connector.
    - The Data Factory copy activity, which can copy data to any Azure storage solution.
-   - A custom solution for moving data from the mainframe system to Azure via Job Control Language (JCL). For more information, contact [datasqlninja@microsoft.com](mailto:datasqlninja@microsoft.com).
+   - *Mainframe JCL to Azure Blob using Java*, a custom solution for moving data from the mainframe system to Azure via Job Control Language (JCL). For more information, contact [datasqlninja@microsoft.com](mailto:datasqlninja@microsoft.com).
 - [**Third-party archive solutions.**](#third-party-archive-solutions) Solutions that you can easily integrate with mainframe systems, midrange systems, and Azure services.
 
 ### Workflow
@@ -39,7 +39,7 @@ To decide which method to use for moving data between the mainframe system and A
 5. Easy interaction with the mainframe or midrange environment is provided by [third-party archive solutions](#third-party-archive-solutions). 
    
     These solutions interact with the mainframe and handle various mainframe parameters, like data types, record types, storage types, and access methods. They serve as a bridge between Azure and the mainframe. Some third-party solutions connect a storage drive to the mainframe and help transfer data to Azure. 
-6. Data is periodically synched and archived via the third-party archive solution. After the data is available via the third-party solution, the solution can easily push it to Azure cloud by using available connectors. 
+6. Data is periodically synched and archived via the third-party archive solution. After the data is available via the third-party solution, the solution can easily push it to Azure by using available connectors. 
 7. Data is [stored in Azure](#azure-storage). 
 8. As needed, [data is recalled from Azure](#data-recall) back to mainframe or midrange systems. 
 
@@ -59,7 +59,11 @@ Depending on how you use data, you might want to convert it to ASCII from binary
 
 ## Considerations
 
-Complex data types on the mainframe must be handled during archive. Application subject matter experts can identify which data needs to be archived. To determine the amount of time between syncs, consider factors like business criticality, compliance needs, and frequency of data access.
+Complex data types on the mainframe must be handled during archive. 
+
+Application subject matter experts can identify which data needs to be archived. 
+
+To determine the amount of time between syncs, consider factors like business criticality, compliance needs, and frequency of data access.
 
 ### Third-party archive solutions 
 
