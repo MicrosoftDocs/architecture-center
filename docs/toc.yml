@@ -256,7 +256,7 @@ items:
                 href: /azure/cognitive-services/responsible-use-of-ai-overview
                 maintainContext: true
               - name: Machine learning
-                items:
+                items: 
                   - name: Responsible AI and machine learning
                     href: /azure/machine-learning/concept-responsible-ml
                     maintainContext: true
@@ -627,6 +627,19 @@ items:
                 href: example-scenario/data/ecommerce-order-processing.yml
               - name: Video capture and analytics for retail
                 href: solution-ideas/articles/video-analytics.yml
+          - name: Datasets
+            items:
+              - name: OJ sales simulated
+                href: /azure/open-datasets/dataset-oj-sales-simulated
+                maintainContext: true
+              - name: US Consumer Price Index
+                items:
+                  - name: US Consumer Price Index
+                    href: /azure/open-datasets/dataset-us-consumer-price-index
+                    maintainContext: true
+                  - name: US Producer Price Index - Commodities
+                    href: /azure/open-datasets/dataset-us-producer-price-index-commodities
+                    maintainContext: true
           - name: Compliance solutions
             items:
               - name: ISO standards
