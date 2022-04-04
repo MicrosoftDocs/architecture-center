@@ -27,6 +27,8 @@ The wheel health analysis system provides early identification of potential equi
 
 ## Potential use cases
 
+This solution is ideal for the transportation, telecommunications, and manufacturing industries. It focuses on the following scenarios:
+
 - A telecommunications network that has to maintain 99% or better uptime.
 - Production quality control, equipment repair, and predictive maintenance in a factory.
 - A transportation safety system that must process real-time streaming data with little or no latency.
