@@ -113,7 +113,7 @@ You should also ensure that you have branch policies in place to prevent individ
 
 Finally, though you might not have an index of all repositories and the code within, your organization should develop a process for individuals to request access to repositories. Certain rules could be fully automated—for example, because a user on the product team, she can be granted read access without review to any application under that product. Such rules can often be implemented with group-based membership and group-based role assignments in your environments. Configuring this kind of access should help to facilitate inner sourcing and organizational knowledge.
 
-## See Also
+## Next steps
 
 - [Design area: Platform automation and DevOps](/azure/cloud-adoption-framework/ready/landing-zone/design-area/platform-automation-devops)
 - [Mature team structures](/azure/cloud-adoption-framework/organize/organization-structures)
