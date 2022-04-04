@@ -114,10 +114,11 @@ The Connected Machine agent for Linux and Windows communicates outbound securely
 
 ### Cost Optimization
 
-- Azure Arc control plane functionality, such as support for Resource organization through Azure management groups and tags, and Access control through Azure role-based access control (RBAC) is provided at no extra cost. Azure services used in conjunction to Azure Arc-enabled servers incur costs according to their usage. When deploying the Jumpstart ArcBox for IT Pros reference implementation for this architecture keep in mind  ArcBox resources generate Azure Consumption charges from the underlying Azure resources including core compute, storage, networking and auxillary services.
+- Azure Arc control plane functionality, such as support for Resource organization through Azure management groups and tags, and Access control through Azure role-based access control (RBAC) is provided at no extra cost. Azure services used in conjunction to Azure Arc-enabled servers incur costs according to their usage.
 - Consult [Cost governance for Azure Arc-enabled servers](/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-servers/eslz-cost-governance) for additional Azure Arc cost optimization guidance.
-- Other const optimization considerations for your solution are described in the [Principles of cost optimization][principles-cost-opt] section in the Microsoft Azure Well-Architected Framework.
+- Other cost optimization considerations for your solution are described in the [Principles of cost optimization][principles-cost-opt] section in the Microsoft Azure Well-Architected Framework.
 - Use the [Azure pricing calculator][pricing-calculator] to estimate costs.
+- When deploying the Jumpstart ArcBox for IT Pros reference implementation for this architecture keep in mind ArcBox resources generate Azure Consumption charges from the underlying Azure resources including core compute, storage, networking and auxillary services.
 
 ### Operational excellence
 
@@ -136,10 +137,9 @@ To deploy the reference implementation, follow the steps in the GitHub repo.
 ## Next steps
 
 - [Learn more about Azure Arc][Azure Arc]
-- [Learn more about Azure virtual machines][Azure virtual machines]
-- [Learn more about Azure Policy Guest Configuration][Azure Policy Guest Configuration]
-- [Learn more about Azure Monitor][Azure Monitor]
-- [Overview of Azure Arc-enabled servers agent][agent-overview]
+- [Learn more about Azure Arc-enabled servers][Azure Arc-enabled servers]
+- [Review Azure Arc Jumpstart scenarios][Arc Jumpstart servers scenarios] in the Arc Jumpstart
+- [Arc-enabled servers landing zone accelerator][CAF Arc Accelerator] in CAF
 
 [architectural-diagram]: ./images/azure-arc-hybrid-config.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-arc-hybrid-config.vsdx
@@ -163,3 +163,7 @@ To deploy the reference implementation, follow the steps in the GitHub repo.
 [pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [principles-cost-opt]: /azure/architecture/framework/cost/overview
 [onboard-dsc]: /azure/azure-arc/servers/onboard-dsc
+[Arc Jumpstart]: https://azurearcjumpstart.io
+[ArcBox for IT Pros]: https://azurearcjumpstart.io/azure_jumpstart_arcbox/itpro
+[Arc Jumpstart servers scenarios]: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/
+[CAF Arc Accelerator]: /azure/cloud-adoption-framework/scenarios/hybrid/enterprise-scale-landing-zone
