@@ -6,7 +6,7 @@ This reference architecture illustrates how Azure Arc enables you to manage, gov
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
-**TODO** - update Visio file (https://arch-center.azureedge.net/azure-arc-hybrid-config.vsdx) to reflect revised Jumpstart ArcBox for IT Pros image 
+**TODO** - update Visio file (https://arch-center.azureedge.net/azure-arc-hybrid-config.vsdx) to reflect revised Jumpstart ArcBox for IT Pros image.
 
 Typical uses for this architecture include:
 
