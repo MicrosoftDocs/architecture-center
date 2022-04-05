@@ -23,7 +23,7 @@ As in the above example, [Azure Front Door can be configured to modify the reque
 > [!TIP]
 > If your application sends cookies or redirection responses, you need to take special care. Changes in the request's `Host` headers might invalidate these responses. For more information, see the [host name preservation best practice](../../../best-practices/host-name-preservation.yml).
 
-You can use [private endpoints](/azure/frontdoor/standard-premium/concept-private-link) or App Service [access restrictions](https://techcommunity.microsoft.com/t5/azure-architecture-blog/permit-access-only-from-azure-front-door-to-azure-app-service-as/ba-p/2000173) to ensure that traffic has flowed through Front Door before reaching your app.
+You can use [private endpoints](/azure/time-series-insights/concepts-private-links) or App Service [access restrictions](https://techcommunity.microsoft.com/t5/azure-architecture-blog/permit-access-only-from-azure-front-door-to-azure-app-service-as/ba-p/2000173) to ensure that traffic has flowed through Front Door before reaching your app.
 
 ### Authentication and authorization
 
