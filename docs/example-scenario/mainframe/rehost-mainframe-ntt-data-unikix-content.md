@@ -149,7 +149,7 @@ This solution uses an Azure network security group to manage traffic between Azu
 
 ## Contributors
 
-*This article is being updated and maintained by Microsoft. It was originally written by the following contributors.*
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal authors:
 
