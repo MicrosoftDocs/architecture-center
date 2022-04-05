@@ -20,6 +20,8 @@ Typical uses for this architecture include:
 
 The architecture consists of the following components:
 
+- An **[Azure Resource Group][Azure Resource Group]** is a container that holds related resources for an Azure solution. The resource group can include all the resources for the solution, or only those resources that you want to manage as a group.
+- **[ArcBox workbook][ArcBox workbook]** is an Azure Monitor workbook which provides a single pane of glass for monitoring and reporting on ArcBox resources. The workbook acts as a flexible canvas for data analysis and visualization in the Azure portal, gathering information from several data sources from across ArcBox and combining them into an integrated interactive experience..
 - **[Azure Monitor][Azure Monitor]** enables you to track performance and events for systems running in Azure, on-premises, or in other clouds.
 - **[Azure Policy guest configuration][Azure Policy Guest Configuration]** can audit operating systems and machine configuration both for machines running in Azure and Arc-enabled servers running on-premises or in other clouds.
 - **[Azure Log Analytics][Azure Log Analytics]** is a tool in the Azure portal to edit and run log queries from data collected by Azure Monitor Logs and interactively analyze their results. You can use Log Analytics queries to retrieve records that match particular criteria, identify trends, analyze patterns, and provide a variety of insights into your data. 
@@ -27,7 +29,7 @@ The architecture consists of the following components:
 - **[Azure Sentinel][Azure Sentinel]** is a scalable, cloud-native, security information and event management (SIEM) and security orchestration, automation, and response (SOAR) solution. Microsoft Sentinel delivers intelligent security analytics and threat intelligence across the enterprise, providing a single solution for attack detection, threat visibility, proactive hunting, and threat response.
 - **[Azure Arc-enabled servers][Azure Arc-enabled servers]** enables you to connect Azure to your Windows and Linux machines hosted outside of Azure on your corporate network. When a server is connected to Azure, it becomes an Arc-enabled server and is treated as a resource in Azure. Each Arc-enabled server has a Resource ID, a managed system identity, and is managed as part of a resource group inside a subscription. Arc-enabled servers benefit from standard Azure constructs such as inventory, policy, tags, and Azure Lighthouse.
 - **[Hyper-V nested virtualization][Hyper-V nested virtualization]** is used by Jumpstart ArcBox for IT Pros to host Windows Server virtual machines inside of an Azure virtual machine. This provides the same experience as using physical Windows Server machines, but without the hardware requirements.
-
+- **[Azure Virtual Network][Azure Virtual Network]** provides a private network that enables components within the Azure Resource Group to communicate, such as the virtual machines.
 
 
 ## Recommendations
@@ -164,37 +166,40 @@ To deploy the reference implementation, follow the steps in the GitHub repo sele
 - [Review Azure Arc Jumpstart scenarios][Arc Jumpstart servers scenarios] in the Arc Jumpstart
 - [Arc-enabled servers landing zone accelerator][CAF Arc Accelerator] in CAF
 
+[agent-overview]: /azure/azure-arc/servers/agent-overview
+[Arc-agent-deployment-options]: /azure/azure-arc/servers/deployment-options
+[arc-built-in-policies]: /azure/azure-arc/servers/policy-samples
+[Arc Jumpstart]: https://azurearcjumpstart.io
+[Arc Jumpstart servers scenarios]: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/
+[Arc Jumpstart unifiedops scenarios]: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/day2/
+[ArcBox for IT Pros]: https://azurearcjumpstart.io/azure_jumpstart_arcbox/itpro
+[ArcBox workbook]: https://azurearcjumpstart.io/azure_jumpstart_arcbox/workbook/flavors/itpro/
 [architectural-diagram]: ./images/azure-arc-hybrid-config.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-arc-hybrid-config.vsdx
 [Azure Arc]: /azure/azure-arc/
 [Azure Arc-enabled servers]: https://azure.microsoft.com/services/azure-arc/#infrastructure
+[Azure Automation State Configuration]: /azure/automation/automation-dsc-overview
 [Azure Log Analytics]: /azure/azure-monitor/logs/log-analytics-overview
 [Azure Monitor]: https://azure.microsoft.com/services/monitor/
 [Azure Policy Guest Configuration]: /azure/governance/policy/concepts/guest-configuration
+[Azure Resource Group]: /azure/azure-resource-manager/management/manage-resource-groups-portal#what-is-a-resource-group
 [Azure Sentinel]: https://azure.microsoft.com/services/microsoft-sentinel/
 [Azure virtual machines]: /azure/virtual-machines/
-[Hyper-V nested virtualization]: /virtualization/hyper-v-on-windows/user-guide/nested-virtualization
-[Microsoft Defender for Cloud]: https://azure.microsoft.com/services/defender-for-cloud/
-[windows-agent-download]: https://aka.ms/AzureConnectedMachineAgent
-[microsoft-package-repo]: https://packages.microsoft.com/
-[agent-overview]: /azure/azure-arc/servers/agent-overview
-[Azure Automation State Configuration]: /azure/automation/automation-dsc-overview
+[Azure Virtual Network]: https://azure.microsoft.com/services/virtual-network/
+[caf-arc-servers-automation]: /azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-servers/eslz-automation-arc-server
+[CAF Arc Accelerator]: /azure/cloud-adoption-framework/scenarios/hybrid/enterprise-scale-landing-zone
 [connect-hybrid-at-scale]: /azure/azure-arc/servers/onboard-service-principal
+[Hyper-V nested virtualization]: /virtualization/hyper-v-on-windows/user-guide/nested-virtualization
 [manage-vm-extensions]: /azure/azure-arc/servers/manage-vm-extensions
+[Microsoft Defender for Cloud]: https://azure.microsoft.com/services/defender-for-cloud/
+[microsoft-package-repo]: https://packages.microsoft.com/
 [networking configuration]: /azure/azure-arc/servers/agent-overview#networking-configuration
-[supported regions]: /azure/azure-arc/servers/overview#supported-regions
-[supported operating systems]: /azure/azure-arc/servers/agent-overview#supported-operating-systems
-[subscription-limits]: /azure/azure-resource-manager/management/azure-subscription-service-limits#subscription-limits
-[rg-limits]: /azure/azure-resource-manager/management/azure-subscription-service-limits#resource-group-limits
-[arc-built-in-policies]: /azure/azure-arc/servers/policy-samples
+[onboard-dsc]: /azure/azure-arc/servers/onboard-dsc
 [pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [principles-cost-opt]: /azure/architecture/framework/cost/overview
+[rg-limits]: /azure/azure-resource-manager/management/azure-subscription-service-limits#resource-group-limits
+[subscription-limits]: /azure/azure-resource-manager/management/azure-subscription-service-limits#subscription-limits
+[supported regions]: /azure/azure-arc/servers/overview#supported-regions
+[supported operating systems]: /azure/azure-arc/servers/agent-overview#supported-operating-systems
 [waf-principles-operational-excellence]: /azure/architecture/framework/devops/principles
-[caf-arc-servers-automation]: /azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-servers/eslz-automation-arc-server
-[onboard-dsc]: /azure/azure-arc/servers/onboard-dsc
-[Arc Jumpstart]: https://azurearcjumpstart.io
-[ArcBox for IT Pros]: https://azurearcjumpstart.io/azure_jumpstart_arcbox/itpro
-[Arc Jumpstart servers scenarios]: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/
-[CAF Arc Accelerator]: /azure/cloud-adoption-framework/scenarios/hybrid/enterprise-scale-landing-zone
-[Arc-agent-deployment-options]: /azure/azure-arc/servers/deployment-options
-[Arc Jumpstart unifiedops scenarios]: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/day2/
+[windows-agent-download]: https://aka.ms/AzureConnectedMachineAgent
