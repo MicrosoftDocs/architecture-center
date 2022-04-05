@@ -1,12 +1,5 @@
 
-
 This reference architecture illustrates how Azure Arc enables you to manage, govern, and secure servers across on-premises, multiple cloud, and edge scenarios.
-
-:::image type="content" source="./images/azure-arc-hybrid-config.png" alt-text="An Azure Arc hybrid server topology diagram with Arc-enabled servers connected to Azure." lightbox="./images/azure-arc-hybrid-config.png" :::
-
-*Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
-
-**TODO** - update Visio file (https://arch-center.azureedge.net/azure-arc-hybrid-config.vsdx) to reflect revised Jumpstart ArcBox for IT Pros image.
 
 Typical uses for this architecture include:
 
@@ -16,6 +9,14 @@ Typical uses for this architecture include:
 - Configure and enforce Azure Policy for VMs and servers hosted across multiple environments.
 
 ## Architecture
+
+:::image type="content" source="./images/azure-arc-hybrid-config.png" alt-text="An Azure Arc hybrid server topology diagram with Arc-enabled servers connected to Azure." lightbox="./images/azure-arc-hybrid-config.png" :::
+
+*Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
+
+**TODO** - update Visio file (https://arch-center.azureedge.net/azure-arc-hybrid-config.vsdx) to reflect revised Jumpstart ArcBox for IT Pros image 
+
+### Components
 
 The architecture consists of the following components:
 
@@ -98,43 +99,58 @@ You can use [Microsoft Sentinel](/azure/sentinel/overview) to deliver intelligen
 
 The Connected Machine agent for Linux and Windows communicates outbound securely to Azure Arc over TCP port **443**. If the machine connects through a firewall or proxy server to communicate over the internet, review the required URLs and service tags found on the Azure Arc Agent [Networking configuration][networking configuration] page.
 
+## Considerations
 
-**TODO:** align the following RA "considerations" sections w/WAF "pillars" (Reliability, Security, Cost Optimization, Operational excellence, Performance efficiency). Also note the RA Performance and Scalability considerations sections are missing below.
-
-## Availability considerations
+### Reliability
 
 - In most cases, the location you select when you create the installation script should be the Azure region geographically closest to your machine's location. The rest of the data will be stored within the Azure geography containing the region you specify, which might also affect your choice of region if you have data residency requirements. If an outage affects the Azure region to which your machine is connected, the outage will not affect the Arc-enabled server, but management operations using Azure might not be able to complete. For resilience in the event of a regional outage, if you have multiple locations that provide a geographical-redundant service, it's best to connect the machines in each location to a different Azure region.
 - Ensure that Azure Arc-enabled servers is supported in your regions by checking [supported regions][supported regions].
 - Ensure that services referenced in the Architecture section are supported in the region to which Azure Arc-enabled servers is deployed.
 
-## Manageability considerations
-
-- Consult the list of supported [operated systems][supported operating systems] on the Azure Arc-enabled servers agent overview page.
-- Before configuring your machines with Azure Arc-enabled servers, you should review the Azure Resource Manager [subscription limits][subscription-limits] and [resource group limits][rg-limits] to plan for the number of machines to be connected.
-
-## Security considerations
+### Security
 
 - Appropriate Azure role-based access control (Azure RBAC) access should be managed for Arc-enabled servers. To onboard machines, you must be a member of the **Azure Connected Machine Onboarding** role. To read, modify, re-onboard, and delete a machine, you must be a member of the **Azure Connected Machine Resource Administrator** role.
 - You can use Azure Policy to manage security policies across your Arc-enabled servers, including implementing security policies in Microsoft Defender for Cloud. A security policy defines the desired configuration of your workloads and helps ensure you're complying with the security requirements of your company or regulators. Defender for Cloud policies are based on policy initiatives created in Azure Policy.
 
-## Cost considerations
+### Cost optimization
 
+- Azure Arc control plane functionality, such as support for Resource organization through Azure management groups and tags, and Access control through Azure role-based access control (RBAC) is provided at no extra cost. Azure services used in conjunction to Azure Arc-enabled servers incur costs according to their usage.
+- Consult [Cost governance for Azure Arc-enabled servers](/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-servers/eslz-cost-governance) for additional Azure Arc cost optimization guidance.
+- Other cost optimization considerations for your solution are described in the [Principles of cost optimization][principles-cost-opt] section in the Microsoft Azure Well-Architected Framework.
 - Use the [Azure pricing calculator][pricing-calculator] to estimate costs.
-- Other considerations are described in the [Principles of cost optimization][principles-cost-opt] section in the Microsoft Azure Well-Architected Framework.
+- When deploying the Jumpstart ArcBox for IT Pros reference implementation for this architecture, keep in mind ArcBox resources generate Azure Consumption charges from the underlying Azure resources. These resources include core compute, storage, networking and auxillary services.
+
+### Operational excellence
+
+- Automate the deployment of you Arc-enabled servers environment. The [reference implementation](#deploy-the-solution) of this architecture is fully automated using a combination of Azure ARM templates, VM extensions, Azure Policy configurations, and PowerShell scripts that you can reuse for your own deployments. Consult [Automation disciplines for Azure Arc-enabled servers][caf-arc-servers-automation] for additional Arc-enabled servers automation guidance in the Cloud Adoption Framework (CAF).
+- There are several options available in Azure to automate the [onboarding of Arc-enabled servers][Arc-agent-deployment-options]. To onboard at scale, use a service principal and deploy via your organizations existing automation platform.
+- VM extensions can be deployed to Arc-enabled servers to simplify the management of hybrid servers throughout their lifecycle. Consider automating the deployment of VM extensions via Azure Policy when managing servers at scale.
+- Enable patch and Update Management in your onboarded Azure Arc-enabled servers to ease OS lifecycle management.
+- Review [Azure Arc Jumpstart Unified Operations Use Cases][Arc Jumpstart unifiedops scenarios] to learn about additional operational excellence scenarios for Azure Arc-enabled servers.
+- Other operational excellence considerations for your solution are described in the [Operational excellence design principles][principles-operational-excellence] section in the Microsoft Azure Well-Architected Framework.
+
+### Performance efficiency
+
+- Before configuring your machines with Azure Arc-enabled servers, you should review the Azure Resource Manager [subscription limits][subscription-limits] and [resource group limits][rg-limits] to plan for the number of machines to be connected.
+- A phased deployment approach as described in the [deployment guide](/azure/azure-arc/servers/plan-at-scale-deployment) can help you determine the resource capacity requirements for your implementation.
+- Use Azure Monitor to collect data directly from your Azure Arc-enabled servers into a Log Analytics workspace for detailed analysis and correlation. Review the [deployment options](/azure/azure-arc/servers/concept-log-analytics-extension-deployment) for the Azure Monitor agents.
+- Additional performance efficiency considerations for your solution are described in the [Performance efficiency principles](/azure/architecture/framework/scalability/principles) section in the Microsoft Azure Well-Architected Framework.
 
 ## Deploy the solution
 
-**TODO:** Complete this section
+The reference implementation of this architecture can be found in the [Jumpstart ArcBox for IT Pros](https://azurearcjumpstart.io/azure_jumpstart_arcbox/itpro), included as part of the [Arc Jumpstart](https://azurearcjumpstart.io/). ArcBox is designed to be completely self-contained within a single Azure subscription and resource group. ArcBox makes it easy for a user to get hands-on experience with all available Azure Arc technology with nothing more than an available Azure subscription.
 
-Deployment assets will come from [Jumpstart ArcBox for IT Pros](https://azurearcjumpstart.io/azure_jumpstart_arcbox/itpro/)
+To deploy the reference implementation, follow the steps in the GitHub repo selecting the **Jumpstart ArcBox for IT Pros** button below.
+
+> [!div class="nextstepaction"]
+> [Jumpstart ArcBox for IT Pros](https://azurearcjumpstart.io/azure_jumpstart_arcbox/itpro/#deployment-options-and-automation-flow)
 
 ## Next steps
 
 - [Learn more about Azure Arc][Azure Arc]
-- [Learn more about Azure virtual machines][Azure virtual machines]
-- [Learn more about Azure Policy Guest Configuration][Azure Policy Guest Configuration]
-- [Learn more about Azure Monitor][Azure Monitor]
-- [Overview of Azure Arc-enabled servers agent][agent-overview]
+- [Learn more about Azure Arc-enabled servers][Azure Arc-enabled servers]
+- [Review Azure Arc Jumpstart scenarios][Arc Jumpstart servers scenarios] in the Arc Jumpstart
+- [Arc-enabled servers landing zone accelerator][CAF Arc Accelerator] in CAF
 
 [architectural-diagram]: ./images/azure-arc-hybrid-config.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-arc-hybrid-config.vsdx
@@ -157,4 +173,12 @@ Deployment assets will come from [Jumpstart ArcBox for IT Pros](https://azurearc
 [arc-built-in-policies]: /azure/azure-arc/servers/policy-samples
 [pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [principles-cost-opt]: /azure/architecture/framework/cost/overview
+[waf-principles-operational-excellence]: /azure/architecture/framework/devops/principles
+[caf-arc-servers-automation]: /azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-servers/eslz-automation-arc-server
 [onboard-dsc]: /azure/azure-arc/servers/onboard-dsc
+[Arc Jumpstart]: https://azurearcjumpstart.io
+[ArcBox for IT Pros]: https://azurearcjumpstart.io/azure_jumpstart_arcbox/itpro
+[Arc Jumpstart servers scenarios]: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/
+[CAF Arc Accelerator]: /azure/cloud-adoption-framework/scenarios/hybrid/enterprise-scale-landing-zone
+[Arc-agent-deployment-options]: /azure/azure-arc/servers/deployment-options
+[Arc Jumpstart unifiedops scenarios]: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/day2/
