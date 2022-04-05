@@ -32,11 +32,11 @@ The following recommendations apply for most scenarios. Follow these recommendat
 
 You can connect any other physical or virtual machine running Windows or Linux to Azure Arc. To use Azure Arc to connect the machine to Azure, you need to install the Azure Connected Machine agent on each machine that you plan to connect using Azure Arc.
 
-Once configured, the Connected Machine agent sends a regular heartbeat message every five minutes to Azure. When the heartbeat is not received, Azure assigns the machine Offline status, which is reflected in the portal within 15 to 30 minutes. Upon receiving a subsequent heartbeat message from the Connected Machine agent, its status will automatically change to Connected.
+Once configured, the Connected Machine agent sends a regular heartbeat message every five minutes to Azure. When the heartbeat isn't received, Azure assigns the machine Offline status, which is reflected in the portal within 15 to 30 minutes. Upon receiving a subsequent heartbeat message from the Connected Machine agent, its status will automatically change to Connected.
 
 #### Manual installation
 
-You can enable Azure Arc-enabled servers for one or a few Windows or Linux machines in your environment by using the Windows Admin Center tool set or by performing a set of steps manually. You can download the [Windows agent Windows Installer package][windows-agent-download] from the Microsoft Download Center or the Linux agent from [Microsoft's package repository][microsoft-package-repo].
+Azure Arc-enabled servers can be enabled for one or a few Windows or Linux machines in your environment by using the Windows Admin Center tool set or by performing a set of steps manually. You can download the [Windows agent Windows Installer package][windows-agent-download] from the Microsoft Download Center or the Linux agent from [Microsoft's package repository][microsoft-package-repo].
 
 For more information, see [Overview of Azure Arc-enabled servers agent][agent-overview].
 
@@ -52,7 +52,13 @@ To connect the machines to Azure Arc-enabled servers, you can use an Azure Activ
 
 #### Installation using Windows PowerShell DSC
 
-You can automate agent installation and configuration for a Windows computer by using Windows PowerShell Desired State Configuration (DSC), Windows PowerShell, the AzureConnectedMachine DSC Module, and a service principal for onboarding. For more information, see [How to install the Connected Machine agent using Windows PowerShell DSC][onboard-dsc].
+You can automate agent installation and configuration for a Windows computer by using:
+- Windows PowerShell Desired State Configuration (DSC)
+- Windows PowerShell
+- The PowerShell AzureConnectedMachine DSC Module
+- A service principal for onboarding
+
+For more information, see [How to install the Connected Machine agent using Windows PowerShell DSC][onboard-dsc].
 
 ### Manage VM extensions
 
@@ -80,15 +86,15 @@ You can perform update management for Arc-enabled servers.  Update management in
 
 ### Implement Change Tracking and Inventory
 
-You can use Azure Automation Change Tracking and Inventory for Arc-enabled servers to determine what software is installed in your environment. You can collect and observe inventory for software, files, Linux daemons, Windows services, and Windows Registry keys on your computers. Tracking the configurations of your machines can help you pinpoint operational issues across your environment and better understand the state of your machines.
+Azure Automation Change Tracking and Inventory for Arc-enabled servers allows you to determine what software is installed in your environment. You can collect and observe inventory for software, files, Linux daemons, Windows services, and Windows Registry keys. Tracking the configurations of your machines can help you pinpoint operational issues across your environment and better understand the state of your machines.
 
 ### Implement Azure Monitor
 
-You can use Azure Monitor to monitor your VMs, virtual machine scale sets, and Azure Arc machines at scale. Azure Monitor analyzes the performance and health of your Windows and Linux VMs and monitors their processes and dependencies on other resources and external processes. It includes support for monitoring performance and application dependencies for VMs that are hosted on-premises or in another cloud provider.
+You can use Azure Monitor to monitor your VMs, virtual machine scale sets, and Azure Arc machines at scale. Azure Monitor analyzes the performance and health of your Windows and Linux VMs, and monitors their processes and dependencies on other resources and external processes. It includes support for monitoring performance and application dependencies for VMs that are hosted on-premises or in another cloud provider.
 
 ### Implement Microsoft Sentinel
 
-You can use [Microsoft Sentinel](/azure/sentinel/overview) to deliver intelligent security analytics and threat intelligence across the enterprise, providing a single solution for alert detection, threat visibility, proactive hunting, and threat response. Microsoft Sentinel is a scalable, cloud-native, security information event management (SIEM), and security orchestration automated response (SOAR) solution that enables several scenarios including:
+[Microsoft Sentinel](/azure/sentinel/overview) delivers intelligent security analytics and threat intelligence across the enterprise, providing a single solution for alert detection, threat visibility, proactive hunting, and threat response. Microsoft Sentinel is a scalable, cloud-native, security information event management (SIEM), and security orchestration automated response (SOAR) solution that enables several scenarios including:
 
 - Collect data at cloud scale across all users, devices, applications, and infrastructure, both on-premises and in multiple clouds.
 - Detect previously undetected threats and minimize false positives.
@@ -103,26 +109,26 @@ The Connected Machine agent for Linux and Windows communicates outbound securely
 
 ### Reliability
 
-- In most cases, the location you select when you create the installation script should be the Azure region geographically closest to your machine's location. The rest of the data will be stored within the Azure geography containing the region you specify, which might also affect your choice of region if you have data residency requirements. If an outage affects the Azure region to which your machine is connected, the outage will not affect the Arc-enabled server, but management operations using Azure might not be able to complete. For resilience in the event of a regional outage, if you have multiple locations that provide a geographical-redundant service, it's best to connect the machines in each location to a different Azure region.
+- In most cases, the location you select when you create the installation script should be the Azure region geographically closest to your machine's location. The rest of the data will be stored within the Azure geography containing the region you specify, which might also affect your choice of region if you have data residency requirements. If an outage affects the Azure region to which your machine is connected, the outage won't affect the Arc-enabled server. However, management operations using Azure might not be able to function. If you have multiple locations that provide a geographical-redundant service, it's best to connect the machines in each location to a different Azure region for resilience in the event of a regional outage.
 - Ensure that Azure Arc-enabled servers is supported in your regions by checking [supported regions][supported regions].
 - Ensure that services referenced in the Architecture section are supported in the region to which Azure Arc-enabled servers is deployed.
 
 ### Security
 
-- Appropriate Azure role-based access control (Azure RBAC) access should be managed for Arc-enabled servers. To onboard machines, you must be a member of the **Azure Connected Machine Onboarding** role. To read, modify, re-onboard, and delete a machine, you must be a member of the **Azure Connected Machine Resource Administrator** role.
+- Appropriate Azure role-based access control (Azure RBAC) should be managed for Arc-enabled servers. To onboard machines, you must be a member of the **Azure Connected Machine Onboarding** role. To read, modify, reonboard, and delete a machine, you must be a member of the **Azure Connected Machine Resource Administrator** role.
 - You can use Azure Policy to manage security policies across your Arc-enabled servers, including implementing security policies in Microsoft Defender for Cloud. A security policy defines the desired configuration of your workloads and helps ensure you're complying with the security requirements of your company or regulators. Defender for Cloud policies are based on policy initiatives created in Azure Policy.
 
 ### Cost optimization
 
-- Azure Arc control plane functionality, such as support for Resource organization through Azure management groups and tags, and Access control through Azure role-based access control (RBAC) is provided at no extra cost. Azure services used in conjunction to Azure Arc-enabled servers incur costs according to their usage.
+- Azure Arc control plane functionality is provided at no extra cost. This includes support for resource organization through Azure management groups and tags, and access control through Azure role-based access control (RBAC). Azure services used in conjunction to Azure Arc-enabled servers incur costs according to their usage.
 - Consult [Cost governance for Azure Arc-enabled servers](/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-servers/eslz-cost-governance) for additional Azure Arc cost optimization guidance.
 - Other cost optimization considerations for your solution are described in the [Principles of cost optimization][principles-cost-opt] section in the Microsoft Azure Well-Architected Framework.
 - Use the [Azure pricing calculator][pricing-calculator] to estimate costs.
-- When deploying the Jumpstart ArcBox for IT Pros reference implementation for this architecture, keep in mind ArcBox resources generate Azure Consumption charges from the underlying Azure resources. These resources include core compute, storage, networking and auxillary services.
+- When deploying the Jumpstart ArcBox for IT Pros reference implementation for this architecture, keep in mind ArcBox resources generate Azure Consumption charges from the underlying Azure resources. These resources include core compute, storage, networking and auxiliary services.
 
 ### Operational excellence
 
-- Automate the deployment of you Arc-enabled servers environment. The [reference implementation](#deploy-the-solution) of this architecture is fully automated using a combination of Azure ARM templates, VM extensions, Azure Policy configurations, and PowerShell scripts that you can reuse for your own deployments. Consult [Automation disciplines for Azure Arc-enabled servers][caf-arc-servers-automation] for additional Arc-enabled servers automation guidance in the Cloud Adoption Framework (CAF).
+- Automate the deployment of your Arc-enabled servers environment. The [reference implementation](#deploy-the-solution) of this architecture is fully automated using a combination of Azure ARM templates, VM extensions, Azure Policy configurations, and PowerShell scripts. You can also reuse these artifacts for your own deployments. Consult [Automation disciplines for Azure Arc-enabled servers][caf-arc-servers-automation] for additional Arc-enabled servers automation guidance in the Cloud Adoption Framework (CAF).
 - There are several options available in Azure to automate the [onboarding of Arc-enabled servers][Arc-agent-deployment-options]. To onboard at scale, use a service principal and deploy via your organizations existing automation platform.
 - VM extensions can be deployed to Arc-enabled servers to simplify the management of hybrid servers throughout their lifecycle. Consider automating the deployment of VM extensions via Azure Policy when managing servers at scale.
 - Enable patch and Update Management in your onboarded Azure Arc-enabled servers to ease OS lifecycle management.
