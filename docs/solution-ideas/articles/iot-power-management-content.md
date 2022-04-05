@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This article describes an internet of things (IoT) solution that provides power, light, and internet services to remote locations. Veriown, a telecommunications company, has developed Connect IoT devices that can act as energy and internet hubs for homes and small businesses.
+This article describes an internet of things (IoT) solution that provides power, light, and internet services to remote locations. [Veriown](https://veriown.com), a telecommunications company, based the solution on Connect IoT devices that can act as energy and internet hubs for homes and small businesses.
 
 The Connect devices use a rooftop solar panel to charge a battery, which delivers LED light and power. An integrated SIM card and tablet provide individualized access to online content and services. The overall solution combines Connect devices with mobile apps and Azure cloud capabilities. The solution delivers clean, low-cost power and internet services with high reliability and minimal downtime.
 
@@ -28,7 +28,7 @@ The architecture consists of:
 
 ### Application dataflow
 
-![Diagram showing data stream coming from the power subsystem to Azure IoT edge and cloud components.](../media/iot-power-architecture.png)
+[![Diagram showing data stream coming from the power subsystem to Azure IoT edge and cloud components.](../media/iot-power-architecture.png)](../media/iot-power-architecture.png#lightbox)
 
 1. Field sales and service agents use a mobile platform to interact with the cloud application via Azure Application Gateway. End users use a built-in interface or mobile app to access and control their devices.
 1. Application Gateway uses messaging protocols to interact with users and operators.
