@@ -81,19 +81,24 @@ Use the Azure [pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 ## Contributors
 
-**Principal author:**  
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+**Principal author:**
+
 * [Pratim Dasgupta](https://www.linkedin.com/in/pratimdasgupta) | Engineering Architect
 
-**Other contributors:** 
+**Other contributors:**
 
 * [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer 
 * [Ashish Khandelwal](https://www.linkedin.com/in/ashish-khandelwal-839a851a3) | Senior Engineering Architect Manager 
 * [Ramanath Nayak](https://www.linkedin.com/in/ramanath-nayak-584a2685) | Engineering Architect 
 
 ## Next steps
-For more information, contact [Azure Data Engineering - Mainframe/Midrange Modernization](mailto:datasqlninja@microsoft.com)
 
-See these resources: 
+For more information, contact [Azure Data Engineering - Mainframe/Midrange Modernization](mailto:datasqlninja@microsoft.com).
+
+See these resources:
+
 - [Azure Database Migration Guides](https://datamigration.microsoft.com)
 - [What is Azure Data Factory?](/azure/data-factory/introduction)
 - [Introduction to Azure Storage](/azure/storage/common/storage-introduction)
