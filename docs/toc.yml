@@ -1696,7 +1696,7 @@ items:
               - name: Geospatial analysis of spaceborne data
                 href: industries/aerospace/geospatial-processing-analytics.yml
               - name: Ingesting FAA content to analyze flight data
-                href: example-scenario/analytics/ingest-faa-swim-flight-data.yml 
+                href: example-scenario/analytics/ingest-faa-swim-analyze-flight-data.yml 
               - name: Predictive maintenance for aircraft
                 href: /azure/architecture/solution-ideas/articles/predictive-maintenance
               - name: Serverless web app for drone delivery
@@ -2205,7 +2205,7 @@ items:
               - name: High throughput stream ingestion
                 href: example-scenario/data/stream-ingestion-synapse.yml
               - name: Ingesting FAA content to analyze flight data
-                href: example-scenario/analytics/ingest-faa-swim-flight-data.yml 
+                href: example-scenario/analytics/ingest-faa-swim-analyze-flight-data.yml 
               - name: Ingestion and analysis of news feeds
                 href: example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis.yml
               - name: Interactive price analytics
