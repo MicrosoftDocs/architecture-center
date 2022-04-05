@@ -27,7 +27,7 @@ To decide which method to use for moving data between the mainframe system and A
 ### Workflow
 
 1. The Azure Data Factory [FTP connector moves data from the mainframe system to Azure Blob Storage](https://techcommunity.microsoft.com/t5/modernization-best-practices-and/copy-files-from-mainframe-to-azure-data-platform-using-adf-ftp/ba-p/3042555). This solution requires an intermediate virtual machine (VM) on which a self-hosted integration runtime is installed. 
-2.	The Data Factory [copy activity connects to the Db2 database to copy data into Azure storage](https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/data-factory/v1/data-factory-onprem-db2-connector.md). This solution also requires an intermediate VM on which a self-hosted integration runtime is installed. 
+2.	The Data Factory [copy activity connects to the Db2 database to copy data into Azure storage](/azure/data-factory/v1/data-factory-onprem-db2-connector). This solution also requires an intermediate VM on which a self-hosted integration runtime is installed. 
 1. The Microsoft *Mainframe JCL to Azure Blob using Java* custom solution moves data between the mainframe system and Blob Storage, and vice versa. This solution is based on Java and runs on Unix System Services on the mainframe. You can get this solution by contacting [datasqlninja@microsoft.com](mailto:datasqlninja@microsoft.com).
 
     a. You need to complete a one-time configuration of the solution. This configuration involves getting the Blob Storage access keys and moving required artifacts to the mainframe system.
@@ -35,13 +35,13 @@ To decide which method to use for moving data between the mainframe system and A
     b. A JCL submission moves files to and from the mainframe and Blob Storage. 
 
     c. Files are stored in binary format on Azure. You can configure the custom solution to convert EBCDIC to ASCII for simple data types. 
-4. Optionally, Azure Data Box can help you physically transfer mainframe data to Azure. This option is appropriate when a large amount of data needs to be migrated and online methods of transmission are taking too long. (For example, if migration is taking weeks.)
+4. Optionally, Azure Data Box can help you physically transfer mainframe data to Azure. This option is appropriate when a large amount of data needs to be migrated and online methods of transmission take too long. (For example, if migration takes weeks.)
 5. Easy interaction with the mainframe or midrange environment is provided by [third-party archive solutions](#third-party-archive-solutions). 
    
     These solutions interact with the mainframe and handle various mainframe parameters, like data types, record types, storage types, and access methods. They serve as a bridge between Azure and the mainframe. Some third-party solutions connect a storage drive to the mainframe and help transfer data to Azure. 
-6. Data is periodically synched and archived via the third-party archive solution. After the data is available via the third-party solution, the solution can easily push it to Azure by using available connectors. 
+6. Data is periodically synced and archived via the third-party archive solution. After the data is available via the third-party solution, the solution can easily push it to Azure by using available connectors. 
 7. Data is [stored in Azure](#azure-storage). 
-8. As needed, [data is recalled from Azure](#data-recall) back to mainframe or midrange systems. 
+8. As needed, [data is recalled from Azure](#data-recall) back to the mainframe or midrange systems. 
 
 ### Components
 
@@ -59,11 +59,9 @@ Depending on how you use data, you might want to convert it to ASCII from binary
 
 ## Considerations
 
-Complex data types on the mainframe must be handled during archive. 
-
-Application subject matter experts can identify which data needs to be archived. 
-
-To determine the amount of time between syncs, consider factors like business criticality, compliance needs, and frequency of data access.
+- Complex data types on the mainframe must be handled during archive. 
+- Application subject matter experts can identify which data needs to be archived. 
+- To determine the amount of time between syncs, consider factors like business criticality, compliance needs, and frequency of data access.
 
 ### Third-party archive solutions 
 
