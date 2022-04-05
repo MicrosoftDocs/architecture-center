@@ -71,6 +71,6 @@ The business intelligence part of the process includes the following data analys
 ## Related resources
 
 - [Choose an Internet of Things (IoT) solution in Azure](../../example-scenario/iot/iot-central-iot-hub-cheat-sheet.yml)
-- [Extract actionable insights from IoT data](../../industries/manufacturing/extract-insights-iot-data.md)
+- [Extract actionable insights from IoT data](../../industries/manufacturing/extract-insights-iot-data.yml)
 - [Task-based consumer mobile app](task-based-consumer-mobile-app.yml)
 - [Ingestion, ETL, and stream processing pipelines with Azure Databricks](ingest-etl-stream-with-adb.yml)

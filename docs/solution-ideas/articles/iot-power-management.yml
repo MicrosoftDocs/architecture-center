@@ -11,7 +11,7 @@ metadata:
   ms.subservice: solution-idea
   ms.custom:
     - fcp
-name: IoT connected light, power, and internet for emerging markets
+name: IoT connected light, power, and internet
 azureCategories:
   - iot
 summary: See how solar-powered IoT devices combine with Azure services to deliver clean, low-cost power, light, and internet service to remote locations.
