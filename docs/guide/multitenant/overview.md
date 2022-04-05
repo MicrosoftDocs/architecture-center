@@ -88,8 +88,8 @@ Additionally, we provide a [list of related resources and links](related-resourc
 
  * Dixit Arora | Senior Customer Engineer, FastTrack for Azure
  * [Kevin Ashley](http://linkedin.com/kashlik) | Senior Customer Engineer, FastTrack for Azure
- * [David Crook](http://linkedin.com/drcrook) | Principal Customer Engineer, FastTrack for Azure
  * [Michael C. Bazarewsky](http://linkedin.com/mikebaz) | Senior Customer Engineer, FastTrack for Azure
+ * [David Crook](http://linkedin.com/drcrook) | Principal Customer Engineer, FastTrack for Azure
  * [LaBrina Loving](http://linkedin.com/chixcancode) | Principal Customer Engineering Manager, FastTrack for Azure
  * [Raj Nemani](http://linkedin.com/rajnemani) | Partner Technology Strategist
 
