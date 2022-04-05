@@ -39,7 +39,7 @@ The architecture consists of the following components. For other terms, see [Ser
 
 ## Design considerations
 
-This reference architecture is focused on [microservices architectures](../../guide/architecture-styles/microservices.md). A microservice is a small, independently versioned unit of code. It is discoverable through service discovery mechanisms and can communicate with other services over APIs. Each service is self-contained and should implement a single business capability. For more information about how to decompose your application domain into microservices, see [Using domain analysis to model microservices](../../microservices/model/domain-analysis.md).
+This reference architecture is focused on [microservices architectures](../../guide/architecture-styles/microservices.yml). A microservice is a small, independently versioned unit of code. It is discoverable through service discovery mechanisms and can communicate with other services over APIs. Each service is self-contained and should implement a single business capability. For more information about how to decompose your application domain into microservices, see [Using domain analysis to model microservices](../../microservices/model/domain-analysis.md).
 
 Service Fabric provides an infrastructure to build, deploy, and upgrade microservices efficiently. It also provides options for auto scaling, managing state, monitoring health, and restarting services in case of failure.
 

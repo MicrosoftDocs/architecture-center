@@ -31,7 +31,7 @@ Migrating a monolith to a microservice requires significant time and investment 
 - A single service that fails will not bring down the entire application.
 - Testing becomes more coherent and consistent, using [behavior-driven development](https://en.wikipedia.org/wiki/Behavior-driven_development).
 
-For more information about the benefits and challenges of microservices, see [Microservices architecture style](../guide/architecture-styles/microservices.md).
+For more information about the benefits and challenges of microservices, see [Microservices architecture style](../guide/architecture-styles/microservices.yml).
 
 ## Apply domain-driven design
 

@@ -222,4 +222,4 @@ predicates:
 
 - [Host name preservation](../../best-practices/host-name-preservation.yml)
 - [Load-balancing options](../../guide/technology-choices/load-balancing-overview.yml)
-- [Microservices architecture style](../../guide/architecture-styles/microservices.md)
+- [Microservices architecture style](../../guide/architecture-styles/microservices.yml)
