@@ -295,7 +295,7 @@ spec:
       paths:
       - path: /
         backend:
-          service
+          service:
             name: aspnetapp-service
             port: 
               name: http
