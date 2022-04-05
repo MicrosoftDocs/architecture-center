@@ -6,12 +6,13 @@ ms.date: 02/25/2019
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
-ms.category:
+categories:
   - migration
   - developer-tools
 ms.custom:
   - microservices
   - guide
+products: azure
 ---
 
 # Using domain analysis to model microservices
@@ -76,7 +77,7 @@ After some initial domain analysis, the Fabrikam team came up with a rough sketc
 Notice that at this point in the process, we haven't made any decisions about implementation or technologies. Some of the subsystems may involve external software systems or third-party services. Even so, the application needs to interact with these systems and services, so it's important to include them in the domain model.
 
 > [!NOTE]
-> When an application depends on an external system, there is a risk that the external system's data schema or API will leak into your application, ultimately compromising the architectural design. This is particularly true with legacy systems that may not follow modern best practices, and may use convoluted data schemas or obsolete APIs. In that case, it's important to have a well-defined boundary between these external systems and the application. Consider using the [Strangler Fig pattern](../../patterns/strangler-fig.yml) or the [Anti-Corruption Layer pattern](../../patterns/anti-corruption-layer.md) for this purpose.
+> When an application depends on an external system, there is a risk that the external system's data schema or API will leak into your application, ultimately compromising the architectural design. This is particularly true with legacy systems that may not follow modern best practices, and may use convoluted data schemas or obsolete APIs. In that case, it's important to have a well-defined boundary between these external systems and the application. Consider using the [Strangler Fig pattern](../../patterns/strangler-fig.yml) or the [Anti-Corruption Layer pattern](../../patterns/anti-corruption-layer.yml) for this purpose.
 
 ## Define bounded contexts
 

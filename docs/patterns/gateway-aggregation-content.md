@@ -100,10 +100,10 @@ http {
 
 ## Related guidance
 
-- [Backends for Frontends pattern](./backends-for-frontends.md)
+- [Backends for Frontends pattern](./backends-for-frontends.yml)
 - [Gateway Offloading pattern](./gateway-offloading.yml)
 - [Gateway Routing pattern](./gateway-routing.yml)
 
-[bulkhead]: ./bulkhead.md
+[bulkhead]: ./bulkhead.yml
 [circuit-breaker]: ./circuit-breaker.yml
 [retry]: ./retry.yml

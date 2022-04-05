@@ -55,7 +55,7 @@ Consider these factors:
 The fundamental goal of choosing a microservices architecture is to deliver value faster and be adaptive to change by following agile practices. The [Twelve-Factor app methodology](/dotnet/architecture/cloud-native/definition#the-twelve-factor-application) provides guidelines for building maintainable and scalable applications. These guidelines promote attributes like immutability, ephemerality, declarative configuration, and automation. By incorporating these guidelines and avoiding common pitfalls, you can create loosely coupled, self-contained microservices. 
 
 ## Understand the decomposition approach
-Transforming a monolithic application to a microservices architecture takes time. Start with edge services. Edge services have fewer dependencies on other services and can be easily decomposed from the system as independent services. We highly recommend patterns like [Strangler Fig](../../patterns/strangler-fig.yml) and [Anti-corruption Layer](../../patterns/anti-corruption-layer.md) to keep the monolithic application in a working state until all services are decomposed into separate microservices. During segregation, the principles of DDD can help teams choose components or services from the monolithic application based on subdomains. 
+Transforming a monolithic application to a microservices architecture takes time. Start with edge services. Edge services have fewer dependencies on other services and can be easily decomposed from the system as independent services. We highly recommend patterns like [Strangler Fig](../../patterns/strangler-fig.yml) and [Anti-corruption Layer](../../patterns/anti-corruption-layer.yml) to keep the monolithic application in a working state until all services are decomposed into separate microservices. During segregation, the principles of DDD can help teams choose components or services from the monolithic application based on subdomains. 
 
 For example, in an e-commerce system, you might have these modules: cart, product management, order management, pricing, invoice generation, and notification. You decide to start the transformation of the application with the notification module because it doesn't have dependencies on other modules. However, other modules might depend on this module to send out notifications. The notification module can easily be decomposed into a separate microservice, but you'll need to make some changes in the monolithic application to call the new notification service. You decide to transform the invoice generation module next. This module is called after an order is generated. You can use patterns like Strangler and Anti-corruption to support this transformation. 
 
@@ -131,7 +131,7 @@ Take these factors into consideration:
 - Do you use direct client-to-service communication?
 - Do you need to persist messages at the message broker level?
 - Are you using the [Materialized View pattern](/azure/architecture/patterns/materialized-view) to address the chatty behavior of microservices? 
-- Have you implemented Retry, Circuit Breaker, Exponential Backoff, and Jitter for reliable communication? A common way to handle this is to use the [Ambassador pattern](../../patterns/ambassador.md).
+- Have you implemented Retry, Circuit Breaker, Exponential Backoff, and Jitter for reliable communication? A common way to handle this is to use the [Ambassador pattern](../../patterns/ambassador.yml).
 - Do you have defined domain events to facilitate communication between microservices? 
 
 ## Evaluate how services are exposed to clients
