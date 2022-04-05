@@ -112,24 +112,27 @@ The Connected Machine agent for Linux and Windows communicates outbound securely
 - Appropriate Azure role-based access control (Azure RBAC) access should be managed for Arc-enabled servers. To onboard machines, you must be a member of the **Azure Connected Machine Onboarding** role. To read, modify, re-onboard, and delete a machine, you must be a member of the **Azure Connected Machine Resource Administrator** role.
 - You can use Azure Policy to manage security policies across your Arc-enabled servers, including implementing security policies in Microsoft Defender for Cloud. A security policy defines the desired configuration of your workloads and helps ensure you're complying with the security requirements of your company or regulators. Defender for Cloud policies are based on policy initiatives created in Azure Policy.
 
-### Cost Optimization
+### Cost optimization
 
 - Azure Arc control plane functionality, such as support for Resource organization through Azure management groups and tags, and Access control through Azure role-based access control (RBAC) is provided at no extra cost. Azure services used in conjunction to Azure Arc-enabled servers incur costs according to their usage.
 - Consult [Cost governance for Azure Arc-enabled servers](/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-servers/eslz-cost-governance) for additional Azure Arc cost optimization guidance.
 - Other cost optimization considerations for your solution are described in the [Principles of cost optimization][principles-cost-opt] section in the Microsoft Azure Well-Architected Framework.
 - Use the [Azure pricing calculator][pricing-calculator] to estimate costs.
-- When deploying the Jumpstart ArcBox for IT Pros reference implementation for this architecture keep in mind ArcBox resources generate Azure Consumption charges from the underlying Azure resources including core compute, storage, networking and auxillary services.
+- When deploying the Jumpstart ArcBox for IT Pros reference implementation for this architecture, keep in mind ArcBox resources generate Azure Consumption charges from the underlying Azure resources. These resources include core compute, storage, networking and auxillary services.
 
 ### Operational excellence
 
 - Consult the list of supported [operated systems][supported operating systems] on the Azure Arc-enabled servers agent overview page.
+
+### Performance efficiency
+
 - Before configuring your machines with Azure Arc-enabled servers, you should review the Azure Resource Manager [subscription limits][subscription-limits] and [resource group limits][rg-limits] to plan for the number of machines to be connected.
 
 ## Deploy the solution
 
-The reference implementation of this architecture can be found in the [Jumpstart ArcBox for IT Pros](https://azurearcjumpstart.io/azure_jumpstart_arcbox/itpro), included as part of the [Arc Jumpstart](https://azurearcjumpstart.io/). ArcBox is designed to be completely self-contained within a single Azure subscription and resource group, which will make it easy for a user to get hands-on with all available Azure Arc technology with nothing more than an available Azure subscription.
+The reference implementation of this architecture can be found in the [Jumpstart ArcBox for IT Pros](https://azurearcjumpstart.io/azure_jumpstart_arcbox/itpro), included as part of the [Arc Jumpstart](https://azurearcjumpstart.io/). ArcBox is designed to be completely self-contained within a single Azure subscription and resource group. ArcBox makes it easy for a user to get hands-on experience with all available Azure Arc technology with nothing more than an available Azure subscription.
 
-To deploy the reference implementation, follow the steps in the GitHub repo.
+To deploy the reference implementation, follow the steps in the GitHub repo selecting the **Jumpstart ArcBox for IT Pros** button below.
 
 > [!div class="nextstepaction"]
 > [Jumpstart ArcBox for IT Pros](https://azurearcjumpstart.io/azure_jumpstart_arcbox/itpro/#deployment-options-and-automation-flow)
