@@ -12,6 +12,8 @@ ms.custom:
   - design-pattern
 keywords:
   - design pattern
+categories: featured
+products: azure
 ---
 
 # Data management patterns
@@ -22,7 +24,7 @@ Additionally data should be protected at rest, in transit, and via authorized ac
 
 |                        Pattern                         |                                                                  Summary                                                                  |
 |--------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
-|            [Cache-Aside](../cache-aside.md)            |                                            Load data on demand into a cache from a data store                                             |
+|            [Cache-Aside](../cache-aside.yml)            |                                            Load data on demand into a cache from a data store                                             |
 |                   [CQRS](../cqrs.yml)                   |                    Segregate operations that read data from operations that update data by using separate interfaces.                     |
 |         [Event Sourcing](../event-sourcing.yml)         |               Use an append-only store to record the full series of events that describe actions taken on data in a domain.               |
 |            [Index Table](../index-table.yml)            |                         Create indexes over the fields in data stores that are frequently referenced by queries.                          |

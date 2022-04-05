@@ -22,11 +22,11 @@ items:
           - name: Event-driven architecture
             href: guide/architecture-styles/event-driven.yml
           - name: Microservices
-            href: guide/architecture-styles/microservices.md
+            href: guide/architecture-styles/microservices.yml
           - name: N-tier application
-            href: guide/architecture-styles/n-tier.md
+            href: guide/architecture-styles/n-tier.yml
           - name: Web-queue-worker
-            href: guide/architecture-styles/web-queue-worker.md
+            href: guide/architecture-styles/web-queue-worker.yml
       - name: Design principles for Azure applications
         items:
           - name: Overview
@@ -455,19 +455,19 @@ items:
           - name: Messaging
             href: patterns/category/messaging.md
       - name: Ambassador
-        href: patterns/ambassador.md
+        href: patterns/ambassador.yml
       - name: Anti-corruption Layer
-        href: patterns/anti-corruption-layer.md
+        href: patterns/anti-corruption-layer.yml
       - name: Asynchronous Request-Reply
-        href: patterns/async-request-reply.md
+        href: patterns/async-request-reply.yml
       - name: Backends for Frontends
-        href: patterns/backends-for-frontends.md
+        href: patterns/backends-for-frontends.yml
       - name: Bulkhead
-        href: patterns/bulkhead.md
+        href: patterns/bulkhead.yml
       - name: Cache-Aside
-        href: patterns/cache-aside.md
+        href: patterns/cache-aside.yml
       - name: Choreography
-        href: patterns/choreography.md
+        href: patterns/choreography.yml
       - name: Circuit Breaker
         href: patterns/circuit-breaker.yml
       - name: Claim Check
@@ -4000,6 +4000,8 @@ items:
                     href: example-scenario/mainframe/mainframe-midrange-data-replication-azure-qlik.yml
                   - name: Modernize mainframe and midrange data
                     href: reference-architectures/migration/modernize-mainframe-data-to-azure.yml
+                  - name: Move mainframe archive data to Azure
+                    href: example-scenario/mainframe/move-archive-data-mainframes.yml
                   - name: Re-engineer mainframe batch apps
                     href: example-scenario/mainframe/reengineer-mainframe-batch-apps-azure.yml
                   - name: Replicate and sync mainframe data
