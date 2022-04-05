@@ -122,11 +122,19 @@ The Connected Machine agent for Linux and Windows communicates outbound securely
 
 ### Operational excellence
 
-- Consult the list of supported [operated systems][supported operating systems] on the Azure Arc-enabled servers agent overview page.
+- Automate the deployment of you Arc-enabled servers environment. The [reference implementation](#deploy-the-solution) of this architecture is fully automated using a combination of Azure ARM templates, VM extensions, Azure Policy configurations, and PowerShell scripts that you can reuse for your own deployments. Consult [Automation disciplines for Azure Arc-enabled servers][caf-arc-servers-automation] for additional Arc-enabled servers automation guidance in the Cloud Adoption Framework (CAF).
+- There are several options available in Azure to automate the [onboarding of Arc-enabled servers][Arc-agent-deployment-options]. To onboard at scale, use a service principal and deploy via your organizations existing automation platform.
+- VM extensions can be deployed to Arc-enabled servers to simplify the management of hybrid servers throughout their lifecycle. Consider automating the deployment of VM extensions via Azure Policy when managing servers at scale.
+- Enable patch and Update Management in your onboarded Azure Arc-enabled servers to ease OS lifecycle management.
+- Review [Azure Arc Jumpstart Unified Operations Use Cases][Arc Jumpstart unifiedops scenarios] to learn about additional operational excellence scenarios for Azure Arc-enabled servers.
+- Other operational excellence considerations for your solution are described in the [Operational excellence design principles][principles-operational-excellence] section in the Microsoft Azure Well-Architected Framework.
 
 ### Performance efficiency
 
 - Before configuring your machines with Azure Arc-enabled servers, you should review the Azure Resource Manager [subscription limits][subscription-limits] and [resource group limits][rg-limits] to plan for the number of machines to be connected.
+- A phased deployment approach as described in the [deployment guide](/azure/azure-arc/servers/plan-at-scale-deployment) can help you determine the resource capacity requirements for your implementation.
+- Use Azure Monitor to collect data directly from your Azure Arc-enabled servers into a Log Analytics workspace for detailed analysis and correlation. Review the [deployment options](/azure/azure-arc/servers/concept-log-analytics-extension-deployment) for the Azure Monitor agents.
+- Additional performance efficiency considerations for your solution are described in the [Performance efficiency principles](/azure/architecture/framework/scalability/principles) section in the Microsoft Azure Well-Architected Framework.
 
 ## Deploy the solution
 
@@ -165,8 +173,12 @@ To deploy the reference implementation, follow the steps in the GitHub repo sele
 [arc-built-in-policies]: /azure/azure-arc/servers/policy-samples
 [pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [principles-cost-opt]: /azure/architecture/framework/cost/overview
+[waf-principles-operational-excellence]: /azure/architecture/framework/devops/principles
+[caf-arc-servers-automation]: /azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-servers/eslz-automation-arc-server
 [onboard-dsc]: /azure/azure-arc/servers/onboard-dsc
 [Arc Jumpstart]: https://azurearcjumpstart.io
 [ArcBox for IT Pros]: https://azurearcjumpstart.io/azure_jumpstart_arcbox/itpro
 [Arc Jumpstart servers scenarios]: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/
 [CAF Arc Accelerator]: /azure/cloud-adoption-framework/scenarios/hybrid/enterprise-scale-landing-zone
+[Arc-agent-deployment-options]: /azure/azure-arc/servers/deployment-options
+[Arc Jumpstart unifiedops scenarios]: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/day2/
