@@ -54,6 +54,8 @@ This solution is ideal for any scenario in which there's a need to evaluate the 
 
 :::image type="content" source="./images/load-testing-pipeline-jmeter.png" alt-text="Diagram of a load testing pipeline with JMeter, ACI, and Terraform.":::
 
+### Workflow
+
 The CSE team structured the load testing implementation into two Azure Pipelines:
 
 1. One pipeline builds a custom JMeter Docker container and pushes the image to Azure Container Registry (ACR). This structure provides flexibility for adding any JMeter plugin.

@@ -51,7 +51,6 @@ Find security vulnerabilities and errors in code and manage security vulnerabili
 For more information, see:
 - [GitHub - Finding security vulnerabilities and errors in your code](https://help.github.com/en/github/finding-security-vulnerabilities-and-errors-in-your-code)
 - [GitHub - Managing security vulnerabilities in your project](https://help.github.com/en/github/managing-security-vulnerabilities/managing-security-vulnerabilities-in-your-project)
-- [GitHub - Managing vulnerabilities in your project's dependencies](https://help.github.com/en/github/managing-security-vulnerabilities/managing-vulnerabilities-in-your-projects-dependencies)
 
 ### Perform input validation
 
