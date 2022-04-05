@@ -991,6 +991,35 @@ items:
               - name: Diabetes dataset
                 href: /azure/open-datasets/dataset-diabetes
                 maintainContext: true
+              - name: Genomics data lake
+                items:
+                  - name: 1000 Genomes
+                    href: /azure/open-datasets/dataset-1000-genomes
+                    maintainContext: true
+                  - name: ClinVar annotations
+                    href: /azure/open-datasets/dataset-clinvar-annotations
+                    maintainContext: true
+                  - name: ENCODE DNA elements
+                    href: /azure/open-datasets/dataset-encode
+                    maintainContext: true
+                  - name: GATK Resource Bundle
+                    href: /azure/open-datasets/dataset-gatk-resource-bundle
+                    maintainContext: true
+                  - name: Genome Aggregation
+                    href: /azure/open-datasets/dataset-gnomad
+                    maintainContext: true
+                  - name: Human Reference Genomes
+                    href: /azure/open-datasets/dataset-human-reference-genomes
+                    maintainContext: true
+                  - name: Illumina Platinum Genomes
+                    href: /azure/open-datasets/dataset-illumina-platinum-genomes
+                    maintainContext: true
+                  - name: OpenCravat: Analysis of Variants
+                    href: /azure/open-datasets/dataset-open-cravat
+                    maintainContext: true
+                  - name: SnpEff: Genomic variants
+                    href: /azure/open-datasets/dataset-snpeff
+                    maintainContext: true
           - name: Compliance solutions
             items:
               - name: EPCS (US)
@@ -1107,6 +1136,32 @@ items:
                 href: example-scenario/private-web-app/private-web-app.yml
           - name: Datasets
             items:
+              - name: MNIST handwritten digits
+                href: /azure/open-datasets/dataset-mnist
+                maintainContext: true
+              - name: Public Holidays
+                href: /azure/open-datasets/dataset-public-holidays
+                maintainContext: true
+              - name: Safety data
+                items:
+                  - name: Boston Safety Data
+                    href: /azure/open-datasets/dataset-boston-safety
+                    maintainContext: true
+                  - name: Chicago Safety Data
+                    href: /azure/open-datasets/dataset-chicago-safety
+                    maintainContext: true
+                  - name: New York City Safety Data
+                    href: /azure/open-datasets/dataset-new-york-city-safety
+                    maintainContext: true
+                  - name: San Francisco Safety Data
+                    href: /azure/open-datasets/dataset-san-francisco-safety
+                    maintainContext: true
+                  - name: Seattle Safety Data
+                    href: /azure/open-datasets/dataset-seattle-safety
+                    maintainContext: true
+              - name: US Labor Force
+                href: /azure/open-datasets/dataset-us-labor-force
+                maintainContext: true
               - name: US Population
                 items:
                   - name: US Population by County
@@ -1162,36 +1217,69 @@ items:
             items:
               - name: HPC for manufacturing
                 href: industries/manufacturing/compute-manufacturing-overview.yml
-              - name: Industrial IoT analytics
-                href: guide/iiot-guidance/iiot-architecture.yml
-              - name: Upscale ML lifecycle with MLOps framework
-                href: example-scenario/mlops/mlops-technical-paper.yml
-              - name: Predictive maintenance in manufacturing
-                href: industries/manufacturing/predictive-maintenance-overview.yml
-              - name: Predictive maintenance solution
-                href: industries/manufacturing/predictive-maintenance-solution.yml
-              - name: Extract actionable insights from IoT data
-                href: industries/manufacturing/extract-insights-iot-data.yml
+              - name: AI and ML scenarios
+                items:
+                  - name: Continuous manufacturing with Bonsai
+                    href: /bonsai/concepts/continuous-manufacturing
+                    maintainContext: true
+                  - name: Predictive maintenance in manufacturing
+                    href: industries/manufacturing/predictive-maintenance-overview.yml
+                  - name: Predictive maintenance solution
+                    href: industries/manufacturing/predictive-maintenance-solution.yml
+                  - name: Upscale ML lifecycle with MLOps framework
+                    href: example-scenario/mlops/mlops-technical-paper.yml
+              - name: IoT scenarios
+                items:
+                  - name: Connected logistics application
+                    href: /azure/iot-central/retail/tutorial-iot-central-connected-logistics
+                    maintainContext: true
+                  - name: Digital distribution center
+                    href: /azure/iot-central/retail/tutorial-iot-central-digital-distribution-center
+                    maintainContext: true
+                  - name: Extract actionable insights from IoT data
+                    href: industries/manufacturing/extract-insights-iot-data.yml
+                  - name: Industrial IoT analytics
+                    href: guide/iiot-guidance/iiot-architecture.yml
+                  - name: Micro-fulfillment center
+                    href: /azure/iot-central/retail/tutorial-micro-fulfillment-center
+                    maintainContext: true
           - name: Architectures
             items:
               - name: All manufacturing architectures
                 href: /azure/architecture/browse/?terms=manufacturing
               - name: Anomaly detector process
                 href: solution-ideas/articles/anomaly-detector-process.yml
+              - name: Batch integration in a factory
+                href: example-scenario/iot/batch-integration-azure-data-factory-digital-twins.yml
               - name: Build a speech-to-text transcription pipeline
                 href: reference-architectures/ai/speech-to-text-transcription-pipeline.yml
               - name: Computer vision for manufacturing
                 href: reference-architectures/ai/end-to-end-smart-factory.yml
+              - name: Condition monitoring
+                href: solution-ideas/articles/condition-monitoring.yml
               - name: Connected factory hierarchy service
                 href: solution-ideas/articles/connected-factory-hierarchy-service.yml
               - name: Connected factory signal pipeline
                 href: example-scenario/iot/connected-factory-signal-pipeline.yml
+              - name: Data analysis for manufacturing
+                href: example-scenario/data/data-analysis-regulated-industries.yml
+              - name: IoT and data analytics in manufacturing
+                href: example-scenario/data/big-data-with-iot.yml
+              - name: Low-latency network for manufacturing
+                href: solution-ideas/articles/low-latency-network.yml
               - name: Predictive maintenance with IoT
                 href: example-scenario/predictive-maintenance/iot-predictive-maintenance.yml
+              - name: Predictive maintenance for industrial IoT
+                href: solution-ideas/articles/iot-predictive-maintenance.yml
               - name: Quality assurance
                 href: solution-ideas/articles/quality-assurance.yml
+              - name: Real-time asset tracking and management
+                href: solution-ideas/articles/real-time-asset-tracking-mgmt-iot-central.yml
               - name: Supply chain track and trace
                 href: solution-ideas/articles/supply-chain-track-and-trace.yml
+              - name: Tiered data for manufacturing
+                href: /hybrid/app-solutions/pattern-tiered-data-analytics
+                maintainContext: true
       - name: Game Development
         items:
           - name: Overview
@@ -1414,6 +1502,14 @@ items:
                 href: solution-ideas/articles/digital-media-live-stream.yml
               - name: Movie recommendations on Azure
                 href: example-scenario/ai/movie-recommendations-with-machine-learning.yml
+          - name: Datasets
+            items:
+              - name: Microsoft News recommendation
+                href: /azure/open-datasets/dataset-microsoft-news
+                maintainContext: true
+              - name: TartanAir AirSim
+                href: /azure/open-datasets/dataset-tartanair-simulation
+                maintainContext: true
           - name: Compliance solutions
             items:
               - name: CDSA overview
@@ -1516,6 +1612,17 @@ items:
                 href: example-scenario/apps/apim-api-scenario.yml
               - name: Predictive aircraft engine monitoring
                 href: solution-ideas/articles/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.yml
+          - name: Datasets
+            items:
+              - name: Public Holidays
+                href: /azure/open-datasets/dataset-public-holidays
+                maintainContext: true
+              - name: Russian open speech to text
+                href: /azure/open-datasets/dataset-open-speech-text
+                maintainContext: true
+              - name: TartanAir AirSim
+                href: /azure/open-datasets/dataset-tartanair-simulation
+                maintainContext: true
       - name: Automotive, Mobility, and Transportation
         items:
           - name: Overview
@@ -1536,6 +1643,8 @@ items:
                   - name: Best practices for Route Service
                     href: /azure/azure-maps/how-to-use-best-practices-for-routing
                     maintainContext: true
+              - naem: Move NYC Taxi data with SSIS
+                href: data-science-process/move-data-to-azure-blob-using-ssis.md
               - name: Single sign on for car park management
                 href: /azure/active-directory/saas-apps/parkalot-car-park-management-tutorial
                 maintainContext: true
@@ -1557,6 +1666,22 @@ items:
                 href: solution-ideas/articles/real-time-asset-tracking-mgmt-iot-central.yml
               - name: Run CFD simulations
                 href: example-scenario/infrastructure/hpc-cfd.yml
+          - name: Datasets
+            items:
+              - name: NYC Taxi
+                items:
+                  - name: NYC Taxi - yellow records
+                    href: /azure/open-datasets/dataset-taxi-yellow
+                    maintainContext: true
+                  - name: NYC Taxi - green records
+                    href: /azure/open-datasets/dataset-taxi-green
+                    maintainContext: true
+                  - name: NYC Taxi - for-hire vehicles
+                    href: /azure/open-datasets/dataset-taxi-for-hire-vehicle
+                    maintainContext: true
+              - name: TartanAir AirSim
+                href: /azure/open-datasets/dataset-tartanair-simulation
+                maintainContext: true
           - name: Compliance solutions
             items:
               - name: TISAX overview
