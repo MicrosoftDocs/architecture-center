@@ -13,7 +13,7 @@ The solution environment is flexible, so it can be extended to analyze other SWI
 
 ## Architecture
 
-:::image type="content" border="false" source="media/faa-swim.png" alt-text="Diagram that shows an architecture for automating and creating a data analytics environment." lightbox="media/article-folder-name/faa-swim.png"::: 
+:::image type="content" border="false" source="media/faa-swim.png" alt-text="Diagram that shows an architecture for automating and creating a data analytics environment." lightbox="media/faa-swim.png"::: 
 
 Download link 
 
@@ -72,7 +72,7 @@ SWIM is a NAS information system. It's an FAA cloud-based service that provides 
 
 This architecture uses GitHub Actions to orchestrate the CI/CD pipeline.
 
-:::image type="content" border="false" source="media/ci-cd-architecture.png" alt-text="Diagram that shows the CI/CD pipeline for the architecture.":::
+:::image type="content" border="false" source="media/ci-cd-architecture.png" alt-text="Diagram that shows the CI/CD pipeline for the architecture." lightbox="media/ci-cd-architecture.png"::: 
 
 download link 
 
