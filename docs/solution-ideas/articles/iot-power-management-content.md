@@ -1,23 +1,23 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This article describes an internet of things (IoT) solution that provides power, light, and internet services to remote locations. Veriown, a telecommunications company, developed Connect IoT devices that can act as energy and internet hubs for homes and small businesses.
+This article describes an internet of things (IoT) solution that provides power, light, and internet services to remote locations. Veriown, a telecommunications company, has developed Connect IoT devices that can act as energy and internet hubs for homes and small businesses.
 
-The Connect devices use a rooftop solar panel to charge a battery, which delivers LED light and power. An integrated SIM card and tablet provide individualized access to online content and services. The overall solution combines Connect devices with mobile apps and Azure cloud capabilities to deliver clean, low-cost power and connectivity, with high reliability and minimal downtime.
+The Connect devices use a rooftop solar panel to charge a battery, which delivers LED light and power. An integrated SIM card and tablet provide individualized access to online content and services. The overall solution combines Connect devices with mobile apps and Azure cloud capabilities. The solution delivers clean, low-cost power and connectivity with high reliability and minimal downtime.
 
 Azure supports two major workstreams in the Connect IoT solution:
 
 - Real-time IoT device telemetry detects transient or long-running anomalies. The system can respond in real-time with chatbots and retrained device actions. For example, in low-power conditions, a customer's device can automatically reduce power usage for background or inactive features. The customer continues to get a good experience with the services they're actively using.
 
-- Post-processing data analytics and machine learning evaluate usage and incidents to determine preventive maintenance and future needs. For example, alerts can notify customers about parts that are predicted to fail soon.
+- Post-processing data analytics and machine learning evaluate usage and incidents to determine predictive maintenance and future needs. For example, alerts can notify customers about parts that are predicted to fail soon.
 
 ## Potential use cases
 
-The basic Connect device provides LED light, USB device charging, internet connectivity, and customer support. Customers can get more services and content on demand or by subscription. The following scenarios and industries can potentially use the Connect devices:
+The basic Connect device provides LED light, USB device charging, internet connectivity, and customer support. Customers can get more services and content on demand or by subscription. The following scenarios and industries could use this solution:
 
 - Locations with limited centralized power and internet connectivity.
-- News, entertainment, and educational organizations, to provide content and programming.
-- Financial institutions, for online commerce and banking services.
-- Government and public health agencies, to deliver emergency and support communications.
+- News, entertainment, and educational organizations, to deliver content and programming.
+- Financial institutions, to provide online commerce and banking services.
+- Government and public health agencies, for emergency and support communications.
 
 ## Architecture
 
@@ -30,9 +30,7 @@ The architecture consists of a cloud-based app with end-user interfaces, and a c
 1. Field sales and service agents use a mobile platform to interact with the cloud application via Azure Application Gateway. End users use a built-in interface or mobile app to access and control their devices.
 1. Application Gateway uses messaging protocols to interact with users and operators.
 1. The cloud app consists of containerized microservices that provide functions and interfaces like identity and access management, device upgrades, notifications, and commerce services.
-
-   Depending on the functions used, the app accesses Azure services and resources like [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction) for unstructured data storage, [Azure Cosmos DB](/azure/cosmos-db/introduction) for large structured databases, and [Azure Media Services](https://azure.microsoft.com/services/media-services/) for entertainment content.
-
+1. Depending on the functions used, the app accesses Azure services and resources like [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction) for unstructured data storage, [Azure Cosmos DB](/azure/cosmos-db/introduction) for large structured databases, and [Azure Media Services](https://azure.microsoft.com/services/media-services/) for entertainment content.
 1. The Connect devices also send streaming telemetry and user data to the cloud via Azure IoT Hub, to use for analytics and machine learning (ML).
 
 ### Analytics and machine learning dataflow
@@ -41,8 +39,8 @@ The business intelligence part of the process includes the following data analys
 
 ![Diagram showing an analytics loop that runs post-processed telemetry data through a trained AI model to control the device.](../media/iot-power-analytics.png)
 
-1. IoT Hub receives the streaming telemetry and user data from the Connect devices, and routes events to Azure Databricks.
-1. Azure Databricks *extracts, transforms, and loads (ETLs)* the event data.
+1. IoT Hub receives the streaming telemetry and user data from the Connect devices, and routes events to Azure Databricks and Azure Machine Learning.
+1. Azure Databricks [extracts, transforms, and loads (ETLs)](https://en.wikipedia.org/wiki/Extract,_transform,_load) the event data.
 1. Azure Databricks sends some events, like alarms, directly to customer support for intervention.
 1. Azure Databricks sends ETL data to Azure Synapse and to Azure Machine Learning (Azure ML).
 1. Azure Synapse performs analytics and stores the ETL data.
