@@ -62,7 +62,7 @@ Both are managed services and offer multiple benefits, like SLAs, simplified con
 
 SWIM is a NAS information system. It's an FAA cloud-based service that provides publicly available FAA SWIM content to FAA-approved consumers via Solace JMS messaging. 
 
-SWIM's goal is to deliver the right information to the right people at the right time. This information-sharing platform offers a single point of access for aviation data, with producers of data publishing it once and users accessing the information they need through a single connection. And as you can see it has multiple data producers and depending on what type of data you need; you can subscribe to one or more of them. Basically, this is a typical publish and subscribe architecture. So, in Summary SWIM provides access to aviation information through a single connection. The goal is to ingest and analyze it.
+ This information-sharing platform provides a single point of access for aviation data. Data producers publishing data once, and users access the information they need through a single connection. It provides multiple data producers. Depending on the type of data you need, you can subscribe to one or more of them. It's a typical Publisher-Subscriber architecture. 
 
 ## Considerations
 
@@ -70,9 +70,9 @@ SWIM's goal is to deliver the right information to the right people at the right
 
 #### CI/CD pipeline architecture
 
-It uses GitHub Actions in order to orchestrate the CI/CD pipeline.
+This architecture uses GitHub Actions to orchestrate the CI/CD pipeline.
 
-diagram 2
+:::image type="content" border="false" source="media/ci-cd-architecture.png" alt-text="Diagram that shows the CI/CD pipeline for the architecture.":::
 
 download link 
 
