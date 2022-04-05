@@ -1,18 +1,18 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This article describes an internet of things (IoT) solution that provides low-cost power, light, and internet services to remote locations. Veriown, a telecommunications company, combines connected devices with mobile apps and Azure cloud capabilities to deliver clean, low-cost power, light, and internet connectivity, with high reliability and minimal downtime.
+This article describes an internet of things (IoT) solution that provides power, light, and internet services to remote locations. Veriown, a telecommunications company, developed Connect IoT devices that can act as energy and internet hubs for homes and small businesses.
 
-The Connect IoT devices use a rooftop solar panel to charge a battery, which delivers LED light and power. An integrated SIM card and tablet provide individualized access to online content and services like telemedicine, education, news and weather, entertainment, and commerce. The Connect devices can act as energy and internet hubs for homes and small businesses.
+The Connect devices use a rooftop solar panel to charge a battery, which delivers LED light and power. An integrated SIM card and tablet provide individualized access to online content and services. The overall solution combines Connect devices with mobile apps and Azure cloud capabilities to deliver clean, low-cost power and connectivity, with high reliability and minimal downtime.
 
 Azure supports two major workstreams in the Connect IoT solution:
 
 - Real-time IoT device telemetry detects transient or long-running anomalies. The system can respond in real-time with chatbots and retrained device actions. For example, in low-power conditions, a customer's device can automatically reduce power usage for background or inactive features. The customer continues to get a good experience with the services they're actively using.
 
-- Post-processing data analytics evaluate usage and incidents to determine preventive maintenance and future needs. For example, alerts can notify customers about parts that are predicted to fail soon.
+- Post-processing data analytics and machine learning evaluate usage and incidents to determine preventive maintenance and future needs. For example, alerts can notify customers about parts that are predicted to fail soon.
 
 ## Potential use cases
 
-The basic Connect device provides LED light, USB device charging, internet connectivity, and customer support. Customers can get additional services and content on demand or by subscription. The following scenarios and industries can potentially use the Connect devices:
+The basic Connect device provides LED light, USB device charging, internet connectivity, and customer support. Customers can get more services and content on demand or by subscription. The following scenarios and industries can potentially use the Connect devices:
 
 - Locations with limited centralized power and internet connectivity.
 - News, entertainment, and educational organizations, to provide content and programming.
