@@ -68,7 +68,7 @@ This architecture makes use of the following components:
 
 ### Alternatives
 
-- To help protect SAP global host files for SAP Central Services and the SAP transport directory, you can deploy [Network File Shares](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs) (NFS) servers in a failover cluster configuration.
+- To help protect SAP global host files for SAP Central Services and the SAP transport directory, you can deploy [Network File System](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs) (NFS) servers in a failover cluster configuration.
 
 - [SIOS Protection Suite](https://us.sios.com/solutions/cloud-high-availability/azure/), available in Azure Marketplace, can be used to protect the global host files for Central Services instead of NFS or Azure NetApp Files.
 
