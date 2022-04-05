@@ -2,7 +2,7 @@
 
 This article describes an internet of things (IoT) solution that provides power, light, and internet services to remote locations. Veriown, a telecommunications company, has developed Connect IoT devices that can act as energy and internet hubs for homes and small businesses.
 
-The Connect devices use a rooftop solar panel to charge a battery, which delivers LED light and power. An integrated SIM card and tablet provide individualized access to online content and services. The overall solution combines Connect devices with mobile apps and Azure cloud capabilities. The solution delivers clean, low-cost power and connectivity with high reliability and minimal downtime.
+The Connect devices use a rooftop solar panel to charge a battery, which delivers LED light and power. An integrated SIM card and tablet provide individualized access to online content and services. The overall solution combines Connect devices with mobile apps and Azure cloud capabilities. The solution delivers clean, low-cost power and internet services with high reliability and minimal downtime.
 
 Azure supports two major workstreams in the Connect IoT solution:
 
@@ -21,7 +21,10 @@ The basic Connect device provides LED light, USB device charging, internet conne
 
 ## Architecture
 
-The architecture consists of a cloud-based app with end-user interfaces, and a cloud-based analytics and machine learning workflow.
+The architecture consists of:
+
+- A containerized microservices app with end-user interfaces.
+- An analytics and machine learning workflow.
 
 ### Application dataflow
 
@@ -42,8 +45,7 @@ The business intelligence part of the process includes the following data analys
 1. IoT Hub receives the streaming telemetry and user data from the Connect devices, and routes events to Azure Databricks and Azure Machine Learning.
 1. Azure Databricks [extracts, transforms, and loads (ETLs)](https://en.wikipedia.org/wiki/Extract,_transform,_load) the event data.
 1. Azure Databricks sends some events, like alarms, directly to customer support for intervention.
-1. Azure Databricks sends ETL data to Azure Synapse and to Azure Machine Learning (Azure ML).
-1. Azure Synapse performs analytics and stores the ETL data.
+1. Azure Databricks sends ETL data to Azure Synapse, which performs analytics and stores the data.
 1. The analyzed data populates Power BI reports for system evaluation and future planning.
 1. Azure ML combines current data with stored external data, like historical weather and forecasts, and uses the results to retrain the power management ML models.
 1. IoT Hub sends the retrained models to the Connect devices, which adjust their behavior and schedules accordingly.
@@ -61,8 +63,8 @@ The business intelligence part of the process includes the following data analys
 
 ## Next steps
 
-- [Introduction to private Docker container registries in Azure](/azure/container-registry/container-registry-intro)
 - [IoT concepts and Azure IoT Hub](/azure/iot-hub/iot-concepts-and-iot-hub)
+- [Introduction to private Docker container registries in Azure](/azure/container-registry/container-registry-intro)
 - [What is dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics?](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is)
 - [A solar-powered device will bring online entertainment, education to villages](https://www.thehindubusinessline.com/info-tech/soon-a-solar-powered-device-will-bring-online-entertainment-education-to-villages/article26945331.ece)
 
