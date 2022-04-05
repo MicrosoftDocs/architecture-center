@@ -1,6 +1,6 @@
 
 
-This reference architecture shows how to deploy virtual machines (VMs) and a virtual network configured for an [N-tier](../../guide/architecture-styles/n-tier.md) application, using SQL Server on Windows for the data tier. [**Deploy this solution**](#deploy-the-solution).
+This reference architecture shows how to deploy virtual machines (VMs) and a virtual network configured for an [N-tier](../../guide/architecture-styles/n-tier.yml) application, using SQL Server on Windows for the data tier. [**Deploy this solution**](#deploy-the-solution).
 
 [![N-tier architecture using Microsoft Azure](./images/n-tier-sql-server.png)](./images/n-tier-sql-server.png)
 
@@ -298,7 +298,7 @@ If you specify a region that supports availability zones, the VMs are deployed i
 [load-balancer-hashing]: /azure/load-balancer/components#load-balancing-rules
 [load-balancer]: /azure/load-balancer/load-balancer-standard-overview
 [multi-dc]: ./multi-region-sql-server.yml
-[n-tier]: ../../guide/architecture-styles/n-tier.md
+[n-tier]: ../../guide/architecture-styles/n-tier.yml
 [network-security]: /azure/best-practices-network-security
 [nsg]: /azure/virtual-network/virtual-networks-nsg
 [plan-network]: /azure/virtual-network/virtual-network-vnet-plan-design-arm

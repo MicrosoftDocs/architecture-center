@@ -1,25 +1,3 @@
----
-title: Ambassador pattern
-titleSuffix: Cloud Design Patterns
-description: Learn about the Ambassador pattern, which creates helper services that send network requests on behalf of a consumer service or application.
-author: EdPrice-MSFT
-ms.author: pnp
-ms.date: 12/13/2021
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: design-pattern
-ms.custom:
-  - design-pattern
-keywords:
-  - design pattern
-products:
-  - azure
-categories:
-  - management-and-governance
----
-
-# Ambassador pattern
-
 Create helper services that send network requests on behalf of a consumer service or application. An ambassador service can be thought of as an out-of-process proxy that is co-located with the client.
 
 This pattern can be useful for offloading common client connectivity tasks such as monitoring, logging, routing, security (such as TLS), and [resiliency patterns](/azure/architecture/framework/resiliency/reliability-patterns) in a language agnostic way. It is often used with legacy applications, or other applications that are difficult to modify, in order to extend their networking capabilities. It can also enable a specialized team to implement those features.

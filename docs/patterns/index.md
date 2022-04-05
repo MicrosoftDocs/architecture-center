@@ -28,21 +28,21 @@ Each pattern describes the problem that the pattern addresses, considerations fo
 
 <table>
 <tr>
-    <td style="width: 64px; vertical-align: middle;"><a href="./category/data-management.md"><img src="_images/category/data-management.svg" alt="Data management" /></a></td>
+    <td><a href="./category/data-management.md"><img src="_images/category/data-management.svg" alt="Data management" /></a></td>
     <td>
         <h3><a href="./category/data-management.md">Data Management</a></h3>
         <p>Data management is the key element of cloud applications, and influences most of the quality attributes. Data is typically hosted in different locations and across multiple servers for reasons such as performance, scalability or availability, and this can present a range of challenges. For example, data consistency must be maintained, and data will typically need to be synchronized across different locations.</p>
     </td>
 </tr>
 <tr>
-    <td style="width: 64px; vertical-align: middle;"><a href="./category/design-implementation.md"><img src="_images/category/design-implementation.svg" alt="Design and implementation" /></a></td>
+    <td><a href="./category/design-implementation.md"><img src="_images/category/design-implementation.svg" alt="Design and implementation" /></a></td>
     <td>
         <h3><a href="./category/design-implementation.md">Design and Implementation</a></h3>
         <p>Good design encompasses factors such as consistency and coherence in component design and deployment, maintainability to simplify administration and development, and reusability to allow components and subsystems to be used in other applications and in other scenarios. Decisions made during the design and implementation phase have a huge impact on the quality and the total cost of ownership of cloud hosted applications and services.</p>
     </td>
 </tr>
 <tr>
-    <td style="width: 64px; vertical-align: middle;"><a href="./category/messaging.md"><img src="_images/category/messaging.svg" alt="Messaging icon" /></a></td>
+    <td><a href="./category/messaging.md"><img src="_images/category/messaging.svg" alt="Messaging icon" /></a></td>
     <td>
         <h3><a href="./category/messaging.md">Messaging</a></h3>
         <p>The distributed nature of cloud applications requires a messaging infrastructure that connects the components and services, ideally in a loosely coupled manner in order to maximize scalability. Asynchronous messaging is widely used, and provides many benefits, but also brings challenges such as the ordering of messages, poison message management, idempotency, and more.</p>
@@ -54,13 +54,13 @@ Each pattern describes the problem that the pattern addresses, considerations fo
 
 | Pattern | Summary | Category |
 | ------- | ------- | -------- |
-| [Ambassador](./ambassador.md) | Create helper services that send network requests on behalf of a consumer service or application. | [Design and Implementation](./category/design-implementation.md), <hr> [Operational Excellence](/azure/architecture/framework/devops/devops-patterns) |
-| [Anti-Corruption Layer](./anti-corruption-layer.md) | Implement a façade or adapter layer between a modern application and a legacy system. |[Design and Implementation](./category/design-implementation.md), <hr> [Operational Excellence](/azure/architecture/framework/devops/devops-patterns)|
-| [Asynchronous Request-Reply](./async-request-reply.md) | Decouple backend processing from a frontend host, where backend processing needs to be asynchronous, but the frontend still needs a clear response. | [Messaging](./category/messaging.md) |
-| [Backends for Frontends](./backends-for-frontends.md) | Create separate backend services to be consumed by specific frontend applications or interfaces. | [Design and Implementation](./category/design-implementation.md) |
-| [Bulkhead](./bulkhead.md) | Isolate elements of an application into pools so that if one fails, the others will continue to function. | [Reliability](/azure/architecture/framework/resiliency/reliability-patterns) |
-| [Cache-Aside](./cache-aside.md) | Load data on demand into a cache from a data store | [Data Management](./category/data-management.md), <hr> [Performance Efficiency](/azure/architecture/framework/scalability/performance-efficiency-patterns) |
-| [Choreography](./choreography.md)| Let each service decide when and how a business operation is processed, instead of depending on a central orchestrator.| [Messaging](./category/messaging.md), <hr> [Performance Efficiency](/azure/architecture/framework/scalability/performance-efficiency-patterns) |
+| [Ambassador](./ambassador.yml) | Create helper services that send network requests on behalf of a consumer service or application. | [Design and Implementation](./category/design-implementation.md), <hr> [Operational Excellence](/azure/architecture/framework/devops/devops-patterns) |
+| [Anti-Corruption Layer](./anti-corruption-layer.yml) | Implement a façade or adapter layer between a modern application and a legacy system. |[Design and Implementation](./category/design-implementation.md), <hr> [Operational Excellence](/azure/architecture/framework/devops/devops-patterns)|
+| [Asynchronous Request-Reply](./async-request-reply.yml) | Decouple backend processing from a frontend host, where backend processing needs to be asynchronous, but the frontend still needs a clear response. | [Messaging](./category/messaging.md) |
+| [Backends for Frontends](./backends-for-frontends.yml) | Create separate backend services to be consumed by specific frontend applications or interfaces. | [Design and Implementation](./category/design-implementation.md) |
+| [Bulkhead](./bulkhead.yml) | Isolate elements of an application into pools so that if one fails, the others will continue to function. | [Reliability](/azure/architecture/framework/resiliency/reliability-patterns) |
+| [Cache-Aside](./cache-aside.yml) | Load data on demand into a cache from a data store | [Data Management](./category/data-management.md), <hr> [Performance Efficiency](/azure/architecture/framework/scalability/performance-efficiency-patterns) |
+| [Choreography](./choreography.yml)| Let each service decide when and how a business operation is processed, instead of depending on a central orchestrator.| [Messaging](./category/messaging.md), <hr> [Performance Efficiency](/azure/architecture/framework/scalability/performance-efficiency-patterns) |
 | [Circuit Breaker](./circuit-breaker.yml) | Handle faults that might take a variable amount of time to fix when connecting to a remote service or resource. | [Reliability](/azure/architecture/framework/resiliency/reliability-patterns) |
 | [Claim Check](./claim-check.yml) | Split a large message into a claim check and a payload to avoid overwhelming a message bus. | [Messaging](./category/messaging.md) |
 | [Compensating Transaction](./compensating-transaction.yml) | Undo the work performed by a series of steps, which together define an eventually consistent operation. | [Reliability](/azure/architecture/framework/resiliency/reliability-patterns) |
