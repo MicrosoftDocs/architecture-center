@@ -1,8 +1,8 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This article describes an internet of things (IoT) solution that provides power, light, and internet services to remote locations. [Veriown](https://veriown.com), a telecommunications company, based the solution on Connect IoT devices that can act as energy and internet hubs for homes and small businesses.
+This article describes an internet of things (IoT) solution that provides power, light, and internet services to remote locations. A large-scale telecommunications company based the solution on Connect IoT devices that can act as energy and internet hubs for homes and small businesses.
 
-The Connect devices use a rooftop solar panel to charge a battery, which delivers LED light and power. An integrated SIM card and tablet provide individualized access to online content and services. The overall solution combines Connect devices with mobile apps and Azure cloud capabilities. The solution delivers clean, low-cost power and internet services with high reliability and minimal downtime.
+The Connect devices use a rooftop solar panel to charge a battery, which delivers LED light, power, and internet connectivity. An integrated SIM card and tablet provide individualized access to online content and services. The overall solution combines Connect devices with mobile apps and Azure cloud capabilities. The solution delivers clean, low-cost power and internet services with high reliability and minimal downtime.
 
 Azure supports two major workstreams in the Connect IoT solution:
 
