@@ -4,7 +4,7 @@ The solution uses the Federal Aviation Administration (FAA) System Wide Informat
 
 The type of information that you want to analyze dictates the data source from SWIM that you need to subscribe to.
 
-apache note 
+*Apache®, Apache Ignite, Ignite, and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
 ## Potential use cases
 This solution consumes multiple data sources for flight data patterns. It's ideal for the aerospace and aviation industries.
@@ -15,32 +15,22 @@ The solution environment is flexible, so it can be extended to analyze other SWI
 
 :::image type="content" border="false" source="media/faa-swim.png" alt-text="Diagram that shows an architecture for automating and creating a data analytics environment." lightbox="media/faa-swim.png"::: 
 
-Download link 
+*Download a [Visio file](https://arch-center.azureedge.net/faa-swim.vsdx) of this architecture.*
 
 The left side of the diagram shows SWIM and its data producers. The right side shows the Azure architecture.
 
-The solution uses Kafka, which makes sense because the architecture is a Publisher-Subscriber architecture. (Kafka is a messaging system that's based on Publisher-Subscriber.) SWIM uses Solace, so Kafka uses a Solace source connector to ingest the data. Solace provides source and sink connectors that you can build and deploy in your Kafka cluster.
-
-Azure Data Lake provides storage, and Power BI or Tableau displays the final data.
+The solution uses Kafka because the architecture is a Publisher-Subscriber architecture. (Kafka is a messaging system that's based on Publisher-Subscriber.) SWIM uses Solace, so Kafka uses a Solace source connector to ingest the data. Solace provides source and sink connectors that you can build and deploy in your Kafka cluster.
 
 The messages from Kafka are cleaned, prepped, and parsed in Azure Databricks. This is where data scientists do their work. They use notebooks (Python, Scala, R, for example) that contain the logic they need to parse the data or even train models based on it.
 
 ### Workflow
 
-- After the environment is ready, the Azure side is set up. This project has the following components:
-   - A virtual network
-   - Subnets 
-   - A resource group
-   - Kafka server
-   - An Azure Databricks storage account  
-   - Azure Data Lake Storage on top of the storage account
-   - Network security groups (created in the script)
-   - An Azure Databricks workspace created with VNet injection, so it keeps all the traffic internal (created in the script)
-- Connect Kafka to SWIM. You need to request access to SWIM. You need to specify the data source you're going to connect to. FAA will send you a link to the data source endpoint and a user name, password, and port to connect with. Three of the most common data sources are shown in the diagram:
-   - [STDDS](https://www.faa.gov/air_traffic/technology/swim/stdds). SWIM Terminal Data Distribution System
-   - [TFMS](https://aviationsystems.arc.nasa.gov/atd2-industry-workshop/fuser/TFMS_85328087.html). Traffic Flow Management Service
-   - [TBFM](https://www.faa.gov/air_traffic/publications/atpubs/foa_html/chap18_section_25.html). Time-Based Flow Management
-- You can then connect a visualization dashboard to Azure Databricks. Power BI or Tableau, for example.
+1. Data is provided by SWIM. Three of the most common data sources are shown in the diagram.
+1. A Solace source connector is used to ingest the data into Kafka.
+1. Messages from Kafka are cleaned, prepped, and parsed in Azure Databricks.
+1. Azure Data Lake provides storage.
+1. Power BI or Tableau displays the final data.
+
  
 ### Components
 
@@ -74,43 +64,76 @@ This architecture uses GitHub Actions to orchestrate the CI/CD pipeline.
 
 :::image type="content" border="false" source="media/ci-cd-architecture.png" alt-text="Diagram that shows the CI/CD pipeline for the architecture." lightbox="media/ci-cd-architecture.png"::: 
 
-download link 
+*Download a [Visio file](https://arch-center.azureedge.net/ci-cd-architecture.vsdx) of this architecture.*
 
-So, putting it all together we have this flow where everything starts with the developers (1) pushing code to GitHub (2) either for the infrastructure side using Terraform (1.1) or the configuration part using Chef (1.2), then reviewing it using pull requests (PRs) and if approved, these trigger the GitHub Actions workflow (3), which result in changes either in the infrastructure (4) or in the configurations (5), such as Kafka, Databricks, and so on.
+- Developers push code to GitHub, either for the infrastructure via Terraform or for configuration via Chef. 
+- If the GitHub pull request is approved, it triggers the GitHub Actions workflow.
+- The Actions workflow pushes changes in either the infrastructure or in the configurations for Kafka, Azure Databricks, and so on.
 
 #### GitHub workflows
 
-There are 2 GitHub Actions workflows that are used to automate the Infrastructure that will host the Data Analytics environment using Terraform for infrastructure and Chef for the post-provisioning configurations required to connect to FAA's System Wide Information System (SWIM) specifically to TFMS (Traffic Flow Management System) data source.
-- **Chef-ApacheKafka** - Performs Static code analysis using **Cookstyle**, unit testing using **Chef InSpec**, and Integration tests using **Test Kitchen** to make sure the cookbook is properly tested before uploading it to the Chef Server.
+Two GitHub Actions workflows automate the infrastructure that hosts the data analytics environment. Terraform is used for infrastructure. Chef is used for the post-provisioning configurations that are required to connect to TFMS.
+- **Terraform-Azure** performs Terraform deployment. It uses Terraform Cloud in the remote state. It also creates an Azure Databricks cluster, deploys a starter Python notebook to test connectivity to the Kafka server, and retrieves messages. It creates all infrastructure with proper naming conventions and tagging.
 
-screenshot 
+   :::image type="content" source="media/terraform-azure.png" alt-text="Screenshot that shows the results of the Terraform-Azure GitHub action.":::
+ 
+- **Chef-ApacheKafka** performs static code analysis by using Cookstyle, unit tests by using Chef InSpec, and integration tests by using Test Kitchen. These tests ensure the cookbook is properly tested before it's uploaded it to Chef Server.
 
-- **Terraform-Azure** - Performs Terraform deployment using Terraform Cloud as remote state. It also creates a Databricks cluster and deploys a starter python notebook to test the connectivity to the Kafka server and retrieves the messages. All the infrastructure is created with proper naming convention and tagging.
-
-screenshot 
+   :::image type="content" source="media/chef-kafka.png" alt-text="Screenshot that shows the results of the Chef-ApacheKafka GitHub action.":::  
 
 ### Security 
 
-One of the key requirements for this architecture was that all the traffic must be internal and secured. To accomplish this:
-- We deployed DataBricks using VNet injection so the communication between the cluster and the Kafka is internal.
-- DataBricks workspace uses your Azure identity for authentication.
-- NSGs are in place to to filter network traffic to and from DataBricks and Kafka VMs.
+A key requirement for this architecture is that all traffic must be internal and highly secure. To accomplish this:
+- VNet injection is used to deploy Azure Databricks to keep the communication between the cluster and Kafka internal.
+- The Azure Databricks workspace uses your Azure identity for authentication.
+- NSGs filter network traffic to and from Azure Databricks and Kafka VMs.
  
-For more information about securing your solution, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+For more information about improving the security of your solution, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 ### Cost optimization
 
-Be aware that by running this project your account will get billed. See [Overview of the cost optimization pillars](/azure/architecture/framework/cost/overview).
+If you run this project, your account will be billed. For information, see [Overview of the cost optimization pillars](/azure/architecture/framework/cost/overview).
 
 ## Deploy this scenario
 
-To deploy this solution, see the GitHub repo, [Azure/SWIMDataIngestion](https://github.com/Azure/SWIMDataIngestion).
+For information about deploying this solution, workflows, cookbooks, a notebook, Terraform files, and more, see the [Azure/SWIMDataIngestion](https://github.com/Azure/SWIMDataIngestion) GitHub repo.
+
+Here's a summary:
+- After the environment is ready, configure the Azure side. The project contains the following components:
+   - A virtual network
+   - Subnets 
+   - A resource group
+   - Kafka server
+   - An Azure Databricks storage account  
+   - Azure Data Lake Storage on top of the storage account
+   - Network security groups 
+   - An Azure Databricks workspace created with VNet injection, so it keeps all the traffic internal 
+- Connect Kafka to SWIM. You need to request access to SWIM, specifing the data source you want to connect to. FAA will send you a link to the data source endpoint and a user name, password, and port to connect with. Here are three of the most common data sources:
+   - [STDDS](https://www.faa.gov/air_traffic/technology/swim/stdds). SWIM Terminal Data Distribution System
+   - [TFMS](https://aviationsystems.arc.nasa.gov/atd2-industry-workshop/fuser/TFMS_85328087.html). Traffic Flow Management Service
+   - [TBFM](https://www.faa.gov/air_traffic/publications/atpubs/foa_html/chap18_section_25.html). Time-Based Flow Management
+- You can then connect a visualization dashboard to Azure Databricks. Power BI or Tableau, for example.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+**Principal author:**
+
+ * [Marcelo Zambrana](https://www.linkedin.com/in/marcelozambrana) | Senior Cloud Solution Architect
+
+**Other contributors:** 
+
+ * [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
 
 ## Next steps
-Editor: To add links to Docs articles and Learn modules.
+- [What is Azure Databricks?](/azure/databricks/scenarios/what-is-azure-databricks)
+- [Introduction to Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)
+- [Microsoft Learn: Introduction to Power BI](/learn/modules/introduction-power-bi)
 
 ## Related resources
-Editor: To add links to AAC articles.
-- [Predictive maintenance for aircraft monitoring](/azure/architecture/solution-ideas/articles/predictive-maintenance)
-- [All aerospace architectures](/azure/architecture/browse/?terms=aircraft)
 
+- [Predictive maintenance for aircraft monitoring](../../solution-ideas/articles/predictive-maintenance.yml)
+- [All aerospace architectures](/azure/architecture/browse/?terms=aircraft)
+- [Publisher-Subscriber pattern](../../patterns/publisher-subscriber.yml)
+- [Advanced analytics architecture](../../solution-ideas/articles/advanced-analytics-on-big-data.yml)
