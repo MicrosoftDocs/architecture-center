@@ -125,7 +125,7 @@ Agent-based (V1) Hybrid Runbook Workers rely on the [Log Analytics agent][4] rep
 - Azure Automation allows integration with popular source control systems, Azure DevOps, and GitHub. With Source Control, you can integrate the existing development environment that contains your scripts and custom code that have been previously tested in an isolated environment.
 - For information on how to integrate Azure Automation with your Source Control environment, see [Use source control integration][13].
 
-## Cost Optimization
+## Cost optimization
 
 - Azure Automation costs are priced for job execution per minute. Every month, the first 500 minutes of process automation are free. Use the [Azure pricing calculator][14] to estimate costs. For more information about the Azure Automation pricing models, see [Automation pricing][15].
 - For agent-based approach (V1) - Azure Log Analytics Workspace might generate additional costs related to the amount of log data stored in the Azure Log Analytics. The pricing model is based on consumption. The costs are associated for data ingestion and data retention. For ingesting data into Azure Log Analytics, use Capacity Reservation or Pay-As-You-Go model that include 5 gigabytes (GB) free per billing account per month. Data retention for the first 31 days are free of charge. For the pricing models for Log Analytics, see [Azure Monitor pricing][16].
