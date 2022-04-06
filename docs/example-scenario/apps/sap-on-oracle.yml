@@ -25,7 +25,7 @@ name: SAP system on Oracle Database on Azure
 azureCategories:
   - databases
   - compute
-summary: This article describe SAP on Oracle Database on Azure deployment patterns.
+summary: This article describes SAP on Oracle Database on Azure deployment patterns.
 products:
   - azure-expressroute
   - azure-virtual-machines
