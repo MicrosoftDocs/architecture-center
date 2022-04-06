@@ -2,8 +2,6 @@ This solution shows how to integrate Chef Infra, Chef InSpec, Test Kitchen, Terr
 
 The solution uses the Federal Aviation Administration (FAA) System Wide Information Management (SWIM) system. It connects to TFMS (Traffic Flow Management Service) via a Kafka server. For information about SWIM and TFMS, see the [FAA SWIM page](https://www.faa.gov/air_traffic/technology/swim). 
 
-The type of information that you want to analyze dictates the data source from SWIM that you need to subscribe to.
-
 *Apache®, Apache Ignite, Ignite, and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
 ## Potential use cases
@@ -21,13 +19,11 @@ The left side of the diagram shows SWIM and its data producers. The right side s
 
 The solution uses Kafka because the architecture is a Publisher-Subscriber architecture. (Kafka is a messaging system that's based on Publisher-Subscriber.) SWIM uses Solace, so Kafka uses a Solace source connector to ingest the data. Solace provides source and sink connectors that you can build and deploy in your Kafka cluster.
 
-The messages from Kafka are cleaned, prepped, and parsed in Azure Databricks. This is where data scientists do their work. They use notebooks (Python, Scala, or R, for example) that contain the logic they need to parse the data or even train models based on it.
-
 ### Workflow
 
-1. Data is provided by SWIM. Three of the most common data sources are shown in the diagram.
-1. A Solace source connector is used to ingest the data into Kafka.
-1. Messages from Kafka are cleaned, prepped, and parsed in Azure Databricks.
+1. Data is provided by SWIM. Three of the most common data sources are shown in the diagram. The type of information that you want to analyze dictates the data source from SWIM that you need to subscribe to.
+1. A Solace source connector ingests the data into Kafka.
+1. Messages from Kafka are cleaned, prepped, and parsed in Azure Databricks. This is where data scientists do their work. They use notebooks (Python, Scala, or R, for example) that contain the logic they need to parse the data or even train models based on it.
 1. Azure Data Lake provides storage.
 1. Power BI or Tableau displays the final data.
 
@@ -67,17 +63,17 @@ This architecture uses GitHub Actions to orchestrate the CI/CD pipeline:
 *Download a [Visio file](https://arch-center.azureedge.net/ci-cd-architecture.vsdx) of this architecture.*
 
 - Developers push code to GitHub, either for the infrastructure via Terraform or for configuration via Chef. 
-- If the GitHub pull request is approved, it triggers the GitHub Actions workflow.
+- If the GitHub pull request is approved, it triggers a GitHub Actions workflow.
 - The Actions workflow pushes changes in either the infrastructure or in the configurations for Kafka, Azure Databricks, and so on.
 
 #### GitHub workflows
 
 Two GitHub Actions workflows automate the infrastructure that hosts the data analytics environment. Terraform is used for infrastructure. Chef is used for the post-provisioning configurations that are required to connect to TFMS.
-- **Terraform-Azure** performs Terraform deployment. It uses Terraform Cloud in the remote state. It also creates an Azure Databricks cluster, deploys a starter Python notebook to test connectivity to the Kafka server, and retrieves messages. It creates all infrastructure with proper naming conventions and tagging.
+- **terraform-azure.yml** performs Terraform deployment. It uses Terraform Cloud in the remote state. It also creates an Azure Databricks cluster, deploys a starter Python notebook to test connectivity to the Kafka server, and retrieves messages. It creates all infrastructure with proper naming conventions and tagging.
 
    :::image type="content" source="media/terraform-azure.png" alt-text="Screenshot that shows the results of the Terraform-Azure GitHub action.":::
  
-- **Chef-ApacheKafka** performs static code analysis by using Cookstyle, unit tests by using Chef InSpec, and integration tests by using Test Kitchen. These tests ensure the cookbook is properly tested before it's uploaded it to Chef Server.
+- **chef-kafka.yml** performs static code analysis by using Cookstyle, unit tests by using Chef InSpec, and integration tests by using Test Kitchen. These tests ensure the cookbook is properly tested before it's uploaded to Chef Server.
 
    :::image type="content" source="media/chef-kafka.png" alt-text="Screenshot that shows the results of the Chef-ApacheKafka GitHub action.":::  
 
@@ -86,7 +82,7 @@ Two GitHub Actions workflows automate the infrastructure that hosts the data ana
 A key requirement for this architecture is that all traffic must be internal and highly secure. To meet this requirement:
 - VNet injection is used to deploy Azure Databricks. This deployment method keeps communication between the cluster and Kafka internal.
 - The Azure Databricks workspace uses your Azure identity for authentication.
-- NSGs filter network traffic to and from Azure Databricks and Kafka VMs.
+- Network security groups (NSGs) filter network traffic to and from Azure Databricks and Kafka VMs.
  
 For more information about improving the security of your solution, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
@@ -106,7 +102,7 @@ Here's a summary:
    - Kafka server
    - An Azure Databricks storage account  
    - Azure Data Lake Storage on top of the storage account
-   - Network security groups 
+   - NSGs
    - An Azure Databricks workspace created with VNet injection, so it keeps the traffic internal 
 - Connect Kafka to SWIM. You need to request access to SWIM, specifying the data source you want to connect to. FAA will send you a link to the data source endpoint and a user name, password, and port to connect with. Here are three of the most common data sources:
    - [STDDS](https://www.faa.gov/air_traffic/technology/swim/stdds). SWIM Terminal Data Distribution System.
@@ -133,7 +129,7 @@ Here's a summary:
 
 ## Related resources
 
-- [Predictive maintenance for aircraft monitoring](../../solution-ideas/articles/predictive-maintenance.yml)
 - [All aerospace architectures](/azure/architecture/browse/?terms=aircraft)
+- [Predictive maintenance for aircraft monitoring](../../solution-ideas/articles/predictive-maintenance.yml)
 - [Publisher-Subscriber pattern](../../patterns/publisher-subscriber.yml)
 - [Advanced analytics architecture](../../solution-ideas/articles/advanced-analytics-on-big-data.yml)
