@@ -129,7 +129,7 @@ Finally, memory and computation requirements will determine the choice of deploy
 
 ## Contributors
 
-_This article is being updated and maintained by Microsoft. It was originally written by the following contributors._
+_This article is maintained by Microsoft. It was originally written by the following contributors._
 
 **Principal authors:**
 
