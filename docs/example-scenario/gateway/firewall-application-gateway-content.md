@@ -57,7 +57,8 @@ The following packet walk example shows how a client accesses a VM-hosted applic
 In this design, Azure Firewall inspects both incoming connections from the public internet, and outbound connections from the application subnet VM by using the UDR.
    - Azure Firewall service deploys several instances under the covers, here with the front-end IP address 192.168.100.4 and internal addresses from the range 192.168.100.0/24.  These individual instances are normally invisible to the Azure administrator.  But noticing the difference is useful in some cases, such as when troubleshooting network issues. 
    - If traffic comes from an on-premises virtual private network (VPN) or [Azure ExpressRoute][expressroute] gateway instead of the internet, the client starts the connection to the VM's IP address. It doesn't start the connection to the firewall's IP address, and the firewall will do no Source NAT per default.
-   - The traffic flow assuming the instance IP address `192.168.100.7` is the following
+ 
+The following diagram shows the traffic flow assuming the instance IP address is `192.168.100.7`.
 
 
 ![Firewall only](./images/design1_500.png)
