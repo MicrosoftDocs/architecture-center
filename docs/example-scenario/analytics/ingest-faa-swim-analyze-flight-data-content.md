@@ -1,10 +1,11 @@
 This solution shows how to integrate Chef Infra, Chef InSpec, Test Kitchen, Terraform, Terraform Cloud, and GitHub Actions to fully automate and create data analytics environments. It uses an Azure Databricks cluster to analyze the data.
 
-The solution uses the Federal Aviation Administration (FAA) System Wide Information Management (SWIM) system. It connects to TFMS (Traffic Flow Management Service) via a Kafka server. For information about SWIM and TFMS, see the [FAA SWIM page](https://www.faa.gov/air_traffic/technology/swim). 
+The solution uses the Federal Aviation Administration (FAA) System Wide Information Management (SWIM) system. It connects to Traffic Flow Management Service (TFMS) via a Kafka server. For information about SWIM and TFMS, see the [FAA SWIM page](https://www.faa.gov/air_traffic/technology/swim). 
 
 *Apache®, Apache Ignite, Ignite, and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
 ## Potential use cases
+
 This solution consumes multiple data sources for flight data patterns. It's ideal for the aerospace and aviation industries.
 
 The solution environment is flexible, so it can be extended to analyze other SWIM data sources or similar streamed data sources. 
@@ -21,7 +22,7 @@ The solution uses Kafka because the architecture is a Publisher-Subscriber archi
 
 ### Workflow
 
-1. Data is provided by SWIM. Three of the most common data sources are shown in the diagram. The type of information that you want to analyze dictates the data source from SWIM that you need to subscribe to.
+1. SWIM provides data. The architecture diagram shows three of the most common data sources. The type of information that you want to analyze dictates the data source from SWIM that you need to subscribe to.
 1. A Solace source connector ingests the data into Kafka.
 1. Messages from Kafka are cleaned, prepped, and parsed in Azure Databricks. This is where data scientists do their work. They use notebooks (Python, Scala, or R, for example) that contain the logic they need to parse the data or even train models based on it.
 1. Azure Data Lake provides storage.
@@ -33,7 +34,7 @@ The solution uses Kafka because the architecture is a Publisher-Subscriber archi
 - [Azure Databricks](https://azure.microsoft.com/services/databricks). A data analytics platform that's optimized for the Azure cloud. 
 - [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage). A massively scalable and highly secure data lake for high-performance analytics workloads.
 - [Power BI](https://powerbi.microsoft.com). An analytics and BI platform that can help you discover insights in your data. 
-- [SWIM](https://www.faa.gov/air_traffic/technology/swim). A National Airspace System (NAS) information system that provides publicly available FAA SWIM content to FAA-approved consumers via Solace Java Message Service (JMS) messaging.
+- [SWIM](https://www.faa.gov/air_traffic/technology/swim). A National Airspace System (NAS) information system that provides publicly available FAA data to FAA-approved consumers via Solace Java Message Service (JMS) messaging.
 - [Kafka](https://kafka.apache.org). An Apache event streaming platform. 
 
 ### Alternatives
@@ -48,7 +49,7 @@ Both are managed services and offer multiple benefits, like SLAs, simplified con
 
 SWIM is a NAS information system. It's an FAA cloud-based service that provides publicly available FAA SWIM content to FAA-approved consumers via Solace JMS messaging. 
 
- This information-sharing platform provides a single point of access for aviation data. Data producers publish data once, and users access the information they need through a single connection. SWIM provides multiple data producers. Depending on the type of data you need, you can subscribe to one or more of them. It's a typical Publisher-Subscriber architecture. 
+SWIM provides a single point of access for aviation data. Data producers publish data once, and users access the information they need through a single connection. SWIM provides multiple data producers. Depending on the type of data you need, you can subscribe to one or more of them. SWIM has a typical Publisher-Subscriber architecture. 
 
 ## Considerations
 
@@ -68,7 +69,7 @@ This architecture uses GitHub Actions to orchestrate the CI/CD pipeline:
 
 #### GitHub workflows
 
-Two GitHub Actions workflows automate the infrastructure that hosts the data analytics environment. Terraform is used for infrastructure. Chef is used for the post-provisioning configurations that are required to connect to TFMS.
+In this solution, two GitHub Actions workflows automate the infrastructure that hosts the data analytics environment. Terraform deploys the infrastructure. Chef configures the resources that are that are required to connect to TFMS after provisioning is complete.
 - **terraform-azure.yml** performs Terraform deployment. It uses Terraform Cloud in the remote state. It also creates an Azure Databricks cluster, deploys a starter Python notebook to test connectivity to the Kafka server, and retrieves messages. It creates all infrastructure with proper naming conventions and tagging.
 
    :::image type="content" source="media/terraform-azure.png" alt-text="Screenshot that shows the results of the Terraform-Azure GitHub action.":::
@@ -94,8 +95,8 @@ If you run this project, your account will be billed. For information, see [Over
 
 For information about deploying this solution, workflows, cookbooks, a notebook, Terraform files, and more, see the [Azure/SWIMDataIngestion](https://github.com/Azure/SWIMDataIngestion) GitHub repo.
 
-Here's a summary:
-- After the environment is ready, configure the Azure side. The project contains the following components:
+The following steps summarize deployment of this scenario after the environment is prepared:
+1. Configure the Azure resources. The project contains the following components:
    - A virtual network
    - Subnets 
    - A resource group
@@ -103,12 +104,12 @@ Here's a summary:
    - An Azure Databricks storage account  
    - Azure Data Lake Storage on top of the storage account
    - NSGs
-   - An Azure Databricks workspace created with VNet injection, so it keeps the traffic internal 
-- Connect Kafka to SWIM. You need to request access to SWIM, specifying the data source you want to connect to. FAA will send you a link to the data source endpoint and a user name, password, and port to connect with. Here are three of the most common data sources:
+   - An Azure Databricks workspace created with VNet injection, so that it keeps the traffic internal 
+1. Connect Kafka to SWIM. You need to request access to SWIM and specify the data source that you want to connect to. FAA will send you a link to the data source endpoint and a user name, password, and port for connection. Here are three of the most common data sources:
    - [STDDS](https://www.faa.gov/air_traffic/technology/swim/stdds). SWIM Terminal Data Distribution System.
    - [TFMS](https://aviationsystems.arc.nasa.gov/atd2-industry-workshop/fuser/TFMS_85328087.html). Traffic Flow Management Service.
    - [TBFM](https://www.faa.gov/air_traffic/publications/atpubs/foa_html/chap18_section_25.html). Time-Based Flow Management.
-- You can then connect a visualization dashboard like Power BI or Tableau to Azure Databricks. 
+1. Connect a visualization dashboard like Power BI or Tableau to Azure Databricks. 
 
 ## Contributors
 
