@@ -21,7 +21,7 @@ The left side of the diagram shows SWIM and its data producers. The right side s
 
 The solution uses Kafka because the architecture is a Publisher-Subscriber architecture. (Kafka is a messaging system that's based on Publisher-Subscriber.) SWIM uses Solace, so Kafka uses a Solace source connector to ingest the data. Solace provides source and sink connectors that you can build and deploy in your Kafka cluster.
 
-The messages from Kafka are cleaned, prepped, and parsed in Azure Databricks. This is where data scientists do their work. They use notebooks (Python, Scala, R, for example) that contain the logic they need to parse the data or even train models based on it.
+The messages from Kafka are cleaned, prepped, and parsed in Azure Databricks. This is where data scientists do their work. They use notebooks (Python, Scala, or R, for example) that contain the logic they need to parse the data or even train models based on it.
 
 ### Workflow
 
@@ -52,7 +52,7 @@ Both are managed services and offer multiple benefits, like SLAs, simplified con
 
 SWIM is a NAS information system. It's an FAA cloud-based service that provides publicly available FAA SWIM content to FAA-approved consumers via Solace JMS messaging. 
 
- This information-sharing platform provides a single point of access for aviation data. Data producers publishing data once, and users access the information they need through a single connection. It provides multiple data producers. Depending on the type of data you need, you can subscribe to one or more of them. It's a typical Publisher-Subscriber architecture. 
+ This information-sharing platform provides a single point of access for aviation data. Data producers publish data once, and users access the information they need through a single connection. SWIM provides multiple data producers. Depending on the type of data you need, you can subscribe to one or more of them. It's a typical Publisher-Subscriber architecture. 
 
 ## Considerations
 
@@ -60,7 +60,7 @@ SWIM is a NAS information system. It's an FAA cloud-based service that provides 
 
 #### CI/CD pipeline architecture
 
-This architecture uses GitHub Actions to orchestrate the CI/CD pipeline.
+This architecture uses GitHub Actions to orchestrate the CI/CD pipeline:
 
 :::image type="content" border="false" source="media/ci-cd-architecture.png" alt-text="Diagram that shows the CI/CD pipeline for the architecture." lightbox="media/ci-cd-architecture.png"::: 
 
@@ -83,8 +83,8 @@ Two GitHub Actions workflows automate the infrastructure that hosts the data ana
 
 ### Security 
 
-A key requirement for this architecture is that all traffic must be internal and highly secure. To accomplish this:
-- VNet injection is used to deploy Azure Databricks to keep the communication between the cluster and Kafka internal.
+A key requirement for this architecture is that all traffic must be internal and highly secure. To meet this requirement:
+- VNet injection is used to deploy Azure Databricks. This deployment method keeps communication between the cluster and Kafka internal.
 - The Azure Databricks workspace uses your Azure identity for authentication.
 - NSGs filter network traffic to and from Azure Databricks and Kafka VMs.
  
@@ -92,7 +92,7 @@ For more information about improving the security of your solution, see [Overvie
 
 ### Cost optimization
 
-If you run this project, your account will be billed. For information, see [Overview of the cost optimization pillars](/azure/architecture/framework/cost/overview).
+If you run this project, your account will be billed. For information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 ## Deploy this scenario
 
@@ -107,12 +107,12 @@ Here's a summary:
    - An Azure Databricks storage account  
    - Azure Data Lake Storage on top of the storage account
    - Network security groups 
-   - An Azure Databricks workspace created with VNet injection, so it keeps all the traffic internal 
-- Connect Kafka to SWIM. You need to request access to SWIM, specifing the data source you want to connect to. FAA will send you a link to the data source endpoint and a user name, password, and port to connect with. Here are three of the most common data sources:
-   - [STDDS](https://www.faa.gov/air_traffic/technology/swim/stdds). SWIM Terminal Data Distribution System
-   - [TFMS](https://aviationsystems.arc.nasa.gov/atd2-industry-workshop/fuser/TFMS_85328087.html). Traffic Flow Management Service
-   - [TBFM](https://www.faa.gov/air_traffic/publications/atpubs/foa_html/chap18_section_25.html). Time-Based Flow Management
-- You can then connect a visualization dashboard to Azure Databricks. Power BI or Tableau, for example.
+   - An Azure Databricks workspace created with VNet injection, so it keeps the traffic internal 
+- Connect Kafka to SWIM. You need to request access to SWIM, specifying the data source you want to connect to. FAA will send you a link to the data source endpoint and a user name, password, and port to connect with. Here are three of the most common data sources:
+   - [STDDS](https://www.faa.gov/air_traffic/technology/swim/stdds). SWIM Terminal Data Distribution System.
+   - [TFMS](https://aviationsystems.arc.nasa.gov/atd2-industry-workshop/fuser/TFMS_85328087.html). Traffic Flow Management Service.
+   - [TBFM](https://www.faa.gov/air_traffic/publications/atpubs/foa_html/chap18_section_25.html). Time-Based Flow Management.
+- You can then connect a visualization dashboard like Power BI or Tableau to Azure Databricks. 
 
 ## Contributors
 
