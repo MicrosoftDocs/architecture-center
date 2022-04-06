@@ -2,9 +2,9 @@
 metadata:
   title: SAP system on Oracle Database on Azure
   description: Examine deployment patterns for SAP systems on Oracle Database that align with the pillars of the Azure Well-Architected Framework.
-  author: shekhag
-  ms.author: gupta.shekhar
-  ms.date: 02/17/2021
+  author: robiro
+  ms.author: robiro
+  ms.date: 04/06/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
