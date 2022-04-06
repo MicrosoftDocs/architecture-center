@@ -69,7 +69,7 @@ This architecture uses GitHub Actions to orchestrate the CI/CD pipeline:
 
 #### GitHub workflows
 
-In this solution, two GitHub Actions workflows automate the infrastructure that hosts the data analytics environment. Terraform deploys the infrastructure. Chef configures the resources that are that are required to connect to TFMS after provisioning is complete.
+In this solution, two GitHub Actions workflows automate the infrastructure that hosts the data analytics environment. Terraform deploys the infrastructure. Chef configures the resources that are required to connect to TFMS after provisioning is complete.
 - **terraform-azure.yml** performs Terraform deployment. It uses Terraform Cloud in the remote state. It also creates an Azure Databricks cluster, deploys a starter Python notebook to test connectivity to the Kafka server, and retrieves messages. It creates all infrastructure with proper naming conventions and tagging.
 
    :::image type="content" source="media/terraform-azure.png" alt-text="Screenshot that shows the results of the Terraform-Azure GitHub action.":::
