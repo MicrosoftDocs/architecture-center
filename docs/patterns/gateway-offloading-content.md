@@ -74,6 +74,6 @@ On Azure, this can be achieved by [setting up SSL termination on Application Gat
 
 ## Related guidance
 
-- [Backends for Frontends pattern](./backends-for-frontends.md)
+- [Backends for Frontends pattern](./backends-for-frontends.yml)
 - [Gateway Aggregation pattern](./gateway-aggregation.yml)
 - [Gateway Routing pattern](./gateway-routing.yml)
