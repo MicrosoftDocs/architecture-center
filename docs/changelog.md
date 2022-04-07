@@ -5,7 +5,7 @@ author: alexhart11
 ms.date: 04/06/2022
 ms.topic: article
 ms.service: architecture-center
-ms.category: management-and-governance
+categories: management-and-governance
 products: azure
 ---
 <!-- This page is automatically generated using a script. Do not edit by hand -->
@@ -18,7 +18,11 @@ The Azure Architecture Center (AAC) helps you design, build, and operate solutio
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWxOYN]
 
-## New and updated articles in Azure Architecture Center
+<link rel="alternate" type="application/atom+xml"
+  title="New and updated articles in Azure Architecture Center"
+  href="/azure/architecture/feed.atom" />
+
+The following new and updated articles have recently been published in the Azure Architecture Center.
 
 ## April 2022
 
