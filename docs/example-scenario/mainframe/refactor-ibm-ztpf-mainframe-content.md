@@ -51,7 +51,7 @@ The Azure Cosmos DB NoSQL database is used for high-performance storage. This st
 1. VMs, Kubernetes, or virtual machine scale sets are used for deployment. 
 1. Application servers receive the input in the compute clusters and share application state and data by using Azure Cache for Redis or Remote Direct Memory Access (RDMA).
 1. The architecture runs on Red Hat Enterprise Linux, SUSE Linux, or Windows.
-1. A single root I/O virtualization (SR-IOV) driver is used to meet performance requirements. The SR-IOV specification enables multiple VMs to share the same PCIe physical hardware resources. The driver used here is either RDMA over Converged Ethernet (RoCE) or InfiniBand over Ethernet (IBoE). These drivers allow communication between two hosts in the same Ethernet broadcast domain by using an Ethernet link layer.
+1. A single root I/O virtualization (SR-IOV) driver is used to meet performance requirements. The SR-IOV enables multiple VMs to share the same PCIe physical hardware resources. The driver used here is either RDMA over Converged Ethernet (RoCE) or InfiniBand over Ethernet (IBoE). These drivers allow communication between two hosts in the same Ethernet broadcast domain via an Ethernet link layer.
 1. RDMA/InfiniBand or RoCE drivers allow the two hosts to share memory as one pool. 
 1. Azure Cache for Redis provides a caching solution that improves application response time by storing copies of the most frequently used data and the session state.
 1. Service Fabric clusters provide container orchestration.
@@ -94,13 +94,13 @@ Kubernetes provides a cluster autoscaler that adjusts the number of nodes requir
 
 ### Security 
 
-This architecture is primarily built on Kubernetes, which includes security components like [Pod Security Standards](https://kubernetes.io/docs/concepts/security/pod-security-standards) and [Secrets](https://kubernetes.io/docs/concepts/configuration/secret). Azure provides additional features, like Azure Active Directory, Microsoft Defender for Containers, Azure Policy, Azure Key Vault, network security groups, and orchestrated cluster upgrades.
+This architecture is primarily built on Kubernetes, which includes security components like [Pod Security Standards](https://kubernetes.io/docs/concepts/security/pod-security-standards) and [Secrets](https://kubernetes.io/docs/concepts/configuration/secret). Azure provides additional security features, like Azure Active Directory, Microsoft Defender for Containers, Azure Policy, Azure Key Vault, network security groups, and orchestrated cluster upgrades.
 
 [Azure Bastion](/azure/bastion/bastion-overview) improves security for admin access by minimizing open ports. Azure Bastion provides highly secure RDP or SSH connectivity to virtual network VMs directly from the Azure portal, over TLS. 
 
 ### Cost optimization 
 
-Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for your implementation of this solution.
+Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the costs for your implementation of this solution.
 
 ## Contributors
 
