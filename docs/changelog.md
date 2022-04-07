@@ -5,10 +5,8 @@ author: alexhart11
 ms.date: 04/06/2022
 ms.topic: article
 ms.service: architecture-center
-ms.category: 
-- management-and-governance
-products:
-- Azure
+ms.category: management-and-governance
+products: azure
 ---
 <!-- This page is automatically generated using a script. Do not edit by hand -->
 
