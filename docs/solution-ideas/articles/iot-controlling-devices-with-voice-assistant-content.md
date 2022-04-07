@@ -2,16 +2,21 @@
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Create seamless conversational interfaces with all of your internet-accessible devices-from your connected television or fridge to devices in a connected power plant. By combining [Azure Speech Service](/azure/cognitive-services/speech-service/overview), [Language Understanding Service](/azure/cognitive-services/luis) (LUIS) and [Azure Bot Service](/azure/bot-service), developers can create natural, human-like conversational interfaces to control smart devices using [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub).
+This solution idea describes how to create voice conversational interfaces with internet-of-things (IoT) devices. You can combine [Azure Speech Service](/azure/cognitive-services/speech-service/overview), [Language Understanding Service](/azure/cognitive-services/luis) (LUIS), and the [Azure Bot Framework](/azure/bot-service/bot-service-overview) to create natural, human-like interfaces that control IoT devices through Azure IoT Hub.
+
+## Potential use cases
+
+- Control internet-accessible home devices like televisions and refrigerators by voice command.
+- Use natural language to control devices in a connected power plant or factory.
 
 ## Architecture
 
-![Architecture diagram](../media/controlling-iot-devices-using-voice.svg)
+![Diagram showing the architecture of a voice assistant app.](../media/controlling-iot-devices-using-voice.svg)
 
 ### Dataflow
 
 1. Through a voice device, the user asks the voice assistant app to turn on the exterior house lights.
-1. The app connects to [Direct Line Speech](/azure/cognitive-services/speech-service/direct-line-speech) by using the [Speech SDK](/azure/cognitive-services/speech-service/speech-sdk). If [keyword recognition](/azure/cognitive-services/speech-service/keyword-recognition-overview) confirms keywords, Direct Line Speech transcribes the [speech to text](/azure/cognitive-services/speech-service/speech-to-text) and sends the text to the Bot Service hosted on Azure App Service.
+1. The app connects to the [Direct Line Speech](/azure/cognitive-services/speech-service/direct-line-speech) Bot Service channel by using the [Azure Speech SDK](/azure/cognitive-services/speech-service/speech-sdk). When [keyword recognition](/azure/cognitive-services/speech-service/keyword-recognition-overview) confirms certain keywords, Direct Line Speech transcribes the [speech to text](/azure/cognitive-services/speech-service/speech-to-text) and sends the text to the Bot Service app hosted on Azure App Service.
 1. The Bot Service connects to the Language Understanding (LUIS) service. LUIS determines the intent of the user's request, *TurnOnLight*, and returns the intent to the Bot Service.
 1. Bot Service relays the request to the IoT devices and turns on the exterior lights.
 
@@ -23,14 +28,11 @@ Create seamless conversational interfaces with all of your internet-accessible d
 
 ### Components
 
-- [Bot Service]()
-- [Speech Service]()
-- [Language Understanding Service (LUIS)](/azure/cognitive-services/luis/)
-- [IoT Hub](https://azure.microsoft.com/services/iot-hub/)
-- [Application Insights]()
-
-
-LUIS allows an application to understand what a person wants in their own words. 
+- [Bot Service](https://azure.microsoft.com/services/bot-services) provides an integrated environment for bot development.
+- [Speech Service](https://azure.microsoft.com/services/cognitive-services/speech-services) offers industry-leading speech capabilities such as speech-to-text, text-to-speech, speech translation, and speaker recognition.
+- [Language Understanding Service (LUIS)](https://azure.microsoft.com/services/cognitive-services/conversational-language-understanding) applies custom machine-learning intelligence to a conversational, natural language text to predict overall meaning, and pull out relevant, detailed information.
+- [IoT Hub](https://azure.microsoft.com/services/iot-hub) is a central cloud message hub for bi-directional communications between IoT applications and devices.
+- [Application Insights](/azure/azure-monitor/app/app-insights-overview) is a feature of [Azure Monitor](https://azure.microsoft.com/services/monitor) that provides extensible application performance management and monitoring for live web apps. 
 
 ## Next steps
 
