@@ -1,21 +1,3 @@
----
-title: Backends for Frontends pattern
-titleSuffix: Cloud Design Patterns
-description: Explore the Backends for Frontends pattern, which creates separate backend services to be consumed by specific frontend applications or interfaces.
-author: EdPrice-MSFT
-ms.author: pnp
-ms.date: 06/23/2017
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: design-pattern
-ms.custom:
-  - design-pattern
-keywords:
-  - design pattern
----
-
-# Backends for Frontends pattern
-
 Create separate backend services to be consumed by specific frontend applications or interfaces. This pattern is useful when you want to avoid customizing a single backend for multiple interfaces. This pattern was first described by Sam Newman.
 
 ## Context and problem

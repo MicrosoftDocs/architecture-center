@@ -7,7 +7,7 @@ ms.date: 02/25/2019
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
-ms.category:
+categories:
   - compute
   - developer-tools
 products:
@@ -46,7 +46,7 @@ Sometimes people talk about containers and microservices as if they were the sam
 
 - **Density**. Containers are lightweight compared with running a virtual machine, because they share OS resources. That makes it possible to pack multiple containers onto a single node, which is especially useful when the application consists of many small services.
 
-- **Resource isolation**. You can limit the amount of memory and CPU that is available to a container, which can help to ensure that a runaway process doesn't exhaust the host resources. See the [Bulkhead pattern](../../patterns/bulkhead.md) for more information.
+- **Resource isolation**. You can limit the amount of memory and CPU that is available to a container, which can help to ensure that a runaway process doesn't exhaust the host resources. See the [Bulkhead pattern](../../patterns/bulkhead.yml) for more information.
 
 ## Serverless (Functions as a Service)
 

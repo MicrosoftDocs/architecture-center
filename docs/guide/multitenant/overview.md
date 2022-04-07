@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article introduces how to build multitenant solutions on Azure and the guidance we provide throughout this series.
 author: johndowns
 ms.author: jodowns
-ms.date: 03/07/2022
+ms.date: 04/08/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -70,6 +70,12 @@ The content in this series is composed of three main sections:
   The service-specific guidance is useful for architects, lead developers, and anyone building or implementing Azure components for a multitenant solution.
 
 Additionally, we provide a [list of related resources and links](related-resources.md) for architects and developers of multitenant solutions.
+
+## Video
+
+For an overview of the content covered in this series, and the basic concepts of multitenancy, see this video from Microsoft Reactor:
+
+> [!VIDEO https://www.youtube.com/embed/aem8elgN7iI]
 
 ## Contributors
 
