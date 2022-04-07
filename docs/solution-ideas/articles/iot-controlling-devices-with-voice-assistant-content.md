@@ -7,7 +7,7 @@ This solution idea describes how to create voice conversational interfaces with 
 ## Potential use cases
 
 - Control internet-accessible home devices like televisions and refrigerators by voice command.
-- Use natural language to control devices in a connected power plant or factory.
+- Use voice and natural language to report issues with IoT-connected devices.
 
 ## Architecture
 
