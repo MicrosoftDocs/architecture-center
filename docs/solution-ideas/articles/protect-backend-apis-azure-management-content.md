@@ -59,11 +59,11 @@ This architecture addresses the needs of organizations seeking to:
 
 ## Contributors
 
-#### Principal author
+**Principal author:**
 
 - [Arshad Azeem](https://www.linkedin.com/in/arshadazeem) | Senior Cloud Solution Architect
 
-#### Other contributors
+**Other contributors:**
 
 - Raj Penchala | Senior Cloud Solution Architect
 - [Ryan Hudson](https://www.linkedin.com/in/ryanhudsonit) | Senior Cloud Solution Architect
