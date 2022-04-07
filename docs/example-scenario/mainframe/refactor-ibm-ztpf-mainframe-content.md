@@ -54,7 +54,7 @@ The Azure Cosmos DB NoSQL database is used for high-performance storage. This st
 1. A single root I/O virtualization (SR-IOV) driver is used to meet performance requirements. The SR-IOV specification enables multiple VMs to share the same PCIe physical hardware resources. The driver used here is either RDMA over Converged Ethernet (RoCE) or InfiniBand over Ethernet (IBoE). These drivers allow communication between two hosts in the same Ethernet broadcast domain by using an Ethernet link layer.
 1. RDMA/InfiniBand or RoCE drivers allow the two hosts to share memory as one pool. 
 1. Azure Cache for Redis provides a caching solution that improves application response time by storing copies of the most frequently used data and the session state.
-1. Service Fabric clusters provides container orchestration.
+1. Service Fabric clusters provide container orchestration.
 
 ### Components
 
@@ -105,11 +105,16 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 For more information, contact [legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com).
 
 See these additional resources:
-- [Make the switch from mainframes to Azure](/azure/cloud-adoption-framework/infrastructure/mainframe-migration/migration-strategies)
-- [Mainframe application migration](/azure/cloud-adoption-framework/infrastructure/mainframe-migration/application-strategies)
-- []
+- [Azure Kubernetes Service (AKS)](/azure/aks)
+- [Welcome to Azure Cosmos DB](/azure/cosmos-db/introduction)
+- [Azure databases](/azure/?product=databases)
+- [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
 
 ## Related resources
-- []
-- []
-- []
+
+- [Mainframe application migration](/azure/cloud-adoption-framework/infrastructure/mainframe-migration/application-strategies?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
+- [Make the switch from mainframes to Azure](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/infrastructure/mainframe-migration/migration-strategies?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
+- [Mainframe access to Azure databases](/azure/architecture/solution-ideas/articles/mainframe-access-azure-databases)
+- [Modernize mainframe and midrange data](/azure/architecture/reference-architectures/migration/modernize-mainframe-data-to-azure)
+- [Moving archive data from mainframe systems to Azure](/azure/architecture/example-scenario/mainframe/move-archive-data-mainframes)
+- [Re-engineer mainframe batch applications on Azure](/azure/architecture/example-scenario/mainframe/reengineer-mainframe-batch-apps-azure)
