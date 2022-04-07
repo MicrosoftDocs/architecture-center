@@ -2,7 +2,7 @@ Modularizing the management of your Azure Resource Manager templates (ARM templa
 
 An example use case for implementing this kind of modularization is deployment of virtual machines (VMs) by using the metaphor of t-shirt sizes. Suppose you have deployed dozens or hundreds of VMs. Those deployments use version 1.0.0 of your templates and have a standard _medium_ size of an older series. To transition to a new series might require a brief outage of service if you simply deployed new templates. However, by building version 1.5.0 and using modularization, you can deploy new infrastructure with the updated standard while keeping the old infrastructure in a deployable state. By having old versions of the infrastructure available, your product and application teams have a known-good configuration to rely on while upgrading to the new version as they have time.
 
-## The Layer Cake of Repositories (An Example for Enterprises)
+## The layer cake of repositories: An example for enterprises
 
 When it comes to why you might want to have a strong preference for where your templates go, how they're updated, and so on, there are two primary considerations: _branching_ and _innersourcing_. 
 
@@ -29,7 +29,7 @@ This model creates _autonomy with alignment_, which means having:
 - Some services move downward in the stack. For example, an app team may initially develop a template for deploying a Kubernetes cluster, which is later pulled into the product platform as a shared service. This template becomes so useful that it's pulled into the library of samples.
 
 
-#### Layer 0 - Global Library
+#### Layer 0 - Global library
 
 The bottom layer is the _global library_, which is a repository of useful tidbits that aren't deployed into production. From the perspective of access control, read access should be provided to anyone at the company who requests it. For changes, suggestions, and so on, your Cloud Center of Excellence (CCOE) approves PRs and manage a backlog as if this were any other product.
 
@@ -56,7 +56,7 @@ Layer 0 feeds into Azure Pipelines or GitHub Actions to automatically create ver
 With such policies and protections in place, the container registry can be the source of truth for all infrastructure modules in the enterprise that are ready to use. You should consider standardizing change logs, as well as indices of available code samples, to allow for discoverability of this code. Unknown code is unused code!  
 
 
-#### Layer 1 - Global Infrastructure (Globally Shared Services)
+#### Layer 1 - Global infrastructure: Globally shared services)
 
 Layer 1 is the repository for _your_ Azure landing zone constructs. While Microsoft supplies templates for the deployment of Azure landing zones, you'll want to modify certain components and supply a parameters file. This is analogous to the way that you pull public registry and module repositories into Layer 0, as described earlier.
 
@@ -76,7 +76,7 @@ You should configure branch protection to restrict the ability to push changes t
 
 These files should consume the modules in your container registry for standard components. However, you will also have a Bicep file, or a series of Bicep files, that are customized to your enterprise's implementation of Azure landing zones or a similar governance structure. 
     
-#### Layer 2 - Product Platform (Shared Services)
+#### Layer 2 - Product platform: Shared services
 
 You can consider Layer 2, product platform, as the shared services for a particular product line or business unit. These components aren't universal across the organization, but they're meant to fit a particular business need. This would be an appropriate layer for a virtual network that is a peer with the hub in Layer 1, global infrastructure. A key vault is another example component for this layer. The key vault could store shared secrets to a storage account or a database that is shared by the different applications within this platform.
 
@@ -103,7 +103,7 @@ Layer 3 should contain:
 Permissions are restricted for the ability to push changes to this repository. You should use branch protection to enable a team member of this application to approve a PR made by another team member. Team members shouldn't be allowed to approve their own changes. Since this layer could contain proprietary architecture, business logic, or similar information, you might choose to restrict access to those in the organization who build this application. However, if that is the case, you should also build a process of harvesting good practices and snippets from this layer to share with the global library, Layer 0.
 
 
-### Commonalities Across Layers
+### Commonalities across layers
 
 While this article describes some specific details for each layer, there are also some qualities for all layers that you should be sure to consider. 
 
@@ -120,3 +120,11 @@ Finally, though you might not have an index of all repositories and the code wit
 - [What is Infrastructure as Code?](/devops/deliver/what-is-infrastructure-as-code)
 - [Azure/ResourceModules](https://github.com/Azure/ResourceModules): This repository includes a CI platform for and collection of mature and curated Bicep modules. The platform supports both Azure Resource Manager and Bicep, and you can use its features with GitHub actions and Azure Pipelines.
 - [Create private registry for Bicep module](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/private-module-registry?tabs=azure-powershell)
+
+## Related resources
+
+- [Azure DevTest Labs reference architecture for enterprises](../../../example-scenario/infrastructure/devtest-labs-reference-architecture.yml)
+- [Build a CI/CD pipeline for chatbots with ARM templates](../../../example-scenario/apps/devops-cicd-chatbot.yml)
+- [CI/CD pipeline for container-based workloads](../../../example-scenario/apps/devops-with-aks.yml)
+- [Design a CI/CD pipeline using Azure DevOps](../../../example-scenario/apps/devops-dotnet-webapp.yml)
+- [Microservices with AKS and Azure DevOps](../../../solution-ideas/articles/microservices-with-aks.yml)
