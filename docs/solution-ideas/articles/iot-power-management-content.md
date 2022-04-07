@@ -52,7 +52,7 @@ The business intelligence part of the process includes the following data analys
 1. Azure Databricks sends the ETL data to Azure Synapse, which performs analytics and stores the data.
 1. Power BI reports use the analyzed data and insights. The service provider can use the data for system evaluation and future planning.
 1. Azure Machine Learning uses a Databricks cluster to train and retrain ML models for power management. Model retraining combines current data with stored external data, like historical weather and forecasts, on Azure Cosmos DB.
-1. The retrained model triggers a pipeline that packages the model and sends the retrained models to IoT Hub. IoT Hub sends the updated models to the IoT devices to use for device management. For more information, see [MLOps: Model management, deployment, lineage, and monitoring with Azure Machine Learning](/azure/machine-learning/concept-model-management-and-deployment).
+1. The retrained model triggers a pipeline that packages the model and sends the retrained models to IoT Hub. IoT Hub sends the updated models to the IoT devices to use for device management.
 
 ### Components
 
@@ -70,7 +70,10 @@ The business intelligence part of the process includes the following data analys
 - [IoT concepts and Azure IoT Hub](/azure/iot-hub/iot-concepts-and-iot-hub)
 - [Introduction to private Docker container registries in Azure](/azure/container-registry/container-registry-intro)
 - [What is dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics?](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is)
+- [MLOps: Model management, deployment, lineage, and monitoring with Azure Machine Learning](/azure/machine-learning/concept-model-management-and-deployment)
+- [Set up a development environment with Azure Databricks and AutoML in Azure Machine Learning](/azure/machine-learning/how-to-configure-databricks-automl-environment)
 - [A solar-powered device will bring online entertainment, education to villages](https://www.thehindubusinessline.com/info-tech/soon-a-solar-powered-device-will-bring-online-entertainment-education-to-villages/article26945331.ece)
+- [Veriown case study](https://mdsglobal.com/veriown-case-study)
 
 ## Related resources
 
