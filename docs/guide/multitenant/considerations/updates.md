@@ -10,6 +10,9 @@ ms.service: architecture-center
 ms.subservice: azure-guide
 products:
   - azure
+  - azure-devops
+  - azure-pipelines
+  - github
 categories:
   - management-and-governance
   - devops
@@ -59,7 +62,7 @@ Another approach can be to allow tenants to initiate their own updates, at a tim
 > [!WARNING]
 > Be careful about enabling tenants to initiate their own updates. This is complex to implement, and it will require significant development and testing effort to deliver and maintain.
 
-Whatever you do, ensure you have a process to monitor the health of your tenants, especially before and after updates are applied. Often, critical production incidents (also called _live-site incidents_) happen after updates to code or configuration. Therefore, it's important you proactively monitor for and respond to any issues to retain customer confidence. For more information about monitoring, see [Monitoring for DevOps](../../../framework/devops/monitoring.md)
+Whatever you do, ensure you have a process to monitor the health of your tenants, especially before and after updates are applied. Often, critical production incidents (also called _live-site incidents_) happen after updates to code or configuration. Therefore, it's important you proactively monitor for and respond to any issues to retain customer confidence. For more information about monitoring, see [Monitoring for DevOps](/azure/architecture/framework/devops/monitoring).
 
 ## Communicate with your customers
 
@@ -86,19 +89,19 @@ If one of your customers has a problem because of an update, you need to ensure 
 
 ## Deployment strategies to support updates
 
-Consider how you will deploy updates to your infrastructure. This is heavily influenced by the [tenancy model](tenancy-models.md) that you use. Three common approaches for deploying updates are deployment stamps, feature flags, and deployment rings.
+Consider how you will deploy updates to your infrastructure. This is heavily influenced by the [tenancy model](tenancy-models.yml) that you use. Three common approaches for deploying updates are deployment stamps, feature flags, and deployment rings.
 
 In all cases, ensure that you have sufficient reporting/visibility, so that you know what version of infrastructure, software, or feature each tenant is on, what they are eligible to migrate to, and any time-related data associated those states.
 
-### Deployment stamps
+### Deployment Stamps pattern
 
-Some multitenant applications are a good fit for the [Deployment Stamps pattern](../../../patterns/deployment-stamp.md), in which you deploy multiple copies of your application and other components. Depending on your isolation requirements, you might deploy a stamp for each tenant, or shared stamps that run multiple tenants' workloads.
+Some multitenant applications are a good fit for the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml), in which you deploy multiple copies of your application and other components. Depending on your isolation requirements, you might deploy a stamp for each tenant, or shared stamps that run multiple tenants' workloads.
 
 Stamps are a great way to provide isolation between tenants. They also provide you with flexibility for your update process, since you can roll out updates progressively across stamps, without affecting others.
 
 ### Feature flags
 
-[Feature flags](/azure/devops/migrate/phase-features-with-feature-flags) enable you to add functionality to your solution, while only exposing to a subset of your customers or tenants. You might use feature flags, if you deploy updates regularly but want to avoid showing new functionality, or if you want to avoid applying changes in behavior until a customer opts in.
+[Feature flags](/devops/operate/progressive-experimentation-feature-flags) enable you to add functionality to your solution, while only exposing to a subset of your customers or tenants. You might use feature flags, if you deploy updates regularly but want to avoid showing new functionality, or if you want to avoid applying changes in behavior until a customer opts in.
 
 You can embed feature flag support into your application by writing code yourself, or by using a service like [Azure App Configuration](/azure/azure-app-configuration/overview).
 
@@ -112,5 +115,5 @@ If your service exposes an external API, consider that any updates you apply mig
 
 ## Next steps
 
-- Consider when you would [map requests to tenants, in a multitenant solution](map-requests.md).
+- Consider when you would [map requests to tenants, in a multitenant solution](map-requests.yml).
 - Review the [DevOps checklist](../../../checklist/dev-ops.md) in Azure Well-Architected Framework.

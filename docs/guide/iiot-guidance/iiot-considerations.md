@@ -4,7 +4,7 @@ titleSuffix: Azure Application Architecture Guide
 description: Read about architectural considerations in an IIoT analytics solution. View discussions about performance, availability, and networking.
 author: khilscher
 ms.author: kehilsch
-ms.date: 07/17/2020
+ms.date: 12/13/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -12,13 +12,15 @@ ms.category:
   - fcp
 products:
   - azure-iot-edge
+categories:
+  - iot
 ms.custom:
   - guide
 ---
 
 # Architectural considerations in an IIoT analytics solution
 
-The [Microsoft Azure Well-Architected Framework](../../framework/index.md) describes some key tenets of a good architectural design. Keeping in line with these tenets, this article describes the considerations in the reference [Azure Industrial IoT analytics solution](./iiot-architecture.md) that improve its performance and resiliency.
+The [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index) describes some key tenets of a good architectural design. Keeping in line with these tenets, this article describes the considerations in the reference [Azure Industrial IoT analytics solution](./iiot-architecture.yml) that improve its performance and resiliency.
 
 ## Performance considerations
 

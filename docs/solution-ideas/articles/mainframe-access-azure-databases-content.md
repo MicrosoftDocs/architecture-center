@@ -82,7 +82,7 @@ This solution uses the following components. See the [Azure pricing calculator][
 [Configuring SQL Server Connections]: /host-integration-server/core/configuring-sql-server-connections
 [DRDA]: https://en.wikipedia.org/wiki/DRDA
 [Email address for information on mainframe modernization]: mailto:datasqlninja@microsoft.com
-[Five reasons a data-first strategy works]: https://resources.syniti.com/data-quality/5-reasons-a-data-first-strategy-works
+[Five reasons a data-first strategy works]: http://www.enterpriseappstoday.com/data-management/5-reasons-a-data-first-strategy-works.html
 [Install and configure HIS 2020]: /host-integration-server/install-and-config-guides/installing-his-2020
 [Mainframe file replication and sync on Azure]: ./mainframe-azure-file-replication.yml
 [Microsoft Service for DRDA]: /host-integration-server/what-is-his#Data

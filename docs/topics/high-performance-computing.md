@@ -1,9 +1,9 @@
 ---
-title: "High Performance Computing (HPC) on Azure"
-description: Learn about High Performance Computing on Azure, which uses many CPU or GPU-based computers to solve complex mathematical tasks.
+title: "High-performance computing (HPC) on Azure"
+description: Learn about high-performance computing (HPC) on Azure, which uses many CPU or GPU-based computers to solve complex mathematical tasks.
 author: SMBrook
 ms.author: sibrook
-ms.date: 8/14/2019
+ms.date: 01/03/2022
 ms.topic: guide
 ms.service: architecture-center
 ms.subservice: reference-architecture
@@ -17,7 +17,7 @@ social_image_url: /azure/architecture/topics/media/architecture-hpc-saas.png
 
 <!-- cSpell:ignore fullheight neuro milliman hymans netapp gluster tibco cyclecloud hpcpack radioss ansys axioma alces slurm mdcs cntk -->
 
-# High Performance Computing (HPC) on Azure
+# High-performance computing (HPC) on Azure
 
 ## Introduction to HPC
 
@@ -27,7 +27,7 @@ social_image_url: /azure/architecture/topics/media/architecture-hpc-saas.png
 
 <!-- markdownlint-enable MD034 -->
 
-High Performance Computing (HPC), also called "Big Compute", uses a large number of CPU or GPU-based computers to solve complex mathematical tasks.
+High-performance computing (HPC), also called "big compute", uses a large number of CPU or GPU-based computers to solve complex mathematical tasks.
 
 Many industries use HPC to solve some of their most difficult problems.  These include workloads such as:
 
@@ -44,7 +44,7 @@ One of the primary differences between an on-premises HPC system and one in the 
 
 The following articles provide more detail about this dynamic scaling capability.
 
-- [Big Compute Architecture Style](../guide/architecture-styles/big-compute.md)
+- [Big Compute Architecture Style](../guide/architecture-styles/big-compute.yml)
 - [Autoscaling best practices](../best-practices/auto-scaling.md)
 
 ## Implementation checklist
@@ -62,11 +62,11 @@ As you're looking to implement your own HPC solution on Azure, ensure you're rev
 
 ## Infrastructure
 
-There are a number of infrastructure components necessary to build an HPC system.  Compute, Storage, and Networking provide the underlying components, no matter how you choose to manage your HPC workloads.
+There are many infrastructure components that are necessary to build an HPC system. Compute, storage, and networking provide the underlying components, no matter how you choose to manage your HPC workloads.
 
 ### Example HPC architectures
 
-There are a number of different ways to design and implement your HPC architecture on Azure.  HPC applications can scale to thousands of compute cores, extend on-premises clusters, or run as a 100% cloud-native solution.
+There are many different ways to design and implement your HPC architecture on Azure.  HPC applications can scale to thousands of compute cores, extend on-premises clusters, or run as a 100% cloud-native solution.
 
 The following scenarios outline a few of the common ways HPC solutions are built.
 
@@ -134,7 +134,7 @@ Azure offers a range of sizes that are optimized for both CPU & GPU intensive wo
 #### CPU-based virtual machines
 
 - [Linux VMs](/azure/virtual-machines/linux/sizes-hpc)
-- [Windows VMs](/azure/virtual-machines/windows/sizes-hpc) VMs
+- [Windows VMs](/azure/virtual-machines/windows/sizes-hpc)
 
 #### GPU-enabled virtual machines
 
@@ -145,7 +145,7 @@ N-series VMs feature NVIDIA GPUs designed for compute-intensive or graphics-inte
 
 ### Storage
 
-Large-scale Batch and HPC workloads have demands for data storage and access that exceed the capabilities of traditional cloud file systems.  There are a number of solutions to manage both the speed and capacity needs of HPC applications on Azure
+Large-scale Batch and HPC workloads have demands for data storage and access that exceed the capabilities of traditional cloud file systems. There are many solutions that manage both the speed and capacity needs of HPC applications on Azure:
 
 - [Avere vFXT](https://azure.microsoft.com/services/storage/avere-vfxt) for faster, more accessible data storage for high-performance computing at the edge
 - [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction)
@@ -168,16 +168,16 @@ H16r, H16mr, A8, and A9 VMs can connect to a high throughput back-end RDMA netwo
 
 ### Do-it-yourself
 
-Building an HPC system from scratch on Azure offers a significant amount of flexibility, but is often very maintenance intensive.
+Building an HPC system from scratch on Azure offers a significant amount of flexibility, but it is often very maintenance intensive.
 
 1. Set up your own cluster environment in Azure virtual machines or [virtual machine scale sets](/azure/virtual-machine-scale-sets/overview).
 2. Use Azure Resource Manager templates to deploy leading [workload managers](#workload-managers), infrastructure, and [applications](#hpc-applications).
 3. Choose HPC and GPU [VM sizes](#compute) that include specialized hardware and network connections for MPI or GPU workloads.
-4. Add [high performance storage](#storage) for I/O-intensive workloads.
+4. Add [high-performance storage](#storage) for I/O-intensive workloads.
 
 ### Hybrid and cloud Bursting
 
-If you have an existing on-premises HPC system that you'd like to connect to Azure, there are a number of resources to help get you started.
+If you have an existing on-premises HPC system that you'd like to connect to Azure, there are several resources to help get you started.
 
 First, review the [Options for connecting an on-premises network to Azure](../reference-architectures/hybrid-networking/index.yml) article in the documentation.  From there, you may want information on these connectivity options:
 
@@ -242,10 +242,10 @@ Once network connectivity is securely established, you can start using cloud com
 
 ### Marketplace solutions
 
-There are a number of workload managers offered in the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace).
+There are many workload managers offered in the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace).
 
 - [RogueWave CentOS-based HPC](https://azuremarketplace.microsoft.com/marketplace/apps/openlogic.centos-hpc)
-- [SUSE Linux Enterprise Server for HPC](https://azuremarketplace.microsoft.com/marketplace/apps/suse.sles-15-sp2)
+- [SUSE Linux Enterprise Server for HPC](https://www.suse.com/products/server/hpc/)
 - [TIBCO Datasynapse GridServer](https://azuremarketplace.microsoft.com/marketplace/apps/tibco-software.tibco_datasynapse_gridserver)
 - [Azure Data Science VM for Windows and Linux](/azure/machine-learning/data-science-virtual-machine/overview)
 - [D3View](https://azuremarketplace.microsoft.com/marketplace/apps/xfinityinc.d3view-v5?tab=Overview)
@@ -280,7 +280,7 @@ The following are examples of cluster and workload managers that can run in Azur
 - [IBM Spectrum Symphony and Symphony LSF](https://azure.microsoft.com/blog/ibm-and-microsoft-azure-support-spectrum-symphony-and-spectrum-lsf)
 - [Altair PBS Works](https://www.altair.com/pbs-works)
 - [Rescale](https://www.rescale.com/azure)
-- [Univa Grid Engine](https://www.univa.com/products/univa-grid-engine.php)
+- [Univa Grid Engine](https://www.altair.com/grid-engine)
 - [Microsoft HPC Pack](/powershell/high-performance-computing/overview?view=hpc19-ps&preserve-view=true)
   - [HPC Pack for Windows](/azure/virtual-machines/windows/hpcpack-cluster-options)
   - [HPC Pack for Linux](/azure/virtual-machines/linux/hpcpack-cluster-options)
@@ -420,7 +420,7 @@ Run GPU-powered virtual machines in Azure in the same region as the HPC output f
 
 ## Customer stories
 
-There are a number of customers who have seen great success by using Azure for their HPC workloads.  You can find a few of these customer case studies below:
+There are many customers who have seen great success by using Azure for their HPC workloads.  You can find a few of these customer case studies below:
 
 - [AXA Global P&C](https://customers.microsoft.com/story/axa-global-p-and-c)
 - [Axioma](https://customers.microsoft.com/story/772585-axioma-banking-and-capital-markets-azure-united-states)
@@ -443,7 +443,7 @@ There are a number of customers who have seen great success by using Azure for t
 
 For the latest announcements, see:
 
-- [Microsoft HPC and Batch team blog](/archive/blogs/windowshpc/)
+- [Microsoft HPC and Batch team blog](/archive/blogs/windowshpc)
 - Visit the [Azure blog](https://azure.microsoft.com/blog/tag/hpc).
 
 ### Microsoft Batch Examples

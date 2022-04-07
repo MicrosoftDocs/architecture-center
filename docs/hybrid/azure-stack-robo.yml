@@ -2,6 +2,7 @@
 metadata:
   title: Azure Stack remote offices and branches
   description: Learn how to design infrastructure for highly available virtualized and containerized workloads in remote office/branch office (ROBO) scenarios.
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 11/29/2020
   ms.topic: conceptual

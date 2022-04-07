@@ -1,13 +1,14 @@
-This article discusses a recommended architecture for IoT applications using Azure PaaS (platform-as-a-service) components. The following diagram reflects different Azure components that can be used to architect an IoT solution. The diagram shows, and the article highlights, most of the commonly used services, but no solution requires all of them. If you're just getting started with Azure IoT or looking to build your first proof-of-concept solution, start here:
-
-> [!div class="nextstepaction"]
-> [Getting started with Azure IoT](/azure/architecture/reference-architectures/iot/iot-architecture-overview)
+This article discusses a recommended architecture for IoT applications using Azure PaaS (platform-as-a-service) components. The following diagram reflects different Azure components that can be used to architect an IoT solution. The diagram shows, and the article highlights, most of the commonly used services, but no solution requires all of them. 
 
 [ ![Diagram of the architecture](./iot/images/iot-refarch.svg) ](./iot/images/iot-refarch.svg#lightbox)
 
 This reference architecture uses Azure PaaS (platform-as-a-service) components. Microsoft recommends getting started with [Azure IoT Central](/azure/iot-central/), which is an aPaaS (application platform-as-a-service) IoT solution platform. It is designed to simplify and accelerate IoT solution assembly and operations by preassembling, scaling, and managing many of the same PaaS services described in this reference architecture. The result is an out-of-the-box and ready to use UX and API surface area complete with the capabilities needed to connect, manage, and operate fleets of devices at scale. [Learn more](/azure/architecture/example-scenario/iot/iot-central-iot-hub-cheat-sheet) about how to compare IoT Central (aPaaS) to a PaaS solution approach based on your solution needs.
 
 Azure IoT solutions involve **things** (typically **devices**) that generate data, **insights** that you form about the data, and **actions** that you take based on the insights. Consider a motor that sends temperature data. This data is used to evaluate whether the motor is performing as expected. The insight about its performance is used to prioritize a maintenance schedule for the motor.
+
+If you want to see IoT reference architectures that address solutions that are specific to industry verticals, you can start here:
+> [!div class="nextstepaction"]
+> [Industry specific IoT reference architectures](iot/industry-iot-hub-page.md)
 
 ## Devices
 

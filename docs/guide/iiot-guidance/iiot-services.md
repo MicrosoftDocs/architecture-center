@@ -4,22 +4,28 @@ titleSuffix: Azure Application Architecture Guide
 description: Explore services in an IIoT analytics solution, such as time series service, microservices, rules and calculation engine, notifications, Microsoft 365, and more.
 author: khilscher
 ms.author: kehilsch
-ms.date: 07/17/2020
+ms.date: 03/14/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 ms.category:
   - fcp
+categories:
+  - internet-of-things
+  - integration
 products:
   - azure-functions
   - azure-logic-apps
+  - azure-time-series-insights
+  - azure-iot-hub
+  - azure-event-hubs
 ms.custom:
   - guide
 ---
 
-# Services in an Industrial IoT analytics solution
+# Services in an industrial IoT (IIoT) analytics solution
 
-Building on the architectural components in the recommended [Azure Industrial IoT analytics solution](./iiot-architecture.md), this article discusses the subsystems and Azure services that can be used in such a solution. Your solution may not use all these services or may have additional services.
+Building on the architectural components in the recommended [Azure industrial IoT (IIoT) analytics solution](./iiot-architecture.yml), this article discusses the subsystems and Azure services that can be used in such a solution. Your solution may not use all these services or may have additional services.
 
 ## Time Series Service
 
@@ -57,11 +63,11 @@ You can query your data in Time Series Insights using:
 Your IIoT analytics solution will require a number of microservices to perform functions such as:
 
 - Providing HTTP REST APIs to support your web application.
-  - We recommend creating HTTP-triggered [Azure Functions](/azure/azure-functions/) to implement your APIs.
-  - Alternatively, you can develop and host your REST APIs using Azure Service Fabric or [Azure Kubernetes Service (AKS)](/azure/aks/).
+  - We recommend creating HTTP-triggered [Azure Functions](/azure/azure-functions) to implement your APIs.
+  - Alternatively, you can develop and host your REST APIs using Azure Service Fabric or [Azure Kubernetes Service (AKS)](/azure/aks).
 
-- Providing an HTTP REST API interface to your factory floor OPC UA servers (for example, using Azure Industrial IoT components consisting of OPC Publisher, OPC Twin and OPC Vault) to provide discovery, registration, and remote control of industrial devices.
-  - For hosting the Azure Industrial IoT microservices, we recommend using Azure Kubernetes Service (AKS). See [Deploying Azure Industrial IoT Platform](https://github.com/Azure/Industrial-IoT/blob/master/docs/deploy/readme.md) to understand the various deployment options.
+- Providing an HTTP REST API interface to your factory floor OPC UA servers (for example, using Azure industrial IoT components consisting of OPC Publisher, OPC Twin and OPC Vault) to provide discovery, registration, and remote control of industrial devices.
+  - For hosting the Azure industrial IoT microservices, we recommend using Azure Kubernetes Service (AKS). See [Deploying Azure Industrial IoT Platform](https://github.com/Azure/Industrial-IoT/blob/master/docs/deploy/readme.md) to understand the various deployment options.
 
 - Performing data transformation such as converting binary payloads to JSON or differing JSON payloads to a common, canonical format.
   - We recommend creating Azure Functions connected to IoT Hub to perform payload transformations.
@@ -69,7 +75,7 @@ Your IIoT analytics solution will require a number of microservices to perform f
   - If the message body is binary, use an Azure Function to convert the incoming messages to JSON and send the converted messages back to IoT Hub or to Event Hub.
 
       - When the message body is binary, [IoT Hub message routing](/azure/iot-hub/iot-hub-devguide-messages-d2c) cannot be used against the message body, but can be used against [message properties](/azure/iot-hub/iot-hub-devguide-routing-query-syntax).
-      - The Azure Industrial IoT components include the capability to decode OPC UA binary messages to JSON.
+      - The Azure industrial IoT components include the capability to decode OPC UA binary messages to JSON.
 
 - A [Data Ingest Administration](#data-ingest-administration) service for updating the list of tags monitored by your IIoT analytics solution.
 
@@ -183,7 +189,7 @@ To display visual alerts in your web application, we recommend creating an Azure
 
 or,
 
-- **An Azure Functions output:** Then [develop an Azure Function](/azure/azure-signalr/signalr-concept-azure-functions) that sends the events to your web application using [SignalR](/aspnet/core/signalr/introduction?view=aspnetcore-3.1).
+- **An Azure Functions output:** Then [develop an Azure Function](/azure/azure-signalr/signalr-concept-azure-functions) that sends the events to your web application using [SignalR](/aspnet/core/signalr/introduction).
 
 Operational alarms and events triggered on premise can also be ingested into Azure for reporting and to trigger work orders, SMS messages, and emails.
 
@@ -254,4 +260,4 @@ For these operations, we recommend using the [Microsoft Graph](https://developer
 
 ## Next steps
 
-Data visualization is the backbone of a well-defined analytics system. Learn about the [data visualization techniques](./iiot-data.md) that you can use with the IIoT analytics solution recommended in this series.
+Data visualization is the backbone of a well-defined analytics system. Learn about the [data visualization techniques](./iiot-data.yml) that you can use with the IIoT analytics solution recommended in this series.

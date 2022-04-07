@@ -33,8 +33,8 @@ Key technologies used to implement this architecture:
 
 ## Related resources
 
-* [Cache-Aside Pattern](../../patterns/cache-aside.md)
-* [Caching Best Practice](../../best-practices/caching.md?toc=%2fazure%2fredis-cache%2ftoc.json)
+* [Cache-Aside Pattern](../../patterns/cache-aside.yml)
+* [Caching Best Practice](../../best-practices/caching.yml)
 * [Scalable web apps with Azure Redis Cache](/azure/architecture/solution-ideas/articles/scalable-web-apps)
 * [Build cloud native applications](/azure/architecture/solution-ideas/articles/cloud-native-apps)
 * [Data streaming with AKS](/azure/architecture/solution-ideas/articles/data-streaming-scenario)

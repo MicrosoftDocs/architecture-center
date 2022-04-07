@@ -1,4 +1,4 @@
-This reference architecture shows a microservices application deployed to Azure Kubernetes Service (AKS). It describes a basic AKS configuration that can be the starting point for most deployments. This article assumes basic knowledge of Kubernetes. The article focuses mainly on the infrastructure and DevOps considerations of running a microservices architecture on AKS. For guidance on how to design microservices, see [Building microservices on Azure](../../../microservices/index.md).
+This reference architecture shows a microservices application deployed to Azure Kubernetes Service (AKS). It describes a basic AKS configuration that can be the starting point for most deployments. This article assumes basic knowledge of Kubernetes. The article focuses mainly on the infrastructure and DevOps considerations of running a microservices architecture on AKS. For guidance on how to design microservices, see [Building microservices on Azure](../../../microservices/index.yml).
 
 ![GitHub logo](../../../_images/github.png) A reference implementation of this architecture is available on [GitHub][ri].
 
@@ -44,8 +44,8 @@ A microservice is a loosely coupled, independently deployable unit of code. Micr
 
 API gateways are a general [microservices design pattern](https://microservices.io/patterns/apigateway.html). An *API gateway* sits between external clients and the microservices. It acts as a reverse proxy, routing requests from clients to microservices. It may also perform various cross-cutting tasks such as authentication, SSL termination, and rate-limiting. For more information, see:
 
-- [Using API gateways in microservices](../../../microservices/design/gateway.md)
-- [Choosing a gateway technology](../../../microservices/design/gateway.md#choosing-a-gateway-technology)
+- [Using API gateways in microservices](../../../microservices/design/gateway.yml)
+- [Choosing a gateway technology](../../../microservices/design/gateway.yml#choosing-a-gateway-technology)
 
 In Kubernetes, the functionality of an API gateway is primarily handled by an **Ingress controller**. The considerations are described in the [Ingress](#ingress) section.
 
@@ -53,7 +53,7 @@ In Kubernetes, the functionality of an API gateway is primarily handled by an **
 
 In a microservices architecture, services should not share data storage solutions. Each service should manage its own data set to avoid hidden dependencies among services. Data separation helps avoid unintentional coupling between services, which can happen when services share the same underlying data schemas. Also, when services manage their own data stores, they can use the right data store for their particular requirements.
 
-For more information, see [Designing microservices: Data considerations](../../../microservices/design/data-considerations.md).
+For more information, see [Designing microservices: Data considerations](../../../microservices/design/data-considerations.yml).
 
 Avoid storing persistent data in local cluster storage because that ties the data to the node. Instead, use an external service such as Azure SQL Database or Cosmos DB. Another option is to mount a persistent data volume to a solution using Azure Disks or Azure Files.
 
@@ -89,11 +89,11 @@ The Ingress resource can be fulfilled by different technologies. To work togethe
 
 Often, configuring the proxy server requires complex files, which can be hard to tune if you aren't an expert. So, the Ingress controller provides a nice abstraction. The Ingress controller also has access to the Kubernetes API, so it can make intelligent decisions about routing and load balancing. For example, the Nginx ingress controller bypasses the kube-proxy network proxy.
 
-On the other hand, if you need complete control over the settings, you may want to bypass this abstraction and configure the proxy server manually. For more information, see [Deploying Nginx or HAProxy to Kubernetes](../../../microservices/design/gateway.md#deploying-nginx-or-haproxy-to-kubernetes).
+On the other hand, if you need complete control over the settings, you may want to bypass this abstraction and configure the proxy server manually. For more information, see [Deploying Nginx or HAProxy to Kubernetes](../../../microservices/design/gateway.yml#deploying-nginx-or-haproxy-to-kubernetes).
 
 > For AKS, you can also use Azure Application Gateway, using the [Application Gateway Ingress Controller](https://azure.github.io/application-gateway-kubernetes-ingress/). This option requires [CNI networking](/azure/aks/configure-azure-cni) to be enabled when you configure the AKS cluster, because Application Gateway is deployed into a subnet of the AKS virtual network.  Azure Application Gateway can perform layer-7 routing and SSL termination. It also has built-in support for web application firewall (WAF).
 
-For information about load-balancing services in Azure, see [Overview of load-balancing options in Azure](../../../guide/technology-choices/load-balancing-overview.md).
+For information about load-balancing services in Azure, see [Overview of load-balancing options in Azure](../../../guide/technology-choices/load-balancing-overview.yml).
 
 ### TLS/SSL encryption
 
@@ -142,7 +142,7 @@ Here are some considerations when designing probes:
 
 ## Resource constraints
 
-Resource contention can affect the availability of a service. Define resource constraints for containers, so that a single container cannot overwhelm the cluster resources (memory and CPU). For non-container resources, such as threads or network connections, consider using the [Bulkhead Pattern](../../../patterns/bulkhead.md) to isolate resources.
+Resource contention can affect the availability of a service. Define resource constraints for containers, so that a single container cannot overwhelm the cluster resources (memory and CPU). For non-container resources, such as threads or network connections, consider using the [Bulkhead Pattern](../../../patterns/bulkhead.yml) to isolate resources.
 
 Use resource quotas to limit the total resources allowed for a namespace. That way, the front end can't starve the backend services for resources or vice-versa.
 
@@ -239,9 +239,9 @@ Here are some goals of a robust CI/CD process for a microservices architecture:
 - Sufficient access control policies are in place.
 - For containerized workloads, you can trust the container images that are deployed to production.
 
-To learn more about the challenges, see [CI/CD for microservices architectures](../../../microservices/ci-cd.md).
+To learn more about the challenges, see [CI/CD for microservices architectures](../../../microservices/ci-cd.yml).
 
-For specific recommendations and best practices, see [CI/CD for microservices on Kubernetes](../../../microservices/ci-cd-kubernetes.md).
+For specific recommendations and best practices, see [CI/CD for microservices on Kubernetes](../../../microservices/ci-cd-kubernetes.yml).
 
 ## Cost considerations
 
@@ -279,13 +279,13 @@ To deploy the reference implementation for this architecture, follow the steps i
 ## Next steps
 
 - To work through a more advanced microservices example, see [Advanced Azure Kubernetes Service (AKS) microservices architecture](./aks-microservices-advanced.yml)
-- To learn about monitoring this architecture, see [Monitoring a microservices architecture in Azure Kubernetes Service (AKS)](../../../microservices/logging-monitoring.md).
-- To learn how we measured the performance of this application, see [Performance tuning scenario: Distributed business transactions](../../../performance/distributed-transaction.md).
+- To learn about monitoring this architecture, see [Monitoring a microservices architecture in Azure Kubernetes Service (AKS)](../../../microservices/logging-monitoring.yml).
+- To learn how we measured the performance of this application, see [Performance tuning scenario: Distributed business transactions](../../../performance/distributed-transaction.yml).
 
 [ri]: https://github.com/mspnp/microservices-reference-implementation
 [ri-deploy]: https://github.com/mspnp/microservices-reference-implementation/blob/main/deployment.md
 [visio-download]: https://arch-center.azureedge.net/aks-reference-architecture.vsdx
-[aaf-cost]: ../../../framework/cost/overview.md
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [DevOps-pricing]: https://azure.microsoft.com/pricing/details/devops/azure-devops-services
 [AppGatewayPricing]: https://azure.microsoft.com/pricing/details/application-gateway

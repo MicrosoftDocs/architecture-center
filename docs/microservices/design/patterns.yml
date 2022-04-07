@@ -1,0 +1,19 @@
+### YamlMime:Architecture
+metadata:
+  title: Design patterns for microservices
+  description: Learn how designs that use microservices can increase the velocity of application releases by deploying small, autonomous services independently.
+  author: EdPrice-MSFT
+  ms.author: edprice
+  ms.date:  02/25/2019
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - developer-tools
+products:
+  - azure-cloud-services
+name: Design patterns for microservices
+summary: Learn how designs that use microservices can increase the velocity of application releases by deploying small, autonomous services independently.
+thumbnailUrl: /azure/architecture/browse/thumbs/microservices-patterns.png
+content: |
+  [!include[](patterns-content.md)]

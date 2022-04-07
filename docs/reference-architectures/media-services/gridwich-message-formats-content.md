@@ -73,7 +73,7 @@ For more information about operation context, see [Operation context](gridwich-a
 
 ## Event Grid messages
 
-For more information about request-response message flow, see [Request flow](gridwich-architecture.yml#request-flow).
+For more information about request-response message flow, see [the architecture request flow](gridwich-architecture.yml).
 
 In the following event descriptions, the JSON property values are the usual string, number, or boolean types. The descriptions use the following specific string content types. If the description includes "opaque," the content and format of the value are arbitrary.
 
@@ -944,3 +944,23 @@ The `keyName` corresponds to the key name that Azure Storage defines in its [Get
   ```
 
   Failure results for this operation aren't as complete as [normal Gridwich failures](#m-fail).
+
+## Next steps
+
+Product documentation:
+
+- [Gridwich cloud media system](gridwich-architecture.yml)
+- [Azure Media Services v3 overview](/azure/media-services/latest/media-services-overview)
+- [What is Azure Blob storage?](/azure/storage/blobs/storage-blobs-overview)
+- [What is Azure Logic Apps?](/azure/logic-apps/logic-apps-overview)
+
+Microsoft Learn modules:
+
+- [Explore Azure Storage services](/learn/modules/azure-storage-fundamentals)
+- [Introduction to Azure Logic Apps](/learn/modules/intro-to-logic-apps)
+
+## Related resources
+
+- [Gridwich content protection and DRM](gridwich-content-protection-drm.yml)
+- [Gridwich operations for Azure Storage](gridwich-storage-service.yml)
+- [Logging in Gridwich](gridwich-logging.yml)

@@ -19,7 +19,7 @@ Consider everything that you need to do when onboarding a tenant, and document t
 - Collection of the information that you need to configure your system for the new tenant.
 - Manual approval steps, for example, to prevent fraud or abuse of your service.
 - The provisioning of resources in Azure.
-- [Creating or configuring domain names](../considerations/domain-names.md).
+- [Creating or configuring domain names](../considerations/domain-names.yml).
 - Perform post-deployment configuration tasks, such as creating the first user account for the tenant and securely transmit its credentials.
 - Manual configuration changes, such as DNS record changes.
 
@@ -68,15 +68,15 @@ Several design patterns from the Azure Architecture Center, and the wider commun
 
 ### Deployment Stamps pattern
 
-The [Deployment Stamps pattern](../../../patterns/deployment-stamp.md) involves deploying dedicated infrastructure for a tenant or group of tenants. A single stamp might contain multiple tenants, or it might be dedicated to a single tenant. You can choose to deploy a single stamp, or you can coordinate a deployment across multiple stamps. If you deploy dedicated stamps for each tenant, you can also consider deploying entire stamps programmatically.
+The [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml) involves deploying dedicated infrastructure for a tenant or group of tenants. A single stamp might contain multiple tenants, or it might be dedicated to a single tenant. You can choose to deploy a single stamp, or you can coordinate a deployment across multiple stamps. If you deploy dedicated stamps for each tenant, you can also consider deploying entire stamps programmatically.
 
 ### Deployment rings
 
-[Deployment rings](/azure/devops/migrate/phase-rollout-with-rings) enable you to roll out updates to different groups of infrastructure at different times. This approach is commonly used with the [Deployment Stamps pattern](../../../patterns/deployment-stamp.md), and groups of stamps are deployed into distinct rings based on tenant preferences, workload types, and other considerations. For more information, see [Deployment rings](../considerations/updates.md#deployment-rings).
+[Deployment rings](/azure/devops/migrate/phase-rollout-with-rings) enable you to roll out updates to different groups of infrastructure at different times. This approach is commonly used with the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml), and groups of stamps are deployed into distinct rings based on tenant preferences, workload types, and other considerations. For more information, see [Deployment rings](../considerations/updates.md#deployment-rings).
 
 ### Feature flags
 
-[Feature flags](/azure/devops/migrate/phase-features-with-feature-flags) enable you to expose new features or versions of your solution to different tenants, while you maintain a single codebase. Consider using [Azure App Configuration](/azure/azure-app-configuration/overview) to manage your feature flags. For more information, see [Feature flags](../considerations/updates.md#feature-flags).
+[Feature flags](/devops/operate/progressive-experimentation-feature-flags) enable you to expose new features or versions of your solution to different tenants, while you maintain a single codebase. Consider using [Azure App Configuration](/azure/azure-app-configuration/overview) to manage your feature flags. For more information, see [Feature flags](../considerations/updates.md#feature-flags).
 
 Sometimes you need to selectively enable specific features for certain customers. For example, you might have different [pricing tiers](../considerations/pricing-models.md) that allow access to certain capabilities. Feature flags aren't usually the right choice for these scenarios. Instead, consider building a process to track and enforce the *license entitlements* that each customer has.
 
@@ -130,11 +130,11 @@ By doing this, you can provision resources for new tenants without redeploying y
 However, this approach is often much more time-consuming to build, and the effort you spend needs to be justified by the number of tenants or the provisioning timeframes you need to meet.
 
 > [!NOTE]
-> Azure deployment and configuration operations often take time to complete. Ensure you use an appropriate process to initiate and monitor these long-running operations. For example, you might consider following the [Asynchronous Request-Reply pattern](../../../patterns/async-request-reply.md). Use technologies that are designed to support long-running operations, like [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) and [Durable Functions](/azure/azure-functions/durable/durable-functions-overview).
+> Azure deployment and configuration operations often take time to complete. Ensure you use an appropriate process to initiate and monitor these long-running operations. For example, you might consider following the [Asynchronous Request-Reply pattern](../../../patterns/async-request-reply.yml). Use technologies that are designed to support long-running operations, like [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) and [Durable Functions](/azure/azure-functions/durable/durable-functions-overview).
 
 ### Example
 
-Contoso runs a multitenant solution for their customers. Currently, they have six tenants, and they expect to grow to 300 tenants within the next 18 months. Contoso follows the [Multitenant app with dedicated databases for each tenant](storage-data.md#multitenant-app-with-dedicated-databases-for-each-tenant) approach. They have deployed a single set of App Service resources and an Azure SQL logical server that are shared between all of their tenants, and they deploy a dedicated Azure SQL database for each tenant, as shown in the following diagram.
+Contoso runs a multitenant solution for their customers. Currently, they have six tenants, and they expect to grow to 300 tenants within the next 18 months. Contoso follows the [Multitenant app with dedicated databases for each tenant](storage-data.yml#multitenant-app-with-dedicated-databases-for-each-tenant) approach. They have deployed a single set of App Service resources and an Azure SQL logical server that are shared between all of their tenants, and they deploy a dedicated Azure SQL database for each tenant, as shown in the following diagram.
 
 ![Architecture diagram showing shared resources and dedicated resources for each tenant.](media/deployment-configuration/example-architecture.png)
 
@@ -172,5 +172,5 @@ Ongoing database schema updates are initiated by their application tier.
 ## Next steps
 
 - Review the [considerations for updating a multitenant solution](../considerations/updates.md).
-- Consider [architectural approaches for storage and data](storage-data.md).
+- Consider [architectural approaches for storage and data](storage-data.yml).
 - Consider [how to use Azure Resource Manager in a multitenant solution](../service/resource-manager.md).
