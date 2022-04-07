@@ -98,23 +98,19 @@ You can find a reference implementation on GitHub: [Azure Digital Twins Batch Up
 
 Use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator) to get accurate pricing on Azure Digital Twins, Data Factory, and Azure Batch.
 
+
 ## Contributors
 
-_This article is being updated and maintained by Microsoft. It was originally written by the following contributors._
+This article is maintained by Microsoft. It was originally written by the following contributors.
 
-
-**Main contributor:** 
+**Principal author:** 
 
 - [Howard Ginsburg](https://www.linkedin.com/in/howardginsburg) | Senior Cloud Solution Architect
 
-
-**Additional contributors:**
+**Other contributors:**
 
 - [Onder Yildirim](https://www.linkedin.com/in/%C3%B6nder-yildirim-0044601) | Senior Cloud Solution Architect 
 - [Mike Downs](https://www.linkedin.com/in/mike-downs-4373a66) | Senior Cloud Solution Architect 
- 
-
-**Other contributors:**
 - [Gary Moore](https://www.linkedin.com/in/gwmoore) | Programmer/Writer
 
 
