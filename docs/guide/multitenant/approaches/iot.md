@@ -255,6 +255,20 @@ The *single-tenant automated* approach is similar to the [*simple SaaS*](#simple
 
 When you expand the scale of a solution to very large deployments, there are specific challenges that arise based on service limits, geographic concerns, and other factors. For more information on large-scale IoT deployment architectures, see [Scaling out an Azure IoT solution to support millions of devices](https://aka.ms/ScalingIoT).
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+**Principal authors:**
+
+ * [Michael C. Bazarewsky](http://linkedin.com/mikebaz) | Senior Customer Engineer, FastTrack for Azure
+ * [David Crook](http://linkedin.com/drcrook) | Principal Customer Engineer, FastTrack for Azure
+ 
+**Other contributors:**
+
+ * [John Downs](http://linkedin.com/john-downs) | Senior Customer Engineer, FastTrack for Azure
+ * [Arsen Vladimirskiy](http://linkedin.com/arsenv) | Principal Customer Engineer, FastTrack for Azure
+
 ## Next steps
 
 * Review guidance for [multitenancy and Azure Cosmos DB](../service/cosmos-db.md).
