@@ -19,11 +19,9 @@ This solution idea describes how to create voice conversational interfaces with 
 1. The app connects to the [Direct Line Speech](/azure/cognitive-services/speech-service/direct-line-speech) Bot Service channel by using the [Azure Speech SDK](/azure/cognitive-services/speech-service/speech-sdk). When [keyword recognition](/azure/cognitive-services/speech-service/keyword-recognition-overview) confirms certain keywords, Direct Line Speech transcribes the [speech to text](/azure/cognitive-services/speech-service/speech-to-text) and sends the text to the Bot Service app hosted on Azure App Service.
 1. The Bot Service connects to the Language Understanding (LUIS) service. LUIS determines the intent of the user's request, *TurnOnLight*.
 1. LUIS returns the intent to the Bot Service.
-1. If the devices are connected to Azure IoT Hub, Bot Service relays the request through Azure IoT Hub to turn on the exterior lights.
+1. If the devices are connected to Azure IoT Hub, Bot Service relays the request through Azure IoT Hub to turn on the exterior lights. Bot Service uses the [IoT Hub API](/rest/api/iothub) to send the command to the devices by using [direct methods](/azure/iot-hub/iot-hub-devguide-direct-methods), updating the [device twin's desired property](/azure/iot-hub/iot-hub-csharp-csharp-twin-getstarted), or sending a [cloud to device message](/azure/iot-hub/iot-hub-csharp-csharp-c2d).
 
-   Bot Service uses the [IoT Hub API](/rest/api/iothub) to send the command to the devices by using [direct methods](/azure/iot-hub/iot-hub-devguide-direct-methods), updating the [device twin's desired property](/azure/iot-hub/iot-hub-csharp-csharp-twin-getstarted), or sending a [cloud to device message](/azure/iot-hub/iot-hub-csharp-csharp-c2d).
-
-   If the devices are connected to a third-party IoT installation, Bot Service connects to the third-party API to send a command to the devices.
+   If the devices are connected to a third-party IoT installation, Bot Service connects through the third-party API to send a command to the devices. 
 
 1. The Bot Service returns the results of the command to the user by generating a response. The [text-to-speech](/azure/cognitive-services/speech-service/text-to-speech) service turns the response into audio and passes it back to the voice assistant app with Direct Line Speech.
 1. Application Insights gathers runtime telemetry for bot performance and usage development.
