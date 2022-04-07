@@ -12,9 +12,7 @@ Typical uses for this architecture include:
 
 :::image type="content" source="./images/azure-arc-hybrid-config.png" alt-text="An Azure Arc hybrid server topology diagram with Arc-enabled servers connected to Azure." lightbox="./images/azure-arc-hybrid-config.png" :::
 
-*Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
-
-**TODO** - update Visio file (https://arch-center.azureedge.net/azure-arc-hybrid-config.vsdx) to reflect revised Jumpstart ArcBox for IT Pros image 
+*Download a [PowerPoint file][architectural-diagram-ppt-source] of this architecture.*
 
 ### Components
 
@@ -176,6 +174,7 @@ To deploy the reference implementation, follow the steps in the GitHub repo by s
 [ArcBox workbook]: https://azurearcjumpstart.io/azure_jumpstart_arcbox/workbook/flavors/itpro/
 [architectural-diagram]: ./images/azure-arc-hybrid-config.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-arc-hybrid-config.vsdx
+[architectural-diagram-ppt-source]: https://arch-center.azureedge.net/azure-arc-hybrid-config.pptx
 [Azure Arc docs]: /azure/azure-arc/
 [Azure Arc-enabled servers]: https://azure.microsoft.com/services/azure-arc/#infrastructure
 [Azure Arc-enabled servers docs]: /azure/azure-arc/servers/overview
