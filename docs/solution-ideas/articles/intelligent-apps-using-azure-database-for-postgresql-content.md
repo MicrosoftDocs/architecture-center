@@ -26,8 +26,9 @@ PostgreSQL's support for unstructured data and ability to execute parallel queri
 7. Finally, human-interpretable insights can be explored in Power BI, through the PostgreSQL connector or a custom web application.
 
 ### Components
-* [Azure Functions](https://azure.microsoft.com/services/functions): See [Azure Function activity in Azure Data Factory](/azure/data-factory/control-flow-azure-function-activity).
+
 * [Azure App Services](https://azure.microsoft.com/services/app-service): A fully managed platform for quickly building, deploying, and scaling web apps and APIs.
+* [Azure Functions](https://azure.microsoft.com/services/functions): See [Azure Function activity in Azure Data Factory](/azure/data-factory/control-flow-azure-function-activity).
 * [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs)
 * [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services): Build intelligent application with a suite of AI services and APIs.
 * [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql): With high availability up to 99.99% SLA and agile scalability, Azure Database for PostgreSQL allows you to focus on innovation.
