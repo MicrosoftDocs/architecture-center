@@ -5,8 +5,10 @@ author: alexhart11
 ms.date: 04/08/2022
 ms.topic: article
 ms.service: architecture-center
-categories: management-and-governance
-products: azure
+categories: 
+- management-and-governance
+products:
+- azure
 ---
 <!-- This page is automatically generated using a script. Do not edit by hand -->
 
@@ -17,10 +19,6 @@ The Azure Architecture Center (AAC) helps you design, build, and operate solutio
 <br/>  
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWxOYN]
-
-<link rel="alternate" type="application/atom+xml"
-  title="New and updated articles in Azure Architecture Center"
-  href="/azure/architecture/feed.atom" />
 
 The following new and updated articles have recently been published in the Azure Architecture Center.
 
@@ -34,6 +32,11 @@ The following new and updated articles have recently been published in the Azure
 
 ### Updated articles
 
+- [Architectural approaches for AI and ML in multitenant solutions](./guide/multitenant/approaches/ai-ml.md)  ([#9fbfbec28](https://github.com/MicrosoftDocs/architecture-center/commit/9fbfbec28))
+- [Architectural approaches for compute in multitenant solutions](./guide/multitenant/approaches/compute.md)  ([#9fbfbec28](https://github.com/MicrosoftDocs/architecture-center/commit/9fbfbec28))
+- [Architectural approaches for IoT in a multitenant solution](./guide/multitenant/approaches/iot.md)  ([#9fbfbec28](https://github.com/MicrosoftDocs/architecture-center/commit/9fbfbec28))
+- [Architectural approaches for messaging in multitenant solutions](./guide/multitenant/approaches/messaging.md)  ([#9fbfbec28](https://github.com/MicrosoftDocs/architecture-center/commit/9fbfbec28))
+- [Architecting multitenant solutions on Azure](./guide/multitenant/overview.md)  ([#9fbfbec28](https://github.com/MicrosoftDocs/architecture-center/commit/9fbfbec28))
 - [IoT Edge railroad maintenance and safety system](./example-scenario/predictive-maintenance/iot-predictive-maintenance.yml)  ([#2cf8a2288](https://github.com/MicrosoftDocs/architecture-center/commit/2cf8a2288))
 - [Forecast energy and power demand](./solution-ideas/articles/forecast-energy-power-demand.yml)  ([#2d72f5de4](https://github.com/MicrosoftDocs/architecture-center/commit/2d72f5de4))
 
