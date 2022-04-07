@@ -2,7 +2,7 @@
 
 This article describes an internet of things (IoT) solution that provides power, light, and internet services to remote locations. A large-scale telecommunications company based the solution on IoT devices that can act as energy and internet hubs for homes and small businesses.
 
-The IoT devices use a rooftop solar panel to charge a battery, which delivers LED light, USB power, and cellular connectivity. An integrated SIM card and tablet provide a user interface. The devices have an IoT gateway that acts as a hub for data transfer and customized service delivery. The IoT gateway collects and transmits telemetry data from the solar panel, battery, and output devices.
+The IoT devices have an IoT gateway that acts as a hub for data transfer and customized service delivery. The devices use a rooftop solar panel to charge a battery, which delivers LED light, USB power, and cellular connectivity. The gateway collects and transmits telemetry data from the solar panel, battery, and output devices. The solution also includes an IoT device with an integrated SIM card and tablet to provide a user interface.
 
 The basic IoT device provides LED light, USB device charging, internet connectivity, and user support through alerts and chatbots. Users can get more services and content on demand or by subscription.
 
@@ -36,8 +36,8 @@ The architecture consists of:
 
 1. Field sales and service agents use a mobile platform to interact with the cloud application via Azure Application Gateway. End users use a built-in interface or mobile app to access and control their devices.
 1. Application Gateway uses messaging protocols to interact with users and operators.
-1. The cloud app consists of containerized microservices that provide functions and interfaces like identity and access management, device upgrades, notifications, and commerce services.
-1. Depending on the functions used, the app accesses Azure services and resources like [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction) for unstructured data storage, [Azure Cosmos DB](/azure/cosmos-db/introduction) for large structured databases, and [Azure Media Services](https://azure.microsoft.com/services/media-services/) for entertainment content.
+1. The cloud app consists of containerized microservices that provide features and interfaces like identity and access management, device upgrades, notifications, and commerce services.
+1. Depending on the features used, the app accesses Azure services and resources like [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction) for unstructured data storage, [Azure Cosmos DB](/azure/cosmos-db/introduction) for large structured databases, and [Azure Media Services](https://azure.microsoft.com/services/media-services/) for entertainment content.
 1. The IoT gateway also sends streaming telemetry and user data to the cloud via Azure IoT Hub, to use for analytics and machine learning (ML).
 
 ### Analytics and machine learning dataflow
@@ -46,13 +46,13 @@ The business intelligence part of the process includes the following data analys
 
 ![Diagram showing an analytics loop that runs post-processed telemetry data through a trained AI model to control the device.](../media/iot-power-analytics.png)
 
-1. IoT Hub receives the streaming telemetry and user data from the IoT devices, and routes events to Azure Databricks via Azure Functions.
+1. IoT Hub receives the streaming telemetry and user data from the IoT devices, and routes events to Azure Databricks via [Azure Functions](https://azure.microsoft.com/services/functions).
 1. Azure Databricks [extracts, transforms, and loads (ETLs)](https://en.wikipedia.org/wiki/Extract,_transform,_load) the event data.
 1. Azure Databricks uses Azure Functions to send some events, like alarms, directly to a customer support app for action.
 1. Azure Databricks sends the ETL data to Azure Synapse, which performs analytics and stores the data.
 1. Power BI reports use the analyzed data and insights. The service provider can use the data for system evaluation and future planning.
-1. Azure Machine Learning combines current data with stored external data, like historical weather and forecasts, and uses the results to retrain the power management ML models.
-1. IoT Hub sends the retrained models to the IoT devices, which adjust their behavior and schedules accordingly.
+1. Azure Machine Learning uses a Databricks cluster to train and retrain ML models for power management. Model retraining combines current data with stored external data, like historical weather and forecasts, on Azure Cosmos DB.
+1. The retrained model triggers a pipeline that packages the model and sends the retrained models to IoT Hub. IoT Hub sends the updated models to the IoT devices to use for device management. For more information, see [MLOps: Model management, deployment, lineage, and monitoring with Azure Machine Learning](/azure/machine-learning/concept-model-management-and-deployment).
 
 ### Components
 
