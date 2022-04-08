@@ -11,6 +11,8 @@ ms.custom:
   - design-pattern
 keywords:
   - design pattern
+products: azure
+categories: featured
 ---
 
 # Management and Monitoring patterns
@@ -19,8 +21,8 @@ Cloud applications run in a remote datacenter where you do not have full control
 
 |                              Pattern                               |                                                              Summary                                                              |
 |--------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
-|                   [Ambassador](../ambassador.md)                   |                 Create helper services that send network requests on behalf of a consumer service or application.                 |
-|        [Anti-Corruption Layer](../anti-corruption-layer.md)        |                       Implement a façade or adapter layer between a modern application and a legacy system.                       |
+|                   [Ambassador](../ambassador.yml)                   |                 Create helper services that send network requests on behalf of a consumer service or application.                 |
+|        [Anti-Corruption Layer](../anti-corruption-layer.yml)        |                       Implement a façade or adapter layer between a modern application and a legacy system.                       |
 | [External Configuration Store](../external-configuration-store.yml) |                Move configuration information out of the application deployment package to a centralized location.                |
 |          [Gateway Aggregation](../gateway-aggregation.yml)          |                          Use a gateway to aggregate multiple individual requests into a single request.                           |
 |           [Gateway Offloading](../gateway-offloading.yml)           |                              Offload shared or specialized service functionality to a gateway proxy.                              |

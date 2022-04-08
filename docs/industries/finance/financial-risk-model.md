@@ -5,7 +5,7 @@ author: EdPrice-MSFT
 ms.author: edprice
 ms.service: industry
 ms.topic: overview
-ms.date: 03/18/2022
+ms.date: 04/06/2022
 categories:
   - management-and-governance
 products:
@@ -520,7 +520,7 @@ Figure 5 - Potential future exposure for MSFT equity forward - Calculated with a
 
 ## Contributors
 
-_This article is being updated and maintained by Microsoft. It was originally written by the following contributors._
+_This article is maintained by Microsoft. It was originally written by the following contributors._
 
 **Principal authors:**
 

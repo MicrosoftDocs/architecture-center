@@ -44,7 +44,7 @@ One of the primary differences between an on-premises HPC system and one in the 
 
 The following articles provide more detail about this dynamic scaling capability.
 
-- [Big Compute Architecture Style](../guide/architecture-styles/big-compute.md)
+- [Big Compute Architecture Style](../guide/architecture-styles/big-compute.yml)
 - [Autoscaling best practices](../best-practices/auto-scaling.md)
 
 ## Implementation checklist

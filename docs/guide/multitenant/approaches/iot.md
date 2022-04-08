@@ -62,7 +62,7 @@ You can isolate and distribute tenants across the IoT control, management, and c
 
 #### Data storage, query, usage, and retention
 
-IoT solutions tend to be very data-intensive, both when streaming and at rest. For more information on managing data in multitenant solutions, see [Architectural approaches for storage and data in multitenant solutions](storage-data.md).
+IoT solutions tend to be very data-intensive, both when streaming and at rest. For more information on managing data in multitenant solutions, see [Architectural approaches for storage and data in multitenant solutions](storage-data.yml).
 
 ## Approaches to consider
 
@@ -148,7 +148,7 @@ Communications to systems outside of IoT Central, such as for longer-term data a
 
 If you compare the *Simple SaaS* approach with the [*Single tenant automated*](#single-tenant-automated) aPaaS model, many characteristics are similar.  The primary difference between the two models is that in the  *Single tenant automated* model, you deploy a distinct IoT Central instance for each tenant, while in the *Simple SaaS with aPaaS* model, you instead deploy a shared instance for multiple customers, and you create an IoT Central organization for each tenant.
 
-As you're sharing a multitenanted data tier in this model, you'll need to implement row-level security, as described in [Architectural approaches for storage and data in multitenant solutions](storage-data.md), in order to isolate the customer data.
+As you're sharing a multitenanted data tier in this model, you'll need to implement row-level security, as described in [Architectural approaches for storage and data in multitenant solutions](storage-data.yml), in order to isolate the customer data.
 
 **Benefits**:
 
@@ -168,7 +168,7 @@ As you're sharing a multitenanted data tier in this model, you'll need to implem
 |---|---|---|
 | Service provider's subscription | Horizontally partitioned | Deployment Stamp |
 
-A common scalability approach is to [horizontally partition the solution](../considerations/tenancy-models.md#horizontally-partitioned-deployments). This means you have some shared components and some per-customer components.
+A common scalability approach is to [horizontally partition the solution](../considerations/tenancy-models.yml#horizontally-partitioned-deployments). This means you have some shared components and some per-customer components.
 
 Within an IoT solution, there are many components that can be horizontally partitioned. The horizontally partitioned subsystems are typically arranged using a [deployment stamp pattern](/azure/architecture/patterns/deployment-stamp) which integrates with the greater solution.
 
@@ -254,6 +254,20 @@ The *single-tenant automated* approach is similar to the [*simple SaaS*](#simple
 ### Increase the scale of SaaS
 
 When you expand the scale of a solution to very large deployments, there are specific challenges that arise based on service limits, geographic concerns, and other factors. For more information on large-scale IoT deployment architectures, see [Scaling out an Azure IoT solution to support millions of devices](https://aka.ms/ScalingIoT).
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+**Principal authors:**
+
+ * [Michael C. Bazarewsky](http://linkedin.com/mikebaz) | Senior Customer Engineer, FastTrack for Azure
+ * [David Crook](http://linkedin.com/drcrook) | Principal Customer Engineer, FastTrack for Azure
+ 
+**Other contributors:**
+
+ * [John Downs](http://linkedin.com/john-downs) | Senior Customer Engineer, FastTrack for Azure
+ * [Arsen Vladimirskiy](http://linkedin.com/arsenv) | Principal Customer Engineer, FastTrack for Azure
 
 ## Next steps
 

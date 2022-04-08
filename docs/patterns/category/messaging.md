@@ -11,6 +11,8 @@ ms.custom:
   - design-pattern
 keywords:
   - design pattern
+products: azure
+categories: featured
 ---
 
 # Messaging patterns
@@ -19,9 +21,9 @@ The distributed nature of cloud applications requires a messaging infrastructure
 
 | Pattern | Summary |
 | ------- | ------- |
-| [Asynchronous Request-Reply](../async-request-reply.md) | Decouple backend processing from a frontend host, where backend processing needs to be asynchronous, but the frontend still needs a clear response. |
+| [Asynchronous Request-Reply](../async-request-reply.yml) | Decouple backend processing from a frontend host, where backend processing needs to be asynchronous, but the frontend still needs a clear response. |
 | [Claim Check](../claim-check.yml) | Split a large message into a claim check and a payload to avoid overwhelming a message bus. |
-| [Choreography](../choreography.md) | Have each component of the system participate in the decision-making process about the workflow of a business transaction, instead of relying on a central point of control. |
+| [Choreography](../choreography.yml) | Have each component of the system participate in the decision-making process about the workflow of a business transaction, instead of relying on a central point of control. |
 | [Competing Consumers](../competing-consumers.yml) | Enable multiple concurrent consumers to process messages received on the same messaging channel. |
 | [Pipes and Filters](../pipes-and-filters.yml) | Break down a task that performs complex processing into a series of separate elements that can be reused. |
 | [Priority Queue](../priority-queue.yml) | Prioritize requests sent to services so that requests with a higher priority are received and processed more quickly than those with a lower priority. |
