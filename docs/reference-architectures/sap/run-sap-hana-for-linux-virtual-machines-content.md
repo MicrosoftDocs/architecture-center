@@ -55,9 +55,16 @@ Since all other VMs supporting SAP HANA allow the choice of either Gen2 only or 
 
 **Proximity Placement Groups (PPG)** To optimize network latency, you can use [proximity placement groups](/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios), which favor collocation, meaning that virtual machines are in the same datacenter to minimize latency between SAP HANA and connecting application VMs. For SAP HANA architecture itself, no PPGs are needed, they're only an option colocating SAP HANA with application tier VMs. Due to potential restrictions with PPGs, adding the database AvSet to the SAP system's PPG should be done sparsely and **only when required** for latency between SAP application and database traffic. For more information on the usage scenarios of PPGs, see the linked documentation. As PPGs restrict workloads to a single datacenter, a PPG can't span multiple availability zones.
 
-## Considerations
+### Components
 
-To be written.
+* [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network)
+* [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute)
+* [Azure Virtual Machines](https://azure.microsoft.com/en-us/services/virtual-machines)
+* [Azure NetApp Files](https://azure.microsoft.com/en-us/services/netapp)
+* [Azure Load Balancer](https://azure.microsoft.com/services/load-balancer)
+* [Azure Disk Storage](https://azure.microsoft.com/services/storage/disks)
+
+## Considerations
 
 ### Scalability
 
@@ -111,7 +118,7 @@ Preferably three small VMs are deployed in either an availability set or availab
 
 Alternatively to using SBD VMs, [Azure shared disk](/azure/virtual-machines/disks-shared) can be used instead. The SAP HANA cluster nodes then [access the single shared disk](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#use-an-sbd-device). The shared disk can be locally ([LRS](/azure/storage/common/storage-redundancy#locally-redundant-storage)) or zonally ([ZRS](/azure/storage/common/storage-redundancy#zone-redundant-storage)) redundant, if ZRS is available in your Azure region.
 
-## Disaster recovery considerations
+### Disaster recovery
 
 [![Reference architecture for SAP HANA ScaleUp](./images/sap-hana-scale-up-avzone-dr.png)](./images/sap-hana-scale-up-avzone-dr.png#lightbox)
 *Figure - The architecture of a production HANA environment, in Azure with availability zone, with disaster recovery.*
@@ -128,7 +135,7 @@ Make sure to verify your target region's [resource capacity](/azure/site-recover
 
 **Azure NetApp Files** As an option, [Azure NetApp Files](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) can be used to provide a scalable and high-performance storage solution for SAP HANA data and log files. Azure NetApp Files supports snapshots for fast backup, recovery, and local replication. For cross-region content replication, Azure NetApp Files Cross-Region Replication can be used to replicate the snapshot data between two regions. [Details](/azure/azure-netapp-files/cross-region-replication-introduction) about cross-region replication and a [whitepaper](https://docs.netapp.com/us-en/netapp-solutions-sap/pdfs/sidebar/SAP_HANA_Disaster_Recovery_with_Azure_NetApp_Files.pdf) describing all aspects for disaster recovery with Azure NetApp Files are available.
 
-## Backup
+### Backup
 
 SAP HANA data can be backed up in many ways. After migrating to Azure, you can continue to use any existing partner backup solutions you already have. Azure provides two native approaches: [SAP HANA file-level backup](/azure/virtual-machines/workloads/sap/sap-hana-backup-file-level) and Azure Backup for SAP HANA over the Backint interface.
 
@@ -138,7 +145,7 @@ Azure Backup offers a simple, enterprise-grade solution for workloads running on
 
 **Azure NetApp Files** brings support for snapshot based backups. Integrating with SAP HANA for application consistent snapshots is through the Azure Application Consistent Snapshot tool ([AzAcSnap](/azure/azure-netapp-files/azacsnap-introduction)). The snapshots created can be used for restore to a new volume for system restore or copying the SAP HANA database. Snapshots created can be used for disaster recovery, where it acts as restore point with SAP HANA logs saved on a different NFS volume.
 
-## Monitoring
+### Monitoring
 
 To monitor your workloads on Azure, [Azure Monitor](/azure/azure-monitor/overview) lets you comprehensively collect, analyze, and act on telemetry from your cloud and on-premises environments.
 
@@ -146,7 +153,7 @@ To provide SAP-based monitoring of supported Azure infrastructure and databases,
 
 To provide SAP-based monitoring of resources and service performance of the SAP infrastructure, the [Azure SAP Enhanced Monitoring](/azure/virtual-machines/workloads/sap/vm-extension-for-sap) Extension is used. This extension feeds Azure monitoring statistics into the SAP application for operating system monitoring and DBA Cockpit functions. SAP enhanced monitoring is a mandatory prerequisite for running SAP on Azure. For details, see [SAP Note 2191498](https://launchpad.support.sap.com/#/notes/2191498), "SAP on Linux with Azure: Enhanced Monitoring."
 
-## Security
+### Security
 
 Many security measures are used to protect the confidentiality, integrity, and availability of an SAP landscape. To secure user access, for example, SAP has its own User Management Engine (UME) to control role-based access and authorization within the SAP application and databases. For more information, see [SAP HANA Security—An Overview](https://archive.sap.com/documents/docs/DOC-62943).
 
