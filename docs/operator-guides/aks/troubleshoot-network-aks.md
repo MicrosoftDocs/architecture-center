@@ -2,7 +2,7 @@
 title: Troubleshoot network problems in AKS clusters
 description: Learn about steps to take to troubleshoot network problems in Azure Kubernetes Service (AKS) clusters.
 author: mosabami
-ms.author: miwalters, aayodeji, bahramr 
+ms.author: miwalters
 ms.date: 04/12/2022
 ms.topic: conceptual
 ms.service: architecture-center
@@ -222,7 +222,7 @@ If a `403 - Forbidden` error returns, kube-apiserver is probably configured with
 - [Troubleshoot Applications](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application)
 - [Debug Services](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-service) 
 - [Kubernetes Cluster Networking](https://kubernetes.io/docs/concepts/cluster-administration/networking) 
-- [Microsoft Learn: Choose the best networking plugin for AKS](learn/modules/choose-network-plugin-aks)
+- [Microsoft Learn: Choose the best networking plugin for AKS](/learn/modules/choose-network-plugin-aks)
 - [Azure Kubernetes Service (AKS)](/azure/aks)
 - [Network concepts for applications in Azure Kubernetes Service (AKS)](/azure/aks/concepts-network)
 
