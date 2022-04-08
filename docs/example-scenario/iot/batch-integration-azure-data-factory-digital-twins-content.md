@@ -2,9 +2,9 @@ Azure Digital Twins can help you build virtual representations of your systems a
 
 In this example scenario, you integrate Azure Digital Twins into line-of-business (LOB) systems by synchronizing or updating your Azure Digital Twins graph with data. With your model and the data pipelines established, you can have a 360-degree view of your environment and system. You determine the frequency of synchronization based on your source systems and the requirements of your solution.
 
-## Relevant use cases
+## Potential use cases
 
-These other use cases have similar design patterns:
+This solution is ideal for the manufacturing, automotive, and transportation industries. These other use cases have similar design patterns:
 
 - You have a graph in Azure Digital Twins of moving assets in a warehouse (for example, forklifts). You might want to receive data about the order that's currently being processed for each asset. To do so, you could integrate data from the warehouse management system or the sales LOB application every 10 minutes. The same graph in Azure Digital Twins can be synchronized with asset management solutions every day to receive inventory of assets that are available that day for use in the warehouse.
 
@@ -98,21 +98,19 @@ You can find a reference implementation on GitHub: [Azure Digital Twins Batch Up
 
 Use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator) to get accurate pricing on Azure Digital Twins, Data Factory, and Azure Batch.
 
-
 ## Contributors
 
-This article is maintained by Microsoft. It was originally written by the following contributors.
+_This article is maintained by Microsoft. It was originally written by the following contributors._
 
 **Principal author:** 
 
 - [Howard Ginsburg](https://www.linkedin.com/in/howardginsburg) | Senior Cloud Solution Architect
 
-**Other contributors:**
+**Additional contributors:**
 
-- [Onder Yildirim](https://www.linkedin.com/in/%C3%B6nder-yildirim-0044601) | Senior Cloud Solution Architect 
 - [Mike Downs](https://www.linkedin.com/in/mike-downs-4373a66) | Senior Cloud Solution Architect 
 - [Gary Moore](https://www.linkedin.com/in/gwmoore) | Programmer/Writer
-
+- [Onder Yildirim](https://www.linkedin.com/in/%C3%B6nder-yildirim-0044601) | Senior Cloud Solution Architect 
 
 ## Next steps
 
@@ -129,3 +127,4 @@ This article is maintained by Microsoft. It was originally written by the follow
 - [Azure Digital Twins builder](/azure/architecture/solution-ideas/articles/azure-digital-twins-builder)
 - [Choose a data pipeline orchestration technology in Azure](/azure/architecture/data-guide/technology-choices/pipeline-orchestration-data-movement)
 - [Extract, transform, and load (ETL)](/azure/architecture/data-guide/relational-data/etl)
+- [Hybrid ETL with Azure Data Factory](/azure/architecture/example-scenario/data/hybrid-etl-with-adf)
