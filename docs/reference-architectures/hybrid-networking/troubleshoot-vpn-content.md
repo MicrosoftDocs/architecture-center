@@ -258,6 +258,30 @@ You should compare the results with the bandwidth available to the VPN gateway (
 
 **Verify that the application is making efficient use of cloud resources.** Instrument application code running on each VM to determine whether applications are making the best use of resources. You can use tools such as [Application Insights][application-insights].
 
+## Next steps
+
+Product documentation:
+
+- [Linux virtual machines in Azure](/azure/virtual-machines/linux/overview)
+- [What is Azure PowerShell?](/powershell/azure/what-is-azure-powershell)
+- [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
+- [What is the Azure CLI?](/cli/azure/what-is-azure-cli)
+- [What is VPN Gateway?](/azure/vpn-gateway/vpn-gateway-about-vpngateways)
+- [Windows virtual machines in Azure](/azure/virtual-machines/windows/overview)
+
+Microsoft Learn modules:
+
+- [Configure Azure resources with tools](/learn/modules/configure-azure-resources-tools)
+- [Configure VPN Gateway](/learn/modules/configure-vpn-gateway)
+- [Create a Linux virtual machine in Azure](/learn/modules/create-linux-virtual-machine-in-azure)
+- [Create a Windows virtual machine in Azure](/learn/modules/create-windows-virtual-machine-in-azure)
+
+## Related resources
+
+- [Hybrid architecture design](../../hybrid/hybrid-start-here.md)
+- [Extend an on-premises network using VPN](../../reference-architectures/hybrid-networking/vpn.yml)
+- [Hybrid file share with disaster recovery for remote and local branch workers](../../example-scenario/hybrid/hybrid-file-share-dr-remote-local-branch-workers.yml)
+
 <!-- links -->
 
 [application-insights]: /azure/application-insights/app-insights-overview-usage

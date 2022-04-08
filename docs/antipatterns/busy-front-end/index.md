@@ -11,6 +11,7 @@ products:
   - aspnet
 ms.custom:
   - article
+categories: featured
 ---
 
 <!-- cSpell:ignore workinfrontend workinbackground Hudgens userprofile -->
@@ -208,9 +209,9 @@ The following graph shows the results of a load test. The overall volume of requ
 [autoscaling]: ../../best-practices/auto-scaling.md
 [background-jobs]: ../../best-practices/background-jobs.md
 [code-sample]: https://github.com/mspnp/performance-optimization/tree/master/BusyFrontEnd
-[load-leveling]: ../../patterns/queue-based-load-leveling.md
+[load-leveling]: ../../patterns/queue-based-load-leveling.yml
 [sync-io]: ../synchronous-io/index.md
-[web-queue-worker]: ../../guide/architecture-styles/web-queue-worker.md
+[web-queue-worker]: ../../guide/architecture-styles/web-queue-worker.yml
 
 [AppDynamics-Transactions-Front-End-Requests]: ./_images/AppDynamicsPerformanceStats.jpg
 [AppDynamics-Metrics-Front-End-Requests]: ./_images/AppDynamicsFrontEndMetrics.jpg

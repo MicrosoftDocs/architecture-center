@@ -1,10 +1,10 @@
-
-
 This reference architecture illustrates how to use Microsoft Defender for Cloud and Microsoft Sentinel to monitor the security configuration and telemetry of on-premises and Azure operating system workloads. This includes Azure Stack.
 
 ![Diagram illustrating deployed Microsoft Monitoring Agent on on-premises systems as well as on Azure based virtual machines transferring data to Microsoft Defender for Cloud and Microsoft Sentinel][architectural-diagram]
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
+
+## Potential use cases
 
 Typical uses for this architecture include:
 
@@ -14,7 +14,9 @@ Typical uses for this architecture include:
 
 ## Architecture
 
-The architecture consists of the following components:
+### Workflow
+
+The architecture consists of the following workflow:
 
 - **[Microsoft Defender for Cloud][azure-security-center]**. This is an advanced, unified security-management platform that Microsoft offers to all Azure subscribers. Defender for Cloud  is segmented as a cloud security posture management (CSPM) and cloud workload protection platform (CWPP). CWPP is defined by workload-centric security protection solutions, which are typically agent-based. Microsoft Defender for Cloud provides threat protection for Azure workloads, both on-premises and in other clouds, including Windows and Linux virtual machines (VMs), containers, databases, and Internet of Things (IoT). When activated, the Log Analytics agent deploys automatically into Azure Virtual Machines. For on-premises Windows and Linux servers and VMs, you can manually deploy the agent, use your organization's deployment tool, such as Microsoft Endpoint Protection Manager, or utilize scripted deployment methods. Defender for Cloud begins assessing the security state of all your VMs, networks, applications, and data.
 - **[Microsoft Sentinel][azure-sentinel]**. Is a cloud-native Security Information and Event Management (SIEM) and security orchestration automated response (SOAR) solution that uses advanced AI and security analytics to help you detect, hunt, prevent, and respond to threats across your enterprise.
@@ -80,7 +82,7 @@ The security policies that you enable in Microsoft Defender for Cloud drive secu
 
 ## Deploy the solution
 
-### Create a Log Analytics workspace in Azure Portal
+### Create a Log Analytics workspace in the Azure portal
 
 1. Sign into the Azure portal as a user with Security Admin privileges.
 1. In the Azure portal, select **All services**. In the list of resources, enter **Log Analytics**. As you begin entering, the list filters based on your input. Select **Log Analytics workspaces**.
@@ -119,7 +121,7 @@ To learn more about the specific Defender for Cloud features available in Window
 
 ### Enable Microsoft Defender for Cloud monitoring of on-premises Windows computers
 
-1. In the Azure Portal on the **Defender for Cloud - Overview** blade, select the **Get Started** tab.
+1. In the Azure portal on the **Defender for Cloud - Overview** blade, select the **Get Started** tab.
 1. Select **Configure** under **Add new non-Azure computers**. A list of your Log Analytics workspaces displays, and should include the **Defender for Cloud-SentinelWorkspace**.
 1. Select this workspace. The **Direct Agent** blade opens with a link for downloading a Windows agent and keys for your workspace identification (ID) to use when you configure the agent.
 1. Select the **Download Windows Agent** link applicable to your computer processor type to download the setup file.
@@ -264,7 +266,7 @@ To learn more about Microsoft Sentinel, refer to the following articles:
   1. Azure Monitor workspace offers granularity of billing. For more information, refer to [Manage Usage and Costs with Azure Monitor Logs][azure-monitor-storage-pricing].
   1. Microsoft Sentinel is a paid service. For more information, refer to [Microsoft Sentinel pricing][azure-sentinel-pricing].
 
-## References
+## Next steps
 
 ### Azure Monitor
 
@@ -282,7 +284,6 @@ To learn more about Microsoft Sentinel, refer to the following articles:
 - [Microsoft Defender for Cloud Secure Score][azure-security-center-secure-score]
 - [Microsoft Defender for Cloud Security Alerts][azure-security-center-security-alerts]
 - [Microsoft Defender for Cloud Security Policies][azure-security-center-security-policies]
-- [Microsoft Defender for Cloud Security Recommendations][azure-security-center-security-recommendations]
 - [Microsoft Defender for Cloud Security Recommendations][azure-security-center-security-recommendations]
 - [Microsoft Defender for Cloud Supported Platforms][azure-security-center-supported-platforms]
 - [Microsoft Defender for Cloud Threat Protection][azure-security-center-threat-protection]

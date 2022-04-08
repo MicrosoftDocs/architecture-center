@@ -120,7 +120,7 @@ To estimate and calculate costs for your implementation of this solution, use th
 
 - For more information, please contact [legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com).
 - [Refactor IBM z/OS mainframe Coupling Facility (CF) to Azure](../../reference-architectures/zos/refactor-zos-coupling-facility.yml).
-- See the [Microsoft Azure Well-Architected Framework](../../framework/index.md) for more information about cost optimization for [VM instances](../../framework/cost/optimize-vm.md).
+- See the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index) for more information about cost optimization for [VM instances](/azure/architecture/framework/cost/optimize-vm).
 ## Related resources
 
 - Visit the [Azure Marketplace](https://azuremarketplace.microsoft.com/home) for information about [Asysco AMT GO](https://azuremarketplace.microsoft.com/marketplace/apps/asyscosoftwarebv.amtvmcc_basic_2019_002?tab=Overview).

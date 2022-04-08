@@ -115,3 +115,29 @@ To add or change a key:
 1. Add the secret to the environment library at **Pipelines** > **Library** > **Variable groups**> **gridwich-cicd-variables.\<environment>**, in Secured mode.
 
    ![Screenshot of the environment Library.](media/environment-library.png)
+
+## Next steps
+
+Product documentation:
+
+- [Gridwich cloud media system](gridwich-architecture.yml)
+- [About Azure Key Vault](/azure/key-vault/general/overview)
+- [Introduction to Azure Functions](/azure/azure-functions/functions-overview)
+- [What is Azure Blob storage?](/azure/storage/blobs/storage-blobs-overview)
+- [What is Azure Event Grid?](/azure/event-grid/overview)
+- [What is Azure Logic Apps?](/azure/logic-apps/logic-apps-overview)
+
+Microsoft Learn modules:
+
+- [Configure and manage secrets in Azure Key Vault](/learn/modules/configure-and-manage-azure-key-vault)
+- [Create a long-running serverless workflow with Durable Functions](/learn/modules/create-long-running-serverless-workflow-with-durable-functions)
+- [Explore Azure Event Grid](/learn/modules/azure-event-grid)
+- [Explore Azure Functions](/learn/modules/explore-azure-functions)
+- [Explore Azure Storage services](/learn/modules/azure-storage-fundamentals)
+- [Introduction to Azure Logic Apps](/learn/modules/intro-to-logic-apps)
+
+## Related resources
+
+- [Gridwich content protection and DRM](gridwich-content-protection-drm.yml)
+- [Gridwich operations for Azure Storage](gridwich-storage-service.yml)
+- [Test Media Services V3 encoding](test-encoding.yml)

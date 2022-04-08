@@ -62,6 +62,8 @@ This is the architecture of the example system shown above when refactored for A
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1885559-refactor-mainframe-applications-advanced.vsdx) of this architecture.*
 
+## Workflow ##
+
 1. Input typically comes either through Azure ExpressRoute from remote clients, or from other Azure applications. In either case, TCP/IP connections are the primary means of connecting to the system. User access to web applications is over TLS port 443. You can keep the UI of the web applications the same to minimize end user retraining, or you can update it by using modern UX frameworks. Azure Bastion provides admin access to the virtual machines (VMs), maximizing security by minimizing open ports.
 1. Once in Azure, access to the application compute clusters is through an Azure load balancer. This approach allows for scale-out compute resources to process the input work. Depending on input, you can load balance at either the application level or the network-protocol level.
 1. Advanced supports deployment in containers, VMs, or Virtual Machine Scale Sets. Containers and Virtual Machine Scale Sets, unlike VMs, can scale out and in rapidly. Shifting the unit of scaling to containers optimizes infrastructure utilization.
@@ -116,7 +118,7 @@ This example features the following Azure components. Several of these component
 
 ## Considerations
 
-Incorporate the following pillars of the [Microsoft Azure Well-Architected Framework](../../framework/index.md) for a highly available and secure system:
+Incorporate the following pillars of the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index) for a highly available and secure system:
 
 ### Availability
 
@@ -143,7 +145,7 @@ Resiliency is built into this solution by the load balancers. If one presentatio
 
 Azure avoids unnecessary costs by identifying the correct number of resource types, analyzing spending over time, and scaling to meet business needs without overspending.
 
-- Azure provides cost optimization by running on VMs. You can turn off the VMs when they're not in use, and script a schedule for known usage patterns. See the [Azure Well-Architected Framework](../../framework/index.md) for more information about cost optimization for VM instances.
+- Azure provides cost optimization by running on VMs. You can turn off the VMs when they're not in use, and script a schedule for known usage patterns. See the [Azure Well-Architected Framework](/azure/architecture/framework/index) for more information about cost optimization for VM instances.
 - The VMs in this architecture use either Premium SSD or Ultra Disk Storage. For more information about disk options and pricing, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks).
 - SQL Database optimizes costs with serverless compute and Hyperscale storage resources that automatically scale. For more information about SQL Database options and pricing, see [Azure SQL Database pricing](https://azure.microsoft.com/pricing/details/azure-sql-database/single).
 - Use the [Pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for your implementation of this solution.

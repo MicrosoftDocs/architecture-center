@@ -53,8 +53,6 @@ We recommend that you create an AD DS site including the subnets defined for you
 
 The operations masters role can be assigned to AD DS domain controllers to support consistency checking between instances of replicated AD DS databases. There are five operations master roles: schema master, domain naming master, relative identifier master, primary domain controller master emulator, and infrastructure master. For more information about these roles, see [Planning Operations Master Role Placement][ad-ds-operations-masters].
 
-We recommend you do not assign operations masters roles to the domain controllers deployed in Azure.
-
 ### Monitoring
 
 Monitor the resources of the domain controller VMs as well as the AD DS Services and create a plan to quickly correct any problems. For more information, see [Monitoring Active Directory][monitoring_ad]. You can also install tools such as [Microsoft Systems Center][microsoft_systems_center] on the monitoring server (see the architecture diagram) to help perform these tasks.
@@ -129,16 +127,27 @@ Azure Virtual Network is free. Every subscription is allowed to create up to 50 
 
 ## Next steps
 
+- [What is Azure Active Directory?](/azure/active-directory/fundamentals/active-directory-whatis)
+- [Azure DevOps][az-devops]
+- [Azure Pipelines][az-pipelines]
+- [Azure Monitor][azure-monitor]
+- [Active Directory and Active Directory Domain Services Port Requirements][ad-ds-ports]
+- [Desired State Configuration (DSC)][dsc-overview]
+
+## Related resources
+
+- [Choose a solution for integrating on-premises Active Directory with Azure][considerations]
+- [Connect an on-premises network to Azure using a VPN gateway](../hybrid-networking/vpn.yml)
 - Learn the best practices for [creating an AD DS resource forest][adds-resource-forest] in Azure.
 - Learn the best practices for [creating an Active Directory Federation Services (AD FS) infrastructure][adfs] in Azure.
 
 <!-- links -->
 
-[aaf-cost]: ../../framework/cost/overview.md
-[AAF-devops]: ../../framework/devops/overview.md
+[aaf-cost]: /azure/architecture/framework/cost/overview
+[AAF-devops]: /azure/architecture/framework/devops/overview
 [adds-resource-forest]: ./adds-forest.yml
 [adfs]: ./adfs.yml
-[dsc-overview]: /powershell/scripting/dsc/overview/overview?view=powershell-7
+[dsc-overview]: /powershell/scripting/dsc/overview
 [ad-ds-operations-masters]: /windows-server/identity/ad-ds/plan/planning-operations-master-role-placement
 [ad-ds-ports]: /troubleshoot/windows-server/identity/config-firewall-for-ad-domains-and-trusts  
 [arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups

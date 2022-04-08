@@ -4,10 +4,10 @@ metadata:
   description: Architecture on Azure that shows a regulated environment for researchers to access sensitive data while providing a higher level of control and data protection.
   author: PageWriter-MSFT
   ms.author: clbarlow
-  ms.date: 09/20/2021
+  ms.date: 03/11/2022
   ms.topic: conceptual
   ms.service: architecture-center
-  ms.subservice: solution-idea
+  ms.subservice: example-scenario
   ms.custom:
     - fcp
 name: Secure research environment for regulated data

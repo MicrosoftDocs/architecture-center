@@ -7,6 +7,8 @@ ms.date: 05/21/2020
 ms.topic: reference
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
+categories:
+  - storage
 products:
   - azure-blob-storage
   - azure-storage
@@ -49,4 +51,4 @@ For data that is infrequently accessed but must be available immediately when ac
 
 - [Azure Storage security guide](/azure/storage/common/storage-security-guide)
 
-- [Best practices for using content delivery networks (CDNs)](../best-practices/cdn.md)
+- [Best practices for using content delivery networks (CDNs)](../best-practices/cdn.yml)

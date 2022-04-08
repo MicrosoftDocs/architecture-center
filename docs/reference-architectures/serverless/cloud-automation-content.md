@@ -1,13 +1,13 @@
 <!-- cSpell:ignore ADAL -->
 
-Automating workflows and repetitive tasks on the cloud using [serverless technologies](https://azure.microsoft.com/solutions/serverless/), can dramatically improve productivity of an organization's DevOps team. A serverless model is best suited for automation scenarios that fit an [event driven approach](../../guide/architecture-styles/event-driven.md). This article illustrates two such cloud automation scenarios:
+Automating workflows and repetitive tasks on the cloud using [serverless technologies](https://azure.microsoft.com/solutions/serverless/), can dramatically improve productivity of an organization's DevOps team. A serverless model is best suited for automation scenarios that fit an [event driven approach](../../guide/architecture-styles/event-driven.yml). This article illustrates two such cloud automation scenarios:
 
 1. [**Cost center tagging**](https://github.com/mspnp/serverless-automation/blob/main/src/automation/cost-center/deployment.md): This implementation tracks the cost centers of each Azure resource. The [Azure Policy](/azure/governance/policy/) service [tags all new resources](/azure/azure-resource-manager/resource-group-using-tags) in a group with a default cost center ID. The Event Grid monitors resource creation events, and then calls an [Azure function](/azure/azure-functions/). The function interacts with Azure Active Directory, and validates the cost center ID for the new resource. If different, it updates the tag and sends out an email to the resource owner. The REST queries for Azure Active Directory are mocked out for simplicity. Azure AD can also be integrated using the [Azure AD PowerShell module](/powershell/module/azuread/) or the [MSAL for Python library](https://github.com/AzureAD/microsoft-authentication-library-for-python).
 
 1. **Throttling response**: This example monitors a Cosmos DB database for throttling. [Azure Monitor alerts](/azure/azure-monitor/overview#alerts) are triggered when data access requests to CosmosDB exceed the [capacity in Request Units (or RUs)](/azure/cosmos-db/request-units). An [Azure Monitor action group](https://azure.microsoft.com/resources/videos/azure-friday-azure-monitor-action-groups/) is configured to call the automation function in response to these alerts. The function scales the RUs to a higher value, increasing the capacity and in turn stopping the alerts.
 
 > [!NOTE]
-> These solutions are not the only away to accomplish these tasks and are shown as illustrative of how serverless technologies can react to environmental signals (events) and influence changes to your environment impartiatively. Where practical, perfer the usage of platform-native solutions over custom solutions. For example, CosmosDB natively supports [autoscale throughput](/azure/cosmos-db/provision-throughput-autoscale) as a native alternative to the Throttling response scenario.
+> These solutions are not the only away to accomplish these tasks and are shown as illustrative of how serverless technologies can react to environmental signals (events) and influence changes to your environment. Where practical, use platform-native solutions over custom solutions. For example, CosmosDB natively supports [autoscale throughput](/azure/cosmos-db/provision-throughput-autoscale) as a native alternative to the Throttling response scenario.
 
 ![Serverless cloud automation](./_images/cloud-automation.png)
 
@@ -231,12 +231,12 @@ To deploy the cost center scenario, see the [deployment steps on GitHub](https:/
 
 ## Next steps
 
-Learn more about the [serverless implementations](../../serverless/code.md).
+Learn more about the [serverless implementations](../../serverless/code.yml).
 
 <!-- links -->
 
-[AAF-cost]: ../../framework/cost/overview.md
-[AAF-devops]: ../../framework/devops/overview.md
+[AAF-cost]: /azure/architecture/framework/cost/overview
+[AAF-devops]: /azure/architecture/framework/devops/overview
 [app-insights]: /azure/azure-monitor/app/app-insights-overview
 [az-logic-apps-ISE]: /azure/logic-apps/connect-virtual-network-vnet-isolated-environment-overview
 [cosmos-calculator]: https://cosmos.azure.com/capacitycalculator

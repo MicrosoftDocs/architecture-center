@@ -7,7 +7,7 @@ Security is a prime concern for businesses that store any sort of custom or clie
 ![Architecture Diagram](../media/devsecops-in-azure.png)
 *Download an [SVG](../media/devsecops-in-azure.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
 1. Azure Active Directory (AD) can be configured as the identity provider for GitHub. Multi-factor authentication can be enabled for extra security.
 2. Developers commit to GitHub Enterprise, driven by work items and bugs tracked with Azure Boards.
@@ -41,8 +41,8 @@ Security is a prime concern for businesses that store any sort of custom or clie
 
 ## Next steps
 
-- [DevSecOps in GitHub](./devsecops-in-github.yml)
+- Using [Microsoft Defender for Cloud](/azure/security-center/container-security), you can supply threat and vulnerability management for your deployed container-based solution.
 
 ## Related resources
 
-- Using [Microsoft Defender for Cloud](/azure/security-center/container-security), you can supply threat and vulnerability management for your deployed container-based solution.
+- [DevSecOps in GitHub](./devsecops-in-github.yml)

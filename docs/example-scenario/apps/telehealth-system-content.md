@@ -1,5 +1,3 @@
-
-
 This article explains how to build a [telehealth system](https://en.wikipedia.org/wiki/Telehealth) using Azure cloud services. The details are based on a real customer implementation that connects a professional healthcare organization to its remote patients. While there are other ways to build such a system, the solution described has been successful in enabling communication between patients and their remote care provider, as well as remotely tuning the medical devices that patients carry.
 
 There are about 700 million people who suffer from hearing disabilities. However, only 10% of them use hearing aid devices to improve their lives. In some geographies or situations, it is impossible for a patient to get direct assistance when needed. For example, consider patients who:
@@ -12,7 +10,7 @@ To overcome these difficulties, it is important to have the ability to provide h
 
 ## Potential use cases
 
-The following additional use cases have similar design patterns:
+This solution is ideal for the healthcare industry. The following additional use cases have similar design patterns:
 
 - Any Bluetooth-enabled device can be accessed and remotely tuned using such a solution.
 - Communication (text, voice, video) or knowledge exchange (education, satisfaction surveys) in a remote setting/context.
@@ -22,6 +20,8 @@ The following additional use cases have similar design patterns:
 ## Architecture
 
 ![Architecture overview of the Azure components included in the telehealth system](media/architecture-telehealth-system.png)
+
+### Workflow
 
 The solution is built on four pillars, including:
 
@@ -57,6 +57,12 @@ The solution was set up in this way to:
 - [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) load balances between geo locations.
 - [Azure SignalR](/azure/azure-signalr/signalr-overview) allows server code to send asynchronous notifications to client-side web applications. End-user devices can be configured in either _Standard_  or _Advanced_  mode.
 
+### Alternatives
+
+On the database side, any other PaaS database services could be used. For hosting the application logic, rather that Azure Kubernetes Service, Azure Application Service or Azure Service Fabric could be used.
+
+## Modes
+
 ### Standard mode
 
 In Standard mode, the fitting software prepares a notification, which contains some configuration JSON file or content for the device. The notification is then passed to Azure Notification Hub, which pushes the notification to the user's phone.
@@ -65,17 +71,13 @@ In Standard mode, the fitting software prepares a notification, which contains s
 
 In Advanced mode, the hearing aid professional uses the fitting software to push detailed configuration to the device. This requires a stable and reliable connection between the backend and the device, which SignalR achieves by using WebSockets. The end user's phone is on the receiving end of this channel. From the phone, the Bluetooth connection establishes the final communication link with the device.
 
-## Alternatives
-
-On the database side, any other PaaS database services could be used. For hosting the application logic, rather that Azure Kubernetes Service, Azure Application Service or Azure Service Fabric could be used.
-
-## Learnings
+## Considerations
 
 We recommend using a traffic manager in front of the different clusters to optimize for latency between regions and as a fallback mechanism should the clusters become unavailable. For the databases, we recommend using read-only replicas for queries that require loading and aggregating a large amount of data. We recommend delivering static web files (.html, .js, images, etc.) globally using a content delivery network (CDN) to improve speed through caching.
 
 ### Deployment
 
-The most important aspect to consider when deploying this scenario is the coordination of deployments across the cloud-based backend and the frontend (phones/devices). Consider using the concept of a [feature flag](/azure/devops/migrate/phase-features-with-feature-flags?view=azure-devops) to achieve this.
+The most important aspect to consider when deploying this scenario is the coordination of deployments across the cloud-based backend and the frontend (phones/devices). Consider using the concept of a [feature flag](/devops/operate/progressive-experimentation-feature-flags) to achieve this.
 
 ### Management
 
@@ -97,7 +99,7 @@ Make sure to optimize the configuration of the Azure Kubernetes clusters to matc
 
 Using the TimescaleDB extension of PostgreSQL will enable more efficient handling of the time-related data coming from the medical devices. Consider using a scale out solution such as Azure Database for PostgreSQL – Hyperscale (Citus) to reach global scale by provisioning multiple database nodes.
 
-## Security and compliance
+### Security and compliance
 
 This solution handles PHI and personal data. As such, it is important to use services that are certified for medical applications (HIPAA certifications, not only for the data that remains in the database but also the logs and telemetry data). For details please consult the [HIPAA section](/compliance/regulatory/offering-hipaa-hitech) of the Microsoft Trust Center.
 

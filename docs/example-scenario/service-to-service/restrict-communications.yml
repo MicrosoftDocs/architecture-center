@@ -4,6 +4,7 @@ metadata:
   titleSuffix: Azure Example Scenario
   description: Restrict communications between two Azure App Service backend services on both the application and network layers.
   author: xstof
+  ms.author: christoc
   ms.date: 01/25/2021
   ms.topic: conceptual
   ms.service: architecture-center

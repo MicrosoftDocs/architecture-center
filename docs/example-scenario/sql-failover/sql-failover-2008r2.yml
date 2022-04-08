@@ -4,6 +4,7 @@ metadata:
   titleSuffix: Azure Example Scenarios
   description: Learn how to rehost SQL Server 2008 R2 failover clusters on Azure virtual machines and see how to use an Azure shared disk to manage shared storage.
   author: GitHubAlias
+  ms.author: edprice 
   ms.date: 10/26/2020
   ms.topic: conceptual
   ms.service: architecture-center

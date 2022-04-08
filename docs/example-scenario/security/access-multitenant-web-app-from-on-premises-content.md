@@ -142,7 +142,7 @@ To explore the cost of running this scenario, see the [Azure pricing calculator 
 
 ## Next steps
 
--	See step-by-step guidance on how to [integrate Azure Functions with an Azure virtual network by using private endpoints](https://docs.microsoft.com/azure/azure-functions/functions-create-vnet).
+-	See step-by-step guidance on how to [integrate Azure Functions with an Azure virtual network by using private endpoints](/azure/azure-functions/functions-create-vnet).
 -	See the steps to configure [Azure Firewall application rules to inspect traffic destined to private endpoints in various network topologies](/azure/private-link/inspect-traffic-with-azure-firewall).
 - For more information on inbound and outbound scenarios for App Service, and which features to use in which case, see the [App Service networking features overview](/azure/app-service/networking-features).
 - For more information about private endpoints for Azure Web Apps, see [Using Private Endpoints for Azure Web Apps](/azure/app-service/networking/private-endpoint).
