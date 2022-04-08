@@ -4,57 +4,66 @@ Network problems can appear in new installations of Kubernetes or when you incre
 
 ## Client can't reach the API server 
 
-Below covers connection problems to an Azure Kubernetes Service (AKS) cluster when you cannot reach the cluster's API server through the Kubernetes cluster command-line tool (kubectl) or any other tool, such as using REST API through a programming language. 
+These errors involve connection problems to an Azure Kubernetes Service (AKS) cluster when you can't reach the cluster's API server through the Kubernetes cluster command-line tool (kubectl) or any other tool, like the REST API via a programming language. 
 
-Error 
+**Error** 
 
-The errors you may see will look like the below 
+You might see errors that look like these:
 
 ```
-Unable to connect to the server: dial tcp <API-SERVER-IP>:443: i/o timeout 
-
-Unable to connect to the server: dial tcp <API-SERVER-IP>:443: connectex: A connection attempt failed because the connected party did not properly respond after a period, or established connection failed because connected host has failed to respond. 
+Unable to connect to the server: dial tcp <API-server-IP>:443: i/o timeout 
 ```
-Cause 1:  
 
-API server-authorized IP ranges may have been enabled on the cluster's API server, but the client's IP address was not included in the IP ranges. To check whether this feature has been enabled, see if the following az aks show command in Azure CLI produces a list of IP ranges: 
+```
+Unable to connect to the server: dial tcp <API-server-IP>:443: connectex: A connection attempt
+failed because the connected party did not properly respond after a period, or established 
+connection failed because connected host has failed to respond. 
+```
+**Cause 1** 
+
+It's possible that IP ranges authorized by the API server are enabled on the cluster's API server, but the client's IP address isn't included in the IP ranges. To determine whether IP ranges are enabled, use the following `az aks show` command in Azure CLI. If the IP ranges are enabled, the command will produce a list of IP ranges. 
 
 ```
 az aks show --resource-group <cluster-resource-group> \ 
     --name <cluster-name> \ 
     --query apiServerAccessProfile.authorizedIpRanges 
 ```
-Solution 1:  
 
-Look at the cluster's API server-authorized ranges, and add your client's IP address within that range.  
+**Solution 1**
 
-1. Find your local IP address. Details on how to achieve this in both Windows and Linux can be [found here](/azure/aks/api-server-authorized-ip-ranges#how-to-find-my-ip-to-include-in---api-server-authorized-ip-ranges). 
+Ensure that your client's IP address is within the ranges authorized by the cluster's API server.  
 
-2. Update the API server-authorized range with the az aks update command in Azure CLI, using your client IP address. Instructions to update that range can be [found here](/azure/aks/api-server-authorized-ip-ranges#update-a-clusters-api-server-authorized-ip-ranges).  
+1. Find your local IP address. For information on how to find it on Windows and Linux, see [How to find my IP](/azure/aks/api-server-authorized-ip-ranges#how-to-find-my-ip-to-include-in---api-server-authorized-ip-ranges). 
 
-Cause 2:  
+2. Update the range that's authorized by the API server by using the `az aks update` command in Azure CLI. Authorize your client's IP address. For instructions, see [Update a cluster's API server authorized IP ranges](/azure/aks/api-server-authorized-ip-ranges#update-a-clusters-api-server-authorized-ip-ranges).  
 
-If your AKS Cluster is a Private Cluster, the API server endpoint has no public IP address. You will need to use a VM with network access to the AKS cluster’s virtual network.  
+**Cause 2**
 
-Solution 2:  
+If your AKS cluster is a private cluster, the API server endpoint doesn't have a public IP address. You need to use a VM that has network access to the AKS cluster's virtual network.  
 
-For solutions for connecting to a private cluster, please see [options for connecting to the private cluster](/azure/aks/private-clusters#options-for-connecting-to-the-private-cluster) 
+**Solution 2**
+
+For information on how to resolve this problem, see [options for connecting to a private cluster](/azure/aks/private-clusters#options-for-connecting-to-the-private-cluster). 
  
-## Pod failed to allocate IP address 
+## Pod fails to allocate the IP address 
 
-Error 
+**Error**
 
-Pod stuck on ContainerCreating state, and its events report `Failed to allocate address` error: 
-
-```
-Normal   SandboxChanged          5m (x74 over 8m)    kubelet, k8s-agentpool-00011101-0 Pod sandbox changed, it will be killed and re-created. 
-
-  Warning  FailedCreatePodSandBox  21s (x204 over 8m)  kubelet, k8s-agentpool-00011101-0 Failed create pod sandbox: rpc error: code = Unknown desc = NetworkPlugin cni failed to set up pod "deployment-azuredisk6-874857994-487td_default" network: Failed to allocate address: Failed to delegate: Failed to allocate address: No available addresses 
-```
-Check the allocated IP addresses in the plugin IPAM store, you may find that all IP addresses have been allocated, but the number is much less than the number of running Pods: 
+The Pod is stuck in the `ContainerCreating` state, and its events report a `Failed to allocate address` error: 
 
 ```
-# Kubenet for example. The real path of IPAM store file depends on network plugin implementation. 
+Normal   SandboxChanged          5m (x74 over 8m)    kubelet, k8s-agentpool-00011101-0 Pod sandbox
+changed, it will be killed and re-created. 
+
+  Warning  FailedCreatePodSandBox  21s (x204 over 8m)  kubelet, k8s-agentpool-00011101-0 Failed 
+create pod sandbox: rpc error: code = Unknown desc = NetworkPlugin cni failed to set up pod 
+"deployment-azuredisk6-874857994-487td_default" network: Failed to allocate address: Failed to 
+delegate: Failed to allocate address: No available addresses 
+```
+Check the allocated IP addresses in the plugin IPAM store. You might find that all IP addresses are allocated, but the number is much less than the number of running Pods: 
+
+```
+# Kubenet, for example. The actual path of the IPAM store file depends on network plugin implementation. 
 $ cd /var/lib/cni/networks/kubenet 
 $ ls -al|wc -l 
 258 
@@ -63,42 +72,42 @@ $ docker ps | grep POD | wc -l
 7 
 ```
 
-Cause 1:  
+**Cause 1**
 
-This can be caused by a bug in the network plugin, which can forget to deallocate the IP address when Pods are terminated.  
+This error can be caused by a bug in the network plugin. The plugin can fail to deallocate the IP address when Pods are terminated.  
 
-Solution 1:  
+**Solution 1**
 
-Contacting Microsoft for a workaround or fix is the best route.  
+Contact Microsoft for a workaround or fix.  
 
-Cause 2:  
+**Cause 2**
 
-Pod creation is much faster than garbage collection of terminated Pods 
+Pod creation is much faster than garbage collection of terminated Pods. 
 
-Solution 2:  
+**Solution 2**
 
-A fast garbage collection could be configured for the kubelet. For details on how to do this, please see [the kubernetes garbage collection documentation](https://kubernetes.io/docs/concepts/architecture/garbage-collection/#containers-images).  
+You can configure fast garbage collection for the kubelet. For instructions, see [the Kubernetes garbage collection documentation](https://kubernetes.io/docs/concepts/architecture/garbage-collection/#containers-images).  
 
 ## Service not accessible within Pods 
 
-The first step is checking whether endpoints have been created automatically for the service 
+The first step is to check whether endpoints have been created automatically for the service:
 
 ```
 kubectl get endpoints <service-name> 
 ```
 
-If you got an empty result, it is possible that your service's label selector is wrong. Confirm it as follows: 
+If you get an empty result, your service's label selector might be wrong. Confirm that the label is correct: 
 
 ```
-# Query Service LabelSelector 
+# Query Service LabelSelector. 
 kubectl get svc <service-name> -o jsonpath='{.spec.selector}' 
-# Get Pods matching the LabelSelector and check whether they are running 
+# Get Pods matching the LabelSelector and check whether they're running. 
 kubectl get pods -l key1=value1,key2=value2 
 ```
 
-If all above steps return expected values, confirm further by 
-- checking whether Pod containerPort is same with Service containerPort 
-- checking whether `podIP:containerPort` is working 
+If the preceding steps return expected values: 
+- Check whether the Pod `containerPort` is the same as the service `containerPort`. 
+- Check whether `podIP:containerPort` is working. 
 
 ```
 # Testing via cURL 
@@ -173,7 +182,7 @@ kubectl -n kube-system logs $PODNAME --tail 100
 
 If `403 - Forbidden` error is reported, then kube-apiserver is more than likely configured with RBAC and your container's ServiceAccount is not authorized to resources. For such cases, you should create proper RoleBindings and ClusterRoleBindings. For more information surrounding Roles and Role Bindings, please refer to [Access and Identity](https://docs.microsoft.com/en-us/azure/aks/concepts-identity#roles-and-clusterroles). For detailed examples of how to configure RBAC on your cluster, please also see [this Kubernetes document](https://kubernetes.io/docs/reference/access-authn-authz/rbac). 
 
-## See also
+## Next steps
 - [Troubleshoot Applications](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application)
 - [Debug Services](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-service) 
 - [Kubernetes Cluster Networking](https://kubernetes.io/docs/concepts/cluster-administration/networking) 
