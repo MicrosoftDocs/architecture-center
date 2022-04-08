@@ -454,6 +454,5 @@ These tutorials will provide you with details on running applications on Microso
 - [Use Azure Batch code samples](https://github.com/Azure/azure-batch-samples)
 - [Use low-priority VMs with Batch](/azure/batch/batch-low-pri-vms)
 - [Run containerized HPC workloads with Batch Shipyard](https://github.com/Azure/batch-shipyard)
-- [Run parallel R workloads on Batch](https://github.com/Azure/doAzureParallel)
 - [Run on-demand Spark jobs on Batch](https://github.com/Azure/aztk)
 - [Use compute-intensive VMs in Batch pools](/azure/batch/batch-pool-compute-intensive-sizes)
