@@ -157,14 +157,14 @@ You can consider using these platforms for AI/ML, when you need to scale your ML
 
 **Principal authors:**
 
- * [Kevin Ashley](http://linkedin.com/kashlik) | Senior Customer Engineer, FastTrack for Azure
+ * [Kevin Ashley](http://linkedin.com/in/kashlik) | Senior Customer Engineer, FastTrack for Azure
  
 **Other contributors:**
 
- * [Paul Burpo](http://linkedin.com/paul-burpo) | Principal Customer Engineer, FastTrack for Azure
- * [John Downs](http://linkedin.com/john-downs) | Senior Customer Engineer, FastTrack for Azure
- * [Daniel Scott-Raynsford](http://linkedin.com/dscottraynsford) | Partner Technology Strategist
- * [Arsen Vladimirskiy](http://linkedin.com/arsenv) | Principal Customer Engineer, FastTrack for Azure
+ * [Paul Burpo](http://linkedin.com/in/paul-burpo) | Principal Customer Engineer, FastTrack for Azure
+ * [John Downs](http://linkedin.com/in/john-downs) | Senior Customer Engineer, FastTrack for Azure
+ * [Daniel Scott-Raynsford](http://linkedin.com/in/dscottraynsford) | Partner Technology Strategist
+ * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 
 ## Next steps
 

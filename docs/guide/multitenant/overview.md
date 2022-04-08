@@ -83,21 +83,21 @@ For an overview of the content covered in this series, and the basic concepts of
 
 **Principal authors:**
 
- * [Paul Burpo](http://linkedin.com/paul-burpo) | Principal Customer Engineer, FastTrack for Azure
- * [Bohdan Cherchyk](http://linkedin.com/cherchyk) | Senior Customer Engineer, FastTrack for Azure
- * [John Downs](http://linkedin.com/john-downs) | Senior Customer Engineer, FastTrack for Azure
- * [Paolo Salvatori](http://linkedin.com/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
- * [Daniel Scott-Raynsford](http://linkedin.com/dscottraynsford) | Partner Technology Strategist
- * [Arsen Vladimirskiy](http://linkedin.com/arsenv) | Principal Customer Engineer, FastTrack for Azure
+ * [Paul Burpo](http://linkedin.com/in/paul-burpo) | Principal Customer Engineer, FastTrack for Azure
+ * [Bohdan Cherchyk](http://linkedin.com/in/cherchyk) | Senior Customer Engineer, FastTrack for Azure
+ * [John Downs](http://linkedin.com/in/john-downs) | Senior Customer Engineer, FastTrack for Azure
+ * [Paolo Salvatori](http://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
+ * [Daniel Scott-Raynsford](http://linkedin.com/in/dscottraynsford) | Partner Technology Strategist
+ * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 
 **Other contributors:**
 
  * Dixit Arora | Senior Customer Engineer, FastTrack for Azure
- * [Kevin Ashley](http://linkedin.com/kashlik) | Senior Customer Engineer, FastTrack for Azure
- * [Michael C. Bazarewsky](http://linkedin.com/mikebaz) | Senior Customer Engineer, FastTrack for Azure
- * [David Crook](http://linkedin.com/drcrook) | Principal Customer Engineer, FastTrack for Azure
- * [LaBrina Loving](http://linkedin.com/chixcancode) | Principal Customer Engineering Manager, FastTrack for Azure
- * [Raj Nemani](http://linkedin.com/rajnemani) | Partner Technology Strategist
+ * [Kevin Ashley](http://linkedin.com/in/kashlik) | Senior Customer Engineer, FastTrack for Azure
+ * [Michael C. Bazarewsky](http://linkedin.com/in/mikebaz) | Senior Customer Engineer, FastTrack for Azure
+ * [David Crook](http://linkedin.com/in/drcrook) | Principal Customer Engineer, FastTrack for Azure
+ * [LaBrina Loving](http://linkedin.com/in/chixcancode) | Principal Customer Engineering Manager, FastTrack for Azure
+ * [Raj Nemani](http://linkedin.com/in/rajnemani) | Partner Technology Strategist
 
 ## Next steps
 
