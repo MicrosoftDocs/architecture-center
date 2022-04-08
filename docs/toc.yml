@@ -1014,10 +1014,10 @@ items:
                   - name: Illumina Platinum Genomes
                     href: /azure/open-datasets/dataset-illumina-platinum-genomes
                     maintainContext: true
-                  - name: OpenCravat: Analysis of Variants
+                  - name: "OpenCravat: Analysis of Variants"
                     href: /azure/open-datasets/dataset-open-cravat
                     maintainContext: true
-                  - name: SnpEff: Genomic variants
+                  - name: "SnpEff: Genomic variants"
                     href: /azure/open-datasets/dataset-snpeff
                     maintainContext: true
           - name: Compliance solutions
