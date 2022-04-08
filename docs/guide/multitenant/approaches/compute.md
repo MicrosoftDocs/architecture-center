@@ -160,6 +160,19 @@ The corollary to the No Caching antipattern is that you also should avoid storin
 
 Consider the tradeoffs for each piece of state you maintain in your compute tier, and whether it impacts your ability to scale or to grow as your tenants' workload patterns change. You can also store state in an external cache, such as Azure Cache for Redis.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+**Principal authors:**
+
+ * Dixit Arora | Senior Customer Engineer, FastTrack for Azure
+ * [John Downs](http://linkedin.com/john-downs) | Senior Customer Engineer, FastTrack for Azure
+ 
+**Other contributors:**
+
+ * [Arsen Vladimirskiy](http://linkedin.com/arsenv) | Principal Customer Engineer, FastTrack for Azure
+
 ## Next steps
 
 Consider [architectural approaches for storage and data](storage-data.yml).

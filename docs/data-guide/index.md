@@ -7,6 +7,7 @@ ms.date: 08/16/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
+adobe-target: true
 ---
 
 # Azure Data Architecture Guide

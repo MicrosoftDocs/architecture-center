@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article introduces how to build multitenant solutions on Azure and the guidance we provide throughout this series.
 author: johndowns
 ms.author: jodowns
-ms.date: 03/07/2022
+ms.date: 04/08/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -70,6 +70,34 @@ The content in this series is composed of three main sections:
   The service-specific guidance is useful for architects, lead developers, and anyone building or implementing Azure components for a multitenant solution.
 
 Additionally, we provide a [list of related resources and links](related-resources.md) for architects and developers of multitenant solutions.
+
+## Video
+
+For an overview of the content covered in this series, and the basic concepts of multitenancy, see this video from Microsoft Reactor:
+
+> [!VIDEO https://www.youtube.com/embed/aem8elgN7iI]
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+**Principal authors:**
+
+ * [Paul Burpo](http://linkedin.com/paul-burpo) | Principal Customer Engineer, FastTrack for Azure
+ * [Bohdan Cherchyk](http://linkedin.com/cherchyk) | Senior Customer Engineer, FastTrack for Azure
+ * [John Downs](http://linkedin.com/john-downs) | Senior Customer Engineer, FastTrack for Azure
+ * [Paolo Salvatori](http://linkedin.com/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
+ * [Daniel Scott-Raynsford](http://linkedin.com/dscottraynsford) | Partner Technology Strategist
+ * [Arsen Vladimirskiy](http://linkedin.com/arsenv) | Principal Customer Engineer, FastTrack for Azure
+
+**Other contributors:**
+
+ * Dixit Arora | Senior Customer Engineer, FastTrack for Azure
+ * [Kevin Ashley](http://linkedin.com/kashlik) | Senior Customer Engineer, FastTrack for Azure
+ * [Michael C. Bazarewsky](http://linkedin.com/mikebaz) | Senior Customer Engineer, FastTrack for Azure
+ * [David Crook](http://linkedin.com/drcrook) | Principal Customer Engineer, FastTrack for Azure
+ * [LaBrina Loving](http://linkedin.com/chixcancode) | Principal Customer Engineering Manager, FastTrack for Azure
+ * [Raj Nemani](http://linkedin.com/rajnemani) | Partner Technology Strategist
 
 ## Next steps
 

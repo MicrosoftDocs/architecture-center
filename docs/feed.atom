@@ -2,12 +2,20 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2022-04-04T13:41:49.627Z</updated>
+    <updated>2022-04-07T21:39:41.921Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://docs.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Moving archive data from mainframe systems to Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/mainframe/move-archive-data-mainframes</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/mainframe/move-archive-data-mainframes"/>
+        <updated>2022-04-05T19:45:26.000Z</updated>
+        <summary type="html"><![CDATA[Learn about a reference architecture that shows how to move data from mainframe and midrange systems to Azure.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Scenarios that feature Microsoft on-premises technologies on Azure]]></title>
         <id>https://docs.microsoft.com/azure/architecture/guide/on-premises-microsoft-technologies</id>
@@ -23,6 +31,54 @@
         <updated>2022-04-01T20:55:44.000Z</updated>
         <summary type="html"><![CDATA[Review an extensive list of architectures and solutions that use Microsoft partner and third-party solutions.]]></summary>
         <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Architectural approaches for AI and ML in multitenant solutions]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/multitenant/approaches/ai-ml</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/multitenant/approaches/ai-ml"/>
+        <updated>2022-04-07T19:22:18.000Z</updated>
+        <summary type="html"><![CDATA[This article describes approaches to support multitenancy for the artificial intelligence (AI) and machine learning (ML) components of your solution.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Architectural approaches for compute in multitenant solutions]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/multitenant/approaches/compute</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/multitenant/approaches/compute"/>
+        <updated>2022-04-07T19:22:18.000Z</updated>
+        <summary type="html"><![CDATA[This article describes approaches to support multitenancy for the compute components of your solution.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Architectural approaches for IoT in a multitenant solution]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/multitenant/approaches/iot</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/multitenant/approaches/iot"/>
+        <updated>2022-04-07T19:22:18.000Z</updated>
+        <summary type="html"><![CDATA[This articles describes approaches for supporting multitenancy in your IoT solution.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Architectural approaches for messaging in multitenant solutions]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/multitenant/approaches/messaging</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/multitenant/approaches/messaging"/>
+        <updated>2022-04-07T19:22:18.000Z</updated>
+        <summary type="html"><![CDATA[This article describes approaches for messaging in a multitenant solution.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Architecting multitenant solutions on Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/multitenant/overview</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/multitenant/overview"/>
+        <updated>2022-04-07T19:22:18.000Z</updated>
+        <summary type="html"><![CDATA[This article introduces how to build multitenant solutions on Azure and the guidance we provide throughout this series.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[IoT Edge railroad maintenance and safety system]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/predictive-maintenance/iot-predictive-maintenance</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/predictive-maintenance/iot-predictive-maintenance"/>
+        <updated>2022-04-04T19:45:37.000Z</updated>
+        <summary type="html"><![CDATA[Learn how a railway company implemented an intelligent IoT Edge train safety solution for fast, reliable defect identification and predictive maintenance.]]></summary>
+        <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Forecast energy and power demand]]></title>
@@ -241,11 +297,11 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Predictive maintenance with AI IoT Edge]]></title>
+        <title type="html"><![CDATA[IoT Edge railroad maintenance and safety system]]></title>
         <id>https://docs.microsoft.com/azure/architecture/example-scenario/predictive-maintenance/iot-predictive-maintenance</id>
         <link href="https://docs.microsoft.com/azure/architecture/example-scenario/predictive-maintenance/iot-predictive-maintenance"/>
         <updated>2022-03-29T17:08:46.000Z</updated>
-        <summary type="html"><![CDATA[Learn how a railway company implemented predictive safety maintenance using machine learning on the Azure intelligent IoT Edge platform.]]></summary>
+        <summary type="html"><![CDATA[Learn how a railway company implemented an intelligent IoT Edge train safety solution for fast, reliable defect identification and predictive maintenance.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -633,7 +689,7 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Visual search in retail with Cosmos DB]]></title>
+        <title type="html"><![CDATA[Visual search in retail with Azure Cosmos DB]]></title>
         <id>https://docs.microsoft.com/azure/architecture/industries/retail/visual-search-use-case-overview</id>
         <link href="https://docs.microsoft.com/azure/architecture/industries/retail/visual-search-use-case-overview"/>
         <updated>2022-02-08T09:11:02.000Z</updated>
