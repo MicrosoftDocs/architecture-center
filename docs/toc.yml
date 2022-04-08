@@ -1695,7 +1695,7 @@ items:
                 href: /azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced
               - name: Geospatial analysis of spaceborne data
                 href: industries/aerospace/geospatial-processing-analytics.yml
-              - name: Ingesting FAA content to analyze flight data
+              - name: Ingest FAA content to analyze flight data
                 href: example-scenario/analytics/ingest-faa-swim-analyze-flight-data.yml 
               - name: Predictive maintenance for aircraft
                 href: /azure/architecture/solution-ideas/articles/predictive-maintenance
@@ -2204,7 +2204,7 @@ items:
                 href: example-scenario/data/geospatial-data-processing-analytics-azure.yml
               - name: High throughput stream ingestion
                 href: example-scenario/data/stream-ingestion-synapse.yml
-              - name: Ingesting FAA content to analyze flight data
+              - name: Ingest FAA content to analyze flight data
                 href: example-scenario/analytics/ingest-faa-swim-analyze-flight-data.yml 
               - name: Ingestion and analysis of news feeds
                 href: example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis.yml
