@@ -73,6 +73,23 @@ items:
                 href: operator-guides/aks/choose-kubernetes-edge-compute-option.md
               - name: Bare-metal Kubernetes at the edge
                 href: operator-guides/aks/choose-bare-metal-kubernetes.yml              
+          - name: Choose a hybrid option
+            items:
+              - name: Compare Azure Stack Hub and Azure
+                href: /azure-stack/user/azure-stack-considerations
+                maintainContext: true
+              - name: Compare Azure, Stack Hub, and Stack HCI
+                href: /azure-stack/operator/compare-azure-azure-stack
+                maintainContext: true
+              - name: Compare Azure Stack HCI and Stack Hub
+                href: /azure-stack/hci/concepts/compare-azure-stack-hub
+                maintainContext: true
+              - name: Compare Azure Stack HCI and Windows Server
+                href: /azure-stack/hci/concepts/compare-windows-server
+                maintainContext: true
+              - name: Choose drives for Azure Stack HCI
+                href: /azure-stack/hci/concepts/choose-drives
+                maintainContext: true
           - name: Choose an identity service
             items:
               - name: Active Directory services
@@ -3624,6 +3641,23 @@ items:
                   - name: Security baseline for Arc-enabled Servers
                     href: /security/benchmark/azure/baselines/arc-enabled-security-baseline
                     maintainContext: true
+              - name: Technology choices
+                items:
+                  - name: Compare Azure Stack Hub and Azure
+                    href: /azure-stack/user/azure-stack-considerations
+                    maintainContext: true
+                  - name: Compare Azure, Stack Hub, and Stack HCI
+                    href: /azure-stack/operator/compare-azure-azure-stack
+                    maintainContext: true
+                  - name: Compare Azure Stack HCI and Stack Hub
+                    href: /azure-stack/hci/concepts/compare-azure-stack-hub
+                    maintainContext: true
+                  - name: Compare Azure Stack HCI and Windows Server
+                    href: /azure-stack/hci/concepts/compare-windows-server
+                    maintainContext: true
+                  - name: Choose drives for Azure Stack HCI
+                    href: /azure-stack/hci/concepts/choose-drives
+                    maintainContext: true
               - name: Hybrid deployments
                 items:
                   - name: Configure hybrid cloud connectivity
@@ -3672,7 +3706,7 @@ items:
                     maintainContext: true
                   - name: Security and governance for AVS
                     href: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-security-governance-and-compliance
-                    maintainContext: true                       
+                    maintainContext: true
               - name: Connect an on-premises network to Azure
                 href: reference-architectures/hybrid-networking/index.yml
               - name: FSLogix for the enterprise
