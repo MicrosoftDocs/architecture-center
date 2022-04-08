@@ -4222,6 +4222,8 @@ items:
                     href: example-scenario/mainframe/migrate-ibm-i-series-to-azure-with-skytap.yml
                   - name: Refactor IBM z/OS mainframe CF
                     href: reference-architectures/zos/refactor-zos-coupling-facility.yml
+                  - name: Refactor IBM z/TPF mainframe
+                    href: example-scenario/mainframe/refactor-ibm-ztpf-mainframe.yml
                   - name: Refactor mainframe apps with Astadia
                     href: example-scenario/mainframe/refactor-mainframe-applications-astadia.yml
                   - name: Refactor mainframe apps with Advanced
