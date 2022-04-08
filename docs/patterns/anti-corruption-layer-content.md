@@ -1,21 +1,3 @@
----
-title: Anti-corruption Layer pattern
-titleSuffix: Cloud Design Patterns
-description: Examine the Anti-corruption Layer pattern. Implement a façade or adapter layer between a modern application and a legacy system.
-author: EdPrice-MSFT
-ms.author: pnp
-ms.date: 06/23/2017
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: design-pattern
-ms.custom:
-  - design-pattern
-keywords:
-  - design pattern
----
-
-# Anti-corruption Layer pattern
-
 Implement a façade or adapter layer between different subsystems that don't share the same semantics. This layer translates requests that one subsystem makes to the other subsystem. Use this pattern to ensure that an application's design is not limited by dependencies on outside subsystems. This pattern was first described by Eric Evans in *Domain-Driven Design*.
 
 ## Context and problem
