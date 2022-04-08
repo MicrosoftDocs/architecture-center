@@ -19,11 +19,11 @@ _Download a [Visio file](https://arch-center.azureedge.net/sap-hana-architecture
 > [!NOTE]
 > To deploy this reference architecture, you need the appropriate licensing of SAP products and other non-Microsoft technologies.
 
-## Components
+### Workflow
 
 This reference architecture describes a typical SAP HANA database running in Azure, in a highly available deployment to maximize system availability. The architecture and its components can be customized based on business requirements (RTO, RPO, uptime expectations, system role) and potentially reduced to a single VM. The network layout is simplified to demonstrate the architectural principals of such SAP environment and not intended to describe a full enterprise network.
 
-### Networking
+#### Networking
 
 **Virtual networks (vnet)** The [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) service connects Azure resources to each other with enhanced security. In this architecture, the virtual network connects to an on-premises environment via a virtual private network (VPN) gateway deployed in the hub of a [hub-spoke topology](../../reference-architectures/hybrid-networking/hub-spoke.yml). SAP HANA database is contained in own spoke virtual network. The spoke virtual networks contains one subnet for the database virtual machines (VMs).
 
@@ -44,7 +44,7 @@ Azure NICs support multiple IPs. This support conforms with the SAP recommended 
 > [!NOTE]
 > As specified in [SAP Note 2731110](https://launchpad.support.sap.com/#/notes/2731110), do not place any network virtual appliance (NVA) in between the application and the database layers for any SAP application stack. Doing so introduces significant data packets processing time and unacceptably slows application performance.
 
-### Virtual Machines
+#### Virtual Machines
 
 This architecture uses virtual machines (VM). Azure offers single-node scale up to 11.5 Tebibyte (TiB) memory on virtual machines and single-node scale up to 24 TB on [Azure Large Instances](./hana-large-instances.yml). The [SAP Certified and Supported SAP HANA Hardware Directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?id=s:2494&filters=ve:24) lists the virtual machines that are certified for the SAP HANA database. For details about SAP support for virtual machine types and throughput metrics (SAPS), see [SAP Note 1928533 - SAP Applications on Microsoft Azure: Supported Products and Azure VM types](https://launchpad.support.sap.com/#/notes/1928533). (To access this and other SAP notes, an SAP Service Marketplace account is required.)
 
@@ -54,6 +54,10 @@ Microsoft and SAP jointly certify a range of virtual machine sizes for SAP HANA 
 Since all other VMs supporting SAP HANA allow the choice of either Gen2 only or Gen1+2 selectively, it's recommended to deploy ALL SAP HANA VMs as Gen2 only. Also VMs which have a low memory requirement and not close to the needing Mv2 or other large VM families. Even the smallest 160 GiB SAP HANA VM can run as Gen2 VM and can be, when deallocated, be resized to the largest VM available in your region and subscription.
 
 **Proximity Placement Groups (PPG)** To optimize network latency, you can use [proximity placement groups](/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios), which favor collocation, meaning that virtual machines are in the same datacenter to minimize latency between SAP HANA and connecting application VMs. For SAP HANA architecture itself, no PPGs are needed, they're only an option colocating SAP HANA with application tier VMs. Due to potential restrictions with PPGs, adding the database AvSet to the SAP system's PPG should be done sparsely and **only when required** for latency between SAP application and database traffic. For more information on the usage scenarios of PPGs, see the linked documentation. As PPGs restrict workloads to a single datacenter, a PPG can't span multiple availability zones.
+
+## Considerations
+
+To be written.
 
 ### Scalability
 
