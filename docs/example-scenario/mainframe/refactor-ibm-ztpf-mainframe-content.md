@@ -58,7 +58,7 @@ The Azure Cosmos DB NoSQL database is used for high-performance storage. This st
 
 ### Components
 
-This solution features the following Azure components. 
+This solution features the following Azure components:
 - [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) extends your on-premises networks into Azure over a private, dedicated fiber connection from a connectivity provider. ExpressRoute establishes connections to cloud services like Azure and Microsoft 365. 
 - [Azure Bastion](https://azure.microsoft.com/services/azure-bastion) is a fully managed service that helps secure remote access to your virtual machines. 
 - [Azure Load Balancer](https://azure.microsoft.com/services/load-balancer) distributes incoming traffic to the compute resource clusters. You can define rules and other criteria to distribute the traffic. 
@@ -70,7 +70,7 @@ This solution features the following Azure components.
 
 ### Alternatives 
 
-This solution supports deployment in containers, VMs, or virtual machine scale sets. Unlike VMs, containers and scale sets can scale in and out rapidly. Because the unit of scaling shifts to containers, infrastructure utilization is optimized. 
+This solution supports deployment in containers, VMs, or virtual machine scale sets. Unlike VMs, containers and scale sets can scale in and out rapidly. Because the unit of scaling is containers, infrastructure utilization is optimized. 
 
 You can use the legacy web-application presentation layer virtually unchanged to minimize user retraining. Alternatively, you can update the web-application presentation layer with modern UX frameworks.
 
