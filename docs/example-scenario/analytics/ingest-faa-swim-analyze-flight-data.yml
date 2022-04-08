@@ -16,7 +16,7 @@ products:
   - azure-databricks
   - azure-data-lake-storage
   - power-bi
-name: Ingesting FAA SWIM content to analyze flight data 
+name: Ingest FAA SWIM content to analyze flight data 
 summary: Learn how to integrate Chef Infra, Chef InSpec, Test Kitchen, Terraform, Terraform Cloud, and GitHub Actions to automate and create data analytics environments.
 thumbnailUrl: /azure/architecture/browse/thumbs/faa-swim.png
 content: |
