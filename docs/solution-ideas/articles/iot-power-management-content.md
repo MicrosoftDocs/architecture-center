@@ -30,9 +30,11 @@ The architecture consists of:
 - A containerized microservices app with end-user interfaces.
 - An analytics and machine learning workflow.
 
-### Application dataflow
+### Application solution
 
 [![Diagram showing user interfaces interacting with Azure Application Gateway and the cloud application components.](../media/iot-power-architecture.png)](../media/iot-power-architecture.png#lightbox)
+
+#### Dataflow
 
 1. Field sales and service agents use a mobile platform to interact with the cloud application via Azure Application Gateway. End users use a built-in interface or mobile app to access and control their devices.
 1. Application Gateway uses messaging protocols to interact with users and operators.
@@ -40,11 +42,13 @@ The architecture consists of:
 1. Depending on the features used, the app accesses Azure services and resources like [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction) for unstructured data storage, [Azure Cosmos DB](/azure/cosmos-db/introduction) for large structured databases, and [Azure Media Services](https://azure.microsoft.com/services/media-services/) for entertainment content.
 1. The IoT gateway also sends streaming telemetry and user data to the cloud via Azure IoT Hub, to use for analytics and machine learning (ML).
 
-### Analytics and machine learning dataflow
+### Analytics and machine learning solution
 
 The business intelligence part of the process includes the following data analysis and control loop:
 
 ![Diagram showing an analytics loop that runs post-processed telemetry data through a trained AI model to control the device.](../media/iot-power-analytics.png)
+
+#### Dataflow
 
 1. IoT Hub receives the streaming telemetry and user data from the IoT devices, and routes events to Azure Databricks via [Azure Functions](https://azure.microsoft.com/services/functions).
 1. Azure Databricks [extracts, transforms, and loads (ETLs)](https://en.wikipedia.org/wiki/Extract,_transform,_load) the event data.
