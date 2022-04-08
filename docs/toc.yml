@@ -421,7 +421,7 @@ items:
                 href: solution-ideas/articles/customer-insights-synapse.yml
       - name: Microsoft partner and third-party scenarios
         href: guide/partner-scenarios.md
-      - name: Scenarios with on-premises Microsoft technologies  
+      - name: Scenarios with on-prem Microsoft technologies  
         href: guide/on-premises-microsoft-technologies.md
       - name: Cloud comparisons
         items:
@@ -764,7 +764,7 @@ items:
                     items:
                       - name: SWIFT Alliance Connect
                         href: example-scenario/finance/swift-on-azure-srx.yml
-                      - name: SWIFT Alliance Access with Alliance Connect
+                      - name: SWIFT Alliance Access
                         href: example-scenario/finance/swift-alliance-access-on-azure.yml
                       - name: SWIFT AMH with Alliance Connect
                         href: example-scenario/finance/swift-alliance-messaging-hub.yml
@@ -772,9 +772,9 @@ items:
                     items:
                       - name: SWIFT Alliance Connect Virtual
                         href: example-scenario/finance/swift-on-azure-vsrx.yml
-                      - name: SWIFT AA with Alliance Connect Virtual
+                      - name: SWIFT Alliance Access with ACV
                         href: example-scenario/finance/swift-alliance-access-vsrx-on-azure.yml
-                      - name: SWIFT AMH with Alliance Connect Virtual
+                      - name: SWIFT AMH with ACV
                         href: example-scenario/finance/swift-alliance-messaging-hub-vsrx.yml
                       - name: SWIFT Alliance Cloud in Azure
                         href: example-scenario/finance/swift-alliance-cloud-on-azure.yml
@@ -982,7 +982,7 @@ items:
                 href: solution-ideas/articles/predicting-length-of-stay-in-hospitals.yml
               - name: Precision medicine pipeline
                 href: example-scenario/precision-medicine/genomic-analysis-reporting.yml
-              - name: Virtual network integration for patient records
+              - name: Virtual network for patient records
                 href: example-scenario/integrated-multiservices/virtual-network-integration.yml
               - name: Virtual visits with Cloud for Healthcare
                 href: example-scenario/mch-health/virtual-health-mch.yml
@@ -1658,7 +1658,7 @@ items:
                   - name: Best practices for Route Service
                     href: /azure/azure-maps/how-to-use-best-practices-for-routing
                     maintainContext: true
-              - naem: Move NYC Taxi data with SSIS
+              - name: Move NYC Taxi data with SSIS
                 href: data-science-process/move-data-to-azure-blob-using-ssis.md
               - name: Single sign on for car park management
                 href: /azure/active-directory/saas-apps/parkalot-car-park-management-tutorial
@@ -1720,7 +1720,7 @@ items:
                     href: /azure/architecture/operator-guides/aks/choose-kubernetes-edge-compute-option
                   - name: Choose a bare-metal Kubernetes option
                     href: /azure/architecture/operator-guides/aks/choose-bare-metal-kubernetes
-              - name: Dynamics 365 telecommunications accelerator
+              - name: D365 telecommunications accelerator
                 items:
                   - name: Overview
                     href: /dynamics365/industry/accelerators/telecommunications-overview
@@ -1765,7 +1765,7 @@ items:
                 href: /azure/architecture/solution-ideas/articles/healthcare-network
               - name: IoT Edge safety and maintenance system
                 href: /azure/architecture/example-scenario/predictive-maintenance/iot-predictive-maintenance
-              - name: Low-latency network connections for industry 
+              - name: Low-latency network connections
                 href: /azure/architecture/solution-ideas/articles/low-latency-network
               - name: Public MEC deployment
                 href: example-scenario/hybrid/public-multi-access-edge-compute-deployment.yml
@@ -2237,7 +2237,7 @@ items:
                 href: reference-architectures/ai/end-to-end-smart-factory.yml
               - name: Enterprise-grade conversational bot
                 href: reference-architectures/ai/conversational-bot.yml
-              - name: Extract text from objects with Power Automate
+              - name: Extract text with Power Automate
                 href: example-scenario/ai/extract-object-text.yml
               - name: Image classification
                 href: example-scenario/ai/intelligent-apps-image-processing.yml
@@ -2544,7 +2544,7 @@ items:
                 href: guide/sas/sas-overview.yml
               - name: Industry guidance
                 items:
-                  - name: High-performance compute for manufacturing
+                  - name: HPC for manufacturing
                     href: industries/manufacturing/compute-manufacturing-overview.yml
                   - name: Risk grid computing in banking
                     href: industries/finance/risk-grid-banking-overview.yml
@@ -3162,7 +3162,7 @@ items:
                   - name: Classification best practices
                     href: /azure/purview/concept-best-practices-classification
                     maintainContext: true
-                  - name: Collections architectures and best practices
+                  - name: Collections architectures and practices
                     href: /azure/purview/concept-best-practices-collections
                     maintainContext: true
                   - name: Deployment best practices
@@ -3368,7 +3368,7 @@ items:
                 items:
                    - name: Decompose apps with Service Fabric
                      href: example-scenario/infrastructure/service-fabric-microservices.yml
-                   - name: Deploy microservices with Container Apps
+                   - name: Deploy microservices and Container Apps
                      href: example-scenario/serverless/microservices-with-container-apps.yml
                    - name: High-availability blue/green deployment
                      href: example-scenario/blue-green-spring/blue-green-spring.yml
@@ -3557,12 +3557,12 @@ items:
             items:
               - name: Automate multistage DevOps pipelines
                 href: example-scenario/devops/automate-azure-pipelines.yml
-              - name: Automate Sentinel integration with Azure DevOps
-                href: example-scenario/devops/automate-sentinel-integration.yml
-              - name: Automated API deployments using APIOps
+              - name: Automate API deployments with APIOps
                 href: example-scenario/devops/automated-api-deployments-apiops.yml
-              - name: Automated Jupyter Notebooks for diagnostics
+              - name: Automate Jupyter Notebooks for diagnostics
                 href: example-scenario/data/automating-diagnostic-jupyter-notebook.yml
+              - name: Automate Sentinel integration with DevOps
+                href: example-scenario/devops/automate-sentinel-integration.yml
               - name: Azure DevTest Labs for enterprises
                 href: example-scenario/infrastructure/devtest-labs-reference-architecture.yml
               - name: CI/CD pipeline for chatbots with ARM
@@ -3774,7 +3774,7 @@ items:
                 href: hybrid/hybrid-dns-infra.yml
               - name: "Enhanced-security hybrid messaging: client"
                 href: example-scenario/hybrid/secure-hybrid-messaging-client.yml
-              - name: "Enhanced-security hybrid messaging: mobile"
+              - name: "Enhanced-security hybrid: mobile access"
                 href: example-scenario/hybrid/secure-hybrid-messaging-mobile.yml
               - name: "Enhanced-security hybrid messaging: web"
                 href: example-scenario/hybrid/secure-hybrid-messaging-web.yml
@@ -3800,7 +3800,7 @@ items:
                 href: example-scenario/hybrid/multi-access-edge-compute-ha.yml
               - name: Run containers in a hybrid environment
                 href: hybrid/hybrid-containers.yml
-              - name: Use Azure file shares in a hybrid environment
+              - name: Use file shares in a hybrid environment
                 href: hybrid/azure-file-share.yml
           - name: Solution ideas
             items:
@@ -3971,14 +3971,14 @@ items:
                 href: reference-architectures/identity/adfs.yml
               - name: Governance of Teams guest users
                 href: example-scenario/governance/governance-teams-guest-users.yml
-              - name: Hybrid identity
-                href: solution-ideas/articles/hybrid-identity.yml
               - name: On-premises AD domains with Azure AD
                 href: reference-architectures/identity/azure-ad.yml
           - name: Solution ideas
             items:
               - name: Collaboration with Microsoft 365
                 href: solution-ideas/articles/collaboration-microsoft-365.yml
+              - name: Hybrid identity
+                href: solution-ideas/articles/hybrid-identity.yml
       - name: Integration
         items:
           - name: Get started
@@ -4707,11 +4707,12 @@ items:
                   - name: DDoS Protection reference architectures
                     href: /azure/ddos-protection/ddos-protection-reference-architectures
                     maintainContext: true
-                  - name: Security baseline for DDoS Protection Standard
+                  - name: Security baseline for DDoS Protection
                     href: /security/benchmark/azure/baselines/ddos-protection-security-baseline
                     maintainContext: true
               - name: Application Gateway v2 framework review
                 href: /azure/architecture/framework/services/networking/azure-application-gateway#security
+                maintainContext: true
               - name: Azure Firewall guidance
                 items:
                   - name: Azure Firewall architecture overview
@@ -5008,7 +5009,7 @@ items:
                 maintainContext: true
               - name: Highly-secure IaaS apps
                 href: reference-architectures/n-tier/high-security-iaas.yml
-              - name: Microsoft Cybersecurity Reference Architectures
+              - name: Microsoft Cybersecurity Architectures
                 href: /security/cybersecurity-reference-architecture/mcra
                 maintainContext: true
               - name: Virtual Network security options
@@ -5023,7 +5024,7 @@ items:
                 maintainContext: true
           - name: Architectures
             items:
-              - name: Automate Sentinel integration with Azure DevOps
+              - name: Automate Sentinel integration with DevOps
                 href: example-scenario/devops/automate-sentinel-integration.yml
               - name: Azure AD in Security Operations
                 href: example-scenario/aadsec/azure-ad-security.yml
@@ -5202,7 +5203,7 @@ items:
                   - name: Use ANF with SQL Server
                     href: /azure/azure-netapp-files/solutions-benefits-azure-netapp-files-sql-server
                     maintainContext: true
-                  - name: ANF application volume group for SAP HANA
+                  - name: ANF volume group for SAP HANA
                     href: /azure/azure-netapp-files/application-volume-group-introduction
                     maintainContext: true
           - name: Architectures
