@@ -4,6 +4,8 @@ The solution uses the Federal Aviation Administration (FAA) System Wide Informat
 
 *Apache®, Apache Ignite, Ignite, and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
+*Progress Chef and HashiCorp Terraform are trademarks of their respective companies. No endorsement is implied by the use of these marks.*
+
 ## Potential use cases
 
 This solution consumes multiple data sources for flight data patterns. It's ideal for the aerospace and aviation industries.
@@ -44,6 +46,8 @@ For ingestion, the solution uses Kafka in a single VM. This configuration create
 - [Apache Kafka for Confluent Cloud](/azure/partner-solutions/apache-kafka-confluent-cloud/overview)
 
 Both are managed services and offer multiple benefits, like SLAs, simplified configuration, and scalability. They're also more expensive.
+
+As an alternative to Power BI, you can use Tableau or another visualization option.
 
 ## SWIM architecture
 
