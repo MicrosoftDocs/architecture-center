@@ -1,4 +1,20 @@
-# Troubleshooting Kubernetes network problems
+---
+title: Troubleshoot network problems in AKS clusters
+description: Learn about steps to take to troubleshoot network problems in Azure Kubernetes Service (AKS) clusters.
+author: mosabami
+ms.author: miwalters, aayodeji, bahramr 
+ms.date: 04/12/2022
+ms.topic: conceptual
+ms.service: architecture-center
+ms.subservice: azure-guide
+products:
+  - azure-kubernetes-service
+categories:
+  - containers
+ms.custom: fcp
+---
+
+# Troubleshoot network problems in AKS clusters
 
 Network problems can appear in new installations of Kubernetes or when you increase the Kubernetes load. You might also run into problems that relate back to networking problems. Always check the [AKS Troubleshooting](/azure/aks/troubleshooting) guide to see if your problem is described there. This article describes additional details and considerations from a networking troubleshooting perspective and specific problems that might arise.  
 
@@ -107,31 +123,33 @@ kubectl get pods -l key1=value1,key2=value2
 
 If the preceding steps return expected values: 
 - Check whether the Pod `containerPort` is the same as the service `containerPort`. 
-- Check whether `podIP:containerPort` is working. 
+- Check whether `podIP:containerPort` is working:
+
+   ```
+   # Testing via cURL. 
+   curl -v telnet ://<Pod-IP>:<containerPort> 
+   # Testing via Telnet. 
+   telnet <Pod-IP>:<containerPort> 
+   ```
+
+These are some other potential causes of service problems: 
+- The container isn't listening to the specified `containerPort`. (Check the Pod description.) 
+- CNI plugin error or network route error.
+- kube-proxy isn't running or iptables rules aren't configured correctly. 
+- Network Policies are dropping traffic. For information on applying and testing Network Policies, see [Azure Kubernetes Network Policies overview](/azure/virtual-network/kubernetes-network-policies). 
+   - If you're using Calico as your network plugin, you can capture network policy traffic as well. For information on configuring that, see the [Calico site](https://projectcalico.docs.tigera.io/security/calico-network-policy#generate-logs-for-specific-traffic). 
+
+## Nodes can't reach the API server 
+
+Many add-ons and containers need to access the Kubernetes API (for example, kube-dns and operator containers). If errors occur during this process, the following steps can help you determine the source of the problem.  
+
+First, confirm whether the Kubernetes API is accessible within Pods: 
 
 ```
-# Testing via cURL 
-curl -v telnet ://<PodIP>:<ContainerPort> 
-# Testing via Telnet 
-telnet <PodIP>:<ContainerPort> 
-```
+$ kubectl run curl --image=appropriate/curl -i -t --restart=Never --
+overrides='[{"op":"add","path":"/spec/containers/0/resources","value":{"limits":{"cpu":"200m","memory":"128Mi"}}}]' --override-type json --command -- sh 
 
-Further, there are also other reasons that could cause service problems. Reasons include: 
-- container is not listening to specified containerPort (check pod description again) 
-- CNI plugin error or network route error 
-- kube-proxy is not running or iptables rules are not configured correctly 
-- Network Policies may be dropping traffic. More information on applying and testing Network Policies can be found [here](/azure/virtual-network/kubernetes-network-policies). 
-   - If you are using Calico as your network plugin, it is possible to capture the network policy traffic as well. Information on setting this up can be found on the [Calico site](https://projectcalico.docs.tigera.io/security/calico-network-policy#generate-logs-for-specific-traffic). 
-
-## Nodes cannot reach the API Server 
-
-Many addons and containers need to access the Kubernetes API for assorted reasons. (e.g. kube-dns and operator containers). If such errors happen, the steps below can help isolate where the issue resides.  
-
-Confirm whether Kubernetes API is accessible within Pods first: 
-
-```
-$ kubectl run curl --image=appropriate/curl -i -t --restart=Never --overrides='[{"op":"add","path":"/spec/containers/0/resources","value":{"limits":{"cpu":"200m","memory":"128Mi"}}}]' --override-type json --command -- sh 
-# If you do not see a command prompt, try pressing enter. 
+# If you don't see a command prompt, try selecting Enter. 
 / # 
 / # KUBE_TOKEN=$(cat /var/run/secrets/kubernetes.io/serviceaccount/token) 
 / # curl -sSk -H "Authorization: Bearer $KUBE_TOKEN" https://$KUBERNETES_SERVICE_HOST:$KUBERNETES_SERVICE_PORT/api/v1/namespaces/default/pods 
@@ -148,41 +166,72 @@ $ kubectl run curl --image=appropriate/curl -i -t --restart=Never --overrides='[
  } 
 ```
 
-If a timeout error is reported, confirm whether the `kubernetes-internal` service and its endpoints are healthy:
+If a time-out error occurs, check whether the `kubernetes-internal` service and its endpoints are healthy:
 
 ```
 $ kubectl get service kubernetes-internal 
 NAME                TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE 
 kubernetes-internal ClusterIP   10.96.0.1    <none>        443/TCP   25m 
+```
+```
 $ kubectl get endpoints kubernetes-internal 
 NAME                ENDPOINTS          AGE 
 kubernetes-internal 172.17.0.62:6443   25m 
 ```
 
-If both look like the above response and coincide with the correct IP and port for your container, then it is more than likely that kube-apiserver is not running or is blocked from the network. 
+If both tests return responses like the preceding ones, and the IP and port returned match the ones for your container, it's likely that kube-apiserver isn't running or is blocked from the network. 
 
-There are four locations that the access may be blocked:  
-- Your network policies may be preventing the access to the API management plane. Information on testing Network Policies can be found [here](/azure/virtual-network/kubernetes-network-policies). 
-- Your API's Allowed IPs. To update your allowed IPs, follow the instructions [found here](https://docs.microsoft.com/en-us/azure/aks/api-server-authorized-ip-ranges#update-a-clusters-api-server-authorized-ip-ranges). 
-- Your private firewall. If you route the AKS traffic through a private firewall, you must ensure there are outbound allowances as [outlined here](https://docs.microsoft.com/en-us/azure/aks/limit-egress-traffic#required-outbound-network-rules-and-fqdns-for-aks-clusters).  
-- Your private DNS. If you are hosting a private cluster and you’re unable to reach the API server, your DNS forwarders may not be configured properly. Follow the [steps here](https://docs.microsoft.com/en-us/azure/aks/private-clusters#hub-and-spoke-with-custom-dns) to ensure communication can continue.  
+There are four locations where the access might be blocked:  
+- Your network policies. They might be preventing access to the API management plane. For information on testing Network Policies, see [Network Policies overview](/azure/virtual-network/kubernetes-network-policies). 
+- Your API's allowed IP addresses. For information about resolving this problem, see [Update a cluster's API server authorized IP ranges](/azure/aks/api-server-authorized-ip-ranges#update-a-clusters-api-server-authorized-ip-ranges). 
+- Your private firewall. If you route the AKS traffic through a private firewall, make sure there are outbound rules as described in [Required outbound network rules and FQDNs for AKS clusters](/azure/aks/limit-egress-traffic#required-outbound-network-rules-and-fqdns-for-aks-clusters).  
+- Your private DNS. If you're hosting a private cluster and you're unable to reach the API server, your DNS forwarders might not be configured properly. To ensure proper communication, complete the steps in [Hub and spoke with custom DNS](/azure/aks/private-clusters#hub-and-spoke-with-custom-dns).  
 
-You can also check kube-apiserver logs using Container Insights. A guide on how to query kube-apiserver logs as well as many other queries are [documented here](https://docs.microsoft.com/en-us/azure/azure-monitor/containers/container-insights-log-query#resource-logs).   
+You can also check kube-apiserver logs by using Container insights. For information on querying kube-apiserver logs, and many other queries, see [How to query logs from Container insights](/azure/azure-monitor/containers/container-insights-log-query#resource-logs).   
 
-You can also check kube-apiserver status and its logs on the cluster itself: 
+Finally, you can check the kube-apiserver status and its logs on the cluster itself: 
 
 ```
-# Check kube-apiserver status 
+# Check kube-apiserver status. 
 kubectl -n kube-system get pod -l component=kube-apiserver 
-
-# Get kube-apiserver logs 
-PODNAME=$(kubectl -n kube-system get pod -l component=kube-apiserver -o jsonpath='{.items[0].metadata.name}') 
+```
+```
+# Get kube-apiserver logs. 
+PODNAME=$(kubectl -n kube-system get pod -l component=kube-apiserver -o 
+jsonpath='{.items[0].metadata.name}') 
 kubectl -n kube-system logs $PODNAME --tail 100 
 ```
 
-If `403 - Forbidden` error is reported, then kube-apiserver is more than likely configured with RBAC and your container's ServiceAccount is not authorized to resources. For such cases, you should create proper RoleBindings and ClusterRoleBindings. For more information surrounding Roles and Role Bindings, please refer to [Access and Identity](https://docs.microsoft.com/en-us/azure/aks/concepts-identity#roles-and-clusterroles). For detailed examples of how to configure RBAC on your cluster, please also see [this Kubernetes document](https://kubernetes.io/docs/reference/access-authn-authz/rbac). 
+If a `403 - Forbidden` error returns, kube-apiserver is probably configured with RBAC and your container's `ServiceAccount` probably isn't authorized to access resources. In this case, you should create appropriate `RoleBinding` and `ClusterRoleBinding` objects. For information about roles and role bindings, see [Access and identity](/azure/aks/concepts-identity#roles-and-clusterroles). For detailed examples of how to configure RBAC on your cluster, see [Using RBAC Authorization](https://kubernetes.io/docs/reference/access-authn-authz/rbac). 
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+**Principal author:** 
+
+* Michael Walters | Senior Consultant 
+
+**Other contributors:** 
+
+* [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
+* [Ayobami Ayodeji](https://www.linkedin.com/in/ayobamiayodeji) | Senior Program Manager
+* [Bahram Rushenas](https://www.linkedin.com/in/bahram-rushenas-306b9b3) | Architect
 
 ## Next steps
 - [Troubleshoot Applications](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application)
 - [Debug Services](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-service) 
 - [Kubernetes Cluster Networking](https://kubernetes.io/docs/concepts/cluster-administration/networking) 
+- [Microsoft Learn: Choose the best networking plugin for AKS](learn/modules/choose-network-plugin-aks)
+- [Azure Kubernetes Service (AKS)](/azure/aks)
+- [Network concepts for applications in Azure Kubernetes Service (AKS)](/azure/aks/concepts-network)
+
+## Related resources 
+- [AKS architecture design](../../reference-architectures/containers/aks-start-here.md)
+- [Lift and shift to containers with AKS](../../solution-ideas/articles/migrate-existing-applications-with-aks.yml)
+- [Baseline architecture for an AKS cluster](../../reference-architectures/containers/aks/secure-baseline-aks.yml)
+- [AKS baseline for multiregion clusters](../../reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml)
+- [AKS day-2 operations guide](../../operator-guides/aks/day-2-operations-guide.md)
+   - [Triage practices](../../operator-guides/aks/aks-triage-practices.md)
+   - [Patching and upgrade guidance](../../operator-guides/aks/aks-upgrade-practices.md)
+   - [Monitoring Azure Kubernetes Service (AKS) with Azure Monitor](/azure/aks/monitor-aks?bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json&toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json)
