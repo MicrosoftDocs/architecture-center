@@ -16,11 +16,11 @@ ms.custom: fcp
 
 # Troubleshoot network problems in AKS clusters
 
-Network problems can appear in new installations of Kubernetes or when you increase the Kubernetes load. You might also run into problems that relate back to networking problems. Always check the [AKS Troubleshooting](/azure/aks/troubleshooting) guide to see if your problem is described there. This article describes additional details and considerations from a networking troubleshooting perspective and specific problems that might arise.  
+Network problems can occur in new installations of Kubernetes or when you increase the Kubernetes load. Other problems that relate back to networking problems might also occur. Always check the [AKS troubleshooting](/azure/aks/troubleshooting) guide to see whether your problem is described there. This article describes additional details and considerations from a network troubleshooting perspective and specific problems that might arise.  
 
 ## Client can't reach the API server 
 
-These errors involve connection problems to an Azure Kubernetes Service (AKS) cluster when you can't reach the cluster's API server through the Kubernetes cluster command-line tool (kubectl) or any other tool, like the REST API via a programming language. 
+These errors involve connection problems that occur when you can't reach an Azure Kubernetes Service (AKS) cluster's API server through the Kubernetes cluster command-line tool (kubectl) or any other tool, like the REST API via a programming language. 
 
 **Error** 
 
@@ -37,7 +37,7 @@ connection failed because connected host has failed to respond.
 ```
 **Cause 1** 
 
-It's possible that IP ranges authorized by the API server are enabled on the cluster's API server, but the client's IP address isn't included in the IP ranges. To determine whether IP ranges are enabled, use the following `az aks show` command in Azure CLI. If the IP ranges are enabled, the command will produce a list of IP ranges. 
+It's possible that IP ranges authorized by the API server are enabled on the cluster's API server, but the client's IP address isn't included in those IP ranges. To determine whether IP ranges are enabled, use the following `az aks show` command in Azure CLI. If the IP ranges are enabled, the command will produce a list of IP ranges. 
 
 ```
 az aks show --resource-group <cluster-resource-group> \ 
@@ -47,7 +47,7 @@ az aks show --resource-group <cluster-resource-group> \
 
 **Solution 1**
 
-Ensure that your client's IP address is within the ranges authorized by the cluster's API server.  
+Ensure that your client's IP address is within the ranges authorized by the cluster's API server:
 
 1. Find your local IP address. For information on how to find it on Windows and Linux, see [How to find my IP](/azure/aks/api-server-authorized-ip-ranges#how-to-find-my-ip-to-include-in---api-server-authorized-ip-ranges). 
 
@@ -90,7 +90,7 @@ $ docker ps | grep POD | wc -l
 
 **Cause 1**
 
-This error can be caused by a bug in the network plugin. The plugin can fail to deallocate the IP address when Pods are terminated.  
+This error can be caused by a bug in the network plugin. The plugin can fail to deallocate the IP address when a Pod is terminated.  
 
 **Solution 1**
 
@@ -102,11 +102,11 @@ Pod creation is much faster than garbage collection of terminated Pods.
 
 **Solution 2**
 
-You can configure fast garbage collection for the kubelet. For instructions, see [the Kubernetes garbage collection documentation](https://kubernetes.io/docs/concepts/architecture/garbage-collection/#containers-images).  
+Configure fast garbage collection for the kubelet. For instructions, see [the Kubernetes garbage collection documentation](https://kubernetes.io/docs/concepts/architecture/garbage-collection/#containers-images).  
 
 ## Service not accessible within Pods 
 
-The first step is to check whether endpoints have been created automatically for the service:
+The first step to resolving this problem is to check whether endpoints have been created automatically for the service:
 
 ```
 kubectl get endpoints <service-name> 
@@ -134,7 +134,7 @@ If the preceding steps return expected values:
 
 These are some other potential causes of service problems: 
 - The container isn't listening to the specified `containerPort`. (Check the Pod description.) 
-- CNI plugin error or network route error.
+- A CNI plugin error or network route error is occurring.
 - kube-proxy isn't running or iptables rules aren't configured correctly. 
 - Network Policies are dropping traffic. For information on applying and testing Network Policies, see [Azure Kubernetes Network Policies overview](/azure/virtual-network/kubernetes-network-policies). 
    - If you're using Calico as your network plugin, you can capture network policy traffic as well. For information on configuring that, see the [Calico site](https://projectcalico.docs.tigera.io/security/calico-network-policy#generate-logs-for-specific-traffic). 
@@ -223,8 +223,8 @@ If a `403 - Forbidden` error returns, kube-apiserver is probably configured with
 - [Debug Services](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-service) 
 - [Kubernetes Cluster Networking](https://kubernetes.io/docs/concepts/cluster-administration/networking) 
 - [Microsoft Learn: Choose the best networking plugin for AKS](/learn/modules/choose-network-plugin-aks)
-- [Azure Kubernetes Service (AKS)](/azure/aks)
-- [Network concepts for applications in Azure Kubernetes Service (AKS)](/azure/aks/concepts-network)
+- [AKS](/azure/aks)
+- [Network concepts for applications in AKS](/azure/aks/concepts-network)
 
 ## Related resources 
 - [AKS architecture design](../../reference-architectures/containers/aks-start-here.md)
@@ -234,4 +234,4 @@ If a `403 - Forbidden` error returns, kube-apiserver is probably configured with
 - [AKS day-2 operations guide](../../operator-guides/aks/day-2-operations-guide.md)
    - [Triage practices](../../operator-guides/aks/aks-triage-practices.md)
    - [Patching and upgrade guidance](../../operator-guides/aks/aks-upgrade-practices.md)
-   - [Monitoring Azure Kubernetes Service (AKS) with Azure Monitor](/azure/aks/monitor-aks?bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json&toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json)
+   - [Monitoring AKS with Azure Monitor](/azure/aks/monitor-aks)
