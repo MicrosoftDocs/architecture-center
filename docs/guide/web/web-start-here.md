@@ -3,7 +3,7 @@ title: Web architecture design
 description: Get an overview of Azure web app technologies, guidance, solution ideas, and reference architectures.
 author: EdPrice-MSFT
 ms.author: edprice
-ms.date: 02/28/2022
+ms.date: 04/11/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -18,7 +18,7 @@ categories:
 ms.custom: fcp
 ---
 
-# Web architecture design
+# Web applications architecture design
 
 Today's web apps are expected to be available all day, every day from anywhere in the world, and usable from virtually any device or screen size. Web applications must be secure, flexible, and scalable to meet spikes in demand. 
 
