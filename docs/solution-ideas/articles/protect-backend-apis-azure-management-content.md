@@ -65,8 +65,8 @@ This architecture addresses the needs of organizations seeking to:
 
 **Other contributors:**
 
-- Raj Penchala | Senior Cloud Solution Architect
-- [Ryan Hudson](https://www.linkedin.com/in/ryanhudsonit) | Senior Cloud Solution Architect
+- Raj Penchala | Principal Cloud Security Architect
+- [Ryan Hudson](https://www.linkedin.com/in/ryanhudsonit) | Principal Cloud Solution Architect
 
 ## Next steps
 
