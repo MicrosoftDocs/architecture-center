@@ -421,10 +421,12 @@ items:
                 href: solution-ideas/articles/customer-insights-synapse.yml
           - name: Azure and Microsoft on-premises servers  
             href: guide/on-premises-microsoft-technologies.md
-      - name: Microsoft partner and third-party scenarios
+      - name: Third-party scenarios
         items:
           - name: Apache technologies
             href: guide/apache-scenarios.md
+          - name: Other open-source technologies
+            href: guide/open-source-scenarios.md
           - name: Other third-party technologies
             href: guide/partner-scenarios.md
       - name: Cloud comparisons
