@@ -239,7 +239,7 @@ Many hours can be spent by IT staff trying to manually secure all resources and 
 
 ![High risks](./images/healthcare-ai-blueprint/high-risks.png)
 
-ACS does even more through its threat detection and alerting capabilities. Use ACS to monitor networks, machines, and cloud services for incoming attacks and post-breach activity to keep your environment secure.
+ASC does even more through its threat detection and alerting capabilities. Use ASC to monitor networks, machines, and cloud services for incoming attacks and post-breach activity to keep your environment secure.
 ASC automatically collects, analyzes, and integrates security information and logs from a variety of Azure resources. 
 
 The ML capabilities in ASC allow it to detect threats manual approaches would not reveal. A list of prioritized security alerts is shown in ASC along with the information needed to quickly investigate the problem along with recommendations for how to remediate an attack.
