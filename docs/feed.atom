@@ -2,14 +2,38 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2022-04-07T21:39:41.921Z</updated>
+    <updated>2022-04-11T13:46:18.009Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://docs.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
     <entry>
-        <title type="html"><![CDATA[Moving archive data from mainframe systems to Azure]]></title>
+        <title type="html"><![CDATA[Refactor IBM z/TPF mainframe systems to Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/mainframe/refactor-ibm-ztpf-mainframe</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/mainframe/refactor-ibm-ztpf-mainframe"/>
+        <updated>2022-04-08T22:33:18.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to refactor IBM z/TPF mainframe systems to functionally equivalent systems on Microsoft Azure.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Ingest FAA SWIM content to analyze flight data]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/analytics/ingest-faa-swim-analyze-flight-data</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/analytics/ingest-faa-swim-analyze-flight-data"/>
+        <updated>2022-04-08T07:43:21.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to integrate Chef Infra, Chef InSpec, Test Kitchen, Terraform, Terraform Cloud, and GitHub Actions to automate and create data analytics environments.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Protect backend APIs in Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/protect-backend-apis-azure-management</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/protect-backend-apis-azure-management"/>
+        <updated>2022-04-08T04:07:58.000Z</updated>
+        <summary type="html"><![CDATA[See an architecture that protects backend APIs by using API Management and Azure AD B2C to validate bearer tokens. The APIs can be in Azure or other environments.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Move archive data from mainframe systems to Azure]]></title>
         <id>https://docs.microsoft.com/azure/architecture/example-scenario/mainframe/move-archive-data-mainframes</id>
         <link href="https://docs.microsoft.com/azure/architecture/example-scenario/mainframe/move-archive-data-mainframes"/>
         <updated>2022-04-05T19:45:26.000Z</updated>
@@ -33,6 +57,46 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
+        <title type="html"><![CDATA[AKS (Kubernetes) day-2 operations guide]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/operator-guides/aks/day-2-operations-guide</id>
+        <link href="https://docs.microsoft.com/azure/architecture/operator-guides/aks/day-2-operations-guide"/>
+        <updated>2022-04-10T09:28:02.000Z</updated>
+        <summary type="html"><![CDATA[Learn about Azure Kubernetes Services (AKS) day-2 operations, such as triage, patching, upgrading, and troubleshooting.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Database for PostgreSQL intelligent apps]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/intelligent-apps-using-azure-database-for-postgresql</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/intelligent-apps-using-azure-database-for-postgresql"/>
+        <updated>2022-04-08T07:32:56.000Z</updated>
+        <summary type="html"><![CDATA[Use Azure Database for PostgreSQL to develop sophisticated machine learning and visualization apps that provide analytics and information that you can act on.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[SAP HANA for Linux VMs in scale-up systems]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/sap/run-sap-hana-for-linux-virtual-machines</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/sap/run-sap-hana-for-linux-virtual-machines"/>
+        <updated>2022-04-08T04:02:45.000Z</updated>
+        <summary type="html"><![CDATA[Proven practices for running SAP HANA in a high-availability, scale-up environment that supports disaster recovery on Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Control IoT devices with a voice assistant app]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/iot-controlling-devices-with-voice-assistant</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/iot-controlling-devices-with-voice-assistant"/>
+        <updated>2022-04-07T22:54:57.000Z</updated>
+        <summary type="html"><![CDATA[Control IoT devices by using Azure Speech Service, Language Understanding Service (LUIS), and Azure Bot Service to create natural conversational interfaces.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[IoT connected light, power, and internet]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/iot-power-management</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/iot-power-management"/>
+        <updated>2022-04-07T22:43:29.000Z</updated>
+        <summary type="html"><![CDATA[See how solar-powered IoT devices combine with Azure services to deliver clean, low-cost power, light, and internet services to remote locations.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Architectural approaches for AI and ML in multitenant solutions]]></title>
         <id>https://docs.microsoft.com/azure/architecture/guide/multitenant/approaches/ai-ml</id>
         <link href="https://docs.microsoft.com/azure/architecture/guide/multitenant/approaches/ai-ml"/>
@@ -53,7 +117,7 @@
         <id>https://docs.microsoft.com/azure/architecture/guide/multitenant/approaches/iot</id>
         <link href="https://docs.microsoft.com/azure/architecture/guide/multitenant/approaches/iot"/>
         <updated>2022-04-07T19:22:18.000Z</updated>
-        <summary type="html"><![CDATA[This articles describes approaches for supporting multitenancy in your IoT solution.]]></summary>
+        <summary type="html"><![CDATA[This article describes approaches for supporting multitenancy in your IoT solution.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -133,7 +197,7 @@
         <id>https://docs.microsoft.com/azure/architecture/guide/multitenant/approaches/iot</id>
         <link href="https://docs.microsoft.com/azure/architecture/guide/multitenant/approaches/iot"/>
         <updated>2022-03-21T08:38:45.000Z</updated>
-        <summary type="html"><![CDATA[This articles describes approaches for supporting multitenancy in your IoT solution.]]></summary>
+        <summary type="html"><![CDATA[This article describes approaches for supporting multitenancy in your IoT solution.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
