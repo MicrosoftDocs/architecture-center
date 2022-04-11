@@ -1,4 +1,4 @@
-This article describes basic concepts and patterns that are common to internet-of-things (IoT) solutions. In IoT systems, *events*, *insights*, and *actions* happen across devices, platforms, and applications. Cloud-hosted services and applications determine actions to take on devices, based on events.
+This article describes basic concepts and patterns that are common to internet-of-things (IoT) solutions. In IoT systems, *events*, *insights*, and *actions* happen across devices, platforms, and applications. Cloud-hosted services and applications determine actions to take, based on events from devices.
 
 The following diagram illustrates how *events* generate *insights* to inform *actions* in IoT solutions.
 
@@ -8,16 +8,9 @@ The following diagram illustrates how *events* generate *insights* to inform *ac
 1. Applications derive insights by evaluating data from incoming device events.
 1. Based on insights, applications take action via commands that run processes on the devices.
 
-IoT solutions use events, insights, and actions to achieve end-to-end scenarios.
-IoT sensors, devices, and intelligent operations can transform businesses and enable new growth opportunities.
-
 ## Architecture
 
-The following example shows the interaction of events, insights, and actions in an IoT food storage cooling system.
-
-![A diagram illustrating the relationship between events, insights, and actions in an IoT cooling system.](media/events-insights-actions.svg)
-
-[Azure IoT](https://azure.microsoft.com/overview/iot) 
+The following example shows the interaction of events, insights, and actions in an IoT food storage temperature monitoring system.
 
 In this system:
 
@@ -26,16 +19,17 @@ In this system:
 - Devices can receive commands to adjust temperatures or start and stop operation.
 - There are backup systems in case a primary system malfunctions or goes offline.
 
+![A diagram illustrating the relationship between events, insights, and actions in an IoT temperature monitoring system.](media/events-insights-actions.svg)
+
 ### Dataflow
 
-This example shows the following process:
+The example shows the following process:
 
-1. Devices send temperature samples from the primary cooling system to IoT Hub, via device-to-cloud events, every 30 seconds.
-2. Routing rules in IoT Hub evaluate events for any immediate contextual insights, such as temperatures at malfunctioning levels.
-3. If the temperature is at a malfunctioning level, event routing sends the event to a specific handler to take action.
-
-   - The handler invokes an action to another process to dispatch maintenance to the site.
-   - The handler sends a command to start the backup system while maintenance is on the way.
+1. The primary cooling system sends temperature samples to IoT Hub, via device-to-cloud events, every 30 seconds.
+1. Routing rules in IoT Hub evaluate events for any immediate contextual insights, such as temperatures at malfunctioning levels.
+1. If the temperature is at a malfunctioning level, event routing sends the event to specific handlers to take action.
+1. A handler invokes an action to another process to dispatch maintenance to the site.
+1. A handler sends a command to start the backup cooling system while maintenance is on the way.
 
 ## Considerations
 
