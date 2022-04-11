@@ -629,7 +629,7 @@ items:
                 href: solution-ideas/articles/hybrid-footfall-detection.yml
               - name: Build a real-time recommendation API
                 href: reference-architectures/ai/real-time-recommendation.yml
-              - name: Buy online, pickup in store (retail)
+              - name: Buy online, pick up in store (retail)
                 href: example-scenario/iot/vertical-buy-online-pickup-in-store.yml
               - name: Content-based recommendation
                 href: example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml
@@ -912,7 +912,7 @@ items:
                   - name: Advanced functionality
                     href: /azure/health-bot/scenario-authoring/advanced_functionality
                     maintainContext: true
-                  - name: Langauge models
+                  - name: Language models
                     href: /azure/health-bot/language_models
                     maintainContext: true
                   - name: Handoff to a live agent
