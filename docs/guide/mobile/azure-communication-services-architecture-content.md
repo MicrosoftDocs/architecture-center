@@ -63,7 +63,7 @@ The simplest voice and video calling scenario involves a user calling another us
 Azure App Services is a straightforward option for create a custom Web app. This flow is nearly identical in cases where a user is calling an external phone number. The only difference is that in order to access traditional telephony, the initiating user must request from the controller service the source and destination phone numbers to use for communication. 
 
  ### Resources
-- **Concept:** [Calling Overview](voice-video-calling/calling-sdk-features.md)
+- **Concept:** [Calling Overview](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/calling-sdk-features)
 - **Quickstart:** [Add voice calling to your app](https://docs.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/getting-started-with-calling.md)
 - **Quickstart:** [Add video calling to your app](https://docs.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/get-started-with-video-calling.md)
 - **Hero Sample:** [Group Calling for Web, iOS, and Android](https://docs.microsoft.com/azure/communication-services/samples/calling-hero-sample.md)
