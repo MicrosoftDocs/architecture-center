@@ -1,10 +1,10 @@
 ---
 title: Architectural approaches for IoT in a multitenant solution
 titleSuffix: Azure Architecture Center
-description: This articles describes approaches for supporting multitenancy in your IoT solution.
+description: This article describes approaches for supporting multitenancy in your IoT solution.
 author: drcrook1
 ms.author: dacrook
-ms.date: 03/21/2022
+ms.date: 04/11/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -198,7 +198,7 @@ Each tenant has their own IoT Central organization, which sends telemetry to a s
 
 #### Databases
 
-You might choose to partition the databases. Often it's the telemetry and device data stores that are partitioned. Frequently, multiple data stores are used for different specific purposes, such as warm versus archival storage,or for tenancy subscription status information. 
+You might choose to partition the databases. Often it's the telemetry and device data stores that are partitioned. Frequently, multiple data stores are used for different specific purposes, such as warm versus archival storage, or for tenancy subscription status information. 
 
 Separate the databases for each tenant, for the following benefits:
 
