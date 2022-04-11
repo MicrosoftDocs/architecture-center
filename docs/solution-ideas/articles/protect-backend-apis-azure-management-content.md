@@ -59,6 +59,8 @@ This architecture addresses the needs of organizations seeking to:
 
 ## Contributors
 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
 **Principal author:**
 
 - [Arshad Azeem](https://www.linkedin.com/in/arshadazeem) | Senior Cloud Solution Architect
