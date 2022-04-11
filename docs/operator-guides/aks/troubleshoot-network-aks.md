@@ -136,7 +136,7 @@ These are some other potential causes of service problems:
 - The container isn't listening to the specified `containerPort`. (Check the Pod description.) 
 - A CNI plugin error or network route error is occurring.
 - kube-proxy isn't running or iptables rules aren't configured correctly. 
-- Network Policies are dropping traffic. For information on applying and testing Network Policies, see [Azure Kubernetes Network Policies overview](/azure/virtual-network/kubernetes-network-policies). 
+- Network Policies is dropping traffic. For information on applying and testing Network Policies, see [Azure Kubernetes Network Policies overview](/azure/virtual-network/kubernetes-network-policies). 
    - If you're using Calico as your network plugin, you can capture network policy traffic as well. For information on configuring that, see the [Calico site](https://projectcalico.docs.tigera.io/security/calico-network-policy#generate-logs-for-specific-traffic). 
 
 ## Nodes can't reach the API server 
@@ -181,7 +181,7 @@ kubernetes-internal 172.17.0.62:6443   25m
 
 If both tests return responses like the preceding ones, and the IP and port returned match the ones for your container, it's likely that kube-apiserver isn't running or is blocked from the network. 
 
-There are four locations where the access might be blocked:  
+There are four reasons why the access might be blocked:  
 - Your network policies. They might be preventing access to the API management plane. For information on testing Network Policies, see [Network Policies overview](/azure/virtual-network/kubernetes-network-policies). 
 - Your API's allowed IP addresses. For information about resolving this problem, see [Update a cluster's API server authorized IP ranges](/azure/aks/api-server-authorized-ip-ranges#update-a-clusters-api-server-authorized-ip-ranges). 
 - Your private firewall. If you route the AKS traffic through a private firewall, make sure there are outbound rules as described in [Required outbound network rules and FQDNs for AKS clusters](/azure/aks/limit-egress-traffic#required-outbound-network-rules-and-fqdns-for-aks-clusters).  
@@ -202,7 +202,7 @@ jsonpath='{.items[0].metadata.name}')
 kubectl -n kube-system logs $PODNAME --tail 100 
 ```
 
-If a `403 - Forbidden` error returns, kube-apiserver is probably configured with RBAC and your container's `ServiceAccount` probably isn't authorized to access resources. In this case, you should create appropriate `RoleBinding` and `ClusterRoleBinding` objects. For information about roles and role bindings, see [Access and identity](/azure/aks/concepts-identity#roles-and-clusterroles). For examples of how to configure RBAC on your cluster, see [Using RBAC Authorization](https://kubernetes.io/docs/reference/access-authn-authz/rbac). 
+If a `403 - Forbidden` error returns, kube-apiserver is probably configured with role-based access control (RBAC) and your container's `ServiceAccount` probably isn't authorized to access resources. In this case, you should create appropriate `RoleBinding` and `ClusterRoleBinding` objects. For information about roles and role bindings, see [Access and identity](/azure/aks/concepts-identity#roles-and-clusterroles). For examples of how to configure RBAC on your cluster, see [Using RBAC Authorization](https://kubernetes.io/docs/reference/access-authn-authz/rbac). 
 
 ## Contributors
 
