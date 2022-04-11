@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: alexhart11
-ms.date: 04/08/2022
+ms.date: 04/11/2022
 ms.topic: article
 ms.service: architecture-center
 categories: 
@@ -26,12 +26,20 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
-- [Moving archive data from mainframe systems to Azure](./example-scenario/mainframe/move-archive-data-mainframes.yml)
+- [Refactor IBM z/TPF mainframe systems to Azure](./example-scenario/mainframe/refactor-ibm-ztpf-mainframe.yml)
+- [Ingest FAA SWIM content to analyze flight data](./example-scenario/analytics/ingest-faa-swim-analyze-flight-data.yml)
+- [Protect backend APIs in Azure](./solution-ideas/articles/protect-backend-apis-azure-management.yml)
+- [Move archive data from mainframe systems to Azure](./example-scenario/mainframe/move-archive-data-mainframes.yml)
 - [Scenarios that feature Microsoft on-premises technologies on Azure](./guide/on-premises-microsoft-technologies.md)
 - [Microsoft partner and third-party scenarios on Azure](./guide/partner-scenarios.md)
 
 ### Updated articles
 
+- [AKS (Kubernetes) day-2 operations guide](./operator-guides/aks/day-2-operations-guide.md)  ([#4e63e1a16](https://github.com/MicrosoftDocs/architecture-center/commit/4e63e1a16))
+- [Azure Database for PostgreSQL intelligent apps](./solution-ideas/articles/intelligent-apps-using-azure-database-for-postgresql.yml)  ([#950a51a85](https://github.com/MicrosoftDocs/architecture-center/commit/950a51a85))
+- [SAP HANA for Linux VMs in scale-up systems](./reference-architectures/sap/run-sap-hana-for-linux-virtual-machines.yml)  ([#a1b4e1d64](https://github.com/MicrosoftDocs/architecture-center/commit/a1b4e1d64))
+- [Control IoT devices with a voice assistant app](./solution-ideas/articles/iot-controlling-devices-with-voice-assistant.yml)  ([#ac118ba3d](https://github.com/MicrosoftDocs/architecture-center/commit/ac118ba3d))
+- [IoT connected light, power, and internet](./solution-ideas/articles/iot-power-management.yml)  ([#9c307cdf4](https://github.com/MicrosoftDocs/architecture-center/commit/9c307cdf4))
 - [Architectural approaches for AI and ML in multitenant solutions](./guide/multitenant/approaches/ai-ml.md)  ([#9fbfbec28](https://github.com/MicrosoftDocs/architecture-center/commit/9fbfbec28))
 - [Architectural approaches for compute in multitenant solutions](./guide/multitenant/approaches/compute.md)  ([#9fbfbec28](https://github.com/MicrosoftDocs/architecture-center/commit/9fbfbec28))
 - [Architectural approaches for IoT in a multitenant solution](./guide/multitenant/approaches/iot.md)  ([#9fbfbec28](https://github.com/MicrosoftDocs/architecture-center/commit/9fbfbec28))
