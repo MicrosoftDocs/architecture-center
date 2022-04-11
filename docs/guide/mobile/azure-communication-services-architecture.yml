@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Build solutions using Azure Communication Services
+  title: Azure Communication Services architecture design
   titleSuffix: Azure Application Architecture Guide
   description: Learn how to add communication features to your applications using Azure Communication Services.
   author: mikben
@@ -12,7 +12,7 @@ metadata:
   ms.custom:
     - fcp
     - cse
-name: Build solutions using Azure Communication Services
+name: Azure Communication Services architecture design
 summary: Learn how to add communication features to your applications using Azure Communication Services.
 products:
   - azure-communication-services
