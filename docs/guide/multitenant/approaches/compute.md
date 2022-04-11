@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes approaches to support multitenancy for the compute components of your solution.
 author: DixitArora-MSFT
 ms.author: dixitaro
-ms.date: 12/13/2021
+ms.date: 04/11/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -45,7 +45,7 @@ Performance problems often remain undetected until an application is under load.
 
 #### Scale triggers
 
-Whichever approach you use to scale, you typically need to plan the triggers that cause your components to scale. When you have shared components, consider the workload patterns of every tenant who uses the resources, in order to ensure you provision capacity can meet the total required capacity, and to minimize the chance of a tenant experiencing the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml). You might also be able to plan your scaling capacity, based on the number of tenants. For example, if you measure the resources that you use to service 100 tenants, then as you onboard more tenants, you can plan to scale such that your resources double for every additional 100 tenants.
+Whichever approach you use to scale, you typically need to plan the triggers that cause your components to scale. When you have shared components, consider the workload patterns of every tenant who uses the resources, in order to ensure your provisioned capacity can meet the total required capacity, and to minimize the chance of a tenant experiencing the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml). You might also be able to plan your scaling capacity, based on the number of tenants. For example, if you measure the resources that you use to service 100 tenants, then as you onboard more tenants, you can plan to scale such that your resources double for every additional 100 tenants.
 
 ### State
 
@@ -167,11 +167,11 @@ Consider the tradeoffs for each piece of state you maintain in your compute tier
 **Principal authors:**
 
  * Dixit Arora | Senior Customer Engineer, FastTrack for Azure
- * [John Downs](http://linkedin.com/john-downs) | Senior Customer Engineer, FastTrack for Azure
+ * [John Downs](http://linkedin.com/in/john-downs) | Senior Customer Engineer, FastTrack for Azure
  
 **Other contributors:**
 
- * [Arsen Vladimirskiy](http://linkedin.com/arsenv) | Principal Customer Engineer, FastTrack for Azure
+ * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 
 ## Next steps
 

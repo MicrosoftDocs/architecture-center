@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes approaches to support multitenancy for the artificial intelligence (AI) and machine learning (ML) components of your solution.
 author: kevinash
 ms.author: kevinash
-ms.date: 02/14/2022
+ms.date: 04/11/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -84,7 +84,7 @@ Consider the performance requirements for the AI/ML components of your solution,
 
 Consider using Azure's high-performance computing capabilities for your AI and ML workloads. Azure provides many different types of virtual machines and other hardware instances. Consider whether your solution would benefit from using CPUs, [GPUs](/azure/machine-learning/how-to-deploy-inferencing-gpus), [FPGAs](/azure/machine-learning/how-to-deploy-fpga-web-service), or other hardware-accelerated environments. Azure also provides real-time inference with NVIDIA GPUs, including NVIDIA Triton Inference Servers. For low-priority compute requirements, consider using [AKS spot node pools](/azure/aks/spot-node-pool). To learn more about optimizing compute services in a multitenant solution, see [Architectural approaches for compute in multitenant solutions](compute.md).
 
-Model training typically requires a lot of interaction with your data stores, so it's also important to consider your data strategy and the performance that your data tier provides. For more information about multitenancy and data services, see [Architectural approaches for storage and data in multitenant solutions](storage-data.yml).
+Model training typically requires a lot of interactions with your data stores, so it's also important to consider your data strategy and the performance that your data tier provides. For more information about multitenancy and data services, see [Architectural approaches for storage and data in multitenant solutions](storage-data.yml).
 
 Consider profiling your solution's performance. For example, [Azure Machine Learning provides profiling capabilities](/azure/machine-learning/how-to-deploy-profile-model) that you can use when developing and instrumenting your solution.
 
@@ -92,7 +92,7 @@ Consider profiling your solution's performance. For example, [Azure Machine Lear
 
 When you build a solution to use AI and ML, you can choose to use prebuilt components, or to build custom components. There are two key decisions you need to make. The first is the *platform or service* you use for AI and ML. The second is whether you use pretrained models or build your own custom models.
 
-**Platforms:** There are many Azure services that you can use for your AI and ML workloads. For example, Azure Cognitive Services provides an API to perform inference against prebuilt models, and Microsoft manages the underlying resources. Azure Cognitive Services enables you to quickly deploy a new solution, but it gives you less control over how training and inference is performed, and it might not suit every type of workload. In contrast, Azure Machine Learning is a platform that enables you to build, train, and use your own ML models. Azure Machine Learning provides control and flexibility, but it increases the complexity of your design and implementation. Review the [machine learning products and technologies from Microsoft](../../../data-guide/technology-choices/data-science-and-machine-learning.md) to make an informed decision when selecting an approach.
+**Platforms:** There are many Azure services that you can use for your AI and ML workloads. For example, Azure Cognitive Services provides an API to perform inference against prebuilt models, and Microsoft manages the underlying resources. Azure Cognitive Services enables you to quickly deploy a new solution, but it gives you less control over how training and inference are performed, and it might not suit every type of workload. In contrast, Azure Machine Learning is a platform that enables you to build, train, and use your own ML models. Azure Machine Learning provides control and flexibility, but it increases the complexity of your design and implementation. Review the [machine learning products and technologies from Microsoft](../../../data-guide/technology-choices/data-science-and-machine-learning.md) to make an informed decision when selecting an approach.
 
 **Models:** Even when you don't use a full model that's provided by a service like Azure Cognitive Services, you can still accelerate your development by using a pretrained model. If a pretrained model doesn't precisely suit your needs, consider extending a pretrained model by applying a technique called *transfer learning*. Transfer learning enables you to extend an existing model and apply it to a different domain. For example, if you're building a multitenant music recommendation service, you might consider building off a pretrained model of music recommendations, and use transfer learning to train the model for a specific user's music preferences.
 
@@ -157,14 +157,14 @@ You can consider using these platforms for AI/ML, when you need to scale your ML
 
 **Principal authors:**
 
- * [Kevin Ashley](http://linkedin.com/kashlik) | Senior Customer Engineer, FastTrack for Azure
+ * [Kevin Ashley](http://linkedin.com/in/kashlik) | Senior Customer Engineer, FastTrack for Azure
  
 **Other contributors:**
 
- * [Paul Burpo](http://linkedin.com/paul-burpo) | Principal Customer Engineer, FastTrack for Azure
- * [John Downs](http://linkedin.com/john-downs) | Senior Customer Engineer, FastTrack for Azure
- * [Daniel Scott-Raynsford](http://linkedin.com/dscottraynsford) | Partner Technology Strategist
- * [Arsen Vladimirskiy](http://linkedin.com/arsenv) | Principal Customer Engineer, FastTrack for Azure
+ * [Paul Burpo](http://linkedin.com/in/paul-burpo) | Principal Customer Engineer, FastTrack for Azure
+ * [John Downs](http://linkedin.com/in/john-downs) | Senior Customer Engineer, FastTrack for Azure
+ * [Daniel Scott-Raynsford](http://linkedin.com/in/dscottraynsford) | Partner Technology Strategist
+ * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 
 ## Next steps
 
