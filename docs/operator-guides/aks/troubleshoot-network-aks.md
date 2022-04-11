@@ -202,7 +202,7 @@ jsonpath='{.items[0].metadata.name}')
 kubectl -n kube-system logs $PODNAME --tail 100 
 ```
 
-If a `403 - Forbidden` error returns, kube-apiserver is probably configured with RBAC and your container's `ServiceAccount` probably isn't authorized to access resources. In this case, you should create appropriate `RoleBinding` and `ClusterRoleBinding` objects. For information about roles and role bindings, see [Access and identity](/azure/aks/concepts-identity#roles-and-clusterroles). For detailed examples of how to configure RBAC on your cluster, see [Using RBAC Authorization](https://kubernetes.io/docs/reference/access-authn-authz/rbac). 
+If a `403 - Forbidden` error returns, kube-apiserver is probably configured with RBAC and your container's `ServiceAccount` probably isn't authorized to access resources. In this case, you should create appropriate `RoleBinding` and `ClusterRoleBinding` objects. For information about roles and role bindings, see [Access and identity](/azure/aks/concepts-identity#roles-and-clusterroles). For examples of how to configure RBAC on your cluster, see [Using RBAC Authorization](https://kubernetes.io/docs/reference/access-authn-authz/rbac). 
 
 ## Contributors
 
