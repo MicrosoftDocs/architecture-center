@@ -1,14 +1,14 @@
 Modularizing the management of your Azure Resource Manager templates (ARM templates) enables you to reduce repetition, model best practices in infrastructure development, and have consistent standard deployments. 
 
-An example use case for implementing this kind of modularization is deployment of virtual machines (VMs) by using the metaphor of t-shirt sizes. Suppose you have deployed dozens or hundreds of VMs. Those deployments use version 1.0.0 of your templates and have a standard _medium_ size of an older series. To transition to a new series might require a brief outage of service if you simply deployed new templates. However, by building version 1.5.0 and using modularization, you can deploy new infrastructure with the updated standard while keeping the old infrastructure in a deployable state. By having old versions of the infrastructure available, your product and application teams have a known good configuration to rely on while upgrading to the new version as they have time.
+An example use case for implementing this kind of modularization is deployment of virtual machines (VMs) by using the metaphor of t-shirt sizes. Suppose you have deployed dozens or hundreds of VMs. Those deployments use version 1.0.0 of your templates and have a standard *medium* size of an older series. To transition to a new series might require a brief outage of service if you simply deployed new templates. However, by building version 1.5.0 and using modularization, you can deploy new infrastructure with the updated standard while keeping the old infrastructure in a deployable state. By having old versions of the infrastructure available, your product and application teams have a known good configuration to rely on while upgrading to the new version as they have time.
 
 ## The layer cake of repositories: An example for enterprises
 
-When it comes to why you might want to have a strong preference for where your templates go, how they're updated, and so on, there are two primary considerations: _branching_ and _innersourcing_. 
+When it comes to why you might want to have a strong preference for where your templates go, how they're updated, and so on, there are two primary considerations: *branching* and *innersourcing*. 
 
 - **Branching.** This example scenario facilitates git branching models that support [Gitflow](https://jeffkreeftmeijer.com/git-flow/) and [GitHub flow](https://docs.github.com/en/get-started/quickstart/github-flow). For more information about Gitflow, see [Using git-flow to automate your git branching workflow](https://jeffkreeftmeijer.com/git-flow/), a blog post by Jeff Kreeftmeijer. For more information about GitHub flow, see [GitHub flow](https://docs.github.com/en/get-started/quickstart/github-flow) in the GitHub documentation.
 
-- **Innersourcing.** The second is _innersourcing_, which brings the collaborative practices of open-source software development to in-house development. In such a scenario, you can more confidently share different templates and module source code without necessarily needing to worry about permissions for the deployment models themselves. For more information about innersource development, see [An introduction to innersource](https://resources.github.com/whitepapers/introduction-to-innersource/) on GitHub, 
+- **Innersourcing.** The second is *innersourcing*, which brings the collaborative practices of open-source software development to in-house development. In such a scenario, you can more confidently share different templates and module source code without necessarily needing to worry about permissions for the deployment models themselves. For more information about innersource development, see [An introduction to innersource](https://resources.github.com/whitepapers/introduction-to-innersource/) on GitHub, 
 
 Bicep is a declarative language for deploying Azure resources. Bicep's reusable code can use Azure Container Registry as a private registry for hosting versioned ARM templates. By using Container Registry this way, your enterprise can have a process of continuous integration and continuous delivery (CI/CD) for infrastructure. You can run integration and unit tests as part of the CI process, and the container registry can receive modules after they're successfully built. App teams can continue to use older versions until they're ready to upgrade, or they can update to take advantage of features in the newer versions of templates. 
 
@@ -16,11 +16,11 @@ In addition to this use of Container Registry, you can combine this model with s
 
 ### Layers
 
-The model that's proposed in this example scenario is one that stacks. Layers nearer the top of the stack have more frequent deployments and deployments that are more bespoke. Bicep code provides consistent deployments. Development teams, working in the layers for their contributions, build from the services and infrastructure that are provided in the layers below. Nothing in a lower layer should rely on resources in a layer above.
+The model that's proposed in this example scenario is one that stacks. Layers nearer the top of the stack have more frequent deployments and deployments that are more bespoke. Bicep code provides consistent deployments. Development teams, working in the layers for their contributions, build from the services and infrastructure that are provided in the layers below. Nothing in a lower layer should rely on resources in a layer above. From layer 0 to 3 are global library, global infrastructure (globally shared services), product platform (shared services), and applications.
 
-:::image type="content" alt-text="Diagram that shows the layers of development, ordered by development frequency. From layer 0 to 3 are global library, global infrastructure (globally shared services), product platform (shared services), and applications." source="media/enterprise-infrastructure-bicep-container-registry-layers.png":::
+:::image type="content" alt-text="Diagram that shows the layers of development, ordered by development frequency." source="media/enterprise-infrastructure-bicep-container-registry-layers.png":::
 
-This model creates _autonomy with alignment_, which means having:
+This model creates *autonomy with alignment*, which means having:
 
 - Common tools for enterprise ease. For example, everyone uses git for source control, and everyone uses GitHub Actions for CI/CD. However, we don't overreach. For example, we don't mandate that all teams use Bicep; they can use Terraform, ARM templates, and other tools.
 
@@ -31,15 +31,15 @@ This model creates _autonomy with alignment_, which means having:
 
 #### Layer 0 - Global library
 
-The bottom layer is the _global library_, which is a repository of useful tidbits that aren't deployed into production. From the perspective of access control, read access should be provided to anyone at the company who requests it. For changes, suggestions, and so on, your Cloud Center of Excellence (CCoE) approves PRs and manage a backlog as if this were any other product.
+The bottom layer is the *global library*, which is a repository of useful tidbits that aren't deployed into production. From the perspective of access control, read access should be provided to anyone at the company who requests it. For changes, suggestions, and so on, your Cloud Center of Excellence (CCoE) approves PRs and manage a backlog as if this were any other product.
 
 :::image type="content" alt-text="Screen shot of the folder structure of layer 0, global infrastructure library, with the 'arm' folder selected." source="media/enterprise-infrastructure-bicep-container-registry-layer-0.png":::
      
-Layer 0 should _not_ contain:
+Layer 0 should *not* contain:
 - Templates that are deployed in production.
 - Secrets or environment-specific configurations.
 
-Layer 0 _should_ contain:
+Layer 0 *should* contain:
 
 - Code snippets (in Python, C#, and so on).
 - Azure Policy samples.
@@ -58,7 +58,7 @@ With such policies and protections in place, the container registry can be the s
 
 #### Layer 1 - Global infrastructure: Globally shared services
 
-Layer 1 is the repository for _your_ Azure landing zone constructs. While Microsoft supplies templates for the deployment of Azure landing zones, you'll want to modify certain components and supply a parameters file. This is analogous to the way that you pull public registry and module repositories into Layer 0, as described earlier.
+Layer 1 is the repository for *your* Azure landing zone constructs. While Microsoft supplies templates for the deployment of Azure landing zones, you'll want to modify certain components and supply a parameters file. This is analogous to the way that you pull public registry and module repositories into Layer 0, as described earlier.
 
 :::image type="content" alt-text="Screen shot of the contents of the 'infrastructure' and 'policy' folders in layer 1, global infrastructure (globally shared services)." source="media/enterprise-infrastructure-bicep-container-registry-layer-1.png":::
 
