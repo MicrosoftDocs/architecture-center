@@ -2,6 +2,10 @@
 
 This line-of-business application solution consolidates data from multiple business systems and surfaces the data through web and mobile front ends - helping to improve employee productivity and speed decision making.
 
+## Potential use cases
+
+
+
 ## Architecture
 
 ![Architecture Diagram](../media/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application.png)
