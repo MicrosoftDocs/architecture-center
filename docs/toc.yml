@@ -370,7 +370,7 @@ items:
             href: guide/multitenant/checklist.md
           - name: Related resources
             href: guide/multitenant/related-resources.md
-      - name: Solutions across Microsoft cloud platforms
+      - name: Solutions across Microsoft platforms
         expanded: true
         items:
           - name: Azure and Power Platform scenarios 
@@ -419,10 +419,14 @@ items:
                 href: solution-ideas/articles/business-central.yml
               - name: Enhanced customer dimension
                 href: solution-ideas/articles/customer-insights-synapse.yml
+          - name: Azure and Microsoft on-premises servers  
+            href: guide/on-premises-microsoft-technologies.md
       - name: Microsoft partner and third-party scenarios
-        href: guide/partner-scenarios.md
-      - name: Scenarios with on-prem Microsoft technologies  
-        href: guide/on-premises-microsoft-technologies.md
+        items:
+          - name: Apache technologies
+            href: guide/apache-scenarios.md
+          - name: Other third-party technologies
+            href: guide/partner-scenarios.md
       - name: Cloud comparisons
         items:
           - name: Azure for AWS professionals
