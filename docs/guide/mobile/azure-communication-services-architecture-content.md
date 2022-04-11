@@ -80,16 +80,6 @@ You may want users to join a call without an explicit invitation. For example yo
 4. Other users join the call using the group call ID.
 5. The users communicate with each other using voice and video in a call.
 
-## App users calling external phone numbers through your own telephony provider 
-
-- TODO: Brief developer-friendly description
-
-[ ![TODO](./media/sip.png) ](./media/sip.png#lightbox)
-
-## User joining a group call without solicitation
-
-## Automation sending and receiving SMS messages
-
 ## Extending Microsoft 365 & Teams
 Many organizations use Microsoft 365 and Teams for communication. [Azure Communcication Services and Teams are interoperable](https://docs.microsoft.com/azure/communication-services/concepts/teams-interop.md) which enables these scenarios:
 
@@ -119,9 +109,6 @@ Azure Communication Service applications can join Teams calls. For external user
 3. Typically, a Teams user must join the call and allow external users to join through the lobby. However this experience is sensitive to the Teams tenant configuration and specific meeting settings.
 4. Azure Communication Service users initialize their Call client and join the Teams meeting, using the details received in Step 2.
 5. The users communicate with each other using voice and video in a call.
-
-## Answering a phone call on behalf of a Team's user
-*work in progress*
 
 ### Resources
 - **Concept:** [Teams Interoperability](https://docs.microsoft.com/en-us/azure/communication-services/concepts/teams-interop.md)
