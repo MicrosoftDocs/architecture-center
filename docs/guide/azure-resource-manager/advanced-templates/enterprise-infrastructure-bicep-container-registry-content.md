@@ -119,7 +119,7 @@ This article is maintained by Microsoft. It was originally written by the follow
 
 **Principal authors:**
 
-* [Tim Sullivan](https://www.linkedin.com/in/tjsullivan1/) | tisulliv | Senior Cloud Solution Architect
+* [Tim Sullivan](https://www.linkedin.com/in/tjsullivan1/) | Senior Cloud Solution Architect
 
 **Other contributors:**
 
