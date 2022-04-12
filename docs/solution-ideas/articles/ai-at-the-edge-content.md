@@ -2,6 +2,8 @@
 
 With the Azure AI tools, edge, and cloud platform, edge intelligence is possible. The next generation of AI-enabled hybrid applications can run where your data lives. With [Azure Stack Hub](/azure-stack/operator/azure-stack-overview), bring a trained AI model to the edge, integrate it with your applications for low-latency intelligence, and continuously feedback into a refined AI model for improved accuracy, with no tool or process changes for local applications.
 
+## Potential use cases
+
 This solution idea shows a connected Stack Hub scenario, where edge applications are connected to Azure. For the disconnected-edge version of this scenario, see the article [AI at the edge - disconnected](./ai-at-the-edge-disconnected.yml).
 
 ## Architecture
@@ -9,7 +11,7 @@ This solution idea shows a connected Stack Hub scenario, where edge applications
 ![Architecture diagram: AI-enabled application running at the edge with Azure Stack Hub.](../media/ai-at-the-edge.png)
 *Download an [SVG](../media/ai-at-the-edge.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
 1. Data scientists train a model using Azure Machine Learning and an HDInsight cluster. The model is containerized and put into an Azure Container Registry.
 1. The model is deployed to a Kubernetes cluster on Azure Stack Hub.

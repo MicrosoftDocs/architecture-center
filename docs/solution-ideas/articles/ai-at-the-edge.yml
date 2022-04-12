@@ -5,7 +5,7 @@ metadata:
   description: Bring your trained AI model to the edge with Azure Stack Hub and integrate it with your applications for low-latency intelligence.
   author: EdPrice-MSFT
   ms.author: pnp
-  ms.date: 03/03/2021
+  ms.date: 04/12/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
@@ -22,7 +22,7 @@ metadata:
     - interactive-diagram
     - e2e-hybrid
     - edge intelligence
-    - "https://azure.microsoft.com/solutions/architecture/ai-at-the-edge/"
+    - "https://azure.microsoft.com/solutions/architecture/ai-at-the-edge"
     - ai-machine-learning
   social_image_url: /azure/architecture/solution-ideas/articles/media/ai-at-the-edge.png
 name: AI at the edge with Azure Stack Hub
@@ -38,4 +38,4 @@ products:
   - azure-stack-hub
 thumbnailUrl: /azure/architecture/browse/thumbs/ai-at-the-edge.png
 content: |
-  [!include[](ai-at-the-edge-content.md)]
+  [!include[](ai-at-the-edge-content.md)]2
