@@ -14,7 +14,7 @@ The following example shows the interaction of events, insights, and actions in 
 
 In this system:
 
-- Device sensors send operating temperatures as telemetry to a connected application through [Azure IoT Hub](/azure/iot-hub/about-iot-hub).
+- Device sensors send operating temperatures as telemetry to a connected application through [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub).
 - The cloud application monitors temperatures, and takes actions if the temperature gets too low or high.
 - Devices can receive commands to adjust temperatures or start and stop operation.
 - There are backup systems in case a primary system malfunctions or goes offline.
@@ -33,21 +33,21 @@ The example shows the following process:
 
 ## Considerations
 
-Considering events, insights, and actions can help design expanded IoT scenarios. In this example, the cooling monitoring system can add more complex insights and actions by using the events from cooling system devices.
+Considering events, insights, and actions can help expand IoT scenarios. In this example, the cooling monitoring system can add more complex insights and actions by using the events from cooling system devices. While the event data doesn't change, gathering events and applying different types of insights to the data enables different actions. This strategy is powerful for large numbers of devices operating at multiple locations.
 
-|Event|Insights|Action
+|Event|Insight|Action
 |---|---|---|
-|Notification: Single event with temperature significantly out of operating range|Contextual: Single event<br />Cooling system malfunction|Service: Invoke maintenance service dispatch.|
-|Acknowledgments: Monitor and analyze real-time events for operating temperature anomalies|Real-time: Several events<br />Temperature needs adjustment to stay in range|Device: Notify devices to adjust temperatures.|
-|Telemetry: Gather events over many days to analyze ongoing maintenance patterns|Aggregated: Many events<br />Malfunctions happen more often during certain periods|Analog: Modify regular system maintenance schedule.|
+|Notification: Report single event with temperature out of operating range.|Contextual: Single event.<br />Cooling system malfunction.|Service: Invoke maintenance service dispatch.|
+|Acknowledgment: Monitor and analyze real-time events for operating temperature anomalies.|Real-time: Several events.<br />Temperature needs adjustment to stay in range.|Device: Notify devices to adjust temperatures.|
+|Telemetry: Gather events over many days to analyze ongoing maintenance patterns.|Aggregated: Many events.<br />Malfunctions happen more often during certain periods.|Analog: Modify regular system maintenance schedule.|
 
-In the preceding scenarios, while the event data itself doesn't change, gathering events and applying different types of insights to the data enables different actions. This is a powerful strategy when large numbers of devices are operating at multiple locations.
+In the preceding scenarios, 
 
 ### Events
 
 Events represent *device-to-cloud* communication in an IoT solution, and can be *notifications*, *acknowledgments*, or *telemetry*.
 
-#### Notifications
+#### Notification events
 
 Notifications are:
 
@@ -60,7 +60,7 @@ Notifications can be alerts, state changes, or requests for an application to ta
 - Device state or property change updates.
 - Requests to provide information.
 
-#### Acknowledgments
+#### Acknowledgment events
 
 Devices send acknowledgments to indicate receipt, progress, or completion of requested asynchronous operations.
 
@@ -70,7 +70,7 @@ Application logic that relies on stateful communication from devices requires ac
 - Success or failure signals for request completion.
 - Tightly coupled multi-step device and application transactions.
 
-#### Telemetry
+#### Telemetry events
 
 Device telemetry sends recurring measurement or state transmissions to the cloud at regular intervals. Remote sensor monitoring uses telemetry events, such as:
 
@@ -82,7 +82,7 @@ Device telemetry sends recurring measurement or state transmissions to the cloud
 
 Insights are interpretations of events. Insights that derive directly from events are called *contextual* insights. Insights that come from application processing of transformed or stored event data are *real-time* or *aggregated* insights.
 
-#### Contextual
+#### Contextual insights
 
 Context-sensitive interpretations of events determine where to route the events or what immediate actions to take. Examples include:
 
@@ -90,7 +90,7 @@ Context-sensitive interpretations of events determine where to route the events 
 - Runtime decisions by event handling code that decides whether to take immediate action.
 - Reconciling acknowledgments to complete stateful transactions.
 
-#### Real-time
+#### Real-time insights
 
 Real-time insights are gathered and observed in real-time for monitoring and decision-making purposes. Examples include:
 
@@ -98,7 +98,7 @@ Real-time insights are gathered and observed in real-time for monitoring and dec
 - Monitoring solution health for visualization, alerting, and remediation.
 - Combining events with other data sources for real-time transformation and output.
 
-#### Aggregated
+#### Aggregated insights
 
 Aggregated insights come from gathering and storing large numbers of events over time, and executing batch processing on the aggregated data. Examples include:
 
@@ -110,7 +110,7 @@ Aggregated insights come from gathering and storing large numbers of events over
 
 *Device*, *service*, or *analog* actions are deliberate programmatic or manual activity.
 
-#### Device
+#### Device actions
 
 Device actions are instructions or information an IoT application sends to a device to act on. Examples include:
 
@@ -118,27 +118,30 @@ Device actions are instructions or information an IoT application sends to a dev
 - Configuration data sent to a device to modify its behavior.
 - On-demand requests to a device to provide data or state.
 
-#### Service
+#### Service actions
 
-Service actions are communications that one part of a solution sends to another. Service actions also includes requests that an application's logic sends to an external service. Examples include:
+Service actions are communications that one part of a solution sends to another. Service actions also include requests that an application's logic sends to an external service. Examples include:
 
 - Requests for data from external services to use in solutions.
 - Transactions with other services as part of application logic.
 - Summoning emergency, police, or other external services.
 
-#### Analog
+#### Analog actions
 
-Analog actions are tracked by a solution as part of a workflow, but usually happen outside of solution automation. Analog actions often have a mechanism for a human operator to signal when the action is complete. Examples include:
+An IoT solution tracks analog actions as part of a workflow, but the actions usually happen outside of solution automation. Analog actions often have a mechanism for a human operator to signal when the action is complete. Examples include:
 
-- A field maintenance operator notifying a solution when they complete a requested repair.
-- An operator notifying a solution when they finish stocking or staging items in a retail workflow.
+- Field maintenance operators notifying a solution when they complete a requested repair.
+- Operators notifying a solution when they finish stocking or staging items in a retail workflow.
 - Human-conducted scoring and tuning of training data for AI.
 
 ## Next steps
 
-[Azure IoT documentation](/azure/iot-fundamentals)
+- [Azure IoT documentation](/azure/iot-fundamentals)
+- [IoT concepts and Azure IoT Hub](/azure/iot-hub/about-iot-hub)
 
 ## Related resources
 
 - [IoT devices, platform, and applications](devices-platform-application.yml)
-- [IoT builder, developer, and operator roles](builders-developers-operators.yml)
+- [IoT application-to-device commands](cloud-to-device.yml)
+- [IoT event routing](event-routing.yml)
+- [Choose an Internet of Things (IoT) solution in Azure](iot-central-iot-hub-cheat-sheet.yml)
