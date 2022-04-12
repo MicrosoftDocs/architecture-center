@@ -2689,6 +2689,8 @@ items:
                   - name: Common issues
                     href: /azure/aks/troubleshooting?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
                     maintainContext: true
+                  - name: Troubleshoot networking 
+                    href: operator-guides/aks/troubleshoot-network-aks.md
               - name: Choose a Kubernetes option
                 items:
                   - name: Choose a Kubernetes at the edge option
