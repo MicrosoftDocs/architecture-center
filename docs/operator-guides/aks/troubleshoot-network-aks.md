@@ -208,11 +208,11 @@ If a `403 - Forbidden` error returns, kube-apiserver is probably configured with
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-**Principal author:** 
+**Principal author:**
 
-* Michael Walters | Senior Consultant 
+* [Michael Walters](https://www.linkedin.com/in/mrwalters1988/) | Senior Consultant
 
-**Other contributors:** 
+**Other contributors:**
 
 * [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
 * [Ayobami Ayodeji](https://www.linkedin.com/in/ayobamiayodeji) | Senior Program Manager
