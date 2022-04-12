@@ -85,7 +85,7 @@ You can consider Layer 2, product platform, as the shared services for a particu
 Layer 2 should contain:
     
 - Policy assignments that are applied at a subscription or resource group to match product-specific requirements.
-- ARM templates for key vaults, log analytics, a SQL database (if various applications within the product use the database), and Azure Kubernetes Service.
+- ARM templates for key vaults, log analytics, an SQL database (if various applications within the product use the database), and Azure Kubernetes Service.
     
 You should implement permissions that restrict the ability to push changes to this repository. Like the other layers, you should use branch protection to make sure a product lead or owner can approve PRs from other developers. There are no fixed rules about read access to the product platform, but at a minimum, developers from any of the application teams should be granted read access to be able to suggest changes. Since Layer 2 could contain some proprietary architecture, or similar information, you might choose to restrict access to those in the organization who use the platform. However, if that's the case, you'll want to ensure that you build a process of harvesting good practices and snippets from this repository to share with the global library, Layer 0. 
     
