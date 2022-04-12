@@ -370,7 +370,7 @@ items:
             href: guide/multitenant/checklist.md
           - name: Related resources
             href: guide/multitenant/related-resources.md
-      - name: Solutions across Microsoft cloud platforms
+      - name: Solutions across Microsoft platforms
         expanded: true
         items:
           - name: Azure and Power Platform scenarios 
@@ -399,7 +399,7 @@ items:
                 href: example-scenario/governance/governance-teams-guest-users.yml
               - name: Hybrid SharePoint farm with Microsoft 365
                 href: solution-ideas/articles/sharepoint-farm-microsoft-365.yml
-              - name: Manage M365 configuration with DevOps
+              - name: Manage Microsoft 365 configuration with DevOps
                 href: example-scenario/devops/manage-microsoft-365-tenant-configuration-microsoft365dsc-devops.yml
               - name: Real-time collaboration
                 href: solution-ideas/articles/collaboration-microsoft-365.yml           
@@ -419,10 +419,16 @@ items:
                 href: solution-ideas/articles/business-central.yml
               - name: Enhanced customer dimension
                 href: solution-ideas/articles/customer-insights-synapse.yml
-      - name: Microsoft partner and third-party scenarios
-        href: guide/partner-scenarios.md
-      - name: Scenarios with on-prem Microsoft technologies  
-        href: guide/on-premises-microsoft-technologies.md
+          - name: Azure and Microsoft on-premises servers  
+            href: guide/on-premises-microsoft-technologies.md
+      - name: Third-party scenarios
+        items:
+          - name: Apache technologies
+            href: guide/apache-scenarios.md
+          - name: Other open-source technologies
+            href: guide/open-source-scenarios.md
+          - name: Other third-party technologies
+            href: guide/partner-scenarios.md
       - name: Cloud comparisons
         items:
           - name: Azure for AWS professionals
@@ -625,7 +631,7 @@ items:
                 href: solution-ideas/articles/hybrid-footfall-detection.yml
               - name: Build a real-time recommendation API
                 href: reference-architectures/ai/real-time-recommendation.yml
-              - name: Buy online, pickup in store (retail)
+              - name: Buy online, pick up in store (retail)
                 href: example-scenario/iot/vertical-buy-online-pickup-in-store.yml
               - name: Content-based recommendation
                 href: example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml
@@ -908,7 +914,7 @@ items:
                   - name: Advanced functionality
                     href: /azure/health-bot/scenario-authoring/advanced_functionality
                     maintainContext: true
-                  - name: Langauge models
+                  - name: Language models
                     href: /azure/health-bot/language_models
                     maintainContext: true
                   - name: Handoff to a live agent
@@ -2556,7 +2562,7 @@ items:
                     href: industries/finance/risk-grid-banking-solution-guide.yml
               - name: VM security baselines
                 items:
-                  - name: Security baseline for VM scale sets
+                  - name: Security baseline for virtual machine scale sets
                     href: /security/benchmark/azure/baselines/virtual-machine-scale-sets-security-baseline
                     maintainContext: true
                   - name: Security baseline for Linux VMs
@@ -2675,14 +2681,16 @@ items:
                         href: operator-guides/aks/aks-triage-controllers.md
                       - name: 5- Container registry connectivity
                         href: operator-guides/aks/aks-triage-container-registry.md
-                  - name: Patching and upgrade guidance
+                  - name: Patch and upgrade worker nodes
                     href: operator-guides/aks/aks-upgrade-practices.md
-                  - name: Monitoring with Azure Monitor
+                  - name: Monitor AKS with Azure Monitor
                     href: /azure/aks/monitor-aks?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
                     maintainContext: true
                   - name: Common issues
                     href: /azure/aks/troubleshooting?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
                     maintainContext: true
+                  - name: Troubleshoot networking 
+                    href: operator-guides/aks/troubleshoot-network-aks.md
               - name: Choose a Kubernetes option
                 items:
                   - name: Choose a Kubernetes at the edge option
@@ -3484,6 +3492,8 @@ items:
                     href: guide/azure-resource-manager/advanced-templates/objects-as-parameters.md
                   - name: Property transformer and collector
                     href: guide/azure-resource-manager/advanced-templates/collector.md
+                  - name: Infrastructure as code using Bicep and ACR
+                    href: guide/azure-resource-manager/advanced-templates/enterprise-infrastructure-bicep-container-registry.yml
               - name: DevTest Labs guidance
                 items:
                   - name: Deliver a proof of concept
@@ -3559,11 +3569,11 @@ items:
                 maintainContext: true
           - name: Architectures
             items:
-              - name: Automate multistage DevOps pipelines
+              - name: Automate multistage Azure pipelines
                 href: example-scenario/devops/automate-azure-pipelines.yml
               - name: Automate API deployments with APIOps
                 href: example-scenario/devops/automated-api-deployments-apiops.yml
-              - name: Automate Jupyter Notebooks for diagnostics
+              - name: Automate Jupyter Notebooks
                 href: example-scenario/data/automating-diagnostic-jupyter-notebook.yml
               - name: Automate Sentinel integration with DevOps
                 href: example-scenario/devops/automate-sentinel-integration.yml
@@ -3917,7 +3927,7 @@ items:
                     maintainContext: true
               - name: Identity management
                 items:
-                  - name: Azure billing and AAD tenants
+                  - name: Azure billing and Azure AD tenants
                     href: /azure/cloud-adoption-framework/ready/landing-zone/design-area/azure-billing-ad-tenant?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
                     maintainContext: true
                   - name: Identity and access management
@@ -4222,6 +4232,8 @@ items:
                     href: example-scenario/mainframe/migrate-ibm-i-series-to-azure-with-skytap.yml
                   - name: Refactor IBM z/OS mainframe CF
                     href: reference-architectures/zos/refactor-zos-coupling-facility.yml
+                  - name: Refactor IBM z/TPF mainframe
+                    href: example-scenario/mainframe/refactor-ibm-ztpf-mainframe.yml
                   - name: Refactor mainframe apps with Astadia
                     href: example-scenario/mainframe/refactor-mainframe-applications-astadia.yml
                   - name: Refactor mainframe apps with Advanced
@@ -4273,6 +4285,8 @@ items:
               - name: Governance best practices
                 href: /security/compass/governance
                 maintainContext: true
+              - name: Update Windows VMs in Azure
+                href: example-scenario/wsus/index.yml   
               - name: Backup
                 items:
                   - name: Backup architecture and components
@@ -4336,8 +4350,6 @@ items:
                     href: hybrid/azure-arc-hybrid-config.yml
                   - name: Manage hybrid workloads with WAC
                     href: hybrid/hybrid-server-os-mgmt.yml
-              - name: Updating Windows VMs in Azure
-                href: example-scenario/wsus/index.yml   
           - name: Solution ideas
             items:
               - name: Archive on-premises data to cloud
@@ -4905,7 +4917,7 @@ items:
                       - name: WebLogic to Azure VMs
                         href: /azure/developer/java/migration/migrate-weblogic-to-virtual-machines
                         maintainContext: true
-                      - name: WebLogic with AAD via LDAP
+                      - name: WebLogic with Azure AD via LDAP
                         href: /azure/developer/java/migration/migrate-weblogic-with-aad-ldap
                         maintainContext: true
                       - name: WebLogic with App Gateway
@@ -5121,7 +5133,7 @@ items:
                 href: example-scenario/wvd/windows-virtual-desktop-fslogix.yml              
               - name: Blob storage guidance
                 items:
-                  - name: Authorize access to blobs with AAD
+                  - name: Authorize access to blobs with Azure AD
                     href: /azure/storage/blobs/authorize-access-azure-active-directory
                     maintainContext: true
                   - name: Authorize access with role conditions
@@ -5163,7 +5175,7 @@ items:
                     maintainContext: true
               - name: Queue storage guidance
                 items:
-                  - name: Authorize access with AAD
+                  - name: Authorize access with Azure AD
                     href: /azure/storage/queues/authorize-access-azure-active-directory
                     maintainContext: true
                   - name: Performance and scalability checklist
@@ -5171,7 +5183,7 @@ items:
                     maintainContext: true
               - name: Table storage guidance
                 items:
-                  - name: Authorize access with AAD
+                  - name: Authorize access with Azure AD
                     href: /azure/storage/tables/authorize-access-azure-active-directory
                     maintainContext: true
                   - name: Performance and scalability checklist

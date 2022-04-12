@@ -141,11 +141,11 @@ This solution supports deployment in containers, VMs, or Virtual Machine Scale S
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-#### Principal author
+**Principal author:**
 
 - [Richard Cronheim](https://www.linkedin.com/in/richcronheim) | Senior Program Manager
 
-#### Other contributor
+**Other contributor:**
 
 - [Bhaskar Bandam](https://www.linkedin.com/in/bhaskar-bandam-75202a9) | Senior Program Manager
 

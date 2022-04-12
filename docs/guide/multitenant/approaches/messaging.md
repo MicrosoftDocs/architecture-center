@@ -224,13 +224,13 @@ The [Geode pattern](../../../patterns/geodes.yml) involves deploying a collectio
 
 **Principal authors:**
 
- * [Paolo Salvatori](http://linkedin.com/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
+ * [Paolo Salvatori](http://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
  
 **Other contributors:**
 
- * [John Downs](http://linkedin.com/john-downs) | Senior Customer Engineer, FastTrack for Azure
- * [Clemens Vasters](http://linkedin.com/clemensv) | Principal Architect, Messaging Services and Standards
- * [Arsen Vladimirskiy](http://linkedin.com/arsenv) | Principal Customer Engineer, FastTrack for Azure
+ * [John Downs](http://linkedin.com/in/john-downs) | Senior Customer Engineer, FastTrack for Azure
+ * [Clemens Vasters](http://linkedin.com/in/clemensv) | Principal Architect, Messaging Services and Standards
+ * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 
 ## Next steps
 
