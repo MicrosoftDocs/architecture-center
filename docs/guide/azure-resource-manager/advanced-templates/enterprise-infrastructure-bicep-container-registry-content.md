@@ -74,7 +74,7 @@ Layer 1 should contain:
     
 You should configure branch protection to restrict the ability to push changes to this repository. Restrict approval of PRs from other developers to members of the CCoE or Cloud Governance. Contributors to this layer are primarily members of groups that are historically associated with the components in this layer. For example, the networking team builds the templates for the network, the operations team configures monitoring, and so on. However, you should grant read-only access to individuals who request it, because you want to enable developers from other groups to suggest changes to the core infrastructures. They may contribute improvements, though you won't allow their changes to be merged without approval and testing.
 
-These files should consume the modules in your container registry for standard components. However, you will also have a Bicep file, or a series of Bicep files, that are customized to your enterprise's implementation of Azure landing zones or a similar governance structure. 
+These files should consume the modules in your container registry for standard components. However, you'll also have a Bicep file, or a series of Bicep files, that are customized to your enterprise's implementation of Azure landing zones or a similar governance structure. 
     
 #### Layer 2 - Product platform: Shared services
 
@@ -112,6 +112,19 @@ Your infrastructure should operate as if it's an application. This means that yo
 You should also ensure that you have branch policies in place to prevent individuals from circumventing the process, even for expediency. If your CI process is seen as an impediment, it means that you have incurred technical debt that must be dealt with. It doesn't mean that you need to remove the policies and protections. 
 
 Finally, though you might not have an index of all repositories and the code within them, your organization should develop a process for individuals to request access to repositories. Certain rules could be fully automated. For example, you could implement a rule that grants read access, without review, to a contributor who is on the product team for any application under that product. Such rules can often be implemented with group-based membership and group-based role assignments in your environments. Configuring this kind of access should help to facilitate inner sourcing and organizational knowledge.
+
+## Contributors
+
+This article is maintained by Microsoft. It was originally written by the following contributors.
+
+**Principal authors:**
+
+* [Tim Sullivan](https://www.linkedin.com/in/tjsullivan1/) | tisulliv | Senior Cloud Solution Architect
+
+**Other contributors:**
+
+ * [Gary Moore](https://www.linkedin.com/in/gwmoore/) | Programmer/Writer
+ 
 
 ## Next steps
 
