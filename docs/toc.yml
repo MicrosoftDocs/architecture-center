@@ -2681,9 +2681,9 @@ items:
                         href: operator-guides/aks/aks-triage-controllers.md
                       - name: 5- Container registry connectivity
                         href: operator-guides/aks/aks-triage-container-registry.md
-                  - name: Patching and upgrade guidance
+                  - name: Patch and upgrade worker nodes
                     href: operator-guides/aks/aks-upgrade-practices.md
-                  - name: Monitoring with Azure Monitor
+                  - name: Monitor AKS with Azure Monitor
                     href: /azure/aks/monitor-aks?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
                     maintainContext: true
                   - name: Common issues
@@ -3490,7 +3490,7 @@ items:
                     href: guide/azure-resource-manager/advanced-templates/objects-as-parameters.md
                   - name: Property transformer and collector
                     href: guide/azure-resource-manager/advanced-templates/collector.md
-                  - name: Infrastructure as code using Bicep and containers
+                  - name: Infrastructure as code using Bicep and ACR
                     href: guide/azure-resource-manager/advanced-templates/enterprise-infrastructure-bicep-container-registry.yml
               - name: DevTest Labs guidance
                 items:
@@ -3571,7 +3571,7 @@ items:
                 href: example-scenario/devops/automate-azure-pipelines.yml
               - name: Automate API deployments with APIOps
                 href: example-scenario/devops/automated-api-deployments-apiops.yml
-              - name: Automate Jupyter Notebooks for diagnostics
+              - name: Automate Jupyter Notebooks
                 href: example-scenario/data/automating-diagnostic-jupyter-notebook.yml
               - name: Automate Sentinel integration with DevOps
                 href: example-scenario/devops/automate-sentinel-integration.yml
@@ -4283,6 +4283,8 @@ items:
               - name: Governance best practices
                 href: /security/compass/governance
                 maintainContext: true
+              - name: Update Windows VMs in Azure
+                href: example-scenario/wsus/index.yml   
               - name: Backup
                 items:
                   - name: Backup architecture and components
@@ -4346,8 +4348,6 @@ items:
                     href: hybrid/azure-arc-hybrid-config.yml
                   - name: Manage hybrid workloads with WAC
                     href: hybrid/hybrid-server-os-mgmt.yml
-              - name: Updating Windows VMs in Azure
-                href: example-scenario/wsus/index.yml   
           - name: Solution ideas
             items:
               - name: Archive on-premises data to cloud
