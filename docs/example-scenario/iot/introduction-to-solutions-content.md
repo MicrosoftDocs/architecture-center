@@ -1,4 +1,4 @@
-This article describes basic concepts and patterns that are common to internet-of-things (IoT) solutions. In IoT systems, *events*, *insights*, and *actions* happen across devices, platforms, and applications. Cloud-hosted services and applications determine actions to take, based on events from devices.
+This article describes basic concepts and patterns that are common to internet-of-things (IoT) solutions. In IoT systems, *events*, *insights*, and *actions* happen across devices, platforms, and applications. Cloud-hosted services and applications determine actions to take, based on events that devices send.
 
 The following diagram illustrates how *events* generate *insights* to inform *actions* in IoT solutions.
 
@@ -33,7 +33,7 @@ The example shows the following process:
 
 ## Considerations
 
-Considering events, insights, and actions can help expand IoT scenarios. In this example, the cooling monitoring system can add more complex insights and actions by using the events from cooling system devices. While the event data doesn't change, gathering events and applying different types of insights to the data enables different actions. This strategy is powerful for large numbers of devices operating at multiple locations.
+Considering events, insights, and actions can help expand IoT scenarios. In this example, the cooling monitoring system can add more complex insights and actions by using the events from cooling system devices. While the event data doesn't change, gathering events and applying different types of insights to the data enables different actions. This strategy is powerful for operating large numbers of devices at multiple locations.
 
 |Event|Insight|Action
 |---|---|---|
