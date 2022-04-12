@@ -26,22 +26,22 @@ In this system:
 The example shows the following process:
 
 1. The primary cooling system sends temperature samples to IoT Hub, via device-to-cloud events, every 30 seconds.
-1. Routing rules in IoT Hub evaluate events for any immediate contextual insights, such as temperatures at malfunctioning levels.
+1. Routing rules in IoT Hub evaluate events for immediate contextual insights, such as temperatures at malfunctioning levels.
 1. If the temperature is at a malfunctioning level, event routing sends the event to specific handlers to take action.
 1. A handler invokes an action to another process to dispatch maintenance to the site.
 1. A handler sends a command to start the backup cooling system while maintenance is on the way.
 
 ## Considerations
 
-Considering events, insights, and actions can help expand IoT scenarios. In this example, the cooling monitoring system can add more complex insights and actions by using the events from cooling system devices. While the event data doesn't change, gathering events and applying different types of insights to the data enables different actions. This strategy is powerful for operating large numbers of devices at multiple locations.
+Considering events, insights, and actions can help expand IoT scenarios. In this example, the cooling monitoring system can add more complex insights and actions by using the events from cooling system devices.
+
+While the event data doesn't change, gathering events and applying different types of insights to the data enables different actions. This strategy is powerful for operating large numbers of devices at multiple locations.
 
 |Event|Insight|Action
 |---|---|---|
 |Notification: Report single event with temperature out of operating range.|Contextual: Single event.<br />Cooling system malfunction.|Service: Invoke maintenance service dispatch.|
 |Acknowledgment: Monitor and analyze real-time events for operating temperature anomalies.|Real-time: Several events.<br />Temperature needs adjustment to stay in range.|Device: Notify devices to adjust temperatures.|
 |Telemetry: Gather events over many days to analyze ongoing maintenance patterns.|Aggregated: Many events.<br />Malfunctions happen more often during certain periods.|Analog: Modify regular system maintenance schedule.|
-
-In the preceding scenarios, 
 
 ### Events
 
