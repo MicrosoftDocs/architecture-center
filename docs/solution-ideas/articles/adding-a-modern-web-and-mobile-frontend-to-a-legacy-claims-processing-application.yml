@@ -5,7 +5,7 @@ metadata:
   description: This solution consolidates data from multiple business systems and then surfaces the data through web and mobile front ends. This consolidation helps improve employee productivity and helps speed up decision making.
   author: EdPrice-MSFT
   ms.author: pnp
-  ms.date: 12/16/2019
+  ms.date: 4/12/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
@@ -22,7 +22,7 @@ metadata:
     - lift and shift solution
     - lift and shift strategy
     - interactive-diagram
-    - "https://azure.microsoft.com/solutions/architecture/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application/"
+    - "https://azure.microsoft.com/solutions/architecture/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application"
   social_image_url: /azure/architecture/solution-ideas/articles/media/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application.png
 name: Add a mobile front end to a legacy app
 azureCategories:
