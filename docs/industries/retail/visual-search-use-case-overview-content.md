@@ -129,12 +129,16 @@ Finally, memory and computation requirements will determine the choice of deploy
 
 ## Contributors
 
-_This article is maintained by Microsoft. It was originally written by the following contributors._
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 **Principal authors:**
 
 - [Giovanni Marchetti](https://www.linkedin.com/in/giovanni-marchetti) | Manager, Azure Solution Architects
 - [Mariya Zorotovich](https://www.linkedin.com/in/mariyazoro) | Head of Customer Experience, HLS & Emerging Technology
+
+**Other contributors:**
+
+- [Scott Seely](https://www.linkedin.com/in/scottseely) | Software Architect
 
 ## Next steps
 
