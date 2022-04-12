@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Transform legacy processing applications to have a modern day front end
+Transform legacy processing applications to have a modern day front end.
 
 ## Potential use cases
 
