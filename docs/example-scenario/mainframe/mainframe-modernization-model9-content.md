@@ -8,13 +8,13 @@ This article outlines a solution for migrating mainframe data to the cloud. Besi
 
 ## Potential use cases
 
-Model9 offers a suite of services that are based on the Model9 Cloud Data Platform. These services are suitable for the following use cases:
+Model9 offers a suite of services that are based on the Model9 cloud data platform. These services are suitable for the following use cases:
 
 - Make mainframe data available to Azure data services, AI, machine learning, analytics, and business intelligence tools.
 
 - Protect mainframe data with backup and archive to Azure blob storage.
 
-- Have mainframe applications write and read data directly to and from the Azure blob storage.
+- Have mainframe applications write and read data directly to and from Blob Storage.
 
 - Defend mainframe data against cyberattacks by creating an immutable third copy in Azure.
 
@@ -28,9 +28,9 @@ Download a [Visio file](https://arch-center.azureedge.net/model9-mainframe-midra
 
 2. The agent reads data from the mainframe and then migrates that data to Blob Storage.
 
-3. Model9 Cloud Data Platform for Mainframe manages and transforms the migrated data from on-premises to Blob Storage.
+3. Model9 cloud data platform for Mainframe manages and transforms the migrated data from on-premises to Blob Storage.
 
-4. Migrated data can be directly transferred to Azure data services through the Model9 Cloud Data Platform.
+4. Migrated data can be directly transferred to Azure data services through the Model9 cloud data platform.
 
 ## Components
 
@@ -38,7 +38,7 @@ The solution uses the components that are listed in the following subsections.
 
 ### Model9 cloud data platform components
 
-Model9 Cloud Data Platform main components:
+The main components of Model9 cloud data platform are:
 
 - **Model9 agent**\
     A Java-based agent that runs on-premises on one or more z/OS logical partitions. It performs the read and write operations from and to the Azure cloud object storage. It also uses zIIP engines to save expensive CPU consumption.
@@ -112,7 +112,7 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 ### Reliability
 
-- Deploy Model9 Cloud data manager in the cloud on an Azure virtual machine, and on the customer's virtual network for superior availability.
+- Deploy Model9 cloud data manager in the cloud on an Azure virtual machine, and on the customer's virtual network for superior availability.
 
 - Deploy an agent in each z/OS LPAR to allow better availability across the *sysplex*, or the mainframe cluster.
 
@@ -126,7 +126,7 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 - Use multiple transformation instances behind a load balancer to increase scalability and performance.
 
-- Blob storage is a scalable system for storing backups, archival data, secondary data files, and other unstructured digital objects.
+- Blob Storage is a scalable system for storing backups, archival data, secondary data files, and other unstructured digital objects.
 
 ### Security
 
@@ -158,8 +158,8 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 ## Related resources
 
-- [Modernize mainframe and midrange data](../../reference-architectures/migration/modernize-mainframe-data-to-azure)
+- [Modernize mainframe and midrange data](../../reference-architectures/migration/modernize-mainframe-data-to-azure.yml)
 - [Re-engineer mainframe batch applications on Azure](/azure/architecture/example-scenario/mainframe/reengineer-mainframe-batch-apps-azure.yml)
-- [Replicate and sync mainframe data in Azure](../../reference-architectures/migration/sync-mainframe-data-with-azure)
+- [Replicate and sync mainframe data in Azure](../../reference-architectures/migration/sync-mainframe-data-with-azure.yml)
 - [Mainframe access to Azure databases](/azure/architecture/solution-ideas/articles/mainframe-access-azure-databases)
 - [Mainframe file replication and sync on Azure](/azure/architecture/solution-ideas/articles/mainframe-azure-file-replication)
