@@ -21,7 +21,7 @@ The data flows through the solution as follows:
 
 1. Azure Traffic Manager routes incoming requests to Azure API management Gateway.
 2. API Gateway ensures requests meet security and other policies, and then routes them to service running in Azure Kubernetes Service.
-3. Services use Azure Cosmos DB, Azure CDN, and Azure Functions to achieve low-latency data access data as needed from anywhere in the world.
+3. Services uses Azure Cosmos DB, Azure CDN, and Azure Functions to achieve low-latency data access data as needed from anywhere in the world.
 4. When demand spikes past current capacity, AKS uses virtual nodes to dynamically scale up the service.
 
 ### Components
