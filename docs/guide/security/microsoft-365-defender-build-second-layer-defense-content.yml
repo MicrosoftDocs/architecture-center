@@ -1,0 +1,23 @@
+### YamlMime:Architecture
+metadata:
+  title: Build the second layer of defense with Microsoft 365 Defender Security services
+  titleSuffix: Azure Reference Architectures
+  description: Placeholder description.
+  article: fcp
+  author: rudneir2
+  ms.author: ruolivei
+  ms.date: 04/25/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+azureCategories:
+  - 
+  - 
+products:
+  - azure
+  - 
+name: Build the second layer of defense with Microsoft 365 Defender Security services
+summary: Placeholder summary.
+thumbnailUrl: /azure/architecture/browse/thumbs/microsoft-365-defender-build-second-layer-defense-thumbnail.png
+content: |
+  [!include[](microsoft-365-defender-build-second-layer-defense-content.md)]

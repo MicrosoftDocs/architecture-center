@@ -1,0 +1,23 @@
+### YamlMime:Architecture
+metadata:
+  title: Integration between Azure and Microsoft 365 Defender security services
+  titleSuffix: Azure Reference Architectures
+  description: Placeholder description.
+  article: fcp
+  author: rudneir2
+  ms.author: ruolivei
+  ms.date: 04/25/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+azureCategories:
+  - 
+  - 
+products:
+  - azure
+  - 
+name: Integration between Azure and Microsoft 365 Defender security services
+summary: Placeholder summary.
+thumbnailUrl: /azure/architecture/browse/thumbs/microsoft-365-defender-security-integrate-azure-thumbnail.png
+content: |
+  [!include[](microsoft-365-defender-security-integrate-azure-content.md)]

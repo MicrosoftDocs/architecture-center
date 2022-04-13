@@ -5030,6 +5030,18 @@ items:
             href: guide/security/security-start-here.yml
           - name: Guides
             items:
+              - name: End-to-end threat assessment
+                items:
+                  - name: Use Azure monitoring to integrate security components
+                    href: guide/security/azure-monitor-integrate-security-components.yml
+                  - name: Customer IT environment and the threats
+                    href: guide/security/customer-it-environment-threats.yml
+                  - name: Building the first layer of defense with Azure Security services
+                    href: guide/security/azure-security-build-first-layer-defense.yml
+                  - name: Build the second layer of defense with Microsoft 365 Defender Security services
+                    href: guide/security/microsoft-365-defender-build-second-layer-defense.yml
+                  - name: Integration between Azure and Microsoft 365 Defender security services
+                    href: guide/security/microsoft-365-defender-security-integrate-azure.yml
               - name: Security design principles
                 href: /azure/architecture/framework/security/security-principles
                 maintainContext: true

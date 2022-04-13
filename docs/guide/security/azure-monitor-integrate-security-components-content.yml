@@ -1,0 +1,23 @@
+### YamlMime:Architecture
+metadata:
+  title: Use Azure monitoring to integrate security components
+  titleSuffix: Azure Reference Architectures
+  description: Placeholder description.
+  article: fcp
+  author: rudneir2
+  ms.author: ruolivei
+  ms.date: 04/25/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+azureCategories:
+  - 
+  - 
+products:
+  - azure
+  - 
+name: Use Azure monitoring to integrate security components
+summary: Placeholder summary.
+thumbnailUrl: /azure/architecture/browse/thumbs/azure-monitor-integrate-security-components-thumbnail.png
+content: |
+  [!include[](azure-monitor-integrate-security-components-content.md)]
