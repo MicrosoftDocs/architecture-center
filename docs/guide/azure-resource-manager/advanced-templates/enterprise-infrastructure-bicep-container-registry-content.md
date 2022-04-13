@@ -115,7 +115,7 @@ Finally, though you might not have an index of all repositories and the code wit
 
 ## Contributors
 
-This article is maintained by Microsoft. It was originally written by the following contributors.
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 **Principal authors:**
 
