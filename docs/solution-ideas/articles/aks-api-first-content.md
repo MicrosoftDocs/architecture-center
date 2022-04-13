@@ -23,7 +23,7 @@ The data flows through the solution as follows:
 2. Application developers define the microservices and associated logic and deploy to Kubernetes.
 3. API users (internal and/or external) use the API developer portal to learn about the API and use them in their applications.
 4. Applications access APIs via the API Gateway.
-5. API Gateway, after ensuring the API request meets security and other policies e.g. throttling, forwards the request to service running in Kubernetes.
+5. API Gateway, after ensuring the API request meets security and other policies, e.g., throttling, forwards the request to service running in Kubernetes.
 
 ### Components
 
