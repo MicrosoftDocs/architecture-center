@@ -33,7 +33,9 @@ categories:
 ms.custom: fcp
 ---
 
-# Microsoft partner and non-open-source third-party scenarios on Azure
+# Microsoft partner and third-party scenarios on Azure
+
+This article explores Microsoft partner and third-party, non-open source scenarios on Microsoft Azure.
 
 Microsoft partners make up a community of organizations that work with Microsoft to create innovative solutions for you. Driven by the opportunities of the intelligent cloud, Microsoft is prioritizing investments that support these opportunities.
 
