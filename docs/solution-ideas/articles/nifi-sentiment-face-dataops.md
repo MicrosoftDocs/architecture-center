@@ -46,7 +46,7 @@ This solution applies to many areas:
 
 ## Architecture
 
-![Architecture diagram for scenario NiFi Sentiment Analysis and Face Recognition](../media/nifi-sentiment-face-arch.png)
+![Architecture diagram for scenario NiFi Sentiment Analysis and Face Recognition](../media/nifi-sentiment-face-architecture.png)
 
 ## DataFlow
 There are three main parts to this DataFlow:
