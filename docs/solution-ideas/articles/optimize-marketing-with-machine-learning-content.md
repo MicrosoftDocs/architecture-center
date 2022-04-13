@@ -15,7 +15,7 @@ Optimizing your campaigns with machine learning helps improve both sales leads a
 ![Diagram of this marekting optimization architecture.][architecture-png]
 *Download an [SVG file][architecture-svg] of this architecture.*
 
-### Components
+### Workflow
 
 * [Azure Machine Learning (AML)][aml-overview] is a cloud-based environment you can use to train, deploy, automate, manage, and track machine learning models. In this solution, it is used to develop a machine learning model and register the model in the AML model registry.
 * [Azure Synapse Analytics][synapse-overview] is an integrated analytics service that accelerates time to insight across data warehouses and big data systems. In this solution, Azure Synapse Analytics will enrich data in dedicated SQL pools with the model registered in AML via a stored procedure.
