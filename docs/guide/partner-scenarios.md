@@ -43,6 +43,10 @@ Visit [Azure Marketplace](https://azuremarketplace.microsoft.com) to discover, t
 
 This article provides a summary of architectures and solutions that use Azure together with partner and third-party solutions.
 
+We also recommend you browse our open-source solutions for Microsoft Azure:
+- [Apache open-source scenarios on Azure](/azure/architecture/guide/apache-scenarios)
+- [Open-source scenarios on Azure](/azure/architecture/guide/open-source-scenarios)
+
 ## Advanced
 
 |Architecture|Summary|Technology focus|
@@ -294,6 +298,8 @@ This article provides a summary of architectures and solutions that use Azure to
 
 ## Related resources
 
+- [Apache open-source scenarios on Azure](/azure/architecture/guide/apache-scenarios)
+- [Open-source scenarios on Azure](/azure/architecture/guide/open-source-scenarios)
 - [Scenarios featuring Microsoft on-premises technologies](../guide/on-premises-microsoft-technologies.md)
 - [Architecture for startups](../guide/startups/startup-architecture.md)
 - [Azure and Power Platform scenarios](../solutions/power-platform-scenarios.md)
