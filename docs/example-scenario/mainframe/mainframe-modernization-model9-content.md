@@ -50,19 +50,19 @@ The main components of Model9 cloud data platform are:
     A Java-based application that runs on-premises on a z/OS logical partitions (LPARs) and deletes expired data both from the object storage and from z/OS.
 
 - **Data management command-line interface (CLI)**\
-    A command line interface that runs on-premises on a z/OS LPAR that allows you to perform backup, restore, archive, recall, and delete resource-based actions to and from the Azure cloud object storage.
+    A command-line interface that runs on-premises on a z/OS LPAR allows you to perform backup, restore, archive, recall, and delete resource-based actions to and from the Azure cloud object storage.
 
 - **Data engine**\
-    A Java-based application that supports the transformation of Model9 managed objects into an open format that gets processed by AI, business intelligence, machine learning applications. The data can be transformed either to a CSV file or JSON file or directly to Azure Database for SQL.
+    A Java-based application that supports the transformation of Model9 managed objects into an open format that gets processed by AI, business intelligence, machine learning applications. The data can be transformed either to a CSV file, or JSON file, or directly to Azure Database for SQL.
 
 - **Data Transformation CLI**\
-    A Java-based application that invokes data transformation requests. Data Transformation CLI wraps the standard REST–API based calls into a basic, easy-to-use client.
+    A Java-based application that invokes data transformation requests wraps the standard REST–API based calls into a basic, easy-to-use client.
 
 ### Networking and identity
 
 - [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) extends your on-premises networks into cloud services that are offered by Microsoft over a private connection from a connectivity provider. With ExpressRoute, you can establish connections to cloud components such as Azure services and Microsoft 365.
 
-- [Azure VPN Gateway](https://azure.microsoft.com/services/vpn-gateway) is a specific type of virtual network gateway that sends encrypted traffic between an Azure virtual network and an on-premises location over the public internet.
+- [Azure VPN Gateway](https://azure.microsoft.com/services/vpn-gateway) is a specific type of virtual network gateway that sends encrypted traffic between an Azure Virtual Network and an on-premises location over the public internet.
 
 - [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory) is an identity and access management service that can synchronize with an on-premises active directory.
 
@@ -78,7 +78,7 @@ The main components of Model9 cloud data platform are:
 
 - [Azure Database for MySQL](https://azure.microsoft.com/services/mysql) is a fully managed relational database service that's based on the community edition of the open-source MySQL database engine.
 
-- [Azure SQL Managed Instance](https://azure.microsoft.com/products/azure-sql/managed-instance) is an intelligent, scalable cloud database service that offers all the benefits of a fully managed and evergreen PaaS. SQL Managed Instance has near 100 percent compatibility with the latest SQL Server (Enterprise Edition) database engine. This service also provides a native virtual network implementation that addresses common security concerns.
+- [Azure SQL Managed Instance](https://azure.microsoft.com/products/azure-sql/managed-instance) is an intelligent, scalable cloud database service that offers all the benefits of a fully managed and evergreen PaaS. SQL Managed Instance has nearly 100 percent compatibility with the latest SQL Server (Enterprise Edition) database engine. This service also provides a native virtual network implementation that addresses common security concerns.
 
 - [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) is a fast, flexible, and trusted cloud data warehouse that helps you scale, compute, and store elastically and independently, with a massively parallel processing architecture.
 
@@ -86,7 +86,7 @@ The main components of Model9 cloud data platform are:
 
 ### Analysis and reporting
 
-- [Power BI](https://powerbi.microsoft.com) is a suite of business analytics tools that deliver insights throughout your organization. By using Power BI, you can connect to hundreds of data sources, simplify data preparation, and drive ad hoc analysis. You can produce beautiful reports, then publish them for your organization to consume on the web and across mobile devices.
+- [Power BI](https://powerbi.microsoft.com) is a suite of business analytics tools that deliver insights throughout your organization. By using Power BI, you can connect to hundreds of data sources, simplify data preparation, and drive ad hoc analysis. You can produce beautiful reports, then publish them for your organization to consume on the web, and across mobile devices.
 
 ### Monitoring
 
@@ -96,9 +96,9 @@ The main components of Model9 cloud data platform are:
 
 ## Alternatives
 
-- Instead of installing the Model9 management server in the cloud on Azure Virtual Network, you can install it on-premises. You can use zCX to deploy it directly on z/OS.
+- Instead of installing the Model9 management server in the cloud on Azure Virtual Network, you can install it on-premises. You can use z/OS container extension (zCX) to deploy it directly on z/OS.
 
-- Model9 Data Transformation service runs externally to the mainframe in an on-premises environment. This setup saves expensive mainframe resources. It can also be deployed on the cloud by using either a server instance or container services.
+- Model9 data transformation service runs externally to the mainframe in an on-premises environment. This setup saves expensive mainframe resources. It can also be deployed on the cloud by using either a server instance or container services.
 
 - ExpressRoute provides a private and efficient connection to Azure from on-premises, but you could instead use [site-to-site VPN](/azure/vpn-gateway/tutorial-site-to-site-portal).
 
@@ -112,11 +112,11 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 ### Reliability
 
-- Deploy Model9 cloud data manager in the cloud on an Azure virtual machine, and on the customer's virtual network for superior availability.
+- Deploy Model9 cloud data manager in the cloud on an Azure Virtual Machine, and on the customer's virtual network for superior availability.
 
-- Deploy an agent in each z/OS LPAR to allow better availability across the *sysplex*, or the mainframe cluster.
+- Deploy an agent in each z/OS LPAR to allow better availability across the systems complex (*sysplex*), or the mainframe cluster.
 
-- Combine the Application Insights and Log Analytics features of Monitor to stay informed about the health of Azure resources
+- Combine the Application Insights and Log Analytics features of Monitor to stay informed about the health of Azure resources.
 
 - For guidance on resiliency in Azure, see [Design reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
 
@@ -136,9 +136,9 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 - The security options in Azure database services are:
 
-    * Data encryption at rest.
-    * Dynamic data masking.
-    * Always-encrypted database.
+    * Data encryption at rest
+    * Dynamic data masking
+    * Always-encrypted database
 
 - For general guidance on designing secure solutions, see [Azure security documentation](/azure/security).
 
@@ -152,7 +152,7 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 - [What is Azure Synapse Analytics?](/azure/synapse-analytics/overview-what-is)
 - [What is Azure Database for PostgreSQL?](/azure/postgresql/overview)
 - [What is Azure Database for MySQL?](/azure/mysql/overview)
-- [What is Power business intelligence?](/power-bi/fundamentals/power-bi-overview)
+- [What is Power BI?](/power-bi/fundamentals/power-bi-overview)
 - [Azure Monitor overview](/azure/azure-monitor/overview)
 - [contact [Mainframe Modernization]](mailto:mainframedatamod@microsoft.com)
 
