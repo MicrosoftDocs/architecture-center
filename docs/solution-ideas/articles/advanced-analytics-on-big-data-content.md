@@ -4,7 +4,7 @@ Transform your data into actionable insights using the best-in-class machine lea
 
 ## Potential use cases
 
-Organizations have the ability to access more data than ever before. Advanced analytics help take advantage of data insights. Some areas that are taking advantage of this include:
+Organizations have the ability to access more data than ever before. Advanced analytics help take advantage of data insights. Areas include:
 
 * Customer service.
 * Predictive maintenance.
@@ -14,7 +14,7 @@ Organizations have the ability to access more data than ever before. Advanced an
 
 ## Architecture
 
-:::image type="content" source="../media/advanced-analytics-on-big-data.png" alt-text="Diagram of a an advanced analytics architecture using Azure Synapse Analytics with Azure Data Lake Storage Gen2, Azure Analysis Services, Azure Cosmos DB, and Power BI." border="false":::
+:::image type="content" source="../media/advanced-analytics-on-big-data.png" alt-text="Diagram of an advanced analytics architecture using Azure Synapse Analytics with Azure Data Lake Storage Gen2, Azure Analysis Services, Azure Cosmos DB, and Power BI." border="false":::
 
 *Download an [SVG file](../media/advanced-analytics-on-big-data.svg) of this architecture.*
 
