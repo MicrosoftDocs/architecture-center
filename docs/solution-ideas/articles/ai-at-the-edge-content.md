@@ -4,7 +4,7 @@ With the Azure AI tools, edge, and cloud platform, edge intelligence is possible
 
 ## Potential use cases
 
-There is a wide range of Edge AI applications that monitor and provide information in near real-time. Areas where Edge AI can help include:
+There's a wide range of Edge AI applications that monitor and provide information in near real-time. Areas where Edge AI can help include:
 
 * Security camera detection processes.
 * Image and video analysis.
