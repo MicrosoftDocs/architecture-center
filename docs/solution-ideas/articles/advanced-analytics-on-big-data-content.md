@@ -21,7 +21,7 @@ This solution allows you to combine any data at any scale, and to build and depl
 1. Query and report on data in [Power BI](/azure/analysis-services/analysis-services-connect-pbi).
 1. Take the insights from Apache Spark pools to Cosmos DB to make them accessible through web and mobile apps.
 
-### Components
+### Workflow
 
 * [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) is the fast, flexible, and trusted cloud data warehouse that lets you scale, compute, and store elastically and independently, with a massively parallel processing architecture.
 * [Synapse Pipelines Documentation](/azure/data-factory/concepts-pipelines-activities) allows you to create, schedule, and orchestrate your ETL/ELT workflows.

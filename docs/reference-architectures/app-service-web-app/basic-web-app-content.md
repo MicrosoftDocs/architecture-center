@@ -8,7 +8,7 @@ This reference architecture shows proven practices for a web application that us
 
 ### Workflow
 
-The architecture consists of the following components.
+The architecture consists of the following aspects:
 
 **App Service plan**: An [App Service plan](/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview) provides the managed virtual machines (VMs) that host your app. All apps associated with a plan run on the same VM instances.
 

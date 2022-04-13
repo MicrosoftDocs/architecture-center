@@ -94,6 +94,14 @@ Much of the data you bring into the system needs to be preserved for future audi
 
 During the model run, the actuaries use data delivery mechanisms that can handle the request load from the run. Once the run is complete and data is no longer needed, they preserve some of the data. At a minimum, an insurer should preserve the inputs and the runtime configuration for any reproducibility requirements. Databases are preserved to backups in Azure Blob Storage and servers are shut down. Data on high speed storage also moves to the less expensive Azure Blob Storage. Once in Blob Storage, you can choose the data tier used for each blob: hot, cool, or archive. Hot storage works well for frequently accessed files. Cool storage is optimized for infrequent data access. Archive storage is best for holding auditable files but the price savings comes at a latency cost: archived tier data latency is measured in hours. Read [Azure Blob storage: Hot, cool, and archive storage tiers](/azure/storage/blobs/storage-blob-storage-tiers?WT.mc_id=riskmodel-docs-scseely) to fully understand the different storage tiers. You can manage data from creation through deletion with lifecycle management. URIs for blobs stay static, but where the blob is stored gets cheaper over time. This feature will save a lot of money and headaches for many users of Azure Storage. You can learn about the ins and outs in [Managing the Azure Blob Storage Lifecycle](/azure/storage/common/storage-lifecycle-managment-concepts?WT.mc_id=riskmodel-docs-scseely). The fact that you can automatically delete files is wonderful: it means you won't accidentally expand an audit by referring to a file that is out of scope because the file itself can be removed automatically.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+**Principal author:**
+
+- [Scott Seely](https://www.linkedin.com/in/scottseely) | Software Architect
+
 ## Next steps
 
 If the actuarial system you run has a on premises grid implementation, that grid implementation will likely run on Azure too. For some vendors, they have specialized Azure implementations that run at hyperscale. As part of the move to Azure, move your internal tooling over as well. Actuaries everywhere have been finding that their data science skills work well on their laptop or with a large environment. Look for things your team already does: maybe you have something that uses deep learning but takes hours or days to run on one GPU. Try running the same workload on a machine with 4 high end GPUs and look at the run times; odds are good you'll see significant speedups for things you already have.

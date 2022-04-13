@@ -1,11 +1,11 @@
 ### YamlMime:Architecture
 metadata:
   title: Predictive marketing with machine learning
-  titleSuffix: Azure Solution Ideas
+  titleSuffix: Azure Architecture Center
   description: Optimize big data marketing campaigns with a machine-learning model using Microsoft Machine Learning and Azure HDInsight Spark clusters.
   author: EdPrice-MSFT
   ms.author: edprice
-  ms.date: 02/29/2022
+  ms.date: 04/13/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea

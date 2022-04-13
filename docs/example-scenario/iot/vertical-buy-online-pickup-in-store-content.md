@@ -6,7 +6,7 @@ Contoso is a European retailer operating mid-sized supermarkets. They have grown
 
 -   *What are the business challenges?*
 
-With the recent COVID-19 pandemic, customers have been making fewer physical trips to the supermarkets as many are concerned with health risks and are practicing safe distancing. As a result, Contoso has also seen an increase in the usage of buy online, pickup in store (BOPIS) which is also known as curbside pickup.
+With the recent COVID-19 pandemic, customers have been making fewer physical trips to the supermarkets as many are concerned with health risks and are practicing safe distancing. As a result, Contoso has also seen an increase in the usage of buy online, pick up in store (BOPIS), which is also known as curbside pickup.
 
 In order to ensure that their customers get the freshest quality produce, Contoso starts packing temperature-controlled items when their customers arrive. Due to the rise in usage and time taken to pack fresh produce, there is a longer than usual waiting time for curbside pickup. These increased waiting times have caused an increased amount of customer dissatisfaction, and surveys have shown that customers are choosing to use other retailers.
 
@@ -45,7 +45,7 @@ The following table provides a summary of common use cases and corresponding IoT
 
 ## Architecture
 
-![Architecture diagram showing the data flow for the Buy online pick up in store IoT solution.](media/bopis.png)
+![Architecture diagram showing the data flow for the buy-online-pick-up-in-store IoT solution.](media/bopis.png)
 
 ### Workflow
 
