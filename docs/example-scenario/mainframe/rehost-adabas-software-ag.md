@@ -10,7 +10,7 @@ This architecture presents the rehost option and gives you a high-level look at 
 
 This architecture shows a legacy IBM z/OS architecture, before a rehost to the cloud. It illustrates an example of a mainframe with Software AG's Adabas & Natural modules installed. 
 
-:::image type="content" border="false" source="media/mainframe-software-ag-rehost-before.png" alt-text="Image alt text." lightbox="media/mainframe-software-ag-rehost-before.png ":::
+:::image type="content" border="false" source="media/mainframe-software-ag-rehost-before.png" alt-text="Diagram that shows the legacy mainframe architecture, before migration." lightbox="media/mainframe-software-ag-rehost-before.png ":::
 
 link? 
 
@@ -36,7 +36,7 @@ H. Partitions are used to run separate workloads or segregate work types within 
 
 This diagram shows the legacy architecture migrated to Azure. A rehost approach is used to migrate the system. 
 
-:::image type="content" border="false" source="media/mainframe-software-ag-azure-rehost-after.png" alt-text="Image alt text." lightbox="media/mainframe-software-ag-azure-rehost-after.png "::: 
+:::image type="content" border="false" source="media/mainframe-software-ag-azure-rehost-after.png" alt-text="Diagram that shows the mainframe architecture rehosted on Azure." lightbox="media/mainframe-software-ag-azure-rehost-after.png "::: 
 
 link 
 
@@ -44,11 +44,11 @@ link
 
 1. Input, typically via either Azure ExpressRoute from remote clients or via other applications currently running in Azure. In either case, TCP/IP connections provide the primary means of connection to the system. User access for web-based applications is provided over TLS port 443. You can use the legacy web-application presentation layer virtually unchanged to minimize user retraining. Alternatively, you can update the web-application presentation layer with modern UX frameworks. To improve security by minimizing open ports, you can use Azure Bastion hosts for admin access to the VMs.
 1. Azure Application Gateway is used to access to the application compute clusters. Application Gateway provides Layer 7 load balancing services and can make routing decisions based on additional attributes in an HTTP request, like a URI path or host headers. For example, you can route traffic based on the incoming URL. In this case, you can route traffic to the correct Software AG component (ApplinX or EntireX). 
-1. For application compute clusters, you can use one VM for the Software AG Adabas &Natural software. We recommend that you use separate VMs for the application and database for more than 200 MIPS. This example uses two VMs. You can deploy a distributed architecture (Adabas & Natural running on multiple VMs) to provide scalable Natural applications with higher availability and higher consistency for Adabas storage. 
-1. Software AG ApplinX, a server-based technology, provides web connectivity and integration into system applications without requiring changes to the applications. 
+1. For application compute clusters, you can use one VM for the Software AG Adabas & Natural software. We recommend that you use separate VMs for the application and database for more than 200 MIPS. This example uses two VMs. You can deploy a distributed architecture (Adabas & Natural running on multiple VMs) to provide scalable Natural applications with higher availability and higher consistency for Adabas storage. 
+1. Software AG ApplinX provides web connectivity and integration into system applications without requiring changes to the applications. 
 1. Software AG EntireX connects services that run on Integration Server to mission-critical programs that are written in languages like COBOL or Natural. 
-1. Natural Online – Allows online users to connect to Natural application using ssh or via a web browser.  
-1. Natural Services – Allows API access to business functions programmed in Natural. 
+1. Online uses connect to the Natural application by using Natural Online. Natural Online enables connection via SSH or a web browser.  
+1. Natural Services provides API access to business functions that are programmed in Natural. 
 1. Adabas – Software AG’s high performance NonSQL Database Management System. 
 1. Natural Batch - (Software AG)  Dedicated component to execute batch jobs 
 
