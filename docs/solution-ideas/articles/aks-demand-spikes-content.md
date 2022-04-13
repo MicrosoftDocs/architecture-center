@@ -6,23 +6,23 @@ This example shows how to achieve fast and reliable service quality during seaso
 
 This approach can be used to manage the following scenarios:
 
-- Elastic scaling handles traffic and sales bursts without managing infrastructures.
-- Low-latency data access is from anywhere in the world for fast, robust user experiences.
-- High availability is achieved across multiple data centers.
+* Elastic scaling handles traffic and sales bursts without managing infrastructures.
+* Low-latency data access is from anywhere in the world for fast, robust user experiences.
+* High availability is achieved across multiple data centers.
 
 ## Architecture
 
 ![Architecture Diagram](../media/aks-demand-spikes.png)
 *Download an [SVG](../media/aks-demand-spikes.svg)*
 
-### Data flow
+### Dataflow
 
 The data flows through the solution as follows:
 
-1. Azure Traffic Manager routes incoming requests to Azure API management Gateway
-2. API Gateway ensures requests meet security and other policies, and then routes them to service running in Azure Kubernetes Service
-3. Services use Azure Cosmos DB, Azure CDN, and Azure Functions to achieve low-latency data access data as needed from anywhere in the world
-4. When demand spikes past current capacity, AKS uses virtual nodes to dynamically scale up the service
+1. Azure Traffic Manager routes incoming requests to Azure API management Gateway.
+2. API Gateway ensures requests meet security and other policies, and then routes them to service running in Azure Kubernetes Service.
+3. Services use Azure Cosmos DB, Azure CDN, and Azure Functions to achieve low-latency data access data as needed from anywhere in the world.
+4. When demand spikes past current capacity, AKS uses virtual nodes to dynamically scale up the service.
 
 ### Components
 

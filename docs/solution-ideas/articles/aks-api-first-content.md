@@ -1,17 +1,14 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Adapt, evolve, and allow faster innovation to turn opportunities into strategic advantages. This solution enables you to do the following:
-
-- Create an API gateway and developer portal in minutes, and publish APIs easily for internal or external use.
-- Handle any data schema, and adapt quickly to rapid changes.
-- Connect to back-end services anywhere, and manage, secure, and optimize all APIs in one place.
+Adapt, evolve, and allow faster innovation to turn opportunities into strategic advantages. 
 
 ## Potential use cases
 
-Organizations can use API gateways for the following services:
+This solution enables you to do the following:
 
-* Microservices-based systems
-* Serverless development
+* Create an API gateway and developer portal in minutes, and publish APIs easily for internal or external use.
+* Handle any data schema, and adapt quickly to rapid changes.
+* Connect to back-end services anywhere, and manage, secure, and optimize all APIs in one place.
 
 ## Architecture
 
