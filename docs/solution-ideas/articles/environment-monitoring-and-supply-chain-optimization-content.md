@@ -6,6 +6,8 @@ This article describes a warehouse management scenario that monitors environment
 
 ## Potential use cases
 
+This solution is ideal for the environment, manufacturing, transportation, and agriculture industries.
+
 - **Fleet management:** This solution can be used where routes need to be optimized for safety based on the evolving conditions of surrounding areas.
 - **Agriculture:** Predicting wildfires that will impact the safety of workers and livestock is critical. By providing ample lead time for danger notifications, people in the affected area can evacuate to safety. Farms can also equip livestock areas with automated gates that can unlock and open in dire situations, allowing animals to escape.
 

@@ -13,11 +13,18 @@ Optimizing your campaigns with predictive marketing helps improve both sales lea
 ![Architecture diagram that shows predictive marketing with Azure Machine Learning.](../media/predictive-marketing-campaigns-with-machine-learning-and-spark.png)
 *Download an [SVG file](../media/predictive-marketing-campaigns-with-machine-learning-and-spark.svg) of this architecture.*
 
-### Components
+### Dataflow
 
 * [Power BI](https://powerbi.microsoft.com) provides an interactive dashboard with visualization that uses data stored in SQL Server to drive decisions on the predictions.
 * [Storage Accounts](https://azure.microsoft.com/services/storage): Azure Storage stores campaign and lead data.
 * [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning): Machine Learning helps you design, test, operationalize, and manage predictive analytics solutions in the cloud.
+
+### Components
+
+* [Power BI](https://powerbi.microsoft.com) 
+* [Storage Accounts](https://azure.microsoft.com/services/storage)
+* [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning)
+* [Azure HDInsight](https://azure.microsoft.com/services/hdinsight)
 
 ## Next steps
 
