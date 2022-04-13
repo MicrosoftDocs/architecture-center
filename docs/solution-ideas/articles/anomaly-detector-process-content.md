@@ -1,19 +1,21 @@
-The Anomaly Detector API enables you to monitor and detect abnormalities in your time series data without having to know machine learning. The Anomaly Detector API's algorithms adapt by automatically identifying and applying the best-fitting models to your data, regardless of industry, scenario, or data volume. Using your time series data, the API determines boundaries for anomaly detection, expected values, and which data points are anomalies.
+The Anomaly Detector API enables you to monitor and detect abnormalities in your time series data without having to know machine learning. The Anomaly Detector API's algorithms adapt by automatically identifying and applying the best-fitting models to your data, regardless of industry, scenario, or data volume. Using your time series data, the API determines boundaries for anomaly detection, expected values, and which data points are anomalies. The architecture provides an overview of the near real-time implementation of an anomaly detection process.
 
 ## Architecture
 
-![Architecture diagram](/azure/architecture/solution-ideas/media/anomaly-detector.png)
+![Diagram of the anomaly detector process architecture.](/azure/architecture/solution-ideas/media/anomaly-detector.png)
 
-*Download an [SVG](/azure/architecture/solution-ideas/media/anomaly-detector.svg) of this architecture.*
+*Download an [SVG file](/azure/architecture/solution-ideas/media/anomaly-detector.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
-1. Ingests data from the various stores that contain raw data to be monitored by Anomaly Detector.
-2. Aggregates, samples, and computes the raw data to generate the time series or calls the Anomaly Detector API directly if the time series is already prepared and responds with the detection results.
-3. Queue the anomaly related metadata.
-4. The serverless app picks the message from the message queue based on the anomaly-related metadata and sends the alert about the anomaly.
-5. Stores the anomaly detection metadata.
-6. Visualize the results of the time series anomaly detection.
+1. Time-series data can comprise multiple sources, such as Azure Database for MySQL, Blob storage, Event Hubs, Cosmos DB, SQL Database, and Azure Database for PostgreSQL.
+2. Data is ingested into compute from various storage sources to be monitored by Anomaly Detector.
+3. Databricks helps aggregate, sample, and compute the raw data to generate the time with the detected results. Databricks is capable of processing stream and static data. Stream analytics and Azure Synapse can be alternatives based on the requirements.
+4. The anomaly detector API detects anomalies and returns the results to compute.
+5. We queue the anomaly related metadata.
+6. Application Insights picks the message from the message queue based on the anomaly related metadata and sends the alert about the anomaly.
+7. Stores the results in Azure Data Lake Service Gen2. 
+8. Visualizes the results of the time-series anomaly detection.
 
 ### Components
 
@@ -25,12 +27,14 @@ Key technologies used to implement this architecture:
 * [Storage Accounts](https://azure.microsoft.com/services/storage): Durable, highly available, and massively scalable cloud storage
 * [Cognitive Services](/azure/cognitive-services): cloud-based services with REST APIs and client library SDKs available to help you build cognitive intelligence into your applications
 * [Logic Apps][logic-apps]: Serverless platform for building enterprise workflows that integrate applications, data, and services. In this architecture, the logic apps are triggered by HTTP requests.
+* [Azure Data Lake Storage Gen2](https://azure.microsoft.com/services/storage/data-lake-storage): Azure Data Lake Storage Gen2 provides file system semantics, file-level security, and scale.
+* [Application Insights](/azure/azure-monitor/app/app-insights-overview): Application Insights is a feature of Azure Monitor that provides extensible application performance management (APM) and monitoring for live web apps.
 
 ### Alternatives
 
 * [Event Hubs with Kafka][event-hubs]: An alternative to running your own Kafka cluster. This Event Hubs feature provides an endpoint that is compatible with Kafka APIs.
 * [Azure Synapse Analytics][synapse-analytics]: Analytics service that brings together enterprise data warehousing and Big Data analytics
-* [Azure Machine Learning](/azure/machine-learning/): lets you build, train, deploy, and manage custom machine learning / anomaly detection models in a cloud-based environment.
+* [Azure Machine Learning](/azure/machine-learning): lets you build, train, deploy, and manage custom machine learning / anomaly detection models in a cloud-based environment.
 
 ## Considerations
 
@@ -71,6 +75,18 @@ We have provided three sample cost profiles based on the amount of traffic (we a
 * [Power BI Documentation](/power-bi)
 * [Storage Documentation](/azure/storage)
 
+## Related resources
+
+* [Quality assurance](/azure/architecture/solution-ideas/articles/quality-assurance)
+* [Supply chain track and trace](/azure/architecture/solution-ideas/articles/supply-chain-track-and-trace)
+* [Introduction to predictive maintenance in manufacturing](/azure/architecture/industries/manufacturing/predictive-maintenance-overview)
+* [Predictive maintenance solution](/azure/architecture/industries/manufacturing/predictive-maintenance-solution)
+* [Predictive maintenance](/azure/architecture/solution-ideas/articles/predictive-maintenance)
+* [Predictive maintenance with the intelligent IoT Edge](/azure/architecture/example-scenario/predictive-maintenance/iot-predictive-maintenance)
+* [Stream processing with fully managed open-source data engines](/azure/architecture/example-scenario/data/open-source-data-engine-stream-processing)
+* [Connected factory hierarchy service](/azure/architecture/solution-ideas/articles/connected-factory-hierarchy-service)
+* [Connected factory signal pipeline](/azure/architecture/example-scenario/iot/connected-factory-signal-pipeline)
+
 <!-- Links -->
 [Event Grid]: https://azure.microsoft.com/services/event-grid/
 [synapse-analytics]: /azure/sql-data-warehouse/
@@ -79,9 +95,9 @@ We have provided three sample cost profiles based on the amount of traffic (we a
 [example-pricing]: https://azure.com/e/48cc24e76c914ecf8fafec1fed0e0e14
 [serverless]: /learn/paths/create-serverless-applications/
 [cv-categories]: /azure/cognitive-services/computer-vision/category-taxonomy
-[resiliency]: ../../framework/resiliency/principles.md
+[resiliency]: /azure/architecture/framework/resiliency/principles
 [security]: /azure/security
-[scalability]: ../../framework/scalability/performance-efficiency.md
+[scalability]: /azure/architecture/framework/scalability/performance-efficiency
 [functions-best-practices]: /azure/azure-functions/functions-best-practices
 [msi]: /azure/app-service/app-service-managed-service-identity
 [logic-apps]: /azure/logic-apps/logic-apps-overview

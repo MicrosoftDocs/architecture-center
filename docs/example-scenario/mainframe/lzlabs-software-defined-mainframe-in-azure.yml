@@ -1,11 +1,11 @@
 ### YamlMime:Architecture
 metadata:
-  title: Using LzLabs Software Defined Mainframe (SDM) in an Azure VM deployment
+  title: Use LzLabs Software Defined Mainframe (SDM) in an Azure VM deployment
   titleSuffix: Azure Example Scenarios
   description: An approach for rehosting mainframe legacy applications in Azure using the LzLabs Software Defined Mainframe platform.
   author: jjfrost
   ms.author: jfrost
-  ms.date: 06/28/2021
+  ms.date: 03/08/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
@@ -22,7 +22,7 @@ products:
   - azure-database-postgresql
   - azure-virtual-network
   - azure-resource-manager
-name: Using LzLabs Software Defined Mainframe (SDM) in an Azure VM deployment
+name: Use LzLabs Software Defined Mainframe (SDM) in an Azure VM deployment
 summary: An approach for rehosting mainframe legacy applications in Azure using the LzLabs Software Defined Mainframe platform.
 thumbnailUrl: /azure/architecture/browse/thumbs/lzlabs-software-defined-mainframe-in-azure-architecture-card.png
 content: |

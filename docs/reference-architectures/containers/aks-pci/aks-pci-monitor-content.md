@@ -44,7 +44,7 @@ Azure's alerting framework allows you to configure alerts to detect suspicious a
 
 AKS is integrated with Azure monitoring services:
 
-- Microsoft Defender for Cloud provides many security scanning features. For example Defender for Cloud scans images pulled and pushed to container registries and provides recommendations. For details, see [Vulnerability management - scanning container images](/azure/security-center/container-security#vulnerability-management---scanning-container-images). You can also use [file integrity monitoring (FIM)](/azure/security-center/security-center-file-integrity-monitoring) to check system files.
+- Microsoft Defender for Containers provides many security scanning features. For example Defender for Containers scans images pulled and pushed to container registries and provides recommendations. For details, see [Vulnerability assessment](/azure/defender-for-cloud/defender-for-containers-introduction#vulnerability-assessment). You can also use [file integrity monitoring (FIM)](/azure/defender-for-cloud/file-integrity-monitoring-overview) to check system files.
 
 - Azure Monitor can be used to set alerts based on event type to protect system integrity and security. When there are any expected system failures on AKS nodes, AKS autoheals the resource in a timely manner without interruption to system processing.
 
@@ -183,9 +183,9 @@ Limit viewing of audit trails to those with a job-related need.
 
 Having multiple logging syncs adds overhead to securing, reviewing, analyzing, and querying audit trail data. Plan your audit trail topologies to balance tradeoffs between complete audit trail isolation and management concerns.
 
-When possible, integrate logs. The advantage is the ability to review, analyze, and query data efficiently. Azure provides several technology options. You can use Azure Monitor for Containers to write logs into a Log Analytics workspace. Another option is to integrate data into security information and event management (SIEM) solutions, such as Microsoft Sentinel. Other popular third-party choices are Splunk, QRadar, and ArcSight. Microsoft Defender for Cloud and Azure Monitor support all of those solutions. Those solutions are append-only data sinks to make sure the trail can't be altered.
+When possible, integrate logs. The advantage is the ability to review, analyze, and query data efficiently. Azure provides several technology options. You can use Azure Monitor container insights to write logs into a Log Analytics workspace. Another option is to integrate data into security information and event management (SIEM) solutions, such as Microsoft Sentinel. Other popular third-party choices are Splunk, QRadar, and ArcSight. Microsoft Defender for Cloud and Azure Monitor support all of those solutions. Those solutions are append-only data sinks to make sure the trail can't be altered.
 
-Defender for Cloud can export results at configured intervals. For more information, see [Continuous export](/azure/security-center/continuous-export).
+Defender for Cloud can export results at configured intervals. For more information, see [Continuous export](/azure/defender-for-cloud/continuous-export).
 
 All logs are kept with at least three copies in one region. As a backup strategy, you can have more copies by enabling cross-region backup or replication. All log entries are available only through secured HTTP/S channels.
 

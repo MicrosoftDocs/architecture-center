@@ -1,0 +1,19 @@
+### YamlMime:Architecture
+metadata:
+  title: Throttling pattern
+  description: Control the consumption of resources used by an instance of an application, an individual tenant, or an entire service.
+  author: EdPrice-MSFT
+  ms.author: pnp
+  ms.date: 06/23/2017
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - developer-tools
+products:
+  - azure
+name: Throttling pattern
+summary: <Write a summary. Can be same as description.>
+thumbnailUrl: /azure/architecture/browse/thumbs/throttling-multi-tenant.png
+content: |
+  [!include[](throttling-content.md)]

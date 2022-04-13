@@ -4,7 +4,7 @@ Potential applications include classifying images for a fashion website, analyzi
 
 By using Azure services such as the Computer Vision API and Azure Functions, companies can eliminate the need to manage individual servers, while reducing costs and leveraging the expertise that Microsoft has already developed around processing images with Cognitive Services. This example scenario specifically addresses an image-processing use case. If you have different AI needs, consider the full suite of [Cognitive Services](/azure/cognitive-services/).
 
-## Relevant use cases
+## Potential use cases
 
 Other relevant use cases include:
 
@@ -15,6 +15,8 @@ Other relevant use cases include:
 ## Architecture
 
 ![Architecture for image classification][architecture]
+
+### Workflow
 
 This scenario covers the back-end components of a web or mobile application. Data flows through the scenario as follows:
 
@@ -32,7 +34,7 @@ This scenario covers the back-end components of a web or mobile application. Dat
 - [Blob storage](/azure/storage/blobs/storage-blobs-introduction) stores all of the image files that are uploaded into the web application, as well any static files that the web application consumes.
 - [Cosmos DB](/azure/cosmos-db/introduction) stores metadata about each image that is uploaded, including the results of the processing from Computer Vision API.
 
-## Alternatives
+### Alternatives
 
 - [Custom Vision Service](/azure/cognitive-services/custom-vision-service/home). The Computer Vision API returns a set of [taxonomy-based categories][cv-categories]. If you need to process information that isn't returned by the Computer Vision API, consider the Custom Vision Service, which lets you build custom image classifiers.
 - [Cognitive Search](/azure/search/search-what-is-azure-search) (formerly Azure Search). If your use case involves querying the metadata to find images that meet specific criteria, consider using Cognitive Search. Currently in preview, [Cognitive search](/azure/search/cognitive-search-concept-intro) seamlessly integrates this workflow.
@@ -72,11 +74,11 @@ We have provided three sample cost profiles based on amount of traffic (we assum
 - [Medium][medium-pricing]: this pricing example correlates to processing 500,000 images a month.
 - [Large][large-pricing]: this pricing example correlates to processing 50 million images a month.
 
-## Related resources
+## Next steps
 
 For a guided learning path, see:
-- [Build a serverless web app in Azure][serverless].
-- [Classify images with the Custom Vision service](/learn/modules/classify-images-custom-vision/)
+- [Build a serverless web app in Azure][serverless]
+- [Classify images with the Custom Vision service](/learn/modules/classify-images-custom-vision)
 - [Use AI to recognize objects in images by using the Custom Vision service](/learn/modules/train-custom-vision-ai/)
 - [Classify endangered bird species with Custom Vision](/learn/modules/cv-classify-bird-species/)
 - [Classify images with the Microsoft Custom Vision Service](/learn/modules/classify-images-with-custom-vision-service/)
@@ -91,8 +93,8 @@ Before deploying this example scenario in a production environment, review recom
 [large-pricing]: https://azure.com/e/cbadbca30f8640d6a061f8457a74ba7d
 [serverless]: /learn/paths/create-serverless-applications/
 [cv-categories]: /azure/cognitive-services/computer-vision/category-taxonomy
-[resiliency]: ../../framework/resiliency/principles.md
+[resiliency]: /azure/architecture/framework/resiliency/principles
 [security]: /azure/security
-[scalability]: ../../framework/scalability/performance-efficiency.md
+[scalability]: /azure/architecture/framework/scalability/performance-efficiency
 [functions-best-practices]: /azure/azure-functions/functions-best-practices
 [msi]: /azure/app-service/app-service-managed-service-identity

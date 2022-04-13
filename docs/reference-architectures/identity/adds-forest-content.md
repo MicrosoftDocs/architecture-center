@@ -92,7 +92,7 @@ For more information, see [VPN Gateway Pricing][azure-gateway-charges].
 
 <!-- links -->
 
-[aaf-cost]: ../../framework/cost/overview.md
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [adds-extend-domain]: ./adds-extend-domain.yml
 [ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds
 [adfs]: ./adfs.yml

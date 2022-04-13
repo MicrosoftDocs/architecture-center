@@ -114,7 +114,7 @@ The [Microsoft Azure Well-Architected Framework][azure-well-architected-framewor
 
 [architectural-diagram]: images/azure_stack_hci_dr.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure_stack_hci_dr.vsdx
-[azure-well-architected-framework]: ../framework/index.md
+[azure-well-architected-framework]: /azure/architecture/framework
 [microsoft-component]: https://docs.microsoft.com/
 [azs-hci]: /azure-stack/hci/overview
 [storage-replica]: /windows-server/storage/storage-replica/storage-replica-overview

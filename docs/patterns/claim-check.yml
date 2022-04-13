@@ -1,0 +1,20 @@
+### YamlMime:Architecture
+metadata:
+  title: Claim-Check pattern
+  description: Examine the Claim-Check pattern, which splits a large message into a claim check and a payload to avoid overwhelming a message bus.
+  author: yorek
+  ms.author: damauri
+  ms.date: 03/05/2019
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - storage
+products:
+  - azure-event-grid
+  - azure-blob-storage
+name: Claim-Check pattern
+summary: Examine the Claim-Check pattern, which splits a large message into a claim check and a payload to avoid overwhelming a message bus.
+thumbnailUrl: /azure/architecture/browse/thumbs/claim-check.png
+content: |
+  [!include[](claim-check-content.md)]

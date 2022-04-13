@@ -1,5 +1,3 @@
-
-
 Customer care centers are an integral part of the success of many businesses. You can improve the efficiency of your call centers by using speech AI. Speech recognition and the analysis of high volumes of recorded customer calls can provide your business with valuable information about current trends, product shortcomings, and successes. Enterprise solutions that use the Speech APIs of [Azure Cognitive Services](/azure/cognitive-services/speech-service/overview) can be implemented to consume and process such high volumes of discrete data.
 
 The reference architecture described in this article shows how to build an audio ingestion and speech-to-text transcription pipeline for customer care centers. This pipeline processes batches of recorded audio files and stores the transcribed text files in Azure Blob storage. This architecture doesn't implement real-time speech processing.
@@ -12,6 +10,8 @@ The reference implementation for this architecture is available on [GitHub](http
 
 ![Architecture diagram: ingest and convert speech to text using Azure Cognitive Services](./_images/speech-to-text-audio-files-upload.png)
 
+### Workflow
+
 You can implement this architecture by using your Azure account and allow client applications access to the pipeline through REST APIs. The application goes through a three-step process to upload an audio file:
 
 1. Authenticates by using Azure Active Directory (Azure AD). This step is required for the first file upload.
@@ -19,6 +19,8 @@ You can implement this architecture by using your Azure account and allow client
 3. Uploads the audio files to a blob container.
 
 The reference client application uses JavaScript to upload the files, as shown in [this blob upload example](/azure/storage/blobs/storage-quickstart-blobs-nodejs#upload-blobs-to-a-container). After the file is uploaded, an Azure Event Grid trigger is generated that invokes an Azure function. The function processes the file by using the Azure Cognitive Services Speech APIs. The transcribed text is stored in a separate blob container, ready for consumption into the next phase of the pipeline: speech analysis and storage in a database.
+
+### Components
 
 The architecture uses these Azure services:
 
@@ -42,7 +44,7 @@ The architecture uses these Azure services:
 
 ### Azure Blob storage
 
-**Scalability during upload:** To create a high-performing and cost-effective scalable solution, this reference architecture uses the [Valet Key design pattern](../../patterns/valet-key.md). The client application is responsible for the actual data upload. The SAS token restricts access to blob storage. The client needs to first acquire this token by using the REST API. The API in the reference implementation generates a [user delegate SAS token](/rest/api/storageservices/create-user-delegation-sas) that's created by using the Azure Active Directory credentials of the business owner. For most scenarios, this method is more secure and is preferred over SAS tokens created by using an account key. For more information on SAS tokens, see [Types of shared access signatures](/rest/api/storageservices/delegate-access-with-shared-access-signature#types-of-shared-access-signatures).
+**Scalability during upload:** To create a high-performing and cost-effective scalable solution, this reference architecture uses the [Valet Key design pattern](../../patterns/valet-key.yml). The client application is responsible for the actual data upload. The SAS token restricts access to blob storage. The client needs to first acquire this token by using the REST API. The API in the reference implementation generates a [user delegate SAS token](/rest/api/storageservices/create-user-delegation-sas) that's created by using the Azure Active Directory credentials of the business owner. For most scenarios, this method is more secure and is preferred over SAS tokens created by using an account key. For more information on SAS tokens, see [Types of shared access signatures](/rest/api/storageservices/delegate-access-with-shared-access-signature#types-of-shared-access-signatures).
 
 **Scalability for file size:** The reference architecture allows large audio files to be uploaded to the cloud by dividing them into 4 KB chunks. *Chunking* is a common technique used to upload large blobs, as discussed in [this article on uploading large blobs](https://www.red-gate.com/simple-talk/cloud/platform-as-a-service/azure-blob-storage-part-4-uploading-large-blobs/). The maximum file size that can be uploaded is dictated by the [maximum size limit of the blob](https://azure.microsoft.com/blog/general-availability-larger-block-blobs-in-azure-storage/), which can be as much as 4.77 TB.
 
@@ -58,7 +60,7 @@ Cognitive Services APIs might have request limits based on the subscription tier
 
 ## Security considerations
 
-Many of the [security considerations for a serverless web applications](../../reference-architectures/serverless/web-app.yml#security-considerations) apply to this reference architecture. The following sections discuss considerations specific to this architecture.
+Many of the [security considerations for a serverless web applications](../../reference-architectures/serverless/web-app.yml#security) apply to this reference architecture. The following sections discuss considerations specific to this architecture.
 
 ### Azure Active Directory
 
@@ -88,7 +90,7 @@ When several clients upload files in parallel, API Management:
 
 If there are an extremely large number of events, Event Grid might fail to trigger the function. Such missed events are typically added to a *dead letter container*. Consider making the architecture more resilient by adding a *supervisor* function. This function can periodically wake up on a timer trigger. It can then find and process missed events, either from the dead letter container or by comparing the blobs in the *upload* and *transcribe* containers.
 
-This pattern is similar to the [Scheduler Agent Supervisor pattern](../../patterns/scheduler-agent-supervisor.md). This pattern isn't implemented in this reference architecture for the sake of simplicity. For more information on how Event Grid handles failures, see the [Event Grid message delivery and retry](/azure/event-grid/delivery-and-retry) policies.
+This pattern is similar to the [Scheduler Agent Supervisor pattern](../../patterns/scheduler-agent-supervisor.yml). This pattern isn't implemented in this reference architecture for the sake of simplicity. For more information on how Event Grid handles failures, see the [Event Grid message delivery and retry](/azure/event-grid/delivery-and-retry) policies.
 
 Another way to improve resiliency is to use [Azure Service Bus](/azure/service-bus-messaging/) instead of Event Grid. This model sequentially processes file uploads. The client signals Service Bus when an upload finishes. Service Bus then invokes the function to transcribe the uploaded file. This model is more reliable. However, it will have less throughput than an event-based architecture. Carefully consider which architecture applies to your scenario and application.
 

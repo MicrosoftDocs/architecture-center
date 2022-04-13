@@ -1,6 +1,6 @@
 
 
-Gridwich uses the Azure Media Services Platform as a Service (PaaS) for media processing. Depending on the type of operation, the Gridwich application uses one of two methods to access Azure Media Services.
+Gridwich uses the Azure Media Services Platform as a Service (PaaS) for media processing.
 
 ## Azure Media Services V2
 
@@ -99,41 +99,9 @@ The Function App settings use a reference to the Azure Key Vault. The script cre
 
 ## Scale Media Services resources
 
-The Azure Media Services account owner can scale media processing resources to perform the expected work by calling the Azure command-line interface (Azure CLI) within a YAML pipeline step.
+The Azure Media Services account owner can scale the streaming infrastructure by calling the Azure command-line interface (Azure CLI) within a YAML pipeline step.
 
 The script is in [azcli-last-steps-template.yml](https://github.com/mspnp/gridwich/blob/main/infrastructure/azure-pipelines/templates/steps/azcli-last-steps-template.yml).
-
-To set the Media Services *reserved encoding* infrastructure scale, run:
-
-```yaml
-- task: AzureCLI@1
-  displayName: 'Set the scale of Azure Media Services reserved encoding infrastructure.'
-  inputs:
-    azureSubscription: '${{parameters.serviceConnection}}'
-    scriptLocation: inlineScript
-    inlineScript: |
-      set -eu
-      echo Set the scale of Azure Media Services reserved encoding infrastructure for $AZURERM_MEDIA_SERVICES_ACCOUNT_RESOURCE_ID
-      # Configurable values:
-      amsMediaReservedUnitCountDesired=1
-      amsMediaReservedUnitTypeDesired=S3
-      #
-      # Setup
-      amsMediaReservedUnitJson=$(az ams account mru show --ids $AZURERM_MEDIA_SERVICES_ACCOUNT_RESOURCE_ID)
-      amsMediaReservedUnitCountActual=$(echo $amsMediaReservedUnitJson | jq -r '.count')
-      amsMediaReservedUnitTypeActual=$(echo $amsMediaReservedUnitJson | jq -r '.type')
-      #
-      # Validate count and type, set if needed.
-      if [[ $amsMediaReservedUnitCountDesired -eq $amsMediaReservedUnitCountActual && $amsMediaReservedUnitTypeDesired == $amsMediaReservedUnitTypeActual ]]
-      then
-          echo Azure Media Services reserved encoding infrastructure does not required scaling, $AZURERM_MEDIA_SERVICES_ACCOUNT_RESOURCE_ID.
-      else
-          echo Azure Media Services reserved encoding infrastructure requires scaling from $amsMediaReservedUnitCountActual to $amsMediaReservedUnitCountDesired and/or $amsMediaReservedUnitTypeDesired to $amsMediaReservedUnitTypeActual.
-          echo az ams account mru set --count $amsMediaReservedUnitCountDesired --type $amsMediaReservedUnitTypeDesired --ids $AZURERM_MEDIA_SERVICES_ACCOUNT_RESOURCE_ID
-          az ams account mru set --count $amsMediaReservedUnitCountDesired --type $amsMediaReservedUnitTypeDesired --ids $AZURERM_MEDIA_SERVICES_ACCOUNT_RESOURCE_ID
-      fi
-    addSpnToEnvironment: true
-```
 
 To set the Media Services *streaming endpoint* infrastructure scale, run:
 
@@ -198,4 +166,21 @@ To set the Media Services *streaming endpoint* infrastructure scale, run:
 
 ## Next steps
 
-The current solution only supports the commercial Azure cloud. For government or other scopes, check the [Azure Media Services documentation](/azure/media-services/), and update the code to use an app setting for the token scope.
+Product documentation:
+
+- [Gridwich cloud media system](gridwich-architecture.yml)
+- [About Azure Key Vault](/azure/key-vault/general/overview)
+- [Azure Media Services v3 overview](/azure/media-services/latest/media-services-overview)
+- [Introduction to Azure Functions](/azure/azure-functions/functions-overview)
+
+Microsoft Learn modules:
+
+- [Configure and manage secrets in Azure Key Vault](/learn/modules/configure-and-manage-azure-key-vault)
+- [Explore Azure Functions](/learn/modules/explore-azure-functions)
+
+## Related resources
+
+- [Gridwich content protection and DRM](gridwich-content-protection-drm.yml)
+- [Gridwich request-response messages](gridwich-message-formats.yml)
+- [Gridwich saga orchestration](gridwich-saga-orchestration.yml)
+- [Gridwich variable flow](variable-group-terraform-flow.yml)

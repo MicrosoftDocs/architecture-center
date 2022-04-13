@@ -1,28 +1,27 @@
 ### YamlMime:Architecture
 metadata:
-  title: Predictive maintenance with AI IoT Edge
-  description: Learn how a railway company implemented predictive safety maintenance using machine learning on the Azure intelligent IoT Edge platform.
+  title: IoT Edge railroad maintenance and safety system
+  description: Learn how a railway company implemented an intelligent IoT Edge train safety solution for fast, reliable defect identification and predictive maintenance.
   author: tmmarshall
-  ms.date: 10/15/2021
+  ms.author: v-tamarshall
+  ms.date: 04/05/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
-  ms.category:
-    - iot
   ms.custom:
     - fcp
     - cse
     - example-scenario
-name: Predictive maintenance with the intelligent IoT Edge
+name: IoT Edge railroad maintenance and safety system
 azureCategories:
   - iot
-summary: Learn how a railway company implemented predictive safety maintenance using machine learning on the Azure intelligent IoT Edge platform.
+summary: Learn how a railway company implemented an intelligent IoT Edge train safety solution for fast, reliable defect identification and predictive maintenance.
 products:
   - azure-blob-storage
   - azure-cosmos-db
   - azure-iot
+  - azure-iot-edge
   - azure-iot-hub
-  - azure-pipelines
 thumbnailUrl: /azure/architecture/browse/thumbs/iot-predictive-maintenance.svg
 content: |
    [!include[](iot-predictive-maintenance-content.md)]

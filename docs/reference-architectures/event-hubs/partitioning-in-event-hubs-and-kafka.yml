@@ -3,7 +3,7 @@ metadata:
   title: Partitioning in Event Hubs and Kafka
   description: Learn about partitioning in Kafka and Event Hubs with Kafka, see how many partitions to use in ingestion pipelines, and also see how to assign events to partitions.
   author: rasavant-ms
-  ms.author: pnp
+  ms.author: rasavant
   ms.date: 10/02/2020
   ms.topic: conceptual
   ms.service: architecture-center

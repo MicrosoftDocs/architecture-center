@@ -10,7 +10,7 @@ This solution is already being used by Microsoft customers to track user activit
 
 :::image type="content" source="../media/interactive-azure-data-explorer.png" alt-text="Interactive analytics with Azure Data Explorer" lightbox="../media/interactive-azure-data-explorer.png":::
 
-### Data flow
+### Dataflow
 
 1. Raw structured, semi-structured, and unstructured (free text) data such as, any type of logs, business events, and user activities can be ingested into Azure Data Explorer from various sources. Ingest the data in streaming or batch mode using various methods.
 1. Ingest data into Azure Data Explorer with low-latency and high-throughput using its connectors for [Azure Data Factory](/azure/data-explorer/data-factory-integration), [Azure Event Hub](/azure/data-explorer/ingest-data-event-hub), [Azure IoT Hub](/azure/data-explorer/ingest-data-iot-hub), [Kafka](/azure/data-explorer/ingest-data-kafka), and so on. Instead, ingest data through Azure Storage (Blob or ADLS Gen2), which uses [Azure Event Grid](/azure/data-explorer/ingest-data-event-grid) and triggers the ingestion pipeline to Azure Data Explorer. You can also continuously export data to Azure Storage in compressed, partitioned parquet format and seamlessly query that data as detailed in [continuous data export overview](/azure/data-explorer/kusto/management/data-export/continuous-data-export).
@@ -23,11 +23,11 @@ This solution is already being used by Microsoft customers to track user activit
 
 ### Components
 
-- [Azure Event Hub](https://azure.microsoft.com/services/event-hubs/): Fully managed, real-time data ingestion service that's simple, trusted, and scalable.
-- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/): Managed service to enable bi-directional communication between IoT devices and Azure.
+- [Azure Event Hub](https://azure.microsoft.com/services/event-hubs): Fully managed, real-time data ingestion service that's simple, trusted, and scalable.
+- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub): Managed service to enable bi-directional communication between IoT devices and Azure.
 - [Kafka on HDInsight](/azure/hdinsight/kafka/apache-kafka-introduction): Easy, cost-effective, enterprise-grade service for open-source analytics with Apache Kafka.
-- [Azure Data Factory](https://azure.microsoft.com/services/data-factory/): Hybrid data integration service that simplifies ETL at scale.
-- [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/): Fast, fully managed and highly scalable data analytics service for real-time analysis on large volumes of data streaming from applications, websites, IoT devices, and more.
+- [Azure Data Factory](https://azure.microsoft.com/services/data-factory): Hybrid data integration service that simplifies ETL at scale.
+- [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer): Fast, fully managed and highly scalable data analytics service for real-time analysis on large volumes of data streaming from applications, websites, IoT devices, and more.
 - [Azure Data Explorer Dashboards](/azure/data-explorer/azure-data-explorer-dashboards): Natively export Kusto queries that were explored in the Web UI to optimized dashboards.
 - [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/): Fully managed fast NoSQL database service for modern app development with open APIs for any scale.
 - [Azure SQL DB](https://azure.microsoft.com/services/sql-database/): Build apps that scale with the pace of your business with managed and intelligent SQL in the cloud.

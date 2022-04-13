@@ -2,14 +2,16 @@ Digital forensics is a science that addresses the recovery and investigation of 
 
 Companies must guarantee that digital evidence they provide in response to legal requests demonstrates a valid *Chain of Custody* (CoC) throughout the evidence acquisition, preservation, and access process. To ensure a valid CoC, digital evidence storage must demonstrate adequate access control, data protection and integrity, monitoring and alerting, and logging and auditing.
 
-## Use cases
+## Potential use cases
 
 - A company's *Security Operation Center* (SOC) team can implement this technical solution to support a valid CoC for digital evidence
 - Investigators can attach disk copies obtained with this technique on a computer dedicated to forensic analysis, without re-creating, powering on, or accessing the original source VM
 
 ## Architecture
 
-![Chain Of Custody](media/chain-of-custody.png)
+![Diagram showing the chain of custody architecture.](media/chain-of-custody.png)
+
+### Workflow
 
 This standard Azure *hub-spoke* architecture deploys VMs on the **Production** spoke, and encrypts them with [Azure Disk Encryption (ADE)](/azure/security/fundamentals/azure-disk-encryption-vms-vmss). The [Azure Key Vault](/azure/key-vault/general/overview) in the Production subscription stores the VMs' *BitLocker encryption keys* (BEKs), and *key encryption keys* (KEKs) if applicable.
 
@@ -25,6 +27,12 @@ The Copy-VmDigitalEvidence runbook:
 1. Calculates SHA-256 hash values for the snapshots on the file share
 1. Copies the SHA-256 hash values, as well as the VM's BEK, KEK if applicable, and disk identification tags, to the SOC key vault
 1. Deletes all copies of the snapshots except the one in immutable Blob storage
+
+### Alternatives
+
+If necessary, you can grant time-limited read-only SOC Storage account access to IP addresses from outside, on-premises networks, for investigators to download the digital evidence.
+
+You can also deploy a Hybrid Runbook Worker on on-premises or other cloud networks, which they can use to run the Copy‑VmDigitalEvidence Azure Automation runbook on their resources.
 
 ### Azure Storage account
 
@@ -119,13 +127,7 @@ Azure provides services to all customers to monitor and alert on anomalies invol
 
 For compliance, some standards or regulations require evidence and all support infrastructure to be maintained in the same Azure region.
 
-## Alternatives
-
-If necessary, you can grant time-limited read-only SOC Storage account access to IP addresses from outside, on-premises networks, for investigators to download the digital evidence.
-
-You can also deploy a Hybrid Runbook Worker on on-premises or other cloud networks, which they can use to run the Copy‑VmDigitalEvidence Azure Automation runbook on their resources.
-
-## Implementation
+## Deploy this scenario
 
 The following PowerShell code samples of the Copy-VmDigitalEvidence runbook are available in GitHub:
 

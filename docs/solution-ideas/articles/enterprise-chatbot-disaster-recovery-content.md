@@ -12,7 +12,7 @@ The diagram below shows deployment of a chatbot solution for disaster recovery. 
 
 *Download a [Visio file](https://arch-center.azureedge.net/Bot_DR.vsdx) of this architecture.*
 
-### Components
+### Workflow
 
 Disaster recovery solutions vary depending on your SLA and the Azure services you use.
 
@@ -42,7 +42,7 @@ Keep all deployment and source code artifacts in a source code repository, and u
 - Create a Secure Sockets Layer (TLS/SSL) certificate for your traffic manager endpoint, and [bind the TLS/SSL certificate](/azure/app-service/configure-ssl-bindings) in your App Services.
 - Finally, use the Traffic Manager or Azure Front Door endpoint of QnA Maker in your bot. Then, use the Traffic Manager endpoint of the bot API as the bot endpoint in Azure Bot Service registration.
 
-#### List of services
+### Components
 
 Key technologies used to implement this architecture:
 
@@ -75,5 +75,5 @@ Article on availability:
 
 Azure Architecture Center:
 
-- Review the overview article [Principles of the reliability pillar](../../framework/resiliency/principles.md)
+- Review the overview article [Principles of the reliability pillar](/azure/architecture/framework/resiliency/principles)
 - See the related reference architecture [Build an enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot.yml)

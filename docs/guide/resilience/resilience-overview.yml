@@ -1,0 +1,20 @@
+### YamlMime:Architecture
+metadata:
+  title: Resilient identity and access management with Azure Active Directory (Azure AD)
+  description: Read this guide to learn how architects, IT administrators, and developers can build resilience to disruption of their identity systems.
+  author: BarbaraSelden
+  ms.author: baselden
+  ms.date: 04/22/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - identity
+products:
+  - azure-active-directory
+  - azure-active-directory-b2c
+name: Resilient identity and access management with Azure AD
+summary: Read this guide to learn how architects, IT administrators, and developers can build resilience to disruption of their identity systems.
+thumbnailUrl: /azure/architecture/browse/thumbs/admin-resilience-overview.png
+content: |
+  [!include[](resilience-overview-content.md)]

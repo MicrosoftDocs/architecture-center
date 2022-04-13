@@ -1,6 +1,6 @@
 
 
-This reference architecture shows how to deploy virtual machines (VMs) and a virtual network configured for an [N-tier](../../guide/architecture-styles/n-tier.md) application, using SQL Server on Windows for the data tier. [**Deploy this solution**](#deploy-the-solution).
+This reference architecture shows how to deploy virtual machines (VMs) and a virtual network configured for an [N-tier](../../guide/architecture-styles/n-tier.yml) application, using SQL Server on Windows for the data tier. [**Deploy this solution**](#deploy-the-solution).
 
 [![N-tier architecture using Microsoft Azure](./images/n-tier-sql-server.png)](./images/n-tier-sql-server.png)
 
@@ -178,7 +178,7 @@ For more information about health probes, see:
 - [Load Balancer health probes](/azure/load-balancer/load-balancer-custom-probe-overview)
 - [Application Gateway health monitoring overview](/azure/application-gateway/application-gateway-probe-overview)
 
-For considerations about designing a health probe endpoint, see [Health Endpoint Monitoring pattern](../../patterns/health-endpoint-monitoring.md).
+For considerations about designing a health probe endpoint, see [Health Endpoint Monitoring pattern](../../patterns/health-endpoint-monitoring.yml).
 
 ## Cost considerations
 
@@ -298,7 +298,7 @@ If you specify a region that supports availability zones, the VMs are deployed i
 [load-balancer-hashing]: /azure/load-balancer/components#load-balancing-rules
 [load-balancer]: /azure/load-balancer/load-balancer-standard-overview
 [multi-dc]: ./multi-region-sql-server.yml
-[n-tier]: ../../guide/architecture-styles/n-tier.md
+[n-tier]: ../../guide/architecture-styles/n-tier.yml
 [network-security]: /azure/best-practices-network-security
 [nsg]: /azure/virtual-network/virtual-networks-nsg
 [plan-network]: /azure/virtual-network/virtual-network-vnet-plan-design-arm
@@ -318,5 +318,5 @@ If you specify a region that supports availability zones, the VMs are deployed i
 [vmss-design]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview
 [vmss]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview
 [Windows-vm-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/windows
-[WAF-devops]: ../../framework/devops/overview.md
-[WAF-cost]: ../../framework/cost/overview.md
+[WAF-devops]: /azure/architecture/framework/devops/overview
+[WAF-cost]: /azure/architecture/framework/cost/overview

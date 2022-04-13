@@ -9,15 +9,19 @@ This reference implementation and demo is open source and intended to be used as
 
 Any governance model must be tied to the organization's business rules, which are reflected in any technical implementation of access controls. This example model uses a fictitious company with the following common scenario (with business requirements):
 
-- **Azure Active Directory (AD) groups that align with business domains and permissions models**   The organization has many vertical business domains, such as "fruits" and "vegetables," which operate largely independently. In each business domain, there are two levels or privileges, which are mapped to distinct `*-admins` or `*-devs` Azure AD groups. This allows developers to be targeted when configuring permissions in the cloud.
+- **Azure Active Directory (AD) groups that align with business domains and permissions models**  
+ The organization has many vertical business domains, such as "fruits" and "vegetables," which operate largely independently. In each business domain, there are two levels or privileges, which are mapped to distinct `*-admins` or `*-devs` Azure AD groups. This allows developers to be targeted when configuring permissions in the cloud.
 
-- **Deployment environments**   Every team has two environments:
+- **Deployment environments**  
+ Every team has two environments:
   - Production. Only admins have elevated privileges.
   - Non-production. All developers have elevated privileges (to encourage experimentation and innovation).
 
-- **Automation goals**   Every application should implement Azure DevOps not just for continuous integration (CI), but also for continuous deployment (CD). For example, deployments can be automatically triggered by changes to the Git repository.
+- **Automation goals**  
+ Every application should implement Azure DevOps not just for continuous integration (CI), but also for continuous deployment (CD). For example, deployments can be automatically triggered by changes to the Git repository.
 
-- **Cloud journey so far**   The organization started with an isolated project model to accelerate the journey to the cloud. But now they are exploring options to break silos and encourage collaboration by creating the "collaboration" and "supermarket" projects.
+- **Cloud journey so far**  
+ The organization started with an isolated project model to accelerate the journey to the cloud. But now they are exploring options to break silos and encourage collaboration by creating the "collaboration" and "supermarket" projects.
 
 This simplified diagram shows how branches in a Git repository map to development, staging, and production environments:
 
@@ -36,17 +40,21 @@ This diagram shows how linking from Resource Manager and CI/CD to Azure Active D
 
 The numbering reflects the order in which IT administrators and enterprise architects think about and configure their cloud resources.
 
-1. **Azure Active Directory**   We integrate Azure DevOps with [Azure AD](https://azure.microsoft.com/services/active-directory/) in order to have a single plane for identity. This means a developer uses the same Azure AD account for both Azure DevOps and Resource Manager. Users are not added individually. Instead, membership is assigned by Azure AD groups so that we can remove a developer's access to resources in a single step&#8212;by removing their Azure AD group memberships. For _each domain_, we create:
+1. **Azure Active Directory**  
+ We integrate Azure DevOps with [Azure AD](https://azure.microsoft.com/services/active-directory/) in order to have a single plane for identity. This means a developer uses the same Azure AD account for both Azure DevOps and Resource Manager. Users are not added individually. Instead, membership is assigned by Azure AD groups so that we can remove a developer's access to resources in a single step&#8212;by removing their Azure AD group memberships. For _each domain_, we create:
     - Azure AD groups. Two groups per domain (described further in step 4 and 5 later in this article).
     - Service principals. One explicit service principal _per environment_.
 
-2. **Production environment**   To simplify deployment, this reference implementation uses a resource group to represent the production environment. In practice, you should use a [different subscription](/azure/cloud-adoption-framework/govern/guides/standard/).
+2. **Production environment**  
+ To simplify deployment, this reference implementation uses a resource group to represent the production environment. In practice, you should use a [different subscription](/azure/cloud-adoption-framework/govern/guides/standard/).
 
    Privileged access to this environment is limited to administrators only.
 
-3. **Development environment**   To simplify deployment, this reference implementation uses a resource group to represent the development environment. In practice, you should use a [different subscription](/azure/cloud-adoption-framework/govern/guides/standard/).
+3. **Development environment**  
+ To simplify deployment, this reference implementation uses a resource group to represent the development environment. In practice, you should use a [different subscription](/azure/cloud-adoption-framework/govern/guides/standard/).
 
-4. **Role assignments in Resource Manager**   Although our Azure AD group names imply a role, access controls are not applied until a [role assignment](/azure/role-based-access-control/overview#role-assignments) is configured. This assigns a role to an Azure AD principal for a specific scope. For example, developers have the Contributor role on the production environment.
+4. **Role assignments in Resource Manager**  
+ Although our Azure AD group names imply a role, access controls are not applied until a [role assignment](/azure/role-based-access-control/overview#role-assignments) is configured. This assigns a role to an Azure AD principal for a specific scope. For example, developers have the Contributor role on the production environment.
 
    | Azure AD principal | Dev environment (Resource Manager) | Production environment (Resource Manager) |
    |:--|:--|:--|
@@ -59,7 +67,8 @@ The numbering reflects the order in which IT administrators and enterprise archi
 
    To understand the reasoning behind the individual role assignments, see the [considerations section](#considerations) later in this article.
 
-5. **Security group assignments in Azure DevOps**   Security groups function like roles in Resource Manager. Take advantage of built-in roles and default to [Contributor](/azure/devops/user-guide/roles?view=azure-devops#contributor-roles) for developers. Admins get assigned to the [Project Administrator](/azure/devops/user-guide/roles?view=azure-devops#project-administrators) security group for elevated permissions, allowing them to configure security permissions.
+5. **Security group assignments in Azure DevOps**  
+ Security groups function like roles in Resource Manager. Take advantage of built-in roles and default to [Contributor](/azure/devops/user-guide/roles?view=azure-devops#contributor-roles) for developers. Admins get assigned to the [Project Administrator](/azure/devops/user-guide/roles?view=azure-devops#project-administrators) security group for elevated permissions, allowing them to configure security permissions.
 
    Note that Azure DevOps and Resource Manager have _different_ permissions models:
     - Azure Resource Manager uses an [_additive_ permissions](/azure/role-based-access-control/overview#multiple-role-assignments) model.
@@ -83,11 +92,13 @@ The numbering reflects the order in which IT administrators and enterprise archi
 
     To understand the reasoning behind the individual role assignments, refer to the [considerations section](#considerations) later in this article.
 
-6. **Service connections**   In Azure DevOps, a [Service Connection](/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml) is a generic wrapper around a credential. We create a service connection that holds the service principal client ID and client secret. Project Administrators can configure access to this [protected resource](/azure/devops/pipelines/security/resources?view=azure-devops#protected-resources) when needed&#8212;for example when requiring human approval before deploying. This reference architecture has two minimum protections on the service connection:
+6. **Service connections**  
+ In Azure DevOps, a [Service Connection](/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml) is a generic wrapper around a credential. We create a service connection that holds the service principal client ID and client secret. Project Administrators can configure access to this [protected resource](/azure/devops/pipelines/security/resources?view=azure-devops#protected-resources) when needed&#8212;for example when requiring human approval before deploying. This reference architecture has two minimum protections on the service connection:
    - Admins must configure [pipeline permissions](/azure/devops/pipelines/security/resources?view=azure-devops#pipeline-permissions) to control which pipelines can access the credentials.
    - Admins must also configure a [branch control check](/azure/devops/pipelines/process/approvals?view=azure-devops&tabs=check-pass#branch-control) so that only pipelines running in the context of the `production` branch may use the `prod-connection`.
 
-7. **Git repositories**   Because our service connections are tied to branches via [branch controls](/azure/devops/pipelines/process/approvals?view=azure-devops&tabs=check-pass#branch-control), it's critical to configure permissions to the Git repositories and apply [branch policies](/azure/devops/repos/git/branch-policies?view=azure-devops). In addition to requiring CI builds to pass, we also require pull requests to have at least two approvers.
+7. **Git repositories**  
+ Because our service connections are tied to branches via [branch controls](/azure/devops/pipelines/process/approvals?view=azure-devops&tabs=check-pass#branch-control), it's critical to configure permissions to the Git repositories and apply [branch policies](/azure/devops/repos/git/branch-policies?view=azure-devops). In addition to requiring CI builds to pass, we also require pull requests to have at least two approvers.
 
 ### Components
 
@@ -126,7 +137,7 @@ The following concepts and questions are important to consider when designing a 
 
 ### 1. Safeguard your environments with branch policies
 
-Because your source code defines and triggers deployments, your first line of defense is to secure your source code management (SCM) repository. In practice, this is achieved by using the [Pull Request workflow](/azure/devops/repos/git/pull-requests-overview?view=azure-devops) in combination with [branch policies](/azure/devops/repos/git/branch-policies?view=azure-devops), which define checks and requirements before code can be accepted.
+Because your source code defines and triggers deployments, your first line of defense is to secure your source code management (SCM) repository. In practice, this is achieved by using the [Pull Request workflow](/azure/devops/repos/git/about-pull-requests) in combination with [branch policies](/azure/devops/repos/git/branch-policies?view=azure-devops), which define checks and requirements before code can be accepted.
 
 When planning your end-to-end governance model, privileged users (`veggies-admins`) will be responsible for configuring branch protection. Common branch protection checks used to secure your deployments include:
 

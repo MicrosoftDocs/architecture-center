@@ -6,7 +6,7 @@ Contoso is a European retailer operating mid-sized supermarkets. They have grown
 
 -   *What are the business challenges?*
 
-With the recent COVID-19 pandemic, customers have been making fewer physical trips to the supermarkets as many are concerned with health risks and are practicing safe distancing. As a result, Contoso has also seen an increase in the usage of buy online, pickup in store (BOPIS) which is also known as curbside pickup.
+With the recent COVID-19 pandemic, customers have been making fewer physical trips to the supermarkets as many are concerned with health risks and are practicing safe distancing. As a result, Contoso has also seen an increase in the usage of buy online, pick up in store (BOPIS), which is also known as curbside pickup.
 
 In order to ensure that their customers get the freshest quality produce, Contoso starts packing temperature-controlled items when their customers arrive. Due to the rise in usage and time taken to pack fresh produce, there is a longer than usual waiting time for curbside pickup. These increased waiting times have caused an increased amount of customer dissatisfaction, and surveys have shown that customers are choosing to use other retailers.
 
@@ -38,14 +38,16 @@ There are cases where the vehicles license details do not match the database or 
 
 The following table provides a summary of common use cases and corresponding IoT solutions. Each use case is an example of how an IoT process pattern can be applied to real-world scenarios.
 
-| Use case | Solutions | Pattern
-|---|---|---|
-| Obtain license plate details and cross-reference that with the respective customer order when the vehicle turns into the parking lot. To alert store associate immediately to start packing and preparing the order. | Use video analytics to detect license plates when the vehicle turns into the parking lot.  This information is reconciled with order management system and a task is sent to Teams which alerts and schedules a store associate to start packing. | [Monitor and manage loop](./monitor-manage-loop.yml) - The video analytics is part of the monitoring layer and the insights are actioned by the store associates as part of the manage pattern. |
-| Notify customer that store has started packing and will deliver the order soon. | When store associate starts task, system will cross-check with geofence rule of the customer location. A notification will be sent to the customer to let them know that their delivery is on the way when the system detects that the customer is in the boundaries of the geofence. | [Monitor and manage loop](./monitor-manage-loop.yml) - The geofence rule is monitoring the location of the customer and sending an alert when the customer is in the vicinity (manage)
+| Use case | Solutions
+|---|---|
+| Obtain license plate details and cross-reference that with the respective customer order when the vehicle turns into the parking lot. To alert store associate immediately to start packing and preparing the order. | Use video analytics to detect license plates when the vehicle turns into the parking lot.  This information is reconciled with order management system and a task is sent to Teams which alerts and schedules a store associate to start packing. |
+| Notify customer that store has started packing and will deliver the order soon. | When store associate starts task, system will cross-check with geofence rule of the customer location. A notification will be sent to the customer to let them know that their delivery is on the way when the system detects that the customer is in the boundaries of the geofence. |
 
 ## Architecture
 
-![Architecture diagram showing the data flow for the Buy online pick up in store IoT solution.](media/bopis.png)
+![Architecture diagram showing the data flow for the buy-online-pick-up-in-store IoT solution.](media/bopis.png)
+
+### Workflow
 
 1.  Video feed is obtained as cars come into the parking area. The IP camera hosting a Real-Time Streaming Protocol (RTSP) server sends the feed to Live View Analytics (LVA) module. The LVA module processes the frame rate and sends the image to Azure Cognitive Services running on the gateway. Azure Cognitive Services extracts only the license plate details and sends it to the cloud application.
 
@@ -105,6 +107,7 @@ For more details on implementations, take a look at some of these retail partner
 
 * [Oneview Commerce](https://www.oneviewcommerce.com)
 * [Ombori](https://ombori.com/)
+* [Avanade intelligent store](https://www.avanade.com/en/industry/retail/intelligent-store-whitepaper)
 
 ## Related resources
 

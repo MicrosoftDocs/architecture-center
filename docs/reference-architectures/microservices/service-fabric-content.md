@@ -39,7 +39,7 @@ The architecture consists of the following components. For other terms, see [Ser
 
 ## Design considerations
 
-This reference architecture is focused on [microservices architectures](../../guide/architecture-styles/microservices.md). A microservice is a small, independently versioned unit of code. It is discoverable through service discovery mechanisms and can communicate with other services over APIs. Each service is self-contained and should implement a single business capability. For more information about how to decompose your application domain into microservices, see [Using domain analysis to model microservices](../../microservices/model/domain-analysis.md).
+This reference architecture is focused on [microservices architectures](../../guide/architecture-styles/microservices.yml). A microservice is a small, independently versioned unit of code. It is discoverable through service discovery mechanisms and can communicate with other services over APIs. Each service is self-contained and should implement a single business capability. For more information about how to decompose your application domain into microservices, see [Using domain analysis to model microservices](../../microservices/model/domain-analysis.md).
 
 Service Fabric provides an infrastructure to build, deploy, and upgrade microservices efficiently. It also provides options for auto scaling, managing state, monitoring health, and restarting services in case of failure.
 
@@ -89,7 +89,7 @@ For more information, see:
 
 ### API gateway
 
-An [API gateway](../..//microservices/design/gateway.md) (ingress) sits between external clients and the microservices. It acts as a reverse proxy, routing requests from clients to microservices. It may also perform various cross-cutting tasks such as authentication, SSL termination, and rate limiting.
+An [API gateway](../../microservices/design/gateway.yml) (ingress) sits between external clients and the microservices. It acts as a reverse proxy, routing requests from clients to microservices. It may also perform various cross-cutting tasks such as authentication, SSL termination, and rate limiting.
 
 Azure API Management is recommended for most scenarios, but [Traefik](https://docs.traefik.io) is a popular open-source alternative. Both technology options are integrated with Service Fabric.
 
@@ -179,7 +179,7 @@ Place your services in a node type other than the primary node type. The Service
 
 Consider constraining the resources of your services. See [Resource governance mechanism](/azure/service-fabric/service-fabric-resource-governance#resource-governance-mechanism).
 
-- Do not mix resource governed and resource non-governed services on the same node type. The non-governed services might consume too many resources, affecting the resource governed services. Specify [placement constraints](/azure/service-fabric/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies) to make sure that those types of services do not run on the same set of nodes. See [Specify resource governance](/azure/service-fabric/service-fabric-resource-governance#specify-resource-governance). (This is an example of the [Bulkhead pattern](../../patterns/bulkhead.md).)
+- Do not mix resource governed and resource non-governed services on the same node type. The non-governed services might consume too many resources, affecting the resource governed services. Specify [placement constraints](/azure/service-fabric/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies) to make sure that those types of services do not run on the same set of nodes. See [Specify resource governance](/azure/service-fabric/service-fabric-resource-governance#specify-resource-governance). (This is an example of the [Bulkhead pattern](../../patterns/bulkhead.yml).)
 - Specify the CPU cores and memory to reserve for a service instance. For information about usage and limitations of resource governance policies, see [Resource governance](/azure/service-fabric/service-fabric-resource-governance).
 
 Make sure every service's target instance or replica count is greater than 1 to avoid a single point of failure (SPOF). The largest number that you can use as service instance or replica count equals the number nodes that to which the service is constrained.
@@ -207,7 +207,7 @@ To secure your interservice communications:
 - Consider enabling HTTPS endpoints in your ASP.NET Core or Java web services.
 - Establish a secure connection between the reverse proxy and services.  For details, see [Connect to a secure service](/azure/service-fabric/service-fabric-reverseproxy-configure-secure-communication).
 
-If you are using an [API gateway](../../microservices/design/gateway.md), you can [offload authentication](../../patterns/gateway-offloading.md) to the gateway. Make sure that the individual services cannot be reached directly (without the API gateway) unless additional security is in place to authenticate messages whether they come from the gateway.
+If you are using an [API gateway](../../microservices/design/gateway.yml), you can [offload authentication](../../patterns/gateway-offloading.yml) to the gateway. Make sure that the individual services cannot be reached directly (without the API gateway) unless additional security is in place to authenticate messages whether they come from the gateway.
 
 Do not expose the Service Fabric reverse proxy publicly. Doing so causes all services that expose HTTP endpoints to be addressable from outside the cluster, introducing security vulnerabilities and potentially exposing additional information outside the cluster unnecessarily. If you want to access a service publicly, use an API gateway. Some options are mentioned in the [API gateway](#api-gateway) section.
 
@@ -280,9 +280,9 @@ For more information about securing Service Fabric, see:
 
 To recover from failures and maintain a fully functioning state, the application must implement certain resiliency patterns. Here are some common patterns:
 
-- [Retry pattern](../../patterns/retry.md): To handle errors that are expected to be transient, such as resources being temporarily unavailable.
-- [Circuit breaker](../../patterns/circuit-breaker.md): To address faults that might need longer to fix.
-- [Bulkhead pattern](../../patterns/bulkhead.md): To isolate resources per service.
+- [Retry pattern](../../patterns/retry.yml): To handle errors that are expected to be transient, such as resources being temporarily unavailable.
+- [Circuit breaker](../../patterns/circuit-breaker.yml): To address faults that might need longer to fix.
+- [Bulkhead pattern](../../patterns/bulkhead.yml): To isolate resources per service.
 
 This reference implementation uses [Polly](https://github.com/App-vNext/Polly), an open-source option, to implement all of those patterns.
 
@@ -427,7 +427,7 @@ This reference architecture only uses Azure Pipelines. Azure offers the Azure Pi
 
 ### Azure Pipelines
 
-The reference implementation is deployed using Azure Pipelines. For DevOps considerations in a microservices architecture, see [CI/CD for microservices](../../microservices/ci-cd.md)
+The reference implementation is deployed using Azure Pipelines. For DevOps considerations in a microservices architecture, see [CI/CD for microservices](../../microservices/ci-cd.yml)
 
 You can also learn how to deploy a container application with CI/CD to a Service Fabric cluster, in this [tutorial][service-fabric-tutorial].
 
@@ -441,11 +441,11 @@ To deploy the reference implementation for this architecture, follow the steps i
 ## Next steps
 
 - [Using domain analysis to model microservices](../../microservices/model/domain-analysis.md)
-- [Designing a microservices architecture](../../microservices/design/index.md)
+- [Designing a microservices architecture](../../microservices/design/index.yml)
 
 [sfx]: /azure/service-fabric/service-fabric-visualizing-your-cluster
 [service-fabric-tutorial]: /azure/service-fabric/service-fabric-tutorial-deploy-container-app-with-cicd-vsts
-[aaf-cost]: ../../framework/cost/overview.md
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [ap-insight-cost]: /azure/azure-monitor/app/pricing
 [Api-Management-pricing]: https://azure.microsoft.com/pricing/details/api-management
 [az-monitor-pricing]: https://azure.microsoft.com/pricing/details/monitor

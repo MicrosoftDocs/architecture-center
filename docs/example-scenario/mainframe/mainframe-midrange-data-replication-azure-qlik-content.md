@@ -22,6 +22,8 @@ This solution may be appropriate for:
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1875751-PR-3888-mainframe-midrange-data-replication-azure-qlik.vsdx) of this architecture.*
 
+### Workflow
+
 1. **Host agent:** The Host agent on the on-premises system captures change log information from Db2, IMS, and VSAM data stores, and passes it to the Qlik Replication server.
 1. **Replication server:** The Qlik Replication server software passes the change log information to Kafka and Azure Event Hubs. Qlik in this example is on-premises, but it could instead be deployed on a virtual machine in Azure.
 1. **Stream ingestion:** Kafka and Event Hubs provide message brokers  to receive and store change log information.
@@ -79,7 +81,7 @@ The solution uses the components that are listed in the following subsections.
 
 ## Considerations
 
-Incorporate the following pillars of the [Microsoft Azure Well-Architected Framework](../../framework/index.md) for a highly available and secure system:
+Incorporate the following pillars of the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index) for a highly available and secure system:
 
 ### Availability
 
@@ -103,7 +105,7 @@ Databricks, Data Lake Storage, and other Azure databases have auto-scaling capab
 ### Resiliency
 
 - You can combine Monitor's Application Insights and Log Analytics features to monitor the health of Azure resources. You can set alerts so that you can manage proactively.
-- For guidance on resiliency in Azure, see [Designing reliable Azure applications](../../framework/resiliency/app-design.md).
+- For guidance on resiliency in Azure, see [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
 
 ## Pricing
 

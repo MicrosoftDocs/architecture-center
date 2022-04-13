@@ -1,0 +1,25 @@
+### YamlMime:Architecture
+metadata:
+  title: Automated API deployments using APIOps
+  titleSuffix: Azure Example Scenarios
+  description: Use APIOps with an Azure API Management instance to build and deploy APIs. This solution provides self-service tools, auditing, policy enforcement, and early feedback.
+  author: rishabhsaha
+  ms.author: risaha
+  ms.date: 04/08/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.custom: fcp
+azureCategories:
+  - devops
+  - developer-tools
+  - management-and-governance
+products:
+  - azure-api-management
+  - azure-devops
+  - azure-pipelines
+name: Automate API deployments with APIOps
+summary: Use APIOps with an API Management instance to build and deploy APIs. This solution provides self-service tools, auditing, policy enforcement, and early feedback.
+thumbnailUrl: /azure/architecture/browse/thumbs/automated-api-deployments-architecture-diagram.png
+content: |
+  [!include[](automated-api-deployments-apiops-content.md)]

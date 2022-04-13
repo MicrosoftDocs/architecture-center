@@ -1,0 +1,21 @@
+### YamlMime:Architecture
+metadata:
+  title: API gateways
+  description: An API gateway sits between clients and services and acts as a reverse proxy. Learn how to choose an API gateway technology for a microservice.
+  author: EdPrice-MSFT
+  ms.author: edprice
+  ms.date: 10/23/2018
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - web
+  - developer-tools
+products:
+  - azure-application-gateway
+  - azure-api-management
+name: Using API gateways in microservices
+summary: An API gateway sits between clients and services and acts as a reverse proxy. Learn how to choose an API gateway technology for a microservice.
+thumbnailUrl: /azure/architecture/browse/thumbs/gateway.png
+content: |
+  [!include[](gateway-content.md)]

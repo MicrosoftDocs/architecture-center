@@ -19,11 +19,11 @@ Many components and Azure services are used in the multi-region AKS reference ar
 
 ## Design patterns
 
-This reference architecture uses two cloud design patterns. [Geographical Node (geodes)](../../../patterns/geodes.md), where any region can service any request, and [Deployment Stamps](../../../patterns/deployment-stamp.md) where multiple independent copies of an application or application component are deployed from a single source (deployment template).
+This reference architecture uses two cloud design patterns. [Geographical Node (geodes)](../../../patterns/geodes.yml), where any region can service any request, and [Deployment Stamps](../../../patterns/deployment-stamp.yml) where multiple independent copies of an application or application component are deployed from a single source (deployment template).
 
 #### Geographical Node pattern considerations
 
-When selecting regions into which each AKS cluster will be deployed, consider regions close to the workload consumer or your customers. Also, consider utilizing paired Azure regions. Paired regions consist of two regions within the same geography, which influence how Azure maintenance is performed. As your cluster scales beyond two regions, continue to plan for regional pair placement for each pair of AKS clusters. For more information on pared regions, see [Azure Paired Regions](/azure/best-practices-availability-paired-regions).
+When selecting regions into which each AKS cluster will be deployed, consider regions close to the workload consumer or your customers. Also, consider utilizing paired Azure regions. Paired regions consist of two regions within the same geography, which influence how Azure maintenance is performed. As your cluster scales beyond two regions, continue to plan for regional pair placement for each pair of AKS clusters. For more information on paired regions, see [Azure Paired Regions](/azure/best-practices-availability-paired-regions).
 
 Within each region, the nodes in the AKS node pools are spread across multiple availability zones to help prevent issues due to zonal failures. Availability zones are supported in a limited set of regions, which influences regional cluster placement. For more information on AKS and Availability zones, including a list of supported regions, see [AKS Availability Zones](/azure/aks/availability-zones).
 
@@ -185,7 +185,7 @@ This configuration is defined in the cluster stamp ARM template so that each tim
 
 #### Log Analytics and Azure Monitor
 
-The Azure Monitor for containers feature is the recommended tool for monitoring and logging because you can view events in real time. Azure Monitor utilizes a Log Analytics workspace for storing diagnostic logs. See the [AKS Baseline Reference Architecture](../aks/secure-baseline-aks.yml#monitor-and-collect-metrics) for more information.
+The Azure Monitor container insights feature is the recommended tool for monitoring and logging because you can view events in real time. Azure Monitor utilizes a Log Analytics workspace for storing diagnostic logs. See the [AKS Baseline Reference Architecture](../aks/secure-baseline-aks.yml#monitor-and-collect-metrics) for more information.
 
 When considering monitoring for a cross-region implementation such as this reference architecture, it is important to consider the coupling between each stamp. In this case, consider each stamp a component of a single unit (regional cluster). The multi-region AKS reference implementation utilizes a single Log Analytics workspace, shared by each Kubernetes cluster. Like with the other shared resources, define your regional stamp to consume information about the single log analytics workspace and connect each cluster to it.
 
@@ -229,4 +229,4 @@ If your workload utilizes a caching solution, ensure that it is architected so t
 
 ### Cost management
 
-Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs for the services used in the architecture. Other best practices are described in the [Cost Optimization](../../../framework/cost/overview.md) section in Microsoft Azure Well-Architected Framework.
+Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs for the services used in the architecture. Other best practices are described in the [Cost Optimization](/azure/architecture/framework/cost/overview) section in Microsoft Azure Well-Architected Framework.

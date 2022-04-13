@@ -6,6 +6,8 @@ This article describes a warehouse management scenario that monitors environment
 
 ## Potential use cases
 
+This solution is ideal for the environment, manufacturing, transportation, and agriculture industries.
+
 - **Fleet management:** This solution can be used where routes need to be optimized for safety based on the evolving conditions of surrounding areas.
 - **Agriculture:** Predicting wildfires that will impact the safety of workers and livestock is critical. By providing ample lead time for danger notifications, people in the affected area can evacuate to safety. Farms can also equip livestock areas with automated gates that can unlock and open in dire situations, allowing animals to escape.
 
@@ -13,6 +15,8 @@ This article describes a warehouse management scenario that monitors environment
 
 [ ![Architecture diagram showing the data flow for the Environmental Monitoring and the Supply Chain solution](../media/environment-monitor-supply-chain.png)](../media/environment-monitor-supply-chain.png#lightbox)
 *Download an [SVG of this architecture](../media/environment-monitor-supply-chain.svg).*
+
+### Workflow
 
 1. Sensors in the warehouse facility are connected and send data to a LoRa (**Lo**ng **Ra**nge) gateway.
 
@@ -40,15 +44,15 @@ This article describes a warehouse management scenario that monitors environment
 
 ### Components
 
-- [Azure IoT Central](https://azure.microsoft.com/services/iot-central/) is used as the IoT managed platform. It provides security, scalability, and availability as part of the service so that customers can focus efforts on business requirements. Users can integrate with business components such as Power Apps and Power BI, and create notifications through the [data export feature in IoT Central](/azure/iot-central/core/howto-export-data).
+- [Azure IoT Central](https://azure.microsoft.com/services/iot-central) is used as the IoT managed platform. It provides security, scalability, and availability as part of the service so that customers can focus efforts on business requirements. Users can integrate with business components such as Power Apps and Power BI, and create notifications through the [data export feature in IoT Central](/azure/iot-central/core/howto-export-data).
 
-- [Azure storage](https://azure.microsoft.com/services/storage/) is used for storing device information in the cloud in a secure and scalable way that is also cost-effective. The data stored is used for training the ML models.
+- [Azure storage](https://azure.microsoft.com/services/storage) is used for storing device information in the cloud in a secure and scalable way that is also cost-effective. The data stored is used for training the ML models.
 
-- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is used to store application key performance indicators (KPIs) and model outputs. Cosmos DB is a fully managed NoSQL database service for modern application development. It provides high-speed transactions and can easily enable the service for global distribution.
+- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) is used to store application key performance indicators (KPIs) and model outputs. Cosmos DB is a fully managed NoSQL database service for modern application development. It provides high-speed transactions and can easily enable the service for global distribution.
 
-- [Azure Databricks](https://azure.microsoft.com/services/databricks/) is a data analytics platform optimized for the Microsoft Azure cloud services platform. It is used for transforming, manipulating, and normalizing data so that it can be properly consumed by the machine learning pipeline.
+- [Azure Databricks](https://azure.microsoft.com/services/databricks) is a data analytics platform optimized for the Microsoft Azure cloud services platform. It is used for transforming, manipulating, and normalizing data so that it can be properly consumed by the machine learning pipeline.
 
-- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) is used to create wildfire prediction models. The models provide the intelligence required to assess the risk of a wildfire. Input from multiple data sources is required to train the model for accuracy. This can include satellite imagery, historical data, local soil conditions, and weather data. Based on the predicated wildfire area from the model, the Supply Chain and Logistics Solution can reroute trucks.
+- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) is used to create wildfire prediction models. The models provide the intelligence required to assess the risk of a wildfire. Input from multiple data sources is required to train the model for accuracy. This can include satellite imagery, historical data, local soil conditions, and weather data. Based on the predicated wildfire area from the model, the Supply Chain and Logistics Solution can reroute trucks.
 
 For more detailed discussions, see the [Azure IoT reference architecture](../../reference-architectures/iot.yml) to understand and explore the various implementation choices available.
 
@@ -76,11 +80,11 @@ Warehouse operators and major distribution centers will benefit from a predictiv
 
 The table below provides a summary of common use cases and corresponding IoT solutions. Each use case is an example of how an IoT process pattern can be applied to real-world scenarios.
 
-| Use case | Solutions | Pattern
-|---|---|---|
-| Enable supply chain logistics rerouting and production planning by predicting likelihood of interruption due to wildfires near the impacted location. | Ideally, you want to be able to monitor all the key elements of the supply chain so that you can provide a more comprehensive response. [myDevices](https://mydevices.com/) has a catalog of certified plug and play devices that connect to a [LoRa](https://en.wikipedia.org/wiki/LoRa) network gateway. The gateway sends data to the cloud application using cellular connectivity. LoRa technology is ideal because the signal needs to penetrate deep into the buildings. Sensors for CO2, temperature, humidity, wind direction, and air quality can be installed in relevant building locations including roofs and storage facilities. Sensors can also be installed in trucks for location tracking to facilitate rerouting. | [Analyze and optimize](../../example-scenario/iot/analyze-optimize-loop.yml) |
-| Identify wildfire conditions and understand the degree of danger for a given location. | Wildfire prediction models trained with historical data, micro-weather conditions, and local sensor data can help assess the risk of a wildfire. | [Analyze and optimize](../../example-scenario/iot/analyze-optimize-loop.yml) |
-| Automated alerts for evacuation and facility rerouting | Once unsafe conditions are detected, the digital twin of the facility can then be updated to show that it's no longer online. Once updated, other distribution centers within the network can begin to reroute traffic accordingly, allowing on-site facility managers and warehouse operators to focus on employee safety. This scenario uses ML to predict where the wildfire will spread, using public real-time and historical data sets along with micro weather data for more accurate predictions. Sensors track current wildfire conditions, and facility alarms trigger employee evacuation. | [Analyze and optimize](../../example-scenario/iot/analyze-optimize-loop.yml) |
+| Use case | Solutions
+|---|---|
+| Enable supply chain logistics rerouting and production planning by predicting likelihood of interruption due to wildfires near the impacted location. | Ideally, you want to be able to monitor all the key elements of the supply chain so that you can provide a more comprehensive response. [myDevices](https://mydevices.com/) has a catalog of certified plug and play devices that connect to a [LoRa](https://en.wikipedia.org/wiki/LoRa) network gateway. The gateway sends data to the cloud application using cellular connectivity. LoRa technology is ideal because the signal needs to penetrate deep into the buildings. Sensors for CO2, temperature, humidity, wind direction, and air quality can be installed in relevant building locations including roofs and storage facilities. Sensors can also be installed in trucks for location tracking to facilitate rerouting. |
+| Identify wildfire conditions and understand the degree of danger for a given location. | Wildfire prediction models trained with historical data, micro-weather conditions, and local sensor data can help assess the risk of a wildfire. |
+| Automated alerts for evacuation and facility rerouting | Once unsafe conditions are detected, the digital twin of the facility can then be updated to show that it's no longer online. Once updated, other distribution centers within the network can begin to reroute traffic accordingly, allowing on-site facility managers and warehouse operators to focus on employee safety. This scenario uses ML to predict where the wildfire will spread, using public real-time and historical data sets along with micro weather data for more accurate predictions. Sensors track current wildfire conditions, and facility alarms trigger employee evacuation. |
 
 ## Considerations
 
@@ -96,17 +100,18 @@ In a remote setting, it's critical that devices are easy to deploy without requi
 
 ## Next steps
 
-- [IoT in transportation and logistics](https://azure.microsoft.com/overview/iot/industry/transportation-and-logistics/): How Azure can be used to bring greater efficiency and reliability to your value chain with world-class IoT and location intelligence services.
+- [IoT in transportation and logistics](https://azure.microsoft.com/overview/iot/industry/transportation-and-logistics): How Azure can be used to bring greater efficiency and reliability to your value chain with world-class IoT and location intelligence services.
 - [Architecture of IoT Central connected logistics application template](/azure/iot-central/retail/architecture-connected-logistics): An app template and guidance for developing end to end connected logistics solutions.
 - [Bing Maps Truck Routing API](https://www.microsoft.com/en-us/maps/truck-routing/): A commercial routing tool that calculates safe and efficient routes and considers a vehicle's attributes in relation to any route limitations.
-- [Process real-time vehicle data using IoT](../../example-scenario/data/realtime-analytics-vehicle-iot.yml): A reference architecture for ingesting real-time vehicle data for analysis, including route optimization.
-
-## Related resources
-
 - [Azure Digital Twins - Supply Chain demo](https://github.com/Azure-Samples/IoTDemos/tree/master/ADT-SupplyChainDemo) uses Digital Twins to model a supply chain scenario.
 - [myDevices](https://mydevices.com/) provides LoRa connectivity and devices that enable solutions to be deployed quickly in locations where connectivity is a challenge and broad network coverage is needed.
 - [C.H. Robinson Navisphere](https://news.microsoft.com/2020/07/14/c-h-robinson-announces-alliance-with-microsoft-to-digitally-transform-the-supply-chain-of-the-future/) works with Microsoft Azure and Azure IoT to provide real-time visibility into the supply chain and for more predictability and proactive decision making.
 - [EPA AirNow API](https://docs.airnowapi.org/) provides access to real-time air quality and wildfire data from [AirNow](https://www.airnow.gov/), a service maintained by the US Environmental Protection Agency (EPA) and other federal, tribal, state, and local agencies.
+
+## Related resources
+
+- [Azure IoT reference architecture](../../reference-architectures/iot.yml) 
+- [Process real-time vehicle data using IoT](../../example-scenario/data/realtime-analytics-vehicle-iot.yml): A reference architecture for ingesting real-time vehicle data for analysis, including route optimization.
 - [Condition monitoring for industrial IoT](./condition-monitoring.yml) is an example scenario demonstrating how end manufacturers can connect their assets to the cloud using OPC UA (Open Platform Communication Unified Architecture) and the Industrial Components.
 - [IoT and data analytics](../../example-scenario/data/big-data-with-iot.yml) is an example scenario for building solutions that integrate data from many IoT devices into a comprehensive data analysis architecture to improve and automate decision making.
 - [IoT monitor and manage loops](../../example-scenario/iot/monitor-manage-loop.yml) is a design pattern describing a supervisory system that continually monitors a physical system controlled by a set of networked IoT devices.

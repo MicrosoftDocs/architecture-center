@@ -28,6 +28,8 @@ These use cases can benefit from a multi-region deployment:
 
 *Download a [Visio file][visio-download] of this architecture.*
 
+### Workflow
+
 This architecture builds on the one shown in [Improve scalability in a web application][guidance-web-apps-scalability]. The main differences are:
 
 - **Primary and secondary regions**. This architecture uses two regions to achieve higher availability. The application is deployed to each region. During normal operations, network traffic is routed to the primary region. If the primary region becomes unavailable, traffic is routed to the secondary region.
@@ -96,11 +98,13 @@ For Azure Storage, use [read-access geo-redundant storage][ra-grs] (RA-GRS). Wit
 
 For Queue storage, create a backup queue in the secondary region. During failover, the app can use the backup queue until the primary region becomes available again. That way, the application can still process new requests.
 
-## Availability considerations
+## Considerations
+
+### Availability
 
 Consider these points when designing for high availability across regions.
 
-### Azure Front Door
+#### Azure Front Door
 
 Azure Front Door automatically fails over if the primary region becomes unavailable. When Front Door fails over, there is a period of time (usually about 20-60 seconds) when clients cannot reach the application. The duration is affected by the following factors:
 
@@ -111,15 +115,15 @@ Front Door is a possible failure point in the system. If the service fails, clie
 
 <!-- markdownlint-disable MD024 -->
 
-### SQL Database
+#### SQL Database
 
 The recovery point objective (RPO) and estimated recovery time (ERT) for SQL Database are documented in [Overview of business continuity with Azure SQL Database][sql-rpo].
 
-### Cosmos DB
+#### Cosmos DB
 
 RPO and recovery time objective (RTO) for Cosmos DB are configurable via the consistency levels used, which provide trade-offs between availability, data durability, and throughput. Cosmos DB provides a minimum RTO of 0 for a relaxed consistency level with multi-master or an RPO of 0 for strong consistency with single-master. To learn more about Cosmos DB consistency levels, see [Consistency levels and data durability in Cosmos DB](/azure/cosmos-db/consistency-levels-tradeoffs#rto).
 
-### Storage
+#### Storage
 
 RA-GRS storage provides durable storage, but it's important to understand what can happen during an outage:
 
@@ -135,7 +139,17 @@ RA-GRS storage provides durable storage, but it's important to understand what c
 
 For more information, see [What to do if an Azure Storage outage occurs][storage-outage].
 
-## Cost considerations
+### Manageability
+
+If the primary database fails, perform a manual failover to the secondary database. See [Restore an Azure SQL Database or failover to a secondary][sql-failover]. The secondary database remains read-only until you fail over.
+
+### DevOps
+
+This architecture follows the multi region deployment recommendation, described in the [DevOps section of the Azure Well Architected Framework][AAF-devops-deployment-multi-region].
+
+This architecture builds on the one shown in [Improve scalability in a web application][guidance-web-apps-scalability], see [DevOps considerations section][guidance-web-apps-scalability-devops].
+
+## Pricing
 
 Use the [pricing calculator][pricing-calculator] to estimate costs. These recommendations in this section may help you to reduce cost.
 
@@ -153,17 +167,7 @@ There are two factors that determine Azure Cosmos DB pricing:
 
 - Consumed storage. You are billed a flat rate for the total amount of storage (GBs) consumed for data and the indexes for a given hour.
 
-For more information, see the cost section in [Microsoft Azure Well-Architected Framework](../../framework/cost/overview.md).
-
-## Manageability considerations
-
-If the primary database fails, perform a manual failover to the secondary database. See [Restore an Azure SQL Database or failover to a secondary][sql-failover]. The secondary database remains read-only until you fail over.
-
-## DevOps considerations
-
-This architecture follows the multi region deployment recommendation, described in the [DevOps section of the Azure Well Architected Framework][AAF-devops-deployment-multi-region].
-
-This architecture builds on the one shown in [Improve scalability in a web application][guidance-web-apps-scalability], see [DevOps considerations section][guidance-web-apps-scalability-devops].
+For more information, see the cost section in [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/cost/overview).
 
 ## Next steps
 
@@ -173,23 +177,22 @@ This architecture builds on the one shown in [Improve scalability in a web appli
 
 - Enable [Azure SQL auto-failover groups][sql-failover]
 
+- [Ensure business continuity and disaster recovery using Azure Paired Regions](/azure/best-practices-availability-paired-regions)
+
 ## Related resources
 
 - [Multi-region N-tier application](../n-tier/multi-region-sql-server.yml) is a similar scenario. It shows an N-tier application running in multiple Azure regions
 
-- [Design principles for Azure Application][Design-principles-for-Azure-Application] summarize design principles for Azure applications
-
-- [Ensure business continuity & disaster recovery using Azure Paired Regions](/azure/best-practices-availability-paired-regions)
-
+- [Design principles for Azure applications][Design-principles-for-Azure-Application]
 
 <!-- links -->
 
 [AFD-pricing]: https://azure.microsoft.com/pricing/details/frontdoor
-[AAF-devops-deployment-multi-region]: ../../framework/devops/release-engineering-cd.md#consider-deploying-across-multiple-regions
+[AAF-devops-deployment-multi-region]: /azure/architecture/framework/devops/release-engineering-cd#consider-deploying-across-multiple-regions
 [bandwidth-pricing]: https://azure.microsoft.com/pricing/details/bandwidth
 [cosmosdb-geo]: /azure/cosmos-db/distribute-data-globally
 [guidance-web-apps-scalability]: ./scalable-web-app.yml
-[guidance-web-apps-scalability-devops]: ./scalable-web-app.yml#devops-considerations
+[guidance-web-apps-scalability-devops]: ./scalable-web-app.yml#devops
 [pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [ra-grs]: /azure/storage/common/storage-designing-ha-apps-with-ragrs
 [regional-pairs]: /azure/best-practices-availability-paired-regions
