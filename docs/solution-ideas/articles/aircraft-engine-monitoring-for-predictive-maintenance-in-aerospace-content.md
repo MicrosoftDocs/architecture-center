@@ -4,6 +4,10 @@ Microsoft Azure's Predictive Maintenance solution demonstrates how to combine re
 
 This solution is built with [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics), [Event Hubs](https://azure.microsoft.com/services/event-hubs), [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning), [HDInsight](https://azure.microsoft.com/services/hdinsight), [Azure SQL Database](https://azure.microsoft.com/services/sql-database), [Data Factory](https://azure.microsoft.com/services/data-factory), and [Power BI](https://powerbi.microsoft.com). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
 
+## Potential use cases
+
+
+
 ## Architecture
 
 ![Architecture diagram: aircraft engine monitoring for predictive aircraft maintenance with Azure.](../media/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.png)
