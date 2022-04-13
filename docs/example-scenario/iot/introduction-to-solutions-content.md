@@ -1,4 +1,4 @@
-This article describes basic concepts and patterns that are common to internet-of-things (IoT) solutions. In IoT solutions, *events* generate*insights*, which trigger *actions* that improve a business process. Cloud-hosted services and applications determine actions to take, based on events that devices send.
+This article describes basic concepts and patterns that are common to internet-of-things (IoT) solutions. In IoT solutions, *events* generate *insights*, which trigger *actions* that improve a business process. Cloud-hosted services and applications determine actions to take, based on events that devices send.
 
 The following diagram illustrates how *events* generate *insights* to inform *actions* in IoT solutions.
 
@@ -39,7 +39,7 @@ While the event data doesn't change, gathering events and applying different typ
 
 |Type of data|Event|Insight|Action
 |---|---|---|---|
-|Univariant monitoring|Report single event with temperature out of operating range.|Contextual: Single event.<br />Cooling system malfunction.|Service: Invoke maintenance service dispatch.|
+|Univariate monitoring|Report single event with temperature out of operating range.|Contextual: Single event.<br />Cooling system malfunction.|Service: Invoke maintenance service dispatch.|
 |Multi-variant monitoring|Monitor and analyze real-time events for operating temperature anomalies.|Real-time: Several events.<br />Temperature needs adjustment to stay in range.|Device: Notify devices to adjust temperatures.|
 |Pattern analysis|Gather events over many days to analyze ongoing maintenance patterns.|Aggregated: Many events.<br />Malfunctions happen more often during certain periods.|Analog: Modify regular system maintenance schedule.|
 
