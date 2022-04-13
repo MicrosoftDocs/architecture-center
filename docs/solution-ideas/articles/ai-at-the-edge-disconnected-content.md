@@ -2,9 +2,15 @@
 
 With the Azure AI tools, edge, and cloud platform, edge intelligence is possible. AI-enabled hybrid applications can run where your data lives, on-premises. With [Azure Stack Hub](/azure-stack/operator/azure-stack-overview), bring a trained AI model to the edge and integrate it with your applications for low-latency intelligence, with no tool or process changes for local applications. With Azure Stack Hub, you can ensure that your cloud solutions work even when disconnected from the internet.
 
+This solution idea shows a disconnected Stack Hub scenario. Issues of latency, intermittent connectivity, or regulations might not always allow for connectivity to Azure. In the disconnected scenario, data is processed locally and later aggregated in Azure for further analytics. For the connected version of this scenario, see the article [AI at the edge](./ai-at-the-edge.yml).
+
 ## Potential use cases
 
-This solution idea shows a disconnected Stack Hub scenario. Issues of latency, intermittent connectivity, or regulations may not always allow for connectivity to Azure. In the disconnected scenario, data is processed locally and later aggregated in Azure for further analytics. For the connected version of this scenario, see the article [AI at the edge](./ai-at-the-edge.yml).
+You might need to deploy as disconnected if you have the following concerns or considerations:
+
+* You have security or other restrictions that require you to deploy Azure Stack Hub in an environment that isn't connected to the internet.
+* You want to block data (including usage data) from being sent to Azure.
+* You want to use Azure Stack Hub purely as a private cloud solution that's deployed to your corporate intranet, and aren't interested in hybrid scenarios.
 
 ## Architecture
 
