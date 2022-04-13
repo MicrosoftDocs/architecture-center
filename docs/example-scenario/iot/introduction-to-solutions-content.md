@@ -1,4 +1,4 @@
-This article describes basic concepts and patterns that are common to internet-of-things (IoT) solutions. In IoT systems, *events*, *insights*, and *actions* happen across devices, platforms, and applications. Cloud-hosted services and applications determine actions to take, based on events that devices send.
+This article describes basic concepts and patterns that are common to internet-of-things (IoT) solutions. In IoT solutions, *events* generate*insights*, which trigger *actions* that improve a business process. Cloud-hosted services and applications determine actions to take, based on events that devices send.
 
 The following diagram illustrates how *events* generate *insights* to inform *actions* in IoT solutions.
 
@@ -6,11 +6,11 @@ The following diagram illustrates how *events* generate *insights* to inform *ac
 
 1. Devices generate events and send them to cloud applications.
 1. Applications derive insights by evaluating data from incoming device events.
-1. Based on insights, applications take action via commands that run processes on the devices.
+1. Based on insights, applications take action by running processes and workflows. Applications can also send commands to the devices.
 
 ## Architecture
 
-The following example shows the interaction of events, insights, and actions in an IoT food storage temperature monitoring system.
+The following example shows the interaction of events, insights, and actions in a food storage temperature monitoring IoT solution.
 
 In this system:
 
@@ -25,10 +25,10 @@ In this system:
 
 The example shows the following process:
 
-1. The primary cooling system sends temperature samples to IoT Hub, via device-to-cloud events, every 30 seconds.
+1. The primary cooling system sends temperature data to IoT Hub, via device-to-cloud events, every 30 seconds.
 1. Routing rules in IoT Hub evaluate events for immediate contextual insights, such as temperatures at malfunctioning levels.
 1. If the temperature is at a malfunctioning level, event routing sends the event to specific handlers to take action.
-1. A handler invokes an action to another process to dispatch maintenance to the site.
+1. A handler invokes an action to dispatch maintenance to the site via Maintenance Services.
 1. A handler sends a command to start the backup cooling system while maintenance is on the way.
 
 ## Considerations
@@ -37,11 +37,11 @@ Considering events, insights, and actions can help expand IoT scenarios. In this
 
 While the event data doesn't change, gathering events and applying different types of insights to the data enables different actions. This strategy is powerful for operating large numbers of devices at multiple locations.
 
-|Event|Insight|Action
-|---|---|---|
-|Notification: Report single event with temperature out of operating range.|Contextual: Single event.<br />Cooling system malfunction.|Service: Invoke maintenance service dispatch.|
-|Acknowledgment: Monitor and analyze real-time events for operating temperature anomalies.|Real-time: Several events.<br />Temperature needs adjustment to stay in range.|Device: Notify devices to adjust temperatures.|
-|Telemetry: Gather events over many days to analyze ongoing maintenance patterns.|Aggregated: Many events.<br />Malfunctions happen more often during certain periods.|Analog: Modify regular system maintenance schedule.|
+|Type of data|Event|Insight|Action
+|---|---|---|---|
+|Univariant monitoring|Report single event with temperature out of operating range.|Contextual: Single event.<br />Cooling system malfunction.|Service: Invoke maintenance service dispatch.|
+|Multi-variant monitoring|Monitor and analyze real-time events for operating temperature anomalies.|Real-time: Several events.<br />Temperature needs adjustment to stay in range.|Device: Notify devices to adjust temperatures.|
+|Pattern analysis|Gather events over many days to analyze ongoing maintenance patterns.|Aggregated: Many events.<br />Malfunctions happen more often during certain periods.|Analog: Modify regular system maintenance schedule.|
 
 ### Events
 
@@ -67,7 +67,7 @@ Devices send acknowledgments to indicate receipt, progress, or completion of req
 Application logic that relies on stateful communication from devices requires acknowledgments. Examples include:
 
 - Progress updates on long-running requests.
-- Success or failure signals for request completion.
+- Success or failure signals for completing an asynchronous request.
 - Tightly coupled multi-step device and application transactions.
 
 #### Telemetry events
@@ -75,7 +75,7 @@ Application logic that relies on stateful communication from devices requires ac
 Device telemetry sends recurring measurement or state transmissions to the cloud at regular intervals. Remote sensor monitoring uses telemetry events, such as:
 
 - Continual sensor data from devices to applications.
-- Monitored health and diagnostics data.
+- Monitored health and diagnostics data from devices.
 - Regular location data from tracked assets.
 
 ### Insights
@@ -87,7 +87,7 @@ Insights are interpretations of events. Insights that derive directly from event
 Context-sensitive interpretations of events determine where to route the events or what immediate actions to take. Examples include:
 
 - Where to route a message, based on contextual data like message header content or device type.
-- Runtime decisions by event handling code that decides whether to take immediate action.
+- Runtime decisions by event handling code that decides whether to take immediate action based on an event.
 - Reconciling acknowledgments to complete stateful transactions.
 
 #### Real-time insights
@@ -96,7 +96,7 @@ Real-time insights are gathered and observed in real-time for monitoring and dec
 
 - Gathering and observing near real-time solution metrics.
 - Monitoring solution health for visualization, alerting, and remediation.
-- Combining events with other data sources for real-time transformation and output.
+- Combining events with other data sources for real-time transformation and output to display and analyze.
 
 #### Aggregated insights
 
@@ -108,11 +108,11 @@ Aggregated insights come from gathering and storing large numbers of events over
 
 ### Actions
 
-*Device*, *service*, or *analog* actions are deliberate programmatic or manual activity.
+Actions are deliberate activity undertaken either programmatically or manually as *device*, *service*, or *analog* actions.
 
 #### Device actions
 
-Device actions are instructions or information an IoT application sends to a device to act on. Examples include:
+Device actions are instructions or information an IoT application sends to a device to act on locally. Examples include:
 
 - Commands a user application sends to control a device.
 - Configuration data sent to a device to modify its behavior.
@@ -120,7 +120,7 @@ Device actions are instructions or information an IoT application sends to a dev
 
 #### Service actions
 
-Service actions are communications that one part of a solution sends to another. Service actions also include requests that an application's logic sends to an external service. Examples include:
+Service actions are service or intro-process communications that one part of a solution sends to another. Service actions also include requests that an application's logic sends to an external service. Examples include:
 
 - Requests for data from external services to use in solutions.
 - Transactions with other services as part of application logic.
