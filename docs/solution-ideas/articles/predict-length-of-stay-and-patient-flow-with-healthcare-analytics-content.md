@@ -13,7 +13,7 @@ Being able to predict length of stay at the time of admission helps hospitals pr
 ![Architecture Diagram](../media/predict-length-of-stay-and-patient-flow-with-healthcare-analytics.png)
 *Download an [SVG](../media/predict-length-of-stay-and-patient-flow-with-healthcare-analytics.svg) of this architecture.*
 
-### Components
+### Workflow
 
 * [SQL Server Machine Learning Services](/sql/machine-learning/sql-server-machine-learning-services): Stores the patient and hospital data. Provides training and predicted models and predicted results for consumption using R.
 * [Power BI](/power-bi/) provides an interactive dashboard with visualization that uses data stored in SQL Server to drive decisions on the predictions.

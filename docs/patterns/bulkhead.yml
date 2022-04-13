@@ -17,5 +17,5 @@ name: Bulkhead pattern
 summary: Isolate elements of an application into pools so that if one fails, the others will continue to function.
 thumbnailUrl: /azure/architecture/browse/thumbs/bulkhead-1.png
 content: |
-  [!include[](cache-aside-content.md)]
+  [!include[](bulkhead-content.md)]
   
