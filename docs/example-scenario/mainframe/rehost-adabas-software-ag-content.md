@@ -68,13 +68,13 @@ This diagram shows the legacy architecture migrated to Azure. A rehost approach 
 
 ## Considerations 
 
-These considerations implement the pillars of the Azure Well-Architected Framework, a set of guiding tenets that you can use to improve the quality of your workloads. For more information, see [Microsoft Azure Well-Architected Framework](../../framework/index.md).
+These considerations implement the pillars of the Azure Well-Architected Framework, a set of guiding tenets that you can use to improve the quality of your workloads. For more information, see [Microsoft Azure Well-Architected Framework](azure/architecture/framework).
 
 ### Cost optimization  
 
 Azure helps you avoid unnecessary costs by identifying the correct number of resources, analyzing spending over time, and scaling to meet business needs without overspending. 
 
-Azure also provides cost optimization by running on VMs. You can turn off the VMs when they're not being used and script a schedule for known usage patterns. For more information about cost optimization for [VM instances](../../framework/cost/optimize-vm.md), see the [Azure Well-Architected Framework](../../framework/index.md). 
+Azure also provides cost optimization by running on VMs. You can turn off the VMs when they're not being used and script a schedule for known usage patterns. For more information about cost optimization for [VM instances](azure/architecture/framework/cost/optimize-vm), see the [Azure Well-Architected Framework](azure/architecture/framework/index). 
 
 The VMs in this architecture use either premium SSDs or ultra disk SSDs. For more information about disk options and pricing, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks). 
 
@@ -121,7 +121,7 @@ See these additional resources:
 - [Refactor mainframe computer systems that run Adabas & Natural](refactor-adabas-aks.yml)
 - [Azure mainframe and midrange architecture concepts and patterns](../../mainframe/mainframe-midrange-architecture.md)
 - [Mainframe migration overview](/azure/cloud-adoption-framework/infrastructure/mainframe-migration/?toc=https:%2f%2fdocs.microsoft.com%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fazure%2farchitecture%2fbread%2ftoc.json)
-- [Mainframe rehosting on Azure Virtual Machines](/virtual-machines/workloads/mainframe-rehosting/overview?toc=https:%2f%2fdocs.microsoft.com%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fazure%2farchitecture%2fbread%2ftoc.json)
+- [Mainframe rehosting on Azure Virtual Machines](/azure/virtual-machines/workloads/mainframe-rehosting/overview)
 - [Move mainframe compute to Azure Virtual Machines](/azure/virtual-machines/workloads/mainframe-rehosting/concepts/mainframe-compute-azure?toc=https:%2f%2fdocs.microsoft.com%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fazure%2farchitecture%2fbread%2ftoc.json)
 - [General mainframe refactor to Azure](../../example-scenario/mainframe/general-mainframe-refactor.yml)
 - [AIX UNIX on-premises to Azure Linux migration](../../example-scenario/unix-migration/migrate-aix-azure-linux.yml)
