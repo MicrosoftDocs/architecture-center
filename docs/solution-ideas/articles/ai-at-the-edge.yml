@@ -5,7 +5,7 @@ metadata:
   description: Bring your trained AI model to the edge with Azure Stack Hub and integrate it with your applications for low-latency intelligence.
   author: EdPrice-MSFT
   ms.author: pnp
-  ms.date: 04/12/2022
+  ms.date: 04/14/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea

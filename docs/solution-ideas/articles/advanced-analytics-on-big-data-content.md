@@ -1,10 +1,16 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Transform your data into actionable insights using the best-in-class machine learning tools. 
+Transform your data into actionable insights using the best-in-class machine learning tools. This solution allows you to combine any data at any scale, and to build and deploy custom machine learning models at scale.
 
 ## Potential use cases
 
-This solution allows you to combine any data at any scale, and to build and deploy custom machine learning models at scale.
+Organizations have the ability to access more data than ever before. Advanced analytics help take advantage of data insights. Some areas that are taking advantage of this include:
+
+* Customer service.
+* Predictive maintenance.
+* Recommending products or services.
+* System optimization of everything from supply chains to data center operations.
+* Product and services development.
 
 ## Architecture
 
