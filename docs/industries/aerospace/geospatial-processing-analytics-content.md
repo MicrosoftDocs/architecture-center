@@ -6,7 +6,7 @@ The intended audience for this document is users with intermediate skill levels 
 
 An implementation of this architecture is available on [GitHub](https://github.com/Azure/Azure-Orbital-Analytics-Samples).
 
-*Apache®, Apache Ignite, Ignite, and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
+*Apache®, Apache Spark, Spark, the Spark logo, Apache Sedona, Apache Incubator, the Apache feather logo and the Apache Incubator project logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
 ## Potential use cases
 
