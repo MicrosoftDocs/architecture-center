@@ -4,8 +4,8 @@ metadata:
   titleSuffix: Azure Solution Ideas
   description: Demonstrates how to combine real-time aircraft data with analytics to create a solution for predictive aircraft engine monitoring and health.
   author: EdPrice-MSFT
-  ms.author: pnp
-  ms.date: 4/14/2022
+  ms.author: edprice
+  ms.date: 04/14/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
