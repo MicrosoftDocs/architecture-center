@@ -1,11 +1,11 @@
 ### YamlMime:Architecture
 metadata:
   title: Keyword search and speech-to-text with OCR digital media
-  titleSuffix: Azure Solution Ideas
+  titleSuffix: Azure Architecture Center
   description: Identify speech in static video files and manage it as standard content with this speech-to-text solution. Jump to video points that contain specific phrases.
   author: EdPrice-MSFT
-  ms.author: pnp
-  ms.date: 12/16/2019
+  ms.author: edprice
+  ms.date: 04/13/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
