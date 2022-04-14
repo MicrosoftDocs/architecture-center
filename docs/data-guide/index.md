@@ -7,6 +7,11 @@ ms.date: 04/14/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
+products:
+  - azure
+  - azure-sql-database
+categories:
+  - databases
 adobe-target: true
 ---
 
