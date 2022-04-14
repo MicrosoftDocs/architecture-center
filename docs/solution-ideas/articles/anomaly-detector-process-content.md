@@ -1,4 +1,4 @@
-The Anomaly Detector API enables you to monitor and detect abnormalities in your time series data without having to know machine learning. The Anomaly Detector API's algorithms adapt by automatically identifying and applying the best-fitting models to your data, regardless of industry, scenario, or data volume. Using your time series data, the API determines boundaries for anomaly detection, expected values, and which data points are anomalies. The architecture provides an overview of the near real-time implementation of an anomaly detection process.
+The Anomaly Detector API enables you to monitor and detect abnormalities in your time series data without having to know machine learning. The Anomaly Detector API's algorithms adapt by automatically identifying and applying the best-fitting models to your data, regardless of industry, scenario, or data volume. Working with your time series data, the API determines boundaries for anomaly detection, expected values, and which data points are anomalies. The architecture provides an overview of the near real-time implementation of an anomaly detection process.
 
 ## Potential use cases
 

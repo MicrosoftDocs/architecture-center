@@ -36,7 +36,7 @@ The Azure staging and production environments use an [Azure Managed Service Iden
 1. Upon successful authentication, Azure AD returns an access token.
 1. The App Configuration SDK sends a request with the access token to read the app's App Configuration KeyVault **secretURI** value for the app's key vault.
 1. Upon successful authorization, App Configuration sends the configuration value.
-1. Using the sign-in identity, the app sends a request to Azure Key Vault to retrieve the application secret for the **secretURI** that App Configuration sent.
+1. Utilizing the sign-in identity, the app sends a request to Azure Key Vault to retrieve the application secret for the **secretURI** that App Configuration sent.
 1. Upon successful authorization, Key Vault returns the secret value.
 
 ### Components
