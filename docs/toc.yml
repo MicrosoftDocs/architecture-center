@@ -4048,8 +4048,6 @@ items:
             href: reference-architectures/iot/iot-architecture-overview.md
           - name: Guides
             items:
-              - name: Choose IoT Central or PaaS solution
-                href: example-scenario/iot/iot-central-iot-hub-cheat-sheet.yml
               - name: Industry-specific example solutions
                 href: reference-architectures/iot/industry-iot-hub-page.md
               - name: IoT concepts
@@ -4108,6 +4106,8 @@ items:
                     href: example-scenario/iot/application-stamps.yml
               - name: Azure IoT client SDK support
                 href: guide/iot/azure-iot-client-sdk-support.yml
+              - name: Choose an IoT solution
+                href: example-scenario/iot/iot-central-iot-hub-cheat-sheet.yml
               - name: Moving from test to production
                 href: example-scenario/iot/iot-move-to-production.yml
           - name: Architectures
