@@ -37,7 +37,7 @@ The following diagram shows an IoT Central-based architecture:
 
 ## Build with Azure PaaS services
 
-If you need more control and customization, you can use individual Azure PaaS components to build an IoT solution. The following diagram shows Azure PaaS services in an IoT-Hub based IoT architecture:
+If you need more control and customization, you can use individual Azure PaaS components to build an IoT solution. The following diagram shows Azure services in a PaaS-based IoT architecture:
 
 [ ![Diagram showing a reference architecture composed of Azure PaaS services.](./media/azure-iot-architecture.png) ](./media/azure-iot-architecture.png#lightbox)
 
@@ -89,7 +89,7 @@ The following table describes how IoT Central or an IoT Hub-based PaaS solution 
 
 ### IoT Central and other Azure PaaS capabilities
 
-The following table shows the level of support for various capabilities in IoT Central and other Azure PaaS services. A filled in circle 🔵 means full support, a line ➖ indicates partial support, and an empty circle ⚪ means no support.
+The following table shows the level of support for various capabilities in IoT Central and other Azure PaaS services. A filled circle 🔵 means full support, a line ➖ indicates partial support, and an empty circle ⚪ means no support.
 
 |  |IoT Central|IoT Hub + DPS|Stream Analytics + Azure Functions|Azure Cosmos DB + Azure Data Explorer|Active Directory|
 |--|--|--|--|--|--|
