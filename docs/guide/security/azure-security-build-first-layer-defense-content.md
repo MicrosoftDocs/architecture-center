@@ -53,7 +53,7 @@ services. Some of them have the Control code according to the Azure
 Security Benchmark V3 documentation so that you may have a reference
 about it.
 
-![](media/image1.emf)
+:::image type="content" alt-text="Image alt text." source="images/azure-security-build-first-layer-defense-architecture.png" lightbox="images/azure-security-build-first-layer-defense-architecture.png":::
 
 As stated earlier, Azure security services may be found in different
 documents such as Azure Security benchmarks and Azure Security Baselines

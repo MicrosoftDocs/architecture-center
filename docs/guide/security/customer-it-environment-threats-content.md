@@ -36,7 +36,7 @@ This document uses a small subset of those threats (the bottom part of
 the diagram) to present you with an example of how you could map threats
 against your business IT environment.
 
-![](media/image1.emf)
+:::image type="content" alt-text="Image alt text." source="images/customer-it-environment-threats-architecture.png" lightbox="images/customer-it-environment-threats-architecture.png":::
 
 **Potential use cases**
 

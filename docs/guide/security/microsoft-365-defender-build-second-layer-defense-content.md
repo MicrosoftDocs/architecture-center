@@ -47,7 +47,7 @@ Microsoft 365 Defender:
 This picture may help you understand Microsoft 365 set of solution and
 some of the main services it contains:
 
-> ![](media/image1.emf)
+:::image type="content" alt-text="Image alt text." source="images/microsoft-365-defender-build-second-layer-defense-azure-services.png" lightbox="images/microsoft-365-defender-build-second-layer-defense-azure-services.png":::
 
 **Potential use case**
 
@@ -80,7 +80,7 @@ In the diagram below we added the Microsoft 365 Defender security
 services layer to build a better defense in depth for an IT environment.
 That layer may work along with Azure security services..
 
-![](media/image2.emf)
+:::image type="content" alt-text="Image alt text." source="images/microsoft-365-defender-build-second-layer-defense-architecture.png" lightbox="images/microsoft-365-defender-build-second-layer-defense-architecture.png":::
 
 **Components**
 
@@ -176,7 +176,7 @@ Docs](https://docs.microsoft.com/en-us/mem/endpoint-manager-overview)
 Let's see a real use case where Companies may consider using Microsoft
 365 Defender security services and what resources they may protect.
 
-![](media/image3.emf)
+:::image type="content" alt-text="Image alt text." source="images/microsoft-365-defender-build-second-layer-defense-attack-order.png" lightbox="images/microsoft-365-defender-build-second-layer-defense-attack-order.png":::
 
 In the use case above represented by the diagram, you see some potential
 threats in the bottom, the Microsoft 365 Defender services in the second
@@ -245,7 +245,7 @@ As both portals "security.microsoft.com" and "endpoint.microsoft.com"
 deliver security protection for endpoints, they have lots of interaction
 between them (9) to offer a great security posture for your endpoints.
 
-![](media/image4.emf)
+:::image type="content" alt-text="Image alt text." source="images/microsoft-365-defender-build-second-layer-defense-portals.png" lightbox="images/microsoft-365-defender-build-second-layer-defense-portals.png":::
 
 **NEXT STEPS**
 

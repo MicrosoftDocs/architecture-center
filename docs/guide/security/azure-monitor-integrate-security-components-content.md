@@ -34,7 +34,7 @@ We will start with the final Architecture reference for this series so
 that you may understand the whole picture. However, each piece of it
 will be explained throughout the other documents.
 
-![](media/image1.emf)
+:::image type="content" alt-text="Image alt text." source="images/azure-monitor-integrate-security-components-architecture.png" lightbox="images/azure-monitor-integrate-security-components-architecture.png":::
 
 Let's understand in a nutshell how this diagram was built and its
 content.

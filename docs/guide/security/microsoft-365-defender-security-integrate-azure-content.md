@@ -79,7 +79,7 @@ integrated through Azure Monitoring core services (on the left side of
 the diagram), which the key component of this integration is Microsoft
 Sentinel.
 
-![](media/image1.emf)
+:::image type="content" alt-text="Image alt text." source="images/microsoft-365-defender-security-integrate-azure-architecture.png" lightbox="images/microsoft-365-defender-security-integrate-azure-architecture.png":::
 
 **Components**
 
