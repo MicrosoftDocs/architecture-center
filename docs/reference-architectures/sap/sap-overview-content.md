@@ -127,11 +127,11 @@ For more information, see [General Azure Virtual Machines DBMS deployment for SA
 
 In addition to a resilient architecture, including high-availability and disaster-recovery capabilities, mission critical environments need to implement a backup solution as well.
 
-SAP HANA specifically offers a backup API called Backint, allowing backup solutions to backup directly on the database layer.
+SAP HANA specifically offers a backup API called Backint, allowing backup solutions to back up directly on the database layer.
 
 Several certified third-party backup solutions exist in the [Azure Marketplace](https://azuremarketplace.microsoft.com/), offering vendor- and SAP-certified backup capabilities.
 
-Storage solutions such as Azure NetApp Files can backup critical data through the capabilities of snapshots.
+Storage solutions such as Azure NetApp Files can back up critical data through the capabilities of snapshots.
 
 Azure Backup is Azure's native backup solution:
 
@@ -322,7 +322,7 @@ The following scenarios outline a few of the common ways SAP solutions are built
             href="/azure/architecture/reference-architectures/sap/run-sap-hana-for-linux-virtual-machines">
             <article class="card has-outline-hover is-relative is-fullheight">
                     <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
-                        <img role="presentation" alt="Diagram shows infrastructure needed to run S A P HANA on Linux virtual machines in a scale-up architecture on Azure." src="./images/sap-hana-scale-up.png">
+                        <img role="presentation" alt="Diagram shows infrastructure needed to run S A P HANA on Linux virtual machines in a scale-up architecture on Azure." src="./images/sap-hana-scale-up-avset.png">
                     </figure>
                 <div class="card-content has-text-overflow-ellipsis">
                     <div class="has-padding-bottom-none">

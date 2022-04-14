@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "docs/networking/guide/waf-application-gateway.md",
+      "redirect_url": "/azure/architecture/framework/services/networking/azure-application-gateway#security",
+      "redirect_document_id": false
+    }, 
+    {
       "source_path": "docs/framework/scalability/data-management.md",
       "redirect_url": "/azure/architecture/framework/Scalability/overview",
       "redirect_document_id": false

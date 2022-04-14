@@ -68,7 +68,7 @@ This architecture makes use of the following components:
 
 ### Alternatives
 
-- To help protect SAP global host files for SAP Central Services and the SAP transport directory, you can deploy [Network File Shares](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs) (NFS) servers in a failover cluster configuration.
+- To help protect SAP global host files for SAP Central Services and the SAP transport directory, you can deploy [Network File System](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs) (NFS) servers in a failover cluster configuration.
 
 - [SIOS Protection Suite](https://us.sios.com/solutions/cloud-high-availability/azure/), available in Azure Marketplace, can be used to protect the global host files for Central Services instead of NFS or Azure NetApp Files.
 
@@ -98,7 +98,7 @@ These transactions use the load-balancing capability within the message server o
 
 ### SAP Central Services cluster
 
-This example shows a highly available cluster that uses Azure NetApp Files as a shared file storage solution. High availability for the Central Services cluster requires shared storage. NetApp Files provides a simple option so you don't have to deploy the Linux cluster infrastructure. An alternative is to set up a highly available [NFS service](/azure/virtual-machines/workloads/sap/high-availability-guide-suse#setting-up-a-highly-available-nfs-server).
+This example shows a highly available cluster that uses Azure NetApp Files as a shared file storage solution. High availability for the Central Services cluster requires shared storage. Azure NetApp Files provides a simple highly available option so you don't have to deploy a Linux cluster infrastructure. An alternative is to set up a highly available [NFS service](/azure/virtual-machines/workloads/sap/high-availability-guide-suse#setting-up-a-highly-available-nfs-server).
 
 You can also deploy Central Services to a single virtual machine with Premium-managed disks and get a 99.9-percent availability [SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9/).
 
@@ -182,13 +182,13 @@ Also, if you decide to deploy SAP workloads in [Azure Availability Zones](/azure
 
 ### Web Dispatcher
 
-In this sample design, the SAP Web Dispatcher is used simply as an HTTP(s) load-balancing mechanism, for SAP traffic among the SAP application servers. To achieve [high availability](https://help.sap.com/viewer/683d6a1797a34730a6e005d1e8de6f22/7.5.4/489a9a6b48c673e8e10000000a42189b.html?q=parallel%20web%20dispatcher) for the Web Dispatcher component, Azure Load Balancer implements either the failover cluster or the parallel Web Dispatcher setup. See [SAP Web Dispatcher](https://help.sap.com/doc/saphelp_nw70ehp2/7.02.16/48/8fe37933114e6fe10000000a421937/frameset.htm) in the SAP documentation.
+In this sample design, the SAP Web Dispatcher is used simply as an HTTP(s) load-balancing mechanism, for SAP traffic among the SAP application servers. To achieve [high availability](https://help.sap.com/viewer/683d6a1797a34730a6e005d1e8de6f22/7.5.4/489a9a6b48c673e8e10000000a42189b.html?q=parallel%20web%20dispatcher) for the Web Dispatcher component, Azure Load Balancer implements either the failover cluster or the parallel Web Dispatcher setup. See [SAP Web Dispatcher](https://help.sap.com/viewer/683d6a1797a34730a6e005d1e8de6f22/7.5.7/en-US/488fe37933114e6fe10000000a421937.html) in the SAP documentation.
 
 As a software load balancer, Web Dispatcher offers extra layer services that can do SSL termination and other offloading functions. These layer services are known  as *layer 7* in the ISO networking model.
 
  No other load balancer is needed for traffic from SAP GUI clients that connect an SAP server via DIAG protocol or Remote Function Calls (RFC). The Central Services message server balances the load through [logon groups](https://wiki.scn.sap.com/wiki/display/SI/ABAP+Logon+Group+based+Load+Balancing) in the SAP application server.
 
-The Web Dispatcher component is used as a load balancer for SAP traffic among the SAP application servers. To achieve [high availability of the SAP Web Dispatcher](https://help.sap.com/doc/saphelp_nw73ehp1/7.31.19/en-US/48/9a9a6b48c673e8e10000000a42189b/frameset.htm), Azure Load Balancer implements either the failover cluster or the parallel Web Dispatcher setup.
+The Web Dispatcher component is used as a load balancer for SAP traffic among the SAP application servers. To achieve [high availability of the SAP Web Dispatcher](https://help.sap.com/viewer/683d6a1797a34730a6e005d1e8de6f22/201909.002/en-US/489a9a6b48c673e8e10000000a42189b.html), Azure Load Balancer implements either the failover cluster or the parallel Web Dispatcher setup.
 
 For internet-facing communications, a stand-alone solution in DMZ would be the recommended architecture to satisfy security concerns.
 

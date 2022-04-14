@@ -220,7 +220,7 @@ Integrate logs so that you're able to review, analyze, and query data efficientl
 
 As required by the standard, all Log Analytics workspaces are set to a 90-day retention period. Consider setting up continuous export for longer-term storage. Don't store sensitive information in log data. Make sure access to archived log data is subject to the same levels of access controls as recent log data.
 
-For a complete perspective, see [Microsoft Defender for Cloud Enterprise Onboarding Guide](https://aka.ms/ASCOnboarding). This guide addresses enrollment, data exports to your SIEM solutions, responding to alerts, and building workflow automation.
+For a complete perspective, see [Microsoft Defender for Cloud Enterprise Onboarding Guide](https://aka.ms/MDfCOnboarding). This guide addresses enrollment, data exports to your SIEM solutions, responding to alerts, and building workflow automation.
 
 ## Related Azure services
 

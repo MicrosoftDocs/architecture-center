@@ -84,3 +84,11 @@ To see an example solution, review the solution, guide, and playbook for [PdM in
 PdM requires machines to have some level of instrumentation and connectivity to allow us to build systems that can predict issues and to allow us to act before a failure occurs. PdM augments preventive maintenance schedules by identifying specific components to inspect and repair or replace. Many resources exist to help you get started. Microsoft&#39;s infrastructure can help you build solutions that run on the device, at the edge, and in the cloud. 
 
 To begin, pick out the top 1-3 failures you would like to prevent and begin your discovery process with those items. Then, identify where the data resides that helps identify the failures. Combine that data with the skills you pick up from the [Introduction to Machine Learning with Azure ML](https://aischool.microsoft.com/learning-paths/4ZYo4wHJVCsUSAKa2EoAk8) course to build your PdM models.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+**Principal author:**
+
+- [Scott Seely](https://www.linkedin.com/in/scottseely) | Software Architect

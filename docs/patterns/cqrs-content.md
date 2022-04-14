@@ -32,7 +32,7 @@ Having separate query and update models simplifies the design and implementation
 
 For greater isolation, you can physically separate the read data from the write data. In that case, the read database can use its own data schema that is optimized for queries. For example, it can store a [materialized view](./materialized-view.yml) of the data, in order to avoid complex joins or complex O/RM mappings. It might even use a different type of data store. For example, the write database might be relational, while the read database is a document database.
 
-If separate read and write databases are used, they must be kept in sync. Typically this is accomplished by having the write model publish an event whenever it updates the database. For more information about using events, see [Event-driven architecture style](../guide/architecture-styles/event-driven.md). Updating the database and publishing the event must occur in a single transaction.
+If separate read and write databases are used, they must be kept in sync. Typically this is accomplished by having the write model publish an event whenever it updates the database. For more information about using events, see [Event-driven architecture style](../guide/architecture-styles/event-driven.yml). Updating the database and publishing the event must occur in a single transaction.
 
 ![A CQRS architecture with separate read and write stores](./_images/command-and-query-responsibility-segregation-cqrs-separate-stores.png)
 
