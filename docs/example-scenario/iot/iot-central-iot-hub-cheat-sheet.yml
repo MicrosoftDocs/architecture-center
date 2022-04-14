@@ -1,11 +1,11 @@
 ### YamlMime:Architecture
 metadata:
-  title: Choose IoT Central or Azure PaaS IoT solutions
+  title: Azure IoT Central vs. IoT Hub-based PaaS solutions
   description: Use Azure IoT Central or individual Azure platform-as-a-service (PaaS) components to build, deploy, and manage internet-of-things (IoT) solutions.
 
   author: EdPrice-MSFT
   ms.author: edprice
-  ms.date: 04/12/2022
+  ms.date: 04/13/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
@@ -15,7 +15,7 @@ azureCategories:
 products:
   - azure-iot-hub
   - azure-iot-central
-name: Choose IoT Central or Azure PaaS IoT solutions
+name: Azure IoT Central vs. IoT Hub-based PaaS solutions
 summary: Use Azure IoT Central or individual Azure platform-as-a-service (PaaS) components to build, deploy, and manage internet-of-things (IoT) solutions.
 thumbnailUrl: /azure/architecture/browse/thumbs/iotc-arch.png
 content: |
