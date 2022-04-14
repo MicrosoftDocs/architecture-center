@@ -31,7 +31,7 @@ The following diagram shows an IoT Central-based architecture:
      - View and analyze device data with dashboards, analytics, and rules.
      - Secure data and devices with user management and organizations.
 	 
-1. IoT Central extends solutions by triggering alerts, exporting data, or supporting data queries.
+1. IoT Central extends solutions by triggering alerts, exporting data, and supporting data queries.
 
 1. IoT Central integrates with line-of-business apps like Power BI, Azure Maps, Search, API Management, Web Apps, Mobile Apps, Dynamics 365, Flow, or Logic Apps.
 
@@ -41,17 +41,17 @@ If you need more control and customization, you can use individual Azure PaaS co
 
 [ ![Diagram showing a reference architecture composed of Azure PaaS services.](./media/azure-iot-architecture.png) ](./media/azure-iot-architecture.png#lightbox)
 
-1. IoT systems ingest device data through the Azure IoT device SDKs, Azure RTOS, Azure Sphere, or Azure IoT Edge.
+1. IoT systems can ingest device data through the Azure IoT device SDKs, Azure RTOS, Azure Sphere, or Azure IoT Edge.
 
-1. IoT Hub, DPS, or [Azure Digital Twins](https://azure.microsoft.com/services/digital-twins) provide device provisioning, connectivity, and management.
+1. IoT Hub, DPS, or [Azure Digital Twins](https://azure.microsoft.com/services/digital-twins) can provide device provisioning, connectivity, and management.
 
 1. For data storage and analytics:
 
-   - The hot path is through Azure Stream Analytics or [Azure HDInsight](https://azure.microsoft.com/services/hdinsight) Apache Spark and Storm.
-   - The warm path is through [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights) or Azure Data Explorer.
-   - The cold path is through Azure SQL Database or Azure Cosmos DB.
+   - The hot path can be through Azure Stream Analytics or [Azure HDInsight](https://azure.microsoft.com/services/hdinsight) Apache Spark and Storm.
+   - The warm path can be through [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights) or Azure Data Explorer.
+   - The cold path can be through Azure SQL Database or Azure Cosmos DB.
 
-1. Management and business integration services include Power BI, Azure Maps, Search, API Management, Web Apps, Mobile Apps, Dynamics 365, Flow, and Logic Apps.
+1. Management and business integration services can include Power BI, Azure Maps, Search, API Management, Web Apps, Mobile Apps, Dynamics 365, Flow, and Logic Apps.
 
 For a detailed PaaS IoT reference architecture and discussion, see [Azure IoT reference architecture](../../reference-architectures/iot.yml).
 
@@ -79,7 +79,7 @@ The following table describes how IoT Central or an IoT Hub-based PaaS solution 
 | Message retention | IoT Central retains data on a rolling, 30-day basis. | IoT Hub allows data retention in built-in event hubs for a maximum of seven days. |
 | Big data | Manage data from within IoT Central. | Add and manage big data Azure PaaS services. |
 | Data export | Continuously export data by using the [export feature](/azure/iot-central/howto-export-data). Export data to Azure blob storage, event hubs, service bus, webhook, and Azure Data Explorer. Filter, enrich, and transform messages on egress. | Use the IoT Hub built-in event hub endpoint, and use message routing to export data to other storage locations. |
-| Analytics | An integrated analytics experience explores device data in the context of device management. | Use separate Azure PaaS services to incorporate analytics, insights, and actions, like Stream Analytics, Time Series Insight, Azure Data Explorer, and Azure Synapse. |
+| Analytics | An integrated analytics experience explores device data in the context of device management. | Use separate Azure PaaS services to incorporate analytics, insights, and actions, like Stream Analytics, Time Series Insights, Azure Data Explorer, and Azure Synapse. |
 | Visualizations | A UX makes it simple to visualize device data, perform analytics queries, and create custom dashboards. | No built-in user interface. |
 | Rules and actions | Use built-in rule and action processing capability with email notification, Azure Monitor group, Power Automate, and webhook actions. For more information, see [Azure IoT Central rules and actions](/azure/iot-central/core/overview-iot-central#rules-and-actions). | Send data from IoT Hub to Azure Stream Analytics, Azure Time Series Insights, or Azure Event Grid. Connect to Azure Logic apps or other custom applications to process rules and actions. For more information, see [IoT remote monitoring and notifications with Azure Logic Apps](/azure/iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps). |
 | Scalability | Supports auto-scaling. | Deploy solutions to enable IoT Hub auto-scaling. For more information, see [Auto-scale your Azure IoT Hub](/samples/azure-samples/iot-hub-dotnet-autoscale/iot-hub-dotnet-autoscale/). |
@@ -89,17 +89,17 @@ The following table describes how IoT Central or an IoT Hub-based PaaS solution 
 
 ### IoT Central and other Azure PaaS capabilities
 
-The following table shows the level of support for various capabilities in IoT Central and other Azure PaaS services. A filled in circle means full support, a line indicates partial support, and an empty circle means no support.
+The following table shows the level of support for various capabilities in IoT Central and other Azure PaaS services. A filled in circle 🔵 means full support, a line ➖ indicates partial support, and an empty circle ⚪ means no support.
 
 |  |IoT Central|IoT Hub + DPS|Stream Analytics + Azure Functions|Azure Cosmos DB + Azure Data Explorer|Active Directory|
 |--|--|--|--|--|--|
 |**Description**|Ready-made IoT solution development environment|IoT data ingestion services|Stream processing services|Data storage services|Universal identity management and security platform|
-|**HADR and elastic scale**|⚫|⚪|⚪|⚪|⚪|
-|**Device connectivity management experience**|⚫|➖|⚪|⚪|⚪|
+|**HADR and elastic scale**|🔵|⚪|⚪|⚪|⚪|
+|**Device connectivity management experience**|🔵|➖|⚪|⚪|⚪|
 |**Data routing, filtering, and rules**|➖|➖|➖|⚪|⚪|
-|**Analytics and visualizations**|➖|⚪|➖|⚫|⚪|
-|**Data storage and security**|⚫|⚪|⚪|⚫|⚫|
-|**Export and integration with other services**|⚫|⚫|⚫|⚫|⚫|
+|**Analytics and visualizations**|➖|⚪|➖|🔵|⚪|
+|**Data storage and security**|🔵|⚪|⚪|🔵|🔵|
+|**Export and integration with other services**|🔵|🔵|🔵|🔵|🔵|
 
 ## Next steps
 
