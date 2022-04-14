@@ -37,11 +37,11 @@ Considering events, insights, and actions can help expand IoT scenarios. In this
 
 While the event data doesn't change, gathering events and applying different types of insights to the data enables different actions. This strategy is powerful for operating large numbers of devices at multiple locations.
 
-|Type of data|Event|Insight|Action
-|---|---|---|---|
-|Univariate monitoring|Report single event with temperature out of operating range.|Contextual: Single event.<br />Cooling system malfunction.|Service: Invoke maintenance service dispatch.|
-|Multi-variant monitoring|Monitor and analyze real-time events for operating temperature anomalies.|Real-time: Several events.<br />Temperature needs adjustment to stay in range.|Device: Notify devices to adjust temperatures.|
-|Pattern analysis|Gather events over many days to analyze ongoing maintenance patterns.|Aggregated: Many events.<br />Malfunctions happen more often during certain periods.|Analog: Modify regular system maintenance schedule.|
+|Event|Insight|Action
+|---|---|---|
+|Report single event with temperature out of operating range.|Contextual: Single event.<br />Cooling system malfunction.|Service: Invoke maintenance service dispatch.|
+|Monitor and analyze real-time events for operating temperature anomalies.|Real-time: Several events.<br />Temperature needs adjustment to stay in range.|Device: Notify devices to adjust temperatures.|
+|Gather events over many days to analyze ongoing maintenance patterns.|Aggregated: Many events.<br />Malfunctions happen more often during certain periods.|Analog: Modify regular system maintenance schedule.|
 
 ### Events
 
