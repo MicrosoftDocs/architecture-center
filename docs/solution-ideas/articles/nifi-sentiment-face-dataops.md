@@ -52,10 +52,10 @@ This solution applies to many areas:
 
 ![Architecture diagram for scenario NiFi Sentiment Analysis and Face Recognition](../media/nifi-sentiment-face-architecture.png)
 
-## DataFlow
+### Dataflow
+
 There are three main parts to this DataFlow:
 ![DataFlow diagram for scenario NiFi Sentiment Analysis and Face Recognition](../media/nifi-sentiment-face-dataflow.png)
-
 
 **Tweets Ingestion**: Transformation of the JSON file into a CSV; extracting attributes from the JSON to use in the CSV composition as variables.
 
@@ -63,24 +63,26 @@ There are three main parts to this DataFlow:
 
 **Image Processing**: The sentiment analysis runs against tweets that have any pictures; these pictures are collected; human face detection is run; if a human face is recognized, it is stored in HDInsight.
 
-## Components
+### Components
+
 ![Components diagram for scenario NiFi Sentiment Analysis and Face Recognition](../media/nifi-sentiment-face-components.png)
 
-• [Azure Data Factory](/azure/data-factory/introduction) is used for different types of batch transformation from the different sources to the different sinks. Big data processing is a critical task for every organization. that are built to simplify ETL as well as handle the complexities and scale challenges of big data integration.
+- [Azure Data Factory](/azure/data-factory/introduction) is used for different types of batch transformation from the different sources to the different sinks. Big data processing is a critical task for every organization. that are built to simplify ETL as well as handle the complexities and scale challenges of big data integration.
 
-• [Apache Nifi](https://nifi.apache.org/) handles multiple sources and multiples sinks with different types of processors in order to doing streaming transformations. Designed to automate the flow of data between software systems. 
+- [Apache Nifi](https://nifi.apache.org/) handles multiple sources and multiples sinks with different types of processors in order to doing streaming transformations. Designed to automate the flow of data between software systems. 
 
-• [Azure Synapse](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is) centralizes data in the cloud for easy access.
+- [Azure Synapse](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is) centralizes data in the cloud for easy access.
 
-• [Azure Cognitive Services Language Understanding & Vision](https://azure/services/cognitive-services/) are cloud-based services with REST APIs and client library SDKs available to help build cognitive intelligence into applications. Cognitive features can be added to applications without having artificial intelligence (AI) or data science skills.
+- [Azure Cognitive Services Language Understanding & Vision](https://azure/services/cognitive-services/) are cloud-based services with REST APIs and client library SDKs available to help build cognitive intelligence into applications. Cognitive features can be added to applications without having artificial intelligence (AI) or data science skills.
 
-• [Azure HDInsight](https://azure/services/hdinsight/) is a Hadoop Platform for data and analytics for on-premise environments,  to ingest, store and process data in real time and batch time. Is an open source framework for distributed storage and processing of large, multi-source data sets. HDP modernizes IT infrastructure and keeps data secure
+- [Azure HDInsight](https://azure/services/hdinsight/) is a Hadoop Platform for data and analytics for on-premise environments,  to ingest, store and process data in real time and batch time. Is an open source framework for distributed storage and processing of large, multi-source data sets. HDP modernizes IT infrastructure and keeps data secure
 
-• [Azure Cosmos DB](/azure/cosmos-db/introduction) is a fully managed NoSQL database for modern app development. Single-digit millisecond response times, and automatic and instant scalability, guarantee speed at any scale. Business continuity is assured with SLA-backed availability and enterprise-grade security.
+- [Azure Cosmos DB](/azure/cosmos-db/introduction) is a fully managed NoSQL database for modern app development. Single-digit millisecond response times, and automatic and instant scalability, guarantee speed at any scale. Business continuity is assured with SLA-backed availability and enterprise-grade security.
 
-• [Power BI](/power-bi/fundamentals/power-bi-overview) is a business analytics service by Microsoft. It aims to provide interactive visualizations and business intelligence capabilities with an interface simple enough for end users to create their own reports and dashboards. It is part of the Microsoft Power Platform.
+- [Power BI](/power-bi/fundamentals/power-bi-overview) is a business analytics service by Microsoft. It aims to provide interactive visualizations and business intelligence capabilities with an interface simple enough for end users to create their own reports and dashboards. It is part of the Microsoft Power Platform.
 
-## Alternatives
+### Alternatives
+
 Most of the pieces can be interchanged, as an example use a Cloudera cluster instead of an HDInsight cluster.
 
 ADF can be swapped out for Azure Databricks.  Often solutions using ADF also make use of Databricks, and Databricks can be used to as an orchestrater in addition to transforming or storing data.
@@ -92,24 +94,44 @@ For Cosmos DB use ElasticSearch as a main repository of the files.
 Use Kibana as dashboard instead of Power BI.
 
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
 Depending of the number of sources and different kinds of processing tools that will be used, these transformations and visualizations can simplified.  If applicable, consider using a simple pipeline with one sink and create a dashboard from that instead of using multiples sources and multiples dashboards. 
 
 This example tries to use as many services as possible to compare the use of PowerBI from different sources and see the performance and the difficulties from one source to another and from one data type to another.
 
-### Availability
-Most of the cases will need to create a HA (high availability) service for each of the tools.  It is important to reduce the RTP in case of a DR scenario; in this case with HA a DR scenario can be avoided if the services created in another region for example.
-### Operational Excellence
-Monitoring logs from all the services should be centralized.  Since there are both native Azure tools and also external tools, these should be integrated to give a holistic view of all systems.
-### Performance
-As there are multiple sources, consider compression and type of file format as part of the process.  Cosmos DB will need to be configured appropriately to allow tradeoff between latency and consistency levels; performance should be monitored and evaluated throughout the process to avoid Cosmos DB becoming a bottleneck.  Consider aligning geographic locations to decrease latency.
 ### Reliability
-To push this to a Production environment, RTO and RPO will need to be evaluated.  All DR decisions and scenarios will be driven from those conversations.
+
+To push this to a production environment, RTO and RPO will need to be evaluated.  All DR decisions and scenarios will be driven from those conversations.
+
+Most of the cases will need to create a HA (high availability) service for each of the tools.  It is important to reduce the RTP in case of a DR scenario; in this case with HA a DR scenario can be avoided if the services created in another region for example.
+
 ### Security
+
 Drive toward a strong security posture using an identity-based system and native Azure tools.  For external tools, use external authentication tools such as Kerberos to ensure a robust and secure workload.
 
+### Cost optimization
 
+Review the [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-## Related Content
+### Operational excellence
+
+Monitoring logs from all the services should be centralized.  Since there are both native Azure tools and also external tools, these should be integrated to give a holistic view of all systems.
+
+### Performance efficiency
+
+As there are multiple sources, consider compression and type of file format as part of the process.  Cosmos DB will need to be configured appropriately to allow tradeoff between latency and consistency levels; performance should be monitored and evaluated throughout the process to avoid Cosmos DB becoming a bottleneck.  Consider aligning geographic locations to decrease latency.
+
+## Contributors
+
+TBD
+
+## Next steps
+
+TBD
+
+## Related resources
 
   - [ETL using HDInsight](/azure/architecture/solution-ideas/articles/extract-transform-and-load-using-hdinsight)
   - [Knowledge Mining for Customer Feedback](/azure/architecture/solution-ideas/articles/customer-feedback-and-analytics)
