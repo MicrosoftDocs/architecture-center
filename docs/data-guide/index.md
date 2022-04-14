@@ -2,8 +2,8 @@
 title: Azure Data Architecture Guide
 description: Use proven customer engagement practices to design data-centric Azure solutions for traditional relational database workloads and big data architectures.
 author: EdPrice-MSFT
-ms.author: pnp
-ms.date: 08/16/2021
+ms.author: edprice
+ms.date: 04/14/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
@@ -36,3 +36,38 @@ This guide is structured around two general categories of data solution, *tradit
 These two categories are not mutually exclusive, and there is overlap between them, but we feel that it's a useful way to frame the discussion. Within each category, the guide discusses **common scenarios**, including relevant Azure services and the appropriate architecture for the scenario. In addition, the guide compares **technology choices** for data solutions in Azure, including open source options. Within each category, we describe the key selection criteria and a capability matrix, to help you choose the right technology for your scenario.
 
 This guide is not intended to teach you data science or database theory &mdash; you can find entire books on those subjects. Instead, the goal is to help you select the right data architecture or data pipeline for your scenario, and then select the Azure services and technologies that best fit your requirements. If you already have an architecture in mind, you can skip directly to the technology choices.
+
+## Next steps
+
+* Relational data:
+    * []()
+    * []()
+    * []()
+    * []()
+* Non-relational data:
+    * []()
+    * []()
+    * []()
+    * []()
+* []()
+* Big data:
+    * []()
+    * []()
+    * []()
+* Technology choices:
+    * []()
+    * []()
+    * []()
+    * []()
+    * []()
+    * []()
+    * []()
+    * []()
+    * []()
+* Additional scenarios:
+    * []()
+    * []()
+    * []()
+    * []()
+    * []()
+    * []()
