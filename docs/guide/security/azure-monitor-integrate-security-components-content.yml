@@ -11,11 +11,11 @@ metadata:
   ms.service: architecture-center
   ms.subservice: reference-architecture
 azureCategories:
-  - 
-  - 
+  - security
+  - integration
 products:
   - azure
-  - 
+  - m365
 name: Use Azure monitoring to integrate security components
 summary: Placeholder summary.
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-monitor-integrate-security-components-thumbnail.png

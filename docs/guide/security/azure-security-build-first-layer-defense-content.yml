@@ -11,11 +11,12 @@ metadata:
   ms.service: architecture-center
   ms.subservice: reference-architecture
 azureCategories:
-  - 
-  - 
+  - integration
+  - security
 products:
-  - azure
-  - 
+  - azure-monitor
+  - azure-log-analytics
+  - azure-sentinel
 name: Building the first layer of defense with Azure Security services
 summary: Placeholder summary.
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-security-build-first-layer-defense-thumbnail.png

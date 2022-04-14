@@ -11,11 +11,14 @@ metadata:
   ms.service: architecture-center
   ms.subservice: reference-architecture
 azureCategories:
-  - 
-  - 
+  - integration
+  - security
 products:
-  - azure
-  - 
+  - mem
+  - office-365-atp
+  - office-365
+  - office-teams
+  - office-onedrive
 name: Build the second layer of defense with Microsoft 365 Defender Security services
 summary: Placeholder summary.
 thumbnailUrl: /azure/architecture/browse/thumbs/microsoft-365-defender-build-second-layer-defense-thumbnail.png

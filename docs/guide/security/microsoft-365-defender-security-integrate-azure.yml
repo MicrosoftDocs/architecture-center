@@ -11,11 +11,14 @@ metadata:
   ms.service: architecture-center
   ms.subservice: reference-architecture
 azureCategories:
-  - 
-  - 
+  - integration
+  - security
 products:
-  - azure
-  - 
+  - azure-network-watcher
+  - azure-sentinel
+  - azure-log-analytics
+  - azure-monitor
+  - azure-application-insights
 name: Integration between Azure and Microsoft 365 Defender security services
 summary: Placeholder summary.
 thumbnailUrl: /azure/architecture/browse/thumbs/microsoft-365-defender-security-integrate-azure-thumbnail.png

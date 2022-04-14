@@ -11,11 +11,11 @@ metadata:
   ms.service: architecture-center
   ms.subservice: reference-architecture
 azureCategories:
-  - 
-  - 
+  - integration
+  - security
 products:
   - azure
-  - 
+  - azure-sentinel
 name: Customer IT environment and the threats
 summary: Placeholder summary.
 thumbnailUrl: /azure/architecture/browse/thumbs/customer-it-environment-threats-thumbnail.png
