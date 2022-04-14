@@ -16,6 +16,7 @@ ms.custom:
   - CognitiveServices
 ---
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
+
 # Sentiment Analysis and Face Recognition on Azure
 
 Branding is important for industries globally, sometimes company value is based on the image that the market has about the company.  As companies move to making predictive data driven decision as opposed to reactive decisions, the need exists to be able to monitor and understand what is happening in real time.  In order to gain competitive advantages, companies need to use social media analysis to identify and understand public opinion.  Along with identifying the sentiment in Tweets, companies might choose to recognize the faces and pictures in these Tweets.
@@ -25,6 +26,9 @@ This pattern provides the solution across industries as monitoring social networ
 This solution showcases how companies using open source solutions can seamlessly integrate with Azure Sentiment Analysis and Face Recognition to deliver value.
 
 ## Potential Use Cases
+
+This solution is ideal for the manufacturing industry.
+
 NiFi works well for moving data and managing the flow of data:
 * Connecting decoupled systems in the cloud
 * Moving data in and out of Azure Storage and other data stores
