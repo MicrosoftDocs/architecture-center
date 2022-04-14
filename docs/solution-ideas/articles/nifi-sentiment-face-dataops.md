@@ -24,7 +24,7 @@ This pattern provides the solution across industries as monitoring social networ
 
 This solution showcases how companies using open source solutions can seamlessly integrate with Azure Sentiment Analysis and Face Recognition to deliver value.
 
-## Potential use cases
+## Potential Use Cases
 NiFi works well for moving data and managing the flow of data:
 * Connecting decoupled systems in the cloud
 * Moving data in and out of Azure Storage and other data stores
@@ -46,7 +46,7 @@ This solution applies to many areas:
 
 ## Architecture
 
-![Architecture diagram for scenario NiFi Sentiment Analysis and Face Recognition](../media/nifi-sentiment-face-arch.png)
+![Architecture diagram for scenario NiFi Sentiment Analysis and Face Recognition](../media/nifi-sentiment-face-architecture.png)
 
 ## DataFlow
 There are three main parts to this DataFlow:
