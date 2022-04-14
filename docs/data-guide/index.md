@@ -40,22 +40,22 @@ This guide is not intended to teach you data science or database theory &mdash; 
 ## Next steps
 
 * Relational data:
-    * []()
+    * [Extract, transform, and load (ETL)](/azure/architecture/data-guide/relational-data/etl)
     * []()
     * []()
     * []()
 * Non-relational data:
+    * [Non-relational data and NoSQL](/azure/architecture/data-guide/big-data/non-relational-data)
     * []()
     * []()
     * []()
-    * []()
-* []()
+* [Build a scalable system for massive data](/azure/architecture/data-guide/scenarios/build-scalable-database-solutions-azure-services)
 * Big data:
-    * []()
+    * [Big data architectures](/azure/architecture/data-guide/big-data/)
     * []()
     * []()
 * Technology choices:
-    * []()
+    * [Choose an analytical data store in Azure](/azure/architecture/data-guide/technology-choices/analytical-data-stores)
     * []()
     * []()
     * []()
@@ -65,7 +65,7 @@ This guide is not intended to teach you data science or database theory &mdash; 
     * []()
     * []()
 * Additional scenarios:
-    * []()
+    * [Data management patterns](/azure/architecture/patterns/category/data-management)
     * []()
     * []()
     * []()
