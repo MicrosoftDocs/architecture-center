@@ -41,19 +41,19 @@ This guide is not intended to teach you data science or database theory &mdash; 
 
 * Relational data:
     * [Extract, transform, and load (ETL)](/azure/architecture/data-guide/relational-data/etl)
-    * []()
-    * []()
-    * []()
+    * [Online analytical processing (OLAP)](/azure/architecture/data-guide/relational-data/online-analytical-processing)
+    * [Online transaction processing (OLTP)](/azure/architecture/data-guide/relational-data/online-transaction-processing)
+    * [Data warehousing in Microsoft Azure](/azure/architecture/data-guide/relational-data/data-warehousing)
 * Non-relational data:
     * [Non-relational data and NoSQL](/azure/architecture/data-guide/big-data/non-relational-data)
-    * []()
-    * []()
-    * []()
+    * [Processing free-form text for search](/azure/architecture/data-guide/scenarios/search)
+    * [Time series data](/azure/architecture/data-guide/scenarios/time-series)
+    * [Working with CSV and JSON files for data solutions](/azure/architecture/data-guide/scenarios/csv-and-json)
 * [Build a scalable system for massive data](/azure/architecture/data-guide/scenarios/build-scalable-database-solutions-azure-services)
 * Big data:
     * [Big data architectures](/azure/architecture/data-guide/big-data/)
-    * []()
-    * []()
+    * [Batch processing](/azure/architecture/data-guide/big-data/batch-processing)
+    * [Real time processing](/azure/architecture/data-guide/big-data/real-time-processing)
 * Technology choices:
     * [Choose an analytical data store in Azure](/azure/architecture/data-guide/technology-choices/analytical-data-stores)
     * []()
