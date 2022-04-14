@@ -121,7 +121,7 @@ See these additional resources:
 - [Refactor mainframe computer systems that run Adabas & Natural](refactor-adabas-aks.yml)
 - [Azure mainframe and midrange architecture concepts and patterns](../../mainframe/mainframe-midrange-architecture.md)
 - [Mainframe migration overview](/azure/cloud-adoption-framework/infrastructure/mainframe-migration/?toc=https:%2f%2fdocs.microsoft.com%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fazure%2farchitecture%2fbread%2ftoc.json)
-- [Mainframe rehosting on Azure Virtual Machines](/azure/virtual-machines/workloads/mainframe-rehosting/overview)
+- [Mainframe rehosting on Azure virtual machines](/azure/virtual-machines/workloads/mainframe-rehosting/overview)
 - [Move mainframe compute to Azure](/azure/virtual-machines/workloads/mainframe-rehosting/concepts/mainframe-compute-azure?toc=https:%2f%2fdocs.microsoft.com%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fazure%2farchitecture%2fbread%2ftoc.json)
 - [General mainframe refactor to Azure](../../example-scenario/mainframe/general-mainframe-refactor.yml)
 - [AIX UNIX on-premises to Azure Linux migration](../../example-scenario/unix-migration/migrate-aix-azure-linux.yml)
