@@ -8,7 +8,7 @@ App Configuration works seamlessly with [Azure Key Vault](https://azure.microsof
 
 While any application can use Azure App Configuration, the following types of applications benefit most from it:
 
-* Microservices based on Azure Kubernetes Service, Azure Service Fabric, or other containerized apps deployed in one or more geographies.
+* Microservices based on Azure Kubernetes Service, Azure Service Fabric, or other containerized apps deployed in one or more regions.
 * Serverless apps, which include Azure Functions or other event-driven stateless compute apps.
 * Apps that use a continuous deployment (CD) pipeline.
 
@@ -48,7 +48,7 @@ The Azure staging and production environments use an [Azure Managed Service Iden
 
 ### Considerations
 
-* It's best to use a different key vault for each application in each environment: development, Azure pre-production, and Azure production. Using different vaults helps prevent sharing secrets across environments, and reduces the threat in case of a breach.
+* It's best to use a different key vault for each application in each environment: development, Azure pre-production, and Azure production. Using different vaults helps prevent sharing secrets across environments, and reduces threats in the event of a breach.
 
 * To use these scenarios, the sign-in identity must have the **App Configuration Data Reader** role in the App Configuration resource, and have explicit **access policies** for retrieving the secrets in Azure Key Vault.
 

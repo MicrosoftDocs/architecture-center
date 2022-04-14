@@ -48,7 +48,7 @@ Key technologies used to implement this architecture:
 
 ### Scalability
 
-The majority of the components used in this example scenario are managed services that will automatically scale.
+Most of the components used in this example scenario are managed services that will automatically scale.
 
 For general guidance on designing scalable solutions, see the [performance efficiency checklist][scalability] in the Azure Architecture Center.
 
@@ -60,7 +60,7 @@ For general guidance on designing secure solutions, see the [Azure Security Docu
 
 ### Resiliency
 
-All of the components in this scenario are managed, so at a regional level they are all resilient automatically.
+All of the components in this scenario are managed, so at a regional level they're all resilient automatically.
 
 For general guidance on designing resilient solutions, see [Designing resilient applications for Azure][resiliency].
 
@@ -68,7 +68,7 @@ For general guidance on designing resilient solutions, see [Designing resilient 
 
 To explore the cost of running this scenario, see the pre-filled calculator with all of the services. To see how the pricing would change for your particular use case, change the appropriate variables to match your expected traffic / data volumes.
 
-We have provided three sample cost profiles based on the amount of traffic (we assume all images are 100 kb in size):
+We've provided three sample cost profiles based on the amount of traffic (we assume all images are 100 kb in size):
 
 * [Example calculator][example-pricing]: this pricing example is a calculator with all services in this architecture, except Power BI and custom alerting solution.
 
