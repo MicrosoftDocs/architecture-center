@@ -144,9 +144,9 @@ In the past, you were able to access the service through <https://securitycenter
 
   Microsoft Endpoint Manager is the rebranded name for Intune, Configuration Manager and other services. You may access it through the portal <https://endpoint.microsoft.com>
 
-**NOTE:**
-
-In article 4 \<LINK\>, regarding Microsoft 365 Defender, you can have more details about how to access the services provided by Microsoft 365 Defender and how each Portal is related to each other.
+  > [!NOTE]
+  >
+  > In article 4 \<LINK\>, regarding Microsoft 365 Defender, you can have more details about how to access the services provided by Microsoft 365 Defender and how each Portal is related to each other.
 
 - **Azure Network watcher**
 
