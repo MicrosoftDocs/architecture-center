@@ -98,15 +98,15 @@ Currently, you may consider some Portals to manage Microsoft 365 Defender servic
 
 We built this diagram below to make easier for you to understand what Portals are currently available and what is the relationship they have each other.
 
-"**[Security.microsoft.com]{.underline}"** is currently the most important portal available as it brings functionalities from Microsoft Defender for Office (1) and from Microsoft Defender for Endpoint (2).
+**Security.microsoft.com** is currently the most important portal available as it brings functionalities from Microsoft Defender for Office (1) and from Microsoft Defender for Endpoint (2).
 
-However, at the time of writing this article (March of 2022) you may still access the **"[Protection.office.com]{.underline}**" for security functionalities regarding Office 365 (3).
+However, at the time of writing this article (March of 2022) you may still access the **Protection.office.com** for security functionalities regarding Office 365 (3).
 
-For Microsoft Defender for Endpoint, if you try to access the old portal "**[Securitycenter.windows.com]{.underline}",** you will be redirected to the new on "security.microsoft.com" (7).
+For Microsoft Defender for Endpoint, if you try to access the old portal **Securitycenter.windows.com**, you will be redirected to the new on "security.microsoft.com" (7).
 
-**"[Portal.cloudappsecurity.com]{.underline}"** is used mainly by the Microsoft Defender for Cloud Apps (4) and allows you to manage your cloud apps and even some apps that you may run on-premises, shadow IT and manage the user signals sent by Azure AD Identity protection. This portal may be used to manage many signals and features from Identity on-premises as well, allowing you to consolidate many functionalities from "**[portal.atp.azure.com"]{.underline}** (6) on the Microsoft Defender for Cloud Apps portal. But you may still access it if you need it.
+**Portal.cloudappsecurity.com** is used mainly by the Microsoft Defender for Cloud Apps (4) and allows you to manage your cloud apps and even some apps that you may run on-premises, shadow IT and manage the user signals sent by Azure AD Identity protection. This portal may be used to manage many signals and features from Identity on-premises as well, allowing you to consolidate many functionalities from **portal.atp.azure.com** (6) on the Microsoft Defender for Cloud Apps portal. But you may still access it if you need it.
 
-Lastly, we have the **["endpoint.microsoft.com",]{.underline}** that brings functionalities mainly regarding Intune and Configuration Manager, but also from others services that is part of Microsoft Endpoint Manager.
+Lastly, we have the **endpoint.microsoft.com** that brings functionalities mainly regarding Intune and Configuration Manager, but also from others services that is part of Microsoft Endpoint Manager.
 
 As both portals "security.microsoft.com" and "endpoint.microsoft.com" deliver security protection for endpoints, they have lots of interaction between them (9) to offer a great security posture for your endpoints.
 
