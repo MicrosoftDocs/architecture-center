@@ -48,10 +48,10 @@ Review all security controls details in the link below:
 [Overview of the Azure Security Benchmark v3 \| Microsoft Docs](https://docs.microsoft.com/en-us/security/benchmark/azure/overview)
 
 2.  **Network security services**
-
+ 
     1.  **Network Security Group (NSG)** -- This is a free service that you attach on a network card or subnet and allows you to filter TCP or UDP protocol with IP ranges and ports for inbound and outbound connections.
 
-       [Azure network security groups overview \| Microsoft > Docs](https://docs.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview)
+        [Azure network security groups overview \| Microsoft > Docs](https://docs.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview)
 
     1.  **VPN** -- A Virtual Private Network gateway that delivers a tunnel with IPSEC (IKE v1/v2) protection.
 
