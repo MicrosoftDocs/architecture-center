@@ -1,0 +1,24 @@
+### YamlMime:Architecture
+metadata:
+  title: Power BI data write-back with Power Apps and Power Automate 
+  titleSuffix: Azure Architecture Center
+  description: Learn about a solution that provides data write-back functionality for Power BI reports. Update data in Power BI and push the changes back to your data source. 
+  author: EdPrice-MSFT
+  ms.author: edprice
+  ms.date: 04/18/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.custom: fcp 
+azureCategories:
+  - databases
+products:
+  - power-bi
+  - power-apps
+  - power-automate
+  - power-platform
+name: Power BI data write-back with Power Apps and Power Automate 
+summary: Learn about a solution that provides data write-back functionality for Power BI reports.
+thumbnailUrl: /azure/architecture/browse/thumbs/power-platform-write-backs.png
+content: |
+  [!include[](power-bi-write-back-power-apps-content.md)]

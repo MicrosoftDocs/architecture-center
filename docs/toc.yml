@@ -3282,14 +3282,16 @@ items:
                 href: example-scenario/data/hybrid-etl-with-adf.yml
               - name: Master data management with CluedIn
                 href: reference-architectures/data/cluedin.yml
+              - name: Master data management with Profisee
+                href: reference-architectures/data/profisee-master-data-management-data-factory.yml
               - name: Modern data warehouse for small business
                 href: example-scenario/data/small-medium-data-warehouse.yml
               - name: Modernize mainframe and midrange data
                 href: reference-architectures/migration/modernize-mainframe-data-to-azure.yml
               - name: Optimized storage with data classification
                 href: solution-ideas/articles/optimized-storage-logical-data-classification.yml
-              - name: Master data management with Profisee
-                href: reference-architectures/data/profisee-master-data-management-data-factory.yml
+              - name: Power BI data write-back
+                href: example-scenario/data/power-bi-write-back-power-apps.yml
               - name: Replicate and sync mainframe data in Azure
                 href: reference-architectures/migration/sync-mainframe-data-with-azure.yml
           - name: Solution ideas
@@ -4052,7 +4054,7 @@ items:
                 href: reference-architectures/iot/industry-iot-hub-page.md
               - name: IoT concepts
                 items:
-                  - name: Introduction to IoT solutions
+                  - name: Introduction to IoT concepts
                     href: example-scenario/iot/introduction-to-solutions.yml
                   - name: 'Devices, platform, and applications'
                     href: example-scenario/iot/devices-platform-application.yml
