@@ -26,33 +26,22 @@ Let's review some details presented in the diagram.
 
 1.  **Azure Security Benchmark**
 
-On Azure Security Benchmark, each security control will refer to one or more specific Azure security services. The architecture reference on this document shows some of them and their control number according to the Azure Security benchmark v3 documentation.
+    On Azure Security Benchmark, each security control will refer to one or more specific Azure security services. The architecture reference on this document shows some of them and their control number according to the Azure Security benchmark v3 documentation.
 
-Those are the controls you find on Azure Security Benchmark.
+    Those are the controls you find on Azure Security Benchmark.
 
--   Network security
-
--   Identity management
-
--   Privileged Access
-
--   Data protection
-
--   Asset management
-
--   Logging and threat detection
-
--   Incident response
-
--   Posture and vulnerability management
-
--   Endpoint security
-
--   Backup and recovery
-
--   DevOps Security
-
--   Governance and Strategy
+    - Network security
+    - Identity management
+    - Privileged Access
+    - Data protection
+    - Asset management
+    - Logging and threat detection
+    - Incident response
+    - Posture and vulnerability management
+    - Endpoint security
+    - Backup and recovery
+    - DevOps Security
+    - Governance and Strategy
 
 Review all security controls details in the link below:
 
