@@ -12,7 +12,7 @@ In article 4 (link) we built and map an example of a series of attacks against y
 
 In this last article, we will show you how to integrate all Security services to deliver a great security posture to your IT environment. This article will consider Azure Monitoring services and Microsoft Sentinel, which will be the core piece to integrate the Security services explained in the previous articles.
 
-**Introduction**
+## Introduction
 
 Monitoring solutions on Azure may seem confusing at first sight, as Azure offers multiple monitoring services, but they are not. Each Microsoft Azure monitoring service has its own importance in the entire Microsoft Security and Monitoring strategy.
 
@@ -40,7 +40,7 @@ The diagram below shows a complete architecture reference including an example o
 
 :::image type="content" alt-text="Image alt text." source="images/microsoft-365-defender-security-integrate-azure-architecture.png" lightbox="images/microsoft-365-defender-security-integrate-azure-architecture.png":::
 
-**Components**
+## Components
 
 The components, part of the diagram, are explained in a nutshell so that you may digest the information quickly. For detailed information about each service, you may check the link provided.
 
@@ -92,13 +92,13 @@ As Microsoft Sentinel is not covered in details in this article, you may see mor
 
 [Microsoft Sentinel documentation \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/sentinel/)
 
-**Potential use cases**
+## Potential use cases
 
 This architecture reference may help you understand the whole picture of Microsoft Cloud security services an how integrate them for a best security posture.
 
 You don't need necessarily consider all security services presented in this architecture, but through this initial customer environment as example and a threat map represented through this diagram, you may understand how to create your own map and then plan accordingly for your security strategy by selecting the right Azure security services and the Microsoft 365 Defender services that you will want to integrate with Azure so that you may have the security you will need in your environment.
 
-**How to access Azure Security, Monitoring and Microsoft 365 Defender services**
+## How to access Azure Security, Monitoring and Microsoft 365 Defender services
 
 As we covered many different Services, here it is information about how to access each of those Services:
 
@@ -166,7 +166,7 @@ In the past, you were able to access the service through <https://securitycenter
 
   Azure storage offers different types of storage under the same storage account technology. You may find blobs, files, table and queues on top of storage accounts. Storage analytics offers a broad range of metrics to use with those storages' services. You will be able to access it, going to your Storage account at Azure Portal (https://portal.azure.com) , then setting "Diagnostic settings" on the left menu and choosing one log analytics workspace to send that information. Then, you may access some dashboard on "Insights" that you will see on the left menu. But you will also be able to access a series of workbooks on "workbooks" at the left menu, Metrics and Alerts for your storage account. Everything will be inside your storage account being monitored, in the left menu.
 
-**How is the pricing for Microsoft Security services**
+## How is the pricing for Microsoft Security services
 
 It was presented in this series of articles different Microsoft security services, as you read it, you may integrate all of them to get a best security posture, however their prices is set in different ways. Some of them are free of charge, some of them are charged per usage and some of them, as Microsoft 365 Defender are charged based on different types of license.
 
@@ -180,7 +180,7 @@ Microsoft 365 Defender security services works with licenses. The link below sho
 
 [Microsoft 365 Defender prerequisites \| Microsoft Docs](https://docs.microsoft.com/en-us/microsoft-365/security/defender/prerequisites?view=o365-worldwide)
 
-**NEXT STEPS**
+## Next steps
 
 This content and set of diagrams are part of a series of 5 articles. You may review the other articles in the link below:
 

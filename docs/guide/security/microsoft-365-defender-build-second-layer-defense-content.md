@@ -26,7 +26,7 @@ This picture may help you understand Microsoft 365 set of solution and some of t
 
 :::image type="content" alt-text="Image alt text." source="images/microsoft-365-defender-build-second-layer-defense-azure-services.png" lightbox="images/microsoft-365-defender-build-second-layer-defense-azure-services.png":::
 
-**Potential use case**
+## Potential use case
 
 Some Companies and professionals sometimes make confusion about Microsoft 365 security services and their role in IT Cybersecurity. The main reasons are because we have some names that are very similar among them, including some Security services that runs on Azure, such as Microsoft Defender for Cloud, formerly known as Azure Security Center and Microsoft Defender for Cloud Apps, formerly known as Microsoft Cloud Application Security or simply MCAS.
 
@@ -40,7 +40,7 @@ In the diagram below we added the Microsoft 365 Defender security services layer
 
 :::image type="content" alt-text="Image alt text." source="images/microsoft-365-defender-build-second-layer-defense-architecture.png" lightbox="images/microsoft-365-defender-build-second-layer-defense-architecture.png":::
 
-**Components**
+## Components
 
 1.  **Microsoft Defender for endpoint**
 
@@ -76,7 +76,7 @@ In the diagram below we added the Microsoft 365 Defender security services layer
 
     There are still other services that are part of Microsoft Endpoint Manager. To see all of them, look at this website: [Microsoft Endpoint Manager overview \| Microsoft Docs](https://docs.microsoft.com/en-us/mem/endpoint-manager-overview)
 
-**Microsoft 365 Defender security services use case**
+## Microsoft 365 Defender security services use case
 
 Let's see a real use case where Companies may consider using Microsoft 365 Defender security services and what resources they may protect.
 
@@ -92,7 +92,7 @@ You may find more details about Microsoft 365 Defender in this link:
 
 [Microsoft 365 Defender \| Microsoft Docs](https://docs.microsoft.com/en-us/microsoft-365/security/defender/microsoft-365-defender?view=o365-worldwide).
 
-**How to access and manage Microsoft 365 Defender Security services**
+## How to access and manage Microsoft 365 Defender Security services
 
 Currently, you may consider some Portals to manage Microsoft 365 Defender services. However, Microsoft is working to have as much functionalities as possible to be centralized in a few or in a soon future, in a single Portal.
 
@@ -112,7 +112,7 @@ As both portals "security.microsoft.com" and "endpoint.microsoft.com" deliver se
 
 :::image type="content" alt-text="Image alt text." source="images/microsoft-365-defender-build-second-layer-defense-portals.png" lightbox="images/microsoft-365-defender-build-second-layer-defense-portals.png":::
 
-**NEXT STEPS**
+## Next steps
 
 This content and set of diagrams is part of a series of 5 articles. You may review the other articles in the link below:
 

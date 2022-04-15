@@ -10,7 +10,7 @@ This is the third document that is part of a series of 5. To review the other tw
 
 -   Business IT environment VS Attackers \<link\>
 
-**Potential use cases**
+## Potential use cases
 
 This document presents Azure Security services according to each Azure service. In this way, you may think of a specific threat against a VM, an operating system, an Azure network, Applications, or an attack that may try to compromise your users and passwords, and then use the diagram in this document to help you understand what Azure security services you may consider to protect some specific Azure resources.
 
@@ -91,7 +91,7 @@ Review all security controls details in the link below:
 
     1.  **Private Link** -- this service allows you to create a private network for an Azure service that initially is exposed to the internet.
 
-  [What is Azure Private Link? \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/private-link/private-link-overview)
+        [What is Azure Private Link? \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/private-link/private-link-overview)
 
     1.  **Private Endpoint** -- part of Private Link, Private endpoint create a network card and attach it to the azure service. This setup lets the service with a private endpoint be part of your VNET.
 
@@ -151,7 +151,7 @@ Review all security controls details in the link below:
 
     1.  **Storage encryption** -- set your storage account with encryption at rest.
 
-  [Azure Storage encryption for data at rest \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption)
+        [Azure Storage encryption for data at rest \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption)
 
     1.  **SQL Audit** -- tracks database events and writes them to an audit log in your Azure storage account.
 
@@ -215,7 +215,7 @@ Anyway, Microsoft has other documents that may help you in your Security journey
 
   <https://aka.ms/mcra>
 
-**Next steps**
+## Next step
 
 To get all details regarding this Architecture reference, you may review those other documents part of this series.
 
@@ -227,7 +227,7 @@ To get all details regarding this Architecture reference, you may review those o
 
 -   Part 5 - Integration between Azure and Microsoft 365 Defender     services \<link\>
 
-**Related resources**
+## Related resources
 
 This document refers to a variety of links and references throughout it. But you may want to check out more about other topics mentioned in this document.
 

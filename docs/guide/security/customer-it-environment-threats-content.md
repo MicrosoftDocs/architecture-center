@@ -12,7 +12,7 @@ This document uses a small subset of those threats (the bottom part of the diagr
 
 :::image type="content" alt-text="Image alt text." source="images/customer-it-environment-threats-architecture.png" lightbox="images/customer-it-environment-threats-architecture.png":::
 
-**Potential use cases**
+## Potential use cases
 
 Some threats are widespread regardless of the industry segment, such as Ransomware, DDOS attacks, Cross-site scripting, SQL injection, etc. However, specific companies may have particular concerns about some types of threats, based on their type of industry or based on the experience they have already had in the past with cyber-attack. The diagram presented in this article may help you map those threats according to the area that malicious actors intend to attack and allow your organization to plan the layers of defense necessary to build a more secure environment.
 
@@ -34,7 +34,7 @@ Here is the business IT environment we consider as an example and used in this s
 
 4.  **Mitre Att&ck tactics and techniques:** This diagram compiles the top 16 threats described according to its tactics and techniques published by Mitre. In red lines, you may see an example of a blended attack, which means that a malicious actor may coordinate multiple attacks simultaneously.
 
-**Components of the diagrams**
+## Components of the diagrams
 
 For the Business IT environment, we will specify the components only for the Azure and Office 365 environment as on-premises may run various devices, appliances, and technologies from different technology providers.
 
@@ -90,7 +90,7 @@ For **Office 365**, the diagram represents the service through two different com
 
   [What is Azure Active Directory? \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis)
 
-**How to use Mitre Att&ck framework**
+## How to use Mitre Att&ck framework
 
 - You may start with a simple search for the name of the threat of the attack code on this main page:
 
@@ -104,7 +104,7 @@ For **Office 365**, the diagram represents the service through two different com
 
 - You can still use Mitre Att&ck navigator, [ATT&CK® Navigator (mitre-attack.github.io)](https://mitre-attack.github.io/attack-navigator/), an intuitive tool provided by Mitre that facilitates your navigation through tactics, techniques, and all details about threats.
 
-**Next steps**
+## Next steps
 
 To get all details regarding this Architecture reference, you may review those other documents part of this series.
 
@@ -116,7 +116,7 @@ To get all details regarding this Architecture reference, you may review those o
 
 -   Part 5 - Integration between Azure and Microsoft 365 Defender services \<link\>
 
-**Related resources**
+## Related resources
 
 This document refers to some services, technologies, and terminologies. You may find more information related to it in the links below.
 
