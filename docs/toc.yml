@@ -4052,7 +4052,7 @@ items:
                 href: reference-architectures/iot/industry-iot-hub-page.md
               - name: IoT concepts
                 items:
-                  - name: Introduction to IoT solutions
+                  - name: Introduction to IoT concepts
                     href: example-scenario/iot/introduction-to-solutions.yml
                   - name: 'Devices, platform, and applications'
                     href: example-scenario/iot/devices-platform-application.yml
