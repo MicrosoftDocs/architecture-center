@@ -126,7 +126,7 @@ As we covered many different Services, here it is information about how to acces
 
   Microsoft Defender for Endpoint is part of Microsoft 365 Defender. You access the service through this URL: <https://security.microsoft.com>
 
-In the past, you were able to access the service through <https://securitycenter.windows.com>
+  In the past, you were able to access the service through <https://securitycenter.windows.com>
 
 - **Microsoft Defender for Cloud Apps**
 
