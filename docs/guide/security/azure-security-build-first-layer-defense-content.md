@@ -1,5 +1,3 @@
-**Building the first layer of defense with Azure Security services**
-
 Every business IT infrastructure running on-premises or on the Cloud may have vulnerabilities and breaches that may compromise your information and make it fail. Azure public cloud has many services available so that you may build an entire IT infrastructure to run your business leveraging a variety of infrastructure and platform services. Those components contain resources for your network, compute, storage, applications, databases, and identity services.
 
 Microsoft Azure offers a great list of security services to protect those resources and then allow you to improve your security posture by avoiding and mitigating vulnerabilities and breaches. These security services need to be well architected and follow some recommendations from Microsoft to work correctly.

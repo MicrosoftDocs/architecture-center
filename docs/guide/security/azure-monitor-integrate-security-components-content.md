@@ -1,5 +1,3 @@
-**Use Azure monitoring to integrate security components**
-
 Microsoft provides a wide range of security solutions to help your company monitor, protect, and defend your business and valued information. These solutions are in different Microsoft services, and when they work integrated, they offer a better security posture for your environment.
 
 Microsoft has many documents and architecture references regarding IT Security that is available. For example, you may dive into details about Microsoft Zero Trust concepts, understand how Microsoft 365 Defender services work to protect your Office environment, or get an architecture reference with different Microsoft Azure Cloud security services. You can find a compilation of various Microsoft Cloud Security architecture references in this link.

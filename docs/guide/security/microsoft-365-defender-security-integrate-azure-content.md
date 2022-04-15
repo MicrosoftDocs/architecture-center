@@ -1,7 +1,3 @@
-**Integration between Azure and Microsoft 365 Defender security services (plus Azure Monitoring services)**
-
-**(DOC 5 -- final)**
-
 This is the last article from a series of 5 articles about how to build a defense in depth for your IT environment running on Microsoft cloud, considering Azure public cloud and Office 365.
 
 Security Defense in depth is built with Azure Security services, Microsoft 365 Defender services and the integration among all those services through Azure Monitoring services and Microsoft Sentinel.

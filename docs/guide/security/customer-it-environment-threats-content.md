@@ -1,5 +1,3 @@
-**Customer IT environment and the threats**
-
 This is the second document from a series of 5. If you would like to review the first document with the introduction about this series, you may check this \<LINK\>. This document intends to explain how to diagram an essential business IT environment and a threat map that will help you to plan and build your security defense layer with Microsoft cloud security services.
 
 Understanding your IT environment and how it is architected is essential to define the security services required to get the right level of protection you need. Information contained in computer systems is of great value to the companies that produce it, but it can also be valuable to malicious actors.

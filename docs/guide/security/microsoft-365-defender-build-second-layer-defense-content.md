@@ -1,5 +1,3 @@
-**Build the second layer of defense with Microsoft 365 Defender Security services (DOC4)**
-
 It is very common Companies run a hybrid environment, with resources running on Azure, on-premises and with Microsoft 365, which has some applications such as Word, Excel, Powerpoint, Exchange online and more. You may read more about it in the article 2, that is part of a series of docs about Microsoft Cloud Security.
 
 Most of Azure resources, such as VMs, Azure applications, Azure AD and more may be protected by security services running on Azure as described in details in the article 3.
