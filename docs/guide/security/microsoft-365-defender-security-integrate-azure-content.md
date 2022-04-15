@@ -172,7 +172,7 @@ It was presented in this series of articles different Microsoft security service
 
 So, the best way to get any of the **Azure** Security services prices is visiting Azure pricing calculator at [Pricing Calculator \| Microsoft Azure](https://azure.microsoft.com/en-us/pricing/calculator/).
 
-:::image type="content" alt-text="Image alt text." source="images/pricing-calculator-web-page.png":::
+:::image type="content" alt-text="Image alt text." source="images/pricing-calculator-web-page.png" lightbox="images/pricing-calculator-web-page.png":::
 
 You will have to search for the service you are interested in and click on it to get all the variables that you provide you the price for the service.
 
