@@ -1,6 +1,16 @@
-This article series shows a recommended architecture for an Industrial IoT (IIoT) *analytics solution* on Azure using [PaaS (Platform as a service)](https://azure.microsoft.com/overview/what-is-paas/) components. [Industrial IoT or IIoT](/azure/industrial-iot/overview-what-is-industrial-iot) is the application of *Internet of Things* in the manufacturing industry.
+[Industrial internet of things (IIoT)](/azure/industrial-iot/overview-what-is-industrial-iot) is the application of IoT technology to the manufacturing industry. This article series describes a recommended architecture for an IIoT analytics solution that uses Azure [platform as a service (PaaS)](https://azure.microsoft.com/overview/what-is-paas) components.
 
-An IIoT analytics solution can be used to build a variety of applications that provide:
+IIoT goes beyond moving existing processes and tools to the cloud. A modern IIoT analytics solution transforms operations, embraces PaaS services, and uses the power of machine learning (ML) and intelligent edge computing to optimize industrial processes.
+
+The following roles participate in an IIoT analytics solutions:
+
+- The *plant manager* is responsible for all manufacturing plant operations, production, and administrative tasks.
+- A *production manager* is responsible for the production of a certain number of components.
+- A *process engineer* designs, implements, controls, and optimizes industrial processes.
+- An *operations manager* oversees overall operational efficiency in terms of cost reduction, process time, and process improvements.
+- A *data scientist* builds and trains predictive ML models using historical industrial telemetry.
+
+IIoT analytics support a variety of applications that provide:
 
 - Asset monitoring
 - Process dashboards
@@ -8,87 +18,91 @@ An IIoT analytics solution can be used to build a variety of applications that p
 - Predictive maintenance
 - Forecasting
 
-Such an IIoT analytics solution relies on real-time and historical data from industrial devices and control systems located in discrete and process manufacturing facilities. These include PLCs (Programmable Logic Controller), industrial equipment, SCADA (Supervisory Control and Data Acquisition) systems, MES (Manufacturing Execution System), and Process Historians. The architecture covered by this series, includes guidance for connecting to all these systems.
+## Architecture
 
-A modern IIoT analytics solution goes beyond moving existing industrial processes and tools to the cloud. It involves transforming your operations and processes, embracing PaaS services, and leveraging the power of machine learning and the intelligent edge to optimize industrial processes.
+The following architectural diagram shows the core subsystems that form an IIoT analytics solution. This analytics architecture represents an ingestion-only pattern. No control commands are sent back to the industrial systems or devices.
 
-The following list shows some typical *personas* who would use the solution and how they would use this solution:
+[![Azure IIoT architecture diagram.](./images/iiot-architecture.png)](./images/iiot-architecture.png#lightbox)
 
-- **Plant Manager:** responsible for the entire operations, production, and administrative tasks of the manufacturing plant.
-- **Production Manager:** responsible for production of a certain number of components.
-- **Process Engineer:** responsible for designing, implementing, controlling, and optimizing industrial processes.
-- **Operations Manager:** responsible for overall efficiency of operation in terms of cost reduction, process time, process improvement, and so on.
-- **Data Scientist:** responsible for building and training predictive Machine Learning models using historical industrial telemetry.
-
-The following architecture diagram shows the core subsystems that form an IIoT analytics solution.
-
-[![Azure IIoT architecture diagram](./images/iiot-architecture.png)](./images/iiot-architecture.png#lightbox)
-
-> [!NOTE]
-> This architecture represents an ingestion-only pattern. No control commands are sent back to the industrial systems or devices.
-
-The architecture consists of a number of subsystems and services, and makes use of the [Azure Industrial IoT](https://github.com/Azure/Industrial-IoT/blob/master/docs/deploy/readme.md) components. Your own solution may not use all these services or may have additional services. This architecture also lists alternative service options, where applicable.
+This architecture consists of a number of subsystems and services that use [Azure Industrial IoT](https://github.com/Azure/Industrial-IoT/blob/master/docs/deploy/readme.md) components. Your solution might not use all these services, or might use other services. The articles list alternative service options where applicable.
 
 > [!IMPORTANT]
-> This architecture includes some services marked as "Preview" or "Public Preview".  Preview services are governed by [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Any preview services are governed by [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms).
 
 ## Industrial systems and devices
 
-In process manufacturing, industrial equipment (for example, flow monitors, pumps, and so on) is often geographically dispersed and must be monitored remotely. Remote Terminal Units (RTUs) connect remote equipment to a central SCADA system. RTUs work well in conditions where connectivity is intermittent, and no reliable continuous power supply exists.
+An IIoT analytics solution relies on real-time and historical data from industrial devices and control systems in manufacturing facilities. Devices and control systems include Programmable Logic Controllers (PLCs), industrial equipment, Supervisory Control and Data Acquisition (SCADA)  systems, Manufacturing Execution Systems (MES), and process historians. This article series includes guidance for connecting to all these systems.
 
-In discrete manufacturing, industrial equipment (for example, factory robots, conveyor systems, and so on) are connected and controlled by a PLC. One or more PLCs may be connected to a central SCADA system using protocols such as Modbus or other industrial protocols.
+In process manufacturing, industrial equipment like flow monitors and pumps is often geographically dispersed and must be monitored remotely. Remote Terminal Units (RTUs) connect remote equipment to a central SCADA system. RTUs work well in conditions where connectivity is intermittent, and no reliable continuous power supply exists.
 
-In some cases, the data from SCADA systems is forwarded and centralized in an MES or a *historian* software (also known as *process historian* or *operational historian*). These historians are often located in IT controlled networks and have some access to the internet.
+In discrete manufacturing, industrial equipment like factory robots and conveyor systems are connected and controlled by a PLC. One or more PLCs can be connected to a central SCADA system by using industrial protocols such as Modbus.
 
-Frequently, industrial equipment and SCADA systems are in a closed Process Control Network (PCN), behind one or more firewalls, with no direct access to the internet. Historians often contain industrial data from multiple facilities and are located outside of a PCN. So, connecting to a historian is often the path of least resistance, rather than connecting to a SCADA, MES, or PLC. If a historian is not available, then connecting to an MES or SCADA system would be the next logical choice.
+Sometimes, the data from SCADA systems is forwarded and centralized in an MES or a *historian* program, also called a *process historian* or *operational historian*. These historians are often located in IT-controlled networks and have some access to the internet.
 
-The connection to the historian, MES, or SCADA system will depend on what protocols are available on that system. Many systems now include Industry 4.0 standards such as OPC UA. Older systems may only support legacy protocols such as Modbus, ODBC, or SOAP. If so, you will most likely require a [protocol translation](/samples/azure-samples/azure-iotedge-opc-flattener/azure-iot-edge-protocol-translation-sample/) software running on an *intelligent edge* device.
+Industrial equipment and SCADA systems are often in a closed Process Control Network (PCN) behind one or more firewalls, with no direct access to the internet. Historians often contain industrial data from multiple facilities and are located outside of a PCN. So, connecting to a historian is often easier than connecting to a SCADA, MES, or PLC. If no historian is available, then connecting to an MES or SCADA system is the next logical choice.
 
-## Intelligent edge
+The connection to the historian, MES, or SCADA system depends on what protocols are available on that system. Many systems now include Industry 4.0 standards such as OPC UA. Older systems might only support legacy protocols such as Modbus, ODBC, or SOAP. Such system usually require [protocol translation](/samples/azure-samples/azure-iotedge-opc-flattener/azure-iot-edge-protocol-translation-sample) software running on an intelligent edge device.
 
-Intelligent edge devices perform some data processing on the device itself or on a field gateway. In most industrial scenarios, the industrial equipment cannot have additional software installed on it. This is why a field gateway is required to connect the industrial equipment to the cloud.
+## Intelligent edge devices and workloads
 
-### Azure IoT Edge
+Intelligent edge devices process some data on the device itself or on a field gateway. [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge) uses built-in, custom or third-party modules to run cloud-native workloads directly on IoT devices. For example:
 
-To connect industrial equipment and systems to the cloud, we recommend using [Azure IoT Edge](/azure/iot-edge/about-iot-edge) as the field gateway for:
+- To respond to emergencies as quickly as possible, you can run anomaly detection or ML modules in tight control loops at the edge.
+- To reduce bandwidth costs and avoid transferring terabytes of raw data, you can clean and aggregate the data locally, then send only the insights to the cloud for analysis.
+- To convert legacy industrial protocols, you can develop a custom module or purchase a third-party protocol translation module.
+- To quickly respond to an event on the factory floor, you can use an edge module to detect the event and another module to respond to it.
 
-- Protocol and identity translation;
-- Edge processing and analytics; and
-- Adhering to network security policies (ISA 95, ISA 99).
+Protocol and identity translation are the most common edge workloads used within an IIoT analytics solution.
 
-Azure IoT Edge is a free, [open source](https://github.com/Azure/iotedge) field gateway software that runs on a variety of [supported hardware](/azure/iot-edge/support) devices or a virtual machine.
+IoT Edge runs edge workloads as Docker container modules. You can develop modules in several languages, with SDKs provided for Python, Node.js, C#, Java, and C. You can get prebuilt IoT Edge modules from Microsoft and third-party partners from the [Azure IoT Edge Marketplace](https://azure.microsoft.com/blog/publish-your-azure-iot-edge-modules-in-azure-marketplace).
 
-IoT Edge allows you to run edge workloads as Docker container modules. The modules can be developed in several languages, with SDKs provided for Python, Node.js, C#, Java and C.  Prebuilt Azure IoT Edge modules from Microsoft and third-party partners are available from the [Azure IoT Edge Marketplace](https://azure.microsoft.com/blog/publish-your-azure-iot-edge-modules-in-azure-marketplace/).
+Microsoft and our partners have made available on the Azure Marketplace a number of edge modules, which can be used in your IIoT analytics solution.  In the future, expect to see other workloads such as closed loop control using edge ML models.
 
-Real-time industrial data is encrypted and streamed through Azure IoT Edge to [Azure IoT Hub](/azure/iot-hub/about-iot-hub) using AMQP 1.0 or MQTT 3.1.1 protocols.  IoT Edge can operate in offline or intermittent network conditions providing **_store and forward_** capabilities.
+### Field gateways
+
+Most industrial equipment can't have software installed on it, so needs a field gateway to connect to the cloud.
+
+[Azure IoT Edge](/azure/iot-edge/about-iot-edge) is free, open source [field gateway software](https://github.com/Azure/iotedge) that runs on a variety of [supported devices](/azure/iot-edge/support) or a virtual machine (VM). To connect industrial equipment and systems to the cloud, use IoT Edge as the field gateway for:
+
+- Protocol and identity translation
+- Edge processing and analytics
+- Adherance to network security policies like ISA 95 and ISA 99
+
+IoT Edge encrypts and streams real-time industrial data to [Azure IoT Hub](/azure/iot-hub/about-iot-hub) by using AMQP 1.0 or MQTT 3.1.1 protocols. IoT Edge can operate in offline or intermittent network conditions, providing *store and forward* capabilities.
 
 [![Azure IoT Edge device](./images/iot-edge.png)](./images/iot-edge.png#lightbox)
 
-There are two system modules provided as part of IoT Edge runtime.
+The [IoT Edge runtime](/azure/iot-edge/iot-edge-runtime) provides two system modules:
 
-- The **EdgeAgent** module is responsible for pulling down the container orchestration specification (manifest) from the cloud, so that it knows which modules to run.  Module configuration is provided as part of the [module twin](/azure/iot-hub/iot-hub-devguide-module-twins).
-- The **EdgeHub** module manages the communication from the device to Azure IoT Hub, as well as the inter-module communication. Messages are routed from one module to the next using JSON configuration.
+- The *IoT Edge agent* module pulls down the container orchestration specification manifest from the cloud, so IoT Edge knows which modules to run.  Module configuration is provided as part of the [module twin](/azure/iot-hub/iot-hub-devguide-module-twins).
 
-[Azure IoT Edge automatic deployments](https://azure.microsoft.com/blog/new-enhancements-for-azure-iot-edge-automatic-deployments/) can be used to specify a standing configuration for new or existing devices. This provides a single location for deployment configuration across thousands of Azure IoT Edge devices.
+- The *IoT Edge hub* module manages the communication from the device to Azure IoT Hub, as well as inter-module communication. Messages are routed from one module to the next by using JSON configuration.
 
-A number of third-party [IoT Edge gateway devices](https://catalog.azureiotsolutions.com/alldevices?filters={%2218%22:[%221%22]}) are available from the *Azure Certified for IoT Device Catalog*.
+[Azure IoT Edge automatic deployments](https://azure.microsoft.com/blog/new-enhancements-for-azure-iot-edge-automatic-deployments) can specify a standing configuration for new or existing devices. This provides a single location for deployment configuration across thousands of Azure IoT Edge devices.
 
-> [!IMPORTANT]
-> Proper hardware sizing of an IoT Edge gateway is important to ensure edge module performance. See the [performance considerations](iiot-considerations.md#performance-considerations) for this architecture.
+A number of third-party IoT Edge gateway devices are available from the [Azure Certified for IoT Device Catalog](https://catalog.azureiotsolutions.com/alldevices?filters={%2218%22:[%221%22]}).
 
-## Gateway patterns
+Proper hardware sizing of an IoT Edge gateway is important to ensure good edge module performance. For more information, see [Performance considerations](iiot-considerations.md#performance-considerations).
 
-There are [three patterns for connecting your devices](/azure/iot-edge/iot-edge-as-gateway) to Azure via an IoT Edge field gateway (or virtual machine):
+### Gateway patterns
 
-1. **Transparent:** Devices already have the capability to send messages to IoT Hub using AMQP or MQTT.  Instead of sending the messages directly to the hub, they instead send the messages to IoT Edge, which in turn passes them on to IoT Hub.  Each device has an [identity](/azure/iot-hub/iot-hub-devguide-identity-registry) and [device twin](/azure/iot-hub/iot-hub-devguide-device-twins) in Azure IoT Hub.
+There are [three patterns for connecting your devices](/azure/iot-edge/iot-edge-as-gateway) to Azure via an IoT Edge field gateway or VM: *transparent*, *protocol translation*, and *identity translation*.
 
-1. **Protocol Translation:** Also known as an opaque gateway pattern.  This pattern is often used to connect older brownfield equipment (for example, Modbus) to Azure. Modules are deployed to Azure IoT Edge to perform the protocol conversion. Devices must provide a unique identifier to the gateway.
+Which of these patterns to use in your IIoT analytics solution is determined by which protocol your industrial systems use. For example, if your SCADA system supports ethernet/IP, you need to use protocol translation software to convert ethernet/IP to MQTT or AMQP. For more information, see [Connecting to historians](#connecting-to-historians).
 
-1. **Identity Translation:** In this pattern, devices cannot communicate directly to IoT Hub (for example, OPC UA Pub/Sub, BLE devices). The gateway is smart enough to understand the protocol used by the downstream devices, provide them identity, and translate IoT Hub primitives. Each device has an identity and device twin in Azure IoT Hub.
+You can provision IoT Edge gateways at scale by using the [Azure IoT Hub Device Provisioning Service (DPS)](/azure/iot-dps/about-iot-dps). DPS is a helper service for IoT Hub that enables just-in-time provisioning to IoT Hub without requiring human intervention. DPS can provision millions of devices in a secure and scalable manner.
 
-Although you can use any of these patterns in your IIoT Analytics Solution, your choice will be driven by which protocol is installed on your industrial systems. For example, if your SCADA system supports ethernet/IP, you will need to use a protocol translation software to convert ethernet/IP to MQTT or AMQP. See the [Connecting to Historians section](#connecting-to-historians) for additional guidance.
+#### Transparent
 
-IoT Edge gateways can be provisioned at scale using the [Azure IoT Hub Device Provisioning Service (DPS)](/azure/iot-dps/about-iot-dps). DPS is a helper service for IoT Hub that enables zero-touch, just-in-time provisioning to the right IoT hub without requiring human intervention, enabling customers to provision millions of devices in a secure and scalable manner.
+Devices already have the capability to send messages to IoT Hub using AMQP or MQTT. Instead of sending the messages directly to IoT Hub, they can send the messages to IoT Edge, which passes them on to IoT Hub. Each device has an [identity](/azure/iot-hub/iot-hub-devguide-identity-registry) and [device twin](/azure/iot-hub/iot-hub-devguide-device-twins) in Azure IoT Hub.
+
+#### Protocol translation
+
+This pattern is also called an *opaque gateway* pattern, and is used to connect older brownfield equipment protocols like Modbus to Azure. Deployed IoT Edge modules do the protocol conversion. Devices must provide a unique identifier to the gateway.
+
+#### Identity translation
+
+In this pattern, devices like OPC UA Pub/Sub or BLE devices can't cannot communicate directly to IoT Hub. The gateway understands the protocol the downstream devices use, provides the devices with identity, and translates the IoT Hub primitives. Each device has an identity and device twin in Azure IoT Hub.
 
 ## OPC UA
 
@@ -104,17 +118,6 @@ Microsoft has developed open source [Azure Industrial IoT](https://github.com/Az
 - [Discovery Services](https://azure.github.io/Industrial-IoT/modules/discovery.html) is an Azure IoT Edge module that supports network scanning and OPC UA discovery.
 
 The Microsoft Azure IIoT solution also contains a number of services, REST APIs, deployment scripts, and configuration tools that you can integrate into your IIoT analytics solution. These are open source and available on [GitHub](https://azure.github.io/Industrial-IoT/).
-
-## Edge workloads
-
-The ability to run custom or third-party modules at the edge is important.
-
-- If you want to respond to emergencies as quickly as possible, you can run anomaly detection or Machine Learning module in tight control loops at the edge.
-- If you want to reduce bandwidth costs and avoid transferring terabytes of raw data, you can clean and aggregate the data locally then send only the insights to the cloud for analysis.
-- If you want to convert legacy industrial protocols, you can develop a custom module or purchase a third-party module for protocol translation.
-- If you want to quickly respond to an event on the factory floor, you can use an edge module to detect that event and another module to respond to it.
-
-Microsoft and our partners have made available on the Azure Marketplace a number of edge modules, which can be used in your IIoT analytics solution. Protocol and identity translation are the most common edge workloads used within an IIoT analytics solution. In the future, expect to see other workloads such as closed loop control using edge ML models.
 
 ## Connecting to historians
 

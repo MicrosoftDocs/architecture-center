@@ -4,7 +4,7 @@ metadata:
   description: Examine architectural guidance on Azure industrial IoT (IIoT) analytics using platform as a service (PaaS) components.
   author: khilscher
   ms.author: kehilsch
-  ms.date: 07/17/2020
+  ms.date: 04/14/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
