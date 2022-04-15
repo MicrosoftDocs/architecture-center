@@ -144,6 +144,29 @@ You can also use a VPN gateway to route traffic between spokes, although this ch
 
 Consider what services are shared in the hub to ensure the hub scales for a larger number of spokes. For instance, if your hub provides firewall services, consider your firewall solution's bandwidth limits when adding multiple spokes. You might want to move some of these shared services to a second level of hubs.
 
+## Management considerations
+
+Use [Azure Virtual Network Manager](https://docs.microsoft.com/en-us/azure/virtual-network-manager/overview) (AVNM) to create new and onboard existing hub and spoke virtual network topologies for central management of connectivity and security controls.
+
+AVNM ensures that your hub and spoke network topologies are prepared for large scale future growth across multiple subscriptions, management groups and regions. Some example scenarios include:
+
+- Democratization of spoke virtual networks management to organization's groups, such as business units or application teams, which results in large numbers of Vnet-to-Vnet connectivity and Network Security Rules requirements.
+- Standardization of multiple replica hub and spoke architectures in multiple Azure regions to ensure global footprint for applications.
+
+Discoverability of the desired virtual networks to manage through AVNM can be defined using the [Scopes](https://docs.microsoft.com/en-us/azure/virtual-network-manager/concept-network-manager-scope) feature. This allows for flexibility on desired number of AVNM resource instances, which would allow further democratization of management for groups of virtual networks.
+
+Virtual Networks in any subscription, management group or region, under the same Azure AD tenant, can be grouped into [Network Groups](https://docs.microsoft.com/en-us/azure/virtual-network-manager/concept-network-groups) to ensure uniformity on expected connectivity and network rules. Virtual networks can be automatically or manually onboarded to the Network Group via dynamic or static memberships. 
+
+Spoke Virtual Networks in the same Network Group can be connected with one another through enabling vnet peering via AVNM's [Direct connectivity](https://docs.microsoft.com/en-us/azure/virtual-network-manager/concept-connectivity-configuration#direct-connectivity) feature. Capabilities can be extended for spokes in different regions to have direct connectivity using the [Global Mesh](https://docs.microsoft.com/en-us/azure/virtual-network-manager/concept-connectivity-configuration#global-mesh) feature which facilitates the creation of global vnet peerings. See the example diagram below:
+
+![Spoke Direct Connectivity](https://docs.microsoft.com/en-us/azure/virtual-network-manager/media/concept-configuration-types/hub-and-spoke.png)
+
+Further, to ensure a baseline set of security rules, virtual networks within the same Network Group can be associated to [Security admin rules](https://docs.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins). Security admin rules are evaluated before NSG rules and have the same nature of NSGs with support for prioritization, service tags, and L3-L4 protocols.
+
+Finally, to facilitate controlled rollout of network groups, connectivity, and security rules changes, AVNM's [Deployments](https://docs.microsoft.com/en-us/azure/virtual-network-manager/concept-deployments) feature allows for safer releases of these configurations' breaking changes to the hub and spoke environments.
+
+For more information on how to get started see [Create a Hub and Spoke Topology with Azure Virtual Network Manager](https://docs.microsoft.com/en-us/azure/virtual-network-manager/how-to-create-hub-and-spoke)
+
 ## Operational considerations
 
 Consider the following information when deploying and managing hub and spoke networks.
@@ -180,6 +203,7 @@ Learn more about the component technologies:
 - [What is Azure Firewall?](/azure/firewall/overview)
 - [What is VPN Gateway?](/azure/vpn-gateway/vpn-gateway-about-vpngateways)
 - [Azure Monitor overview](/azure/azure-monitor/overview)
+- [Azure Virtual Network Manager overview](/azure/virtual-network-manager/overview)
 
 Explore related architectures:
 
