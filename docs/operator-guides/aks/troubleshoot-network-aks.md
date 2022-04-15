@@ -40,7 +40,7 @@ connection failed because connected host has failed to respond.
 
 It's possible that IP ranges authorized by the API server are enabled on the cluster's API server, but the client's IP address isn't included in those IP ranges. To determine whether IP ranges are enabled, use the following `az aks show` command in Azure CLI. If the IP ranges are enabled, the command will produce a list of IP ranges. 
 
-```azure-cli
+```azurecli
 az aks show --resource-group <cluster-resource-group> \ 
     --name <cluster-name> \ 
     --query apiServerAccessProfile.authorizedIpRanges 
@@ -78,7 +78,7 @@ create pod sandbox: rpc error: code = Unknown desc = NetworkPlugin cni failed to
 delegate: Failed to allocate address: No available addresses 
 ```
 
-Check the allocated IP addresses in the plugin IPAM store. You might find that all IP addresses are allocated, but the number is much less than the number of running Pods: 
+Check the allocated IP addresses in the plugin IPAM store. You might find that all IP addresses are allocated, but the number is much less than the number of running Pods:
 
 ```bash
 # Kubenet, for example. The actual path of the IPAM store file depends on network plugin implementation. 
@@ -114,7 +114,7 @@ The first step to resolving this problem is to check whether endpoints have been
 kubectl get endpoints <service-name> 
 ```
 
-If you get an empty result, your service's label selector might be wrong. Confirm that the label is correct: 
+If you get an empty result, your service's label selector might be wrong. Confirm that the label is correct:
 
 ```bash
 # Query Service LabelSelector. 
