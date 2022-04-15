@@ -122,8 +122,8 @@ To deploy this solution:
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 **Principal authors:**
-- [Tom Berzok](mailto:tom.berzok@slalom.com) | Consultant, Data & Analytics at [Slalom](https://www.slalom.com)
-- [Thomas Edmondson](mailto:thomas.edmondson@slalom.com) | Principal at [Slalom](https://www.slalom.com)
+- [Tom Berzok](https://www.linkedin.com/in/thomas-berzok) | Consultant, Data & Analytics at [Slalom](https://www.slalom.com)
+- [Thomas Edmondson](https://www.linkedin.com/in/thomas-edmondson-7a2b9a2) | Principal at [Slalom](https://www.slalom.com)
 
 **Other contributors**
 - [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
