@@ -5030,35 +5030,35 @@ items:
             href: guide/security/security-start-here.yml
           - name: Guides
             items:
-              - name: Use Azure monitoring to integrate security components
-                href: guide/security/azure-monitor-integrate-security-components.yml
+              - name: Application security in Azure
+                href: /security/compass/applications-services
+                maintainContext: true
+              - name: Azure governance design area
+                href: /azure/cloud-adoption-framework/ready/landing-zone/design-area/governance
+                maintainContext: true
+              - name: Highly-secure IaaS apps
+                href: reference-architectures/n-tier/high-security-iaas.yml
+              - name: Integrate Data Explorer with Sentinel
+                href: /azure/sentinel/store-logs-in-azure-data-explorer?tabs=adx-event-hub
+                maintainContext: true
+              - name: Microsoft Cybersecurity Architectures
+                href: /security/cybersecurity-reference-architecture/mcra
+                maintainContext: true
+              - name: SecOps best practices
+                href: /security/compass/security-operations
+                maintainContext: true
               - name: Security design principles
                 href: /azure/architecture/framework/security/security-principles
                 maintainContext: true
               - name: Security patterns
                 href: /azure/architecture/framework/security/security-patterns
                 maintainContext: true
-              - name: SecOps best practices
-                href: /security/compass/security-operations
-                maintainContext: true
-              - name: Application security in Azure
-                href: /security/compass/applications-services
-                maintainContext: true
-              - name: Highly-secure IaaS apps
-                href: reference-architectures/n-tier/high-security-iaas.yml
-              - name: Microsoft Cybersecurity Architectures
-                href: /security/cybersecurity-reference-architecture/mcra
-                maintainContext: true
+              - name: Use Azure monitoring to integrate security components
+                href: guide/security/azure-monitor-integrate-security-components.yml
               - name: Virtual Network security options
                 href: example-scenario/gateway/firewall-application-gateway.yml
               - name: Zero-trust network for web applications
                 href: example-scenario/gateway/application-gateway-before-azure-firewall.yml
-              - name: Azure governance design area
-                href: /azure/cloud-adoption-framework/ready/landing-zone/design-area/governance
-                maintainContext: true
-              - name: Integrate Data Explorer with Sentinel
-                href: /azure/sentinel/store-logs-in-azure-data-explorer?tabs=adx-event-hub
-                maintainContext: true
           - name: Architectures
             items:
               - name: Automate Sentinel integration with DevOps
