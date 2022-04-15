@@ -1,23 +1,21 @@
 ### YamlMime:Architecture
 metadata:
-  title: IoT solutions conceptual overview
+  title: IoT conceptual overview
   titleSuffix: Azure Example Scenarios
-  description: Get an overview of the functional interactions between events, insights, and actions in Azure Internet of Things (IoT) solutions.
+  description: Learn how events, insights, and actions interact in internet-of-things (IoT) solutions.
   author: wamachine
   ms.author: jasonwa
-  ms.date: 04/27/2021
+  ms.date: 04/18/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
-  ms.category:
-    - iot
   ms.custom:
     - fcp
     - example-scenario
-name: IoT solutions conceptual overview
+name: IoT conceptual overview
 azureCategories:
   - iot
-summary: Get an overview of the functional interactions between events, insights, and actions in Azure Internet of Things (IoT) solutions.
+summary: Learn how events, insights, and actions interact in internet-of-things (IoT) solutions.
 products:
   - azure-iot
   - azure-iot-hub
