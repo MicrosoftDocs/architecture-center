@@ -43,9 +43,9 @@ Let's review some details presented in the diagram.
     - DevOps Security
     - Governance and Strategy
 
-Review all security controls details in the link below:
+    Review all security controls details in the link below:
 
-[Overview of the Azure Security Benchmark v3 \| Microsoft Docs](https://docs.microsoft.com/en-us/security/benchmark/azure/overview)
+    [Overview of the Azure Security Benchmark v3 \| Microsoft Docs](https://docs.microsoft.com/en-us/security/benchmark/azure/overview)
 
 2.  **Network security services**
  
