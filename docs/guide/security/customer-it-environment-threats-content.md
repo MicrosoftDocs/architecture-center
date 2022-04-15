@@ -40,69 +40,69 @@ For the Business IT environment, we will specify the components only for the Azu
 
 For the **Azure environment**, the diagram shows:
 
--   Azure Virtual Network, represented as "VNET."
+- Azure Virtual Network, represented as "VNET."
 
-[Azure Virtual Network \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview)
+  [Azure Virtual Network \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview)
 
--   Load Balancer, represented as "LBS."
+- Load Balancer, represented as "LBS."
 
-[What is Azure Load Balancer? - Azure Load Balancer \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview)
+  [What is Azure Load Balancer? - Azure Load Balancer \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview)
 
--   Public IPs, represented as "PIPS."
+- Public IPs, represented as "PIPS."
 
-[Public IP addresses in Azure - Azure Virtual Network \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/virtual-network/ip-services/public-ip-addresses)
+  [Public IP addresses in Azure - Azure Virtual Network \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/virtual-network/ip-services/public-ip-addresses)
 
--   Virtual Machines, represented as "Servers."
+- Virtual Machines, represented as "Servers."
 
-[Virtual Machines (VMs) for Linux and Windows \| Microsoft Azure](https://azure.microsoft.com/en-us/services/virtual-machines/)
+  [Virtual Machines (VMs) for Linux and Windows \| Microsoft Azure](https://azure.microsoft.com/en-us/services/virtual-machines/)
 
--   Kubernetes services, represented as "k8s."
+- Kubernetes services, represented as "k8s."
 
-[Introduction to Azure Kubernetes Service - Azure Kubernetes Service \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/aks/intro-kubernetes)
+  [Introduction to Azure Kubernetes Service - Azure Kubernetes Service \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/aks/intro-kubernetes)
 
--   Azure Virtual Desktop (AVD), represented as "VDI."
+- Azure Virtual Desktop (AVD), represented as "VDI."
 
-[What is Azure Virtual Desktop? - Azure \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/virtual-desktop/overview)
+  [What is Azure Virtual Desktop? - Azure \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/virtual-desktop/overview)
 
--   Azure App Service with Web App, represented simply as "Web Apps."
+- Azure App Service with Web App, represented simply as "Web Apps."
 
-[Overview - Azure App Service \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/app-service/overview)
+  [Overview - Azure App Service \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/app-service/overview)
 
--   Azure Storage could be blob (object storage) or file storage represented as "Azure Storage."
+- Azure Storage could be blob (object storage) or file storage represented as "Azure Storage."
 
-[Introduction to Azure Storage - Cloud storage on Azure \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/storage/common/storage-introduction)
+  [Introduction to Azure Storage - Cloud storage on Azure \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/storage/common/storage-introduction)
 
--   Azure SQL DB, represented as "DB."
+- Azure SQL DB, represented as "DB."
 
-[What is the Azure SQL Database service? - Azure SQL Database \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/azure-sql/database/sql-database-paas-overview)
+  [What is the Azure SQL Database service? - Azure SQL Database \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/azure-sql/database/sql-database-paas-overview)
 
--   Azure Active Directory, or simply Azure AD, represented as "Azure AD."
+- Azure Active Directory, or simply Azure AD, represented as "Azure AD."
 
-[What is Azure Active Directory? \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis)
+  [What is Azure Active Directory? \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis)
 
 For **Office 365**, the diagram represents the service through two different components:
 
--   Office 365 services, which applications available will depend on the type of license being used
+- Office 365 services, which applications available will depend on the type of license being used
 
-[Microsoft 365 - Subscription for Office Apps \| Microsoft 365](https://www.microsoft.com/en-us/microsoft-365)
+  [Microsoft 365 - Subscription for Office Apps \| Microsoft 365](https://www.microsoft.com/en-us/microsoft-365)
 
--   Azure Active Directory, the same one utilized by Azure. It is important to note that many companies utilize the same Azure Active Directory for Azure and Office 365.
+- Azure Active Directory, the same one utilized by Azure. It is important to note that many companies utilize the same Azure Active Directory for Azure and Office 365.
 
-[What is Azure Active Directory? \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis)
+  [What is Azure Active Directory? \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis)
 
 **How to use Mitre Att&ck framework**
 
--   You may start with a simple search for the name of the threat of the attack code on this main page:
+- You may start with a simple search for the name of the threat of the attack code on this main page:
 
-[MITRE ATT&CK®](https://attack.mitre.org/)
+  [MITRE ATT&CK®](https://attack.mitre.org/)
 
--   You can also browse threats through tactics or techniques pages:
+- You can also browse threats through tactics or techniques pages:
 
-    -   For tactics: [Tactics - Enterprise \| MITRE ATT&CK®](https://attack.mitre.org/tactics/enterprise/)
+  - For tactics: [Tactics - Enterprise \| MITRE ATT&CK®](https://attack.mitre.org/tactics/enterprise/)
 
-    -   For techniques: [Techniques - Enterprise \| MITRE ATT&CK®](https://attack.mitre.org/techniques/enterprise/)
+  - For techniques: [Techniques - Enterprise \| MITRE ATT&CK®](https://attack.mitre.org/techniques/enterprise/)
 
--   You can still use Mitre Att&ck navigator, [ATT&CK® Navigator (mitre-attack.github.io)](https://mitre-attack.github.io/attack-navigator/), an intuitive tool provided by Mitre that facilitates your navigation through tactics, techniques, and all details about threats.
+- You can still use Mitre Att&ck navigator, [ATT&CK® Navigator (mitre-attack.github.io)](https://mitre-attack.github.io/attack-navigator/), an intuitive tool provided by Mitre that facilitates your navigation through tactics, techniques, and all details about threats.
 
 **Next steps**
 
@@ -120,20 +120,20 @@ To get all details regarding this Architecture reference, you may review those o
 
 This document refers to some services, technologies, and terminologies. You may find more information related to it in the links below.
 
--   Mitre att&ck: [MITRE ATT&CK®](https://attack.mitre.org/)
+- Mitre att&ck: [MITRE ATT&CK®](https://attack.mitre.org/)
 
--   Mitre att&ck navigator: [ATT&CK® Navigator (mitre-attack.github.io)](https://mitre-attack.github.io/attack-navigator/)
+- Mitre att&ck navigator: [ATT&CK® Navigator (mitre-attack.github.io)](https://mitre-attack.github.io/attack-navigator/)
 
--   Microsoft Sentinel and Mitre workbook:
+- Microsoft Sentinel and Mitre workbook:
 
-[Public Preview: The MITRE ATT&CK Framework Blade in Microsoft Sentinel -- Azure Cloud & AI Domain Blog (azurecloudai. blog)](https://azurecloudai.blog/2022/02/25/public-preview-the-mitre-attck-framework-blade-in-microsoft-sentinel/)
+  [Public Preview: The MITRE ATT&CK Framework Blade in Microsoft Sentinel -- Azure Cloud & AI Domain Blog (azurecloudai. blog)](https://azurecloudai.blog/2022/02/25/public-preview-the-mitre-attck-framework-blade-in-microsoft-sentinel/)
 
--   Cyber kill chain: [Cyber Kill Chain® \| Lockheed Martin](https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html)
+- Cyber kill chain: [Cyber Kill Chain® \| Lockheed Martin](https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html)
 
--   Microsoft Zero Trust: [Zero Trust Model - Modern Security     Architecture \| Microsoft     Security](https://www.microsoft.com/en-us/security/business/zero-trust)
+- Microsoft Zero Trust: [Zero Trust Model - Modern Security     Architecture \| Microsoft     Security](https://www.microsoft.com/en-us/security/business/zero-trust)
 
--   Threat blended attacks: [Blended threat -     Wikipedia](https://en.wikipedia.org/wiki/Blended_threat)
+- Threat blended attacks: [Blended threat -     Wikipedia](https://en.wikipedia.org/wiki/Blended_threat)
 
--   Most common attacks:
+- Most common attacks:
 
-[How cyberattacks are changing according to new Microsoft Digital Defense Report - Microsoft Security Blog](https://www.microsoft.com/security/blog/2021/10/11/how-cyberattacks-are-changing-according-to-new-microsoft-digital-defense-report/)
+  [How cyberattacks are changing according to new Microsoft Digital Defense Report - Microsoft Security Blog](https://www.microsoft.com/security/blog/2021/10/11/how-cyberattacks-are-changing-according-to-new-microsoft-digital-defense-report/)

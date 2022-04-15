@@ -46,41 +46,41 @@ The components, part of the diagram, are explained in a nutshell so that you may
 
 1.  **Azure Monitor** is the "umbrella" for many Azure monitoring services that include log management, metrics, application insight among others. It also provides a collection of dashboards ready to be consumed and an Alert management system. You may check more about Azure Monitor services at this link:
 
-[Azure Monitor overview - Azure Monitor \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/azure-monitor/overview)
+    [Azure Monitor overview - Azure Monitor \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/azure-monitor/overview)
 
 2.  **Microsoft Defender for Cloud (formerly known as Azure Security Center)** delivers a series of recommendations for VMs, Storage, Applications, etc, that helps you to be compliant with different regulatory standards such as ISO or PCI and at the same time offers a security score systems that help you track how secure your environment is. It also offers an automatic Alert system based on the logs collected and analyzed by Microsoft Defender for Cloud.
 
-See more about it at this link:
+    See more about it at this link:
 
-[Microsoft Defender for Cloud - an introduction \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/defender-for-cloud/defender-for-cloud-introduction)
+    [Microsoft Defender for Cloud - an introduction \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/defender-for-cloud/defender-for-cloud-introduction)
 
 3.  **Azure Monitor Logs (aka Log analytics)** is one of the most important services. It is the responsible for storing all the logs and alerts that will be used to create Alerts, Insights and Incidents. It is also the service which Microsoft Sentinel work on top of it. Basically, everything you ingest on Log Analytics will be available automatically to Microsoft Sentinel. You may check more about Log Analytics in this link:
 
-[Overview of Log Analytics in Azure Monitor - Azure Monitor \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-overview)
+    [Overview of Log Analytics in Azure Monitor - Azure Monitor \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-overview)
 
 4.  **Microsoft Sentinel** works like a facade for Log Analytics. While Log Analytics stores all logs and alerts from different sources, like on-premises VMs, Azure VMs and Alerts from Microsoft 365 Defender Security services, among many others, Microsoft Sentinel offers APIs that will help you to ingest logs from different sources and correlate all of them, so that you may have insights more accurately about what is going on in your environment avoiding false positives.
 
-Microsoft Sentinel is the core of this whole Security and monitoring system that Microsoft Cloud has.
+    Microsoft Sentinel is the core of this whole Security and monitoring system that Microsoft Cloud has.
 
-More about Azure Sentinel: [What is Microsoft Sentinel? \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/sentinel/overview)
+    More about Azure Sentinel: [What is Microsoft Sentinel? \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/sentinel/overview)
 
 The four services above may be considered as core services because they work throughout Azure, Office 365 and on-premises environments, but there are still a couple of others Monitoring services that are focused on specific resources.
 
 5.  **Network Watcher** provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network. More about it:
 
-[Azure Network Watcher \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview)
+    [Azure Network Watcher \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview)
 
 6.  **Traffic Analytics,** part of Network Watcher, works on top of NSG (Network Security Group) logs and offer lots of nice dashboards that are capable of agreeing on different metrics from outbound and inbound connection in your Azure Virtual Network. More about it:
 
-[Azure traffic analytics \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/network-watcher/traffic-analytics)
+    [Azure traffic analytics \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/network-watcher/traffic-analytics)
 
 7.  **Application Insights,** that is under **Azure Monitor,** is focused on the application and provides extensible application performance management and monitoring for live web apps, including support for a wide variety of platform such as NET, Node.js, Java, and Python. See more about Application Insights at:
 
-[Application Insights overview - Azure Monitor \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview)
+    [Application Insights overview - Azure Monitor \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview)
 
 8.  **Azure Storage Analytics** is a Storage service to performs logging and provides metrics data for a storage account. You can use this data to trace requests, analyze usage trends, and diagnose issues with your storage account. See more about this service in this link:
 
-[Use Azure Storage analytics to collect logs and metrics data \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/storage/common/storage-analytics)
+    [Use Azure Storage analytics to collect logs and metrics data \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/storage/common/storage-analytics)
 
 9.  As this architecture reference was built based on Microsoft Zero Trust pillars, under the pillar "Infrastructure and Endpoint" was not described any specific Monitoring services because actually Azure Monitor logs and Microsoft Defender for Cloud are the main services to collect, store and analyze logs from VMs and others compute services.
 
@@ -102,69 +102,69 @@ You don't need necessarily consider all security services presented in this arch
 
 As we covered many different Services, here it is information about how to access each of those Services:
 
--   **Azure Security services**
+- **Azure Security services**
 
-All Azure Security services mentioned in the diagrams may be accessed through Azure Portal. Simply go to <https://portal.azure.com> and search for the service you are interested in.
+  All Azure Security services mentioned in the diagrams may be accessed through Azure Portal. Simply go to <https://portal.azure.com> and search for the service you are interested in.
 
--   **Azure Monitor**
+- **Azure Monitor**
 
-Azure Monitor is a service that is available in all Azure subscription, so you only need to access Azure Portal at <https://portal.azure.com> and search for the service by typing "monitor".
+  Azure Monitor is a service that is available in all Azure subscription, so you only need to access Azure Portal at <https://portal.azure.com> and search for the service by typing "monitor".
 
--   **Microsoft Defender for Cloud**
+- **Microsoft Defender for Cloud**
 
-Microsoft Defender for Cloud is also already available for anyone that access Azure Portal for the first time. To access it, go to Azure Portal at <https://portal.azure.com> and search for "Microsoft Defender for Cloud".
+  Microsoft Defender for Cloud is also already available for anyone that access Azure Portal for the first time. To access it, go to Azure Portal at <https://portal.azure.com> and search for "Microsoft Defender for Cloud".
 
--   **Azure Monitor Logs (aka Log Analytics)**
+- **Azure Monitor Logs (aka Log Analytics)**
 
-To access Log Analytics, you will have to create the service as it doesn't exist by default. Go to Azure Portal at <https://portal.azure.com> , search for "Log Analytics workspace" and then click on "Create". After you create it, you will be able to access the service.
+  To access Log Analytics, you will have to create the service as it doesn't exist by default. Go to Azure Portal at <https://portal.azure.com> , search for "Log Analytics workspace" and then click on "Create". After you create it, you will be able to access the service.
 
--   **Microsoft Sentinel**
+- **Microsoft Sentinel**
 
-Microsoft Sentinel works on top of a Log Analytics workspace, so you will have to create first a Log Analytics workspace, then, search for "Sentinel" at Azure Portal, <https://portal.azure.com>, then create the service by choosing the Log Analytics workspace you want to have behind Microsoft Sentinel.
+  Microsoft Sentinel works on top of a Log Analytics workspace, so you will have to create first a Log Analytics workspace, then, search for "Sentinel" at Azure Portal, <https://portal.azure.com>, then create the service by choosing the Log Analytics workspace you want to have behind Microsoft Sentinel.
 
--   **Microsoft Defender for Endpoint**
+- **Microsoft Defender for Endpoint**
 
-Microsoft Defender for Endpoint is part of Microsoft 365 Defender. You access the service through this URL: <https://security.microsoft.com>
+  Microsoft Defender for Endpoint is part of Microsoft 365 Defender. You access the service through this URL: <https://security.microsoft.com>
 
 In the past, you were able to access the service through <https://securitycenter.windows.com>
 
--   **Microsoft Defender for Cloud Apps**
+- **Microsoft Defender for Cloud Apps**
 
-Microsoft Defender for Endpoint is part of Microsoft 365. You access the service through this URL: <https://portal.cloudappsecurity.com>
+  Microsoft Defender for Endpoint is part of Microsoft 365. You access the service through this URL: <https://portal.cloudappsecurity.com>
 
--   **Microsoft Defender for Office 365**
+- **Microsoft Defender for Office 365**
 
-Microsoft Defender for Office 365 is part of Microsoft 365. You access the service through this URL: <https://security.microsoft.com> that is the same portal used with Endpoint manager. In the past, you were able to access the service through <https://protection.office.com>
+  Microsoft Defender for Office 365 is part of Microsoft 365. You access the service through this URL: <https://security.microsoft.com> that is the same portal used with Endpoint manager. In the past, you were able to access the service through <https://protection.office.com>
 
--   **Microsoft Defender for Identity**
+- **Microsoft Defender for Identity**
 
-Microsoft Defender for Identity is part of Microsoft 365. You access the service through this URL: <https://portal.atp.azure.com> . Remember, despite the fact that it is a cloud service, this service is responsible to protect Identities on-premises.
+  Microsoft Defender for Identity is part of Microsoft 365. You access the service through this URL: <https://portal.atp.azure.com> . Remember, despite the fact that it is a cloud service, this service is responsible to protect Identities on-premises.
 
--   **Microsoft Endpoint Manager**
+- **Microsoft Endpoint Manager**
 
-Microsoft Endpoint Manager is the rebranded name for Intune, Configuration Manager and other services. You may access it through the portal <https://endpoint.microsoft.com>
+  Microsoft Endpoint Manager is the rebranded name for Intune, Configuration Manager and other services. You may access it through the portal <https://endpoint.microsoft.com>
 
 **NOTE:**
 
 In article 4 \<LINK\>, regarding Microsoft 365 Defender, you can have more details about how to access the services provided by Microsoft 365 Defender and how each Portal is related to each other.
 
--   **Azure Network watcher**
+- **Azure Network watcher**
 
-Azure Network watcher is part of Azure, so you just need to search for "Network watcher" at Azure portal, <https://portal.azure.com>.
+  Azure Network watcher is part of Azure, so you just need to search for "Network watcher" at Azure portal, <https://portal.azure.com>.
 
--   **Traffic Analytics**
+- **Traffic Analytics**
 
-Traffic Analytics is part of Network watcher. You will find in the left menu once you start the Network watcher. It is a powerful Azure network monitor that works based on your Network Security Groups (NSG) implemented on your NICs or Subnets. To make it work, you will have to collect information from the NSGs. See it how to do it, in that document page:
+  Traffic Analytics is part of Network watcher. You will find in the left menu once you start the Network watcher. It is a powerful Azure network monitor that works based on your Network Security Groups (NSG) implemented on your NICs or Subnets. To make it work, you will have to collect information from the NSGs. See it how to do it, in that document page:
 
-[Tutorial: Log network traffic flow to and from a virtual machine - Azure portal \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+  [Tutorial: Log network traffic flow to and from a virtual machine - Azure portal \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
 
--   **Application Insight**
+- **Application Insight**
 
-Application Insight is part of Azure Monitor; however, you will have to create it in order to use it, according to the Application you want to monitor. For some applications built on Azure, such as Web Apps, you can create Application Insight directly from the Web Apps provisioning. So, to access it, you just need to search for "monitor" on Azure Portal, then, once in Monitor service, in the left menu, you will find "Applications".
+  Application Insight is part of Azure Monitor; however, you will have to create it in order to use it, according to the Application you want to monitor. For some applications built on Azure, such as Web Apps, you can create Application Insight directly from the Web Apps provisioning. So, to access it, you just need to search for "monitor" on Azure Portal, then, once in Monitor service, in the left menu, you will find "Applications".
 
--   **Storage Analytics**
+- **Storage Analytics**
 
-Azure storage offers different types of storage under the same storage account technology. You may find blobs, files, table and queues on top of storage accounts. Storage analytics offers a broad range of metrics to use with those storages' services. You will be able to access it, going to your Storage account at Azure Portal (https://portal.azure.com) , then setting "Diagnostic settings" on the left menu and choosing one log analytics workspace to send that information. Then, you may access some dashboard on "Insights" that you will see on the left menu. But you will also be able to access a series of workbooks on "workbooks" at the left menu, Metrics and Alerts for your storage account. Everything will be inside your storage account being monitored, in the left menu.
+  Azure storage offers different types of storage under the same storage account technology. You may find blobs, files, table and queues on top of storage accounts. Storage analytics offers a broad range of metrics to use with those storages' services. You will be able to access it, going to your Storage account at Azure Portal (https://portal.azure.com) , then setting "Diagnostic settings" on the left menu and choosing one log analytics workspace to send that information. Then, you may access some dashboard on "Insights" that you will see on the left menu. But you will also be able to access a series of workbooks on "workbooks" at the left menu, Metrics and Alerts for your storage account. Everything will be inside your storage account being monitored, in the left menu.
 
 **How is the pricing for Microsoft Security services**
 
