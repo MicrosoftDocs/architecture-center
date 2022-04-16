@@ -87,7 +87,7 @@ Additionally, Azure Stack Edge continues to transfer data to Machine Learning fo
 
 Product documentation
 
-- [What is Azure Machine Learning?](azure/machine-learning/overview-what-is-azure-machine-learning)
+- [What is Azure Machine Learning?](/azure/machine-learning/overview-what-is-azure-machine-learning)
 - [Azure Container Registry][azure-container-registry]
 - [Azure Stack Edge][azure-stack-edge]
 
