@@ -24,7 +24,7 @@ Model9 offers a suite of services that are based on the Model9 cloud data platfo
 
 :::image type="content" source="media/model9-mainframe-midrange-data-archive-azure.png" alt-text="Screenshot that shows the Azure architecture to migrate mainframe data to the cloud." lightbox="media/model9-mainframe-midrange-data-archive-azure.png":::
 
-Download a [Visio file](https://arch-center.azureedge.net/model9-mainframe-midrange-data-archive-azure.vsdx) of this architecture.
+*Download a [Visio file](https://arch-center.azureedge.net/model9-mainframe-midrange-data-archive-azure.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -36,11 +36,11 @@ Download a [Visio file](https://arch-center.azureedge.net/model9-mainframe-midra
 
 4. The Model9 cloud data platform transfers migrated data to Azure data services.
 
-## Components
+### Components
 
 The solution uses the following components.
 
-### Model9 cloud data platform components
+#### Model9 cloud data platform components
 
 The main components of Model9 cloud data platform are:
 
@@ -62,7 +62,7 @@ The main components of Model9 cloud data platform are:
 - **Data Transformation CLI**\
     A Java-based application that invokes data transformation requests wraps the standard REST–API based calls into a basic, easy-to-use client.
 
-### Networking and identity
+#### Networking and identity
 
 - [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) extends your on-premises networks into cloud services that are offered by Microsoft over a private connection from a connectivity provider. With ExpressRoute, you can establish connections to cloud components such as Azure services and Microsoft 365.
 
@@ -70,11 +70,11 @@ The main components of Model9 cloud data platform are:
 
 - [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory) is an identity and access management service that synchronizes with an on-premises active directory.
 
-### Application
+#### Application
 
 - [Apache Kafka](https://kafka.apache.org) is an open-source distributed event-streaming platform that's used for high-performance data pipelines, streaming analytics, data integration, and business-critical applications.
 
-### Storage
+#### Storage
 
 - [Azure SQL Database](https://azure.microsoft.com/services/sql-database) is part of the Azure SQL family and is built on the cloud. This service offers all the benefits of a fully managed and evergreen platform as a service (PaaS). Azure SQL Database also provides AI-powered, automated features that optimize performance and durability. Serverless compute and Hyperscale storage options automatically scale resources on demand.
 
@@ -88,17 +88,17 @@ The main components of Model9 cloud data platform are:
 
 - [Azure Storage](https://azure.microsoft.com/product-categories/storage) is a cloud storage solution that includes object, file, disk, queue, and table storage. Services include hybrid storage solutions and tools for transferring, sharing, and backing up data.
 
-### Analysis and reporting
+#### Analysis and reporting
 
 - [Power BI](https://powerbi.microsoft.com) is a suite of business analytics tools that deliver insights throughout your organization. By using Power BI, you can connect to hundreds of data sources, simplify data preparation, and drive ad hoc analysis. You can produce beautiful reports, then publish them for your organization to consume on the web, and across mobile devices.
 
-### Monitoring
+#### Monitoring
 
 - [Azure Monitor](https://azure.microsoft.com/services/monitor) delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments. It contains the Application Insights, Azure Monitor Logs, and Azure Log Analytics features.
 
 - Model9 supports monitoring the status and results of all activities via the **Activities** page in the Model9 UI. For more information, see [Monitoring Activities](https://docs.model9.io/user-and-administrator-guide/monitoring-activities).
 
-## Alternatives
+### Alternatives
 
 - Instead of installing the Model9 management server in the cloud on Azure Virtual Network, you can install it on-premises. You can use the z/OS container extension (zCX) to deploy it directly on z/OS.
 
@@ -152,7 +152,7 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 **Principal authors:**
 
-* [Pratim Dasgupta](https://www.linkedin.com/in/pratimdasgupta/)| (Engineering Architect)
+* [Pratim Dasgupta](https://www.linkedin.com/in/pratimdasgupta/) | (Engineering Architect)
 
 **Other contributors:**
 
