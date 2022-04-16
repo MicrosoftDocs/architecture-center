@@ -4,7 +4,7 @@ metadata:
   description: Learn how to build image processing into your applications by using Azure services such as the Computer Vision API and Azure Functions.
   author: david-stanford
   ms.author: David.Stanford
-  ms.date: 03/18/2021
+  ms.date: 04/15/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario

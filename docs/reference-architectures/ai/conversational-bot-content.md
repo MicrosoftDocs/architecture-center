@@ -12,46 +12,45 @@ This solution is ideal for the telecommunications industry. This article covers 
 
 *Download a [Visio file][visio-download] of this architecture.*
 
-### Workflow
+### Components
 
 The architecture shown here uses the following Azure services. Your own bot may not use all of these services, or may incorporate additional services.
 
 #### Bot logic and user experience
 
-- **[Bot Framework Service][bot-framework-service]** (BFS). This service connects your bot to a communication app such as Cortana, Facebook Messenger, or Slack. It facilitates communication between your bot and the user.
-- **[Azure App Service][app-service]**. The bot application logic is hosted in Azure App Service.
+- [Bot Framework Service][bot-framework-service] (BFS) connects your bot to a communication app such as Cortana, Facebook Messenger, or Slack. It facilitates communication between your bot and the user.
+- [Azure App Service](https://azure.microsoft.com/services/app-service) hosts the bot application logic.
 
 #### Bot cognition and intelligence
 
-- **[Language Understanding][luis]** (LUIS). Part of [Azure Cognitive Services][cognitive-services], LUIS enables your bot to understand natural language by identifying user intents and entities.
-- **[Azure Search][search]**. Search is a managed service that provides a quick searchable document index.
-- **[QnA Maker][qna-maker]**. QnA Maker is a cloud-based API service that creates a conversational, question-and-answer layer over your data. Typically, it's loaded with semi-structured content such as FAQs. Use it to create a knowledge base for answering natural-language questions.
-- **[Web app][webapp]**. If your bot needs AI solutions not provided by an existing service, you can implement your own custom AI and host it as a web app. This provides a web endpoint for your bot to call.
+- [Language Understanding](https://www.luis.ai) (LUIS) is part of [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services). LUIS enables your bot to understand natural language by identifying user intents and entities.
+- [Azure Search](https://azure.microsoft.com/services/search) is a managed service that provides a quick searchable document index.
+- [QnA Maker](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker) is a cloud-based API service that creates a conversational, question-and-answer layer over your data. Typically, it's loaded with semi-structured content such as FAQs. Use it to create a knowledge base for answering natural-language questions.
 
 #### Data ingestion
 
 The bot will rely on raw data that must be ingested and prepared. Consider any of the following options to orchestrate this process:
 
-- **[Azure Data Factory][data-factory]**. Data Factory orchestrates and automates data movement and data transformation.
-- **[Logic Apps][logic-apps]**. Logic Apps is a serverless platform for building workflows that integrate applications, data, and services. Logic Apps provides data connectors for many applications, including Office 365.
-- **[Azure Functions][functions]**. You can use Azure Functions to write custom serverless code that is invoked by a [trigger][functions-triggers] &mdash; for example, whenever a document is added to blob storage or Cosmos DB.
+- [Azure Data Factory](https://azure.microsoft.com/services/data-factory) orchestrates and automates data movement and data transformation.
+- [Logic Apps](https://azure.microsoft.com/services/logic-apps) is a serverless platform for building workflows that integrate applications, data, and services. Logic Apps provides data connectors for many applications, including Office 365.
+- [Azure Functions](https://azure.microsoft.com/services/functions) lets you write custom serverless code that is invoked by a [trigger][functions-triggers] &mdash; for example, whenever a document is added to blob storage or Cosmos DB.
 
 #### Logging and monitoring
 
-- **[Application Insights][app-insights]**. Use Application Insights to log the bot's application metrics for monitoring, diagnostic, and analytical purposes.
-- **[Azure Blob Storage][blob]**. Blob storage is optimized for storing massive amounts of unstructured data.
-- **[Cosmos DB][cosmosdb]**. Cosmos DB is well-suited for storing semi-structured log data such as conversations.
-- **[Power BI][power-bi]**. Use Power BI to create monitoring dashboards for your bot.
+- [Azure Monitor](https://azure.microsoft.com/services/monitor): Application Insights, a feature of Azure Monitor, lets you log the bot's application metrics for monitoring, diagnostic, and analytical purposes.
+- [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) is optimized for storing massive amounts of unstructured data.
+- [Cosmos DB](https://azure.microsoft.com/free/cosmos-db) is well-suited for storing semi-structured log data such as conversations.
+- [Power BI](https://powerbi.microsoft.com) lets you create monitoring dashboards for your bot.
 
 #### Security and governance
 
-- **[Azure Active Directory][aad]** (Azure AD). Users will authenticate through an identity provider such as Azure AD. The Bot Service handles the authentication flow and OAuth token management. See [Add authentication to your bot via Azure Bot Service][bot-authentication].
-- **[Azure Key Vault][key-vault]**. Store credentials and other secrets using Key Vault.
+- [Azure Active Directory](https://azure.microsoft.com/services/active-directory) (Azure AD) lets users authenticate through an identity provider such as Azure AD. The Bot Service handles the authentication flow and OAuth token management. See [Add authentication to your bot via Azure Bot Service][bot-authentication].
+- [Azure Key Vault](https://azure.microsoft.com/services/key-vault) stores credentials and other secrets.
 
 #### Quality assurance and enhancements
 
-- **[Azure DevOps][devops]**. Provides many services for app management, including source control, building, testing, deployment, and project tracking.
-- **[VS Code][vscode]** A lightweight code editor for app development. You can use any other IDE with similar features.
+- [Azure DevOps](https://azure.microsoft.com/services/devops) provides many services for app management, including source control, building, testing, deployment, and project tracking.
+- [VS Code](https://code.visualstudio.com/) is a lightweight code editor for app development. You can use any other IDE with similar features.
 
 ## Recommendations
 
@@ -213,6 +212,27 @@ For other cost considerations, see the Cost section in [Microsoft Azure Well-Arc
 ## Next steps
 
 - Review the [Virtual Assistant](/azure/bot-service/bot-builder-virtual-assistant-introduction) template to quickly get started building conversational bots.
+
+Product documentation:
+
+- [Language Understanding][luis] (LUIS)
+- [Azure App Service][app-service]
+- [QnA Maker][qna-maker]
+- [Azure Data Factory][data-factory]
+- [Logic Apps][logic-apps]
+- [Azure Functions][functions]
+
+Microsoft Learn modules:
+
+- [Create Intelligent Bots with the Azure Bot Service](/learn/paths/create-bots-with-the-azure-bot-service)
+- [Build a bot with QnA Maker and Azure Bot Service](/learn/modules/build-faq-chatbot-qna-maker-azure-bot-service)
+
+## Related resources
+
+Azure Architecture Center articles describing chatbot architectures:
+
+- [Chatbot for hotel reservations](/azure/architecture/example-scenario/ai/commerce-chatbot)
+- [Speech-to-text conversion](/azure/architecture/reference-architectures/ai/speech-ai-ingestion)
 
 <!-- links -->
 

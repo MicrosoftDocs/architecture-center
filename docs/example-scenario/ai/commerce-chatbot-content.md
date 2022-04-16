@@ -27,20 +27,20 @@ This scenario covers a conversational bot that functions as a concierge for a ho
 
 ### Components
 
-- [Azure Active Directory (Azure AD)][aad-docs] is Microsoft's multitenant cloud-based directory and identity management service. Azure AD supports a B2C connector allowing you to identify users by their external IDs, such as Google, Facebook, or a Microsoft account.
-- [App Service][appservice-docs] enables you to build and host web applications in the programming language of your choice without managing infrastructure.
-- [Bot Service][botservice-docs] provides tools to build, test, deploy, and manage intelligent bots.
-- [Cognitive Services][cognitive-docs] lets you use intelligent algorithms to see, hear, speak, understand, and interpret your user needs through natural methods of communication.
-- [SQL Database][sqldatabase-docs] is a fully managed relational cloud database service that provides SQL Server engine compatibility.
-- [Application Insights][appinsights-docs] is an extensible Application Performance Management (APM) service that lets you monitor the performance of applications, such as your chatbot.
+- [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory) is Microsoft's multitenant cloud-based directory and identity management service. Azure AD supports a B2C connector allowing you to identify users by their external IDs, such as Google, Facebook, or a Microsoft account.
+- [Azure App Service](https://azure.microsoft.com/services/app-service) enables you to build and host web applications in the programming language of your choice without managing infrastructure.
+- [Azure Bot Service](https://azure.microsoft.com/services/bot-service) provides tools to build, test, deploy, and manage intelligent bots.
+- [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services) lets you use intelligent algorithms to see, hear, speak, understand, and interpret your user needs through natural methods of communication.
+- [Azure SQL Database](https://azure.microsoft.com/services/sql-database) is a fully managed relational cloud database service that provides SQL Server engine compatibility.
+- [Azure Monitor](https://azure.microsoft.com/services/monitor): Application Insights, a feature of Azure Monitor, is an extensible Application Performance Management (APM) service that lets you monitor the performance of applications, such as your chatbot.
 
 ### Alternatives
 
 Other components that could be used to enhance this example scenario include:
 
-- [Speech API][speech-api] to change how customers interface with your bot.
-- [QnA Maker][qna-maker] to quickly add knowledge to your bot from semi-structured content like an FAQ.
-- [Translator Text][translator] as a service to easily add multi-lingual support to your bot.
+- [Speech API](https://azure.microsoft.com/services/cognitive-services/speech-services) to change how customers interface with your bot.
+- [QnA Maker](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker) to quickly add knowledge to your bot from semi-structured content like an FAQ.
+- [Translator Text](https://azure.microsoft.com/services/cognitive-services/translator) as a service to easily add multi-lingual support to your bot.
 
 ## Considerations
 
@@ -103,9 +103,14 @@ To explore the cost of running this scenario, use the [Azure pricing calculator]
 
 ## Next steps
 
-Azure Bot Service product documentation:
+Product documentation:
 
-- [The Bot Framework Composer tutorials][botservice-docs]
+- [What is Azure Active Directory?](/azure/active-directory/fundamentals/active-directory-whatis)
+- [Azure App Service](/azure/app-service)
+- [Azure Bot Framework Composer tutorials][botservice-docs]
+- [What are Azure Cognitive Services?](/azure/cognitive-services/what-are-cognitive-services)
+- [What is Azure SQL Database?](/azure/azure-sql/database/sql-database-paas-overview)
+- [Application Insights][appinsights-docs]
 
 Microsoft Learn modules:
 

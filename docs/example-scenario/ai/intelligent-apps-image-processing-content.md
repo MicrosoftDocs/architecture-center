@@ -28,17 +28,17 @@ This scenario covers the back-end components of a web or mobile application. Dat
 
 ### Components
 
-- [Computer Vision API](/azure/cognitive-services/computer-vision/home) is part of the Cognitive Services suite and is used to retrieve information about each image.
-- [Azure Functions](/azure/azure-functions/functions-overview) provides the back-end API for the web application, as well as the event processing for uploaded images.
-- [Event Grid](/azure/event-grid/overview) triggers an event when a new image is uploaded to blob storage. The image is then processed with Azure functions.
-- [Blob storage](/azure/storage/blobs/storage-blobs-introduction) stores all of the image files that are uploaded into the web application, as well any static files that the web application consumes.
-- [Cosmos DB](/azure/cosmos-db/introduction) stores metadata about each image that is uploaded, including the results of the processing from Computer Vision API.
+- [Computer Vision API](https://azure.microsoft.com/services/cognitive-services/computer-vision) is part of the Cognitive Services suite and is used to retrieve information about each image.
+- [Azure Functions](https://azure.microsoft.com/services/functions) provides the back-end API for the web application, as well as the event processing for uploaded images.
+- [Azure Event Grid](https://azure.microsoft.com/services/event-grid) triggers an event when a new image is uploaded to blob storage. The image is then processed with Azure functions.
+- [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs) stores all of the image files that are uploaded into the web application, as well any static files that the web application consumes.
+- [Cosmos DB](https://azure.microsoft.com/free/cosmos-db) stores metadata about each image that is uploaded, including the results of the processing from Computer Vision API.
 
 ### Alternatives
 
-- [Custom Vision Service](/azure/cognitive-services/custom-vision-service/home). The Computer Vision API returns a set of [taxonomy-based categories][cv-categories]. If you need to process information that isn't returned by the Computer Vision API, consider the Custom Vision Service, which lets you build custom image classifiers.
-- [Cognitive Search](/azure/search/search-what-is-azure-search) (formerly Azure Search). If your use case involves querying the metadata to find images that meet specific criteria, consider using Cognitive Search. Currently in preview, [Cognitive search](/azure/search/cognitive-search-concept-intro) seamlessly integrates this workflow.
-- [Logic Apps](/azure/logic-apps/quickstart-create-first-logic-app-workflow). If you don't need to react in real-time on added files to a blob, you might consider using Logic Apps. A logic app which can check if a file was added might be start by the [recurrence trigger or sliding windows trigger](/azure/logic-apps/concepts-schedule-automated-recurring-tasks-workflows).
+- [Custom Vision Service](https://azure.microsoft.com/services/cognitive-services/custom-vision-service). The Computer Vision API returns a set of [taxonomy-based categories][cv-categories]. If you need to process information that isn't returned by the Computer Vision API, consider the Custom Vision Service, which lets you build custom image classifiers.
+- [Cognitive Search](https://azure.microsoft.com/services/search) (formerly Azure Search). If your use case involves querying the metadata to find images that meet specific criteria, consider using Cognitive Search. Currently in preview, [Cognitive search](/azure/search/cognitive-search-concept-intro) seamlessly integrates this workflow.
+- [Logic Apps](https://azure.microsoft.com/services/logic-apps). If you don't need to react in real-time on added files to a blob, you might consider using Logic Apps. A logic app which can check if a file was added might be start by the [recurrence trigger or sliding windows trigger](/azure/logic-apps/concepts-schedule-automated-recurring-tasks-workflows).
 
 ## Considerations
 
@@ -74,7 +74,22 @@ We have provided three sample cost profiles based on amount of traffic (we assum
 - [Medium][medium-pricing]: this pricing example correlates to processing 500,000 images a month.
 - [Large][large-pricing]: this pricing example correlates to processing 50 million images a month.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+**Principal authors:**
+
+ * [David Stanford](https://www.linkedin.com/in/das0) | Principal PM
+
 ## Next steps
+
+Product documentation
+- [Computer Vision API](/azure/cognitive-services/computer-vision/home)
+- [Azure Functions](/azure/azure-functions/functions-overview)
+- [Event Grid](/azure/event-grid/overview)
+- [Blob storage](/azure/storage/blobs/storage-blobs-introduction)
+- [Cosmos DB](/azure/cosmos-db/introduction)
 
 For a guided learning path, see:
 - [Build a serverless web app in Azure][serverless]
@@ -85,6 +100,12 @@ For a guided learning path, see:
 - [Detect objects in images with the Custom Vision service](/learn/modules/detect-objects-images-custom-vision/)
 
 Before deploying this example scenario in a production environment, review recommended practices for [optimizing the performance and reliability of Azure Functions][functions-best-practices].
+
+## Related resources
+
+- [Knowledge mining in digital asset management](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/digital-asset-management)
+- [Geospatial analysis with Azure Synapse Analytics](https://docs.microsoft.com/azure/architecture/industries/aerospace/geospatial-processing-analytics)
+
 
 <!-- links -->
 [architecture]: ./media/architecture-intelligent-apps-image-processing.png

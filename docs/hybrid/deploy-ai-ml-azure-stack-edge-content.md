@@ -14,14 +14,13 @@ This solution is ideal for the telecommunications industry. Typical uses for ext
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
-### Workflow
+### Components
 
-The architecture consists of the following steps:
-
-- **[Azure Machine Learning][azure-machine-learning]**. Machine Learning lets you build, train, deploy, and manage machine learning models in a cloud-based environment. These models can then deploy to Azure services, including (but not limited to) Azure Container Instances, Azure Kubernetes Service (AKS), and Azure Functions.
-- **[Azure Container Registry][azure-container-registry]**. Container Registry is a service that creates and manages the Docker Registry. Container Registry builds, stores, and manages Docker container images and can store containerized machine learning models.
-- **[Azure Stack Edge][azure-stack-edge]**. Azure Stack Edge is an edge computing device that's designed for machine learning inference at the edge. Data is preprocessed at the edge before transfer to Azure. Azure Stack Edge includes compute acceleration hardware that's designed to improve performance of AI inference at the edge.
-- **Local data**. Local data references any data that's used in the training of the machine learning model. The data can be in any local storage solution, including Azure Arc deployments.
+- [Azure Machine Learning](https://azure.microsoft.com/free/machine-learning) lets you build, train, deploy, and manage machine learning models in a cloud-based environment. These models can then deploy to Azure services, including (but not limited to) Azure Container Instances, Azure Kubernetes Service (AKS), and Azure Functions.
+- [Azure Container Registry](https://azure.microsoft.com/services/container-registry) is a service that creates and manages the Docker Registry. Container Registry builds, stores, and manages Docker container images and can store containerized machine learning models.
+- [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge) is an edge computing device that's designed for machine learning inference at the edge. Data is preprocessed at the edge before transfer to Azure. Azure Stack Edge includes compute acceleration hardware that's designed to improve performance of AI inference at the edge.
+- [Azure IoT Hub](/azure/iot-hub) is a managed service that acts as a central message hub that connects IoT applications and attached devices. Millions of devices and their backend solutions can communicate reliably and securely.
+- [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) is a service that lets you store massive amounts of unstructured data.
 
 ## Recommendations
 
@@ -83,6 +82,19 @@ Additionally, Azure Stack Edge continues to transfer data to Machine Learning fo
 - [Azure Stack Edge pricing][azure-stack-edge-pricing] is calculated as a flat-rate monthly subscription with a one-time shipping fee.
 - Azure Machine Learning also deploys Container Registry, Azure Storage, and Azure Key Vault services, which incur extra costs. For more information, see [How Azure Machine Learning works: Architecture and concepts][azure-machine-learning-architecture].
 - [Azure Machine Learning pricing][azure-machine-learning-pricing] includes charges for the virtual machines that are used for training the model in the public cloud.
+
+## Next steps
+
+Product documentation
+
+- [What is Azure Machine Learning?](azure/machine-learning/overview-what-is-azure-machine-learning)
+- [Azure Container Registry][azure-container-registry]
+- [Azure Stack Edge][azure-stack-edge]
+
+Microsoft Learn modules:
+
+- [Get started with AI on Azure](https://docs.microsoft.com/learn/modules/get-started-ai-fundamentals)
+- [Work with data in Azure Machine Learning](https://docs.microsoft.com/learn/modules/work-with-data-in-aml)
 
 ## Related resources
 
