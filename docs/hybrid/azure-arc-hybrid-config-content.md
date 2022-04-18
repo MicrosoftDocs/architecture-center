@@ -1,7 +1,7 @@
 
-This reference architecture illustrates how Azure Arc enables you to manage, govern, and secure servers across on-premises, multiple cloud, and edge scenarios. The 
+This reference architecture illustrates how Azure Arc enables you to manage, govern, and secure servers across on-premises, multiple cloud, and edge scenarios.   
 
-Typical uses for this architecture include:
+The typical uses for this architecture include:
 
 - Organize, govern, and inventory large groups of virtual machines (VMs) and servers across multiple environments.
 - Enforce organization standards and assess compliance at scale for all your resources anywhere with Azure Policy.
@@ -35,11 +35,11 @@ The following recommendations apply for most scenarios. Follow these recommendat
 
 ### Connecting machines to Azure Arc
 
-You can connect any other physical or virtual machine running Windows or Linux to Azure Arc. Before onboarding machines, you've registered the Azure resource providers for Azure Arc-enabled servers. To use Azure Arc to connect the machine to Azure, you need to install the Azure Connected Machine agent on each machine that you plan to connect using Azure Arc. For more information, see [Overview of Azure Arc-enabled servers agent][agent-overview].
+You can connect any other physical or virtual machine running Windows or Linux to Azure Arc. Before onboarding machines, be sure to complete the [Connected machine agent prerequisites][agent-prerequisites], which includes registering the Azure resource providers for Azure Arc-enabled servers. To use Azure Arc to connect the machine to Azure, you need to install the Azure Connected Machine agent on each machine that you plan to connect using Azure Arc. For more information, see [Overview of Azure Arc-enabled servers agent][agent-overview].
 
 Once configured, the Connected Machine agent sends a regular heartbeat message every five minutes to Azure. When the heartbeat isn't received, Azure assigns the machine Offline status, which is reflected in the portal within 15 to 30 minutes. Upon receiving a subsequent heartbeat message from the Connected Machine agent, its status will automatically change to Connected.
 
-There are several options available in Azure to connect your Windows and Linux machines.
+There are several options available in Azure to connect your Windows and Linux machines:
 
 - Manual installation: Azure Arc-enabled servers can be enabled for one or a few Windows or Linux machines in your environment by using the Windows Admin Center tool set or by performing a set of steps manually.
 - Script-based installation: You can perform automated agent installation by running a template script that you download from the Azure portal.
@@ -87,7 +87,7 @@ The Connected Machine agent for Linux and Windows communicates outbound securely
 
 ### Reliability
 
-- In most cases, the location you select when you create the installation script should be the Azure region geographically closest to your machine's location. The rest of the data will be stored within the Azure geography containing the region you specify, which might also affect your choice of region if you have data residency requirements. If an outage affects the Azure region to which your machine is connected, the outage won't affect the Arc-enabled server. However, management operations using Azure might not be able to function.
+- In most cases, the location you select when you create the installation script should be the Azure region geographically closest to your machine's location. The rest of the data will be stored within the Azure geography containing the region you specify, which might also affect your choice of region if you have data residency requirements. If an outage affects the Azure region to which your machine is connected, the outage won't affect the Arc-enabled server. However, management operations using Azure might not be available.
 - If you have multiple locations that provide a geographical-redundant service, it's best to connect the machines in each location to a different Azure region for resilience in the event of a regional outage.
 - If the Azure connected machine agent stops sending heartbeats to Azure, or goes offline, you will not be able to perform operational tasks on it. Hence, it's necessary to [develop a plan for notifications and responses](/azure/azure-arc/servers/plan-at-scale-deploymentbranch=main#phase-3-manage-and-operate).
 - Set up [resource health alerts](/azure/service-health/resource-health-alert-monitor-guide) to get notified in near real-time when resources have a change in their health status. And define a monitoring and alerting policy in [Azure Policy](/azure/governance/policy) that identifies unhealthy Azure Arc-enabled servers.
@@ -147,6 +147,7 @@ To deploy the reference implementation, follow the steps in the GitHub repo by s
 - [Review Azure Arc Jumpstart scenarios][Arc Jumpstart servers scenarios] in the Arc Jumpstart
 - [Review Arc-enabled servers landing zone accelerator][CAF Arc Accelerator] in CAF
 
+[agent-prerequisites]: /azure/azure-arc/servers/prerequisites#azure-resource-providers
 [agent-overview]: /azure/azure-arc/servers/agent-overview
 [Arc-agent-deployment-options]: /azure/azure-arc/servers/deployment-options
 [arc-built-in-policies]: /azure/azure-arc/servers/policy-samples
