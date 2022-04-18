@@ -1,5 +1,5 @@
 
-This reference architecture illustrates how Azure Arc enables you to manage, govern, and secure servers across on-premises, multiple cloud, and edge scenarios.
+This reference architecture illustrates how Azure Arc enables you to manage, govern, and secure servers across on-premises, multiple cloud, and edge scenarios. The 
 
 Typical uses for this architecture include:
 
@@ -29,52 +29,24 @@ The architecture consists of the following components:
 - **[Hyper-V nested virtualization][Hyper-V nested virtualization]** is used by Jumpstart ArcBox for IT Pros to host Windows Server virtual machines inside of an Azure virtual machine. This provides the same experience as using physical Windows Server machines, but without the hardware requirements.
 - **[Azure Virtual Network][Azure Virtual Network]** provides a private network that enables components within the Azure Resource Group to communicate, such as the virtual machines.
 
-
 ## Recommendations
 
 The following recommendations apply for most scenarios. Follow these recommendations unless you have a specific requirement that overrides them.
 
 ### Connecting machines to Azure Arc
 
-You can connect any other physical or virtual machine running Windows or Linux to Azure Arc. To use Azure Arc to connect the machine to Azure, you need to install the Azure Connected Machine agent on each machine that you plan to connect using Azure Arc.
+You can connect any other physical or virtual machine running Windows or Linux to Azure Arc. Before onboarding machines, you've registered the Azure resource providers for Azure Arc-enabled servers. To use Azure Arc to connect the machine to Azure, you need to install the Azure Connected Machine agent on each machine that you plan to connect using Azure Arc. For more information, see [Overview of Azure Arc-enabled servers agent][agent-overview].
 
 Once configured, the Connected Machine agent sends a regular heartbeat message every five minutes to Azure. When the heartbeat isn't received, Azure assigns the machine Offline status, which is reflected in the portal within 15 to 30 minutes. Upon receiving a subsequent heartbeat message from the Connected Machine agent, its status will automatically change to Connected.
 
-#### Manual installation
+There are several options available in Azure to connect your Windows and Linux machines.
 
-Azure Arc-enabled servers can be enabled for one or a few Windows or Linux machines in your environment by using the Windows Admin Center tool set or by performing a set of steps manually. You can download the [Windows agent Windows Installer package][windows-agent-download] from the Microsoft Download Center or the Linux agent from [Microsoft's package repository][microsoft-package-repo].
+- Manual installation: Azure Arc-enabled servers can be enabled for one or a few Windows or Linux machines in your environment by using the Windows Admin Center tool set or by performing a set of steps manually.
+- Script-based installation: You can perform automated agent installation by running a template script that you download from the Azure portal.
+- Connect machines at scale using a service principal: To onboard at scale, use a service principal and deploy via your organizations existing automation.
+- Installation using Windows PowerShell DSC
 
-For more information, see [Overview of Azure Arc-enabled servers agent][agent-overview].
-
-#### Script-based installation
-
-You can perform automated agent installation by running a template script that you download from the Azure portal. This script automates the download and installation of both agents.
-
-This method requires that you have administrator permissions on the machine to install and configure the agent. You can use the root account on Linux, or on Windows, you can use an account that is a member of the local administrators group.
-
-#### Connect machines at scale using a service principal
-
-To connect the machines to Azure Arc-enabled servers, you can use an Azure Active Directory service principal instead of using your privileged identity to interactively connect the machine. A service principal is a special, limited management identity that has the minimum permission necessary to connect machines to Azure using the **azcmagent** command. Using a service principal is safer than using a higher privileged account like a Tenant Administrator and follows access control security best practices. The service principal is only used during onboarding. For more information, see [Connect hybrid machines to Azure at scale][connect-hybrid-at-scale].
-
-#### Installation using Windows PowerShell DSC
-
-You can automate agent installation and configuration for a Windows computer by using:
-- Windows PowerShell Desired State Configuration (DSC)
-- Windows PowerShell
-- The PowerShell AzureConnectedMachine DSC Module
-- A service principal for onboarding
-
-For more information, see [How to install the Connected Machine agent using Windows PowerShell DSC][onboard-dsc].
-
-### Manage VM extensions
-
-Azure Arc-enabled servers enables you to deploy a supported subset of Azure VM extensions to non-Azure Windows and Linux VMs, providing a consistent extension management experience between Azure and non-Azure VMs. VM extensions allow you to:
-
-- Collect log data for analysis with Azure Monitor Logs enabled through the Log Analytics agent VM extension.
-- Analyze the performance of your Windows and Linux VMs using Azure Monitor and monitor their processes and dependencies on other resources and external processes.
-- Download and execute scripts on Arc-enabled servers using the Custom Script extension.
-
-For more information, see [VM extension management with Azure Arc-enabled servers][manage-vm-extensions].
+Consult the [Azure Connected Machine agent deployment options](/azure/azure-arc/servers/deployment-options) for comprehensive documentation on the various deployment options available.
 
 ### Implement Azure Policy guest configuration
 
@@ -115,20 +87,30 @@ The Connected Machine agent for Linux and Windows communicates outbound securely
 
 ### Reliability
 
-- In most cases, the location you select when you create the installation script should be the Azure region geographically closest to your machine's location. The rest of the data will be stored within the Azure geography containing the region you specify, which might also affect your choice of region if you have data residency requirements. If an outage affects the Azure region to which your machine is connected, the outage won't affect the Arc-enabled server. However, management operations using Azure might not be able to function. If you have multiple locations that provide a geographical-redundant service, it's best to connect the machines in each location to a different Azure region for resilience in the event of a regional outage.
-- Ensure that Azure Arc-enabled servers is supported in your regions by checking [supported regions][supported regions].
-- Ensure that services referenced in the Architecture section are supported in the region to which Azure Arc-enabled servers is deployed.
+- In most cases, the location you select when you create the installation script should be the Azure region geographically closest to your machine's location. The rest of the data will be stored within the Azure geography containing the region you specify, which might also affect your choice of region if you have data residency requirements. If an outage affects the Azure region to which your machine is connected, the outage won't affect the Arc-enabled server. However, management operations using Azure might not be able to function.
+- If you have multiple locations that provide a geographical-redundant service, it's best to connect the machines in each location to a different Azure region for resilience in the event of a regional outage.
+- If the Azure connected machine agent stops sending heartbeats to Azure, or goes offline, you will not be able to perform operational tasks on it. Hence, it's necessary to [develop a plan for notifications and responses](/azure/azure-arc/servers/plan-at-scale-deploymentbranch=main#phase-3-manage-and-operate).
+- Set up [resource health alerts](/azure/service-health/resource-health-alert-monitor-guide) to get notified in near real-time when resources have a change in their health status. And define a monitoring and alerting policy in [Azure Policy](/azure/governance/policy) that identifies unhealthy Azure Arc-enabled servers.
+- Extend your current backup solution to Azure, or easily configure our application-aware replication and application-consistent backup that scales based on your business needs. The centralized management interface for [Azure Backup](https://azure.microsoft.com/services/backup/) and [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) makes it simple to define policies to natively protect, monitor, and manage your Arc-enabled Windows and Linux servers.
+- Review the [business continuity and disaster recovery](/azure/cloud-adoption-framework/ready/landing-zone/design-area/management-business-continuity-disaster-recovery) guidance to determine whether your enterprise requirements are met.
+- Other reliability considerations for your solution are described in the [reliability design principles][waf-principles-reliability] section in the Microsoft Azure Well-Architected Framework.
 
 ### Security
 
 - Appropriate Azure role-based access control (Azure RBAC) should be managed for Arc-enabled servers. To onboard machines, you must be a member of the **Azure Connected Machine Onboarding** role. To read, modify, reonboard, and delete a machine, you must be a member of the **Azure Connected Machine Resource Administrator** role.
+- Microsoft Defender for Cloud can monitor on-premises systems, Azure VMs, Azure Monitor resources, and even VMs hosted by other cloud providers. Enable Microsoft Defender for servers for all subscriptions containing Azure Arc-enabled servers for security baseline monitoring, security posture management, and threat protection.
+- Microsoft Sentinel can help simplify data collection across different sources, including Azure, on-premises solutions, and across clouds using built-in connectors.
 - You can use Azure Policy to manage security policies across your Arc-enabled servers, including implementing security policies in Microsoft Defender for Cloud. A security policy defines the desired configuration of your workloads and helps ensure you're complying with the security requirements of your company or regulators. Defender for Cloud policies are based on policy initiatives created in Azure Policy.
+- To limit which extensions can be installed on your Arc-enabled server, you can configure the lists of extensions you wish to allow and block on the server. The extension manager will evaluate all requests to install, update, or upgrade extensions against the allowlist and blocklist to determine if the extension can be installed on the server.
+- [Azure Private Link](/azure/private-link/private-link-overview) allows you to securely link Azure PaaS services to your virtual network using private endpoints. You can connect your on-premises or multi-cloud servers with Azure Arc and send all traffic over an Azure ExpressRoute or site-to-site VPN connection instead of using public networks. You can use a Private Link Scope model to allow multiple servers or machines to communicate with their Azure Arc resources using a single private endpoint.
+- Consult [Azure Arc-enabled servers security overview](/azure/azure-arc/servers/security-overview) for a comprehensive overview of the security features in Azure Arc-enabled server.
+- Other security considerations for your solution are described in the [security design principles][waf-principles-security] section in the Microsoft Azure Well-Architected Framework.
 
 ### Cost optimization
 
 - Azure Arc control plane functionality is provided at no extra cost. This includes support for resource organization through Azure management groups and tags, and access control through Azure role-based access control (RBAC). Azure services used in conjunction to Azure Arc-enabled servers incur costs according to their usage.
 - Consult [Cost governance for Azure Arc-enabled servers](/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-servers/eslz-cost-governance) for additional Azure Arc cost optimization guidance.
-- Other cost optimization considerations for your solution are described in the [Principles of cost optimization][principles-cost-opt] section in the Microsoft Azure Well-Architected Framework.
+- Other cost optimization considerations for your solution are described in the [Principles of cost optimization][waf-principles-cost-opt] section in the Microsoft Azure Well-Architected Framework.
 - Use the [Azure pricing calculator][pricing-calculator] to estimate costs.
 - When deploying the Jumpstart ArcBox for IT Pros reference implementation for this architecture, keep in mind ArcBox resources generate Azure Consumption charges from the underlying Azure resources. These resources include core compute, storage, networking and auxiliary services.
 
@@ -139,14 +121,14 @@ The Connected Machine agent for Linux and Windows communicates outbound securely
 - VM extensions can be deployed to Arc-enabled servers to simplify the management of hybrid servers throughout their lifecycle. Consider automating the deployment of VM extensions via Azure Policy when managing servers at scale.
 - Enable patch and Update Management in your onboarded Azure Arc-enabled servers to ease OS lifecycle management.
 - Review [Azure Arc Jumpstart Unified Operations Use Cases][Arc Jumpstart unifiedops scenarios] to learn about additional operational excellence scenarios for Azure Arc-enabled servers.
-- Other operational excellence considerations for your solution are described in the [Operational excellence design principles][principles-operational-excellence] section in the Microsoft Azure Well-Architected Framework.
+- Other operational excellence considerations for your solution are described in the [Operational excellence design principles][waf-principles-operational-excellence] section in the Microsoft Azure Well-Architected Framework.
 
 ### Performance efficiency
 
 - Before configuring your machines with Azure Arc-enabled servers, you should review the Azure Resource Manager [subscription limits][subscription-limits] and [resource group limits][rg-limits] to plan for the number of machines to be connected.
 - A phased deployment approach as described in the [deployment guide](/azure/azure-arc/servers/plan-at-scale-deployment) can help you determine the resource capacity requirements for your implementation.
 - Use Azure Monitor to collect data directly from your Azure Arc-enabled servers into a Log Analytics workspace for detailed analysis and correlation. Review the [deployment options](/azure/azure-arc/servers/concept-log-analytics-extension-deployment) for the Azure Monitor agents.
-- Additional performance efficiency considerations for your solution are described in the [Performance efficiency principles](/azure/architecture/framework/scalability/principles) section in the Microsoft Azure Well-Architected Framework.
+- Additional performance efficiency considerations for your solution are described in the [Performance efficiency principles][waf-principles-performance-efficiency] section in the Microsoft Azure Well-Architected Framework.
 
 ## Deploy the solution
 
@@ -161,6 +143,7 @@ To deploy the reference implementation, follow the steps in the GitHub repo by s
 
 - [Learn more about Azure Arc][Azure Arc docs]
 - [Learn more about Azure Arc-enabled servers][Azure Arc-enabled servers docs]
+- [Azure Arc learning path on Microsoft Learn](/learn/paths/manage-hybrid-infrastructure-with-azure-arc/)
 - [Review Azure Arc Jumpstart scenarios][Arc Jumpstart servers scenarios] in the Arc Jumpstart
 - [Review Arc-enabled servers landing zone accelerator][CAF Arc Accelerator] in CAF
 
@@ -196,10 +179,13 @@ To deploy the reference implementation, follow the steps in the GitHub repo by s
 [networking configuration]: /azure/azure-arc/servers/agent-overview#networking-configuration
 [onboard-dsc]: /azure/azure-arc/servers/onboard-dsc
 [pricing-calculator]: https://azure.microsoft.com/pricing/calculator
-[principles-cost-opt]: /azure/architecture/framework/cost/overview
 [rg-limits]: /azure/azure-resource-manager/management/azure-subscription-service-limits#resource-group-limits
 [subscription-limits]: /azure/azure-resource-manager/management/azure-subscription-service-limits#subscription-limits
 [supported regions]: /azure/azure-arc/servers/overview#supported-regions
 [supported operating systems]: /azure/azure-arc/servers/agent-overview#supported-operating-systems
+[waf-principles-reliability]: /azure/architecture/framework/resiliency/principles
+[waf-principles-security]: /azure/architecture/framework/security/security-principles
+[waf-principles-cost-opt]: /azure/architecture/framework/cost/principles
 [waf-principles-operational-excellence]: /azure/architecture/framework/devops/principles
+[waf-principles-performance-efficiency]: /azure/architecture/framework/scalability/principles
 [windows-agent-download]: https://aka.ms/AzureConnectedMachineAgent
