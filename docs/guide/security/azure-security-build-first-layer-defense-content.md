@@ -215,14 +215,10 @@ To get all details regarding this Architecture reference, see the other articles
 
 ## Related resources
 
-This document refers to a variety of links and references throughout it. But you may want to check out more about other topics mentioned in this document.
+This document refers to some services, technologies, and terminologies. You may find more information in the following resources:
 
--   Microsoft Azure public cloud: [Public Cloud vs Private Cloud vs Hybrid Cloud](https://azure.microsoft.com/en-us/overview/what-are-private-public-hybrid-clouds/)
-
--   Azure Security services: [Overview of the Azure Security Benchmark v3](https://docs.microsoft.com/en-us/security/benchmark/azure/overview)
-
--   Microsoft Zero Trust: [Zero Trust Model - Modern Security Architecture](https://www.microsoft.com/en-us/security/business/zero-trust)
-
--   Microsoft office 365: [Microsoft 365 - Subscription for Office Apps](https://www.microsoft.com/en-us/microsoft-365)
-
--   Microsoft 365 Defender: [Microsoft 365 Defender - Threat Protection](https://www.microsoft.com/en-us/security/business/threat-protection/microsoft-365-defender)
+- [What are public, private, and hybrid clouds?](https://azure.microsoft.com/overview/what-are-private-public-hybrid-clouds/)
+- [Overview of the Azure Security Benchmark (v3)](/security/benchmark/azure/overview)
+- [Embrace proactive security with Zero Trust](/security/business/zero-trust)
+- [Microsoft 365](/microsoft-365) subscription information
+- [Microsoft 365 Defender](/security/business/threat-protection/microsoft-365-defender)

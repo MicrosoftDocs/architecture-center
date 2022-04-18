@@ -43,12 +43,12 @@ To get all details regarding this Architecture reference, see the other articles
 
 This document refers to some services, technologies, and terminologies. You may find more information in the following resources:
 
-- [Public Cloud vs Private Cloud vs Hybrid Cloud](https://azure.microsoft.com/overview/what-are-private-public-hybrid-clouds/)
-- [Overview of the Azure Security Benchmark v3](/security/benchmark/azure/overview)
-- [Zero Trust Model](https://www.microsoft.com/security/business/zero-trust)
-- [Microsoft 365 - Subscription for Office Apps](https://www.microsoft.com/microsoft-365)
-- [Microsoft 365 Defender - Threat Protection](https://www.microsoft.com/security/business/threat-protection/microsoft-365-defender)
+- [What are public, private, and hybrid clouds?](https://azure.microsoft.com/overview/what-are-private-public-hybrid-clouds/)
+- [Overview of the Azure Security Benchmark (v3)](/security/benchmark/azure/overview)
+- [Embrace proactive security with Zero Trust](https://www.microsoft.com/security/business/zero-trust)
+- [Microsoft 365](https://www.microsoft.com/microsoft-365) subscription information
+- [Microsoft 365 Defender](https://www.microsoft.com/security/business/threat-protection/microsoft-365-defender)
 - [MITRE ATT&CK®](https://attack.mitre.org/)
-- [Cyber Kill Chain® \| Lockheed Martin](https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html)
+- [The Cyber Kill Chain®](https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html) from Lockheed Martin
 - [What is Microsoft Sentinel?](/azure/sentinel/overview)
 - [Overview of Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview)

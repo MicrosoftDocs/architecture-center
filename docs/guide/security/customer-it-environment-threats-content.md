@@ -117,20 +117,10 @@ To get all details regarding this Architecture reference, see the other articles
 
 This document refers to some services, technologies, and terminologies. You may find more information related to it in the links below.
 
-- Mitre att&ck: [MITRE ATT&CK®](https://attack.mitre.org/)
-
-- Mitre att&ck navigator: [ATT&CK® Navigator (mitre-attack.github.io)](https://mitre-attack.github.io/attack-navigator/)
-
-- Microsoft Sentinel and Mitre workbook:
-
-  [Public Preview: The MITRE ATT&CK Framework Blade in Microsoft Sentinel -- Azure Cloud & AI Domain Blog (azurecloudai. blog)](https://azurecloudai.blog/2022/02/25/public-preview-the-mitre-attck-framework-blade-in-microsoft-sentinel/)
-
-- Cyber kill chain: [Cyber Kill Chain® \| Lockheed Martin](https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html)
-
-- Microsoft Zero Trust: [Zero Trust Model - Modern Security     Architecture \| Microsoft     Security](https://www.microsoft.com/en-us/security/business/zero-trust)
-
-- Threat blended attacks: [Blended threat -     Wikipedia](https://en.wikipedia.org/wiki/Blended_threat)
-
-- Most common attacks:
-
-  [How cyberattacks are changing according to new Microsoft Digital Defense Report - Microsoft Security Blog](https://www.microsoft.com/security/blog/2021/10/11/how-cyberattacks-are-changing-according-to-new-microsoft-digital-defense-report/)
+- [MITRE ATT&CK®](https://attack.mitre.org/)
+- [ATT&CK® Navigator)](https://mitre-attack.github.io/attack-navigator/)
+- [Public Preview: The MITRE ATT&CK Framework Blade in Microsoft Sentinel](https://azurecloudai.blog/2022/02/25/public-preview-the-mitre-attck-framework-blade-in-microsoft-sentinel/), a post from the Azure Cloud & AI Domain Blog
+- [The Cyber Kill Chain®](https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html)
+- [Embrace proactive security with Zero Trust](/security/business/zero-trust)
+- [Blended threat](https://en.wikipedia.org/wiki/Blended_threat) on Wikipedia
+- [How cyberattacks are changing according to new Microsoft Digital Defense Report](https://www.microsoft.com/security/blog/2021/10/11/how-cyberattacks-are-changing-according-to-new-microsoft-digital-defense-report/) from Microsoft Security Blog
