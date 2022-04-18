@@ -27,7 +27,7 @@ Organizations can use Event Grid to assist with:
 ### Components
 
 * [Azure Event Grid](https://azure.microsoft.com/services/event-grid): Get reliable event delivery at massive scale.
-* [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs): A massively scalable object storage for any type of unstructured data, including images, videos, audio, documents, and more. That's easy and cost effective.
+* [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs): A massively scalable object storage for any type of unstructured data, including images, videos, audio, documents, and more. It's easy and cost effective.
 * [Azure Cache for Redis](https://azure.microsoft.com/services/cache): A fully managed, open source–compatible, in-memory data store to power fast, scalable applications.
 * [Azure App Configuration](https://azure.microsoft.com/services/app-configuration): Store configurations for all your Azure apps in a universal, hosted location.
 * [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs): Stream millions of events per second from any source to build dynamic data pipelines and immediately respond to business challenges.
