@@ -55,7 +55,7 @@ Let's review some details presented in the diagram.
 
     1.  **VPN** -- A Virtual Private Network gateway that delivers a tunnel with IPSEC (IKE v1/v2) protection.
 
-        [VPN Gateway - Virtual Networks \| Microsoft Azure](https://azure.microsoft.com/en-us/services/vpn-gateway/)
+        [VPN Gateway - Virtual Networks](https://azure.microsoft.com/en-us/services/vpn-gateway/)
 
     1.  **Azure Firewall** -- A PaaS that delivers protection in layer four
     and is attached to an entire VNET.
@@ -68,7 +68,7 @@ Let's review some details presented in the diagram.
 
     1.  **NVA** -- Network Virtual Appliance are virtual security services from the marketplace provisioned on VMs on Azure.
 
-        [Network Virtual Appliances \| Microsoft Azure](https://azure.microsoft.com/en-us/solutions/network-appliances/)
+        [Network Virtual Appliances](https://azure.microsoft.com/en-us/solutions/network-appliances/)
 
     1.  **DDOS standard** --DDOS protection implemented on the VNET to help you mitigate different types of DDOS attacks.
 
@@ -220,7 +220,7 @@ To get all details regarding this Architecture reference, you may review those o
 
 This document refers to a variety of links and references throughout it. But you may want to check out more about other topics mentioned in this document.
 
--   Microsoft Azure public cloud: [Public Cloud vs Private Cloud vs Hybrid Cloud \| Microsoft Azure](https://azure.microsoft.com/en-us/overview/what-are-private-public-hybrid-clouds/)
+-   Microsoft Azure public cloud: [Public Cloud vs Private Cloud vs Hybrid Cloud](https://azure.microsoft.com/en-us/overview/what-are-private-public-hybrid-clouds/)
 
 -   Azure Security services: [Overview of the Azure Security Benchmark v3](https://docs.microsoft.com/en-us/security/benchmark/azure/overview)
 

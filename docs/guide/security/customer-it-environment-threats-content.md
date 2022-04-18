@@ -54,7 +54,7 @@ For the **Azure environment**, the diagram shows:
 
 - Virtual Machines, represented as "Servers."
 
-  [Virtual Machines (VMs) for Linux and Windows \| Microsoft Azure](https://azure.microsoft.com/en-us/services/virtual-machines/)
+  [Virtual Machines (VMs) for Linux and Windows](https://azure.microsoft.com/en-us/services/virtual-machines/)
 
 - Kubernetes services, represented as "k8s."
 

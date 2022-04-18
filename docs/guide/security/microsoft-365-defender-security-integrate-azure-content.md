@@ -170,7 +170,7 @@ As we covered many different Services, here it is information about how to acces
 
 It was presented in this series of articles different Microsoft security services, as you read it, you may integrate all of them to get a best security posture, however their prices is set in different ways. Some of them are free of charge, some of them are charged per usage and some of them, as Microsoft 365 Defender are charged based on different types of license.
 
-So, the best way to get any of the **Azure** Security services prices is visiting Azure pricing calculator at [Pricing Calculator \| Microsoft Azure](https://azure.microsoft.com/en-us/pricing/calculator/).
+So, the best way to get any of the **Azure** Security services prices is visiting Azure pricing calculator at [Pricing Calculator](https://azure.microsoft.com/en-us/pricing/calculator/).
 
 :::image type="content" alt-text="Image alt text." source="images/pricing-calculator-web-page.png" lightbox="images/pricing-calculator-web-page.png":::
 
