@@ -27,12 +27,12 @@ This scenario covers a conversational bot that functions as a concierge for a ho
 
 ### Components
 
-- [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory) is Microsoft's multitenant cloud-based directory and identity management service. Azure AD supports a B2C connector allowing you to identify users by their external IDs, such as Google, Facebook, or a Microsoft account.
+- [Azure AD](https://azure.microsoft.com/services/active-directory) is a multitenant cloud-based directory and identity management service. Azure AD supports a B2C connector allowing you to identify users by their external IDs, such as Google, Facebook, or a Microsoft account.
 - [Azure App Service](https://azure.microsoft.com/services/app-service) enables you to build and host web applications in the programming language of your choice without managing infrastructure.
 - [Azure Bot Service](https://azure.microsoft.com/services/bot-service) provides tools to build, test, deploy, and manage intelligent bots.
 - [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services) lets you use intelligent algorithms to see, hear, speak, understand, and interpret your user needs through natural methods of communication.
 - [Azure SQL Database](https://azure.microsoft.com/services/sql-database) is a fully managed relational cloud database service that provides SQL Server engine compatibility.
-- Application Insights, a feature of [Azure Monitor](https://azure.microsoft.com/services/monitor), is an extensible Application Performance Management (APM) service that lets you monitor the performance of applications, such as your chatbot.
+- [Application Insights][appinsights-docs] is an extensible Application Performance Management (APM) service that lets you monitor the performance of applications, such as your chatbot.
 
 ### Alternatives
 
@@ -56,7 +56,7 @@ For other scalability articles, see the [performance efficiency checklist][scala
 
 ### Security
 
-This scenario uses Azure Active Directory (Azure AD) B2C, a business-to-consumer identity management service, to authenticate users. With Azure AD B2C, your chatbot doesn't store any sensitive customer account information or credentials. For more information, see the [Azure AD B2C overview][aadb2c-docs].
+This scenario uses Azure AD B2C, a business-to-consumer identity management service, to authenticate users. With Azure AD B2C, your chatbot doesn't store any sensitive customer account information or credentials. For more information, see the [Azure AD B2C overview][aadb2c-docs].
 
 Information stored in Azure SQL Database is encrypted at rest with transparent data encryption (TDE). SQL Database also offers Always Encrypted which encrypts data during querying and processing. For more information on SQL Database security, see [Azure SQL Database security and compliance][sqlsecurity-docs].
 
@@ -106,6 +106,7 @@ To explore the cost of running this scenario, use the [Azure pricing calculator]
 Product documentation:
 
 - [What is Azure Active Directory?](/azure/active-directory/fundamentals/active-directory-whatis)
+- [What is Azure Active Directory B2C?][aadb2c-docs]
 - [Azure App Service](/azure/app-service)
 - [Azure Bot Framework Composer tutorials][botservice-docs]
 - [What are Azure Cognitive Services?](/azure/cognitive-services/what-are-cognitive-services)
@@ -118,8 +119,6 @@ Microsoft Learn modules:
 - [Build a bot with QnA Maker and Azure Bot Service][learn2]
 
 ## Related resources
-
-Azure Architecture Center articles describing chatbot architectures:
 
 - [Commerce chatbot for customer service](../../solution-ideas/articles/commerce-chatbot.yml)
 - [Build an enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot.yml)

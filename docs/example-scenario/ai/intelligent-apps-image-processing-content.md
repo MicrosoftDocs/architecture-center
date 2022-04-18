@@ -29,10 +29,10 @@ This scenario covers the back-end components of a web or mobile application. Dat
 ### Components
 
 - [Computer Vision API](https://azure.microsoft.com/services/cognitive-services/computer-vision) is part of the Cognitive Services suite and is used to retrieve information about each image.
-- [Azure Functions](https://azure.microsoft.com/services/functions) provides the back-end API for the web application, as well as the event processing for uploaded images.
+- [Azure Functions](https://azure.microsoft.com/services/functions) provides the back-end API for the web application. This platform also provides event processing for uploaded images.
 - [Azure Event Grid](https://azure.microsoft.com/services/event-grid) triggers an event when a new image is uploaded to blob storage. The image is then processed with Azure functions.
-- [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs) stores all of the image files that are uploaded into the web application, as well any static files that the web application consumes.
-- [Cosmos DB](https://azure.microsoft.com/free/cosmos-db) stores metadata about each image that is uploaded, including the results of the processing from Computer Vision API.
+- [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) stores all of the image files that are uploaded into the web application, as well any static files that the web application consumes.
+- [Azure Cosmos DB](https://azure.microsoft.com/free/cosmos-db) stores metadata about each image that is uploaded, including the results of the processing from Computer Vision API.
 
 ### Alternatives
 
@@ -85,12 +85,12 @@ We have provided three sample cost profiles based on amount of traffic (we assum
 ## Next steps
 
 Product documentation
-- [Computer Vision API](/azure/cognitive-services/computer-vision/home)
-- [Cognitive search](/azure/search/cognitive-search-concept-intro)
-- [Azure Functions](/azure/azure-functions/functions-overview)
-- [Event Grid](/azure/event-grid/overview)
-- [Blob storage](/azure/storage/blobs/storage-blobs-introduction)
-- [Cosmos DB](/azure/cosmos-db/introduction)
+- [What is Computer Vision?](/azure/cognitive-services/computer-vision/home)
+- [AI enrichment in Azure Cognitive Search](/azure/search/cognitive-search-concept-intro)
+- [Introduction to Azure Functions](/azure/azure-functions/functions-overview)
+- [What is Azure Event Grid?](/azure/event-grid/overview)
+- [Introduction to Azure Blob storage](/azure/storage/blobs/storage-blobs-introduction)
+- [Welcome to Azure Cosmos DB](/azure/cosmos-db/introduction)
 
 For a guided learning path, see:
 - [Build a serverless web app in Azure][serverless]
@@ -104,8 +104,8 @@ Before deploying this example scenario in a production environment, review recom
 
 ## Related resources
 
-- [Knowledge mining in digital asset management](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/digital-asset-management.yml)
-- [Geospatial analysis with Azure Synapse Analytics](https://docs.microsoft.com/azure/architecture/industries/aerospace/geospatial-processing-analytics.yml)
+- [Knowledge mining in digital asset management](../../solution-ideas/articles/digital-asset-management.yml)
+- [AI enrichment with image and natural language processing in Azure Cognitive Search](../../solution-ideas/articles/cognitive-search-with-skillsets.yml)
 
 
 <!-- links -->

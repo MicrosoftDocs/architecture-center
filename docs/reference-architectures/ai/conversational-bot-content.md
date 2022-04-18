@@ -25,21 +25,21 @@ The architecture shown here uses the following Azure services. Your own bot may 
 
 - [Language Understanding](https://www.luis.ai) (LUIS) is part of [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services). LUIS enables your bot to understand natural language by identifying user intents and entities.
 - [Azure Search](https://azure.microsoft.com/services/search) is a managed service that provides a quick searchable document index.
-- [QnA Maker](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker) is a cloud-based API service that creates a conversational, question-and-answer layer over your data. Typically, it's loaded with semi-structured content such as FAQs. Use it to create a knowledge base for answering natural-language questions.
+- [QnA Maker](/azure/cognitive-services/QnAMaker/overview/overview) is a cloud-based API service that creates a conversational, question-and-answer layer over your data. Typically, it's loaded with semi-structured content such as FAQs. Use it to create a knowledge base for answering natural-language questions.
 
 #### Data ingestion
 
-The bot will rely on raw data that must be ingested and prepared. Consider any of the following options to orchestrate this process:
+The bot relies on raw data that must be ingested and prepared. Consider any of the following options to orchestrate this process:
 
 - [Azure Data Factory](https://azure.microsoft.com/services/data-factory) orchestrates and automates data movement and data transformation.
-- [Logic Apps](https://azure.microsoft.com/services/logic-apps) is a serverless platform for building workflows that integrate applications, data, and services. Logic Apps provides data connectors for many applications, including Office 365.
+- [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) is a serverless platform for building workflows that integrate applications, data, and services. Logic Apps provides data connectors for many applications, including Office 365.
 - [Azure Functions](https://azure.microsoft.com/services/functions) lets you write custom serverless code that is invoked by a [trigger][functions-triggers] &mdash; for example, whenever a document is added to blob storage or Cosmos DB.
 
 #### Logging and monitoring
 
-- Application Insights, a feature of [Azure Monitor](https://azure.microsoft.com/services/monitor), lets you log the bot's application metrics for monitoring, diagnostic, and analytical purposes.
+- [Application Insights][appinsights-docs] is an extensible Application Performance Management (APM) service that lets you monitor the performance of applications, such as your chatbot.
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) is optimized for storing massive amounts of unstructured data.
-- [Cosmos DB](https://azure.microsoft.com/free/cosmos-db) is well-suited for storing semi-structured log data such as conversations.
+- [Azure Cosmos DB](https://azure.microsoft.com/free/cosmos-db) is well-suited for storing semi-structured log data such as conversations.
 - [Power BI](https://powerbi.microsoft.com) lets you create monitoring dashboards for your bot.
 
 #### Security and governance
@@ -139,7 +139,7 @@ Another option is to integrate your own custom AI service. This approach is more
 > [!NOTE]
 > To jump-start your development in these areas, look at the [Botbuilder Utils for JavaScript][git-repo-base]. This repo contains sample utility code for bots built with [Microsoft Bot Framework v4][bot-framework] and running Node.js. It includes the following packages:
 >
-> - [Cosmos DB Logging Store][cosmosdb-logger]. Shows how to store and query bot logs in Cosmos DB.
+> - [Cosmos DB Logging Store][cosmosdb-logger]. Shows how to store and query bot logs in Azure Cosmos DB.
 > - [Application Insights Logging Store][appinsights-logger]. Shows how to store and query bot logs in Application Insights.
 > - [Feedback Collection Middleware][feedback-util]. Sample middleware that provides a bot user feedback-request mechanism.
 > - [Http Test Recorder][testing util]. Records HTTP traffic from services external to the bot. It comes pre-built with support for LUIS, Azure Search, and QnAMaker, but extensions are available to support any service. This helps you automate bot testing.
@@ -219,7 +219,7 @@ Product documentation:
 - [Azure App Service][app-service]
 - [QnA Maker][qna-maker]
 - [Azure Data Factory][data-factory]
-- [Logic Apps][logic-apps]
+- [What is Azure Logic Apps?][logic-apps]
 - [Azure Functions][functions]
 
 Microsoft Learn modules:
@@ -231,8 +231,8 @@ Microsoft Learn modules:
 
 Azure Architecture Center articles describing chatbot architectures:
 
-- [Chatbot for hotel reservations](/azure/architecture/example-scenario/ai/commerce-chatbot.yml)
-- [Speech-to-text conversion](/azure/architecture/reference-architectures/ai/speech-to-text-transcription-pipeline.yml)
+- [Chatbot for hotel reservations](../../example-scenario/ai/commerce-chatbot.yml)
+- [Speech-to-text conversion](../../reference-architectures/ai/speech-to-text-transcription-pipeline.yml)
 
 <!-- links -->
 
