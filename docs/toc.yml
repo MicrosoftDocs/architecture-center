@@ -4291,6 +4291,8 @@ items:
                     href: example-scenario/mainframe/refactor-adabas-aks.yml
                   - name: Refactor mainframe with Raincode
                     href: reference-architectures/app-modernization/raincode-reference-architecture.yml
+                  - name: Rehost Adabas & Natural applications
+                    href: example-scenario/mainframe/rehost-adabas-software-ag.yml
                   - name: Rehost mainframe with NTT DATA UniKix
                     href: example-scenario/mainframe/rehost-mainframe-ntt-data-unikix.yml
                   - name: Unisys CPF rehost using virtualization

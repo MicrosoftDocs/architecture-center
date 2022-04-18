@@ -1,0 +1,23 @@
+### YamlMime:Architecture
+metadata:
+  title: Rehost Adabas & Natural applications on Azure 
+  titleSuffix: Azure Architecture Center
+  description: Learn how to migrate a Software AG Adabas & Natural mainframe system to Azure by using a rehost approach.
+  author: EdPrice-MSFT
+  ms.author: marlon.johnson, bhbandam
+  ms.date: 04/18/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.custom: fcp 
+azureCategories:
+  - migration
+products:
+  - azure-virtual-network
+  - azure-virtual-machines
+  - azure-expressroute
+name: Rehost Adabas & Natural applications in Azure
+summary: Learn how to migrate a Software AG Adabas & Natural mainframe system to Azure by using a rehost approach.
+thumbnailUrl: /azure/architecture/browse/thumbs/mainframe-software-ag-azure-rehost-after.png
+content: |
+  [!include[](rehost-adabas-software-ag-content.md)]
