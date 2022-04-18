@@ -1843,12 +1843,16 @@ items:
             items:
               - name: All facilities and real estate architectures
                 href: /azure/architecture/browse/?terms=facilities
+              - name: Azure digital twins builder (construction)
+                href: solution-ideas/articles/azure-digital-twins-builder.yml
               - name: Cognizant Safe Buildings with IoT
                 href: solution-ideas/articles/safe-buildings.yml
               - name: COVID-19 IoT safe environments
                 href: solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml
               - name: Facilities management with mixed reality
                 href: solution-ideas/articles/facilities-management-powered-by-mixed-reality-and-iot.yml
+              - name: IoT and data analytics for construction
+                href: example-scenario/data/big-data-with-iot.yml
               - name: IoT connected light, power, and internet
                 href: solution-ideas/articles/iot-power-management.yml
               - name: IoT connectivity for healthcare facilities
@@ -2403,6 +2407,10 @@ items:
                     href: data-guide/technology-choices/analysis-visualizations-reporting.md
                   - name: Batch processing
                     href: data-guide/technology-choices/batch-processing.md
+                  - name: Extract, transform, and load
+                    href: data-guide/relational-data/etl.yml
+                  - name: Online analytical processing
+                    href: data-guide/relational-data/online-analytical-processing.yml
                   - name: Stream processing
                     href: /azure/architecture/data-guide/technology-choices/stream-processing
               - name: Industry guidance
@@ -2921,8 +2929,13 @@ items:
                 href: data-guide/scenarios/hybrid-on-premises-and-cloud.md
               - name: Secure data solutions
                 href: data-guide/scenarios/securing-data-solutions.md
-              - name: Tenancy models for SaaS databases
-                href: isv/application-tenancy.yml
+              - name: Tenancy models for SaaS apps
+                items:
+                  - name: Overview
+                    href: isv/application-tenancy.yml
+                  - name: Multitenant SaaS database patterns
+                    href: /azure/azure-sql/database/saas-tenancy-app-design-patterns
+                    maintainContext: true
               - name: High availability for SQL DB and SQL MI
                 href: /azure/azure-sql/database/high-availability-sla
                 maintainContext: true
@@ -3493,6 +3506,10 @@ items:
                     href: solution-ideas/articles/big-data-azure-data-explorer.yml
                   - name: De-batch and filter with Event Hubs
                     href: solution-ideas/articles/serverless-event-processing-filtering.yml
+                  - name: HIPAA/HITRUST compliant health data
+                    href: solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml
+                  - name: Instant broadcasting with serverless
+                    href: solution-ideas/articles/instant-broadcasting-on-serverless-architecture.yml
                   - name: Serverless applications using Event Grid
                     href: solution-ideas/articles/serverless-application-architectures-using-event-grid.yml
                   - name: Serverless apps using Cosmos DB
@@ -5062,19 +5079,30 @@ items:
             href: guide/security/security-start-here.yml
           - name: Guides
             items:
-              - name: Security design principles
-                href: /azure/architecture/framework/security/security-principles
-                maintainContext: true
-              - name: Security patterns
-                href: /azure/architecture/framework/security/security-patterns
-                maintainContext: true
-              - name: SecOps best practices
-                href: /security/compass/security-operations
-                maintainContext: true
-              - name: Application security in Azure
-                href: /security/compass/applications-services
-                maintainContext: true
-              - name: Highly-secure IaaS apps
+              - name: General security
+                items:
+                  - name: Introduction to Azure security
+                    href: /azure/security/fundamentals/overview
+                    maintainContext: true
+                  - name: Security design principles
+                    href: /azure/architecture/framework/security/security-principles
+                    maintainContext: true
+                  - name: Security patterns
+                    href: /azure/architecture/framework/security/security-patterns
+                    maintainContext: true
+                  - name: End-to-end security
+                    href: /azure/security/fundamentals/end-to-end
+                    maintainContext: true
+                  - name: Shared responsibility
+                    href: /azure/security/fundamentals/shared-responsibility
+                    maintainContext: true
+                  - name: SecOps best practices
+                    href: /security/compass/security-operations
+                    maintainContext: true
+                  - name: Application security in Azure
+                    href: /security/compass/applications-services
+                    maintainContext: true
+              - name: Highly secure IaaS apps
                 href: reference-architectures/n-tier/high-security-iaas.yml
               - name: Microsoft Cybersecurity Architectures
                 href: /security/cybersecurity-reference-architecture/mcra
@@ -5086,15 +5114,45 @@ items:
               - name: Azure governance design area
                 href: /azure/cloud-adoption-framework/ready/landing-zone/design-area/governance
                 maintainContext: true
-              - name: Integrate Data Explorer with Sentinel
-                href: /azure/sentinel/store-logs-in-azure-data-explorer?tabs=adx-event-hub
-                maintainContext: true
+              - name: Microsoft Sentinel guidance
+                items:
+                  - name: Connect AWS to Sentinel
+                    href: /azure/sentinel/connect-aws
+                    maintainContext: true
+                  - name: Connect AAD to Sentinel
+                    href: /azure/sentinel/connect-azure-active-directory
+                    maintainContext: true
+                  - name: Connect Defender for Cloud
+                    href: /azure/sentinel/connect-defender-for-cloud
+                    maintainContext: true
+                  - name: Connect Microsoft 365 Defender
+                    href: /azure/sentinel/connect-microsoft-365-defender
+                    maintainContext: true
+                  - name: Integrate Data Explorer with Sentinel
+                    href: /azure/sentinel/store-logs-in-azure-data-explorer?tabs=adx-event-hub
+                    maintainContext: true
+              - name: Microsoft Defender for Cloud
+                items:
+                  - name: Overview
+                    href: /azure/defender-for-cloud/defender-for-cloud-introduction
+                    maintainContext: true
+                  - name: Security recommendations
+                    href: /azure/defender-for-cloud/recommendations-reference
+                    maintainContext: true
+                  - name: Security recommendations for AWS
+                    href: /azure/defender-for-cloud/recommendations-reference-aws
+                    maintainContext: true
+                  - name: Security alerts and incidents
+                    href: /azure/defender-for-cloud/alerts-overview
+                    maintainContext: true
           - name: Architectures
             items:
               - name: Automate Sentinel integration with DevOps
                 href: example-scenario/devops/automate-sentinel-integration.yml
               - name: Azure AD in Security Operations
                 href: example-scenario/aadsec/azure-ad-security.yml
+              - name: Azure security for AWS
+                href: reference-architectures/aws/aws-azure-security-solutions.yml
               - name: Cyber threat intelligence
                 href: example-scenario/data/sentinel-threat-intelligence.yml
               - name: Healthcare platform confidential computing
@@ -5107,8 +5165,6 @@ items:
                 href: example-scenario/security/access-multitenant-web-app-from-on-premises.yml
               - name: Long-term security logs in Data Explorer
                 href: example-scenario/security/security-log-retention-azure-data-explorer.yml
-              - name: MCAS and Azure Sentinel security for AWS
-                href: reference-architectures/aws/aws-azure-security-solutions.yml
               - name: Multilayered protection for Azure VMs
                 href: solution-ideas/articles/multilayered-protection-azure-vm.yml
               - name: Real-time fraud detection
@@ -5445,8 +5501,6 @@ items:
               - name: Serverless web app
                 href: reference-architectures/serverless/web-app.yml
               - name: Virtual health on Cloud for Healthcare
-                href: example-scenario/mch-health/virtual-health-mch.yml
-              - name: Virtual visits with Cloud for Healthcare
                 href: example-scenario/mch-health/virtual-health-mch.yml
               - name: Web app monitoring on Azure
                 href: reference-architectures/app-service-web-app/app-monitoring.yml
