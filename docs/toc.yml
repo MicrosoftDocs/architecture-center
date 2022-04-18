@@ -428,7 +428,7 @@ items:
             href: guide/apache-scenarios.md
           - name: Other open-source technologies
             href: guide/open-source-scenarios.md
-          - name: Other third-party technologies
+          - name: Partner technologies
             href: guide/partner-scenarios.md
       - name: Cloud comparisons
         expanded: true
@@ -593,6 +593,8 @@ items:
                 href: industries/retail/retail-data-management-overview.md
               - name: AI and ML in retail
                 items:
+                  - name: Deploy AI-based footfall detection
+                    href: hybrid/deployments/solution-deployment-guide-retail-footfall-detection.md
                   - name: Forecast bike rental demand
                     href: /azure/machine-learning/tutorial-automated-ml-forecast
                     maintainContext: true
@@ -929,13 +931,41 @@ items:
                   - name: Health Bot custom telemetry
                     href: /azure/health-bot/custom_telemetry
                     maintainContext: true
-              - name: Healthcare APIs
+              - name: Azure Health Data Services
                 items:
                   - name: Overview
                     href: /azure/healthcare-apis/healthcare-apis-overview
                     maintainContext: true
-                  - name: Healthcare APIs workspace
+                  - name: Azure Health Data Services workspace
                     href: /azure/healthcare-apis/workspace-overview
+                    maintainContext: true
+              - name: Azure API for FHIR
+                items:
+                  - name: Overview
+                    href: /azure/healthcare-apis/azure-api-for-fhir/overview#azure-iot-connector-for-fhir-preview
+                    maintainContext: true
+                  - name: FHIR features
+                    href: /azure/healthcare-apis/azure-api-for-fhir/fhir-features-supported
+                    maintainContext: true
+                  - name: Azure AD and Azure API for FHIR
+                    href: /azure/healthcare-apis/azure-api-for-fhir/azure-active-directory-identity-configuration
+                    maintainContext: true
+                  - name: Add data to audits using HTTP headers
+                    href: /azure/healthcare-apis/azure-api-for-fhir/use-custom-headers
+                    maintainContext: true
+                  - name: Azure IoT Connector for FHIR
+                    items:
+                      - name: Overview
+                        href: /azure/healthcare-apis/azure-api-for-fhir/iot-data-flow
+                        maintainContext: true
+                      - name: Mapping templates
+                        href: /azure/healthcare-apis/azure-api-for-fhir/iot-mapping-templates
+                        maintainContext: true
+                  - name: Azure Policy compliance controls
+                    href: /azure/healthcare-apis/azure-api-for-fhir/security-controls-policy
+                    maintainContext: true
+                  - name: Related GitHub projects
+                    href: /azure/healthcare-apis/azure-api-for-fhir/fhir-github-projects
                     maintainContext: true
               - name: Text Analytics for health
                 items:
