@@ -182,12 +182,9 @@ Microsoft 365 Defender security services works with licenses. The link below sho
 
 ## Next steps
 
-This content and set of diagrams are part of a series of 5 articles. You may review the other articles in the link below:
+To get all details regarding this Architecture reference, see the other articles in this series:
 
--   Article 1 of 5 - Microsoft cloud basic security map introduction
-
--   Article 2 of 5 - Customer IT environment and the Threats
-
--   Article 3 of 5 - Building the first layer of defense with Azure Security services
-
--   Article 4 of 5 - Building the second layer of defense with Microsoft 365 Defender Security services
+- Part 1: [Use Azure monitoring to integrate security components](./azure-monitor-integrate-security-components.yml)
+- Part 2: [Customer IT environment and the threats](./customer-it-environment-threats.yml)
+- Part 3: [Building the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml)
+- Part 4: [Build the second layer of defense with Microsoft 365 Defender Security services](./microsoft-365-defender-build-second-layer-defense.yml)

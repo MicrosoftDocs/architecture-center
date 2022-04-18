@@ -106,15 +106,12 @@ For **Office 365**, the diagram represents the service through two different com
 
 ## Next steps
 
-To get all details regarding this Architecture reference, you may review those other documents part of this series.
+To get all details regarding this Architecture reference, see the other articles in this series:
 
--   Part 1 - Microsoft cloud security integration map against Threats \<link\>
-
--   Part 3 - Building the first layer of defense with Azure Security services \<link\>
-
--   Part 4 - Building the second layer of defense with Microsoft 365 Defender services \<link\>
-
--   Part 5 - Integration between Azure and Microsoft 365 Defender services \<link\>
+- Part 1: [Use Azure monitoring to integrate security components](./azure-monitor-integrate-security-components.yml)
+- Part 2: [Customer IT environment and the threats](./customer-it-environment-threats.yml)
+- Part 4: [Build the second layer of defense with Microsoft 365 Defender Security services](./microsoft-365-defender-build-second-layer-defense.yml)
+- Part 5: [Integration between Azure and Microsoft 365 Defender security services](./microsoft-365-defender-security-integrate-azure.yml)
 
 ## Related resources
 
