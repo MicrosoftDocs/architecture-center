@@ -6,7 +6,7 @@ Develop sophisticated, transformational apps using state of the art machine lear
 
 ![Architecture diagram](../media/intelligent-apps-using-azure-database-for-mysql.png)
 
-*Download an [PNG](../media/intelligent-apps-using-azure-database-for-mysql.png) of this architecture.*
+*Download a [PNG file](../media/intelligent-apps-using-azure-database-for-mysql.png) of this architecture.*
 
 The data flows through the solution as follows:
 
