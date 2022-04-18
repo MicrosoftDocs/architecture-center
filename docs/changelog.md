@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: alexhart11
-ms.date: 04/11/2022
+ms.date: 04/18/2022
 ms.topic: article
 ms.service: architecture-center
 categories: 
@@ -26,6 +26,11 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
+- [Power BI data write-back with Power Apps and Power Automate](./example-scenario/data/power-bi-write-back-power-apps.yml)
+- [Troubleshoot network problems in AKS clusters](./operator-guides/aks/troubleshoot-network-aks.md)
+- [Open-source scenarios on Azure](./guide/open-source-scenarios.md)
+- [Enterprise infrastructure as code using Bicep and Azure Container Registry](./guide/azure-resource-manager/advanced-templates/enterprise-infrastructure-bicep-container-registry.yml)
+- [Apache scenarios on Azure](./guide/apache-scenarios.md)
 - [Refactor IBM z/TPF mainframe systems to Azure](./example-scenario/mainframe/refactor-ibm-ztpf-mainframe.yml)
 - [Ingest FAA SWIM content to analyze flight data](./example-scenario/analytics/ingest-faa-swim-analyze-flight-data.yml)
 - [Protect backend APIs in Azure](./solution-ideas/articles/protect-backend-apis-azure-management.yml)
@@ -35,6 +40,21 @@ The following new and updated articles have recently been published in the Azure
 
 ### Updated articles
 
+- [IoT conceptual overview](./example-scenario/iot/introduction-to-solutions.yml)  ([#2221d902d](https://github.com/MicrosoftDocs/architecture-center/commit/2221d902d))
+- [Disconnected AI at the edge with Azure Stack Hub](./solution-ideas/articles/ai-at-the-edge-disconnected.yml)  ([#fb74cb692](https://github.com/MicrosoftDocs/architecture-center/commit/fb74cb692))
+- [Predictive aircraft engine monitoring](./solution-ideas/articles/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.yml)  ([#fb74cb692](https://github.com/MicrosoftDocs/architecture-center/commit/fb74cb692))
+- [Azure Data Architecture Guide](./data-guide/index.md)  ([#3baafc300](https://github.com/MicrosoftDocs/architecture-center/commit/3baafc300))
+- [Add a mobile front end to a legacy app](./solution-ideas/articles/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application.yml)  ([#002babafb](https://github.com/MicrosoftDocs/architecture-center/commit/002babafb))
+- [Advanced analytics](./solution-ideas/articles/advanced-analytics-on-big-data.yml)  ([#002babafb](https://github.com/MicrosoftDocs/architecture-center/commit/002babafb))
+- [AI at the edge with Azure Stack Hub](./solution-ideas/articles/ai-at-the-edge.yml)  ([#002babafb](https://github.com/MicrosoftDocs/architecture-center/commit/002babafb))
+- [Build a movie recommendation system](./example-scenario/ai/movie-recommendations-with-machine-learning.yml)  ([#b67a7a19f](https://github.com/MicrosoftDocs/architecture-center/commit/b67a7a19f))
+- [Product recommendations for retail using Azure](./solution-ideas/articles/product-recommendations.yml)  ([#8d5d738a1](https://github.com/MicrosoftDocs/architecture-center/commit/8d5d738a1))
+- [Keyword search and speech-to-text with OCR digital media](./solution-ideas/articles/digital-media-speech-text.yml)  ([#3bd7771fc](https://github.com/MicrosoftDocs/architecture-center/commit/3bd7771fc))
+- [Predictive marketing with machine learning](./solution-ideas/articles/predictive-marketing-campaigns-with-machine-learning-and-spark.yml)  ([#2b514572e](https://github.com/MicrosoftDocs/architecture-center/commit/2b514572e))
+- [Create personalized marketing solutions](./solution-ideas/articles/personalized-marketing.yml)  ([#4dc7d45d1](https://github.com/MicrosoftDocs/architecture-center/commit/4dc7d45d1))
+- [SKU optimization for consumer brands](./industries/retail/sku-optimization-solution-guide.yml)  ([#a4807a6f4](https://github.com/MicrosoftDocs/architecture-center/commit/a4807a6f4))
+- [Actuarial risk analysis and financial modeling](./industries/finance/actuarial-risk-analysis-financial-model.yml)  ([#890e1f343](https://github.com/MicrosoftDocs/architecture-center/commit/890e1f343))
+- [Introduction to predictive maintenance in manufacturing](./industries/manufacturing/predictive-maintenance-overview.yml)  ([#176cacfc2](https://github.com/MicrosoftDocs/architecture-center/commit/176cacfc2))
 - [AKS (Kubernetes) day-2 operations guide](./operator-guides/aks/day-2-operations-guide.md)  ([#4e63e1a16](https://github.com/MicrosoftDocs/architecture-center/commit/4e63e1a16))
 - [Azure Database for PostgreSQL intelligent apps](./solution-ideas/articles/intelligent-apps-using-azure-database-for-postgresql.yml)  ([#950a51a85](https://github.com/MicrosoftDocs/architecture-center/commit/950a51a85))
 - [SAP HANA for Linux VMs in scale-up systems](./reference-architectures/sap/run-sap-hana-for-linux-virtual-machines.yml)  ([#a1b4e1d64](https://github.com/MicrosoftDocs/architecture-center/commit/a1b4e1d64))
