@@ -84,7 +84,7 @@ For **Office 365**, the diagram represents the service through two different com
 
 - Office 365 services, which applications available will depend on the type of license being used
 
-  [Microsoft 365 - Subscription for Office Apps \| Microsoft 365](https://www.microsoft.com/en-us/microsoft-365)
+  [Microsoft 365 - Subscription for Office Apps](https://www.microsoft.com/en-us/microsoft-365)
 
 - Azure Active Directory, the same one utilized by Azure. It is important to note that many companies utilize the same Azure Active Directory for Azure and Office 365.
 
