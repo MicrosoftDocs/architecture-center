@@ -422,6 +422,7 @@ items:
           - name: Azure and Microsoft on-premises servers  
             href: guide/on-premises-microsoft-technologies.md
       - name: Third-party scenarios
+        expanded: true
         items:
           - name: Apache technologies
             href: guide/apache-scenarios.md
@@ -430,9 +431,9 @@ items:
           - name: Other third-party technologies
             href: guide/partner-scenarios.md
       - name: Cloud comparisons
+        expanded: true
         items:
           - name: Azure for AWS professionals
-            expanded: true
             items:
               - name: Overview
                 href: aws-professional/index.md
@@ -459,7 +460,6 @@ items:
               - name: Services comparison
                 href: aws-professional/services.md
           - name: Azure for Google Cloud professionals
-            expanded: true
             items:
               - name: Overview
                 href: gcp-professional/index.md
