@@ -22,7 +22,7 @@ Another option used by some companies to map and understand how an attack or a s
 
 To understand which piece of your environment those threats usually attack, it was considered on this diagram a typical Business IT environment with an On-premises, an Office 365 subscription, and an Azure subscription layer. The resources in each layer are very common services that you may find in many companies. They are classified according to the pillars of Microsoft Zero Trust: Network, Infrastructure, Endpoint, Application, Data, and Identity. See more about Microsoft Zero Trust at this link:
 
-[Zero Trust Model - Modern Security Architecture \| Microsoft Security](https://www.microsoft.com/en-us/security/business/zero-trust)
+[Zero Trust Model - Modern Security Architecture](https://www.microsoft.com/en-us/security/business/zero-trust)
 
 Here is the business IT environment we consider as an example and used in this series of documents.
 

@@ -224,8 +224,8 @@ This document refers to a variety of links and references throughout it. But you
 
 -   Azure Security services: [Overview of the Azure Security Benchmark v3](https://docs.microsoft.com/en-us/security/benchmark/azure/overview)
 
--   Microsoft Zero Trust: [Zero Trust Model - Modern Security Architecture \| Microsoft Security](https://www.microsoft.com/en-us/security/business/zero-trust)
+-   Microsoft Zero Trust: [Zero Trust Model - Modern Security Architecture](https://www.microsoft.com/en-us/security/business/zero-trust)
 
 -   Microsoft office 365: [Microsoft 365 - Subscription for Office Apps](https://www.microsoft.com/en-us/microsoft-365)
 
--   Microsoft 365 Defender: [Microsoft 365 Defender - Threat Protection \| Microsoft Security](https://www.microsoft.com/en-us/security/business/threat-protection/microsoft-365-defender)
+-   Microsoft 365 Defender: [Microsoft 365 Defender - Threat Protection](https://www.microsoft.com/en-us/security/business/threat-protection/microsoft-365-defender)
