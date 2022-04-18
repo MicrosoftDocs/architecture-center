@@ -19,6 +19,6 @@ products:
   - power-platform
 name: Power BI data write-back with Power Apps and Power Automate 
 summary: Learn about a solution that provides data write-back functionality for Power BI reports.
-thumbnailUrl: /azure/architecture/browse/thumbs/power-platform-write-backs.png
+thumbnailUrl: /azure/architecture/browse/thumbs/power-platform-write-backs-thumb.png
 content: |
   [!include[](power-bi-write-back-power-apps-content.md)]
