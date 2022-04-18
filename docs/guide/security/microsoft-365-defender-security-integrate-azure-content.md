@@ -46,41 +46,41 @@ The components, part of the diagram, are explained in a nutshell so that you may
 
 1.  **Azure Monitor** is the "umbrella" for many Azure monitoring services that include log management, metrics, application insight among others. It also provides a collection of dashboards ready to be consumed and an Alert management system. You may check more about Azure Monitor services at this link:
 
-    [Azure Monitor overview - Azure Monitor \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/azure-monitor/overview)
+    [Azure Monitor overview - Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/overview)
 
 2.  **Microsoft Defender for Cloud (formerly known as Azure Security Center)** delivers a series of recommendations for VMs, Storage, Applications, etc, that helps you to be compliant with different regulatory standards such as ISO or PCI and at the same time offers a security score systems that help you track how secure your environment is. It also offers an automatic Alert system based on the logs collected and analyzed by Microsoft Defender for Cloud.
 
     See more about it at this link:
 
-    [Microsoft Defender for Cloud - an introduction \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/defender-for-cloud/defender-for-cloud-introduction)
+    [Microsoft Defender for Cloud - an introduction](https://docs.microsoft.com/en-us/azure/defender-for-cloud/defender-for-cloud-introduction)
 
 3.  **Azure Monitor Logs (aka Log analytics)** is one of the most important services. It is the responsible for storing all the logs and alerts that will be used to create Alerts, Insights and Incidents. It is also the service which Microsoft Sentinel work on top of it. Basically, everything you ingest on Log Analytics will be available automatically to Microsoft Sentinel. You may check more about Log Analytics in this link:
 
-    [Overview of Log Analytics in Azure Monitor - Azure Monitor \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-overview)
+    [Overview of Log Analytics in Azure Monitor - Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-overview)
 
 4.  **Microsoft Sentinel** works like a facade for Log Analytics. While Log Analytics stores all logs and alerts from different sources, like on-premises VMs, Azure VMs and Alerts from Microsoft 365 Defender Security services, among many others, Microsoft Sentinel offers APIs that will help you to ingest logs from different sources and correlate all of them, so that you may have insights more accurately about what is going on in your environment avoiding false positives.
 
     Microsoft Sentinel is the core of this whole Security and monitoring system that Microsoft Cloud has.
 
-    More about Azure Sentinel: [What is Microsoft Sentinel? \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/sentinel/overview)
+    More about Azure Sentinel: [What is Microsoft Sentinel?](https://docs.microsoft.com/en-us/azure/sentinel/overview)
 
 The four services above may be considered as core services because they work throughout Azure, Office 365 and on-premises environments, but there are still a couple of others Monitoring services that are focused on specific resources.
 
 5.  **Network Watcher** provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network. More about it:
 
-    [Azure Network Watcher \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview)
+    [Azure Network Watcher](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview)
 
 6.  **Traffic Analytics,** part of Network Watcher, works on top of NSG (Network Security Group) logs and offer lots of nice dashboards that are capable of agreeing on different metrics from outbound and inbound connection in your Azure Virtual Network. More about it:
 
-    [Azure traffic analytics \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/network-watcher/traffic-analytics)
+    [Azure traffic analytics](https://docs.microsoft.com/en-us/azure/network-watcher/traffic-analytics)
 
 7.  **Application Insights,** that is under **Azure Monitor,** is focused on the application and provides extensible application performance management and monitoring for live web apps, including support for a wide variety of platform such as NET, Node.js, Java, and Python. See more about Application Insights at:
 
-    [Application Insights overview - Azure Monitor \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview)
+    [Application Insights overview - Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview)
 
 8.  **Azure Storage Analytics** is a Storage service to performs logging and provides metrics data for a storage account. You can use this data to trace requests, analyze usage trends, and diagnose issues with your storage account. See more about this service in this link:
 
-    [Use Azure Storage analytics to collect logs and metrics data \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/storage/common/storage-analytics)
+    [Use Azure Storage analytics to collect logs and metrics data](https://docs.microsoft.com/en-us/azure/storage/common/storage-analytics)
 
 9.  As this architecture reference was built based on Microsoft Zero Trust pillars, under the pillar "Infrastructure and Endpoint" was not described any specific Monitoring services because actually Azure Monitor logs and Microsoft Defender for Cloud are the main services to collect, store and analyze logs from VMs and others compute services.
 
@@ -90,7 +90,7 @@ Just in a nutshell, once you have Microsoft **Sentinel** implemented and receive
 
 As Microsoft Sentinel is not covered in details in this article, you may see more about Sentinel at this link:
 
-[Microsoft Sentinel documentation \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/sentinel/)
+[Microsoft Sentinel documentation](https://docs.microsoft.com/en-us/azure/sentinel/)
 
 ## Potential use cases
 
@@ -156,7 +156,7 @@ As we covered many different Services, here it is information about how to acces
 
   Traffic Analytics is part of Network watcher. You will find in the left menu once you start the Network watcher. It is a powerful Azure network monitor that works based on your Network Security Groups (NSG) implemented on your NICs or Subnets. To make it work, you will have to collect information from the NSGs. See it how to do it, in that document page:
 
-  [Tutorial: Log network traffic flow to and from a virtual machine - Azure portal \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+  [Tutorial: Log network traffic flow to and from a virtual machine - Azure portal](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
 
 - **Application Insight**
 
@@ -178,7 +178,7 @@ You will have to search for the service you are interested in and click on it to
 
 Microsoft 365 Defender security services works with licenses. The link below shows all licensing requirements for Microsoft 365 Defender services.
 
-[Microsoft 365 Defender prerequisites \| Microsoft Docs](https://docs.microsoft.com/en-us/microsoft-365/security/defender/prerequisites?view=o365-worldwide)
+[Microsoft 365 Defender prerequisites](https://docs.microsoft.com/en-us/microsoft-365/security/defender/prerequisites?view=o365-worldwide)
 
 ## Next steps
 

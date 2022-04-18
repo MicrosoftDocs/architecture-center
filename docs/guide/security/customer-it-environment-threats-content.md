@@ -42,15 +42,15 @@ For the **Azure environment**, the diagram shows:
 
 - Azure Virtual Network, represented as "VNET."
 
-  [Azure Virtual Network \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview)
+  [Azure Virtual Network](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview)
 
 - Load Balancer, represented as "LBS."
 
-  [What is Azure Load Balancer? - Azure Load Balancer \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview)
+  [What is Azure Load Balancer? - Azure Load Balancer](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview)
 
 - Public IPs, represented as "PIPS."
 
-  [Public IP addresses in Azure - Azure Virtual Network \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/virtual-network/ip-services/public-ip-addresses)
+  [Public IP addresses in Azure - Azure Virtual Network](https://docs.microsoft.com/en-us/azure/virtual-network/ip-services/public-ip-addresses)
 
 - Virtual Machines, represented as "Servers."
 
@@ -58,27 +58,27 @@ For the **Azure environment**, the diagram shows:
 
 - Kubernetes services, represented as "k8s."
 
-  [Introduction to Azure Kubernetes Service - Azure Kubernetes Service \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/aks/intro-kubernetes)
+  [Introduction to Azure Kubernetes Service - Azure Kubernetes Service](https://docs.microsoft.com/en-us/azure/aks/intro-kubernetes)
 
 - Azure Virtual Desktop (AVD), represented as "VDI."
 
-  [What is Azure Virtual Desktop? - Azure \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/virtual-desktop/overview)
+  [What is Azure Virtual Desktop? - Azure](https://docs.microsoft.com/en-us/azure/virtual-desktop/overview)
 
 - Azure App Service with Web App, represented simply as "Web Apps."
 
-  [Overview - Azure App Service \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/app-service/overview)
+  [Overview - Azure App Service](https://docs.microsoft.com/en-us/azure/app-service/overview)
 
 - Azure Storage could be blob (object storage) or file storage represented as "Azure Storage."
 
-  [Introduction to Azure Storage - Cloud storage on Azure \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/storage/common/storage-introduction)
+  [Introduction to Azure Storage - Cloud storage on Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-introduction)
 
 - Azure SQL DB, represented as "DB."
 
-  [What is the Azure SQL Database service? - Azure SQL Database \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/azure-sql/database/sql-database-paas-overview)
+  [What is the Azure SQL Database service? - Azure SQL Database](https://docs.microsoft.com/en-us/azure/azure-sql/database/sql-database-paas-overview)
 
 - Azure Active Directory, or simply Azure AD, represented as "Azure AD."
 
-  [What is Azure Active Directory? \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis)
+  [What is Azure Active Directory?](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis)
 
 For **Office 365**, the diagram represents the service through two different components:
 
@@ -88,7 +88,7 @@ For **Office 365**, the diagram represents the service through two different com
 
 - Azure Active Directory, the same one utilized by Azure. It is important to note that many companies utilize the same Azure Active Directory for Azure and Office 365.
 
-  [What is Azure Active Directory? \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis)
+  [What is Azure Active Directory?](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis)
 
 ## How to use Mitre Att&ck framework
 

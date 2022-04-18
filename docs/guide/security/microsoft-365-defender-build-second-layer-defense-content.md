@@ -12,7 +12,7 @@ Let's see how that is possible and so let's start understanding about some termi
 
 **Office 365** includes several known services like Word, Excel, PowerPoint, Outlook, OneNote, SharePoint, Teams and OneDrive
 
-Depending on the license you acquire for **Microsoft 365** ([Microsoft 365 and Office 365 plan options - Service Descriptions \| Microsoft Docs](https://docs.microsoft.com/en-us/office365/servicedescriptions/office-365-platform-service-description/office-365-plan-options)), you may also get the Security services for Microsoft 365. These set of Security services are called **Microsoft 365 Defender**. It is part of Microsoft 365 Defender:
+Depending on the license you acquire for **Microsoft 365** ([Microsoft 365 and Office 365 plan options - Service Descriptions](https://docs.microsoft.com/en-us/office365/servicedescriptions/office-365-platform-service-description/office-365-plan-options)), you may also get the Security services for Microsoft 365. These set of Security services are called **Microsoft 365 Defender**. It is part of Microsoft 365 Defender:
 
 -   Microsoft Defender for Endpoint
 
@@ -44,7 +44,7 @@ In the diagram below we added the Microsoft 365 Defender security services layer
 
 1.  **Microsoft Defender for endpoint**
 
-    Microsoft Defender for Endpoint is an enterprise endpoint security platform designed to help enterprise networks prevent, detect, investigate, and respond to advanced threats. It will create a layer of protection for VMs running on Azure and on-premises. For more details about what it may protect, see it here: [Microsoft Defender for Endpoint \| Microsoft Docs](https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint?view=o365-worldwide)
+    Microsoft Defender for Endpoint is an enterprise endpoint security platform designed to help enterprise networks prevent, detect, investigate, and respond to advanced threats. It will create a layer of protection for VMs running on Azure and on-premises. For more details about what it may protect, see it here: [Microsoft Defender for Endpoint](https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint?view=o365-worldwide)
 
 2.  **Microsoft Defender for Cloud Apps**
 
@@ -52,13 +52,13 @@ In the diagram below we added the Microsoft 365 Defender security services layer
 
     It is very important not confuse it with the "**Microsoft Defender for Cloud**" that is a solution from Azure, formerly known as **Azure Security Center**, which provides recommendation and a security posture score for Servers, Apps, Storage accounts and other Azure resources.
 
-    See more details on that page: [What is Defender for Cloud Apps? \| Microsoft Docs](https://docs.microsoft.com/en-us/defender-cloud-apps/what-is-defender-for-cloud-apps)
+    See more details on that page: [What is Defender for Cloud Apps?](https://docs.microsoft.com/en-us/defender-cloud-apps/what-is-defender-for-cloud-apps)
 
 3.  **Microsoft Defender for Office 365**
 
     Microsoft Defender for Office 365 safeguards your organization against malicious threats posed by email messages, links (URLs), and collaboration tools. It will provide protection for email and collaboration. Depending on the license you have, you will be able to add post-breach investigation, hunting, and response, as well as automation, and simulation (for training). You may see more about the license options on this website:
 
-    [Office 365 Security including Microsoft Defender for Office 365 and Exchange Online Protection - Office 365 \| Microsoft Docs](https://docs.microsoft.com/en-us/microsoft-365/security/office-365-security/overview?view=o365-worldwide)
+    [Office 365 Security including Microsoft Defender for Office 365 and Exchange Online Protection - Office 365](https://docs.microsoft.com/en-us/microsoft-365/security/office-365-security/overview?view=o365-worldwide)
 
 4.  **Microsoft Defender for Identity**
 
@@ -66,7 +66,7 @@ In the diagram below we added the Microsoft 365 Defender security services layer
 
     If you need protection for identities provided by Azure AD, that runs natively on the cloud, you will have to consider Azure AD Identity Protection service.
 
-    See more details on that page: [What is Microsoft Defender for Identity? \| Microsoft Docs](https://docs.microsoft.com/en-us/defender-for-identity/what-is)
+    See more details on that page: [What is Microsoft Defender for Identity?](https://docs.microsoft.com/en-us/defender-for-identity/what-is)
 
 5.  **Microsoft Endpoint Manager**
 
@@ -74,7 +74,7 @@ In the diagram below we added the Microsoft 365 Defender security services layer
 
     Another known service that is now part of Microsoft Endpoint Manager is **Configuration Manager**, an on-premises management solution, that allow you to manage desktops, servers, and laptops that are on your network or internet-based. You can cloud-enable it to integrate with Intune, Azure Active Directory (AD), Microsoft Defender for Endpoint, and other cloud services. Use Configuration Manager to deploy apps, software updates, and operating systems. You can also monitor compliance, query, and act on clients in real time, and much more.
 
-    There are still other services that are part of Microsoft Endpoint Manager. To see all of them, look at this website: [Microsoft Endpoint Manager overview \| Microsoft Docs](https://docs.microsoft.com/en-us/mem/endpoint-manager-overview)
+    There are still other services that are part of Microsoft Endpoint Manager. To see all of them, look at this website: [Microsoft Endpoint Manager overview](https://docs.microsoft.com/en-us/mem/endpoint-manager-overview)
 
 ## Microsoft 365 Defender security services use case
 
@@ -90,7 +90,7 @@ You may see through the diagram which Microsoft 365 Defender services may be use
 
 You may find more details about Microsoft 365 Defender in this link:
 
-[Microsoft 365 Defender \| Microsoft Docs](https://docs.microsoft.com/en-us/microsoft-365/security/defender/microsoft-365-defender?view=o365-worldwide).
+[Microsoft 365 Defender](https://docs.microsoft.com/en-us/microsoft-365/security/defender/microsoft-365-defender?view=o365-worldwide).
 
 ## How to access and manage Microsoft 365 Defender Security services
 
