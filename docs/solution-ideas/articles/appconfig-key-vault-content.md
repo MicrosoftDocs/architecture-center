@@ -46,11 +46,19 @@ The Azure staging and production environments use an [Azure Managed Service Iden
 * [Azure Managed Service Identity](/azure/active-directory/managed-identities-azure-resources): Managed identities provide an identity for applications to use when connecting to resources that support Azure Active Directory (Azure AD) authentication.
 * [Azure Key Vault](https://azure.microsoft.com/services/key-vault): Safeguard cryptographic keys and other secrets that are used by cloud apps and services.
 
-### Considerations
+## Considerations
 
 * It's best to use a different key vault for each application in each environment: development, Azure pre-production, and Azure production. Using different vaults helps prevent sharing secrets across environments, and reduces threats in the event of a breach.
 
 * To use these scenarios, the sign-in identity must have the **App Configuration Data Reader** role in the App Configuration resource, and have explicit **access policies** for retrieving the secrets in Azure Key Vault.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+**Principal author:**
+
+ * [Sowmyan Soman](https://www.linkedin.com/in/sowmyancs) | Principle Cloud Solution Architect
 
 ## Next steps
 
