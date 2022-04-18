@@ -19,7 +19,7 @@ This solution is ideal for the telecommunications industry. Typical uses for ext
 - [Azure Machine Learning](https://azure.microsoft.com/free/machine-learning) lets you build, train, deploy, and manage machine learning models in a cloud-based environment. These models can then deploy to Azure services, including (but not limited to) Azure Container Instances, Azure Kubernetes Service (AKS), and Azure Functions.
 - [Azure Container Registry](https://azure.microsoft.com/services/container-registry) is a service that creates and manages the Docker Registry. Container Registry builds, stores, and manages Docker container images and can store containerized machine learning models.
 - [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge) is an edge computing device that's designed for machine learning inference at the edge. Data is preprocessed at the edge before transfer to Azure. Azure Stack Edge includes compute acceleration hardware that's designed to improve performance of AI inference at the edge.
-- [Azure IoT Hub](/azure/iot-hub) is a managed service that acts as a central message hub that connects IoT applications and attached devices. Millions of devices and their backend solutions can communicate reliably and securely.
+- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) is a managed service that acts as a central message hub that connects IoT applications and attached devices. Millions of devices and their backend solutions can communicate reliably and securely.
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) is a service that lets you store massive amounts of unstructured data.
 
 ## Recommendations

@@ -32,7 +32,7 @@ This scenario covers a conversational bot that functions as a concierge for a ho
 - [Azure Bot Service](https://azure.microsoft.com/services/bot-service) provides tools to build, test, deploy, and manage intelligent bots.
 - [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services) lets you use intelligent algorithms to see, hear, speak, understand, and interpret your user needs through natural methods of communication.
 - [Azure SQL Database](https://azure.microsoft.com/services/sql-database) is a fully managed relational cloud database service that provides SQL Server engine compatibility.
-- [Azure Monitor](https://azure.microsoft.com/services/monitor): Application Insights, a feature of Azure Monitor, is an extensible Application Performance Management (APM) service that lets you monitor the performance of applications, such as your chatbot.
+- Application Insights, a feature of [Azure Monitor](https://azure.microsoft.com/services/monitor), is an extensible Application Performance Management (APM) service that lets you monitor the performance of applications, such as your chatbot.
 
 ### Alternatives
 

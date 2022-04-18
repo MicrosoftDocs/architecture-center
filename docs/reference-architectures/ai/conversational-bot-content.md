@@ -18,7 +18,7 @@ The architecture shown here uses the following Azure services. Your own bot may 
 
 #### Bot logic and user experience
 
-- [Bot Framework Service][bot-framework-service] (BFS) connects your bot to a communication app such as Cortana, Facebook Messenger, or Slack. It facilitates communication between your bot and the user.
+- [Bot Framework Service](https://azure.microsoft.com/services/bot-services) (BFS) connects your bot to a communication app such as Cortana, Facebook Messenger, or Slack. It facilitates communication between your bot and the user.
 - [Azure App Service](https://azure.microsoft.com/services/app-service) hosts the bot application logic.
 
 #### Bot cognition and intelligence
@@ -37,7 +37,7 @@ The bot will rely on raw data that must be ingested and prepared. Consider any o
 
 #### Logging and monitoring
 
-- [Azure Monitor](https://azure.microsoft.com/services/monitor): Application Insights, a feature of Azure Monitor, lets you log the bot's application metrics for monitoring, diagnostic, and analytical purposes.
+- Application Insights, a feature of [Azure Monitor](https://azure.microsoft.com/services/monitor), lets you log the bot's application metrics for monitoring, diagnostic, and analytical purposes.
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) is optimized for storing massive amounts of unstructured data.
 - [Cosmos DB](https://azure.microsoft.com/free/cosmos-db) is well-suited for storing semi-structured log data such as conversations.
 - [Power BI](https://powerbi.microsoft.com) lets you create monitoring dashboards for your bot.
@@ -231,8 +231,8 @@ Microsoft Learn modules:
 
 Azure Architecture Center articles describing chatbot architectures:
 
-- [Chatbot for hotel reservations](/azure/architecture/example-scenario/ai/commerce-chatbot)
-- [Speech-to-text conversion](/azure/architecture/reference-architectures/ai/speech-ai-ingestion)
+- [Chatbot for hotel reservations](/azure/architecture/example-scenario/ai/commerce-chatbot.yml)
+- [Speech-to-text conversion](/azure/architecture/reference-architectures/ai/speech-to-text-transcription-pipeline.yml)
 
 <!-- links -->
 

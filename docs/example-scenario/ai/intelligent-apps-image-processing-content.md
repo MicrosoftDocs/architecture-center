@@ -37,7 +37,7 @@ This scenario covers the back-end components of a web or mobile application. Dat
 ### Alternatives
 
 - [Custom Vision Service](https://azure.microsoft.com/services/cognitive-services/custom-vision-service). The Computer Vision API returns a set of [taxonomy-based categories][cv-categories]. If you need to process information that isn't returned by the Computer Vision API, consider the Custom Vision Service, which lets you build custom image classifiers.
-- [Cognitive Search](https://azure.microsoft.com/services/search) (formerly Azure Search). If your use case involves querying the metadata to find images that meet specific criteria, consider using Cognitive Search. Currently in preview, [Cognitive search](/azure/search/cognitive-search-concept-intro) seamlessly integrates this workflow.
+- [Cognitive Search](https://azure.microsoft.com/services/search) (formerly Azure Search). If your use case involves querying the metadata to find images that meet specific criteria, consider using Cognitive Search. Currently in preview, [Cognitive search](https://azure.microsoft.com/services/search) seamlessly integrates this workflow.
 - [Logic Apps](https://azure.microsoft.com/services/logic-apps). If you don't need to react in real-time on added files to a blob, you might consider using Logic Apps. A logic app which can check if a file was added might be start by the [recurrence trigger or sliding windows trigger](/azure/logic-apps/concepts-schedule-automated-recurring-tasks-workflows).
 
 ## Considerations
@@ -86,6 +86,7 @@ We have provided three sample cost profiles based on amount of traffic (we assum
 
 Product documentation
 - [Computer Vision API](/azure/cognitive-services/computer-vision/home)
+- [Cognitive search](/azure/search/cognitive-search-concept-intro)
 - [Azure Functions](/azure/azure-functions/functions-overview)
 - [Event Grid](/azure/event-grid/overview)
 - [Blob storage](/azure/storage/blobs/storage-blobs-introduction)
@@ -103,8 +104,8 @@ Before deploying this example scenario in a production environment, review recom
 
 ## Related resources
 
-- [Knowledge mining in digital asset management](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/digital-asset-management)
-- [Geospatial analysis with Azure Synapse Analytics](https://docs.microsoft.com/azure/architecture/industries/aerospace/geospatial-processing-analytics)
+- [Knowledge mining in digital asset management](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/digital-asset-management.yml)
+- [Geospatial analysis with Azure Synapse Analytics](https://docs.microsoft.com/azure/architecture/industries/aerospace/geospatial-processing-analytics.yml)
 
 
 <!-- links -->
