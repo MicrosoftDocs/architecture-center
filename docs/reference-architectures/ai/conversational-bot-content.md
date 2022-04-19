@@ -18,39 +18,55 @@ The architecture shown here uses the following Azure services. Your own bot may 
 
 #### Bot logic and user experience
 
-- [Bot Framework Service](https://azure.microsoft.com/services/bot-services) (BFS) connects your bot to a communication app such as Cortana, Facebook Messenger, or Slack. It facilitates communication between your bot and the user.
-- [Azure App Service](https://azure.microsoft.com/services/app-service) hosts the bot application logic.
+- **[Bot Framework Service][bot-framework-service]** (BFS). This service connects your bot to a communication app such as Cortana, Facebook Messenger, or Slack. It facilitates communication between your bot and the user.
+- **[Azure App Service][app-service]**. The bot application logic is hosted in Azure App Service.
 
 #### Bot cognition and intelligence
 
-- [Language Understanding](https://www.luis.ai) (LUIS) is part of [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services). LUIS enables your bot to understand natural language by identifying user intents and entities.
-- [Azure Search](https://azure.microsoft.com/services/search) is a managed service that provides a quick searchable document index.
-- [QnA Maker](/azure/cognitive-services/QnAMaker/overview/overview) is a cloud-based API service that creates a conversational, question-and-answer layer over your data. Typically, it's loaded with semi-structured content such as FAQs. Use it to create a knowledge base for answering natural-language questions.
+- **[Language Understanding][luis]** (LUIS). Part of [Azure Cognitive Services][cognitive-services], LUIS enables your bot to understand natural language by identifying user intents and entities.
+- **[Azure Search][search]**. Search is a managed service that provides a quick searchable document index.
+- **[QnA Maker][qna-maker]**. QnA Maker is a cloud-based API service that creates a conversational, question-and-answer layer over your data. Typically, it's loaded with semi-structured content such as FAQs. Use it to create a knowledge base for answering natural-language questions.
+- **[Web app][webapp]**. If your bot needs AI solutions not provided by an existing service, you can implement your own custom AI and host it as a web app. This provides a web endpoint for your bot to call.
 
 #### Data ingestion
 
-The bot relies on raw data that must be ingested and prepared. Consider any of the following options to orchestrate this process:
+The bot will rely on raw data that must be ingested and prepared. Consider any of the following options to orchestrate this process:
 
-- [Azure Data Factory](https://azure.microsoft.com/services/data-factory) orchestrates and automates data movement and data transformation.
-- [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) is a serverless platform for building workflows that integrate applications, data, and services. Logic Apps provides data connectors for many applications, including Office 365.
-- [Azure Functions](https://azure.microsoft.com/services/functions) lets you write custom serverless code that is invoked by a [trigger][functions-triggers] &mdash; for example, whenever a document is added to blob storage or Cosmos DB.
+- **[Azure Data Factory][data-factory]**. Data Factory orchestrates and automates data movement and data transformation.
+- **[Logic Apps][logic-apps]**. Logic Apps is a serverless platform for building workflows that integrate applications, data, and services. Logic Apps provides data connectors for many applications, including Office 365.
+- **[Azure Functions][functions]**. You can use Azure Functions to write custom serverless code that is invoked by a [trigger][functions-triggers] &mdash; for example, whenever a document is added to blob storage or Cosmos DB.
 
 #### Logging and monitoring
 
-- [Application Insights][app-insights], a feature of [Azure Monitor](https://azure.microsoft.com/services/monitor), is an extensible Application Performance Management (APM) service that lets you monitor the performance of applications, such as your chatbot.
-- [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) is optimized for storing massive amounts of unstructured data.
-- [Azure Cosmos DB](https://azure.microsoft.com/free/cosmos-db) is well-suited for storing semi-structured log data such as conversations.
-- [Power BI](https://powerbi.microsoft.com) lets you create monitoring dashboards for your bot.
+- **[Application Insights][app-insights]**. Use Application Insights to log the bot's application metrics for monitoring, diagnostic, and analytical purposes.
+- **[Azure Blob Storage][blob]**. Blob storage is optimized for storing massive amounts of unstructured data.
+- **[Cosmos DB][cosmosdb]**. Cosmos DB is well-suited for storing semi-structured log data such as conversations.
+- **[Power BI][power-bi]**. Use Power BI to create monitoring dashboards for your bot.
 
 #### Security and governance
 
-- [Azure Active Directory](https://azure.microsoft.com/services/active-directory) (Azure AD) lets users authenticate through an identity provider such as Azure AD. The Bot Service handles the authentication flow and OAuth token management. See [Add authentication to your bot via Azure Bot Service][bot-authentication].
-- [Azure Key Vault](https://azure.microsoft.com/services/key-vault) stores credentials and other secrets.
+- **[Azure Active Directory][aad]** (Azure AD). Users will authenticate through an identity provider such as Azure AD. The Bot Service handles the authentication flow and OAuth token management. See [Add authentication to your bot via Azure Bot Service][bot-authentication].
+- **[Azure Key Vault][key-vault]**. Store credentials and other secrets using Key Vault.
 
 #### Quality assurance and enhancements
 
-- [Azure DevOps](https://azure.microsoft.com/services/devops) provides many services for app management, including source control, building, testing, deployment, and project tracking.
-- [VS Code](https://code.visualstudio.com/) is a lightweight code editor for app development. You can use any other IDE with similar features.
+- **[Azure DevOps][devops]**. Provides many services for app management, including source control, building, testing, deployment, and project tracking.
+- **[VS Code][vscode]**. A lightweight code editor for app development. You can use any other IDE with similar features.
+
+### Components
+
+- [Bot Framework Service](https://azure.microsoft.com/services/bot-services)
+- [Azure App Service](https://azure.microsoft.com/services/app-service)
+- [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services)
+- [Azure Search](https://azure.microsoft.com/services/search)
+- [Azure Data Factory](https://azure.microsoft.com/services/data-factory) 
+- [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) 
+- [Azure Functions](https://azure.microsoft.com/services/functions) 
+- Application Insights is a feature of [Azure Monitor](https://azure.microsoft.com/services/monitor)
+- [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs)
+- [Azure Cosmos DB](https://azure.microsoft.com/free/cosmos-db)
+- [Azure AD](https://azure.microsoft.com/services/active-directory)
+- [Azure Key Vault](https://azure.microsoft.com/services/key-vault) 
 
 ## Recommendations
 
@@ -209,6 +225,14 @@ For instance, your logic app processes 1000 messages a day from Azure Service Bu
 
 For other cost considerations, see the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+**Principal authors:**
+
+ * Robert Alexander | Senior Software Engineer
+
 ## Next steps
 
 - Review the [Virtual Assistant](/azure/bot-service/bot-builder-virtual-assistant-introduction) template to quickly get started building conversational bots.
@@ -228,8 +252,6 @@ Microsoft Learn modules:
 - [Build a bot with QnA Maker and Azure Bot Service](/learn/modules/build-faq-chatbot-qna-maker-azure-bot-service)
 
 ## Related resources
-
-Azure Architecture Center articles describing chatbot architectures:
 
 - [Chatbot for hotel reservations](../../example-scenario/ai/commerce-chatbot.yml)
 - [Speech-to-text conversion](../../reference-architectures/ai/speech-to-text-transcription-pipeline.yml)
