@@ -20,10 +20,10 @@ Other relevant use cases include:
 
 This scenario covers the back-end components of a web or mobile application. Data flows through the scenario as follows:
 
-1. The API layer is built using Azure Functions. These APIs enable the application to upload images and retrieve data from Cosmos DB.
-2. When an image is uploaded via an API call, it's stored in Blob storage.
+1. The API layer is built using [Azure Functions](/azure/azure-functions/functions-overview). These APIs enable the application to upload images and retrieve data from [Azure Cosmos DB](/azure/cosmos-db/introduction).
+2. When an image is uploaded via an API call, it's stored in [Blob storage](/azure/storage/blobs/storage-blobs-introduction).
 3. Adding new files to Blob storage triggers an Event Grid notification to be sent to an Azure Function.
-4. Azure Functions sends a link to the newly uploaded file to the Computer Vision API to analyze.
+4. Azure Functions sends a link to the newly uploaded file to the [Computer Vision API](/azure/cognitive-services/computer-vision/home) to analyze.
 5. Once the data has been returned from the Computer Vision API, Azure Functions makes an entry in Cosmos DB to persist the results of the analysis along with the image metadata.
 
 ### Components

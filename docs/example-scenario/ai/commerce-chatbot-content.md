@@ -19,11 +19,11 @@ The following architecture is for designing a hotel booking bot.
 This scenario covers a conversational bot that functions as a concierge for a hotel. The data flows through the scenario as follows:
 
 1. The customer accesses the chatbot with a mobile or web app.
-2. Using Azure Active Directory (Azure AD) B2C (business-to-consumer), the customer is authenticated.
-3. Interacting with the Bot Service, the customer requests information about hotel availability.
-4. Cognitive Services processes the natural language request to understand the customer communication.
-5. After the customer is happy with the results, the bot adds or updates the reservation or booking in a SQL database.
-6. Application Insights gathers runtime telemetry throughout the process to help the DevOps team improve bot performance and usage.
+2. Using [Azure Active Directory][aadb2c-docs] (Azure AD) B2C (business-to-consumer), the customer is authenticated.
+3. Interacting with the [Bot Service][botservice-docs], the customer requests information about hotel availability.
+4. [Cognitive Services][cognitive-docs] processes the natural language request to understand the customer communication.
+5. After the customer is happy with the results, the bot adds or updates the reservation or booking in a [SQL database][sqldatabase-docs].
+6. [Application Insights][appinsights-docs] gathers runtime telemetry throughout the process to help the DevOps team improve bot performance and usage.
 
 ### Components
 
@@ -32,7 +32,7 @@ This scenario covers a conversational bot that functions as a concierge for a ho
 - [Azure Bot Service](https://azure.microsoft.com/services/bot-service) provides tools to build, test, deploy, and manage intelligent bots.
 - [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services) lets you use intelligent algorithms to see, hear, speak, understand, and interpret your user needs through natural methods of communication.
 - [Azure SQL Database](https://azure.microsoft.com/services/sql-database) is a fully managed relational cloud database service that provides SQL Server engine compatibility.
-- [Application Insights][appinsights-docs] is an extensible Application Performance Management (APM) service that lets you monitor the performance of applications, such as your chatbot.
+- Application Insights, a feature of [Azure Monitor](https://azure.microsoft.com/services/monitor), is an extensible Application Performance Management (APM) service that lets you monitor the performance of applications, such as your chatbot.
 
 ### Alternatives
 

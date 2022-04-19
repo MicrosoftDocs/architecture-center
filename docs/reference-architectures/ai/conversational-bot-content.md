@@ -12,7 +12,7 @@ This solution is ideal for the telecommunications industry. This article covers 
 
 *Download a [Visio file][visio-download] of this architecture.*
 
-### Components
+### Workflow
 
 The architecture shown here uses the following Azure services. Your own bot may not use all of these services, or may incorporate additional services.
 
@@ -37,7 +37,7 @@ The bot relies on raw data that must be ingested and prepared. Consider any of t
 
 #### Logging and monitoring
 
-- [Application Insights][appinsights-docs] is an extensible Application Performance Management (APM) service that lets you monitor the performance of applications, such as your chatbot.
+- [Application Insights][app-insights], a feature of [Azure Monitor](https://azure.microsoft.com/services/monitor), is an extensible Application Performance Management (APM) service that lets you monitor the performance of applications, such as your chatbot.
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) is optimized for storing massive amounts of unstructured data.
 - [Azure Cosmos DB](https://azure.microsoft.com/free/cosmos-db) is well-suited for storing semi-structured log data such as conversations.
 - [Power BI](https://powerbi.microsoft.com) lets you create monitoring dashboards for your bot.
