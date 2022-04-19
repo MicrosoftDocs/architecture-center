@@ -122,7 +122,7 @@ For more information, contact [legacy2azure@microsoft.com](mailto:legacy2azure@m
 See these additional resources:
 - [Azure Kubernetes Service (AKS)](/azure/aks)
 - [Welcome to Azure Cosmos DB](/azure/cosmos-db/introduction)
-- [Azure databases](/azure/?product=databases)
+- [Azure databases](../../index.yml?product=databases)
 - [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
 
 ## Related resources

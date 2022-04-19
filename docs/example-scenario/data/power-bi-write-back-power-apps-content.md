@@ -131,7 +131,7 @@ To deploy this solution:
 ## Next steps
 
 Product documentation:
-- [Power Apps visual for Power BI](https://docs.microsoft.com/powerapps/maker/canvas-apps/powerapps-custom-visual)
+- [Power Apps visual for Power BI](/powerapps/maker/canvas-apps/powerapps-custom-visual)
 - [Overview of creating apps in Power Apps](/powerapps/maker/canvas-apps/powerapps-custom-visual)
 - [Embed a Power Apps visual in a Power BI report](/power-bi/visuals/power-bi-visualization-powerapp)
 - [Use a flow to update a row in Dataverse](/power-automate/dataverse/update)
