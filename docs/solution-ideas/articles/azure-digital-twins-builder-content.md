@@ -10,8 +10,7 @@ This solution idea is to use Azure Digital Twins and other Azure services to ena
 
 The key to the solution is having a web app that uses BIM data from Autodesk Forge to automate the creation of an Azure Digital Twins foundational dataset. The app provides both visual and relational context to support the instantiation of a DT in the Azure Digital Twins build process.
 
-By providing the basis for holistic, responsive, and automated building management systems, 
-this app helps address the vast range of challenges that arise when managing buildings digitally at large scale.
+By providing the basis for holistic, responsive, and automated building management systems, this app helps address the vast range of challenges that arise when managing buildings digitally at large scale.
 
 The solution in this article uses Autodesk Forge data specifically, but using BIM data from other providers can work also. The idea is broadly applicable to the process of creating a DT from BIM data.
 
@@ -22,10 +21,10 @@ The solution in this article uses Autodesk Forge data specifically, but using BI
 
 BIM models can describe many structures besides offices, including:
 
-- Datacenters
-- Factories
-- Power plants
-- Bridges
+- Datacenters.
+- Factories.
+- Power plants.
+- Bridges.
 
 These structures become more intelligent and advanced as sensors and connected devices become smaller and more affordable. Azure Digital Twins can bring greater accuracy, control, and predictability to the building owner’s building management data. You can, for example, manage frequency sensors within Azure Digital Twins for predictive maintenance of building roof chillers.
 
@@ -37,7 +36,7 @@ Real estate portfolio managers can use BIM and DTs to improve their understandin
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1896838-azure-digital-twins-builder.vsdx) of this architecture.*
 
-### Workflow
+### Dataflow
 
 1. A web app that was built by using Static Web Apps presents two buttons to the user. One of them initiates sign-in to Azure, the other initiates sign-in to Autodesk BIM 360. The user signs into both accounts.
 1. The web app uses the Autodesk Forge API to build a list of the BIM models that are shared with the BIM 360 account. The user selects a model for the web app to display, which it does by once again making use of the Autodesk Forge API.
