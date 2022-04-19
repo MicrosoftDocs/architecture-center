@@ -366,6 +366,10 @@ items:
                     href: guide/multitenant/service/cosmos-db.md
                   - name: Azure Database for PostgreSQL
                     href: guide/multitenant/service/postgresql.md
+              - name: AI and ML
+                items:
+                  - name: Azure Cognitive Search
+                    href: guide/multitenant/service/cognitive-search.md
           - name: Multitenancy checklist
             href: guide/multitenant/checklist.md
           - name: Related resources
