@@ -369,7 +369,8 @@ items:
               - name: AI and ML
                 items:
                   - name: Azure Cognitive Search
-                    href: guide/multitenant/service/cognitive-search.md
+                    href: /azure/search/search-modeling-multitenant-saas-applications
+                    maintainContext: true
           - name: Multitenancy checklist
             href: guide/multitenant/checklist.md
           - name: Related resources
