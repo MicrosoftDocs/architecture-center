@@ -28,13 +28,13 @@ This solution applies to many areas:
 ### Workflow
 
 1. IoT data enters the system:
-   - Azure Event Hubs ingests streams of IoT data. The data contains coordinates or other information that identifies locations of devices.
-   - Event Hubs uses Azure Databricks for initial stream processing.
-   - Event Hubs stores the data in Azure Data Lake Storage.
+   - [Azure Event Hubs](/azure/event-hubs/event-hubs-about) ingests streams of IoT data. The data contains coordinates or other information that identifies locations of devices.
+   - Event Hubs uses [Azure Databricks](/azure/databricks/getting-started/concepts) for initial stream processing.
+   - Event Hubs stores the data in [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction).
 
 1. GIS data enters the system:
 
-   - Azure Data Factory ingests raster GIS data and vector GIS data of any format.
+   - [Azure Data Factory](/azure/data-factory/introduction) ingests raster GIS data and vector GIS data of any format.
 
      - Raster data consists of grids of values. Each pixel value represents a characteristic like the temperature or elevation of a geographic area.
      - Vector data represents specific geographic features. Vertices, or discrete geometric locations, make up the vectors and define the shape of each spatial object.
@@ -43,9 +43,9 @@ This solution applies to many areas:
 
 1. Spark clusters in Azure Databricks use geospatial code libraries to transform and normalize the data.
 
-1. Data Factory loads the prepared vector and raster data into Azure Database for PostgreSQL. The solution uses the PostGIS extension with this database.
+1. Data Factory loads the prepared vector and raster data into [Azure Database for PostgreSQL](/azure/postgresql/overview). The solution uses the PostGIS extension with this database.
 
-1. Data Factory loads the prepared vector and raster data into Azure Data Explorer.
+1. Data Factory loads the prepared vector and raster data into [Azure Data Explorer](/azure/data-explorer/data-explorer-overview).
 
 1. Azure Database for PostgreSQL stores the GIS data. APIs make this data available in standardized formats:
 
@@ -55,52 +55,52 @@ This solution applies to many areas:
 
    A Redis cache improves performance by providing quick access to the data.
 
-1. The Web Apps feature of Azure App Service works with Azure Maps to create visuals of the data.
+1. The Web Apps feature of [Azure App Service](/azure/app-service/overview) works with Azure Maps to create visuals of the data.
 
 1. Users analyze the data with Azure Data Explorer. GIS features of this tool create insightful visualizations. Examples include creating scatterplots from geospatial data.
 
-1. Power BI provides customized reports and business intelligence (BI). The Azure Maps visual for Power BI highlights the role of location data in business results.
+1. [Power BI](/power-bi/fundamentals/power-bi-overview) provides customized reports and business intelligence (BI). The Azure Maps visual for Power BI highlights the role of location data in business results.
 
 Throughout the process:
 
-- Azure Monitor collects information on events and performance.
+- [Azure Monitor](/azure/azure-monitor/overview) collects information on events and performance.
 - Log Analytics runs queries on Monitor logs and analyzes the results.
-- Azure Key Vault secures passwords, connection strings, and secrets.
+- [Azure Key Vault](/azure/key-vault/general/overview) secures passwords, connection strings, and secrets.
 
 ### Components
 
-- [Event Hubs][Azure Event Hubs — A big data streaming platform and event ingestion service] is a fully managed streaming platform for big data. This platform as a service (PaaS) offers a partitioned consumer model. Multiple applications can use this model to process the data stream at the same time.
+- [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs) is a fully managed streaming platform for big data. This platform as a service (PaaS) offers a partitioned consumer model. Multiple applications can use this model to process the data stream at the same time.
 
-- [Data Factory][What is Azure Data Factory?] is an integration service that works with data from disparate data stores. You can use this fully managed, serverless platform to create, schedule, and orchestrate data transformation workflows.
+- [Azure Data Factory](https://azure.microsoft.com/services/data-factory) is an integration service that works with data from disparate data stores. You can use this fully managed, serverless platform to create, schedule, and orchestrate data transformation workflows.
 
-- [Azure Databricks][Azure Databricks Workspace concepts] is a data analytics platform. Its fully managed Spark clusters process large streams of data from multiple sources. Azure Databricks can transform geospatial data at large scale for use in analytics and data visualization.
+- [Azure Databricks](https://azure.microsoft.com/free/databricks) is a data analytics platform. Its fully managed Spark clusters process large streams of data from multiple sources. Azure Databricks can transform geospatial data at large scale for use in analytics and data visualization.
 
-- [Data Lake Storage][Introduction to Azure Data Lake Storage Gen2] is a scalable and secure data lake for high-performance analytics workloads. This service can manage multiple petabytes of information while sustaining hundreds of gigabits of throughput. The data typically comes from multiple, heterogeneous sources and can be structured, semi-structured, or unstructured.
+- [Data Lake Storage](https://azure.microsoft.com/solutions/data-lake/) is a scalable and secure data lake for high-performance analytics workloads. This service can manage multiple petabytes of information while sustaining hundreds of gigabits of throughput. The data typically comes from multiple, heterogeneous sources and can be structured, semi-structured, or unstructured.
 
-- [Azure Database for PostgreSQL][What is Azure Database for PostgreSQL?] is a fully managed relational database service that's based on the community edition of the open-source [PostgreSQL][PostgreSQL] database engine.
+- [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/) is a fully managed relational database service that's based on the community edition of the open-source [PostgreSQL][PostgreSQL] database engine.
 
 - [PostGIS][PostGIS] is an extension for the PostgreSQL database that integrates with GIS servers. PostGIS can run SQL location queries that involve geographic objects.
 
 - [Redis][Redis] is an open-source, in-memory data store. Redis caches keep frequently accessed data in server memory. The caches can then quickly process large volumes of application requests that use the data.
 
-- [Power BI][What is Power BI?] is a collection of software services and apps. You can use Power BI to connect unrelated sources of data and create visuals of them.
+- [Power BI](https://powerbi.microsoft.com) is a collection of software services and apps. You can use Power BI to connect unrelated sources of data and create visuals of them.
 
-- The [Azure Maps visual for Power BI][Getting started with the Azure Maps Power BI visual] provides a way to enhance maps with spatial data. You can use this visual to show how location data affects business metrics.
+- The [Azure Maps visual for Power BI](/azure-maps/power-bi-visual-get-started) provides a way to enhance maps with spatial data. You can use this visual to show how location data affects business metrics.
 
-- [App Service][App Service documentation] and its [Web Apps][App Service overview] feature provide a framework for building, deploying, and scaling web apps. The App Service platform offers built-in infrastructure maintenance, security patching, and scaling.
+- [Azure App Service](https://azure.microsoft.com/services/app-service) and its [Web Apps][App Service overview] feature provide a framework for building, deploying, and scaling web apps. The App Service platform offers built-in infrastructure maintenance, security patching, and scaling.
 
 - [GIS data APIs in Azure Maps][Create a data source for Azure Maps] store and retrieve map data in formats like GeoJSON and vector tiles.
 
-- [Azure Data Explorer][What is Azure Data Explorer?] is a fast, fully managed data analytics service that can work with [large volumes of data][Azure Data Explorer performance update (EngineV3)]. This service originally focused on time series and log analytics. It now also handles diverse data streams from applications, websites, IoT devices, and other sources. [Geospatial functionality][Azure Data Explorer extends geospatial functionality] in Azure Data Explorer provides options for rendering map data.
+- [Azure Data Explorer](https://dataexplorer.azure.com) is a fast, fully managed data analytics service that can work with [large volumes of data][Azure Data Explorer performance update (EngineV3)]. This service originally focused on time series and log analytics. It now also handles diverse data streams from applications, websites, IoT devices, and other sources. [Geospatial functionality][Azure Data Explorer extends geospatial functionality] in Azure Data Explorer provides options for rendering map data.
 
-- [Monitor][Azure Monitor overview] collects data on environments and Azure resources. This diagnostic information is helpful for maintaining availability and performance. Two data platforms make up Monitor:
+- [Azure Monitor](https://azure.microsoft.com/services/monitor) collects data on environments and Azure resources. This diagnostic information is helpful for maintaining availability and performance. Two data platforms make up Monitor:
 
   - [Azure Monitor Logs][Azure Monitor Logs overview] records and stores log and performance data.
   - [Azure Monitor Metrics][Azure Monitor Metrics overview] collects numerical values at regular intervals.
 
 - [Log Analytics][Overview of Log Analytics in Azure Monitor] is an Azure portal tool that runs queries on Monitor log data. Log Analytics also provides features for charting and statistically analyzing query results.
 
-- [Key Vault][About Azure Key Vault] stores and controls access to secrets such as tokens, passwords, and API keys. Key Vault also creates and controls encryption keys and manages security certificates.
+- [Key Vault](https://azure.microsoft.com/services/key-vault) stores and controls access to secrets such as tokens, passwords, and API keys. Key Vault also creates and controls encryption keys and manages security certificates.
 
 ### Alternatives
 
@@ -207,7 +207,23 @@ The [autoscale feature of Monitor][Overview of autoscale in Microsoft Azure] als
 - To estimate the cost of implementing this solution, see a sample [cost profile][Pricing: Azure Architecture for GIS data processing and serving]. This profile is for a single implementation of the environment described in [Scalability considerations][Scalability considerations]. It doesn't include the cost of Azure Data Explorer.
 - To adjust the parameters and explore the cost of running this solution in your environment, use the [Azure pricing calculator][Pricing calculator].
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+**Principal authors:**
+
+* [Richard Bumann](https://ch.linkedin.com/in/rlb18) | Solution Architect
+
 ## Next steps
+
+Product documentation:
+
+- [About Azure Event Hubs](/azure/event-hubs/event-hubs-about)
+- [Azure Databricks concepts](/azure/databricks/getting-started/concepts)
+- [Introduction to Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction)
+- [What is Azure Data Factory?](/azure/data-factory/introduction)
+- [Azure App Service overview](/azure/app-service/overview)
 
 To start implementing this solution, see this information:
 

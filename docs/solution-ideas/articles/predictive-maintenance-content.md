@@ -10,23 +10,23 @@ This predictive maintenance solution monitors aircraft and predicts the remainin
 ### Workflow
 
   1. The simulation data is streamed by a newly deployed Azure Web Job, AeroDataGenerator.
-  2. This synthetic data feeds into the Azure Event Hubs service as data points.
-  3. Two Azure Stream Analytics jobs analyze the data to provide near real-time analytics on the input stream from the event hub. One of the Stream Analytics jobs archives all raw incoming events to the Azure Storage service for later processing by the Azure Data Factory service, and the other publishes results onto a Power BI dashboard.
-  4. The HDInsight service is used to run Hive scripts orchestrated by Azure Data Factory. The scripts provide aggregations on the raw events that were archived by the Stream Analytics job.
-  5. Azure Machine Learning is used (orchestrated by Azure Data Factory) to make predictions on the remaining useful life (RUL) of particular aircraft engine given the inputs received.
-  6. Azure SQL Database is used (managed by Azure Data Factory) to store the prediction results received from Azure Machine Learning. These results are then consumed in the Power BI dashboard. A stored procedure is deployed in the SQL Database and later invoked in Azure Data Factory pipeline to store the ML prediction results into the scoring result table.
+  2. This synthetic data feeds into the [Azure Event Hubs](/azure/event-hubs) service as data points.
+  3. Two [Azure Stream Analytics](/azure/stream-analytics) jobs analyze the data to provide near real-time analytics on the input stream from the event hub. One of the Stream Analytics jobs archives all raw incoming events to the Azure Storage service for later processing by the [Azure Data Factory](/azure/data-factory) service, and the other publishes results onto a Power BI dashboard.
+  4. The [HDInsight](/azure/hdinsight) service is used to run Hive scripts orchestrated by Azure Data Factory. The scripts provide aggregations on the raw events that were archived by the Stream Analytics job.
+  5. [Azure Machine Learning](/azure/machine-learning) is used (orchestrated by Azure Data Factory) to make predictions on the remaining useful life (RUL) of particular aircraft engine given the inputs received.
+  6. [Azure SQL Database](/azure/azure-sql) is used (managed by Azure Data Factory) to store the prediction results received from Azure Machine Learning. These results are then consumed in the Power BI dashboard. A stored procedure is deployed in the SQL Database and later invoked in Azure Data Factory pipeline to store the ML prediction results into the scoring result table.
   7. Azure Data Factory handles orchestration, scheduling, and monitoring of the batch processing pipeline.
-  8. Finally, Power BI is used for visualizing results. Aircraft technicians can monitor the sensor data from an airplane or across the fleet in real time and use visualizations to schedule engine maintenance.
+  8. Finally, [Power BI](/power-bi/create-reports) is used for visualizing results. Aircraft technicians can monitor the sensor data from an airplane or across the fleet in real time and use visualizations to schedule engine maintenance.
 
 ### Components
 
-* [Azure Data Factory](/azure/data-factory)
-* [Azure Event Hub](/azure/event-hubs)
-* [Azure HDInsight](/azure/hdinsight)
+* [Azure Data Factory](https://azure.microsoft.com/databases/data_factory)
+* [Azure Event Hub](https://azure.microsoft.com/services/event-hubs/)
+* [Azure HDInsight](https://azure.microsoft.com/free/hdinsight/)
 * [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning)
 * [Azure SQL Database](https://azure.microsoft.com/services/sql-database)
-* [Azure Stream Analytics](/azure/stream-analytics)
-* [Power BI Dashboard](/power-bi/create-reports)
+* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics)
+* [Power BI Dashboard](https://powerbi.microsoft.com)
 
 ## Solution details
 
@@ -44,9 +44,11 @@ This solution uses multiple Azure services (described below) along with a web jo
 
 See product documentation:
 
-* [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-ml)
+* [What is Azure Machine Learning?](/azure/machine-learning/overview-what-is-azure-ml)
 * [Welcome to Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction)
-* [What is Azure HDInsight](/azure/hdinsight/hdinsight-overview)
+* [What is Azure HDInsight?](/azure/hdinsight/hdinsight-overview)
+* [What is Azure Data Factory?](/azure/data-factory/introduction)
+* [Azure Event Hubs](/azure/event-hubs/event-hubs-about)
 
 Try out the code:
 
