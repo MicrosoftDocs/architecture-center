@@ -8,7 +8,7 @@ This article, the first in the series, introduces what you will learn by reading
 
 The following diagram is the final architecture reference for this series. This diagram presents the whole picture. This article explains in a nutshell the content of the architecture and how it was built. Each part of it is explained in more detail in the other articles in this series.
 
-:::image type="content" alt-text="Image alt text." source="images/azure-monitor-integrate-security-components-architecture.png" lightbox="images/azure-monitor-integrate-security-components-architecture.png":::
+:::image type="content" alt-text="Diagram of the complete and final architecture that is described in this series of five articles." source="images/azure-monitor-integrate-security-components-architecture.png" lightbox="images/azure-monitor-integrate-security-components-architecture.png":::
 
 To make the architecture more comprehensive, it was considered to be layered onto the architecture of a typical hybrid IT environment, which in many companies has three layers:
 
