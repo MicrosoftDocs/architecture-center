@@ -40,55 +40,31 @@ For the Business IT environment, we will specify the components only for the Azu
 
 For the **Azure environment**, the diagram shows:
 
-- Azure Virtual Network, represented as "VNET."
+- **VNET**. Azure Virtual Network. For more information, see [What is Azure Virtual Network](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview)?
 
-  [Azure Virtual Network](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview)
+- **LBS**. Load Balancer. For more information, see [What is Azure Load Balancer](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview)?
 
-- Load Balancer, represented as "LBS."
+- **PIPS**. Public IP addresses. For more information, see [Public IP addresses](https://docs.microsoft.com/en-us/azure/virtual-network/ip-services/public-ip-addresses).
 
-  [What is Azure Load Balancer? - Azure Load Balancer](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview)
+- **Servers**. Virtual machines. For more information, see [Virtual Machines](https://azure.microsoft.com/en-us/services/virtual-machines/).
 
-- Public IPs, represented as "PIPS."
+- **K8S**. Kubernetes services. For more information, see [Azure Kubernetes Service](https://docs.microsoft.com/en-us/azure/aks/intro-kubernetes).
 
-  [Public IP addresses in Azure - Azure Virtual Network](https://docs.microsoft.com/en-us/azure/virtual-network/ip-services/public-ip-addresses)
+- **VDI**. Azure Virtual Desktop. For more information, see [What is Azure Virtual Desktop?](https://docs.microsoft.com/en-us/azure/virtual-desktop/overview).
 
-- Virtual Machines, represented as "Servers."
+- **Web Apps**. Azure App Service with Web App. For more information, see [App Service overview](https://docs.microsoft.com/en-us/azure/app-service/overview).
 
-  [Virtual Machines (VMs) for Linux and Windows](https://azure.microsoft.com/en-us/services/virtual-machines/)
+- **Azure Storage**. Azure Storage could be blob (object storage) or file storage. For more information, see [Introduction to Azure Storage](https://docs.microsoft.com/en-us/azure/storage/common/storage-introduction).
 
-- Kubernetes services, represented as "k8s."
+- **DB**. Azure SQL database. For more information, see [What is Azure SQL Database?](https://docs.microsoft.com/en-us/azure/azure-sql/database/sql-database-paas-overview).
 
-  [Introduction to Azure Kubernetes Service - Azure Kubernetes Service](https://docs.microsoft.com/en-us/azure/aks/intro-kubernetes)
-
-- Azure Virtual Desktop (AVD), represented as "VDI."
-
-  [What is Azure Virtual Desktop? - Azure](https://docs.microsoft.com/en-us/azure/virtual-desktop/overview)
-
-- Azure App Service with Web App, represented simply as "Web Apps."
-
-  [Overview - Azure App Service](https://docs.microsoft.com/en-us/azure/app-service/overview)
-
-- Azure Storage could be blob (object storage) or file storage represented as "Azure Storage."
-
-  [Introduction to Azure Storage - Cloud storage on Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-introduction)
-
-- Azure SQL DB, represented as "DB."
-
-  [What is the Azure SQL Database service? - Azure SQL Database](https://docs.microsoft.com/en-us/azure/azure-sql/database/sql-database-paas-overview)
-
-- Azure Active Directory, or simply Azure AD, represented as "Azure AD."
-
-  [What is Azure Active Directory?](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis)
+- **Azure AD**. Azure Active Directory (Azure AD). For more information, see [What is Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis)?
 
 For **Office 365**, the diagram represents the service through two different components:
 
-- Office 365 services, which applications available will depend on the type of license being used
+- **O365**. Office 365 services. The applications that Office 365 makes available depends on the type of license. For more information about licenses and subscriptions, see [Microsoft 365 - Subscription for Office Apps](https://www.microsoft.com/en-us/microsoft-365).
 
-  [Microsoft 365 - Subscription for Office Apps](https://www.microsoft.com/en-us/microsoft-365)
-
-- Azure Active Directory, the same one utilized by Azure. It is important to note that many companies utilize the same Azure Active Directory for Azure and Office 365.
-
-  [What is Azure Active Directory?](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis)
+- **Azure**. Azure AD, the same one utilized by Azure. It is important to note that many companies use the same Azure AD for Azure and Office 365. For more information, see [What is Azure Active Directory?](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis).
 
 ## How to use Mitre Att&ck framework
 
@@ -121,6 +97,6 @@ This document refers to some services, technologies, and terminologies. You may 
 - [ATT&CK® Navigator)](https://mitre-attack.github.io/attack-navigator/)
 - [Public Preview: The MITRE ATT&CK Framework Blade in Microsoft Sentinel](https://azurecloudai.blog/2022/02/25/public-preview-the-mitre-attck-framework-blade-in-microsoft-sentinel/), a post from the Azure Cloud & AI Domain Blog
 - [The Cyber Kill Chain®](https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html)
-- [Embrace proactive security with Zero Trust](/security/business/zero-trust)
+- [Embrace proactive security with Zero Trust](https://www.microsoft.com/security/business/zero-trust)
 - [Blended threat](https://en.wikipedia.org/wiki/Blended_threat) on Wikipedia
 - [How cyberattacks are changing according to new Microsoft Digital Defense Report](https://www.microsoft.com/security/blog/2021/10/11/how-cyberattacks-are-changing-according-to-new-microsoft-digital-defense-report/) from Microsoft Security Blog
