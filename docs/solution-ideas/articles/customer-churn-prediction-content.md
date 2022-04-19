@@ -21,7 +21,7 @@ This solution is optimized for the retail industry.
 
 1. Use [Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction) for real-time analytics and ingest data into [Azure Synapse](/azure/synapse-analytics/overview-what-is) (SQL DW). Combine existing and historical data to create dashboards and reports in Power BI.
 
-1. Ingest historical data at scale into [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) to combine with streamed data for ad-hoc insights and experimentation using Azure Machine learning.
+1. Ingest historical data at scale into [Azure Blob Storage](/azure/storage/blobs/storage-blobs-overview) to combine with streamed data for ad-hoc insights and experimentation using Azure Machine learning.
 
 1. Use [Azure Machine Learning](/azure/machine-learning/) to build models to predict churn probability, data patterns to deliver high intelligent insights and analytics on collected data. These models can be used further to build Power BI reports and analytical dashboards to assist businesses in decision making.
 
