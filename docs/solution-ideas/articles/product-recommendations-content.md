@@ -7,7 +7,7 @@ A deep understanding between customer interests and purchasing patterns is a cri
 ![Architecture diagram](../media/product-recommendations.png)
 *Download an [SVG](../media/product-recommendations.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
 1. A data generator pipes simulated customer events to an Event Hub.
 1. A Stream Analytics job reads from the Event Hub and performs aggregations.
@@ -18,12 +18,12 @@ A deep understanding between customer interests and purchasing patterns is a cri
 
 ### Components
 
-* [Azure Blob Storage](/azure/storage/blobs/)
-* [Azure Event Hub](/azure/event-hubs/)
-* [Azure Machine Learning](https://azure.microsoft.com/en-us/services/machine-learning/)
-* [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
-* [Azure Stream Analytics](/azure/stream-analytics/)
-* [Power BI Dashboard](/power-bi/create-reports/)
+* [Azure Blob Storage](/azure/storage/blobs)
+* [Azure Event Hub](/azure/event-hubs)
+* [Azure Machine Learning](https://azure.microsoft.com/en-us/services/machine-learning)
+* [Azure SQL Database](https://azure.microsoft.com/services/sql-database)
+* [Azure Stream Analytics](/azure/stream-analytics)
+* [Power BI Dashboard](/power-bi/create-reports)
 
 ## Deploy this scenario
 
@@ -43,8 +43,17 @@ This solution addresses the above problems by:
 
 ## Next steps
 
+Explore the product documentation:
+
+* [Azure Machine Learning documentation](/azure/machine-learning)
+* [Azure Blob Storage](/azure/storage/blobs)
+* [Azure Event Hub](/azure/event-hubs)
+* [Azure Stream Analytics](/azure/stream-analytics)
+* [Power BI Dashboard](/power-bi/create-reports)
+
+## Related resources
+
 * [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
-* [Azure Machine Learning documentation](/azure/machine-learning/)
 * [Movie recommendations on Azure](../../example-scenario/ai/movie-recommendations-with-machine-learning.yml)
 * [Personalized marketing solutions](./personalized-marketing.yml)
 * [Personalized offers](./personalized-offers.yml)

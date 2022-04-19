@@ -3,7 +3,7 @@ title: Microsoft partner and third-party scenarios on Azure
 description: Review an extensive list of architectures and solutions that use Microsoft partner and third-party solutions.
 author: EdPrice-MSFT
 ms.author: edprice
-ms.date: 04/11/2022 
+ms.date: 04/13/2022 
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -33,7 +33,9 @@ categories:
 ms.custom: fcp
 ---
 
-# Microsoft partner and non-open-source third-party scenarios on Azure
+# Microsoft partner and third-party scenarios on Azure
+
+This article explores Microsoft partner and third-party, non-open source scenarios on Microsoft Azure.
 
 Microsoft partners make up a community of organizations that work with Microsoft to create innovative solutions for you. Driven by the opportunities of the intelligent cloud, Microsoft is prioritizing investments that support these opportunities.
 
@@ -42,6 +44,10 @@ The [Azure Sponsorship for ISVs program](https://partner.microsoft.com/asset/col
 Visit [Azure Marketplace](https://azuremarketplace.microsoft.com) to discover, try, and deploy cloud software from Microsoft and Microsoft partners.
 
 This article provides a summary of architectures and solutions that use Azure together with partner and third-party solutions.
+
+We also recommend you browse our open-source solutions for Microsoft Azure:
+- [Apache open-source scenarios on Azure](/azure/architecture/guide/apache-scenarios)
+- [Open-source scenarios on Azure](/azure/architecture/guide/open-source-scenarios)
 
 ## Advanced
 
@@ -294,6 +300,8 @@ This article provides a summary of architectures and solutions that use Azure to
 
 ## Related resources
 
+- [Apache open-source scenarios on Azure](/azure/architecture/guide/apache-scenarios)
+- [Open-source scenarios on Azure](/azure/architecture/guide/open-source-scenarios)
 - [Scenarios featuring Microsoft on-premises technologies](../guide/on-premises-microsoft-technologies.md)
 - [Architecture for startups](../guide/startups/startup-architecture.md)
 - [Azure and Power Platform scenarios](../solutions/power-platform-scenarios.md)
