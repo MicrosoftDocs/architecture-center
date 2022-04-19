@@ -4,9 +4,9 @@ Understanding your IT environment and how it is architected is essential to defi
 
 Malicious actors (sometimes referred to as "hackers") can be an individual or a group of people that performs malicious acts against a person or organization by causing harm to the cyber realm of computers, devices, systems, and network of companies to compromise or steal valuable information using threats like malware or brute force attacks.
 
-In this document, we will see a way to map those threats against your IT environment so that you may plan for your security strategy with Microsoft security services. The good news is that you don't need to start that threat map from scratch. Mitre Att&ck matrix is a great solution to help you on that matter.
+In this document, we will see a way to map those threats against your IT environment so that you may plan for your security strategy with Microsoft security services. The good news is that you don't need to start that threat map from scratch. MITRE ATT&CK matrix is a great solution to help you on that matter.
 
-Mitre Att&ck is a global knowledge database that maps threats based on the tactics and techniques observed in the real world. Mitre catalogs every threat available and discovers many details of how those threats work and how you may defend against them. It is a public service that you may access through this link [MITRE ATT&CK®](https://attack.mitre.org/).
+MITRE ATT&CK is a global knowledge database that maps threats based on the tactics and techniques observed in the real world. MITRE catalogs every threat available and discovers many details of how those threats work and how you may defend against them. It is a public service that you may access through this link [MITRE ATT&CK®](https://attack.mitre.org/).
 
 This document uses a small subset of those threats (the bottom part of the diagram) to present you with an example of how you could map threats against your business IT environment.
 
@@ -16,9 +16,9 @@ This document uses a small subset of those threats (the bottom part of the diagr
 
 Some threats are widespread regardless of the industry segment, such as Ransomware, DDOS attacks, Cross-site scripting, SQL injection, etc. However, specific companies may have particular concerns about some types of threats, based on their type of industry or based on the experience they have already had in the past with cyber-attack. The diagram presented in this article may help you map those threats according to the area that malicious actors intend to attack and allow your organization to plan the layers of defense necessary to build a more secure environment.
 
-You may use this diagram with different combinations of attacks to understand how to avoid and mitigate those attacks. You don't necessarily have to use the Mitre Att&ck framework. This is only an example as Microsoft Sentinel and other Microsoft security services have worked with Mitre to provide insightful information regarding threats.
+You may use this diagram with different combinations of attacks to understand how to avoid and mitigate those attacks. You don't necessarily have to use the MITRE ATT&CK framework. This is only an example as Microsoft Sentinel and other Microsoft security services have worked with MITRE to provide insightful information regarding threats.
 
-Another option used by some companies to map and understand how an attack or a series of attacks are performed against a business IT environment is through cyber kill chain ([Cyber Kill Chain® \| Lockheed Martin](https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html)) methodology, which organizes threats and attacks by considering fewer tactics and techniques than Mitre. Still, it is as effective as Mitre to help you understand an attack or series of attacks and how the malicious actors against your environment may execute them.
+Another option used by some companies to map and understand how an attack or a series of attacks are performed against a business IT environment is through cyber kill chain ([Cyber Kill Chain® \| Lockheed Martin](https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html)) methodology, which organizes threats and attacks by considering fewer tactics and techniques than MITRE. Still, it is as effective as MITRE to help you understand an attack or series of attacks and how the malicious actors against your environment may execute them.
 
 To understand which piece of your environment those threats usually attack, it was considered on this diagram a typical Business IT environment with an On-premises, an Office 365 subscription, and an Azure subscription layer. The resources in each layer are very common services that you may find in many companies. They are classified according to the pillars of Microsoft Zero Trust: Network, Infrastructure, Endpoint, Application, Data, and Identity. See more about Microsoft Zero Trust at this link:
 
@@ -32,7 +32,7 @@ Here is the business IT environment we consider as an example and used in this s
 
 3.  **Azure environment:** this is the public cloud service that contains services very similar to an on-premises, like Servers (VMs), Workstations (VDI), Network components, services called PaaS like Web Applications, Databases and Storage service, and the Azure AD. This Azure AD will provide credentials for users to create Azure resources.
 
-4.  **Mitre Att&ck tactics and techniques:** This diagram compiles the top 16 threats described according to its tactics and techniques published by Mitre. In red lines, you may see an example of a blended attack, which means that a malicious actor may coordinate multiple attacks simultaneously.
+4.  **MITRE ATT&CK tactics and techniques:** This diagram compiles the top 16 threats described according to its tactics and techniques published by MITRE. In red lines, you may see an example of a blended attack, which means that a malicious actor may coordinate multiple attacks simultaneously.
 
 ## Components of the diagrams
 
@@ -66,19 +66,16 @@ For **Office 365**, the diagram represents the service through two different com
 
 - **Azure**. Azure AD, the same one utilized by Azure. It is important to note that many companies use the same Azure AD for Azure and Office 365. For more information, see [What is Azure Active Directory?](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis).
 
-## How to use Mitre Att&ck framework
+## How to use MITRE ATT&CK framework
 
-- You may start with a simple search for the name of the threat of the attack code on this main page:
+You may start with a simple search for the name of the threat of the attack code on the main web page, [MITRE ATT&CK®](https://attack.mitre.org/).
 
-  [MITRE ATT&CK®](https://attack.mitre.org/)
+You can also browse threats on the tactics or techniques pages:
 
-- You can also browse threats through tactics or techniques pages:
+  - [Enterprise tactics](https://attack.mitre.org/tactics/enterprise/)
+  - [Enterprise techniques](https://attack.mitre.org/techniques/enterprise/)
 
-  - For tactics: [Tactics - Enterprise \| MITRE ATT&CK®](https://attack.mitre.org/tactics/enterprise/)
-
-  - For techniques: [Techniques - Enterprise \| MITRE ATT&CK®](https://attack.mitre.org/techniques/enterprise/)
-
-- You can still use Mitre Att&ck navigator, [ATT&CK® Navigator (mitre-attack.github.io)](https://mitre-attack.github.io/attack-navigator/), an intuitive tool provided by Mitre that facilitates your navigation through tactics, techniques, and all details about threats.
+You can still use MITRE ATT&CK navigator, [MITRE ATT&CK® Navigator](https://mitre-attack.github.io/attack-navigator/), an intuitive tool provided by MITRE that facilitates your navigation through tactics, techniques, and all details about threats.
 
 ## Next steps
 
