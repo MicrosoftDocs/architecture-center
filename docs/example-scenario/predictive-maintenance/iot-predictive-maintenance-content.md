@@ -135,7 +135,7 @@ Security and monitoring are considerations for IoT Edge systems. For this exampl
 
 **Solution learning resources:**
 
-- [Docker Compatibility Matrix](https://success.docker.com/article/compatibility-matrix)
+- [Docker Compatibility Matrix](https://docs.docker.com/compose/compose-file/compose-versioning/#compatibility-matrix)
 - [Jenkins Azure IoT Edge plugin](https://github.com/Microsoft/azure-iot-edge-jenkins-plugin)
 - [Event Sourcing](https://martinfowler.com/eaaDev/EventSourcing.html)
 - [React to Blob storage events](/azure/storage/blobs/storage-blob-event-overview)
