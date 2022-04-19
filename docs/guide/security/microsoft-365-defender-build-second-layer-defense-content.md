@@ -24,7 +24,7 @@ Depending on the license you acquire for **Microsoft 365** ([Microsoft 365 and O
 
 This picture may help you understand Microsoft 365 set of solution and some of the main services it contains:
 
-:::image type="content" alt-text="Image alt text." source="images/microsoft-365-defender-build-second-layer-defense-azure-services.png" lightbox="images/microsoft-365-defender-build-second-layer-defense-azure-services.png":::
+:::image type="content" alt-text="Image alt text." source="images/microsoft-365-defender-build-second-layer-defense-azure-services.png":::
 
 ## Potential use case
 
