@@ -13,7 +13,7 @@ In this solution, [Kubeflow](https://www.kubeflow.org/docs/about/kubeflow) is us
 ![Architecture diagram: deploying machine learning models to Azure Kubernetes Services (AKS)](../media/machine-learning-model-deployment-to-aks.png)
 *Download an [SVG](../media/machine-learning-model-deployment-to-aks.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
 1. Package machine learning (ML) model into a container and publish to Azure Container Registry (ACR).
 1. Azure Blob storage hosts training data sets and trained model.

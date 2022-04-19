@@ -4,7 +4,7 @@ metadata:
   description: Create a movie recommendation system using machine learning and Azure Data Science Virtual Machine (DSVM) to train a model.
   author: EdPrice-MSFT
   ms.author: edprice
-  ms.date: 03/18/2022
+  ms.date: 04/14/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario

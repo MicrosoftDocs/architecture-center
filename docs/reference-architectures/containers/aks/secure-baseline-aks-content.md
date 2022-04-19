@@ -572,8 +572,8 @@ Keeping your node images in sync with the latest weekly release will minimize th
 
 Monitor your container infrastructure for both active threats and potential security risks:
 
-- Enable [Microsoft Defender for Kubernetes](/azure/security-center/defender-for-kubernetes-introduction) for threat detection on your Kubernetes clusters.
-- Use [Microsoft Defender for Cloud](/azure/security-center/security-center-intro) (Defender for Cloud) to monitor Kubernetes security posture.
+- [Enable Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-enable) for threat detection on your Kubernetes clusters.
+- Use [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction) to monitor Kubernetes security posture.
 - For information about security hardening applied to AKS virtual machine hosts, see [Security Hardening in host OS](/azure/aks/security-hardened-vm-host-image).
 
 ## Cluster and workload operations (DevOps)
