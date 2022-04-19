@@ -2,7 +2,7 @@
 metadata:
   title: Machine teaching with Project Bonsai autonomous systems
   titleSuffix: Azure Example Scenarios
-  description: Learn how Project Bonsai uses machine teaching, deep reinforcement learning, and simulations to build and deploy autonomous systems.
+  description: Learn how Project Bonsai builds and deploys autonomous systems using machine teaching, deep reinforcement learning, and simulations.
   author: jocontr
   ms.author: jocontr
   ms.date: 04/20/2022
@@ -17,7 +17,7 @@ metadata:
 name: Machine teaching with Project Bonsai autonomous systems 
 azureCategories:
   - ai-machine-learning
-summary: Learn how Project Bonsai uses machine teaching, deep reinforcement learning, and simulations to build and deploy autonomous systems.
+summary: Learn how Project Bonsai builds and deploys autonomous systems using machine teaching, deep reinforcement learning, and simulations.
 products:
   - azure-container-instances
   - azure-container-registry

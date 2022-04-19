@@ -63,7 +63,7 @@ The system that Swiss Re Group built for its Property & Casualty Reinsurance div
    - Uses integrated security that includes row-level and column-level permissions.
    - Uses a [Photon-powered Delta Engine to accelerate performance][Photon improves performance].
 
-1. Power BI generates analytical and historical reports and dashboards from the unified data platform. When working with Azure Databricks, this service uses these features:
+1. Power BI generates analytical and historical reports and dashboards from the unified data platform. This service uses these features when working with Azure Databricks:
 
    - A [built-in Azure Databricks connector][Power BI connector for Azure Databricks] for visualizing the underlying data.
    - Optimized Java Database Connectivity (JDBC) and Open Database Connectivity (ODBC) drivers.
@@ -81,8 +81,8 @@ The system that Swiss Re Group built for its Property & Casualty Reinsurance div
      - Assigning each user an access level.
      - Removing users and denying them access.
 
-   - Azure Monitor collects and analyzes Azure resource telemetry. By proactively identifying problems, this service maximizes performance and reliability.
-   - Azure Cost Management and Billing provides financial governance services for Azure workloads.
+   - Azure Monitor collects and analyzes Azure resource telemetry. This service maximizes performance and reliability by proactively identifying problems.
+   - Azure Cost Management and Billing provide financial governance services for Azure workloads.
 
 ### Components
 
@@ -128,7 +128,7 @@ The solution uses the following components:
 
 - [Azure Monitor][Azure Monitor] collects and analyzes data on environments and Azure resources. This data includes app telemetry, such as performance metrics and activity logs.
 
-- [Azure Cost Management and Billing][Azure Cost Management and Billing] manages cloud spending. By using budgets and recommendations, this service organizes expenses and shows how to reduce costs.
+- [Azure Cost Management and Billing][Azure Cost Management and Billing] manage cloud spending. By using budgets and recommendations, this service organizes expenses and shows how to reduce costs.
 
 ## Next steps
 

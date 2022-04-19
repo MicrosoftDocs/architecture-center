@@ -25,7 +25,7 @@ Machine teaching bridges AI science and software with traditional engineering an
 
 ## Architecture
 
-Project Bonsai speeds the creation of AI-powered automation. Development and deployment has three phases: Build, Train, and Deploy.
+Project Bonsai speeds the creation of AI-powered automation. Development and deployment have three phases: Build, Train, and Deploy.
 
 ![Diagram showing the architecture of Project Bonsai.](../media/machine-teaching-1-2.png)
 
@@ -41,7 +41,7 @@ Simulations help train the models across different kinds of environmental condit
 
 After training is complete, engineers deploy these trained agents to the real world, where they use their knowledge to power autonomous systems.
 
-## Deploy this scenario
+## Deployments
 
 The following implementations are example deployments. You can follow the resources to understand how these solutions were designed. Use Project Bonsai to build and deploy your own solution.
 
@@ -67,7 +67,7 @@ The Bonsai platform runs on Azure and charges resource costs to your Azure subsc
 
 #### Inkling
 
-[Inkling](/bonsai/inkling) is a declarative, statically-typed programming language for training AI in Bonsai. Inkling abstracts away the dynamic AI algorithms that require expertise in machine learning, enabling more developers to program AI. An Inkling file defines _concepts_ necessary to teach the AI, and _curriculum_, or methods for teaching the concepts.
+[Inkling](/bonsai/inkling) is a declarative, statically typed programming language for training AI in Bonsai. Inkling abstracts away the dynamic AI algorithms that require expertise in machine learning, enabling more developers to program AI. An Inkling file defines _concepts_ necessary to teach the AI, and _curriculum_, or methods for teaching the concepts.
 
 ![Inkling example](../media/inkling.png)
 
@@ -130,7 +130,7 @@ AirSim can capture data for models from ground vehicles, wheeled robotics, aeria
 
 ![AirSim screenshot](../media/machine-teaching-4-3-2.png)
 
-AirSim works as a plug-in to Epic Games' [Unreal Engine](https://www.unrealengine.com) editor, providing control over building environments and simulating difficult-to-reproduce, real-world events to capture meaningful data. AirSim leverages current game engine rendering, physics, and perception computation to create an accurate, real-world simulation.
+AirSim works as a plug-in to Epic Games' [Unreal Engine](https://www.unrealengine.com) editor, providing control over building environments and simulating difficult-to-reproduce, real-world events to capture meaningful data. AirSim uses current game engine rendering, physics, and perception computation to create an accurate, real-world simulation.
 
 This realism, based on efficiently generated ground-truth data, enables the study and execution of complex missions that are time-consuming or risky in the real world. For example, AirSim provides realistic environments, vehicle dynamics, and multi-modal sensing for researchers building autonomous vehicles. Collisions in a simulator cost virtually nothing, yet provide actionable information to improve the design of the system.
 
