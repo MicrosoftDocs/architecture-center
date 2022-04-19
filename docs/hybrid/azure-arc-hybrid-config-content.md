@@ -1,5 +1,5 @@
 
-This reference architecture illustrates how Azure Arc enables you to manage, govern, and secure servers across on-premises, multiple cloud, and edge scenarios.   
+This reference architecture illustrates how Azure Arc enables you to manage, govern, and secure servers across on-premises, multiple cloud, and edge scenarios.
 
 The typical uses for this architecture include:
 
@@ -48,9 +48,9 @@ There are several options available in Azure to connect your Windows and Linux m
 
 Consult the [Azure Connected Machine agent deployment options](/azure/azure-arc/servers/deployment-options) for comprehensive documentation on the various deployment options available.
 
-### Implement Azure Policy guest configuration
+### Azure Policy guest configuration
 
-Azure Policy guest configuration can audit settings inside a machine, both for machines running in Azure and Arc-enabled servers. For example, you can audit settings such as:
+Azure Arc-enabled servers support [Azure Policy](/azure/governance/policy/overview) at the Azure resource management layer, and also within the individual server machine using [guest configuration policies](/azure/governance/policy/concepts/guest-configuration). Azure Policy guest configuration can audit settings inside a machine, both for machines running in Azure and Arc-enabled servers. For example, you can audit settings such as:
 
 - Operating system configuration
 - Application configuration or presence
@@ -58,30 +58,38 @@ Azure Policy guest configuration can audit settings inside a machine, both for m
 
 There are several [Azure Policy built-in definitions for Azure Arc][arc-built-in-policies]. These policies provide auditing and configuration settings for both Windows and Linux-based machines.
 
-### Implement Update Management
+### Manage with Azure Automation
 
-You can perform update management for Arc-enabled servers.  Update management in Azure Automation enables you to manage operating system updates and quickly assess the status of available updates on all agent machines. You can also manage the process of installing required updates for servers.
+Update Management. You can perform update management for Arc-enabled servers. [Update management](/azure/automation/update-management/overview) in Azure Automation enables you to manage operating system updates and quickly assess the status of available updates on all agent machines. You can also manage the process of installing required updates for servers.
 
-### Implement Change Tracking and Inventory
+Change Tracking and Inventory. [Azure Automation Change Tracking and Inventory](/azure/automation/change-tracking/overview) for Arc-enabled servers allows you to determine what software is installed in your environment. You can collect and observe inventory for software, files, Linux daemons, Windows services, and Windows Registry keys. Tracking the configurations of your machines can help you pinpoint operational issues across your environment and better understand the state of your machines.
 
-Azure Automation Change Tracking and Inventory for Arc-enabled servers allows you to determine what software is installed in your environment. You can collect and observe inventory for software, files, Linux daemons, Windows services, and Windows Registry keys. Tracking the configurations of your machines can help you pinpoint operational issues across your environment and better understand the state of your machines.
-
-### Implement Azure Monitor
+### Monitor Azure Arc-enabled servers
 
 You can use Azure Monitor to monitor your VMs, virtual machine scale sets, and Azure Arc machines at scale. Azure Monitor analyzes the performance and health of your Windows and Linux VMs, and monitors their processes and dependencies on other resources and external processes. It includes support for monitoring performance and application dependencies for VMs that are hosted on-premises or in another cloud provider.
 
-### Implement Microsoft Sentinel
+The Azure Monitor agents should be automatically deployed to Azure Arc-enabled Windows and Linux servers, through [Azure Policy](/azure/azure-monitor/best-practices). Review and understand how the [Log Analytics agent](/azure/azure-monitor/agents/log-analytics-agent) operates and collects data before deployment.
 
-[Microsoft Sentinel](/azure/sentinel/overview) delivers intelligent security analytics and threat intelligence across the enterprise, providing a single solution for alert detection, threat visibility, proactive hunting, and threat response. Microsoft Sentinel is a scalable, cloud-native, security information event management (SIEM), and security orchestration automated response (SOAR) solution that enables several scenarios including:
+Design and plan your Log Analytics workspace deployment. It will be the container where data is collected, aggregated, and later analyzed. A Log Analytics workspace represents a geographical location of your data, data isolation, and scope for configurations like data retention. Use a single Azure Monitor Log Analytics workspace as described in the [management and monitoring best practices](/azure/cloud-adoption-framework/ready/landing-zone/design-area/management) of Cloud Adoption Framework.
 
-- Collect data at cloud scale across all users, devices, applications, and infrastructure, both on-premises and in multiple clouds.
-- Detect previously undetected threats and minimize false positives.
-- Investigate threats with artificial intelligence and hunt for suspicious activities at scale.
-- Respond to incidents rapidly with built-in orchestration and automation of common tasks.
+### Secure Azure Arc-enabled servers
+
+Use Azure RBAC to control and manage the permission for Azure Arc-enabled servers managed identities and perform periodic access reviews for these identities. Control privileged user roles to avoid system-managed identities being misused to gain unauthorized access to Azure resources.
+
+Consider using [Azure Key Vault](/azure/key-vault/general/basic-concepts) to manage certificates on your Azure Arc-enabled servers. The key vault VM extension allows you to manage the certificate lifecycle on Windows and Linux machines.
+
+[Connect Azure Arc-enabled servers to Microsoft Defender for Cloud](/azure/cloud-adoption-framework/manage/hybrid/server/best-practices/arc-security-center).This helps you start collecting security-related configurations and event logs so you can recommend actions and improve your overall Azure security posture.
+
+[Connect Azure Arc-enabled servers to Microsoft Sentinel](/azure/cloud-adoption-framework/manage/hybrid/server/best-practices/arc-azure-sentinel). This enables you to start collecting security-related events and start correlating them with other data sources.
 
 ### Topology and network considerations
 
-The Connected Machine agent for Linux and Windows communicates outbound securely to Azure Arc over TCP port **443**. If the machine connects through a firewall or proxy server to communicate over the internet, review the required URLs and service tags found on the Azure Arc Agent [Networking configuration][networking configuration] page.
+The Connected Machine agent for Linux and Windows communicates outbound securely to Azure Arc over TCP port **443**. The Connected Machine agent can connect to the Azure control plane using the following methods:
+
+- [Direct connection to Azure public endpoints](/azure/azure-arc/servers/agent-overview#networking-configuration), optionally from behind a firewall or a proxy server.
+- [Azure Private Link](/azure-arc/servers/private-link-security#restrictions-and-limitations) using a Private Link Scope model to allow multiple servers or machines to communicate with their Azure Arc resources using a single private endpoint.
+
+Consult [Network topology and connectivity for Azure Arc-enabled servers](/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-servers/eslz-arc-servers-connectivity) for comprehensive networking guidance for you Arc-enabled servers implementation.
 
 ## Considerations
 
