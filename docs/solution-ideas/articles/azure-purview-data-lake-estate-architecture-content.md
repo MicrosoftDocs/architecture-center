@@ -19,7 +19,7 @@ This article describes a solution that uses Azure Purview with these Azure servi
 
 ## Potential use cases
 
-The requirements for data management differ across industries. For all industries, the need to govern data at scale has increased as the size and complexity of data and data architectures grow. The solution described here is appropriate for organizations that would benefit from the following outcomes of well-governed data:
+The requirements for data management differ across industries. For all industries, the need to govern data at scale has increased as the size and complexity of data and data architectures grow. This appropriate for organizations that would benefit from the following outcomes of well-governed data:
 
 - Automatic discovery of data to accelerate cloud adoption.
 - Improved security of data for compliance with data laws and regulations.

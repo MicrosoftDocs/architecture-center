@@ -55,8 +55,8 @@ Real estate portfolio managers can use BIM and DTs to improve their understandin
 
   You can build ontologies by using DTDL. You can also start with an industry-supported model such as the [Digital Twins Definition Language-based RealEstateCore ontology for smart buildings](https://github.com/azure/opendigitaltwins-building).
 - [Autodesk Forge](https://forge.autodesk.com) is the API service for Autodesk and BIM 360. It provides the model viewer and BIM models metadata.
-- [Static Web Apps](https://azure.microsoft.com/services/app-service/static) is an Azure service that, in this architectures, hosts the front-end code of the web app. The Autodesk Forge Viewer API is well supported by React.
-- [Azure Functions](https://azure.microsoft.com/services/functions/#overview) is an event-driven serverless compute platform. It runs on demand and at scale in the cloud. With it you can develop without having to worry about managing a server. In this architecture, it hosts the back-end code for the web app.
+- [Static Web Apps](https://azure.microsoft.com/services/app-service/static) is an Azure service that, in this architecture, hosts the front-end code of the web app. The Autodesk Forge Viewer API is well supported by React.
+- [Azure Functions](https://azure.microsoft.com/services/functions/#overview) is an event-driven serverless compute platform. It runs on demand and at scale in the cloud. With it, you can develop without having to worry about managing a server. In this architecture, it hosts the back-end code for the web app.
 - [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database/#overview) stores and parses the extracted metadata from a model. Due to the complexity of a model's metadata, Autodesk recommends parsing the data by uploading it to Azure SQL Database in a specific structure, and then using a query that Autodesk provides.
 - [Azure Storage](https://azure.microsoft.com/product-categories/storage) provides temporary storage for data that will be used to create a DT, but isn't yet ready for publishing by Azure Twins Service.
 
@@ -67,7 +67,7 @@ Real estate portfolio managers can use BIM and DTs to improve their understandin
 - [Trimble BIM automatically ingested in Azure Digital Twins](https://www.trimble.com/news/release.aspx?id=102721a)
 - [Digital Twins Definition Language (GitHub)](https://github.com/azure/opendigitaltwins-dtdl)
 - [RealEstateCore, a smart building ontology for digital twins (video)](/shows/internet-of-things-show/realestatecore-a-smart-building-ontology-for-digital-twins)
-- [ReCore ontology](https://github.com/Azure/opendigitaltwins-building)
+- [RealEstateCore ontology](https://github.com/Azure/opendigitaltwins-building)
 
 ## Related resources
 
