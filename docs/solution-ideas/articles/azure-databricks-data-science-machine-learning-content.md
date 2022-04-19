@@ -43,7 +43,7 @@ Examples include organizations in:
 
 The solution stores, processes, and serves data:
 
-### Data flow
+### Dataflow
 
 #### Store
 
@@ -77,9 +77,9 @@ Azure Databricks can deploy models to other services, such as Machine Learning a
 
 - [Data Lake Storage][Data Lake Storage] is a scalable and secure data lake for high-performance analytics workloads. This service manages multiple petabytes of information while sustaining hundreds of gigabits of throughput. The data can have these characteristics:
 
-  - Be structured, semi-structured, or unstructured
-  - Come from multiple, heterogeneous sources like logs, files, and media
-  - Be static, from batches, or streaming
+  - Be structured, semi-structured, or unstructured.
+  - Come from multiple, heterogeneous sources like logs, files, and media.
+  - Be static, from batches, or streaming.
 
 - [Delta Lake][Delta Lake] is a storage layer that uses an open file format. This layer runs on top of cloud storage such as Data Lake Storage. Delta Lake is optimized for transforming and cleansing batch and streaming data. This platform supports these features and functionality:
 

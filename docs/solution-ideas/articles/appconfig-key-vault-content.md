@@ -58,7 +58,7 @@ The Azure staging and production environments use an [Azure Managed Service Iden
 
 **Principal author:**
 
- * [Sowmyan Soman](https://www.linkedin.com/in/sowmyancs) | Principle Cloud Solution Architect
+ * [Sowmyan Soman](https://www.linkedin.com/in/sowmyancs) | Principal Cloud Solution Architect
 
 ## Next steps
 
