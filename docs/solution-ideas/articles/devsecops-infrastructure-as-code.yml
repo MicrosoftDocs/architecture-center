@@ -21,4 +21,4 @@ name: DevSecOps for Infrastructure as Code (IaC)
 summary: Learn how to use DevSecOps for IaC to securely deploy cloud infrastructure into a new Azure landing zone.
 thumbnailUrl: /azure/architecture/browse/thumbs/devsecops-for-iac-diagram.png
 content: |
-  [!include[](azure-devops-infrastructure-as-code-content.md)]
+  [!include[](devsecops-infrastructure-as-code-content.md)]
