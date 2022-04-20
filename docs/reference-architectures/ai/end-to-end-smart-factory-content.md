@@ -1,6 +1,3 @@
-
-
-
 This example architecture shows an end-to-end approach to internet-of-things (IoT) computer vision in manufacturing. Fully automated smart factories use artificial intelligence (AI) and machine learning (ML) to analyze data, run systems, and improve processes over time.
 
 In this example, cameras send images to an Azure Video Analyzer edge device that runs an ML model. The model calculates inferences, and sends actionable output to the cloud for further processing. Human interventions are part of the intelligence the ML model captures. The ML process is a continuous cycle of training, testing, tuning, and validating the ML algorithms.
@@ -63,6 +60,7 @@ For model orchestration, you can use either Azure Pipelines or Azure Data Factor
 ## Considerations
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
 ### Availability
 
 ML-based applications typically require one set of resources for training and another for serving. Training resources generally don't need high availability, as live production requests don't directly use these resources. Resources required for serving requests need to have high availability.
@@ -127,9 +125,9 @@ Azure Machine Learning pricing includes charges for the virtual machines (VMs) u
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-**Principal Author:**
+Principal Author:
 
-- [Wilson Lee](https://www.linkedin.com/in/simplywilson/) | Principal Software Engineer
+- [Wilson Lee](https://www.linkedin.com/in/simplywilson) | Principal Software Engineer
 
 ## Next steps
 
