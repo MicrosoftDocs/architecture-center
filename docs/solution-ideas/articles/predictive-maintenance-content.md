@@ -20,7 +20,7 @@ This predictive maintenance solution monitors aircraft and predicts the remainin
 
 ### Components
 
-* [Azure Data Factory](https://azure.microsoft.com/databases/data_factory)
+* [Azure Data Factory](https://azure.microsoft.com/services/data-factory/)
 * [Azure Event Hub](https://azure.microsoft.com/services/event-hubs/)
 * [Azure HDInsight](https://azure.microsoft.com/free/hdinsight/)
 * [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning)
