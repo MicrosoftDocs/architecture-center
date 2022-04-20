@@ -77,51 +77,11 @@ Cosmos DB is a fully managed multi-model database that supports schemaless JSON 
 
 ### Retry mechanism
 
-The `CosmosClient` class automatically retries failed attempts. To set the number of retries and the maximum wait time, configure [CosmosClientOptions][cosmosClientOptions]. Exceptions that the client raises are either beyond the retry policy or are not transient errors.
-If Cosmos DB throttles the client, it returns an HTTP 429 error. Check the status code in the `CosmosException` class.
-
-### Policy configuration
-
-The following table shows the default settings for the `CosmosClientOptions` class.
-
-| Setting | Default value | Description |
-| --- | --- | --- |
-| MaxRetryAttemptsOnRateLimitedRequests |9 |The maximum number of retries if the request fails because Cosmos DB applied rate limiting on the client. |
-| MaxRetryWaitTimeOnRateLimitedRequests |30 |The maximum retry time in seconds for the Azure Cosmos DB service. |
-
-### Example
-
-```csharp
-CosmosClient cosmosClient = new CosmosClient("connection-string", new CosmosClientOptions()
-{
-    MaxRetryAttemptsOnRateLimitedRequests = 5,
-    MaxRetryWaitTimeOnRateLimitedRequests = TimeSpan.FromSeconds(15)
-});
-
-```
+The Cosmos DB SDKs automatically retry on certain error conditions, and user applications are encouraged to have their own retry policies. Please see the [guide to designing resilient applications with Azure Cosmos DB SDKs](/azure/cosmos-db/sql/conceptual-resilient-sdk-applications) for a complete list of error conditions and when to retry.
 
 ### Telemetry
 
-Retry attempts are logged as unstructured trace messages through a .NET **TraceSource**. You must configure a **TraceListener** to capture the events and write them to a suitable destination log.
-
-For example, if you add the following to your App.config file, traces will be generated in a text file in the same location as the executable:
-
-```xml
-<configuration>
-  <system.diagnostics>
-    <switches>
-      <add name="SourceSwitch" value="Verbose"/>
-    </switches>
-    <sources>
-      <source name="DocDBTrace" switchName="SourceSwitch" switchType="System.Diagnostics.SourceSwitch" >
-        <listeners>
-          <add name="MyTextListener" type="System.Diagnostics.TextWriterTraceListener" traceOutputOptions="DateTime,ProcessId,ThreadId" initializeData="CosmosDBTrace.txt"></add>
-        </listeners>
-      </source>
-    </sources>
-  </system.diagnostics>
-</configuration>
-```
+Depending on the language of your application, diagnostics and telemetry are exposed as logs or promoted properties on the operation responses. For the [Cosmos DB C# SDK, capture the Diagnostics](/azure/cosmos-db/sql/troubleshoot-dot-net-sdk-slow-request?#capture-diagnostics), for the [Cosmos DB Java SDK, capture the Diagnostics](/azure/cosmos-db/sql/troubleshoot-java-sdk-v4-sql?tabs=async#capture-the-diagnostics).
 
 ## Event Hubs
 
