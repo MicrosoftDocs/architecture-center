@@ -1142,7 +1142,6 @@ The following are the typical types of retry strategy intervals:
 
 [msal]: /azure/active-directory/develop/msal-overview
 [autorest]: https://github.com/Azure/autorest/tree/master/docs
-[CosmosClientOptions]: /dotnet/api/microsoft.azure.cosmos.cosmosclientoptions?view=azure-dotnets&preserve-view=true
 [dotnet-foundation]: https://dotnetfoundation.org
 [redis-cache-troubleshoot]: /azure/redis-cache/cache-how-to-troubleshoot
 [SearchIndexClient]: /dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet&preserve-view=true
