@@ -4,7 +4,7 @@ Conceptually, the DevSecOps for Infrastructure as Code (IaC) is similar to [DevS
 
 When you adopt IaC, it's important to create automation tests as you develop the code. These tests reduce the complexity of testing IaC when your workload scales. You can use local infrastructure configuration states like Terraform States and Plans to develop [Test Driven Development (TDD) for IaC](/azure/cloud-adoption-framework/ready/considerations/test-driven-development). These configuration states emulate the actual deployments. You can run integration tests for IaC on actual infrastructure deployments using the [Azure Resource Graph APIs](/rest/api/azure-resourcegraph/).
 
-Policy-as-Code (PaC) is also an important method to deliver infrastructure that's compliant to regulations and corporate governance. You can add [PaC workflows](/azure/governance/policy/concepts/policy-as-code) into your pipelines to automate cloud governance.
+Policy as Code (PaC) is also an important method to deliver infrastructure that's compliant to regulations and corporate governance. You can add [PaC workflows](/azure/governance/policy/concepts/policy-as-code) into your pipelines to automate cloud governance.
 
 Securing infrastructure early in the development stage reduces the risks of misconfiguring infrastructure that opens up points for attack after deployment. You can integrate static code analysis tools for infrastructure like Synk, or Aquasecurity tfsec using GitHub’s CodeQL, to scan security issues in infrastructure code. This process is similar to Static Application Security Testing (SAST).
 
@@ -24,7 +24,7 @@ You're part of a central team of IaC developers that use a multicloud strategy f
 
 ## Architecture
 
-:::image type="content" source="../media/devsecops-for-iac-diagram.svg" alt-text="Diagram that shows the architecture for DevSecOps for IaC." lightbox="../media/devsecops-for-iac-diagram.svg":::
+:::image type="content" source="../media/devsecops-for-iac-diagram.png" alt-text="Diagram that shows the architecture for DevSecOps for IaC." lightbox="../media/devsecops-for-iac-diagram.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/devsecops-for-iac.vsdx) of this architecture.*
 
@@ -64,7 +64,7 @@ You're part of a central team of IaC developers that use a multicloud strategy f
 - [DevSecOps in GitHub](/azure/architecture/solution-ideas/articles/devsecops-in-github) for continuous integration and delivery of application code.
 - Consider the preferred [IaC tools](https://azure.microsoft.com/solutions/devsecops/#overview) to use for DevSecOps and ensure that it comes with extensions to perform IaC security scanning.
 - Consider the preferred IaC language or templates, [Bicep](/azure/azure-resource-manager/bicep/overview?tabs=bicep) or [Terraform on Azure](/azure/developer/terraform).
-- [Enterprise infrastructure as code using Bicep and Azure Container Registry](/architecture/guide/azure-resource-manager/advanced-templates/enterprise-infrastructure-bicep-container-registry)
+- [Enterprise infrastructure as code using Bicep and Azure Container Registry](/azure/architecture/guide/azure-resource-manager/advanced-templates/enterprise-infrastructure-bicep-container-registry)
 - [The GitHub Guide to Organizations](https://resources.github.com/downloads/github-guide-to-organizations.pdf)
 - [Connect GitHub Environment to Azure](/azure/developer/github/connect-from-azure?tabs=azure-portal%2Cwindows)
 - [GitHub Actions](https://docs.github.com/en/actions)
