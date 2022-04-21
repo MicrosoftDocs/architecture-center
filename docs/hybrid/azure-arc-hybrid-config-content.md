@@ -33,7 +33,7 @@ The architecture consists of the following components:
 
 The following recommendations apply for most scenarios. Follow these recommendations unless you have a specific requirement that overrides them.
 
-### Connecting machines to Azure Arc
+### Configure Azure Arc Connected Machine agent
 
 You can connect any other physical or virtual machine running Windows or Linux to Azure Arc. Before onboarding machines, be sure to complete the [Connected machine agent prerequisites][agent-prerequisites], which includes registering the Azure resource providers for Azure Arc-enabled servers. To use Azure Arc to connect the machine to Azure, you need to install the Azure Connected Machine agent on each machine that you plan to connect using Azure Arc. For more information, see [Overview of Azure Arc-enabled servers agent][agent-overview].
 
@@ -48,7 +48,7 @@ There are several options available in Azure to connect your Windows and Linux m
 
 Consult the [Azure Connected Machine agent deployment options](/azure/azure-arc/servers/deployment-options) for comprehensive documentation on the various deployment options available.
 
-### Azure Policy guest configuration
+### Enable Azure Policy guest configuration
 
 Azure Arc-enabled servers support [Azure Policy](/azure/governance/policy/overview) at the Azure resource management layer, and also within the individual server machine using [guest configuration policies](/azure/governance/policy/concepts/guest-configuration). Azure Policy guest configuration can audit settings inside a machine, both for machines running in Azure and Arc-enabled servers. For example, you can audit settings such as:
 
@@ -58,7 +58,7 @@ Azure Arc-enabled servers support [Azure Policy](/azure/governance/policy/overvi
 
 There are several [Azure Policy built-in definitions for Azure Arc][arc-built-in-policies]. These policies provide auditing and configuration settings for both Windows and Linux-based machines.
 
-### Manage with Azure Automation
+### Enable Azure Update Management
 
 Update Management. You can perform update management for Arc-enabled servers. [Update management](/azure/automation/update-management/overview) in Azure Automation enables you to manage operating system updates and quickly assess the status of available updates on all agent machines. You can also manage the process of installing required updates for servers.
 
@@ -82,7 +82,7 @@ Consider using [Azure Key Vault](/azure/key-vault/general/basic-concepts) to man
 
 [Connect Azure Arc-enabled servers to Microsoft Sentinel](/azure/cloud-adoption-framework/manage/hybrid/server/best-practices/arc-azure-sentinel). This enables you to start collecting security-related events and start correlating them with other data sources.
 
-### Topology and network considerations
+### Verify network topology
 
 The Connected Machine agent for Linux and Windows communicates outbound securely to Azure Arc over TCP port **443**. The Connected Machine agent can connect to the Azure control plane using the following methods:
 
