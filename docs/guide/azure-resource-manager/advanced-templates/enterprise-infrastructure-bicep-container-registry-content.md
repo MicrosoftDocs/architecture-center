@@ -132,7 +132,7 @@ Finally, though you might not have an index of all repositories and the code wit
 - [Mature team structures](/azure/cloud-adoption-framework/organize/organization-structures)
 - [What is Infrastructure as Code?](/devops/deliver/what-is-infrastructure-as-code)
 - [Azure/ResourceModules](https://github.com/Azure/ResourceModules): This repository includes a CI platform for and collection of mature and curated Bicep modules. The platform supports both Azure Resource Manager and Bicep, and you can use its features with GitHub actions and Azure Pipelines.
-- [Create private registry for Bicep module](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/private-module-registry?tabs=azure-powershell)
+- [Create private registry for Bicep module](/azure/azure-resource-manager/bicep/private-module-registry?tabs=azure-powershell)
 
 ## Related resources
 
@@ -140,5 +140,5 @@ Finally, though you might not have an index of all repositories and the code wit
 - [Build a CI/CD pipeline for chatbots with ARM templates](../../../example-scenario/apps/devops-cicd-chatbot.yml)
 - [CI/CD pipeline for container-based workloads](../../../example-scenario/apps/devops-with-aks.yml)
 - [Design a CI/CD pipeline using Azure DevOps](../../../example-scenario/apps/devops-dotnet-webapp.yml)
-- [Microservices with AKS and Azure DevOps](../../../solution-ideas/articles/microservices-with-aks.yml)
 - [DevSecOps for Infrastructure as Code (IaC)](../../../solution-ideas/articles/devsecops-infrastructure-as-code.yml)
+- [Microservices with AKS and Azure DevOps](../../../solution-ideas/articles/microservices-with-aks.yml)
