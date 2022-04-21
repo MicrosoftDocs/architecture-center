@@ -82,7 +82,7 @@ Consider using [Azure Key Vault](/azure/key-vault/general/basic-concepts) to man
 
 [Connect Azure Arc-enabled servers to Microsoft Sentinel](/azure/cloud-adoption-framework/manage/hybrid/server/best-practices/arc-azure-sentinel). This enables you to start collecting security-related events and start correlating them with other data sources.
 
-### Verify network topology
+### Validate network topology
 
 The Connected Machine agent for Linux and Windows communicates outbound securely to Azure Arc over TCP port **443**. The Connected Machine agent can connect to the Azure control plane using the following methods:
 
