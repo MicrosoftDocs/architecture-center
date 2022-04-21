@@ -132,7 +132,7 @@ Finally, though you might not have an index of all repositories and the code wit
 - [Mature team structures](/azure/cloud-adoption-framework/organize/organization-structures)
 - [What is Infrastructure as Code?](/devops/deliver/what-is-infrastructure-as-code)
 - [Azure/ResourceModules](https://github.com/Azure/ResourceModules): This repository includes a CI platform for and collection of mature and curated Bicep modules. The platform supports both Azure Resource Manager and Bicep, and you can use its features with GitHub actions and Azure Pipelines.
-- [Create private registry for Bicep module](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/private-module-registry?tabs=azure-powershell)
+- [Create private registry for Bicep module](/azure/azure-resource-manager/bicep/private-module-registry?tabs=azure-powershell)
 
 ## Related resources
 

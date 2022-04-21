@@ -161,7 +161,7 @@ VNets in any subscription, management group, or region, under the same Azure AD 
 
 Spoke VNets in the same network group can be connected with one another by enabling VNet peering through AVNM's [direct connectivity](/azure/virtual-network-manager/concept-connectivity-configuration#direct-connectivity) feature. To extend the capabilities for spokes in different regions to have direct connectivity, use the [global mesh](/azure/virtual-network-manager/concept-connectivity-configuration#global-mesh) feature, which facilitates the creation of global VNet peerings. See the example diagram below:
 
-![Diagram showing spoke direct connectivity.](https://docs.microsoft.com/en-us/azure/virtual-network-manager/media/concept-configuration-types/hub-and-spoke.png)
+![Diagram showing spoke direct connectivity.](/azure/virtual-network-manager/media/concept-configuration-types/hub-and-spoke.png)
 
 Further, to ensure a baseline set of security rules, VNets within the same network group can be associated to [security admin rules](/azure/virtual-network-manager/concept-security-admins). Security admin rules are evaluated before NSG rules and have the same nature of NSGs, with support for prioritization, service tags, and L3-L4 protocols.
 
