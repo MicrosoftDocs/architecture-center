@@ -24,12 +24,12 @@ Forecasts are created by harnessing the power of real-time and historical data r
 
 ### Workflow
 
-  1. The data feeds into the Azure Event Hubs and Azure Synapse Analytics service as data points or events, that will be used in the rest of the solution flow.
-  2. Azure Stream Analytics analyze the data to provide near real-time analytics on the input stream from the event hub and directly publish to Power BI for visualization.
-  3. Azure Machine Learning is used to make forecast on the tank level of particular region given the inputs received.
+  1. The data feeds into the [Azure Event Hubs](/azure/event-hubs/event-hubs-about) and [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) service as data points or events, that will be used in the rest of the solution flow.
+  2. [Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction) analyze the data to provide near real-time analytics on the input stream from the event hub and directly publish to Power BI for visualization.
+  3. [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) is used to make forecast on the tank level of particular region given the inputs received.
   4. Azure Synapse Analytics is used to store the prediction results received from Azure Machine Learning. These results are then consumed in the Power BI dashboard.
-  5. Azure Data Factory handles orchestration, and scheduling of the hourly model retraining.
-  6. Finally, Power BI is used for results visualization, so that users can monitor the tank level from a facility in real time and use the forecast level to prevent spillage.
+  5. [Azure Data Factory](/azure/data-factory/introduction) handles orchestration, and scheduling of the hourly model retraining.
+  6. Finally, [Power BI](/power-bi/fundamentals/power-bi-overview) is used for results visualization, so that users can monitor the tank level from a facility in real time and use the forecast level to prevent spillage.
 
 ### Components
 
@@ -51,6 +51,21 @@ This solution combines several Azure services to provide powerful advantages. Ev
 The 'Deploy' button will launch a workflow that will deploy an instance of the solution within a Resource Group in the Azure subscription you specify. The solution includes multiple Azure services (described below) along with a web job that simulates data so that immediately after deployment you have a working end-to-end solution.
 
 After deployment, see the post deployment instructions in GitHub.
+
+## Next steps
+
+Product documentation:
+
+- [What is Azure Event Hubs?](/azure/event-hubs/event-hubs-about)
+- [What is Azure Synapse Analytics?](/azure/synapse-analytics/overview-what-is)
+- [Welcome to Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction)
+- [What is Azure Machine Learning?](/azure/machine-learning/overview-what-is-azure-machine-learning)
+- [What is Azure Data Factory?](/azure/data-factory/introduction)
+
+Microsoft Learn modules:
+
+- [Train a machine learning model with Azure Machine Learning](/learn/modules/train-local-model-with-azure-mls/)
+- [Integrate data with Azure Data Factory or Azure Synapse Pipeline](/learn/modules/data-integration-azure-data-factory/)
 
 ## Related resources
 

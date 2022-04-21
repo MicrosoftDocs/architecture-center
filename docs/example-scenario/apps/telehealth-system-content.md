@@ -107,11 +107,17 @@ This solution handles PHI and personal data. As such, it is important to use ser
 
 For a deployment in a single region, example pricing information is available in the [Pricing Calculator](https://www.azure.com/e/af6719a5700844aab6c8917b4908b8ab)
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+**Principal authors:**
+
+* [Jean-Yves Devant](https://www.linkedin.com/in/jydevant) | Principal Product Manager
+
 ## Next steps
 
 To get started with implementing a comparable architecture for your business, consider building skills around web services, databases such as [Azure Database for PostgreSQL](/azure/postgresql), and mobile application development techniques and technologies such as [Xamarin](/xamarin) and [.Net Core](/dotnet/core).
-
-## Related resources
 
 ### Real-time communications
 
@@ -127,3 +133,9 @@ Use a client library such as [Icelink](https://www.frozenmountain.com/products-s
 - Encode/decodes the calls (audio and/or video) during the calls
 
 \*Turn servers are network entities in charge of relaying media in VoIP related protocols. In this solution they are hosted by [https://xirsys.com/](https://xirsys.com/) in several datacenters worldwide. Establishes direct connection between two clients under the same session.
+
+## Related resources
+
+- [Scalable web and mobile applications using Azure Database for PostgreSQL](../../solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-postgresql.yml)
+- [Core startup stack architecture](../../example-scenario/startups/core-startup-stack.yml)
+- [IoT Connected Platform for COVID-19 detection and prevention](../../solution-ideas/articles/iot-connected-platform.yml)

@@ -85,8 +85,7 @@ network via a specific endpoint.
 
 Before transferring data to Azure, it's useful to consider the network topology
 securing both your Azure resources and the connection to them from on-premises.
-[Virtual Network (VNet?WT.mc_id=bankdm-docs-dastarr) service
-endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview?WT.mc_id=bankdm-docs-dastarr)
+[Virtual Network service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview?WT.mc_id=bankdm-docs-dastarr)
 provide a secured direct connection to an Azure defined VNet.
 
 VNets are defined in Azure to contain Azure resources within a bounded VNet. An
@@ -205,7 +204,7 @@ Azure Information Protection (AIP) is a cloud-based solution helping organizatio
 ## Data services
 
 Banks struggle with Master Data Management, meta data conflicting due to disparate core banking systems,
-and data coming from origination systems, onboarding systems, offers management systems, CRM systems, and more. Azure has tools to help mitigate thesee and other commonly occurring data issues.
+and data coming from origination systems, onboarding systems, offers management systems, CRM systems, and more. Azure has tools to help mitigate these and other commonly occurring data issues.
 
 There are many operations financial services organizations need to perform on
 their data. When writing data to Azure data stores, there may be a need to
@@ -355,27 +354,15 @@ are good resources to help plan your overall strategy.
 
 The following technologies are relevant to this solution:
 
-- [Azure
-    Functions](/azure/azure-functions/functions-bindings-timer?WT.mc_id=bankdm-docs-dastarr)
-    are serverless scripts and small programs that can run in response to a
-    system event or on a timer.
+- [Azure Functions](https://azure.microsoft.com/services/functions) are serverless scripts and small programs that can run in response to a system event or on a timer.
 
-- [Azure Storage Client
-    Tools](/azure/storage/common/storage-explorers?WT.mc_id=bankdm-docs-dastarr)
-    are tools to access data stores and include far more than the Azure portal.
+- [Azure Storage Client Tools](/azure/storage/common/storage-explorers?WT.mc_id=bankdm-docs-dastarr) are tools to access data stores and include far more than the Azure portal.
 
-- [Blob
-    storage](/azure/storage/blobs/storage-blobs-introduction?WT.mc_id=bankdm-docs-dastarr)
-    is suitable to store files like text or images and other types of
-    unstructured data.
+- [Blob storage](https://azure.microsoft.com/services/storage/blobs) is suitable to store files like text or images and other types of unstructured data.
 
-- [Databricks](/azure/azure-databricks/?WT.mc_id=bankdm-docs-dastarr) is a
-    fully managed service offering easy implementation of a Spark cluster.
+- [Databricks](https://azure.microsoft.com/free/databricks) is a fully managed service offering easy implementation of a Spark cluster.
 
-- [Data
-    Factory](/azure/data-factory/concepts-pipelines-activities?WT.mc_id=bankdm-docs-dastarr)
-    is a cloud data integration service used to compose data storage, transit,
-    and processing services into automated data pipelines
+- [Data Factory](https://azure.microsoft.com/services/data-factory) is a cloud data integration service used to compose data storage, transit, and processing services into automated data pipelines
 
 ## Conclusion
 
@@ -397,15 +384,27 @@ of rarely-accessed data and it can be deleted on a rolling cycle as needed.
 
 ## Contributors
 
-_This article is being updated and maintained by Microsoft. It was originally written by the following contributors._
+*This article is being updated and maintained by Microsoft. It was originally written by the following contributors.*
 
 **Principal authors:**
 
-- [Howard Bush](https://www.linkedin.com/in/howardbush) | 
-Banking and Capital Markets Cloud & AI, Consulting Services
+- [Howard Bush](https://www.linkedin.com/in/howardbush) | Banking and Capital Markets Cloud & AI, Consulting Services
 - [David Starr](https://www.linkedin.com/in/davidstarr) | Principal Azure Software Engineer
 
 ## Next steps
 
-Visit the Azure solutions library for [backup and archival
-storage](https://azure.microsoft.com/solutions/architecture/?solution=backup-archive?WT.mc_id=bankdm-docs-dastarr), to get started designing your data management plan.
+Visit the Azure solutions library for [backup and archival storage](https://azure.microsoft.com/solutions/architecture/?solution=backup-archive?WT.mc_id=bankdm-docs-dastarr) to get started designing your data management plan.
+
+Product documentation:
+
+- [Azure Functions](/azure/azure-functions/functions-overview)
+- [Azure Storage Client Tools](/azure/storage/common/storage-explorers)
+- [Introduction to Blob storage](/azure/storage/blobs/storage-blobs-introduction)
+- [What is Azure Databricks?](/azure/databricks/scenarios/what-is-azure-databricks)
+- [What is Azure Data Factory?](/azure/data-factory/introduction)
+
+## Related resources
+
+- [Loan credit risk and default modeling](../../solution-ideas/articles/loan-credit-risk-analyzer-and-default-modeling.yml)
+- [Medical data storage solutions](../../solution-ideas/articles/medical-data-storage.yml)
+- [Determine customer lifetime and churn with Azure AI services](../../example-scenario/ai/customer-lifecycle-churn.yml)
