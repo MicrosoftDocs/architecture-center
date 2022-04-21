@@ -141,3 +141,4 @@ Finally, though you might not have an index of all repositories and the code wit
 - [CI/CD pipeline for container-based workloads](../../../example-scenario/apps/devops-with-aks.yml)
 - [Design a CI/CD pipeline using Azure DevOps](../../../example-scenario/apps/devops-dotnet-webapp.yml)
 - [Microservices with AKS and Azure DevOps](../../../solution-ideas/articles/microservices-with-aks.yml)
+- [DevSecOps for Infrastructure as Code (IaC)](../../../solution-ideas/articles/devsecops-infrastructure-as-code.yml)
