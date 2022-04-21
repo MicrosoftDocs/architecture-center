@@ -64,7 +64,7 @@ Let's review some details presented in the diagram.
 
     - **Private Link** -- this service allows you to create a private network for an Azure service that initially is exposed to the internet. For more information about implementing private link service, see [What is Azure Private Link](https://docs.microsoft.com/en-us/azure/private-link/private-link-overview)?
 
-    - **Private Endpoint** -- part of Private Link, Private Endpoint creates a network card and attaches it to the Azure service. This configuration lets the service with a private endpoint be part of your virtual network. For more information about using private endpoints, see [What is a private endpoint](azure/private-link/private-endpoint-overview)?
+    - **Private Endpoint** -- part of Private Link, Private Endpoint creates a network card and attaches it to the Azure service. This configuration lets the service with a private endpoint be part of your virtual network. For more information about using private endpoints, see [What is a private endpoint](/azure/private-link/private-endpoint-overview)?
 
 3.  **Infrastructure and Endpoint**
 
