@@ -35,7 +35,7 @@ On the left side of the architectural diagram, there are clients in two groups, 
 - Public facing APIs
 - Internal microservices that are responsible for workflows such as video calls through Web RTC or client-to-client communication using Signal. signal is a software library for Microsoft ASP.NET that allows server code to send asynchronous notifications to client-side web applications.
 
-The state of these services is persisted in several Azure services (on the right side of the diagram) such as Azure Database for PostgreSQL. Media files are saved in Azure storage accounts. All logs from all services are gathered in a centralized logging solution that uses Azure Application Insights. Finally, asynchronous communication can be achieved between the clients through push notifications using the help of the Azure Notification Hub.
+The state of these services is persisted in several Azure services (on the right side of the diagram) such as [Azure Database for PostgreSQL](/azure/postgresql/overview). Media files are saved in [Azure storage accounts](/azure/storage/common/storage-account-overview). All logs from all services are gathered in a centralized logging solution that uses [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview). Finally, asynchronous communication can be achieved between the clients through push notifications using the help of the [Azure Notification Hub](/azure/notification-hubs/notification-hubs-push-notification-overview).
 
 The solution was set up in this way to:
 
@@ -119,11 +119,21 @@ For a deployment in a single region, example pricing information is available in
 
 To get started with implementing a comparable architecture for your business, consider building skills around web services, databases such as [Azure Database for PostgreSQL](/azure/postgresql), and mobile application development techniques and technologies such as [Xamarin](/xamarin) and [.Net Core](/dotnet/core).
 
-### Real-time communications
+Product documentation:
+
+- [What is Azure Database for PostgreSQL?](/azure/postgresql/overview)
+- [Azure Kubernetes Service](/azure/aks/intro-kubernetes)
+- [Azure storage accounts](/azure/storage/common/storage-account-overview)
+- [About Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview)
+- [Introduction to Azure Functions](/azure/azure-functions/functions-overview)
+- [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview)
+- [What is Azure Notification Hubs?](/azure/notification-hubs/notification-hubs-push-notification-overview).
+
+Real-time communications:
 
 More information about how WebRTC provides real-time communication capabilities to mobile applications is available on the [WebRTC project site](https://webrtc.org/).
 
-### Turn servers
+Turn servers:
 
 Use a client library such as [Icelink](https://www.frozenmountain.com/products-services/icelink/) (loaded by the application on the phone and by the fitting software of the desktop of the hearing aid professional) to manage the turn servers\* and the types of connection (tcp, udp, p2p) between the two clients (fitting software and application on the phone). The client library:
 
