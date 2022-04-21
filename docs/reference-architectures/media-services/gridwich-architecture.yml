@@ -4,8 +4,8 @@ metadata:
   titleSuffix: Azure Reference Architectures
   description: Learn about a stateless action execution workflow that ingests, processes, and delivers media assets using Terraform Sandwiches and Event Grid Sandwiches.
   author: EdPrice-MSFT
-  ms.author: pnp
-  ms.date: 11/12/2020
+  ms.author: edprice
+  ms.date: 03/18/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture

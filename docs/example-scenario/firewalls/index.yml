@@ -3,6 +3,7 @@ metadata:
   title: Azure Firewall architecture overview
   description: Use proven customer engagement practices to design firewalls and proxies in Azure for traditional infrastructure workloads.
   author: RZomerman
+  ms.author: rozome
   ms.date: 05/15/2020
   ms.topic: conceptual
   ms.service: architecture-center

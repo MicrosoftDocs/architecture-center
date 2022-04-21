@@ -60,7 +60,7 @@ For details about SAP support for Azure virtual machine types and throughput met
 
 ### SAP Web Dispatcher
 
-The Web Dispatcher component is used as a load balancer for SAP traffic among the SAP application servers. To achieve [high availability of the SAP Web Dispatcher](https://help.sap.com/doc/saphelp_nw73ehp1/7.31.19/en-US/48/9a9a6b48c673e8e10000000a42189b/frameset.htm), Azure Load Balancer implements either the failover cluster or the parallel Web Dispatcher setup. For internet facing communications a stand-alone solution in DMZ would be the recommended architecture to satisfy security concerns. [Embedded Web Dispatcher on ASCS](https://help.sap.com/viewer/00b4e4853ef3494da20ebcaceb181d5e/LATEST/en-US/2e708e2d42134b4baabdfeae953b24c5.html) is a special option, proper sizing due to additional workload on ASCS should be taken into account.
+The Web Dispatcher component is used as a load balancer for SAP traffic among the SAP application servers. To achieve [high availability of the SAP Web Dispatcher](https://help.sap.com/viewer/683d6a1797a34730a6e005d1e8de6f22/201909.002/en-US/489a9a6b48c673e8e10000000a42189b.html), Azure Load Balancer implements either the failover cluster or the parallel Web Dispatcher setup. For internet facing communications a stand-alone solution in DMZ would be the recommended architecture to satisfy security concerns. [Embedded Web Dispatcher on ASCS](https://help.sap.com/viewer/00b4e4853ef3494da20ebcaceb181d5e/LATEST/en-US/2e708e2d42134b4baabdfeae953b24c5.html) is a special option, proper sizing due to additional workload on ASCS should be taken into account.
 
 ### Fiori Front-end Server (FES)
 
@@ -128,7 +128,7 @@ FastPath does not support VNet peering. If you have other VNets peered with the 
 
 ### Load balancers
 
-The [SAP Web Dispatcher](https://help.sap.com/doc/saphelp_nw73ehp1/7.31.19/en-US/48/8fe37933114e6fe10000000a421937/frameset.htm) handles load balancing of HTTP(S) traffic to a pool of SAP application servers. This software load balancer offers application layer services (referred to as layer 7 in the ISO networking model) capable of SSL termination and other offloading functions.
+The [SAP Web Dispatcher](https://help.sap.com/viewer/683d6a1797a34730a6e005d1e8de6f22/202110.001/en-US/488fe37933114e6fe10000000a421937.html?q=SAP%20Web%20Dispatcher) handles load balancing of HTTP(S) traffic to a pool of SAP application servers. This software load balancer offers application layer services (referred to as layer 7 in the ISO networking model) capable of SSL termination and other offloading functions.
 
 [Azure Load Balancer](https://azure.microsoft.com/blog/azure-load-balancer-new-distribution-mode/) is a network transmission layer service (layer 4), which balances traffic by a 5-tuples hash from the data streams (based on source IP, source port, destination IP, destination port, and protocol type). It's used in cluster setups to direct traffic to the primary service instance or the healthy node in case of a fault. We recommend using [Azure Standard Load Balancer](/azure/load-balancer/load-balancer-standard-overview) for all SAP scenarios. It's important to highlight that the Standard Load Balancer is secure by default, and no virtual machines behind the Standard Load Balancer will have outbound internet connectivity. To enable outbound internet in the virtual machines, you must consider your [Standard Load Balancer](/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections) configuration.
 
@@ -175,8 +175,6 @@ We also recommend you consider performance when deploying resources with
 
 Azure NetApp Files has unique performance features that allow for real time tuning that meet the needs of the most demanding SAP environments.  For performance considerations using Azure NetApp Files see [this article](/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse#sizing-for-hana-database-on-azure-netapp-files).
 
-![image](https://user-images.githubusercontent.com/86350177/156545409-4d502d42-6d38-47a4-bd0d-eec427d7dafb.png)
-
 ## Scalability considerations
 
 At the SAP application layer, Azure offers a wide range of virtual machine sizes for scaling up and scaling out. For an inclusive list, see [SAP Note
@@ -192,7 +190,7 @@ In this distributed installation of the SAP application, the base installation i
 
 ### Web Dispatcher in the application servers tier
 
-High availability is achieved with redundant Web Dispatcher instances. See the [SAP Web Dispatcher](https://help.sap.com/doc/saphelp_nw73ehp1/7.31.19/en-US/48/8fe37933114e6fe10000000a421937/frameset.htm) in the SAP documentation.
+High availability is achieved with redundant Web Dispatcher instances. See the [SAP Web Dispatcher](https://help.sap.com/viewer/683d6a1797a34730a6e005d1e8de6f22/202110.001/en-US/488fe37933114e6fe10000000a421937.html?q=SAP%20Web%20Dispatcher) in the SAP documentation.
 
 ### Central Services in the application servers tier
 

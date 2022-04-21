@@ -18,7 +18,7 @@ Modern cloud infrastructure has evolved to enable geographic load balancing of f
 
 Deploy the service into a number of satellite deployments spread around the globe, each of which is called a _geode_. The geode pattern harnesses key features of Azure to route traffic via the shortest path to a nearby geode, which improves latency and performance. Each geode is behind a global load balancer, and uses a geo-replicated read-write service like [Azure Cosmos DB](/azure/cosmos-db/introduction) to host the data plane, ensuring cross-geode data consistency. Data replication services ensure that data stores are identical across geodes, so _all_ requests can be served from _all_ geodes.
 
-The key difference between a [deployment stamp](./deployment-stamp.md) and a geode is that geodes never exist in isolation. There should always be more than one geode in a production platform.
+The key difference between a [deployment stamp](./deployment-stamp.yml) and a geode is that geodes never exist in isolation. There should always be more than one geode in a production platform.
 
 ![Geode overview](./_images/geode-dist.png)
 
@@ -64,7 +64,7 @@ Use this pattern:
 
 This pattern might not be suitable for
 
-- Architectures that have constraints so that all geodes can't be equal for data storage. For example, there may be data residency requirements, an application that needs to maintain temporary state for a particular session, or a heavy weighting of requests towards a single region. In this case, consider using [deployment stamps](./deployment-stamp.md) in combination with a global routing plane that is aware of where a user's data sits, such as the traffic routing component described within the [deployment stamps pattern](./deployment-stamp.md).
+- Architectures that have constraints so that all geodes can't be equal for data storage. For example, there may be data residency requirements, an application that needs to maintain temporary state for a particular session, or a heavy weighting of requests towards a single region. In this case, consider using [deployment stamps](./deployment-stamp.yml) in combination with a global routing plane that is aware of where a user's data sits, such as the traffic routing component described within the [deployment stamps pattern](./deployment-stamp.yml).
 - Situations where there's no geographical distribution required. Instead, consider availability zones and paired regions for clustering.
 - Situations where a legacy platform needs to be retrofitted. This pattern works for cloud-native development only, and can be difficult to retrofit.
 - Simple architectures and requirements, where geo-redundancy and geo-distribution aren't required or advantageous.

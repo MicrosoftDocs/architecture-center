@@ -1,4 +1,4 @@
-This article shows you how to visualize the data collected by the [Azure Industrial IoT analytics solution](./iiot-architecture.yml). You can easily look for data trends using visual elements and dashboards, and use these trends to analyze the effectiveness of your solution.
+This article shows you how to visualize the data collected by the [Azure industrial IoT (IIoT) analytics solution](./iiot-architecture.yml). You can easily look for data trends using visual elements and dashboards, and use these trends to analyze the effectiveness of your solution.
 
 ## Visualization
 
@@ -17,13 +17,13 @@ Time Series Insights Explorer is ideally suited to personas, such as a Process E
 
 The Azure Time Series Insights explorer allows you to seamlessly explore both warm and cold data, or your historical data, as demonstrated in the following figure.
 
-[![IIoT Warm and Cold Data](./images/warm-cold-data.png)](./images/warm-cold-data.png#lightbox)
+[![Diagram showing IIoT warm and cold data architecture.](./images/warm-cold-data.png)](./images/warm-cold-data.png#lightbox)
 
 Azure Time Series Insights explorer has a powerful yet intuitive user interface, as shown below.
 
-[![Time Series Insights explorer](./images/preview-explorer-overview.png)](./images/preview-explorer-overview.png#lightbox)
+[![Screenshot of the Time Series Insights explorer.](./images/preview-explorer-overview.png)](./images/preview-explorer-overview.png#lightbox)
 
-Key features of Azure Time Series Insights explorer:
+Azure Time Series Insights explorer includes the following key features:
 
 1. **Environment panel:** Displays all your Azure Time Series Insights environments.
 1. **Navigation bar:** Lets you switch between the Analyze and Model pages.

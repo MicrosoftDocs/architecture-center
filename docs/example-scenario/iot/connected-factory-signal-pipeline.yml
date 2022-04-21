@@ -5,7 +5,7 @@ metadata:
   description: The connected factory signal pipeline architecture provides a common configuration interface to connect brownfield IoT devices through an OPC Unified Architecture (UA) gateway using custom APIs, and KEPServerEX IoT Gateway.
   author: EdPrice-MSFT
   ms.author: Francisco.beltrao, martin.weber
-  ms.date: 11/22/2021
+  ms.date: 03/17/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario

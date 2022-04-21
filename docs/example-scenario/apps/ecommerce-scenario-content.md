@@ -125,7 +125,7 @@ We have provided three sample cost profiles based on amount of traffic you expec
 [large-pricing]: https://azure.com/e/f07f99b6c3134803a14c9b43fcba3e2f
 [app-service-reference-architecture]: ../../reference-architectures/app-service-web-app/basic-web-app.yml
 [availability]: /azure/architecture/framework/resiliency/reliability-patterns
-[circuit-breaker]: ../../patterns/circuit-breaker.md
+[circuit-breaker]: ../../patterns/circuit-breaker.yml
 [design-patterns-availability]: /azure/architecture/framework/resiliency/reliability-patterns
 [design-patterns-resiliency]: /azure/architecture/framework/resiliency/reliability-patterns
 [design-patterns-performance efficiency]: /azure/architecture/framework/scalability/performance-efficiency-patterns

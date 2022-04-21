@@ -64,8 +64,8 @@ For a structured approach to making your applications self healing, see [Design 
 
 <!-- links -->
 
-[circuit-breaker]: ../../patterns/circuit-breaker.md
-[compensating-transactions]: ../../patterns/compensating-transaction.md
+[circuit-breaker]: ../../patterns/circuit-breaker.yml
+[compensating-transactions]: ../../patterns/compensating-transaction.yml
 [leader-election]: ../../patterns/leader-election.yml
 [load-level]: ../../patterns/queue-based-load-leveling.yml
 [resiliency-overview]: /azure/architecture/framework/resiliency/principles

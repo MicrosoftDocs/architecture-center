@@ -1,5 +1,3 @@
-
-
 A well-known mass media and entertainment conglomerate replaced their on-premises video streaming service with a cloud-based solution for ingesting, processing, and publishing video assets. The company's main goals were to take advantage of Azure cloud capacity, cost, and flexibility to:
 
 - Ingest raw video files, process and publish them, and fulfill media requests.
@@ -7,6 +5,8 @@ A well-known mass media and entertainment conglomerate replaced their on-premise
 - Implement continuous integration and delivery (CI/CD) for the media asset management (MAM) pipeline.
 
 To meet these goals, the Microsoft engineering team developed Gridwich, a stateless event-processing framework driven by an external [saga workflow orchestration system](gridwich-saga-orchestration.yml). The Gridwich pipelines ingest, process, store, and deliver media assets with the help of two new methods, the *Azure Event Grid Sandwich* and the *Terraform Sandwich*.
+
+## Potential use cases
 
 The engineering team developed Gridwich to align with principles and industry standards for:
 
@@ -36,7 +36,7 @@ Gridwich architecture features two *sandwiches* that address the requirements of
 
   This way, Terraform can wholly manage and deploy the solution infrastructure, even when not all the [Azure resources](https://terraform.io/docs/providers/azurerm/) can be created before the software artifacts are deployed.
 
-## Request flow
+## Workflow
 
 The Gridwich request and response process covers request:
 
@@ -198,7 +198,7 @@ The Gridwich media processing solution uses Azure Event Grid, Azure Functions, A
 
 - For an alternative microservices rather than monolithic Gridwich architecture, see [Microservices alternative](gridwich-clean-monolith.yml#microservices-alternative).
 
-## Deploy the solution
+## Deploy this scenario
 
 - [Set up Azure DevOps](set-up-azure-devops.yml) Gridwich project, repo, pipelines, and variable groups.
 - [Run the admin scripts](run-admin-scripts.yml) for Azure permissions.
@@ -206,20 +206,20 @@ The Gridwich media processing solution uses Azure Event Grid, Azure Functions, A
 
 ## Next steps
 
-- [Understand Azure Pipelines to Terraform variable flow](variable-group-terraform-flow.yml).
-- [Set up content protection and DRM](gridwich-content-protection-drm.yml).
-- [Create a new sandbox or test cloud environment](create-delete-cloud-environment.yml).
-- [Maintain and manage Key Vault keys](maintain-keys.yml).
-- [Scale Media Services resources](media-services-setup-scale.yml#scale-media-services-resources).
-
-## Related resources
-
-- [Terraform starter project for Azure Pipelines](https://github.com/microsoft/terraform-azure-devops-starter).
+- [Terraform starter project for Azure Pipelines](https://github.com/microsoft/terraform-azure-devops-starter)
 - [Azure Function with Event Grid and Terraform Sandwich sample](https://github.com/Azure-Samples/azure-functions-event-grid-terraform). Subscribe an Azure Function to Event Grid Events via Terraform, using a Terraform Sandwich.
 - [MediaInfoLib with Azure Storage](https://github.com/Azure-Samples/functions-dotnet-core-mediainfo). Azure Functions and console samples that use cross-platform .NET Core to retrieve a report on a media file stored in Azure Storage.
 - [AMS V2 REST API samples](https://github.com/Azure-Samples/media-services-v2-dotnet-core-restsharp-sample). A variety of Azure Media Services V2 REST API samples using RestSharp in .NET Core 3.1.
 - [Event Grid Viewer Blazor](https://github.com/Azure-Samples/eventgrid-viewer-blazor). An EventGrid Viewer application, using Blazor and SignalR, with Azure Active Directory authorization support.
 - [Azure Function with Managed Service Identity for Azure Storage](https://github.com/Azure-Samples/functions-storage-managed-identity). Use Managed Service Identity between Azure Functions and Azure Storage.
 - [Handling serverless Key Vault rotation](https://github.com/Azure-Samples/serverless-keyvault-secret-rotation-handling). Use Event Grid and Logic Apps to handle Azure Key Vault secret rotation changes that an Azure Function uses.
-- [Updates to existing media-services-v3-dotnet-core-functions-integration sample](https://github.com/Azure-Samples/media-services-v3-dotnet-core-functions-integration/tree/master/Encoding).
+- [Updates to existing media-services-v3-dotnet-core-functions-integration sample](https://github.com/Azure-Samples/media-services-v3-dotnet-core-functions-integration/tree/master/Encoding)
 - [Updates to vscode-dev-containers repo](https://github.com/microsoft/vscode-dev-containers/tree/master/containers/azure-functions-dotnetcore-3.1). Updates to the vscode-dev-containers repo, adding the Azure Functions v3 and .NET Core 3.1 devcontainer.
+
+## Related resources
+
+- [Understand Azure Pipelines to Terraform variable flow](variable-group-terraform-flow.yml)
+- [Set up content protection and DRM](gridwich-content-protection-drm.yml)
+- [Create a new sandbox or test cloud environment](create-delete-cloud-environment.yml)
+- [Maintain and manage Key Vault keys](maintain-keys.yml)
+- [Scale Media Services resources](media-services-setup-scale.yml#scale-media-services-resources)

@@ -125,7 +125,7 @@ Avoid using a cache as the primary repository of data; this is the role of the o
 
 Be careful not to introduce critical dependencies on the availability of a shared cache service into your solutions. An application should be able to continue functioning if the service that provides the shared cache is unavailable. The application should not become unresponsive or fail while waiting for the cache service to resume.
 
-Therefore, the application must be prepared to detect the availability of the cache service and fall back to the original data store if the cache is inaccessible. The [Circuit-Breaker pattern](../patterns/circuit-breaker.md) is useful for handling this scenario. The service that provides the cache can be recovered, and once it becomes available, the cache can be repopulated as data is read from the original data store, following a strategy such as the [Cache-aside pattern](../patterns/cache-aside.md).
+Therefore, the application must be prepared to detect the availability of the cache service and fall back to the original data store if the cache is inaccessible. The [Circuit-Breaker pattern](../patterns/circuit-breaker.yml) is useful for handling this scenario. The service that provides the cache can be recovered, and once it becomes available, the cache can be repopulated as data is read from the original data store, following a strategy such as the [Cache-aside pattern](../patterns/cache-aside.yml).
 
 However, system scalability may be affected if the application falls back to the original data store when the cache is temporarily unavailable. While the data store is being recovered, the original data store could be swamped with requests for data, resulting in timeouts and failed connections.
 
@@ -197,7 +197,7 @@ Redis supports both read and write operations. In Redis, writes can be protected
 All writes are asynchronous and do not block clients from reading and writing data. When Redis starts running, it reads the data from the snapshot or log file and uses it to construct the in-memory cache. For more information, see [Redis persistence](https://redis.io/topics/persistence) on the Redis website.
 
 > [!NOTE]
-> Redis does not guarantee that all writes will be saved in the event of a catastrophic failure, but at worst you might lose only a few seconds worth of data. Remember that a cache is not intended to act as an authoritative data source, and it is the responsibility of the applications using the cache to ensure that critical data is saved successfully to an appropriate data store. For more information, see the [Cache-aside pattern](../patterns/cache-aside.md).
+> Redis does not guarantee that all writes will be saved in the event of a catastrophic failure, but at worst you might lose only a few seconds worth of data. Remember that a cache is not intended to act as an authoritative data source, and it is the responsibility of the applications using the cache to ensure that critical data is saved successfully to an appropriate data store. For more information, see the [Cache-aside pattern](../patterns/cache-aside.yml).
 
 #### Redis data types
 
@@ -878,7 +878,7 @@ Some options to consider include:
 
 The following patterns might also be relevant to your scenario when you implement caching in your applications:
 
-- [Cache-aside pattern](../patterns/cache-aside.md): This pattern describes how to load data on demand into a cache from a data store. This pattern also helps to maintain consistency between data that's held in the cache and the data in the original data store.
+- [Cache-aside pattern](../patterns/cache-aside.yml): This pattern describes how to load data on demand into a cache from a data store. This pattern also helps to maintain consistency between data that's held in the cache and the data in the original data store.
 
 - The [Sharding pattern](../patterns/sharding.yml) provides information about implementing horizontal partitioning to help improve scalability when storing and accessing large volumes of data.
 
