@@ -28,10 +28,10 @@ The system that Swiss Re Group built for its Property & Casualty Reinsurance div
 :::image-end:::
 
 1. Azure Databricks ingests raw streaming data from Azure Event Hubs.
-2. Azure Data factory prepares data from various data sources(structured and unstructured)
-3. Azure Databricks processes data ingested from Azure Event Hubs.
-4. Azure Data Factory loads raw batch data into Azure Data Lake Storage.
-5. For data storage:
+1. Azure Data factory prepares data from various data sources(structured and unstructured)
+1. Azure Databricks processes data ingested from Azure Event Hubs.
+1. Azure Data Factory loads raw batch data into Azure Data Lake Storage.
+1. For data storage:
 
    - Data Lake Storage houses data of all types, such as structured, unstructured, and semi-structured. It also stores batch and streaming data.
    - Delta Lake forms the curated layer of the data lake. It stores the refined data in an open-source format.
@@ -51,16 +51,16 @@ The system that Swiss Re Group built for its Property & Casualty Reinsurance div
      - Code can use popular open-source libraries and frameworks such as Koalas, Pandas, and scikit-learn, which are pre-installed and optimized.
      - Practitioners can optimize for performance and cost with single-node and multi-node compute options.
 
-6. Machine learning models are available in several formats:
+1. Machine learning models are available in several formats:
 
    - The solution deploys models to Azure Machine Learning web services or Azure Kubernetes Service (AKS) or managed endpoint
    - Azure Databricks also stores information about models in the MLflow Model Registry. The registry makes models available through batch, streaming, and REST APIs.
 
-7. Services that work with the data connect to a single underlying data source to ensure consistency. For instance, users can run SQL queries on the data lake with Azure Synapse Analytics. In this case, you can also link azure synapse analytics workspace to azure Machine learning studio to attach an Apache Spark pool, powered by Azure Synapse Analytics, as a dedicated compute for data wrangling at scale or conduct model training all from the same Python notebook. Also, you can utilize azure machine learning to build models on the underlying data.
+1. Services that work with the data connect to a single underlying data source to ensure consistency. For instance, users can run SQL queries on the data lake with Azure Synapse Analytics. In this case, you can also link azure synapse analytics workspace to azure Machine learning studio to attach an Apache Spark pool, powered by Azure Synapse Analytics, as a dedicated compute for data wrangling at scale or conduct model training all from the same Python notebook. Also, you can utilize azure machine learning to build models on the underlying data.
 
-8. Users can export gold data sets out of the data lake into Azure Synapse via the optimized Synapse connector. SQL pools in Azure Synapse provide a data warehousing and compute environment.
+1. Users can export gold data sets out of the data lake into Azure Synapse via the optimized Synapse connector. SQL pools in Azure Synapse provide a data warehousing and compute environment.
 
-9. Power BI generates analytical and historical reports and dashboards from the unified data platform. When working with Azure Databricks, this service uses these features:
+1. Power BI generates analytical and historical reports and dashboards from the unified data platform. When working with Azure Databricks, this service uses these features:
 
 The solution uses Azure services for collaboration, performance, reliability, governance, and security:
 
