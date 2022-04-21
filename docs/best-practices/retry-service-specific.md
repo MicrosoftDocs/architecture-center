@@ -77,11 +77,11 @@ Cosmos DB is a fully managed multi-model database that supports schemaless JSON 
 
 ### Retry mechanism
 
-The Cosmos DB SDKs automatically retry on certain error conditions, and user applications are encouraged to have their own retry policies. Please see the [guide to designing resilient applications with Azure Cosmos DB SDKs](/azure/cosmos-db/sql/conceptual-resilient-sdk-applications) for a complete list of error conditions and when to retry.
+The Cosmos DB SDKs automatically retry on certain error conditions, and user applications are encouraged to have their own retry policies. See the [guide to designing resilient applications with Azure Cosmos DB SDKs](/azure/cosmos-db/sql/conceptual-resilient-sdk-applications) for a complete list of error conditions and when to retry.
 
 ### Telemetry
 
-Depending on the language of your application, diagnostics and telemetry are exposed as logs or promoted properties on the operation responses. For the [Cosmos DB C# SDK, capture the Diagnostics](/azure/cosmos-db/sql/troubleshoot-dot-net-sdk-slow-request?#capture-diagnostics), for the [Cosmos DB Java SDK, capture the Diagnostics](/azure/cosmos-db/sql/troubleshoot-java-sdk-v4-sql?tabs=async#capture-the-diagnostics).
+Depending on the language of your application, diagnostics and telemetry are exposed as logs or promoted properties on the operation responses. For more information, see the "Capture the diagnostics" section in [Cosmos DB C# SDK](/azure/cosmos-db/sql/troubleshoot-dot-net-sdk-slow-request?#capture-diagnostics) and [Cosmos DB Java SDK](/azure/cosmos-db/sql/troubleshoot-java-sdk-v4-sql?tabs=async#capture-the-diagnostics).
 
 ## Event Hubs
 
