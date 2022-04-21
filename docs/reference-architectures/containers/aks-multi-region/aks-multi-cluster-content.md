@@ -19,11 +19,11 @@ Many components and Azure services are used in the multi-region AKS reference ar
 
 ## Design patterns
 
-This reference architecture uses two cloud design patterns. [Geographical Node (geodes)](../../../patterns/geodes.yml), where any region can service any request, and [Deployment Stamps](../../../patterns/deployment-stamp.md) where multiple independent copies of an application or application component are deployed from a single source (deployment template).
+This reference architecture uses two cloud design patterns. [Geographical Node (geodes)](../../../patterns/geodes.yml), where any region can service any request, and [Deployment Stamps](../../../patterns/deployment-stamp.yml) where multiple independent copies of an application or application component are deployed from a single source (deployment template).
 
 #### Geographical Node pattern considerations
 
-When selecting regions into which each AKS cluster will be deployed, consider regions close to the workload consumer or your customers. Also, consider utilizing paired Azure regions. Paired regions consist of two regions within the same geography, which influence how Azure maintenance is performed. As your cluster scales beyond two regions, continue to plan for regional pair placement for each pair of AKS clusters. For more information on pared regions, see [Azure Paired Regions](/azure/best-practices-availability-paired-regions).
+When selecting regions into which each AKS cluster will be deployed, consider regions close to the workload consumer or your customers. Also, consider utilizing paired Azure regions. Paired regions consist of two regions within the same geography, which influence how Azure maintenance is performed. As your cluster scales beyond two regions, continue to plan for regional pair placement for each pair of AKS clusters. For more information on paired regions, see [Azure Paired Regions](/azure/best-practices-availability-paired-regions).
 
 Within each region, the nodes in the AKS node pools are spread across multiple availability zones to help prevent issues due to zonal failures. Availability zones are supported in a limited set of regions, which influences regional cluster placement. For more information on AKS and Availability zones, including a list of supported regions, see [AKS Availability Zones](/azure/aks/availability-zones).
 

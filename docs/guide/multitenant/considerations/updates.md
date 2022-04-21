@@ -89,13 +89,13 @@ If one of your customers has a problem because of an update, you need to ensure 
 
 ## Deployment strategies to support updates
 
-Consider how you will deploy updates to your infrastructure. This is heavily influenced by the [tenancy model](tenancy-models.md) that you use. Three common approaches for deploying updates are deployment stamps, feature flags, and deployment rings.
+Consider how you will deploy updates to your infrastructure. This is heavily influenced by the [tenancy model](tenancy-models.yml) that you use. Three common approaches for deploying updates are deployment stamps, feature flags, and deployment rings.
 
 In all cases, ensure that you have sufficient reporting/visibility, so that you know what version of infrastructure, software, or feature each tenant is on, what they are eligible to migrate to, and any time-related data associated those states.
 
 ### Deployment Stamps pattern
 
-Some multitenant applications are a good fit for the [Deployment Stamps pattern](../../../patterns/deployment-stamp.md), in which you deploy multiple copies of your application and other components. Depending on your isolation requirements, you might deploy a stamp for each tenant, or shared stamps that run multiple tenants' workloads.
+Some multitenant applications are a good fit for the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml), in which you deploy multiple copies of your application and other components. Depending on your isolation requirements, you might deploy a stamp for each tenant, or shared stamps that run multiple tenants' workloads.
 
 Stamps are a great way to provide isolation between tenants. They also provide you with flexibility for your update process, since you can roll out updates progressively across stamps, without affecting others.
 
@@ -115,5 +115,5 @@ If your service exposes an external API, consider that any updates you apply mig
 
 ## Next steps
 
-- Consider when you would [map requests to tenants, in a multitenant solution](map-requests.md).
+- Consider when you would [map requests to tenants, in a multitenant solution](map-requests.yml).
 - Review the [DevOps checklist](../../../checklist/dev-ops.md) in Azure Well-Architected Framework.

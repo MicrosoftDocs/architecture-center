@@ -3,7 +3,7 @@
 title: Migrate your e-commerce solution to Azure
 author: EdPrice-MSFT
 ms.author: edprice
-ms.date: 01/31/2022
+ms.date: 04/06/2022
 ms.topic: article
 ms.service: industry
 products:
@@ -143,7 +143,9 @@ Moving your ecommerce system into Azure takes analysis, planning and a defined a
 
 ## Contributors
 
-_This article is being updated and maintained by Microsoft. It was originally written by the following contributors:_
+_This article is maintained by Microsoft. It was originally written by the following contributors._
+
+**Principal authors:**
 
 - [Scott Seely](https://www.linkedin.com/in/scottseely) | Software Architect
 - [Mariya Zorotovich](https://www.linkedin.com/in/mariyazoro) | Head of Customer Experience, HLS & Emerging Technology

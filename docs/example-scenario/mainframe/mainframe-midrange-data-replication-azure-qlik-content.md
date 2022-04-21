@@ -22,6 +22,8 @@ This solution may be appropriate for:
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1875751-PR-3888-mainframe-midrange-data-replication-azure-qlik.vsdx) of this architecture.*
 
+### Workflow
+
 1. **Host agent:** The Host agent on the on-premises system captures change log information from Db2, IMS, and VSAM data stores, and passes it to the Qlik Replication server.
 1. **Replication server:** The Qlik Replication server software passes the change log information to Kafka and Azure Event Hubs. Qlik in this example is on-premises, but it could instead be deployed on a virtual machine in Azure.
 1. **Stream ingestion:** Kafka and Event Hubs provide message brokers  to receive and store change log information.

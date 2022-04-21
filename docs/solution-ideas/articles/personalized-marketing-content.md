@@ -15,7 +15,7 @@ By personalizing your offers, you'll deliver an individualized experience for cu
 ![Architecture diagram: personalizing offers with machine learning and near real time analytics.](../media/personalized-marketing.png)
 *Download an [SVG](../media/personalized-marketing.svg) of this architecture.*
 
-### Components
+### Dataflow
 
 * [Event Hubs](https://azure.microsoft.com/services/event-hubs) ingests raw click-stream data from Azure Functions and passes it on to Stream Analytics.
 * [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics) aggregates clicks in near real time by product, offer, and user. Writes to Azure Cosmos DB and also archives raw click-stream data to Azure Storage.
@@ -25,6 +25,17 @@ By personalizing your offers, you'll deliver an individualized experience for cu
 * [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) helps you design, test, operationalize, and manage predictive analytics solutions in the cloud.
 * [Azure Cache for Redis](https://azure.microsoft.com/services/cache) stores pre-computed cold-start product affinity scores for users without history.
 * [Power BI](https://powerbi.microsoft.com) enables visualization of user activity data and offers presented by reading in data from Cosmos DB.
+
+### Components
+
+* [Event Hubs](https://azure.microsoft.com/services/event-hubs)
+* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics)
+* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db)
+* [Azure Storage](https://azure.microsoft.com/services/storage)
+* [Azure Functions](https://azure.microsoft.com/services/functions)
+* [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning)
+* [Azure Cache for Redis](https://azure.microsoft.com/services/cache)
+* [Power BI](https://powerbi.microsoft.com)
 
 ## Next steps
 
@@ -49,6 +60,6 @@ Try a Microsoft Learn path:
 
 Read other Azure Architecture Center articles:
 
-* [Big data architecture style](../../guide/architecture-styles/big-data.md)
+* [Big data architecture style](../../guide/architecture-styles/big-data.yml)
 * [Machine learning at scale](../../data-guide/big-data/machine-learning-at-scale.md)
 * [Scalable personalization on Azure](../../example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml)

@@ -12,6 +12,8 @@ ms.custom:
   - design-pattern
 keywords:
   - design pattern
+products: azure
+categories: featured
 ---
 
 # Design and implementation patterns
@@ -20,11 +22,11 @@ Good design encompasses factors such as consistency and coherence in component d
 
 |                                Pattern                                 |                                                                                                      Summary                                                                                                       |
 |------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|                     [Ambassador](../ambassador.md)                     |                                                         Create helper services that send network requests on behalf of a consumer service or application.                                                          |
-|          [Anti-Corruption Layer](../anti-corruption-layer.md)          |                                                               Implement a façade or adapter layer between a modern application and a legacy system.                                                                |
-|         [Backends for Frontends](../backends-for-frontends.md)         |                                                          Create separate backend services to be consumed by specific frontend applications or interfaces.                                                          |
-|                           [CQRS](../cqrs.md)                           |                                                         Segregate operations that read data from operations that update data by using separate interfaces.                                                         |
-| [Compute Resource Consolidation](../compute-resource-consolidation.md) |                                                                     Consolidate multiple tasks or operations into a single computational unit                                                                      |
+|                     [Ambassador](../ambassador.yml)                     |                                                         Create helper services that send network requests on behalf of a consumer service or application.                                                          |
+|          [Anti-Corruption Layer](../anti-corruption-layer.yml)          |                                                               Implement a façade or adapter layer between a modern application and a legacy system.                                                                |
+|         [Backends for Frontends](../backends-for-frontends.yml)         |                                                          Create separate backend services to be consumed by specific frontend applications or interfaces.                                                          |
+|                           [CQRS](../cqrs.yml)                           |                                                         Segregate operations that read data from operations that update data by using separate interfaces.                                                         |
+| [Compute Resource Consolidation](../compute-resource-consolidation.yml) |                                                                     Consolidate multiple tasks or operations into a single computational unit                                                                      |
 |   [External Configuration Store](../external-configuration-store.yml)   |                                                        Move configuration information out of the application deployment package to a centralized location.                                                         |
 |            [Gateway Aggregation](../gateway-aggregation.yml)            |                                                                   Use a gateway to aggregate multiple individual requests into a single request.                                                                   |
 |             [Gateway Offloading](../gateway-offloading.yml)             |                                                                      Offload shared or specialized service functionality to a gateway proxy.                                                                       |

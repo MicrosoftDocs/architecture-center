@@ -105,6 +105,12 @@ AKS maintains two separate groups of nodes (or node pools). The *system node poo
 
 For additional information, [Hub-spoke network topology in Azure](../../hybrid-networking/hub-spoke.yml).
 
+#### Subnet to host the Private Link endpoints
+
+Private Link connections are created for the Azure Container Registry and Azure Key Vault, so these services can be accessed using Private Endpoints within the spoke virtual network. Private Link endpoints don't require a dedicated subnet and could also be placed in the hub virtual network. In the baseline implementation, they're deployed to a dedicated subnet within the spoke virtual network. This approach reduces traffic passing the peered network connection, keeps the resources that belong to the cluster in the same virtual network and allows you to apply granular security rules at the subnet level using network security groups.
+
+For additional information, [Private Link deployment options](../../../guide/networking/private-link-hub-spoke-network.yml#decision-tree-for-private-link-deployment).
+
 ## Plan the IP addresses
 
 ![Network topology of the AKS cluster](images/baseline-network-topology.png)
@@ -267,7 +273,7 @@ Here's an example from this architecture:
 Traefik uses the Kubernetes provider to configure routes. The `annotations`, `tls`, and `entrypoints` indicate that routes will be served over HTTPS. The `middlewares` specifies that only traffic from the Azure Application Gateway subnet is allowed. The responses will use gzip encoding if the client accepts. Because Traefik does TLS termination, communication with the backend services is over HTTP.
 
 ```yaml
-apiVersion:networking.k8s.io/v1beta1
+apiVersion:networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: aspnetapp-ingress
@@ -289,8 +295,10 @@ spec:
       paths:
       - path: /
         backend:
-          serviceName: aspnetapp-service
-          servicePort: http
+          service:
+            name: aspnetapp-service
+            port: 
+              name: http
 ```
 
 ## Secure the network flow
@@ -564,8 +572,8 @@ Keeping your node images in sync with the latest weekly release will minimize th
 
 Monitor your container infrastructure for both active threats and potential security risks:
 
-- Enable [Microsoft Defender for Kubernetes](/azure/security-center/defender-for-kubernetes-introduction) for threat detection on your Kubernetes clusters.
-- Use [Microsoft Defender for Cloud](/azure/security-center/security-center-intro) (Defender for Cloud) to monitor Kubernetes security posture.
+- [Enable Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-enable) for threat detection on your Kubernetes clusters.
+- Use [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction) to monitor Kubernetes security posture.
 - For information about security hardening applied to AKS virtual machine hosts, see [Security Hardening in host OS](/azure/aks/security-hardened-vm-host-image).
 
 ## Cluster and workload operations (DevOps)

@@ -1,18 +1,23 @@
-If you're responsible for the machines on a factory floor, you're already aware that the Internet of Things (IoT) is the next step in improving your processes and results. Having sensors on machines, or the factory floor, is the first step. The next step is to use the data—which is the object of this document. This guide provides a technical overview of the components needed to extract actionable insights from IoT data analytics.
+If you're responsible for the machines on a factory floor, you're already aware that the Internet of Things (IoT) is the next step in improving your processes and results. Having sensors on machines or on the factory floor is the first step. The next step is to use the data, which is the subject of this document. This guide provides a technical overview of the components needed to extract actionable insights from IoT data analytics.
 
-IoT analytics solutions are about transforming raw IoT data coming from a set of devices into a form that is better suited for analytics. Once the data is in an analyzable form we can actually perform analytics. Some examples of analytics include:
+IoT analytics solutions are about transforming raw IoT data coming from a set of devices to a form that is better suited for analytics. Once that's done we can actually perform analytics. Some examples of analytics include:
 
-- simple visualizations of the telemetry data, for example, a bar chart showing temperatures over time
-- calculation of KPIs, for example, Overall Equipment Effectiveness (OEE)
-- predictive analytics powered by machine learning models
+- Simple visualizations of telemetry, for example, a bar chart showing temperatures over time
+- Calculation of a key performance indicator (KPI), for example, overall equipment effectiveness (OEE)
+- Predictive analytics powered by machine learning models
 
-These analytics, in turn, provide insights that inform actions. Actions may range from sending a simple command to a machine, to tweaking operational parameters, to performing an action on another software system, to implementing company-wide operational improvement programs.
+These analytics, in turn, provide insights that inform actions. Possible actions cover a broad range, and include:
 
-The figure below shows a chain of actions that occur between a factory machine and the end result, which is a dashboard representation of “utilization,” showing a graph and the label “87.5%.”
+- Sending a simple command to a machine
+- Tweaking operational parameters
+- Performing an action on another software system
+- Implementing company-wide operational improvement programs
+
+The figure below shows a chain of actions that occur between a factory machine and the end result, which is a dashboard representation of utilization, showing a graph and the label `87.5%`.
 
 ![Factory to dashboard.](./images/extract-insights-iot-data/factory-to-dashboard.png)
 
-For the purposes of illustration, we'ill use the calculation of a simple KPI: machine utilization. *Machine utilization* is the percentage of time the machine is actually *producing* parts. For example, if there are 8 hours in a shift, and the machine is producing parts for 7 of those hours, then the machine utilization for that shift is 87.5% (7/8 x 100).
+For the purposes of illustration, we'ill use the calculation of a simple KPI, machine utilization, which is the percentage of time that the machine is actually producing parts. For example, if there are eight hours in a shift, and the machine is producing parts for seven of those hours, then the machine utilization for that shift is 87.5% (7/8 x 100).
 
 ## Approach
 
@@ -25,7 +30,7 @@ Microsoft has published a high level reference architecture for IoT applications
 An IoT application consists of the following subsystems:
 
 - Devices, or on-premises edge gateways, which are a specific kind of device that can securely register message sources (devices) with the cloud. The edge gateway may also transform messages from a native protocol to another format (such as JSON).
-- A cloud gateway service, or hub (such as [Azure IoT Hub](/azure/iot-hub/?WT.mc_id=iotinsightssoln-docs-ercenk) or [Azure Event Hubs](/azure/event-hubs/event-hubs-about?WT.mc_id=iotinsightssoln-docs-ercenk)), to securely ingest data and provide device management capabilities. 
+- A cloud gateway service, or hub (such as [Azure IoT Hub](/azure/iot-hub/?WT.mc_id=iotinsightssoln-docs-ercenk) or [Azure Event Hubs](/azure/event-hubs/event-hubs-about?WT.mc_id=iotinsightssoln-docs-ercenk)), to securely ingest data and provide device management capabilities.
 - Stream processors that consume streaming data. The processors may also integrate with business processes and place the data into storage.
 - A user interface, in the form of a dashboard, to visualize IoT data and facilitate device management.
 
@@ -35,7 +40,7 @@ In this article, we focus on the process of extracting insights. These are the m
 
 1. Access the data and process it into a data stream.
 2. Process and store the data.
-3. Visualize or present the data. 
+3. Visualize or present the data.
 
 The figure below is a diagram that shows the flow of data, from data source, to convert, to ingestion, to process and store, to presentation, and finally action.
 
@@ -43,7 +48,7 @@ The figure below is a diagram that shows the flow of data, from data source, to 
 
 ## Converting the data to a stream
 
-IoT data is time-series data: values from “things” that can be more meaningful over a time span. Equipment on a plant floor operates through time, and events occur during that time. If the data on the plant floor isn't sent to a data ingestion service, such as [Azure IoT Hub](/azure/iot-hub/?WT.mc_id=iotinsightssoln-docs-ercenk), we must poll for the data periodically from its store—for  example, a Manufacturing Execution System (MES), or an HTTP endpoint), and send the data to an ingestion service.  
+IoT data is time-series data: values from “things” that can be more meaningful over a time span. Equipment on a plant floor operates through time, and events occur during that time. If the data on the plant floor isn't sent to a data ingestion service, such as [Azure IoT Hub](/azure/iot-hub/?WT.mc_id=iotinsightssoln-docs-ercenk), we must poll for the data periodically from its store—for  example, a Manufacturing Execution System (MES), or an HTTP endpoint), and send the data to an ingestion service.
 To convert data to a stream, we usually:
 
 1. Access the data source.
@@ -68,9 +73,8 @@ If the data is available externally and is accessible from internet, several Azu
 - [Azure Logic Apps](/azure/logic-apps/?WT.mc_id=iotinsightssoln-docs-ercenk)
 - [Pipelines and activities in Azure Data Factory](/azure/data-factory/copy-activity-overview/?WT.mc_id=iotinsightssoln-docs-ercenk)
 - [Azure Functions](/azure/azure-functions/functions-overview)
-- [BizTalk Services](https://azure.microsoft.com/services/biztalk-services/)
 
-Each of the services above have their own benefits and costs, depending on the scenario. For example, Logic Apps provide a means for [transforming XML documents](/azure/logic-apps/logic-apps-enterprise-integration-transform?WT.mc_id=iotinsightssoln-docs-ercenk). However, the data can be an overly complex XML document, so it may not be practical to develop a large XSLT script to transform the data. In this case, one might develop a hybrid solution using multiple microservices from different Azure services. For example, a microservice, implemented in Azure Logic Apps, can poll an HTTP endpoint, store the raw result temporarily, and notify another microservice. The other microservice—which transforms the message—can be custom code hosted on [Azure Functions Host](https://github.com/Azure/azure-functions-host).  
+Each of the services above have their own benefits and costs, depending on the scenario. For example, Logic Apps provide a means for [transforming XML documents](/azure/logic-apps/logic-apps-enterprise-integration-transform?WT.mc_id=iotinsightssoln-docs-ercenk). However, the data can be an overly complex XML document, so it may not be practical to develop a large XSLT script to transform the data. In this case, one might develop a hybrid solution using multiple microservices from different Azure services. For example, a microservice, implemented in Azure Logic Apps, can poll an HTTP endpoint, store the raw result temporarily, and notify another microservice. The other microservice—which transforms the message—can be custom code hosted on [Azure Functions Host](https://github.com/Azure/azure-functions-host).
 
 ![Https polled for data and processed by Functions.](./images/extract-insights-iot-data/poll-logic-process.png)
 
@@ -124,16 +128,16 @@ Azure Event Hubs is a big data streaming platform and event ingestion service, c
 The figure below shows the speed layer stage. It consists of an event hub, a Stream Analytics instance, and a data store for warm storage.
 
 ![Lambda architecture: speed layer highlighted.](./images/extract-insights-iot-data/lambda-speed-layer.png)
-  
+
 The Azure platform provides many options for processing the events on an Event Hub, however, we recommend Stream Analytics. Stream Analytics can also push data to the Power BI service to visualize streamed data.
 
 Stream Analytics can execute complex analysis at scale, for example, tumbling/sliding/hopping windows, stream aggregations, and external data source joins. For even more complex processing, performance can be extended by cascading multiple instances of Event Hubs, Stream Analytics jobs, and Azure functions, as shown in the following figure.
 
 ![Event Hubs to analysis to Power BI.](./images/extract-insights-iot-data/event-hubs-to-power-bi.png)
-  
+
 Warm storage can be implemented with various services on the Azure platform, such as Azure SQL Database. We recommend [Azure Cosmos DB](/azure/cosmos-db/introduction?WT.mc_id=iotinsightssoln-docs-ercenk). It's Microsoft's globally distributed, multi-model database. It's best for datasets that can benefit from flexible, schema-agnostic, automatic indexing, and rich query interfaces. Cosmos DB allows multi-region, read/write, and supports manual failover in addition to automatic failover. In addition, Cosmos DB allows the user to set a time-to-live (TTL) on their data, which makes expiring old data automatic. We recommend using the feature to control the time the records stay in the database, thus controlling the database size.
 
-Pricing for Cosmos DB is based on storage used and [request units](/azure/cosmos-db/request-units) provisioned. Cosmos DB is best for scenarios that don't require queries involving aggregation over large sets of data, as those queries require more request units than a basic query such as the last event for a device.  
+Pricing for Cosmos DB is based on storage used and [request units](/azure/cosmos-db/request-units) provisioned. Cosmos DB is best for scenarios that don't require queries involving aggregation over large sets of data, as those queries require more request units than a basic query such as the last event for a device.
 
 [Microsoft Power BI](/power-bi/power-bi-overview?WT.mc_id=iotinsightssoln-docs-ercenk) is a collection of software services, apps, and connectors that work together to turn your unrelated sources of data into coherent, visually immersive, and interactive insights. Power BI helps you stay up to date with the information that matters to you. You can utilize the [real-time streaming in Power BI](/power-bi/service-real-time-streaming?WT.mc_id=iotinsightssoln-docs-ercenk) to push data to the service. This real time stream can act as a real time streaming data source for various visuals on the Power BI dashboard.
 
@@ -144,10 +148,10 @@ The warm path is where the stream processing occurs to discover patterns over ti
 The cold path contains the long-term data store for the solution. It also contains the batch layer, which creates pre-calculated aggregate views to provide fast query responses over long periods of time. The technology options available for this layer on Azure platform is quite diverse.
 
 ![Lambda architecture: batch layer highlighted.](./images/extract-insights-iot-data/lambda-batch-layer.png)
-  
+
 [Azure Time Series Insights](/azure/time-series-insights/?WT.mc_id=iotinsightssoln-docs-ercenk) (TSI) is an analytics, storage and visualization service for time series data. It provides SQL-like filtering and aggregation, alleviating the need for user-defined functions. TSI can receive data from Event Hubs, IoT Hub or Azure Blob storage. All data in TSI is stored in-memory and in SSDs, which ensures that the data is always ready for interactive analytics. For example, a typical aggregation over tens of millions of events returns on the order of milliseconds. It also provides visualizations such as overlays of different time series, dashboard comparisons, accessible tabular views, and heat maps. Key features of TSI include:
 
-- Built-in visualization services for solutions that don't need to report on data immediately. TSI has an approximate latency for querying data records of 30-60 seconds. 
+- Built-in visualization services for solutions that don't need to report on data immediately. TSI has an approximate latency for querying data records of 30-60 seconds.
 - The ability to query large sets of data.
 - Any number of users can conduct an unlimited number of queries for no extra cost.
 
@@ -166,8 +170,8 @@ Once the data is in cold storage, batch views on the serving layer of the Lambda
 For example, as shown in the following figure, Data Factory pipelines read data from the master data store. One pipeline summarizes and aggregates the data to populate an instance of Azure Data Warehouse. The Data Factory pipeline also and contains [Azure Databricks notebook activities](/azure/data-factory/transform-data-using-databricks-notebook?WT.mc_id=iotinsightssoln-docs-ercenk) that are used to build ML models.
 
 ![Lambda architecture: batch layer highlighted.](./images/extract-insights-iot-data/master-data-to-ml-analytics.png)
-  
-[Azure SQL Database](/azure/sql-database/?WT.mc_id=iotinsightssoln-docs-ercenk) or [Azure SQL Data Warehouse](/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is?WT.mc_id=iotinsightssoln-docs-ercenk) are the best options for hosting the batch views. These services can serve pre-calculated and aggregated views on the master data. 
+
+[Azure SQL Database](/azure/sql-database/?WT.mc_id=iotinsightssoln-docs-ercenk) or [Azure SQL Data Warehouse](/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is?WT.mc_id=iotinsightssoln-docs-ercenk) are the best options for hosting the batch views. These services can serve pre-calculated and aggregated views on the master data.
 
 Azure SQL Database (SQL DB) is a relational database-as-a-service based on the latest version of Microsoft SQL Server Database Engine. SQL DB is a high-performance, reliable, and secure database you can use to build data-driven applications and websites. As an Azure service,  there's no need to manage its infrastructure. As the data volume increases, the solution can start using techniques to aggregate and store data for speeding up the queries. Pre-calculating aggregations is a well-known technique, especially for append-only data. It's also useful for managing costs.
 
@@ -227,10 +231,10 @@ When using Cosmos DB, we recommend observing the most optimum use of the store t
 
 ## PoSQ: Cold path
 
-**Scalability**: Azure Time Series Insights (TSI) is scaled with a metric named as “capacity” which is a multiplier applied to the ingress rate, storage capacity and the cost associated with the SKU. 
+**Scalability**: Azure Time Series Insights (TSI) is scaled with a metric named as “capacity” which is a multiplier applied to the ingress rate, storage capacity and the cost associated with the SKU.
 
 Azure Time Series Insights has multiple SKUs that also have direct effect on its vertical scale. See the document [Plan your Azure Time Series Insights environment](/azure/time-series-insights/time-series-insights-environment-planning?WT.mc_id=iotinsightssoln-docs-ercenk) for details on scale. Like many other Azure services, TSI is also subject to throttling to avoid the “noisy neighbor” problem. A noisy neighbor is an application on a shared environment /azure/sql-database/sql-database-service-tiers-vcore?WT.mc_id=iotinsightssoln-docs-ercenk
-that monopolizes the resources and starves the other users. Please see the [TSI documentation](/azure/time-series-insights/time-series-insights-environment-mitigate-latency?WT.mc_id=iotinsightssoln-docs-ercenk) for managing the throttling. 
+that monopolizes the resources and starves the other users. Please see the [TSI documentation](/azure/time-series-insights/time-series-insights-environment-mitigate-latency?WT.mc_id=iotinsightssoln-docs-ercenk) for managing the throttling.
 
 Scalability targets of storage accounts are documented in [Azure Storage Scalability and Performance Targets](/azure/storage/common/storage-scalability-targets?WT.mc_id=iotinsightssoln-docs-ercenk). A common technique for storing data beyond the capacity of a single storage account is partitioning across multiple storage accounts.
 
@@ -265,3 +269,12 @@ We covered a lot of concepts, and we would like to give the reader a set of star
   - [Creating a Time Series Insights SPA](/azure/time-series-insights/tutorial-create-tsi-sample-spa?WT.mc_id=iotinsightssoln-docs-ercenk)
   - [Exploring Time Series Insights Java Script client library](/azure/time-series-insights/tutorial-explore-js-client-lib?WT.mc_id=iotinsightssoln-docs-ercenk)
   - See the [TSI demo](https://insights.timeseries.azure.com/demo) and [Power BI demo](https://microsoft.github.io/PowerBI-JavaScript/demo/v2-demo/index.html).
+
+## Related resources
+
+- [Azure industrial IoT analytics guidance](../../guide/iiot-guidance/iiot-architecture.yml)
+- [IoT and data analytics](../..//example-scenario/data/big-data-with-iot.yml)
+- [End-to-end computer vision at the edge for manufacturing](../../reference-architectures/ai/end-to-end-smart-factory.yml)
+- [Condition monitoring for industrial IoT](../../solution-ideas/articles/condition-monitoring.yml)
+- [IoT and data analytics](../../example-scenario/data/big-data-with-iot.yml)
+- [IoT Edge railroad maintenance and safety system](../../example-scenario/predictive-maintenance/iot-predictive-maintenance.yml)

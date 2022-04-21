@@ -1,7 +1,7 @@
 > [!Note]
 > This article provides an overview with reference architecture for deploying SWIFT's Alliance Connect Virtual solution on Azure. Please note that the new Alliance Connect Virtual solution is not yet available for SWIFT production traffic. The solution is currently being tested with SWIFT customers and will become generally available throughout 2022 as part of a phased launch. For more information about the general availability of the product, refer to [SWIFT.com](https://www.swift.com/our-solutions/interfaces-and-integration/alliance-connect-virtual).
 
-This article provides an overview of deploying SWIFT's Alliance Access on Azure, which is one of the messaging interfaces offered by SWIFT for secure financial messaging.
+This article provides an overview of deploying SWIFT's Alliance Access on Azure. Alliance Access is one of the messaging interfaces that SWIFT offers for secure financial messaging.
 
 ## Potential use cases
 
@@ -36,7 +36,7 @@ Once the Alliance Access infrastructure in Azure is deployed, the customer follo
 * **Azure Virtual Machines**: Azure Virtual Machines provides compute services for running Alliance Access. Use these guidelines for choosing the right SKU:
   * Use a compute-optimized SKU for the Alliance Web Platform front-end.
   * Use a memory-optimized SKU for Alliance Access with an embedded Oracle database.
-* **Azure Managed Disk**: Premium SSD managed disks ensure that Alliance Access components get high-throughput, low-latency disk performance, and the ability to back up and restore disks attached to VMs.
+* **Azure Managed Disk**: By using Premium SSD managed disks, Alliance Access components get high-throughput, low-latency disk performance. The components also have the ability to back up and restore disks that are attached to VMs.
 * **Azure proximity placement group**: Customers can consider using Azure [proximity placement groups](/azure/virtual-machines/co-location) to ensure that all Alliance Access VMs are close to each other. Proximity placement groups reduce network latency between Alliance Access components.
 
 The SWIFT customer establishes a secure connection from their on-premises or colocation site to the Alliance Access Secure Zone subscription.
@@ -65,7 +65,7 @@ This Azure architecture shows all SWIFT components running in Azure, except the 
 ## Considerations
 
 * A customer's Microsoft account team can be engaged to help guide the Azure implementation.
-* SWIFT customer resources on Azure should comply with the SWIFT Customer Security Programme-Customer Security Controls Framework. CSP-CSCF control 1.1 mandates separation between production, test, and development environments. The recommended approach is to deploy each environment in a separate subscription. This makes it easier to separate the environments.
+* SWIFT customer resources on Azure should comply with the SWIFT Customer Security Programme-Customer Security Controls Framework. CSP-CSCF control 1.1 mandates separation between production, test, and development environments. The recommended approach is to deploy each environment in a separate subscription. This approach makes it easier to separate the environments.
 
 ### Operational excellence
 
@@ -79,14 +79,14 @@ This Azure architecture shows all SWIFT components running in Azure, except the 
 
 ### Performance efficiency
 
-* Consider deploying an Azure virtual machine scale set running Web server VM instances in a [proximity placement group](/azure/virtual-machines/co-location), which co-locates VM instances and reduces inter-VM latency.
+* Consider deploying an Azure virtual machine scale set to run web server VM instances in a [proximity placement group](/azure/virtual-machines/co-location). This approach colocates VM instances and reduces latency between VMs.
 * Consider using Azure VMs with accelerated networking for up to 30 Gbps of network throughput.
 * [Azure Managed Disks](/azure/virtual-machines/managed-disks-overview) with premium SSD allows for up to 20,000 IOPS and 900 Mbps of throughput.
 * Consider configuring Azure Disk host caching as **ReadOnly** for higher disk throughput.
 
 ### Security
 
-* [Azure network security groups](/azure/virtual-network/network-security-groups-overview) can be configured to collect flow logs and packet captures in [Azure Network Watcher](https://azure.microsoft.com/services/network-watcher). Security group flow logs in Network Watcher can be sent to Azure Storage accounts. [Microsoft Sentinel](https://azure.microsoft.com/services/microsoft-sentinel) can collect these logs, detect and investigate threats, and respond to incidents with built-in orchestration and automation of common tasks.
+* [Azure network security groups](/azure/virtual-network/network-security-groups-overview) can be configured to collect flow logs and packet captures in [Azure Network Watcher](https://azure.microsoft.com/services/network-watcher). Security group flow logs in Network Watcher can be sent to Azure Storage accounts. [Microsoft Sentinel](https://azure.microsoft.com/services/microsoft-sentinel) offers built-in orchestration and automation of common tasks. This functionality can collect the flow logs, detect and investigate threats, and respond to incidents.
 * [Microsoft Defender for Cloud](https://azure.microsoft.com/services/defender-for-cloud) protects your hybrid data, cloud-native services, and servers. It integrates with your existing security workflows, such as SIEM solutions and Microsoft threat intelligence, to streamline threat mitigation.
 * [Azure Bastion](https://azure.microsoft.com/services/azure-bastion) enables connectivity transparency from the Azure portal to a VM by using RDP or SSH. Because Azure Bastion requires administrators to sign in to the Azure portal, [Azure Active Directory Multi-Factor Authentication](/azure/active-directory/authentication/concept-mfa-howitworks) can be enforced and [Conditional Access](/azure/active-directory/conditional-access/overview) can be used to enforce other restrictions—for example, which public IP address administrators can sign in. Deploying Azure Bastion also enables just-in-time access, which opens required ports on-demand when remote access is required.
 
@@ -96,13 +96,13 @@ Administrators managing the SWIFT infrastructure in Azure require an identity in
 
 Users enrolled in the Azure AD can sign in to the Azure portal, or authenticate with other management tools like [Azure PowerShell](/powershell/azure/overview) or [Azure Command-Line Interface](/cli/azure). [Azure Active Directory Multi-Factor Authentication](/azure/active-directory/authentication/concept-mfa-howitworks) and other restrictions, such as IP range restrictions, can be configured with [Conditional Access](/azure/active-directory/conditional-access/overview). Users get permissions on Azure subscriptions through [role-based access control (RBAC)](/azure/role-based-access-control/overview), which governs which operations users can do on a subscription.
 
-The Azure AD associated with a subscription enables only the management of Azure services. Azure AD doesn't provide credentials to sign in to VMs that are provisioned in Azure under a subscription unless Azure AD authentication has been explicitly enabled. To see how Azure can help customers use Azure AD for application authentication, see [Migrate application authentication to Azure AD](/azure/active-directory/manage-apps/migrate-application-authentication-to-azure-active-directory).
+The Azure AD associated with a subscription enables only the management of Azure services. For instance, you might provision VMs in Azure under a subscription. Azure AD provides credentials for signing in to those VMs only if you explicitly enable Azure AD authentication. To see how Azure can help customers use Azure AD for application authentication, see [Migrate application authentication to Azure AD](/azure/active-directory/manage-apps/migrate-application-authentication-to-azure-active-directory).
 
 #### Enforcing SWIFT CSP-CSCF policies
 
 [Azure Policy](https://azure.microsoft.com/services/azure-policy/) enables customers to set policies that need to be enforced within an Azure subscription to meet compliance or security requirements. For example, Azure Policy can be used to block administrators from deploying certain resources, or to enforce network configuration rules that block traffic to the internet. Customers can use built-in policies or create policies themselves.
 
-SWIFT has a policy framework that helps customers enforce a subset of SWIFT CSP-CSCF requirements by using Azure policies within a customer subscription. For simplicity, you can create a separate subscription in which you deploy SWIFT Secure Zone components, and another subscription for other potentially related components. Separate subscriptions enable you to apply the SWIFT CSP-CSCF Azure policies only to subscriptions that contain a SWIFT Secure Zone.
+SWIFT has a policy framework that helps customers enforce a subset of SWIFT CSP-CSCF requirements. As part of this framework, customers use Azure policies within a customer subscription. For simplicity, you can create a separate subscription in which you deploy SWIFT Secure Zone components, and another subscription for other potentially related components. Separate subscriptions enable you to apply the SWIFT CSP-CSCF Azure policies only to subscriptions that contain a SWIFT Secure Zone.
 
 We recommend that customers deploy SWIFT components in a subscription that's separate from any back-office applications. Separate subscriptions ensure that SWIFT CSP-CSCF applies only to SWIFT components and not to customer-specific components.
 
@@ -110,11 +110,11 @@ Consider using the latest implementation of SWIFT CSP controls, but first consul
 
 ### Resilience
 
-When you deploy SWIFT components on-premises, you need to make decisions about resilience. For on-premises resilience, we recommend that you deploy into at least two separate data centers, so that a data center failure doesn't compromise your business. The same considerations apply in Azure, although some different concepts apply.
+When you deploy SWIFT components on-premises, you need to make decisions about resilience. For on-premises resilience, we recommend that you deploy into at least two separate data centers. This approach prevents a data center failure from compromising your business. The same considerations apply in Azure, although some different concepts apply.
 
 #### Azure resilience concepts
 
-Azure provides different service level agreements (SLAs) on VM availability, depending on whether you deploy a single VM, multiple VMs in an [availability set](/azure/virtual-machines/availability-set-overview), or multiple VMs spread over multiple [availability zones](/azure/availability-zones/az-overview). To mitigate the risk of a regional outage, SWIFT's Alliance Access should be deployed in multiple Azure regions.
+Azure provides different service level agreements (SLAs) on VM availability. These SLAs vary, depending on whether you deploy a single VM, multiple VMs in an [availability set](/azure/virtual-machines/availability-set-overview), or multiple VMs spread over multiple [availability zones](/azure/availability-zones/az-overview). To mitigate the risk of a regional outage, SWIFT's Alliance Access should be deployed in multiple Azure regions.
 
 For more information, see [Availability options for Azure Virtual Machines](/azure/virtual-machines/availability).
 
@@ -122,7 +122,7 @@ For more information, see [Availability options for Azure Virtual Machines](/azu
 
 The Alliance Access component uses an embedded Oracle database. To align with a multi-active Alliance Access deployment, customers can use a path-resilient architecture.
 
-Path resilience has all the required SWIFT components placed in one path. You duplicate each path as many times as you need for resilience and scaling. If there's a failure, you fail over an entire path instead of a single component. The figure shows what this resiliency approach looks like with availability zones (left) or availability sets (right). This architecture has a simpler SWIFT configuration, but a failure in any component in a path requires that you switch to another path. Combining Web Platform and Alliance Access on a single VM reduces the number of infrastructure components that can fail, which could be a consideration depending on the usage pattern of the SWIFT components.
+Path resilience has all the required SWIFT components placed in one path. You duplicate each path as many times as you need for resilience and scaling. If there's a failure, you fail over an entire path instead of a single component. The figure shows what this resiliency approach looks like with availability zones (left) or availability sets (right). This architecture has a simpler SWIFT configuration. But a failure in any component in a path requires that you switch to another path. By combining Web Platform and Alliance Access on a single VM, you can reduce the number of infrastructure components that can fail. Depending on the usage pattern of the SWIFT components, you might consider this possibility.
 
 [![Diagram of resilience options for SWIFT.](media/swift-alliance-access-path-resilience.png)](media/swift-alliance-access-path-resilience.png#lightbox)
 
@@ -147,10 +147,10 @@ To increase resilience beyond a single Azure region, we recommend that you deplo
 
 Explore the functionality and architecture of some other SWIFT modules in detail, as provided below.
 
-<!-- doesn't exist yet * * [SWIFT Alliance Connect in Azure](swift-on-azure-srx.yml) -->
-<!-- doesn't exist yet * * [SWIFT Alliance Connect Virtual in Azure](swift-on-azure-vsrx.yml) -->
-* [Alliance Access](swift-alliance-access-on-azure.yml)
-* [Alliance Messaging Hub (AMH)](swift-alliance-messaging-hub.yml)
-<!-- doesn't exist yet * * [Alliance Messaging Hub (AMH) with Alliance Connect Virtual](swift-alliance-messaging-hub-vsrx.yml) -->
-<!-- doesn't exist yet * * [Alliance Lite2](swift-alliance-lite-2-on-azure.yml) -->
-<!-- doesn't exist yet * * [Alliance Cloud](swift-alliance-cloud-on-azure.yml) -->
+* [SWIFT's Alliance Connect in Azure](swift-on-azure-srx.yml)
+* [SWIFT's Alliance Connect Virtual in Azure](swift-on-azure-vsrx.yml)
+* [SWIFT's Alliance Access with Alliance Connect](swift-alliance-access-on-azure.yml)
+* [SWIFT's Alliance Messaging Hub (AMH) with Alliance Connect](swift-alliance-messaging-hub.yml)
+* [SWIFT's Alliance Messaging Hub (AMH) with Alliance Connect Virtual](swift-alliance-messaging-hub-vsrx.yml)
+* [SWIFT Alliance Cloud in Azure](swift-alliance-cloud-on-azure.yml)
+* [SWIFT Alliance Lite2 on Azure](swift-alliance-lite2-on-azure.yml)

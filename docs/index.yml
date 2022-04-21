@@ -103,7 +103,7 @@ productDirectory:
 
 # conceptualContent section (optional)
 conceptualContent:
-#itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
   title: Technology Areas # < 60 chars (optional)
   summary: Explore architectures and guides for different technologies # < 160 chars (optional)
   items:
@@ -122,7 +122,7 @@ conceptualContent:
         url: ./patterns/index.md
         itemType: concept
       - text: CQRS design pattern
-        url: ./patterns/cqrs.md
+        url: ./patterns/cqrs.yml
         itemType: concept
       - text: Best practices in cloud applications
         url: ./best-practices/index-best-practices.md
@@ -145,7 +145,6 @@ conceptualContent:
       - text: Architect multitenant solutions on Azure
         url: ./guide/multitenant/overview.md
         itemType: concept        
-
     - title: AI & Machine Learning
       links:
       - text: Artificial intelligence (AI) architecture design

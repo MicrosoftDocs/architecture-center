@@ -40,8 +40,8 @@ The architecture below extends on the [Analytics end-to-end with Azure Synapse](
   - Semi-structured data (e.g. json, xml, csv, logs)
   - Structured data (e.g. relational databases, Azure Data Services)
   
-    [Azure Synapse Link](https://docs.microsoft.com/en-us/azure/cosmos-db/synapse-link) is creates a tight seamless integration between Azure Cosmos DB and Azure Synapse Analytics.
-    [Azure Synapse Pipelines](https://docs.microsoft.com/en-us/azure/data-factory/concepts-pipelines-activities?tabs=data-factory) can be triggered based on a pre-defined schedule or in response to an event. They can also be invoked by calling REST APIs.
+    [Azure Synapse Link](/azure/cosmos-db/synapse-link) is creates a tight seamless integration between Azure Cosmos DB and Azure Synapse Analytics.
+    [Azure Synapse Pipelines](/azure/data-factory/concepts-pipelines-activities?tabs=data-factory) can be triggered based on a pre-defined schedule or in response to an event. They can also be invoked by calling REST APIs.
 
 **2 - Store:** Ingested data can be landed directly in raw format and then transformed on the [Azure Data Lake](/azure/storage/blobs/data-lake-storage-introduction). Data once curated and transformed to relational structures can be presented for consumption in [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics).
 

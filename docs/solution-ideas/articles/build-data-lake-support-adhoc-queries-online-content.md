@@ -14,7 +14,7 @@ meaningful offers from providers, and managing user reservations.
 
 ## Potential use cases
 
-This architecture is applicable to several scenarios, including:
+This architecture is ideal for the travel and hospitality industries. It's applicable to the following scenarios:
 
 * Quickly retrieving either real-time (for example, for diagnostics) or historical (for compliance) raw documents in their original format.
 * Managing petabytes of data.
@@ -46,12 +46,17 @@ these documents. For example, users may need to search by a known transaction
 ID, or by a customer name on a certain date, to retrieve a set of documents that
 is interesting to them.
 
+### Workflow
+
 The concept behind this architecture consists in decoupling the metadata useful
-for searching from bare data. Specifically, only metadata gets indexed within a
+for searching from bare data: 
+- Only metadata gets indexed within a
 queryable service (such as Spark), while the actual data is stored in a data
-lake. Raw documents in a data lake are linked to indexed metadata by their path.
-When querying for documents, the service searches the documents' metadata, and
+lake. 
+- Raw documents in a data lake are linked to indexed metadata by their path.
+- When querying for documents, the service searches the documents' metadata, and
 in turn the actual documents will be retrieved from the data lake by their path.
+
 This solution dramatically lowers costs and increases performance, as metadata
 comprises a fraction of the entire data estate (for instance, petabytes of raw
 documents can be described by tens of gigabytes of concise metadata).
