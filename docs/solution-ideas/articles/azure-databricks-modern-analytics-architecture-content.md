@@ -28,8 +28,10 @@ The system that Swiss Re Group built for its Property & Casualty Reinsurance div
 :::image-end:::
 
 1. Azure Databricks ingests raw streaming data from Azure Event Hubs.
-1. Data Factory loads raw batch data into Data Lake Storage.
-1. For data storage:
+2. Azure Data factory prepares data from various data sources(structured and unstructured)
+3. Azure Databricks processes data ingested from Azure Event Hubs.
+4. Azure Data Factory loads raw batch data into Azure Data Lake Storage.
+5. For data storage:
 
    - Data Lake Storage houses data of all types, such as structured, unstructured, and semi-structured. It also stores batch and streaming data.
    - Delta Lake forms the curated layer of the data lake. It stores the refined data in an open-source format.
@@ -39,50 +41,40 @@ The system that Swiss Re Group built for its Property & Casualty Reinsurance div
      - Silver: Contains cleaned, filtered data.
      - Gold: Stores aggregated data that's useful for business analytics.
 
-1. The analytical platform ingests data from the disparate batch and streaming sources. Data scientists use this data for these tasks:
+   The analytical platform ingests data from the disparate batch and streaming sources. Data scientists use this data for these tasks:
 
-   - Data preparation
-   - Data exploration
-   - Model preparation
-   - Model training
+     - Data preparation
+     - Data exploration
+     - Model preparation
+     - Model training
+     - Code can be in SQL, Python, R, and Scala.
+     - Code can use popular open-source libraries and frameworks such as Koalas, Pandas, and scikit-learn, which are pre-installed and optimized.
+     - Practitioners can optimize for performance and cost with single-node and multi-node compute options.
 
-   MLflow manages parameter, metric, and model tracking in data science code runs. The coding possibilities are flexible:
+6. Machine learning models are available in several formats:
 
-   - Code can be in SQL, Python, R, and Scala.
-   - Code can use popular open-source libraries and frameworks such as Koalas, Pandas, and scikit-learn, which are pre-installed and optimized.
-   - Practitioners can optimize for performance and cost with single-node and multi-node compute options.
+   - The solution deploys models to Azure Machine Learning web services or Azure Kubernetes Service (AKS) or managed endpoint
+   - Azure Databricks also stores information about models in the MLflow Model Registry. The registry makes models available through batch, streaming, and REST APIs.
 
-1. Machine learning models are available in several formats:
+7. Services that work with the data connect to a single underlying data source to ensure consistency. For instance, users can run SQL queries on the data lake with Azure Synapse Analytics. In this case, you can also link azure synapse analytics workspace to azure Machine learning studio to attach an Apache Spark pool, powered by Azure Synapse Analytics, as a dedicated compute for data wrangling at scale or conduct model training all from the same Python notebook. Also, you can utilize azure machine learning to build models on the underlying data.
 
-   - Azure Databricks stores information about models in the [MLflow Model Registry][MLflow Model Registry]. The registry makes models available through batch, streaming, and REST APIs.
-   - The solution can also deploy models to Azure Machine Learning web services or Azure Kubernetes Service (AKS).
+8. Users can export gold data sets out of the data lake into Azure Synapse via the optimized Synapse connector. SQL pools in Azure Synapse provide a data warehousing and compute environment.
 
-1. Services that work with the data connect to a single underlying data source to ensure consistency. For instance, users can run SQL queries on the data lake with Azure Databricks SQL Analytics. This service:
+9. Power BI generates analytical and historical reports and dashboards from the unified data platform. When working with Azure Databricks, this service uses these features:
 
-   - Provides a query editor and catalog, the query history, basic dashboarding, and alerting.
-   - Uses integrated security that includes row-level and column-level permissions.
-   - Uses a [Photon-powered Delta Engine to accelerate performance][Photon improves performance].
+The solution uses Azure services for collaboration, performance, reliability, governance, and security:
 
-1. Power BI generates analytical and historical reports and dashboards from the unified data platform. When working with Azure Databricks, this service uses these features:
+- Azure Purview provides data discovery services, sensitive data classification, and governance insights across the data estate.
+- Azure DevOps offers continuous integration and continuous deployment (CI/CD) and other integrated version control features.
+- Azure Key Vault securely manages secrets, keys, and certificates.
+- Azure Active Directory (Azure AD) provides single sign-on (SSO) for Azure Databricks users. Azure Databricks supports automated user provisioning with Azure AD for these tasks:
 
-   - A [built-in Azure Databricks connector][Power BI connector for Azure Databricks] for visualizing the underlying data.
-   - Optimized Java Database Connectivity (JDBC) and Open Database Connectivity (ODBC) drivers.
+  - Creating new users.
+  - Assigning each user an access level.
+  - Removing users and denying them access.
 
-1. Users can export gold data sets out of the data lake into Azure Synapse via the optimized Synapse connector. SQL pools in Azure Synapse provide a data warehousing and compute environment.
-
-1. The solution uses Azure services for collaboration, performance, reliability, governance, and security:
-
-   - Azure Purview provides data discovery services, sensitive data classification, and governance insights across the data estate.
-   - Azure DevOps offers continuous integration and continuous deployment (CI/CD) and other integrated version control features.
-   - Azure Key Vault securely manages secrets, keys, and certificates.
-   - Azure Active Directory (Azure AD) provides single sign-on (SSO) for Azure Databricks users. Azure Databricks supports automated user provisioning with Azure AD for these tasks:
-
-     - Creating new users.
-     - Assigning each user an access level.
-     - Removing users and denying them access.
-
-   - Azure Monitor collects and analyzes Azure resource telemetry. By proactively identifying problems, this service maximizes performance and reliability.
-   - Azure Cost Management and Billing provides financial governance services for Azure workloads.
+- Azure Monitor collects and analyzes Azure resource telemetry. By proactively identifying problems, this service maximizes performance and reliability.
+- Azure Cost Management and Billing provides financial governance services for Azure workloads.
 
 ### Components
 
@@ -96,7 +88,7 @@ The solution uses the following components:
 
 - [Data Factory][Azure Data Factory] is a hybrid data integration service. You can use this fully managed, serverless solution to create, schedule, and orchestrate data transformation workflows.
 
-- [Data Lake Storage][Azure Data Lake Storage] is a scalable and secure data lake for high-performance analytics workloads. This service can manage multiple petabytes of information while sustaining hundreds of gigabits of throughput. The data may be structured, semi-structured, or unstructured. It typically comes from multiple, heterogeneous sources like logs, files, and media.
+- [Data Lake Storage][Azure Data Lake Storage] is a scalable and secure data lake for high-performance analytics workloads. This service can manage multiple petabytes of information while sustaining hundreds of gigabits of throughput. The data can be structured, semi-structured, or unstructured. It typically comes from multiple, heterogeneous sources like logs, files, and media.
 
 - [Azure Databricks SQL Analytics][Azure Databricks SQL Analytics guide] runs queries on data lakes. This service also visualizes data in dashboards.
 
