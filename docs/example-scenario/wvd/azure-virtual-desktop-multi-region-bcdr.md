@@ -1,8 +1,8 @@
 ---
 title: Multi-Region Business Continuity and Disaster Recovery (BCDR) for Azure Virtual Desktop
 description: Learn which options and scenarios are possible to design and implement an effective multi-region BCDR strategy for Azure Virtual Desktop.
-author: IgorPagliai
-ms.author: igorpag
+author: igorpag
+ms.author: igorpag, bebaur
 ms.date: 04/22/2022
 ms.topic: conceptual
 ms.service: architecture-center
@@ -14,10 +14,6 @@ categories:
   - hybrid
   - windows-virtual-desktop
 products:
-  - azure-active-directory
-  - azure-active-directory-domain
-  - azure-rbac
-  - azure-virtual-machines
   - windows-virtual-desktop
 ms.custom:
   - fcp
@@ -376,6 +372,11 @@ FSLogix does permit this configuration, and the usage of separate storage accoun
 - For Azure NetApp Files (ANF) provides its own recommended backup solution, currently in preview and can provide ZRS storage resiliency.
   - Feature [availability](https://docs.microsoft.com/azure/azure-netapp-files/backup-requirements-considerations) in the region must be checked, along with requirements and limitations.
 - The separate storage accounts used for MSIX should be also covered by backup if the application packages repositories can't be easily rebuilt.
+
+## Next steps
+
+- To learn about FSLogix, see [FSLogix for the enterprise](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix).
+- To learn about Cloud Cache resiliency and availability, see [Cloud Cache to create resiliency and availability](https://docs.microsoft.com/fslogix/cloud-cache-resiliency-availability-cncpt)
 
 ## Related resources
 
