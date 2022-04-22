@@ -379,9 +379,9 @@ FSLogix does permit this configuration, and the usage of separate storage accoun
 
 **Principal authors:**
 
- *Igor Pagliai* | (FastTrack for Azure Principal Engineer)
+ *Igor Pagliai* | (FastTrack for Azure (FTA) Principal Engineer)
 
- *Ben Martin Baur* | ("Cloud Solution Architect")
+ *Ben Martin Baur* | (Cloud Solution Architect)
 
 ## Next steps
 
