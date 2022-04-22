@@ -211,7 +211,7 @@ The [autoscale feature of Monitor][Overview of autoscale in Microsoft Azure] als
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-**Principal authors:**
+Principal authors:
 
 * [Richard Bumann](https://ch.linkedin.com/in/rlb18) | Solution Architect
 
