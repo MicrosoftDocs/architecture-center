@@ -27,8 +27,10 @@ The system that Swiss Re Group built for its Property & Casualty Reinsurance div
    The diagram contains several gray rectangles. Labels on the rectangles read Ingest, Process, Serve, Store, and Monitor and govern. Each rectangle contains icons that represent Azure or partner services. The Azure Databricks icon is at the center, along with the Data Lake Storage icon. Arrows point back and forth between icons. The arrows show how data flows through the system, as the diagram explanation steps describe. The lowest rectangle extends across the bottom of the diagram. It contains icons for services that monitor and govern operations and information.
 :::image-end:::
 
+### Dataflow
+
 1. Azure Databricks ingests raw streaming data from Azure Event Hubs.
-1. Azure Data factory prepares data from various data sources(structured and unstructured)
+1. Azure Data Factory prepares data from various data sources (structured and unstructured)
 1. Azure Databricks processes data ingested from Azure Event Hubs.
 1. Azure Data Factory loads raw batch data into Azure Data Lake Storage.
 1. For data storage:
@@ -53,10 +55,10 @@ The system that Swiss Re Group built for its Property & Casualty Reinsurance div
 
 1. Machine learning models are available in several formats:
 
-   - The solution deploys models to Azure Machine Learning web services or Azure Kubernetes Service (AKS) or managed endpoint
+   - The solution deploys models to Azure Machine Learning web services, to Azure Kubernetes Service (AKS), or to a managed endpoint.
    - Azure Databricks also stores information about models in the MLflow Model Registry. The registry makes models available through batch, streaming, and REST APIs.
 
-1. Services that work with the data connect to a single underlying data source to ensure consistency. For instance, users can run SQL queries on the data lake with Azure Synapse Analytics. In this case, you can also link azure synapse analytics workspace to azure Machine learning studio to attach an Apache Spark pool, powered by Azure Synapse Analytics, as a dedicated compute for data wrangling at scale or conduct model training all from the same Python notebook. Also, you can utilize azure machine learning to build models on the underlying data.
+1. Services that work with the data connect to a single underlying data source to ensure consistency. For instance, users can run SQL queries on the data lake with Azure Synapse Analytics. In this case, you can also link an Azure Synapse Analytics workspace to Azure Machine Learning Studio to attach an Apache Spark pool, which is powered by Azure Synapse Analytics. It's a dedicated compute for data wrangling at scale, and it can conduct model training, all from the same Python notebook. Also, you can utilize Azure Machine Learning to build models on the underlying data.
 
 1. Users can export gold data sets out of the data lake into Azure Synapse via the optimized Synapse connector. SQL pools in Azure Synapse provide a data warehousing and compute environment.
 
