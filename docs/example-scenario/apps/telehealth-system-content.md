@@ -1,12 +1,12 @@
 This article explains how to build a [telehealth system](https://en.wikipedia.org/wiki/Telehealth) using Azure cloud services. The details are based on a real customer implementation that connects a professional healthcare organization to its remote patients. While there are other ways to build such a system, the solution described has been successful in enabling communication between patients and their remote care provider, as well as remotely tuning the medical devices that patients carry.
 
-There are about 700 million people who suffer from hearing disabilities. However, only 10% of them use hearing aid devices to improve their lives. In some geographies or situations, it is impossible for a patient to get direct assistance when needed. For example, consider patients who:
+There are about 700 million people who suffer from hearing disabilities. However, only 10% of them use hearing aid devices to improve their lives. In some geographies or situations, it's impossible for a patient to get direct assistance when needed. For example, consider patients who:
 
-- Need help in a specific hearing situation (for example, while walking in the park, attending a party, or being at home), which cannot be reproduced in the hearing care professional's office.
+- Need help in a specific hearing situation (for example, while walking in the park, attending a party, or being at home), which can't be reproduced in the hearing care professional's office.
 - Have mobility issues or reside long distances from their hearing care professional.
 - Live in an emerging country/region that has a limited number of hearing care professionals.
 
-To overcome these difficulties, it is important to have the ability to provide hearing care services remotely. In this case, the healthcare professional uses chat or video communication to engage with their remote patients. People who are hard of hearing use a smartphone to allow access to the hearing aid device during the remote session. The patient immediately experiences improved hearing as the hearing care professional deploys changes to the configuration of the hearing aid device in real time.
+To overcome these difficulties, it's important to have the ability to provide hearing care services remotely. In this case, the healthcare professional uses chat or video communication to engage with their remote patients. People who are hard of hearing use a smartphone to allow access to the hearing aid device during the remote session. The patient immediately experiences improved hearing as the hearing care professional deploys changes to the configuration of the hearing aid device in real time.
 
 ## Potential use cases
 
@@ -40,7 +40,7 @@ The state of these services is persisted in several Azure services (on the right
 The solution was set up in this way to:
 
 - Benefit from the scalability of the cloud services running in the backend.
-- Increase the autonomy of the teams building the solution. Each team oversees functional domains and drives the evolution of their components. Since the functional domains do not overlap, each team can innovate at its own pace. Also, since the codebases of the services are independent, the CI/CD pipeline for the entire solution is simplified.
+- Increase the autonomy of the teams building the solution. Each team oversees functional domains and drives the evolution of their components. Since the functional domains don't overlap, each team can innovate at its own pace. Also, since the codebases of the services are independent, the CI/CD pipeline for the entire solution is simplified.
 
 - Build the inter-services communication and coordination mechanism required by the distribution of functionalities across microservices. The solution described in this document uses Azure Cache for Redis to accomplish this task.
 - Achieve central monitoring and enhance the ability to troubleshoot the solution.
@@ -59,7 +59,7 @@ The solution was set up in this way to:
 
 ### Alternatives
 
-On the database side, any other PaaS database services could be used. For hosting the application logic, rather that Azure Kubernetes Service, Azure Application Service or Azure Service Fabric could be used.
+On the database side, any other PaaS database services could be used. When hosting the application logic, rather than using Azure Kubernetes Service, you can consider using Azure App Service or Azure Service Fabric.
 
 ## Modes
 
@@ -81,11 +81,11 @@ The most important aspect to consider when deploying this scenario is the coordi
 
 ### Management
 
-To better align to the idea of having each functional domain dealt with using a specific microservice, long term, there is an opportunity to split the database into several smaller databases. Doing so will enable the principle isolation and autonomy of the flow related to each microservice as opposed to concentrating the data related to all services into a single database. Achieving this goal will require automating provisioning and managing those databases, which is one of the core capabilities of a PaaS database service in the cloud. That database management layer should be integrated in the solution as well as into the unified monitoring solution.
+To better align to the idea of having each functional domain dealt with using a specific microservice, long term, there's an opportunity to split the database into several smaller databases. Doing so will enable the principle isolation and autonomy of the flow related to each microservice as opposed to concentrating the data related to all services into a single database. Achieving this goal will require automating provisioning and managing those databases, which is one of the core capabilities of a PaaS database service in the cloud. That database management layer should be integrated in the solution as well as into the unified monitoring solution.
 
 ### Monitoring
 
-It is important to monitor each of the tiers, and each monitoring facet should be federated into a single bucket in the cloud. It is important to enable the correlation of all these logs and telemetry data points to ensure holistic insights across components and layers.
+It's important to monitor each of the tiers, and each monitoring facet should be federated into a single bucket in the cloud. It's important to enable the correlation of all these logs and telemetry data points to ensure holistic insights across components and layers.
 
 Today, monitored layers include the:
 
@@ -97,11 +97,11 @@ Today, monitored layers include the:
 
 Make sure to optimize the configuration of the Azure Kubernetes clusters to match the scale requirements that fluctuate with the time of the day or regional patterns. Consider offloading read workloads (such as aggregating queries) by using Read Replicas in Azure Database for PostgreSQL.
 
-Using the TimescaleDB extension of PostgreSQL will enable more efficient handling of the time-related data coming from the medical devices. Consider using a scale out solution such as Azure Database for PostgreSQL – Hyperscale (Citus) to reach global scale by provisioning multiple database nodes.
+Using the TimescaleDB extension of PostgreSQL will enable more efficient handling of the time-related data coming from the medical devices. Consider using a scale-out solution such as Azure Database for PostgreSQL – Hyperscale (Citus) to reach global scale by provisioning multiple database nodes.
 
 ### Security and compliance
 
-This solution handles PHI and personal data. As such, it is important to use services that are certified for medical applications (HIPAA certifications, not only for the data that remains in the database but also the logs and telemetry data). For details please consult the [HIPAA section](/compliance/regulatory/offering-hipaa-hitech) of the Microsoft Trust Center.
+This solution handles PHI and personal data. As such, it's important to use services that are certified for medical applications (HIPAA certifications, not only for the data that remains in the database but also the logs and telemetry data). For details please consult the [HIPAA section](/compliance/regulatory/offering-hipaa-hitech) of the Microsoft Trust Center.
 
 ## Pricing
 
