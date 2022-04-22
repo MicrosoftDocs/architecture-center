@@ -41,7 +41,7 @@ To deploy this reference architecture, follow the steps described in the [GitHub
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-**Principal authors:**
+Principal authors:
 
  * Jose Contreras | Principal Software Engineer
 
