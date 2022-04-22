@@ -131,146 +131,159 @@ For specific circumstances, a single Host Pool can be created with a mix of Sess
 - Drain Mode could be used to temporarily disable access to Session Hosts located in the secondary region but would introduce more complexity, management overhead and inefficient use of resources
 - Session Hosts located in the secondary regions can be maintained in an offline state but will introduce more complexity and management overhead.
 
+## Considerations & Recommendations
 
+### AVD General
 
+This reference architecture is based on an active-passive model with an additional AVD Host Pool that will be created in the secondary region. This additional Host Pool can be created inside the same Workspace or different one, depending on the model.
+Using this approach will require maintaining the alignment and updating to keep both host pools in sync and to the same level  the configuration of both Host Pools. Specifically, in addition to a new Host Pool for the secondary DR region:
 
+- New distinct Application Groups (and related applications) must be created for the new Host Pool.
+- During the failover, user assignments to the primary Host Pool must be revoked and manually re-assigned to the new one.
 
+There are some limits for AVD resources, so it is highly recommended to check the article Azure Virtual Desktop [service limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-virtual-desktop-service-limits).
+For diagnostics and monitoring, we do recommend using the same Log Analytics workspace for both the primary and secondary Host Pool.
 
+### Compute
 
+- For deployment of both Host Pools in the primary and secondary DR regions, it is highly recommended to leverage Azure Availability Zones (AZ) and spread the VM fleet over all available zones. If not available in the local region, Azure Availability Set (AS) can be used.
+- The *Golden Image* used for Host Pool deployment in the secondary DR region should be the same used for the primary. It is highly recommended to store  images in [Azure Compute Gallery](https://docs.microsoft.com/azure/virtual-machines/shared-image-galleries) and configure multiple image replicas in both the primary and the secondary locations . Each image replica can sustain a parallel deployment of a maximum number of VMs, more than one maybe required, based on your desired deployment batch size, as described in this [article](https://docs.microsoft.com/azure/virtual-machines/shared-image-galleries#scaling).
 
+:::image type="content" source="images/azure-compute-gallery.png " alt-text="Diagram for Azure Compute Gallery and Image replicas.":::
 
+- Not all the Session Host VMs in the secondary DR locations must be active and running all the time (Pooled Pools). A sufficient number of VMs must be initially created, and after that, using auto-scale mechanism like [Scaling Plans](https://docs.microsoft.com/azure/virtual-desktop/autoscale-scaling-plan), it is possible to maintain majority of compute resources in off-line/deallocated state to reduce costs.
+- As a variation from the previous point, it is also possible to create Session Hosts in the secondary region only when needed using automation: this will optimize costs but will require a longer recovery time (RTO) depending on the mechanism used. This approach will not permit failover tests without a new deployment and will not permit selective failover for specifics group of users.
 
+> [!IMPORTANT]
+> Each Session Host VM must be powered on for few hours at least one time every 90 days (about 3 months) to refresh AVD token necessary to connect to the AVD control plane. Security patches and application updates should be also routinely applied.
 
-## Prerequisites2
-
-There are a few limitations for Azure Virtual Desktop Azure AD domain join:
-
-- Azure AD join is only supported on Azure Virtual Desktop for Azure Resource Manager. Azure Virtual Desktop Classic isn't supported.
-
-- Only personal host pools are currently supported. This limitation isn't in multisession pooled host pools, but in Azure Files. Azure Files currently doesn't support Azure AD as a [Kerberos](https://en.wikipedia.org/wiki/Kerberos_(protocol)) realm, only Active Directory. This lack of Kerberos support prevents FSLogix from working. FSLogix is the technology that manages roaming user profiles in a pooled host pool scenario.
-
-- The session hosts must be Windows 10 Enterprise version 2004 or later.
-
-## Step 1: Deploy an Azure AD join host pool
-
-To deploy an Azure AD host pool, follow the instructions in [Create a host pool](/azure/virtual-desktop/create-host-pools-azure-marketplace). On the **Create a host pool** screen, on the **Virtual Machines** tab, under **Domain to join**, select **Azure Active Directory**.
-
-:::image type="content" source="images/azure-ad-join.png" alt-text="Screenshot of Azure Virtual Desktop with both directory options.":::
-
-Selecting **Azure Active Directory** presents the option to enroll the VMs with Intune. Select **Yes** if you want to enroll the VM with Intune.
-
-Intune can apply policies, distribute software, and help you manage VMs. For more information about Intune as part of Microsoft Endpoint Manager, see [Getting started with Microsoft Endpoint Manager](https://techcommunity.microsoft.com/t5/intune-customer-success/getting-started-with-microsoft-endpoint-manager/ba-p/2497614).
-
-:::image type="content" source="images/intune-enroll.png" alt-text="Screenshot of Azure Virtual Desktop with the Intune enroll option selected.":::
-
-In the deployment, a new extension called **AADLoginForWindows** creates the Azure AD join and the Intune enrollment if selected.
-
-:::image type="content" source="images/extension.png" alt-text="Screenshot of Azure Virtual Desktop with Azure AD deployment completed.":::
-
-You can also add session hosts to an existing host pool and have them Azure AD joined and Intune enrolled.
-
-After you create the host pool VMs, you can see the VMs in **Azure AD** > **Devices**.
-
-:::image type="content" source="images/azure-ad-devices.png" alt-text="Screenshot of Azure Virtual Desktop session host virtual machines listed in Azure A D devices.":::
-
-To confirm Azure AD registrations, go to **Azure Active Directory** > **Devices** > **Audit Logs** and look for **Register device**.
-
-:::image type="content" source="images/audit-log.png" alt-text="Screenshot of Azure AD audit logs showing Azure Virtual Desktop session host device registrations.":::
-
-The VMs also appear in the [MEM portal](https://endpoint.microsoft.com/#blade/Microsoft_Intune_DeviceSettings/DevicesMenu/overview), in the **Devices** section.
-
-:::image type="content" source="images/mem-devices.png" alt-text="Screenshot of Azure Virtual Desktop session host virtual machines listed in M E M devices.":::
-
-If a VM doesn't appear or you want to confirm enrollment, sign in to the VM locally and at a command prompt, run the following command:
-
-```shell
-dsregcmd /status
-```
-
-The output shows the VM's Azure AD join status.
-
-:::image type="content" source="images/command-output.png" alt-text="Screenshot of the shell output from the command.":::
-
-On the local client, the Azure AD registration logs are in Event Viewer at **Applications and Services Logs** > **Microsoft** > **Windows** > **User Device Registration** > **Admin**.
+- Having Session Hosts in offline (*deallocated*) state in the secondary region will not guarantee capacity to be available in case of a primary region wide disaster. This is also true if new Session Hosts will be deployed on-demand when needed, and in the case of [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-common-questions?#how-do-we-ensure-capacity-in-the-target-region) usage. Compute capacity can be guaranteed if:
+  - Session Hosts will be kept in an active state in the secondary region.
+  - Use the new Azure feature [On-demand Capacity Reservation](https://docs.microsoft.com/azure/virtual-machines/capacity-reservation-overview).
 
 > [!NOTE]
-> With the previous, AD DS scenario, you could manually deploy session host VMs in a separate subscription connected to a different Azure AD if necessary. The VMs had no dependency on Azure AD. The VMs only needed network line of sight to an AD DS domain controller in a domain that synchronized user objects to the Azure Virtual Desktops' Azure AD.
->
-> Azure AD join doesn't support this scenario. The host VMs automatically join to the Azure AD of the subscription that deploys the VMs. The deployment inherits that Azure AD as an identity provider, and uses the user identities that the Azure AD holds. There's no way to specify a different Azure AD for the host VMs. So be sure to create the VMs in the same subscription as all the other Azure Virtual Desktop objects. The VMs also automatically enroll into the Intune tenant associated with the Azure AD.
+> Azure Reserved Instances (RI) does not provide guaranteed capacity but can integrate with On-demand Capacity Reservation to reduce the cost.
 
-## Step 2: Enable user access
+- Since Cloud Cache will be used:
+  - It is recommended to leverage Premium tier for the Session Host VM OS managed disk.
+  - It is recommended to move the [Cloud Cache](https://docs.microsoft.com/azure/virtual-machines/capacity-reservation-overview) to the temporary VM drive to leverage local SSD storage.
 
-In the next step, you enable sign-in access to the VMs. These VMs are Azure objects, and the authentication mechanism is Azure AD. You manage user sign-in permission through Azure role-based access control (RBAC).
+### Storage
 
-In Azure Virtual Desktop, users must be in the Azure Virtual Desktop [Desktop application group](/azure/virtual-desktop/manage-app-groups) to sign in to the VMs. For Azure AD join, the same users and groups that are in the Desktop application group must also be added to the **Virtual Machine User Login** RBAC role. This role isn't a [Azure Virtual Desktop role](/azure/virtual-desktop/rbac), but an Azure role with the **Log in to Virtual Machine** DataAction permission.
+In the reference architecture provided in this article, at least two separate storage accounts will be used for each AVD Host Pool: one for FSLogix Profile container and one for Office container data. One additional storage account required for MSIX packages. The following considerations apply:
 
-:::image type="content" source="images/sign-in-role.png" alt-text="Screenshot that shows the Azure Virtual Desktop required role for V M sign-in.":::
+- [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) Share and [Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction) (ANF) are the recommended storage alternatives.
+- Azure File Share can provide zone resiliency through the usage of Zone-Replicated Storage resiliency option (ZRS), which is recommended if available in the region.
+- Geo-Redundant Storage (GRS) feature cannot be leveraged in the following situations:
+  - A non-paired region is required; the region pairs for GRS are fixed and cannot be changed.
+  - GRS is not available for Premium tier, which is often used in AVD.
+  - RPO and RTO are higher compared to FSLogix Cloud Cache mechanism.
+  - It is not easy to test failover and failback in a production environment.
+- ANF has some important limitations that need to be considered:
+  - At the time of writing this document, it does not provide zone-resiliency, then Azure File Share should be the preferred option if resiliency requirement is more important than performances.
+  - ANF is also not “zonal”, that is user cannot specify in which zone to deploy.
+  - ANF cannot be used in conjunction to zone-redundant VPN and Express Route gateways, which are normally recommended from a networking resiliency perspective (see details [here](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-network-topologies#supported-network-topologies)).
+  - ANF cannot be used in conjunction to Azure Virtual WAN (see details [here](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-network-topologies#supported-network-topologies)).
+- ANF provides its own [cross-region replication mechanism](https://docs.microsoft.com/azure/azure-netapp-files/cross-region-replication-introduction), with the following limitations:
+  - Not available in all regions.
+  - Region pairs are fixed.
+  - Failover is not transparent, and failback requires storage reconfiguration.
+- Limits
+  - There are limits in the size, IOPS, bandwidth MB/s for both Azure File Share and ANF storage accounts and volumes: if necessary, in AVD is possible to use more than one for the same Host Pool using [Per-Group settings](https://docs.microsoft.com/fslogix/configure-per-user-per-group-ht) in FSLogix but require additional planning and configuration.
 
-Choose the scope for this role.
+The storage account used for MSIX application packages should be distinct from the other accounts used for Profile and Office containers. The following Geo-DR options are available, the latter is recommended:
 
-- Assigning the role at the **VM level** means you have to assign the role for each VM you add.
-- Assigning the role at the **resource group level** means the role automatically applies to all VMs in that resource group.
-- Assigning the role at the **Subscription level** means users can sign in to all VMs in the subscription.
+- **One single storage account with GRS enabled, in the primary region**
+  - Secondary region is fixed, then not suitable for local access in case of storage account failover (RA-GRS is not possible for Azure Files).
+- **Two separate storage accounts, one in the primary region and one in the secondary region**
+  - ZRS is recommended for at least the primary region, do not use GRS.
+  - Each Host Pool in each region will have local storage access to MSIX packages with low latency.
+  - MSIX packages must be copied twice in both locations and registered twice in both Host Pools. Users need to be assigned to the Application Groups twice. 
 
-Setting the role once at the resource group level might be the best option. This approach prevents having to assign the role for every VM, but avoids assigning it at the top level of the subscription.
+### FSLogix
 
-To assign the **Virtual Machine User Login** role:
+The following FSLogix configuration and features are recommended:
 
-1. In the Azure portal, go to your chosen scope, for example the resource group, and select **Access control (IAM)**.
+- If Profile container content needs to have separate BCDR management and different requirements compared to Office container, it is recommended to split them (see details here):
+  - Office Container is generally cached content only that can be rebuilt/re-populated from the sources in case of a disaster. If this is the case, customers can consider not protecting with backups to reduce costs.
+  - Using different storage accounts, backup can be enabled only on the Profile Container, or have different settings (retention period, storage used, frequency, RTO/RPO).
+- [Cloud Cache](https://docs.microsoft.com/fslogix/cloud-cache-resiliency-availability-cncpt) is a FSLogix component that allows you to specify multiple profile storage locations and asynchronously replicate profile data, without relying on underlying storage replication mechanisms. If the first storage location fails, or is not reachable, Cloud Cache will automatically failover to use the secondary, thus effectively adding a resiliency layer. Cloud Cache will be used to replicate both Profile and Office containers between different storage accounts in the primary and secondary regions.
 
-   :::image type="content" source="images/resource-group.png" alt-text="Screenshot showing Azure resource group Access control.":::
+:::image type="content" source="images/cloud-cache-general.png " alt-text="Picture representing high-level view of Cloud Cache.":::
 
-1. At the top of the screen, select **+ Add** > **Add role assignment**.
+- Cloud Cache must be enabled twice in the Session Host VM registry, once for [Profile Container](https://docs.microsoft.com/fslogix/configure-cloud-cache-tutorial#configuring-cloud-cache-for-profile-container) and once for [Office Container](https://docs.microsoft.com/fslogix/configure-cloud-cache-tutorial#configuring-cloud-cache-for-office-container). It is theoretically possible to not enable Cloud Cache for Office Container, but this may cause a data misalignment between the primary and the secondary DR region in case of failover and failback. This scenario should be carefully tested before being used in production. 
+- Cloud Cache mechanism is compatible with both [profile split](https://docs.microsoft.com/fslogix/profile-container-office-container-cncpt) (Profile Container vs. Office Container) and [Per-Group](https://docs.microsoft.com/fslogix/configure-per-user-per-group-ht) settings. The latter requires careful design and planning of Active Directory Groups and membership: it must be ensured that every user will be part of exactly one Group and that Group used to grant access to Host Pools.
+- Cloud Cache locations (*CCDLocations* parameter) specified in the registry for the Host Pool in the secondary DR region will be reverted in order, compared to the settings in the primary region (see [here](https://docs.microsoft.com/fslogix/configure-cloud-cache-tutorial) for additional details).
 
-1. Under **Role**, select **Virtual Machine User Login**, and under **Select**, select the same user group that's assigned to the Desktop Application Group.
+An example of the Cloud Cache configuration, and related registry keys, is reported below:
 
-   :::image type="content" source="images/user-login-role.png" alt-text="Screenshot that shows applying the required V M user login role.":::
+**Primary Region = North Europe**
+- Profile container storage account URI = **\\northeustg1\profiles**
+  - Registry Key path = **HKEY_LOCAL_MACHINE > SOFTWARE > FSLogix > Profiles**
+  - *CCDLocations* value = **type=smb,connectionString=\\northeustg1\profiles;type=smb,connectionString=\\westeustg1\profiles**
 
-The user group now appears under **Virtual Machine User Login**.
+:::image type="content" source="images/fslogix-cc-registry-keys.png " alt-text="Screenshot of Cloud Cache registry keys.":::
 
-:::image type="content" source="images/role-applied.png" alt-text="Screenshot showing the Azure Virtual Desktop V M user login role applied.":::
+- Office container storage account URI = **\\northeustg2\odcf**
+  - Registry Key path = **HKEY_LOCAL_MACHINE > SOFTWARE >Policy > FSLogix > ODFC**
+  - *CCDLocations* value = **type=smb,connectionString=\\northeustg2\odfc;type=smb,connectionString=\\westeustg2\odfc**
 
-If you don't assign this role, users get an error message when they try to sign in via the Windows client.
+:::image type="content" source="images/fslogix-cc-registry-keys-office.png " alt-text="Screenshot of Cloud Cache registry keys for Office Container.":::
 
-:::image type="content" source="images/other-user-error.png" alt-text="Screenshot of the Azure Virtual Desktop Azure A D Other User error in the Windows client.":::
+> [!NOTE]
+> In the print screens above, not all the recommended registry keys for FSLogix and Cloud Cache are reported for brevity and simplicity. Please follow [this](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix) article for complete details.
 
-Web client users get a different-looking error.
+**Secondary Region = West Europe**
 
-:::image type="content" source="images/oops-error.png" alt-text="Screenshot of the Azure Virtual Desktop Azure A D Oops error in the web client.":::
+- Profile container storage account URI = **\\westeustg1\profiles**
+  - Registry Key path = **HKEY_LOCAL_MACHINE > SOFTWARE > FSLogix > Profiles**
+  - CCDLocations value = **type=smb,connectionString=\\westeustg1\profiles;type=smb,connectionString=\\northeustg1\profiles**
+- Office container storage account URI = **\\westeustg2\odcf** 
+  - Registry Key path = **HKEY_LOCAL_MACHINE > SOFTWARE >Policy > FSLogix > ODFC**
+  - CCDLocations value = **type=smb,connectionString=\\westeustg2\odfc;type=smb,connectionString=\\northeustg2\odfc** 
 
-### Local Admin access
+### Cloud Cache Replication
 
-To give a user local administrative access to the VM, also add the user to the **Virtual Machine Administrator Login** role. This role has a **Log in to Virtual Machine as administrator** DataAction permission that enables administrative access.
+The Cloud Cache configuration and replication mechanism suggested above will guarantee profile data replication between different regions with minimal data loss. Since the same (user profile) file can be opened in ReadWrite mode by only one process, concurrent access should be avoided, thus users should not open a connection to both Host Pools at the same time. 
+In the diagram below what would happen is explained in detail:
 
-:::image type="content" source="images/admin-role.png" alt-text="Screenshot that shows the Azure Virtual Desktop Azure A D administrator role permission.":::
+:::image type="content" source="images/cloud-cache-replication-diagram.png" alt-text="High-level overview of Cloud Cache replication flow.":::
 
-## Protocol and client options
+1. AVD user will launch AVD client and will open a published application (Desktop or Remote App) assigned on the primary region Host Pool.
+2. FSLogix will retrieve the user Profile and Office containers and mount the underlying storage VHD/X from the storage account located in the primary region.
+3. At the same time, Cloud Cache component will initialize replication between the files in the primary region and the files in the secondary region. To do this, Cloud Cache in the primary region will acquire an exclusive R/W lock on these files.
+4. Now the same AVD user wants to launch an additional published application (Desktop or Remote App) assigned on the secondary region Host Pool.
+5. The FSLogix component running on the AVD Session Host in the secondary region will try to mount the user profile VHD/X files from the local storage account but will fail since these files are locked by the Cloud Cache component running on AVD Session Host in the primary region.
+6. In the default FSLogix and Cloud Cache configuration, the user will be not allowed to logon and an error will be tracked in FSLogix diagnostic logs (*ERROR_LOCK_VIOLATION 33 (0x21)*).
 
-By default, host pool access only works from the [Windows Azure Virtual Desktop client](/azure/virtual-desktop/user-documentation/connect-windows-7-10?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json). To access host pool VMs, your local computer must be:
+:::image type="content" source="images/fslogix-log.png" alt-text="Print screen of FSLogix diagnostic log.":::
 
-- Azure AD-joined or hybrid Azure AD-joined to the same Azure AD tenant as the session host.
-- Running Windows 10 version 2004 or later, and also Azure AD-registered to the same Azure AD tenant as the session host.
+### Identity
 
-Host pool access uses the Public Key User to User (PKU2U) protocol for authentication. To sign in to the VM, the session host and the local computer must have the PKU2U protocol enabled. For Windows 10 version 2004 or later machines, if the PKU2U protocol is disabled, enable it in the Windows registry as follows:
+One of the most important dependencies that AVD needs to be always available is user identity. To access virtual desktops and remote apps from your session hosts, your users need to be able to authenticate. [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) (Azure AD or AAD) is Microsoft's centralized cloud identity service that enables this capability. Azure AD is always used to authenticate users for Azure Virtual Desktop. Session hosts can be joined to the same Azure AD tenant, or to an Active Directory domain using [Active Directory Domain Services](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) (AD DS) or Azure Active Directory Domain Services (Azure AD DS), providing you with a choice of flexible configuration options.
 
-1. Navigate to **HKLM\\SYSTEM\\CurrentControlSet\\Control\\Lsa\\pku2u**.
-1. Set **AllowOnlineID** to **1**.
+- **Azure Active Directory**
+  - It is a global multi-region and resilient service with 99,99% high-availability [SLA](https://azure.microsoft.com/support/legal/sla/active-directory/v1_1/), no additional action is required in this context as part of an AVD BCDR plan.
+- **Active Directory Domain Services**
+  - For AD DS to be resilient and highly available, even in case of a region wide disaster, it is recommended to deploy at least two Domain Controllers (DC) in the primary Azure region, in different Availability Zones (AZ) if available, and ensure proper replication with the infrastructure in the secondary region and eventually on-premises. At least one additional DC should be created in the secondary region with Global Catalog and DNS roles.
+- **Azure Active Directory (AD) Connect**
+  - If you are using Azure AD with AD DS and then [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-azure-ad-connect) to synchronize user identity data between AD DS and Azure AD, then resiliency and recovery of this service should be also considered in case of protection from a permanent disaster. 
+  - High availability and disaster recovery can be provided installing a second instance of the service in the secondary region and enabling [Staging Mode](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-topologies#staging-server) (hot-standby mode).
+  - In case of recovery, the administrator will be required to promote the secondary instance taking it out of staging mode following the exact procedure as placing a server into staging mode.
 
-   :::image type="content" source="images/registry.png" alt-text="Screenshot of the Azure Virtual Desktop registry setting to enable the P K U 2 U protocol.":::
+:::image type="content" source="images/ad-connect-configuration-wizard.png" alt-text="Print screen of AD Connect configuration wizard.":::
 
-If your client computers use Group Policy, also enable the Group Policy Option:
+- **Azure Active Directory Domain Services**
+  - Can be used in some scenarios as an alternative to AD DS.
+  - It offers 99,9% high-availability [SLA](https://azure.microsoft.com/support/legal/sla/active-directory-ds/v1_0/).
+  - If geo disaster recovery is in scope for the specific customer scenario, it is highly recommended to deploy an additional replica in the secondary Azure region using [Replica Set](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-replica-set). This feature can be used also to increase high-availability in the primary region.
 
-1. Navigate to **Computer Configuration\\Policies\\Windows Settings\\Security Settings\\Local Policies\\Security Options**.
+## Architecture Diagrams
 
-1. Under **Policy**, set **Network security: Allow PKU2U authentication requests to this computer to use online identities** to **Enabled**.
+### Personal Host Pool
 
-   :::image type="content" source="images/pku2u-protocol.png" alt-text="Screenshot of Azure Virtual Desktop Group Policy to enable the P K U 2 U protocol.":::
 
-If you're using other Azure Virtual Desktop clients, such as Mac, iOS, Android, web, the Store client, or pre-version 2004 Windows 10, enable the [RDSTLS protocol](/openspecs/windows_protocols/ms-rdpbcgr/83d1186d-cab6-4ad8-8c5f-203f95e192aa). Enable this protocol by adding a new [custom RDP Property](/azure/virtual-desktop/customize-rdp-properties) to the host pool, *targetisaadjoined:i:1*. Azure Virtual Desktop then uses this protocol instead of PKU2U.
 
-:::image type="content" source="images/rdp-protocol.png" alt-text="Screenshot of Azure Virtual Desktop R D P Property to enable other clients than Windows.":::
-
-Now you have an Azure Virtual Desktop host pool where the session hosts are joined only to Azure AD. You're a step closer to modern management for your Azure Virtual Desktop estate.
 
 ## Next steps
 
