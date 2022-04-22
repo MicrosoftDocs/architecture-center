@@ -373,6 +373,16 @@ FSLogix does permit this configuration, and the usage of separate storage accoun
   - Feature [availability](https://docs.microsoft.com/azure/azure-netapp-files/backup-requirements-considerations) in the region must be checked, along with requirements and limitations.
 - The separate storage accounts used for MSIX should be also covered by backup if the application packages repositories can't be easily rebuilt.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+**Principal authors:**
+
+ *Igor Pagliai* | (FastTrack for Azure Principal Engineer)
+
+ *Ben Martin Baur* | ("Cloud Solution Architect")
+
 ## Next steps
 
 - To learn about FSLogix, see [FSLogix for the enterprise](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix).
