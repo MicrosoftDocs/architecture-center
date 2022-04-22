@@ -78,7 +78,7 @@ We have provided three sample cost profiles based on amount of traffic (we assum
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-**Principal authors:**
+Principal authors:
 
  * [David Stanford](https://www.linkedin.com/in/das0) | Principal PM
 
