@@ -17,13 +17,17 @@ UVEN combined BCL and UVC technology offers:
 
 ## Potential use cases
 
+This solution is ideal for the healthcare and facilities industries. We recommend using the solution in the following scenarios:
+
 - UVEN cells can fit any layout of a specific area, like a reception counter, or split between several areas, like a number of washrooms.
 - The modular system can scale to fit any space, from individual rooms and homes to large campuses and public areas.
 - Azure Sphere-based infrastructure can easily integrate with existing IoT devices or building management systems.
 
 ## Architecture
 
-![UVEN architecture](../media/uven-system.png)
+![Diagram that shows the UVEN architecture.](../media/uven-system.png)
+
+### Workflow
 
 - The system uses radar proximity sensors to detect when people are present. Whenever a space is unoccupied, the panels emit UV radiation to heavily reduce or eliminate viruses and bacteria.
 - One UVEN lighting control system (LCS) can control both BCL light and UVC radiation emissions for up to 20 luminaires. The LCS connects to radar sensors, electrical power, and to the internet or other LCSs for updates and real-time calibration.
@@ -48,7 +52,7 @@ UVEN administrative support tools include an admin panel to maintain information
 
 #### Azure Sphere
 
-[Azure Sphere](https://azure.microsoft.com/services/azure-sphere/) is a secure application platform for IoT connected devices with built-in cloud communication and security. The platform consists of an Azure Sphere-certified secured MCU chip that runs a custom high-level Linux-based microcontroller operating system (OS). The Azure Sphere OS provides a platform for IoT application development, including both high-level and real-time capable applications. The OS connects to the cloud-based Azure Sphere Security Service (AS3) for continuous, renewable security.
+[Azure Sphere](https://azure.microsoft.com/services/azure-sphere) is a secure application platform for IoT connected devices with built-in cloud communication and security. The platform consists of an Azure Sphere-certified secured MCU chip that runs a custom high-level Linux-based microcontroller operating system (OS). The Azure Sphere OS provides a platform for IoT application development, including both high-level and real-time capable applications. The OS connects to the cloud-based Azure Sphere Security Service (AS3) for continuous, renewable security.
 
 AS3 establishes a secure connection between a device and the internet or cloud, ensures secure boot, and enables maintenance, updates, and control for Azure Sphere-certified chips. AS3 authenticates device identity, ensures the integrity and trust of the system software, and certifies that the device is running a trusted code base. The service also provides a secure channel to automatically download and install OS and customer application updates to deployed devices.
 
@@ -60,5 +64,5 @@ Azure Sphere *greenfield* implementations involve designing and building new IoT
 
 - For more information, please contact [iotcovidsupport@microsoft.com](mailto:iotcovidsupport@microsoft.com).
 - For more information about the BCL system, see the [BrainLit](https://www.brainlit.com/) website.
-- For more information about Azure Sphere, see the [Azure Sphere documentation](/azure-sphere/).
+- For more information about Azure Sphere, see the [Azure Sphere documentation](/azure-sphere).
 - For Azure Sphere code samples, see [Azure Sphere Samples](https://github.com/Azure/azure-sphere-samples).

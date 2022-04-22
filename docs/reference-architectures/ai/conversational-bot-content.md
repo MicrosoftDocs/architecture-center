@@ -51,7 +51,22 @@ The bot will rely on raw data that must be ingested and prepared. Consider any o
 #### Quality assurance and enhancements
 
 - **[Azure DevOps][devops]**. Provides many services for app management, including source control, building, testing, deployment, and project tracking.
-- **[VS Code][vscode]** A lightweight code editor for app development. You can use any other IDE with similar features.
+- **[VS Code][vscode]**. A lightweight code editor for app development. You can use any other IDE with similar features.
+
+### Components
+
+- [Bot Framework Service](https://azure.microsoft.com/services/bot-services)
+- [Azure App Service](https://azure.microsoft.com/services/app-service)
+- [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services)
+- [Azure Search](https://azure.microsoft.com/services/search)
+- [Azure Data Factory](https://azure.microsoft.com/services/data-factory) 
+- [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) 
+- [Azure Functions](https://azure.microsoft.com/services/functions) 
+- Application Insights is a feature of [Azure Monitor](https://azure.microsoft.com/services/monitor)
+- [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs)
+- [Azure Cosmos DB](https://azure.microsoft.com/free/cosmos-db)
+- [Azure AD](https://azure.microsoft.com/services/active-directory)
+- [Azure Key Vault](https://azure.microsoft.com/services/key-vault) 
 
 ## Recommendations
 
@@ -140,7 +155,7 @@ Another option is to integrate your own custom AI service. This approach is more
 > [!NOTE]
 > To jump-start your development in these areas, look at the [Botbuilder Utils for JavaScript][git-repo-base]. This repo contains sample utility code for bots built with [Microsoft Bot Framework v4][bot-framework] and running Node.js. It includes the following packages:
 >
-> - [Cosmos DB Logging Store][cosmosdb-logger]. Shows how to store and query bot logs in Cosmos DB.
+> - [Cosmos DB Logging Store][cosmosdb-logger]. Shows how to store and query bot logs in Azure Cosmos DB.
 > - [Application Insights Logging Store][appinsights-logger]. Shows how to store and query bot logs in Application Insights.
 > - [Feedback Collection Middleware][feedback-util]. Sample middleware that provides a bot user feedback-request mechanism.
 > - [Http Test Recorder][testing util]. Records HTTP traffic from services external to the bot. It comes pre-built with support for LUIS, Azure Search, and QnAMaker, but extensions are available to support any service. This helps you automate bot testing.
@@ -210,9 +225,36 @@ For instance, your logic app processes 1000 messages a day from Azure Service Bu
 
 For other cost considerations, see the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+ * Robert Alexander | Senior Software Engineer
+
 ## Next steps
 
 - Review the [Virtual Assistant](/azure/bot-service/bot-builder-virtual-assistant-introduction) template to quickly get started building conversational bots.
+
+Product documentation:
+
+- [Language Understanding][luis] (LUIS)
+- [Azure App Service][app-service]
+- [QnA Maker][qna-maker]
+- [Azure Data Factory][data-factory]
+- [What is Azure Logic Apps?][logic-apps]
+- [Azure Functions][functions]
+
+Microsoft Learn modules:
+
+- [Create Intelligent Bots with the Azure Bot Service](/learn/paths/create-bots-with-the-azure-bot-service)
+- [Build a bot with QnA Maker and Azure Bot Service](/learn/modules/build-faq-chatbot-qna-maker-azure-bot-service)
+
+## Related resources
+
+- [Chatbot for hotel reservations](../../example-scenario/ai/commerce-chatbot.yml)
+- [Speech-to-text conversion](../../reference-architectures/ai/speech-to-text-transcription-pipeline.yml)
 
 <!-- links -->
 

@@ -14,6 +14,8 @@ By following the guidance you can maintain full control of your research data, h
 
 :::image type="content" source="./media/secure-research-env.png" alt-text="Diagram of a secure research environment.":::
 
+*Download a [Visio file](https://arch-center.azureedge.net/secure-compute-for-research.vsdx) of this architecture.*
+
 ### Dataflow
 
 1. Data owners upload datasets into a public blob storage account. The data is encrypted by using Microsoft-managed keys.
