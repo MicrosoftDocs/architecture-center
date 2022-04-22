@@ -282,11 +282,11 @@ One of the most important dependencies that AVD needs to be always available is 
 
 ### Personal Host Pool
 
-:::image type="content" source="images/avd-personal-host-pool-diagram.png" alt-text="Reference BCDR architecture for Personal Host Pool.":::
+:::image type="content" source="images/avd-personal-host-pool-diagram.png" alt-text="Reference BCDR architecture for Personal Host Pool." lightbox="images/avd-personal-host-pool-diagram.png":::
 
 ### Pooled Host Pool
 
-:::image type="content" source="images/avd-pooled-host-pool-diagram.png" alt-text="Reference BCDR architecture for Pooled Host Pool.":::
+:::image type="content" source="images/avd-pooled-host-pool-diagram.png" alt-text="Reference BCDR architecture for Pooled Host Pool." lightbox="images/avd-pooled-host-pool-diagram.png":::
 
 ## Failover and Failback
 
