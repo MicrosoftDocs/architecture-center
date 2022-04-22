@@ -316,7 +316,7 @@ Use the [Azure pricing calculator][Azure pricing calculator] to estimate the cos
 [Azure API Management]: https://azure.microsoft.com/services/api-management
 [Azure Cognitive Services]: https://azure.microsoft.com/services/cognitive-services/?azure-portal=true
 [Azure Cosmos DB]: https://azure.microsoft.com/services/cosmos-db
-[Azure Data Explorer]: https://azure.microsoft.com/services/data-explorer/
+[Azure Data Explorer]: https://azure.microsoft.com/services/data-explorer
 [Azure Data Factory]: https://azure.microsoft.com/services/data-factory
 [Azure DevOps]: https://azure.microsoft.com/services/devops
 [Azure Digital Twins]: https://azure.microsoft.com/services/digital-twins
