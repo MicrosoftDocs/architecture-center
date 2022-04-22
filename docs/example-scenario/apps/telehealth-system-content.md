@@ -47,14 +47,14 @@ The solution was set up in this way to:
 
 ### Components
 
-- [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/) stores user (patient and health care professional) and device-related data. The service was chosen because it's stable, lightweight, and has no vendor lock-in.
-- [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) hosts the application business logic and provides ease of deployment and flexibility for customization. The service also abstracts the solution from the actual hardware used underneath.
-- [Azure Cache for Redis](https://azure.microsoft.com/services/cache/) hosts temporary data used for intra service data (shared data). The service can be recreated from the database in case the data expires from the cache
-- [Azure Notification Hub](https://azure.microsoft.com/services/notification-hubs/) notifies patient of incoming content: chat, video calls, device configuration settings.
-- [Azure Functions](https://azure.microsoft.com/services/functions/) schedules tasks. For instance, broad communications to large set of users, coordination of analytics work in the backend (aggregations…).
-- [Azure Application Insights](https://azure.microsoft.com/services/monitor/) centralizes signals/events from the system (logs, telemetry from logs from microservices, frontend, and devices) for troubleshooting purposes.
-- [Azure Content Delivery Network (CDN)](https://azure.microsoft.com/services/cdn/) is used for maintenance and updates (delivery of java scripts file) to the web portal and to deliver media files (videos, images) through the portal. All this content is stored in the Azure storage accounts in the background.
-- [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) load balances between geo locations.
+- [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql) stores user (patient and health care professional) and device-related data. The service was chosen because it's stable, lightweight, and has no vendor lock-in.
+- [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service) hosts the application business logic and provides ease of deployment and flexibility for customization. The service also abstracts the solution from the actual hardware used underneath.
+- [Azure Cache for Redis](https://azure.microsoft.com/services/cache) hosts temporary data used for intra service data (shared data). The service can be recreated from the database in case the data expires from the cache
+- [Azure Notification Hub](https://azure.microsoft.com/services/notification-hubs) notifies patient of incoming content: chat, video calls, device configuration settings.
+- [Azure Functions](https://azure.microsoft.com/services/functions) schedules tasks. For instance, broad communications to large set of users, coordination of analytics work in the backend (aggregations…).
+- [Azure Application Insights](https://azure.microsoft.com/services/monitor) centralizes signals/events from the system (logs, telemetry from logs from microservices, frontend, and devices) for troubleshooting purposes.
+- [Azure Content Delivery Network (CDN)](https://azure.microsoft.com/services/cdn) is used for maintenance and updates (delivery of java scripts file) to the web portal and to deliver media files (videos, images) through the portal. All this content is stored in the Azure storage accounts in the background.
+- [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager) load balances between geo locations.
 - [Azure SignalR](/azure/azure-signalr/signalr-overview) allows server code to send asynchronous notifications to client-side web applications. End-user devices can be configured in either _Standard_  or _Advanced_  mode.
 
 ### Alternatives
@@ -111,7 +111,7 @@ For a deployment in a single region, example pricing information is available in
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-**Principal authors:**
+Principal authors:
 
 * [Jean-Yves Devant](https://www.linkedin.com/in/jydevant) | Principal Product Manager
 
