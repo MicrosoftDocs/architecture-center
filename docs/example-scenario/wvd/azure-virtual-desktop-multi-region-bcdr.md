@@ -282,15 +282,104 @@ One of the most important dependencies that AVD needs to be always available is 
 
 ### Personal Host Pool
 
+:::image type="content" source="images/avd-personal-host-pool-diagram.png" alt-text="Reference BCDR architecture for Personal Host Pool.":::
 
+### Pooled Host Pool
 
+:::image type="content" source="images/avd-pooled-host-pool-diagram.png" alt-text="Reference BCDR architecture for Pooled Host Pool.":::
 
-## Next steps
+## Failover and Failback
 
-- [Azure Virtual Desktop documentation](/azure/virtual-desktop/)
-- [Deploy Azure AD-joined virtual machines in Azure Virtual Desktop](/azure/virtual-desktop/deploy-azure-ad-joined-vm)
+### Pooled Host Pool Scenario
+
+One of the desired characteristics of an active-active DR model is the lack of required administrator intervention to recover the service in case of an outage. Failover procedure should be necessary only in an active-passive architecture, then this section will refer only to this specific use case.
+In active-passive model, the secondary DR region should be idle, with minimal resources (pre)configured and active, and configuration kept aligned with the primary region. In case of failover, (re)assignments for all users to all Desktop (DAG) and Application Groups for Remote Apps in the secondary DR Host Pool will happen at the same time.
+
+It is theoretically possible to have an active-active model and partial failover. If the Host Pool is only used to provide DAG, then it is sufficient to partition the users in multiple non-overlapping Active Directory Group and re-assign the Group to DAG in the primary or secondary DR Host Pools. It should not be permitted to a user to have access to both Host Pools at the same time. In case of multiple Application Groups and Applications, user groups used to assign users may easily overlap, in this case it would be difficult to implement an active-active strategy. Whenever a user starts a Remote App in the primary Host Pool, the user profile is loaded by FSLogix on a Session Host VM, then trying to do the same on the secondary Host Pool may cause a conflict on the underlying profile disk.
+
+> [!WARNING]
+> By default, FSLogix [registry settings](https://docs.microsoft.com/fslogix/profile-container-configuration-reference#profiletype) will prohibit concurrent access to the same user profile from multiple sessions. In this BCDR scenario it is highly recommended to do not change this behavior and leave value to ‘0’ for registry key **ProfileType**.
+
+Before explaining the list of steps for failover and failback, here is the initial situation and configuration assumptions:
+
+- The Host Pools in the primary region and secondary DR regions are aligned on the configuration, including Cloud Cache.
+- In the Host Pools, both Desktop (DAG1) and Remote App Application Groups (APPG2, APPG3), are offered to users.
+- On the Host Pool in the primary region, AD User Groups GRP1, GRP2 and GRP3 are used to assign users to DAG1, APPG2 and APPG3. These groups may have overlapping user memberships, but since the model used here is active-passive with full failover, it does not represent a problem.
+
+In case of failover, after either a planned or un-planned disaster, the list of steps is documented below:
+
+1. On the primary Host Pool, for all Application Groups (DAG1, APPG2, APPG3) remove user assignment by the groups GRP1, GRP2 and GRP3.
+2. Force disconnection for all connected users from the primary Host Pool.
+3. On the secondary Host Pool, where the same Application Groups are configured, grant user access to DAG1, APPG2, APPG3 using groups GRP1, GRP2, GRP3.
+4. Review and eventually adjust capacity of the Host Pool in the secondary region. Here, you may want to rely on Auto-Scale plan to automatically power on Session Hosts, or you may want to manually start immediately the necessary resources.
+
+**Failback** steps and flow are similar, and the entire process can be executed multiple times. Cloud Cache and the configuration of storage accounts will ensure that Profile and Office containers data will be replicated. Before failback, it must be ensured that the Host Pool configuration and compute resources will be recovered. For the storage part, in case of data loss in the primary region, Cloud Cache will replicate back Profile and Office container data from the secondary region storage.
+
+It is also possible to implement a Test Failover plan with a few configuration changes, without impacting the production environment:
+
+- Create a few new User Accounts in Active Directory not previously used for production.
+- Create a new Active Directory Group GRP-TEST and assign users.
+- Assign access to (DAG1, APPG2, APPG3) using GRP-TEST.
+- Give instructions to users in GRP-TEST to test applications.
+- Execute (test) the failover procedure, just using GRP-TEST to remove access from the primary Host Pool and grant access to the secondary DR pool.
+
+Finally, these are some important recommendations:
+
+- It is highly recommended to automate the failover process using PowerShell, AZ CLI, or other available API/tool.
+- The entire failover and failback procedure should be tested extensively and periodically.
+- A regular configuration alignment check should be conducted to ensure Host Pools in the primary and secondary DR region are in sync.
+
+### Personal Host Pool Scenario
+
+Similarly to what described already for Pooled Host Pool, in this section only active-passive model will be covered since active-active would not require any failover or administrator intervention.
+
+Failover and failback for Personal Host Pool is quite different since there is no Cloud Cache and external storage used for Profile and Office containers. FSLogix technology can still be used to save containers data out from the Session Host, and/or OneDrive can be used to save what matters for the users but is not considered in this article.  For more information, see the article [Redirect and move Windows known folders to OneDrive](https://docs.microsoft.com/onedrive/redirect-known-folders). Additionally, there will be no secondary Host Pool in the DR region, then no need to create additional workspaces and AVD resources to replicate and keep aligned. The same Session Host VMs will be replicated using Azure native technology called Azure Site Recovery (ASR).
+
+ASR can be used in several different scenarios, the one required for AVD is Azure-to-Azure DR as described in the article and diagram below:
+
+[Azure to Azure disaster recovery architecture in Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-architecture)
+
+:::image type="content" source="images/asr-dr-scenario.png" alt-text="Diagram for ASR Azure-to-Azure DR.":::
+
+The following considerations and recommendations apply:
+
+- ASR failover is not automatic, it must be triggered by an administrator using the Portal or [Powershell/API](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell).
+- The entire ASR configuration and operations can be scripted and automated using [PowerShell](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell).
+- ASR has a declared RTO inside its [Service Level Agreement](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/) (SLA) paper of two hours. Most of the times, ASR can failover VMs within minutes.
+- ASR can be used in conjunction with Azure Backup, please review [this article](https://docs.microsoft.com/azure/site-recovery/site-recovery-backup-interoperability) for more information and limitations to be aware.
+- ASR must be enabled at VM level, there is no direct integration in the AVD portal experience. Failover and failback must be triggered as well at single VM level.
+- ASR provide test failover capability in a separate subnet for general Azure VMs: it is not recommended/supported to leverage this feature for AVD VMs since you will have two identical AVD Session Hosts calling back home (AVD Control Plane) at the same time.
+- ASR does not maintain Virtual Machine (VM) “extensions” when replicating it. If you enabled/used any custom extension for AVD Session Host VMs, you will have to re-enable after failover or failback. The AVD built-in extensions "*joindomain*” and “*Microsoft.PowerShell.DSC*” are only used at Session Host VM creation time, then it is safe to lose them after a first failover.
+- Be sure to review [this article](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix) and check requirements, limitations, and compatibility matrix for ASR Azure-to-Azure DR scenario, specifically the supported OS versions.
+- When failover a VM from one region to another, the VM starts up in the target disaster recovery region in an un-protected state. Failback is possible but user must [re-protect](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect) VMs in the secondary region, and then enable replication back to the primary region.
+- Periodical testing of failover and failback procedures should be executed, and an exact list of steps and recovery actions documented based on the specific AVD environment.
+
+> [!NOTE]
+> Azure Site Recovery is now integrated with [On-Demand Capacity Reservation](https://azure.microsoft.com/blog/guarantee-capacity-access-with-ondemand-capacity-reservations-now-in-preview/). With this integration, you can leverage the power of capacity reservations with Site Recovery to reserve compute capacity in the disaster recovery (DR) region and guarantee your failovers. When you assign a capacity reservation group (CRG) for your protected VMs, Site Recovery will failover the VMs to that CRG. Additionally, a compute SLA gets added to the existing Site Recovery’s Recovery Time Objective (RTO) SLA of 2 hours.
+
+## Backup
+
+As part of the assumption for this reference architecture, we assumed profile split and data separation between Profile Containers and Office Containers.
+FSLogix does permit this configuration, and the usage of separate storage accounts. Once in separate storage accounts, different backup policies can be used:
+
+- For Office Container, if the content does represent only cached data that could be easily rebuilt from on-line data store (Office 365), it is not necessary to backup.
+- If necessary to backup Office container data, it could be done using a less expensive storage and/or different backup frequency and retention period.
+- For Personal Host Pool type, backup should be executed at the Session Host VM level, if data is stored locally.
+- If OneDrive is used, along with known folder redirection, the requirement to save data inside the container may disappear.
+
+> [!NOTE]
+> OneDrive backup is not considered in this article and scenario.
+
+- Without a specific additional required, backup for the storage in the primary region should be enough, backup of DR environment is not normally used.
+- For Azure Files Share, the recommended solution is [Azure Backup](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview).
+  - For the vault [resiliency type](https://docs.microsoft.com/azure/storage/common/storage-redundancy), ZRS is recommended if off-site/region backup storage is not strictly required, otherwise GRS should be considered.
+- For Azure NetApp Files (ANF) provides its own recommended backup solution, currently in preview and can provide ZRS storage resiliency.
+  - Feature [availability](https://docs.microsoft.com/azure/azure-netapp-files/backup-requirements-considerations) in the region must be checked, along with requirements and limitations.
+- The separate storage accounts used for MSIX should be also covered by backup if the application packages repositories cannot be easily rebuilt.
 
 ## Related resources
 
+- [Architecting Azure applications for resiliency and availability](https://docs.microsoft.com/azure/architecture/reliability/architect)
+- [BCDR for Azure Virtual Desktop - Cloud Adoption Framework](https://docs.microsoft.com/azure/cloud-adoption-framework/scenarios/wvd/eslz-business-continuity-and-disaster-recovery)
+- [Azure Virtual Desktop disaster recovery plan](https://docs.microsoft.com/azure/virtual-desktop/disaster-recovery)
 - [Azure Virtual Desktop for the enterprise](windows-virtual-desktop.yml)
-- [Integrate on-premises AD domains with Azure AD](../../reference-architectures/identity/azure-ad.yml)
