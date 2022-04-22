@@ -168,7 +168,7 @@ The IIoT analytics solution isn't a control system, so it doesn't require a comp
 Examples include:
 
 - The temperature of a heat exchanger exceeds a configured limit, which changes the color of an icon in your web application.
-- A pump sends an error code that triggers a work order in your enterprise resource planning (ERP) system.
+- A pump sends an error code that triggers a work order in your Enterprise Resource Planning (ERP) system.
 - The vibration of a motor exceeds limits, triggering an email notification to an Operations Manager.
 
 Azure Logic Apps automated, scalable workflows, business processes, and enterprise orchestrations can integrate equipment and data across cloud services and on-premises systems.
@@ -218,7 +218,7 @@ Asset model [digital twins](/azure/digital-twins/concepts-twins-graph) combine d
 - Query data from a physical space rather than disparate sensors.
 - Build reusable, highly scalable, spatially aware experiences that link streaming data across the physical and digital world.
 
-You can export your existing asset hierarchy and import it into Azure Digital Twins. For more information, see [Connected factory hierarchy service](../../solution-ideas/articles/connected-factory-hierarchy-service.md).
+You can export your existing asset hierarchy and import it into Azure Digital Twins. For more information, see [Connected factory hierarchy service](../../solution-ideas/articles/connected-factory-hierarchy-service.yml).
 
 ## Business process integration
 

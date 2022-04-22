@@ -68,16 +68,14 @@ The [IoT Edge runtime](/azure/iot-edge/iot-edge-runtime) provides two system mod
 
 - The *IoT Edge hub* module manages the communication from the device to [Azure IoT Hub](/azure/iot-hub/about-iot-hub), as well as inter-module communication. Messages route from one module to the next with JSON configuration. IoT Edge encrypts and streams real-time industrial data to IoT Hub by using AMQP 1.0 or MQTT 3.1.1 protocols.
 
-### IoT Edge workloads
-
-IoT Edge workloads can:
+Edge workloads can:
 
 - Run anomaly detection or ML modules in tight control loops, to respond to emergencies as quickly as possible.
 - Reduce bandwidth and costs by cleaning and aggregating data locally, and sending only insights to the cloud for further analysis.
 - Quickly respond to factory floor events by using one module to detect events and another module to respond to them.
 - Use a protocol translation module to convert legacy industrial protocols.
 
-Protocol and identity translation are the most common edge workloads that IIoT analytics solutions use. The [Azure Marketplace](https://azuremarketplace.microsoft.com) has protocol and identity translation modules and solutions that Microsoft partners developed.
+Protocol and identity translation are the most common edge workloads that IIoT analytics solutions use. The [Azure Marketplace](https://azuremarketplace.microsoft.com) has protocol and identity translation modules and solutions that Microsoft partners have developed.
 
 ## Field gateways
 

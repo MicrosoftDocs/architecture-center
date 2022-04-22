@@ -3,8 +3,8 @@ This article discusses how to analyze and visualize data from an [Azure industri
 There are several options for visualizing your industrial data. Your IIoT analytics solution might use some or all of these options, depending on how you need to use the data.
 
 - Do ad-hoc analytics and trend visualizations with [Azure Data Explorer dashboards (Preview)](https://azure.microsoft.com/services/data-explorer). 
-- Use Power BI to develop visualization dashboards. Connect to your Azure IIoT data by using the [Azure Data Explorer connector for Power BI connector](/azure/data-explorer/power-bi-connector). Use Power BI to combine external data from your ERP, EAM, or other line-of-business systems with your IIoT data.
-- For advanced visualizations, such as schematic views and process graphics, create a custom web application.
+- Use Power BI to develop visualization dashboards. Connect to your Azure IIoT data by using the [Azure Data Explorer connector for Power BI connector](/azure/data-explorer/power-bi-connector). Use Power BI to combine external data from your Enterprise Resource Planning (ERP), Enterprise Asset Management (EAM), or other line-of-business systems with your IIoT data.
+- For advanced visualizations, such as schematic views and process graphics, you can create a custom web application.
 - You can use several [Microsoft and GitHub tools](https://visualstudio.microsoft.com/vs/features/notebooks-at-microsoft) to work with open-source data analysis and visualization tools like Python, Jupyter Notebooks, and [Matplotlib](https://matplotlib.org).
 
 ## Azure Data Explorer
