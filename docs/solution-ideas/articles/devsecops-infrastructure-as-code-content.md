@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Conceptually, the DevSecOps for Infrastructure as Code (IaC) is similar to [DevSecOps for application code on Azure](/azure/architecture/solution-ideas/articles/devsecops-in-azure). But you need a different set of pipelines and tools to manage and automate continuous integration and continuous delivery (CI/CD) for IaC.
+Conceptually, the DevSecOps for infrastructure as code (IaC) is similar to [DevSecOps for application code on Azure](/azure/architecture/solution-ideas/articles/devsecops-in-azure). But you need a different set of pipelines and tools to manage and automate continuous integration and continuous delivery (CI/CD) for IaC.
 
 When you adopt IaC, it's important to create automation tests as you develop the code. These tests reduce the complexity of testing IaC when your workload scales. You can use local infrastructure configuration states like Terraform states and plans to develop [test-driven development (TDD) for IaC](/azure/cloud-adoption-framework/ready/considerations/test-driven-development). These configuration states emulate the actual deployments. You can run integration tests for IaC on actual infrastructure deployments using the [Azure Resource Graph REST API](/rest/api/azure-resourcegraph/).
 
@@ -57,9 +57,8 @@ You're part of a central team of IaC developers that uses a multicloud strategy 
 
 Principal authors:
 
-[Vito Chin](https://www.linkedin.com/in/vitochin) | SR Cloud Solution Architect
-
-[Yee Shian Lee](https://www.linkedin.com/in/yeeshian) | SR Cloud Solution Architect
+- [Vito Chin](https://www.linkedin.com/in/vitochin) | SR Cloud Solution Architect
+- [Yee Shian Lee](https://www.linkedin.com/in/yeeshian) | SR Cloud Solution Architect
 
 ## Next steps
 
