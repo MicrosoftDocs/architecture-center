@@ -97,7 +97,7 @@ Review this [price estimate][pricing] for the hardware listed above.
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-**Principal authors:**
+Principal authors:
 
 * [Mike Warrington](https://www.linkedin.com/in/mikewarrington) | FastTrack for Azure Engineer
 
