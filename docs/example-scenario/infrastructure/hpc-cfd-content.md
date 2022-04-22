@@ -1,8 +1,8 @@
 Computational fluid dynamics (CFD) simulations require significant compute time along with specialized hardware. As cluster usage increases, simulation times and overall grid use grow, leading to issues with spare capacity and long queue times. Adding physical hardware can be expensive, and may not align to the usage peaks and valleys that a business goes through. By taking advantage of Azure, many of these challenges can be overcome with no capital expenditure.
 
-Azure provides the hardware you need to run your CFD jobs on both GPU and CPU virtual machines. RDMA (Remote Direct Memory Access) enabled VM sizes have FDR InfiniBand-based networking which allows for low latency MPI (Message Passing Interface) communication. Combined with the Avere vFXT, which provides an enterprise-scale clustered file system, customers can ensure maximum throughput for read operations in Azure.
+Azure provides the hardware you need to run your CFD jobs on both GPU and CPU virtual machines. RDMA (Remote Direct Memory Access) enabled VM sizes have FDR InfiniBand-based networking, which allows for low latency MPI (Message Passing Interface) communication. When you combine these solutions with the Avere vFXT, which provides an enterprise-scale clustered file system, customers can ensure maximum throughput for read operations in Azure.
 
-To simplify the creation, management, and optimization of HPC clusters, Azure CycleCloud can be used to provision clusters and orchestrate data in both hybrid and cloud scenarios. By monitoring the pending jobs, CycleCloud will automatically launch on-demand compute, where you only pay for what you use, connected to the workload scheduler of your choice.
+To simplify the creation, management, and optimization of HPC clusters, Azure CycleCloud can be used to provision clusters and orchestrate data in both hybrid and cloud scenarios. When you monitor the pending jobs, CycleCloud will automatically launch on-demand compute, where you only pay for what you use, connected to the workload scheduler of your choice.
 
 ## Potential use cases
 
@@ -35,7 +35,7 @@ This diagram shows a high-level overview of a typical hybrid design providing jo
 
 - [Azure CycleCloud](https://azure.microsoft.com/features/azure-cyclecloud/) a tool for creating, managing, operating, and optimizing HPC and Big Compute clusters in Azure.
 - [Avere vFXT on Azure][avere] is used to provide an enterprise-scale clustered file system built for the cloud.
-- [Azure Virtual Machines (VMs)](https://azure.microsoft.com/free/virtual-machines) are used to create a static set of compute instances.
+- [Azure Virtual Machines (VMs)](https://azure.microsoft.com/free/virtual-machines) is used to create a static set of compute instances.
 - [Virtual machine scale sets][vmss] provide a group of identical VMs capable of being scaled up or down by Azure CycleCloud.
 - [Azure Storage accounts](https://azure.microsoft.com/free/storage) are used for synchronization and data retention.
 - [Azure Virtual Networks](https://azure.microsoft.com/free/virtual-network) enable many types of Azure resources, such as VMs, to securely communicate with each other, the internet, and on-premises networks.
@@ -44,7 +44,7 @@ This diagram shows a high-level overview of a typical hybrid design providing jo
 
 Customers can also use Azure CycleCloud to create a grid entirely in Azure. In this setup, the Azure CycleCloud server is run within your Azure subscription.
 
-For a modern application approach where management of a workload scheduler is not needed, [Azure Batch][batch] can help. Azure Batch can run large-scale parallel and high-performance computing (HPC) applications efficiently in the cloud. Azure Batch allows you to define the Azure compute resources to execute your applications in parallel or at scale without manually configuring or managing infrastructure. Azure Batch schedules compute-intensive tasks and dynamically adds and removes compute resources based on your requirements.
+For a modern application approach where management of a workload scheduler isn't needed, [Azure Batch][batch] can help. Azure Batch can run large-scale parallel and high-performance computing (HPC) applications efficiently in the cloud. Azure Batch allows you to define the Azure compute resources to execute your applications in parallel or at scale without manually configuring or managing infrastructure. Azure Batch schedules compute-intensive tasks and dynamically adds and removes compute resources based on your requirements.
 
 ## Considerations
 
