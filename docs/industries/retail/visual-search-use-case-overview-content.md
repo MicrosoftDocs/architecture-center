@@ -160,3 +160,10 @@ Implementing visual search need not be complex. You can use Bing or build your o
 - [Visual Search at Ebay](https://arxiv.org/abs/1706.03154): Cornell University research
 - [Visual Discovery at Pinterest](https://arxiv.org/abs/1702.04680) Cornell University research
 - [Semantic Hashing](https://www.cs.utoronto.ca/~rsalakhu/papers/semantic_final.pdf) University of Toronto research
+
+## Related resources
+
+- [Image classification on Azure](../../example-scenario/ai/intelligent-apps-image-processing.yml)
+- [Knowledge mining in digital asset management](../../solution-ideas/articles/digital-asset-management.yml)
+- [Image classification with convolutional neural networks (CNNs)](../../solution-ideas/articles/image-classification-with-convolutional-neural-networks.yml)
+- [Vision classifier model with Azure Custom Vision Cognitive Service](../../example-scenario/dronerescue/vision-classifier-model-with-custom-vision.yml)

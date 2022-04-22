@@ -36,27 +36,27 @@ The architecture consists of the following components:
 
 - **EMR/EHR**. [Electronic Medical Records (EMR)](https://digital.ahrq.gov/key-topics/electronic-medical-record-systems) and [Electronic Health Records (EHR)](https://www.healthit.gov/faq/what-electronic-health-record-ehr) provide the digital records of a patient's medical and health information, including diagnoses, medications, immunizations, and so on. They can be scoped to a single practice office, such as EMRs, or designed to scope much larger, traveling with the patients to whichever facility they go, such as the EHRs. These are important external data sources in this solution, and may be unstructured non-standard format. As such, this data needs to be converted to a format that can be used by the components in this solution.
 
-- **Azure API for FHIR**. Azure is the first step in the process of bringing data into the Microsoft ecosystem and the Microsoft Cloud for Healthcare. This layer provides a secure interface between external data and internal components of this architecture. The Azure API for FHIR ingests the data coming from disparate sources such as EMR, PAS, devices, whether structured or unstructured, converts it into FHIR and persists in Azure. This data can then be used across the Microsoft Cloud for Healthcare for different services. The Azure API for FHIR is built with security and compliance in mind and designed for PHI (Protected Health Information) data. For more information on this layer, see [Azure for healthcare](https://azure.microsoft.com/industries/healthcare/) and the [Azure API for FHIR](/azure/healthcare-apis/fhir/overview).
+- **Azure API for FHIR**. Azure is the first step in the process of bringing data into the Microsoft ecosystem and the Microsoft Cloud for Healthcare. This layer provides a secure interface between external data and internal components of this architecture. The Azure API for FHIR ingests the data coming from disparate sources such as EMR, PAS, devices, whether structured or unstructured, converts it into FHIR and persists in Azure. This data can then be used across the Microsoft Cloud for Healthcare for different services. The Azure API for FHIR is built with security and compliance in mind and designed for PHI (Protected Health Information) data. For more information on this layer, see [Azure for healthcare](https://azure.microsoft.com/industries/healthcare/) and the [Azure API for FHIR](https://azure.microsoft.com/services/health-data-services/)
 
 - **Common Data Model**. With [Common Data Model](/common-data-model/), Microsoft provides a standardized metadata definition system, that is extensible and customizable for specific business needs. CDM entities are available for subject areas such as, CRM, Healthcare, Talent, and so on. For details, read the [Common Data Model usage information](/common-data-model/use). In addition to these entities, customers can pull in proprietary data by defining that entity table and the underlying fields in the Common Data Model, which can then seamlessly be used with other entities throughout their solution.
 
-- **Microsoft Dataverse**. [Dataverse](/powerapps/maker/data-platform/data-platform-intro), a relational database that powers Microsoft Dynamics 365, is the repository for the data represented in the Common Data Model. It holds databases for patient information, containing details about their names, family information, medical conditions, medication history, and so on. It also holds the information obtained from any wearable devices used and registered by the patients, as well as, scheduling and management data from the healthcare organization. This data is defined using the Common Data Model.
+- **Microsoft Dataverse**. [Dataverse](https://powerplatform.microsoft.com/dataverse), a relational database that powers Microsoft Dynamics 365, is the repository for the data represented in the Common Data Model. It holds databases for patient information, containing details about their names, family information, medical conditions, medication history, and so on. It also holds the information obtained from any wearable devices used and registered by the patients, as well as, scheduling and management data from the healthcare organization. This data is defined using the Common Data Model.
 
 - **Patient Portal**. This [Power Apps portal](/dynamics365/industry/healthcare/use-patient-access#patient-portal) lets patients view their medical records, book appointments, chat with the health bot instance, and so on. This portal can be extended to support other data. This portal is part of Microsoft Cloud for Healthcare, and allows you to easily spin up a portal, which can connect with entities in Dataverse, pulling in data such as patient information, care plans, appointments, and so on.
 
-- **Intelligent Assistance**. This is an instance of the [Azure Health Bot Service](/azure/health-bot/), accessible to patients through the Patient Portal. This health bot instance is loaded within an Azure App Service website. It is customizable, and can be programmed using the scenarios required by the customers. For more information, read [Embed a health bot instance in your application](/azure/health-bot/integrations/embed).
+- **Intelligent Assistance**. This is an instance of the [Azure Health Bot Service](https://azure.microsoft.com/services/bot-services/health-bot/), accessible to patients through the Patient Portal. This health bot instance is loaded within an Azure App Service website. It is customizable, and can be programmed using the scenarios required by the customers. For more information, read [Embed a health bot instance in your application](/azure/health-bot/integrations/embed).
 
 - **Bookings App**. Bookings App is a Microsoft 365 service, included in the Microsoft Cloud for Healthcare. It facilitates scheduling of calendar events, and allows creating Teams meetings.
 
-- **Microsoft Outlook**. This solution uses Microsoft Outlook as the email client. The Bookings App that sends the email notification is integrated with Outlook. Alternatively, the healthcare provider's preferred email client may be used.
+- **Microsoft Outlook**. This solution uses [Microsoft Outlook](https://www.outlook.com) as the email client. The Bookings App that sends the email notification is integrated with Outlook. Alternatively, the healthcare provider's preferred email client may be used.
 
-- **Microsoft Teams**. Microsoft Teams is a component of Microsoft Cloud for Healthcare, and provides the front end for interactions between the patients, providers, and care managers. Users can use a locally installed version or the web version. For more information on Teams, read the [Microsoft Teams documentation](/microsoftteams/).
+- **Microsoft Teams**. [Microsoft Teams](https://www.microsoft.com/microsoft-teams) is a component of Microsoft Cloud for Healthcare, and provides the front end for interactions between the patients, providers, and care managers. Users can use a locally installed version or the web version. For more information on Teams, read the [Microsoft Teams documentation](/microsoftteams/).
 
 - **Appointment Queue**. This tool generates an HTML page with data pulled out of the Dataverse, using the [Dynamics 365 Web API](/dynamics365/customer-engagement/web-api/about?view=dynamics-ce-odata-9). It presents the provider with information about the appointments scheduled for the day and summary about each. It also provides a link to access the patient information through the Care Management application. The Appointment Queue was developed to support this scenario, and is not a part of Microsoft Cloud for Healthcare. The data sources for this tool, are mainly the PAS systems and EMR/EHR records. If these systems have tools integrated to present this data, those tools may be a replacement for this component in an actual deployment.
 
 - **Care Management**. The Care Management tool is a component of Microsoft Cloud for Healthcare. It is a Power Apps application deployed through Dynamics 365. It pulls in the EMR/EHR patient data stored in the Dataverse in CDM format, and presents an aggregated view in Teams. A care center's solution might choose to use their own system for their functionality, depending on how they want to present this information.
 
-- **Power BI Analytics**. This is an analytics tool created for this scenario, and is not available with Microsoft Cloud for Healthcare. In this solution, it generates information derived from the patient's IoMT devices. This could be data such as heart rate, blood oxygen level, and so on. The Care Management app uses this data to present medical providers with additional insights about their patients based on their daily activities.
+- [**Power BI Analytics**](https://powerbi.microsoft.com). This is an analytics tool created for this scenario, and is not available with Microsoft Cloud for Healthcare. In this solution, it generates information derived from the patient's IoMT devices. This could be data such as heart rate, blood oxygen level, and so on. The Care Management app uses this data to present medical providers with additional insights about their patients based on their daily activities.
 
 - **Connected devices**. These are *Internet of Medical Things (IoMT)* devices, which are smart devices for medical or healthcare use. Examples of IoMT devices include wearables such as Apple Watch or Fitbit, medical or vital monitors, and so on. Patients can provision their devices through Azure, and choose to allow their health care management system to gather this IoMT data for use by their providers. Providers can gain additional insights from such devices, in near real time, and link anomalies such as an elevated heart rate for a period of time, with patient's current symptoms.
 
@@ -138,16 +138,28 @@ The solution should be deployed in stages:
 
     1. Reporting application using Power BI
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+**Principal authors:**
+
+* [Dhanashri Kshirsagar](https://www.linkedin.com/in/dhanashrikr) | Senior Content PM
+
 ## Next steps
 
-- Learn how you can build upon this architecture to get [clinical and medical insights using Microsoft Cloud for Healthcare](./medical-data-insights.yml).
-
-- Learn more about the Microsoft Cloud for Healthcare at [What is Microsoft Cloud for Healthcare?](/industry/healthcare/overview).
-
-- Learn more about Azure for healthcare offerings at [Azure for Healthcare—Healthcare Solutions](https://azure.microsoft.com/industries/healthcare/).
+- [What is Microsoft Cloud for Healthcare?](/industry/healthcare/overview).
+- Learn more about Azure for healthcare offerings at [Azure for Healthcare—Healthcare Solutions](https://azure.microsoft.com/industries/healthcare/)
+- [Difference between EMR and EHR](https://www.healthit.gov/buzz-blog/electronic-health-and-medical-records/emr-vs-ehr-difference)
+- [HIPAA compliance rules](https://www.hhs.gov/hipaa/index.html)
+- [What is Azure API for FHIR?](/azure/healthcare-apis/fhir/overview)
+- [What is Microsoft Dataverse?](/powerapps/maker/data-platform/data-platform-intro)
+- [What is the Azure Health Bot Service?](/azure/health-bot/overview)
+- [What is Power BI?](/power-bi/fundamentals/power-bi-overview)
+- Learn how you can use [Microsoft Dynamics 365](/learn/dynamics365/)
 
 ## Related resources
 
-- [Difference between EMR and EHR](https://www.healthit.gov/buzz-blog/electronic-health-and-medical-records/emr-vs-ehr-difference)
-
-- [HIPAA compliance rules](https://www.hhs.gov/hipaa/index.html)
+- [Clinical and medical insights using Microsoft Cloud for Healthcare](./medical-data-insights.yml)
+- [Consumer health portal on Azure](../../example-scenario/digital-health/health-portal.yml)
+- [HIPAA and HITRUST compliant health data AI](../../solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml)
