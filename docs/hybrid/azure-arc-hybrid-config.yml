@@ -4,7 +4,7 @@ metadata:
   description: Use Azure Arc to extend Azure Resource Manager capabilities to Windows and Linux machines on any infrastructure.
   author: pdebruin
   ms.author: pidebrui
-  ms.date: 04/23/2021
+  ms.date: 04/23/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture
