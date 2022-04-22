@@ -58,7 +58,7 @@ Azure Cognitive Services Text Analytics API pricing is determined by the instanc
 ## Next steps
 
 * [Azure Functions overview](/azure/azure-functions/functions-overview)
-* [Azure Function activity in Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/control-flow-azure-function-activity)
+* [Azure Function activity in Azure Data Factory](/azure/data-factory/control-flow-azure-function-activity)
 * [Azure Event Hubs — A big data streaming platform and event ingestion service](/azure/event-hubs/event-hubs-about)
 * Call the [Text Analytics REST API using Postman](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-call-api) synchronously and asynchronously
 * [Explore and test the Text Analytics API v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Languages)

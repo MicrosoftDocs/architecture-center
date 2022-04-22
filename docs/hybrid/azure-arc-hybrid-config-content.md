@@ -1,10 +1,20 @@
-
-
 This reference architecture illustrates how Azure Arc enables you to manage, govern, and secure servers across on-premises, multiple cloud, and edge scenarios.
+
+## Architecture
 
 ![An Azure Arc hybrid server topology diagram with Arc enabled servers connected to Azure.][architectural-diagram]
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
+
+### Workflow
+
+The architecture consists of the following components:
+
+- **[Azure Arc][Azure Arc]**. Azure Arc enables you to connect Azure to your Windows and Linux machines hosted outside of Azure on your corporate network. When a server is connected to Azure, it becomes an Arc enabled server and is treated as a resource in Azure. Each Arc enabled server has a Resource ID, a managed system identity, and is managed as part of a resource group inside a subscription. Arc enabled servers benefit from standard Azure constructs such as inventory, policy, tags, and Azure Lighthouse.
+- **[Azure Policy Guest Configuration][Azure Policy Guest Configuration]**. Azure Policy Guest Configuration can audit operating systems and machine configuration both for machines running in Azure and Arc enabled servers running on-premises or in other clouds.
+- **[Azure Monitor][Azure Monitor]**. Azure Monitor enables you to track performance and events for systems running in Azure, on-premises, or in other clouds.
+
+## Potential use cases
 
 Typical uses for this architecture include:
 
@@ -12,14 +22,6 @@ Typical uses for this architecture include:
 - Enforce organization standards and assess compliance at scale for all your resources anywhere with Azure Policy.
 - Easily deploy supported VM extensions to Arc enabled servers.
 - Configure and enforce Azure Policy for VMs and servers hosted across multiple environments.
-
-## Architecture
-
-The architecture consists of the following components:
-
-- **[Azure Arc][Azure Arc]**. Azure Arc enables you to connect Azure to your Windows and Linux machines hosted outside of Azure on your corporate network. When a server is connected to Azure, it becomes an Arc enabled server and is treated as a resource in Azure. Each Arc enabled server has a Resource ID, a managed system identity, and is managed as part of a resource group inside a subscription. Arc enabled servers benefit from standard Azure constructs such as inventory, policy, tags, and Azure Lighthouse.
-- **[Azure Policy Guest Configuration][Azure Policy Guest Configuration]**. Azure Policy Guest Configuration can audit operating systems and machine configuration both for machines running in Azure and Arc enabled servers running on-premises or in other clouds.
-- **[Azure Monitor][Azure Monitor]**. Azure Monitor enables you to track performance and events for systems running in Azure, on-premises, or in other clouds.
 
 ## Recommendations
 
@@ -92,27 +94,29 @@ You can use [Microsoft Sentinel](/azure/sentinel/overview) to deliver intelligen
 - Investigate threats with artificial intelligence and hunt for suspicious activities at scale.
 - Respond to incidents rapidly with built-in orchestration and automation of common tasks.
 
+## Considerations
+
 ### Topology and network considerations
 
 The Connected Machine agent for Linux and Windows communicates outbound securely to Azure Arc over TCP port **443**. If the machine connects through a firewall or proxy server to communicate over the internet, review the required URLs and service tags found on the Azure Arc Agent [Networking configuration][networking configuration] page.
 
-## Availability considerations
+### Availability
 
 - In most cases, the location you select when you create the installation script should be the Azure region geographically closest to your machine's location. The rest of the data will be stored within the Azure geography containing the region you specify, which might also affect your choice of region if you have data residency requirements. If an outage affects the Azure region to which your machine is connected, the outage will not affect the Arc enabled server, but management operations using Azure might not be able to complete. For resilience in the event of a regional outage, if you have multiple locations that provide a geographical-redundant service, it's best to connect the machines in each location to a different Azure region.
 - Ensure that Azure Arc enabled servers is supported in your regions by checking [supported regions][supported regions].
 - Ensure that services referenced in the Architecture section are supported in the region to which Azure Arc enabled servers is deployed.
 
-## Manageability considerations
+### Manageability 
 
 - Consult the list of supported [operated systems][supported operating systems] on the Azure Arc enabled servers agent overview page.
 - Before configuring your machines with Azure Arc enabled servers, you should review the Azure Resource Manager [subscription limits][subscription-limits] and [resource group limits][rg-limits] to plan for the number of machines to be connected.
 
-## Security considerations
+### Security
 
 - Appropriate Azure role-based access control (Azure RBAC) access should be managed for Arc enabled servers. To onboard machines, you must be a member of the **Azure Connected Machine Onboarding** role. To read, modify, re-onboard, and delete a machine, you must be a member of the **Azure Connected Machine Resource Administrator** role.
 - You can use Azure Policy to manage security policies across your Arc enabled servers, including implementing security policies in Microsoft Defender for Cloud. A security policy defines the desired configuration of your workloads and helps ensure you're complying with the security requirements of your company or regulators. Defender for Cloud policies are based on policy initiatives created in Azure Policy.
 
-## Cost considerations
+### Cost optimization
 
 - Use the [Azure pricing calculator][pricing-calculator] to estimate costs.
 - Other considerations are described in the [Principles of cost optimization][principles-cost-opt] section in the Microsoft Azure Well-Architected Framework.
