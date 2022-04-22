@@ -386,7 +386,7 @@ of rarely-accessed data and it can be deleted on a rolling cycle as needed.
 
 *This article is being updated and maintained by Microsoft. It was originally written by the following contributors.*
 
-**Principal authors:**
+Principal authors:
 
 - [Howard Bush](https://www.linkedin.com/in/howardbush) | Banking and Capital Markets Cloud & AI, Consulting Services
 - [David Starr](https://www.linkedin.com/in/davidstarr) | Principal Azure Software Engineer
