@@ -3671,7 +3671,7 @@ items:
                 href: solution-ideas/articles/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview.yml
               - name: DevSecOps in Azure
                 href: solution-ideas/articles/devsecops-in-azure.yml
-              - name: DevSecOps for Infrastructure as Code
+              - name: DevSecOps for infrastructure as code
                 href: solution-ideas/articles/devsecops-infrastructure-as-code.yml 
               - name: DevSecOps with a rolling main branch
                 href: solution-ideas/articles/devsecops-rolling-branch.yml
