@@ -92,7 +92,7 @@ Follow the steps in the [Getting Started guide](https://github.com/microsoft/Rel
 
 Principal authors:
 
-- [Nalini Chandhi](|https://www.linkedin.com/in/nalinichandhi) | TECHNICAL SPECIALIST GBB
+- [Nalini Chandhi](https://www.linkedin.com/in/nalinichandhi) | TECHNICAL SPECIALIST GBB
 - [Malory Rose](https://www.linkedin.com/in/malory-rose-8aa503135) | TECHNICAL SPECIALIST GBB
 
 ## Next steps
