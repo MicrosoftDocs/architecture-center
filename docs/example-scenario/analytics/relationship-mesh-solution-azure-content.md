@@ -76,7 +76,7 @@ For more information about the cost optimization pillar, see [Overview of the co
 
 Performance efficiency, or scalability, is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner.
 
-MGDC helps ingest data from Microsoft 365 tenants into Azure at scale. For more information, see [MGDC access-to-data-at-scale](/graph/data-connect-concept-overview#access-to-data-at-scale).
+MGDC helps ingest data from Microsoft 365 tenants into Azure at scale. For more information, see [MGDC access to data at scale](/graph/data-connect-concept-overview#access-to-data-at-scale).
 
 This solution uses Azure Synapse Spark clusters, which can be scaled up and down automatically based on the activity needs of your workload. For more information, see [Azure Synapse Spark cluster autoscaling](/azure/synapse-analytics/spark/apache-spark-pool-configurations#autoscale).
 
