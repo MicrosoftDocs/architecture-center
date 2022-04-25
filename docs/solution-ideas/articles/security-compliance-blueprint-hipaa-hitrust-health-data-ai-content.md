@@ -7,7 +7,7 @@ Store, manage, and analyze HIPAA-compliant and HITRUST-compliant health data and
 ![Architecture Diagram](../media/security-compliance-blueprint-hipaa-hitrust-health-data-ai.png)
 *Download an [SVG](../media/security-compliance-blueprint-hipaa-hitrust-health-data-ai.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
 1. Securely ingest bulk patient data into [Azure Blob storage](/azure/storage/blobs).
 1. [Event Grid](/azure/event-grid) publishes patient data to [Azure Functions](/azure/azure-functions) for processing, and securely stores patient data in SQL Database.

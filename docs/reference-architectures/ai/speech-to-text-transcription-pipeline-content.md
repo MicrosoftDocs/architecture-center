@@ -14,7 +14,7 @@ The reference implementation for this architecture is available on [GitHub](http
 
 You can implement this architecture by using your Azure account and allow client applications access to the pipeline through REST APIs. The application goes through a three-step process to upload an audio file:
 
-1. Authenticates by using Azure [Active Directory](/azure/active-directory/) (Azure AD). This step is required for the first file upload.
+1. Authenticates by using [Azure Active Directory](/azure/active-directory/) (Azure AD). This step is required for the first file upload.
 2. Calls the REST API to get the shared access signature (SAS) token required to access [Azure Blob Storage](/azure/storage/blobs/).
 3. Uploads the audio files to a blob container.
 
