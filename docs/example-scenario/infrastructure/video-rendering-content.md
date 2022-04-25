@@ -19,7 +19,7 @@ This solution is ideal for the media and entertainment industries. Other relevan
 
 ### Dataflow
 
-This scenario shows a workflow that uses Azure Batch. The data flows as follows:
+This scenario shows a workflow that uses [Azure Batch](/azure/batch/). The data flows as follows:
 
 1. Upload input files and the applications to process those files to your Azure Storage account.
 2. Create a Batch pool of compute nodes in your Batch account, a job to run the workload on the pool, and tasks in the job.
@@ -32,11 +32,11 @@ To simplify this process, you could also use the [Batch Plugins for Maya and 3ds
 
 ### Components
 
-Azure Batch builds on the following Azure technologies:
+[Azure Batch](https://azure.microsoft.com/services/batch/) builds on the following Azure technologies:
 
-- [Virtual Networks](/azure/virtual-network/virtual-networks-overview) are used for both the head node and the compute resources.
-- [Azure Storage accounts](/azure/storage/common/storage-introduction) are used for synchronization and data retention.
-- [Virtual machine scale sets][vmss] are used by CycleCloud for compute resources.
+- [Azure Virtual Networks](https://azure.microsoft.com/free/virtual-network) are used for both the head node and the compute resources.
+- [Azure Storage accounts](https://azure.microsoft.com/free/storage) are used for synchronization and data retention.
+- [AzureVVirtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets) are used by CycleCloud for compute resources.
 
 ### Alternatives
 
@@ -136,9 +136,24 @@ Azure Batch also supports the use of low-priority VMs in the node pools, which c
 
 ## Next steps
 
-- [Azure Batch Overview][batch-overview]
-- [Azure Batch Documentation][batch-doc]
+Product documentation:
+
+- [What is Azure Batch?](/azure/batch/batch-technical-overview)
 - [Using containers on Azure Batch][batch-containers]
+- [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
+- [Azure Storage accounts](/azure/storage/common/storage-account-overview)
+- [What are Virtual Machine Scale Sets?](/azure/virtual-machine-scale-sets/overview)
+
+Learn modules:
+- [Introduction to Azure Remote Rendering](/learn/modules/intro-to-azure-remote-rendering/)
+- [Render a model with Azure Remote Rendering](/learn/modules/render-model-azure-remote-rendering-unity/)
+
+## Related resources
+
+- [HPC media rendering](../../solution-ideas/articles/azure-batch-rendering.yml)
+- [HPC system and big-compute solutions](../../solution-ideas/articles/big-compute-with-azure-batch.yml)
+- [Run CFD simulations](../../example-scenario/infrastructure/hpc-cfd.yml)
+
 
 <!-- links -->
 
