@@ -185,7 +185,7 @@ For more information, see [pricing details][Azure pricing calculator].
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-**Principal authors:**
+Principal author:
 
 * [Matt Hansen](https://www.linkedin.com/in/matthansen0) | Senior Cloud Solution Architect
 
