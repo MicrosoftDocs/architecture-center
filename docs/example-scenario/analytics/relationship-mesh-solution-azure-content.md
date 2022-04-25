@@ -1,9 +1,9 @@
 
-Building strong relationships with customers is key to improving customer retention, loyalty, and increasing revenue. Companies rely heavily on platforms like CRM systems and Office 365 to help them maintain customer relationships. This solution brings data on the customer and seller relationship from various systems into a user-friendly dashboard. The dashboard provides actionable data about customer relationships at both the seller account portfolio and individual account level. You can use these insights to manage and improve interactions at different stages in a customer engagement life cycle.
+Building strong relationships with customers is key to improving customer retention, loyalty, and increasing revenue. Companies rely heavily on platforms like Customer Relationship Management (CRM) systems and Microsoft 365 to help them maintain customer relationships. This solution brings data on the customer and seller relationship from various systems into a user-friendly dashboard. The dashboard provides actionable data about customer relationships at both the seller account portfolio and individual account level. You can use these insights to manage and improve interactions at different stages in a customer engagement life cycle.
 
 ## Potential use cases
 
-You can use this solution to ingest data from Office 365 and other systems to obtain actionable information on the relationship between sellers and their accounts. Then you can create plans to strengthen these relationships. This data provides insights on:
+You can use this solution to ingest data from Microsoft 365 and other systems to obtain actionable information on the relationship between sellers and their accounts. Then you can create plans to strengthen these relationships. This data provides insights on:
 
 - The strength of multiple sellers’ relationships within an account.
 - The strength of a seller’s relationship with individual external contacts within an account.
@@ -17,12 +17,12 @@ You can use this solution to ingest data from Office 365 and other systems to ob
 
 ### Dataflow
 
-1. Microsoft Graph Data Connect (MGDC) and Azure Synapse pipelines bring in data, like emails and calendar events, to Azure Data Lake Storage Gen2 (ADLS).
-2. The raw Office 365 data is processed using Azure Synapse pipelines and saved to ADLS.
+1. Microsoft Graph Data Connect (MGDC) and Azure Synapse pipelines bring in Microsoft 365 data, like emails and calendar events, to Azure Data Lake Storage Gen2 (ADLS).
+2. The raw Microsoft 365 data is processed using Azure Synapse pipelines and saved to ADLS.
 3. Business logic for relationship scores calculation is applied on processed data and saved to Azure Synapse Lake database.
 4. The CRM data is ingested using Azure Synapse pipelines into ADLS.
 5. The raw CRM data is processed and saved to Azure Synapse Lake database.
-6. The prepared Office 365 data is joined with CRM data, aggregated, and saved to Azure Synapse SQL pool.
+6. The prepared Microsoft 365 data is joined with CRM data, aggregated, and saved to Azure Synapse SQL pool.
 7. Power BI ingests the SQL data to visualize the relationship insights for sellers.
 
 ### Components
@@ -40,10 +40,10 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 The solution's resiliency depends on the failure modes of the individual services in the architecture. Follow the checklists below to learn more:
 
-- [Azure Storage](https://docs.microsoft.com/azure/architecture/checklist/resiliency-per-service#storage)
-- [Azure Synapse Analytics](https://docs.microsoft.com/azure/architecture/checklist/resiliency-per-service#azure-synapse-analytics)
+- [Azure Storage](/azure/architecture/checklist/resiliency-per-service#storage)
+- [Azure Synapse Analytics](/azure/architecture/checklist/resiliency-per-service#azure-synapse-analytics)
 
-Azure Blob Storage provides redundancy options that help ensure high availability. You can use either locally redundant storage (LRS) or availability zones. For more information, see [availability parameters](https://docs.microsoft.com/azure/storage/common/storage-redundancy#durability-and-availability-parameters).
+Azure Blob Storage provides redundancy options that help ensure high availability. You can use either locally redundant storage (LRS) or availability zones. For more information, see [availability parameters](/azure/storage/common/storage-redundancy#durability-and-availability-parameters).
 
 For more information about the reliability pillar, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
@@ -51,10 +51,10 @@ For more information about the reliability pillar, see [Overview of the reliabil
 
 This solution uses Azure Active Directory (Azure AD) to authenticate users to the Azure solutions in the architecture. You can manage permissions via Azure AD authentication or role-based access control. Follow these security guidelines when you implement this solution:
 
-- [Security in Azure](https://docs.microsoft.com/azure/security/fundamentals/overview)
-- [Access control for Azure Synapse](https://docs.microsoft.com/azure/synapse-analytics/security/how-to-set-up-access-control)
-- [MGDC granular data consent](https://docs.microsoft.com/graph/data-connect-concept-overview#granular-data-consent)
-- [Data security and governance for MGDC](https://docs.microsoft.com/graph/data-connect-concept-overview#data-security-and-governance)
+- [Introduction to Azure security](/azure/security/fundamentals/overview)
+- [How to set up access control for your Azure Synapse workspace](/azure/synapse-analytics/security/how-to-set-up-access-control)
+- [MGDC granular data consent](/graph/data-connect-concept-overview#granular-data-consent)
+- [Data security and governance for MGDC](/graph/data-connect-concept-overview#data-security-and-governance)
 
 For more information about the security pillar, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
@@ -76,9 +76,9 @@ For more information about the cost optimization pillar, see [Overview of the co
 
 Performance efficiency, or scalability, is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner.
 
-MGDC helps ingest data from Microsoft 365 tenants into Azure at scale. For more information, see [MGDC access-to-data-at-scale](https://docs.microsoft.com/graph/data-connect-concept-overview#access-to-data-at-scale).
+MGDC helps ingest data from Microsoft 365 tenants into Azure at scale. For more information, see [MGDC access-to-data-at-scale](/graph/data-connect-concept-overview#access-to-data-at-scale).
 
-This solution uses Azure Synapse Spark clusters, which can be scaled up and down automatically based on the activity needs of your workload. For more information, see [Azure Synapse Spark cluster autoscaling](https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-pool-configurations#autoscale).
+This solution uses Azure Synapse Spark clusters, which can be scaled up and down automatically based on the activity needs of your workload. For more information, see [Azure Synapse Spark cluster autoscaling](/azure/synapse-analytics/spark/apache-spark-pool-configurations#autoscale).
 
 For more information about the performance efficiency pillar, see [Overview of the performance efficiency pillar](/azure/architecture/framework/scalability/overview).
 
@@ -99,16 +99,17 @@ Principal authors:
 
 Review the information in this [GitHub repository](https://github.com/microsoft/Relationship-Mesh-Solution-Accelerator-with-MGDC-and-Azure-Synapse-Analytics) to determine whether you can benefit from this solution.
 
-See the [deployment guide](https://github.com/microsoft/Relationship-Mesh-Solution-Accelerator-with-MGDC-and-Azure-Synapse-Analytics/blob/main/Deployment/Deployment.md) in the GitHub repository for step-by-step instructions for deploying the solution.
+See the [deployment guide](https://github.com/microsoft/Relationship-Mesh-Solution-Accelerator-with-MGDC-and-Azure-Synapse-Analytics/blob/main/Deployment/Deployment.md) in the GitHub repository for step-by-step instructions to deploy the solution.
 
 For more information, see these articles:
 
-- [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics)
+- [Azure Data Architecture Guide](../../data-guide/index.md)
+- [Azure Synapse Analytics](/azure/synapse-analytics)
 - [Microsoft Graph Data Connect](https://docs.microsoft.com/graph)
 - [Microsoft Power BI](https://docs.microsoft.com/power-bi)
 
 ## Related resources
 
-- [Azure Data Architecture Guide](../../data-guide/index.md)
 - [Analytics end-to-end with Azure Synapse](../dataplate2e/data-platform-end-to-end.yml)
+- [Big data analytics with enterprise-grade security using Azure Synapse](../../solution-ideas/articles/big-data-analytics-enterprise-grade-security.yml)
 - [High throughput stream ingestion to Azure Synapse](../data/stream-ingestion-synapse.yml)
