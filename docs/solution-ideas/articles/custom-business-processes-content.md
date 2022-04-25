@@ -15,7 +15,7 @@ The data flows through the solution as follows:
 3. When a user selects a flight to monitor or the system assigns the user to a flight, Graph API call is queued for coordinator to process.
 4. [Azure Functions](/azure/azure-functions) run the Graph API calls which are processed in [Azure Storage](/azure/storage/).
 5. Notifications from airline system are managed by a custom bot messaging service that leverages [Azure Bot Service](/azure/bot-service).
-6. Custom bots sends flight updates to users in Teams.
+6. Custom bots send flight updates to users in Teams.
 7. Power BI generates reports from the [Azure Data Lake](/azure/storage/blobs/data-lake-storage-introduction), based on Teams activity.
 
 ### Components
