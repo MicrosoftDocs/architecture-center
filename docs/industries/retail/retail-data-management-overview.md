@@ -3,7 +3,7 @@
 title: Data management in the retail industry
 author: dstarr
 ms.author: dastarr
-ms.date: 04/21/2022
+ms.date: 04/26/2022
 ms.topic: article
 ms.service: industry
 products:
@@ -155,7 +155,7 @@ Data management in retail is complex. But it offers the valuable ability to deli
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-**Principal authors:**
+Principal authors:
 
 - [David Starr](https://www.linkedin.com/in/davidstarr) | Principal Solutions Architect
 - [Mariya Zorotovich](https://www.linkedin.com/in/mariyazoro) | Head of Customer Experience, HLS & Emerging Technology
