@@ -4,7 +4,7 @@ metadata:
   description: Describes techniques of managing data in a regulated banking environment using Microsoft Azure.
   author: dstarr
   ms.author: dastarr
-  ms.date: 03/15/2022
+  ms.date: 04/20/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide

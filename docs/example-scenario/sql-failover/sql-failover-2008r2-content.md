@@ -20,6 +20,8 @@ A dotted line surrounds most components, including an Azure Load Balancer, two v
 
 *Download a [Visio file][Visio version of architecture diagram] of this architecture.*
 
+### Workflow
+
 - As part of a virtual network, an [Azure Load Balancer][Azure Load Balancer] redirects clients by associating a routable, private IP address with the cluster.
 
 - Two [Azure virtual machines (VMs)][Azure virtual machines] run SQL Server 2008 R2 on Windows Server 2008 R2.
@@ -30,7 +32,7 @@ A dotted line surrounds most components, including an Azure Load Balancer, two v
 
 - An [Azure shared disk][Azure shared disks] makes it possible to attach a [managed disk][Introduction to Azure managed disks] to both VMs simultaneously.
 
-## Components
+### Components
 
 - [Azure Load Balancers][Azure Load Balancer] balance traffic inside virtual networks. This architecture uses an internal load balancer. This type uses a private IP address and distributes inbound traffic to back-end pool instances. The load balancer directs traffic according to configured load-balancing rules and health probes. The back-end pool instances can be Azure VMs.
 
@@ -40,7 +42,7 @@ A dotted line surrounds most components, including an Azure Load Balancer, two v
 
 - [Azure shared disk][Azure shared disks] is a feature of [Azure managed disks][Introduction to Azure managed disks]. These shared disks offer shared block storage that multiple VMs can access. You can use this feature to attach a managed disk to multiple VMs simultaneously.
 
-## Alternatives
+### Alternatives
 
 A few alternatives to this architecture exist:
 
@@ -56,11 +58,11 @@ A few alternatives to this architecture exist:
 
 Keep the following points in mind when implementing this architecture.
 
-### Security considerations
+### Security
 
 This solution provides [extended security updates for 2008 R2 versions of SQL Server and Windows Server][Microsoft blog post on free security updates] for three years. Without extended support beyond that point, security breaches or data loss may result.
 
-### Scalability considerations
+### Scalability 
 
 Windows Server 2008 R2 limits the number of *nodes*, or servers in the failover cluster, to 16.
 
@@ -70,7 +72,7 @@ Windows Server 2008 R2 limits the number of *nodes*, or servers in the failover 
 
 - Use the [Azure pricing calculator][Azure pricing calculator] to explore the cost of running this scenario.
 
-## Deploy the solution
+## Deploy this scenario
 
 Follow these steps to implement this architecture.
 
