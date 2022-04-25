@@ -6,7 +6,7 @@ The intended audience for this document is users with intermediate skill levels 
 
 An implementation of this architecture is available on [GitHub](https://github.com/Azure/Azure-Orbital-Analytics-Samples).
 
-*Apache®, Apache Ignite, Ignite, and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
+*Apache®, Apache Spark, Spark, the Spark logo, Apache Sedona, Apache Incubator, the Apache feather logo and the Apache Incubator project logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
 ## Potential use cases
 
@@ -189,7 +189,7 @@ The following instructions describe how to read, write, and apply transformation
 
   - [Install the geospatial libraries.](#install-geospatial-packages-in-an-azure-synapse-spark-pool)
   - [Create an Azure key vault](/azure/key-vault/general/quick-create-portal#create-a-vault) to store secrets. In this scenario, we'll store the access key of the storage account in the key vault. For instructions, see [Store credentials in Azure Key Vault](/azure/data-factory/store-credentials-in-key-vault).
-  - [Create a linked service](https://docs.microsoft.com/en-us/azure/data-factory/concepts-linked-services?tabs=synapse-analytics#linked-service-with-ui) for Azure Key Vault by using Azure Synapse.
+  - [Create a linked service](/azure/data-factory/concepts-linked-services?tabs=synapse-analytics#linked-service-with-ui) for Azure Key Vault by using Azure Synapse.
   
 #### Instructions
 

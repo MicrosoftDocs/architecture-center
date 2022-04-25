@@ -11,6 +11,12 @@ The typical uses for this architecture include:
 
 ## Architecture
 
+![An Azure Arc hybrid server topology diagram with Arc enabled servers connected to Azure.][architectural-diagram]
+
+*Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
+
+### Workflow
+
 :::image type="content" source="./images/azure-arc-hybrid-config.png" alt-text="An Azure Arc hybrid server topology diagram with Arc-enabled servers connected to Azure." lightbox="./images/azure-arc-hybrid-config.png" :::
 
 *Download a [PowerPoint file][architectural-diagram-ppt-source] of this architecture.*
@@ -29,6 +35,15 @@ The architecture consists of the following components:
 - **[Azure Arc-enabled servers][Azure Arc-enabled servers]** enables you to connect Azure to your Windows and Linux machines hosted outside of Azure on your corporate network. When a server is connected to Azure, it becomes an Arc-enabled server and is treated as a resource in Azure. Each Arc-enabled server has a Resource ID, a managed system identity, and is managed as part of a resource group inside a subscription. Arc-enabled servers benefit from standard Azure constructs such as inventory, policy, tags, and Azure Lighthouse.
 - **[Hyper-V nested virtualization][Hyper-V nested virtualization]** is used by Jumpstart ArcBox for IT Pros to host Windows Server virtual machines inside of an Azure virtual machine. This provides the same experience as using physical Windows Server machines, but without the hardware requirements.
 - **[Azure Virtual Network][Azure Virtual Network]** provides a private network that enables components within the Azure Resource Group to communicate, such as the virtual machines.
+
+## Potential use cases
+
+Typical uses for this architecture include:
+
+- Organize, govern, and inventory large groups of virtual machines (VMs) and servers across multiple environments.
+- Enforce organization standards and assess compliance at scale for all your resources anywhere with Azure Policy.
+- Easily deploy supported VM extensions to Arc enabled servers.
+- Configure and enforce Azure Policy for VMs and servers hosted across multiple environments.
 
 ## Recommendations
 

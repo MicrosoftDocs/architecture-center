@@ -12,31 +12,49 @@ In a practical application of the lab, an actual drone replaces the Microsoft Ai
 
 ![Diagram of the Search and Rescue Lab architecture to create an image classifier model.](media/drone-rescue.png)
 
+### Workflow
+
 1. Use AirSim's 3D-rendered environment to take images taken with the drone. Use the images as the training dataset.
-1. Import and tag the dataset in a Custom Vision project. The cognitive service trains and tests the model.
+1. Import and tag the dataset in a [Custom Vision](/azure/cognitive-services/Custom-Vision-Service) project. The cognitive service trains and tests the model.
 1. Export the model into TensorFlow format so you can use it locally.
 1. The model can also be deployed to a [container](/azure/iot-edge/tutorial-deploy-custom-vision?view=iotedge-2018-06) or to [mobile devices](/azure/cognitive-services/custom-vision-service/export-your-model).
 
-## Components
+### Components
 
-### Microsoft AirSim Drone simulator
+#### Microsoft AirSim Drone simulator
 
-[Microsoft AirSim Drone simulator](https://github.com/microsoft/AirSim) is built on the [Unreal Engine](https://www.unrealengine.com/). It's open-source, cross-platform, and developed to help AI research. In this architecture, it creates the dataset of images used to train the model.
+[Microsoft AirSim Drone simulator](https://github.com/microsoft/AirSim) is built on the [Unreal Engine](https://www.unrealengine.com/). The simulator is open-source, cross-platform, and developed to help AI research. In this architecture, it creates the dataset of images used to train the model.
 
-### Azure Custom Vision
+#### Azure Custom Vision
 
 [Azure Custom Vision](https://www.customvision.ai) is part of [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/). In this architecture, it creates an image classifier model.
 
-### TensorFlow
+#### TensorFlow
 
 [TensorFlow](https://www.tensorflow.org/) is an open-source platform for machine learning (ML). It's a tool that helps you develop and train ML models. When you export your model to TensorFlow format, you'll have a protocol buffer file with the Custom Vision model that you can use locally in your script.
 
-## Deploy the solution
+## Deploy this scenario
 
 To deploy this reference architecture, follow the steps described in the [GitHub repo of the Search and Rescue Lab](https://github.com/microsoft/DroneRescue).
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+ * Jose Contreras | Principal Software Engineer
 
 ## Next steps
 
 * [Learn more about Microsoft AirSim](https://github.com/microsoft/AirSim)
 * [Learn more about Azure Custom Vision Cognitive Service](/azure/cognitive-services/custom-vision-service/)
 * [Learn more about Azure Cognitive Services](/azure/cognitive-services/)
+
+## Related resources
+
+Read other Azure Architecture Center articles:
+
+* [Image classification on Azure](../../example-scenario/ai/intelligent-apps-image-processing.yml)
+* [Geospatial analysis with Azure Synapse Analytics](../../industries/aerospace/geospatial-processing-analytics.yml)
+* [AI enrichment with image and natural language processing in Azure Cognitive Search](../../solution-ideas/articles/cognitive-search-with-skillsets.yml)

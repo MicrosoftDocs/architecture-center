@@ -1,25 +1,3 @@
----
-title: Bulkhead pattern
-titleSuffix: Cloud Design Patterns
-description: Isolate elements of an application into pools so that if one fails, the others will continue to function.
-author: EdPrice-MSFT
-ms.author: pnp
-ms.date: 01/04/2022
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: design-pattern
-ms.custom:
-  - design-pattern
-keywords:
-  - design pattern
-products:
-  - azure
-categories:
-  - management-and-governance
----
-
-# Bulkhead pattern
-
 The Bulkhead pattern is a type of application design that is tolerant of failure. In a bulkhead architecture, elements of an application are isolated into pools so that if one fails, the others will continue to function. It's named after the sectioned partitions (bulkheads) of a ship's hull. If the hull of a ship is compromised, only the damaged section fills with water, which prevents the ship from sinking.
 
 ## Context and problem

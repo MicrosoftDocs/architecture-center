@@ -100,7 +100,7 @@ Use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculato
 
 ## Contributors
 
-_This article is being updated and maintained by Microsoft. It was originally written by the following contributors._
+_This article is maintained by Microsoft. It was originally written by the following contributors._
 
 **Principal author:** 
 
@@ -127,3 +127,4 @@ _This article is being updated and maintained by Microsoft. It was originally wr
 - [Azure Digital Twins builder](/azure/architecture/solution-ideas/articles/azure-digital-twins-builder)
 - [Choose a data pipeline orchestration technology in Azure](/azure/architecture/data-guide/technology-choices/pipeline-orchestration-data-movement)
 - [Extract, transform, and load (ETL)](/azure/architecture/data-guide/relational-data/etl)
+- [Hybrid ETL with Azure Data Factory](/azure/architecture/example-scenario/data/hybrid-etl-with-adf)

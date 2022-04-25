@@ -3,7 +3,7 @@ title: Kubernetes Service (AKS) operations triage
 titleSuffix: Azure Architecture Center
 description: Examine a short overview of triage practices for Azure Kubernetes Service (AKS) operations. View links to get more details about different triage practices.
 author: kevingbb
-ms.date: 10/12/2020
+ms.date: 04/11/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -13,7 +13,7 @@ ms.custom:
   - e2e-aks
 ---
 
-# Triage practices
+# Triage practices for AKS operations
 
 It's often challenging to do root-cause analysis given the different aspects of an AKS cluster. When triaging issues, consider a top-down approach on the cluster hierarchy. Start at the cluster level and drill down if necessary.
 

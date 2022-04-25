@@ -1,10 +1,10 @@
 ---
 title: Architectural approaches for IoT in a multitenant solution
 titleSuffix: Azure Architecture Center
-description: This articles describes approaches for supporting multitenancy in your IoT solution.
+description: This article describes approaches for supporting multitenancy in your IoT solution.
 author: drcrook1
 ms.author: dacrook
-ms.date: 03/21/2022
+ms.date: 04/11/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -198,7 +198,7 @@ Each tenant has their own IoT Central organization, which sends telemetry to a s
 
 #### Databases
 
-You might choose to partition the databases. Often it's the telemetry and device data stores that are partitioned. Frequently, multiple data stores are used for different specific purposes, such as warm versus archival storage,or for tenancy subscription status information. 
+You might choose to partition the databases. Often it's the telemetry and device data stores that are partitioned. Frequently, multiple data stores are used for different specific purposes, such as warm versus archival storage, or for tenancy subscription status information. 
 
 Separate the databases for each tenant, for the following benefits:
 
@@ -254,6 +254,20 @@ The *single-tenant automated* approach is similar to the [*simple SaaS*](#simple
 ### Increase the scale of SaaS
 
 When you expand the scale of a solution to very large deployments, there are specific challenges that arise based on service limits, geographic concerns, and other factors. For more information on large-scale IoT deployment architectures, see [Scaling out an Azure IoT solution to support millions of devices](https://aka.ms/ScalingIoT).
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+**Principal authors:**
+
+ * [Michael C. Bazarewsky](http://linkedin.com/in/mikebaz) | Senior Customer Engineer, FastTrack for Azure
+ * [David Crook](http://linkedin.com/in/drcrook) | Principal Customer Engineer, FastTrack for Azure
+ 
+**Other contributors:**
+
+ * [John Downs](http://linkedin.com/in/john-downs) | Senior Customer Engineer, FastTrack for Azure
+ * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 
 ## Next steps
 

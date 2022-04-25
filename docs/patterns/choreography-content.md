@@ -1,27 +1,3 @@
----
-title: Choreography pattern
-titleSuffix: Cloud Design Patterns
-description: Let each service decide when and how a business operation is processed, instead of depending on a central orchestrator.
-author: PageWriter-MSFT
-ms.author: pnp
-ms.date: 02/24/2020
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: design-pattern
-products:
-  - azure-event-grid
-categories:
-  - integration
-ms.custom:
-  - design-pattern
-keywords:
-  - design pattern
----
-
-<!-- cSpell:ignore upsert typeof -->
-
-# Choreography pattern
-
 Have each component of the system participate in the decision-making process about the workflow of a business transaction, instead of relying on a central point of control.
 
 ## Context and problem
@@ -88,7 +64,7 @@ When a client sends a delivery request through an HTTP endpoint, the Ingestion s
 
 This workflow continues until the entire request has been processed.
 
-The design uses multiple message buses to process the entire business transaction. [Microsoft Azure Event Grid](/azure/event-grid/) provides the messaging service. The app is deployed in an [Azure Kubernetes Service (AKS)](/azure/aks/) cluster with [two containers in the same pod](https://kubernetes.io/docs/tasks/access-application-cluster/communicate-containers-same-pod-shared-volume/#creating-a-pod-that-runs-two-containers). One container runs the [ambassador](./ambassador.md) that interacts with Event Grid while the other runs a business service. The approach with two containers in the same pod improves performance and scalability. The ambassador and the business service share the same network allowing for low latency and high throughput.
+The design uses multiple message buses to process the entire business transaction. [Microsoft Azure Event Grid](/azure/event-grid/) provides the messaging service. The app is deployed in an [Azure Kubernetes Service (AKS)](/azure/aks/) cluster with [two containers in the same pod](https://kubernetes.io/docs/tasks/access-application-cluster/communicate-containers-same-pod-shared-volume/#creating-a-pod-that-runs-two-containers). One container runs the [ambassador](./ambassador.yml) that interacts with Event Grid while the other runs a business service. The approach with two containers in the same pod improves performance and scalability. The ambassador and the business service share the same network allowing for low latency and high throughput.
 
 To avoid cascading retry operations that might lead to multiple efforts, only Event Grid retries an operation instead of the business service. It flags a failed request by sending a messaging to a [dead letter queue (DLQ)](/azure/service-bus-messaging/service-bus-dead-letter-queues).
 
@@ -164,7 +140,7 @@ public async Task<IActionResult> Post([FromBody] EventGridEvent[] events)
 
 Consider these patterns in your design for choreography.
 
-- Modularize the business service by using the [ambassador design pattern](./ambassador.md).
+- Modularize the business service by using the [ambassador design pattern](./ambassador.yml).
 
 - Implement [queue-based load leveling pattern](./queue-based-load-leveling.yml) to handle spikes of the workload.
 
