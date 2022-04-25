@@ -131,7 +131,7 @@ The `GetStatus` API in the reference implementation uses Azure AD to authenticat
 In this architecture, the client application is a single-page application (SPA) that runs in the browser. This type of client application cannot keep a client secret or an authorization code hidden, so the implicit grant flow is appropriate. (See [Which OAuth 2.0 flow should I use?][oauth-flow]). Here's the overall flow:
 
 1. The user clicks the "Sign in" link in the web application.
-1. The browser is redirected the Azure AD sign in page.
+1. The browser is redirected the Azure AD sign-in page.
 1. The user signs in.
 1. Azure AD redirects back to the client application, including an access token in the URL fragment.
 1. When the web application calls the API, it includes the access token in the Authentication header. The application ID is sent as the audience ('aud') claim in the access token.
