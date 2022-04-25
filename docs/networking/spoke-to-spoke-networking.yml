@@ -1,0 +1,28 @@
+### YamlMime:Architecture
+metadata:
+  title: Patterns for inter-spoke networking
+  titleSuffix: Azure Example Scenarios
+  description: Learn about options and best practices for spoke-to-spoke communication in Azure Virtual Network designs.
+  author: erjosito
+  ms.author: jomore
+  ms.date: 04/25/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.category:
+    - networking
+    - security
+  ms.custom:
+    - example-scenario
+name: Spoke-to-Spoke Networking
+azureCategories:
+  - networking
+  - security
+summary: Learn about options and best practices for spoke-to-spoke communication in Azure Virtual Network designs.
+products:
+  - azure-firewall
+  - azure-virtual-network
+  - azure-virtual-network-manager
+thumbnailUrl: /azure/architecture/browse/thumbs/<to-be-changed>.png
+content: |
+   [!include[](spoke-to-spoke-networking.md)]
