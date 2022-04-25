@@ -19,7 +19,7 @@ The system that Swiss Re Group built for its Property & Casualty Reinsurance div
 - The energy sector
 - Retail and e-commerce
 - Banking and finance
-- Medicine
+- Medicine (healthcare)
 
 ## Architecture
 
@@ -30,7 +30,7 @@ The system that Swiss Re Group built for its Property & Casualty Reinsurance div
 ### Dataflow
 
 1. Azure Databricks ingests raw streaming data from Azure Event Hubs.
-1. Azure Data Factory prepares data from various data sources (structured and unstructured)
+1. Azure Data Factory prepares data from various data sources (structured and unstructured).
 1. Azure Databricks processes data ingested from Azure Event Hubs.
 1. Azure Data Factory loads raw batch data into Azure Data Lake Storage.
 1. For data storage:
