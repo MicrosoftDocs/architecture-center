@@ -142,7 +142,7 @@ The solution should be deployed in stages:
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-**Principal authors:**
+Principal authors:
 
 * [Dhanashri Kshirsagar](https://www.linkedin.com/in/dhanashrikr) | Senior Content PM
 
