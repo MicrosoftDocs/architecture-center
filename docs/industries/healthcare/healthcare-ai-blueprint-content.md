@@ -220,7 +220,7 @@ Real time security and KPI monitoring is a necessity in mission critical applica
 Defender for Cloud standard provides the following services.
 
 - **Hybrid security** – Get a unified view of security across all your on-premises and cloud workloads. This is especially helpful in hybrid cloud networks used by healthcare organizations with Azure.
-- **Advanced threat detection** – Defender for Cloud uses advanced analytics and the [Microsoft Intelligent Security Graph](http://cloud-platform-assets.azurewebsites.net/intelligent-security-graph/?WT.mc_id=ms-docs-dastarr) to get an edge over evolving cyber-attacks and mitigate them right away.
+- **Advanced threat detection** – Defender for Cloud uses advanced analytics to get an edge over evolving cyber-attacks and mitigate them right away.
 - **Access and application controls** - Block malware and other unwanted applications by applying whitelisting recommendations for your specific workloads and powered by machine learning.
 
 In the context of the Health AI blueprint, Defender for Cloud analyzes the system components and provides a dashboard showing vulnerabilities in services and resources in the subscription. Distinct dashboard elements provide visibility into a solution’s concerns as follows.
