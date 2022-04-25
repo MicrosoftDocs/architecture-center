@@ -120,7 +120,7 @@ For a calculator that computes the Azure NetApp Files performance and total cost
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-**Principal authors:**
+Principal author:
 
 * [Arnt de Gier](https://www.linkedin.com/in/arntdegier) | Technical Marketing Engineer
 
