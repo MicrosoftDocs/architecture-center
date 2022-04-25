@@ -4,8 +4,8 @@ metadata:
   titleSuffix: Azure Solution Ideas
   description: Store, manage, and analyze HIPAA-compliant and HITRUST-compliant health data and medical records with the highest level of built-in security.
   author: EdPrice-MSFT
-  ms.author: pnp
-  ms.date: 04/25/2022
+  ms.author: edprice
+  ms.date: 04/26/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
