@@ -75,6 +75,21 @@ You can also browse threats on the tactics or techniques pages:
 
 You can still use MITRE ATT&CK navigator, [MITRE ATT&CK® Navigator](https://mitre-attack.github.io/attack-navigator/), an intuitive tool provided by MITRE that facilitates your navigation through tactics, techniques, and all details about threats.
 
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+**Principal authors**: 
+
+ * [Rudnei Oliveira](https://www.linkedin.com/in/rudnei-r-oliveira-69443523) | Senior Customer Engineer
+
+**Other contributors**: 
+
+ * [Gary Moore](https://www.linkedin.com/in/gwmoore) | Programmer/Writer
+ * [Andrew Nathan](https://www.linkedin.com/in/andrew-nathan) | Senior Customer Engineering Manager
+
+
 ## Next steps
 
 To get all details regarding this Architecture reference, see the other articles in this series:

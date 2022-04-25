@@ -82,6 +82,20 @@ Lastly, *endpoint.microsoft.com* provides functionality mainly for Intune and Co
 Because *security.microsoft.com* and *endpoint.microsoft.com* deliver security protection for endpoints, they have lots of interaction between them (9) to offer a great security posture for your endpoints.
 
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+**Principal authors**: 
+
+ * [Rudnei Oliveira](https://www.linkedin.com/in/rudnei-r-oliveira-69443523) | Senior Customer Engineer
+
+**Other contributors**: 
+
+ * [Gary Moore](https://www.linkedin.com/in/gwmoore) | Programmer/Writer
+ * [Andrew Nathan](https://www.linkedin.com/in/andrew-nathan) | Senior Customer Engineering Manager
+
+
 ## Next steps
 
 To get all details regarding this Architecture reference, see the other articles in this series:

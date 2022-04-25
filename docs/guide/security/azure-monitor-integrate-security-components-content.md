@@ -30,6 +30,21 @@ The series of articles also covers security for Microsoft 365 services, like Off
 
 [Integration between Azure and Microsoft 365 Defender security services](./microsoft-365-defender-security-integrate-azure.yml), the fifth article in this series, explains the relationship between Azure Security and Microsoft 365 Defender services and their integration. The article describes how integration works and how it may be accomplished through Microsoft Sentinel and Log Analytics, which are represented on the left side of the architecture diagram. This series calls these *It is called in this series as *core monitoring services*, because the services that are depicted in the graph may work with comprehensive services of Azure and Microsoft 365.
 
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+**Principal authors**: 
+
+ * [Rudnei Oliveira](https://www.linkedin.com/in/rudnei-r-oliveira-69443523) | Senior Customer Engineer
+
+**Other contributors**: 
+
+ * [Gary Moore](https://www.linkedin.com/in/gwmoore) | Programmer/Writer
+ * [Andrew Nathan](https://www.linkedin.com/in/andrew-nathan) | Senior Customer Engineering Manager
+
+
 ## Next steps
 
 To get all details regarding this Architecture reference, see the other articles in this series:
