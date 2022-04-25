@@ -4104,7 +4104,7 @@ items:
             href: reference-architectures/iot/iot-architecture-overview.md
           - name: Guides
             items:
-              - name: Azure IoT Central or IoT Hub
+              - name: Choose an IoT solution
                 href: example-scenario/iot/iot-central-iot-hub-cheat-sheet.yml
               - name: Industry-specific example solutions
                 href: reference-architectures/iot/industry-iot-hub-page.md
