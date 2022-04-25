@@ -2498,6 +2498,8 @@ items:
                 href: reference-architectures/event-hubs/partitioning-in-event-hubs-and-kafka.yml
               - name: Precision medicine pipeline with genomics
                 href: example-scenario/precision-medicine/genomic-analysis-reporting.yml
+              - name: Relationship mesh solution on Azure
+                href: example-scenario/analytics/relationship-mesh-solution-azure.yml
               - name: Stream processing with Azure Databricks
                 href: reference-architectures/data/stream-processing-databricks.yml
               - name: Stream processing with Stream Analytics
