@@ -209,6 +209,7 @@ Determine how to customize the solution by clarifying these points:
 
 Product documentation:
 
+- [What is Microsoft Cloud for Healthcare?][What is Microsoft Cloud for Healthcare?]
 - [What is Azure Data Share?][What is Azure Data Share?]
 - [What is Azure Synapse Analytics?][What is Azure Synapse Analytics?]
 - [What is Azure SQL Database?][What is Azure SQL Database?]
@@ -222,9 +223,9 @@ Product documentation:
 
 ## Related resources
 
-  - [Clinical insights with Microsoft Cloud for Healthcare][Clinical insights with Microsoft Cloud for Healthcare]
-  - [Confidential computing on a healthcare platform][Confidential computing on a healthcare platform]
-  - [What is Microsoft Cloud for Healthcare?][What is Microsoft Cloud for Healthcare?]
+- [Clinical insights with Microsoft Cloud for Healthcare][Clinical insights with Microsoft Cloud for Healthcare]
+- [Confidential computing on a healthcare platform][Confidential computing on a healthcare platform]
+- [HIPAA and HITRUST compliant health data AI](../../solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml)
 
 
 [About Azure Key Vault]: /azure/key-vault/general/overview

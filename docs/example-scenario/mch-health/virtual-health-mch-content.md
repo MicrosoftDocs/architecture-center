@@ -148,7 +148,7 @@ The solution should be deployed in stages:
 
 ## Next steps
 
-- [What is Microsoft Cloud for Healthcare?](/industry/healthcare/overview).
+- [What is Microsoft Cloud for Healthcare?](/industry/healthcare/overview)
 - Learn more about Azure for healthcare offerings at [Azure for Healthcare—Healthcare Solutions](https://azure.microsoft.com/industries/healthcare/)
 - [Difference between EMR and EHR](https://www.healthit.gov/buzz-blog/electronic-health-and-medical-records/emr-vs-ehr-difference)
 - [HIPAA compliance rules](https://www.hhs.gov/hipaa/index.html)
