@@ -42,4 +42,4 @@ Your application might have specific requirements that make IaaS a more suitable
 | SQL Server | [Azure SQL Database](/azure/sql-database/sql-database-technical-overview) |
 | File share | [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) |
 
-This list is not exhaustive. There are many ways that you can exchange IaaS technologies for related PaaS solutions.
+This list isn't exhaustive. There are many ways that you can exchange IaaS technologies for related PaaS solutions.
