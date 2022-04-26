@@ -24,7 +24,7 @@ ms.custom:
 
 # Services in an Azure Industrial IoT (IIoT) analytics solution
 
-This article builds on the basic [Azure industrial IoT (IIoT) analytics architecture](./iiot-architecture.yml) by discussing more subsystems and Azure services that IIoT analytics solutions use. Your solution might not use all these services, and might use other services.
+This article builds on the basic [Azure industrial IoT (IIoT) analytics architecture](./iiot-architecture.yml) by discussing other subsystems and Azure services that IIoT analytics solutions use. Your solution might not use all these services, and might use other services.
 
 ## Time series service
 
@@ -73,7 +73,7 @@ The following sections describe common microservices types in Azure IIoT analyti
 
 ### REST API interfaces to factory floor OPC UA servers
 
-- Use Azure IIoT components like [OPC Publisher](/azure/industrial-iot/overview-what-is-opc-publisher), [OPC Twin](https://github.com/Azure/azure-iiot-opc-twin-module), and [OPC Vault](https://github.com/Azure/azure-iiot-opc-vault-service/blob/main/docs/opcvault-services-overview.md) for discovery, registration, and remote control of industrial devices.
+- Use Azure IIoT components like [OPC Publisher](/azure/industrial-iot/overview-what-is-opc-publisher), [OPC Twin](https://github.com/Azure/Industrial-IoT/tree/main/docs/api/twin), and [OPC Vault](https://github.com/Azure/azure-iiot-opc-vault-service/blob/main/docs/opcvault-services-overview.md) for discovery, registration, and remote control of industrial devices.
 - Use AKS to host the Azure IIoT microservices. To understand the deployment options, see [Deploy the Azure Industrial IoT Platform](https://github.com/Azure/Industrial-IoT/blob/master/docs/deploy/readme.md).
 
 ### Data transformation services
@@ -126,7 +126,7 @@ A  historical data ingestion service imports historical data from a SCADA, MES, 
 
 1. Export the historical data.
 
-   - Most SCADA, MES, or historian systems have a mechanism for exporting historical data, often as CSV files. Consult your system's documentation on how to import historical data.
+   - Most SCADA, MES, or historian systems have a mechanism for exporting historical data, often as CSV files. Consult your system's documentation on how to export historical data.
 
    - If there's no export option, see if there's an API. Some systems support HTTP REST APIs or [OPC Historical Data Access (HDA)](https://en.wikipedia.org/wiki/OPC_Historical_Data_Access). You can build an application or use a Microsoft partner solution to connect to the API, query for the historical data, and save it to a file in CSV, Parquet, or TSV formats.
 
@@ -182,7 +182,7 @@ For example, a Plant Manager creates and run a job that monitors for specific er
 1. When the queue receives a message, it triggers a Logic App.
 1. The Logic App runs the workflow the Plant Manager defines, which might be creating a work order in Dynamics 365 or SAP, or sending an email to maintenance technician.
 
-A web application can use the [Stream Analytics REST API](/rest/api/streamanalytics) to provide a user interface for monitoring conditions. The [Logic Apps REST API](/rest/api/logic/) can provide a user interface for authoring workflows, or you can build workflows in the Azure portal.
+The [Logic Apps REST API](/rest/api/logic/) can provide a user interface for authoring workflows, or you can build workflows in the Azure portal. A web application can use the [Stream Analytics REST API](/rest/api/streamanalytics) to provide a user interface for monitoring conditions.
 
 To display visual alerts in your web application, create an Stream Analytics job to detect specific events and send the events to an Azure Functions output. Then [develop a function](/azure/azure-signalr/signalr-concept-azure-functions) that sends the events to your web application using [SignalR](/aspnet/core/signalr/introduction).
 
@@ -251,11 +251,11 @@ User profile management involves:
 
 You can use [Microsoft Graph](https://developer.microsoft.com/graph) for these operations.
 
-To control which actions users can take and what data they can view, use role-based access control (RBAC). Implement RBAC by using the [Microsoft identity platform](/azure/active-directory/develop) with [Azure Active Directory (azure AD)](/azure/active-directory/). Azure platform as a service (PaaS) services in an IIoT analytics solution can integrate directly with Azure AD, ensuring security across your solution.
+To control which actions users can take and what data they can view in the system, use role-based access control (RBAC). Implement RBAC by using the [Microsoft identity platform](/azure/active-directory/develop) with [Azure Active Directory (Azure AD)](/azure/active-directory). Azure platform as a service (PaaS) services in an IIoT analytics solution can integrate directly with Azure AD, ensuring security across your solution.
 
 Your web application and custom microservices can interact with the Microsoft identity platform by using libraries such as the [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview) and protocols such as OAuth 2.0 and OpenID Connect.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Data vizualization in Azure industrial IoT analytics](iiot-data.yml)
+> [Data analysis and visualization in Azure industrial IoT analytics](iiot-data.yml)

@@ -13,7 +13,7 @@ azureCategories:
 products:
   - azure-data-explorer
   - power-bi
-name: Data analysis in Azure industrial IoT analytics solution
+name: Data analysis in an Azure industrial IoT analytics solution
 summary: Use Azure Data Explorer, Power BI, custom web applications, and notebooks to analyze and visualize data in an Azure Industrial IoT (IIoT) analytics solution.
 thumbnailUrl: /azure/architecture/browse/thumbs/warm-cold-data.png
 content: |
