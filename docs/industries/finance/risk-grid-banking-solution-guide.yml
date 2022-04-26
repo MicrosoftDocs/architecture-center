@@ -4,7 +4,7 @@ metadata:
   description: Introduces technical aspects of implementing Azure Batch for risk grid computing in banking.
   author: dstarr
   ms.author: dastarr
-  ms.date: 02/05/2022
+  ms.date: 04/26/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide

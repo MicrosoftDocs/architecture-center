@@ -10,7 +10,7 @@ Cloud computing offers significant benefits for risk grid computing or risk mode
 
 Analysts need a simple and reliable way to provide their models to a batch processing pipeline. It starts with data ingestion and flows through data processing to analysis, where insights can be derived from the resulting data.
 
-Risk model input data comes in several forms, the most common being Excel files or .csv files. These files are often restructured into formats more suitable for processing the risk model in later stages of the risk compute pipeline. A common technique for parsing and processing these files is batch processing with a grid of virtual machines (VMs?WT.mc_id=gridbank-docs-dastarr) working together to reach a common goal.
+Risk model input data comes in several forms, the most common being Excel files or .csv files. These files are often restructured into formats more suitable for processing the risk model in later stages of the risk compute pipeline. A common technique for parsing and processing these files is batch processing with a grid of virtual machines working together to reach a common goal.
 
 [Azure Batch](/azure/batch/?WT.mc_id=gridbank-docs-dastarr) is an Azure service that allows multiple worker VMs to run in parallel, as shown below. Processing data files and submitting results to machine learning systems or data stores are common tasks for the worker nodes. The application code run by the worker nodes is created by the customer, so almost any action may be taken in the batch job.
 
@@ -24,7 +24,7 @@ Connecting directly and securely to the Azure cloud is fully supported. The Batc
 
 When building a risk grid computing solution on Azure, the business will often continue to use existing on-premises applications such as trading systems, middle office risk management, risk analytics, and so on. Azure becomes an extension to those existing investments.
 
-When connecting to the cloud, security is a primary consideration. Accounting for your current security model is the first step in connecting directly to Azure. For customers already using Active Directory (AD?WT.mc_id=gridbank-docs-dastarr) on-premises, connecting to Azure can leverage existing identity resources. Service accounts can live in the on-premises AD.
+When connecting to the cloud, security is a primary consideration. Accounting for your current security model is the first step in connecting directly to Azure. For customers already using Active Directory on-premises, connecting to Azure can leverage existing identity resources. Service accounts can live in the on-premises AD.
 
 ### Hybrid network solution
 
@@ -38,11 +38,11 @@ There are several network connectivity configurations beyond those in the simple
 
 ### REST API solution over the internet
 
-An alternative to creating a hybrid network is to upload data into Azure Storage (file or Blob storage being likely candidates?WT.mc_id=gridbank-docs-dastarr) and have Batch read the data files from storage. This can be achieved using a secure (SSL?WT.mc_id=gridbank-docs-dastarr) connection to connect to Azure, storing the documents in Azure Storage, and then managing the risk grid computing jobs via the [Batch service REST API](/rest/api/batchservice/?WT.mc_id=gridbank-docs-dastarr) or SDK with a fit-for-purpose application, orchestrating the Batch run.
+An alternative to creating a hybrid network is to upload data into Azure Storage and have Batch read the data files from storage. This can be achieved using a secure connection to connect to Azure, storing the documents in Azure Storage, and then managing the risk grid computing jobs via the [Batch service REST API](/rest/api/batchservice/?WT.mc_id=gridbank-docs-dastarr) or SDK with a fit-for-purpose application, orchestrating the Batch run.
 
 ### Azure Data Factory
 
-Another solution for your scenario may be using [Azure Data Factory](/azure/data-factory/?WT.mc_id=gridbank-docs-dastarr), a cloud-based data integration service, to compose large storage, movement and processing pipelines. Data can be uploaded on demand through a Data Factory pipeline. The service provides a visual designer in the Azure portal for building Extract, Transform and Load (ETL?WT.mc_id=gridbank-docs-dastarr) solutions in Azure. Data Factory can help ingest data into Azure for further processing.
+Another solution for your scenario may be using [Azure Data Factory](/azure/data-factory/?WT.mc_id=gridbank-docs-dastarr), a cloud-based data integration service, to compose large storage, movement and processing pipelines. Data can be uploaded on demand through a Data Factory pipeline. The service provides a visual designer in the Azure portal for building Extract, Transform and Load solutions in Azure. Data Factory can help ingest data into Azure for further processing.
 
 ## Matching processing needs with demand
 
@@ -85,11 +85,11 @@ Under this model, all risk grid computing activities can take place in the cloud
 
 ### Data security considerations for risk grid computing
 
-While calculation data often doesn't include any Personally Identifiable Information (PII?WT.mc_id=gridbank-docs-dastarr), most banks are still likely to conduct a security risk assessment before placing any workload in the cloud. This assessment may require input from Microsoft and may result in security recommendations.
+While calculation data often doesn't include any Personally Identifiable Information, most banks are still likely to conduct a security risk assessment before placing any workload in the cloud. This assessment may require input from Microsoft and may result in security recommendations.
 
 A notable consideration for risk grid computing is to [run the batch processes within an Azure VNet](/azure/batch/batch-virtual-network?WT.mc_id=gridbank-docs-dastarr). This allows pool compute nodes to communicate securely with other compute nodes, or with an on-premises network. Appropriate service accounts and Network Service Groups (NSG) should be created and used by the batch compute nodes. [Azure also has solutions](/azure/security/blueprints/financial-services-regulated-workloads?WT.mc_id=gridbank-docs-dastarr) for data encryption in transit and at rest in Azure storage.
 
-Some areas to consider may be: Active Directory (AD) or non-AD joined compute nodes (for Windows Server nodes?WT.mc_id=gridbank-docs-dastarr), [VM disk encryption](/azure/security/fundamentals/encryption-overview), security of calculation input and output data at rest and in transit, Azure network configurations, permissions and more. Authentication may also be handled at the REST API level through a secret key.
+Some areas to consider may be: Active Directory (AD) or non-AD joined compute nodes, [VM disk encryption](/azure/security/fundamentals/encryption-overview), security of calculation input and output data at rest and in transit, Azure network configurations, permissions and more. Authentication may also be handled at the REST API level through a secret key.
 
 ## Getting started
 
@@ -101,19 +101,19 @@ Lastly, you may be ready for a complete migration of your risk compute infrastru
 
 ## Components
 
-- [Azure Batch](/azure/batch/?WT.mc_id=gridbank-docs-dastarr) enables augmenting on-premises risk computing worker nodes to dynamically provide compute resources based on demand.
+- [Azure Batch](https://azure.microsoft.com/services/batch/) enables augmenting on-premises risk computing worker nodes to dynamically provide compute resources based on demand.
 
-- [Azure DataLake](/azure/data-lake-store?WT.mc_id=gridbank-docs-dastarr) provides storage, processing and analytics across for your risk analysis data.
+- [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/) provides storage, processing and analytics across for your risk analysis data.
 
-- [Azure ExpressRoute](/azure/expressroute/expressroute-introduction?WT.mc_id=gridbank-docs-dastarr) extends your on-premises network to Azure over a private connection facilitated by a connectivity provider.
+- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) extends your on-premises network to Azure over a private connection facilitated by a connectivity provider.
 
-- [Azure HDInsight](/azure/hdinsight/?WT.mc_id=gridbank-docs-dastarr) is a fully managed open-source analytics service to process massive amounts of data such as the data provided in month-end batch runs.
+- [Azure HDInsight](https://azure.microsoft.com/free/hdinsight) is a fully managed open-source analytics service to process massive amounts of data such as the data provided in month-end batch runs.
 
 - [Microsoft HPC Pack](/azure/virtual-machines/windows/hpcpack-cluster-options?WT.mc_id=gridbank-docs-dastarr) enables provisioning High Performance Computing clusters for batch processing.
 
-- [Power BI](/power-bi/?WT.mc_id=gridbank-docs-dastarr) is a suite of business analytics tools risk analysts use to gain and share insights.
+- [Power BI](https://powerbi.microsoft.com) is a suite of business analytics tools risk analysts use to gain and share insights.
 
-- [VPN Gateway](/azure/vpn-gateway/?WT.mc_id=gridbank-docs-dastarr) extends your on-premises network to the Azure cloud over the Internet.
+- [Azure VPN Gateway](https://azure.microsoft.com/free/vpn-gateway) extends your on-premises network to the Azure cloud over the Internet.
 
 ## Conclusion
 
@@ -123,8 +123,32 @@ The solutions covered in this article are approaches to risk grid computing in b
 
 Uploading files to Azure Storage before the Batch job begins is another way to take advantage of Batch without the need for a hybrid network. This could be done incrementally, or as a starting process to the Batch run.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+**Principal authors:**
+
+* [David Starr](https://www.linkedin.com/in/davidstarr) | Principal Solutions Architect
+
 ## Next steps
 
 After selecting a connectivity strategy, a logical place to start with risk compute is placing your existing jobs into Azure compute worker nodes and running them in a test environment to see if any code needs to be changed. [This article provides a starting point](/azure/batch/batch-virtual-network?WT.mc_id=gridbank-docs-dastarr) for getting started with Azure Batch in the language or tool of your choice.
 
 See the [Risk Grid Computing in Banking Solution Guide](/azure/industry/financial/risk-grid-banking-solution-guide?WT.mc_id=banking-docs-dastarr).
+
+Product documentation:
+
+- [What is Azure Batch?](/azure/batch/batch-technical-overview)
+- [What is Azure Data Lake?](/azure/data-lake-store/data-lake-store-overview)
+- [What is Azure ExpressRoute?](/azure/expressroute/expressroute-introduction)
+- [What is Azure HDInsight?](/azure/hdinsight/hdinsight-overview)
+- [What is Power BI?](/power-bi/fundamentals/power-bi-overview)
+- [What is VPN Gateway?](/azure/vpn-gateway/vpn-gateway-about-vpngateways)
+
+## Related resources
+
+- [Risk grid computing solution](risk-grid-banking-solution-guide.yml)
+- [HPC risk analysis template](../../solution-ideas/articles/hpc-risk-analysis.yml)
+- [Loan credit risk and default modeling](../../solution-ideas/articles/loan-credit-risk-analyzer-and-default-modeling.yml)
+- [Actuarial risk analysis and financial modeling](./actuarial-risk-analysis-financial-model.yml)
