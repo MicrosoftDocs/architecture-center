@@ -66,3 +66,11 @@ Azure Sphere *greenfield* implementations involve designing and building new IoT
 - For more information about the BCL system, see the [BrainLit](https://www.brainlit.com/) website.
 - For more information about Azure Sphere, see the [Azure Sphere documentation](/azure-sphere).
 - For Azure Sphere code samples, see [Azure Sphere Samples](https://github.com/Azure/azure-sphere-samples).
+
+## Related resources
+
+- [Azure IoT reference architecture](../../reference-architectures/iot.yml)
+- [Cognizant Safe Buildings with IoT and Azure](safe-buildings.yml)
+- [COVID-19 safe environments with IoT Edge monitoring and alerting](cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml)
+- [Create smart places by using Azure Digital Twins](../../example-scenario/iot/smart-places.yml)
+
