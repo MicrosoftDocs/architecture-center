@@ -65,7 +65,7 @@ Two sample projects are detailed here that can be imported into Azure Databricks
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-**Principal authors:**
+Principal author:
 
 * [Kris Bock](https://au.linkedin.com/in/krisbock) | Senior Customer Engineer
 
