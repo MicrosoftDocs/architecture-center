@@ -10,29 +10,6 @@ Smart spaces digitally model spaces and compile relevant data. From that data, y
 
 This article outlines a solution for smart spaces. Azure Digital Twins forms the core of the architecture by modeling the environment. Azure IoT Hub, which is a managed IoT service, also plays a significant role, as does the analytics service Azure Data Explorer.
 
-## Business outcomes
-
-In this example solution, a large commercial real estate owner is digitally transforming an office property. This improvement combines legacy facilities-management data with new features and technologies including:
-
-- Occupancy sensing.
-- Cafe queue optimization.
-- Parking.
-- Shuttle services.
-
-This effort requires integrating brownfield devices and modern Internet of Things (IoT) devices that monitor the physical space. The brownfield devices communicate through common building transports such as BACnet and Modbus.
-
-The company's goals include:
-
-- Optimizing energy usage by diagnosing faults and streamlining field service management. This optimization integrates the existing building management system with devices.
-
-- Deriving new spatial insights and offering innovative occupant experiences by connecting modern devices.
-
-- Developing a cohesive digital model of the environment by bringing together multiple sources of data. The model should expand data analysis opportunities.
-
-- Creating a scalable solution that can collect and archive millions of data points.
-
-- Building a solution that can easily add partner solutions. The solution should also incorporate partner data into the environment's digital twin.
-
 ## Potential use cases
 
 This solution applies to many areas:
@@ -253,17 +230,42 @@ These services provide support for components in all areas of the solution:
 
 - Event Hubs can also provide an ingestion service that's scalable and secure. Unlike IoT Hub, which supports bidirectional communication with devices, Event Hubs supports one-way traffic. As a result, you can't use Event Hubs to send commands and policies back to devices. Event Hubs also doesn't offer device-level security. But Event Hubs is appropriate for environments with a high volume of messages from a low number of input devices.
 
+## Business outcomes
+
+In this example solution, a large commercial real estate owner is digitally transforming an office property. This improvement combines legacy facilities-management data with new features and technologies including:
+
+- Occupancy sensing.
+- Cafe queue optimization.
+- Parking.
+- Shuttle services.
+
+This effort requires integrating brownfield devices and modern Internet of Things (IoT) devices that monitor the physical space. The brownfield devices communicate through common building transports such as BACnet and Modbus.
+
+The company's goals include:
+
+- Optimizing energy usage by diagnosing faults and streamlining field service management. This optimization integrates the existing building management system with devices.
+
+- Deriving new spatial insights and offering innovative occupant experiences by connecting modern devices.
+
+- Developing a cohesive digital model of the environment by bringing together multiple sources of data. The model should expand data analysis opportunities.
+
+- Creating a scalable solution that can collect and archive millions of data points.
+
+- Building a solution that can easily add partner solutions. The solution should also incorporate partner data into the environment's digital twin.
+
 ## Considerations
 
-The following considerations apply to this solution:
+The following considerations apply to this solution.
 
-### Scalability considerations
+### Reliability
+
+#### Scalability considerations
 
 Solutions for smart places solutions can be relatively simple, low-volume implementations. They can also be sophisticated implementations that handle a high volume of data. A solution that aggregates heating, ventilation, and air conditioning (HVAC) telemetry across a large campus is an example of a high-volume implementation.
 
 The core Azure services in this solution are scalable by design and well suited for complex solutions. But when you combine these services, ensure that they don't create choke points. Early in the development cycle, run performance tests at scheduled intervals to identify potential problems.
 
-### Flexibility considerations
+#### Flexibility considerations
 
 Design your smart space to be well integrated but also flexible. Smart places use cases are rapidly evolving. At some point after you deploy your solution, you'll need to add new sensors, data types, AI functionality, and visualization techniques. To increase flexibility:
 
@@ -271,13 +273,13 @@ Design your smart space to be well integrated but also flexible. Smart places us
 - Use [industry standards for data ontology][Adopting an industry ontology]. This approach helps reduce the time needed to add new functionality and integrate new software.
 - Use [API Management][API Management - overview]. This platform provides a way to create multiple API styles and signatures for a single underlying API.
 
-### Security considerations
+### Security
 
 Legacy building solutions often rely on a lack of external connectivity as their primary source of security. But even data that doesn't identify people can provide information about a business or the people in a building. For instance, organizations use cameras to count people, track assets, and provide security data.
 
 Be careful where you process and save images. Ensure that you address all customer requirements, including privacy issues. Make security a priority throughout the data life cycle of your smart space solution. Specifically, be aware of what data you collect, where you process and store it, and what conclusions you draw from it.
 
-## Pricing
+### Cost optimization
 
 Use the [Azure pricing calculator][Azure pricing calculator] to estimate the cost of an IoT solution.
 
@@ -288,10 +290,10 @@ Use the [Azure pricing calculator][Azure pricing calculator] to estimate the cos
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-**Principal author:**
+Principal author:
 - [Mark Kottke](https://www.linkedin.com/in/markkottke) | Senior Architect
 
-**Other contributors:**
+Other contributors:
 - [Matthew Cosner](https://www.linkedin.com/in/matthew-cosner-447843225) | Principal Software Engineering Manager
 
 ## Next steps
