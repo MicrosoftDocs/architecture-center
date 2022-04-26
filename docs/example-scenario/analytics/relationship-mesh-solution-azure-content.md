@@ -99,7 +99,7 @@ Principal authors:
 
 ## Next steps
 
-Review the information in this [Relationship mesh solution GitHub repository](https://github.com/microsoft/Relationship-Mesh-Solution-Accelerator-with-MGDC-and-Azure-Synapse-Analytics) to determine whether you can benefit from this solution.
+Review the information in this [relationship mesh solution GitHub repository](https://github.com/microsoft/Relationship-Mesh-Solution-Accelerator-with-MGDC-and-Azure-Synapse-Analytics) to determine whether you can benefit from this solution.
 
 For more information, see these articles:
 
