@@ -36,7 +36,7 @@ To simplify this process, you could also use the [Batch Plugins for Maya and 3ds
 
 - [Azure Virtual Networks](https://azure.microsoft.com/free/virtual-network) are used for both the head node and the compute resources.
 - [Azure Storage accounts](https://azure.microsoft.com/free/storage) are used for synchronization and data retention.
-- [AzureVVirtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets) are used by CycleCloud for compute resources.
+- [Azure Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets) are used by CycleCloud for compute resources.
 
 ### Alternatives
 
