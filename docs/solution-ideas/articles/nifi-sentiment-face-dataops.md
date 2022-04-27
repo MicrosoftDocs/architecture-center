@@ -72,9 +72,9 @@ This solution applies to many areas:
 
 **Visualize**: 
 * Dashboards using Power BI:
-*   Synapse (5)
-*   Hive (6)
-*   Cosmos DB (8)
+  *   Synapse (5)
+  *   Hive (6)
+  *   Cosmos DB (8)
 
 ### Dataflow
 
