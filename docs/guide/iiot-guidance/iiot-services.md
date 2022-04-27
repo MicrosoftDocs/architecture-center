@@ -29,7 +29,7 @@ This article builds on the basic [Azure industrial IoT (IIoT) analytics architec
 
 ## Time series service
 
-Time series data is collected from IIoT devices at set intervals over a continuous time period. A time series data store has data measurements with corresponding time stamps. An IIoT analytics solution needs a time series service to provide warm and cold storage for time series data. You can run interactive analytics over warm data, and operational intelligence over cold storage and historical data.
+IIoT systems collect time series data from IIoT devices at set intervals over a continuous time period. A time series data store has data measurements with corresponding time stamps. An IIoT analytics solution needs a time series service to provide warm and cold storage for time series data. You can run interactive analytics over warm data, and operational intelligence over cold storage and historical data.
 
 [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer) includes native support for creation, manipulation, and analysis of multiple time series with near real-time monitoring solutions and workflows. You can use Azure Data Explorer to develop a time series service. For more information, see [Time series analysis in Azure Data Explorer](/azure/data-explorer/time-series-analysis).
 
@@ -134,7 +134,7 @@ A  historical data ingestion service imports historical data from a SCADA, MES, 
 
 ## Rules and calculation engine
 
-An IIoT analytics solution might need to do near real-time complex event processing (CEP) over streaming data, before the data enters a database. This CEP activity is called a *calculations engine*. The solution might also need to trigger actions, such as displaying an alert, based on streaming data. This capability is called a *rules engine*.
+An IIoT analytics solution can do near real-time complex event processing (CEP) over streaming data, before the data enters a database. This CEP activity is called a *calculations engine*. The solution might also need to trigger actions, such as displaying an alert, based on streaming data. This capability is called a *rules engine*.
 
 Azure Data Explorer is optimized to respond quickly and to simplify analytics for fast-flowing, rapidly changing streaming data. You can ask questions and iteratively explore data on the fly. Azure Data Explorer can quickly identify patterns, anomalies, and trends to monitor devices and optimize operations.
 
@@ -146,7 +146,7 @@ For more advanced calculations or to implement a rules engine, you can use [Azur
 
 Stream Analytics can identify patterns and relationships in information from devices, sensors, click streams, social media feeds, and applications. You can use these patterns to trigger actions and workflows such as creating alerts, supplying report information, or storing transformed data.
 
-You can develop a custom web application that uses the [Stream Analytics REST APIs](/rest/api/streamanalytics/) to lets users create calculations, alerts, and actions. The web application creates associated jobs in Azure Stream Analytics.
+You can develop a custom web application that uses the [Stream Analytics REST APIs](/rest/api/streamanalytics/) to let users create calculations, alerts, and actions. The web application creates associated jobs in Azure Stream Analytics.
 
 For a rules engine, the Stream Analytics job output can call a function, which calls a logic app or a Power Automate task. The app or task can send an email alert or invoke [Azure SignalR](/aspnet/core/signalr/introduction) to display a message in the web application.
 
@@ -166,7 +166,7 @@ Examples include:
 
 - The temperature of a heat exchanger exceeds a configured limit, which changes the color of an icon in your web application.
 - A pump sends an error code that triggers a work order in your Enterprise Resource Planning (ERP) system.
-- The vibration of a motor exceeds limits, triggering an email notification to an operations manager.
+- The vibration of a motor exceeds limits, triggering an email notification to an Operations Manager.
 
 Azure Logic Apps offers automated, scalable workflows, business processes, and enterprise orchestrations. Logic Apps can integrate equipment and data across cloud services and on-premises systems.
 
@@ -200,7 +200,7 @@ Training ML models by using historical industrial data adds predictive capabilit
 
 [Azure Machine Learning (Azure ML)](https://azure.microsoft.com/services/machine-learning) can [connect to data](/azure/machine-learning/how-to-create-register-datasets) stored in your Azure Storage account to create and train [forecasting models](/azure/machine-learning/how-to-auto-train-forecast). You can [deploy trained models](/azure/machine-learning/how-to-deploy-and-where) to an IoT Edge field gateway, or as a web service with Azure Functions or hosted on AKS.
 
-If your organization is new to ML or doesn't have data scientists, you can use [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services) to easily add cognitive features to your IIoT analytics solution. Azure Cognitive Services covers five main pillars: Vision, Speech, Language, Decision, and OpenAI. Cognitive Services APIs, SDKs, and services can help you create applications that see, hear, speak, understand, and begin to reason.
+If your organization is new to ML or doesn't have data scientists, you can use [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services) to add cognitive features to your IIoT analytics solution. Azure Cognitive Services covers five main pillars: Vision, Speech, Language, Decision, and OpenAI. Cognitive Services APIs, SDKs, and services can help you create applications that see, hear, speak, understand, and begin to reason.
 
 ## Asset hierarchy
 
@@ -233,7 +233,7 @@ The following example describes a workflow that integrates with line-of-business
 1. The job sends a message to Azure Service Bus that triggers a logic app to run.
 1. The logic app sends an email notification to the plant manager by using the [Office 365 Outlook connector](/azure/connectors/connectors-create-api-office365-outlook).
 1. The logic app also sends a message to the SAP S/4 HANA system, by using the [SAP connector](/azure/logic-apps/logic-apps-using-sap-connector).
-1. The message creates a SAP service order.
+1. The message creates an SAP service order.
 
 ## User management
 

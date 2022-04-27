@@ -71,7 +71,7 @@ The following diagram shows a typical Azure IoT Edge device architecture.
 
 ![Diagram that shows Azure IoT Edge architecture.](./images/iot-edge.png)
 
-[IoT Edge automatic deployments](https://azure.microsoft.com/blog/new-enhancements-for-azure-iot-edge-automatic-deployments) can specify deployment configuration across thousands of IoT Edge devices. [Azure IoT Hub Device Provisioning Service (DPS)](/azure/iot-dps/about-iot-dps) is an IoT Hub helper service that can provision IoT Edge devices securely and scalably without human intervention.
+[IoT Edge automatic deployments](https://azure.microsoft.com/blog/new-enhancements-for-azure-iot-edge-automatic-deployments) can specify deployment configuration across thousands of IoT Edge devices. [Azure IoT Hub Device Provisioning Service (DPS)](/azure/iot-dps/about-iot-dps) is an IoT Hub helper service that can provision IoT Edge devices in a secure and scalable way, without human intervention.
 
 ## Field gateways
 

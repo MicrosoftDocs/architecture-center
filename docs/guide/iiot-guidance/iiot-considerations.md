@@ -30,7 +30,7 @@ As you test your IIoT analytics solution, collect performance metrics and establ
 
 ### IoT Edge gateway performance
 
-The following considerations impact Azure IoT Edge gateway performance:
+The following considerations affect Azure IoT Edge gateway performance:
 
 - The number of edge modules running, and their performance requirements
 - The number of messages the edge hub and other modules process
@@ -40,7 +40,7 @@ The following considerations impact Azure IoT Edge gateway performance:
 
 Test with real world or simulated telemetry to understand IoT Edge field gateway hardware requirements. Test initially on virtual machines (VMs), where you can easily adjust CPU, RAM, and disk. Once you know the approximate hardware requirements, get your field gateway hardware, and do further testing with the actual hardware.
 
-Test to ensure that the gateway:
+Run tests to ensure that the gateway:
 
 - Doesn't lose messages between the source, such as a historian, and the destination, such as Azure Data Explorer.
 - Has acceptable message latency between the source and the destination.
