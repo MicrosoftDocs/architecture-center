@@ -21,7 +21,6 @@ summary: This article presents a decision tree and examples of high-availability
 products:
   - azure-site-recovery
   - azure-virtual-machines
-  - azure-virtual-machine-scale-sets
 thumbnailUrl: /azure/architecture/browse/thumbs/ha-decision-tree.png
 content: |
    [!include[](iaas-high-availability-disaster-recovery-content.md)]
