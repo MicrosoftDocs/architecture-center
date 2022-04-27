@@ -52,7 +52,7 @@ Azure Functions helps you:
 
 For container-based microservices, consider using [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric) or [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service). For more information, see [Microservices in Azure](https://azure.microsoft.com/solutions/microservice-applications).
 
-Regardless of platform choice, you can use [Azure API Management](https://azure.microsoft.com/services/api-management) to create consistent and modern API gateways for microservices. API Management helps abstract, publish, secure, and version your APIs.
+Regardless of platform choice, you can use [Azure API Management](https://azure.microsoft.com/services/api-management) to create consistent and modern API gateways for microservices. API Management helps you abstract, publish, secure, and version your APIs.
 
 The following sections describe common microservices types in Azure IIoT analytics solutions.
 
@@ -64,7 +64,7 @@ The following sections describe common microservices types in Azure IIoT analyti
 ### REST API interfaces to factory floor OPC UA servers
 
 - Use Azure IIoT components like [OPC Publisher](/azure/industrial-iot/overview-what-is-opc-publisher), [OPC Twin](https://github.com/Azure/Industrial-IoT/tree/main/docs/api/twin), and [OPC Vault](https://github.com/Azure/azure-iiot-opc-vault-service/blob/main/docs/opcvault-services-overview.md) for device discovery, registration, and remote control.
-- Use AKS to host the Azure IIoT microservices. To understand the deployment options, see [Deploy the Azure Industrial IoT Platform](https://github.com/Azure/Industrial-IoT/blob/master/docs/deploy/readme.md).
+- Use AKS to host Azure IIoT microservices. To understand the deployment options, see [Deploy the Azure Industrial IoT Platform](https://github.com/Azure/Industrial-IoT/blob/master/docs/deploy/readme.md).
 
 ### Data transformation services
 
@@ -72,20 +72,20 @@ Different industrial equipment vendors send telemetry in different formats and s
 
 - Connect Azure Functions to IoT Hub to transform payloads, like converting binary to JSON or differing payloads to a common format.
 - If the message body is binary, use functions to convert the incoming messages to JSON and send the converted messages back to IoT Hub.
-- When the message body is binary, you can't use [IoT Hub message routing](/azure/iot-hub/iot-hub-devguide-messages-d2c) against the message body, but you can use it against the [message properties](/azure/iot-hub/iot-hub-devguide-routing-query-syntax).
+- When the message body is binary, you can't use [IoT Hub message routing](/azure/iot-hub/iot-hub-devguide-messages-d2c) against the message body, but you can route against the [message properties](/azure/iot-hub/iot-hub-devguide-routing-query-syntax).
 - Azure IIoT components can decode OPC UA binary messages to JSON.
 
 ### Data ingest administration services
 
 Develop a data ingest administration service to add and update the list of SCADA *tags* your IIoT analytics solution monitors.
 
-Tags are variables mapped to I/O addresses on a PLC or RTU. Tag names vary among organizations, but often follow a pattern. For example, tag names for a pump with tag number `14P103` located in Station 001 (`STN001`) might have these statuses:
+Tags are variables mapped to I/O addresses on a PLC or RTU. Tag names vary among organizations, but often follow a pattern. For example, tag names for a pump with tag number `14P103` located in Station 001 (`STN001`) might have the following statuses:
 
 - `STN001_14P103_RUN`
 - `STN001_14P103_STOP`
 - `STN001_14P103_TRIP`
 
-The IIoT analytics solution must become aware of new tag names in the SCADA system, and must subscribe to the tags to begin collecting their data. The solution might not subscribe to certain tags if their data is irrelevant to the solution.
+The IIoT analytics solution must become aware of new tag names in the SCADA system, and subscribe to the tags to begin collecting their data. The solution might not subscribe to tags if their data is irrelevant to the solution.
 
 In a SCADA system that supports OPC UA, new tags should appear as new `NodeID`s in the OPC UA hierarchy. For example, the preceding tag names might appear as:
 
@@ -93,22 +93,22 @@ In a SCADA system that supports OPC UA, new tags should appear as new `NodeID`s 
 - `ns=2;s= STN001_14P103_STOP`
 - `ns=2;s= STN001_14P103_TRIP`
 
-Use the following workflow to let solution administrators know about new or updated SCADA tags, and to update OPC Publisher with the tags. The workflow uses [Power Apps](https://powerapps.microsoft.com), Azure Logic Apps, and Azure Functions. For the code sample, see [OPC Publisher node configuration](https://github.com/Azure-Samples/iot-edge-opc-publisher-nodeconfiguration).
+Use the following workflow to let solution administrators know about new or updated SCADA tags, and to update OPC Publisher with the tags. The workflow uses [Power Apps](https://powerapps.microsoft.com), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps), and Azure Functions. For a code sample, see [OPC Publisher node configuration](https://github.com/Azure-Samples/iot-edge-opc-publisher-nodeconfiguration).
 
 1. Whenever tags are created or edited in the SCADA system, the system operator triggers the Logic Apps workflow by using a Power Apps form.
 
    - Alternatively, Logic Apps [connectors](/azure/connectors/apis-list) can monitor a table in the SCADA system database for tag changes.
-   - The OPC UA Discovery service can find OPC UA servers and the tags and methods they implement.
+   - The Azure IIoT [Discovery Service](https://azure.github.io/Industrial-IoT/modules/discovery.html) can find OPC UA servers and the tags and methods they use.
 
 1. In the approval step, the IIoT analytics solution owners can approve the new or updated tags.
 
 1. Once the solution owners approve the new or updated tags and assign them a frequency, Logic Apps calls a function in Azure Functions.
 
-1. The function calls the OPC Twin microservice, which directs the OPC Publisher module to subscribe to the new tags.
+1. The function calls the [OPC Twin](https://github.com/Azure/Industrial-IoT/tree/main/docs/api/twin) microservice, which directs the [OPC Publisher](/azure/industrial-iot/overview-what-is-opc-publisher) module to subscribe to the new tags.
 
    If your solution involves third-party software, configure the function to call a third-party API instead of OPC Publisher. Either call the API directly or by using an IoT Hub [direct method](/azure/iot-hub/iot-hub-devguide-direct-methods).
 
-Alternatively, you can use [Microsoft Forms](https://forms.office.com) and Power Automate for this workflow, instead of Power Apps and Logic Apps.
+Alternatively, you can use [Microsoft Forms](https://forms.office.com) and [Power Automate](https://powerautomate.microsoft.com) for this workflow, instead of Power Apps and Logic Apps.
 
 ### Historical data ingestion
 
@@ -141,11 +141,15 @@ For example, a production manager wants to calculate the average number of widge
 
 ### Azure Stream Analytics
 
-For more advanced calculations or to implement a rules engine, you can use Azure Stream Analytics. Stream Analytics is a real-time analytics and CEP engine that can analyze and process high volumes of streaming data from multiple sources simultaneously. Stream Analytics can identify patterns and relationships in information from devices, sensors, click streams, social media feeds, and applications. You can use these patterns to trigger actions and workflows such as creating alerts, supplying report information, or storing transformed data.
+For more advanced calculations or to implement a rules engine, you can use [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics). Stream Analytics is a real-time analytics and CEP engine that can analyze and process high volumes of streaming data from multiple sources simultaneously.
 
-You can develop a custom web application that lets users author calculations, alerts, and actions. The web application creates associated jobs in Azure Stream Analytics by using the Steam Analytics REST API. For a rules engine, the Stream Analytics job output calls a function, which calls a Logic App or Power Automate task. The app or task can take actions like sending an email alert or invoking [Azure SignalR](/aspnet/core/signalr/introduction) to display a message in the web application.
+Stream Analytics can identify patterns and relationships in information from devices, sensors, click streams, social media feeds, and applications. You can use these patterns to trigger actions and workflows such as creating alerts, supplying report information, or storing transformed data.
 
-For example, a process engineer wants to calculate the [standard deviation (SDEV)](/stream-analytics-query/stdev-azure-stream-analytics) of widgets across several production lines, to determine when any line is more than two times beyond the mean. The process engineer authors the calculations in a custom web application, which calls the [Stream Analytics REST APIs](/rest/api/streamanalytics/) to run the calculations. The application sends the job output to Azure Data Explorer to visualize in dashboards or in the web UI.
+You can develop a custom web application uses the [Stream Analytics REST APIs](/rest/api/streamanalytics/) to lets users create calculations, alerts, and actions. The web application creates associated jobs in Azure Stream Analytics.
+
+For a rules engine, the Stream Analytics job output can call a function, which calls a logic app or a Power Automate task. The app or task can send an email alert or invoke [Azure SignalR](/aspnet/core/signalr/introduction) to display a message in the web application.
+
+For example, a process engineer wants to calculate the [standard deviation](/stream-analytics-query/stdev-azure-stream-analytics) of widgets across production lines, to see when any line is more than two times beyond the mean. The engineer authors the calculations in the custom web application, which calls the Steam Analytics REST API to run the calculations. The application sends the job output to Azure Data Explorer to visualize in dashboards or in the web UI.
 
 Stream Analytics supports processing events in CSV, JSON, and Avro data formats. You can use Azure Functions to do data transformation before sending the data to Stream Analytics.
 
@@ -161,18 +165,18 @@ Examples include:
 
 - The temperature of a heat exchanger exceeds a configured limit, which changes the color of an icon in your web application.
 - A pump sends an error code that triggers a work order in your Enterprise Resource Planning (ERP) system.
-- The vibration of a motor exceeds limits, triggering an email notification to an Operations Manager.
+- The vibration of a motor exceeds limits, triggering an email notification to an operations manager.
 
 Azure Logic Apps offers automated, scalable workflows, business processes, and enterprise orchestrations. Logic Apps can integrate equipment and data across cloud services and on-premises systems.
 
 1. Use Stream Analytics to define and detect conditions in streaming data.
 1. Connect Stream Analytics to Logic Apps by using [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview). Use Logic Apps to define an email or SMS alert, or trigger a workflow.
 
-For example, a plant manager creates and runs a job that monitors for specific error codes. The job implements an automated workflow whenever the error codes are received from any equipment.
+For example, a plant manager creates and runs a job that monitors for specific error codes. The job implements an automated workflow whenever it receives the error codes from any equipment.
 
 1. When Stream Analytics detects an error code, the job sends the error code to an Azure Service Bus queue output.
 1. When the queue receives a message, it triggers a Logic App.
-1. The Logic App runs the workflow the Plant Manager defines. The workflow might be creating a work order in Dynamics 365 or SAP, or sending an email to maintenance technicians.
+1. The Logic App runs the workflow the plant manager defined. The workflow might be creating a work order in Dynamics 365 or SAP, or sending an email to maintenance technicians.
 
 The [Logic Apps REST API](/rest/api/logic/) can provide a user interface for authoring workflows, or you can build workflows in the Azure portal. A web application can use the [Stream Analytics REST API](/rest/api/streamanalytics) to provide a user interface for monitoring conditions.
 
@@ -195,7 +199,9 @@ Training ML models by using historical industrial data adds predictive capabilit
 
 [Azure Machine Learning (Azure ML)](https://azure.microsoft.com/services/machine-learning) can [connect to data](/azure/machine-learning/how-to-create-register-datasets) stored in your Azure Storage account to create and train [forecasting models](/azure/machine-learning/how-to-auto-train-forecast). You can [deploy trained models](/azure/machine-learning/how-to-deploy-and-where) to an IoT Edge field gateway, or as a web service with Azure Functions or hosted on AKS.
 
-If your organization is new to ML or doesn't have data scientists, start with [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services). Azure Cognitive Services covers five main pillars: Vision, Speech, Language, Decision, and OpenAI. Cognitive Services APIs, SDKs, and services can help you build intelligent applications without formal AI or data science expertise. You can easily add cognitive features into your IIoT analytics solution. Cognitive Services can help you create applications that see, hear, speak, understand, and begin to reason.
+If your organization is new to ML or doesn't have data scientists, start with [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services). Azure Cognitive Services covers five main pillars: Vision, Speech, Language, Decision, and OpenAI. Cognitive Services APIs, SDKs, and services can help you build intelligent applications without formal AI or data science expertise.
+
+You can easily add cognitive features into your IIoT analytics solution. Cognitive Services can help you create applications that see, hear, speak, understand, and begin to reason.
 
 ## Asset hierarchy
 
@@ -214,7 +220,7 @@ You can export your existing asset hierarchy and import it into Azure Digital Tw
 
 ## Business process integration
 
-You might want your IIoT analytics solution to take actions based on insights from your industrial data. These actions can include triggering a workflow in your ERP or customer relationship management (CRM) line-of-business systems. You can use Azure Logic Apps to integrate your IIoT analytics solution with your line-of-business systems. Azure Logic Apps has connectors to business systems and Microsoft services such as:
+You might want your IIoT analytics solution to take actions based on insights from your industrial data. These actions can include triggering a workflow in your ERP or customer relationship management (CRM) systems. You can use Azure Logic Apps to integrate your IIoT analytics solution with your line-of-business systems. Azure Logic Apps has connectors to business systems and Microsoft services such as:
 
 - Dynamics 365
 - SharePoint Online
@@ -222,7 +228,7 @@ You might want your IIoT analytics solution to take actions based on insights fr
 - Salesforce
 - SAP
 
-The following example workflow integrates with line of business systems.
+The following example describes a workflow that integrates with line-of-business systems.
 
 1. A Stream Analytics job detects an error code from a pump.
 1. The job sends a message to Azure Service Bus that triggers a logic app to run.
