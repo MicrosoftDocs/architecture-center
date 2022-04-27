@@ -3826,7 +3826,7 @@ items:
                   - name: DevOps with Azure Stack Hub
                     href: solution-ideas/articles/hybrid-continuous-integration.yml
                   - name: Disaster recovery for Stack Hub VMs
-                    href: hybrid/azure-stack-vm-dr.yml
+                    href: hybrid/azure-stack-vm-disaster-recovery.yml
                   - name: Hybrid geo-distributed architecture
                     href: example-scenario/hybrid/hybrid-geo-distributed.yml
                   - name: Hybrid relay connection
@@ -4403,7 +4403,7 @@ items:
                   - name: Back up files on Azure Stack Hub
                     href: hybrid/azure-stack-backup.yml
                   - name: Disaster recovery for Azure Stack Hub
-                    href: hybrid/azure-stack-vm-dr.yml
+                    href: hybrid/azure-stack-vm-disaster-recovery.yml
                   - name: Hybrid availability and monitoring
                     href: hybrid/hybrid-perf-monitoring.yml
                   - name: Manage configurations for Azure Arc

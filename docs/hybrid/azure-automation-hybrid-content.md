@@ -151,7 +151,7 @@ More about Azure Automation:
 - [Connect an on-premises network to Azure](/azure/architecture/reference-architectures/hybrid-networking)
 - [Enterprise monitoring with Azure Monitor](/azure/architecture/example-scenario/monitoring/enterprise-monitoring)
 - [Computer forensics chain of custody in Azure](/azure/architecture/example-scenario/forensics)
-- [Disaster Recovery for Azure Stack Hub virtual machines](/azure/architecture/hybrid/azure-stack-vm-dr)
+- [Disaster Recovery for Azure Stack Hub virtual machines](/azure/architecture/hybrid/azure-stack-vm-disaster-recovery)
 
 [architectural-diagram]: ./images/azure-automation-hybrid.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-automation-hybrid.vsdx

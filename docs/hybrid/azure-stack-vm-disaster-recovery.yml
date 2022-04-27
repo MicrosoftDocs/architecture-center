@@ -4,7 +4,7 @@ metadata:
   description: This solution delivers an optimized approach to disaster recovery of virtual machine (VM)-based user workloads hosted on Azure Stack Hub.
   author: EdPrice-MSFT
   ms.author: pnp
-  ms.date: 08/06/2020
+  ms.date: 04/26/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture
@@ -28,4 +28,4 @@ products:
   - azure-virtual-network
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-stack-vm-dr.png
 content: |
-   [!include[](azure-stack-vm-dr-content.md)]
+   [!include[](azure-stack-vm-disaster-recovery-content.md)]
