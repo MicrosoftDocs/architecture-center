@@ -4,8 +4,8 @@ metadata:
   titleSuffix: Azure Solution Ideas
   description: Improve uptime and operations in hospitality, manufacturing, and retail. Use mixed reality, IoT, and real-time data to digitally replicate your physical space.
   author: EdPrice-MSFT
-  ms.author: pnp
-  ms.date: 04/24/2022
+  ms.author: edprice
+  ms.date: 04/26/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
