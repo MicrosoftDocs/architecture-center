@@ -45,7 +45,7 @@ items:
             href: guide/design-principles/design-for-operations.md
           - name: Use managed services
             href: guide/design-principles/managed-services.md
-          - name: Use a suitable data store
+          - name: Use the best data store
             href: guide/design-principles/use-the-best-data-store.md
           - name: Design for evolution
             href: guide/design-principles/design-for-evolution.md
