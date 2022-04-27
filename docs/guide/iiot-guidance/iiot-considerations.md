@@ -1,5 +1,5 @@
 ---
-title: Considerations in an IIoT analytics solution
+title: Considerations for an Azure industrial IIoT (IIoT) analytics solution
 titleSuffix: Azure Application Architecture Guide
 description: Read about architectural considerations in an IIoT analytics solution. View discussions about performance, availability, and networking.
 author: khilscher
@@ -24,7 +24,7 @@ This article describes considerations for the [Azure Industrial IoT (IIoT) analy
 
 ## Performance efficiency
 
-All Azure PaaS services have an interface to view service metrics and configure conditions and alerts. [Azure Monitor](/azure/azure-monitor/overview) collects and displays metrics, conditions, and alerts in the Azure portal. Enable these features to ensure your solution performs as expected.
+All Azure platform-as-a-service (PaaS) components have an interface to view service metrics and configure conditions and alerts. [Azure Monitor](/azure/azure-monitor/overview) collects and displays metrics, conditions, and alerts in the Azure portal. Enable these features to ensure that your solution performs as you expect.
 
 As you test your IIoT analytics solution, collect performance metrics and establish baselines. Set up alerts when performance metrics exceed baselines.
 
@@ -40,7 +40,7 @@ The following considerations impact Azure IoT Edge gateway performance:
 
 Test with real world or simulated telemetry to understand IoT Edge field gateway hardware requirements. Test initially on virtual machines (VMs), where you can easily adjust CPU, RAM, and disk. Once you know the approximate hardware requirements, get your field gateway hardware, and do further testing with the actual hardware.
 
-Test to ensure that the gateway:
+Test to ensure the gateway:
 
 - Doesn't lose messages between the source, like a historian, and the destination, like Azure Data Explorer.
 - Has acceptable message latency between the source and the destination.
@@ -49,32 +49,32 @@ Test to ensure that the gateway:
 
 ### Scalability considerations
 
-All Azure platform-as-a-service (PaaS) services have the ability to scale up and/or out. Some services scale automatically, such as Azure IoT Hub, or Azure Functions in a Consumption Plan. You can scale other services manually.
+All Azure PaaS services have the ability to scale up and/or out. Some services scale automatically, such as Azure IoT Hub, or Azure Functions in a Consumption Plan. You can scale other services manually.
 
 When you design your IIoT analytics solution, make sure you understand how each service scales, including the units of scale.
 
 ## Reliability
 
-IoT Edge devices can process some data on the device itself or on a field gateway. This ability to operate in offline or intermittent network conditions provides *store and forward* capabilities.
+IoT Edge devices can process some data on the device itself or on a field gateway. IoT Edge devices also provide [store and forward](https://wikipedia.org/wiki/Store_and_forward) capabilities for operation in offline or intermittent network conditions.
 
 An IoT Edge field gateway can be a single point of failure between a SCADA, MES, or historian and Azure IoT Hub. A failure can cause gaps in your IIoT analytics data. To prevent data loss, IoT Edge can integrate with an on-premise Kubernetes environment, using it as a resilient, highly available infrastructure layer. For more information, see [How to install IoT Edge on Kubernetes (Preview)](/azure/iot-edge/how-to-install-iot-edge-kubernetes).
 
 ## Security
 
-To maintain compliance with standards such as ISA 95 and ISA 99, industrial equipment is often installed in a closed Process Control Network (PCN), behind firewalls, with no direct access to the internet. For details, see [Purdue networking model](https://en.wikipedia.org/wiki/Purdue_Enterprise_Reference_Architecture).
+To comply with standards such as ISA 95 and ISA 99, industrial equipment is often in a closed Process Control Network (PCN) behind firewalls. The PCN has no direct access to the internet.
 
 There are three options to connect to equipment installed in a PCN:
 
 - Connect to a higher-level system, such as a historian, located outside of the PCN.
 
-- Deploy an IoT Edge device or VM in a DMZ between the PCN and the internet.
+- [Deploy an IoT Edge device or VM in a DMZ](../../reference-architectures/dmz/secure-vnet-dmz.yml) between the PCN and the internet.
 
   - The firewall between the DMZ and the PCN must allow inbound connections from the DMZ to the appropriate system or device in the PCN.
   - There might be no internal DNS setup to resolve PCN names to IP addresses.
 
-- Deploy an IoT Edge device or VM in the PCN and configure IoT Edge to communicate with the internet through a proxy server.
+- Deploy an IoT Edge device or VM in the PCN and [configure IoT Edge to communicate with the internet through a proxy server](/azure/iot-edge/how-to-configure-proxy-support).
 
-  - This option requires more IoT Edge setup and configuration. For more information, see [Configure an IoT Edge device to communicate through a proxy server](/azure/iot-edge/how-to-configure-proxy-support).
+  - This option requires more IoT Edge setup and configuration.
   - The proxy server could introduce a single point of failure or a performance bottleneck.
   - There might be no DNS setup in the PCN to resolve external names to IP addresses.
 
@@ -84,7 +84,7 @@ IoT Edge also requires:
 - Access to DNS to resolve external FQDNs.
 - Ability to communicate with Azure IoT Hub by using MQTT, MQTT over WebSockets, AMQP, or AMQP over WebSockets.
 
-For more security, industrial firewalls can use [Service Tags](/azure/virtual-network/service-tags-overview#service-tags-on-premises) to restrict traffic between IoT Edge and IoT Hub. IP address prefixes of IoT Hub public endpoints are published periodically under the *AzureIoTHub* service tag. Firewall administrators can programmatically retrieve the current service tag list, with IP address range details, and update firewall configurations to accept only those tags.
+For more security, industrial firewalls can use [Service Tags](/azure/virtual-network/service-tags-overview#service-tags-on-premises) to restrict traffic between IoT Edge and IoT Hub. IP address prefixes of IoT Hub public endpoints publish periodically under the *AzureIoTHub* service tag. Firewall administrators can retrieve the current service tag list, with IP address ranges, and update firewalls to accept only those tags.
 
 ## Next steps
 
