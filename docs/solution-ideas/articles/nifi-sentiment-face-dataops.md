@@ -57,7 +57,7 @@ This solution applies to many areas:
 * Ingest Tweets into Synapse via Azure Data Factory (4)
 * Ingest Tweets into Blob Storage (4)
 * Ingest Tweets into Cosmos DB (4)
-* 
+
 **Process**:
 * Transform JSON into CSV (2)
 * Create Hive and Azure Synapse tables (2)
