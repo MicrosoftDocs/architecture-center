@@ -3,7 +3,7 @@ title: Scenarios that feature Microsoft on-premises technologies on Azure
 description: Review a list of architectures and solutions that use Microsoft on-premises technologies on Microsoft Azure.
 author: EdPrice-MSFT
 ms.author: edprice
-ms.date: 04/04/2022
+ms.date: 04/26/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -38,14 +38,12 @@ This article describes scenarios that feature Microsoft on-premises technologies
 - [Active Directory Domain Services in Windows Server 2016](/windows-server/identity/whats-new-active-directory-domain-services). The service that stores information about user accounts and enables other authorized users on the same network to access it. Security is integrated with Active Directory through sign-in authentication and access control to objects in the directory.
 - [Host Integration Server](/host-integration-server/what-is-his). Technologies and tools that enable enterprise organizations to integrate existing IBM host systems, programs, messages, and data with new Microsoft server applications. 
 
-## Solutions featuring Microsoft on-premises technologies
-
 For information about solutions in which Azure services integrate with the other Microsoft cloud platforms, see these articles:
 - [Azure and Power Platform scenarios](../solutions/power-platform-scenarios.md)
 - [Azure and Microsoft 365 scenarios](../solutions/microsoft-365-scenarios.md)
 - [Azure and Dynamics 365 scenarios](../example-scenario/analytics/synapse-customer-insights.yml)
 
-### Active Directory
+## Active Directory
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
@@ -62,7 +60,7 @@ For information about solutions in which Azure services integrate with the other
 |[On-premises Active Directory domains with Azure AD](../reference-architectures/identity/azure-ad.yml) |Learn how to implement a secure hybrid network architecture that integrates on-premises Active Directory domains with Azure AD.|Identity|
 |[Use Azure file shares in a hybrid environment](../hybrid/azure-file-share.yml) |Use identity-based authentication to control access to Azure file shares via AD DS users and groups.|Hybrid|
 
-### Exchange Server
+## Exchange Server
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
@@ -72,14 +70,14 @@ For information about solutions in which Azure services integrate with the other
 |[Enhanced-security hybrid messaging - mobile access](../example-scenario/hybrid/secure-hybrid-messaging-mobile.yml)|Enhance your security in a mobile access scenario by using Azure AD Multi-Factor Authentication. Discusses scenarios for Exchange Online and Exchange on-premises.|Hybrid|
 |[Enhanced-security hybrid messaging - web access](../example-scenario/hybrid/secure-hybrid-messaging-web.yml) |Enhance your security in a web access scenario by using Azure AD Multi-Factor Authentication. Discusses scenarios for Exchange Online and Exchange on-premises.|Hybrid|
 
-### Host Integration Server (HIS)
+## Host Integration Server (HIS)
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
 |[Integrate IBM mainframe and midrange message queues with Azure](../example-scenario/mainframe/integrate-ibm-message-queues-azure.yml) |Learn about a data-first approach to middleware integration that enables IBM message queues. HIS is used in a VM-based IaaS approach.|Mainframe|
 |[Mainframe file replication and sync on Azure](../solution-ideas/articles/mainframe-azure-file-replication.yml) |Learn several options for moving, converting, transforming, and storing mainframe and midrange file system data on-premises and on Azure. HIS is used to convert EBCDIC files to make them compatible with Azure.|Mainframe|
 
-### SharePoint Server
+## SharePoint Server
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
@@ -92,7 +90,7 @@ For information about solutions in which Azure services integrate with the other
 |[Run a highly available SharePoint Server 2016 farm in Azure](../reference-architectures/sharepoint/index.yml) |Learn proven practices for deploying a highly available SharePoint Server 2016 farm on Azure.|Management|
 |[SharePoint farm for development testing](../solution-ideas/articles/sharepoint-farm-devtest.yml)|Deploy a SharePoint farm for development testing. Use Azure AD, SQL Server, and SharePoint resources for this agile development architecture.|DevOps|
 
-### SQL Server
+## SQL Server
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
@@ -122,7 +120,7 @@ For information about solutions in which Azure services integrate with the other
 |[Web app private connectivity to Azure SQL Database](../example-scenario/private-web-app/private-web-app.yml) |Lock down access to an Azure SQL database with Azure Private Link connectivity from a multitenant web app.|Web|
 |[Windows N-tier application on Azure](../reference-architectures/n-tier/n-tier-sql-server.yml) |Implement a multitier architecture on Azure for availability, security, scalability, and manageability. SQL Server provides the data tier.|Databases|
 
-### Windows Server
+## Windows Server
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
@@ -138,6 +136,7 @@ For information about solutions in which Azure services integrate with the other
 |[Windows N-tier application on Azure](../reference-architectures/n-tier/n-tier-sql-server.yml) |Implement a multitier architecture on Azure for availability, security, scalability, and manageability.|Databases|
 
 ## Related resources
+
 - [Microsoft partner and third-party scenarios on Azure](partner-scenarios.md)
 - [Architecture for startups](../guide/startups/startup-architecture.md)
 - [Azure and Power Platform scenarios](../solutions/power-platform-scenarios.md)
