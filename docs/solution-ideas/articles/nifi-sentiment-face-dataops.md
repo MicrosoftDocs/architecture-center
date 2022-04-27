@@ -52,6 +52,15 @@ This solution applies to many areas:
 
 ![Architecture diagram for scenario NiFi Sentiment Analysis and Face Recognition](../media/nifi-sentiment-face-architecture.png)
 
+**Collect and Ingest**: 
+* Ingest Tweets into HDFS (1)
+* 
+**Process**: Transformation of the JSON file into a CSV; extracting attributes from the JSON to use in the CSV composition as variables.
+
+**Store**: Transformation of the JSON file into a CSV; extracting attributes from the JSON to use in the CSV composition as variables.
+
+**Visualize**: Transformation of the JSON file into a CSV; extracting attributes from the JSON to use in the CSV composition as variables.
+
 ### Dataflow
 
 There are three main parts to this DataFlow:
