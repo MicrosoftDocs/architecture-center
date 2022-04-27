@@ -4,7 +4,7 @@ metadata:
   description: This solution delivers an optimized approach to disaster recovery of virtual machine (VM)-based user workloads hosted on Azure Stack Hub.
   author: EdPrice-MSFT
   ms.author: pnp
-  ms.date: 04/25/2022
+  ms.date: 04/26/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture
