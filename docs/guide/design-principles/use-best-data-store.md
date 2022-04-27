@@ -14,6 +14,13 @@ ms.category:
 ms.custom:
   - seojan19
   - guide
+products:
+  - azure
+  - azure-cognitive-search
+  - azure-cosmos-db
+categories:
+  - databases
+  - storage
 ---
 
 # Use the best data store for your data
@@ -52,7 +59,7 @@ For example, you might store a product catalog in a document database, such as A
   - Put transactional data into a SQL database.
   - Store JSON documents in a document database.
   - Use a time series data base for telemetry.
-  - Put application logs in Azure Cognitive Search.
+  - Put application logs into Azure Cognitive Search.
   - Choose Azure Blob Storage for blobs.
 
 - Prefer availability over (strong) consistency. The [CAP theorem][CAP theroem] implies that distributed systems have to make trade-offs between availability and consistency. You can never completely avoid network partitions, the other leg of the CAP theorem. But you can often achieve higher availability by adopting an [eventual consistency][Eventual consistency] model.

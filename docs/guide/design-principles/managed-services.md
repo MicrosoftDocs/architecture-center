@@ -11,6 +11,11 @@ ms.subservice: guide
 ms.custom:
   - seojan19
   - guide
+products:
+  - azure
+categories:
+  - developer-tools
+  - management-and-governance
 ---
 
 # Use platform as a service (PaaS) options
