@@ -72,9 +72,9 @@ There are three main parts to this DataFlow:
 
 - [Apache Nifi](https://nifi.apache.org/) handles multiple sources and multiples sinks with different types of processors in order to doing streaming transformations. Designed to automate the flow of data between software systems. 
 
-- [Azure Synapse](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is) centralizes data in the cloud for easy access.
-
 - [Azure HDInsight](https://azure/services/hdinsight/) is a Hadoop Platform for data and analytics for on-premise environments,  to ingest, store and process data in real time and batch time. Is an open source framework for distributed storage and processing of large, multi-source data sets. HDP modernizes IT infrastructure and keeps data secure
+
+- [Azure Synapse](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is) centralizes data in the cloud for easy access.
 
 - [Azure Cognitive Services Language Understanding & Vision](https://azure/services/cognitive-services/) are cloud-based services with REST APIs and client library SDKs available to help build cognitive intelligence into applications. Cognitive features can be added to applications without having artificial intelligence (AI) or data science skills.
 
