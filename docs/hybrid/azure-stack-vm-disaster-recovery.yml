@@ -1,0 +1,31 @@
+### YamlMime:Architecture
+metadata:
+  title: Disaster recovery for Azure Stack Hub VMs
+  description: This solution delivers an optimized approach to disaster recovery of virtual machine (VM)-based user workloads hosted on Azure Stack Hub.
+  author: EdPrice-MSFT
+  ms.author: pnp
+  ms.date: 04/25/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+  ms.category:
+    - hybrid
+    - management-and-governance
+  ms.custom:
+    - fcp
+    - reference-architecture
+    - e2e-hybrid
+name: Disaster Recovery for Azure Stack Hub virtual machines
+azureCategories:
+  - hybrid
+  - management-and-governance
+summary: This solution delivers an optimized approach to disaster recovery of virtual machine (VM)-based user workloads hosted on Azure Stack Hub.
+products:
+  - azure-active-directory
+  - azure-site-recovery
+  - azure-stack
+  - azure-stack-hub
+  - azure-virtual-network
+thumbnailUrl: /azure/architecture/browse/thumbs/azure-stack-vm-dr.png
+content: |
+   [!include[](azure-stack-vm-disaster-recovery-content.md)]

@@ -239,7 +239,7 @@ The following new and updated articles have recently been published in the Azure
 - [Scalable and secure WordPress on Azure](./example-scenario/infrastructure/wordpress.yml)  ([#bec078aad](https://github.com/MicrosoftDocs/architecture-center/commit/bec078aad))
 - [Multiple forests with AD DS, Azure AD, and Azure AD DS](./example-scenario/wvd/multi-forest-azure-managed.yml)  ([#bec078aad](https://github.com/MicrosoftDocs/architecture-center/commit/bec078aad))
 - [Azure Stack remote offices and branches](./hybrid/azure-stack-robo.yml)  ([#bec078aad](https://github.com/MicrosoftDocs/architecture-center/commit/bec078aad))
-- [Disaster recovery for Azure Stack Hub VMs](./hybrid/azure-stack-vm-dr.yml)  ([#bec078aad](https://github.com/MicrosoftDocs/architecture-center/commit/bec078aad))
+- [Disaster recovery for Azure Stack Hub VMs](./hybrid/azure-stack-vm-disaster-recovery.yml)  ([#bec078aad](https://github.com/MicrosoftDocs/architecture-center/commit/bec078aad))
 - [Batch scoring of Python models on Azure](./reference-architectures/ai/batch-scoring-python.yml)  ([#bec078aad](https://github.com/MicrosoftDocs/architecture-center/commit/bec078aad))
 - [Basic web application](./reference-architectures/app-service-web-app/basic-web-app.yml)  ([#bec078aad](https://github.com/MicrosoftDocs/architecture-center/commit/bec078aad))
 - [Scalable web application](./reference-architectures/app-service-web-app/scalable-web-app.yml)  ([#bec078aad](https://github.com/MicrosoftDocs/architecture-center/commit/bec078aad))
