@@ -3,7 +3,7 @@ title: Use a suitable data store
 titleSuffix: Azure Architecture Center
 description: "Pick the storage technology that's the best fit for how you use your data. Learn about alternatives to relational databases. Consider polyglot persistence."
 author: EdPrice-MSFT
-ms.author: pnp
+ms.author: edprice
 ms.date: 04/28/2022
 ms.topic: conceptual
 ms.service: architecture-center
