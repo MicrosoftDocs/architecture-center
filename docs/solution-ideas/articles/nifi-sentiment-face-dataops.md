@@ -54,12 +54,27 @@ This solution applies to many areas:
 
 **Collect and Ingest**: 
 * Ingest Tweets into HDFS (1)
+* Ingest Tweets into Synapse via Azure Data Factory (4)
+* Ingest Tweets into Blob Storage (4)
+* Ingest Tweets into Cosmos DB (4)
 * 
-**Process**: Transformation of the JSON file into a CSV; extracting attributes from the JSON to use in the CSV composition as variables.
+**Process**:
+* Transform JSON into CSV (2)
+* Create Hive and Azure Synapse tables (2)
+* Tweets Sentiment Analysis (NLTK) (2)
+* Process pictures and identify human faces (Cognitive Services) (2)
+  
+**Store**: 
+* Store data in HDFS and Hive (3)
+* Store data in Synapse (3)
+* Store data in Blob Storage (3)
+* Store data in Cosmos DB (7)
 
-**Store**: Transformation of the JSON file into a CSV; extracting attributes from the JSON to use in the CSV composition as variables.
-
-**Visualize**: Transformation of the JSON file into a CSV; extracting attributes from the JSON to use in the CSV composition as variables.
+**Visualize**: 
+* Dashboards using Power BI:
+*   Synapse (5)
+*   Hive (6)
+*   Cosmos DB (8)
 
 ### Dataflow
 
