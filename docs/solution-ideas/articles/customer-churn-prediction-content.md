@@ -17,23 +17,23 @@ This solution is optimized for the retail industry.
 
 ### Dataflow
 
-1. Use Azure Event Hub to stream all live data into Azure.
+1. Use [Azure Event Hub](/azure/event-hubs/event-hubs-about) to stream all live data into Azure.
 
-1. Use Stream Analytics for real-time analytics and ingest data into Azure Synapse (SQL DW). Combine existing and historical data to create dashboards and reports in Power BI.
+1. Use [Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction) for real-time analytics and ingest data into [Azure Synapse](/azure/synapse-analytics/overview-what-is) (SQL DW). Combine existing and historical data to create dashboards and reports in Power BI.
 
-1. Ingest historical data at scale into Azure Blob Storage to combine with streamed data for ad-hoc insights and experimentation using Azure Machine learning.
+1. Ingest historical data at scale into [Azure Blob Storage](/azure/storage/blobs/storage-blobs-overview) to combine with streamed data for ad-hoc insights and experimentation using Azure Machine learning.
 
-1. Use Azure Machine Learning to build models to predict churn probability, data patterns to deliver high intelligent insights and analytics on collected data. These models can be used further to build Power BI reports and analytical dashboards to assist businesses in decision making.
+1. Use [Azure Machine Learning](/azure/machine-learning/) to build models to predict churn probability, data patterns to deliver high intelligent insights and analytics on collected data. These models can be used further to build Power BI reports and analytical dashboards to assist businesses in decision making.
 
-1. Use Power BI to build operational reports and dashboards on top of Azure Synapse to derive insights and report on business data about user consumption.
+1. Use [Power BI](/power-bi/) to build operational reports and dashboards on top of Azure Synapse to derive insights and report on business data about user consumption.
 
 ### Components
 
-* [Azure Event Hubs](/azure/event-hubs/event-hubs-about) is an event ingestion service that can process millions of events per second. Data sent to event hub can be transformed and stored using any real-time analytics provider.
-* [Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction) is a real-time analytics engine designed to analyze and process high volume of fast streaming data. Relationships and patterns identified in the data can be used to trigger actions and initiate workflows such as creating alerts, feeding information to a reporting tool, or storing transformed data for later use.
+* [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs) is an event ingestion service that can process millions of events per second. Data sent to event hub can be transformed and stored using any real-time analytics provider.
+* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics) is a real-time analytics engine designed to analyze and process high volume of fast streaming data. Relationships and patterns identified in the data can be used to trigger actions and initiate workflows such as creating alerts, feeding information to a reporting tool, or storing transformed data for later use.
 * [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) is a cloud service for storing large amounts of unstructured data such as text, binary data, audio, and documents more-easily and cost-effectively. Azure Blob Storage allows data scientists quick access to data for experimentation and AI model building.
 * [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/) is a fast and reliable data warehouse with limitless analytics that brings together data integration, enterprise data warehousing, and big data analytics. It gives you the freedom to query data on your terms, using either serverless or dedicated resources and serve data for immediate BI and machine learning needs.
-* [Azure Machine Learning](/azure/machine-learning/) can be used for any supervised and unsupervised machine learning, whether you prefer to write Python of R code. You can build, train, and track machine learning models in an Azure Machine Leaning workspace.
+* [Azure Machine Learning](https://azure.microsoft.com/free/machine-learning) can be used for any supervised and unsupervised machine learning, whether you prefer to write Python of R code. You can build, train, and track machine learning models in an Azure Machine Leaning workspace.
 * [Power BI](https://powerbi.microsoft.com/) is a suite of tools that delivers powerful insights to organizations. Power BI connects to various data sources, simplify data prep and model creation from disparate sources. Enhance team collaboration across the organization to produce analytical reports and dashboard to support the business decisions and publish them to the web and mobile devices for users to consume.
 
 ## Deploy this scenario
@@ -54,12 +54,12 @@ The snapshot below shows an example Power BI dashboard that gives insights into 
 
 ## Next steps
 
-* [Get Started with Azure Event Hubs](/azure/event-hubs/event-hubs-about)
-* [Get Started with Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction)
-* [Get Started with Azure Synapse Analytics](/azure/synapse-analytics/)
-* [Get Started with Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction)
-* [Get Started with Azure Machine Learning](/azure/machine-learning/)
-* [Get Started with Power BI documentation](/power-bi/)
+* [About Azure Event Hubs](/azure/event-hubs/event-hubs-about)
+* [Welcome to Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction)
+* [What is Azure Synapse Analytics?](/azure/synapse-analytics/overview-what-is)
+* [Introduction to Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction)
+* [What is Azure Machine Learning?](/azure/machine-learning/overview-what-is-azure-machine-learning)
+* [What is Power BI?](/power-bi/fundamentals/power-bi-overview)
 
 ## Related resources
 
