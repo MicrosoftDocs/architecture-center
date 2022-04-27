@@ -59,9 +59,10 @@ There are three main parts to this DataFlow:
 
 **Tweets Ingestion**: Transformation of the JSON file into a CSV; extracting attributes from the JSON to use in the CSV composition as variables.
 
+**Image Processing**: The sentiment analysis runs against tweets that have any pictures; these pictures are collected; human face detection is run; if a human face is recognized, it is stored in HDInsight.
+
 **Sentiment Analysis**: Apply an NLTK algorithm on the ingested messages; do sentiment analysis of the text in the tweets; then store CSV-converted results on a Hive table and store the JSON on Cosmos DB. 
 
-**Image Processing**: The sentiment analysis runs against tweets that have any pictures; these pictures are collected; human face detection is run; if a human face is recognized, it is stored in HDInsight.
 
 ### Components
 
