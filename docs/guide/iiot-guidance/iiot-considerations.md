@@ -4,7 +4,7 @@ titleSuffix: Azure Application Architecture Guide
 description: Read about architectural considerations in an IIoT analytics solution. View discussions about performance, availability, and networking.
 author: khilscher
 ms.author: kehilsch
-ms.date: 04/21/2022
+ms.date: 04/27/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -40,9 +40,9 @@ The following considerations impact Azure IoT Edge gateway performance:
 
 Test with real world or simulated telemetry to understand IoT Edge field gateway hardware requirements. Test initially on virtual machines (VMs), where you can easily adjust CPU, RAM, and disk. Once you know the approximate hardware requirements, get your field gateway hardware, and do further testing with the actual hardware.
 
-Test to ensure the gateway:
+Test to ensure that the gateway:
 
-- Doesn't lose messages between the source, like a historian, and the destination, like Azure Data Explorer.
+- Doesn't lose messages between the source, such as a historian, and the destination, such as Azure Data Explorer.
 - Has acceptable message latency between the source and the destination.
 - Preserves source timestamps.
 - Maintains data accuracy, especially during data transformations.

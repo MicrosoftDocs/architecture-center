@@ -4,7 +4,7 @@ titleSuffix: Azure Application Architecture Guide
 description: Explore services like time series, microservices, asset hierarchies, and calculations engines in an IIoT analytics solution.
 author: khilscher
 ms.author: kehilsch
-ms.date: 04/18/2022
+ms.date: 04/27/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -18,6 +18,7 @@ products:
   - azure-functions
   - azure-iot-hub
   - azure-logic-apps
+  - azure-stream-analytics
 ms.custom:
   - guide
 ---
@@ -28,11 +29,11 @@ This article builds on the basic [Azure industrial IoT (IIoT) analytics architec
 
 ## Time series service
 
-Time series data is data collected at set intervals over a continuous time period. A time series data store has data measurements with corresponding time stamps. An IIoT analytics solution needs a time series service to provide warm and cold storage for time series data. You run interactive analytics over warm data, and operational intelligence over cold storage and historical data.
+Time series data is collected from IIoT devices at set intervals over a continuous time period. A time series data store has data measurements with corresponding time stamps. An IIoT analytics solution needs a time series service to provide warm and cold storage for time series data. You can run interactive analytics over warm data, and operational intelligence over cold storage and historical data.
 
-You can use [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer) to develop a time series service. Azure Data Explorer includes native support for creation, manipulation, and analysis of multiple time series with near real-time monitoring solutions and workflows. For more information, see [Time series analysis in Azure Data Explorer](/azure/data-explorer/time-series-analysis).
+[Azure Data Explorer](https://azure.microsoft.com/services/data-explorer) includes native support for creation, manipulation, and analysis of multiple time series with near real-time monitoring solutions and workflows. You can use Azure Data Explorer to develop a time series service. For more information, see [Time series analysis in Azure Data Explorer](/azure/data-explorer/time-series-analysis).
 
-Azure Data Explorer provides a web application, the [Web UI](/azure/data-explorer/web-query-data), where you can run queries and [build dashboards](/azure/data-explorer/azure-data-explorer-dashboards).
+Azure Data Explorer provides a [Web UI](/azure/data-explorer/web-query-data), where you can run queries and [build data visualization dashboards](/azure/data-explorer/azure-data-explorer-dashboards).
 
 > [!NOTE]
 > IIoT systems that were using Azure Time Series Insights (TSI) for a time series service can migrate to Azure Data Explorer. The TSI service won't be supported after March 2025. For more information, see [Migrate to Azure Data Explorer](/azure/time-series-insights/migration-to-adx).
@@ -54,7 +55,7 @@ For container-based microservices, consider using [Azure Service Fabric](https:/
 
 Regardless of platform choice, you can use [Azure API Management](https://azure.microsoft.com/services/api-management) to create consistent and modern API gateways for microservices. API Management helps you abstract, publish, secure, and version your APIs.
 
-The following sections describe common microservices types in Azure IIoT analytics solutions.
+The following sections describe common microservices in Azure IIoT analytics solutions.
 
 ### HTTP REST APIs for web applications
 
@@ -75,11 +76,11 @@ Different industrial equipment vendors send telemetry in different formats and s
 - When the message body is binary, you can't use [IoT Hub message routing](/azure/iot-hub/iot-hub-devguide-messages-d2c) against the message body, but you can route against the [message properties](/azure/iot-hub/iot-hub-devguide-routing-query-syntax).
 - Azure IIoT components can decode OPC UA binary messages to JSON.
 
-### Data ingest administration services
+### Data ingestion administrative services
 
-Develop a data ingest administration service to add and update the list of SCADA *tags* your IIoT analytics solution monitors.
+Develop a data ingestion administrative service to add and update the list of SCADA *tags* your IIoT analytics solution monitors.
 
-Tags are variables mapped to I/O addresses on a PLC or RTU. Tag names vary among organizations, but often follow a pattern. For example, tag names for a pump with tag number `14P103` located in Station 001 (`STN001`) might have the following statuses:
+Tags are variables that map to I/O addresses on a PLC or RTU. Tag names vary among organizations, but often follow a pattern. For example, tag names for a pump with tag number `14P103` located in Station 001 (`STN001`) might have the following statuses:
 
 - `STN001_14P103_RUN`
 - `STN001_14P103_STOP`
@@ -145,7 +146,7 @@ For more advanced calculations or to implement a rules engine, you can use [Azur
 
 Stream Analytics can identify patterns and relationships in information from devices, sensors, click streams, social media feeds, and applications. You can use these patterns to trigger actions and workflows such as creating alerts, supplying report information, or storing transformed data.
 
-You can develop a custom web application uses the [Stream Analytics REST APIs](/rest/api/streamanalytics/) to lets users create calculations, alerts, and actions. The web application creates associated jobs in Azure Stream Analytics.
+You can develop a custom web application that uses the [Stream Analytics REST APIs](/rest/api/streamanalytics/) to lets users create calculations, alerts, and actions. The web application creates associated jobs in Azure Stream Analytics.
 
 For a rules engine, the Stream Analytics job output can call a function, which calls a logic app or a Power Automate task. The app or task can send an email alert or invoke [Azure SignalR](/aspnet/core/signalr/introduction) to display a message in the web application.
 
@@ -199,9 +200,7 @@ Training ML models by using historical industrial data adds predictive capabilit
 
 [Azure Machine Learning (Azure ML)](https://azure.microsoft.com/services/machine-learning) can [connect to data](/azure/machine-learning/how-to-create-register-datasets) stored in your Azure Storage account to create and train [forecasting models](/azure/machine-learning/how-to-auto-train-forecast). You can [deploy trained models](/azure/machine-learning/how-to-deploy-and-where) to an IoT Edge field gateway, or as a web service with Azure Functions or hosted on AKS.
 
-If your organization is new to ML or doesn't have data scientists, start with [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services). Azure Cognitive Services covers five main pillars: Vision, Speech, Language, Decision, and OpenAI. Cognitive Services APIs, SDKs, and services can help you build intelligent applications without formal AI or data science expertise.
-
-You can easily add cognitive features into your IIoT analytics solution. Cognitive Services can help you create applications that see, hear, speak, understand, and begin to reason.
+If your organization is new to ML or doesn't have data scientists, you can use [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services) to easily add cognitive features to your IIoT analytics solution. Azure Cognitive Services covers five main pillars: Vision, Speech, Language, Decision, and OpenAI. Cognitive Services APIs, SDKs, and services can help you create applications that see, hear, speak, understand, and begin to reason.
 
 ## Asset hierarchy
 

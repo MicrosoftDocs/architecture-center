@@ -2,15 +2,15 @@
 
 IIoT goes beyond moving existing manufacturing processes and tools to the cloud. A modern IIoT analytics solution uses PaaS services, machine learning (ML), and intelligent edge computing to transform industrial operations and processes.
 
-IIoT analytics applications support the following business practices:
+IIoT analytics applications can support the following business practices:
 
 - Asset monitoring
 - Process dashboards
-- Overall equipment effectiveness (OEE)
+- Overall equipment effectiveness (OEE) measurement
 - Predictive maintenance
 - Forecasting
 
-The IIoT analytics architecture in these articles uses [Azure Industrial IoT](https://github.com/Azure/Industrial-IoT/blob/master/docs/deploy/readme.md) components. Azure IIoT analytics solutions might not use all these services, and might use other services.
+The IIoT analytics architecture in these articles uses [Azure Industrial IoT](https://github.com/Azure/Industrial-IoT/blob/master/docs/deploy/readme.md) components. Not all Azure IIoT analytics solutions use all these services, and the articles mention alternatives where applicable.
 
 ## Architecture
 
@@ -20,7 +20,7 @@ An IIoT analytics architecture is an ingestion-only pattern that doesn't send co
 
 1. A control network of industrial devices sends data to the cloud through an edge field gateway.
 1. In the cloud, the cloud gateway sends data to a rules and calculations engine.
-1. The calculation engine sends data to machine learning, or to microservices. Processing also incorporates time series and asset hierarchy data.
+1. The calculation engine sends data to microservices, or to machine learning. Data processing also incorporates time series and asset hierarchy data.
 1. Insights trigger actions like notifications and business process integration.
 1. Insights also power visualizations, including schematic views, trends, dashboards, and notebooks.
 
@@ -32,17 +32,17 @@ An IIoT analytics solution relies on real-time and historical data from industri
 - Programmable Logic Controllers (PLCs)
 - Supervisory Control and Data Acquisition (SCADA) systems
 - Manufacturing Execution Systems (MESs)
-- Historians
-
-*Process manufacturing* must often monitor geographically dispersed industrial equipment. Remote Terminal Units (RTUs) connect remote equipment to central SCADA systems. An RTU works well in conditions where connectivity and power supplies are intermittent and unreliable.
+- Historians, also called process historians or operational historians
 
 In *discrete manufacturing*, PLCs connect and control industrial equipment like factory robots and conveyor systems. Industrial protocols like Modbus might connect one or more PLCs to a central SCADA system.
 
-SCADA systems can forward and centralize data in a MES or a *historian*, also called a process historian or operational historian. Historians are often located in IT-controlled networks with some internet access.
+*Process manufacturing* must often monitor geographically dispersed industrial equipment. Remote Terminal Units (RTUs) connect remote equipment to central SCADA systems. An RTU works well in conditions where connectivity and power supplies are intermittent and unreliable.
 
-Industrial equipment and SCADA systems are often in closed *Process Control Networks (PCNs)* behind firewalls, with no direct internet access. Historians that contain industrial data from several facilities are located outside PCNs. Therefore, connecting to a historian is often easier than connecting to a SCADA, MES, or PLC. If no historian is available, connecting to an MES or SCADA system is the next logical choice.
+SCADA systems can forward and centralize data in an MES or in a data *historian*. Historians are often located in IT-controlled networks with some internet access.
 
-The connection to a historian, MES, or SCADA system depends on what protocols are available and aren't blocked by firewalls. Many systems now support Industry 4.0 standards like [OPC UA](#opc-ua-standard). Older systems might support only legacy protocols like Modbus, ODBC, or SOAP. Older systems often require [protocol translation software](/samples/azure-samples/azure-iotedge-opc-flattener/azure-iot-edge-protocol-translation-sample) running on an edge device to connect to the cloud.
+Industrial equipment and SCADA systems are often located in closed *Process Control Networks (PCNs)* behind firewalls, with no direct internet access. Historians that contain industrial data from several facilities are located outside PCNs. Therefore, connecting to a historian is often easier than connecting to a SCADA, MES, or PLC. If no historian is available, connecting to an MES or SCADA system is the next logical choice.
+
+The connection to a historian, MES, or SCADA system depends on what protocols are available and aren't blocked by firewalls. Many systems now support Industry 4.0 standards like [OPC UA](#opc-ua-standard). Older systems might support only legacy protocols like Modbus, ODBC, or SOAP. Older systems often require [protocol translation software](/samples/azure-samples/azure-iotedge-opc-flattener/azure-iot-edge-protocol-translation-sample) running on edge devices to connect to the cloud.
 
 ## Intelligent edge devices
 
@@ -65,7 +65,7 @@ The [IoT Edge runtime](/azure/iot-edge/iot-edge-runtime) provides two system mod
 
 - The *IoT Edge agent* module pulls down the container orchestration manifest from the cloud, so IoT Edge knows which modules to run.  Module configuration is part of the [module twin](/azure/iot-hub/iot-hub-devguide-module-twins).
 
-- The *IoT Edge hub* module manages inter-module communication and communication between the device and [Azure IoT Hub](/azure/iot-hub/about-iot-hub). Messages route from one module to the next with JSON configuration. IoT Edge encrypts and streams real-time industrial data to IoT Hub by using AMQP 1.0 or MQTT 3.1.1 protocols.
+- The *IoT Edge hub* module manages inter-module communication and communication between the device and [Azure IoT Hub](/azure/iot-hub/about-iot-hub) in the cloud. Messages route from one module to the next with JSON configuration. IoT Edge encrypts and streams real-time industrial data to IoT Hub by using AMQP 1.0 or MQTT 3.1.1 protocols.
 
 The following diagram shows a typical Azure IoT Edge device architecture.
 
@@ -103,13 +103,13 @@ The protocols your industrial systems use determine which patterns to use in you
 
 [OPC UA](https://opcfoundation.org/about/opc-technologies/opc-ua) is an open standard that defines the connectivity, interoperability, security, and reliability of industrial devices and systems. The [OPC Foundation](https://opcfoundation.org) maintains the OPC UA standard. The OPC UA protocol is the successor to OPC Classic, DA, AE, and HDA. Microsoft is a member of the OPC Foundation, and supports OPC UA on Azure.
 
-OPC UA bases industry and domain-specific information models on the OPC UA data model. The OPC UA infrastructure can exchange these *companion specifications* to support interoperability at the semantic level. OPC UA uses several transport protocols, including MQTT, AMQP, and UADP.
+OPC UA bases industry and domain-specific information models on the OPC UA data model. The OPC UA infrastructure can exchange these *companion specifications* to support interoperability at the semantic level. OPC UA can use several transport protocols, including MQTT, AMQP, and UADP.
 
 ### Azure Industrial IoT
 
 Microsoft based the following open-source [Azure Industrial IoT](https://github.com/Azure/Industrial-IoT/blob/master/docs/deploy/readme.md) components on OPC UA to implement identity translation:
 
-- [OPC Twin](https://github.com/Azure/Industrial-IoT/tree/main/docs/api/twin) consists of microservices and an Azure IoT Edge module to connect the cloud and a factory network. OPC Twin provides discovery, registration, and synchronous remote control of industrial devices through REST APIs. OPC Twin also supports the OPC HDA profile, which can be useful for historical data.
+- [OPC Twin](https://github.com/Azure/Industrial-IoT/tree/main/docs/api/twin) uses microservices and an Azure IoT Edge module to connect the cloud to a factory network. OPC Twin provides discovery, registration, and synchronous remote control of industrial devices through REST APIs. OPC Twin also supports the OPC HDA profile for historical data.
 
 - [OPC Publisher](/azure/industrial-iot/overview-what-is-opc-publisher) is an Azure IoT Edge module that publishes telemetry data from OPC UA servers in OPC UA PubSub format, in both JSON and binary.
 
@@ -121,13 +121,13 @@ See the [Microsoft Azure IIoT solution](https://azure.github.io/Industrial-IoT) 
 
 ## Historian connection
 
-A common pattern in an IIoT analytics solution is to connect to a historian, and stream real-time data from the historian to IoT Hub. The connection method depends on which protocols are installed and not blocked by firewalls on the historian.
+A common pattern in an IIoT analytics solution is to connect to a historian database, and stream real-time data from the historian to IoT Hub. The connection method depends on which protocols are installed and not blocked by firewalls on the historian.
 
 | Historian protocol | Connection options |
 |----------------------------|---------------------------|
 | OPC UA |• Use Azure IoT Edge, OPC Publisher, OPC Twin, and OPC Vault to send OPC UA data over MQTT to IoT Hub.<br>• Use a Microsoft partner Azure IoT Edge OPC UA module to send OPC UA data over MQTT to IoT Hub.|
 | OPC DA |• Use Microsoft partner software to convert OPC DA to OPC UA and send OPC UA data to IoT Hub over MQTT.<br>• Use OPC Publisher, OPC Twin, and OPC Vault to send OPC UA data over MQTT to IoT Hub.|
-| Web service |• Use a custom IoT Edge HTTP module to poll the web service.<br>• Use Microsoft partner software that supports HTTP to MQTT 3.1.1 or AMQP 1.0.<p> |
+| Web service |• Use a custom IoT Edge HTTP module to poll the web service.<br>• Use Microsoft partner software that converts HTTP to MQTT 3.1.1 or AMQP 1.0.<p> |
 | MQTT 3.1.1 that can publish MQTT messages | • Connect the historian directly to IoT Hub using MQTT.<br>• Connect the historian to IoT Edge as a leaf device in the transparent gateway pattern.|
 | Other |• Use a custom Azure IoT Edge module.<br>• Use Microsoft partner software to convert to MQTT 3.1.1 or AMQP 1.0.|
 
