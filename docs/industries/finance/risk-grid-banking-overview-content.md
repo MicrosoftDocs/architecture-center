@@ -127,7 +127,7 @@ Uploading files to Azure Storage before the Batch job begins is another way to t
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-**Principal authors:**
+Principal authors:
 
 * [David Starr](https://www.linkedin.com/in/davidstarr) | Principal Solutions Architect
 
