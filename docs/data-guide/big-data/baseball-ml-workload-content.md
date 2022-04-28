@@ -24,13 +24,15 @@ Consider this scenario for the following use cases:
 
 ![An overview of the processing sequence of this architecture, detailed in accompanying text.](./images/baseball-machine-learning-workbench-diagram.png)
 
+### Dataflow
+
 The processing sequence in this solution flows as follows:
 
 1. The user accesses the workbench application with any browser. They choose which analysis method to employ and then which player to analyze.
 
 2. SignalR brokers two-way communication with the server in real time.
 
-3. Azure App Service hosts the application, including AI logic with the machine learning models.
+3. [Azure App Service](/azure/app-service/) hosts the application, including AI logic with the machine learning models.
 
 4. One of three different decision analysis mechanisms is utilized, depending on which mode the user has selected.
 
@@ -38,13 +40,13 @@ The processing sequence in this solution flows as follows:
 
 6. Blazor Server surfaces the results to the end user's browser, updating only the portions of the interface that have changed, and transmits back to the user via SignalR.
 
-7. Azure Application Insights is optionally used to monitor performance and instrumentation resources as needed.
+7. [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview) is optionally used to monitor performance and instrumentation resources as needed.
 
 ### Components
 
 The following assets and technologies were used to craft the Baseball Machine Learning Workbench:
 
-- [Azure App Service](/azure/app-service/) enables you to build and host web applications in the programming language of your choice without managing infrastructure.
+- [Azure App Service](https://azure.microsoft.com/services/app-service) enables you to build and host web applications in the programming language of your choice without managing infrastructure.
 
 - [.NET Core 3.1](/dotnet/core/) is an open-source, cross-platform, general-purpose development framework that runs on Windows, Linux, and macOS platforms.
 
@@ -54,9 +56,9 @@ The following assets and technologies were used to craft the Baseball Machine Le
 
 - [SignalR](https://dotnet.microsoft.com/apps/aspnet/signalr) provides asynchronous communication between the browser and the server (including Blazor). It handles event updates, UI updates, and any processing done on the server (such as model inference).
 
-- [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) is the software programming environment used for this project. This architecture uses cross-platform components, so either the Windows or Mac version can be used.
+- [Visual Studio 2022](https://visualstudio.microsoft.com/vs/) is the software programming environment used for this project. This architecture uses cross-platform components, so either the Windows or Mac version can be used.
 
-- [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview) (a feature of [Azure Monitor](/azure/azure-monitor/overview)) can be used for performance monitoring and analytics and to drive autoscaling.
+- [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview), a feature of [Azure Monitor](https://azure.microsoft.com/services/monitor), can be used for performance monitoring and analytics and to drive autoscaling.
 
 ## Considerations
 
@@ -111,19 +113,13 @@ The container can be run locally (offline) in your own environment. It can also 
 ## Next steps
 
 - View a [live demo of this solution](https://aka.ms/BaseballMLWorkbench)
-
 - [Baseball HOF prediction using R mlr and DALEX packages](https://github.com/bartczernicki/BaseballHOFPredictionWithMlrAndDALEX) is a GitHub repo using R and cutting edge "black box" model techniques to explain ML.NET models related to this workload
-
+- [Azure App Service overview](/azure/app-service/overview)
 - [Blazor documentation](/aspnet/core/blazor)
-
 - [ML.NET documentation](/dotnet/machine-learning)
-
 - [ASP.NET Core Blazor hosting models](/aspnet/core/blazor/hosting-models?view=aspnetcore-3.1&preserve-view=true)
-
 - [MLOps (DevOps for Machine Learning)](https://azure.microsoft.com/services/machine-learning/mlops/) helps data science teams deliver innovation faster, increasing the pace of ML model development
-
 - Learn about the [National Baseball Hall of Fame voting process and rules](https://www.baseball-reference.com/bullpen/Hall_of_Fame)
-
 - [XAI Stories: Case Studies for Explainable Artificial Intelligence](https://pbiecek.github.io/xai_stories/) (Warsaw University of Technology and University of Warsaw, 2020)
 
 ## Related resources

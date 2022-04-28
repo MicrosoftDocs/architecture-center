@@ -1,10 +1,10 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-The world is cautiously reopening in a physical business environment where COVID-19 remains a factor. To help keep people healthy, [Cognizant](https://www.cognizant.com/) adapted their [OneFacility](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/cognizant.one_facility) solution to make workspaces safer for everyone who enters them. The **Cognizant Safe Buildings** solution provides a strategic approach to create safe buildings with sustainably healthy working environments.
+The world is cautiously reopening in a physical business environment where COVID-19 remains a factor. To help keep people healthy, [Cognizant](https://www.cognizant.com) adapted their [OneFacility](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/cognizant.one_facility) solution to make workspaces safer for everyone who enters them. The **Cognizant Safe Buildings** solution provides a strategic approach to create safe buildings with sustainably healthy working environments.
 
 The solution monitors critical insights so you can act and respond to risks. It also builds confidence that you're focused on making sure people are safe. The measurements the solution reacts to are: human body temperature, effective physical distancing, hand sanitization compliance, and air quality tracking.
 
-Using [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) and other Azure services, the **Cognizant Safe Buildings** solution brings together people, regulations, analytics, and technology to transform smart buildings into safe buildings. Through the use of different devices, the solution collects biometric and environmental data. When the system detects any deviation to health and safety protocol in a building, the solution activates. **Safe Buildings** layers safety controls to protect, monitor, and respond with real-time alerts.
+Using [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) and other Azure services, the **Cognizant Safe Buildings** solution brings together people, regulations, analytics, and technology to transform smart buildings into safe buildings. Through the use of different devices, the solution collects biometric and environmental data. When the system detects any deviation to health and safety protocol in a building, the solution activates. **Safe Buildings** layers safety controls to protect, monitor, and respond with real-time alerts.
 
 ## Potential use cases
 
@@ -44,38 +44,45 @@ Using [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) and other A
 
 ### Components
 
-* [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) allows you to deploy your cloud workloads to run on Internet of Things (IoT) edge devices via standard containers. Workloads like artificial intelligence, Azure and third-party services, or your own business logic.
+* [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge) allows you to deploy your cloud workloads to run on Internet of Things (IoT) edge devices via standard containers. Workloads like artificial intelligence, Azure and third-party services, or your own business logic.
 
-* [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) enables highly secure and reliable communication between your IoT application and the devices it manages.
+* [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) enables highly secure and reliable communication between your IoT application and the devices it manages.
 
-* [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) deploy and manage containerized applications more easily with a fully managed Kubernetes service.
+* [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service) deploy and manage containerized applications more easily with a fully managed Kubernetes service.
 
-* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) is an easy-to-use, real-time analytics service designed for mission-critical workloads.
+* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics) is an easy-to-use, real-time analytics service designed for mission-critical workloads.
 
-* [Azure Databricks](https://azure.microsoft.com/services/databricks/) unlocks insights from all your data and build artificial intelligence (AI) solutions. Set up your Apache Spark environment in minutes, autoscale, and collaborate on shared projects in an interactive workspace.
+* [Azure Databricks](https://azure.microsoft.com/services/databricks) unlocks insights from all your data and build artificial intelligence (AI) solutions. Set up your Apache Spark environment in minutes, autoscale, and collaborate on shared projects in an interactive workspace.
 
-* [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/) - A highly scalable and cost-effective data lake solution for big data analytics.
+* [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) - A highly scalable and cost-effective data lake solution for big data analytics.
 
-* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) -  A fully managed NoSQL database service for modern app development. Azure Cosmos DB has guaranteed single-digit millisecond response times. It also guarantees 99.999-percent availability backed by SLAs, automatic and instant scalability, and open-source APIs for MongoDB and Cassandra.
+* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) -  A fully managed NoSQL database service for modern app development. Azure Cosmos DB has guaranteed single-digit millisecond response times. It also guarantees 99.999-percent availability backed by SLAs, automatic and instant scalability, and open-source APIs for MongoDB and Cassandra.
 
-* [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/) - Focus on application innovation, not database management, with fully managed and intelligent Azure Database for PostgreSQL.
+* [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql) - Focus on application innovation, not database management, with fully managed and intelligent Azure Database for PostgreSQL.
 
-* [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) - The intelligent, scalable, relational database service built for the cloud. It's evergreen and always up to date, with AI-powered and automated features that optimize performance and durability for you.
+* [Azure SQL Database](https://azure.microsoft.com/services/sql-database) - The intelligent, scalable, relational database service built for the cloud. It's evergreen and always up to date, with AI-powered and automated features that optimize performance and durability for you.
 
-* [Azure Cache for Redis](https://azure.microsoft.com/services/cache/) - Fully managed, open source–compatible in-memory data store to power fast, scalable applications.
+* [Azure Cache for Redis](https://azure.microsoft.com/services/cache) - Fully managed, open source–compatible in-memory data store to power fast, scalable applications.
 
-* [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) empowers developers and data scientists to build, train, and deploy machine learning models faster. Continuous retraining, updating, and improving data collection and analysis makes the models better over time.
+* [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) empowers developers and data scientists to build, train, and deploy machine learning models faster. Continuous retraining, updating, and improving data collection and analysis makes the models better over time.
 
-* [Azure Monitor](https://azure.microsoft.com/services/monitor/) collects, analyzes, and acts on telemetry data from your Azure and on-premises environments.
+* [Azure Monitor](https://azure.microsoft.com/services/monitor) collects, analyzes, and acts on telemetry data from your Azure and on-premises environments.
 
-* [Power BI](https://powerbi.microsoft.com/) enables team members to discover insights hidden in your data.
+* [Power BI](https://powerbi.microsoft.com) enables team members to discover insights hidden in your data.
 
-* [Azure Functions](https://azure.microsoft.com/services/functions/) lets you build and debug locally without additional setup, deploy and operate at scale in the cloud, and integrate services using triggers and bindings.
+* [Azure Functions](https://azure.microsoft.com/services/functions) lets you build and debug locally without additional setup, deploy and operate at scale in the cloud, and integrate services using triggers and bindings.
 
-* In addition, **Safe Buildings** has access to these other Azure services: [Azure Active Directory](https://azure.microsoft.com/services/active-directory/), [Azure API Management](https://azure.microsoft.com/services/api-management/), [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/), [Azure Container Registry](https://azure.microsoft.com/services/container-registry/), [Azure Data Factory](https://azure.microsoft.com/services/data-factory/), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [Azure Key Vault](https://azure.microsoft.com/services/key-vault/), [Azure Logic App](https://azure.microsoft.com/services/logic-apps/), [Azure Notification Hubs](https://azure.microsoft.com/services/notification-hubs/), [Azure VMs](https://azure.microsoft.com/services/virtual-machines/), and [Azure Webapp Service](https://azure.microsoft.com/services/app-service/web/).
+* In addition, **Safe Buildings** has access to these other Azure services: [Azure Active Directory](https://azure.microsoft.com/services/active-directory), [Azure API Management](https://azure.microsoft.com/services/api-management), [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs), [Azure Container Registry](https://azure.microsoft.com/services/container-registry), [Azure Data Factory](https://azure.microsoft.com/services/data-factory), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs), [Azure Key Vault](https://azure.microsoft.com/services/key-vault), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps), [Azure Notification Hubs](https://azure.microsoft.com/services/notification-hubs), [Azure VMs](https://azure.microsoft.com/services/virtual-machines), and [Azure Web Apps](https://azure.microsoft.com/services/app-service/web).
 
 ## Next steps
 
-* For more information, please contact [iotcovidsupport@microsoft.com](mailto:iotcovidsupport@microsoft.com).
+- For more information, please contact [iotcovidsupport@microsoft.com](mailto:iotcovidsupport@microsoft.com).
+- Visit the Microsoft commercial marketplace for info on Cognizant's [OneFacility](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/cognizant.one_facility).
 
-* Visit the Microsoft commercial marketplace for info on Cognizant's [OneFacility](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/cognizant.one_facility).
+## Related resources
+
+- [Azure IoT reference architecture](../../reference-architectures/iot.yml)
+- [COVID-19 safe environments with IoT Edge monitoring and alerting](cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml)
+- [Create smart places by using Azure Digital Twins](../../example-scenario/iot/smart-places.yml)
+- [UVEN smart and secure disinfection and lighting](uven-disinfection.yml)
+

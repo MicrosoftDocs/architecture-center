@@ -168,7 +168,7 @@ Azure Firewall exposes a few other logs and metrics for troubleshooting that can
  ## Related resources
 
  - [Azure Firewall architecture overview](../../example-scenario/firewalls/index.yml)
- - [Azure Well-Architected Framework review of Azure Application Gateway](./waf-application-gateway.md)
+ - [Azure Well-Architected Framework review of Azure Application Gateway](/azure/architecture/framework/services/networking/azure-application-gateway#securitysecurity)
  - [Firewall and Application Gateway for virtual networks](../../example-scenario/gateway/firewall-application-gateway.yml)
  - [Choose between virtual network peering and VPN gateways](../../reference-architectures/hybrid-networking/vnet-peering.yml)
  - [Hub-spoke network topology in Azure](../../reference-architectures/hybrid-networking/hub-spoke.yml)

@@ -25,8 +25,9 @@ This solution applies to many areas:
 :::image type="complex" source="./media/genomic-analysis-reporting-architecture.png" alt-text="Architecture diagram showing how information flows through a genomics analysis and reporting pipeline." border="false":::
    The diagram contains two boxes. The first, on the left, has the label Azure Data Factory for orchestration. The second box has the label Clinician views. The first box contains several smaller boxes that represent data or various Azure components. Arrows connect the boxes, and numbered labels on the arrows correspond with the numbered steps in the document text. Two arrows flow between the boxes, ending in the Clinician views box. One arrow points to a clinician icon. The other points to a Power BI icon.
 :::image-end:::
-
 *Download a [Visio file][Visio version of architecture diagram] of this architecture.*
+
+### Workflow
 
 Azure Data Factory orchestrates the workflow:
 
@@ -44,11 +45,11 @@ Azure Data Factory orchestrates the workflow:
 1. Azure Healthcare APIs packs the data into a Fast Healthcare Interoperability Resources (FHIR) bundle. The clinical data then enters the patient electronic health record (EHR).
 1. Clinicians view the results in Power BI dashboards.
 
-## Components
+### Components
 
 The solution uses the following components:
 
-### Microsoft Genomics
+#### Microsoft Genomics
 
 [Microsoft Genomics][Microsoft Genomics - Documentation] offers an efficient and accurate genomics pipeline that implements the industry's best practices. Its high-performance engine is optimized for these tasks:
 
@@ -70,7 +71,7 @@ Internally, the Microsoft Genomics controller manages these aspects of the proce
 
 You can easily use Microsoft Genomics results in tertiary analysis and machine learning services. And because Microsoft Genomics is a cloud service, you don't need to manage or update hardware or software.
 
-### Other components
+#### Other components
 
 - [Data Factory][Data Factory] is an integration service that works with data from disparate data stores. You can use this fully managed, serverless platform to orchestrate and automate workflows. Specifically, [Data Factory pipelines][Data Factory pipelines] transfer data to Azure in this solution. A sequence of pipelines then triggers each step of the workflow.
 
