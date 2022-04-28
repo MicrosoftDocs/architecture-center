@@ -152,7 +152,7 @@ The cost of DSVMs depends on the choice of the underlying VM series. Because the
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-**Principal authors:**
+Principal authors:
 
 * [Clayton Barlow](https://www.linkedin.com/in/clayton-b-barlow) | Senior Azure Specialist
 
