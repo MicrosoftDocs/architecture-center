@@ -35,6 +35,8 @@ Here is the business IT environment we consider as an example and used in this s
 
 :::image type="content" alt-text="Image alt text." source="images/customer-it-environment-threats-architecture.png" lightbox="images/customer-it-environment-threats-architecture.png":::
 
+©2021 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation.
+
 *Download a [Visio file](https://arch-center.azureedge.net/azure-monitor-integrate-security-components.vsdm) of this architecture.*
 
 

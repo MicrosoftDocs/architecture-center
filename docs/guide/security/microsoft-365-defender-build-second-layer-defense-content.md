@@ -33,6 +33,8 @@ In the diagram below we added the Microsoft 365 Defender security services layer
 
 :::image type="content" alt-text="Image alt text." source="images/microsoft-365-defender-build-second-layer-defense-architecture.png" lightbox="images/microsoft-365-defender-build-second-layer-defense-architecture.png":::
 
+©2021 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation.
+
 *Download a [Visio file](https://arch-center.azureedge.net/azure-monitor-integrate-security-components.vsdm) of this architecture.*
 
 ## Components

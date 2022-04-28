@@ -20,6 +20,8 @@ The diagram below doesn't contain all of the Azure security services that are av
 
 :::image type="content" alt-text="Image alt text." source="images/azure-security-build-first-layer-defense-architecture.png" lightbox="images/azure-security-build-first-layer-defense-architecture.png":::
 
+©2021 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation.
+
 *Download a [Visio file](https://arch-center.azureedge.net/azure-monitor-integrate-security-components.vsdm) of this architecture.*
 
 As stated earlier, Azure security services may be found in different documents such as Azure Security benchmarks and Azure Security Baselines ([Azure Security Benchmark overview](https://docs.microsoft.com/en-us/security/benchmark/azure/security-baselines-overview)). In this document, we will highlight only the Azure security services presented in the diagram.
