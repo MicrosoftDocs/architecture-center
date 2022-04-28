@@ -90,7 +90,7 @@ The above pricing is for one consortium member to start or join a blockchain net
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-**Principal authors:**
+Principal authors:
 
 * [Vito Chin](https://www.linkedin.com/in/vitochin/) | Senior Cloud Solution Architect
 
@@ -102,7 +102,7 @@ For more information on using the Ethereum Proof-of-Authority solution template 
 
 Product documentation:
 
-- [Virtual machines](/azure/virtual-machines/)
+- [Virtual machines](/azure/virtual-machines)
 - [About Azure Key Vault](/azure/key-vault/general/overview)
 - [What is Azure Load Balancer?](/azure/load-balancer/load-balancer-overview)
 - [Introduction to Azure Storage](/azure/storage/common/storage-introduction)
