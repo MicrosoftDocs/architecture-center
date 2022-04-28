@@ -10,9 +10,6 @@ MITRE ATT&CK is a global knowledge database that maps threats based on the tacti
 
 This document uses a small subset of those threats (the bottom part of the diagram) to present you with an example of how you could map threats against your business IT environment.
 
-:::image type="content" alt-text="Image alt text." source="images/customer-it-environment-threats-architecture.png" lightbox="images/customer-it-environment-threats-architecture.png":::
-
-*Download a [Visio file](https://arch-center.azureedge.net/azure-monitor-integrate-security-components.vsdm) of this architecture.*
 
 ## Potential use cases
 
@@ -33,6 +30,13 @@ Here is the business IT environment we consider as an example and used in this s
 3. **Azure environment**. This is the public cloud service that contains services very similar to an on-premises, like Servers (VMs), Workstations (VDI), Network components, services called PaaS like Web Applications, Databases and Storage service, and the Azure AD. This Azure AD will provide credentials for users to create Azure resources.
 
 4. **MITRE ATT&CK tactics and techniques:** This diagram compiles the top 16 threats described according to its tactics and techniques published by MITRE. In red lines, you may see an example of a blended attack, which means that a malicious actor may coordinate multiple attacks simultaneously.
+
+## Architecture
+
+:::image type="content" alt-text="Image alt text." source="images/customer-it-environment-threats-architecture.png" lightbox="images/customer-it-environment-threats-architecture.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/azure-monitor-integrate-security-components.vsdm) of this architecture.*
+
 
 ## Components of the diagrams
 
