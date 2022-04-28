@@ -1,12 +1,15 @@
 Many businesses rely on SQL Server 2008 R2 failover clusters to manage their data. However, [support for SQL Server 2008 R2][Microsoft SQL Server 2008 R2 lifecycle] and [for Windows Server 2008 R2][Windows Server 2008 R2 lifecycle] has ended. Regular security updates are no longer available.
 
+> [!TIP]
+> For those customers who need some more time to upgrade and modernize their SQL Server and Windows Server 2008/2008 R2 on Azure, we will now provide one additional year of free extended security updates, only on Azure. For more information, see [Extended Security Updates for SQL Server and Windows Server 2008 and 2008 R2](https://www.microsoft.com/windows-server/extended-security-updates).
+
 Customers who would like to migrate to Azure often can't change their infrastructure. The [Azure shared disks][Azure shared disks] feature makes migration possible in this situation. With this feature and a Windows Server 2008 R2 failover cluster, users can replicate their on-premises deployment in Azure. There's no need for third-party software to manage shared storage.
 
 With this solution, users can:
 
 - Keep their current infrastructure.
 - Rehost workloads in Azure with no application code changes.
-- Get [free extended security updates for 2008 R2 versions of SQL Server and Windows Server][Microsoft blog post on free security updates].
+- Get [free extended security updates for 2008 R2 versions of SQL Server and Windows Server](https://www.microsoft.com/windows-server/extended-security-updates).
 
 ## Potential use cases
 
