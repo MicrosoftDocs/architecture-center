@@ -114,21 +114,21 @@ The profile doesn't include the following components:
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-**Principal authors:**
+Principal authors:
 
 * [Amar Gowda](https://www.linkedin.com/in/nramar) | Principal Product Manager
 
 ## Next steps
 
-- Learn more about [Azure confidential computing](/azure/confidential-computing/)
+- Learn more about [Azure confidential computing](/azure/confidential-computing)
 - [Static website hosting in Blob Storage](/azure/storage/blobs/storage-blob-static-website)
-- See the [confidential ONNX inference server](https://github.com/microsoft/onnx-server-openenclave) project on GitHub
+- See the [confidential ONNX inference server](https://github.com/microsoft/onnx-server-openenclave) project on GitHub.
 - [Official ONNX runtime website](https://www.onnxruntime.ai/)
 - [Confidential ONNX inference server (GitHub sample)](https://github.com/microsoft/onnx-server-openenclave)
 
 - [Confidential containers on AKS](/azure/confidential-computing/confidential-containers)
 - [MobileCoin use case with anonymized blockchain data](https://customers.microsoft.com/story/844245-mobilecoin-banking-and-capital-markets-azure)
-- [Sample brain segmentation image](https://github.com/mateuszbuda/brain-segmentation-pytorch/blob/master/assets/TCGA_CS_4944.png) for use with the delineation function that invokes the confidential inferencing server
+- [Sample brain segmentation image](https://github.com/mateuszbuda/brain-segmentation-pytorch/blob/master/assets/TCGA_CS_4944.png) for use with the delineation function that invokes the confidential inferencing server.
 
 ## Related resources
 
