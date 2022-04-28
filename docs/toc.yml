@@ -5020,8 +5020,6 @@ items:
                 href: solution-ideas/articles/reference-architecture-for-oracle-database-on-azure.yml
               - name: SAP deployment using an Oracle database
                 href: example-scenario/apps/sap-production.yml
-              - name: SAP system on Oracle Database
-                href: example-scenario/apps/sap-on-oracle.yml
       - name: SAP
         items:
           - name: Get started
@@ -5074,8 +5072,6 @@ items:
                 href: reference-architectures/sap/sap-netweaver.yml
               - name: SAP S/4HANA in Linux on Azure
                 href: reference-architectures/sap/sap-s4hana.yml
-              - name: SAP system on Oracle Database on Azure
-                href: example-scenario/apps/sap-on-oracle.yml
           - name: Solution ideas
             items:
               - name: SAP NetWeaver on SQL Server
