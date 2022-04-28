@@ -3,8 +3,8 @@ metadata:
   title: Modern analytics architecture with Azure Databricks
   titleSuffix: Azure Solution Ideas
   description: Create a modern analytics architecture with Azure Databricks, Data Lake Storage, and other Azure services. Unify data, analytics, and AI workloads at any scale.
-  author: kacummis
-  ms.author: kacummis
+  author: EdPrice-MSFT
+  ms.author: edprice
   ms.date: 05/20/2021
   ms.topic: conceptual
   ms.custom: fcp
