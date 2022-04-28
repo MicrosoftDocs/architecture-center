@@ -388,6 +388,8 @@ items:
                  href: solution-ideas/articles/azure-devops-continuous-integration-for-power-platform.yml
                - name: Citizen AI with Power Platform
                  href: example-scenario/ai/citizen-ai-power-platform.yml
+               - name: End-to-end architecture with real-time ML
+                 href: example-scenario/ai/deploy-real-time-ml-model-application-ui.yml
                - name: Eventual consistency with Power Apps
                  href: reference-architectures/power-platform/eventual-consistency.yml
                - name: Extract text using Power Automate
@@ -2280,6 +2282,8 @@ items:
                 href: example-scenario/ai/customer-lifecycle-churn.yml
               - name: Distributed deep learning training
                 href: reference-architectures/ai/training-deep-learning.yml
+              - name: End-to-end architecture with real-time ML
+                href: example-scenario/ai/deploy-real-time-ml-model-application-ui.yml
               - name: End-to-end computer vision at the edge
                 href: reference-architectures/ai/end-to-end-smart-factory.yml
               - name: Enterprise-grade conversational bot
