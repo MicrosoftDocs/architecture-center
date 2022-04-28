@@ -120,11 +120,11 @@ Microsoft 365 Defender security services works with licenses. For information ab
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-**Principal authors**: 
+Principal authors: 
 
  * [Rudnei Oliveira](https://www.linkedin.com/in/rudnei-r-oliveira-69443523) | Senior Customer Engineer
 
-**Other contributors**: 
+Other contributors: 
 
  * [Gary Moore](https://www.linkedin.com/in/gwmoore) | Programmer/Writer
  * [Andrew Nathan](https://www.linkedin.com/in/andrew-nathan) | Senior Customer Engineering Manager
