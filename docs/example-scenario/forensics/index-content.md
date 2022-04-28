@@ -255,7 +255,7 @@ After the script execution, you will be prompted for the encryption passphrase. 
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-**Principal authors:**
+Principal authors:
 
 * [Simone Savi](https://www.linkedin.com/in/simone-savi-3b50aa7) | Senior Consultant
 
@@ -275,8 +275,8 @@ For more information about Azure logging and auditing features, see:
 
 For more information about Microsoft Azure Compliance, see:
 
-- [Azure Compliance](https://azure.microsoft.com/overview/trusted-cloud/compliance/)
-- [Microsoft Azure Compliance Offerings](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/)
+- [Azure Compliance](https://azure.microsoft.com/overview/trusted-cloud/compliance)
+- [Microsoft Azure Compliance Offerings](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings)
 
 ## Related resources
 
