@@ -12,6 +12,8 @@ This document uses a small subset of those threats (the bottom part of the diagr
 
 :::image type="content" alt-text="Image alt text." source="images/customer-it-environment-threats-architecture.png" lightbox="images/customer-it-environment-threats-architecture.png":::
 
+*Download a [Visio file](https://arch-center.azureedge.net/azure-monitor-integrate-security-components.vsdm) of this architecture.*
+
 ## Potential use cases
 
 Some threats are widespread regardless of the industry segment, such as Ransomware, DDOS attacks, Cross-site scripting, SQL injection, etc. However, specific companies may have particular concerns about some types of threats, based on their type of industry or based on the experience they have already had in the past with cyber-attack. The diagram presented in this article may help you map those threats according to the area that malicious actors intend to attack and allow your organization to plan the layers of defense necessary to build a more secure environment.

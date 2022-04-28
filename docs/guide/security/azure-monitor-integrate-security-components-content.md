@@ -1,24 +1,31 @@
 Microsoft provides a wide range of security solutions to help your company monitor, protect, and defend your business and valued information. These solutions are in different Microsoft services. When they are integrated, they offer a better security posture for your environment.
 
-Microsoft offers many documents and architecture references about IT security. For example, you may dive into details about Zero Trust concepts, understand how Microsoft 365 Defender services work to protect your Office environment, and get an architecture reference with various Microsoft Azure Cloud security services. You can find a compilation of various Microsoft cloud security architecture references on [Microsoft Cybersecurity Reference Architectures](/security/cybersecurity-reference-architecture/mcra).
+Microsoft offers many documents and architecture references about IT security. For example, you may dive into details about Zero Trust concepts, understand how Microsoft 365 Defender services work to protect your Office environment, and get an architecture reference with various security services from Microsoft Azure Cloud. You can find a compilation of various security-oriented architecture references on [Microsoft Cybersecurity Reference Architectures](/security/cybersecurity-reference-architecture/mcra).
 
-This article is one of a series of five documents that presents a different approach, compared with the existent architecture references. This series presents a logical and organized way to understand and integrate the security solutions that are available from Microsoft Azure public cloud and Microsoft 365 services. This series uses diagrams as architecture references with as little information as possible to explain how Microsoft security services work together.
 
-This article, the first in the series, introduces what you will learn by reading this series. It also describes how to use the diagrams that are offered by this series.
+## Architectures in this series
 
-The following diagram is the final architecture reference for this series. This diagram presents the whole picture. This article explains in a nutshell the content of the architecture and how it was built. Each part of it is explained in more detail in the other articles in this series.
+This article is the first in a series of five articles that presents an approach that's different from those in existing architecture references. This series presents a logical and organized way to understand and integrate the security solutions that are available from Microsoft Azure public cloud and from Microsoft 365 services. 
 
-:::image type="content" alt-text="Diagram of the complete and final architecture that is described in this series of five articles." source="images/azure-monitor-integrate-security-components-architecture.png" lightbox="images/azure-monitor-integrate-security-components-architecture.png":::
+This article introduces the concepts and details that are covered in the series. It briefly explains the content of the architecture and how it was built. Each part is explained in more detail in the other articles in this series.
 
-To make the architecture more comprehensive, it was considered to be layered onto the architecture of a typical hybrid IT environment, which in many companies has three layers:
+This series uses diagrams as architecture references to explain how Microsoft security services work together. This article describes how to use the diagrams. The diagram in this article is the final architecture reference for this series, and it presents the whole picture. 
+
+To make the architecture more comprehensive, it was designed to be layered onto the architecture of a typical hybrid IT environment, which in many companies has three layers:
 
 - Azure public cloud services
 - On-premises services (your datacenter)
 - An Office 365 subscription with standard office services
 
-At the bottom of the diagram is a layer that represents some of the most familiar techniques of attack according to MITRE ATT&CK matrix ([MITRE ATT&CK®](https://attack.mitre.org/)) and the tactics involved (in blue text). From a threat perspective, malicious actors have evolved with new technologies and scenarios, especially public and hybrid clouds. [Customer IT environment and the threats](./customer-it-environment-threats.yml), the second article in this series, explores how you can use this architectural reference with a different set of tactics and techniques or with varying methodologies, like [the Cyber Kill Chain®](https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html), a framework developed by Lockheed Martin.
+:::image type="content" alt-text="Diagram of the complete and final architecture that is described in this series of five articles." source="images/azure-monitor-integrate-security-components-architecture.png" lightbox="images/azure-monitor-integrate-security-components-architecture.png":::
 
-Between the customer environment and the threats, this article series explores the defense in depth that you can build with Microsoft cloud security services. Those layers contain:
+*Download a [Visio file](https://arch-center.azureedge.net/azure-monitor-integrate-security-components.vsdm) of this architecture.*
+
+At the bottom of the diagram is a layer that represents some of the most familiar techniques of attack according to MITRE ATT&CK matrix ([MITRE ATT&CK®](https://attack.mitre.org/)) and the tactics involved (in blue text). From a threat perspective, malicious actors have evolved with new technologies and scenarios, especially public and hybrid clouds. 
+
+[Customer IT environment and the threats](./customer-it-environment-threats.yml), the second article in this series, explores how you can use this architectural reference with a different set of tactics and techniques or with varying methodologies, like [the Cyber Kill Chain®](https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html), a framework developed by Lockheed Martin.
+
+This article series explores the defense in depth that you can build, between your environment and the threats, with Microsoft cloud security services:
 
 - Azure security services
 - Microsoft 365 Defender Services

@@ -12,13 +12,15 @@ This is the third document that is part of a series of 5. To review the other tw
 
 ## Potential use cases
 
-This document presents Azure Security services according to each Azure service. In this way, you may think of a specific threat against a VM, an operating system, an Azure network, Applications, or an attack that may try to compromise your users and passwords, and then use the diagram in this document to help you understand what Azure security services you may consider to protect some specific Azure resources.
+This document presents Azure Security services according to each Azure service. In this way, you may first think of a specific threat against a VM, an operating system, an Azure network, applications, or an attack that may try to compromise your users and passwords. Then use the diagram in this document to help you understand what Azure security services you may consider to protect specific Azure resources.
 
-The Azure security layer on this diagram was built based on the Azure Security Benchmark V3 ([Overview of the Azure Security Benchmark v3](https://docs.microsoft.com/en-us/security/benchmark/azure/overview)), that is a set of security rules implemented through Azure policies based on a combination of CIS ([CIS Center for Internet Security (cisecurity.org)](https://www.cisecurity.org/) and NIST ([National Institute of Standards and Technology \| NIST](https://www.nist.gov/)) rules.
+The Azure security layer on this diagram was based on Azure Security Benchmark v3, which is a set of security rules that are implemented through Azure policies. The benchmark is based on a combination of rules from [CIS Center for Internet Security](https://www.cisecurity.org/) and [National Institute of Standards and Technology](https://www.nist.gov/). For more information about Azure Security Benchmark, see [Overview of the Azure Security Benchmark v3](/security/benchmark/azure/overview).
 
-The diagram below doesn't contain all of the Azure security services available, but it presents some of many companies\' most used Security services. Some of them have the Control code according to the Azure Security Benchmark V3 documentation so that you may have a reference about it.
+The diagram below doesn't contain all of the Azure security services that are available, but it presents some of the security services that are most used by companies. Some of them have the control code according to the Azure Security Benchmark V3 documentation, so that you may have a reference about it.
 
 :::image type="content" alt-text="Image alt text." source="images/azure-security-build-first-layer-defense-architecture.png" lightbox="images/azure-security-build-first-layer-defense-architecture.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/azure-monitor-integrate-security-components.vsdm) of this architecture.*
 
 As stated earlier, Azure security services may be found in different documents such as Azure Security benchmarks and Azure Security Baselines ([Azure Security Benchmark overview](https://docs.microsoft.com/en-us/security/benchmark/azure/security-baselines-overview)). In this document, we will highlight only the Azure security services presented in the diagram.
 

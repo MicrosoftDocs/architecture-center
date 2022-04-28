@@ -33,6 +33,8 @@ The following diagram shows a complete architecture reference, including an exam
 
 :::image type="content" alt-text="Image alt text." source="images/microsoft-365-defender-security-integrate-azure-architecture.png" lightbox="images/microsoft-365-defender-security-integrate-azure-architecture.png":::
 
+*Download a [Visio file](https://arch-center.azureedge.net/azure-monitor-integrate-security-components.vsdm) of this architecture.*
+
 ## Components
 
 The components, part of the diagram, are explained in a nutshell so that you may digest the information quickly. For detailed information about each service, you may check the link provided.
