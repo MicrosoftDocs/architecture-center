@@ -4,7 +4,7 @@ metadata:
   description: In this scenario, an e-commerce company in the travel industry migrates a legacy web application by using Azure API Management.
   author: begim
   ms.author: begim
-  ms.date: 04/27/2022
+  ms.date: 04/28/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
