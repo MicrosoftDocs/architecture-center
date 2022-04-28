@@ -22,4 +22,4 @@ name: End-to-end architecture with real-time ML inference and low-code web appli
 summary: Learn how to quickly build an architecture with real-time inference with Azure Machine Learning and using low-code UI with Microsoft Power Platform.
 thumbnailUrl: /azure/architecture/browse/thumbs/deploy-real-time-ML-model-application-UI.png
 content: |
-  [!include[](deploy-real-time-ML-model-application-UI.md)]
+  [!include[](deploy-real-time-ML-model-application-UI-content.md)]
