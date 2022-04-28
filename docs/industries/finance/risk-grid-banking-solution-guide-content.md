@@ -252,7 +252,7 @@ For more information on security in batch processing with AAD, [see this article
 
 The Batch service can also authenticate with a shared key. The authentication service requires two header values to be added to the HTTP request, data and authorization. [See here for more](/rest/api/batchservice/authenticate-requests-to-the-azure-batch-service?WT.mc_id=gridbanksg-docs-dastarr) on shared key authentication.
 
-## Cost considerations
+## Cost optimization
 
 There's no charge for using Azure Batch. You only pay for the underlying resources consumed, such as virtual machine uptime, storage, and networking. However, the compute node VMs still cost money when sitting idle, so it's a good idea to deprovision machines when they're no longer needed. This is often done by deleting the pool containing them.
 >
@@ -319,7 +319,7 @@ and even cost considerations.
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-**Principal authors:**
+Principal authors:
 
 * [David Starr](https://www.linkedin.com/in/davidstarr) | Principal Solutions Architect
 
@@ -330,7 +330,7 @@ When considering moving forward in evaluating Azure Batch for risk grid computin
 Product documentation:
 
 - [What is Azure Batch?](/azure/batch/batch-technical-overview)
-- [What is Azure Active Directory?](/azure/active-directory)]
+- [What is Azure Active Directory?](/azure/active-directory)
 - [What is Azure ExpressRoute?](/azure/expressroute/expressroute-introduction)
 - [What is VPN Gateway?](/azure/vpn-gateway/vpn-gateway-about-vpngateways)
 
