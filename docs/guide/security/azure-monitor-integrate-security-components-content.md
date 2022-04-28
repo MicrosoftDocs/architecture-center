@@ -9,6 +9,14 @@ This article is the first in a series of five articles that presents an approach
 
 This article introduces the concepts and details that are covered in the series. It briefly explains the content of the architecture and how it was built. Each part is explained in more detail in the other articles in this series.
 
+This series explores the defense in depth that you can build, between your environment and the threats, with Microsoft cloud security services:
+
+- Azure security services
+- Microsoft 365 Defender Services
+- Azure Monitor services
+
+### Diagrams
+
 This series uses diagrams as architecture references to explain how Microsoft security services work together. This article describes how to use the diagrams. The diagram in this article is the final architecture reference for this series, and it presents the whole picture. 
 
 To make the architecture more comprehensive, it was designed to be layered onto the architecture of a typical hybrid IT environment, which in many companies has three layers:
@@ -23,19 +31,26 @@ To make the architecture more comprehensive, it was designed to be layered onto 
 
 At the bottom of the diagram is a layer that represents some of the most familiar techniques of attack according to MITRE ATT&CK matrix ([MITRE ATT&CK®](https://attack.mitre.org/)) and the tactics involved (in blue text). From a threat perspective, malicious actors have evolved with new technologies and scenarios, especially public and hybrid clouds. 
 
-[Customer IT environment and the threats](./customer-it-environment-threats.yml), the second article in this series, explores how you can use this architectural reference with a different set of tactics and techniques or with varying methodologies, like [the Cyber Kill Chain®](https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html), a framework developed by Lockheed Martin.
+### Articles
 
-This article series explores the defense in depth that you can build, between your environment and the threats, with Microsoft cloud security services:
+In addition to this introductory article, this series includes the following articles:
 
-- Azure security services
-- Microsoft 365 Defender Services
-- Azure Monitor services
+- [Customer IT environment and the threats](./customer-it-environment-threats.yml)
 
-[Building the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml), the third article in this series, explores those services in detail. It describes how to protect Azure services, like virtual machines, storage, network, application, database, and other Azure services.
+  The second article in this series explores how you can use this architectural reference with a different set of tactics and techniques or with varying methodologies, like [the Cyber Kill Chain®](https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html), a framework developed by Lockheed Martin.
 
-The series of articles also covers security for Microsoft 365 services, like Office 365, Teams, and OneDrive, provided by Microsoft 365 Defender services. [Build the second layer of defense with Microsoft 365 Defender Security services](./microsoft-365-defender-build-second-layer-defense.yml), the fourth article in this series, explores those services.
 
-[Integration between Azure and Microsoft 365 Defender security services](./microsoft-365-defender-security-integrate-azure.yml), the fifth article in this series, explains the relationship between Azure Security and Microsoft 365 Defender services and their integration. The article describes how integration works and how it may be accomplished through Microsoft Sentinel and Log Analytics, which are represented on the left side of the architecture diagram. This series calls these *It is called in this series as *core monitoring services*, because the services that are depicted in the graph may work with comprehensive services of Azure and Microsoft 365.
+- [Building the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml)
+
+  The third article in this series explores in detail the security services of Microsoft's cloud services. It describes how to protect Azure services, like virtual machines, storage, network, application, database, and other Azure services.
+
+- [Build the second layer of defense with Microsoft 365 Defender Security services](./microsoft-365-defender-build-second-layer-defense.yml)
+
+  The fourth article in this series explores security for Microsoft 365 services, like Office 365, Teams, and OneDrive, provided by Microsoft 365 Defender services.
+
+- [Integration between Azure and Microsoft 365 Defender security services](./microsoft-365-defender-security-integrate-azure.yml)
+
+  The fifth article in this series explains the relationship between Azure Security and Microsoft 365 Defender services and their integration. It describes how integration works and how integration may be accomplished through Microsoft Sentinel and Log Analytics, which are represented on the left side of the architecture diagram. This series calls these *core monitoring services*, because the services that are depicted in the graph may work with comprehensive services of Azure and Microsoft 365.
 
 
 ## Contributors
