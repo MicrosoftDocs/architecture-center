@@ -30,29 +30,29 @@ These other use cases have similar designs:
 
 ### Dataflow
 
-This solution uses Bicep templates to execute the deployment of the Reddog order management system and its supporting Azure infrastructure. The architecture is composed of a single Container Apps environment that hosts 10 .NET Core microservice applications. You'll use the .NET Core Dapr SDK to integrate with Azure resources through Pub/Sub and State and Binding building blocks. While Dapr typically provides flexibility around the component implementations, this solution is opinionated. The services also make use of KEDA scale rules to allow for scaling based on event triggers and scale to zero scenarios.
+This solution uses Bicep templates to execute the deployment of the Reddog order management system and its supporting Azure infrastructure. The architecture is composed of a single Container Apps environment that hosts 10 .NET Core microservice applications. You'll use the .NET Core Dapr SDK to integrate with Azure resources through pub/sub and State and Binding building blocks. While Dapr typically provides flexibility around the component implementations, this solution is opinionated. The services also make use of KEDA scale rules to allow for scaling based on event triggers and scale to zero scenarios.
 
 The following list describes each microservice and the Container Apps configuration it deploys with. See the [reddog-code repo on GitHub](https://github.com/Azure/reddog-code) to view the code.
 
-1. Traefik: The basic proxy for routing user requests from the UI to the Accounting and Makeline services for the interactive dashboard.
+1. **Traefik:** The basic proxy for routing user requests from the UI to the accounting and Makeline services for the interactive dashboard.
 
-2. UI: A dashboard showcasing real-time order and aggregated sales data for the Reddog order management system.
+2. **UI:** A dashboard that shows real-time order and aggregated sales data for the Reddog order management system.
 
-3. Virtual customer: A *customer simulation* program that simulates customers placing orders via the order service.
+3. **Virtual customer:** A *customer simulation* program that simulates customers placing orders via the order service.
 
-4. Order service: A CRUD API to place and manage orders.
+4. **Order service:** A CRUD API to place and manage orders.
 
-5. Accounting service: A service that processes, stores, and aggregates order data. It transforms customer orders into meaningful sales metrics That are showcased by the UI.
+5. **Accounting service:** A service that processes, stores, and aggregates order data. It transforms customer orders into meaningful sales metrics That are showcased by the UI.
 
-6. Receipt service: An archival program that generates and stores order receipts for auditing and historical purposes.
+6. **Receipt service:** An archival program that generates and stores order receipts for auditing and historical purposes.
 
-7. Loyalty service: A service that manages the loyalty program by tracking customer reward points based on order spend.
+7. **Loyalty service:** A service that manages the loyalty program by tracking customer reward points based on order spend.
 
-8. Makeline service: A service responsible for managing a queue of current orders awaiting fulfillment. It tracks the processing and completion of the orders by the virtual worker service.
+8. **Makeline service:** A service responsible for managing a queue of current orders awaiting fulfillment. It tracks the processing and completion of the orders by the virtual worker service.
 
-9. Virtual worker: A *worker simulation* program that simulates the completion of customer orders.
+9. **Virtual worker:** A *worker simulation* program that simulates the completion of customer orders.
 
-10. Bootstrapper (not shown): A service that uses Entity Framework Core to initialize the tables within Azure SQL Database for use with the accounting service.
+10. **Bootstrapper (not shown):** A service that uses Entity Framework Core to initialize the tables within Azure SQL Database for use with the accounting service.
 
 | Service          | Ingress |  Dapr Components | KEDA Scale Rules |
 |------------------|---------|--------------------|--------------------|
@@ -74,7 +74,7 @@ The following list describes each microservice and the Container Apps configurat
 This solution uses the following components:
 
 - [Azure resource groups](/azure/azure-resource-manager/management/manage-resource-groups-portal) are logical containers for Azure resources. You use a single resource group to structure everything related to this solution in the Azure portal.
-- [Container Apps](https://azure.microsoft.com/services/container-apps) is a fully managed, serverless container service for building and deploying modern apps at scale. In this solution, you're hosting all 10 microservices on Container Apps and deploying them into a single Container App environment. This environment acts as a secure boundary around the system.
+- [Container Apps (Preview)](https://azure.microsoft.com/services/container-apps) is a fully managed, serverless container service used to build and deploy modern apps at scale. In this solution, you're hosting all 10 microservices on Container Apps and deploying them into a single Container App environment. This environment acts as a secure boundary around the system.
 - [Azure Service Bus](https://azure.microsoft.com/services/service-bus) is a fully managed enterprise message broker complete with queues and publish-subscribe topics. In this solution, you'll use it for the Dapr pub/sub component implementation. Multiple services use this component. The order service publishes messages on the bus, and the Makeline, accounting, loyalty, and receipt services subscribe to these messages.
 - [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) is a NoSQL, multi-model managed database service. You'll use it as a Dapr state store component for the loyalty service to store customer's loyalty data.
 - [Azure Cache for Redis](https://azure.microsoft.com/services/cache) is a distributed, in-memory, scalable managed Redis cache. It's used as a Dapr state store component for the Makeline Service to store data on the orders that are being processed.
@@ -132,10 +132,10 @@ When the virtual customer isn't running, all microservices in this solution will
 
 ## Deploy this scenario
 
-For deployment instructions, see [Getting Started](https://github.com/Azure/reddog-containerapps/blob/main/README.md#getting-started) on GitHub.
+For deployment instructions, see the [Red Dog Demo: Azure Container Apps Deployment](https://github.com/Azure/reddog-containerapps/blob/main/README.md) on GitHub.
 
 > [!NOTE]
-> While Container Apps is in public preview, it's not recommended for production workloads. The service is only available in [a subset of Azure regions today](https://azure.microsoft.com/global-infrastructure/services/?products=container-apps).
+> While Container Apps is in public preview, it's not recommended for production workloads. The service is only available in [a subset of Azure regions](https://azure.microsoft.com/global-infrastructure/services/?products=container-apps).
 
 ## Contributors
 
@@ -161,6 +161,6 @@ Other contributors:
 
 ## Related resources
 
-- [Microservices architecture on AKS](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)
-- [Advanced AKS microservices architecture](../../reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml)
+- [Microservices architecture on Azure Kubernetes Service](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)
+- [Advanced Azure Kubernetes Service (AKS) microservices architecture](../../reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml)
 - [Microservices with AKS and Azure DevOps](../../solution-ideas/articles/microservices-with-aks.yml)
