@@ -93,7 +93,7 @@ This article describes how a fictional city planning office could use this solut
 
 This article uses the fictional city of Contoso to describe the use case scenario. In the narrative, Contoso owns and manages parking sensors for the city. It also owns the APIs that connect to and get data from the sensors. They need a platform that will collect data from many different sources. The data then must be validated, cleansed, and transformed to a known schema. Contoso city planners can then explore and assess report data on parking use with data visualization tools, like Power BI, to determine whether they need more parking or related resources.
 
-![Street Parking Availability](./media/street-parking-availability.png)
+[![Street Parking Availability](./media/street-parking-availability.png)](./media/street-parking-availability.png#lightbox)
 
 ## Deploy this scenario
 
