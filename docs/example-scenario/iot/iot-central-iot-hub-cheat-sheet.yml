@@ -1,10 +1,11 @@
 ### YamlMime:Architecture
 metadata:
   title: Choose an Internet of Things (IoT) solution in Azure
-  description: You can use this content to decide if you can use a managed solution based on Azure IoT Central, or if you should consider building a PaaS solution using Azure IoT Hub.
+  description: Use Azure IoT Central or individual Azure platform-as-a-service (PaaS) components to build, deploy, and manage internet-of-things (IoT) solutions.
+
   author: EdPrice-MSFT
   ms.author: edprice
-  ms.date: 01/30/2022
+  ms.date: 04/29/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
@@ -15,7 +16,7 @@ products:
   - azure-iot-hub
   - azure-iot-central
 name: Choose an Internet of Things (IoT) solution in Azure
-summary: You can use this content to decide if you can use a managed solution based on Azure IoT Central, or if you should consider building a PaaS solution using Azure IoT Hub.
+summary: Use Azure IoT Central or individual Azure platform-as-a-service (PaaS) components to build, deploy, and manage internet-of-things (IoT) solutions.
 thumbnailUrl: /azure/architecture/browse/thumbs/iotc-arch.png
 content: |
    [!include[](iot-central-iot-hub-cheat-sheet-content.md)]
