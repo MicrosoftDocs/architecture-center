@@ -2,7 +2,7 @@ In corporate finance and investment banking, one of the most important jobs is a
 
 Financial risk analysts provide a comprehensive picture of the risk associated with an investment portfolio. They review research, monitor economic and social conditions, stay abreast of regulations, and create computer models of the investment climate.
 
-Risk analysis across the many vectors that affect a portfolio is sufficiently complex that computer modeling is required. Most analysts spend quite a bit of time working with computer models to simulate and predict how financial conditions will change. When evaluating investment risks (Market Risk, Credit Risk and Operational Risk), the computational load of processing the predicative models can be quite large due to the volume of and diversity data.
+Risk analysis across the many vectors that affect a portfolio is sufficiently complex that computer modeling is required. Most analysts spend quite a bit of time working with computer models to simulate and predict how financial conditions will change. When you evaluate investment risks (Market Risk, Credit Risk and Operational Risk), the computational load of processing the predicative models can be quite large due to the volume of and diversity data.
 
 Cloud computing offers significant benefits for risk grid computing or risk modeling because it enables analysts to access massive compute resources on demand, without incurring capital costs or managing infrastructure. This article examines leveraging Microsoft Azure to augment current risk grid compute resources and optimize the cost and speed of risk grid computing workloads. Topics covered include secure and reliable connectivity, batch processing, and augmenting compute resources based on demand when on-premises servers are at capacity.
 
@@ -18,13 +18,13 @@ Risk model input data comes in several forms, the most common being Excel files 
 
 Azure provides an elegant solution for risk grid computing using Azure Batch. Customers can use Azure Batch to extend their existing risk computing grid, or to replace on-premises resources with a completely cloud-based solution.
 
-Connecting directly and securely to the Azure cloud is fully supported. The Batch risk processing grid worker nodes can access modeling data when connecting to data stored on-premises when connecting to Azure with a hybrid network. The customer can also upload data to appropriate storage within Azure, allowing Batch to have direct access to the data.
+Connecting directly and securely to the Azure cloud is fully supported. The Azure Batch risk processing grid worker nodes can access modeling data when they connect to data stored on-premises, when you connect to Azure with a hybrid network. The customer can also upload data to appropriate storage within Azure, allowing Batch to have direct access to the data.
 
 ## Secure connectivity to Azure
 
-When building a risk grid computing solution on Azure, the business will often continue to use existing on-premises applications such as trading systems, middle office risk management, risk analytics, and so on. Azure becomes an extension to those existing investments.
+When you build a risk grid computing solution on Azure, the business will often continue to use existing on-premises applications such as trading systems, middle office risk management, risk analytics, and so on. Azure becomes an extension to those existing investments.
 
-When connecting to the cloud, security is a primary consideration. Accounting for your current security model is the first step in connecting directly to Azure. For customers already using Active Directory on-premises, connecting to Azure can leverage existing identity resources. Service accounts can live in the on-premises AD.
+When you connect to the cloud, security is a primary consideration. Accounting for your current security model is the first step in connecting directly to Azure. For customers already using Active Directory on-premises, connecting to Azure can leverage existing identity resources. Service accounts can live in the on-premises AD.
 
 ### Hybrid network solution
 
@@ -46,7 +46,7 @@ Another solution for your scenario may be using [Azure Data Factory](/azure/data
 
 ## Matching processing needs with demand
 
-When computing risk, whether daily or with the heavier loads at the end of the month, the calculations consume significant computational resources. These calculations don't run 24x7. When risk calculations aren't being run on the on-premises grid, the organization leaves valuable and expensive servers running with no workload, but with ongoing costs for power, cooling, and datacenter space, along with other fixed costs.
+When you compute risk, whether daily or with the heavier loads at the end of the month, the calculations consume significant computational resources. These calculations don't run 24x7. When risk calculations aren't being run on the on-premises grid, the organization leaves valuable and expensive servers running with no workload, but with ongoing costs for power, cooling, and datacenter space, along with other fixed costs.
 
 ### Augmenting an on-premises grid with Azure Batch
 
@@ -85,7 +85,7 @@ Under this model, all risk grid computing activities can take place in the cloud
 
 ### Data security considerations for risk grid computing
 
-While calculation data often doesn't include any Personally Identifiable Information, most banks are still likely to conduct a security risk assessment before placing any workload in the cloud. This assessment may require input from Microsoft and may result in security recommendations.
+While calculation data often doesn't include any customer content, most banks are still likely to conduct a security risk assessment before placing any workload in the cloud. This assessment might require input from Microsoft and may result in security recommendations.
 
 A notable consideration for risk grid computing is to [run the batch processes within an Azure VNet](/azure/batch/batch-virtual-network?WT.mc_id=gridbank-docs-dastarr). This allows pool compute nodes to communicate securely with other compute nodes, or with an on-premises network. Appropriate service accounts and Network Service Groups (NSG) should be created and used by the batch compute nodes. [Azure also has solutions](/azure/security/blueprints/financial-services-regulated-workloads?WT.mc_id=gridbank-docs-dastarr) for data encryption in transit and at rest in Azure storage.
 
@@ -133,7 +133,7 @@ Principal authors:
 
 ## Next steps
 
-After selecting a connectivity strategy, a logical place to start with risk compute is placing your existing jobs into Azure compute worker nodes and running them in a test environment to see if any code needs to be changed. [This article provides a starting point](/azure/batch/batch-virtual-network?WT.mc_id=gridbank-docs-dastarr) for getting started with Azure Batch in the language or tool of your choice.
+After you select a connectivity strategy, a logical place to start with risk compute is placing your existing jobs into Azure compute worker nodes and running them in a test environment to see if any code needs to be changed. [This article provides a starting point](/azure/batch/batch-virtual-network?WT.mc_id=gridbank-docs-dastarr) for getting started with Azure Batch in the language or tool of your choice.
 
 See the [Risk Grid Computing in Banking Solution Guide](/azure/industry/financial/risk-grid-banking-solution-guide?WT.mc_id=banking-docs-dastarr).
 
