@@ -8,9 +8,11 @@ By using Azure services such as the Computer Vision API and Azure Functions, com
 
 Other relevant use cases include:
 
-- Classifying images on a fashion website.
-- Classifying telemetry data from screenshots of games.
-- Classifying images for insurance claims.
+- **Classifying images on a fashion website** Image classification can be used by sellers while uploading pictures of      products on the platform for sale and automate the consequent manual tagging involved. Moreover, the customers can search through the visual impression of the products.
+
+- **Classifying telemetry data from screenshots of games** The classification of video games from screenshots is evolving into a relevant problem in social media coupled with computer vision. For example, when Twitch streamers play different games in succession, they may skip manually updating their stream information. Failure to update stream information could result in the misclassification of streams in user searches and may lead to the loss of potential viewership for both the content creators and the streaming platforms. While introducing novel games, a custom model route could be helpful to introduce  the capability to detect novel images from those games.
+
+- **Classifying images for insurance claims** Image classification can help to reduce the time and cost the claims processing and underwriting. It could help analyze the natural disaster damage, vehicle damage assessment, and identify residential/ commercial properties.
 
 ## Architecture
 
@@ -20,11 +22,11 @@ Other relevant use cases include:
 
 This scenario covers the back-end components of a web or mobile application. Data flows through the scenario as follows:
 
-1. The API layer is built using Azure Functions. These APIs enable the application to upload images and retrieve data from Cosmos DB.
-2. When an image is uploaded via an API call, it's stored in Blob storage.
-3. Adding new files to Blob storage triggers an Event Grid notification to be sent to an Azure Function.
-4. Azure Functions sends a link to the newly uploaded file to the Computer Vision API to analyze.
-5. Once the data has been returned from the Computer Vision API, Azure Functions makes an entry in Cosmos DB to persist the results of the analysis along with the image metadata.
+1. Adding new files (Image Uploads) in Blob storage triggers an event in Event Grid. The uploading process can be orchestrated via the Web or Mobile application. Alternatively, images can be uploaded separately to the Blob storage.
+2. Event Grid sends a notification that triggers the Azure Functions.
+3. Azure functions calls Computer Vision API to analyze the newly uploaded image. Computer Vision accesses the image via the blob URL parsed by Azure Functions.
+4. Azure Functions persists the Computer Vision API response in Cosmos DB. This response includes the results of the analysis along with the image metadata.
+5. TThe results can be consumed and reflected on the Web or Mobile front end. Please note that this approach retrieves the results of the classification but not the uploaded image.
 
 ### Components
 
