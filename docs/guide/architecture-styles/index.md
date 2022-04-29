@@ -10,6 +10,8 @@ ms.service: architecture-center
 ms.subservice: guide
 ms.custom:
   - guide
+products: azure
+categories: featured
 ---
 
 # Architecture styles
@@ -35,7 +37,7 @@ N-tier is a natural fit for migrating existing applications that already use a l
 
 ### Web-Queue-Worker
 
-For a purely PaaS solution, consider a **[Web-Queue-Worker](./web-queue-worker.md)** architecture. In this style, the application has a web front end that handles HTTP requests and a back-end worker that performs CPU-intensive tasks or long-running operations. The front end communicates to the worker through an asynchronous message queue.
+For a purely PaaS solution, consider a **[Web-Queue-Worker](./web-queue-worker.yml)** architecture. In this style, the application has a web front end that handles HTTP requests and a back-end worker that performs CPU-intensive tasks or long-running operations. The front end communicates to the worker through an asynchronous message queue.
 
 Web-queue-worker is suitable for relatively simple domains with some resource-intensive tasks. Like N-tier, the architecture is easy to understand. The use of managed services simplifies deployment and operations. But with complex domains, it can be hard to manage dependencies. The front end and the worker can easily become large, monolithic components that are hard to maintain and update. As with N-tier, this can reduce the frequency of updates and limit innovation.
 
@@ -47,13 +49,13 @@ Each service can be built by a small, focused development team. Individual servi
 
 ### Event-driven architecture
 
-**[Event-Driven Architectures](./event-driven.md)** use a publish-subscribe (pub-sub) model, where producers publish events, and consumers subscribe to them. The producers are independent from the consumers, and consumers are independent from each other.
+**[Event-Driven Architectures](./event-driven.yml)** use a publish-subscribe (pub-sub) model, where producers publish events, and consumers subscribe to them. The producers are independent from the consumers, and consumers are independent from each other.
 
 Consider an event-driven architecture for applications that ingest and process a large volume of data with very low latency, such as IoT solutions. The style is also useful when different subsystems must perform different types of processing on the same event data.
 
 ### Big Data, Big Compute
 
-**[Big Data](./big-data.md)** and **[Big Compute](./big-compute.md)** are specialized architecture styles for workloads that fit certain specific profiles. Big data divides a very large dataset into chunks, performing parallel processing across the entire set, for analysis and reporting. Big compute, also called high-performance computing (HPC), makes parallel computations across a large number (thousands) of cores. Domains include simulations, modeling, and 3-D rendering.
+**[Big Data](./big-data.yml)** and **[Big Compute](./big-compute.yml)** are specialized architecture styles for workloads that fit certain specific profiles. Big data divides a very large dataset into chunks, performing parallel processing across the entire set, for analysis and reporting. Big compute, also called high-performance computing (HPC), makes parallel computations across a large number (thousands) of cores. Domains include simulations, modeling, and 3-D rendering.
 
 ## Architecture styles as constraints
 
@@ -95,5 +97,5 @@ Here are some of the types of challenges to consider when selecting an architect
 - **Manageability**. How hard is it to manage the application, monitor, deploy updates, and so on?
 
 [ball-of-mud]: https://en.wikipedia.org/wiki/Big_ball_of_mud
-[microservices]: ./microservices.md
-[n-tier]: ./n-tier.md
+[microservices]: ./microservices.yml
+[n-tier]: ./n-tier.yml

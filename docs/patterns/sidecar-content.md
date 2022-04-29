@@ -59,9 +59,9 @@ The sidecar pattern is applicable to many scenarios. Some common examples:
 
 - Infrastructure API. The infrastructure development team creates a service that's deployed alongside each application, instead of a language-specific client library to access the infrastructure. The service is loaded as a sidecar and provides a common layer for infrastructure services, including logging, environment data, configuration store, discovery, health checks, and watchdog services. The sidecar also monitors the parent application's host environment and process (or container) and logs the information to a centralized service.
 - Manage NGINX/HAProxy. Deploy NGINX with a sidecar service that monitors environment state, then updates the NGINX configuration file and recycles the process when a change in state is needed.
-- Ambassador sidecar. Deploy an [ambassador](./ambassador.md) service as a sidecar. The application calls through the ambassador, which handles request logging, routing, circuit breaking, and other connectivity related features.
+- Ambassador sidecar. Deploy an [ambassador](./ambassador.yml) service as a sidecar. The application calls through the ambassador, which handles request logging, routing, circuit breaking, and other connectivity related features.
 - Offload proxy. Place an NGINX proxy in front of a node.js service instance, to handle serving static file content for the service.
 
 ## Related guidance
 
-- [Ambassador pattern](./ambassador.md)
+- [Ambassador pattern](./ambassador.yml)

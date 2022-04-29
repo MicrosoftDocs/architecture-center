@@ -1,10 +1,10 @@
 ### YamlMime:Architecture
 metadata:
-  title: Visual search in retail with Cosmos DB
+  title: Visual search in retail with Azure Cosmos DB
   description: This article explains the phases of migrating ecommerce infrastructure from on premises to Azure.
-  author: scseely
-  ms.author: scseely
-  ms.date: 03/18/2022
+  author: EdPrice-MSFT
+  ms.author: edprice
+  ms.date: 04/26/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
@@ -16,7 +16,7 @@ products:
   - azure-cosmos-db
   - azure-kubernetes-service
   - azure-sql-database
-name: Visual search in retail with Cosmos DB
+name: Visual search in retail with Azure Cosmos DB
 summary: This article explains the phases of migrating ecommerce infrastructure from on premises to Azure.
 thumbnailUrl: /azure/architecture/browse/thumbs/cosmos-db-data-model.png
 content: |
