@@ -131,12 +131,12 @@ The Connected Machine agent for Linux and Windows communicates outbound securely
 
 [architectural-diagram]: ./images/azure-arc-hybrid-config.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-arc-hybrid-config.vsdx
-[Azure Arc]: /azure/azure-arc/
+[Azure Arc]: /azure/azure-arc
 [Azure Policy Guest Configuration]: /azure/governance/policy/concepts/guest-configuration
 [Azure Monitor]: /azure/azure-monitor/
 [Azure virtual machines]: /azure/virtual-machines/
 [windows-agent-download]: https://aka.ms/AzureConnectedMachineAgent
-[microsoft-package-repo]: https://packages.microsoft.com/
+[microsoft-package-repo]: https://packages.microsoft.com
 [agent-overview]: /azure/azure-arc/servers/agent-overview
 [Azure Automation State Configuration]: /azure/automation/automation-dsc-overview
 [connect-hybrid-at-scale]: /azure/azure-arc/servers/onboard-service-principal
