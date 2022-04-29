@@ -96,7 +96,7 @@ If Azure Batch jobs take too long to run, or if you want more computing power in
 1. Allocate more compute node machines to scale out.
 2. Allocate more powerful compute node machines to scale up. Azure machines may be provisioned to meet high performance needs of for cores and memory, and even GPU computing power.
 
-> Note: Using Microsoft HPC Pack with Batch is a more complex model and is not discussed in this article.
+> Note: Using Microsoft HPC Pack with Batch is a more complex model and isn't discussed in this article.
 
 In a Batch processing cluster, you might have as few as two processing VMs. Or you could have thousands of simultaneous tasks running on thousands of VM compute nodes, with tens of thousands of cores. Each VM is responsible for running a single task at a time. The number of VMs in a pool can be scaled manually or automatically, as configured when load increases or decreases.
 
@@ -162,7 +162,7 @@ The controlling application and compute node applications can generate this data
 
 ### Batch diagnostic logging
 
-There's an alternative to using the controller and compute node applications to emit instrumentation data. [Batch diagnostics logging](/azure/batch/batch-diagnostics?WT.mc_id=gridbanksg-docs-dastarr) can capture a lot of the run data. Batch Diagnostic Logging is not enabled by default and must be enabled for the Batch account.
+There's an alternative to using the controller and compute node applications to emit instrumentation data. [Batch diagnostics logging](/azure/batch/batch-diagnostics?WT.mc_id=gridbanksg-docs-dastarr) can capture a lot of the run data. Batch Diagnostic Logging isn't enabled by default and must be enabled for the Batch account.
 
 Batch diagnostic logging provides a significant amount of data aiding in trouble shooting and optimizing Batch runs. Start and end times for job and tasks, core count, total node count, and many other metrics.
 
@@ -194,7 +194,7 @@ Additional pricing information for Azure ExpressRoute [can be found here](https:
 
 ### VPN Gateway
 
-A VPN Gateway is another way to connect your network to Azure. The downside of this model is traffic flows over the Internet. The connection can be less resilient as a result and network speeds cannot reach those of ExpressRoute, however this may not be a barrier for a risk grid computing scenario as reading data files is typically a fast operation.
+A VPN Gateway is another way to connect your network to Azure. The downside of this model is traffic flows over the Internet. The connection can be less resilient as a result and network speeds can't reach those of ExpressRoute, however this may not be a barrier for a risk grid computing scenario as reading data files is typically a fast operation.
 
 Additional pricing information for VPN Gateway [can be found here](https://azure.microsoft.com/pricing/details/expressroute/?WT.mc_id=gridbanksg-docs-dastarr).
 
