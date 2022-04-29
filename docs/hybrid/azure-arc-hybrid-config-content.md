@@ -1,14 +1,5 @@
 This reference architecture illustrates how Azure Arc enables you to manage, govern, and secure servers across on-premises, multiple cloud, and edge scenarios.
 
-## Potential use cases
-
-The typical uses for this architecture include:
-
-- Organize, govern, and inventory large groups of virtual machines (VMs) and servers across multiple environments.
-- Enforce organization standards and assess compliance at scale for all your resources anywhere with Azure Policy.
-- Easily deploy supported VM extensions to Arc-enabled servers.
-- Configure and enforce Azure Policy for VMs and servers hosted across multiple environments.
-
 ## Architecture
 
 ![An Azure Arc hybrid server topology diagram with Arc enabled servers connected to Azure.][architectural-diagram]
