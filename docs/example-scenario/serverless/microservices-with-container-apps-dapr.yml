@@ -2,10 +2,10 @@
 metadata:
   title: Deploy microservices with Azure Container Apps and Dapr
   titleSuffix: Azure Example Scenarios
-  description: Build a serverless microservices solution on Azure Container Apps leveraging Distributed Application Runtime (Dapr) and Kubernetes Event-Driven Autoscaling (KEDA).
+  description: Build a serverless microservices solution on Azure Container Apps using Distributed Application Runtime (Dapr) and Kubernetes Event-Driven Autoscaling (KEDA).
   author: alicejgibbons
   ms.author: algibbon
-  ms.date: 01/13/2022
+  ms.date: 05/02/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
@@ -24,7 +24,7 @@ products:
   - azure-cosmos-db
   - azure-cache-redis
 name: Deploy microservices with Azure Container Apps and Dapr
-summary: Build a serverless microservices solution on Azure Container Apps leveraging Distributed Application Runtime (Dapr) and Kubernetes Event-Driven Autoscaling (KEDA).
+summary: Build a serverless microservices solution on Azure Container Apps using Distributed Application Runtime (Dapr) and Kubernetes Event-Driven Autoscaling (KEDA).
 thumbnailUrl: /azure/architecture/browse/thumbs/microservices-with-container-apps-dapr.png
 content: |
   [!include[](microservices-with-container-apps-dapr-content.md)]
