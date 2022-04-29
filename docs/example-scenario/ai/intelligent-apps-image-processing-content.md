@@ -6,13 +6,13 @@ By using Azure services such as the Computer Vision API and Azure Functions, com
 
 ## Potential use cases
 
-Other relevant use cases include:
+This solution is ideal for the retail, game, finance, and insurance industries. Other relevant use cases include:
 
-- **Classifying images on a fashion website** Image classification can be used by sellers while uploading pictures of      products on the platform for sale and automate the consequent manual tagging involved. Moreover, the customers can search through the visual impression of the products.
+- **Classifying images on a fashion website.** Image classification can be used by sellers while uploading pictures of products on the platform for sale. They can then automate the consequent manual tagging involved. The customers can also search through the visual impression of the products.
 
-- **Classifying telemetry data from screenshots of games** The classification of video games from screenshots is evolving into a relevant problem in social media coupled with computer vision. For example, when Twitch streamers play different games in succession, they may skip manually updating their stream information. Failure to update stream information could result in the misclassification of streams in user searches and may lead to the loss of potential viewership for both the content creators and the streaming platforms. While introducing novel games, a custom model route could be helpful to introduce  the capability to detect novel images from those games.
+- **Classifying telemetry data from screenshots of games.** The classification of video games from screenshots is evolving into a relevant problem in social media, coupled with computer vision. For example, when Twitch streamers play different games in succession, they might skip manually updating their stream information. Failure to update stream information could result in the misclassification of streams in user searches and might lead to the loss of potential viewership for both the content creators and the streaming platforms. While introducing novel games, a custom model route could be helpful to introduce the capability to detect novel images from those games.
 
-- **Classifying images for insurance claims** Image classification can help to reduce the time and cost the claims processing and underwriting. It could help analyze the natural disaster damage, vehicle damage assessment, and identify residential/ commercial properties.
+- **Classifying images for insurance claims.** Image classification can help reduce the time and cost of the claims processing and underwriting. It could help analyze the natural-disaster damage, vehicle-damage assessment, and identify residential and commercial properties.
 
 ## Architecture
 
@@ -22,11 +22,11 @@ Other relevant use cases include:
 
 This scenario covers the back-end components of a web or mobile application. Data flows through the scenario as follows:
 
-1. Adding new files (Image Uploads) in Blob storage triggers an event in Event Grid. The uploading process can be orchestrated via the Web or Mobile application. Alternatively, images can be uploaded separately to the Blob storage.
+1. Adding new files (Image Uploads) in Blob storage triggers an event in Azure Event Grid. The uploading process can be orchestrated via the web or a mobile application. Alternatively, images can be uploaded separately to the Azure Blob storage.
 2. Event Grid sends a notification that triggers the Azure Functions.
-3. Azure functions calls Computer Vision API to analyze the newly uploaded image. Computer Vision accesses the image via the blob URL parsed by Azure Functions.
-4. Azure Functions persists the Computer Vision API response in Cosmos DB. This response includes the results of the analysis along with the image metadata.
-5. The results can be consumed and reflected on the Web or Mobile front end. Please note that this approach retrieves the results of the classification but not the uploaded image.
+3. Azure Functions calls the Azure Computer Vision API to analyze the newly uploaded image. Computer Vision accesses the image via the blob URL that's parsed by Azure Functions.
+4. Azure Functions persists the Computer Vision API response in Azure Cosmos DB. This response includes the results of the analysis, along with the image metadata.
+5. The results can be consumed and reflected on the web or mobile front end. Note that this approach retrieves the results of the classification but not the uploaded image.
 
 ### Components
 
@@ -82,7 +82,8 @@ We have provided three sample cost profiles based on amount of traffic (we assum
 
 Principal authors:
 
- * [David Stanford](https://www.linkedin.com/in/das0) | Principal PM
+ * [David Stanford](https://www.linkedin.com/in/das0) | Principal Program Manager
+ * [Ashish Chauhan](https://www.linkedin.com/in/a69171115) | Senior Solution Architect
 
 ## Next steps
 
