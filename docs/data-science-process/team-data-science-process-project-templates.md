@@ -8,7 +8,7 @@ services: architecture-center
 ms.service: architecture-center
 ms.subservice: azure-guide
 ms.topic: article
-ms.date: 04/27/2022
+ms.date: 04/29/2022
 ms.author: tdsp
 ms.custom:
   - previous-author=deguhath
