@@ -2,7 +2,7 @@ This article compares using [Azure IoT Central](https://azure.microsoft.com/serv
 
 IoT solutions use a combination of technologies to connect devices, events, and actions through cloud applications. The technologies and services you choose depend on your scenario's development, deployment, and management requirements.
 
-IoT Central provides a managed IoT application platform-as-a-service (aPaaS) that integrates many Azure components and capabilities. You can also combine [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) with other Azure PaaS components to customize your own IoT solutions.
+The IoT Central application platform-as-a-service (aPaaS) already provides the integrated Azure components and capabilities that an IoT solution needs. Another option is to combine [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) with other Azure PaaS components to develop your own IoT solutions.
 
 ## Start with Azure IoT Central
 
@@ -18,19 +18,17 @@ The following diagram shows an IoT Central-based architecture:
 
 [ ![Diagram showing an IoT Central architecture and services like IoT Hub, Device Provisioning Service, and Azure Stream Analytics.](./media/azure-iot-central-architecture.png) ](./media/azure-iot-central-architecture.png#lightbox)
 
-1. IoT Central takes device input through the [Azure IoT device SDKs](/azure/iot-develop/about-iot-sdks), [Azure RTOS](https://azure.microsoft.com/services/rtos), [Azure Sphere](https://azure.microsoft.com/services/azure-sphere), or [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge).
+1. IoT Central ingests device events and telemetry through the [Azure IoT device SDKs](/azure/iot-develop/about-iot-sdks), [Azure RTOS](https://azure.microsoft.com/services/rtos), [Azure Sphere](https://azure.microsoft.com/services/azure-sphere), or [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge).
 
-1. IoT Central provides:
-   - Ingestion and provisioning services with IoT Hub and [Azure IoT Hub Device Provisioning Service (DPS)](/azure/iot-dps/).
-   - Hot path data storage and analytics through [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics).
-   - Warm path data storage and analytics through [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer).
-   - Cold path data storage and analytics through [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) and [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db).
-   - A managed PaaS layer that delivers High Availability/Disaster Recovery (HADR) and elastic scale.
+1. IoT Central is built with multiple Azure PaaS services, so it provides the following capabilities out of the box:
+   - Data ingestion and provisioning services.
+   - Hot, warm, and cold path data storage and analytics.
+   - A managed PaaS layer that delivers High Availability/Disaster Recovery (HADR) and elastic scaling.
    - A management web user experience that lets you:
      - Manage devices with raw data view, connectivity status, device modeling, and jobs.
      - View and analyze device data with dashboards, analytics, and rules.
      - Secure data and devices with user management and organizations.
-	 
+
 1. IoT Central extends solutions by triggering alerts, exporting data, and supporting data queries.
 
 1. IoT Central integrates with line-of-business apps like Power BI, Azure Maps, Search, API Management, Web Apps, Mobile Apps, Dynamics 365, Flow, or Logic Apps.
@@ -43,13 +41,13 @@ If you need more control and customization, you can use individual Azure PaaS co
 
 1. IoT systems can ingest device data through the Azure IoT device SDKs, Azure RTOS, Azure Sphere, or Azure IoT Edge.
 
-1. IoT Hub, DPS, or [Azure Digital Twins](https://azure.microsoft.com/services/digital-twins) can provide device provisioning, connectivity, and management.
+1. IoT Hub, [Azure IoT Hub Device Provisioning Service (DPS)](/azure/iot-dps), or [Azure Digital Twins](https://azure.microsoft.com/services/digital-twins) can provide device provisioning, connectivity, and management.
 
 1. For data storage and analytics:
 
-   - The hot path can be through Azure Stream Analytics or [Azure HDInsight](https://azure.microsoft.com/services/hdinsight) Apache Spark and Storm.
-   - The warm path can be through Azure Data Explorer.
-   - The cold path can be through Azure SQL Database or Azure Cosmos DB.
+   - The hot path can be through [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics) or [Azure HDInsight](https://azure.microsoft.com/services/hdinsight) Apache Spark and Storm.
+   - The warm path can be through [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer).
+   - The cold path can be through [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) or [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db).
 
 1. Management and business integration services can include Power BI, Azure Maps, Search, API Management, Web Apps, Mobile Apps, Dynamics 365, Flow, and Logic Apps.
 
@@ -72,7 +70,7 @@ The following table describes how IoT Central or an IoT Hub-based PaaS solution 
 | Description | Fully managed aPaaS solution that simplifies device connectivity and management at scale.<br /><br />An aPaaS-based solution is scalable, repeatable, and reliable, with a tradeoff of being less customizable than a PaaS-based solution. | Uses IoT Hub as a central message hub between the IoT application and the devices it manages. Adds more functionality with other Azure PaaS services.<br /><br />This approach is more flexible, but requires greater development and management effort.|
 | Application development | IoT Central is an application platform with support for repeatability of solutions. For more information, see the [IoT Central application administration guide](/azure/iot-central/core/overview-iot-central-admin)<br /><br />[Application templates](/azure/iot-central/core/concepts-app-templates) help kick-start IoT solution development. Use a generic application template, or a prebuilt industry-focused template for [retail](/azure/iot-central/retail/overview-iot-central-retail), [energy](/azure/iot-central/energy/overview-iot-central-energy), [government](/azure/iot-central/government/overview-iot-central-government), or [healthcare](/azure/iot-central/healthcare/overview-iot-central-healthcare). | Design and build your own application solution by using IoT Hub and other PaaS services. |
 | Device template | Device templates help structure device type characteristics and behaviors. Use the templates for supported device management tasks and visualizations. | Define and manage device message templates in a private repository. |
-| Device management | Built-in Azure Device Provisioning Service (DPS) capabilities provide [device integration and device management](/azure/iot-central/core/overview-iot-central#manage-your-devices). | Design and build solutions by using IoT Hub primitives, such as device twin and direct methods. Enable DPS separately. |
+| Device management | Built-in Azure IoT Device Provisioning Service (DPS) capabilities provide [device integration and device management](/azure/iot-central/core/overview-iot-central#manage-your-devices). | Design and build solutions by using IoT Hub primitives, such as device twin and direct methods. Enable DPS separately. |
 | OPC UA protocol | Not supported. | Use OPC Publisher to bridge the gap between OPC UA–enabled industrial assets and Azure hosted resources by publishing telemetry data to IoT Hub. OPC Publisher supports IEC62541 OPC UA PubSub standard format and other formats. For more information, see [Microsoft OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher). |
 | SigFox and LoRaWAN protocols | Use [Azure IoT Central Device Bridge](https://github.com/Azure/iotc-device-bridge#azure-iot-central-device-bridge). | Create a custom module for Azure IoT Edge, and integrate it through Azure IoT Hub. |
 | Multi-tenancy | [Organizations](/azure/iot-central/core/howto-create-organizations) enable in-app multi-tenancy. You can define a hierarchy to manage which users can see which devices in the IoT Central application. | Achieve multi-tenancy by using separate hubs per customer. You can also build access control into the solution's data layer. |
@@ -83,7 +81,7 @@ The following table describes how IoT Central or an IoT Hub-based PaaS solution 
 | Visualizations | A UX makes it simple to visualize device data, perform analytics queries, and create custom dashboards. | No built-in user interface. |
 | Rules and actions | Use built-in rule and action processing capability with email notification, Azure Monitor group, Power Automate, and webhook actions. For more information, see [Azure IoT Central rules and actions](/azure/iot-central/core/overview-iot-central#rules-and-actions). | Send data from IoT Hub to Azure Stream Analytics or Azure Event Grid. Connect to Azure Logic apps or other custom applications to process rules and actions. For more information, see [IoT remote monitoring and notifications with Azure Logic Apps](/azure/iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps). |
 | Scalability | Supports autoscaling. For more information about IoT Central scale limits and autoscaling, see [Quotas and limits](/azure/iot-central/core/concepts-quotas-limits).| Deploy solutions to enable IoT Hub autoscaling. For more information, see [Auto-scale your Azure IoT Hub](/samples/azure-samples/iot-hub-dotnet-autoscale/iot-hub-dotnet-autoscale/). |
-| High Availability and Disaster Recovery (HADR)| Manages built-in HADR capabilities automatically. For more information, see [Azure IoT Central scalability and high availability](/azure/iot-central/core/concepts-faq-scalability-availability). | Configure your solution to support multiple HADR scenarios. For more information, see [Azure IoT Hub high availability and disaster recovery](/azure/iot-hub/iot-hub-ha-dr). |
+| High Availability and Disaster Recovery (HADR)| Manages built-in HADR capabilities automatically. For more information, see [Azure IoT Central scalability and high availability](/azure/iot-central/core/concepts-faq-scalability-availability). | Design your solution to support multiple HADR scenarios. For more information, see [Azure IoT Hub high availability and disaster recovery](/azure/iot-hub/iot-hub-ha-dr). |
 | Service Level Agreement (SLA) | Guarantees 99.9% connectivity. For more information, see [SLA for Azure IoT Central](https://azure.microsoft.com/support/legal/sla/iot-central). | IoT Hub standard and basic tiers guarantee 99.9% uptime. The IoT Hub free tier has no SLA. For more information, see [SLA for Azure IoT Hub](https://azure.microsoft.com/support/legal/sla/iot-hub/v1_2). |
 | Pricing | The first two active devices are free, if their message volume doesn't exceed 800 (Standard Tier 0 plan), 10,000 (Standard Tier 1 plan), or 60,000 (Standard Tier 2 plan) per month. Added device pricing is prorated monthly. IoT Central counts and bills the highest number of active devices each hour. For more information, see [Azure IoT Central pricing](https://azure.microsoft.com/pricing/details/iot-central). | For details about IoT Hub pricing, see [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub). |
 
