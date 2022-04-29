@@ -45,7 +45,7 @@ If you need more control and customization, you can use individual Azure PaaS co
 
 1. For data storage and analytics:
 
-   - The hot path can be through [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics) or [Azure HDInsight](https://azure.microsoft.com/services/hdinsight) Apache Spark and Storm.
+   - The hot path can be through [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics) or [Azure HDInsight](https://azure.microsoft.com/services/hdinsight).
    - The warm path can be through [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer).
    - The cold path can be through [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) or [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db).
 
