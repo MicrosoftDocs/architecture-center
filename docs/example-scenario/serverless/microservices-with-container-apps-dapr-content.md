@@ -54,7 +54,7 @@ The following list describes each microservice and the Container Apps configurat
 
 10. **Bootstrapper (not shown):** A service that uses Entity Framework Core to initialize the tables within Azure SQL Database for use with the accounting service.
 
-| Service          | Ingress |  Dapr Components | KEDA Scale Rules |
+| Service          | Ingress |  Dapr components | KEDA scale rules |
 |------------------|---------|--------------------|--------------------|
 | Traefik | External | Dapr not enabled | HTTP |
 | UI | Internal | Dapr not enabled | HTTP |
