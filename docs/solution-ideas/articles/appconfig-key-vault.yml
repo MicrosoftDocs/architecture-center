@@ -5,7 +5,7 @@ metadata:
   description: Use Azure App Configuration and Azure Key Vault to create a centralized and secured configuration service for apps.
   author: sowmyans
   ms.author: sowmyans
-  ms.date: 11/08/2021
+  ms.date: 04/18/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea

@@ -18,7 +18,10 @@ You can further improve your availability by implementing zero-downtime deployme
 
 ![Diagram that shows an architecture for blue/green deployment. It uses GitHub, GitHub Actions, and Azure Spring Cloud.](media/blue-green-deployment.png)
 
-Download a [Visio file](https://arch-center.azureedge.net/blue-green-deployment.vsdx) of this architecture.
+_Download a [Visio file](https://arch-center.azureedge.net/blue-green-deployment.vsdx) of this architecture._
+
+### Workflow
+
 1. A developer makes a change to an application. The GitHub repository holds the application code, which needs to be deployed to Azure Spring Cloud. Every change to the application code happens under source control. GitHub: 
 
     - Ensures that changes are reviewed.
@@ -33,9 +36,7 @@ Download a [Visio file](https://arch-center.azureedge.net/blue-green-deployment.
     - Switches the production deployment and the non-production deployment, if you approve the new deployment. All production traffic is now routed to the new version of the application.
     
        If you reject the new deployment, GitHub doesn't switch the environments. The previous version continues to receive production traffic. 
-    - Deletes the old production deployment, after the approval and switch-over of the traffic. This cleanup step leads to a more cost-effective setup. 
-
-      
+    - Deletes the old production deployment, after the approval and switch-over of the traffic. This cleanup step leads to a more cost-effective setup.    
 
 ### Components
 

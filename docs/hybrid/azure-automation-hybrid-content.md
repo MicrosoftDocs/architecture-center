@@ -8,31 +8,11 @@ Runbooks in Azure Automation might not have access to resources in other clouds 
 - To automate operations on multiple non-Azure resources running on-premises, Hybrid, or multi-cloud environments. You can onboard one of those machines as Hybrid Runbook Worker and target automation on the remaining on-premises machines.
 - To access other services privately from the Azure Virtual Network (VNet) without the need to open an outbound connection to the internet, you can execute runbooks on a Hybrid Worker connected to the Azure VNet.
 
-## Hybrid Runbook Worker installation approach
-
-Azure Automation provides native integration of the Hybrid Runbook Worker role through the Azure virtual machine extension framework. The Azure VM agent is responsible for management of the extension on Azure VMs - Windows and Linux, and on non-Azure machines through the Arc-enabled servers connected machine agent. Now, there are two Hybrid Runbook Workers installation platforms that is supported by Azure Automation.
-
-
-|**Platform** | **Description**
---- | ---
-[Extension-based(V2)][1] | Installed using the Hybrid Runbook Worker VM extension, without any dependency on the Log Analytics agent reporting to an Azure Monitor Log Analytics workspace. **This is the recommended approach**, as it offers seamless onboarding and ease of manageability.
-[Agent-based(V1)][2] | Installed after the Log Analytics agent reporting to an Azure Monitor Log Analytics workspace is completed.
-
-A hybrid worker can co-exist with both platforms: Agent based (V1) and Extension based (V2). If you install Extension based (V2) on a hybrid worker already running Agent based (V1), then you would see two entries of the Hybrid Runbook Worker in the group. One with Platform Extension based (V2) and the other Agent based (V1). [Learn more][3]
-
-## Runbook worker types
-
-There are two types of Runbook workers - System and User.
-
-**System** - supports a set of hidden runbooks used by the Update Management feature that are designed to install user-specified updates on Windows and Linux machines. This type of Hybrid Runbook Worker isn't a member of a Hybrid Runbook Worker group, and therefore doesn't run runbooks that target a Runbook Worker group.
-
-**User** - supports user-defined runbooks intended to run directly on the Windows and Linux machine that are members of one or more Runbook Worker groups.
-
-The extension-based Hybrid Runbook Worker only supports the user Hybrid Runbook Worker type and doesn't include the system Hybrid Runbook Worker required for the Update Management feature.
-
-Agent-based (V1) Hybrid Runbook Workers rely on the [Log Analytics agent][4] reporting to an Azure Monitor [Log Analytics workspace][5]. The workspace isn't only to collect monitoring data from the machine, but also to download the components required to install the agent-based Hybrid Runbook Worker. When Azure Automation [Update Management][6] is enabled, any machine connected to your Log Analytics workspace is automatically configured as a system Hybrid Runbook Worker.
-
 ## Architecture
+
+![Diagarm that shows Azure Automation in a user Hybrid Runbook Worker.][architectural-diagram]
+
+*Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
 ### Components
 
@@ -54,7 +34,7 @@ The Hybrid Runbook Worker architecture consists of the following:
 
 #### User Hybrid Runbook Worker
 
-![Azure Automation in a User Hybrid Runbook Worker][architectural-diagram]
+![Diagarm that shows Azure Automation in a user Hybrid Runbook Worker.][architectural-diagram]
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
@@ -71,6 +51,29 @@ For machines hosting the system Hybrid Runbook Worker managed by Update Manageme
 #### Job execution on Hybrid Runbook Worker
 
 When you start a runbook on a user Hybrid Runbook Worker, you specify the group that it runs on. Each worker in the group polls Azure Automation to see if any jobs are available. If a job is available, the first worker to get the job takes it. The processing time of the jobs queue depends on the hybrid worker hardware profile and load. You can't specify a particular worker. Hybrid worker works on a polling mechanism (every 30 secs) and follows an order of first-come, first-serve.
+
+## Hybrid Runbook Worker installation approach
+
+Azure Automation provides native integration of the Hybrid Runbook Worker role through the Azure virtual machine extension framework. The Azure VM agent is responsible for management of the extension on Azure VMs - Windows and Linux, and on non-Azure machines through the Arc-enabled servers connected machine agent. Now, there are two Hybrid Runbook Workers installation platforms that is supported by Azure Automation.
+
+|**Platform** | **Description**
+--- | ---
+[Extension-based(V2)][1] | Installed using the Hybrid Runbook Worker VM extension, without any dependency on the Log Analytics agent reporting to an Azure Monitor Log Analytics workspace. **This is the recommended approach**, as it offers seamless onboarding and ease of manageability.
+[Agent-based(V1)][2] | Installed after the Log Analytics agent reporting to an Azure Monitor Log Analytics workspace is completed.
+
+A hybrid worker can co-exist with both platforms: Agent based (V1) and Extension based (V2). If you install Extension based (V2) on a hybrid worker already running Agent based (V1), then you would see two entries of the Hybrid Runbook Worker in the group. One with Platform Extension based (V2) and the other Agent based (V1). [Learn more][3]
+
+## Runbook worker types
+
+There are two types of Runbook workers - System and User.
+
+**System** - supports a set of hidden runbooks used by the Update Management feature that are designed to install user-specified updates on Windows and Linux machines. This type of Hybrid Runbook Worker isn't a member of a Hybrid Runbook Worker group, and therefore doesn't run runbooks that target a Runbook Worker group.
+
+**User** - supports user-defined runbooks intended to run directly on the Windows and Linux machine that are members of one or more Runbook Worker groups.
+
+The extension-based Hybrid Runbook Worker only supports the user Hybrid Runbook Worker type and doesn't include the system Hybrid Runbook Worker required for the Update Management feature.
+
+Agent-based (V1) Hybrid Runbook Workers rely on the [Log Analytics agent][4] reporting to an Azure Monitor [Log Analytics workspace][5]. The workspace isn't only to collect monitoring data from the machine, but also to download the components required to install the agent-based Hybrid Runbook Worker. When Azure Automation [Update Management][6] is enabled, any machine connected to your Log Analytics workspace is automatically configured as a system Hybrid Runbook Worker.
 
 ## Scalability considerations
 
@@ -120,13 +123,12 @@ When you start a runbook on a user Hybrid Runbook Worker, you specify the group 
 ## DevOps considerations
 
 - Azure Automation allows integration with popular source control systems, Azure DevOps, and GitHub. With Source Control, you can integrate the existing development environment that contains your scripts and custom code that have been previously tested in an isolated environment.
-- For information on how to integrate Azure Automation with your Source Control environment, refer [Use source control integration.][13]
+- For information on how to integrate Azure Automation with your Source Control environment, see [Use source control integration][13].
 
-## Cost considerations
+## Cost optimization
 
-- Azure Automation costs are priced for job execution per minute. Every month, the first 500 minutes of process automation are free. Use the [Azure pricing calculator][14] to estimate costs. Pricing models for Azure Automation are explained [here][15].
-- For agent-based approach (V1) - Azure Log Analytics Workspace might generate additional costs related to the amount of log data stored in the Azure Log Analytics. The pricing model is based on consumption. The costs are associated for data ingestion and data retention. For ingesting data into Azure Log Analytics, use Capacity Reservation or Pay-As-You-Go model that include 5 gigabytes (GB) free per billing account per month. Data retention for the first 31 days are free of charge. The pricing models for Log Analytics are explained [here][16].
-
+- Azure Automation costs are priced for job execution per minute. Every month, the first 500 minutes of process automation are free. Use the [Azure pricing calculator][14] to estimate costs. For more information about the Azure Automation pricing models, see [Automation pricing][15].
+- For agent-based approach (V1) - Azure Log Analytics Workspace might generate additional costs related to the amount of log data stored in the Azure Log Analytics. The pricing model is based on consumption. The costs are associated for data ingestion and data retention. For ingesting data into Azure Log Analytics, use Capacity Reservation or Pay-As-You-Go model that include 5 gigabytes (GB) free per billing account per month. Data retention for the first 31 days are free of charge. For the pricing models for Log Analytics, see [Azure Monitor pricing][16].
 
 ## Next steps
 
@@ -149,8 +151,7 @@ More about Azure Automation:
 - [Connect an on-premises network to Azure](/azure/architecture/reference-architectures/hybrid-networking)
 - [Enterprise monitoring with Azure Monitor](/azure/architecture/example-scenario/monitoring/enterprise-monitoring)
 - [Computer forensics chain of custody in Azure](/azure/architecture/example-scenario/forensics)
-- [Disaster Recovery for Azure Stack Hub virtual machines](/azure/architecture/hybrid/azure-stack-vm-dr)
-
+- [Disaster Recovery for Azure Stack Hub virtual machines](/azure/architecture/hybrid/azure-stack-vm-disaster-recovery)
 
 [architectural-diagram]: ./images/azure-automation-hybrid.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-automation-hybrid.vsdx
@@ -165,13 +166,13 @@ More about Azure Automation:
 [7]: /azure/automation/automation-runbook-types
 [8]: /azure/azure-arc/servers/overview
 [9]: /azure/automation/automation-runbook-execution#runbook-execution-environment
-[10]:/azure/azure-resource-manager/management/azure-subscription-service-limits#automation-limits
-[11]:/azure/automation/automation-runbook-execution#fair-share
-[12]:/azure/automation/how-to/region-mappings
-[13]:/azure/automation/source-control-integration
-[14]:https://azure.microsoft.com/pricing/calculator/
-[15]:https://azure.microsoft.com/pricing/details/automation/
-[16]:https://azure.microsoft.com/pricing/details/monitor/
-[17]:https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker/1.7
-[18]:/azure/automation/automation-secure-asset-encryption
-[19]:/security/benchmark/azure/baselines/automation-security-baseline#network-security
+[10]: /azure/azure-resource-manager/management/azure-subscription-service-limits#automation-limits
+[11]: /azure/automation/automation-runbook-execution#fair-share
+[12]: /azure/automation/how-to/region-mappings
+[13]: /azure/automation/source-control-integration
+[14]: https://azure.microsoft.com/pricing/calculator
+[15]:  https://azure.microsoft.com/pricing/details/automation
+[16]: https://azure.microsoft.com/pricing/details/monitor
+[17]: https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker/1.7
+[18]: /azure/automation/automation-secure-asset-encryption
+[19]: /security/benchmark/azure/baselines/automation-security-baseline#network-security

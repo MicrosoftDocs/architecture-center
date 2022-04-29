@@ -1,17 +1,30 @@
 Many organizations desire to leverage Azure Virtual Desktop (AVD) and create environments with multiple on-premises Active Directory forests. This article expands on the architecture described in the [AVD at enterprise scale article](./windows-virtual-desktop.yml) and helps understand how multiple domains and AVD can be integrated using [Azure AD Connect](/azure/active-directory/hybrid/whatis-hybrid-identity) to sync users from on-premises [Active Directory Domain Services (AD DS)](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) to [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis).
 
-The following are some relevant use cases for this architecture:
-
-- Mergers and acquisitions, organization rebranding, and multiple on-premises identities.
-- [Complex on-premises active directory environments (multi-forest, multi-domains, group policy (or GPO) requirements, and legacy authentication)](/azure/active-directory-domain-services/concepts-resource-forest).
-- Use of on-premises GPO infrastructure with AVD.
-
-> [!NOTE]
-  > Active Directory Domain Services (AD DS) is a self-managed, on-premises component in many hybrid environments, whereas Azure Active Directory Domain Services (Azure AD DS) provides managed domain services with a subset of fully-compatible traditional AD DS features such as domain join, group policy, *LDAP*, and *Kerberos*/*NTLM* authentication. Read a detailed comparison of these components in [Compare self-managed Active Directory Domain Services, Azure Active Directory, and managed Azure Active Directory Domain Services](/azure/active-directory-domain-services/compare-identity-solutions). </br>
-  > The solution idea [Multiple AVD forests using Azure Active Directory Domain Services](./multi-forest-azure-managed.yml) discusses this architecture using the cloud-managed [Azure AD DS](/azure/active-directory-domain-services/overview).
-
 ## Architecture
 :::image type="content" source="images/wvd-multi-forest-adds.png" alt-text="Azure Virtual Desktop with AD Domain Services" lightbox="images/wvd-multi-forest-adds.png":::
+
+### Dataflow
+
+In this architecture, the identity flow works as follows.
+
+1. Azure AD Connect syncs users from both CompanyA.com and CompanyB.com to Azure AD tenant (NewCompanyAB.onmicrosoft.com).
+2. Host pools, workspaces, and app groups are created in the respective subscriptions and spoke virtual networks.
+3. Users are assigned to the app groups.
+4. AVD session hosts in the host pools join the domains CompanyA.com and CompanyB.com using the domain controllers in Azure.
+5. Users sign in using either the [AVD Desktop](/azure/virtual-desktop/connect-windows-7-10#install-the-windows-desktop-client) or a [web client](/azure/virtual-desktop/connect-web) with the corresponding format: user@NewCompanyA.com, user@CompanyB.com, or user@NewCompanyAB.com, depending on the UPN suffix configured.
+6. Users are presented with their respective virtual desktops or apps. For example, users in CompanyA will be presented with virtual desktops or apps in Workspace A, host pool 1 or 2.
+7. FSLogix user profiles are created in Azure Files shares on the corresponding storage accounts.
+8. Group Policy Objects (GPO) synced from on-premises are applied to users and AVD session hosts.
+
+### Components
+
+This architecture uses the same [components](./windows-virtual-desktop.yml#components-you-manage) as listed in [AVD at enterprise scale Architecture](./windows-virtual-desktop.yml).
+
+Additionally, the following components are also used in this architecture:
+
+- **Azure AD connect in staging mode:** [Staging server for Azure AD Connect topologies](/azure/active-directory/hybrid/plan-connect-topologies#staging-server) provides additional redundancy for the Azure AD connect instance.
+
+- **Azure subscriptions, AVD workspaces, and host pools:** Multiple subscriptions, AVD workspaces, and host pools can be leveraged for administration boundaries and business requirements.
 
 ## Scenario
 
@@ -30,28 +43,17 @@ This architecture diagram shows a typical scenario that involves the following:
 - The AVD session hosts are joined to domain controllers in Azure, that is, companyA session hosts join the companyA.local domain, and CompanyB session hosts join the CompanyB.local domain.
 - Azure Storage accounts can leverage [Azure Files for FSLogix profiles](/azure/virtual-desktop/FSLogix-containers-azure-files). One account is created per company domain (that is, companyA.local and companyB.local), and joined to the corresponding domain.
 
-## Components
+### Potential use cases
 
-This architecture uses the same [components](./windows-virtual-desktop.yml#components-you-manage) as listed in [AVD at enterprise scale Architecture](./windows-virtual-desktop.yml).
+The following are some relevant use cases for this architecture:
 
-Additionally, the following components are also used in this architecture:
+- Mergers and acquisitions, organization rebranding, and multiple on-premises identities.
+- [Complex on-premises active directory environments (multi-forest, multi-domains, group policy (or GPO) requirements, and legacy authentication)](/azure/active-directory-domain-services/concepts-resource-forest).
+- Use of on-premises GPO infrastructure with AVD.
 
-- **Azure AD connect in staging mode:** [Staging server for Azure AD Connect topologies](/azure/active-directory/hybrid/plan-connect-topologies#staging-server) provides additional redundancy for the Azure AD connect instance.
-
-- **Azure subscriptions, AVD workspaces, and host pools:** Multiple subscriptions, AVD workspaces, and host pools can be leveraged for administration boundaries and business requirements.
-
-## Data flow
-
-In this architecture, the identity flow works as follows.
-
-1. Azure AD Connect syncs users from both CompanyA.com and CompanyB.com to Azure AD tenant (NewCompanyAB.onmicrosoft.com).
-2. Host pools, workspaces, and app groups are created in the respective subscriptions and spoke virtual networks.
-3. Users are assigned to the app groups.
-4. AVD session hosts in the host pools join the domains CompanyA.com and CompanyB.com using the domain controllers in Azure.
-5. Users sign in using either the [AVD Desktop](/azure/virtual-desktop/connect-windows-7-10#install-the-windows-desktop-client) or a [web client](/azure/virtual-desktop/connect-web) with the corresponding format: user@NewCompanyA.com, user@CompanyB.com, or user@NewCompanyAB.com, depending on the UPN suffix configured.
-6. Users are presented with their respective virtual desktops or apps. For example, users in CompanyA will be presented with virtual desktops or apps in Workspace A, host pool 1 or 2.
-7. FSLogix user profiles are created in Azure Files shares on the corresponding storage accounts.
-8. Group Policy Objects (GPO) synced from on-premises are applied to users and AVD session hosts.
+> [!NOTE]
+  > Active Directory Domain Services (AD DS) is a self-managed, on-premises component in many hybrid environments, whereas Azure Active Directory Domain Services (Azure AD DS) provides managed domain services with a subset of fully-compatible traditional AD DS features such as domain join, group policy, *LDAP*, and *Kerberos*/*NTLM* authentication. Read a detailed comparison of these components in [Compare self-managed Active Directory Domain Services, Azure Active Directory, and managed Azure Active Directory Domain Services](/azure/active-directory-domain-services/compare-identity-solutions). </br>
+  > The solution idea [Multiple AVD forests using Azure Active Directory Domain Services](./multi-forest-azure-managed.yml) discusses this architecture using the cloud-managed [Azure AD DS](/azure/active-directory-domain-services/overview).
 
 ## Considerations
 
@@ -92,8 +94,11 @@ For more details, read the [Staging server section of Azure AD Connect topologie
 
 For more information, see the following articles:
 
-- [Azure AD Connect topology](/azure/active-directory/hybrid/plan-connect-topologies).
+- [Azure AD Connect topology](/azure/active-directory/hybrid/plan-connect-topologies)
+- [Compare different Identity options: Self-managed Active Directory Domain Services (AD DS), Azure Active Directory (Azure AD), and Azure Active Directory Domain Services (Azure AD DS)](/azure/active-directory-domain-services/compare-identity-solutions)
+- [Azure Virtual Desktop Documentation](/azure/virtual-desktop)
+
+## Related resources
+
 - [Azure Virtual Desktop for the enterprise article](./windows-virtual-desktop.yml)
-- [Compare different Identity options: Self-managed Active Directory Domain Services (AD DS), Azure Active Directory (Azure AD), and Azure Active Directory Domain Services (Azure AD DS)](/azure/active-directory-domain-services/compare-identity-solutions).
-- [Solution idea: Multi forest with Azure AD DS](./multi-forest-azure-managed.yml).
-- [Azure Virtual Desktop Documentation](/azure/virtual-desktop/).
+- [Solution idea: Multi forest with Azure AD DS](./multi-forest-azure-managed.yml)

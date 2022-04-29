@@ -277,3 +277,11 @@ The following technologies were featured in this article:
 - [Pyomo Optimization Modelling Language](http://www.pyomo.org/)
 - [Bonmin Solver](https://projects.coin-or.org/Bonmin)
 - [TFoCS solver for Spark](https://github.com/databricks/spark-tfocs)
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+**Principal author:**
+
+- [Scott Seely](https://www.linkedin.com/in/scottseely) | Software Architect

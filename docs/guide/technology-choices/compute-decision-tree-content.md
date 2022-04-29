@@ -161,11 +161,11 @@ Perform a more detailed evaluation looking at the following aspects of the servi
 
 [resource-manager-supported-services]: /azure/azure-resource-manager/resource-manager-supported-services
 
-[n-tier]: ../architecture-styles/n-tier.md
-[w-q-w]: ../architecture-styles/web-queue-worker.md
-[microservices]: ../architecture-styles/microservices.md
-[event-driven]: ../architecture-styles/event-driven.md
-[big-compute]: ../architecture-styles/big-compute.md
+[n-tier]: ../architecture-styles/n-tier.yml
+[w-q-w]: ../architecture-styles/web-queue-worker.yml
+[microservices]: ../architecture-styles/microservices.yml
+[event-driven]: ../architecture-styles/event-driven.yml
+[big-compute]: ../architecture-styles/big-compute.yml
 
 [app-service-hybrid]: /azure/app-service/app-service-hybrid-connections
 [func-premium]: /azure/azure-functions/functions-premium-plan#private-network-connectivity

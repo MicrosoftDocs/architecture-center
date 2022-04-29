@@ -15,7 +15,7 @@ Other relevant use cases include:
 
 ## Architecture
 
-![Architecture diagram for dev/test environments for SAP workloads](./media/architecture-sap-dev-test.png)
+![Architecture diagram for dev/test environments for S A P workloads](./media/architecture-sap-dev-test-architecture.png)
 
 ### Dataflow
 

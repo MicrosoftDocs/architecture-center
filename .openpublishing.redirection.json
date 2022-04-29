@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "docs/networking/guide/waf-application-gateway.md",
+      "redirect_url": "/azure/architecture/framework/services/networking/azure-application-gateway#security",
+      "redirect_document_id": false
+    }, 
+    {
       "source_path": "docs/framework/scalability/data-management.md",
       "redirect_url": "/azure/architecture/framework/Scalability/overview",
       "redirect_document_id": false
@@ -1715,6 +1720,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/hybrid/azure-stack-vm-dr.yml",
+      "redirect_url": "/azure/architecture/hybrid/azure-stack-vm-disaster-recovery",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/reference-architectures/dmz/secure-vnet-hybrid.md",
       "redirect_url": "/azure/architecture/reference-architectures/dmz/secure-vnet-dmz",
       "redirect_document_id": true
@@ -1767,6 +1777,11 @@
       "source_path": "docs/patterns/index-patterns.md",
       "redirect_url": "/azure/architecture/patterns",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/design-principles/use-the-best-data-store.md",
+      "redirect_url": "/azure/architecture/guide/design-principles/use-best-data-store",
+      "redirect_document_id": true
     },
     {
       "source_path": "docs/reference-architectures/ai/index.md",

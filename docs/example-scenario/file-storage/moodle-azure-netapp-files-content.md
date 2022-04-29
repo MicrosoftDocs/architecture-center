@@ -34,11 +34,11 @@ You can also use two regions to implement this solution. With two regions, the s
 
 *Download a [PowerPoint file][PowerPoint version of architecture diagram] of this architecture.*
 
-1. Students access Moodle application data through Azure Application Gateway.
+1. Students access Moodle application data through [Azure Application Gateway](/azure/application-gateway/overview).
 1. Moodle is written in PHP. Moodle runs in a [virtual machine scale set][What are virtual machine scale sets?] on a web server such as Apache HTTP Server or NGINX.
-1. Azure NetApp Files makes the content data available to Moodle.
-1. The solution uses Azure Cache for Redis for user session caching, locking, and key awareness.
-1. An Azure Database for MySQL database stores the learning content, student progress data, and internal data.
+1. [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) makes the content data available to Moodle.
+1. The solution uses [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) for user session caching, locking, and key awareness.
+1. An [Azure Database for MySQL](/azure/mysql/overview) database stores the learning content, student progress data, and internal data.
 1. Learning content enters the system through a secure virtual private network (VPN) gateway directly from the customer datacenter.
 
 ### Dual-region disaster recovery setup
@@ -50,25 +50,25 @@ You can also use two regions to implement this solution. With two regions, the s
 1. [Cross-region replication][Cross-region replication of Azure NetApp Files volumes] provides replication for the Azure NetApp Files volumes. This storage-based replication engine is built into Azure NetApp Files.
 1. When you use cross-region replication, you don't have to turn on some components during normal operation. So those components don't incur any cost. When a failover occurs, you can start those components and use them with the replicated data volumes.
 1. After you recover the primary region, the replication direction reverses. The primary region is updated with any changes that were applied during the failover. You can then fail the service back.
-1. Azure Traffic Manager directs users to the region that's currently active.
+1. [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview) directs users to the region that's currently active.
 
 ### Components
 
 - [Moodle][Moodle] is a free, open-source learning management system.
 
-- [Azure Database for MySQL][Server concepts in Azure Database for MySQL] is a fully managed relational database service that's based on the community edition of the open-source MySQL database engine.
+- [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/) is a fully managed relational database service that's based on the community edition of the open-source MySQL database engine.
 
-- [Azure Cache for Redis][Azure Redis Cache] is a fully managed, in-memory data store that's based on the open-source software Redis.
+- [Azure Cache for Redis](https://azure.microsoft.com/services/cache) is a fully managed, in-memory data store that's based on the open-source software Redis.
 
-- [Azure Virtual Machine Scale Sets][Virtual Machine Scale Sets] provides a way to manage a group of load-balanced virtual machines (VMs). The number of VMs in a set automatically increases or decreases in response to demand or a defined schedule.
+- [Azure Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/) provides a way to manage a group of load-balanced virtual machines (VMs). The number of VMs in a set automatically increases or decreases in response to demand or a defined schedule.
 
-- [Azure NetApp Files][Cost model for Azure NetApp Files] makes it easy to migrate and run file-based applications with no code changes. This shared file-storage service is a joint development from Microsoft and NetApp, a Microsoft partner.
+- [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) makes it easy to migrate and run file-based applications with no code changes. This shared file-storage service is a joint development from Microsoft and NetApp, a Microsoft partner.
 
 - [Cross-region replication][Cross-region replication of Azure NetApp Files volumes] provides a way to replicate data asynchronously from an Azure NetApp Files volume in one region to another Azure NetApp Files volume in another region. This capability provides data protection during region-wide outages or disasters.
 
-- [Application Gateway][What is Azure Application Gateway?] is a load balancer that manages traffic to web applications.
+- [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway) is a load balancer that manages traffic to web applications.
 
-- [Traffic Manager][What is Traffic Manager?] is a load balancer that distributes traffic to applications across global Azure regions. Traffic Manager also provides public endpoints with high availability and quick responsiveness.
+- [Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) is a load balancer that distributes traffic to applications across global Azure regions. Traffic Manager also provides public endpoints with high availability and quick responsiveness.
 
 ### Alternatives
 
@@ -116,6 +116,14 @@ Use the [Azure pricing calculator][Pricing calculator] to estimate the cost of t
 
 For a calculator that computes the Azure NetApp Files performance and total cost of ownership (TCO), see [Azure NetApp Files Performance Calculator][Azure NetApp Files Performance Calculator]. Use this calculator to find the optimal balance between capacity, performance, and cost.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+* [Arnt de Gier](https://www.linkedin.com/in/arntdegier) | Technical Marketing Engineer
+
 ## Next steps
 
 - [The MoodleCloud model, a typical starting model][MoodleCloud]
@@ -124,6 +132,16 @@ For a calculator that computes the Azure NetApp Files performance and total cost
 - [Redis cache store][Redis cache store]
 - [Azure NetApp Files for NFS storage with Moodle][Azure NetApp Files for NFS storage with Moodle]
 - [Public preview: Automatic scaling with Azure Virtual Machine Scale Sets flexible orchestration mode][Public preview: Automatic scaling with Azure Virtual Machine Scale Sets flexible orchestration mode]
+
+Product documentation:
+
+- [What are Azure Virtual Machine Scale Sets?][What are virtual machine scale sets?]
+- [What is Azure Database for MySQL?](/azure/mysql/overview)
+- [What is Azure Cache for Redis?](/azure/azure-cache-for-redis/cache-overview)
+- [What are Azure Virtual Machine Scale Sets?](/azure/virtual-machine-scale-sets/overview)
+- [What is Azure NetApp Files?](/azure/azure-netapp-files/azure-netapp-files-introduction)
+- [What is Azure Application Gateway?](/azure/application-gateway/overview)
+- [What is Azure Traffic Manager?](/azure/traffic-manager/traffic-manager-overview)
 
 ## Related resources
 
