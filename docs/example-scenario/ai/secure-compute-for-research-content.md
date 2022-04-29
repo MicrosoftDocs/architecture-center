@@ -20,9 +20,9 @@ By following the guidance you can maintain full control of your research data, h
 
 1. Data owners upload datasets into a public blob storage account. The data is encrypted by using Microsoft-managed keys.
 
-2. [Azure Data Factory](/azure/data-factory/) uses a trigger that starts copying of the uploaded dataset to a specific location (import path) on another storage account with security controls. The storage account can only be reached through a private endpoint. Also, it's accessed by a service principal with limited permissions. Data Factory deletes the original copy making the dataset immutable.
+2. [Azure Data Factory](/azure/data-factory) uses a trigger that starts copying of the uploaded dataset to a specific location (import path) on another storage account with security controls. The storage account can only be reached through a private endpoint. Also, it's accessed by a service principal with limited permissions. Data Factory deletes the original copy making the dataset immutable.
 
-3. Researchers access the secure environment through a streaming application using [Azure Virtual Desktop](/azure/virtual-desktop/) as a privileged jump box.
+3. Researchers access the secure environment through a streaming application using [Azure Virtual Desktop](/azure/virtual-desktop) as a privileged jump box.
 
 4. The dataset in the secure storage account is presented to the data science VMs provisioned in a secure network environment for research work. Much of the data preparation is done on those VMs.
 
