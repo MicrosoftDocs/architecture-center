@@ -34,11 +34,11 @@ This solution is built on the Azure managed services: [Content Delivery Network]
 
 ## Next steps
 
-* [How to use Azure Blob storage](/api/Redirect/documentation/articles/storage-dotnet-how-to-use-blobs)
-* [How to encode an asset using Media Encoder](/api/Redirect/documentation/articles/media-services-dotnet-encode-with-media-encoder-standard)
-* [How to manage streaming endpoints](/api/Redirect/documentation/articles/media-services-manage-origins)
-* [Using Azure Content Delivery Network](/api/Redirect/documentation/articles/cdn-create-new-endpoint)
-* [Develop video player applications](/api/Redirect/documentation/articles/media-services-develop-video-players)
-* [Create an Azure Cognitive Search service](/api/Redirect/documentation/articles/search-create-service-portal)
-* [Run Web Apps in the cloud](/api/Redirect/documentation/articles/app-service-web-overview)
-* [Indexing media files](/api/Redirect/documentation/articles/media-services-index-content)
+* [How to use Azure Blob storage](/azure/storage/blobs/storage-blob-dotnet-get-started)
+* [How to encode an asset using Media Encoder](/azure/media-services/previous/media-services-dotnet-encode-with-media-encoder-standard)
+* [How to manage streaming endpoints](/azure/media-services/previous/media-services-streaming-endpoints-overview)
+* [Using Azure Content Delivery Network](/azure/cdn/cdn-create-new-endpoint)
+* Develop video player applications
+* [Create an Azure Cognitive Search service](/azure/search/search-create-service-portal)
+* [Run Web Apps in the cloud](/azure/app-service/overview)
+* [Indexing media files](/azure/media-services/previous/media-services-index-content)
