@@ -3,7 +3,7 @@
 title: Data management in the retail industry
 author: dstarr
 ms.author: dastarr
-ms.date: 04/06/2022
+ms.date: 04/26/2022
 ms.topic: article
 ms.service: industry
 products:
@@ -44,7 +44,7 @@ These different data types are used for various insights coming from the data ma
 
 Initially, data is loaded into Azure in its native format, and is stored accordingly. Receiving and managing disparate data sources can be daunting, but Microsoft Azure offers services to load data into the cloud quickly and easily, making it available for processing in the data management pipeline. 
 
-Azure has several helpful services for migrating data. The choice depends on the type of data being migrated. [Azure Data Migration](/azure/dms/dms-overview?WT.mc_id=retaildm-docs-dastarr) Services for SQL Server and the [Azure Import/Export Service](/azure/storage/common/storage-import-export-service?WT.mc_id=retaildm-docs-dastarr) are services to help get data into Azure. Other data ingress services to consider include [Azure Data Factory](/azure/data-factory?WT.mc_id=retaildm-docs-dastarr) and [Azure Logic Apps](/azure/logic-apps/?WT.mc_id=retaildm-docs-dastarr) connectors. Each has its own features and should be investigated to see which technology works best for the given situation.
+Azure has several helpful services for migrating data. The choice depends on the type of data being migrated. [Azure Database Migration](/azure/dms/dms-overview?WT.mc_id=retaildm-docs-dastarr) Services for SQL Server and the [Azure Import/Export Service](/azure/storage/common/storage-import-export-service?WT.mc_id=retaildm-docs-dastarr) are services to help get data into Azure. Other data ingress services to consider include [Azure Data Factory](/azure/data-factory?WT.mc_id=retaildm-docs-dastarr) and [Azure Logic Apps](/azure/logic-apps/?WT.mc_id=retaildm-docs-dastarr) connectors. Each has its own features and should be investigated to see which technology works best for the given situation.
 
 Data ingestion isn’t limited to Microsoft technologies. Through the [Azure Marketplace](https://azuremarketplace.microsoft.com?WT.mc_id=retaildm-docs-dastarr), retailers may configure many different vendor databases in Azure to work with existing on-premises systems. 
 
@@ -139,11 +139,23 @@ Another type of insight that may arise are patterns not previously questioned. F
 
 Data management in retail is complex. But it offers the valuable ability to deliver relevance and an improved customer experience. Using the techniques in this article, insights may be gained to improve the customer experience, drive profitable business outcomes and uncover trends that may drive operational improvements.
 
+## Components
+
+- [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration)
+- [Azure Import/Export Service](https://azure.microsoft.com/services/storage/import-export/)
+- [Azure Data Factory](https://azure.microsoft.com/services/data-factory)
+- [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps)
+- [Azure Databricks](https://azure.microsoft.com/free/databricks)
+- [Azure Functions](https://azure.microsoft.com/services/functions)
+- [Azure Data Lake Analytics](https://azure.microsoft.com/services/data-lake-analytics)
+- [Azure HDInsight](https://azure.microsoft.com/free/hdinsight)
+- [Power BI](https://powerbi.microsoft.com)
+
 ## Contributors
 
-_This article is maintained by Microsoft. It was originally written by the following contributors._
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-**Principal authors:**
+Principal authors:
 
 - [David Starr](https://www.linkedin.com/in/davidstarr) | Principal Solutions Architect
 - [Mariya Zorotovich](https://www.linkedin.com/in/mariyazoro) | Head of Customer Experience, HLS & Emerging Technology
@@ -156,3 +168,19 @@ To continue to understand more of Azure capabilities related to implementing a d
 - Learn more about how [Azure Data Lake](/azure/data-lake-store/data-lake-store-overview?WT.mc_id=retaildm-docs-dastarr) can serve as a store all data, both structured and unstructured.
 - See actual retail reports illustrating how [Power BI](https://powerbi.microsoft.com/en-us/industries/retail/?WT.mc_id=retaildm-docs-dastarr) can give deeper insights into known questions, but enable trend analysis.
 - Visit the [Azure Marketplace](https://azuremarketplace.microsoft.com/?WT.mc_id=retaildm-docs-dastarr) to find solutions compatible with those already on-premises.
+
+Product documentation
+
+- [What is Azure Database Migration Service?](/azure/dms/dms-overview)
+- [What is Azure Import/Export Service?](/azure/import-export/storage-import-export-service)
+- [What is Azure Logic Apps?](/azure/logic-apps/logic-apps-overview)
+- [What is Azure Databricks?](/azure/databricks/scenarios/what-is-azure-databricks)
+- [Introduction to Azure Functions](/azure/azure-functions/functions-overview)
+- [What is Azure HDInsight?](/azure/hdinsight/hdinsight-overview)
+
+## Related resources
+
+- [Data management in banking](../finance/data-management-banking-overview.yml)
+- [Data warehousing and analytics](../../example-scenario/data/data-warehouse.yml)
+- [Modern data warehouse for small and medium business](../../example-scenario/data/small-medium-data-warehouse.yml)
+- [Real-time asset tracking and management](../../solution-ideas/articles/real-time-asset-tracking-mgmt-iot-central.yml)

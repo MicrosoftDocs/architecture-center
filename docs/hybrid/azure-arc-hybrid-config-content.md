@@ -180,12 +180,17 @@ To deploy the reference implementation, follow the steps in the GitHub repo by s
 [Azure Automation State Configuration]: /azure/automation/automation-dsc-overview
 [Azure Log Analytics]: /azure/azure-monitor/logs/log-analytics-overview
 [Azure Monitor]: https://azure.microsoft.com/services/monitor/
+[Azure Arc]: /azure/azure-arc
 [Azure Policy Guest Configuration]: /azure/governance/policy/concepts/guest-configuration
 [Azure Resource Group]: /azure/azure-resource-manager/management/manage-resource-groups-portal#what-is-a-resource-group
 [Azure virtual machines]: /azure/virtual-machines/
 [Azure Virtual Network]: https://azure.microsoft.com/services/virtual-network/
 [caf-arc-servers-automation]: /azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-servers/eslz-automation-arc-server
 [CAF Arc Accelerator]: /azure/cloud-adoption-framework/scenarios/hybrid/enterprise-scale-landing-zone
+[windows-agent-download]: https://aka.ms/AzureConnectedMachineAgent
+[microsoft-package-repo]: https://packages.microsoft.com
+[agent-overview]: /azure/azure-arc/servers/agent-overview
+[Azure Automation State Configuration]: /azure/automation/automation-dsc-overview
 [connect-hybrid-at-scale]: /azure/azure-arc/servers/onboard-service-principal
 [Hyper-V nested virtualization]: /virtualization/hyper-v-on-windows/user-guide/nested-virtualization
 [manage-vm-extensions]: /azure/azure-arc/servers/manage-vm-extensions
