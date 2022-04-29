@@ -19,7 +19,7 @@ A companion article, [Many models machine learning (ML) at scale with Azure Mach
 
 :::image type="content" source="media/many-models-machine-learning-azure-spark.png" alt-text="Architecture diagram for many models machine learning at scale on Azure with Spark." lightbox="media/many-models-machine-learning-azure-spark.png":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/US-1884393-many-models-machine-learning-azure-spark.vsdx) of this architecture.*
+*Download a [PNG file](architecture-center-pr/docs/example-scenario/ai/media/many-models-machine-learning-azure-spark.png) of this architecture.*
 
 1. **Data ingestion:**
    Azure Data Factory pulls data from a source database and copies it to Azure Data Lake Storage.
