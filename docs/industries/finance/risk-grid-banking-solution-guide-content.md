@@ -96,7 +96,7 @@ If Azure Batch jobs take too long to run, or if you want more computing power in
 1. Allocate more compute node machines to scale out.
 2. Allocate more powerful compute node machines to scale up. Azure machines may be provisioned to meet high performance needs of for cores and memory, and even GPU computing power.
 
-> Note: Using Microsoft HPC Pack with Batch is a more complex model and is not discussed in this article.
+> Note: Using Microsoft HPC Pack with Batch is a more complex model and isn't discussed in this article.
 
 In a Batch processing cluster, you might have as few as two processing VMs. Or you could have thousands of simultaneous tasks running on thousands of VM compute nodes, with tens of thousands of cores. Each VM is responsible for running a single task at a time. The number of VMs in a pool can be scaled manually or automatically, as configured when load increases or decreases.
 
@@ -162,7 +162,7 @@ The controlling application and compute node applications can generate this data
 
 ### Batch diagnostic logging
 
-There's an alternative to using the controller and compute node applications to emit instrumentation data. [Batch diagnostics logging](/azure/batch/batch-diagnostics?WT.mc_id=gridbanksg-docs-dastarr) can capture a lot of the run data. Batch Diagnostic Logging is not enabled by default and must be enabled for the Batch account.
+There's an alternative to using the controller and compute node applications to emit instrumentation data. [Batch diagnostics logging](/azure/batch/batch-diagnostics?WT.mc_id=gridbanksg-docs-dastarr) can capture a lot of the run data. Batch Diagnostic Logging isn't enabled by default and must be enabled for the Batch account.
 
 Batch diagnostic logging provides a significant amount of data aiding in trouble shooting and optimizing Batch runs. Start and end times for job and tasks, core count, total node count, and many other metrics.
 
@@ -188,13 +188,13 @@ There are other techniques for bridging the gap between Azure and on-premises re
 
 ### ExpressRoute
 
-ExpressRoute ties your on-premises or datacenter network to Azure through a private connection facilitated by a connectivity partner, such as your current Internet Service Provider (ISP?WT.mc_id=gridbanksg-docs-dastarr). This enables both networks to see each other as the same network instance, providing seamless access between networks. Network integration is critical when you want to integrate existing on-premises systems with an Azure network, and ExpressRoute offers the fastest connection speeds possible.
+ExpressRoute ties your on-premises or datacenter network to Azure through a private connection facilitated by a connectivity partner, such as your current Internet Service Provider. This enables both networks to see each other as the same network instance, providing seamless access between networks. Network integration is critical when you want to integrate existing on-premises systems with an Azure network, and ExpressRoute offers the fastest connection speeds possible.
 
 Additional pricing information for Azure ExpressRoute [can be found here](https://azure.microsoft.com/pricing/details/expressroute/?WT.mc_id=gridbanksg-docs-dastarr).
 
 ### VPN Gateway
 
-A VPN Gateway is another way to connect your network to Azure. The downside of this model is traffic flows over the Internet. The connection can be less resilient as a result and network speeds cannot reach those of ExpressRoute, however this may not be a barrier for a risk grid computing scenario as reading data files is typically a fast operation.
+A VPN Gateway is another way to connect your network to Azure. The downside of this model is traffic flows over the Internet. The connection can be less resilient as a result and network speeds can't reach those of ExpressRoute, however this may not be a barrier for a risk grid computing scenario as reading data files is typically a fast operation.
 
 Additional pricing information for VPN Gateway [can be found here](https://azure.microsoft.com/pricing/details/expressroute/?WT.mc_id=gridbanksg-docs-dastarr).
 
@@ -217,7 +217,7 @@ A [Site-to-Site VPN Gateway](/azure/vpn-gateway/vpn-gateway-howto-site-to-site-r
 
 An ExpressRoute connection facilitated by an Azure partner network provider realizes the same benefits as a Site-to-Site connection, but with higher speeds and reliability.
 
-Get more information about [ExpressRoute connectivity models] (/azure/expressroute/expressroute-connectivity-models?WT.mc_id=gridbanksg-docs-dastarr).
+Get more information about [ExpressRoute connectivity models](/azure/expressroute/expressroute-connectivity-models?WT.mc_id=gridbanksg-docs-dastarr).
 
 ### Batch processing without an Azure hybrid network
 
@@ -252,7 +252,7 @@ For more information on security in batch processing with AAD, [see this article
 
 The Batch service can also authenticate with a shared key. The authentication service requires two header values to be added to the HTTP request, data and authorization. [See here for more](/rest/api/batchservice/authenticate-requests-to-the-azure-batch-service?WT.mc_id=gridbanksg-docs-dastarr) on shared key authentication.
 
-## Cost considerations
+## Cost optimization
 
 There's no charge for using Azure Batch. You only pay for the underlying resources consumed, such as virtual machine uptime, storage, and networking. However, the compute node VMs still cost money when sitting idle, so it's a good idea to deprovision machines when they're no longer needed. This is often done by deleting the pool containing them.
 >
@@ -296,29 +296,47 @@ enable complex scheduling scenarios, while simpler scenarios are achievable by u
 
 ## Components
 
-- [Azure Batch](/azure/batch/?WT.mc_id=gridbanksg-docs-dastarr) provides capabilities to run large-scale parallel processing jobs in the cloud.
+- [Azure Batch](https://azure.microsoft.com/services/batch/) provides capabilities to run large-scale parallel processing jobs in the cloud.
 
-- [Azure Active
-Directory](/azure/active-directory/active-directory-whatis?WT.mc_id=gridbanksg-docs-dastarr) is a multi-tenant, cloud-based directory, and identity management service combining core directory services, application access management, and identity protection into a single solution.
+- [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) is a multi-tenant, cloud-based directory, and identity management service combining core directory services, application access management, and identity protection into a single solution.
 
-- [Automatic scaling
-formulas](/azure/batch/batch-automatic-scaling?WT.mc_id=gridbanksg-docs-dastarr) are scripts uploaded to the batch processing scheduler for fine grained control of Batch scaling behaviors.
+- [Automatic scaling formulas](/azure/batch/batch-automatic-scaling?WT.mc_id=gridbanksg-docs-dastarr) are scripts uploaded to the batch processing scheduler for fine grained control of Batch scaling behaviors.
 
-- [Batch Diagnostics
-Logging](/azure/batch/batch-diagnostics?WT.mc_id=gridbanksg-docs-dastarr) is a feature of Azure Batch enabling creation of a detailed log from your Batch runs and the events generated. Logs are stored in Azure Storage.
+- [Batch Diagnostics Logging](/azure/batch/batch-diagnostics?WT.mc_id=gridbanksg-docs-dastarr) is a feature of Azure Batch enabling creation of a detailed log from your Batch runs and the events generated. Logs are stored in Azure Storage.
 
 - [BatchLabs](https://github.com/Azure/BatchLabs) is a standalone application for Batch monitoring and management available Windows, macOS, and Linux.
 
-- [ExpressRoute](/azure/expressroute/expressroute-introduction?WT.mc_id=gridbanksg-docs-dastarr)
-is a high speed and reliability hybrid network solution for joining on-premises and Azure networks.
+- [ExpressRoute](https://azure.microsoft.com/services/expressroute) is a high speed and reliability hybrid network solution for joining on-premises and Azure networks.
 
-- [VPN Gateway](/azure/vpn-gateway/?WT.mc_id=gridbanksg-docs-dastarr) is a hybrid network solution using the Internet for joining on-premises and Azure networks.
+- [Azure VPN Gateway](https://azure.microsoft.com/free/vpn-gateway) is a hybrid network solution using the Internet for joining on-premises and Azure networks.
 
 ## Conclusion
 
 This document provided an overview of technical solutions and considerations when using Azure Batch for risk grid computing for banking. The article covered a lot of ground from the definition of Azure Batch to [networking options](/azure/architecture/reference-architectures/hybrid-networking/?WT.mc_id=gridbanksg-docs-dastarr),
 and even cost considerations.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+* [David Starr](https://www.linkedin.com/in/davidstarr) | Principal Solutions Architect
+
 ## Next steps
 
 When considering moving forward in evaluating Azure Batch for risk grid computing, [this page](/azure/batch/?WT.mc_id=gridbanksg-docs-dastarr) is a good resource for getting started. It provides sample guided tutorials for parallel file processing, which is inherent in risk grid computing. Tutorials are provided using the Azure Portal, Azure CLI, .NET, and Python.
+
+Product documentation:
+
+- [What is Azure Batch?](/azure/batch/batch-technical-overview)
+- [What is Azure Active Directory?](/azure/active-directory)
+- [What is Azure ExpressRoute?](/azure/expressroute/expressroute-introduction)
+- [What is VPN Gateway?](/azure/vpn-gateway/vpn-gateway-about-vpngateways)
+
+## Related resources
+
+- [Risk grid computing in banking](risk-grid-banking-overview.yml)
+- [HPC risk analysis template](../../solution-ideas/articles/hpc-risk-analysis.yml)
+- [Knowledge mining in auditing, risk, and compliance management](../../solution-ideas/articles/auditing-and-risk-compliance.yml)
+- [Actuarial risk analysis and financial modeling](./actuarial-risk-analysis-financial-model.yml)

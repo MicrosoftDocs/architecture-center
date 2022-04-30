@@ -48,7 +48,7 @@ When you adopt a hybrid model, you can choose from multiple solutions to confide
 - [Back up files](azure-stack-backup.yml)
 - [Manage workloads](hybrid-server-os-mgmt.yml)
 - [Monitor performance](hybrid-perf-monitoring.yml)
-- [Disaster recovery for Azure Stack Hub VMs](azure-stack-vm-dr.yml)
+- [Disaster recovery for Azure Stack Hub VMs](azure-stack-vm-disaster-recovery.yml)
 
 ---
 

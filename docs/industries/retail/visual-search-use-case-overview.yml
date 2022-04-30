@@ -4,7 +4,7 @@ metadata:
   description: This article explains the phases of migrating ecommerce infrastructure from on premises to Azure.
   author: EdPrice-MSFT
   ms.author: edprice
-  ms.date: 04/12/2022
+  ms.date: 04/26/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
