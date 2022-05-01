@@ -137,10 +137,10 @@ Following sections includes common connectivity patterns for industrial solution
     - [IoT Hub high availability and disaster recovery](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-ha-dr)
 
 
+## Cloud Gateway Options
+
 > [!NOTE]
 > - So far we haved used IoT Hub as our Cloud Gateway. There are two other services *IoT Central* and *Event Hub* that can be used for Industrial IoT scenarios depending on the use case. Please read considerations below for more details.
-
-## Cloud Gateway Options
 
 ![Cloud Gateway IoT Hub](images/cloudgw-iothub.png)
 
@@ -150,8 +150,12 @@ Following sections includes common connectivity patterns for industrial solution
 
 - Considerations
     - [IoT Hub vs. Event Hub](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-compare-event-hubs)
-    - [Industrial IoT patterns with IoT Central](https://docs.microsoft.com/en-us/azure/iot-central/core/concepts-iiot-architecture)
+    - [IoT Hub vs. IoT Central](https://docs.microsoft.com/en-us/azure/iot-fundamentals/iot-solution-apaas-paas#comparing-approaches)
+    - [RPO and RTO options for IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-ha-dr#choose-the-right-hadr-option)
+    - [HA/DR for IoT Central](https://docs.microsoft.com/en-us/azure/iot-central/core/concepts-faq-scalability-availability) and [limitations](https://docs.microsoft.com/en-us/azure/iot-central/core/concepts-faq-scalability-availability#limitations) around IoT Edge devices. 
+    - [Availability](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-availability-and-consistency?tabs=dotnet) and [Geo-disaster recovery](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-geo-dr?tabs=portal) for Event Hub
 
-- Deployment Sample
+- Deployment Samples
     - [Connect OPC UA devices with IoT Central](https://github.com/iot-for-all/iotc-opcua-iotedge-gateway)
+    - [Industrial IoT patterns with IoT Central](https://docs.microsoft.com/en-us/azure/iot-central/core/concepts-iiot-architecture)
     - [Streaming at Scale with Event Hubs and Data Explorer](https://github.com/Azure-Samples/streaming-at-scale/tree/main/eventhubs-dataexplorer)

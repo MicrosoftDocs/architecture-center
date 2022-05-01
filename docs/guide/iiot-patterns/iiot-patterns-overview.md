@@ -10,14 +10,14 @@ Each stage of an IIoT Solution consists of multiple design patterns. Computerisa
 
 ## Connectivity 
 - Patterns
-    - OPC UA Server and Edge Gateway
-    - Protocol Translation and Edge Gateway
-    - Built-in cloud connector
-    - Cloud SDK and Custom Application
-    - Hierarchy of IoT Edge Gateways
-    - Resilient Edge Gateway
-    - Scale to multiple factories and business units
-    - Cloud Gateway Options
+    - [OPC UA Server and Edge Gateway](./iiot-connectivity-patterns.md#opc-ua-server-and-edge-gateway)
+    - [Protocol Translation and Edge Gateway](./iiot-connectivity-patterns.md#protocol-translation-and-edge-gateway)
+    - [Built-in cloud connector](./iiot-connectivity-patterns.md#built-in-cloud-connector)
+    - [Cloud SDK and Custom Application](./iiot-connectivity-patterns.md#cloud-sdk-and-custom-application)
+    - [Hierarchy of IoT Edge Gateways](./iiot-connectivity-patterns.md#hierarchy-of-iot-edge-gateways)
+    - [Resilient Edge Gateway](./iiot-connectivity-patterns.md#resilient-edge-gateway)
+    - [Scale to multiple factories and business units](./iiot-connectivity-patterns.md#scale-to-multiple-factories-and-business-units)
+    - [Cloud Gateway Options](./iiot-connectivity-patterns.md#cloud-gateway-options)
 - Solution Samples
     - [Connectivity with Industrial Assets using OPC UA and Edge for Linux on Windows (EFLOW)](https://github.com/Azure-Samples/industrial-iot-patterns/tree/main/1_Connectivity)
 
