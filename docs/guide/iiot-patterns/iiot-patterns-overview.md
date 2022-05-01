@@ -19,7 +19,7 @@ Each stage of an IIoT Solution consists of multiple design patterns. Computerisa
     - Scale to multiple factories and business units
     - Cloud Gateway Options
 - Solution Samples
-    - [OPC UA Connectivity using Edge for Linux on Windows (EFLOW)](https://github.com/Azure-Samples/industrial-iot-patterns)
+    - [Connectivity with Industrial Assets using OPC UA and Edge for Linux on Windows (EFLOW)](https://github.com/Azure-Samples/industrial-iot-patterns/tree/main/1_Connectivity)
 
 ## Visibility
 
@@ -27,7 +27,7 @@ Each stage of an IIoT Solution consists of multiple design patterns. Computerisa
     - Time Series Analytics
     - Anomaly Detection and Root Cause Analysis
 - Solution Samples
-    - [Operational Visibility](https://github.com/Azure-Samples/industrial-iot-patterns)
+    - [Operational Visibility with Anomaly Detection and Root Cause Analysis](https://github.com/Azure-Samples/industrial-iot-patterns/tree/main/2_OperationalVisibility)
 ## Transparency 
 
 - Patterns
@@ -35,8 +35,8 @@ Each stage of an IIoT Solution consists of multiple design patterns. Computerisa
     - Asset Hierarchy and Digital Twin Management
 
 - Solution Samples
-    - [Overall Equipment Effectiveness(OEE) Calculation Engine](https://github.com/Azure-Samples/industrial-iot-patterns)
-    - [Factory Digital Twin Simulation](https://github.com/Azure-Samples/industrial-iot-patterns)
+    - [Overall Equipment Effectiveness(OEE) and KPI Calculation Engine](https://github.com/Azure-Samples/industrial-iot-patterns/tree/main/3_OEECalculationEngine)
+    - [Factory and Supply Chain Digital Twin](https://github.com/Azure-Samples/industrial-iot-patterns/tree/main/4_FactorySupplyChainTwin)
 
 ## Predictions 
 
@@ -45,9 +45,9 @@ Each stage of an IIoT Solution consists of multiple design patterns. Computerisa
     - Augment manual quality inspection using deep learing based image recognition
 
 - Solution Samples
-    - [Exploratory Data Analysis for machine learning based failure predictions](https://github.com/Azure-Samples/industrial-iot-patterns)
-    - [Operationalizing machine learning models for batch and real-time predictions](https://github.com/Azure-Samples/industrial-iot-patterns)
-    - [Operationalizing image recognition solution on the factory floor](https://github.com/Azure-Samples/industrial-iot-patterns)
+    - [Exploratory Data Analysis for failure predictions using machine learning](https://github.com/Azure-Samples/industrial-iot-patterns/tree/main/5_ExplorationDataAnalysis)
+    - [Operationalizing machine learning based prediction models](https://github.com/Azure-Samples/industrial-iot-patterns/tree/main/6_MachineLearningForIIoT)
+    - [Operationalizing deep learning based image recognition models on the factory floor](https://github.com/Azure-Samples/industrial-iot-patterns/tree/main/7_ImageRecognitionForIIoT)
 
 ## Adaptability 
 
@@ -55,4 +55,4 @@ Each stage of an IIoT Solution consists of multiple design patterns. Computerisa
     - Control system optimization using Deep Reinforcement Learning
 
 - Solution Samples
-    - *TODO*
+    - [Control system optimization using Deep Reinforcement Learning (DRL)](https://github.com/Azure-Samples/industrial-iot-patterns/tree/main/8_DeepReinforcementLearningForIIoT)
