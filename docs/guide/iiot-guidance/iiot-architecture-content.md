@@ -5,7 +5,7 @@ IIoT goes beyond moving existing manufacturing processes and tools to the cloud.
 IIoT analytics applications can support the following business practices:
 
 - Asset monitoring
-- Process dashboards
+- Anomaly detection
 - Overall equipment effectiveness (OEE) measurement
 - Predictive maintenance
 - Forecasting
@@ -50,7 +50,7 @@ Intelligent edge devices process some data on the devices themselves, or on a [f
 
 Edge workloads can:
 
-- Run anomaly detection or ML modules in tight control loops, to respond to emergencies as quickly as possible.
+- Run anomaly detection or ML modules to surface insights in near real-time.
 - Reduce bandwidth and costs by cleaning and aggregating data locally, and sending only insights to the cloud.
 - Quickly respond to factory floor events by using one module to detect events and another module to respond.
 - Use a protocol translation module to convert legacy industrial protocols.

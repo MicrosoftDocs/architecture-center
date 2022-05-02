@@ -4,7 +4,7 @@ titleSuffix: Azure Application Architecture Guide
 description: Read about architectural considerations in an IIoT analytics solution. View discussions about performance, availability, and networking.
 author: khilscher
 ms.author: kehilsch
-ms.date: 04/27/2022
+ms.date: 05/02/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -20,7 +20,7 @@ ms.custom:
 
 # Considerations in an Azure IIoT analytics solution
 
-This article describes considerations for the [Azure Industrial IoT (IIoT) analytics solution](iiot-architecture.yml) in terms of the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index). The framework describes key architectural design tenets that relate to the Azure IIoT analytics solution.
+This article describes considerations for the [Azure Industrial IoT (IIoT) analytics solution](iiot-architecture.yml) in terms of the [Microsoft Azure Well-Architected Framework for IoT](/azure/architecture/framework/iot/iot-overview#pillars). The framework describes key architectural design tenets that can extend to an Azure IIoT analytics solution.
 
 ## Performance efficiency
 
@@ -55,7 +55,7 @@ When you design your IIoT analytics solution, make sure you understand how each 
 
 ## Reliability
 
-IoT Edge devices can process some data on the device itself or on a field gateway. IoT Edge devices also provide [store and forward](https://wikipedia.org/wiki/Store_and_forward) capabilities for operation in offline or intermittent network conditions.
+IoT Edge devices can process some data on the device itself or on a field gateway. IoT Edge devices also provide [store and forward](/azure/iot-edge/offline-capabilities) capabilities for operation in offline or intermittent network conditions.
 
 An IoT Edge field gateway can be a single point of failure between a SCADA, MES, or historian and Azure IoT Hub. A failure can cause gaps in your IIoT analytics data. To prevent data loss, IoT Edge can integrate with an on-premise Kubernetes environment, using it as a resilient, highly available infrastructure layer. For more information, see [How to install IoT Edge on Kubernetes (Preview)](/azure/iot-edge/how-to-install-iot-edge-kubernetes).
 
@@ -63,7 +63,7 @@ An IoT Edge field gateway can be a single point of failure between a SCADA, MES,
 
 To comply with standards such as ISA 95 and ISA 99, industrial equipment is often in a closed Process Control Network (PCN) behind firewalls. The PCN has no direct access to the internet.
 
-There are three options to connect to equipment installed in a PCN:
+Here are some options to connect to equipment installed in these environments:
 
 - Connect to a higher-level system, such as a historian, located outside of the PCN.
 
@@ -77,6 +77,8 @@ There are three options to connect to equipment installed in a PCN:
   - This option requires more IoT Edge setup and configuration.
   - The proxy server could introduce a single point of failure or a performance bottleneck.
   - There might be no DNS setup in the PCN to resolve external names to IP addresses.
+
+- Create nested Azure IoT Edge nodes across networks organized in hierarchical layers. Each layer in the hierarchy is a gateway device that handles messages and requests from devices in the layer beneath it. For more information, see [Tutorial: Create a hierarchy of IoT Edge devices](/azure/iot-edge/tutorial-nested-iot-edge).
 
 IoT Edge also requires:
 
