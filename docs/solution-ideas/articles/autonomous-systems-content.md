@@ -51,7 +51,7 @@ Project Bonsai speeds the creation of AI-powered automation. Development and dep
 
 ### Components
 
-- [Project Bonsai](https://azure.microsoft.com/services/project-bonsai simplifies) machine teaching with DRL to train and deploy smart autonomous systems.
+- [Project Bonsai](https://azure.microsoft.com/services/project-bonsai) simplifies machine teaching with DRL to train and deploy smart autonomous systems.
 - [Azure Container Registry](https://azure.microsoft.com/services/container-registry) is a managed, private Docker registry service that's used to store and manage container images and artifacts for all types of container deployments. Images are securely stored, and can be replicated to other regions to speed up deployment. You can build on demand or automate builds with triggers, such as source code commits and base image updates. Container Registry is based on the open-source Docker Registry 2.0
 
   This architecture uses the basic tier of Container Registry to store exported brains and uploaded simulators.
