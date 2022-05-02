@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Customer IT environment and the threats
+  title: Map threats to your IT environment
   titleSuffix: Azure Architecture Center
   description: Placeholder description.
   article: fcp
@@ -16,7 +16,7 @@ azureCategories:
 products:
   - azure
   - azure-sentinel
-name: Customer IT environment and the threats
+name: Map threats to your IT environment
 summary: Placeholder summary.
 thumbnailUrl: /azure/architecture/browse/thumbs/customer-it-environment-threats-thumbnail.png
 content: |

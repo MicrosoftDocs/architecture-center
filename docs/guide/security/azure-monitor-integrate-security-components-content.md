@@ -37,7 +37,7 @@ At the bottom of the diagram is a layer that represents some of the most familia
 
 In addition to this introductory article, this series includes the following articles:
 
-- [Customer IT environment and the threats](./customer-it-environment-threats.yml)
+- [Map threats to your IT environment](./customer-it-environment-threats.yml)
 
   The second article in this series explores how you can use this architectural reference with a different set of tactics and techniques or with varying methodologies, like [the Cyber Kill Chain®](https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html), a framework developed by Lockheed Martin.
 
@@ -73,7 +73,7 @@ Other contributors:
 
 To get all details regarding this Architecture reference, see the other articles in this series:
 
-- Part 2: [Customer IT environment and the threats](./customer-it-environment-threats.yml)
+- Part 2: [Map threats to your IT environment](./customer-it-environment-threats.yml)
 - Part 3: [Building the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml)
 - Part 4: [Build the second layer of defense with Microsoft 365 Defender Security services](./microsoft-365-defender-build-second-layer-defense.yml)
 - Part 5: [Integration between Azure and Microsoft 365 Defender security services](./microsoft-365-defender-security-integrate-azure.yml)

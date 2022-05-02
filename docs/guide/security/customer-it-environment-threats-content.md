@@ -57,7 +57,7 @@ The architecture diagram includes the following layers:
 
 For the business IT environment, we specify the components only for the Azure and Office 365 environment as on-premises may run various devices, appliances, and technologies from different technology providers.
 
-For the Azure environment, the diagram shows:
+For the Azure environment, the diagram shows the components that are listed in the following table.
 
 | Label | Component | Documentation |
 |---|---|---|
@@ -68,12 +68,12 @@ For the Azure environment, the diagram shows:
 | **K8S** | [Azure Kubernetes service](https://azure.microsoft.com/services/kubernetes-service) | [Azure Kubernetes Service](/azure/aks/intro-kubernetes) |
 | **VDI** | [Azure Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop) | [What is Azure Virtual Desktop?](/azure/virtual-desktop/overview) |
 | **Web Apps** | Azure App Service with [Web Apps](https://azure.microsoft.com/services/app-service/web) | [App Service overview](/azure/app-service/overview) |
-| **Azure Storage** | [Azure Storage](https://azure.microsoft.com/product-categories/storage) could be a blob or file storage. | [Introduction to Azure Storage](/azure/storage/common/storage-introduction) |
+| **Azure Storage** | [Azure Storage](https://azure.microsoft.com/product-categories/storage), could be a blob or file storage. | [Introduction to Azure Storage](/azure/storage/common/storage-introduction) |
 | **DB** | [Azure SQL database](https://azure.microsoft.com/products/azure-sql/database) | [What is Azure SQL Database?](/azure/azure-sql/database/sql-database-paas-overview) |
 | **Azure AD** | [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory). | [What is Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis)? |
 
 
-For **Office 365**, the diagram represents the service through two different components:
+For Office 365, the diagram represents the service through the components listed in the following table.
 
 | Label | Description | Documentation |
 |---|---|---|
@@ -81,7 +81,7 @@ For **Office 365**, the diagram represents the service through two different com
 | **Azure** | Azure AD, the same one utilized by Azure. It is important to note that many companies use the same Azure AD for Azure and Office 365. | [What is Azure Active Directory?](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis) |
 
 
-## How to use MITRE ATT&CK framework
+## How to use the MITRE ATT&CK framework
 
 You may start with a simple search for the name of the threat of the attack code on the main web page, [MITRE ATT&CK®](https://attack.mitre.org/).
 
@@ -112,7 +112,7 @@ Other contributors:
 To get all details regarding this Architecture reference, see the other articles in this series:
 
 - Part 1: [Use Azure monitoring to integrate security components](./azure-monitor-integrate-security-components.yml)
-- Part 2: [Customer IT environment and the threats](./customer-it-environment-threats.yml)
+- Part 2: [Map threats to your IT environment](./customer-it-environment-threats.yml)
 - Part 4: [Build the second layer of defense with Microsoft 365 Defender Security services](./microsoft-365-defender-build-second-layer-defense.yml)
 - Part 5: [Integration between Azure and Microsoft 365 Defender security services](./microsoft-365-defender-security-integrate-azure.yml)
 
