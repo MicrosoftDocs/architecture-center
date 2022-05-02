@@ -22,10 +22,10 @@ ms.custom:
 # Multi-Region Business Continuity and Disaster Recovery (BCDR) for Azure Virtual Desktop
 
 Azure Virtual Desktop (AVD) is a comprehensive desktop and app virtualization service running on Microsoft Azure that helps enable a secure remote desktop experience, helping organizations strengthen business resilience. It delivers simplified management, Windows 10/11 Enterprise multi-session and optimizations for Microsoft 365 Apps for enterprise. Azure Virtual Desktop (AVD) also allows you to deploy and scale your Windows desktops and apps on Azure in minutes, providing integrated security and compliance features to help you keep your apps and data secure.
-As you progress on your journey of enabling remote working for your organization with Azure Virtual Desktop, it's important to understand the disaster recovery capabilities and best practices to strengthen reliability across regions, to keep data safe and employees productive.
-This article will provide you with considerations on Business Continuity and Disaster Recovery (BCDR) prerequisites, deployment steps, and best practices. Diverse options and strategies will be discussed, and reference architectures will be offered. Content presented in this document will enable you to prepare a successful BCDR plan, helping you bring more resilience to your business during planned and unplanned downtime events.
-Disasters and outages can be of several types and have different impact: resiliency and recovery will be discussed in depth for both local and region-wide events, also including recovery of the service in a different remote Azure region (Geo Disaster Recovery - Geo-DR).
-Architecting AVD for resiliency and availability, before BCDR, is also critical. Providing maximum local resiliency will reduce the impact of failure events and will reduce the requirement to execute recovery procedures. In this document, high-availability will also be considered, and best-practices provided.
+
+As you progress on your journey of enabling remote working for your organization with Azure Virtual Desktop, it's important to understand the disaster recovery capabilities and best practices to strengthen reliability across regions, to keep data safe and employees productive. This article will provide you with considerations on Business Continuity and Disaster Recovery (BCDR) prerequisites, deployment steps, and best practices. Diverse options and strategies will be discussed, and reference architectures will be offered. Content presented in this document will enable you to prepare a successful BCDR plan, helping you bring more resilience to your business during planned and unplanned downtime events.
+
+Disasters and outages can be of several types and have different impact: resiliency and recovery will be discussed in depth for both local and region-wide events, also including recovery of the service in a different remote Azure region (Geo Disaster Recovery - Geo-DR). Architecting AVD for resiliency and availability is also critical. Providing maximum local resiliency will reduce the impact of failure events and will reduce the requirement to execute recovery procedures. In this document, high-availability will also be considered, and best-practices provided.
 
 ## Azure Virtual Desktop Control Plane
 
@@ -55,7 +55,10 @@ Depending on the number of AZ used, customers should evaluate over-provisioning 
 
 :::image type="content" source="images/azure-az-picture.png " alt-text="Picture showing Azure Zones, Datacenters and Geographies.":::
 
-For the storage part, due to the many possible combinations of types, replication options, service capabilities, and availability restrictions in some regions, FSLogix Cloud Cache will be used over specific storage replication mechanisms. OneDrive isn't covered and assumed to be highly redundant and globally available.
+For the storage part, due to the many possible combinations of types, replication options, service capabilities, and availability restrictions in some regions, FSLogix Cloud Cache will be used over specific storage replication mechanisms.
+
+OneDrive isn't covered in this article, for more details on redundancy and high-availability it is possible to use [this](https://docs.microsoft.com/compliance/assurance/assurance-sharepoint-onedrive-data-resiliency) article.
+
 In the remaining part of this content, a reference architecture will be produced for the two different AVD Host Pool types, and observations will also be provided to compare with other solutions:
 
 - **Personal**
@@ -110,7 +113,7 @@ For each single AVD Host Pool, a BCDR strategy can be based on Active-Active or 
   - For each Host Pool in the primary region, a second Host Pool is deployed in the secondary region, as in the previous case.
     - The amount of compute resources active in the secondary region is reduced compared to the primary region, depending on the budget available. Automatic scaling could be used to provide more compute capacity but will require some additional time and Azure capacity isn't guaranteed.
   - This configuration will provide higher RTO, compared to the active-active approach, but will be less expensive.
-  - Administrator intervention is required to execute a failover procedure in presence of an Azure outage. The secondary Host Pool doesn't generally provide the users with access to AVD resources, only the primary Host Pool does.
+  - Administrator intervention is required to execute a failover procedure in presence of an Azure outage. The secondary Host Pool doesn't normally provide the users with access to AVD resources, only the primary Host Pool does.
   - Each Host Pool has its own storage account/s if user profiles must be persisted.
   - Users will consume AVD services with optimal latency and performance, will eventually be  affected only if an Azure outage will happen. It's recommended to validate this scenario using the [Azure Virtual Desktop Experience Estimator](https://azure.microsoft.com/services/virtual-desktop/assessment) tool, performances should be acceptable, even if degraded, also for the secondary DR environment.
   - Users will be assigned to only one set of Application Groups (Desktop and/or Remote Apps). During normal operations, these apps will be in the primary Host Pool. During an outage, and after a failover, users will be assigned to Application Groups in the secondary Host Pool. No duplicate entries will be shown in the user AVD client feed, then the same workspace can be used, everything will be transparent to the users.  
@@ -162,7 +165,7 @@ For diagnostics and monitoring, we do recommend using the same Log Analytics wor
 
 - Since Cloud Cache will be used:
   - It's recommended to use Premium tier for the Session Host VM OS managed disk.
-  - It's recommended to move the [Cloud Cache](https://docs.microsoft.com/azure/virtual-machines/capacity-reservation-overview) to the temporary VM drive and use local SSD storage.
+  - It's recommended to move the [Cloud Cache](https://docs.microsoft.com/fslogix/cloud-cache-configuration-reference#cachedirectory) to the temporary VM drive and use local SSD storage.
 
 ### Storage
 
@@ -185,7 +188,7 @@ In the reference architecture provided in this article, at least two separate st
   - Region pairs are fixed.
   - Failover isn't transparent, and failback requires storage reconfiguration.
 - Limits
-  - There are limits in the size, IOPS, bandwidth MB/s for both Azure File Share and ANF storage accounts and volumes: if necessary, in AVD is possible to use more than one for the same Host Pool using [Per-Group settings](https://docs.microsoft.com/fslogix/configure-per-user-per-group-ht) in FSLogix but require additional planning and configuration.
+  - There are limits in the size, IOPS, bandwidth MB/s for both [Azure File Share](https://docs.microsoft.com/azure/storage/files/storage-files-scale-targets) and [ANF](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels) storage accounts and volumes: if necessary, in AVD is possible to use more than one for the same Host Pool using [Per-Group settings](https://docs.microsoft.com/fslogix/configure-per-user-per-group-ht) in FSLogix but require additional planning and configuration.
 
 The storage account used for MSIX application packages should be distinct from the other accounts used for Profile and Office containers. The following Geo-DR options are available, the latter is recommended:
 
@@ -227,7 +230,7 @@ An example of the Cloud Cache configuration, and related registry keys, is repor
 :::image type="content" source="images/fslogix-cc-registry-keys-office.png " alt-text="Screenshot of Cloud Cache registry keys for Office Container.":::
 
 > [!NOTE]
-> In the print screens above, not all the recommended registry keys for FSLogix and Cloud Cache are reported for brevity and simplicity. Please follow [this](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix) article for complete details.
+> In the screenshots above, not all the recommended registry keys for FSLogix and Cloud Cache are reported for brevity and simplicity. Please follow [this](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix) article for complete details.
 
 **Secondary Region = West Europe**
 
