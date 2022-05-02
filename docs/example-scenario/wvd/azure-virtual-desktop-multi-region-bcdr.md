@@ -55,7 +55,7 @@ Depending on the number of AZ used, customers should evaluate over-provisioning 
 
 :::image type="content" source="images/azure-az-picture.png " alt-text="Picture showing Azure Zones, Datacenters and Geographies.":::
 
-For the storage part, due to the many possible combinations of types, replication options, service capabilities, and availability restrictions in some regions, FSLogix Cloud Cache will be used over specific storage replication mechanisms.
+For the storage part, due to the many possible combinations of types, replication options, service capabilities, and availability restrictions in some regions, [Cloud Cache](https://docs.microsoft.com/fslogix/cloud-cache-resiliency-availability-cncpt) component from [FSLogix](https://docs.microsoft.com/fslogix/overview) will be used over specific storage replication mechanisms.
 
 OneDrive isn't covered in this article, for more details on redundancy and high-availability it is possible to use [this](https://docs.microsoft.com/compliance/assurance/assurance-sharepoint-onedrive-data-resiliency) article.
 
@@ -169,7 +169,7 @@ For diagnostics and monitoring, we do recommend using the same Log Analytics wor
 
 ### Storage
 
-In the reference architecture provided in this article, at least two separate storage accounts will be used for each AVD Host Pool: one for FSLogix Profile container and one for Office container data. One additional storage account required for MSIX packages. The following considerations apply:
+In the reference architecture provided in this article, at least two separate storage accounts will be used for each AVD Host Pool: one for FSLogix Profile container and one for Office container data. One additional storage account required for [MSIX](https://docs.microsoft.com/azure/virtual-desktop/what-is-app-attach) packages. The following considerations apply:
 
 - [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) Share and [Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction) (ANF) are the recommended storage alternatives.
 - Azure File Share can provide zone resiliency through the usage of Zone-Replicated Storage resiliency option (ZRS), which is recommended if available in the region.
@@ -246,7 +246,7 @@ An example of the Cloud Cache configuration, and related registry keys, is repor
 The Cloud Cache configuration and replication mechanism suggested above will guarantee profile data replication between different regions with minimal data loss. Since the same (user profile) file can be opened in ReadWrite mode by only one process, concurrent access should be avoided, thus users shouldn't open a connection to both Host Pools at the same time. 
 In the diagram below what would happen is explained in detail:
 
-:::image type="content" source="images/cloud-cache-replication-diagram.png" alt-text="High-level overview of Cloud Cache replication flow.":::
+:::image type="content" source="images/cloud-cache-replication-diagram.png" alt-text="High-level overview of Cloud Cache replication flow." lightbox="images/cloud-cache-replication-diagram.png":::
 
 1. AVD user will launch AVD client and will open a published application (Desktop or Remote App) assigned on the primary region Host Pool.
 2. FSLogix will retrieve the user Profile and Office containers and mount the underlying storage VHD/X from the storage account located in the primary region.
@@ -255,7 +255,7 @@ In the diagram below what would happen is explained in detail:
 5. The FSLogix component running on the AVD Session Host in the secondary region will try to mount the user profile VHD/X files from the local storage account but will fail since these files are locked by the Cloud Cache component running on AVD Session Host in the primary region.
 6. In the default FSLogix and Cloud Cache configuration, the user will be not allowed to sign-in and an error will be tracked in FSLogix diagnostic logs (*ERROR_LOCK_VIOLATION 33 (0x21)*).
 
-:::image type="content" source="images/fslogix-log.png" alt-text="Print screen of FSLogix diagnostic log.":::
+:::image type="content" source="images/fslogix-log.png" alt-text="Screenshot of FSLogix diagnostic log." lightbox="images/fslogix-log.png":::
 
 ### Identity
 
@@ -264,13 +264,13 @@ One of the most important dependencies that AVD needs to be always available is 
 - **Azure Active Directory**
   - It's a global multi-region and resilient service with 99.99% high-availability [SLA](https://azure.microsoft.com/support/legal/sla/active-directory/v1_1/), no additional action is required in this context as part of an AVD BCDR plan.
 - **Active Directory Domain Services**
-  - For AD DS to be resilient and highly available, even if there's a region wide disaster, it's recommended to deploy at least two Domain Controllers (DC) in the primary Azure region, in different Availability Zones (AZ) if available, and ensure proper replication with the infrastructure in the secondary region and eventually on-premises. At least one additional DC should be created in the secondary region with Global Catalog and DNS roles.
+  - For AD DS to be resilient and highly available, even if there's a region wide disaster, it's recommended to deploy at least two Domain Controllers (DC) in the primary Azure region, in different Availability Zones (AZ) if available, and ensure proper replication with the infrastructure in the secondary region and eventually on-premises. At least one additional DC should be created in the secondary region with Global Catalog and DNS roles. A reference architecture is provided in [this](https://docs.microsoft.com/azure/architecture/reference-architectures/identity/adds-extend-domain) article. 
 - **Azure Active Directory (AD) Connect**
   - If you're using Azure AD with AD DS and then [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-azure-ad-connect) to synchronize user identity data between AD DS and Azure AD, then resiliency and recovery of this service should be also considered if there's protection from a permanent disaster. 
   - High availability and disaster recovery can be provided installing a second instance of the service in the secondary region and enabling [Staging Mode](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-topologies#staging-server) (hot-standby mode).
   - If there's recovery, the administrator will be required to promote the secondary instance taking it out of staging mode following the exact procedure as placing a server into staging mode.
 
-:::image type="content" source="images/ad-connect-configuration-wizard.png" alt-text="Print screen of AD Connect configuration wizard.":::
+:::image type="content" source="images/ad-connect-configuration-wizard.png" alt-text="Screenshot of AD Connect configuration wizard.":::
 
 - **Azure Active Directory Domain Services**
   - Can be used in some scenarios as an alternative to AD DS.
@@ -288,6 +288,35 @@ One of the most important dependencies that AVD needs to be always available is 
 :::image type="content" source="images/avd-pooled-host-pool-diagram.png" alt-text="Reference BCDR architecture for Pooled Host Pool." lightbox="images/avd-pooled-host-pool-diagram.png":::
 
 ## Failover and Failback
+
+### Personal Host Pool Scenario
+
+> [!NOTE]
+> In this section only active-passive model will be covered since active-active wouldn't require any failover or administrator intervention.
+
+Failover and failback for Personal Host Pool is different since there's no Cloud Cache and external storage used for Profile and Office containers. FSLogix technology can still be used to save containers data out from the Session Host, and/or OneDrive can be used to save what matters for the users but isn't considered in this article.  For more information, see the article [Redirect and move Windows known folders to OneDrive](https://docs.microsoft.com/onedrive/redirect-known-folders). Additionally, there will be no secondary Host Pool in the DR region, then no need to create additional workspaces and AVD resources to replicate and keep aligned. The same Session Host VMs will be replicated using Azure native technology called Azure Site Recovery (Azure Site Recovery).
+
+Azure Site Recovery can be used in several different scenarios, the one required for AVD is Azure-to-Azure DR as described in the article and diagram below:
+
+[Azure to Azure disaster recovery architecture in Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-architecture)
+
+:::image type="content" source="images/asr-dr-scenario.png" alt-text="Diagram for Azure Site Recovery Azure-to-Azure DR.":::
+
+The following considerations and recommendations apply:
+
+- Azure Site Recovery failover isn't automatic, it must be triggered by an administrator using the Portal or [Powershell/API](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell).
+- The entire Azure Site Recovery configuration and operations can be scripted and automated using [PowerShell](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell).
+- Azure Site Recovery has a declared RTO inside its [Service Level Agreement](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/) (SLA) paper of two hours. Most of the times, Azure Site Recovery can failover VMs within minutes.
+- Azure Site Recovery can be used with Azure Backup, as documented in [this article](https://docs.microsoft.com/azure/site-recovery/site-recovery-backup-interoperability) for more information and limitations to be aware.
+- Azure Site Recovery must be enabled at VM level, there's no direct integration in the AVD portal experience. Failover and failback must be triggered as well at single VM level.
+- Azure Site Recovery provides test failover capability in a separate subnet for general Azure VMs: it isn't recommended/supported to use this feature for AVD VMs since you'll have two identical AVD Session Hosts calling back home (AVD Control Plane) at the same time.
+- Azure Site Recovery doesn't maintain Virtual Machine (VM) “extensions” when replicating it. If you enabled/used any custom extension for AVD Session Host VMs, you'll have to re-enable after failover or failback. The AVD built-in extensions "*joindomain*” and “*Microsoft.PowerShell.DSC*” are only used at Session Host VM creation time, then it's safe to lose them after a first failover.
+- Be sure to review [this article](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix) and check requirements, limitations, and compatibility matrix for Azure Site Recovery Azure-to-Azure DR scenario, specifically the supported OS versions.
+- When failover a VM from one region to another, the VM starts up in the target disaster recovery region in an unprotected state. Failback is possible but user must [reprotect](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect) VMs in the secondary region, and then enable replication back to the primary region.
+- Periodical testing of failover and failback procedures should be executed, and an exact list of steps and recovery actions documented based on the specific AVD environment.
+
+> [!NOTE]
+> Azure Site Recovery is now integrated with [On-Demand Capacity Reservation](https://azure.microsoft.com/blog/guarantee-capacity-access-with-ondemand-capacity-reservations-now-in-preview/). With this integration, you can use the power of capacity reservations with Site Recovery to reserve compute capacity in the disaster recovery (DR) region and guarantee your failovers. When you assign a capacity reservation group (CRG) for your protected VMs, Site Recovery will failover the VMs to that CRG. Additionally, a compute SLA gets added to the existing Site Recovery’s Recovery Time Objective (RTO) SLA of 2 hours.
 
 ### Pooled Host Pool Scenario
 
@@ -327,34 +356,6 @@ Finally, these are some important recommendations:
 - It's highly recommended to automate the failover process using PowerShell, AZ CLI, or other available API/tool.
 - The entire failover and failback procedure should be tested extensively and periodically.
 - A regular configuration alignment check should be conducted to ensure Host Pools in the primary and secondary DR region are in sync.
-
-### Personal Host Pool Scenario
-
-Similarly to what described already for Pooled Host Pool, in this section only active-passive model will be covered since active-active wouldn't require any failover or administrator intervention.
-
-Failover and failback for Personal Host Pool is different since there's no Cloud Cache and external storage used for Profile and Office containers. FSLogix technology can still be used to save containers data out from the Session Host, and/or OneDrive can be used to save what matters for the users but isn't considered in this article.  For more information, see the article [Redirect and move Windows known folders to OneDrive](https://docs.microsoft.com/onedrive/redirect-known-folders). Additionally, there will be no secondary Host Pool in the DR region, then no need to create additional workspaces and AVD resources to replicate and keep aligned. The same Session Host VMs will be replicated using Azure native technology called Azure Site Recovery (Azure Site Recovery).
-
-Azure Site Recovery can be used in several different scenarios, the one required for AVD is Azure-to-Azure DR as described in the article and diagram below:
-
-[Azure to Azure disaster recovery architecture in Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-architecture)
-
-:::image type="content" source="images/asr-dr-scenario.png" alt-text="Diagram for Azure Site Recovery Azure-to-Azure DR.":::
-
-The following considerations and recommendations apply:
-
-- Azure Site Recovery failover isn't automatic, it must be triggered by an administrator using the Portal or [Powershell/API](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell).
-- The entire Azure Site Recovery configuration and operations can be scripted and automated using [PowerShell](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell).
-- Azure Site Recovery has a declared RTO inside its [Service Level Agreement](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/) (SLA) paper of two hours. Most of the times, Azure Site Recovery can failover VMs within minutes.
-- Azure Site Recovery can be used with Azure Backup, as documented in [this article](https://docs.microsoft.com/azure/site-recovery/site-recovery-backup-interoperability) for more information and limitations to be aware.
-- Azure Site Recovery must be enabled at VM level, there's no direct integration in the AVD portal experience. Failover and failback must be triggered as well at single VM level.
-- Azure Site Recovery provides test failover capability in a separate subnet for general Azure VMs: it isn't recommended/supported to use this feature for AVD VMs since you'll have two identical AVD Session Hosts calling back home (AVD Control Plane) at the same time.
-- Azure Site Recovery doesn't maintain Virtual Machine (VM) “extensions” when replicating it. If you enabled/used any custom extension for AVD Session Host VMs, you'll have to re-enable after failover or failback. The AVD built-in extensions "*joindomain*” and “*Microsoft.PowerShell.DSC*” are only used at Session Host VM creation time, then it's safe to lose them after a first failover.
-- Be sure to review [this article](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix) and check requirements, limitations, and compatibility matrix for Azure Site Recovery Azure-to-Azure DR scenario, specifically the supported OS versions.
-- When failover a VM from one region to another, the VM starts up in the target disaster recovery region in an unprotected state. Failback is possible but user must [reprotect](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect) VMs in the secondary region, and then enable replication back to the primary region.
-- Periodical testing of failover and failback procedures should be executed, and an exact list of steps and recovery actions documented based on the specific AVD environment.
-
-> [!NOTE]
-> Azure Site Recovery is now integrated with [On-Demand Capacity Reservation](https://azure.microsoft.com/blog/guarantee-capacity-access-with-ondemand-capacity-reservations-now-in-preview/). With this integration, you can use the power of capacity reservations with Site Recovery to reserve compute capacity in the disaster recovery (DR) region and guarantee your failovers. When you assign a capacity reservation group (CRG) for your protected VMs, Site Recovery will failover the VMs to that CRG. Additionally, a compute SLA gets added to the existing Site Recovery’s Recovery Time Objective (RTO) SLA of 2 hours.
 
 ## Backup
 
