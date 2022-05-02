@@ -4,7 +4,7 @@ titleSuffix: Azure Application Architecture Guide
 description: Explore services like time series, microservices, asset hierarchies, and calculations engines in an IIoT analytics solution.
 author: khilscher
 ms.author: kehilsch
-ms.date: 04/27/2022
+ms.date: 05/03/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
