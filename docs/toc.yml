@@ -4224,7 +4224,7 @@ items:
               - name: Cross-platform chat
                 href: solution-ideas/articles/cross-platform-chat.yml
       - name: Identity
-        items:
+        items:    
           - name: Get started
             href: identity/identity-start-here.yml
           - name: Guides
@@ -4376,6 +4376,8 @@ items:
                 href: solution-ideas/articles/collaboration-microsoft-365.yml
               - name: Hybrid identity
                 href: solution-ideas/articles/hybrid-identity.yml
+              - name: Microsoft Sentinel
+                href: solution-ideas/articles/microsoft-sentinel-automated-response.yml
       - name: Integration
         items:
           - name: Get started
