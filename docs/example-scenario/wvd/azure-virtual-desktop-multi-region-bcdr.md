@@ -2,7 +2,7 @@
 title: Multi-Region Business Continuity and Disaster Recovery (BCDR) for Azure Virtual Desktop
 description: Learn which options and scenarios are possible to design and implement an effective multi-region BCDR strategy for Azure Virtual Desktop.
 author: igorpag
-ms.author: igorpag, bebaur
+ms.author: igorpag
 ms.date: 04/22/2022
 ms.topic: conceptual
 ms.service: architecture-center
