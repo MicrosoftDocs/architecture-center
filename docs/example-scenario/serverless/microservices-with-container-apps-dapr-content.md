@@ -145,12 +145,12 @@ For deployment instructions, see the [Red Dog Demo: Azure Container Apps Deploym
 
 Principal author:
 
-[Alice Gibbons](https://www.linkedin.com/in/alicejgibbons) | Specialist (GBB)
+- [Alice Gibbons](https://www.linkedin.com/in/alicejgibbons) | Specialist (GBB)
 
 Other contributors:
 
-[Kendall Roden](https://www.linkedin.com/in/kendallroden) | Senior program manager
-[Lynn Orrell](https://www.linkedin.com/in/lynn-orrell) | Principal solution specialist (GBB)
+- [Kendall Roden](https://www.linkedin.com/in/kendallroden) | Senior program manager
+- [Lynn Orrell](https://www.linkedin.com/in/lynn-orrell) | Principal solution specialist (GBB)
 
 ## Next steps
 
