@@ -5,7 +5,7 @@ metadata:
   description: Predict customer churn and find patterns in existing data associated with the predicted churn rate using Azure AI Platform.
   author: EdPrice-MSFT
   ms.author: edprice
-  ms.date: 04/19/2022
+  ms.date: 04/29/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea

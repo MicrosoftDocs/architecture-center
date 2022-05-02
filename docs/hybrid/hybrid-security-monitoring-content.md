@@ -28,6 +28,13 @@ The architecture consists of the following workflow:
 - **On-premises Windows and Linux systems**. Systems with the Log Analytics Agent installed.
 - **Azure Windows and Linux VMs**. Systems on which the Microsoft Defender for Cloud monitoring agent is installed.
 
+### Components
+
+- [Microsoft Defender for Cloud](https://azure.microsoft.com/services/defender-for-cloud)
+- [Microsoft Sentinel](https://azure.microsoft.com/services/microsoft-sentinel/)
+- [Azure Stack](https://azure.microsoft.com/overview/azure-stack/)
+- [Azure Monitor](https://azure.microsoft.com/services/monitor/)
+
 ## Recommendations
 
 The following recommendations apply for most scenarios. Follow these recommendations unless you have a specific requirement that overrides them.
@@ -309,6 +316,13 @@ To learn more about Microsoft Sentinel, refer to the following articles:
 - [Azure Stack][azure-stack]
 - [Azure Stack Automate Onboarding PowerShell][azure-stack-automate-onboarding-powershell]
 - [Azure Stack Hub][azure-stack-hub]
+
+## Related resources
+
+- [Implement a secure hybrid network](../reference-architectures/dmz/secure-vnet-dmz.yml)
+- [Enhanced-security hybrid messaging infrastructure — web access](../example-scenario/hybrid/secure-hybrid-messaging-web.yml)
+- [Centralized app configuration and security](../solution-ideas/articles/appconfig-key-vault.yml)
+- [Automate Sentinel integration with Azure DevOps](../example-scenario/devops/automate-sentinel-integration.yml)
 
 [architectural-diagram]: ./images/hybrid-security-monitoring.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/hybrid-security-monitoring.vsdx
