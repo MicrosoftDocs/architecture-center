@@ -1,21 +1,6 @@
 This reference architecture illustrates how Azure Arc enables you to manage, govern, and secure servers across on-premises, multicloud, and edge scenarios, and is based on the Azure Arc Jumpstart [ArcBox for IT Pros](https://azurearcjumpstart.io/azure_jumpstart_arcbox/itpro/) implementation. ArcBox is a solution that provides an easy to deploy sandbox for all things Azure Arc. ArcBox for IT Pros is a version of ArcBox that is intended for users who want to experience Azure Arc-enabled servers capabilities in a sandbox environment. 
 
-## Potential use cases
-
-The typical uses for this architecture include:
-
-- Organize, govern, and inventory large groups of virtual machines (VMs) and servers across multiple environments.
-- Enforce organization standards and assess compliance at scale for all your resources anywhere with Azure Policy.
-- Easily deploy supported VM extensions to Arc-enabled servers.
-- Configure and enforce Azure Policy for VMs and servers hosted across multiple environments.
-
 ## Architecture
-
-![An Azure Arc hybrid server topology diagram with Arc enabled servers connected to Azure.][architectural-diagram]
-
-*Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
-
-### Workflow
 
 :::image type="content" source="./images/azure-arc-hybrid-config.png" alt-text="An Azure Arc hybrid server topology diagram with Arc-enabled servers connected to Azure." lightbox="./images/azure-arc-hybrid-config.png" :::
 
@@ -189,12 +174,17 @@ To deploy the reference implementation, follow the steps in the GitHub repo by s
 [Azure Automation State Configuration]: /azure/automation/automation-dsc-overview
 [Azure Log Analytics]: /azure/azure-monitor/logs/log-analytics-overview
 [Azure Monitor]: https://azure.microsoft.com/services/monitor/
+[Azure Arc]: /azure/azure-arc
 [Azure Policy Guest Configuration]: /azure/governance/policy/concepts/guest-configuration
 [Azure Resource Group]: /azure/azure-resource-manager/management/manage-resource-groups-portal#what-is-a-resource-group
 [Azure virtual machines]: /azure/virtual-machines/
 [Azure Virtual Network]: https://azure.microsoft.com/services/virtual-network/
 [caf-arc-servers-automation]: /azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-servers/eslz-automation-arc-server
 [CAF Arc Accelerator]: /azure/cloud-adoption-framework/scenarios/hybrid/enterprise-scale-landing-zone
+[windows-agent-download]: https://aka.ms/AzureConnectedMachineAgent
+[microsoft-package-repo]: https://packages.microsoft.com
+[agent-overview]: /azure/azure-arc/servers/agent-overview
+[Azure Automation State Configuration]: /azure/automation/automation-dsc-overview
 [connect-hybrid-at-scale]: /azure/azure-arc/servers/onboard-service-principal
 [Hyper-V nested virtualization]: /virtualization/hyper-v-on-windows/user-guide/nested-virtualization
 [manage-vm-extensions]: /azure/azure-arc/servers/manage-vm-extensions
