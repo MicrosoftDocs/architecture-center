@@ -4,7 +4,7 @@ titleSuffix: Azure Application Architecture Guide
 description: Read about architectural considerations in an IIoT analytics solution. View discussions about performance, availability, and networking.
 author: khilscher
 ms.author: kehilsch
-ms.date: 05/02/2022
+ms.date: 05/03/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -94,4 +94,3 @@ For more security, industrial firewalls can use [Service Tags](/azure/virtual-ne
 - [Microsoft Azure IoT Reference Architecture (PDF)](https://aka.ms/iotrefarchitecture)
 - [Azure Industrial IoT components, tutorials, and source code](https://azure.github.io/Industrial-IoT)
 - [Understand IoT Edge automatic deployments for single devices or at scale](/azure/iot-edge/module-deployment-monitoring)
-
