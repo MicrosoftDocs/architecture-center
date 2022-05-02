@@ -221,13 +221,13 @@ An example of the Cloud Cache configuration, and related registry keys, is repor
   - Registry Key path = **HKEY_LOCAL_MACHINE > SOFTWARE > FSLogix > Profiles**
   - *CCDLocations* value = **type=smb,connectionString=\\northeustg1\profiles;type=smb,connectionString=\\westeustg1\profiles**
 
-:::image type="content" source="images/fslogix-cc-registry-keys.png " alt-text="Screenshot of Cloud Cache registry keys.":::
+:::image type="content" source="images/fslogix-cc-registry-keys.png" alt-text="Screenshot of Cloud Cache registry keys." lightbox="images/fslogix-cc-registry-keys.png":::
 
 - Office container storage account URI = **\\northeustg2\odcf**
   - Registry Key path = **HKEY_LOCAL_MACHINE > SOFTWARE >Policy > FSLogix > ODFC**
   - *CCDLocations* value = **type=smb,connectionString=\\northeustg2\odfc;type=smb,connectionString=\\westeustg2\odfc**
 
-:::image type="content" source="images/fslogix-cc-registry-keys-office.png " alt-text="Screenshot of Cloud Cache registry keys for Office Container.":::
+:::image type="content" source="images/fslogix-cc-registry-keys-office.png" alt-text="Screenshot of Cloud Cache registry keys for Office Container." lightbox="images/fslogix-cc-registry-keys-office.png":::
 
 > [!NOTE]
 > In the screenshots above, not all the recommended registry keys for FSLogix and Cloud Cache are reported for brevity and simplicity. Please follow [this](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix) article for complete details.
