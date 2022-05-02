@@ -24,8 +24,8 @@ Each stage of an IIoT Solution consists of multiple design patterns. Computerisa
 ## Visibility
 
 - Patterns
-    - Time Series Analytics
-    - Anomaly Detection and Root Cause Analysis
+    - [Time Series Analysis](./iiot-visibility-patterns.md#time-series-analysis)
+    - [Anomaly Detection and Root Cause Analysis](./iiot-visibility-patterns.md#anomaly-detection-and-root-cause-analysis)
 - Solution Samples
     - [Operational Visibility with Anomaly Detection and Root Cause Analysis](https://github.com/Azure-Samples/industrial-iot-patterns/tree/main/2_OperationalVisibility)
 ## Transparency 
