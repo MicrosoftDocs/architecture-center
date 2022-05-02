@@ -31,7 +31,7 @@ Determine your [VM size][vm-windows-sizes] requirements based on the expected vo
 
 Create a separate virtual data disk for storing the database, logs, and sysvol folder for Active Directory. Do not store these items on the same disk as the operating system. By default, data disks that are attached to a VM use write-through caching. However, this form of caching can conflict with the requirements of AD DS. For this reason, set the *Host Cache Preference* setting on the data disk to *None*.
 
-Deploy at least two VMs running AD DS as domain controllers and add them to an [availability set][availability-set].
+Deploy at least two VMs running AD DS as domain controllers and add them to different [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview). If not available in the region, deploy in an [Availability Set][availability-set].
 
 ### Networking recommendations
 
