@@ -38,7 +38,7 @@ Following sections includes common connectivity patterns for industrial solution
     - IoT Edge runtime can be installed on a Virtual Machine (Linux or Windows) as well as dedicated hardware like [Azure  Edge](https://azure.microsoft.com/en-us/products/azure-stack/edge/#overview) 
 
 - Deployment Sample
-    - [OPC UA Connectivity Sample using EFLOW](https://github.com/Azure-Samples/industrial-iot-patterns)
+    - [OPC UA Connectivity Sample using EFLOW](https://github.com/Azure-Samples/industrial-iot-patterns/tree/main/1_Connectivity)
 
 
 ## Protocol Translation and Edge Gateway
