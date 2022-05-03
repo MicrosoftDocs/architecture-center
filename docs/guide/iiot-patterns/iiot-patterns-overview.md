@@ -32,8 +32,8 @@ Each stage of an IIoT Solution consists of multiple design patterns. Computerisa
 ## Transparency
 
 - Patterns
-    - Business KPI Calculation Engine
-    - Asset Hierarchy and Digital Twin Management
+    - [Business KPI Calculation Engine](./iiot-transparency-patterns.md#business-kpi-calculation-engine)
+    - Asset Hierarchy and Digital Twin Management (*In Progress...*)
 
 - Solution Samples
     - [Overall Equipment Effectiveness(OEE) and KPI Calculation Engine](https://github.com/Azure-Samples/industrial-iot-patterns/tree/main/3_OEECalculationEngine)
@@ -42,8 +42,9 @@ Each stage of an IIoT Solution consists of multiple design patterns. Computerisa
 ## Predictions
 
 - Patterns
-    - Predict process and equipment failures using machine learning
-    - Augment manual quality inspection using deep learing based image recognition
+    - [Predict process and equipment failures using machine learning (Batch)](./iiot-prediction-patterns.md#predict-process-and-equipment-failures-using-machine-learning-batch)
+    - [Predict process and equipment failures using machine learning (Near real-time)](./iiot-prediction-patterns.md#predict-process-and-equipment-failures-using-machine-learning-near-real-time)
+    - [Augment manual quality inspection using deep learing based image recognition](./iiot-prediction-patterns.md#augment-manual-quality-inspection-using-deep-learing-based-image-recognition)
 
 - Solution Samples
     - [Exploratory Data Analysis for failure predictions using machine learning](https://github.com/Azure-Samples/industrial-iot-patterns/tree/main/5_ExplorationDataAnalysis)
