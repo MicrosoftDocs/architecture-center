@@ -1,6 +1,6 @@
 It is very common for companies to run a hybrid environment, with resources running on Azure and on premises, and with Microsoft 365, which has some applications such as Word, Excel, Powerpoint, and Exchange online. These services are covered in more detail in [Customer IT environment and the threats](./customer-it-environment-threats.yml), the second article in this series of five articles. 
 
-Most of Azure resources, such as VMs, Azure applications, and Azure AD, may be protected by security services running on Azure as described in details in [Building the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml), the third article in this series.
+Most of Azure resources, such as VMs, Azure applications, and Azure AD, may be protected by security services running on Azure as described in details in [Building the first layer of defense with Azure Security services](../solution-ideas/azure-security-build-first-layer-defense.yml), the third article in this series.
 
 But you can also consider security services provided by Microsoft 365 to build an additional security layer for some of the most used Azure resources, and still include protection for your on-premises and Office 365 environments.
 
@@ -104,7 +104,7 @@ Other contributors:
 
 To get all details regarding this Architecture reference, see the other articles in this series:
 
-- Part 1: [Use Azure monitoring to integrate security components](./azure-monitor-integrate-security-components.yml)
+- Part 1: [Use Azure monitoring to integrate security components](../guide/security/azure-monitor-integrate-security-components.yml)
 - Part 2: [Customer IT environment and the threats](./customer-it-environment-threats.yml)
-- Part 3: [Building the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml)
-- Part 5: [Integration between Azure and Microsoft 365 Defender security services](./microsoft-365-defender-security-integrate-azure.yml)
+- Part 3: [Building the first layer of defense with Azure Security services](.azure-security-build-first-layer-defense.yml)
+- Part 5: [Integration between Azure and Microsoft 365 Defender security services](.microsoft-365-defender-security-integrate-azure.yml)

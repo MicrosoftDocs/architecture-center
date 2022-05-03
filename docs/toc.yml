@@ -5208,13 +5208,13 @@ items:
               - name: Threat assessments
                 items: 
                   - name: Map threats to your IT environment
-                    href: guide/security/map-threats-it-environment.yml
+                    href: solution-ideas/security/map-threats-it-environment.yml
                   - name: Building the first layer of defense with Azure Security services
-                    href: guide/security/azure-security-build-first-layer-defense.yml
+                    href: solution-ideas/security/azure-security-build-first-layer-defense.yml
                   - name: Build the second layer of defense with Microsoft 365 Defender Security services
-                    href: guide/security/microsoft-365-defender-build-second-layer-defense.yml
+                    href: solution-ideas/security/microsoft-365-defender-build-second-layer-defense.yml
                   - name: Integration between Azure and Microsoft 365 Defender security services
-                    href: guide/security/microsoft-365-defender-security-integrate-azure.yml
+                    href: solution-ideas/security/microsoft-365-defender-security-integrate-azure.yml
       - name: Storage
         items:
           - name: Get started

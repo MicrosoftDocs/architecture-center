@@ -1,14 +1,14 @@
-Every business IT infrastructure running on-premises or on the Cloud may have vulnerabilities and breaches that may compromise your information and make it fail. Azure public cloud has many services available so that you may build an entire IT infrastructure to run your business leveraging a variety of infrastructure and platform services. Those components contain resources for your network, compute, storage, applications, databases, and identity services.
+Every business IT infrastructure running on premises or in the Cloud may have vulnerabilities and breaches that might compromise your information or allow your systems to fail. Azure public cloud has many services on which you can build IT infrastructure to run your business by using a variety of infrastructure and platform services. Those components contain resources for your services: network, compute, storage, applications, databases, and identity.
 
-Microsoft Azure offers a great list of security services to protect those resources and then allow you to improve your security posture by avoiding and mitigating vulnerabilities and breaches. These security services need to be well architected and follow some recommendations from Microsoft to work correctly.
+Microsoft Azure also offers security services to protect those resources. Through using these security services, you can improve your security posture by avoiding and mitigating vulnerabilities and breaches. To make effective use of these services, they must be well architected and follow recommendations from Microsoft.
 
-Interestingly, some of those security services are free of cost, such as NSG (Network Security Group), Storage encryption, TLS/SSL, shared access signature (SAS) token, and many others that we will cover with more details in this document.
+Some of these security services are free of cost, such as network security groups (NSGs), storage encryption, TLS/SSL, shared access signature (SAS) tokens, and many others that this article covers in detail.
 
-This is the third document that is part of a series of 5. To review the other two documents with an introduction and a review about how threats can be mapped against a business IT Environment, please, take a look at those links:
+This is the third article that is part of a series of five. To review the previous two documents in this series, including the introduction and a review of how you can map threats against an IT environment, see the following articles:
 
--   Microsoft cloud security integration map against Threats -- Introduction \<link\>
+- [Use Azure monitoring to integrate security components](../guide/security/azure-monitor-integrate-security-components.yml)
 
--   Business IT environment VS Attackers \<link\>
+- [Map threats to your IT environment](./map-threats-it-environment.yml)
 
 ## Potential use cases
 
@@ -24,7 +24,7 @@ The diagram below doesn't contain all of the Azure security services that are av
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-monitor-integrate-security-components.vsdm) of this architecture.*
 
-As stated earlier, Azure security services may be found in different documents such as Azure Security benchmarks and Azure Security Baselines ([Azure Security Benchmark overview](https://docs.microsoft.com/en-us/security/benchmark/azure/security-baselines-overview)). In this document, we will highlight only the Azure security services presented in the diagram.
+As stated earlier, Azure security services may be found in different documents such as Azure Security benchmarks and Azure Security Baselines ([Azure Security Benchmark overview](/security/benchmark/azure/security-baselines-overview)). In this document, we will highlight only the Azure security services presented in the diagram.
 
 Let's review some details presented in the diagram.
 
@@ -157,8 +157,8 @@ Other contributors:
 
 To get all details regarding this Architecture reference, see the other articles in this series:
 
-- Part 1: [Use Azure monitoring to integrate security components](./azure-monitor-integrate-security-components.yml)
-- Part 3: [Building the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml)
+- Part 1: [Use Azure monitoring to integrate security components](../guide/security/azure-monitor-integrate-security-components.yml)
+- Part 2: [Map threats to your IT environment](./azure-security-build-first-layer-defense.yml)
 - Part 4: [Build the second layer of defense with Microsoft 365 Defender Security services](./microsoft-365-defender-build-second-layer-defense.yml)
 - Part 5: [Integration between Azure and Microsoft 365 Defender security services](./microsoft-365-defender-security-integrate-azure.yml)
 

@@ -2,9 +2,9 @@ This is the last article from a series of 5 articles about how to build defense 
 
 Security defense in depth is built with Azure Security services, Microsoft 365 Defender services, and the integration of those services through Azure Monitoring services and Microsoft Sentinel.
 
-[Use Azure monitoring to integrate security components](./azure-monitor-integrate-security-components.yml), the first article, provides an overall view of how you can integrate Azure and Microsoft 365 Defender security services.
+[Use Azure monitoring to integrate security components](../guide/security/azure-monitor-integrate-security-components.yml), the first article, provides an overall view of how you can integrate Azure and Microsoft 365 Defender security services.
 
-[Customer IT environment and the threats](./customer-it-environment-threats.yml), the second article, describes some alternatives to map examples of common threats (tactics and techniques) against an example of a hybrid IT environment with on-premises and Microsoft cloud services (Azure and Office 365).
+[Customer IT environment and the threats](./map-threats-it-environment.yml), the second article, describes some alternatives to map examples of common threats (tactics and techniques) against an example of a hybrid IT environment with on-premises and Microsoft cloud services (Azure and Office 365).
 
 [Building the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml), the third article, maps an example of some Azure security services that create the first layer of defense to protect your Azure environment according to Azure Security Benchmark version 3 (link).
 
@@ -47,7 +47,7 @@ The components, part of the diagram, are explained in a nutshell so that you may
 
 3.  **Azure Monitor Logs**, also known as Log Analytics, is one of the most important services. It is the responsible for storing all the logs and alerts that will be used to create Alerts, Insights and Incidents. It is also the service which Microsoft Sentinel work on top of it. Basically, everything you ingest on Log Analytics will be available automatically to Microsoft Sentinel. For more information about Log Analytics, see [Overview of Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview).
 
-4.  **Microsoft Sentinel** works like a façade for Log Analytics. While Log Analytics stores all logs and alerts from various sources, Microsoft Sentinel offers APIs that help with ingestion of logs from various sources. Those sources include on-premises VMs, Azure VMs, alerts from Microsoft 365 Defender Security, and others. Microsoft Sentinel correlates the logs to provide insights about what is going on in your environment, avoiding false positives. Microsoft Sentinel is the core of this whole Security and monitoring system that Microsoft Cloud has. For more information about Microsoft Sentinel, see[What is Microsoft Sentinel?](/azure/sentinel/overview).
+4.  **Microsoft Sentinel** works like a façade for Log Analytics. While Log Analytics stores all logs and alerts from various sources, Microsoft Sentinel offers APIs that help with ingestion of logs from various sources. Those sources include on-premises VMs, Azure VMs, alerts from Microsoft 365 Defender Security, and others. Microsoft Sentinel correlates the logs to provide insights about what is going on in your environment, avoiding false positives. Microsoft Sentinel is the core of this whole Security and monitoring system that Microsoft Cloud has. For more information about Microsoft Sentinel, see [What is Microsoft Sentinel?](/azure/sentinel/overview).
 
 The services in the preceding list may be considered core services because they work throughout Azure, Office 365, and on-premises environments. At the same time, there are also other monitoring services that are focused on specific resources:
 
@@ -136,7 +136,7 @@ Other contributors:
 
 To get all details regarding this Architecture reference, see the other articles in this series:
 
-- Part 1: [Use Azure monitoring to integrate security components](./azure-monitor-integrate-security-components.yml)
+- Part 1: [Use Azure monitoring to integrate security components](../guide/security/azure-monitor-integrate-security-components.yml)
 - Part 2: [Customer IT environment and the threats](./customer-it-environment-threats.yml)
 - Part 3: [Building the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml)
 - Part 4: [Build the second layer of defense with Microsoft 365 Defender Security services](./microsoft-365-defender-build-second-layer-defense.yml)
