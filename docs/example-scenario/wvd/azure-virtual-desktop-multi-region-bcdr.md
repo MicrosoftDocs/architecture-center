@@ -46,7 +46,7 @@ To reduce the impact of single Availability Zone (AZ) failure, it's still recomm
 - At the [compute](https://docs.microsoft.com/azure/virtual-desktop/faq#can-i-set-availability-options-when-creating-host-pools-) layer spreading the AVD Session Hosts across different AZ.
 - At the [storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy) layer using zone-resiliency, whenever possible and available.
 - At the [networking](https://docs.microsoft.com/azure/vpn-gateway/create-zone-redundant-vnet-gateway) layer deploying zone-resilient Express Route and VPN (virtual private networks) gateways.
-- For each dependency, for example for Active Directory Domain Controllers (AD DC) and other external resources accessed by AVD users.
+- For each dependency, review the impact of a single zone outage and plan mitigations. For example for Active Directory Domain Controllers (AD DC) and other external resources accessed by AVD users should be deployed across multiple zones.
 
 Depending on the number of AZ used, customers should evaluate over-provisioning the number of Session Hosts to compensate for the loss of one zone: in this case, even with (n-1) zones available, user experience and performances will be ensured.
 
