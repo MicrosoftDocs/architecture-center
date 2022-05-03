@@ -35,7 +35,7 @@ Following sections includes common connectivity patterns for industrial solution
     - [IoT Edge production checklist](https://docs.microsoft.com/en-us/azure/iot-edge/production-checklist?view=iotedge-2018-06)
     - [OPC Publisher module configuration guide](https://github.com/Azure/Industrial-IoT/blob/main/docs/modules/publisher.md)
     - [Security baseline for IoT Hub](https://docs.microsoft.com/en-us/security/benchmark/azure/baselines/iot-hub-security-baseline?toc=/azure/iot-hub/TOC.json)
-    - IoT Edge runtime can be installed on a Virtual Machine (Linux or Windows) as well as dedicated hardware like [Azure Stack Edge](https://azure.microsoft.com/en-us/products/azure-stack/edge/#overview) 
+    - IoT Edge runtime can be installed on a Virtual Machine (Linux or Windows) as well as dedicated hardware like [Azure  Edge](https://azure.microsoft.com/en-us/products/azure-stack/edge/#overview) 
 
 - Deployment Sample
     - [OPC UA Connectivity Sample using EFLOW](https://github.com/Azure-Samples/industrial-iot-patterns)

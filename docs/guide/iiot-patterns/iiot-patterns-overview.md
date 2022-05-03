@@ -28,7 +28,8 @@ Each stage of an IIoT Solution consists of multiple design patterns. Computerisa
     - [Anomaly Detection and Root Cause Analysis](./iiot-visibility-patterns.md#anomaly-detection-and-root-cause-analysis)
 - Solution Samples
     - [Operational Visibility with Anomaly Detection and Root Cause Analysis](https://github.com/Azure-Samples/industrial-iot-patterns/tree/main/2_OperationalVisibility)
-## Transparency 
+
+## Transparency
 
 - Patterns
     - Business KPI Calculation Engine
@@ -38,7 +39,7 @@ Each stage of an IIoT Solution consists of multiple design patterns. Computerisa
     - [Overall Equipment Effectiveness(OEE) and KPI Calculation Engine](https://github.com/Azure-Samples/industrial-iot-patterns/tree/main/3_OEECalculationEngine)
     - [Factory and Supply Chain Digital Twin](https://github.com/Azure-Samples/industrial-iot-patterns/tree/main/4_FactorySupplyChainTwin)
 
-## Predictions 
+## Predictions
 
 - Patterns
     - Predict process and equipment failures using machine learning

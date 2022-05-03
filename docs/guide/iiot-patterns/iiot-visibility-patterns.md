@@ -1,4 +1,4 @@
-Operational visibility enables manufacturers to gain insights & drive decision-making to improve quality and be more efficient and improve safety. Visibilty involves visualizing and correlating IoT data with multiple other business systems including Historians, MES, ERP, QMS to impact metrics like OEE, energy costs, machine downtime, labor efficiency which directly impacts the business value.
+Visibility enables manufacturers to gain insights & drive decision-making to improve quality and be more efficient and improve safety. It involves visualizing and correlating IoT data with multiple other business systems including Historians, MES, ERP, QMS to impact metrics like OEE, energy costs, machine downtime, labor efficiency which directly impacts the business value.
 
 Following section includes common visibility patterns for industrial solutions. 
 
