@@ -18,6 +18,6 @@ products:
   - azure-sentinel
 name: Map threats to your IT environment
 summary: Placeholder summary.
-thumbnailUrl: /azure/architecture/browse/thumbs/customer-it-environment-threats-thumbnail.png
+thumbnailUrl: /azure/architecture/browse/thumbs/map-threats-it-environment-thumbnail.png
 content: |
-  [!include[](customer-it-environment-threats-content.md)]
+  [!include[](map-threats-it-environment.md)]
