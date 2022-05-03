@@ -20,6 +20,8 @@ Each stage of an IIoT Solution consists of multiple design patterns. Computerisa
     - [Cloud Gateway Options](./iiot-connectivity-patterns.md#cloud-gateway-options)
 - Solution Samples
     - [Connectivity with Industrial Assets using OPC UA and Edge for Linux on Windows (EFLOW)](https://github.com/Azure-Samples/industrial-iot-patterns/tree/main/1_Connectivity)
+    - [Connecting OPC UA device(s) with IoT Central application via an IoT Edge Gateway device](https://github.com/iot-for-all/iotc-opcua-iotedge-gateway)
+    - [Connecting modbus device(s) with IoT Central application via an IoT Edge Gateway device](https://github.com/iot-for-all/iotc-opcua-iotedge-gateway)
 
 ## Visibility
 
