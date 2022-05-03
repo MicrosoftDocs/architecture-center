@@ -57,10 +57,13 @@ Following section includes common prediction patterns for industrial solutions.
     - Need custom dashboards to provide action recommendations that may impact current running manufacturing process.
 
 - Considerations
-    - Camera hardware
-    - Environmental conditions like light, angle, lo
-    - Computer vision recipes
+    - Camera hardware to capture images
+    - Environmental conditions like light, angle, location
+    - Labeling images for objection 
+    - Preprocessing and algorithms used for  
     - ...
     
 - Deployment Sample
     - [Operationalizing deep learning based image recognition models on the factory floor](https://github.com/Azure-Samples/industrial-iot-patterns/tree/main/7_ImageRecognitionForIIoT)
+    - [Vision on Edge (VoE)](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/factory-ai-vision)
+    - [Azure Machine Learning anywhere with Kubernetes](https://github.com/Azure/AML-Kubernetes)
