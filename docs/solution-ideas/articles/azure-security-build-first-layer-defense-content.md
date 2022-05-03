@@ -18,7 +18,7 @@ The Azure security layer on this diagram was based on Azure Security Benchmark v
 
 The diagram below doesn't contain all of the Azure security services that are available, but it presents some of the security services that are most used by companies. Some of them have the control code according to the Azure Security Benchmark V3 documentation, so that you may have a reference about it.
 
-:::image type="content" alt-text="Image alt text." source="../media/azure-security-build-first-layer-defense-architecture.png" lightbox="images/azure-security-build-first-layer-defense-architecture.png":::
+:::image type="content" alt-text="Image alt text." source="../media/azure-security-build-first-layer-defense-architecture.png" lightbox="../media/azure-security-build-first-layer-defense-architecture.png":::
 
 ©2021 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation.
 

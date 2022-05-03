@@ -31,7 +31,7 @@ That is the purpose of this article!
 
 In the diagram below we added the Microsoft 365 Defender security services layer to build a better defense in depth for an IT environment. That layer may work along with Azure security services.
 
-:::image type="content" alt-text="Image alt text." source="../media/microsoft-365-defender-build-second-layer-defense-architecture.png" lightbox="images/microsoft-365-defender-build-second-layer-defense-architecture.png":::
+:::image type="content" alt-text="Image alt text." source="../media/microsoft-365-defender-build-second-layer-defense-architecture.png" lightbox="../media/microsoft-365-defender-build-second-layer-defense-architecture.png":::
 
 ©2021 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation.
 
@@ -59,7 +59,7 @@ In the diagram below we added the Microsoft 365 Defender security services layer
 
 Let's see a real use case where companies may consider using Microsoft 365 Defender security services and what resources they may protect.
 
-:::image type="content" alt-text="Image alt text." source="../media/microsoft-365-defender-build-second-layer-defense-attack-order.png" lightbox="images/microsoft-365-defender-build-second-layer-defense-attack-order.png":::
+:::image type="content" alt-text="Image alt text." source="../media/microsoft-365-defender-build-second-layer-defense-attack-order.png" lightbox="../media/microsoft-365-defender-build-second-layer-defense-attack-order.png":::
 
 In the use case that is represented in the diagram, you see some potential threats at the bottom. In the middle are the Microsoft 365 Defender services. On the top, are the services that run in the customer's environment that those threats try to reach, which are defended by Microsoft 365 Defender.
 
@@ -73,7 +73,7 @@ For more information about Microsoft 365 Defender, see [Microsoft 365 Defender](
 
 Currently, you may need to use multiple portals to manage Microsoft 365 Defender services. However, Microsoft is working to centralize functionality as much as possible. The following diagram shows which portals are currently available and their relationships with each other.
 
-:::image type="content" alt-text="A diagram that shows the current relationship of portals to services." source="../media/microsoft-365-defender-build-second-layer-defense-portals.png" lightbox="images/microsoft-365-defender-build-second-layer-defense-portals.png":::
+:::image type="content" alt-text="A diagram that shows the current relationship of portals to services." source="../media/microsoft-365-defender-build-second-layer-defense-portals.png" lightbox="../media/microsoft-365-defender-build-second-layer-defense-portals.png":::
 
 *Security.microsoft.com* is currently the most important portal available, because it brings functionalities from Microsoft Defender for Office (1) and from Microsoft Defender for Endpoint (2). However, at the time of writing this article (March 2022) you may still access the *protection.office.com* for security functionalities regarding Office 365 (3).
 

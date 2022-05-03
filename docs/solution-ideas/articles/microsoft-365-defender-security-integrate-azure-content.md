@@ -31,7 +31,7 @@ Those are the services in the diagram:
 
 The following diagram shows a complete architecture reference, including an example of a customer environment, a set of known threats used as an example and described according to its tactics (in blue), and its techniques (in the text box) according to the MITRE ATT&CK matrix. The central part of the diagram has two layers of security services. There is also one layer with specific Azure monitoring services that are integrated through Azure Monitoring core services (on the left side of the diagram). The key component of this integration is Microsoft Sentinel.
 
-:::image type="content" alt-text="Image alt text." source="../media/microsoft-365-defender-security-integrate-azure-architecture.png" lightbox="images/microsoft-365-defender-security-integrate-azure-architecture.png":::
+:::image type="content" alt-text="Image alt text." source="../media/microsoft-365-defender-security-integrate-azure-architecture.png" lightbox="../media/microsoft-365-defender-security-integrate-azure-architecture.png":::
 
 ©2021 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation.
 
@@ -111,7 +111,7 @@ Because this article presents many different services, the following list presen
 
 The pricing for the services that are presented in this series of articles is calculated in various ways. Some services are free of charge, some of have a charge for each use, and some of them have a charge that is based on licensing. So, the best way to estimate the pricing for any of the Azure Security services is to use the [Pricing Calculator](https://azure.microsoft.com/en-us/pricing/calculator/).
 
-:::image type="content" alt-text="Image alt text." source="../media/pricing-calculator-web-page.png" lightbox="images/pricing-calculator-web-page.png":::
+:::image type="content" alt-text="Image alt text." source="../media/pricing-calculator-web-page.png" lightbox="../media/pricing-calculator-web-page.png":::
 
 In the calculator, search for the service that you are interested in, and select it to get all the variables that determine the price for the service.
 
@@ -136,7 +136,7 @@ Other contributors:
 
 To get all details regarding this Architecture reference, see the other articles in this series:
 
-- Part 1: [Use Azure monitoring to integrate security components](../guide/security/azure-monitor-integrate-security-components.yml)
-- Part 2: [Customer IT environment and the threats](./customer-it-environment-threats.yml)
+- Part 1: [Use Azure monitoring to integrate security components](../../guide/security/azure-monitor-integrate-security-components.yml)
+- Part 2: [Map threats to your IT environment](./map-threats-it-environment.yml)
 - Part 3: [Building the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml)
 - Part 4: [Build the second layer of defense with Microsoft 365 Defender Security services](./microsoft-365-defender-build-second-layer-defense.yml)
