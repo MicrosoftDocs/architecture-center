@@ -1,6 +1,6 @@
-It is very common for companies to run a hybrid environment, with resources running on Azure and on premises, and with Microsoft 365, which has some applications such as Word, Excel, Powerpoint, and Exchange online. These services are covered in more detail in [Customer IT environment and the threats](./customer-it-environment-threats.yml), the second article in this series of five articles. 
+It is very common for companies to run a hybrid environment, with resources running on Azure and on premises, and with Microsoft 365, which has some applications such as Word, Excel, Powerpoint, and Exchange online. These services are covered in more detail in [Map threats to your IT environment](./map-threats-it-environment.yml), the second article in this series of five articles. 
 
-Most of Azure resources, such as VMs, Azure applications, and Azure AD, may be protected by security services running on Azure as described in details in [Building the first layer of defense with Azure Security services](../solution-ideas/azure-security-build-first-layer-defense.yml), the third article in this series.
+Most of Azure resources, such as VMs, Azure applications, and Azure AD, may be protected by security services running on Azure as described in details in [Building the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml), the third article in this series.
 
 But you can also consider security services provided by Microsoft 365 to build an additional security layer for some of the most used Azure resources, and still include protection for your on-premises and Office 365 environments.
 
@@ -17,7 +17,7 @@ Depending on the license that you acquire for Microsoft 365, you may also get th
 
 This picture may help you understand Microsoft 365 set of solution and some of the main services it contains:
 
-:::image type="content" alt-text="Image alt text." source="images/microsoft-365-defender-build-second-layer-defense-azure-services.png":::
+:::image type="content" alt-text="Image alt text." source="../media/microsoft-365-defender-build-second-layer-defense-azure-services.png":::
 
 ## Potential use case
 
@@ -31,7 +31,7 @@ That is the purpose of this article!
 
 In the diagram below we added the Microsoft 365 Defender security services layer to build a better defense in depth for an IT environment. That layer may work along with Azure security services.
 
-:::image type="content" alt-text="Image alt text." source="images/microsoft-365-defender-build-second-layer-defense-architecture.png" lightbox="images/microsoft-365-defender-build-second-layer-defense-architecture.png":::
+:::image type="content" alt-text="Image alt text." source="../media/microsoft-365-defender-build-second-layer-defense-architecture.png" lightbox="images/microsoft-365-defender-build-second-layer-defense-architecture.png":::
 
 ©2021 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation.
 
@@ -59,7 +59,7 @@ In the diagram below we added the Microsoft 365 Defender security services layer
 
 Let's see a real use case where companies may consider using Microsoft 365 Defender security services and what resources they may protect.
 
-:::image type="content" alt-text="Image alt text." source="images/microsoft-365-defender-build-second-layer-defense-attack-order.png" lightbox="images/microsoft-365-defender-build-second-layer-defense-attack-order.png":::
+:::image type="content" alt-text="Image alt text." source="../media/microsoft-365-defender-build-second-layer-defense-attack-order.png" lightbox="images/microsoft-365-defender-build-second-layer-defense-attack-order.png":::
 
 In the use case that is represented in the diagram, you see some potential threats at the bottom. In the middle are the Microsoft 365 Defender services. On the top, are the services that run in the customer's environment that those threats try to reach, which are defended by Microsoft 365 Defender.
 
@@ -73,7 +73,7 @@ For more information about Microsoft 365 Defender, see [Microsoft 365 Defender](
 
 Currently, you may need to use multiple portals to manage Microsoft 365 Defender services. However, Microsoft is working to centralize functionality as much as possible. The following diagram shows which portals are currently available and their relationships with each other.
 
-:::image type="content" alt-text="A diagram that shows the current relationship of portals to services." source="images/microsoft-365-defender-build-second-layer-defense-portals.png" lightbox="images/microsoft-365-defender-build-second-layer-defense-portals.png":::
+:::image type="content" alt-text="A diagram that shows the current relationship of portals to services." source="../media/microsoft-365-defender-build-second-layer-defense-portals.png" lightbox="images/microsoft-365-defender-build-second-layer-defense-portals.png":::
 
 *Security.microsoft.com* is currently the most important portal available, because it brings functionalities from Microsoft Defender for Office (1) and from Microsoft Defender for Endpoint (2). However, at the time of writing this article (March 2022) you may still access the *protection.office.com* for security functionalities regarding Office 365 (3).
 
@@ -104,7 +104,7 @@ Other contributors:
 
 To get all details regarding this Architecture reference, see the other articles in this series:
 
-- Part 1: [Use Azure monitoring to integrate security components](../guide/security/azure-monitor-integrate-security-components.yml)
-- Part 2: [Customer IT environment and the threats](./customer-it-environment-threats.yml)
-- Part 3: [Building the first layer of defense with Azure Security services](.azure-security-build-first-layer-defense.yml)
-- Part 5: [Integration between Azure and Microsoft 365 Defender security services](.microsoft-365-defender-security-integrate-azure.yml)
+- Part 1: [Use Azure monitoring to integrate security components](../../guide/security/azure-monitor-integrate-security-components.yml)
+- Part 2: [Map threats to your IT environment](./map-threats-it-environment.yml)
+- Part 3: [Building the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml)
+- Part 5: [Integration between Azure and Microsoft 365 Defender security services](./microsoft-365-defender-security-integrate-azure.yml)

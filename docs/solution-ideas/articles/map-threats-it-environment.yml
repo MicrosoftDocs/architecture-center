@@ -20,4 +20,4 @@ name: Map threats to your IT environment
 summary: Placeholder summary.
 thumbnailUrl: /azure/architecture/browse/thumbs/map-threats-it-environment-thumbnail.png
 content: |
-  [!include[](map-threats-it-environment.md)]
+  [!include[](map-threats-it-environment-content.md)]

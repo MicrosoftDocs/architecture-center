@@ -22,7 +22,7 @@ Some organizations use Cyber Kill Chain®, a methodology from Lockheed Martin, t
 
 ## Architecture
 
-:::image type="content" alt-text="Diagram of three categories of services (on-premises, Office 365, and Azure), top techniques of attack, and the resource categories of the Zero Trust model that are threatened by those techniques." source="images/customer-it-environment-threats-architecture.png" lightbox="images/customer-it-environment-threats-architecture.png":::
+:::image type="content" alt-text="Diagram of three categories of services (on-premises, Office 365, and Azure), top techniques of attack, and the resource categories of the Zero Trust model that are threatened by those techniques." source="../media/customer-it-environment-threats-architecture.png" lightbox="images/customer-it-environment-threats-architecture.png":::
 
 ©2021 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation.
 

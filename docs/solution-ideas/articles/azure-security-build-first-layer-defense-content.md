@@ -6,7 +6,7 @@ Some of these security services are free of cost, such as network security group
 
 This is the third article that is part of a series of five. To review the previous two documents in this series, including the introduction and a review of how you can map threats against an IT environment, see the following articles:
 
-- [Use Azure monitoring to integrate security components](../guide/security/azure-monitor-integrate-security-components.yml)
+- [Use Azure monitoring to integrate security components](../../guide/security/azure-monitor-integrate-security-components.yml)
 
 - [Map threats to your IT environment](./map-threats-it-environment.yml)
 
@@ -18,7 +18,7 @@ The Azure security layer on this diagram was based on Azure Security Benchmark v
 
 The diagram below doesn't contain all of the Azure security services that are available, but it presents some of the security services that are most used by companies. Some of them have the control code according to the Azure Security Benchmark V3 documentation, so that you may have a reference about it.
 
-:::image type="content" alt-text="Image alt text." source="images/azure-security-build-first-layer-defense-architecture.png" lightbox="images/azure-security-build-first-layer-defense-architecture.png":::
+:::image type="content" alt-text="Image alt text." source="../media/azure-security-build-first-layer-defense-architecture.png" lightbox="images/azure-security-build-first-layer-defense-architecture.png":::
 
 ©2021 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation.
 
@@ -157,7 +157,7 @@ Other contributors:
 
 To get all details regarding this Architecture reference, see the other articles in this series:
 
-- Part 1: [Use Azure monitoring to integrate security components](../guide/security/azure-monitor-integrate-security-components.yml)
+- Part 1: [Use Azure monitoring to integrate security components](../../guide/security/azure-monitor-integrate-security-components.yml)
 - Part 2: [Map threats to your IT environment](./azure-security-build-first-layer-defense.yml)
 - Part 4: [Build the second layer of defense with Microsoft 365 Defender Security services](./microsoft-365-defender-build-second-layer-defense.yml)
 - Part 5: [Integration between Azure and Microsoft 365 Defender security services](./microsoft-365-defender-security-integrate-azure.yml)
