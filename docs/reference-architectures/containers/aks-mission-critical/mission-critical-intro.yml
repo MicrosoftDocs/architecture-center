@@ -1,0 +1,30 @@
+### YamlMime:Architecture
+metadata:
+  title: Highly reliable mission critical workload on AKS
+  description: Reference architecture for a workload that is accessed over a public endpoint without additional dependencies to other company resources.
+  author: calcof
+  ms.author: pnp
+  ms.date: 05/01/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+  ms.category:
+    - containers
+    - networking
+    - security
+    - devops
+name: Highly reliable mission critical workload on AKS
+azureCategories:
+  - containers
+  - networking
+  - security
+  - devops
+summary: Reference architecture for a workload that is accessed over a public endpoint without additional dependencies to other company resources.
+products:
+  - azure-front-door
+  - azure-container-registry
+  - azure-kubernetes-service
+  - azure-rbac
+thumbnailUrl: /azure/architecture/browse/thumbs/mission-critical-online.png
+content: |
+   [!include[](mission-critical-intro-content.md)]

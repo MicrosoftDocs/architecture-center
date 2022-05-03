@@ -2818,6 +2818,8 @@ items:
                 href: example-scenario/magento/magento-azure.yml
               - name: Microservices architecture on AKS
                 href: reference-architectures/containers/aks-microservices/aks-microservices.yml
+              - name: Mission critical workload on AKS
+                href: reference-architectures/containers/aks-mission-critical/mission-critical-intro.yml                    
               - name: Multiplayer server hosting with ACI
                 href: /gaming/azure/reference-architectures/multiplayer-synchronous-aci
                 maintainContext: true
