@@ -56,6 +56,7 @@ Following sections includes common connectivity patterns for industrial solution
 
 - Deployment Sample
     - [IoT Edge LoRaWAN Starter Kit](https://github.com/Azure/iotedge-lorawan-starterkit)
+    - [Connecting modbus device(s) with IoT Central application via an IoT Edge Gateway device](https://github.com/iot-for-all/iotc-opcua-iotedge-gateway)
    
 ## Built-in cloud connector
 
