@@ -45,7 +45,7 @@ items:
             href: guide/design-principles/design-for-operations.md
           - name: Use managed services
             href: guide/design-principles/managed-services.md
-          - name: Use the best data store for the job
+          - name: Use the best data store
             href: guide/design-principles/use-the-best-data-store.md
           - name: Design for evolution
             href: guide/design-principles/design-for-evolution.md
@@ -2498,6 +2498,8 @@ items:
                 href: reference-architectures/event-hubs/partitioning-in-event-hubs-and-kafka.yml
               - name: Precision medicine pipeline with genomics
                 href: example-scenario/precision-medicine/genomic-analysis-reporting.yml
+              - name: Relationship mesh solution on Azure
+                href: example-scenario/analytics/relationship-mesh-solution-azure.yml
               - name: Stream processing with Azure Databricks
                 href: reference-architectures/data/stream-processing-databricks.yml
               - name: Stream processing with Stream Analytics
@@ -2804,6 +2806,10 @@ items:
                 href: example-scenario/apps/build-cncf-incubated-graduated-projects-aks.yml  
               - name: CI/CD pipeline for container workloads
                 href: example-scenario/apps/devops-with-aks.yml
+              - name: Deploy microservices with Container Apps
+                href: example-scenario/serverless/microservices-with-container-apps.yml
+              - name: Deploy microservices with Container Apps and Dapr
+                href: example-scenario/serverless/microservices-with-container-apps-dapr.yml
               - name: Firewall protection for an AKS cluster
                 href: example-scenario/aks-firewall/aks-firewall.yml
               - name: GitOps for AKS
@@ -3432,6 +3438,8 @@ items:
                      href: example-scenario/infrastructure/service-fabric-microservices.yml
                    - name: Deploy microservices and Container Apps
                      href: example-scenario/serverless/microservices-with-container-apps.yml
+                   - name: Deploy microservices with Container Apps and Dapr
+                     href: example-scenario/serverless/microservices-with-container-apps-dapr.yml
                    - name: High-availability blue/green deployment
                      href: example-scenario/blue-green-spring/blue-green-spring.yml
                    - name: Microservices on Azure Service Fabric
@@ -3826,7 +3834,7 @@ items:
                   - name: DevOps with Azure Stack Hub
                     href: solution-ideas/articles/hybrid-continuous-integration.yml
                   - name: Disaster recovery for Stack Hub VMs
-                    href: hybrid/azure-stack-vm-dr.yml
+                    href: hybrid/azure-stack-vm-disaster-recovery.yml
                   - name: Hybrid geo-distributed architecture
                     href: example-scenario/hybrid/hybrid-geo-distributed.yml
                   - name: Hybrid relay connection
@@ -4104,6 +4112,8 @@ items:
             href: reference-architectures/iot/iot-architecture-overview.md
           - name: Guides
             items:
+              - name: Choose an IoT solution
+                href: example-scenario/iot/iot-central-iot-hub-cheat-sheet.yml
               - name: Industry-specific example solutions
                 href: reference-architectures/iot/industry-iot-hub-page.md
               - name: IoT concepts
@@ -4162,8 +4172,6 @@ items:
                     href: example-scenario/iot/application-stamps.yml
               - name: Azure IoT client SDK support
                 href: guide/iot/azure-iot-client-sdk-support.yml
-              - name: Choose an IoT solution
-                href: example-scenario/iot/iot-central-iot-hub-cheat-sheet.yml
               - name: Moving from test to production
                 href: example-scenario/iot/iot-move-to-production.yml
           - name: Architectures
@@ -4403,7 +4411,7 @@ items:
                   - name: Back up files on Azure Stack Hub
                     href: hybrid/azure-stack-backup.yml
                   - name: Disaster recovery for Azure Stack Hub
-                    href: hybrid/azure-stack-vm-dr.yml
+                    href: hybrid/azure-stack-vm-disaster-recovery.yml
                   - name: Hybrid availability and monitoring
                     href: hybrid/hybrid-perf-monitoring.yml
                   - name: Manage configurations for Azure Arc
@@ -5020,8 +5028,6 @@ items:
                 href: solution-ideas/articles/reference-architecture-for-oracle-database-on-azure.yml
               - name: SAP deployment using an Oracle database
                 href: example-scenario/apps/sap-production.yml
-              - name: SAP system on Oracle Database
-                href: example-scenario/apps/sap-on-oracle.yml
       - name: SAP
         items:
           - name: Get started
@@ -5074,8 +5080,6 @@ items:
                 href: reference-architectures/sap/sap-netweaver.yml
               - name: SAP S/4HANA in Linux on Azure
                 href: reference-architectures/sap/sap-s4hana.yml
-              - name: SAP system on Oracle Database on Azure
-                href: example-scenario/apps/sap-on-oracle.yml
           - name: Solution ideas
             items:
               - name: SAP NetWeaver on SQL Server

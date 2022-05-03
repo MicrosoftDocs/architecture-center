@@ -14,7 +14,7 @@ This article describes the considerations for an Azure Kubernetes Service (AKS) 
 
 #### AKS feature support
 
-Azure provides the Container Insights feature that monitoring containers, including AKS clusters. For more information, see [Container insights overview](/azure/azure-monitor/insights/container-insights-overview).
+Azure provides the Container Insights feature that monitors containers, including AKS clusters. For more information, see [Container insights overview](/azure/azure-monitor/insights/container-insights-overview).
 
 AKS provides audit logs at multiple levels that can be useful protecting the system and data proactively. Activity logs provide information about, operations related to account and secret management; diagnostic setting management; server management; and other resource access operations. All logs are recorded with date, time, identity, and other detailed information. You can also access all chronological records of all API calls made into the AKS cluster. This includes information about the caller, time when the call was made, source where the call was initiated, and so on. For more information, see [Enable and review Kubernetes control plane logs in Azure Kubernetes Service (AKS)](/azure/aks/view-master-logs).
 
@@ -44,7 +44,7 @@ Azure's alerting framework allows you to configure alerts to detect suspicious a
 
 AKS is integrated with Azure monitoring services:
 
-- Microsoft Defender for Containers provides many security scanning features. For example Defender for Containers scans images pulled and pushed to container registries and provides recommendations. For details, see [Vulnerability assessment](/azure/defender-for-cloud/defender-for-containers-introduction#vulnerability-assessment). You can also use [file integrity monitoring (FIM)](/azure/defender-for-cloud/file-integrity-monitoring-overview) to check system files.
+- Microsoft Defender for Containers provides many security scanning features. For example, Defender for Containers scans images pulled, pushed, and imported to container registries and provides recommendations. For details, see [Vulnerability assessment](/azure/defender-for-cloud/defender-for-containers-introduction#vulnerability-assessment). You can also use [file integrity monitoring (FIM)](/azure/defender-for-cloud/file-integrity-monitoring-overview) to check system files.
 
 - Azure Monitor can be used to set alerts based on event type to protect system integrity and security. When there are any expected system failures on AKS nodes, AKS autoheals the resource in a timely manner without interruption to system processing.
 
