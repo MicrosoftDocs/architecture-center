@@ -11,7 +11,7 @@ This reference architecture illustrates how Azure Arc enables you to manage, gov
 The architecture consists of the following components:
 
 - An **[Azure Resource Group][Azure Resource Group]** is a container that holds related resources for an Azure solution. The resource group can include all the resources for the solution, or only those resources that you want to manage as a group.
-- **[ArcBox workbook][ArcBox workbook]** is an Azure Monitor workbook, which provides a single pane of glass for monitoring and reporting on ArcBox resources. The workbook acts as a flexible canvas for data analysis and visualization in the Azure portal, gathering information from several data sources from across ArcBox and combining them into an integrated interactive experience..
+- **[ArcBox workbook][ArcBox workbook]** is an Azure Monitor workbook, which provides a single pane of glass for monitoring and reporting on ArcBox resources. The workbook acts as a flexible canvas for data analysis and visualization in the Azure portal, gathering information from several data sources from across ArcBox and combining them into an integrated interactive experience.
 - **[Azure Monitor][Azure Monitor]** enables you to track performance and events for systems running in Azure, on-premises, or in other clouds.
 - **[Azure Policy guest configuration][Azure Policy Guest Configuration]** can audit operating systems and machine configuration both for machines running in Azure and Arc-enabled servers running on-premises or in other clouds.
 - **[Azure Log Analytics][Azure Log Analytics]** is a tool in the Azure portal to edit and run log queries from data collected by Azure Monitor Logs and interactively analyze their results. You can use Log Analytics queries to retrieve records that match particular criteria, identify trends, analyze patterns, and provide various insights into your data. 
@@ -90,7 +90,7 @@ The Connected Machine agent for Linux and Windows communicates outbound securely
 - [Direct connection to Azure public endpoints](/azure/azure-arc/servers/agent-overview#networking-configuration), optionally from behind a firewall or a proxy server.
 - [Azure Private Link](/azure-arc/servers/private-link-security#restrictions-and-limitations) using a Private Link Scope model to allow multiple servers or machines to communicate with their Azure Arc resources using a single private endpoint.
 
-Consult [Network topology and connectivity for Azure Arc-enabled servers](/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-servers/eslz-arc-servers-connectivity) for comprehensive networking guidance for you Arc-enabled servers implementation.
+Consult [Network topology and connectivity for Azure Arc-enabled servers](/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-servers/eslz-arc-servers-connectivity) for comprehensive networking guidance for your Arc-enabled servers implementation.
 
 ## Considerations
 
