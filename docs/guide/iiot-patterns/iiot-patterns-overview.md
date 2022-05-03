@@ -56,7 +56,7 @@ Each stage of an IIoT Solution consists of multiple design patterns. Computerisa
 ## Adaptability 
 
 - Patterns
-    - Control system optimization using Deep Reinforcement Learning
+    - Control system optimization using Deep Reinforcement Learning (*In Progress...*)
 
 - Solution Samples
     - [Control system optimization using Deep Reinforcement Learning (DRL)](https://github.com/Azure-Samples/industrial-iot-patterns/tree/main/8_DeepReinforcementLearningForIIoT)
