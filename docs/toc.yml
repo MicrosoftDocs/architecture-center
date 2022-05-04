@@ -1118,6 +1118,20 @@ items:
               - name: Considerations for naming resources
                 href: /azure/azure-government/documentation-government-concept-naming-resources
                 maintainContext: true
+              - name: IoT scenarios
+                items:
+                  - name: Connected waste management
+                    href: /azure/iot-central/government/tutorial-connected-waste-management
+                    maintainContext: true
+                  - name: Secure worldwide public sector
+                    href: /azure/azure-government/documentation-government-overview-wwps
+                    maintainContext: true
+                  - name: Water consumption monitoring
+                    href: /azure/iot-central/government/tutorial-water-consumption-monitoring
+                    maintainContext: true
+                  - name: Water quality monitoring
+                    href: /azure/iot-central/government/tutorial-water-quality-monitoring
+                    maintainContext: true
               - name: Development
                 items:
                   - name: Azure Government developer guide
@@ -1145,14 +1159,6 @@ items:
                     maintainContext: true
                   - name: Secure Azure computing
                     href: /azure/azure-government/compliance/secure-azure-computing-architecture
-                    maintainContext: true
-              - name: Compliance
-                items:
-                  - name: Azure Government compliance
-                    href: /azure/azure-government/documentation-government-plan-compliance
-                    maintainContext: true
-                  - name: Services compliance scope
-                    href: /azure/azure-government/compliance/azure-services-in-fedramp-auditscope
                     maintainContext: true
               - name: Identity
                 items:
@@ -1232,9 +1238,46 @@ items:
                     maintainContext: true
           - name: Compliance solutions
             items:
-              - name: DoD overview
-                href: /azure/azure-government/documentation-government-overview-dod
+              - name: General compliance
+                items:
+                  - name: Azure Government compliance
+                    href: /azure/azure-government/documentation-government-plan-compliance
+                    maintainContext: true
+                  - name: Services compliance scope
+                    href: /azure/azure-government/compliance/azure-services-in-fedramp-auditscope
+                    maintainContext: true
+                  - name: Azure Security Benchmark
+                    href: /azure/governance/policy/samples/gov-azure-security-benchmark
+                    maintainContext: true
+                  - name: Compliance export controls
+                    href: /azure/azure-government/documentation-government-overview-itar
+                    maintainContext: true
+              - name: CIS Azure Foundations
+                href: /azure/governance/policy/samples/gov-cis-azure-1-3-0
                 maintainContext: true
+              - name: DoD
+                items:
+                  - name: DoD overview
+                    href: /azure/azure-government/documentation-government-overview-dod
+                    maintainContext: true
+                  - name: DoD IL2
+                    href: /azure/compliance/offerings/offering-dod-il2
+                    maintainContext: true
+                  - name: DoD IL4
+                    href: /azure/compliance/offerings/offering-dod-il4
+                    maintainContext: true
+                  - name: DoD IL4 Rgulatory Compliance built-in
+                    href: /azure/governance/policy/samples/gov-dod-impact-level-4
+                    maintainContext: true
+                  - name: DoD IL5
+                    href: /azure/compliance/offerings/offering-dod-il5
+                    maintainContext: true
+                  - name: DoD IL5 Rgulatory Compliance built-in
+                    href: /azure/governance/policy/samples/gov-dod-impact-level-5
+                    maintainContext: true
+                  - name: DoD IL6
+                    href: /offerings/offering-dod-il6
+                    maintainContext: true
               - name: EAR overview
                 href: /azure/compliance/offerings/offering-ear
                 maintainContext: true
@@ -1248,6 +1291,9 @@ items:
                     maintainContext: true
                   - name: FedRAMP moderate compliance
                     href: /azure/governance/policy/samples/fedramp-moderate
+                    maintainContext: true
+                  - name: Compliance acceleration with FedRAMP ATO
+                    href: /azure/azure-government/compliance/documentation-accelerate-compliance
                     maintainContext: true
               - name: IRS 1075 overview
                 href: /azure/compliance/offerings/offering-irs-1075
