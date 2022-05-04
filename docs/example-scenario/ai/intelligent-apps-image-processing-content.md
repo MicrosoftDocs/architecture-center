@@ -22,7 +22,7 @@ This solution is ideal for the retail, game, finance, and insurance industries. 
 
 This scenario covers the back-end components of a web or mobile application. Data flows through the scenario as follows:
 
-1. Adding new files (Image Uploads) in Blob storage triggers an event in Azure Event Grid. The uploading process can be orchestrated via the web or a mobile application. Alternatively, images can be uploaded separately to the Azure Blob storage.
+1. Adding new files (image uploads) in Blob storage triggers an event in Azure Event Grid. The uploading process can be orchestrated via the web or a mobile application. Alternatively, images can be uploaded separately to the Azure Blob storage.
 2. Event Grid sends a notification that triggers the Azure Functions.
 3. Azure Functions calls the Azure Computer Vision API to analyze the newly uploaded image. Computer Vision accesses the image via the blob URL that's parsed by Azure Functions.
 4. Azure Functions persists the Computer Vision API response in Azure Cosmos DB. This response includes the results of the analysis, along with the image metadata.
