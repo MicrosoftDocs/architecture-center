@@ -41,7 +41,6 @@ There are multiple options that can be chosen:
 
 
 
-
 # Using centralized network appliances
 
 There are multiple options that can be chosen:
@@ -82,6 +81,8 @@ ToDo! (UDRs in each hub)
 # Using dedicated Azure Firewalls for East-West traffic
 
 ToDo! (UDRs for RFC1918 to e/w AzFW1, 0/0 to n/s AzFW2)
+
+![The network diagram shows a two region hub and spoke design with separated east west and north south firewalls in each region](media/spoke-to-spoke-through-NVA-2-hubs-north-south.png)
 
 [vwan]: /azure/virtual-wan/virtual-wan-about
 [vwan_limits]: /azure/azure-resource-manager/management/azure-subscription-service-limits#virtual-wan-limits
