@@ -59,7 +59,7 @@ With Virtual WAN:
 
 With hub and spoke:
 
-![The network diagram shows a 2-region hub and spoke design through N V As in the hubs](media/spoke-to-spoke-through-NVA-2-regions.png)
+![The network diagram shows a 2-region hub and spoke design through N V As in the hubs](media/spoke-to-spoke-through-NVA-2-hubs.png)
 
 # Hybrid approaches
 
