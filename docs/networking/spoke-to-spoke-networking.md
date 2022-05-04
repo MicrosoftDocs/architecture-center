@@ -28,6 +28,20 @@ There are multiple options that can be chosen:
 
 - VNet-to-VNet VPN Tunnels: VPN services can be configured to directly connect spoke VNets using first party [VPN gateways](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal?toc=/azure/virtual-network/toc.json) or third party VPN NVAs. The advantage of this option is spoke VNets connectivity cross commercial and sovereign clouds within the same cloud provider or connectivity cross cloud providers. Additionally, in the presence of SDWAN NVAs in each spoke VNet, this can facilitate using third party provider's control plane and feature set to manage virtual network connectivity. Another advantage is to meet compliance requirements for encryption of traffic cross virtual networks in the same Azure datacenter which is not already provided by [MACsec encryption](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-faq#is-vnet-peering-traffic-encrypted).
 
+
+![The network diagram shows a single-region hub and spoke design with spokes interconnected through VNet peerings](media/spoke-to-spoke-through-peerings-2-hubs.png)
+
+![The network diagram shows a 2-region hub and spoke design with spokes in the same region interconnected through VNet peerings](media/spoke-to-spoke-through-peerings-2-hubs-full-mesh.png)
+
+## Single region
+
+![The network diagram shows a basic hub and spoke design with spokes interconnected through a centralized N V A](media/spoke-to-spoke-through-NVA.png)
+
+## Multiple regions
+
+
+
+
 # Using centralized network appliances
 
 There are multiple options that can be chosen:
@@ -36,6 +50,30 @@ There are multiple options that can be chosen:
 - Virtual WAN hub router: fully-managed by Microsoft, Virtual WAN contains a network appliance that will attract traffic from the spokes, and route it either to other Azure regions or to connections to onprem via ExpressRoute, Site-to-Site or Point-to-Site VPN tunnels. This hub router scales up and down automatically, so customers only need to consider the [Virtual WAN Limits][vwan_limits].
 - Azure Firewall: [Azure Firewall][azfw] is a network appliance managed by Microsoft that not only can forward IP packets, but it can also inspect them and apply traffic segmentation policies that you configure. It autoscales too up to the [Azure Firewall Limits][azfw_limits], and it is available both in Virtual WAN and Hub and Spoke topologies. Note that Azure Firewall only provides out-of-the-box multi-region capabilities when used with Virtual WAN, otherwise you need to implement User Defined Routes to achieve cross-regional spoke-to-spoke communication.
 - Network Virtual Appliances: if you prefer to use your own network devices to perform routing and network segmentation, you can certainly deploy Network Virtual Appliances either in a Hub and Spoke or in a Virtual WAN topology, see [Deploy highly available NVAs][nva_ha] and [NVAs in Virtual WAN Hub][vwan_nva]
+
+## Multiple regions
+
+With Virtual WAN:
+
+![The network diagram shows a Virtual WAN design with spokes interconnected through Virtual WAN](media/spoke-to-spoke-through-vwan.png)
+
+With hub and spoke:
+
+![The network diagram shows a 2-region hub and spoke design through N V As in the hubs](media/spoke-to-spoke-through-NVA-2-regions.png)
+
+# Hybrid approaches
+
+Selective peerings:
+
+![The network diagram shows a 2-region hub and spoke design with some spokes interconnected through VNet peerings](media/spoke-to-spoke-through-selective-peerings-2-hubs.png)
+
+Only spokes in the same region are interconnected through VNet peerings:
+
+![The network diagram shows a 2-region hub and spoke design with spokes in the same region interconnected through VNet peerings](media/spoke-to-spoke-through-peerings-2-hubs.png)
+
+Same designs applicable for Virtual WAN. For example:
+
+![The network diagram shows a Virtual WAN design with spokes interconnected through Virtual WAN and some VNet peerings](media/spoke-to-spoke-through-peerings-vwan.png)
 
 # Using Azure Firewall in multi-region Hub and Spoke
 
