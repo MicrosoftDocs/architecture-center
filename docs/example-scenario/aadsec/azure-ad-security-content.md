@@ -78,7 +78,7 @@ Azure AD can use the following conditional access controls with conditional acce
 
 - [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/) lets you configure and assign appropriate roles to users who need to do administrative or specialized tasks with Azure resources. You can use Azure RBAC to create or maintain separate dedicated admin-only accounts, scope access to roles you set up, time limit access, or grant access through approval workflows.
 
-- [Privileged identity management (PIM)](/azure/active-directory/privileged-identity-management/) helps reduce the attack vector for your organization by letting you add additional monitoring and protection to administrative accounts. With [Azure AD PIM](/azure/active-directory/privileged-identity-management/pim-configure), you can manage and control access to resources within Azure, Azure AD, and other Microsoft 365 services with [just-in-time (JIT) access and just-enough-administration (JEA)](/azure/azure-australia/role-privileged). PIM provides a history of administrative activities and a change log, and alerts you when users are added or removed from roles you define.
+- [Privileged identity management (PIM)](/azure/active-directory/privileged-identity-management) helps reduce the attack vector for your organization by letting you add additional monitoring and protection to administrative accounts. With [Azure AD PIM](/azure/active-directory/privileged-identity-management/pim-configure), you can manage and control access to resources within Azure, Azure AD, and other Microsoft 365 services with [just-in-time (JIT) access and just-enough-administration (JEA)](/azure/azure-australia/role-privileged). PIM provides a history of administrative activities and a change log, and alerts you when users are added or removed from roles you define.
 
   You can use PIM to [require approval](/azure/active-directory/privileged-identity-management/pim-resource-roles-configure-role-settings) or justification for activating administrative roles. Users can maintain normal privileges most of the time, and request and receive access to roles they need to complete administrative or specialized tasks. When they complete their work and sign out, or the time limit on their access expires, they can reauthenticate with their standard user permissions.
 
@@ -105,7 +105,7 @@ Azure AD can use the following conditional access controls with conditional acce
 
 ### Risk detection
 
-[Azure Identity Protection](/azure/active-directory/identity-protection/) includes several policies that can help your organization manage responses to suspicious user actions. *User risk* is the probability that a user identity is compromised. *Sign-in risk* is the probability that a sign-in request isn't coming from the user. Azure AD calculates sign-in risk scores based on the probability of the sign-in request originating from the actual user, based on behavioral analytics.
+[Azure Identity Protection](/azure/active-directory/identity-protection) includes several policies that can help your organization manage responses to suspicious user actions. *User risk* is the probability that a user identity is compromised. *Sign-in risk* is the probability that a sign-in request isn't coming from the user. Azure AD calculates sign-in risk scores based on the probability of the sign-in request originating from the actual user, based on behavioral analytics.
 
 - [Azure AD risk detections](/azure/active-directory/reports-monitoring/concept-risk-events) use adaptive machine learning algorithms and heuristics to detect suspicious actions related to user accounts. Each detected suspicious action is stored in a record called a *risk detection*. Azure AD calculates user and sign-in risk probability using this data, enhanced with Microsoft's internal and external threat intelligence sources and signals.
 
@@ -114,6 +114,8 @@ Azure AD can use the following conditional access controls with conditional acce
 - [Real-time remediation](/azure/active-directory/identity-protection/howto-identity-protection-remediate-unblock) allows users to unblock themselves by using SSPR and MFA to self-remediate some risk detections.
 
 ## Considerations
+
+Keep these points in mind when you use this solution.
 
 ### Logging
 
@@ -144,13 +146,13 @@ If some of your apps already use an existing [delivery controller or network con
 
 ## Pricing
 
-Azure Active Directory pricing ranges from free, for features like SSO and MFA, to Premium P2, for features like PIM and Entitlement Management. For pricing details, see [Azure Active Directory pricing](https://azure.microsoft.com/pricing/details/active-directory/).
+Azure Active Directory pricing ranges from free, for features like SSO and MFA, to Premium P2, for features like PIM and Entitlement Management. For pricing details, see [Azure Active Directory pricing](https://azure.microsoft.com/pricing/details/active-directory).
 
 ## Next steps
 
 - [Zero Trust security](https://www.microsoft.com/security/business/zero-trust)
-- [Zero Trust Deployment Guide for Microsoft Azure Active Directory](https://www.microsoft.com/security/blog/2020/04/30/zero-trust-deployment-guide-azure-active-directory/)
+- [Zero Trust Deployment Guide for Microsoft Azure Active Directory](https://www.microsoft.com/security/blog/2020/04/30/zero-trust-deployment-guide-azure-active-directory)
 - [Overview of the security pillar](/azure/architecture/framework/security/overview)
 - [Azure Security Compass](https://github.com/MarkSimos/MicrosoftSecurity/blob/master/Azure%20Security%20Compass%201.1/AzureSecurityCompassIndex.md)
-- [Azure Active Directory demo tenant](https://demos.microsoft.com/) (requires a Microsoft Partner Network account), or [Enterprise Mobility + Security free trial](https://www.microsoft.com/microsoft-365/enterprise-mobility-security)
+- [Azure Active Directory demo tenant](https://demos.microsoft.com) (requires a Microsoft Partner Network account), or [Enterprise Mobility + Security free trial](https://www.microsoft.com/microsoft-365/enterprise-mobility-security)
 - [Azure Active Directory deployment plans](/azure/active-directory/fundamentals/active-directory-deployment-plans)

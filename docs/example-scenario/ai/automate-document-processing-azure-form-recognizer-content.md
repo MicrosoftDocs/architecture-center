@@ -1,6 +1,6 @@
-Automating document processing and data extraction is an integral task in organizations across all industry verticals. AI is one of the proven solutions in this process, although achieving 100 percent accuracy is a distant reality. But using AI for digitization instead of a purely manual process can reduce manual effort by around 80 to 90 percent.
+Automating document processing and data extraction is an integral task in organizations across all industry verticals. AI is one of the proven solutions in this process, although achieving 100 percent accuracy is a distant reality. Nevertheless, using AI for digitization instead of purely manual processes can reduce manual effort by up to 90 percent.
 
-Optical character recognition (OCR) can extract content from images and PDF files, which make up most of the documents that organizations use. This process uses key word search and regular expression matching. These mechanisms extract relevant data from full text and then create structured output. But this approach has drawbacks. Revising the post-extraction process to meet changing document formats requires extensive maintenance effort.
+Optical character recognition (OCR) can extract content from images and PDF files, which make up most of the documents that organizations use. This process uses key word search and regular expression matching. These mechanisms extract relevant data from full text and then create structured output. This approach has drawbacks: revising the post-extraction process to meet changing document formats requires extensive maintenance effort.
 
 This article outlines a scalable and secure solution for building an automated document processing pipeline. The solution uses Azure Form Recognizer for the structured extraction of data. Natural language processing (NLP) models and custom models enrich the data.
 
@@ -28,7 +28,7 @@ The following sections describe the various stages of the data extraction proces
 
 #### Data ingestion and extraction
 
-1. Documents are ingested through a browser at the front end of a web application. The documents contain images or are in PDF format. Azure App Service hosts a back-end application. The solution routes the documents to that application through Azure Application Gateway. This load balancer runs with Azure Web Application Firewall, which helps to protect the application from common attacks and vulnerabilities.
+1. Documents are ingested through a browser at the front-end of a web application. The documents contain images or are in PDF format. Azure App Service hosts a back-end application. The solution routes the documents to that application through Azure Application Gateway. This load balancer runs with Azure Web Application Firewall, which helps to protect the application from common attacks and vulnerabilities.
 
 1. The back-end application posts a request to a Form Recognizer REST API endpoint that uses one of these models:
 
