@@ -2122,6 +2122,9 @@ items:
                     maintainContext: true
                   - name: Machine teaching
                     href: solution-ideas/articles/machine-teaching.yml
+                  - name: Machine learning on Azure IoT Edge
+                    href: /azure/iot-edge/tutorial-machine-learning-edge-01-intro
+                    maintainContext: true
                   - name: Enterprise security and governance
                     href: /azure/machine-learning/concept-enterprise-security
                     maintainContext: true
@@ -2637,7 +2640,7 @@ items:
                 href: solution-ideas/articles/supply-chain-track-and-trace.yml
       - name: Compute + HPC
         items:
-          - name: Get started with HPC
+          - name: Get started
             href: topics/high-performance-computing.md
           - name: Guides
             items:
@@ -2802,9 +2805,14 @@ items:
               - name: BCDR considerations for AKS
                 href: /azure/cloud-adoption-framework/scenarios/aks/eslz-business-continuity-and-disaster-recovery
                 maintainContext: true
-              - name: Security baseline for AKS
-                href: /security/benchmark/azure/baselines/aks-security-baseline
-                maintainContext: true
+              - name: Security considerations
+                items:
+                  - name: Confidential containers on Azure
+                    href: /azure/confidential-computing/confidential-containers
+                    maintainContext: true
+                  - name: Security baseline for AKS
+                    href: /security/benchmark/azure/baselines/aks-security-baseline
+                    maintainContext: true
               - name: Docker guidance
                 items:
                   - name: Monolithic applications
