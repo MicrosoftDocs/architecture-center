@@ -17,7 +17,7 @@ ms.custom:
 
 Everyone owns their code and has an obligation to make all parts of the solution great. The [Code-With Customer/Partner Engineering Playbook](https://github.com/microsoft/code-with-engineering-playbook) by the Microsoft Commercial Software Engineering (CSE) team is a good guide to best engineering practices.
 
-Code with Microsoft Teams, partners, and customers to help them successfully:
+Code with Microsoft employees, partners, and customers to help them successfully:
 
 - Deliver technical implementations.
 - Modernize or build new apps to specifications.
