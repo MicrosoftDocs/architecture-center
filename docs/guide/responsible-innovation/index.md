@@ -9,6 +9,7 @@ ms.service: architecture-center
 products: azure
 ms.subservice: guide
 azureCategories: developer-tools
+categories: developer-tools
 ms.custom:
   - guide
   - seo-aac-fy21q3

@@ -7,6 +7,7 @@ ms.author: pnp
 ms.date: 11/04/2020
 ms.service: architecture-center
 azureCategories: developer-tools
+categories: developer-tools
 products: azure
 ---
 
