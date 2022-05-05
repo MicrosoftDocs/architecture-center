@@ -144,7 +144,8 @@ The following tables summarize the key differences in capabilities.
 | Primary database model         | Relational (column store), telemetry, and time series store                                                                                                                     |
 | SQL language support           | Yes                                                                                                                                                                             |
 | Pricing model                  | Elastically scalable cluster instances                                                                                                                                          |
-| Authentication                 | Based on [Azure Active Directory identities](https://github.com/uglide/azure-content/blob/master/articles/active-directory/active-directory-authentication-scenarios.md) |
+| Authentication                 | Based on [Azure Active Directory identities](https://github.com/uglide/azure-content/blob/master/articles/active-directory/active-directory-authentication-scenarios.md) 
 | Encryption at rest             | Supported, customer managed keys                                                                                                                                                |                                                                                                                                            |
 | Analytics workload performance | Optimized performance for parallel analytics workloads                                                                                                                         |
 | Size limits                    | Linearly scalable               |
+
