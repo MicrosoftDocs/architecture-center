@@ -9,6 +9,8 @@ This solution demonstrates how to build and deploy a machine learning model, wit
 ![Architecture diagram of building and deploying an ML model to predict a bank loan.](../media/loan-chargeoff-prediction-with-sql-server.png)
 *Download a [Visio file](https://arch-center.azureedge.net/loan-chargeoff-prediction.vsdx) for this architecture.*
 
+### Dataflow
+
 1. Develop and deploy R code into the RStudio IDE, which is installed on a VM or DataScientist workstation. It's connected to a Data Science VM, where SQL Server is installed.
 
 2. Predict and score the model. The prediction and scored data can be visualized in Power BI.
