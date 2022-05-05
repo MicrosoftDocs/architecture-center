@@ -5,7 +5,11 @@ This solution demonstrates how to build and deploy a machine learning model with
 ## Architecture
 
 ![Architecture diagram of building and deploying an ML model to predict a bank loan.](../media/loan-chargeoff-prediction-with-sql-server.png)
-*Download an [SVG](../media/loan-chargeoff-prediction-with-sql-server.svg) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/loan-chargeoff-prediction.vsdx) for this architecture.*
+
+### Dataflow
+
+TBD
 
 ### Components
 
