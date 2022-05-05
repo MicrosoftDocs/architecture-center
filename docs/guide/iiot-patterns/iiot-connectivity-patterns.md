@@ -99,7 +99,7 @@ Following sections includes common connectivity patterns for industrial solution
 - Resources
     - [IoT Hub SDKs and Samples](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-sdks)
 
-## Layer 2 connectivity and IoT Edge Gateways
+## Connecting to Layer 2 and IoT Edge Gateways
 
 ![Nested Edge](images/nested-edge.png)
 
