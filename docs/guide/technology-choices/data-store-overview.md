@@ -8,6 +8,9 @@ ms.date: 01/12/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: guide
+azureCategories: developer-tools
+categories: developer-tools
+products: azure
 ms.custom:
   - guide
 ---
