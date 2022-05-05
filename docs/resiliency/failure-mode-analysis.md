@@ -7,6 +7,7 @@ ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
 azureCategories: management-and-governance
+categoires: management-and-governance
 products:
   - azure-app-service
 ms.custom:

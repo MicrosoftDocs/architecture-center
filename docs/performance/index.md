@@ -9,6 +9,7 @@ ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
 azureCategories: compute
+categories: compute
 products: azure
 ms.custom:
   - article

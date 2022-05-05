@@ -8,6 +8,7 @@ ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: reference-architecture
 azureCategories: compute
+categories: compute
 products:
   - azure-kubernetes-service
 ms.custom:
