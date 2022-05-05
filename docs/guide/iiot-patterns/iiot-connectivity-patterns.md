@@ -104,7 +104,7 @@ Following sections includes common connectivity patterns for industrial solution
 ![Nested Edge](images/nested-edge.png)
 
 - Use this pattern when:
-    - Layer 0~1 can only connect with adjust Layer 2.
+    - Layer 0~1 can only connect with adjacent Layer 2.
     - IoT Edge can be installed at Layer 2 and can connect to Layer 0~1.
 
 - Considerations
