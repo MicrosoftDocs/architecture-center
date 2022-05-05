@@ -38,7 +38,7 @@ Following sections includes common connectivity patterns for industrial solution
     - IoT Edge runtime can be installed on a Virtual Machine (Linux or Windows) as well as dedicated hardware like [Azure  Edge](https://azure.microsoft.com/en-us/products/azure-stack/edge/#overview) 
 
 - Deployment Sample
-    - [OPC UA Connectivity Sample using EFLOW](https://github.com/Azure-Samples/industrial-iot-patterns/tree/main/1_Connectivity)
+    - [Connectivity with Industrial Assets using OPC UA and Edge for Linux on Windows (EFLOW)](https://github.com/Azure-Samples/industrial-iot-patterns/tree/main/1_Connectivity)
 
 
 ## Protocol Translation and Edge Gateway
@@ -58,7 +58,7 @@ Following sections includes common connectivity patterns for industrial solution
     - [IoT Edge LoRaWAN Starter Kit](https://github.com/Azure/iotedge-lorawan-starterkit)
     - [Connecting modbus device(s) with IoT Central application via an IoT Edge Gateway device](https://github.com/iot-for-all/iotc-opcua-iotedge-gateway)
    
-## Built-in cloud connector
+## Cloud connector from Industrial Connectivity Software or Historian
 
 ![Integration via built-in cloud connectors](images/historian-cloudconnector.png)
 
@@ -74,17 +74,18 @@ Following sections includes common connectivity patterns for industrial solution
 - Deployment Sample
     - [Connect PTC/Kepware's KEPServerEX to IoT Hub and IoT Edge](https://docs.microsoft.com/en-us/samples/azure-samples/iot-hub-how-to-kepware-edge/azure-iot-edge-connect-ptc/)
 
-## Cloud SDK and Custom Application
+## Constrained devices and add-on sensors
 
 ![Integration via Cloud SDK and Custom Application](images/direct-sdk.png)
 
 - Use this pattern when:
-    - Working with constrained devices or add-on sensors in remote and off-site locations
+    - Working with constrained devices or add-on sensors in remote and off-site locations.
     - Management, processing and analytics functionality of edge gateway is not required for the use case.
+    - Data egress can be allowed to go outside of the Purdue Model.
 
 - Considerations
-    - Requires management of custom application and/or firmware updates
-    - No support for offline or edge analytics scenarios
+    - Requires management of custom application and/or firmware updates.
+    - No support for offline or edge analytics scenarios.
     - [Security baseline for IoT Hub](https://docs.microsoft.com/en-us/security/benchmark/azure/baselines/iot-hub-security-baseline?toc=/azure/iot-hub/TOC.json)
 
 - Resources

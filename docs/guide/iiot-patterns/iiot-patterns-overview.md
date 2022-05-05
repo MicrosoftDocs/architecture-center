@@ -12,12 +12,12 @@ Each stage of an IIoT Solution consists of multiple design patterns. Computerisa
 - Patterns
     - [OPC UA Server and Edge Gateway](./iiot-connectivity-patterns.md#opc-ua-server-and-edge-gateway)
     - [Protocol Translation and Edge Gateway](./iiot-connectivity-patterns.md#protocol-translation-and-edge-gateway)
-    - [Built-in cloud connector](./iiot-connectivity-patterns.md#built-in-cloud-connector)
-    - [Cloud SDK and Custom Application](./iiot-connectivity-patterns.md#cloud-sdk-and-custom-application)
+    - [Cloud connector from Industrial Connectivity Software or Historian](./iiot-connectivity-patterns.md#cloud-connector-from-industrial-connectivity-software-or-historian)
     - [Hierarchy of IoT Edge Gateways](./iiot-connectivity-patterns.md#hierarchy-of-iot-edge-gateways)
     - [Resilient Edge Gateway](./iiot-connectivity-patterns.md#resilient-edge-gateway)
-    - [Scale to multiple factories and business units](./iiot-connectivity-patterns.md#scale-to-multiple-factories-and-business-units)
     - [Cloud Gateway Options](./iiot-connectivity-patterns.md#cloud-gateway-options)
+    - [Scale to multiple factories and business units](./iiot-connectivity-patterns.md#scale-to-multiple-factories-and-business-units)
+    - [Constrained devices and add-on sensors](./iiot-connectivity-patterns.md#constrained-devices-and-add-on-sensors)
 - Solution Samples
     - [Connectivity with Industrial Assets using OPC UA and Edge for Linux on Windows (EFLOW)](https://github.com/Azure-Samples/industrial-iot-patterns/tree/main/1_Connectivity)
     - [Connecting OPC UA device(s) with IoT Central application via an IoT Edge Gateway device](https://github.com/iot-for-all/iotc-opcua-iotedge-gateway)
