@@ -2,9 +2,9 @@
 title: Choose a data transfer technology
 description: Learn about Azure data transfer options like Import/Export, Data Box, Data Factory, and command line and graphical interface tools.
 author: EdPrice-MSFT
-ms.author: pnp
+ms.author: edprice
 categories: azure
-ms.date: 11/20/2019
+ms.date: 05/06/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -39,7 +39,7 @@ If your primary concern is how long it will take to transfer your data, you may 
 
 There are two main options for physically transporting data to Azure:
 
-- **Azure Import/Export**. The Azure Import/Export service<!--(https://azure.microsoft.com/azure/storage/common/storage-import-export-service)--> lets you securely transfer large amounts of data to Azure Blob Storage or Azure Files by shipping internal SATA HDDs or SDDs to an Azure datacenter. You can also use this service to transfer data from Azure Storage to hard disk drives and have these shipped to you for loading on-premises.
+- **Azure Import/Export**. The [Azure Import/Export service](/azure/import-export/storage-import-export-service) lets you securely transfer large amounts of data to Azure Blob Storage or Azure Files by shipping internal SATA HDDs or SDDs to an Azure datacenter. You can also use this service to transfer data from Azure Storage to hard disk drives and have these shipped to you for loading on-premises.
 
 - **Azure Data Box**. [Azure Data Box](https://azure.microsoft.com/services/storage/databox) is a Microsoft-provided appliance that works much like the Azure Import/Export service. Microsoft ships you a proprietary, secure, and tamper-resistant transfer appliance and handles the end-to-end logistics, which you can track through the portal. One benefit of the Azure Data Box service is ease of use. You don't need to purchase several hard drives, prepare them, and transfer files to each one. Azure Data Box is supported by a number of industry-leading Azure partners to make it easier to seamlessly use offline transport to the cloud from their products.
 
