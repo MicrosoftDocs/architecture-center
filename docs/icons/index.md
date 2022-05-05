@@ -6,6 +6,8 @@ author: EdPrice-MSFT
 ms.author: pnp
 ms.date: 11/04/2020
 ms.service: architecture-center
+azureCategories: developer-tools
+products: azure
 ---
 
 # Azure architecture icons

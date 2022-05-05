@@ -6,9 +6,9 @@ author: dcass
 ms.date: 05/18/2020
 ms.topic: conceptual
 ms.service: architecture-center
+products: azure
 ms.subservice: guide
-ms.category:
-  - fcp
+azureCategories: developer-tools
 ms.custom:
   - guide
   - seo-aac-fy21q3

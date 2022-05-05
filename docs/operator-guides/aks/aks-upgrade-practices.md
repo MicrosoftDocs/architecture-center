@@ -7,6 +7,7 @@ ms.date: 04/11/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: reference-architecture
+azureCategories: compute
 products:
   - azure-kubernetes-service
 ms.custom:
