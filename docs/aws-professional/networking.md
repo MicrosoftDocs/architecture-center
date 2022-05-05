@@ -7,6 +7,9 @@ ms.date: 09/17/2021
 ms.topic: reference
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
+azureCategories:
+  - compute
+  - networking
 products:
   - azure-load-balancer
 ---

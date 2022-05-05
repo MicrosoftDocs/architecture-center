@@ -7,7 +7,7 @@ ms.date: 03/07/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
-ms.category:
+azureCategories:
   - management-and-governance
   - databases
 products:

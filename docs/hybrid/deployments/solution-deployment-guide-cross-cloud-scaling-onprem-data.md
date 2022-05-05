@@ -8,6 +8,14 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
+azureCategories:
+  - web
+products:
+  - azure
+  - azure-app-service
+  - azure-dns
+  - azure-sdks
+  - azure-stack-hub
 # Intent: As an Azure Stack Hub operator, I want to deploy an app that uses on-premises data and scales cross-cloud using Azure and Azure Stack Hub so I can combine the benefits of private cloud with the scalability of the public cloud.
 # Keyword: cross-cloud hybrid on-premises app azure stack hub
 ---

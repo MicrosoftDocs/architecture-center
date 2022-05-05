@@ -11,6 +11,9 @@ ms.subservice: cloud-fundamentals
 ms.workload:
   - data-services
 ms.devlang: R
+azureCategories:
+  - ai-machine-learning
+  - analytics
 products:
   - azure-machine-learning
   - azure-data-science-vm

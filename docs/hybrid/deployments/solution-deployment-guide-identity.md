@@ -8,6 +8,11 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
+azureCategories:
+  - web
+products:
+  - azure
+  - azure-stack-hub
 # Intent: As an Azure Stack Hub operator, I want to configure hybrid cloud identity for Azure and Azure Stack Hub apps so my hybrid apps have a hybrid identity architecture.
 # Keyword: hybrid cloud identity azure stack hub
 ---

@@ -7,6 +7,16 @@ ms.date: 08/09/2021
 ms.topic: reference
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
+azureCategories:
+  - compute
+  - networking
+products:
+  - azure-app-service
+  - azure-functions
+  - azure-logic-apps
+  - azure-storage
+  - azure-virtual-machines
+
 ---
 
 # Compute services on Azure and AWS

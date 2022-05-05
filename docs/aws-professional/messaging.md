@@ -7,6 +7,13 @@ ms.date: 08/10/2021
 ms.topic: reference
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
+azureCategories:
+  - databases
+  - web
+products:
+  - azure
+  - azure-queue-storage
+  - azure-service-bus
 ---
 
 # Messaging services on Azure and AWS

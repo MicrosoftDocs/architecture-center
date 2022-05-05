@@ -11,6 +11,11 @@ ms.custom:
   - fcp
   - cse
   - best-practice
+azureCategories:
+  - databases
+products:
+  - azure
+  - azure-virtual-machines
 ---
 
 <!-- cSpell:ignore arsenv arsenvlad DataStax mdadm -->

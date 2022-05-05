@@ -8,6 +8,11 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
+azureCategories:
+  - databases
+products:
+  - azure
+  - azure-stack-hub
 # Intent: As an Azure Stack Hub operator, I want to deploy a highly available MongoDB solution across two Azure Stack Hub environments.
 # Keyword: deploy highly available mongodb azure stack hub
 ---

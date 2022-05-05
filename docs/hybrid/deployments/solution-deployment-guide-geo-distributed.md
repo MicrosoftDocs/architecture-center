@@ -8,6 +8,18 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
+azureCategories:
+  - web
+products:
+  - azure
+  - azure-app-service
+  - azure-devops
+  - azure-dns
+  - azure-pipelines
+  - azure-repos
+  - azure-sdks
+  - azure-stack-hub
+  - azure-traffic-manager
 # Intent: As an Azure Stack Hub operator, I want to direct traffic to specific endpoints with a geo-distributed app solution using Azure and Azure Stack Hub so I can ensure information is routed to endpoints based on regional requirements.
 # Keyword: geo-distributed traffic app azure stack hub
 ---
@@ -356,7 +368,7 @@ In this part, we will:
 
 ### Prerequisites
 
-To complete this  solution:
+To complete this solution:
 
 - [Create an App Service app.](/azure/app-service/)
 - [Map a custom DNS name to your web app.](/azure/app-service/app-service-web-tutorial-custom-domain)
