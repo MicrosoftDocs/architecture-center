@@ -7,6 +7,10 @@ ms.date: 01/03/2022
 ms.topic: guide
 ms.service: architecture-center
 ms.subservice: reference-architecture
+products: azure
+categories: 
+  - compute
+  - storage
 ms.category:
   - compute
   - storage
