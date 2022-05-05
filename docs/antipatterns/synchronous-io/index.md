@@ -7,6 +7,10 @@ ms.date: 06/05/2017
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: anti-pattern
+azureCategories: 
+  - analytics 
+  - storage
+  - web
 products:
   - azure-blob-storage
 ms.custom:

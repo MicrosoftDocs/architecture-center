@@ -7,6 +7,17 @@ ms.date: 03/15/2020
 ms.topic: reference
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
+azureCategories: 
+  - analytics 
+  - compute
+  - developer-tools
+  - devops
+  - networking
+  - web
+products:
+  - azure-devops
+  - azare-dev-tool-integrations
+  - azure-managed-applications
 ms.custom:
   - fcp
 ---

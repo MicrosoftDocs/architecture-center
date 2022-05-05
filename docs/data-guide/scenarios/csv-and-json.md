@@ -6,6 +6,13 @@ ms.date: 02/12/2018
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+azureCategories:
+  - analytics
+  - databases
+  - storage
+products:
+  - azure-sql-database
+  - azure-storage
 ms.custom:
   - guide
 ---

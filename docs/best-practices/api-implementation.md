@@ -4,10 +4,14 @@ titleSuffix: Best practices for cloud applications
 description: Learn about best practices for implementing a web API and publishing it to make it available to client applications.
 author: EdPrice-MSFT
 ms.author: pnp
+category: azure
 ms.date: 07/13/2016
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: best-practice
+azureCategories: 
+  - compute
+  - web
 products:
   - aspnet
   - azure-encoding

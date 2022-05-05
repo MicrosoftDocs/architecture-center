@@ -3,6 +3,7 @@ title: Build a scalable system for massive data
 description: Learn how to use Azure services to build scalable, resilient, and affordable high-available systems that handle massive amounts of data.
 author: nabilshams
 ms.author: nasiddi
+category: azure
 ms.date: 09/14/2021
 ms.topic: conceptual
 ms.service: architecture-center

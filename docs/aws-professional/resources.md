@@ -6,6 +6,18 @@ ms.date: 05/21/2020
 ms.topic: reference
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
+azureCategories:
+  - analytics 
+  - compute
+  - developer-tools
+  - devops
+  - networking
+  - web
+products:
+  - azure-devops
+  - azare-dev-tool-integrations
+  - azure-managed-applications
+  - azure-resource-manager
 ---
 
 # Resource management on Azure and AWS
