@@ -282,6 +282,6 @@ The following technologies were featured in this article:
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-**Principal author:**
+Principal author:
 
 - [Scott Seely](https://www.linkedin.com/in/scottseely) | Software Architect
