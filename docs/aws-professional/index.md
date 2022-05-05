@@ -2,11 +2,23 @@
 title: Azure for AWS professionals
 description: Learn the basics of Microsoft Azure accounts, platform, and services, and key similarities and differences between the AWS and Azure platforms.
 author: EdPrice-MSFT
+categories: azure
 ms.author: pnp
 ms.date: 03/15/2020
 ms.topic: reference
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
+azureCategories: 
+  - analytics 
+  - compute
+  - developer-tools
+  - devops
+  - networking
+  - web
+products:
+  - azure-devops
+  - azare-dev-tool-integrations
+  - azure-managed-applications
 ms.custom:
   - fcp
 ---
