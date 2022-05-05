@@ -17,7 +17,7 @@ ms.custom:
 
 Everyone owns their code and has an obligation to make all parts of the solution great. The [Code-With Customer/Partner Engineering Playbook](https://github.com/microsoft/code-with-engineering-playbook) by the Microsoft Commercial Software Engineering (CSE) team is a good guide to best engineering practices.
 
-Code with Microsoft teams, partners, and customers to help them successfully:
+Code with Microsoft Teams, partners, and customers to help them successfully:
 
 - Deliver technical implementations.
 - Modernize or build new apps to specifications.
@@ -30,7 +30,7 @@ The Engineering Playbook shows how to increase engineering team efficiency, redu
 - Keep the code quality bar high.
 - Value quality and precision over just "getting things done."
 - Work diligently on the one important thing.
-- Make the simple thing work now. Build fewer features today, but ensure they work amazingly. Then add more features tomorrow.
+- Make the thing work now. Build less features today, but ensure they work amazingly. Then add more features tomorrow.
 - Ship incremental customer value.
 - Avoid adding scope to a backlog item. Instead, add a new backlog item.
 - Keep backlog items up to date to communicate status with your team and stakeholders.
