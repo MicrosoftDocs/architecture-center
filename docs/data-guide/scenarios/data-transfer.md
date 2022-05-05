@@ -7,7 +7,7 @@ ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
-azureCategories:
+categories:
   - analytics
   - compute
   - databases

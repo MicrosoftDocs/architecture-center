@@ -8,7 +8,7 @@ category: azure
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: best-practice
-azureCategories: 
+categories: 
   - compute
   - security
 products:

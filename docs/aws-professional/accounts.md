@@ -8,7 +8,7 @@ ms.date: 10/04/2021
 ms.topic: reference
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
-azureCategories: 
+categories: 
   - analytics 
   - management and governance
   - security

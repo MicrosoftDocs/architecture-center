@@ -7,7 +7,7 @@ ms.date: 03/15/2020
 ms.topic: reference
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
-azureCategories: 
+categories: 
   - analytics 
   - compute
   - developer-tools
