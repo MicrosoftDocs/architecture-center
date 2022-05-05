@@ -47,7 +47,7 @@ The following diagram shows how on-premises users connect to a virtual network a
    The diagram contains a dotted box on the left labeled Consumer network. An icon sits on its border and is labeled Azure ExpressRoute. Outside the box on the left are icons for on-premises users and a private peering. Inside the box is a smaller dotted box labeled Subnet that contains icons for computers and private endpoints. The smaller box's border contains an icon for a network security group. Two dotted arrows flow out of the inner box. They also pass through the outer box's border. One points to a dotted box on the right that's filled with icons for Azure services. The other arrow points to a dotted box on the right labeled Provider network. The provider network box contains a smaller dotted box and an icon for Azure Private Link. The smaller dotted box contains icons for computers. Its border contains two icons: one for a load balancer and one for a network security group.
 :::image-end:::
 
-*Download an [SVG][SVG version of Private Link diagram] of this architecture.*
+*Download a [PowerPoint file](https://arch-center.azureedge.net/private-link-hub-spoke.pptx) of this architecture.*
 
 ## Decision tree for Private Link deployment
 
