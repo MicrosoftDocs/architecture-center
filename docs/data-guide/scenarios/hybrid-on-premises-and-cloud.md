@@ -3,12 +3,12 @@ title: Extend on-premises data solutions to the cloud
 description: Learn about using hybrid cloud environments that span cloud and on-premises datacenters for migrating to the cloud or extending on-premises infrastructures.
 author: EdPrice-MSFT
 ms.author: pnp
-category: azure
+categories: azure
 ms.date: 02/12/2018
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
-categories:
+azureCategories:
   - analytics
   - compute
   - databases

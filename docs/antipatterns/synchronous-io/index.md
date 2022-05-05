@@ -3,11 +3,12 @@ title: Synchronous I/O antipattern
 titleSuffix: Performance antipatterns for cloud apps
 description: Blocking the calling thread while I/O completes can reduce performance and affect vertical scalability.
 author: EdPrice-MSFT
+categories: azure
 ms.date: 06/05/2017
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: anti-pattern
-categories: 
+azureCategories: 
   - analytics 
   - storage
   - web
