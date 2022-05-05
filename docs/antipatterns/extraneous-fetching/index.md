@@ -20,7 +20,6 @@ products:
   - azure-front-door
   - azure-functions
   - azure-table-storage
-  - azure-cosmos-db
 ms.custom:
   - article
   - seo-aac-fy21q3
