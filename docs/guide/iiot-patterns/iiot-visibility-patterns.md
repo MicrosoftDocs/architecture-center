@@ -4,7 +4,7 @@ Following section includes common visibility patterns for industrial solutions.
 
 ## Time Series Analysis
 
-![Time Series Analysis](images/condition-monitoring.png)
+![Time Series Analysis](images/time-series-analysis.png)
 
 - Use this pattern when:
     - Need time series analysis for large scale IIoT telemetry data.
