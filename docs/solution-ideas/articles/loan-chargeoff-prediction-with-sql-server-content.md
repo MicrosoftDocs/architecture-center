@@ -22,11 +22,11 @@ Finally, a Power BI report is used to visualize the predicted and scored results
 
 Key technologies used to implement this architecture:
 
-- [Power BI](https://docs.microsoft.com/en-us/power-bi)
-- [Data Science Virtual Machine ](https://azure.microsoft.com/en-in/services/virtual-machines/data-science-virtual-machines)
+- [Power BI](https://powerbi.microsoft.com)
+- [Data Science Virtual Machines](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines)
 - [Virtual Machines](https://azure.microsoft.com/services/virtual-machines)
 
-In Data Science VM the SQL Server 2019 Developer edition is pre-installed. To know what are the other tools included on the Azure Data Science VM refer [here](https://docs.microsoft.com/en-us/azure/machine-learning/data-science-virtual-machine/tools-included) .
+In a Data Science VM, the SQL Server 2019 Developer edition is pre-installed. For information about the other tools included on the Azure Data Science VM, see [What tools are included on the Azure Data Science Virtual Machine?](/azure/machine-learning/data-science-virtual-machine/tools-included).
 
 ## Solution details
 
