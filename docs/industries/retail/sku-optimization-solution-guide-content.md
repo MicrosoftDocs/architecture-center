@@ -170,7 +170,7 @@ In the capture phase, we can leverage the copy activity (built-in to Data Factor
 The following figure shows the definition of a pipeline. It consists of three equally-sized three blocks in a row. The first two are a data set and an activity connected by arrows to indicate data flows. The third block is labeled “pipeline” and simply points to the first two to indicate encapsulation. 
 
  [![Azure Data Factory concepts: datasets consumed by pipeline of activities.](./images/sku-optimization-solution-guide/azure-data-factory.png)](./images/sku-optimization-solution-guide/azure-data-factory.png#lightbox)
-*Figure 3: Basic concepts of  Azure Data Factory* 
+*Figure 3: Basic concepts of Azure Data Factory* 
 
 An example of the data format that is used by Neal Analytics’ solution can be found on Microsoft’s Appsource page. The solution includes the following datasets:
 
