@@ -380,6 +380,18 @@ items:
       - name: Solutions across Microsoft platforms
         expanded: true
         items:
+          - name: Build applications on the Microsoft cloud
+            items:
+              - name: Overview
+                href: guide/microsoft-cloud/overview.md
+              - name: Create and deploy more applications in less time
+                href: guide/microsoft-cloud/create-deploy-more-applications-less-time.md
+              - name: Get the most value from technical talent
+                href: guide/microsoft-cloud/get-most-value-technical-talent.md
+              - name: Integrate new applications with existing solutions
+                href: guide/microsoft-cloud/integrate-new-applications-existing-solutions.md
+              - name: Focus on security
+                href: guide/microsoft-cloud/focus-security.md
           - name: Azure and Power Platform scenarios 
             items:
                - name: Overview
