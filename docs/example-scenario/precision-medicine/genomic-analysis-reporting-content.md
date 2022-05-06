@@ -83,8 +83,7 @@ You can easily use Microsoft Genomics results in tertiary analysis and machine l
 
 - [Power BI][Power BI] is a collection of software services and apps that display analytics information. You can use Power BI to connect and display unrelated sources of data. In this solution, you can populate Power BI dashboards with the results. Clinicians can then create visuals from the final dataset.
 
-- [Azure Healthcare APIs][Azure Healthcare APIs] is a managed, standards-based, compliant interface for accessing clinical health data. You can use the reference architectures and implementations in Health Architectures[
-] when you use Azure Healthcare APIs. In this scenario, Azure Healthcare APIs passes an FHIR bundle to the EHR with the clinical data.
+- [Azure Healthcare APIs][Azure Healthcare APIs] is a managed, standards-based, compliant interface for accessing clinical health data. You can use the reference architectures and implementations in Health Architectures when you use Azure Healthcare APIs. In this scenario, Azure Healthcare APIs passes an FHIR bundle to the EHR with the clinical data.
 
 ## Considerations
 
@@ -209,7 +208,6 @@ Fully deployable architectures:
 [Genome Analysis Toolkit]: https://gatk.broadinstitute.org/hc
 [Genomics Quickstart Starter Kit]: https://github.com/microsoft/Genomics-Quickstart
 [Geospatial data processing and analytics]: ../data/geospatial-data-processing-analytics-azure.yml
-Health Architectures
 [Health data consortium on Azure]: ../data/azure-health-data-consortium.yml
 [Health Insurance Portability and Accountability Act (HIPAA) & Health Information Technology for Economic and Clinical Health (HITECH) Act]: /compliance/regulatory/offering-hipaa-hitech
 [HIPAA - Azure Compliance]: /azure/compliance/offerings/offering-hipaa-us
