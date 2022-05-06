@@ -1,4 +1,4 @@
-Microsoft provides a wide range of security solutions to help your company monitor, protect, and defend your business and valued information. These solutions are in different Microsoft services. When they are integrated, they offer a better security posture for your environment.
+Microsoft provides a wide range of security solutions to help your company monitor, protect, and defend your business and valued information. These solutions are in different Microsoft services. When they're integrated, they offer a better security posture for your environment.
 
 Microsoft offers many documents and architecture references about IT security. For example, you may dive into details about Zero Trust concepts, understand how Microsoft 365 Defender services work to protect your Office environment, and get an architecture reference with various security services from Microsoft Azure Cloud. You can find a compilation of various security-oriented architecture references on [Microsoft Cybersecurity Reference Architectures](/security/cybersecurity-reference-architecture/mcra).
 

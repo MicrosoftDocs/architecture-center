@@ -1,4 +1,4 @@
-Every business IT infrastructure running on premises or in the Cloud may have vulnerabilities and breaches that might compromise your information or allow your systems to fail. Azure public cloud has many services on which you can build IT infrastructure to run your business by using a variety of infrastructure and platform services. Those components contain resources for your services: network, compute, storage, applications, databases, and identity.
+Every business IT infrastructure running on premises or in the Cloud may have vulnerabilities and breaches that might compromise your information or allow your systems to fail. Azure public cloud has many services on which you can build IT infrastructure to run your business by using various infrastructure and platform services. Those components contain resources for your services: network, compute, storage, applications, databases, and identity.
 
 Microsoft Azure also offers security services to protect those resources. Through using these security services, you can improve your security posture by avoiding and mitigating vulnerabilities and breaches. To make effective use of these services, they must be well architected and follow recommendations from Microsoft.
 
@@ -24,13 +24,13 @@ The diagram below doesn't contain all of the Azure security services that are av
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-monitor-integrate-security-components.vsdm) of this architecture.*
 
-As stated earlier, Azure security services may be found in different documents such as Azure Security benchmarks and Azure Security Baselines ([Azure Security Benchmark overview](/security/benchmark/azure/security-baselines-overview)). In this document, we will highlight only the Azure security services presented in the diagram.
+As stated earlier, Azure security services may be found in different documents such as Azure Security benchmarks and Azure Security Baselines ([Azure Security Benchmark overview](/security/benchmark/azure/security-baselines-overview)). In this document, we highlight only the Azure security services presented in the diagram.
 
 Let's review some details presented in the diagram.
 
 1.  **Azure Security Benchmark**
 
-    On Azure Security Benchmark, each security control will refer to one or more specific Azure security services. The architecture reference on this document shows some of them and their control number according to the Azure Security benchmark v3 documentation.
+    On Azure Security Benchmark, each security control refers to one or more specific Azure security services. The architecture reference on this document shows some of them and their control number according to the Azure Security benchmark v3 documentation.
 
     Those are the controls you find on Azure Security Benchmark.
 
@@ -86,7 +86,7 @@ Let's review some details presented in the diagram.
 
 4.  **Application and Data**
 
-    - **Front Door + WAF** -- It is an Application Content Deliver type of service. It combines multiple points of presence to deliver a better connection for users that access the service, plus a Web Application Firewall. For more information about this content delivery network, see [What is Azure Front Door](/azure/frontdoor/front-door-overview)?
+    - **Front Door + WAF** -- It's an Application Content Deliver type of service. It combines multiple points of presence to deliver a better connection for users that access the service, plus a Web Application Firewall. For more information about this content delivery network, see [What is Azure Front Door](/azure/frontdoor/front-door-overview)?
 
     - **API Management** -- a service that delivers security for API calls. For more information about managing APIs across environments, see [About API Management](/azure/api-management/api-management-key-concepts).
 
@@ -110,13 +110,13 @@ Let's review some details presented in the diagram.
 
     - **Azure role-based access control (Azure RBAC)** -- Azure Azure RBAC helps you provide granular permissions to different Azure services based on Azure AD user's credentials. For more about managing access and permissions, see [What is Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview)?
 
-    - **Multi-factor authentication** -- Multi-factor authentication offers additional authentication types on top of traditional user name and password authentication. For more information about requiring additional forms of authentication, see [How it works: Azure AD Multi-Factor Authentication](/azure/active-directory/authentication/concept-mfa-howitworks).
+    - **Multi-factor authentication** -- Multi-factor authentication offers additional authentication types on top of traditional user name and password authentication. For more information about requiring more forms of authentication, see [How it works: Azure AD Multi-Factor Authentication](/azure/active-directory/authentication/concept-mfa-howitworks).
 
     - **Identity Protection** -- this is a security service from Azure AD. It analyses trillions of signals per day to identify and protect users from threats. For more information about the benefits of using Identity Protection, see [What is Identity Protection](/azure/active-directory/identity-protection/overview-identity-protection)?
 
-    - **Privileged Identity Management (PIM)** -- this is another security service from Azure AD. It helps you to provide "super" user privileges temporarily for Azure AD (e.g., Global Admin) and Azure subscriptions (e.g., owner or contributor). For more information about PIM's time-based and approval-based role activation, see [What is Azure AD Privileged Identity Management](/azure/active-directory/privileged-identity-management/pim-configure)?
+    - **Privileged Identity Management (PIM)** -- this is another security service from Azure AD. It helps you to provide "super" user privileges temporarily for Azure AD (for example, Global Admin) and Azure subscriptions (for example, owner or contributor). For more information about PIM's time-based and approval-based role activation, see [What is Azure AD Privileged Identity Management](/azure/active-directory/privileged-identity-management/pim-configure)?
 
-    - **Conditional Access** is an intelligent security service based on policies that you define to create rules that will allow or deny users to access Azure based on different conditions. For more information about making access conditional, see [What is Conditional Access?](/azure/active-directory/conditional-access/overview).
+    - **Conditional Access** is an intelligent security service based on policies that you define to create rules that allow or deny users to access Azure based on different conditions. For more information about making access conditional, see [What is Conditional Access?](/azure/active-directory/conditional-access/overview).
 
 All security services named in the preceding text that are part of the architecture diagram may work together in any combination according to your business IT environment and your security requirements.
 
@@ -136,7 +136,7 @@ Anyway, Microsoft has other documents that may help you in your security journey
 
 - **Microsoft Cybersecurity Reference Architectures (MCRA)**
 
-  This is a compilation of a variety of Microsoft security Reference architectures. For more information about Microsoft security capabilities, see [Microsoft Cybersecurity Reference Architectures](https://aka.ms/mcra).
+  This is a compilation of various Microsoft security Reference architectures. For more information about Microsoft security capabilities, see [Microsoft Cybersecurity Reference Architectures](https://aka.ms/mcra).
 
 
 ## Contributors
