@@ -4593,6 +4593,8 @@ items:
                     href: example-scenario/banking/patterns-and-implementations.yml
               - name: Migrate a web app with APIM
                 href: example-scenario/apps/apim-api-scenario.yml
+              - name: Modernize mainframe and midrange data
+                href: reference-architectures/migration/modernize-mainframe-data-to-azure.yml
               - name: Oracle database migration
                 items:
                   - name: Oracle migration to Azure
@@ -4613,8 +4615,6 @@ items:
                 href: example-scenario/banking/jmeter-load-testing-pipeline-implementation-reference.yml
               - name: Lift and shift to containers with AKS
                 href: solution-ideas/articles/migrate-existing-applications-with-aks.yml
-              - name: Modernize mainframe and midrange data
-                href: reference-architectures/migration/modernize-mainframe-data-to-azure.yml
               - name: Migrate .NET applications
                 href: solution-ideas/articles/net-app-modernization.yml
               - name: Migrate IBM mainframe apps
