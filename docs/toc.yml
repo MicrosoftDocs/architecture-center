@@ -4576,8 +4576,6 @@ items:
         items:
           - name: Guides
             items:
-              - name: Migration scenarios
-                href: 
               - name: Migrate an e-commerce solution to Azure
                 href: industries/retail/migrate-ecommerce-solution.md
               - name: Migrate with Azure VMware Solution
