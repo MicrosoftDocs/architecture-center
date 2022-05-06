@@ -208,7 +208,7 @@ Fully deployable architectures:
 [Genome Analysis Toolkit]: https://gatk.broadinstitute.org/hc
 [Genomics Quickstart Starter Kit]: https://github.com/microsoft/Genomics-Quickstart
 [Geospatial data processing and analytics]: ../data/geospatial-data-processing-analytics-azure.yml
-[Health Architectures]: https://github.com/microsoft/health-architectures
+[Health Architectures]: `https://github.com/microsoft/health-architectures`
 [Health data consortium on Azure]: ../data/azure-health-data-consortium.yml
 [Health Insurance Portability and Accountability Act (HIPAA) & Health Information Technology for Economic and Clinical Health (HITECH) Act]: /compliance/regulatory/offering-hipaa-hitech
 [HIPAA - Azure Compliance]: /azure/compliance/offerings/offering-hipaa-us
