@@ -4433,6 +4433,8 @@ items:
                   - name: ExpressRoute with Azure VM DR
                     href: /azure/site-recovery/azure-vm-disaster-recovery-with-expressroute
                     maintainContext: true
+                  - name: Recover from a region-wide disruption
+                    href: resiliency/recovery-loss-azure-region.md
                   - name: Move Azure VMs to another Azure region
                     href: /azure/site-recovery/azure-to-azure-move-overview
                     maintainContext: true
@@ -4603,8 +4605,6 @@ items:
             items:
               - name: JMeter implementation reference
                 href: example-scenario/banking/jmeter-load-testing-pipeline-implementation-reference.yml
-              - name: Lift and shift LOB apps
-                href: solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process.yml
               - name: Migrate .NET applications
                 href: solution-ideas/articles/net-app-modernization.yml
       - name: Mixed Reality
@@ -4818,6 +4818,8 @@ items:
                 href: solution-ideas/articles/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application.yml
               - name: Custom mobile workforce app
                 href: solution-ideas/articles/custom-mobile-workforce-app.yml
+              - name: Modern customer support portal
+                href: solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process.yml
               - name: Scalable apps with Azure MySQL
                 href: solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-mysql.yml
               - name: Scalable apps using Azure PostgreSQL
@@ -4891,8 +4893,13 @@ items:
                   - name: Virtual network service tags
                     href: /azure/virtual-network/service-tags-overview
                     maintainContext: true
+              - name: Global transit network and Virtual WAN
+                href: /azure/virtual-wan/virtual-wan-global-transit-network-architecture
+                maintainContext: true
               - name: Build solutions with availability zones
                 href: high-availability/building-solutions-for-high-availability.yml
+              - name: Deploy highly available NVAs
+                href: reference-architectures/dmz/nva-ha.yml
               - name: Use ExpressRoute with Power Platform
                 items:
                   - name: Overview
@@ -4930,14 +4937,6 @@ items:
                 maintainContext: true
           - name: Architectures
             items:
-              - name: Deploy highly available NVAs
-                href: reference-architectures/dmz/nva-ha.yml
-              - name: Enterprise-scale landing zone
-                href: /azure/cloud-adoption-framework/ready/enterprise-scale/architecture
-                maintainContext: true
-              - name: Global transit network and Virtual WAN
-                href: /azure/virtual-wan/virtual-wan-global-transit-network-architecture
-                maintainContext: true
               - name: High availability for IaaS apps
                 href: example-scenario/infrastructure/iaas-high-availability-disaster-recovery.yml
               - name: Hub-spoke network topology in Azure
@@ -5587,6 +5586,8 @@ items:
                 href: solution-ideas/articles/highly-available-sharepoint-farm.yml
               - name: Hybrid SharePoint farm with Microsoft 365
                 href: solution-ideas/articles/sharepoint-farm-microsoft-365.yml
+              - name: Modern customer support portal
+                href: solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process.yml
               - name: Real-time presence with Microsoft 365
                 href: solution-ideas/articles/presence-microsoft-365-power-platform.yml
               - name: Scalable e-commerce web app
