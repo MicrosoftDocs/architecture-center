@@ -12,7 +12,9 @@ Following section includes common visibility patterns for industrial solutions.
     - Perform univariate anomaly detection and correlation between sensors.
 
 - Considerations
-    - Data Explorer is an append only platform, [not suitable for data which requires frequent updates.](https://docs.microsoft.com/en-us/azure/data-explorer/data-explorer-overview) 
+    - IoT Central includes dashboards for basic time series analysis on last 30 days of data. For analysis on larger datasets beyong 30 days, use Data explorer.
+    - Data explorer is an append only platform, [not suitable for data which requires frequent updates.](https://docs.microsoft.com/en-us/azure/data-explorer/data-explorer-overview) 
+    - Data explorer
     - [Time Series Analysis in Data Explorer](https://docs.microsoft.com/en-us/azure/data-explorer/time-series-analysis)
     - [Considerations around Streaming Ingestion for Data Explorer](https://docs.microsoft.com/en-us/azure/data-explorer/ingest-data-streaming?tabs=azure-portal%2Ccsharp)
     - [Disaster recovery configurations for Data Explorer](https://docs.microsoft.com/en-us/azure/data-explorer/business-continuity-overview#disaster-recovery-configurations)

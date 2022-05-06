@@ -35,7 +35,7 @@ Following sections includes common connectivity patterns for industrial solution
     - [IoT Edge production checklist](https://docs.microsoft.com/en-us/azure/iot-edge/production-checklist?view=iotedge-2018-06)
     - [OPC Publisher module configuration guide](https://github.com/Azure/Industrial-IoT/blob/main/docs/modules/publisher.md)
     - [Security baseline for IoT Hub](https://docs.microsoft.com/en-us/security/benchmark/azure/baselines/iot-hub-security-baseline?toc=/azure/iot-hub/TOC.json)
-    - IoT Edge runtime can be installed on a Virtual Machine (Linux or Windows) as well as dedicated hardware like [Azure  Edge](https://azure.microsoft.com/en-us/products/azure-stack/edge/#overview) 
+    - IoT Edge runtime can be installed on a Virtual Machine (Linux or Windows) as well as dedicated hardware like [Azure Stack Edge](https://azure.microsoft.com/en-us/products/azure-stack/edge/#overview) 
     - See [Cloud Gateway options](#cloud-gateway-options) below to understand when to use IoT Hub vs. IoT Central
 
 - Deployment Sample
@@ -80,6 +80,9 @@ Following sections includes common connectivity patterns for industrial solution
 - Deployment Sample
     - [Connect PTC/Kepware's KEPServerEX to IoT Hub and IoT Edge](https://docs.microsoft.com/en-us/samples/azure-samples/iot-hub-how-to-kepware-edge/azure-iot-edge-connect-ptc/)
 
+- Resources
+    - [Bring Industrial data into your Azure IoT solution with CloudRail](https://docs.microsoft.com/en-us/shows/internet-of-things-show/bring-industrial-data-into-your-azure-iot-solution-with-cloudrail)
+
 ## Constrained devices and add-on sensors
 
 ![Integration via Cloud SDK and Custom Application](images/direct-sdk.png)
@@ -115,7 +118,7 @@ Following sections includes common connectivity patterns for industrial solution
     - See [Cloud Gateway options](#cloud-gateway-options) below to understand when to use IoT Hub vs. IoT Central 
 
 - Deployment Sample
-    - [Nested Edge Devices and Office Dashboards Sample](https://github.com/Azure-Samples/iot-edge-for-iiot)
+    - [Nested Edge Devices and Offline Dashboards Sample](https://github.com/Azure-Samples/iot-edge-for-iiot)
 
 ## Resilient Edge Gateway
 
@@ -155,9 +158,6 @@ Following sections includes common connectivity patterns for industrial solution
 
 ## Cloud Gateway Options
 
-> [!NOTE]
-> - So far we haved used IoT Hub as our Cloud Gateway. There are two other services *IoT Central* and *Event Hub* that can be used for Industrial IoT scenarios depending on the use case. Please read considerations below for more details.
-
 ![Cloud Gateway IoT Hub](images/cloudgw-iothub.png)
 
 ![Cloud Gateway IoT Central](images/cloudgw-iotcentral.png)
@@ -166,7 +166,7 @@ Following sections includes common connectivity patterns for industrial solution
 
 - Use this pattern when:
     - Use IoT Hub or IoT Central when you require device + edge management and two way communication, along with messaging.
-    - IoT Central has built-in rules engine, alerts and dashboards. 
+    - IoT Central has built-in dashboard and rules engine for alerts.
     - Use Event hub when you only require messaging and have cost constraints.
 
 - Considerations

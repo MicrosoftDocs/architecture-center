@@ -19,8 +19,8 @@ There are multiple stages in each of the three key phases shown above. Each stag
 - Solution Samples
     - [Connectivity with Industrial Assets using OPC UA and Edge for Linux on Windows (EFLOW)](https://github.com/Azure-Samples/industrial-iot-patterns/tree/main/1_Connectivity)
     - [Connecting OPC UA device(s) with IoT Central application via an IoT Edge Gateway device](https://github.com/iot-for-all/iotc-opcua-iotedge-gateway)
-    - [Connecting modbus device(s) with IoT Central application via an IoT Edge Gateway device](https://github.com/iot-for-all/iotc-opcua-iotedge-gateway)
-
+    - [Connecting modbus device(s) with IoT Central application via an IoT Edge Gateway device](https://github.com/iot-for-all/iotc-modbus-iotedge-gateway)
+    
 ## Visibility
 
 - Patterns

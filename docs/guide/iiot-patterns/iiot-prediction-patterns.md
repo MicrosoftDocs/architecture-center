@@ -29,10 +29,11 @@ Following section includes common prediction patterns for industrial solutions.
 - Use this pattern when:
     - Need to build custom machine learning models on structured (tabular) data.
     - Need to use raw telemetry data for feature engineering.
-    - Perform near real-time predictions within seconds.
+    - Perform predictions within single digit minutes.
     - Need custom dashboards to provide action recommendations that may impact current running manufacturing.process.
 
 - Considerations
+    - For prediction within seconds or milliseconds, consider [packaging the model as an edge module and deploying at th edge](https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-machine-learning-edge-06-custom-modules?view=iotedge-2020-11).
     - [No Code / Low Code Automated Machine Learning](https://docs.microsoft.com/en-us/azure/machine-learning/concept-automated-ml)
     - [Understanding and building Machine Learning Pipelines](https://docs.microsoft.com/en-us/azure/machine-learning/concept-train-machine-learning-model#machine-learning-pipeline)
     - [Security baseline for Azure Machine Learning](https://docs.microsoft.com/en-us/security/benchmark/azure/baselines/machine-learning-security-baseline?context=/azure/machine-learning/context/ml-context)
@@ -61,6 +62,7 @@ Following section includes common prediction patterns for industrial solutions.
     - Building custom solution can be cost effective for scale and help build IP. Consider complexity of managing such solution.
     - See [Vision AI solutions with Azure IoT Edge](https://docs.microsoft.com/en-us/azure/architecture/guide/iot-edge-vision/) for details around use cases, camera selection and edge integrations.
     - See [First principles of Computer Vision](https://www.youtube.com/channel/UCf0WB91t8Ky6AuYcQV0CcLw) to deep dive into how computer vision works
+    - Consider using dedicated hardware like [Azure Stack Edge](https://azure.microsoft.com/en-us/products/azure-stack/edge/#overview) with GPU's to improve both image preprocessing and inference speeds.
     
 - Deployment Sample
     - [Vision on Edge (VoE)](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/factory-ai-vision)
