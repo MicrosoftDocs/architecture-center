@@ -3,6 +3,7 @@ title: Microsoft machine learning products
 description: Compare options for building, deploying, and managing your machine learning models. Decide which Microsoft products to choose for your solution.
 author: EdPrice-MSFT
 ms.author: pnp
+categories: azure
 ms.date: 09/01/2020
 ms.topic: conceptual
 ms.service: architecture-center
@@ -60,8 +61,8 @@ Use Python SDK, Jupyter notebooks, R, and the CLI for machine learning at cloud 
 
 [Try Azure Machine Learning for free](https://aka.ms/AMLFree).
 
-|||
-|-|-|
+|Item|Description|  
+|--------|-----------|
 |**Type**                   |Cloud-based machine learning solution|
 |**Supported languages**    |Python, R|
 |**Machine learning phases**|Model training<br>Deployment<br>MLOps/Management|
@@ -79,8 +80,8 @@ Use Python SDK, Jupyter notebooks, R, and the CLI for machine learning at cloud 
 
 Use Cognitive Services to develop apps across devices and platforms. The APIs keep improving, and are easy to set up.
 
-|||
-|-|-|
+|Item|Description|  
+|--------|-----------|
 |**Type**                   |APIs for building intelligent applications|
 |**Supported languages**    |Various options depending on the service. Standard ones are C#, Java, JavaScript, and Python. |
 |**Machine learning phases**|Deployment|
@@ -99,8 +100,8 @@ Use Cognitive Services to develop apps across devices and platforms. The APIs ke
 
 Use SQL machine learning when you need built-in AI and predictive analytics on relational data in SQL.
 
-|||
-|-|-|
+|Item|Description|  
+|--------|-----------|
 |**Type**                   |On-premises predictive analytics for relational data|
 |**Supported languages**    |Python, R, SQL|
 |**Machine learning phases**|Data preparation<br>Model training<br>Deployment|
@@ -113,8 +114,8 @@ The [Azure Data Science Virtual Machine](/azure/machine-learning/data-science-vi
 
 Use the Data Science VM when you need to run or host your jobs on a single node. Or if you need to remotely scale up your processing on a single machine.
 
-|||
-|-|-|
+|Item|Description|  
+|--------|-----------|
 |**Type**                   |Customized virtual machine environment for data science|
 |**Key benefits**           |Reduced time to install, manage, and troubleshoot data science tools and frameworks.<br/><br/>The latest versions of all commonly used tools and frameworks are included.<br/><br/>Virtual machine options include highly scalable images with GPU capabilities for intensive data modeling.|
 |**Considerations**         |The virtual machine cannot be accessed when offline.<br/><br/>Running a virtual machine incurs Azure charges, so you must be careful to have it running only when required.|
@@ -125,8 +126,8 @@ Use the Data Science VM when you need to run or host your jobs on a single node.
 
 Use Databricks when you want to collaborate on building machine learning solutions on Apache Spark.
 
-|||
-|-|-|
+|Item|Description|  
+|--------|-----------|
 |**Type**                   |Apache Spark-based analytics platform|
 |**Supported languages**    |Python, R, Scala, SQL|
 |**Machine learning phases**|Data preparation<br>Data preprocessing<br>Model training<br>Model tuning<br>Model inference<br>Management<br>Deployment|
@@ -137,8 +138,8 @@ Use Databricks when you want to collaborate on building machine learning solutio
 
 Use ML.NET when you want to integrate machine learning solutions into your .NET applications. Choose between the [API](/dotnet/machine-learning/how-does-mldotnet-work) for a code-first experience and [Model Builder](/dotnet/machine-learning/automate-training-with-model-builder) or the [CLI](/dotnet/machine-learning/automate-training-with-cli) for a low-code experience.
 
-|||
-|-|-|
+|Item|Description|  
+|--------|-----------|
 |**Type**                   |Open-source cross-platform framework for developing custom machine learning applications with .NET |
 |**Languages supported**    |C#, F#|
 |**Machine learning phases**    |Data preparation<br>Training<br>Deployment|
@@ -150,8 +151,8 @@ Use ML.NET when you want to integrate machine learning solutions into your .NET 
 
 Use Windows ML when you want to use trained machine learning models within your Windows applications.
 
-|||
-|-|-|
+|Item|Description|  
+|--------|-----------|
 |**Type**                   |Inference engine for trained models in Windows devices|
 |**Languages supported**    |C#/C++, JavaScript|
 
@@ -161,8 +162,8 @@ Use Windows ML when you want to use trained machine learning models within your 
 
 MMLSpark also brings new networking capabilities to the Spark ecosystem. With the HTTP on Spark project, users can embed any web service into their SparkML models. Additionally, MMLSpark provides easy-to-use tools for orchestrating [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) at scale. For production-grade deployment, the Spark Serving project enables high throughput, submillisecond latency web services, backed by your Spark cluster.
 
-|||
-|-|-|
+|Item|Description|  
+|--------|-----------|
 |**Type**                    |Open-source, distributed machine learning and microservices framework for Apache Spark|
 |**Languages supported**     |Scala 2.11, Java, Python 3.5+, R (beta)|
 |**Machine learning phases** |Data preparation<br>Model training<br>Deployment|
