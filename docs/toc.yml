@@ -4576,6 +4576,8 @@ items:
         items:
           - name: Guides
             items:
+              - name: Migration scenarios
+                href: 
               - name: Migrate an e-commerce solution to Azure
                 href: industries/retail/migrate-ecommerce-solution.md
               - name: Migrate with Azure VMware Solution
@@ -4589,8 +4591,12 @@ items:
                     href: example-scenario/banking/banking-system-cloud-transformation.yml
                   - name: Patterns and implementations
                     href: example-scenario/banking/patterns-and-implementations.yml
+              - name: Migrate a web app with APIM
+                href: example-scenario/apps/apim-api-scenario.yml
               - name: Oracle database migration
                 items:
+                  - name: Oracle migration to Azure
+                    href: solution-ideas/articles/reference-architecture-for-oracle-database-migration-to-azure.yml
                   - name: Migration decision process
                     href: example-scenario/oracle-migrate/oracle-migration-overview.yml
                   - name: Cross-cloud connectivity
@@ -4605,8 +4611,14 @@ items:
             items:
               - name: JMeter implementation reference
                 href: example-scenario/banking/jmeter-load-testing-pipeline-implementation-reference.yml
+              - name: Lift and shift to containers with AKS
+                href: solution-ideas/articles/migrate-existing-applications-with-aks.yml
+              - name: Modernize mainframe and midrange data
+                href: reference-architectures/migration/modernize-mainframe-data-to-azure.yml
               - name: Migrate .NET applications
                 href: solution-ideas/articles/net-app-modernization.yml
+              - name: Migrate IBM mainframe apps
+                href: solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml
       - name: Mixed Reality
         items:
           - name: Guides
