@@ -2,11 +2,9 @@ For manufacturers, the promise of digital transformation lies in breaking down s
 
 A modern IIoT solution goes beyond moving existing industrial processes and tools to the cloud. It involves transforming your operations and processes, embracing cloud native services, and leveraging the power of machine learning and the intelligent edge to optimize industrial processes.
 
-There are five key stages for a typical IIoT solution:
-
 ![IIoT Maturity](images/iiot-maturity.png)
 
-Each stage of an IIoT Solution consists of multiple design patterns. Computerisation is the prerequisite step and it referes to enabling sensors and actuators to monitor production processes. We typically start our IIoT journey with Connectivity as the first step.
+There are multiple stages in each of the three key phases shown above. Each stage of an IIoT Solution consists of multiple design patterns. We typically start our IIoT journey with Connectivity as the first step. Computerization is the prerequisite step and it referes to enabling sensors and actuators to monitor production processes. We will be highligting five key stages for a typical IIoT solution:
 
 ## Connectivity 
 - Patterns
