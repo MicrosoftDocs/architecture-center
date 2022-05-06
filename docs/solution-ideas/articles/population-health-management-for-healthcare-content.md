@@ -25,7 +25,7 @@ This solution can be used for the following scenarios:
 
 2. The device data is then received into [IoMT FHIR Connector for Azure](/azure/healthcare-apis/azure-api-for-fhir/iot-fhir-portal-quickstart), where it's normalized, grouped, transformed, and persisted into the [Azure API for FHIR](/azure/healthcare-apis/azure-api-for-fhir/overview).
 
-3. Data sources such as Electronic Medical Record systems, patient administration systems, or lab systems may generate other message formats such as HL7 messages that are [converted](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion) via an HL7 ingest and conversion workflow.  The HL7 ingest platform consumes HL7 Messages via MLLP and securely transfers them to Azure via HL7overHTTPS. The data lands in blob storage, which produces an event on Azure Service Bus for processing. The HL7 convert is an [Azure Logic App](/azure/logic-apps/) based workflow that performs orderly conversion from HL7 to FHIR via the FHIR Converter, persists the message into an Azure API for FHIR Server Instance
+3. Data sources such as Electronic Medical Record systems, patient administration systems, or lab systems may generate other message formats such as HL7 messages that are converted via an HL7 ingest and conversion workflow.  The HL7 ingest platform consumes HL7 Messages via MLLP and securely transfers them to Azure via HL7overHTTPS. The data lands in blob storage, which produces an event on Azure Service Bus for processing. The HL7 convert is an [Azure Logic App](/azure/logic-apps/) based workflow that performs orderly conversion from HL7 to FHIR via the FHIR Converter, persists the message into an Azure API for FHIR Server Instance
 
 4. Data is exported from the Azure FHIR Service to Azure Data Lake Gen2 using the [Bulk Export](/azure/healthcare-apis/data-transformation/export-data) feature.  Sensitive data can be [anonymized](https://github.com/microsoft/FHIR-Tools-for-Anonymization) as part of the export function.
 
@@ -71,7 +71,7 @@ Principal author:
 
 ## Next steps
 
-* [Azure Health Architectures](https://github.com/microsoft/health-architectures) from the Microsoft Health Cloud & Data Architectural Engineering team, includes many reference architectures obtained by working closely customers, partners, and coworkers in the Health domain.
+* Azure Health Architectures from the Microsoft Health Cloud & Data Architectural Engineering team, includes many reference architectures obtained by working closely customers, partners, and coworkers in the Health domain.
 * [Continuous patient monitoring](/azure/iot-central/healthcare/tutorial-continuous-patient-monitoring) provides an app template that can build a continuous patient monitoring solution.
 * [Medical Imaging Server for DICOM](https://github.com/microsoft/dicom-server) is a .NET Core implementation of DICOMweb™ that can be run in Azure.
 * [OpenHack for FHIR](https://github.com/microsoft/OpenHack-FHIR) is a collection of OpenHack based tutorials that can be used to learn about the FHIR-related services in Azure.
