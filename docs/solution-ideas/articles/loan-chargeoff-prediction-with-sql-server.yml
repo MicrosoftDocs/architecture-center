@@ -5,7 +5,7 @@ metadata:
   description: Build and deploy a machine learning model with SQL Server 2016 with R Services to predict whether a bank loan will soon need to be charged off.
   author: PRASADA1207
   ms.author: prasada
-  ms.date: 05/05/2022
+  ms.date: 05/06/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
