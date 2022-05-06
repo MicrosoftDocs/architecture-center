@@ -28,29 +28,6 @@ Some organizations use Cyber Kill Chain®, a methodology from Lockheed Martin, t
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-monitor-integrate-security-components.vsdm) of this architecture.*
 
-
-### Workflow
-
-To help you understand which part of your IT environment those threats are likely to attack, the architecture diagram in this article is based on a typical IT environment for a business that has on-premises systems, an Microsoft 365 subscription, and an Azure subscription. The resources in each of these layers are services that are common in many companies. They are classified in the diagram according to the pillars of Microsoft Zero Trust: network, infrastructure, endpoint, application, data, and identity. For more information about Zero Trust, see [Embrace proactive security with Zero Trust](https://www.microsoft.com/en-us/security/business/zero-trust).
-
-The architecture diagram includes the following layers:
-
-1.  **On-premises**
-
-    The diagram includes some essential services such as servers (VMs), network appliances, and DNS. It also includes common applications, found in most IT environments, that run on virtual machines or physical servers, and various types of databases, both SQL and non-SQL. Organizations usually have a file server that shares files throughout the company. Lastly, the Active Directory Domain Service, a widespread infrastructure component, handles user's credentials. The diagram includes all these components in the on-premises environment.
-
-2.  **Office 365 environment**
-
-    This example environment contains traditional office applications, such as Word, Excel, PowerPoint, Outlook, and OneNote. Depending on the type of license, it might also include other applications, such as OneDrive, Exchange, Sharepoint, and Teams. In the diagram, these are represented by an icon for Microsoft 365 (formerly Office 365) apps and an icon for Azure Active Directory (Azure AD). Users must be authenticated to receive access to Microsoft 365 applications, and Azure AD acts as the identity provider. Microsoft 365 authenticates users against the same type of Azure AD that Azure uses. In most organizations, the [Azure AD *tenant*](/microsoft-365/education/deploy/intro-azure-active-directory) is the same for both Azure and Microsoft 365.
-
-3.  **Azure environment**
-
-    This is the public cloud service that contains services that are very similar to on-premises services, like servers (VMs), workstations (VDI), and network components. It also includes platforms as services (PaaS), such as web applications, databases, and storage, and Azure AD. This Azure AD provides credentials for users to create Azure resources.
-
-4.  **MITRE ATT&CK tactics and techniques** 
- 
-    This diagram shows the top 16 threats, according to the tactics and techniques as published by The MITRE Corporation. In red lines, you can see an example of a blended attack, which means that a malicious actor might coordinate multiple attacks simultaneously.
-
 For the business IT environment, we specify the components only for the Azure and Microsoft 365 environment. Your specific IT environment might include devices, appliances, and technologies from different technology providers.
 
 For the Azure environment, the diagram shows the components that are listed in the following table.
@@ -75,6 +52,28 @@ For Microsoft 365, the diagram represents the service through the components lis
 |---|---|---|
 | **O365** | Microsoft 365 services (formerly Office 365). The applications that Microsoft 365 makes available depends on the type of license. | [Microsoft 365 - Subscription for Office Apps](https://www.microsoft.com/en-us/microsoft-365) |
 | **Azure** | Azure AD, the same one utilized by Azure. Many companies use the same Azure AD service for Azure and Microsoft 365. | [What is Azure Active Directory?](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis) |
+
+### Workflow
+
+To help you understand which part of your IT environment those threats are likely to attack, the architecture diagram in this article is based on a typical IT environment for a business that has on-premises systems, an Microsoft 365 subscription, and an Azure subscription. The resources in each of these layers are services that are common in many companies. They are classified in the diagram according to the pillars of Microsoft Zero Trust: network, infrastructure, endpoint, application, data, and identity. For more information about Zero Trust, see [Embrace proactive security with Zero Trust](https://www.microsoft.com/en-us/security/business/zero-trust).
+
+The architecture diagram includes the following layers:
+
+1.  **On-premises**
+
+    The diagram includes some essential services such as servers (VMs), network appliances, and DNS. It also includes common applications, found in most IT environments, that run on virtual machines or physical servers, and various types of databases, both SQL and non-SQL. Organizations usually have a file server that shares files throughout the company. Lastly, the Active Directory Domain Service, a widespread infrastructure component, handles user's credentials. The diagram includes all these components in the on-premises environment.
+
+2.  **Office 365 environment**
+
+    This example environment contains traditional office applications, such as Word, Excel, PowerPoint, Outlook, and OneNote. Depending on the type of license, it might also include other applications, such as OneDrive, Exchange, Sharepoint, and Teams. In the diagram, these are represented by an icon for Microsoft 365 (formerly Office 365) apps and an icon for Azure Active Directory (Azure AD). Users must be authenticated to receive access to Microsoft 365 applications, and Azure AD acts as the identity provider. Microsoft 365 authenticates users against the same type of Azure AD that Azure uses. In most organizations, the [Azure AD *tenant*](/microsoft-365/education/deploy/intro-azure-active-directory) is the same for both Azure and Microsoft 365.
+
+3.  **Azure environment**
+
+    This is the public cloud service that contains services that are very similar to on-premises services, like servers (VMs), workstations (VDI), and network components. It also includes platforms as services (PaaS), such as web applications, databases, and storage, and Azure AD. This Azure AD provides credentials for users to create Azure resources.
+
+4.  **MITRE ATT&CK tactics and techniques** 
+ 
+    This diagram shows the top 16 threats, according to the tactics and techniques as published by The MITRE Corporation. In red lines, you can see an example of a blended attack, which means that a malicious actor might coordinate multiple attacks simultaneously.
 
 
 ### Components
