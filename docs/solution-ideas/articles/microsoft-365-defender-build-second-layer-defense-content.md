@@ -63,7 +63,7 @@ Let's see a real use case where companies may consider using Microsoft 365 Defen
 
 In the use case that is represented in the diagram, you see some potential threats at the bottom. In the middle are the Microsoft 365 Defender services. On the top, are the services that run in the customer's environment that those threats try to reach, which are defended by Microsoft 365 Defender.
 
-The diagram shows a malicious user (1) that has sent a phishing email with a malware attached to it. Let's suppose that the company's end user opened the malware and (2) the malware was installed in the backend without the end user having noticed (3). After the malware is installed, it will be able to steal some users credentials (4) that was used to move laterally (5) and then finally, through a new user credential with super privileges, the company data was compromised (6).
+The diagram shows a malicious user (1) who has sent a phishing email with a malware attached to it. Let's suppose that the company's end user opened the malware and (2) the malware was installed in the backend without the end user having noticed (3). After the malware is installed, it is able to steal some users credentials (4) that are used to move laterally (5) and then finally, through a new user credential with super privileges, the company data was compromised (6).
 
 You may see through the diagram which Microsoft 365 Defender services may be used to monitor and mitigate those attacks (layer in the center), adding an additional layer of security to work along Azure security services (described in details in the document 2) that also may offer protection for the resources presented in the top of the diagram.
 

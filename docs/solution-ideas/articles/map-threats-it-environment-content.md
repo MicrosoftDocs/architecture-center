@@ -1,4 +1,4 @@
-This is the second article in a series of five articles, which are introduced in the first article, [Use Azure monitoring to integrate security components](../../guide/security/azure-monitor-integrate-security-components.yml). This article explains how to diagram the essential IT environment of a business and develop a threat map. Having these diagrams helps you to plan and build your defensive layer of security.
+This is the second article in a series of five articles, which are introduced in the first article, [Use Azure monitoring to integrate security components](../../guide/security/azure-monitor-integrate-security-components.yml). This article explains how to diagram the essential IT environment of your organization and develop a threat map. Having these diagrams helps you to plan and build your defensive layer of security.
 
 Understanding your IT environment and how it's architected is essential to defining the security services that are required to get the level of protection that you need. Information that is contained in computer systems is of great value to the companies that produce it—but it can also be valuable to malicious actors.
 

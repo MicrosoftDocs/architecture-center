@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: Use Azure monitoring to integrate security components
-  description: Placeholder description.
+  description: Integrate Azure monitoring services and Azure security services to provide defense in depth to your IT environment. This article introduces a series of articles.
   article: fcp
   author: rudneir2
   ms.author: ruolivei
@@ -16,7 +16,7 @@ products:
   - azure
   - m365
 name: Use Azure monitoring to integrate security components
-summary: Placeholder summary.
+summary: Integrate Azure monitoring and security services to provide defense in depth to your IT environment. This article introduces a series of articles.
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-monitor-integrate-security-components-thumbnail.png
 content: |
   [!include[](azure-monitor-integrate-security-components-content.md)]

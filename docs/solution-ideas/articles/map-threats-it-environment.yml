@@ -2,7 +2,7 @@
 metadata:
   title: Map threats to your IT environment
   titleSuffix: Azure Architecture Center
-  description: Placeholder description.
+  description: Diagram the IT environment of your organization and develop a threat map to plan and build your defensive layer of security. This article is part of a series.
   article: fcp
   author: rudneir2
   ms.author: ruolivei
@@ -17,7 +17,7 @@ products:
   - azure
   - azure-sentinel
 name: Map threats to your IT environment
-summary: Placeholder summary.
+summary: Diagram the IT environment of your organization and develop a threat map to plan and build your defensive layer of security. This article is part of a series.
 thumbnailUrl: /azure/architecture/browse/thumbs/map-threats-it-environment-thumbnail.png
 content: |
   [!include[](map-threats-it-environment-content.md)]
