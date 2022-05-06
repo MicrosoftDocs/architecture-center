@@ -130,6 +130,8 @@ For details about the bandwidth limits of VPN Gateway, see [Gateway SKUs](/azure
 
 For more information about the scalability of Azure gateways, see the scalability consideration section in [Implementing a hybrid network architecture with Azure and on-premises VPN][guidance-vpn-gateway-scalability] and [Implementing a hybrid network architecture with Azure ExpressRoute][guidance-expressroute-scalability].
 
+For details about managing virtual networks and NSGs at scale, see [Azure Virtual Network Manager (AVNM): Create a secured hub and spoke network](https://docs.microsoft.com/en-us/azure/virtual-network-manager/tutorial-create-secured-hub-and-spoke) to create new (and onboard existing) hub and spoke virtual network topologies for central management of connectivity and NSG rules.
+
 ## Availability considerations
 
 If you're using Azure ExpressRoute to provide connectivity between the virtual network and on-premises network, [configure a VPN gateway to provide failover][ra-vpn-failover] if the ExpressRoute connection becomes unavailable.
@@ -148,7 +150,7 @@ You can find additional information about monitoring and managing VPN and Expres
 
 ## Security considerations
 
-This reference architecture implements multiple levels of security.
+This reference architecture implements multiple levels of security. 
 
 ### Routing all on-premises user requests through Azure Firewall
 
@@ -157,6 +159,9 @@ The user-defined route in the gateway subnet blocks all user requests other than
 ### Using NSGs to block/pass traffic between application tiers
 
 Traffic between tiers is restricted by using NSGs. The business tier blocks all traffic that doesn't originate in the web tier, and the data tier blocks all traffic that doesn't originate in the business tier. If you have a requirement to expand the NSG rules to allow broader access to these tiers, weigh these requirements against the security risks. Each new inbound pathway represents an opportunity for accidental or purposeful data leakage or application damage.
+
+### Using AVNM to create baseline Security Admin rules
+AVNM allows you to create baselines of security rules which can take priority over Network Security Group rules. [Security admin rules](/azure/virtual-network-manager/concept-security-admins) are evaluated before NSG rules and have the same nature of NSGs, with support for prioritization, service tags, and L3-L4 protocols. This will allow central IT to enforce a baseline of security rules while allowing independency of additional NSG rules by the spoke vnet owners. To facilitate a controlled rollout of security rules changes, AVNM's [deployments](/azure/virtual-network-manager/concept-deployments) feature allows you to safely release of these configurations' breaking changes to the hub-and-spoke environments.
 
 ### DevOps access
 
