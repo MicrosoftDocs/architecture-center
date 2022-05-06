@@ -251,7 +251,7 @@ Further drilling in, the exception turns out to be a socket exception, "No such 
 
 > Fabrikam.Workflow.Service.Services.BackendServiceCallFailedException: No such device or address ---u003e System.Net.Http.HttpRequestException: No such device or address ---u003e System.Net.Sockets.SocketException: No such device or address
 
-This is a hint that the backend service is not reachable. At this point, you might use kubectl to view the deployment configuration. In this example, it turned out the service hostname was not resolving, due to an error in the Kubernetes configuration files. The article [Debug Services](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-service/) in the Kubernetes documentation has tips for diagnosing this sort of error.
+This is a hint that the backend service is not reachable. At this point, you might use kubectl to view the deployment configuration. In this example, it turned out the service hostname was not resolving, due to an error in the Kubernetes configuration files. The article [Debug Services](https://kubernetes.io/docs/tasks/debug/debug-application/debug-service/) in the Kubernetes documentation has tips for diagnosing this sort of error.
 
 Here are some common causes of errors:
 
