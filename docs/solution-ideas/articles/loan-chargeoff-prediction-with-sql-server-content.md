@@ -1,19 +1,34 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution demonstrates how to build and deploy a machine learning model with SQL Server 2016 with R Services to predict if a bank loan will need to be charged off within next three months.
+A charged off loan is a loan that is declared by a creditor (usually a lending institution) that an amount of debt is unlikely to be collected. It's usually when the loan repayment is severely delinquent by the debtor. Given that high chargeoff has negative impact on lending institutions’ year-end financials, lending institutions often monitor loan chargeoff risk very closely to prevent loans from getting charged-off. 
+
+This solution demonstrates how to build and deploy a machine learning model, with SQL Server 2019 pre-installed in a Data Science VM with R Services embedded. The solution predicts if a bank loan will need to be charged off within the given period. 
 
 ## Architecture
 
 ![Architecture diagram of building and deploying an ML model to predict a bank loan.](../media/loan-chargeoff-prediction-with-sql-server.png)
-*Download an [SVG](../media/loan-chargeoff-prediction-with-sql-server.svg) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/loan-chargeoff-prediction.vsdx) for this architecture.*
+
+### Dataflow
+
+1. Develop and deploy R code into the RStudio IDE, which is installed on a VM or DataScientist workstation. It's connected to a Data Science VM, where SQL Server is installed.
+
+2. Predict and score the model. The prediction and scored data can be visualized in Power BI.
+
+Data scientists do the data preparation, model training, and evaluation from their favorite R IDE. DBAs can take care of the deployment using SQL stored procedures with embedded R code. 
+
+Finally, a Power BI report is used to visualize the predicted and scored results that are deployed.
+
 
 ### Components
 
 Key technologies used to implement this architecture:
 
-- [Power BI Embedded](https://azure.microsoft.com/services/power-bi-embedded)
-- [SQL Server on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server)
+- [Power BI](https://powerbi.microsoft.com)
+- [Data Science Virtual Machines](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines)
 - [Virtual Machines](https://azure.microsoft.com/services/virtual-machines)
+
+In a Data Science VM, the SQL Server 2019 Developer edition is pre-installed. For information about the other tools included on the Azure Data Science VM, see [What tools are included on the Azure Data Science Virtual Machine?](/azure/machine-learning/data-science-virtual-machine/tools-included).
 
 ## Solution details
 
@@ -48,6 +63,14 @@ Your Azure subscription used for the deployment will incur consumption charges o
 Ensure that you stop your VM instance when not actively using the solution. If you run the VM, you will incur higher costs.
 
 Make sure to delete the solution if you are not using it.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+ - [Avijit Prasad](https://www.linkedin.com/in/avijit-prasad-96768a42) | Cloud Consultant
 
 ## Next steps
 
