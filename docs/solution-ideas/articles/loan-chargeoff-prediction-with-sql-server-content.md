@@ -11,7 +11,7 @@ This solution demonstrates how to build and deploy a machine learning model, wit
 
 ### Dataflow
 
-1. Develop and deploy R code into R Studio IDE, which is installed on a VM or DataScientist workstation. It's connected to a Data Science VM, where SQL Server is installed.
+1. Develop and deploy R code into R Studio IDE, which is installed on a VM or Data Scientist workstation. It's connected to a Data Science VM, where SQL Server is installed.
 
 2. Predict and score the model. The prediction and scored data can be visualized into Power BI.
 
