@@ -2,6 +2,7 @@
 title: Direct traffic with a geo-distributed app using Azure and Azure Stack Hub
 description: Learn how to direct traffic to specific endpoints with a geo-distributed app solution using Azure and Azure Stack Hub.
 author: BryanLa
+categories: azure
 ms.service: azure
 ms.topic: article
 ms.date: 11/05/2019

@@ -4,6 +4,7 @@ titleSuffix: Cloud Design Patterns
 description: Learn how to design your workload configuration processes to control the complexity of devices and systems on your shop floors.
 keywords: edge, workload, configuration
 author: microsoftCSE
+categories: azure
 ms.author: hecamm
 ms.date: 03/21/2022
 ms.topic: conceptual
