@@ -307,7 +307,7 @@ If you specify a region that supports availability zones, the VMs are deployed i
 [resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview
 [sql-alwayson-force-failover]: /sql/database-engine/availability-groups/windows/perform-a-forced-manual-failover-of-an-availability-group-sql-server?view=sql-server-ver15&preserve-view=true
 [sql-alwayson-getting-started]: /sql/database-engine/availability-groups/windows/getting-started-with-always-on-availability-groups-sql-server?view=sql-server-ver15&preserve-view=true
-[sql-alwayson-ilb]: /azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener
+[sql-alwayson-ilb]: /azure/azure-sql/virtual-machines/windows/availability-group-load-balancer-portal-configure
 [sql-alwayson-listeners]: /sql/database-engine/availability-groups/windows/listeners-client-connectivity-application-failover?view=sql-server-ver15&preserve-view=true
 [sql-alwayson-read-only-routing]: /sql/database-engine/availability-groups/windows/listeners-client-connectivity-application-failover?view=sql-server-ver15&preserve-view=true#ConnectToSecondary
 [sql-alwayson]: /sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-ver15&preserve-view=true
