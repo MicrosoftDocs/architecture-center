@@ -138,7 +138,7 @@ In IaaS architectures, replicating data between regions is the responsibility of
 Setting up replication between IaaS database servers isn't straightforward, and you need to take business continuity requirements into account. Azure database services such as [Azure SQL Database](/azure/sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery), Azure Database for MySQL, and [Cosmos DB](/azure/cosmos-db/distribute-data-globally) make replication between regions easier, but may not meet security requirements for highly sensitive workloads.
 
 For more information and guidance for multi-region SQL Server and Oracle deployments, see:
-- [Configure an availability group on Azure SQL Server virtual machines in different regions](/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-dr)
+- [Configure an availability group on Azure SQL Server virtual machines in different regions](/azure/azure-sql/virtual-machines/windows/availability-group-manually-configure-multiple-regions)
 - [Disaster recovery for an Oracle Database 12c database in an Azure environment](/azure/virtual-machines/workloads/oracle/oracle-disaster-recovery)
 
 ### Cross-region peering
