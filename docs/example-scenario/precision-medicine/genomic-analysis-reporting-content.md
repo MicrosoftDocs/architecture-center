@@ -1,24 +1,4 @@
-This article presents a solution for genomic analysis and reporting. The processes and results are appropriate for [precision medicine][Precision medicine definition] scenarios, or areas of medical care that use genetic profiling. Specifically, the solution provides a clinical genomics workflow that automates these tasks:
-
-- Taking data from a sequencer
-- Moving the data through secondary analysis
-- Providing results that clinicians can consume
-
-The growing scale, complexity, and security requirements of genomics make it an ideal candidate for moving to the cloud. Consequently, the solution uses Azure cloud services in addition to open-source tools. This approach takes advantage of the security, performance, and scalability features of the Azure cloud:
-
-- Scientists plan on sequencing hundreds of thousands of genomes in coming years. The task of storing and analyzing this data requires significant computing power and storage capacity. With data centers around the world that provide these resources, Azure can meet these demands.
-- Azure is certified for major global security and privacy standards, such as ISO 27001.
-- Azure complies with the security and provenance standards that the Health Insurance Portability and Accountability Act (HIPAA) establishes for personal health information.
-
-A key component of the solution is [Microsoft Genomics][Microsoft Genomics]. This service offers an optimized secondary analysis implementation that can process a [30x genome][30x genome definition] in a few hours. Standard technologies can take days.
-
-## Potential use cases
-
-This solution applies to many areas:
-
-- Risk scoring patients for cancer
-- Identifying patients with genetic markers that predispose them to disease
-- Generating patient cohorts for studies
+This article presents a solution for genomic analysis and reporting. The processes and results are appropriate for [precision medicine][Precision medicine definition] scenarios, or areas of medical care that use genetic profiling. 
 
 ## Architecture
 
@@ -83,7 +63,31 @@ You can easily use Microsoft Genomics results in tertiary analysis and machine l
 
 - [Power BI][Power BI] is a collection of software services and apps that display analytics information. You can use Power BI to connect and display unrelated sources of data. In this solution, you can populate Power BI dashboards with the results. Clinicians can then create visuals from the final dataset.
 
-- [Azure Healthcare APIs][Azure Healthcare APIs] is a managed, standards-based, compliant interface for accessing clinical health data. You can use the reference architectures and implementations in Health Architectures when you use Azure Healthcare APIs. In this scenario, Azure Healthcare APIs passes an FHIR bundle to the EHR with the clinical data.
+- [Azure Healthcare APIs][Azure Healthcare APIs] is a managed, standards-based, compliant interface for accessing clinical health data. In this scenario, Azure Healthcare APIs passes an FHIR bundle to the EHR with the clinical data.
+
+## Scenario details
+
+This article presents a solution for genomic analysis and reporting. The processes and results are appropriate for [precision medicine][Precision medicine definition] scenarios, or areas of medical care that use genetic profiling. Specifically, the solution provides a clinical genomics workflow that automates these tasks:
+
+- Taking data from a sequencer
+- Moving the data through secondary analysis
+- Providing results that clinicians can consume
+
+The growing scale, complexity, and security requirements of genomics make it an ideal candidate for moving to the cloud. Consequently, the solution uses Azure cloud services in addition to open-source tools. This approach takes advantage of the security, performance, and scalability features of the Azure cloud:
+
+- Scientists plan on sequencing hundreds of thousands of genomes in coming years. The task of storing and analyzing this data requires significant computing power and storage capacity. With data centers around the world that provide these resources, Azure can meet these demands.
+- Azure is certified for major global security and privacy standards, such as ISO 27001.
+- Azure complies with the security and provenance standards that the Health Insurance Portability and Accountability Act (HIPAA) establishes for personal health information.
+
+A key component of the solution is [Microsoft Genomics][Microsoft Genomics]. This service offers an optimized secondary analysis implementation that can process a [30x genome][30x genome definition] in a few hours. Standard technologies can take days.
+
+### Potential use cases
+
+This solution is ideal for the healthcare industry. It applies to many areas:
+
+- Risk scoring patients for cancer
+- Identifying patients with genetic markers that predispose them to disease
+- Generating patient cohorts for studies
 
 ## Considerations
 
