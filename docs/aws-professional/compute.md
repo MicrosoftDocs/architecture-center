@@ -17,7 +17,6 @@ products:
   - azure-logic-apps
   - azure-storage
   - azure-virtual-machines
-
 ---
 
 # Compute services on Azure and AWS
