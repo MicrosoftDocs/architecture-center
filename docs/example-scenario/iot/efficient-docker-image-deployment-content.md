@@ -1,41 +1,47 @@
 This article describes a solution for deploying containerized Docker internet-of-things (IoT) edge modules across intermittent or low-bandwidth internet connections.
 
-IoT edge processing is a key model for providing low-latency connectivity and conserving bandwidth, such as in mobile scenarios. IoT systems typically provision edge devices by deploying software container images. Interrupted container deployments over intermittent low-bandwidth internet connections can cause failures in mobile scenarios. IoT scenarios that have limited, intermittent, or low bandwidth need reliable and resilient deployment capabilities.
+Edge processing is a key internet-of-things (IoT) model for providing low-latency connectivity and conserving bandwidth, such as in mobile scenarios. IoT systems typically provision edge devices by deploying software container images. Interrupted container deployments over intermittent low-bandwidth internet connections can cause failures in mobile scenarios. IoT scenarios that have limited, intermittent, or low bandwidth need reliable and resilient deployment capabilities.
 
 In this example, a large logistics company wanted to improve its worldwide product shipment tracking. The company shipped goods with various ground, air, and sea transportation methods to many locales, including areas with intermittent, low-bandwidth internet connectivity. Depending upon the type of goods, product shipments had various IoT insurance, safety, or tracking devices installed on them, with different capabilities. Devices included GPS trackers, temperature sensors, and data capture tools.
 
-The company was having problems updating devices over their recently developed IoT edge platform. The major pain points were:
+The company was having problems updating devices over their recently developed Azure IoT Edge platform. The major pain points were:
 
 - High bandwidth consumption when deploying updated software to devices.
 - No standardized automated deployment across devices.
 - No way to know which devices had which updates.
 - Limited flexibility of technology selection.
 
-The solution that the development team created:
+To address these issues, the development team created a solution that:
 
 - Minimizes the size of the deployment to each device, reducing bandwidth.
-- Implements a standardized Docker container deployment from the IoT edge platform to heterogenous remote IoT devices.
+- Implements a standardized Docker container deployment from the IoT Edge platform to heterogenous remote IoT devices.
 - Enables reliable deployment monitoring.
-- Takes advantage of many Azure DevOps and cloud services, as well as the customer's legacy tools.
+- Takes advantage of various Azure DevOps and cloud services, and uses the customer's preferred legacy tools.
 
-The solution dramatically increased reliability and resiliency of the provisioning process in limited-connectivity environments. This article describes the solution details, the solution option evaluation process, and other solutions and options for this scenario.
+The solution dramatically increased reliability and resiliency of the device provisioning process in limited-connectivity environments. This article describes the solution details and the solution option evaluation process.
 
 ### Customer requirements
 
-The customer needed a solution that would support intermittent low-bandwidth cloud connectivity. Deployed applications had to continue to run locally. Local staff needed to use functionality offline or without a cloud round-trip delay. When connected, the solution needed to use the cloud connection efficiently. The solution had to prioritize sending data according to consistently defined business rules across products.
+The customer had the following requirements:
 
-There were the following detailed requirements:
+- The solution must support intermittent low-bandwidth cloud connectivity.
+- Deployed applications must continue to run locally.
+- Local staff needed to use functionality offline or without a cloud round-trip delay.
+- When connected, the solution must use the cloud connection efficiently.
+- The solution must prioritize sending data according to consistently defined business rules across products.
+
+There were also the following detailed requirements:
 
 - Image files are transferred across a low bandwidth, intermittent-connectivity satellite connection.
-- The amount of data being transferred is minimized.
-- Transferring files to devices uses the customer's third-party application.
+- The amount of data being transferred should be minimized.
+- Transferring files to devices uses the customer's preferred third-party application.
 - Device workloads use Docker images in IoT Edge.
 - Image sizes range from tens of MB to several GB.
 - IoT Edge modules are written in .NET Core 2.2.
 
 ## Potential use cases
 
-This solution is suitable for IoT scenarios where software containers deliver solutions over intermittent connections with low bandwidth. Examples include:
+This solution is suitable for IoT scenarios where software containers deliver solutions over low bandwidth, intermittent connections. Examples include:
 
 - Mobile scenarios
 - Remote oil, gas, and mining monitoring
@@ -44,9 +50,9 @@ This solution is suitable for IoT scenarios where software containers deliver so
 
 ## Architecture
 
-In high-bandwidth scenarios, Azure IoT Edge pulls images directly from an internet-accessible Docker registry, either a Docker hub or a private hub like Azure Container Registry. This is the same functionality as running the command `docker pull <image_name>`.
+In high-bandwidth scenarios, Azure IoT Edge pulls images directly from an internet-accessible Docker registry, either a Docker hub or a private hub like Azure Container Registry. This functionality is the same as running the `docker pull <image_name>` command.
 
-With potentially intermittent network access, such as a satellite internet connection, the Docker pull method is unreliable. Progress isn't cached if the internet connection drops while Docker is pulling the image. When the internet connection resumes, Docker must start pulling the image from the beginning.
+With potentially intermittent network access, such as a satellite internet connection, the Docker pull method is unreliable. Progress isn't cached if the internet connection drops while Docker is pulling the image. When the internet connection resumes, Docker must start pulling the image again from the beginning.
 
 The solution uses an alternative deployment mechanism, binary patching of Docker image files, to reduce bandwidth and compensate for intermittent connectivity.
 
@@ -58,12 +64,12 @@ The solution uses an alternative deployment mechanism, binary patching of Docker
 1. Container Registry stores each module's Docker images.
 1. The manifest repository contains the deployment manifests for all workstreams.
 1. Each module has an Azure Pipelines build pipeline that uses a generic Docker build to create and register modules.
-1. The image-to-device pipeline deploys the Docker images to the targeted devices, as defined by a manifest file.
-1. The manifest-to-device pipeline pipeline pushes the deployment manifest to the proper Azure IoT Hub for the device being updated.
-1. An third-party fast file transfer solution transfers the files from an Azure Storage account to the device's IoT Hub.
+1. The image-to-device pipeline deploys the Docker images to the targeted devices, as defined by the manifest file.
+1. The manifest-to-device pipeline pushes the deployment manifest to the proper Azure IoT Hub connection for the device being updated.
+1. A third-party fast file transfer solution transfers the files from an Azure Storage account to the device's IoT Hub.
 1. The Image Reconstruction IoT Edge module applies the received patches on the devices.
 1. IoT Hub receives status messages from the Image Reconstruction module, and sets the deployment manifest for the device. The rest of the pipeline flow uses this deployment manifest.
-1. Azure functions monitor the IoT Hub message stream, update the SQL database, and notify users of success or failure.
+1. Azure functions monitor the IoT Hub message stream, update the SQL database, and notify the user of success or failure.
 1. Azure SQL Database tracks occurrences on the target devices and the Azure-based services, during and after deployment.
 
 ### Components
@@ -86,35 +92,35 @@ The solution uses an alternative deployment mechanism, binary patching of Docker
 
 ### Alternatives
 
-The development team evaluated several options before deciding on the full Docker image delta transfer solution. The following sections describe the evaluation process and the alternatives.
+The development team evaluated several options before deciding on the full Docker image delta transfer solution. The following sections describe the evaluation alternatives and results.
 
 The team considered the following evaluation criteria for each option:
 
-- Whether the solution met requirements
-- Whether a low, medium or high amount of logic needed to be implemented on the devices
-- Whether a low, medium or high amount of logic needed to be implemented in Azure
+- Whether the solution met requirements.
+- Whether a low, medium or high amount of logic needed to be implemented on the devices.
+- Whether a low, medium or high amount of logic needed to be implemented in Azure.
 - Bandwidth efficiency, or ratio of transferred data to total size of an image, for transferring a container image.
 
 Bandwidth efficiency included scenarios where:
 
   - No images existed on the device.
   - An image with the same base existed on the device.
-  - An image of a previous application version was on the device.
-  - An image for the application built on a previous base image was on the device.
+  - An image of a previous application version existed on the device.
+  - An image for the application built on a previous base image existed on the device.
 
 The team used the following scenarios to evaluate bandwidth efficiency:
 
 | Scenario | Description |
 |------------------|------------------------------|
-| Transfer image with base layer already on the device | Transfer a new image when another image already on the device shares the base image. This scenario represents deploying a new application for the first time, while another application in the same OS and framework exists. |
+| Transfer image with base layer already on the device | Transfer a new image when another image already on the device shares the base image. This scenario represents deploying a new application for the first time, when another application already exists in the same OS and framework. |
 | Update the application layer | Change only the code for an existing application's image. This scenario represents a typical change when a user commits a new feature. |
 | Update the base image | Change the version of the base image the application is built on. |
 
 #### Transfer Docker layers option
 
-A container image is a [UnionFS](https://wikipedia.org/wiki/UnionFS) mount of read-only file system differences, with another writable layer for changes made while the container is running. The file systems are called *layers*, which are basically folders and files. Layers stack to form the base of the container's root file system. Since layers are read-only, various images can share the same layer if they have the layer in common.
+A Docker container image is a [UnionFS](https://wikipedia.org/wiki/UnionFS) mount of read-only file system differences, with another writable layer for changes made while the container is running. The file systems are called *layers*, which are basically folders and files. Layers stack to form the base of the container's root file system. Since layers are read-only, various images can share the same layer if they have the layer in common.
 
-The transfer Docker layers option reuses the layers between images, so needs to transfer only new layers to the device. This option would be most useful for images that share the same base layer, usually the OS, or for updating versions of existing images.
+The transfer Docker layers option reuses the layers between images, and transfers only new layers to the device. This option would be most useful for images that share the same base layer, usually the OS, or for updating versions of existing images.
 
 Drawbacks of this method include:
 
@@ -147,11 +153,10 @@ A build agent on the device then builds the image and registers it with the devi
 
 This solution was rejected because:
 
-- There would still need to be a way to move large Docker images to the devices. Images to build .NET applications are larger than the app images to run.
-- This method only works for applications where the team has the source code, and it can't use third-party images.
+- There would still need to be a way to move large Docker images to the devices. Images to build .NET applications are larger than the app images themselves.
+- This method works only for applications where the team has the source code, so it can't use third-party images.
 - The option requires packaging NuGet packages and tracking their movement to the devices.
-
-If an image failed to build on the device, the team would have to remotely debug the build environment and the created image. Remote debugging would require high usage of the potentially limited internet connection.
+- If an image failed to build on the device, the team would have to remotely debug the build environment and the created image. Remote debugging would require high usage of the potentially limited internet connection.
 
 #### Full image delta transfer option
 
@@ -163,7 +168,7 @@ The solution tracks the existing Docker images on the devices, and builds binary
 
 The following table shows how each of the above solutions measured against the evaluation criteria.
 
-|                 | Meets requirements    | Device complexity     | Azure complexity     | Transport     | First image     | Base on device | Update application layer | Update base layer |
+|                 | Meets reqs    | Device logic     | Azure logic     | Transport     | First image     | Base on device | Update app layer | Update base layer |
 |---------------------------|-----------------------|-----------------------|----------------------|---------------|-----------------|----------------|--------------------------|--------------------|
 | **Transfer Docker layers**    | Yes                   | Low                   | Medium               | FileCatalyst  | 100%            | 10.5%          | 22.4%                    | 100%               |
 | **Modified Docker client**    | Yes                   | Medium                | Low                  | HTTP          | 100%            | 10.5%          | 22.4%                    | 100%               |
@@ -226,7 +231,7 @@ Container Registry stores each module's Docker images. There are two possible co
 
 #### Manifest repository
 
-The manifest repository contains the deployment manifests for all workstreams. The templates are put in folders based on their workstream. In this example, the two workstreams are shared infrastructure and the containerized application.
+The manifest repository contains the deployment manifests for all workstreams. The templates are in folders based on their workstream. In this example, the two workstreams are shared infrastructure and the containerized application.
 
 ```
 
@@ -239,7 +244,7 @@ The manifest repository contains the deployment manifests for all workstreams. T
 
 #### Docker image build pipeline
 
-Each module has an Azure Pipelines build pipeline. The pipeline uses a generic Docker build to create and register modules. The pipelines are responsible for:
+Each module has an Azure Pipelines build pipeline. The pipeline uses a generic Docker build to create and register modules. The pipeline is responsible for:
 
 - Security scanning of the source code.
 - Security scanning of the base image for building the Docker image.
@@ -261,9 +266,9 @@ The image contains the code that determines which patches to build, builds the p
 
 The image distribution tool needs the following information:
 
-- Which image(s) to deploy, provided by the manifest in the repository
-- Which devices to deploy to, provided by the user who triggers the pipeline
-- Which image(s) are already on the targeted devices, provided by an Azure SQL database
+- Which image(s) to deploy, provided by the manifest in the repository.
+- Which devices to deploy to, provided by the user who triggers the pipeline.
+- Which image(s) are already on the targeted devices, provided by an Azure SQL database.
 
 The pipeline outputs are:
 
@@ -287,7 +292,7 @@ This pipeline does the following steps:
 
 #### Manifest-to-device pipeline
 
-The manifest-to-device pipeline pipeline pushes the deployment manifest to the proper IoT Hub for the device being updated. A user triggers the pipeline manually, and specifies an environment variable for the IoT Hub instance to target.
+The manifest-to-device pipeline pushes the deployment manifest to the proper IoT Hub connection for the device being updated. A user triggers the pipeline manually, and specifies an environment variable for the IoT Hub instance to target.
 
 The pipeline:
 - Determines which images the deployment needs.
@@ -296,13 +301,13 @@ The pipeline:
 
 #### Fast file transfer solution
 
-The customer wanted to continue using their fast file transfer solution, called FileCatalyst, to provide the connection between Azure and their IoT devices. This solution is an *eventually consistent* file transfer tool, meaning a transfer can take a long time, but will eventually complete without losing any file information.
+The customer wanted to continue using their third-party fast file transfer solution, called FileCatalyst, to provide the connection between Azure and their IoT devices. This solution is an *eventually consistent* file transfer tool, meaning a transfer can take a long time, but will eventually complete without losing any file information.
 
 The solution used an Azure Storage account on the Azure side of the connection, and the customer's existing file transfer host VM for each device receiving images. The patch bundles transfer to a Linux VM that runs IoT Hub.
 
-#### Image reconstruction module
+#### Image Reconstruction module
 
-The Image Reconstruction IoT Edge module applies the received patches on the devices. Every device hosts its own local container registry. This solution used the Docker open-source registry. The Image Reconstruction process runs on the host VM, which is the same as the file transfer VM.
+The Image Reconstruction IoT Edge module applies the received patches on the devices. Every device hosts its own local container registry, using the Docker open-source registry. The Image Reconstruction process runs on the host VM, which is the same as the file transfer VM.
 
 The module:
 
@@ -312,7 +317,7 @@ The module:
 1. Saves the base image as a *.tar* file.
 1. Applies the patch to the base image.
 1. Loads the *.tar* file containing the new image to Docker.
-1. Pushes the new image to the local container registry. The configuration file includes a friendly name and tag.
+1. Pushes the new image to the local container registry, with a configuration file including a friendly name and tag.
 1. Sends a success message to IoT Hub.
 
 If the process fails at any point, the module sends a failure message to IoT Hub, so the user who triggered the deployment can be notified.
@@ -327,14 +332,14 @@ Several of the deployment processes use IoT Hub. Besides receiving status messag
 
 An Azure function monitors the message stream coming from IoT Hub, and takes action in the cloud.
 
-In the case of a successful message:
+For a success message:
 
 - The function updates the status of the SQL entry for the image on the device from `in transit` to `succeeded`.
-- If this is the last image to arrive in a deployment set:
+- If this image is the last to arrive in a deployment set:
   - The function notifies the user of the deployment success.
   - The function updates the manifest-to-device pipeline to start using the new images.
 
-In the case of a failure message:
+For a failure message:
 
 - The function updates the status of the SQL entry for the image on the device from `in transit` to `failed`.
 - The function notifies the user of the image transfer failure.
@@ -343,18 +348,16 @@ In the case of a failure message:
 
 ### SQL Database
 
-A SQL database tracks occurrences on the target devices and the Azure-based deployment services during and after deployment.
-
-Both Azure Functions and Azure Pipelines use a private NuGet package created for interacting with the database.
+An SQL database tracks occurrences on the target devices and the Azure-based deployment services during and after deployment. Azure Functions and Azure Pipelines both use a private NuGet package created for interacting with the database.
 
 SQL Database stores the following data:
 
 - Which images are on which device.
 - Which images are on the way to which devices.
 - Which images being deployed belong to a set.
-- Who ordered the deployments.
+- The user that ordered the deployments.
 
-The goal for this example was to make sure the system generates the data needed for future dashboards. Querying IoT Hub can provide the following data about the manifest-to-device pipeline:
+The goal for this example was to make sure the system generates the needed data for future dashboards. Querying IoT Hub can provide the following data about the manifest-to-device pipeline:
 
 - The state of a deployment.
 - The images on a given device.
@@ -370,7 +373,6 @@ The goal for this example was to make sure the system generates the data needed 
 ## Related resources
 
 - [Azure IoT reference architecture](/azure/architecture/reference-architectures/iot)
-- [Monitor Azure resources in Microsoft Defender for Cloud](/azure/architecture/framework/security/monitor-resources)
 - [Azure IoT Edge for Azure Industrial IoT](/azure/architecture/guide/iiot-guidance/iiot-architecture#azure-iot-edge)
 - [Design a CI/CD pipeline using Azure DevOps](/azure/architecture/example-scenario/apps/devops-dotnet-webapp)
 - [Architectural considerations in an IoT analytics solution](/azure/architecture/guide/iiot-guidance/iiot-considerations)
