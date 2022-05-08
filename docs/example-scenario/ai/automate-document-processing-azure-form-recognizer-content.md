@@ -6,7 +6,7 @@ This article outlines a scalable and secure solution for building an automated d
 
 ## Potential use cases
 
-The following tasks can benefit from this solution:
+This solution is ideal for the finance industry. The following tasks can benefit from this solution:
 
 - Approving expense reports
 - Processing invoices, receipts, and bills for insurance claims and financial audits
