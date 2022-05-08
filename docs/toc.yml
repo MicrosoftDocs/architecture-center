@@ -4576,10 +4576,47 @@ items:
         items:
           - name: Guides
             items:
-              - name: Migrate an e-commerce solution to Azure
-                href: industries/retail/migrate-ecommerce-solution.md
-              - name: Migrate with Azure VMware Solution
-                href: /azure/cloud-adoption-framework/scenarios/azure-vmware/migrate
+              - name: Migration scenarios
+                items:
+                  - name: Migrate a Cloud Services app to Service Fabric
+                    href: service-fabric/migrate-from-cloud-services.yml
+                  - name: Migrate a monolith app to microservices
+                    href: microservices/migrate-monolith.yml
+                  - name: Migrate an e-commerce solution to Azure
+                    href: industries/retail/migrate-ecommerce-solution.md
+                  - name: Migrate with Azure VMware Solution
+                    href: /azure/cloud-adoption-framework/scenarios/azure-vmware/migrate
+                    maintainContext: true
+              - name: Migration planning
+                items:
+                  - name: Build a migration plan
+                    href: /azure/migrate/concepts-migration-planning
+                    maintainContext: true
+                  - name: Support for VMware migration
+                    href: /azure/migrate/migrate-support-matrix-vmware-migration
+                    maintainContext: true
+                  - name: Support for Hyper-V migration
+                    href: /azure/migrate/migrate-support-matrix-hyper-v-migration
+                    maintainContext: true
+                  - name: Support for physical server migration
+                    href: /azure/migrate/migrate-support-matrix-physical-migration
+                    maintainContext: true
+              - name: Security baseline for Azure Migrate
+                href: /security/benchmark/azure/baselines/migrate-security-baseline
+                maintainContext: true
+              - name: Hyper-V migration
+                href: /azure/migrate/hyper-v-migration-architecture
+                maintainContext: true
+              - name: VMware agentless migration
+                items:
+                  - name: Agentless migration of VMware VMs
+                    href: /azure/migrate/concepts-vmware-agentless-migration
+                    maintainContext: true
+                  - name: Prepare for VMware agentless migration
+                    href: /azure/migrate/prepare-for-agentless-migration
+                    maintainContext: true
+              - name: VMware agent-based migration
+                href: /azure/migrate/agent-based-migration-architecture
                 maintainContext: true
           - name: Architectures
             items:
