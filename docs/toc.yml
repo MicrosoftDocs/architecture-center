@@ -2832,7 +2832,6 @@ items:
                     href: reference-architectures/containers/aks-mission-critical/mission-critical-monitor.yml
                   - name: DevOps considerations
                     href: reference-architectures/containers/aks-mission-critical/mission-critical-devops.yml
-                href: reference-architectures/containers/aks-mission-critical/mission-critical-intro.yml                    
               - name: Multiplayer server hosting with ACI
                 href: /gaming/azure/reference-architectures/multiplayer-synchronous-aci
                 maintainContext: true
