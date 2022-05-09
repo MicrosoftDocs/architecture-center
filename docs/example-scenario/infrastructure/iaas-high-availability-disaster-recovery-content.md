@@ -22,7 +22,7 @@ ASs and AZs for different app tiers aren't guaranteed to be within the same data
 
 - Multi-region HA is possible, but requires a global load balancer such as Front Door or Traffic Manager. For more information, see [Run an N-tier application in multiple Azure regions for high availability](../../reference-architectures/n-tier/multi-region-sql-server.yml).
 
-## Scenario
+## Scenario details
 
 Multitier or [n-tier](../../guide/architecture-styles/n-tier.yml) architectures are common in traditional on-premises apps, so they're a natural choice for migrating on-premises apps to the cloud, or when developing apps for both on-premises and the cloud. N-tier architectures are typically implemented as IaaS apps divided into logical layers and physical tiers, with a top web or presentation tier, a middle business tier, and a data tier.
 
@@ -92,7 +92,7 @@ You can take advantage of AZs for both HA and DR by using a different AZ for you
 
 If your app supports Azure Site Recovery, you can provide a regional DR solution for increased protection, if the criticality of the app demands it. However, cross-zone, cross-datacenter HA alone may be sufficient protection, because if an app is fully resilient to datacenter failure, there should be no downtime or data loss.
 
-## Pricing
+### Cost optimization
 
 There's no additional cost for VMs deployed in AZs. There may be additional inter-AZ VM-to-VM data transfer charges. For more information, see the [Bandwidth pricing page](https://azure.microsoft.com/pricing/details/bandwidth/).
 
