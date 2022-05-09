@@ -69,26 +69,19 @@ The solution uses an alternative deployment mechanism, binary patching of Docker
 1. A third-party fast file transfer solution transfers the files from an Azure Storage account to the device's IoT Hub.
 1. The Image Reconstruction IoT Edge module applies the received patches on the devices.
 1. IoT Hub receives status messages from the Image Reconstruction module, and sets the deployment manifest for the device. The rest of the pipeline flow uses this deployment manifest.
-1. Azure functions monitor the IoT Hub message stream, update the SQL database, and notify the user of success or failure.
+1. Azure Functions monitors the IoT Hub message stream, updates the SQL database, and notifies the user of success or failure.
 1. Azure SQL Database tracks occurrences on the target devices and the Azure-based services, during and after deployment.
 
 ### Components
 
-- [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge)
-
-- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub)
-
-- [Azure Container Registry](https://azure.microsoft.com/services/container-registry)
-
-- [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines)
-
-- [Azure Functions](https://azure.microsoft.com/services/functions)
-
-- [Azure Storage](https://azure.microsoft.com/services/storage)
-
-- [Azure SQL Database](https://azure.microsoft.com/services/sql-database)
-
-- [Docker](https://www.docker.com)
+- [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge) runs containerized workloads on devices, providing low-latency connectivity and conserving bandwidth.
+- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) is a managed, cloud-hosted service that acts as a central message hub for communication between IoT applications and the devices they control.
+- [Azure Container Registry](https://azure.microsoft.com/services/container-registry) is a cloud-based, private registry service to store and manage private Docker container images and related artifacts.
+- [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) combines continuous integration (CI) and continuous delivery (CD) to automatically test and build code and ship it to any target.
+- [Azure Functions](https://azure.microsoft.com/services/functions) is an event-driven, serverless compute platform that enables running event-triggered code without having to provision or manage infrastructure.
+- [Azure Storage](https://azure.microsoft.com/services/storage) provides highly scalable, secure, performant, and cost-effective services to store all types of business data, objects, and files.
+- [Azure SQL Database](https://azure.microsoft.com/services/sql-database) is a fully managed, multimodel relational database service that is built for the cloud.
+- [Docker](https://www.docker.com) is an open platform for developing, shipping, and running containerized applications.
 
 ### Alternatives
 
@@ -96,17 +89,17 @@ The development team evaluated several options before deciding on the full Docke
 
 The team considered the following evaluation criteria for each option:
 
-- Whether the solution met requirements.
+- Whether or not the solution met requirements.
 - Whether a low, medium or high amount of logic needed to be implemented on the devices.
 - Whether a low, medium or high amount of logic needed to be implemented in Azure.
 - Bandwidth efficiency, or ratio of transferred data to total size of an image, for transferring a container image.
 
 Bandwidth efficiency included scenarios where:
 
-  - No images existed on the device.
-  - An image with the same base existed on the device.
-  - An image of a previous application version existed on the device.
-  - An image for the application built on a previous base image existed on the device.
+- No images existed on the device.
+- An image with the same base existed on the device.
+- An image of a previous application version existed on the device.
+- An image for the application built on a previous base image existed on the device.
 
 The team used the following scenarios to evaluate bandwidth efficiency:
 
@@ -140,7 +133,7 @@ This method is viable, but had complications, including:
 - Transferring data over HTTP instead of the customer's favored fast file transfer solution would require developing custom retry logic.
 - All layers must be retransmitted when a base image changes.
 
-#### Build at the edge option
+#### Build on edge device option
 
 This approach moves the image build environment to the devices. The following data is sent to the device:
 
@@ -171,8 +164,8 @@ The following table shows how each of the above solutions measured against the e
 |                 | Meets reqs    | Device logic     | Azure logic     | Transport     | First image     | Base on device | Update app layer | Update base layer |
 |---------------------------|-----------------------|-----------------------|----------------------|---------------|-----------------|----------------|--------------------------|--------------------|
 | **Transfer Docker layers**    | Yes                   | Low                   | Medium               | FileCatalyst  | 100%            | 10.5%          | 22.4%                    | 100%               |
-| **Modified Docker client**    | Yes                   | Medium                | Low                  | HTTP          | 100%            | 10.5%          | 22.4%                    | 100%               |
-| **Edge**                      | No                    | High                  | Medium               | FileCatalyst  | N/A             | N/A            | N/A                      | N/A                |
+| **Modify Docker client**    | Yes                   | Medium                | Low                  | HTTP          | 100%            | 10.5%          | 22.4%                    | 100%               |
+| **Build on edge device**                      | No                    | High                  | Medium               | FileCatalyst  | N/A             | N/A            | N/A                      | N/A                |
 | **Full image delta transfer** | Yes                   | Low                   | High                 | FileCatalyst  | 100%            | 3.2%           | 0.01%                    | 16.1%              |
 
 ## Considerations
@@ -226,7 +219,7 @@ The recommended number of source code repositories is:
 
 Container Registry stores each module's Docker images. There are two possible configurations for Container Registry:
 
-- A single Container Registry instance that stores all images
+- A single Container Registry instance that stores all images.
 - Two Container Registry instances, one to store the development, testing, and debugging images, and another that contains only images marked as production-ready.
 
 #### Manifest repository
@@ -274,7 +267,7 @@ The pipeline outputs are:
 
 - Patch bundles sent to the Azure side of the file transfer tool, to be distributed to the devices.
 - SQL database entries that mark which images have started transferring to each device.
-- SQL database entries for the new deployment sets. These entries include who ordered the deployment and their contact email address.
+- SQL database entries for the new deployment sets. These entries include the name and email address of the user who ordered the deployment.
 
 This pipeline does the following steps:
 
@@ -352,12 +345,12 @@ An SQL database tracks occurrences on the target devices and the Azure-based dep
 
 SQL Database stores the following data:
 
-- Which images are on which device.
-- Which images are on the way to which devices.
+- Which images that are on each device.
+- Which images are on the way to each devices.
 - Which images being deployed belong to a set.
 - The user that ordered the deployments.
 
-The goal for this example was to make sure the system generates the needed data for future dashboards. Querying IoT Hub can provide the following data about the manifest-to-device pipeline:
+The goal for this example was to make sure the system generated the needed data for future data dashboards. Querying IoT Hub can provide the following data about the manifest-to-device pipeline:
 
 - The state of a deployment.
 - The images on a given device.

@@ -2,7 +2,7 @@
 metadata:
   title: Efficient Docker image deployment for low-bandwidth connectivity
   titleSuffix: Azure Example Workloads
-  description: See an example solution for reliable and resilient Docker image deployment when you have limited, intermittent, or low bandwidth.
+  description: See an example solution for reliable and resilient Docker image deployment over limited, intermittent, or low bandwidth.
   author: EdPrice-MSFT
   ms.author: kadimitr
   ms.date: 05/10/2022
@@ -13,13 +13,14 @@ name: Efficient Docker image deployment for low-bandwidth connectivity
 azureCategories:
   - devops
   - iot
-summary: See an example solution for reliable and resilient Docker image deployment when you have limited, intermittent, or low bandwidth.
+summary: See an example solution for reliable and resilient Docker image deployment over limited, intermittent, or low bandwidth.
 products:
   - azure-container-registry
-  - azure-pipelines
   - azure-functions
   - azure-iot-edge
   - azure-iot-hub
+  - azure-pipelines
+
 thumbnailUrl: /azure/architecture/browse/thumbs/efficient-docker-image-deployment-01.png
 content: |
    [!include[](efficient-docker-image-deployment-content.md)]
