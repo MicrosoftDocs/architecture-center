@@ -9,17 +9,17 @@ metadata:
   ms.service: architecture-center
   ms.subservice: reference-architecture
   ms.category:
-    - data
+    - databases
     - security
     - devops
 name: Data considerations for mission critical workloads
 azureCategories:
   - containers
-  - data
+  - databases
   - security
 summary: Reference architecture for a workload that is accessed over a public endpoint without additional dependencies to other company resources.
 products:
-  - azure-cosmosdb
+  - azure-cosmos-db
   - azure-kubernetes-service
   - azure-rbac
 thumbnailUrl: /azure/architecture/browse/thumbs/mission-critical-online.png
