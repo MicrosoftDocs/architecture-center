@@ -57,6 +57,8 @@ items:
             items:
               - name: Azure compute services
                 href: guide/technology-choices/compute-decision-tree.yml
+              - name: High availability and disaster recovery
+                href: example-scenario/infrastructure/iaas-high-availability-disaster-recovery.yml
               - name: Microservices compute options
                 href: /azure/architecture/microservices/design/compute-options
               - name: Web apps and single page apps
@@ -1116,6 +1118,20 @@ items:
               - name: Considerations for naming resources
                 href: /azure/azure-government/documentation-government-concept-naming-resources
                 maintainContext: true
+              - name: IoT scenarios
+                items:
+                  - name: Connected waste management
+                    href: /azure/iot-central/government/tutorial-connected-waste-management
+                    maintainContext: true
+                  - name: Secure worldwide public sector
+                    href: /azure/azure-government/documentation-government-overview-wwps
+                    maintainContext: true
+                  - name: Water consumption monitoring
+                    href: /azure/iot-central/government/tutorial-water-consumption-monitoring
+                    maintainContext: true
+                  - name: Water quality monitoring
+                    href: /azure/iot-central/government/tutorial-water-quality-monitoring
+                    maintainContext: true
               - name: Development
                 items:
                   - name: Azure Government developer guide
@@ -1143,14 +1159,6 @@ items:
                     maintainContext: true
                   - name: Secure Azure computing
                     href: /azure/azure-government/compliance/secure-azure-computing-architecture
-                    maintainContext: true
-              - name: Compliance
-                items:
-                  - name: Azure Government compliance
-                    href: /azure/azure-government/documentation-government-plan-compliance
-                    maintainContext: true
-                  - name: Services compliance scope
-                    href: /azure/azure-government/compliance/azure-services-in-fedramp-auditscope
                     maintainContext: true
               - name: Identity
                 items:
@@ -1230,9 +1238,46 @@ items:
                     maintainContext: true
           - name: Compliance solutions
             items:
-              - name: DoD overview
-                href: /azure/azure-government/documentation-government-overview-dod
+              - name: General compliance
+                items:
+                  - name: Azure Government compliance
+                    href: /azure/azure-government/documentation-government-plan-compliance
+                    maintainContext: true
+                  - name: Services compliance scope
+                    href: /azure/azure-government/compliance/azure-services-in-fedramp-auditscope
+                    maintainContext: true
+                  - name: Azure Security Benchmark
+                    href: /azure/governance/policy/samples/gov-azure-security-benchmark
+                    maintainContext: true
+                  - name: Compliance export controls
+                    href: /azure/azure-government/documentation-government-overview-itar
+                    maintainContext: true
+              - name: CIS Azure Foundations
+                href: /azure/governance/policy/samples/gov-cis-azure-1-3-0
                 maintainContext: true
+              - name: DoD
+                items:
+                  - name: DoD overview
+                    href: /azure/azure-government/documentation-government-overview-dod
+                    maintainContext: true
+                  - name: DoD IL2
+                    href: /azure/compliance/offerings/offering-dod-il2
+                    maintainContext: true
+                  - name: DoD IL4
+                    href: /azure/compliance/offerings/offering-dod-il4
+                    maintainContext: true
+                  - name: DoD IL4 Rgulatory Compliance built-in
+                    href: /azure/governance/policy/samples/gov-dod-impact-level-4
+                    maintainContext: true
+                  - name: DoD IL5
+                    href: /azure/compliance/offerings/offering-dod-il5
+                    maintainContext: true
+                  - name: DoD IL5 Rgulatory Compliance built-in
+                    href: /azure/governance/policy/samples/gov-dod-impact-level-5
+                    maintainContext: true
+                  - name: DoD IL6
+                    href: /offerings/offering-dod-il6
+                    maintainContext: true
               - name: EAR overview
                 href: /azure/compliance/offerings/offering-ear
                 maintainContext: true
@@ -1246,6 +1291,9 @@ items:
                     maintainContext: true
                   - name: FedRAMP moderate compliance
                     href: /azure/governance/policy/samples/fedramp-moderate
+                    maintainContext: true
+                  - name: Compliance acceleration with FedRAMP ATO
+                    href: /azure/azure-government/compliance/documentation-accelerate-compliance
                     maintainContext: true
               - name: IRS 1075 overview
                 href: /azure/compliance/offerings/offering-irs-1075
@@ -2074,6 +2122,9 @@ items:
                     maintainContext: true
                   - name: Machine teaching
                     href: solution-ideas/articles/machine-teaching.yml
+                  - name: Machine learning on Azure IoT Edge
+                    href: /azure/iot-edge/tutorial-machine-learning-edge-01-intro
+                    maintainContext: true
                   - name: Enterprise security and governance
                     href: /azure/machine-learning/concept-enterprise-security
                     maintainContext: true
@@ -2589,7 +2640,7 @@ items:
                 href: solution-ideas/articles/supply-chain-track-and-trace.yml
       - name: Compute + HPC
         items:
-          - name: Get started with HPC
+          - name: Get started
             href: topics/high-performance-computing.md
           - name: Guides
             items:
@@ -2754,9 +2805,14 @@ items:
               - name: BCDR considerations for AKS
                 href: /azure/cloud-adoption-framework/scenarios/aks/eslz-business-continuity-and-disaster-recovery
                 maintainContext: true
-              - name: Security baseline for AKS
-                href: /security/benchmark/azure/baselines/aks-security-baseline
-                maintainContext: true
+              - name: Security considerations
+                items:
+                  - name: Confidential containers on Azure
+                    href: /azure/confidential-computing/confidential-containers
+                    maintainContext: true
+                  - name: Security baseline for AKS
+                    href: /security/benchmark/azure/baselines/aks-security-baseline
+                    maintainContext: true
               - name: Docker guidance
                 items:
                   - name: Monolithic applications
@@ -4377,6 +4433,8 @@ items:
                   - name: ExpressRoute with Azure VM DR
                     href: /azure/site-recovery/azure-vm-disaster-recovery-with-expressroute
                     maintainContext: true
+                  - name: Recover from a region-wide disruption
+                    href: resiliency/recovery-loss-azure-region.md
                   - name: Move Azure VMs to another Azure region
                     href: /azure/site-recovery/azure-to-azure-move-overview
                     maintainContext: true
@@ -4518,10 +4576,47 @@ items:
         items:
           - name: Guides
             items:
-              - name: Migrate an e-commerce solution to Azure
-                href: industries/retail/migrate-ecommerce-solution.md
-              - name: Migrate with Azure VMware Solution
-                href: /azure/cloud-adoption-framework/scenarios/azure-vmware/migrate
+              - name: Migration scenarios
+                items:
+                  - name: Migrate a Cloud Services app to Service Fabric
+                    href: service-fabric/migrate-from-cloud-services.yml
+                  - name: Migrate a monolith app to microservices
+                    href: microservices/migrate-monolith.yml
+                  - name: Migrate an e-commerce solution to Azure
+                    href: industries/retail/migrate-ecommerce-solution.md
+                  - name: Migrate with Azure VMware Solution
+                    href: /azure/cloud-adoption-framework/scenarios/azure-vmware/migrate
+                    maintainContext: true
+              - name: Migration planning
+                items:
+                  - name: Build a migration plan
+                    href: /azure/migrate/concepts-migration-planning
+                    maintainContext: true
+                  - name: Support for VMware migration
+                    href: /azure/migrate/migrate-support-matrix-vmware-migration
+                    maintainContext: true
+                  - name: Support for Hyper-V migration
+                    href: /azure/migrate/migrate-support-matrix-hyper-v-migration
+                    maintainContext: true
+                  - name: Support for physical server migration
+                    href: /azure/migrate/migrate-support-matrix-physical-migration
+                    maintainContext: true
+              - name: Security baseline for Azure Migrate
+                href: /security/benchmark/azure/baselines/migrate-security-baseline
+                maintainContext: true
+              - name: Hyper-V migration
+                href: /azure/migrate/hyper-v-migration-architecture
+                maintainContext: true
+              - name: VMware agentless migration
+                items:
+                  - name: Agentless migration of VMware VMs
+                    href: /azure/migrate/concepts-vmware-agentless-migration
+                    maintainContext: true
+                  - name: Prepare for VMware agentless migration
+                    href: /azure/migrate/prepare-for-agentless-migration
+                    maintainContext: true
+              - name: VMware agent-based migration
+                href: /azure/migrate/agent-based-migration-architecture
                 maintainContext: true
           - name: Architectures
             items:
@@ -4531,8 +4626,14 @@ items:
                     href: example-scenario/banking/banking-system-cloud-transformation.yml
                   - name: Patterns and implementations
                     href: example-scenario/banking/patterns-and-implementations.yml
+              - name: Migrate a web app with APIM
+                href: example-scenario/apps/apim-api-scenario.yml
+              - name: Modernize mainframe and midrange data
+                href: reference-architectures/migration/modernize-mainframe-data-to-azure.yml
               - name: Oracle database migration
                 items:
+                  - name: Oracle migration to Azure
+                    href: solution-ideas/articles/reference-architecture-for-oracle-database-migration-to-azure.yml
                   - name: Migration decision process
                     href: example-scenario/oracle-migrate/oracle-migration-overview.yml
                   - name: Cross-cloud connectivity
@@ -4547,10 +4648,12 @@ items:
             items:
               - name: JMeter implementation reference
                 href: example-scenario/banking/jmeter-load-testing-pipeline-implementation-reference.yml
-              - name: Lift and shift LOB apps
-                href: solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process.yml
+              - name: Lift and shift to containers with AKS
+                href: solution-ideas/articles/migrate-existing-applications-with-aks.yml
               - name: Migrate .NET applications
                 href: solution-ideas/articles/net-app-modernization.yml
+              - name: Migrate IBM mainframe apps
+                href: solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml
       - name: Mixed Reality
         items:
           - name: Guides
@@ -4762,6 +4865,8 @@ items:
                 href: solution-ideas/articles/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application.yml
               - name: Custom mobile workforce app
                 href: solution-ideas/articles/custom-mobile-workforce-app.yml
+              - name: Modern customer support portal
+                href: solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process.yml
               - name: Scalable apps with Azure MySQL
                 href: solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-mysql.yml
               - name: Scalable apps using Azure PostgreSQL
@@ -4835,8 +4940,13 @@ items:
                   - name: Virtual network service tags
                     href: /azure/virtual-network/service-tags-overview
                     maintainContext: true
+              - name: Global transit network and Virtual WAN
+                href: /azure/virtual-wan/virtual-wan-global-transit-network-architecture
+                maintainContext: true
               - name: Build solutions with availability zones
                 href: high-availability/building-solutions-for-high-availability.yml
+              - name: Deploy highly available NVAs
+                href: reference-architectures/dmz/nva-ha.yml
               - name: Use ExpressRoute with Power Platform
                 items:
                   - name: Overview
@@ -4874,14 +4984,6 @@ items:
                 maintainContext: true
           - name: Architectures
             items:
-              - name: Deploy highly available NVAs
-                href: reference-architectures/dmz/nva-ha.yml
-              - name: Enterprise-scale landing zone
-                href: /azure/cloud-adoption-framework/ready/enterprise-scale/architecture
-                maintainContext: true
-              - name: Global transit network and Virtual WAN
-                href: /azure/virtual-wan/virtual-wan-global-transit-network-architecture
-                maintainContext: true
               - name: High availability for IaaS apps
                 href: example-scenario/infrastructure/iaas-high-availability-disaster-recovery.yml
               - name: Hub-spoke network topology in Azure
@@ -5531,6 +5633,8 @@ items:
                 href: solution-ideas/articles/highly-available-sharepoint-farm.yml
               - name: Hybrid SharePoint farm with Microsoft 365
                 href: solution-ideas/articles/sharepoint-farm-microsoft-365.yml
+              - name: Modern customer support portal
+                href: solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process.yml
               - name: Real-time presence with Microsoft 365
                 href: solution-ideas/articles/presence-microsoft-365-power-platform.yml
               - name: Scalable e-commerce web app
