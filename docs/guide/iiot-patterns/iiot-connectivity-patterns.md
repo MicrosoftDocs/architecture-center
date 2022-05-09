@@ -93,7 +93,7 @@ Following sections includes common connectivity patterns for industrial solution
     - Data egress can be allowed to go outside of the Purdue Model.
 
 - Considerations
-    - Requires management of custom application and/or firmware updates.
+    - Requires additional deployment and management of the custom application for sensor data collection.
     - No support for offline or edge analytics scenarios.
     - [Security baseline for IoT Hub](https://docs.microsoft.com/en-us/security/benchmark/azure/baselines/iot-hub-security-baseline?toc=/azure/iot-hub/TOC.json)
     - See [Cloud Gateway options](#cloud-gateway-options) below to understand when to use IoT Hub vs. IoT Central 
@@ -107,7 +107,7 @@ Following sections includes common connectivity patterns for industrial solution
 ![Nested Edge](images/nested-edge.png)
 
 - Use this pattern when:
-    - Layer 0~1 can only connect with adjacent Layer 2.
+    - Layer 0~1 can only connect with adjacent Layer 2, as per the ISA95 / Purdue model.
     - IoT Edge can be installed at Layer 2 and can connect to Layer 0~1.
 
 - Considerations
@@ -127,7 +127,7 @@ Following sections includes common connectivity patterns for industrial solution
 - Use this pattern when:
     - Kubernetes infrastructure and skillset is already available.
     - Horizontal scaling and hardware failure resiliency is critical.
-    - IoT Edge VM snapshots are not enough to meet the RTO and RPO needs for HA/DR.
+    - IoT Edge VM snapshots are not enough to meet the recovery time objective (RTO) and recovery point objective (RPO) needs. *RTO is the maximum time an application is unavailable after an incident, and RPO is the maximum duration of data loss during a disaster.*
 
 - Considerations
     - This pattern is for hardware resiliency and agnostic of data models, protocols and industrial connectivity software.
