@@ -1,5 +1,5 @@
 
-Rehost is an option to run legacy Mainframe applications, intact, on an open system. This path is the fastest way to take applications off of your mainframe hardware and run them on a Windows or Linux platform in a cloud-native environment. Application code written in legacy languages like Cobol or PL/1 are migrated as is and recompiled in the new environment with no change to the business logic. Rehosting helps to preserve the application's logic, which might have run for decades. At the same time, rehosting minimizes the risk and cost that come with code changes.  
+Rehost is an option to run legacy mainframe applications, intact, on an open system. This path is the fastest way to take applications off of your mainframe hardware and run them on a Windows or Linux platform in a cloud-native environment. Application code written in legacy languages like Cobol or PL/1 are migrated as is and recompiled in the new environment with no change to the business logic. Rehosting helps to preserve the application's logic, which might have run for decades. At the same time, rehosting minimizes the risk and cost that come with code changes.  
 
 Rehosting is a cost-effective method to address the challenges of maintaining old mainframe hardware. Commonly referred to as *lift and shift*, rehosting moves mission-critical and core applications off the mainframe and migrates them to the cloud. With this approach, underlying hardware changes, like from an IBM mainframe to x86, but the functional and business logic is untouched. This migration is the quickest and least impactful from an end-user perspective. The application retains the same interfaces and look and feel that the users are comfortable with.  
 
@@ -17,12 +17,17 @@ Many scenarios can benefit from rehosting on Azure. Here are some possible use c
 
 ## Architecture
 
-> Architecture diagram goes here
-> Under the architecture diagram, include this sentence and a link to the Visio file or the PowerPoint file:
+### Pre-migration
 
-*Download a [Visio file](https://arch-center.azureedge.net/[filename].vsdx) of this architecture.*
+:::image type="content" source="./media/azure-mainframe-rehost-premigration-diagram.png" alt-text="Diagram that shows the mainframe applications before migration to Azure." lightbox="./media/azure-mainframe-rehost-premigration-diagram.png":::
 
-> Note that Visio or PowerPoint files are not allowed in the GitHub repo. Send the file or provide a link so the file can be uploaded to our limited-access CDN server.
+*Download a [Visio file](https://arch-center.azureedge.net/azure-mainframe-rehost-premigration-diagram.vsdx) of this architecture.*
+
+### Post-migration
+
+:::image type="content" source="./media/azure-mainframe-rehost-postmigration-diagram.png" alt-text="Diagram that shows the mainframe applications after migration to Azure." lightbox="./media/azure-mainframe-rehost-postmigration-diagram.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/azure-mainframe-rehost-postmigration-diagram.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -32,11 +37,11 @@ A. Input occurs over TCP/IP, including TN3270, HTTP, and HTTPS.
 
 B. Input into the mainframe uses standard mainframe communication protocols.
 
-C. Receiving applications can be either batch or online systems.
+C. Receiving applications can be batch or online systems.
 
 D. COBOL, PL/I, Assembler, or other compatible languages run in an enabled environment.
 
-E. Data and database services commonly used are hierarchical or network database systems and relational database types.
+E. Data and database services used are hierarchical, or network database systems and relational database types.
 
 F. Common services include program execution, I/O operations, error detection, and protection within the environment.
 
@@ -50,7 +55,7 @@ Refer to the diagram that shows the architecture after the migration to Azure.
 
 1. Input typically comes via ExpressRoute from remote clients, or by other applications that currently run Azure. In either case, TCP/IP connections are the primary means of connection to the system.  User access is provided over TLS port 443 to access web-based applications. The web-based applications' presentation layer can be kept virtually unchanged to minimize end user retraining.  For admin access to the VMs, you can use Azure Bastion hosts to maximize security by minimizing open ports.
 
-2. Once in Azure, access to the application compute clusters is done by using an Azure load balancer. This approach allows for scale out compute resources to process the input work. Both the level 7 application level and level 4 network protocol level load balancers are available. The type you use depends on how the application input reaches the entry point of the computer cluster.
+2. Once in Azure, access to the application compute clusters is done by using an Azure load balancer. With this approach, you can scale out compute resources to process the input work. Both the level seven application level and level four network protocol level load balancers are available. The type you use depends on how the application input reaches the entry point of the computer cluster.
 
 3. The use of application compute clusters depends on whether the application supports virtual machines (VMs) in a compute cluster, or the application runs in a container that you deploy in a container compute cluster like Kubernetes. Most mainframe partner software for applications written in legacy languages prefer to use VMs. Some mainframe systems partner software can also support deployment in containers.  
 
