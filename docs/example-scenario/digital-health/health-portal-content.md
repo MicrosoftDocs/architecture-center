@@ -17,7 +17,7 @@ The primary backend data service used in this architecture is Azure Cosmos DB. T
 
 ### Components
 
-- [Azure HIPPA HITRUST 9.2 blueprint](/azure/governance/blueprints/samples/hipaa-hitrust-9-2) is an [Azure blueprint](/azure/governance/blueprints/) that uses [Azure Policy](/azure/governance/policy/overview). It helps assess HIPPA HITRUST 9.2 controls and deploy a core set of policies for Azure workloads. While this does not give full compliance coverage for HIPPA HITRUST, it is a great place to start and add more controls, where applicable and necessary. Compliance with the policy initiatives can also be visualized in this blueprint and in the interface of Microsoft Defender for Cloud.
+- [Azure HIPAA HITRUST 9.2 blueprint](/azure/governance/blueprints/samples/hipaa-hitrust-9-2) is an [Azure blueprint](/azure/governance/blueprints/) that uses [Azure Policy](/azure/governance/policy/overview). It helps assess HIPAA HITRUST 9.2 controls and deploy a core set of policies for Azure workloads. While this does not give full compliance coverage for HIPAA HITRUST, it is a great place to start and add more controls, where applicable and necessary. Compliance with the policy initiatives can also be visualized in this blueprint and in the interface of Microsoft Defender for Cloud.
 
 - [Azure Front Door](https://azure.microsoft.com/services/frontdoor/) is used to manage at-scale edge traffic, and to increase performance for end users by presenting endpoints all around the world. This technology is cloud-native, which doesn't require any licensing; you only pay for what you use. In this workload scenario, Azure Front Door serves as the ingress point for all traffic to the consumer health portal.
 
@@ -43,7 +43,7 @@ The primary backend data service used in this architecture is Azure Cosmos DB. T
 
 - [Azure Notification Hub](https://azure.microsoft.com/services/notification-hubs/) is a simple and scalable push notification engine that enables the ability to send notifications to any mobile platform. A consumer health portal, which uses a mobile app, can integrate with Azure Notification Hub for a cost-effective way to push notifications to users who have installed the app on their mobiles. In this architecture, notifications can be sent to remind users of their appointments, to enter information for disconnected devices, to reach certain health goals, and so on.
 
-- [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/) is the core of security monitoring and posture management for this entire cloud-native solution. Microsoft Defender for Cloud integrates with almost all major services on the Azure platform. Its capabilities include security alerts, anomaly detection, best practice recommendations, regulatory compliance scores, and threat detection. In addition to HIPPA/HITRUST compliance monitoring, and overall Azure Security best practice monitoring, this solution uses the following feature sets:
+- [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/) is the core of security monitoring and posture management for this entire cloud-native solution. Microsoft Defender for Cloud integrates with almost all major services on the Azure platform. Its capabilities include security alerts, anomaly detection, best practice recommendations, regulatory compliance scores, and threat detection. In addition to HIPAA/HITRUST compliance monitoring, and overall Azure Security best practice monitoring, this solution uses the following feature sets:
   - [Microsoft Defender for App Service](/azure/security-center/defender-for-app-service-introduction)
   - [Microsoft Defender for Storage](/azure/security-center/defender-for-storage-introduction)
   - [Microsoft Defender for KeyVault](/azure/security-center/defender-for-key-vault-introduction)
@@ -139,7 +139,7 @@ Depending on the scale of your workload and requirements for enterprise function
 
 ## Related resources
 
-- [HIPPA and HITRUST Compliant Health Data AI](../../solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml)
+- [HIPAA and HITRUST Compliant Health Data AI](../../solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml)
 - [Scalable cloud applications and site reliability engineering (SRE)](/azure/architecture/example-scenario/apps/scalable-apps-performance-modeling-site-reliability)
 - [Network-hardened web application with private connectivity to PaaS datastores](/azure/architecture/example-scenario/security/hardened-web-app)
 - [Highly available multi-region web application](/azure/architecture/reference-architectures/app-service-web-app/multi-region)
