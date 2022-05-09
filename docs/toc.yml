@@ -2819,6 +2819,19 @@ items:
               - name: Microservices architecture on AKS
                 href: reference-architectures/containers/aks-microservices/aks-microservices.yml
               - name: Mission critical workload on AKS
+                items:
+                  - name: Introduction
+                    href: reference-architectures/containers/aks-mission-critical/mission-critical-intro.yml
+                  - name: Application considerations
+                    href: reference-architectures/containers/aks-mission-critical/mission-critical-app.yml                  
+                  - name: Platform considerations
+                    href: reference-architectures/containers/aks-mission-critical/mission-critical-platform.yml                  
+                  - name: Data considerations
+                    href: reference-architectures/containers/aks-mission-critical/mission-critical-data.yml
+                  - name: Health monitoring
+                    href: reference-architectures/containers/aks-mission-critical/mission-critical-monitor.yml
+                  - name: DevOps considerations
+                    href: reference-architectures/containers/aks-mission-critical/mission-critical-devops.yml
                 href: reference-architectures/containers/aks-mission-critical/mission-critical-intro.yml                    
               - name: Multiplayer server hosting with ACI
                 href: /gaming/azure/reference-architectures/multiplayer-synchronous-aci

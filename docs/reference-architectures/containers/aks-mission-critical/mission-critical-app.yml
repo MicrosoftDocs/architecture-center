@@ -1,0 +1,28 @@
+### YamlMime:Architecture
+metadata:
+  title: Best practices for mission critical workloads
+  description: Reference architecture for a workload that is accessed over a public endpoint without additional dependencies to other company resources.
+  author: calcof
+  ms.author: pnp
+  ms.date: 05/01/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+  ms.category:
+    - containers
+    - networking
+    - security
+    - devops
+name: Best practices for mission critical workloads
+azureCategories:
+  - containers
+  - integration
+  - security
+summary: Reference architecture for a workload that is accessed over a public endpoint without additional dependencies to other company resources.
+products:
+  - azure-event-hubs
+  - azure-kubernetes-service
+  - azure-rbac
+thumbnailUrl: /azure/architecture/browse/thumbs/mission-critical-online.png
+content: |
+   [!include[](mission-critical-app-content.md)]
