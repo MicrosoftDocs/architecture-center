@@ -47,7 +47,7 @@ After an IT admin creates a lab account in Lab Services, a teacher can quickly s
 
 This solution is ideal for the education industry. This architecture can be used to provide virtual labs for:
 
-- Classes and professional training.
+- Classes and professional training
 - Customer trials and demos.
 - Developers.
 - Replacing on-premises computers.
