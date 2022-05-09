@@ -14,6 +14,12 @@ The decision flowchart reflects the principle that HA apps should use AZs if pos
 
 ASs and AZs for different app tiers aren't guaranteed to be within the same datacenters. If app latency is a primary concern, you should colocate services in a single datacenter by using [proximity placement groups](https://azure.microsoft.com/blog/introducing-proximity-placement-groups/) (PPGs) with AZs and ASs.
 
+### Components
+
+- [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery)
+- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines)
+- [Azure Disk Storage](https://azure.microsoft.com/services/storage/disks)
+
 ### Alternatives
 
 - As an alternative to regional DR using Azure Site Recovery, if the app can replicate data natively, you can implement *multi-region DR* using hot/cold standby servers, such as a stretched cluster for DR only. This alternative isn't specifically detailed in the examples, but could be added to any of the solutions. Note that replication between regions is asynchronous, and some data loss is expected.
