@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Create a general mainframe rehost architecture on Azure
+  title: Rehost a general mainframe on Azure
   titleSuffix: Azure Architecture Center
   description: Learn how to create a general mainframe rehosting architecture on Azure. Rehosting is a cost-effective method to maintain old mainframe hardware.
   author: EdPrice-MSFT
@@ -19,6 +19,6 @@ products:
   - azure-site-recovery
 name: Create a general mainframe rehost architecture on Azure
 summary: Learn how to create a general mainframe rehost architecture on Azure. Rehosting is a cost-effective method to maintain old mainframe hardware.
-thumbnailUrl: /azure/architecture/browse/thumbs/<browse-png-filename>.png
+thumbnailUrl: /azure/architecture/browse/thumbs/azure-mainframe-rehost-postmigration-diagram.png
 content: |
   [!include[](mainframe-rehost-architecture-azure-content.md)]

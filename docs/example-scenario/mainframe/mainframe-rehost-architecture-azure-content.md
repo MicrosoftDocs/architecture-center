@@ -1,19 +1,19 @@
 
-Rehost is an option to run legacy mainframe applications, intact, on an open system. This path is the fastest way to take applications off of your mainframe hardware and run them on a Windows or Linux platform in a cloud-native environment. Application code written in legacy languages like COBOL or PL/1 are migrated as is and recompiled in the new environment with no change to the business logic. Rehosting helps to preserve the application's logic, which might have run for decades. At the same time, rehosting minimizes the risk and cost that come with code changes.  
+Rehost is an option to run legacy mainframe applications, intact, on an open system. This path is the fastest way to take applications off of your mainframe hardware and run them on a Windows or Linux platform in a cloud-native environment. Application code written in legacy languages like COBOL or PL/1 are migrated as is and recompiled in the new environment with no change to the business logic. Rehosting helps to preserve the application's logic, which might have run for decades. At the same time, rehosting minimizes the risk and cost that comes with code changes.  
 
-Rehosting is a cost-effective method to address the challenges of maintaining old mainframe hardware. Commonly referred to as *lift and shift*, rehosting moves mission-critical and core applications off the mainframe and migrates them to the cloud. With this approach, underlying hardware changes, like from an IBM mainframe to x86, but the functional and business logic is untouched. This migration is the quickest and least impactful from an end-user perspective. The application retains the same interfaces and look and feel that the users are comfortable with.  
+Rehosting is a cost-effective method to address the challenges of maintaining old mainframe hardware. Commonly referred to as *lift and shift*, rehosting moves mission-critical and core applications off the mainframe and migrates them to the cloud. With this approach, the underlying hardware changes, like from an IBM mainframe to x86. However, the functional and business logic is untouched. This migration is the quickest and least impactful from an end-user perspective. The application retains the same interfaces and look and feel that the users are comfortable with.  
 
-For teams exploring cloud features, rehosting applications is a great way to use cloud capabilities like auto-scaling, managed storage, and containers on a need basis. This architecture illustrates a general rehosting example, which highlights two methodologies to deploy workloads. You can use Azure Kubernetes Service (AKS) or Azure Virtual Machines. Which method you use depends on your existing application's portability and preference.
+For teams exploring cloud features, rehosting applications is a great way to use cloud capabilities like auto-scaling, managed storage, and containers based on your needs. This architecture shows a general rehosting example that highlights two methodologies to deploy workloads. You can use Azure Kubernetes Service (AKS) or Azure Virtual Machines. Which method you use depends on your existing application's portability and preference.
 
 ## Potential use cases
 
 Many scenarios can benefit from rehosting on Azure. Here are some possible use cases:
 
-- **Cost Optimization**: Organizations that look to significantly reduce the high operating and maintenance costs with mainframes hardware and its associated licenses or software.
-- **Location agnostic**: Customers who plan for a datacenter exit want a highly available, secure, and reliable alternative platform to host their legacy applications instead of on-premises mainframes.
-- **Least disruption**: Customers who need to migrate mission-critical mainframe applications while maintaining continuity with the day-to-day business operations.
+- **Cost Optimization**: You want to significantly reduce the high operating and maintenance costs with mainframes hardware and its associated licenses or software.
+- **Location agnostic**: You're planning for a datacenter exit and want a highly available, secure, and reliable alternative platform to host your legacy applications instead of on-premises mainframes.
+- **Least disruption**: You need to migrate mission-critical mainframe applications while maintaining continuity with the day-to-day business operations.
 - **Minimal user impact**: Move your applications from old hardware but continue to provide your users with the same, if not better, interfaces.  
-- **Negligible upskilling**: Applications are rehosted in the cloud with no significant code changes. They continue to provide the development team with the familiar code base, and at the same time eliminate costly development, testing, and reskilling on a newer language.
+- **Negligible upskilling**: Applications are rehosted in the cloud with no significant code changes. They continue to provide your development team with the familiar code base, and at the same time eliminate costly development, testing, and reskilling on a newer language.
 
 ## Architecture
 
@@ -31,7 +31,7 @@ Many scenarios can benefit from rehosting on Azure. Here are some possible use c
 
 ### Workflow
 
-Refer to the diagram that shows the mainframe architecture before migration to Azure.
+Refer to the pre-migration architecture diagram.
 
 A. Input occurs over TCP/IP, including TN3270, HTTP, and HTTPS.  
 
@@ -51,7 +51,7 @@ H. Operating systems provide the interface between the engine and the software t
 
 I. Partitions are necessary to run separate workloads and to segregate work types within the environment.
 
-Refer to the diagram that shows the architecture after the migration to Azure.
+Refer to the post-migration architecture diagram.
 
 1. Input typically comes via ExpressRoute from remote clients, or by other applications that currently run Azure. In either case, TCP/IP connections are the primary means of connection to the system.  User access is provided over TLS port 443 to access web-based applications. The web-based applications' presentation layer can be kept unchanged to minimize end user retraining.  For admin access to the VMs, you can use Azure Bastion hosts to maximize security by minimizing open ports.
 
