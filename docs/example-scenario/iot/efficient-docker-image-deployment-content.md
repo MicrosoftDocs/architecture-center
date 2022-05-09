@@ -75,12 +75,12 @@ The solution uses an alternative deployment mechanism, binary patching of Docker
 ### Components
 
 - [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge) runs containerized workloads on devices, providing low-latency connectivity and conserving bandwidth.
-- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) is a managed, cloud-hosted service that acts as a central message hub for communication between IoT applications and the devices they control.
+- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) is a managed, cloud-hosted service that acts as a central message hub between IoT applications and the devices they control.
 - [Azure Container Registry](https://azure.microsoft.com/services/container-registry) is a cloud-based, private registry service to store and manage private Docker container images and related artifacts.
 - [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) combines continuous integration (CI) and continuous delivery (CD) to automatically test and build code and ship it to any target.
 - [Azure Functions](https://azure.microsoft.com/services/functions) is an event-driven, serverless compute platform that enables running event-triggered code without having to provision or manage infrastructure.
-- [Azure Storage](https://azure.microsoft.com/services/storage) provides highly scalable, secure, performant, and cost-effective services to store all types of business data, objects, and files.
-- [Azure SQL Database](https://azure.microsoft.com/services/sql-database) is a fully managed, multimodel relational database service that is built for the cloud.
+- [Azure Storage](https://azure.microsoft.com/services/storage) provides highly scalable, secure, performant, and cost-effective storage for all types of business data, objects, and files.
+- [Azure SQL Database](https://azure.microsoft.com/services/sql-database) is a fully managed, multimodel relational database service built for the cloud.
 - [Docker](https://www.docker.com) is an open platform for developing, shipping, and running containerized applications.
 
 ### Alternatives
@@ -174,13 +174,17 @@ The following table shows how each of the above solutions measured against the e
 
 This solution dramatically reduced the bandwidth consumed by updates to IoT devices. The following tables show a breakdown of the differences in transfer efficiency.
 
-|Image name | Image size | Image Reconstructor as source patch size | Data reduction |
+Image Reconstructor as source:
+
+|Image name | Image size | Patch size | Data reduction |
 |-----------|------------|--------------------------------------|----------------|
 |Data visualization|228 MB|79.6 MB|65.1%|
 |Simulated WCD|188 MB|1.5 MB|99.2%|
 |Proxy|258 MB|29.9 MB|88.4%|
 
-|Image name | Image size | Previous version as source patch size | Data reduction |
+Previous version as source:
+
+|Image name | Image size | Patch size | Data reduction |
 |-----------|------------|--------------------------------------|----------------|
 |Data visualization|228 MB|0.01 MB|99.9%|
 |Simulated WCD|188 MB|0.5 MB|99.7%|
@@ -345,8 +349,8 @@ An SQL database tracks occurrences on the target devices and the Azure-based dep
 
 SQL Database stores the following data:
 
-- Which images that are on each device.
-- Which images are on the way to each devices.
+- Which images are on each device.
+- Which images are on the way to each device.
 - Which images being deployed belong to a set.
 - The user that ordered the deployments.
 
