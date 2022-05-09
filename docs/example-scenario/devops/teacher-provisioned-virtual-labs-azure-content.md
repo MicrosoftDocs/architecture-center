@@ -49,7 +49,7 @@ This solution is ideal for the education industry. This architecture can be used
 
 - Classes and professional training
 - Customer trials and demos
-- Developers.
+- Developers
 - Replacing on-premises computers.
 - Collaborative computer programming (hackathons).
 
