@@ -51,7 +51,7 @@ This solution is ideal for the education industry. This architecture can be used
 - Customer trials and demos
 - Developers
 - Replacing on-premises computers
-- Collaborative computer programming (hackathons).
+- Collaborative computer programming (hackathons)
 
 ## Considerations
 
