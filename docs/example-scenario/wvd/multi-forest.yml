@@ -17,10 +17,10 @@ azureCategories:
   - windows-virtual-desktop
 summary: This article describes an example workload of creating multiple Active Directory forests with Azure Virtual Desktop.
 products:
+  - azure-virtual-desktop
   - azure-active-directory
   - azure-active-directory-domain
   - azure-expressroute
-  - azure-files
   - azure-storage
 thumbnailUrl: /azure/architecture/browse/thumbs/two-forest-hybrid.png
 content: |
