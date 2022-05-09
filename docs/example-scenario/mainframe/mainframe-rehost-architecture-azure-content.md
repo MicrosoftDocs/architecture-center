@@ -1,19 +1,19 @@
 
-Rehost is an option to run legacy mainframe applications, intact, on an open system. This path is the fastest way to take applications off of your mainframe hardware and run them on a Windows or Linux platform in a cloud-native environment. Application code written in legacy languages like Cobol or PL/1 are migrated as is and recompiled in the new environment with no change to the business logic. Rehosting helps to preserve the application's logic, which might have run for decades. At the same time, rehosting minimizes the risk and cost that come with code changes.  
+Rehost is an option to run legacy mainframe applications, intact, on an open system. This path is the fastest way to take applications off of your mainframe hardware and run them on a Windows or Linux platform in a cloud-native environment. Application code written in legacy languages like COBOL or PL/1 are migrated as is and recompiled in the new environment with no change to the business logic. Rehosting helps to preserve the application's logic, which might have run for decades. At the same time, rehosting minimizes the risk and cost that come with code changes.  
 
 Rehosting is a cost-effective method to address the challenges of maintaining old mainframe hardware. Commonly referred to as *lift and shift*, rehosting moves mission-critical and core applications off the mainframe and migrates them to the cloud. With this approach, underlying hardware changes, like from an IBM mainframe to x86, but the functional and business logic is untouched. This migration is the quickest and least impactful from an end-user perspective. The application retains the same interfaces and look and feel that the users are comfortable with.  
 
-For teams exploring cloud features, rehosting applications is a great way to use cloud capabilities like auto-scaling, managed storage, and containers on a need basis. This architecture illustrates a general rehosting example which highlights two methodologies to deploy workloads. You can use Azure Kubernetes Service (AKS) or Azure Virtual Machines. Which method you use depends on your existing application's portability and preference.
+For teams exploring cloud features, rehosting applications is a great way to use cloud capabilities like auto-scaling, managed storage, and containers on a need basis. This architecture illustrates a general rehosting example, which highlights two methodologies to deploy workloads. You can use Azure Kubernetes Service (AKS) or Azure Virtual Machines. Which method you use depends on your existing application's portability and preference.
 
 ## Potential use cases
 
 Many scenarios can benefit from rehosting on Azure. Here are some possible use cases:
 
 - **Cost Optimization**: Organizations that look to significantly reduce the high operating and maintenance costs with mainframes hardware and its associated licenses or software.
-- **Location agnostic**: Customers who plan for a datacenter exit want a highly available, secure, and reliable alternative platform to host their legacy applications instead of on-prem mainframes.
+- **Location agnostic**: Customers who plan for a datacenter exit want a highly available, secure, and reliable alternative platform to host their legacy applications instead of on-premises mainframes.
 - **Least disruption**: Customers who need to migrate mission-critical mainframe applications while maintaining continuity with the day-to-day business operations.
 - **Minimal user impact**: Move your applications from old hardware but continue to provide your users with the same, if not better, interfaces.  
-- **Negligible upskilling**: Applications are rehosted in the cloud with no significant code changes. They continue to provide the development team with the familiar code base, and at the same time eliminate costly development, testing, and re-skilling on a newer language.
+- **Negligible upskilling**: Applications are rehosted in the cloud with no significant code changes. They continue to provide the development team with the familiar code base, and at the same time eliminate costly development, testing, and reskilling on a newer language.
 
 ## Architecture
 
@@ -53,17 +53,17 @@ I. Partitions are necessary to run separate workloads and to segregate work type
 
 Refer to the diagram that shows the architecture after the migration to Azure.
 
-1. Input typically comes via ExpressRoute from remote clients, or by other applications that currently run Azure. In either case, TCP/IP connections are the primary means of connection to the system.  User access is provided over TLS port 443 to access web-based applications. The web-based applications' presentation layer can be kept virtually unchanged to minimize end user retraining.  For admin access to the VMs, you can use Azure Bastion hosts to maximize security by minimizing open ports.
+1. Input typically comes via ExpressRoute from remote clients, or by other applications that currently run Azure. In either case, TCP/IP connections are the primary means of connection to the system.  User access is provided over TLS port 443 to access web-based applications. The web-based applications' presentation layer can be kept unchanged to minimize end user retraining.  For admin access to the VMs, you can use Azure Bastion hosts to maximize security by minimizing open ports.
 
-2. Once in Azure, access to the application compute clusters is done by using an Azure load balancer. With this approach, you can scale out compute resources to process the input work. Both the level seven application level and level four network protocol level load balancers are available. The type you use depends on how the application input reaches the entry point of the computer cluster.
+2. Once in Azure, access to the application compute clusters is done by using an Azure load balancer. With this approach, you can scale out compute resources to process the input work. Both the level 7 application level and level 4 network protocol level load balancers are available. The type you use depends on how the application input reaches the entry point of the computer cluster.
 
-3. The use of application compute clusters depends on whether the application supports virtual machines (VMs) in a compute cluster, or the application runs in a container that you deploy in a container compute cluster like Kubernetes. Most mainframe partner software for applications written in legacy languages prefer to use VMs. Some mainframe systems partner software can also support deployment in containers.  
+3. The use of application compute clusters depends on whether the application supports virtual machines (VMs) in a compute cluster, or the application runs in a container that you deploy in a container compute cluster like Kubernetes. Most mainframe partner software for applications written in legacy languages prefers to use VMs. Some mainframe systems partner software can also support deployment in containers.  
 
 4. Application servers receive the input in the compute clusters and share application state and data using Azure Redis Cache or remote direct memory access (RDMA). The application servers host various COBOL or PL/1 application programs. A transaction system manager is an emulator on Azure that can handle customer information control systems (CICS) and information management systems (IMS) workloads. A batch system emulator on Azure does the role of job control language (JCL).  
 
 5. You can use Azure services or other partner software hosted in VMs for system, utilities, and data management.
 
-6. Mainframe data is migrated to Azure databases. Azure provides a variety of efficient data storage services like Azure SQL Database, SQL Server on Azure Virtual Machines, and Azure SQL Managed Instance. There are many factors to consider when making a choice, like type of workload, cross-database queries, two-phase commit requirements, and more. Azure data services provide scalable and highly available data storage that you can share across multiple compute resources in a cluster. You can make these services geo-redundant, and then configure them so that if failover occurs, the disaster recovery database instance becomes active.
+6. Mainframe data is migrated to Azure databases. Azure provides various efficient data storage services like Azure SQL Database, SQL Server on Azure Virtual Machines, and Azure SQL Managed Instance. There are many factors to consider when making a choice, like type of workload, cross-database queries, two-phase commit requirements, and more. Azure data services provide scalable and highly available data storage that you can share across multiple compute resources in a cluster. You can make these services geo-redundant, and then configure them so that if failover occurs, the disaster recovery database instance becomes active.
 
 7. AKS enables you to scale out and scale down your mainframe modernization workloads in Azure, to take advantage of the cloud platform. When you deploy multiple AKS clusters, choose regions where AKS is available. Then you can use paired regions for a highly resilient architecture. It's important to run multiple instances of an AKS cluster across multiple regions and in highly available configurations.
 
@@ -81,7 +81,7 @@ Refer to the diagram that shows the architecture after the migration to Azure.
 
 - [Azure SSD Managed Disk](/azure/virtual-machines/windows/managed-disks-overview): Managed disks are block-level storage volumes that are managed by Azure and used with Azure VMs. The available types of disks are ultra-disks, premium solid-state drives (SSD), standard SSDs, and standard hard disk drives (HDD).  For this architecture, we recommend either premium SSDs or ultra disk SSDs.
 
-- [Azure Files](https://azure.microsoft.com/services/storage/files): Azure Files offers fully-managed file shares in the cloud that are accessible via the industry standard Server Message Block (SMB) protocol. You can mount Azure file shares concurrently by cloud or on-premises deployments of Windows, Linux, and macOS.
+- [Azure Files](https://azure.microsoft.com/services/storage/files): Azure Files offers fully managed file shares in the cloud that are accessible via the industry standard Server Message Block (SMB) protocol. You can mount Azure file shares concurrently by cloud or on-premises deployments of Windows, Linux, and macOS.
 
 - [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute): With ExpressRoute, you can extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider. You can also establish connections to Microsoft cloud services, like Microsoft Azure and Microsoft 365.
 
@@ -124,15 +124,15 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
-- The target architecture is completely functional with Azure Cloud Services.
-- Container based deployment promotes adoption of DevOps and Agile working principles.
+- The target architecture is functional with Azure Cloud Services.
+- The container-based deployment promotes adoption of DevOps and Agile working principles.
 - You have full flexibility of development and production deployment options.
 
 ### Performance efficiency
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
-- Performance Efficiency is built into this solution because of the load balancers. If one presentation or transaction server fails, the other server behind the load balancer shoulders the workload.
+- Performance efficiency is built into this solution because of the load balancers. If one presentation or transaction server fails, the server behind the load balancer shoulders the workload.
 - Kubernetes provides a cluster autoscaler. The autoscaler adjusts the number of nodes based on the requested compute resources in the node pool.
 
 ## Contributors
