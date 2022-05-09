@@ -170,6 +170,8 @@ The following table shows how each of the above solutions measured against the e
 
 ## Considerations
 
+These considerations implement pillars of the Azure Well-Architected Framework, a set of guiding tenets that improve workload quality. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
 ### Performance efficiency
 
 This solution dramatically reduced the bandwidth consumed by updates to IoT devices. The following tables show a breakdown of the differences in transfer efficiency.
