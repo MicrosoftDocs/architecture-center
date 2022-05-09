@@ -91,7 +91,8 @@ You must have an existing Azure account. If you do not have an Azure subscriptio
    # Create a resource group
    az group create --name ${RG_NAME} --location ${LOCATION}
 
-   # Create a virtual network with a subnet for the firewall az network vnet create \
+   # Create a virtual network with a subnet for the firewall
+   az network vnet create \
      --name ${VNET_NAME} \
      --resource-group ${RG_NAME} \
      --location ${LOCATION} \

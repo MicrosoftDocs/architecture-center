@@ -347,7 +347,7 @@ It's important to note that the backup solution described here focuses exclusive
 
 - [How-to guides - Backup Storage Accounts on Azure Stack](/azure-stack/user/azure-stack-network-howto-backup-storage)
 - [How-to guides - Backup of VMs on Azure Stack Hub using Commvault](/azure-stack/user/azure-stack-network-howto-backup-commvault)
-- [Disaster Recovery for Azure Stack Hub VMs](/azure/architecture/hybrid/azure-stack-vm-dr)
+- [Disaster Recovery for Azure Stack Hub VMs](/azure/architecture/hybrid/azure-stack-vm-disaster-recovery)
 
 ## Related resources
 

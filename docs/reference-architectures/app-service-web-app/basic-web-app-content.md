@@ -22,6 +22,15 @@ The architecture consists of the following aspects:
 
 **Azure SQL Database**: [SQL Database](/azure/sql-database) is a relational database-as-a-service in the cloud. SQL Database shares its code base with the Microsoft SQL Server database engine. Depending on your application requirements, you can also use [Azure Database for MySQL](/azure/mysql) or [Azure Database for PostgreSQL](/azure/postgresql). These are fully managed database services based on the open-source MySQL Server and Postgres database engines.
 
+### Components
+
+- [Azure App Service](https://azure.microsoft.com/services/app-service)
+- [Azure DNS](https://azure.microsoft.com/services/dns)
+- [Azure SQL Database](https://azure.microsoft.com/services/sql-database)
+- [Azure Active Directory](https://azure.microsoft.com/services/active-directory)
+- [Azure Monitor](https://azure.microsoft.com/services/monitor)
+- [Azure Key Vault](https://azure.microsoft.com/services/key-vault)
+
 ## Reference deployment
 
 This architecture includes an Azure App Service plan and an empty application, Azure SQL Database, Azure Key Vault for storing the database connection string, and Azure Monitor for logging, monitoring, and alerting.
@@ -41,7 +50,7 @@ az deployment group create --resource-group basic-web-app  \
     --template-uri https://raw.githubusercontent.com/mspnp/samples/master/solutions/basic-web-app/azuredeploy.json
 ```
 
-#### [PowerShell](#tab/powershell)
+# [PowerShell](#tab/powershell)
 
 Use the following command to create a resource group for the deployment. Click the **Try it** button to use an embedded shell.
 

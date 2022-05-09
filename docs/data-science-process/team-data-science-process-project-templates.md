@@ -8,7 +8,7 @@ services: architecture-center
 ms.service: architecture-center
 ms.subservice: azure-guide
 ms.topic: article
-ms.date: 02/18/2022
+ms.date: 04/29/2022
 ms.author: tdsp
 ms.custom:
   - previous-author=deguhath
@@ -32,28 +32,6 @@ The lifecycle outlines the major stages that projects typically execute, often i
 - Customer Acceptance
 
 For descriptions of each of these stages, see [The Team Data Science Process lifecycle](./lifecycle.md).
-
-## Microsoft Project template
-
-The Microsoft Project template for the Team Data Science Process is available from here: [Microsoft Project template](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Team-Data-Science-Process/Project-Planning-and-Governance/Advanced%20Analytics%20Microsoft%20Project%20Plan.mpp)
-
-When you open the plan, click the link to the far left for the TDSP. Change the name and description and then add in any other team resources you need. Estimate the dates required from your experience.
-
-![1](./media/team-data-science-process-project-templates/ms-project-templates.png)
-
-Each task has a note. Open those tasks to see what resources have already been created for you.
-
-![2](./media/team-data-science-process-project-templates/ms-project-template-task.png)
-
-## Excel template
-
-If don't have access to Microsoft Project, an Excel worksheet with all the same data is also available for download here: [Excel template](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Team-Data-Science-Process/Project-Planning-and-Governance/Advanced%20Analytics%20Microsoft%20Project%20Plan.xlsx) You can pull it in to whatever tool you prefer to use.
-
-Use these templates at your own risk. The [usual disclaimers](https://www.gnu.org/licenses/gpl-3.0.en.html) apply.
-
-## Repository template
-
-Use this [project template repository](https://github.com/Azure/Azure-TDSP-ProjectTemplate) to support efficient project execution and collaboration. This repository gives you a standardized directory structure and document templates you can use for your own TDSP project.
 
 ## Next steps
 

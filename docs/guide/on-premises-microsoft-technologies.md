@@ -3,7 +3,7 @@ title: Scenarios that feature Microsoft on-premises technologies on Azure
 description: Review a list of architectures and solutions that use Microsoft on-premises technologies on Microsoft Azure.
 author: EdPrice-MSFT
 ms.author: edprice
-ms.date: 04/04/2022
+ms.date: 04/26/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -38,21 +38,19 @@ This article describes scenarios that feature Microsoft on-premises technologies
 - [Active Directory Domain Services in Windows Server 2016](/windows-server/identity/whats-new-active-directory-domain-services). The service that stores information about user accounts and enables other authorized users on the same network to access it. Security is integrated with Active Directory through sign-in authentication and access control to objects in the directory.
 - [Host Integration Server](/host-integration-server/what-is-his). Technologies and tools that enable enterprise organizations to integrate existing IBM host systems, programs, messages, and data with new Microsoft server applications. 
 
-## Solutions featuring Microsoft on-premises technologies
-
 For information about solutions in which Azure services integrate with the other Microsoft cloud platforms, see these articles:
 - [Azure and Power Platform scenarios](../solutions/power-platform-scenarios.md)
 - [Azure and Microsoft 365 scenarios](../solutions/microsoft-365-scenarios.md)
 - [Azure and Dynamics 365 scenarios](../example-scenario/analytics/synapse-customer-insights.yml)
 
-### Active Directory
+## Active Directory
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
 |[Azure files secured by AD DS](../example-scenario/hybrid/azure-files-on-premises-authentication.yml)|Provide high-security file access with on-premises Windows Server Active Directory Domain Services (AD DS) and DNS.| Hybrid|
 |[Create an AD DS resource forest](../reference-architectures/identity/adds-forest.yml)|Learn how to create a separate Active Directory domain on Azure that's trusted by domains in your on-premises Active Directory forest.| Identity|
 |[Deploy AD DS in an Azure virtual network](../reference-architectures/identity/adds-extend-domain.yml)|Use this reference architecture to extend an on-premises Active Directory domain to Azure to provide distributed authentication services.| Identity|
-|[Disaster recovery for Azure Stack Hub VMs](../hybrid/azure-stack-vm-dr.yml) |Learn about an optimized approach to disaster recovery of VM-based user workloads that are hosted on Azure Stack Hub. Azure Site Recovery integrates with Windows Server-based apps and roles, including Active Directory Domain Services.|Hybrid|
+|[Disaster recovery for Azure Stack Hub VMs](../hybrid/azure-stack-vm-disaster-recovery.yml) |Learn about an optimized approach to disaster recovery of VM-based user workloads that are hosted on Azure Stack Hub. Azure Site Recovery integrates with Windows Server-based apps and roles, including Active Directory Domain Services.|Hybrid|
 |[Extend on-premises AD FS to Azure](../reference-architectures/identity/adfs.yml) |Implement a highly secure hybrid network architecture by using Active Directory Federation Services (AD FS) authorization on Azure.|Identity|
 |[Federate with a customer's AD FS](../multitenant-identity/adfs.yml) |Learn how a multitenant SaaS application can federate with a customer's AD FS.|Identity|
 |[Hybrid SharePoint farm with Microsoft 365](../solution-ideas/articles/sharepoint-farm-microsoft-365.yml)|Deliver highly available intranet capability and share hybrid workloads with Microsoft 365 by using SharePoint servers, Azure Active Directory (Azure AD), and SQL Server. Windows Server hosts Active Directory services for service and machine accounts.| Hybrid|
@@ -62,29 +60,29 @@ For information about solutions in which Azure services integrate with the other
 |[On-premises Active Directory domains with Azure AD](../reference-architectures/identity/azure-ad.yml) |Learn how to implement a secure hybrid network architecture that integrates on-premises Active Directory domains with Azure AD.|Identity|
 |[Use Azure file shares in a hybrid environment](../hybrid/azure-file-share.yml) |Use identity-based authentication to control access to Azure file shares via AD DS users and groups.|Hybrid|
 
-### Exchange Server
+## Exchange Server
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
 |[Back up files and apps on Azure Stack Hub](../hybrid/azure-stack-backup.yml)|Learn about an optimized approach to backing up and restoring files and applications of VM-based user workloads that are hosted on Azure Stack Hub. Includes backup and restore of Exchange Server servers and databases.| Hybrid|
-|[Disaster recovery for Azure Stack Hub VMs](../hybrid/azure-stack-vm-dr.yml) |Learn about an optimized approach to disaster recovery of VM-based user workloads that are hosted on Azure Stack Hub. Includes a discussion of disaster recovery for Exchange workloads.|Hybrid|
+|[Disaster recovery for Azure Stack Hub VMs](../hybrid/azure-stack-vm-disaster-recovery.yml) |Learn about an optimized approach to disaster recovery of VM-based user workloads that are hosted on Azure Stack Hub. Includes a discussion of disaster recovery for Exchange workloads.|Hybrid|
 |[Enhanced-security hybrid messaging - client access](../example-scenario/hybrid/secure-hybrid-messaging-client.yml)|Enhance your security in a client access scenario by using Azure AD Multi-Factor Authentication. Discusses scenarios for Exchange Online and Exchange on-premises.| Hybrid|
 |[Enhanced-security hybrid messaging - mobile access](../example-scenario/hybrid/secure-hybrid-messaging-mobile.yml)|Enhance your security in a mobile access scenario by using Azure AD Multi-Factor Authentication. Discusses scenarios for Exchange Online and Exchange on-premises.|Hybrid|
 |[Enhanced-security hybrid messaging - web access](../example-scenario/hybrid/secure-hybrid-messaging-web.yml) |Enhance your security in a web access scenario by using Azure AD Multi-Factor Authentication. Discusses scenarios for Exchange Online and Exchange on-premises.|Hybrid|
 
-### Host Integration Server (HIS)
+## Host Integration Server (HIS)
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
 |[Integrate IBM mainframe and midrange message queues with Azure](../example-scenario/mainframe/integrate-ibm-message-queues-azure.yml) |Learn about a data-first approach to middleware integration that enables IBM message queues. HIS is used in a VM-based IaaS approach.|Mainframe|
 |[Mainframe file replication and sync on Azure](../solution-ideas/articles/mainframe-azure-file-replication.yml) |Learn several options for moving, converting, transforming, and storing mainframe and midrange file system data on-premises and on Azure. HIS is used to convert EBCDIC files to make them compatible with Azure.|Mainframe|
 
-### SharePoint Server
+## SharePoint Server
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
 |[Back up files and apps on Azure Stack Hub](../hybrid/azure-stack-backup.yml)|Learn about an optimized approach to backing up and restoring files and applications of VM-based user workloads that are hosted on Azure Stack Hub. Includes backup and restore of SharePoint farms and front-end web server content and restore of SharePoint databases, web apps, files, list items, and search components.|Hybrid|
-|[Disaster recovery for Azure Stack Hub VMs](../hybrid/azure-stack-vm-dr.yml)|Learn about an optimized approach to disaster recovery of VM-based user workloads that are hosted on Azure Stack Hub. Includes information about disaster recovery for SharePoint workloads.| Hybrid|
+|[Disaster recovery for Azure Stack Hub VMs](../hybrid/azure-stack-vm-disaster-recovery.yml)|Learn about an optimized approach to disaster recovery of VM-based user workloads that are hosted on Azure Stack Hub. Includes information about disaster recovery for SharePoint workloads.| Hybrid|
 |[Highly available SharePoint farm](../solution-ideas/articles/highly-available-sharepoint-farm.yml) |Deploy a highly available SharePoint farm for intranet capabilities that uses Azure AD, a SQL Server Always On instance, and SharePoint resources.|Web|
 |[Hybrid SharePoint farm with Microsoft 365](../solution-ideas/articles/sharepoint-farm-microsoft-365.yml)|Deliver highly available intranet capability and share hybrid workloads with Microsoft 365 by using SharePoint servers, Azure AD, and SQL Server.|Hybrid|
 |[Multitier web application built for HA/DR](../example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml) |Learn how to create a resilient multitier web application that's built for high availability and disaster recovery on Azure. Applies to applications like SharePoint.|Networking|
@@ -92,14 +90,14 @@ For information about solutions in which Azure services integrate with the other
 |[Run a highly available SharePoint Server 2016 farm in Azure](../reference-architectures/sharepoint/index.yml) |Learn proven practices for deploying a highly available SharePoint Server 2016 farm on Azure.|Management|
 |[SharePoint farm for development testing](../solution-ideas/articles/sharepoint-farm-devtest.yml)|Deploy a SharePoint farm for development testing. Use Azure AD, SQL Server, and SharePoint resources for this agile development architecture.|DevOps|
 
-### SQL Server
+## SQL Server
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
 |[Back up files and apps on Azure Stack Hub](../hybrid/azure-stack-backup.yml) |Learn about an optimized approach to backing up and restoring files and applications of VM-based user workloads that are hosted on Azure Stack Hub. Includes backup and restore of SQL Server instances and their databases.|Hybrid|
 |[Campaign optimization with SQL Server](../solution-ideas/articles/campaign-optimization-with-sql-server.yml)|Use machine learning and SQL Server 2016 with R Services to optimize when and how to contact potential customers to improve success rates for marketing campaigns.| Databases|
 |[Data integration with Logic Apps and SQL Server](../example-scenario/integration/logic-apps-data-integration.yml) |Automate data integration tasks by using Azure Logic Apps. Configure API calls to trigger tasks like storing data in an on-premises SQL Server database.|Integration|
-|[Disaster recovery for Azure Stack Hub VMs](../hybrid/azure-stack-vm-dr.yml) |Learn about an optimized approach to disaster recovery of VM-based user workloads that are hosted on Azure Stack Hub. Includes information about disaster recovery for SQL Server workloads.|Hybrid|
+|[Disaster recovery for Azure Stack Hub VMs](../hybrid/azure-stack-vm-disaster-recovery.yml) |Learn about an optimized approach to disaster recovery of VM-based user workloads that are hosted on Azure Stack Hub. Includes information about disaster recovery for SQL Server workloads.|Hybrid|
 |[Enterprise business intelligence](../reference-architectures/data/enterprise-bi-synapse.yml) |Learn how to implement an ELT pipeline that moves data from an on-premises SQL Server database into Azure Synapse Analytics and transforms the data for analysis.|Integration|
 |[Hybrid ETL with Azure Data Factory](../example-scenario/data/hybrid-etl-with-adf.yml) |Use Azure Data Factory to create a hybrid ETL for existing on-premises SQL Server Integration Services (SSIS) deployments.|Databases|
 |[Hybrid SharePoint farm with Microsoft 365](../solution-ideas/articles/sharepoint-farm-microsoft-365.yml) |Deliver highly available intranet capability and share hybrid workloads with Microsoft 365 by using SharePoint servers, Azure AD, and SQL Server.|Hybrid|
@@ -122,14 +120,14 @@ For information about solutions in which Azure services integrate with the other
 |[Web app private connectivity to Azure SQL Database](../example-scenario/private-web-app/private-web-app.yml) |Lock down access to an Azure SQL database with Azure Private Link connectivity from a multitenant web app.|Web|
 |[Windows N-tier application on Azure](../reference-architectures/n-tier/n-tier-sql-server.yml) |Implement a multitier architecture on Azure for availability, security, scalability, and manageability. SQL Server provides the data tier.|Databases|
 
-### Windows Server
+## Windows Server
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
 |[Azure files secured by AD DS](../example-scenario/hybrid/azure-files-on-premises-authentication.yml) |Provide high-security file access with on-premises Windows Server AD DS and DNS.|Hybrid|
 |[Back up files and apps on Azure Stack Hub](../hybrid/azure-stack-backup.yml) |Learn about an optimized approach to backing up and restoring files and applications of VM-based user workloads that are hosted on Azure Stack Hub. Supports backup and restore of various resources on VMs that run Windows Server. |Hybrid|
 |[Connect standalone servers by using Azure Network Adapter](../hybrid/azure-network-adapter.yml) |Learn how to connect an on-premises standalone server to Azure virtual networks by using Azure Network Adapter. Deploy Network Adapter by using Windows Admin Center on Windows Server.|Hybrid|
-|[Disaster recovery for Azure Stack Hub VMs](../hybrid/azure-stack-vm-dr.yml) |Learn about an optimized approach to disaster recovery of VM-based user workloads that are hosted on Azure Stack Hub. Includes information about providing disaster recovery for Azure Stack Hub VMs that run Windows Server operating systems.|Hybrid|
+|[Disaster recovery for Azure Stack Hub VMs](../hybrid/azure-stack-vm-disaster-recovery.yml) |Learn about an optimized approach to disaster recovery of VM-based user workloads that are hosted on Azure Stack Hub. Includes information about providing disaster recovery for Azure Stack Hub VMs that run Windows Server operating systems.|Hybrid|
 |[Manage hybrid Azure workloads using Windows Admin Center](../hybrid/hybrid-server-os-mgmt.yml) |Learn how to design a hybrid Windows Admin Center solution to manage workloads that are hosted on-premises and on Azure.|Hybrid|
 |[Plan deployment for updating Windows VMs on Azure](../example-scenario/wsus/index.yml)|Learn best practices for configuring your environment for WSUS.|Management|
 |[Run a highly available SharePoint Server 2016 farm on Azure](../reference-architectures/sharepoint/index.yml) |Learn proven practices for deploying a highly available SharePoint Server farm on Azure. Windows Server Active Directory domain controllers run in the virtual network and have a trust relationship with the on-premises Windows Server Active Directory forest.|Management|
@@ -138,6 +136,7 @@ For information about solutions in which Azure services integrate with the other
 |[Windows N-tier application on Azure](../reference-architectures/n-tier/n-tier-sql-server.yml) |Implement a multitier architecture on Azure for availability, security, scalability, and manageability.|Databases|
 
 ## Related resources
+
 - [Microsoft partner and third-party scenarios on Azure](partner-scenarios.md)
 - [Architecture for startups](../guide/startups/startup-architecture.md)
 - [Azure and Power Platform scenarios](../solutions/power-platform-scenarios.md)

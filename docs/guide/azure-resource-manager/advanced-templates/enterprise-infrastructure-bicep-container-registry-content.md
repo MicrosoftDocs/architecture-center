@@ -74,7 +74,7 @@ Layer 1 should contain:
     
 You should configure branch protection to restrict the ability to push changes to this repository. Restrict approval of PRs from other developers to members of the CCoE or Cloud Governance. Contributors to this layer are primarily members of groups that are historically associated with the components in this layer. For example, the networking team builds the templates for the network, the operations team configures monitoring, and so on. However, you should grant read-only access to individuals who request it, because you want to enable developers from other groups to suggest changes to the core infrastructures. They may contribute improvements, though you won't allow their changes to be merged without approval and testing.
 
-These files should consume the modules in your container registry for standard components. However, you will also have a Bicep file, or a series of Bicep files, that are customized to your enterprise's implementation of Azure landing zones or a similar governance structure. 
+These files should consume the modules in your container registry for standard components. However, you'll also have a Bicep file, or a series of Bicep files, that are customized to your enterprise's implementation of Azure landing zones or a similar governance structure. 
     
 #### Layer 2 - Product platform: Shared services
 
@@ -85,7 +85,7 @@ You can consider Layer 2, product platform, as the shared services for a particu
 Layer 2 should contain:
     
 - Policy assignments that are applied at a subscription or resource group to match product-specific requirements.
-- ARM templates for key vaults, log analytics, a SQL database (if various applications within the product use the database), and Azure Kubernetes Service.
+- ARM templates for key vaults, log analytics, an SQL database (if various applications within the product use the database), and Azure Kubernetes Service.
     
 You should implement permissions that restrict the ability to push changes to this repository. Like the other layers, you should use branch protection to make sure a product lead or owner can approve PRs from other developers. There are no fixed rules about read access to the product platform, but at a minimum, developers from any of the application teams should be granted read access to be able to suggest changes. Since Layer 2 could contain some proprietary architecture, or similar information, you might choose to restrict access to those in the organization who use the platform. However, if that's the case, you'll want to ensure that you build a process of harvesting good practices and snippets from this repository to share with the global library, Layer 0. 
     
@@ -113,13 +113,26 @@ You should also ensure that you have branch policies in place to prevent individ
 
 Finally, though you might not have an index of all repositories and the code within them, your organization should develop a process for individuals to request access to repositories. Certain rules could be fully automated. For example, you could implement a rule that grants read access, without review, to a contributor who is on the product team for any application under that product. Such rules can often be implemented with group-based membership and group-based role assignments in your environments. Configuring this kind of access should help to facilitate inner sourcing and organizational knowledge.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+**Principal authors:**
+
+* [Tim Sullivan](https://www.linkedin.com/in/tjsullivan1/) | Senior Cloud Solution Architect
+
+**Other contributors:**
+
+ * [Gary Moore](https://www.linkedin.com/in/gwmoore/) | Programmer/Writer
+ 
+
 ## Next steps
 
 - [Design area: Platform automation and DevOps](/azure/cloud-adoption-framework/ready/landing-zone/design-area/platform-automation-devops)
 - [Mature team structures](/azure/cloud-adoption-framework/organize/organization-structures)
 - [What is Infrastructure as Code?](/devops/deliver/what-is-infrastructure-as-code)
 - [Azure/ResourceModules](https://github.com/Azure/ResourceModules): This repository includes a CI platform for and collection of mature and curated Bicep modules. The platform supports both Azure Resource Manager and Bicep, and you can use its features with GitHub actions and Azure Pipelines.
-- [Create private registry for Bicep module](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/private-module-registry?tabs=azure-powershell)
+- [Create private registry for Bicep module](/azure/azure-resource-manager/bicep/private-module-registry?tabs=azure-powershell)
 
 ## Related resources
 
@@ -127,4 +140,5 @@ Finally, though you might not have an index of all repositories and the code wit
 - [Build a CI/CD pipeline for chatbots with ARM templates](../../../example-scenario/apps/devops-cicd-chatbot.yml)
 - [CI/CD pipeline for container-based workloads](../../../example-scenario/apps/devops-with-aks.yml)
 - [Design a CI/CD pipeline using Azure DevOps](../../../example-scenario/apps/devops-dotnet-webapp.yml)
+- [DevSecOps for Infrastructure as Code (IaC)](../../../solution-ideas/articles/devsecops-infrastructure-as-code.yml)
 - [Microservices with AKS and Azure DevOps](../../../solution-ideas/articles/microservices-with-aks.yml)
