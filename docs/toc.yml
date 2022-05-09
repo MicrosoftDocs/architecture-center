@@ -316,6 +316,8 @@ items:
                 href: guide/multitenant/considerations/updates.md
               - name: Map requests to tenants
                 href: guide/multitenant/considerations/map-requests.yml
+              - name: Identity
+                href: guide/multitenant/considerations/identity.md
               - name: Domain names
                 href: guide/multitenant/considerations/domain-names.yml
           - name: Approaches
@@ -338,6 +340,8 @@ items:
                 href: guide/multitenant/approaches/storage-data.yml
               - name: Messaging
                 href: guide/multitenant/approaches/messaging.md
+              - name: Identity
+                href: guide/multitenant/approaches/identity.md
               - name: IoT
                 href: guide/multitenant/approaches/iot.md
               - name: AI and ML
