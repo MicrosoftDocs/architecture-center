@@ -5,7 +5,7 @@ metadata:
   description: Learn about high-availability (HA) and disaster recovery (DR) options when deploying multitier infrastructure-as-a-service (IaaS) apps to Azure.
   author: shcrouch
   ms.author: shcrouch
-  ms.date: 04/28/2022
+  ms.date: 05/10/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
@@ -21,6 +21,7 @@ summary: This article presents a decision tree and examples of high-availability
 products:
   - azure-site-recovery
   - azure-virtual-machines
+  - azure-disk-storage
 thumbnailUrl: /azure/architecture/browse/thumbs/ha-decision-tree.png
 content: |
    [!include[](iaas-high-availability-disaster-recovery-content.md)]
