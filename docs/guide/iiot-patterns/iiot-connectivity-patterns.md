@@ -144,14 +144,17 @@ Following sections includes common connectivity patterns for industrial solution
 ![Scale Factories](images/scale-factories.png)
 
 - Use this pattern when:
-    - Scaling Industrial IoT solution patterns across multiple factories
-    - Multiple business units and project(s) need access to IIoT data
+    - Scaling Industrial IoT solution patterns across multiple factories.
+    - Multiple business units and project(s) need access to IIoT data.
     - [Landing zones](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-principles) are enabled for cloud connectivity
+    - Granular access control needed between OT and IT
 
 - Considerations
     - This pattern is for scaling cloud gateway and services for connecting multiple factories, it is agnostic of data models, protocols and industrial connectivity software.
     - Dedicated subscription for cloud gateway enables OT and Networking teams to better manage cloud egress, connectivity.
-    - IIoT data can be pushed to each business unit or project specific route via routes, consumer groups
+    - Device Provisioning service can help scale across multiple IoT Hubs and IoT Central use both these services underneath and can provide auto scale experience.
+    - For scenarios where hierarchy of edge gateways is needed, consider using IoT Hub directly.
+    - IIoT data can be pushed to each business unit or project specific subscription via routes, consumer groups
     - IIoT solutions are one of many enterprise solutions, and need to integrate well with the overall [cloud operating model](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/operating-model/compare) and [landing zone design principles](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-principles) of the entire enterprise.
     - [IoT Hub high availability and disaster recovery](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-ha-dr)
 
