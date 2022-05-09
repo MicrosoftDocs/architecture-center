@@ -2,9 +2,9 @@
 metadata:
   title: Use Azure monitoring to integrate security components
   description: Integrate Azure monitoring services and Azure security services to provide defense in depth to your IT environment. This article introduces a series of articles.
-  article: fcp
   author: rudneir2
   ms.author: ruolivei
+  ms.custom: fcp
   ms.date: 04/25/2022
   ms.topic: conceptual
   ms.service: architecture-center

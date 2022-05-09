@@ -3,9 +3,9 @@ metadata:
   title: Map threats to your IT environment
   titleSuffix: Azure Architecture Center
   description: Diagram the IT environment of your organization and develop a threat map to plan and build your defensive layer of security. This article is part of a series.
-  article: fcp
   author: rudneir2
   ms.author: ruolivei
+  ms.custom: fcp
   ms.date: 04/25/2022
   ms.topic: conceptual
   ms.service: architecture-center

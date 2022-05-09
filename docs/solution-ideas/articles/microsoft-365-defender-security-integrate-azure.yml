@@ -3,9 +3,9 @@ metadata:
   title: Integration between Azure and Microsoft 365 Defender security services
   titleSuffix: Azure Architecture Center
   description: Placeholder description.
-  article: fcp
   author: rudneir2
   ms.author: ruolivei
+  ms.custom: fcp
   ms.date: 04/25/2022
   ms.topic: conceptual
   ms.service: architecture-center
