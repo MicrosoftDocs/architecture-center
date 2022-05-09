@@ -27,7 +27,9 @@ Azure Lab Services equips teachers to create labs to satisfy such course needs. 
 
 ### Components
 
-- [Azure Lab Services](https://azure.microsoft.com/services/lab-services) is the tool used in this architecture to set up labs and provide on-demand access to preconfigured virtual machines (VMs).  
+- [Azure Lab Services](https://azure.microsoft.com/services/lab-services) is the tool used in this architecture to set up labs and provide on-demand access to preconfigured virtual machines (VMs).
+- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) allow you to create Linux and Windows virtual machines (VMs) in seconds, which can help you reduce costs.
+- [Azure Active Directory](https://azure.microsoft.com/en-us/services/active-directory) is a complete identity and access management solution with integrated security.
 
 ### Alternatives
 
