@@ -170,7 +170,7 @@ In the capture phase, we can leverage the copy activity (built-in to Data Factor
 The following figure shows the definition of a pipeline. It consists of three equally-sized three blocks in a row. The first two are a data set and an activity connected by arrows to indicate data flows. The third block is labeled “pipeline” and simply points to the first two to indicate encapsulation. 
 
  [![Azure Data Factory concepts: datasets consumed by pipeline of activities.](./images/sku-optimization-solution-guide/azure-data-factory.png)](./images/sku-optimization-solution-guide/azure-data-factory.png#lightbox)
- <center><font size="1">_Figure 3: Basic concepts of  Azure Data Factory_</font></center>
+*Figure 3: Basic concepts of Azure Data Factory* 
 
 An example of the data format that is used by Neal Analytics’ solution can be found on Microsoft’s Appsource page. The solution includes the following datasets:
 
@@ -228,7 +228,7 @@ Once the model has been trained, running it typically requires a different infra
 The following figure shows the architecture of the deployment. It includes representations of servers running the R language and Python. Both servers communicate to a sub section of web nodes that perform computation. A large data store is connected to the computation block.
 
 [![ML server deployment diagram. Load balancer before multiple nodes for execution.](./images/sku-optimization-solution-guide/ml-server-deployment-example.png)](./images/sku-optimization-solution-guide/ml-server-deployment-example.png#lightbox)
-<center><font size="1">_Figure 5: example of ML server deployment_</font></center>
+*Figure 5: example of ML server deployment*
 
 
 For models created on HDInsight or Databricks and hence dependent on the Spark environment (libraries, parallel capabilities etc.), you may want to consider running them on a cluster. Guidance is provided [here](/azure/machine-learning/team-data-science-process/spark-model-consumption?WT.mc_id=invopt-article-gmarchet).
@@ -282,6 +282,6 @@ The following technologies were featured in this article:
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-**Principal author:**
+Principal author:
 
 - [Scott Seely](https://www.linkedin.com/in/scottseely) | Software Architect

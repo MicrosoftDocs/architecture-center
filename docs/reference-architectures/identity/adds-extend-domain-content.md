@@ -31,7 +31,7 @@ Determine your [VM size][vm-windows-sizes] requirements based on the expected vo
 
 Create a separate virtual data disk for storing the database, logs, and sysvol folder for Active Directory. Do not store these items on the same disk as the operating system. By default, data disks that are attached to a VM use write-through caching. However, this form of caching can conflict with the requirements of AD DS. For this reason, set the *Host Cache Preference* setting on the data disk to *None*.
 
-Deploy at least two VMs running AD DS as domain controllers and add them to an [availability set][availability-set].
+Deploy at least two VMs running AD DS as domain controllers and add them to different [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview). If not available in the region, deploy in an [Availability Set][availability-set].
 
 ### Networking recommendations
 
@@ -43,15 +43,17 @@ Configure the VM network interface (NIC) for each AD DS server with a static pri
 
 The Active Directory subnet NSG requires rules to permit incoming traffic from on-premises and outgoing traffic to on-premises. For detailed information on the ports used by AD DS, see [Active Directory and Active Directory Domain Services Port Requirements][ad-ds-ports].
 
-### Active Directory site
+If the new deployed Domain Controllers (DC) VMs will have also the role of DNS servers, it is recommended to configure them as custom DNS server at the Azure Virtual Network level as explained in [this article](https://docs.microsoft.com/azure/virtual-network/manage-virtual-network#change-dns-servers). This should be done for the virtual network hosting the new DCs and peered networks where other VMs will need to resolve Active Directory domain names. More details on how to configure hybrid DNS name resolution can be found in [this article](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances). 
+
+### Active Directory Site
 
 In AD DS, a site represents a physical location, network, or collection of devices. AD DS sites are used to manage AD DS database replication by grouping together AD DS objects that are located close to one another and are connected by a high-speed network. AD DS includes logic to select the best strategy for replicating the AD DS database between sites.
 
 We recommend that you create an AD DS site including the subnets defined for your application in Azure. Then, configure a site link between your on-premises AD DS sites, and AD DS will automatically perform the most efficient database replication possible. This database replication requires little beyond the initial configuration.
 
-### Active Directory operations masters
+### Active Directory Operations Masters
 
-The operations masters role can be assigned to AD DS domain controllers to support consistency checking between instances of replicated AD DS databases. There are five operations master roles: schema master, domain naming master, relative identifier master, primary domain controller master emulator, and infrastructure master. For more information about these roles, see [Planning Operations Master Role Placement][ad-ds-operations-masters].
+The operations masters role can be assigned to AD DS domain controllers to support consistency checking between instances of replicated AD DS databases. There are five operations master roles (FSMO): schema master, domain naming master, relative identifier master, primary domain controller master emulator, and infrastructure master. For more information about these roles, see [Planning Operations Master Role Placement][ad-ds-operations-masters]. It is also recommended to give at least two of the new Azure DCs the Global Catalog (GC) role. More details on GC placement can be found [here](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/planning-global-catalog-server-placement). 
 
 ### Monitoring
 
@@ -63,7 +65,7 @@ AD DS is designed for scalability. You don't need to configure a load balancer o
 
 ## Availability considerations
 
-Deploy the VMs running AD DS into an [availability set][availability-set]. Also, consider assigning the role of [standby operations master][ad-ds-operations-masters] to at least one server, and possibly more depending on your requirements. A standby operations master is an active copy of the operations master that can be used in place of the primary operations masters server during failover.
+Deploy the VMs running AD DS into at least two [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview). If not available in the region, use [availability set][availability-set]. Also, consider assigning the role of [standby operations master][ad-ds-operations-masters] to at least one server, and possibly more depending on your requirements. A standby operations master is an active copy of the operations master that can be used in place of the primary operations masters server during failover.
 
 ## Manageability considerations
 

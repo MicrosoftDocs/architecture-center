@@ -8,6 +8,9 @@ ms.date: 01/12/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: guide
+azureCategories: developer-tools
+categories: developer-tools
+products: azure
 ms.custom:
   - guide
 ---
@@ -35,7 +38,7 @@ This model is very useful when strong consistency guarantees are important &mdas
 
 ### Azure services
 
-- [Azure SQL Database][sql-db] | [(Security Baseline)](/azure/azure-sql/database/security-baseline)
+- [Azure SQL Database][sql-db] | [(Security Baseline)](/security/benchmark/azure/baselines/sql-database-security-baseline)
 - [Azure Database for MySQL][mysql] | [(Security Baseline)](/azure/mysql/security-baseline)
 - [Azure Database for PostgreSQL][postgres] | [(Security Baseline)](/azure/postgresql/security-baseline)
 - [Azure Database for MariaDB][mariadb] | [(Security Baseline)](/azure/mariadb/security-baseline)
@@ -148,7 +151,7 @@ This structure makes it straightforward to perform queries such as "Find all emp
 ### Azure services
 
 - [Azure Cosmos DB Gremlin API][cosmos-gremlin] | [(Security Baseline)](/azure/cosmos-db/security-baseline)
-- [SQL Server][sqlserver] | [(Security Baseline)](/azure/azure-sql/database/security-baseline)
+- [SQL Server][sqlserver] | [(Security Baseline)](/security/benchmark/azure/baselines/sql-database-security-baseline)
 
 ### Workload
 

@@ -51,9 +51,9 @@ A business process might require only tamper-proof or tamper-evident data, which
 
 This section describes multiparty computing options available using Azure services.
 
-### Blockchain with Azure Virtual Machine
+### Blockchain with Azure Virtual Machines
 
-You can run ledger software using Azure Virtual Machine. Create as many virtual machines as you need and connect them in a blockchain network.
+You can run ledger software using Azure Virtual Machines. Create as many virtual machines as you need and connect them in a blockchain network.
 
 Deploying your own virtual machines allows you to customize your solution. The approach includes management overhead, such as updates, high availability, and business continuity requirements. You may have multiple organizations and multiple cloud accounts. Connecting the individual nodes can be complicated.
 

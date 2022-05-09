@@ -3,10 +3,13 @@ title: Community jury
 titleSuffix: Azure Application Architecture Guide
 description: Learn about the Community jury stakeholder collaboration technique that allows project teams to understand the perceptions and concerns of stakeholders.
 author: dcass
+categories: azure
 ms.date: 05/18/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: guide
+products:
+  - azure-devops
 ms.category:
   - fcp
 ms.custom:

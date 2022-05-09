@@ -3,10 +3,13 @@ title: Choose a search data store
 description: Learn about the capabilities of search data stores in Azure and the key criteria for choosing one that best matches your needs.
 author: EdPrice-MSFT
 ms.author: pnp
+categories: azure
 ms.date: 11/30/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+products: 
+  - azure-cognitive-search
 ---
 
 # Choose a search data store in Azure
