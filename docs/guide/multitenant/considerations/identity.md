@@ -1,5 +1,5 @@
 ---
-title: Architectural considerations for identity
+title: Architectural considerations for identity in a multitenant solution
 titleSuffix: Azure Architecture Center
 description: This article describes the considerations for managing identities in a multitenant solution.
 author: plagueho
@@ -28,17 +28,21 @@ Before defining a multitenant identity strategy, you should first consider the h
 
 - Will user or service identities be used to access a single application, or by multiple applications or services within a suite?
 - Are you planning on implementing modern authentication and authorization such as OAuth2 and OpenID Connect?
-- Do your customers have specific compliance requirements that they need to meet, such as [GDPR](/compliance/regulatory/gdpr)?
-- Do your customers require their identity information to be located within a specific geographic region?
+- Do your tenants have specific compliance requirements that they need to meet, such as [GDPR](/compliance/regulatory/gdpr)?
+- Do your tenants require their identity information to be located within a specific geographic region?
 - Do users of your solution require access to one tenant or multiple? Do they need to the ability to quickly switch between tenants, or view consolidated information from multiple tenants?
 
 When you've established your high-level requirements, you can start to plan more specific details and requirements, such as user directory sources and sign-up/sign-in flows.
 
-## Identity type
+## Types of identities
 
-In a multitenant solution an identity often represents a user. However, many solutions also use identities internally and externally to allow authentication and authorization of services and applications. These are usually referred to as *service identities*.
+<!-- TODO is this redundant given 'Service authentication process' section below? -->
 
-Service identities are similar to user identities, but usually require different authentication methods, such as key or certificate-based and don't use multi-factor authentication (MFA). Instead, service identities usually require additional security controls such as regular key-rolling and certificate expiration.
+In most solutions, an identity often represents a user. However, many solutions also use identities internally and externally to allow authentication and authorization of services and applications. These are usually referred to as *service identities*.
+
+Service identities are similar to user identities, but usually require different authentication methods, such as keys or certificates. Servide identities don't use multi-factor authentication (MFA). Instead, service identities usually require additional security controls such as regular key-rolling and certificate expiration.
+
+Consider whether you need to support service identities in your solution. If you do, ensure you consider service identities as well as user identities in each of the decisions described in this article.
 
 ## Identity directory
 
@@ -46,11 +50,11 @@ For a multitenant solution to authenticate and authorize a user or service, it n
 
 When you design on an identity system for your multitenant solution, you need to consider how which of the following identity sources your tenants and customers require:
 
-- **Local identity provider.** A local identity provider allows a user to sign themselves up to the service by providing a username, e-mail address or an identifier such as a rewards card number, and a credential like a password.
+- **Local identity provider.** A local identity provider allows a user to sign themselves up to the service by providing a username, email address or an identifier such as a rewards card number, and a credential like a password.
 - **Social identity provider.** A social identity provider allows users to use an identity they have on a social network or other public identity provider, such as Facebook, Google, or a personal Microsoft account.
-- **Federation with a customer's identity provider.** A tenant or customer might have their own identity directory and want your solution to federate with it. Federation enables single sign-on (SSO) experiences, and enables tenants to manage the lifecycle of their users independently of your solution.
+- **Federation with a tenant's identity provider.** A tenant or customer might have their own identity directory and want your solution to federate with it. Federation enables single sign-on (SSO) experiences, and enables tenants to manage the lifecycle of their users independently of your solution.
 
-Consider whether your tenants might require the use of multiple identity sources within a single tenant. For example, some customers might need to be able use both local identities and social identities in the same tenant.
+Consider whether your tenants might require the use of multiple identity sources within a single tenant. For example, some tenants might need to be able use both local identities and social identities together.
 
 ### Sharing identities between tenants
 
@@ -76,14 +80,14 @@ It's common for multitenant solutions to allow a single user or service identity
 
 ## User sign-up process for local identities or social identities
 
-Consider whether your multitenant solution should allow users to sign themselves up for an identity in your solution. This might be required if you don't require tenant federation with a customer's identity source. If a self-sign up process is needed, then you should consider the following questions:
+Consider whether your multitenant solution should allow users to sign themselves up for an identity in your solution. This might be required if you don't require federation with a tenant's identity source. If a self-sign up process is needed, then you should consider the following questions:
 
 - Which identity sources are users allowed to sign up from? For example, can a user create a local identity as well as use a social identity provider?
 - If only local identities are allowed, will only specific email domains be allowed? For example, can a tenant specify that only users who have an @contoso.com email address are permitted to sign-up?
 - Is user verification required? For example, will an email or phone verification be used?
 - What is the unique principal name (UPN) that should be used to uniquely identify each local identity? For example, email address, username, phone number and rewards card number are all common choices for unique principal names.
 - Do tenant administrators need to approve sign-ups?
-- Do customers require a tenant specific sign-up experience or URL? For example, do your customers require a branded sign-up experience when users sign up for their tenant, or do they require the ability to intercept a sign-up request and perform additional validation before it proceeds?
+- Do tenants require a tenant specific sign-up experience or URL? For example, do your tenants require a branded sign-up experience when users sign up, or do they require the ability to intercept a sign-up request and perform additional validation before it proceeds?
 
 ### Tenant access for self sign-up users
 
@@ -95,9 +99,9 @@ When users are allowed to sign themselves up for an identity, there usually need
 
 ## Automated account lifecycle management
 
-A common requirement for corporate or enterprise customers of a solution to require features that allow them to automate account on-boarding and off-boarding. Open protocols such as System for Cross-domain Identity Management (SCIM) provide industry standard approach to automation. This automated process usually includes not only creation and removal of identity records, but also management of tenant permissions. There are specific considerations when implementing automated account lifecycle management in a multitenant solution:
+A common requirement for corporate or enterprise customers of a solution to require features that allow them to automate account onboarding and off-boarding. Open protocols such as System for Cross-domain Identity Management (SCIM) provide industry standard approach to automation. This automated process usually includes not only creation and removal of identity records, but also management of tenant permissions. There are specific considerations when implementing automated account lifecycle management in a multitenant solution:
 
-- Do your customers need to configure and manage automated lifecycle process per tenant? For example, when a user is on-boarded you might need to create the identity within multiple tenants in your application, but each having a different set of permissions.
+- Do your customers need to configure and manage automated lifecycle process per tenant? For example, when a user is onboarded you might need to create the identity within multiple tenants in your application, but each having a different set of permissions.
 - Do you need to implement SCIM, or can you provide tenants federation instead to keep the source of truth for users under the control of the tenant instead of managing local users?
 
 ## User authentication process
@@ -106,14 +110,14 @@ When a user signs into a multitenant application, your identity system authentic
 
 - Do you need to enable tenants to configure specific multi-factor authentication (MFA) policies? For example, if one of your tenants is in the financial services industry, they need to implement strict MFA policies, while a small online retailer might not have the same requirements.
 - Do you need to enable tenants to configure specific conditional access rules? For example, different tenants may need to block sign-in attempts from specific geographic regions.
-- Do you need to customize the sign-in process for each tenant? For example, do you need to show a customer's logo? Or, does information about each user need to be extracted from another customer system, such as a rewards number, and returned to the identity provider to add to the user profile.
+- Do you need to customize the sign-in process for each tenant? For example, do you need to show a customer's logo? Or, does information about each user need to be extracted from another system, such as a rewards number, and returned to the identity provider to add to the user profile?
 - Do your users need to impersonate other users? For example, a support team member may wish to investigate an issue another user is having by impersonating their user account without having to authenticate as the user.
 
 ## Service authentication process
 
-Many multitenant systems also allow *service identities* to be used by *services* and *applications* to gain access to your application resources. For example, your customers might need to access an API provided by your solution so that they can automate some of their management tasks.
+Many multitenant systems also allow *service identities* to be used by *services* and *applications* to gain access to your application resources. For example, your tenants might need to access an API provided by your solution so that they can automate some of their management tasks.
 
-If your customers expect to be able to enable service identity access to your multitenant solution then you should consider the following questions:
+If your tenants expect to be able to enable service identity access to your multitenant solution then you should consider the following questions:
 
 - How will service identities will be created and managed in each tenant?
 - How will service identity requests be scoped to the tenant?
@@ -123,15 +127,15 @@ If your customers expect to be able to enable service identity access to your mu
 
 ## Federating with an identity provider for single-sign on (SSO)
 
-Customers who already have their own user directories may want your solution to use the identities in their directory, instead of managing another directory with distinct identities. This is called *federation*.
+Tenants who already have their own user directories may want your solution to use the identities in their directory, instead of managing another directory with distinct identities. This is called *federation*.
 
-Federation is particularly important when some customers would like to specify their own identity policies, or enable single sign-on (SSO) experiences.
+Federation is particularly important when some tenants would like to specify their own identity policies, or enable single sign-on (SSO) experiences.
 
-If you are expecting customers to federate with your solution, you should consider the following questions:
+If you are expecting tenants to federate with your solution, you should consider the following questions:
 
-- What is the process for configuring the federation for a tenant? Can customers configure this themselves, or does it require manual configuration and maintenance by your staff?
+- What is the process for configuring the federation for a tenant? Can a tenant configure this themselves, or does it require manual configuration and maintenance by your team?
 - What processes are in place to ensure federation can't be misconfigured to grant access to another tenant?
-- Will a customer's identity provider need to be federated to more than one tenant in your solution? For example, if a customer has both a training and production tenant, they might need to federate the same identity provider to both tenants.
+- Will a single tenant's identity provider need to be federated to more than one tenant in your solution? For example, if a customer has both a training and production tenant, they might need to federate the same identity provider to both tenants.
 
 ## Identity scale and authentication volume
 
@@ -145,3 +149,27 @@ As multitenant solutions grow, the number of users and sign-ins requests that ne
 ## Next steps
 
 Links to other relevant pages within our section.
+
+
+<!--
+## TODO
+
+### Entitlements and licensing
+- Do you have different user license types for different users? How will you enforce this, e.g. assign licenses to users?
+- Is this handled by the authZ system, or by the application tier?
+
+### Auditing and reporting
+ - for billing, auditing
+ - broken down by tenant/user?
+ - Do you provide access to tenants?
+
+## Delegation
+- e.g. I'm building a SaaS calendar system, and I want my users to be able to give their assistants access to it
+- Effectively just an AuthZ problem
+
+## Tenant token trust and validation
+- Do all tenants trust all tokens issued by your IdP?
+- Will you allow tenant A to different policies than tenant B? e.g. IP address requirements, MFA policies, trusted devices, token lifetimes, which identity platform they signed into, etc?
+- How will your application handle this if a user has a token that was valid with tenant A but isn't valid for tenant B? Can the user token be upgraded? Be careful of login loops.
+
+-->
