@@ -89,7 +89,7 @@ When users are allowed to sign themselves up for an identity, there usually need
 
 ## Automated account lifecycle management
 
-A common requirement for corporate or enterprise customers of a solution to require features that allow them to automate account onboarding and off-boarding. Open protocols such as System for Cross-domain Identity Management (SCIM) provide industry standard approach to automation. This automated process usually includes not only creation and removal of identity records, but also management of tenant permissions. There are specific considerations when implementing automated account lifecycle management in a multitenant solution:
+A common requirement for corporate or enterprise customers of a solution to require features that allow them to automate account onboarding and off-boarding. Open protocols such as [System for Cross-domain Identity Management (SCIM)](/azure/active-directory/fundamentals/sync-scim) provide industry standard approach to automation. This automated process usually includes not only creation and removal of identity records, but also management of tenant permissions. There are specific considerations when implementing automated account lifecycle management in a multitenant solution:
 
 - Do your customers need to configure and manage automated lifecycle process per tenant? For example, when a user is onboarded you might need to create the identity within multiple tenants in your application, but each having a different set of permissions.
 - Do you need to implement SCIM, or can you provide tenants federation instead to keep the source of truth for users under the control of the tenant instead of managing local users?

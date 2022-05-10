@@ -103,21 +103,6 @@ However, if a single user is allowed to access multiple tenants, you might need 
 
 An alternative approach is to make the identity system agnostic to tenant identifiers and roles. Each user is identified using their credentials or a federation relationship, and tokens don't include a tenant identifier claim. A separate list or database contains which users have been granted access to each tenant. Then, the application tier can verify whether the specified user should be allowed to access the data for a specific tenant based on looking up that list.
 
-## Management and automation
-
-<!-- TODO -->
-
-- Tenant lifecycle management
-  - Onboarding new tenants to your identity platform - is there anything manual required (e.g. for establishing federation/trust, customising policies)?
-  - Offboarding tenants - what data should you delete, and how? Do you need to maintain some data/logs for compliance purposes?
-- User lifecycle management
-  - Consider how users will be onboarded, and assigned roles. Will this all be achieved through federation? If you use local accounts, how do you keep this in sync - or do you even need to?
-  - Can consider using SCIM to respond to changes in federated tenants. AAD implements this (https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/sync-scim). This can be useful for multitenant scenarios where you need to do some work on your side whenever a customer adds a new user. Similarly for when users are deleted. But it require a lot of work to integrate.
-
-## Antipatterns to avoid
-
-- **Building your own identity platform.** Follow the [Federated Identity pattern](https://docs.microsoft.com/azure/architecture/patterns/federated-identity).
-
 ## Next steps
 
 Review [Architectural considerations for identity in a multitenant solution](../considerations/identity.md).
