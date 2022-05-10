@@ -172,4 +172,8 @@ Links to other relevant pages within our section.
 - Will you allow tenant A to different policies than tenant B? e.g. IP address requirements, MFA policies, trusted devices, token lifetimes, which identity platform they signed into, etc?
 - How will your application handle this if a user has a token that was valid with tenant A but isn't valid for tenant B? Can the user token be upgraded? Be careful of login loops.
 
+## Role-based and resource-based authorization models
+
+TODO see https://docs.microsoft.com/en-us/azure/architecture/multitenant-identity/authorize
+
 -->

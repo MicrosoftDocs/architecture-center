@@ -72,23 +72,34 @@ In general, impersonation is dangerous, and it can be difficult to implement and
 
 Some identity platforms support impersonation, either as a built-in feature or through the use of custom code. For example, [Azure AD B2C provides a sample implementaton of an impersonation flow](https://github.com/azure-ad-b2c/samples/tree/master/policies/impersonation).
 
-### Claim enrichment and authentication flow customization
-- Do you need to integrate your authentication processes with tenants' systems?
-- e.g. retrieving a loyalty number from the tenant's API, or to trigger events in your tenant's system
-- If this is per-tenant, need to manage it - e.g. common APIs that each tenant must implement, and we'll call it with payload X and you need to send payload Y
+### Token enrichment and authentication flow customization
 
+In a multitenant solution, you might need to integrate your authentication processes with tenants' systems. Integration can happen for several purposes, including injecting custom claims into a login token (*token enrichment*), or triggering events in a tenant's own systems.
 
+Whenever you integrate with a tenant's system, it's a good practice to build a common integration approach instead of trying to build customized integration approaches for each tenant. For example, if your tenants need to enrich token claims, you might define an API that each tenant must implement, with a specific payload format. You can then agree to send a request to that tenant's API during each sign-in, and the tenant agrees to send a response with another specified payload format, which you then turn into a set of claims to add to the token.
 
 ## Authorization
 
-- There are several approaches for authorization, including:
-  - Using AAD's features, like app roles and groups.
-  - Building your own authorization system into your application and storing the rules in a database or similar.
-- Talk about pros and cons of each. (Consider reusing some of the points here: https://docs.microsoft.com/en-us/azure/architecture/multitenant-identity/app-roles)
-- Roles are generally assigned and managed by the customer, not you (the vendor of the multitenant system).
-- Decide whether you use role-based authorization or resource-based authorization (https://docs.microsoft.com/en-us/azure/architecture/multitenant-identity/authorize) - this decision is probably worthy of its own section in a higher-level considerations page.
+Authorization is the process of determining what a user is allowed to do.
+
+Authorization can be implemented in several places, including:
+
+- **In your identity provider.** For example, if you use Azure AD as your identity provider, features like [app roles](/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) and [groups](/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal) can be used to enforce authorization rules.
+- **In your application.** You can build your own authorization logic, and store information about what each user can do in a database or similar storage system.
+
+In a multitenant solution, roles are generally assigned and managed by the tenant or customer, not by you as the vendor of the multitenant system.
+
+For more information, see [Application roles](../../../multitenant-identity/app-roles.md).
 
 ### Tenant/user relationship
+
+It's important to decide how users and tenants are related. For example:
+
+- Does a user "belong to" a tenant?
+- Can a single user be granted access to multiple tenants? If so, could they have different roles, or access to different data, in different tenants?
+- When a user signs in, should their token be tied to a single tenant or should it be valid across multiple tenants?
+
+
 - Should there be a 1:1 or 1:many relationship between user and tenant?
    - Org that needs multiple tenants - e.g. finance team tenant and a separate legal tenant. Should identities be consistent or separate?
    - User that needs to access multiple tenants (e.g. teacher at school A, parent at school B)
