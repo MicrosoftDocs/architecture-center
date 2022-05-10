@@ -19,7 +19,7 @@ products:
   - azure-active-directory-domain
   - azure-rbac
   - azure-virtual-machines
-  - windows-virtual-desktop
+  - azure-virtual-desktop
 ms.custom:
   - fcp
 ---

@@ -231,7 +231,7 @@ For more information about the individual pieces of the solution architecture, s
 [sharepoint-reqs]: /SharePoint/install/hardware-and-software-requirements
 [sharepoint-search]: /SharePoint/search/plan-enterprise-search-architecture
 [sql-always-on]: /sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server
-[sql-performance]: /azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance
+[sql-performance]: /azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist
 [sql-server-capacity-planning]: /SharePoint/administration/storage-and-sql-server-capacity-planning-and-configuration
 [sql-quorum]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731739(v=ws.11)
 [sql-sharepoint-best-practices]: /SharePoint/administration/best-practices-for-sql-server-in-a-sharepoint-server-farm

@@ -1,18 +1,4 @@
-A teacher needs to provide each student with a personal Windows or Linux virtual machine (VM) for use during a course. The students must be able to use their VMs during scheduled instruction (synchronous) and unscheduled study (asynchronous) periods. They use their own devices of various types to access VMs from anywhere. A simple user experience for students is a high priority, since in many cases they don't have technical expertise. The teacher requires cost controls to adhere to a fixed budget.
-
 Azure Lab Services equips teachers to create labs to satisfy such course needs. Lab Services manages the infrastructure, from spinning up the VMs to handling errors and scaling as needed.
-
-After an IT admin creates a lab account in Lab Services, a teacher can quickly set up a lab for the class, specifying the number and type of VMs that are needed for class exercises, and then adding students to the class or inviting students to self-enroll online. Once registered, a student can access one or more exclusive VMs to complete exercises for the class.
-
-## Potential use cases
-
-This architecture can be used to provide virtual labs for:
-
-- Classes and professional training.
-- Customer trials and demos.
-- Developers.
-- Replacing on-premises computers.
-- Collaborative computer programming (hackathons).
 
 ## Architecture
 
@@ -41,11 +27,31 @@ This architecture can be used to provide virtual labs for:
 
 ### Components
 
-- [Azure Lab Services](https://azure.microsoft.com/services/lab-services) is the tool used in this architecture to set up labs and provide on-demand access to preconfigured virtual machines (VMs).  
+- [Azure Lab Services](https://azure.microsoft.com/services/lab-services) is the tool used in this architecture to set up labs and provide on-demand access to preconfigured virtual machines (VMs).
+- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) allow you to create Linux and Windows virtual machines (VMs) in seconds, which can help you reduce costs.
+- [Azure Active Directory](https://azure.microsoft.com/en-us/services/active-directory) is a complete identity and access management solution with integrated security.
 
 ### Alternatives
 
 [Azure Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop) (AVD) can also provide one-to-one virtual desktop infrastructure (VDI), but the cost of persistent VM storage is not waived for AVD deployments. If the scenario is larger in scale and allows for multi-user desktops or application streaming, AVD can provide cost advantages from economies of scale, due to its support for multi-user and application streaming.
+
+## Scenario details
+
+A teacher needs to provide each student with a personal Windows or Linux virtual machine (VM) for use during a course. The students must be able to use their VMs during scheduled instruction (synchronous) and unscheduled study (asynchronous) periods. They use their own devices of various types to access VMs from anywhere. A simple user experience for students is a high priority, since in many cases they don't have technical expertise. The teacher requires cost controls to adhere to a fixed budget.
+
+Azure Lab Services equips teachers to create labs to satisfy such course needs. Lab Services manages the infrastructure, from spinning up the VMs to handling errors and scaling as needed.
+
+After an IT admin creates a lab account in Lab Services, a teacher can quickly set up a lab for the class, specifying the number and type of VMs that are needed for class exercises, and then adding students to the class or inviting students to self-enroll online. Once registered, a student can access one or more exclusive VMs to complete exercises for the class.
+
+### Potential use cases
+
+This solution is ideal for the education industry. This architecture can be used to provide virtual labs for:
+
+- Classes and professional training
+- Customer trials and demos
+- Developers
+- Replacing on-premises computers
+- Collaborative computer programming (hackathons)
 
 ## Considerations
 

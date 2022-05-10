@@ -4,6 +4,7 @@ titleSuffix: Cloud Design Patterns
 description: Learn how to design your workload configuration processes to control the complexity of devices and systems on your shop floors.
 keywords: edge, workload, configuration
 author: microsoftCSE
+categories: azure
 ms.author: hecamm
 ms.date: 03/21/2022
 ms.topic: conceptual
@@ -12,6 +13,13 @@ ms.subservice: design-pattern
 ms.custom:
   - fcp
   - design-pattern
+azureCategories:
+  - analytics
+  - iot
+products:
+  - azure-blob-storage
+  - azure-cosmos-db
+  - azure-iot-edge
 pnp.series.title: Cloud Design Patterns
 pnp.pattern.categories: [availability, design-implementation, management-monitoring]
 ---
@@ -22,7 +30,7 @@ The great variety of systems and devices on the shop floor can make workload con
 
 ## Context and problem
 
-Manufacturing companies, as part of their digital transformation journey, focus increasingly on building software solutions that can be reused as shared capabilities. Due to the variety of devices and systems on the shop floor, the modular workloads are configured to support different protocols, drivers, and data formats. Sometimes even multiple instances of a workload are run with different configurations in the same edge location. For some workloads, the configurations are updated more than once a day. Therefore, configuration management is increasingly important to the scaling out of edge solutions,
+Manufacturing companies, as part of their digital transformation journey, focus increasingly on building software solutions that can be reused as shared capabilities. Due to the variety of devices and systems on the shop floor, the modular workloads are configured to support different protocols, drivers, and data formats. Sometimes even multiple instances of a workload are run with different configurations in the same edge location. For some workloads, the configurations are updated more than once a day. Therefore, configuration management is increasingly important to the scaling out of edge solutions.
 
 ## Solution
 
