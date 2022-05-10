@@ -38,11 +38,11 @@ This article advances the zero-trust, adaptive security approach to IDaaS, empha
 1. All session data is *logged* for analysis and reporting.
 1. The SOC team's *security information and event management system (SIEM)* receives all log, risk detection, and UEBA data from cloud and on-premises identities.
 
-## Components
+### Components
 
 The following security processes and components contribute to this Azure AD IDaaS architecture.
 
-### Credential management
+#### Credential management
 
 [Credential management](/azure/active-directory/authentication/index) includes services, policies, and practices that issue, track, and update access to resources or services. Azure AD credential management includes the following capabilities:
 
@@ -58,7 +58,7 @@ The following security processes and components contribute to this Azure AD IDaa
 
 - [Passwordless authentication](https://www.microsoft.com/security/business/identity/passwordless) replaces the password in the authentication workflow with a smartphone or hardware token, biometric identifier, or PIN. Microsoft passwordless authentication can work with Azure resources like [Windows hello for business](/windows/security/identity-protection/hello-for-business/hello-identity-verification), and the [Microsoft authenticator app](https://www.microsoft.com/en-us/account/authenticator) on mobile devices. You can also enable passwordless authentication with [FIDO2 compatible security keys](/azure/active-directory/authentication/howto-authentication-passwordless-security-key), which use WebAuthn and the [FIDO alliance's Client-to-Authenticator (CTAP) protocol](https://fidoalliance.org/specifications/download/).
 
-### App provisioning and entitlement
+#### App provisioning and entitlement
 
 - [Entitlement management](/azure/active-directory/governance/entitlement-management-overview) is an Azure AD [identity governance](/azure/active-directory/governance/identity-governance-overview) feature that enables organizations to manage identity and access lifecycle at scale. Entitlement management automates access request workflows, access assignments, reviews, and expirations.
 
@@ -68,7 +68,7 @@ The following security processes and components contribute to this Azure AD IDaa
 
 - Attestation with [Azure AD access reviews](/azure/active-directory/governance/access-reviews-overview) help meet monitoring and auditing requirements. Access reviews let you do things like quickly identify the number of admin users, make sure new employees can access needed resources, or review users' activity to determine whether they still need access.
 
-### Conditional access policies and controls
+#### Conditional access policies and controls
 
 A [conditional access policy](/azure/active-directory/conditional-access/concept-conditional-access-policies) is an if-then statement of assignments and access controls. You define the response ("do this") to the reason for triggering your policy ("if this"), enabling the *authorization engine* to make decisions that enforce organizational policies. With [Azure AD conditional access](/azure/active-directory/active-directory-conditional-access-azure-portal), you can control how authorized users access your apps. The Azure AD [What If tool](/azure/active-directory/conditional-access/troubleshoot-conditional-access-what-if) can help you understand why a conditional access policy was or wasn't applied, or if a policy would apply to a user in a specific circumstance.
 
@@ -103,7 +103,7 @@ Azure AD can use the following conditional access controls with conditional acce
 
 - [Endpoint management](/azure/active-directory/conditional-access/require-managed-devices) controls how authorized users can access your cloud apps from a broad range of devices, including mobile and personal devices. You can use conditional access policies to restrict access only to devices that meet certain security and compliance standards. These *managed devices* require a [device identity](/azure/active-directory/devices/overview).
 
-### Risk detection
+#### Risk detection
 
 [Azure Identity Protection](/azure/active-directory/identity-protection) includes several policies that can help your organization manage responses to suspicious user actions. *User risk* is the probability that a user identity is compromised. *Sign-in risk* is the probability that a sign-in request isn't coming from the user. Azure AD calculates sign-in risk scores based on the probability of the sign-in request originating from the actual user, based on behavioral analytics.
 
@@ -130,7 +130,7 @@ You can route Azure AD log data to endpoints like:
 
 You can also use the Microsoft Graph [reporting API](/azure/active-directory/reports-monitoring/concept-reporting-api) to retrieve and consume Azure AD log data within your own scripts.
 
-## On-premises and hybrid considerations
+### On-premises and hybrid considerations
 
 Authentication methods are key to securing your organization's identities in a hybrid scenario. Microsoft provides [specific guidance](/azure/security/fundamentals/choose-ad-authn) on choosing a hybrid authentication method with Azure AD.
 
@@ -156,3 +156,10 @@ Azure Active Directory pricing ranges from free, for features like SSO and MFA, 
 - [Azure Security Compass](https://github.com/MarkSimos/MicrosoftSecurity/blob/master/Azure%20Security%20Compass%201.1/AzureSecurityCompassIndex.md)
 - [Azure Active Directory demo tenant](https://demos.microsoft.com) (requires a Microsoft Partner Network account), or [Enterprise Mobility + Security free trial](https://www.microsoft.com/microsoft-365/enterprise-mobility-security)
 - [Azure Active Directory deployment plans](/azure/active-directory/fundamentals/active-directory-deployment-plans)
+
+## Related resources
+
+- [Azure IoT reference architecture](/azure/architecture/reference-architectures/iot)
+- [COVID-19 safe environments with IoT Edge monitoring and alerting](cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml)
+- [Security considerations for highly sensitive IaaS apps in Azure](azure/architecture/reference-architectures/n-tier/high-security-iaas)
+
