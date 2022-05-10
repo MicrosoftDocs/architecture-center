@@ -7,7 +7,7 @@ Easily tier data and applications on-premises and in Azure, with architecture th
 ![Architecture diagram](../media/tiered-data-for-analytics.png)
 *Download a [Visio file](https://arch-center.azureedge.net/tiered-data-for-analytics.vsdx) of this architecture.*
 
-### Data flow
+### Dataflow
 
 1. Data flows into a storage account.
 1. Function on Azure Stack analyzes the data for anomalies or compliance.
