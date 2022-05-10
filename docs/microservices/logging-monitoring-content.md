@@ -43,7 +43,7 @@ A single operation can generate many telemetry events, so if the application exp
 
 If your data rate is high enough to trigger throttling, and sampling or aggregation are not acceptable, consider exporting metrics to a time-series database, such as **Azure Data Explorer**, **Prometheus**, or **InfluxDB** running in the cluster.
 
-- [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) is an Azure-native highly-scalable data exploration service for log and telemetry data. Data Explorer features support for multiple data formats, a rich query language, and connections to consume data in popular tools like [Jupyter Notebooks](/azure/data-explorer/kqlmagic) and [Grafana](/azure/data-explorer/grafana). Azure Data Explorer has built-in connectors to ingest log and metrics data via Azure Event Hub. See [Ingest and query monitoring data in Azure Data Explorer](/azure/data-explorer/ingest-data-no-code?tabs=diagnostic-metrics).
+- [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) is an Azure-native highly scalable data exploration service for log and telemetry data. Data Explorer features support for multiple data formats, a rich query language, and connections to consume data in popular tools like [Jupyter Notebooks](/azure/data-explorer/kqlmagic) and [Grafana](/azure/data-explorer/grafana). Azure Data Explorer has built-in connectors to ingest log and metrics data via Azure Event Hubs. See [Ingest and query monitoring data in Azure Data Explorer](/azure/data-explorer/ingest-data-no-code?tabs=diagnostic-metrics).
 
 - InfluxDB is a push-based system. An agent needs to push the metrics. You can use [TICK stack][tick stack], to set up monitoring of Kubernetes, and push it to InfluxDB using [Telegraf](https://www.influxdata.com/time-series-platform/telegraf/), which is an agent for collecting and reporting metrics. InfluxDB can be used for irregular events and string data types.
 
@@ -277,7 +277,7 @@ Learn more about features in Azure Monitor that support monitoring of applicatio
 
 ## Related resources
 
-For more information about using metrics for performance tuning, see see [Performance tuning a distributed application](../performance/index.md).
+For more information about using metrics for performance tuning, see [Performance tuning a distributed application](../performance/index.md).
 
 <!-- links -->
 
