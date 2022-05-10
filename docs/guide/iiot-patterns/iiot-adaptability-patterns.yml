@@ -18,6 +18,6 @@ products:
   - bonsai
 name: Industrial IoT Adaptability Patterns
 summary: Common adaptability patterns to build, deploy and manage Industrial IoT solutions.
-thumbnailUrl: 
+thumbnailUrl: /azure/architecture/browse/thumbs/iiot-maturity.png
 content: |
   [!include[](iiot-adaptability-patterns.md)]

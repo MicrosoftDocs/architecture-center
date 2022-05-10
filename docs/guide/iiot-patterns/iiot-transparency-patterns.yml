@@ -16,6 +16,6 @@ products:
   - azure-data-explorer
 name: Industrial IoT Transparency Patterns
 summary: Common transparency patterns to build, deploy and manage Industrial IoT solutions.
-thumbnailUrl: 
+thumbnailUrl: /azure/architecture/browse/thumbs/oee.png
 content: |
   [!include[](iiot-transparency-patterns.md)]

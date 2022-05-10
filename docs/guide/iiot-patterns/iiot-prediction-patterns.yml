@@ -17,6 +17,6 @@ products:
   - azure-machine-learning
 name: Industrial IoT Prediction Patterns
 summary: Common prediction patterns to build, deploy and manage Industrial IoT solutions.
-thumbnailUrl: 
+thumbnailUrl: /azure/architecture/browse/thumbs/ml-realtime.png
 content: |
   [!include[](iiot-prediction-patterns.md)]

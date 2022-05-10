@@ -16,6 +16,6 @@ products:
   - azure-data-explorer
 name: Industrial IoT Connectivity Patterns
 summary: Common connectivity patterns to build, deploy and manage Industrial IoT solutions.
-thumbnailUrl: 
+thumbnailUrl: /azure/architecture/browse/thumbs/scale-factories.png
 content: |
   [!include[](iiot-connectivity-patterns.md)]
