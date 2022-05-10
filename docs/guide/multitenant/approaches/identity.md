@@ -36,7 +36,7 @@ Authentication is the process by which a user's identity is established. When yo
 You might need to federate with other identity providers. Federation can be used to enable several scenarios, including:
 
 - Social login, such as by enabling users to use a Google or personal Microsoft account.
-- Tenant-speciifc directories, such as by enabling tenants to federate your application with their own identity providers so they don't need to manage accounts in multiple places.
+- Tenant-specific directories, such as by enabling tenants to federate your application with their own identity providers so they don't need to manage accounts in multiple places.
 
 For general information about federation, see the [Federated Identity pattern](../../../patterns/federated-identity.yml).
 
@@ -91,31 +91,22 @@ In a multitenant solution, roles are generally assigned and managed by the tenan
 
 For more information, see [Application roles](../../../multitenant-identity/app-roles.md).
 
-### Tenant/user relationship
+### Add tenant identity and role information to tokens
 
-It's important to decide how users and tenants are related. For example:
+Consider which part, or parts, of your solution should perform authorization requests, including determining whether a user is allowed to work with data from a specific tenant.
 
-- Does a user "belong to" a tenant?
-- Can a single user be granted access to multiple tenants? If so, could they have different roles, or access to different data, in different tenants?
-- When a user signs in, should their token be tied to a single tenant or should it be valid across multiple tenants?
+A common approach is for your identity system to embed a tenant identifier claim into a token. This enables your application to inspect the claim and verify that the user is working with the tenant that they are allowed to access. If you use the role-based security model, then you might choose to extend the token with information about the role a user has within the tenant.
 
+However, if a single user is allowed to access multiple tenants, you might need to provide a way for your users to signal which tenant they plan to work with during the login process so that the token can include the correct tenant identifier claim and role for that tenant. You also need to consider how users can switch between tenants, which requires issuing a new token.
 
-- Should there be a 1:1 or 1:many relationship between user and tenant?
-   - Org that needs multiple tenants - e.g. finance team tenant and a separate legal tenant. Should identities be consistent or separate?
-   - User that needs to access multiple tenants (e.g. teacher at school A, parent at school B)
-- This leads to considerations like - do you embed a tenant ID in a token, prompt the user to select a tenant during sign-in, or leave that entirely to the application to figure out. When to decide to do this
+#### Application-based authorization
 
-### API-based authorization
-
-- RESTful API-based systems can use this.
-- Can handle authorization by considering:
-  - Request user identity (e.g. subject claim from token) - who is making the request
-  - Request verb (e.g. GET, PUT, POST, DELETE) - what they're trying to do to the resource
-  - Requested resource (e.g. api.contoso.com/tenants/tenantA/calendars/mycal, or tenanta.contoso.com/calendars/mycal) - what they're trying to access
-  - Authorisation rules and permission list (e.g. "user X is allowed to read all data for tenant A")
-- This turns the problem into mostly a string-matching exercise
+An alternative approach is to make the identity system agnostic to tenant identifiers and roles. Each user is identified using their credentials or a federation relationship, and tokens don't include a tenant identifier claim. A separate list or database contains which users have been granted access to each tenant. Then, the application tier can verify whether the specified user should be allowed to access the data for a specific tenant based on looking up that list.
 
 ## Management and automation
+
+<!-- TODO -->
+
 - Tenant lifecycle management
   - Onboarding new tenants to your identity platform - is there anything manual required (e.g. for establishing federation/trust, customising policies)?
   - Offboarding tenants - what data should you delete, and how? Do you need to maintain some data/logs for compliance purposes?
