@@ -27,7 +27,7 @@ This solution showcases how companies using open source solutions can seamlessly
 
 ## Potential Use Cases
 
-This solution is ideal for the manufacturing industry.
+This solution is ideal for any industry.
 
 NiFi works well for moving data and managing the flow of data:
 * Connecting decoupled systems in the cloud
