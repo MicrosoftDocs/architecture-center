@@ -177,5 +177,5 @@ Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator) to 
 [sql-db]: /azure/sql-database
 [sql-elastic]: /azure/sql-database/sql-database-elastic-scale-introduction
 [sql-encryption]: /azure/azure-sql/database/transparent-data-encryption-tde-overview?view=sql-server-ver15
-[visio-download]: https://arch-center.azureedge.net/app-service-reference-architectures.vsdx
+[visio-download]: https://arch-center.azureedge.net/app-service-reference-architectures-scalable-webapp.vsdx
 [web-app-multi-region]: ./multi-region.yml
