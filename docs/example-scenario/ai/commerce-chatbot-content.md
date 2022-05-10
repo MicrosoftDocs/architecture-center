@@ -19,28 +19,28 @@ The following architecture is for designing a hotel booking bot.
 This scenario covers a conversational bot that functions as a concierge for a hotel. The data flows through the scenario as follows:
 
 1. The customer accesses the chatbot with a mobile or web app.
-2. Using Azure Active Directory (Azure AD) B2C (business-to-consumer), the customer is authenticated.
-3. Interacting with the Bot Service, the customer requests information about hotel availability.
-4. Cognitive Services processes the natural language request to understand the customer communication.
-5. After the customer is happy with the results, the bot adds or updates the reservation or booking in a SQL database.
-6. Application Insights gathers runtime telemetry throughout the process to help the DevOps team improve bot performance and usage.
+2. Using [Azure Active Directory][aadb2c-docs] (Azure AD) B2C (business-to-consumer), the customer is authenticated.
+3. Interacting with the [Bot Service][botservice-docs], the customer requests information about hotel availability.
+4. [Cognitive Services][cognitive-docs] processes the natural language request to understand the customer communication.
+5. After the customer is happy with the results, the bot adds or updates the reservation or booking in a [SQL database][sqldatabase-docs].
+6. [Application Insights][appinsights-docs] gathers runtime telemetry throughout the process to help the DevOps team improve bot performance and usage.
 
 ### Components
 
-- [Azure Active Directory (Azure AD)][aad-docs] is Microsoft's multitenant cloud-based directory and identity management service. Azure AD supports a B2C connector allowing you to identify users by their external IDs, such as Google, Facebook, or a Microsoft account.
-- [App Service][appservice-docs] enables you to build and host web applications in the programming language of your choice without managing infrastructure.
-- [Bot Service][botservice-docs] provides tools to build, test, deploy, and manage intelligent bots.
-- [Cognitive Services][cognitive-docs] lets you use intelligent algorithms to see, hear, speak, understand, and interpret your user needs through natural methods of communication.
-- [SQL Database][sqldatabase-docs] is a fully managed relational cloud database service that provides SQL Server engine compatibility.
-- [Application Insights][appinsights-docs] is an extensible Application Performance Management (APM) service that lets you monitor the performance of applications, such as your chatbot.
+- [Azure AD](https://azure.microsoft.com/services/active-directory) is a multitenant cloud-based directory and identity management service. Azure AD supports a B2C connector allowing you to identify users by their external IDs, such as Google, Facebook, or a Microsoft account.
+- [Azure App Service](https://azure.microsoft.com/services/app-service) enables you to build and host web applications in the programming language of your choice without managing infrastructure.
+- [Azure Bot Service](https://azure.microsoft.com/services/bot-service) provides tools to build, test, deploy, and manage intelligent bots.
+- [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services) lets you use intelligent algorithms to see, hear, speak, understand, and interpret your user needs through natural methods of communication.
+- [Azure SQL Database](https://azure.microsoft.com/services/sql-database) is a fully managed relational cloud database service that provides SQL Server engine compatibility.
+- Application Insights, a feature of [Azure Monitor](https://azure.microsoft.com/services/monitor), is an extensible Application Performance Management (APM) service that lets you monitor the performance of applications, such as your chatbot.
 
 ### Alternatives
 
 Other components that could be used to enhance this example scenario include:
 
-- [Speech API][speech-api] to change how customers interface with your bot.
-- [QnA Maker][qna-maker] to quickly add knowledge to your bot from semi-structured content like an FAQ.
-- [Translator Text][translator] as a service to easily add multi-lingual support to your bot.
+- [Speech API](https://azure.microsoft.com/services/cognitive-services/speech-services) to change how customers interface with your bot.
+- [QnA Maker](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker) to quickly add knowledge to your bot from semi-structured content like an FAQ.
+- [Translator Text](https://azure.microsoft.com/services/cognitive-services/translator) as a service to easily add multi-lingual support to your bot.
 
 ## Considerations
 
@@ -56,7 +56,7 @@ For other scalability articles, see the [performance efficiency checklist][scala
 
 ### Security
 
-This scenario uses Azure Active Directory (Azure AD) B2C, a business-to-consumer identity management service, to authenticate users. With Azure AD B2C, your chatbot doesn't store any sensitive customer account information or credentials. For more information, see the [Azure AD B2C overview][aadb2c-docs].
+This scenario uses Azure AD B2C, a business-to-consumer identity management service, to authenticate users. With Azure AD B2C, your chatbot doesn't store any sensitive customer account information or credentials. For more information, see the [Azure AD B2C overview][aadb2c-docs].
 
 Information stored in Azure SQL Database is encrypted at rest with transparent data encryption (TDE). SQL Database also offers Always Encrypted which encrypts data during querying and processing. For more information on SQL Database security, see [Azure SQL Database security and compliance][sqlsecurity-docs].
 
@@ -103,9 +103,15 @@ To explore the cost of running this scenario, use the [Azure pricing calculator]
 
 ## Next steps
 
-Azure Bot Service product documentation:
+Product documentation:
 
-- [The Bot Framework Composer tutorials][botservice-docs]
+- [What is Azure Active Directory?](/azure/active-directory/fundamentals/active-directory-whatis)
+- [What is Azure Active Directory B2C?][aadb2c-docs]
+- [Azure App Service](/azure/app-service)
+- [Azure Bot Framework Composer tutorials][botservice-docs]
+- [What are Azure Cognitive Services?](/azure/cognitive-services/what-are-cognitive-services)
+- [What is Azure SQL Database?](/azure/azure-sql/database/sql-database-paas-overview)
+- [Application Insights][appinsights-docs]
 
 Microsoft Learn modules:
 
@@ -113,8 +119,6 @@ Microsoft Learn modules:
 - [Build a bot with QnA Maker and Azure Bot Service][learn2]
 
 ## Related resources
-
-Azure Architecture Center articles describing chatbot architectures:
 
 - [Commerce chatbot for customer service](../../solution-ideas/articles/commerce-chatbot.yml)
 - [Build an enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot.yml)

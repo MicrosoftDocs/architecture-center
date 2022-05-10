@@ -20,6 +20,7 @@ products:
   - azure-active-directory
   - azure-active-directory-domain
   - azure-files
+  - azure-virtual-desktop
 thumbnailUrl: /azure/architecture/browse/thumbs/two-forest-to-azure-no-private-connectivity.png
 content: |
    [!include[](multi-forest-azure-managed-content.md)]

@@ -1,31 +1,14 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Modern data architectures meet these criteria:
-
-- Unify data, analytics, and AI workloads.
-- Run efficiently and reliably at any scale.
-- Provide insights through analytics dashboards, operational reports, or advanced analytics.
-
-This solution outlines a modern data architecture that achieves these goals. Azure Databricks forms the core of the solution. This platform works seamlessly with other services such as Azure Data Lake Storage, Azure Data Factory, Azure Synapse Analytics, and Power BI. Together, these services provide a solution with these qualities:
-
-- Simple: Unified analytics, data science, and machine learning simplify the data architecture.
-- Open: The solution supports open-source code, open standards, and open frameworks. It also works with popular integrated development environments (IDEs), libraries, and programming languages. Through native connectors and APIs, the solution works with a broad range of other services, too.
-- Collaborative: Data engineers, data scientists, and analysts work together with this solution. They can use collaborative notebooks, IDEs, dashboards, and other tools to access and analyze common underlying data.
-
-## Potential use cases
-
-The system that Swiss Re Group built for its Property & Casualty Reinsurance division inspired this solution. Besides the insurance industry, any area that works with big data or machine learning can also benefit from this solution. Examples include:
-
-- The energy sector
-- Retail and e-commerce
-- Banking and finance
-- Medicine
+This solution outlines a modern data architecture that achieves these goals. Azure Databricks forms the core of the solution. This platform works seamlessly with other services such as Azure Data Lake Storage, Azure Data Factory, Azure Synapse Analytics, and Power BI.
 
 ## Architecture
 
 :::image type="complex" source="../media/azure-databricks-modern-analytics-architecture-diagram.png" alt-text="Architecture diagram showing how a modern data architecture collects, processes, analyzes, and visualizes data." border="false":::
    The diagram contains several gray rectangles. Labels on the rectangles read Ingest, Process, Serve, Store, and Monitor and govern. Each rectangle contains icons that represent Azure or partner services. The Azure Databricks icon is at the center, along with the Data Lake Storage icon. Arrows point back and forth between icons. The arrows show how data flows through the system, as the diagram explanation steps describe. The lowest rectangle extends across the bottom of the diagram. It contains icons for services that monitor and govern operations and information.
 :::image-end:::
+
+### Dataflow
 
 1. Azure Databricks ingests raw streaming data from Azure Event Hubs.
 1. Data Factory loads raw batch data into Data Lake Storage.
@@ -72,7 +55,7 @@ The system that Swiss Re Group built for its Property & Casualty Reinsurance div
 
 1. The solution uses Azure services for collaboration, performance, reliability, governance, and security:
 
-   - Azure Purview provides data discovery services, sensitive data classification, and governance insights across the data estate.
+   - Microsoft Purview provides data discovery services, sensitive data classification, and governance insights across the data estate.
    - Azure DevOps offers continuous integration and continuous deployment (CI/CD) and other integrated version control features.
    - Azure Key Vault securely manages secrets, keys, and certificates.
    - Azure Active Directory (Azure AD) provides single sign-on (SSO) for Azure Databricks users. Azure Databricks supports automated user provisioning with Azure AD for these tasks:
@@ -118,7 +101,7 @@ The solution uses the following components:
 
 - [Power BI][What is Power BI?] is a collection of software services and apps. These services create and share reports that connect and visualize unrelated sources of data. Together with Azure Databricks, Power BI can provide root cause determination and raw data analysis.
 
-- [Azure Purview][What is Azure Purview?] manages on-premises, multicloud, and software as a service (SaaS) data. This governance service maintains data landscape maps. Features include automated data discovery, sensitive data classification, and data lineage.
+- [Microsoft Purview][What is Microsoft Purview?] manages on-premises, multicloud, and software as a service (SaaS) data. This governance service maintains data landscape maps. Features include automated data discovery, sensitive data classification, and data lineage.
 
 - [Azure DevOps][DevOps solutions on Azure] is a DevOps orchestration platform. This SaaS provides tools and environments for building, deploying, and collaborating on applications.
 
@@ -129,6 +112,29 @@ The solution uses the following components:
 - [Azure Monitor][Azure Monitor] collects and analyzes data on environments and Azure resources. This data includes app telemetry, such as performance metrics and activity logs.
 
 - [Azure Cost Management and Billing][Azure Cost Management and Billing] manages cloud spending. By using budgets and recommendations, this service organizes expenses and shows how to reduce costs.
+
+## Scenario details
+
+Modern data architectures meet these criteria:
+
+- Unify data, analytics, and AI workloads.
+- Run efficiently and reliably at any scale.
+- Provide insights through analytics dashboards, operational reports, or advanced analytics.
+
+This solution outlines a modern data architecture that achieves these goals. Azure Databricks forms the core of the solution. This platform works seamlessly with other services such as Azure Data Lake Storage, Azure Data Factory, Azure Synapse Analytics, and Power BI. Together, these services provide a solution with these qualities:
+
+- Simple: Unified analytics, data science, and machine learning simplify the data architecture.
+- Open: The solution supports open-source code, open standards, and open frameworks. It also works with popular integrated development environments (IDEs), libraries, and programming languages. Through native connectors and APIs, the solution works with a broad range of other services, too.
+- Collaborative: Data engineers, data scientists, and analysts work together with this solution. They can use collaborative notebooks, IDEs, dashboards, and other tools to access and analyze common underlying data.
+
+## Potential use cases
+
+The system that Swiss Re Group built for its Property & Casualty Reinsurance division inspired this solution. Besides the insurance industry, any area that works with big data or machine learning can also benefit from this solution. Examples include:
+
+- The energy sector
+- Retail and e-commerce
+- Banking and finance
+- Medicine
 
 ## Next steps
 
@@ -184,5 +190,5 @@ To learn about related solutions, see this information:
 [Stream processing with Azure Databricks]: ../../reference-architectures/data/stream-processing-databricks.yml
 [Swiss Re builds a digital payment platform by using Azure Databricks and Power BI]: https://customers.microsoft.com/story/1335371880067885708-swiss-re-drives-deeper-faster-insights-with-azure-synapse-analytics
 [DevOps solutions on Azure]: https://azure.microsoft.com/solutions/devops/
-[What is Azure Purview?]: /azure/purview/overview
+[What is Microsoft Purview?]: /azure/purview/overview
 [What is Power BI?]: /power-bi/fundamentals/power-bi-overview

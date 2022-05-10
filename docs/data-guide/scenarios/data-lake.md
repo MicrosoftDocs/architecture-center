@@ -1,8 +1,9 @@
 ---
 title: Data lakes
 description: Learn about data lake storage repositories, which can hold terabytes and petabytes of data in native, raw format.
-author: zoinerTejada
-ms.date: 02/12/2018
+author: EdPrice-MSFT
+ms.author: edprice
+ms.date: 05/02/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -50,3 +51,10 @@ Data lake stores are often used in event streaming or IoT scenarios, because the
 
 - [Data Lake Store](/azure/data-lake-store/) is a hyperscale, Hadoop-compatible repository.
 - [Data Lake Analytics](/azure/data-lake-analytics/) is an on-demand analytics job service to simplify big data analytics.
+
+## Related resources
+
+- [Query a data lake or lakehouse by using Azure Synapse serverless](/azure/architecture/example-scenario/data/synapse-exploratory-data-analytics)
+- [Optimized storage – time based with Data Lake](/azure/architecture/solution-ideas/articles/optimized-storage-time-based-data-lake)
+- [Data management across Azure Data Lake with Microsoft Purview](/azure/architecture/solution-ideas/articles/azure-purview-data-lake-estate-architecture)
+- [Modern data warehouse for small and medium business](/azure/architecture/example-scenario/data/small-medium-data-warehouse)
