@@ -14,15 +14,15 @@ This solution address the capability to deliver agile development architecture t
 ### Data flow
 
 1. Create resource group for the storage, network, and virtual machine, plus other dependent elements.
-1. Create Virtual Network to host the Virtual Machines and Load Balancers for the deployment. Ensure the network has appropriate Network Security Groups implement to protect network traffic flow.
+1. Create a virtual network to host the virtual machines and load balancers for the deployment. Ensure the network has appropriate Network Security Groups implement to protect network traffic flow.
 1. Create the storage accounts that will host the virtual machine images (VHDs).
-1. Create the Active Directory Installation. Either utilizing a new Virtual Machine or using Azure Active Directory Domain Services. If using Azure Active Directory, you also need to consider synchronizing identities to Azure AD with Azure AD Connect.
-1. Install a supported version of SQL Server on an Azure VM or deploy a pay as you go instance of SQL Server.
-1. Deploy SharePoint onto an Azure VM or use a trial image from the gallery which already have SharePoint Server installed.
+1. Create the Active Directory installation. Either utilizing a new Virtual Machine or using Azure Active Directory Domain Services. If using Azure Active Directory, you also need to consider synchronizing identities to Azure AD with Azure AD Connect.
+1. Install a supported version of SQL Server on an Azure VM or deploy a pay-as-you-go instance of SQL Server.
+1. Deploy SharePoint onto an Azure VM, or use a trial image from the gallery, which already has SharePoint Server installed.
 1. Create the SharePoint farm.
 1. Set up an Azure external load balancer to direct incoming HTTPS traffic to the SharePoint server.
 1. Use ExpressRoute or VPN Gateway for management access to resource group.
-1. On Premises users can access the SharePoint sites via the internet or ExpressRoute or VPN Gateway.
+1. On-premises users can access the SharePoint sites via the internet, ExpressRoute, or VPN Gateway.
 1. External users can be granted access as required to the SharePoint sites for testing.
 
 ### Components
