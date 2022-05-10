@@ -52,7 +52,7 @@ Azure provides built-in autoscaling for most compute options.
 
 - **Service Fabric** also supports autoscaling through virtual machine scale sets. Every node type in a Service Fabric cluster is set up as a separate virtual machine scale set. That way, each node type can be scaled in or out independently. See [Scale a Service Fabric cluster in or out using autoscale rules][service-fabric-autoscale].
 
-- **Azure App Service** has built-in autoscaling. Autoscale settings apply to all of the apps within an App Service. See [Scale instance count manually or automatically][app-service-autoscale] and (Scale up an app in Azure App Service)[https://docs.microsoft.com/azure/app-service/manage-scale-up].
+- **Azure App Service** has built-in autoscaling. Autoscale settings apply to all of the apps within an App Service. See [Scale instance count manually or automatically][app-service-autoscale] and [Scale up an app in Azure App Service](https://docs.microsoft.com/azure/app-service/manage-scale-up).
 
 - **Azure Cloud Services** has built-in autoscaling at the role level. See [How to configure auto scaling for a Cloud Service in the portal][cloud-services-autoscale].
 
