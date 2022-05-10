@@ -20,7 +20,7 @@ ms.custom:
   - fcp
 ---
 
-# Architectural considerations for identity
+# Architectural considerations for identity in a multitenant solution
 
 Identity is an important aspect of any multitenant solution. The identity components of your application are responsible for verifying who a user is (*authentication*) and enforcing the permissions that are granted to the user within the scope of a tenant (*authorization*). You might also need to provide authentication and authorization to external services as well. A user's identity determines what information a user or service will get access to it, so it's important that you consider your identity requirements so that you can isolate your application and data between tenants.
 
@@ -33,16 +33,6 @@ Before defining a multitenant identity strategy, you should first consider the h
 - Do users of your solution require access to one tenant or multiple? Do they need to the ability to quickly switch between tenants, or view consolidated information from multiple tenants?
 
 When you've established your high-level requirements, you can start to plan more specific details and requirements, such as user directory sources and sign-up/sign-in flows.
-
-## Types of identities
-
-<!-- TODO is this redundant given 'Service authentication process' section below? -->
-
-In most solutions, an identity often represents a user. However, many solutions also use identities internally and externally to allow authentication and authorization of services and applications. These are usually referred to as *service identities*.
-
-Service identities are similar to user identities, but usually require different authentication methods, such as keys or certificates. Servide identities don't use multi-factor authentication (MFA). Instead, service identities usually require additional security controls such as regular key-rolling and certificate expiration.
-
-Consider whether you need to support service identities in your solution. If you do, ensure you consider service identities as well as user identities in each of the decisions described in this article.
 
 ## Identity directory
 
@@ -115,7 +105,9 @@ When a user signs into a multitenant application, your identity system authentic
 
 ## Service authentication process
 
-Many multitenant systems also allow *service identities* to be used by *services* and *applications* to gain access to your application resources. For example, your tenants might need to access an API provided by your solution so that they can automate some of their management tasks.
+In most solutions, an identity often represents a user. Some multitenant systems also allow *service identities* to be used by *services* and *applications* to gain access to your application resources. For example, your tenants might need to access an API provided by your solution so that they can automate some of their management tasks.
+
+Service identities are similar to user identities, but usually require different authentication methods, such as keys or certificates. Servide identities don't use multi-factor authentication (MFA). Instead, service identities usually require additional security controls such as regular key-rolling and certificate expiration.
 
 If your tenants expect to be able to enable service identity access to your multitenant solution then you should consider the following questions:
 
@@ -137,6 +129,26 @@ If you are expecting tenants to federate with your solution, you should consider
 - What processes are in place to ensure federation can't be misconfigured to grant access to another tenant?
 - Will a single tenant's identity provider need to be federated to more than one tenant in your solution? For example, if a customer has both a training and production tenant, they might need to federate the same identity provider to both tenants.
 
+## Authorization models
+
+Decide on the authorization model that makes the most sense for your solution. Two common authorization approaches are:
+
+- **Role-based authorization.** Users are assigned to roles. Some features of the application are restricted to specific roles. For example, a user in the administrator role can perform any action, while a user in a lower role might have a subset of permissions throughout the system.
+- **Resource-based authorization.** Your solution provides a set of distinct resources, each of which has its own set of permissions. A specific user might be an administrator of one resource and have no access to another resource.
+
+These models are distinct, and the approach you select affects your implementation as well as the complexity of the authorization policies you can implement.
+
+For more information, see [Role-based and resource-based authorization](../../../multitenant-identity/authorize.md).
+
+### Entitlements and licensing
+
+In some solutions, you might use [per-user licensing](pricing-models.md#per-user-pricing) as part of your commercial pricing model, and provide different tiers of user licenses with different capabilities. For example, users with one license might be permitted to use a subset of the features of the application. The capabilities that a specific user is allowed to access based on their license is sometimes called an *entitlement*.
+
+If you plan to support user-based licensing and entitlements, consider the following questions:
+
+- How will licenses be assigned to users? Can licenses be moved between users?
+- Is your identity system responsible for enforcing your licensing model, and authorizing requests based on the user's entitlement? Or, is this the responsibility of the application code?
+
 ## Identity scale and authentication volume
 
 As multitenant solutions grow, the number of users and sign-ins requests that need to be processed by the solution will increase. You should consider the following questions:
@@ -148,32 +160,4 @@ As multitenant solutions grow, the number of users and sign-ins requests that ne
 
 ## Next steps
 
-Links to other relevant pages within our section.
-
-
-<!--
-## TODO
-
-### Entitlements and licensing
-- Do you have different user license types for different users? How will you enforce this, e.g. assign licenses to users?
-- Is this handled by the authZ system, or by the application tier?
-
-### Auditing and reporting
- - for billing, auditing
- - broken down by tenant/user?
- - Do you provide access to tenants?
-
-## Delegation
-- e.g. I'm building a SaaS calendar system, and I want my users to be able to give their assistants access to it
-- Effectively just an AuthZ problem
-
-## Tenant token trust and validation
-- Do all tenants trust all tokens issued by your IdP?
-- Will you allow tenant A to different policies than tenant B? e.g. IP address requirements, MFA policies, trusted devices, token lifetimes, which identity platform they signed into, etc?
-- How will your application handle this if a user has a token that was valid with tenant A but isn't valid for tenant B? Can the user token be upgraded? Be careful of login loops.
-
-## Role-based and resource-based authorization models
-
-TODO see https://docs.microsoft.com/en-us/azure/architecture/multitenant-identity/authorize
-
--->
+Review [Architectural approaches for identity in multitenant solutions](../approaches/identity.md).

@@ -1,5 +1,5 @@
 ---
-title: Architectural approaches for identity
+title: Architectural approaches for identity in multitenant solutions
 titleSuffix: Azure Architecture Center
 description: This article describes the approaches for managing identities in a multitenant solution.
 author: johndowns
@@ -20,7 +20,7 @@ ms.custom:
   - guide
 ---
 
-# Architectural approaches for identity
+# Architectural approaches for identity in multitenant solutions
 
 Almost all multitenant solutions require an identity system. In this article, we discuss common components of identity, including both authentication and authorization, and discuss how these can be applied in a multitenant solution.
 
@@ -129,4 +129,4 @@ It's important to decide how users and tenants are related. For example:
 
 ## Next steps
 
-Links to other relevant pages within our section.
+Review [Architectural considerations for identity in a multitenant solution](../considerations/identity.md).
