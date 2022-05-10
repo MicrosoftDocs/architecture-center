@@ -124,16 +124,7 @@ Other contributors:
 
 ## Next steps
 
-To get all details regarding this reference architecture, see the other articles in this series:
-
-- Part 1: [Use Azure monitoring to integrate security components](../../guide/security/azure-monitor-integrate-security-components.yml)
-- Part 3: [Map threats to your IT environment](./azure-security-build-first-layer-defense.yml)
-- Part 4: [Build the second layer of defense with Microsoft 365 Defender Security services](./microsoft-365-defender-build-second-layer-defense.yml)
-- Part 5: [Integration between Azure and Microsoft 365 Defender security services](./microsoft-365-defender-security-integrate-azure.yml)
-
-## Related resources
-
-This document refers to some services, technologies, and terminologies. You can find more information related to it in the links below.
+This document refers to some services, technologies, and terminologies. You can find more information about them in the following resources.
 
 - [MITRE ATT&CK®](https://attack.mitre.org/)
 - [ATT&CK® Navigator)](https://mitre-attack.github.io/attack-navigator/)
@@ -142,3 +133,9 @@ This document refers to some services, technologies, and terminologies. You can 
 - [Embrace proactive security with Zero Trust](https://www.microsoft.com/security/business/zero-trust)
 - [Blended threat](https://en.wikipedia.org/wiki/Blended_threat) on Wikipedia
 - [How cyberattacks are changing according to new Microsoft Digital Defense Report](https://www.microsoft.com/security/blog/2021/10/11/how-cyberattacks-are-changing-according-to-new-microsoft-digital-defense-report/) from Microsoft Security Blog
+
+## Related resources
+
+- [Threat indicators for cyber threat intelligence in Microsoft Sentinel](../../example-scenario/data/sentinel-threat-intelligence.yml)
+- [Monitor hybrid security using Microsoft Defender for Cloud and Microsoft Sentinel](../../hybrid/hybrid-security-monitoring.yml)
+- [Zero-trust network for web applications with Azure Firewall and Application Gateway](../../example-scenario/gateway/application-gateway-before-azure-firewall.yml)
