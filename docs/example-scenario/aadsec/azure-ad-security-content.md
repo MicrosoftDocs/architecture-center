@@ -162,4 +162,3 @@ Azure Active Directory pricing ranges from free, for features like SSO and MFA, 
 - [Azure IoT reference architecture](/azure/architecture/reference-architectures/iot)
 - [COVID-19 safe environments with IoT Edge monitoring and alerting](cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml)
 - [Security considerations for highly sensitive IaaS apps in Azure](azure/architecture/reference-architectures/n-tier/high-security-iaas)
-
