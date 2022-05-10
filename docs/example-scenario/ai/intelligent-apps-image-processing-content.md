@@ -113,9 +113,9 @@ Before deploying this example scenario in a production environment, review recom
 
 <!-- links -->
 [architecture]: ./media/architecture-intelligent-apps-image-processing.png
-[small-pricing]: https://azure.com/e/ee2cac4c69e84a328b578fcd3a398653
-[medium-pricing]: https://azure.com/e/7c7fc474db344b87aae93bc29ae27108
-[large-pricing]: https://azure.com/e/cbadbca30f8640d6a061f8457a74ba7d
+[small-pricing]: https://azure.com/e/db65c031511b4b3dadf5d143e1d80b0b
+[medium-pricing]: https://azure.com/e/a7705630b96f4ef7bedb39b2a870ceb5
+[large-pricing]: https://azure.com/e/22d0db3728bd4f78bdd709ff652b73ac
 [serverless]: /learn/paths/create-serverless-applications/
 [cv-categories]: /azure/cognitive-services/computer-vision/category-taxonomy
 [resiliency]: /azure/architecture/framework/resiliency/principles
