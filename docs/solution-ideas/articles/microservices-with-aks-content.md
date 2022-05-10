@@ -5,7 +5,7 @@ Use AKS to simplify the deployment and management of microservices-based archite
 ## Architecture
 
 ![Architecture Diagram](../media/microservices-with-aks.png)
-*Download an [SVG](../media/microservices-with-aks.svg) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/microservices-with-aks.vsdx) of this architecture.*
 
 ### Data flow
 
