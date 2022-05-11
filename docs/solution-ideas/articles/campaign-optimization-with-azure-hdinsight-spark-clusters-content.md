@@ -17,7 +17,7 @@ This solution idea describes how to use a model to predict actions that are expe
 
 [Microsoft Machine Learning Server](/machine-learning-server/what-is-machine-learning-server) - Enterprise software for data science, providing R and Python interpreters, base distributions of R and Python, other high-performance libraries from Microsoft, and an operationalization capability for advanced deployment scenarios.
 
-[Azure HDInsight](/azure/hdinsight/hdinsight-overview) - A managed, full-spectrum, open-source analytics service in the cloud for enterprises. You can use open-source frameworks such as Hadoop, Apache Spark, Apache Hive, LLAP, Apache Kafka, Apache Storm, R, and more.
+[Azure HDInsight](https://azure.microsoft.com/services/hdinsight) - A managed, full-spectrum, open-source analytics service in the cloud for enterprises. You can use open-source frameworks such as Hadoop, Apache Spark, Apache Hive, LLAP, Apache Kafka, Apache Storm, R, and more.
 
 ## Business perspective
 
@@ -45,14 +45,18 @@ This solution will create an HDInsight Spark cluster with Microsoft Machine Lear
 
 ## Next steps
 
+Learn more and try out some code:
+
+- [Azure HDInsight](/azure/hdinsight/hdinsight-overview)
+- Microsoft Learn module [Introduction to Azure HDInsight](/learn/modules/intro-to-azure-hdinsight)
+- [Microsoft Machine Learning Server](/machine-learning-server/what-is-machine-learning-server)
+- Microsoft Machine Learning Server documentation [tutorials and sample data](/machine-learning-server/r/tutorial-introduction)
+- Azure AI Gallery - [Campaign Optimization with Azure HDInsight Spark Clusters](https://gallery.azure.ai/Solution/Campaign-Optimization-with-Azure-HDInsight-Spark-Clusters)
+
+## Related resources
+
 Read other Azure Architecture Center articles:
 
 - [Campaign optimization with SQL Server and machine learning](./campaign-optimization-with-sql-server.yml)
 - [Digital campaign management](./digital-marketing-using-azure-database-for-postgresql.yml)
 - [R developer's guide to Azure](../../data-guide/technology-choices/r-developers-guide.md)
-
-Learn more and try out some code:
-
-- Microsoft Learn module [Introduction to Azure HDInsight](/learn/modules/intro-to-azure-hdinsight)
-- Microsoft Machine Learning Server documentation [tutorials and sample data](/machine-learning-server/r/tutorial-introduction)
-- Azure AI Gallery - [Campaign Optimization with Azure HDInsight Spark Clusters](https://gallery.azure.ai/Solution/Campaign-Optimization-with-Azure-HDInsight-Spark-Clusters)
