@@ -1,3 +1,6 @@
+<!intro>
+Revist the four Vs.
+
 ## Performance
 ## Latency
 ## Responsiveness

@@ -1,15 +1,35 @@
-## Reliability 
+<!intro>
 - Revist main principles that should be considered (add examples from RI where implemented)
+- Talk about geo distribution
 
-## Scalability
+
+## Shared resources
+- Overall reliability consideration
+- Failure points
+  - Mitigation
+  - Alternate ways
+
+## Stamp resources
+- Overall reliability consideration
+- Failure points
+  - Mitigation
+  - Alternate ways
+
+## Regional resources
+for each resource in regional resources:
+    Take some configurations
+    Talk about how it's boosting reliability
+    Talk about secondary aspects such as security
+
+## Capacity planning
 - Talk about scale units here?
 
-## Container considerations
-- AKS whys?
-- Container registry
-
 ## Networking consideration
-- Front Door whys
+- Global routing
+- Vnet/subnetting
+- IP planning
+- Allowed/denied traffic
+- Health probes
 
 ## Security
 - Identity and access management
@@ -21,10 +41,6 @@
 - Observability from AKS
 - Log analytics set up
 - Health services --> Start with this.
-- Setting up alerts
-
-## Failure injection testing
-- For each service
 
 --- 
 ## Dump zone
