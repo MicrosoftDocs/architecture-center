@@ -17,7 +17,7 @@
             <li>06/28/2021</li>
             <li>6 min read</li>
         </ul>
-        <p class="card-content-description">Write a 100-160 character description that ends with a period and ideally starts with a call to action. This becomes the browse card description.</p>
+        <p class="card-content-description">The architecture described in this article shows how to use virtualization technologies from Microsoft partner Unisys with a legacy Unisys CPF Libra mainframe.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>
