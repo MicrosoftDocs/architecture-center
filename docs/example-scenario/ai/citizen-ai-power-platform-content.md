@@ -150,7 +150,7 @@ In this example, we configure a Power Automate cloud flow to consume the REST en
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-**Principal author:**
+Principal author:
 
 * [Vyas Dev Venugopalan](https://au.linkedin.com/in/vyasvenugopalan) | Sr. Specialist - Azure Data & AI
 
