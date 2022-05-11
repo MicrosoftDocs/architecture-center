@@ -5,10 +5,11 @@ This serverless architecture enables you to build and run applications without h
 ## Architecture
 
 ![Architecture Diagram](../media/onboarding-customers-with-a-cloud-native-serverless-architecture.png)
+
 *Download an [SVG](../media/onboarding-customers-with-a-cloud-native-serverless-architecture.svg) of this architecture.*
 <div class="architecture-tooltip-content" id="architecture-tooltip-2">
 
-### Data flow
+### Dataflow
 
 1. Information about the new customer is posted to a web endpoint.
 1. The customer's photo is posted to [Cognitive Services Face API](/azure/cognitive-services/face/). Face API associates the customer's photo and name.
