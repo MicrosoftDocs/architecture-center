@@ -92,11 +92,11 @@ There are three main parts to this DataFlow:
 
 ![Components diagram for scenario NiFi Sentiment Analysis and Face Recognition](../media/nifi-sentiment-face-components.png)
 
-- [Azure Data Factory](/azure/data-factory/introduction) is used for different types of batch transformation from the different sources to the different sinks. Big data processing is a critical task for every organization. that are built to simplify ETL as well as handle the complexities and scale challenges of big data integration.
+- [Azure Data Factory](/azure/data-factory/introduction) is used for different types of batch transformation from the different sources to the different sinks. Big data processing is a critical task for every organization. that is built to simplify ETL as well as handle the complexities and scale challenges of big data integration.
 
-- [Apache Nifi](https://nifi.apache.org/) handles multiple sources and multiples sinks with different types of processors in order to doing streaming transformations. Designed to automate the flow of data between software systems. 
+- [Apache Nifi](https://nifi.apache.org/) handles multiple sources and multiple sinks with different types of processors in order to do streaming transformations. Designed to automate the flow of data between software systems. 
 
-- [HDInsight](https://azure/services/hdinsight/) is a Hadoop Platform for data and analytics for on-premise environments,  to ingest, store and process data in real time and batch time. Is an open source framework for distributed storage and processing of large, multi-source data sets. HDP modernizes IT infrastructure and keeps data secure
+- [HDInsight](https://azure/services/hdinsight/) is a Hadoop Platform for data and analytics for on-premise environments,  to ingest, store and process data in real-time and batch time. Is an open-source framework for distributed storage and processing of large, multi-source data sets. HDP modernizes IT infrastructure and keeps data secure
 
 - [Azure Synapse](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is) centralizes data in the cloud for easy access.
 
@@ -104,33 +104,33 @@ There are three main parts to this DataFlow:
 
 - [Azure Cognitive Services Language Understanding & Vision](https://azure/services/cognitive-services/) are cloud-based services with REST APIs and client library SDKs available to help build cognitive intelligence into applications. Cognitive features can be added to applications without having artificial intelligence (AI) or data science skills.
 
-- [Power BI](/power-bi/fundamentals/power-bi-overview) is a business analytics service by Microsoft. It aims to provide interactive visualizations and business intelligence capabilities with an interface simple enough for end users to create their own reports and dashboards. It is part of the Microsoft Power Platform.
+- [Power BI](/power-bi/fundamentals/power-bi-overview) is a business analytics service by Microsoft. It aims to provide interactive visualizations and business intelligence capabilities with an interface simple enough for end-users to create their own reports and dashboards. It is part of the Microsoft Power Platform.
 
 ### Alternatives
 
-Most of the pieces can be interchanged, as an example use a Cloudera cluster instead of an HDInsight cluster.
+Most of the pieces can be interchanged, as example use a Cloudera cluster instead of an HDInsight cluster.
 
-ADF can be swapped out for Azure Databricks.  Often solutions using ADF also make use of Databricks, and Databricks can be used to as an orchestrater in addition to transforming or storing data.
+ADF can be swapped out for Azure Databricks.  Often solutions using ADF also make use of Databricks, and Databricks can be used as an orchestrater in addition to transforming or storing data.
 
-Instead of Nifi use Airflow where it can also be used as a workflow tool running ETL scripts.
+Instead of Nifi use Airflow which can also be used as a workflow tool running ETL scripts.
 
 For Cosmos DB use ElasticSearch as a main repository of the files.
 
-Use Kibana as dashboard instead of Power BI.
+Use Kibana as a dashboard instead of Power BI.
 
 ## Considerations
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
-Depending of the number of sources and different kinds of processing tools that will be used, these transformations and visualizations can simplified.  If applicable, consider using a simple pipeline with one sink and create a dashboard from that instead of using multiples sources and multiples dashboards. 
+Depending on the number of sources and different kinds of processing tools that will be used, these transformations and visualizations can simplify.  If applicable, consider using a simple pipeline with one sink and create a dashboard from that instead of using multiple sources and multiple dashboards. 
 
 This example tries to use as many services as possible to compare the use of PowerBI from different sources and see the performance and the difficulties from one source to another and from one data type to another.
 
 ### Reliability
 
-To push this to a production environment, RTO and RPO will need to be evaluated.  All DR decisions and scenarios will be driven from those conversations.
+To push this to a production environment, RTO and RPO will need to be evaluated.  All DR decisions and scenarios will be driven by those conversations.
 
-Most of the cases will need to create a HA (high availability) service for each of the tools.  It is important to reduce the RTP in case of a DR scenario; in this case with HA a DR scenario can be avoided if the services created in another region for example.
+Most of the cases will need to create a HA (high availability) service for each of the tools.  It is important to reduce the RTP in case of a DR scenario; in this case with HA a DR scenario can be avoided if the services are created in another region for example.
 
 ### Security
 
@@ -146,7 +146,7 @@ Monitoring logs from all the services should be centralized.  Since there are bo
 
 ### Performance efficiency
 
-As there are multiple sources, consider compression and type of file format as part of the process.  Cosmos DB will need to be configured appropriately to allow tradeoff between latency and consistency levels; performance should be monitored and evaluated throughout the process to avoid Cosmos DB becoming a bottleneck.  Consider aligning geographic locations to decrease latency.
+As there are multiple sources, consider compression and type of file format as part of the process.  Cosmos DB will need to be configured appropriately to allow a tradeoff between latency and consistency levels; performance should be monitored and evaluated throughout the process to avoid Cosmos DB becoming a bottleneck.  Consider aligning geographic locations to decrease latency.
 
 ## Contributors
 
