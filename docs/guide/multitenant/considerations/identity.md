@@ -38,7 +38,7 @@ When you've established your high-level requirements, you can start to plan more
 
 For a multitenant solution to authenticate and authorize a user or service, it needs a place to store identity information. A *directory* can include authoritative records for each identity, or it might contain references to external identities stored in another identity provider's directory.
 
-When you design on an identity system for your multitenant solution, you need to consider how which of the following identity sources your tenants and customers require:
+When you design an identity system for your multitenant solution, you need to consider which of the following identity sources your tenants and customers require:
 
 - **Local identity provider.** A local identity provider allows a user to sign themselves up to the service by providing a username, email address or an identifier such as a rewards card number, and a credential like a password.
 - **Social identity provider.** A social identity provider allows users to use an identity they have on a social network or other public identity provider, such as Facebook, Google, or a personal Microsoft account.
@@ -60,10 +60,10 @@ You should consider how your identity information in your multitenant solution w
 
 ## Account access to multiple tenants
 
-It's common for multitenant solutions to allow a single user or service identity to access to the data of multiple tenants. Consider whether this is required for your solution. If it is, then you also need to consider the following decisions:
+It's common for multitenant solutions to allow a single user or service identity to access the application and data of multiple tenants. Consider whether this is required for your solution. If it is, then you also need to consider the following decisions:
 
 - Should an identity record be shared across multiple tenants (service-wide identity) or stored and managed within the context of a single tenant (per-tenant local identity)?
-- How does your solution identify and grant permissions to a user who has access to multiple tenants? For example, could a user be an administrator in a training tenant, and have read-only access to a production tenant? Or, you could you have separate tenants for different departments in an organization, but need to maintain consistent user identities across all of the tenants?
+- How does your solution identify and grant permissions to a user who has access to multiple tenants? For example, could a user be an administrator in a training tenant, and have read-only access to a production tenant? Or, could you have separate tenants for different departments in an organization, but need to maintain consistent user identities across all of the tenants?
 - How does a user switch between tenants?
 - If you use service identities, how does a service identity specify the tenant it needs to access?
 - Is there tenant specific information stored in the user identity record that could leak information between tenants? For example, suppose a user signed up with a social identity and was then granted access to two tenants. Tenant A enriched the user's identity with additional information. Should tenant B have access to the enriched information?
@@ -85,11 +85,11 @@ When users are allowed to sign themselves up for an identity, there usually need
 
 - How will the sign-up flow determine that a user should be granted access to a specific tenant?
 - If a user should no longer have access to a tenant, will your solution automatically revoke their access? For example, when a user leaves an organization there needs to be a manual or automated process that removes their access from the tenant.
-- Do you need to provide a way for tenants to audit the users who have access to their tenants, and their permissions?
+- Do you need to provide a way for tenants to audit the users who have access to their tenants and their permissions?
 
 ## Automated account lifecycle management
 
-A common requirement for corporate or enterprise customers of a solution to require features that allow them to automate account onboarding and off-boarding. Open protocols such as [System for Cross-domain Identity Management (SCIM)](/azure/active-directory/fundamentals/sync-scim) provide industry standard approach to automation. This automated process usually includes not only creation and removal of identity records, but also management of tenant permissions. There are specific considerations when implementing automated account lifecycle management in a multitenant solution:
+A common requirement for corporate or enterprise customers of a solution is a set of features that allows them to automate account onboarding and off-boarding. Open protocols such as [System for Cross-domain Identity Management (SCIM)](/azure/active-directory/fundamentals/sync-scim) provide industry standard approach to automation. This automated process usually includes not only creation and removal of identity records, but also management of tenant permissions. There are specific considerations when implementing automated account lifecycle management in a multitenant solution:
 
 - Do your customers need to configure and manage automated lifecycle process per tenant? For example, when a user is onboarded you might need to create the identity within multiple tenants in your application, but each having a different set of permissions.
 - Do you need to implement SCIM, or can you provide tenants federation instead to keep the source of truth for users under the control of the tenant instead of managing local users?
