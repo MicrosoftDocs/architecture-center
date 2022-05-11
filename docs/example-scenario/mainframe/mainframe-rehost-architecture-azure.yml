@@ -18,7 +18,7 @@ products:
   - azure-kubernetes-service
   - azure-site-recovery
 name: Rehost a general mainframe on Azure
-summary: Learn how to create a general mainframe rehost architecture on Azure. Rehosting is a cost-effective method to maintain old mainframe hardware.
+summary: Learn how to create a general mainframe rehosting architecture on Azure. Rehosting is a cost-effective method to maintain old mainframe hardware.
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-mainframe-rehost-postmigration-diagram.png
 content: |
   [!include[](mainframe-rehost-architecture-azure-content.md)]
