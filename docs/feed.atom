@@ -2,12 +2,260 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2022-05-02T15:23:57.246Z</updated>
+    <updated>2022-05-09T14:04:39.673Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://docs.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Deploy microservices with Azure Container Apps and Dapr]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/serverless/microservices-with-container-apps-dapr</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/serverless/microservices-with-container-apps-dapr"/>
+        <updated>2022-05-02T23:42:24.000Z</updated>
+        <summary type="html"><![CDATA[Build a serverless microservices solution on Azure Container Apps using Distributed Application Runtime (Dapr) and Kubernetes Event-Driven Autoscaling (KEDA).]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Comparing AWS and Azure compute services]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/aws-professional/compute</id>
+        <link href="https://docs.microsoft.com/azure/architecture/aws-professional/compute"/>
+        <updated>2022-05-08T09:49:13.000Z</updated>
+        <summary type="html"><![CDATA[Compare the compute services in Azure and AWS. Explore the differences in virtual servers, containers and container orchestrators, and serverless architectures.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Comparing AWS and Azure messaging services]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/aws-professional/messaging</id>
+        <link href="https://docs.microsoft.com/azure/architecture/aws-professional/messaging"/>
+        <updated>2022-05-08T09:49:13.000Z</updated>
+        <summary type="html"><![CDATA[Compare messaging service differences between Azure and AWS. Know Azure equivalents for Simple Email Service, Simple Queueing Service, and messaging components.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Run Apache Cassandra on Azure VMs]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/best-practices/cassandra</id>
+        <link href="https://docs.microsoft.com/azure/architecture/best-practices/cassandra"/>
+        <updated>2022-05-08T09:49:13.000Z</updated>
+        <summary type="html"><![CDATA[Examine performance considerations for running Apache Cassandra on Azure virtual machines. Use these recommendations as a baseline to test against your workload.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Configure hybrid cloud connectivity in Azure and Azure Stack Hub]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/hybrid/deployments/solution-deployment-guide-connectivity</id>
+        <link href="https://docs.microsoft.com/azure/architecture/hybrid/deployments/solution-deployment-guide-connectivity"/>
+        <updated>2022-05-08T09:49:13.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to configure hybrid cloud connectivity using Azure and Azure Stack Hub.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy hybrid app with on-premises data that scales cross-cloud]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/hybrid/deployments/solution-deployment-guide-cross-cloud-scaling-onprem-data</id>
+        <link href="https://docs.microsoft.com/azure/architecture/hybrid/deployments/solution-deployment-guide-cross-cloud-scaling-onprem-data"/>
+        <updated>2022-05-08T09:49:13.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to deploy an app that uses on-premises data and scales cross-cloud using Azure and Azure Stack Hub.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy an app that scales cross-cloud in Azure and Azure Stack Hub]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/hybrid/deployments/solution-deployment-guide-cross-cloud-scaling</id>
+        <link href="https://docs.microsoft.com/azure/architecture/hybrid/deployments/solution-deployment-guide-cross-cloud-scaling"/>
+        <updated>2022-05-08T09:49:13.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to deploy an app that scales cross-cloud in Azure and Azure Stack Hub.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Direct traffic with a geo-distributed app using Azure and Azure Stack Hub]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/hybrid/deployments/solution-deployment-guide-geo-distributed</id>
+        <link href="https://docs.microsoft.com/azure/architecture/hybrid/deployments/solution-deployment-guide-geo-distributed"/>
+        <updated>2022-05-08T09:49:13.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to direct traffic to specific endpoints with a geo-distributed app solution using Azure and Azure Stack Hub.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Configure hybrid cloud identity for Azure and Azure Stack Hub apps]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/hybrid/deployments/solution-deployment-guide-identity</id>
+        <link href="https://docs.microsoft.com/azure/architecture/hybrid/deployments/solution-deployment-guide-identity"/>
+        <updated>2022-05-08T09:49:13.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to configure hybrid cloud identity for Azure and Azure Stack Hub apps.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy a highly available MongoDB solution to Azure and Azure Stack Hub]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/hybrid/deployments/solution-deployment-guide-mongodb-ha</id>
+        <link href="https://docs.microsoft.com/azure/architecture/hybrid/deployments/solution-deployment-guide-mongodb-ha"/>
+        <updated>2022-05-08T09:49:13.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to deploy a highly available MongoDB solution to Azure and Azure Stack Hub]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy a SQL Server 2016 availability group to Azure and Azure Stack Hub]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/hybrid/deployments/solution-deployment-guide-sql-ha</id>
+        <link href="https://docs.microsoft.com/azure/architecture/hybrid/deployments/solution-deployment-guide-sql-ha"/>
+        <updated>2022-05-08T09:49:13.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to deploy a SQL Server 2016 availability group to Azure and Azure Stack Hub.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Edge Workload Configuration pattern]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/patterns/edge-workload-configuration</id>
+        <link href="https://docs.microsoft.com/azure/architecture/patterns/edge-workload-configuration"/>
+        <updated>2022-05-08T09:49:13.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to design your workload configuration processes to control the complexity of devices and systems on your shop floors.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Implement a secure hybrid network]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-dmz</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-dmz"/>
+        <updated>2022-05-07T07:55:51.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to deploy a secure hybrid network that extends an on-premises network to Azure by implementing a perimeter network called a DMZ.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Loan chargeoff prediction with SQL Server]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/loan-chargeoff-prediction-with-sql-server</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/loan-chargeoff-prediction-with-sql-server"/>
+        <updated>2022-05-06T03:42:50.000Z</updated>
+        <summary type="html"><![CDATA[Build and deploy a machine learning model with SQL Server 2016 with R Services to predict whether a bank loan will soon need to be charged off.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Extraneous Fetching antipattern]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/antipatterns/extraneous-fetching</id>
+        <link href="https://docs.microsoft.com/azure/architecture/antipatterns/extraneous-fetching"/>
+        <updated>2022-05-05T22:26:23.000Z</updated>
+        <summary type="html"><![CDATA[Learn about ways to mitigate the Extraneous Fetching antipattern, the common design flaw of fetching more data than needed for a business operation.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Improper Instantiation antipattern]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/antipatterns/improper-instantiation</id>
+        <link href="https://docs.microsoft.com/azure/architecture/antipatterns/improper-instantiation"/>
+        <updated>2022-05-05T22:26:23.000Z</updated>
+        <summary type="html"><![CDATA[Avoid continually creating new instances of an object that is meant to be created once and then shared.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[AWS vs. Azure accounts and subscriptions]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/aws-professional/accounts</id>
+        <link href="https://docs.microsoft.com/azure/architecture/aws-professional/accounts"/>
+        <updated>2022-05-05T22:26:23.000Z</updated>
+        <summary type="html"><![CDATA[Learn the differences in accounts and subscriptions between Azure and AWS. Understand the types of administrator accounts in Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Compare AWS and Azure database technology]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/aws-professional/databases</id>
+        <link href="https://docs.microsoft.com/azure/architecture/aws-professional/databases"/>
+        <updated>2022-05-05T22:26:23.000Z</updated>
+        <summary type="html"><![CDATA[Compare database technology differences between Azure and AWS. Review the RDS and Azure relational database services. See equivalents for analytics and big data.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure for AWS professionals]]></title>
+        <id>https://docs.microsoft.com/azure/architecture//aws-professional</id>
+        <link href="https://docs.microsoft.com/azure/architecture//aws-professional"/>
+        <updated>2022-05-05T22:26:23.000Z</updated>
+        <summary type="html"><![CDATA[Learn the basics of Microsoft Azure accounts, platform, and services, and key similarities and differences between the AWS and Azure platforms.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Compare AWS and Azure resource management]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/aws-professional/resources</id>
+        <link href="https://docs.microsoft.com/azure/architecture/aws-professional/resources"/>
+        <updated>2022-05-05T22:26:23.000Z</updated>
+        <summary type="html"><![CDATA[Compare resource management between Azure and AWS. See the difference between Azure resource groups and AWS resource groups. Explore Azure management interfaces.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Retry general guidance]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/best-practices/transient-faults</id>
+        <link href="https://docs.microsoft.com/azure/architecture/best-practices/transient-faults"/>
+        <updated>2022-05-05T22:26:23.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to handle transient faults when connecting to resources, caused by loss of network connectivity, temporary unavailability, or timeouts.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Advanced analytics]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-guide/scenarios/advanced-analytics</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-guide/scenarios/advanced-analytics"/>
+        <updated>2022-05-05T22:26:23.000Z</updated>
+        <summary type="html"><![CDATA[Use mathematical, probabilistic, and statistical modeling techniques to enable predictive processing and automated decision making.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Processing CSV and JSON files]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-guide/scenarios/csv-and-json</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-guide/scenarios/csv-and-json"/>
+        <updated>2022-05-05T22:26:23.000Z</updated>
+        <summary type="html"><![CDATA[Learn about CSV and JSON files, the most common formats for ingesting, exchanging, and storing unstructured or semi-structured data.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Choose a data transfer technology]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-guide/scenarios/data-transfer</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-guide/scenarios/data-transfer"/>
+        <updated>2022-05-05T22:26:23.000Z</updated>
+        <summary type="html"><![CDATA[Learn about Azure data transfer options like Import/Export, Data Box, Data Factory, and command line and graphical interface tools.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Extend on-premises data solutions to the cloud]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-guide/scenarios/hybrid-on-premises-and-cloud</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-guide/scenarios/hybrid-on-premises-and-cloud"/>
+        <updated>2022-05-05T22:26:23.000Z</updated>
+        <summary type="html"><![CDATA[Learn about using hybrid cloud environments that span cloud and on-premises datacenters for migrating to the cloud or extending on-premises infrastructures.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Interactive data exploration]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-guide/scenarios/interactive-data-exploration</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-guide/scenarios/interactive-data-exploration"/>
+        <updated>2022-05-05T22:26:23.000Z</updated>
+        <summary type="html"><![CDATA[Learn about interactive data exploration tools and platforms that provide low-latency batch processing for ad-hoc queries and data visualizations.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Secure data solutions]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-guide/scenarios/securing-data-solutions</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-guide/scenarios/securing-data-solutions"/>
+        <updated>2022-05-05T22:26:23.000Z</updated>
+        <summary type="html"><![CDATA[Learn about data protection, access control, auditing, and Azure services and tools that help you secure data assets.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Arc-enabled server configurations]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/hybrid/azure-arc-hybrid-config</id>
+        <link href="https://docs.microsoft.com/azure/architecture/hybrid/azure-arc-hybrid-config"/>
+        <updated>2022-05-03T20:55:10.000Z</updated>
+        <summary type="html"><![CDATA[Use Azure Arc to extend Azure Resource Manager capabilities to Windows and Linux machines on any infrastructure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Machine teaching with Project Bonsai autonomous systems]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/autonomous-systems</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/autonomous-systems"/>
+        <updated>2022-05-02T21:30:25.000Z</updated>
+        <summary type="html"><![CDATA[Learn how Project Bonsai uses machine teaching, deep reinforcement learning, and simulations to build and deploy autonomous systems.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure industrial IoT guidance]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/iiot-guidance/iiot-architecture</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/iiot-guidance/iiot-architecture"/>
+        <updated>2022-05-02T20:57:31.000Z</updated>
+        <summary type="html"><![CDATA[Get architectural guidance for industrial IoT (IIoT) analytics solutions that use Azure platform as a service (PaaS) components.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure industrial IoT data analysis]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/iiot-guidance/iiot-data</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/iiot-guidance/iiot-data"/>
+        <updated>2022-05-02T20:57:31.000Z</updated>
+        <summary type="html"><![CDATA[Analyze and visualize data in an Azure Industrial IoT (IIoT) analytics solution. Use Azure Data Explorer, Power BI, custom web applications, and notebooks.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Use a suitable data store]]></title>
         <id>https://docs.microsoft.com/azure/architecture/guide/design-principles/use-best-data-store</id>
@@ -1105,11 +1353,11 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Services in an Azure IIoT solution]]></title>
+        <title type="html"><![CDATA[Services in an Azure industrial IoT (IIoT) analytics solution]]></title>
         <id>https://docs.microsoft.com/azure/architecture/guide/iiot-guidance/iiot-services</id>
         <link href="https://docs.microsoft.com/azure/architecture/guide/iiot-guidance/iiot-services"/>
         <updated>2022-03-14T07:21:05.000Z</updated>
-        <summary type="html"><![CDATA[Explore services in an IIoT analytics solution, such as time series service, microservices, rules and calculation engine, notifications, Microsoft 365, and more.]]></summary>
+        <summary type="html"><![CDATA[Explore services like time series, microservices, asset hierarchies, and calculations engines in an IIoT analytics solution.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>

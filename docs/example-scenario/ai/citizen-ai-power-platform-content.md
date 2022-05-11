@@ -130,7 +130,7 @@ You can use Power Automate to build a low-code workflow to parse the user's inpu
 
 To deploy this end-to-end example, follow [step by step instructions using this sample Power App](https://github.com/Azure/carprice-aml-powerapp).
 
-## Extended Scenarios
+## Extended scenarios
 
 ### Deploy to Microsoft Teams
 
@@ -142,19 +142,19 @@ In this example, we configure a Power Automate cloud flow to consume the REST en
 
 ## Pricing
 
-**Azure Pricing:** First party Infrastructure-as-a-Service (IaaS) and Platform-as-a-Service (PaaS) services on Azure use a consumption-based pricing model. They don't require a license or subscription fee. In general, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs. For other considerations, see [Cost Optimization](/azure/architecture/framework/cost/index) in the Well-Architected Framework.
+**Azure pricing:** First party Infrastructure-as-a-Service (IaaS) and Platform-as-a-Service (PaaS) services on Azure use a consumption-based pricing model. They don't require a license or subscription fee. In general, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs. For other considerations, see [Cost Optimization](/azure/architecture/framework/cost/index) in the Well-Architected Framework.
 
-**Power Platform Pricing:** [Power Apps](https://powerapps.microsoft.com/pricing), [Power Automate](https://flow.microsoft.com/pricing) and [Power BI](https://powerbi.microsoft.com/pricing) are Software-as-a-Service (SaaS) applications and have their own pricing models, including per app plan, and per user.
+**Power Platform pricing:** [Power Apps](https://powerapps.microsoft.com/pricing), [Power Automate](https://flow.microsoft.com/pricing) and [Power BI](https://powerbi.microsoft.com/pricing) are software-as-a-service (SaaS) applications and have their own pricing models, including per app plan, and per user.
 
 ## Next steps
 
 - [How Azure Machine Learning works: Architecture and concepts](/azure/machine-learning/concept-azure-machine-learning-architecture)
-- [Analytics end-to-end with Azure Synapse](../dataplate2e/data-platform-end-to-end.yml)
-- [End-to-end manufacturing using computer vision on the edge](../../reference-architectures/ai/end-to-end-smart-factory.yml)
+- [Build intelligent applications infused with world-class AI](https://mybuild.microsoft.com/sessions/2ba55238-d398-46f9-9ff2-eafcd9d69df3)
 
 ## Related resources
 
-- [Build intelligent applications infused with world-class AI](https://mybuild.microsoft.com/sessions/2ba55238-d398-46f9-9ff2-eafcd9d69df3)
+- [Analytics end-to-end with Azure Synapse](../dataplate2e/data-platform-end-to-end.yml)
+- [End-to-end manufacturing using computer vision on the edge](../../reference-architectures/ai/end-to-end-smart-factory.yml)
 - [Artificial intelligence (AI)](/azure/architecture/data-guide/big-data/ai-overview)
 - [Compare the ML products and technologies from Microsoft](../../data-guide/technology-choices/data-science-and-machine-learning.md)
 - [Machine learning at scale](../../data-guide/big-data/machine-learning-at-scale.md)
