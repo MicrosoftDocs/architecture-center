@@ -104,6 +104,14 @@ Costs related to this use case depend on the standard pricing for the following 
 
 To estimate the cost of Azure products and configurations, visit the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+**Principal author:**
+
+* [Giulia Gallo](https://www.linkedin.com/in/giuliagallo) | Senior Cloud Solution Architect 
+
 ## Next steps
 
 - [Azure Machine Learning](/azure/machine-learning)
