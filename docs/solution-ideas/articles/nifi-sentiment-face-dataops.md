@@ -29,7 +29,7 @@ This solution showcases how companies using open source solutions can seamlessly
 
 This solution is ideal for any industry.
 
-NiFi works well for moving data and managing the flow of data:
+NiFi was built to automate and manage the flow of data between systems.  The key features categories include flow management, ease of use, security, extensible architecture, and flexible scaling model:
 * Connecting decoupled systems in the cloud
 * Moving data in and out of Azure Storage and other data stores
 * Integrating edge-to-cloud and hybrid-cloud applications with Azure IoT, Azure Stack, and Azure Kubernetes Service (AKS)
