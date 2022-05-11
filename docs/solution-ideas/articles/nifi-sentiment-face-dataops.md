@@ -19,7 +19,7 @@ ms.custom:
 
 # Sentiment Analysis and Face Recognition on Azure
 
-Branding is important for industries globally, sometimes company value is based on the image that the market has about the company.  As companies move to making predictive data driven decision as opposed to reactive decisions, the need exists to be able to monitor and understand what is happening in real time.  In order to gain competitive advantages, companies need to use social media analysis to identify and understand public opinion.  Along with identifying the sentiment in Tweets, companies might choose to recognize the faces and pictures in these Tweets.
+Branding is important for industries globally, sometimes company value is based on the image that the market has about the company.  As companies move to make predictive data-driven decisions as opposed to reactive choices, the need exists to be able to monitor and understand what is happening in real-time.  In order to gain competitive advantages, companies need to use social media analysis to identify and understand public opinion.  Along with identifying the sentiment in Tweets, companies might choose to recognize the faces and pictures in these Tweets.
 
 This pattern provides the solution across industries as monitoring social networks is not limited to one industry vertical.  The goal of this solution is to create a transformation pipeline that outputs clusters of comments and trending topics.
 
