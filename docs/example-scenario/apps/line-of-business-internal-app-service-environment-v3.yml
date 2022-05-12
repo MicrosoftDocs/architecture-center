@@ -3,8 +3,8 @@ metadata:
   title: Line of Business Application using App Service Environment v3
   titleSuffix: Azure Architecture Center
   description: Learn about deploying line of business applications with an internal App Service Environment v3 while considering networking boundaries, devops, management, and more. 
-  author: cykreng
-  ms.author: cykreng
+  author: cykreng,nabeelp,petemessina
+  ms.author: cykreng,nabeelp,petermessina
   ms.date: 05/11/2022
   ms.topic: conceptual
   ms.service: architecture-center
