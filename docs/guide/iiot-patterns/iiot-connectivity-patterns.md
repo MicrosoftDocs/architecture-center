@@ -236,14 +236,14 @@ Following sections includes common connectivity patterns for industrial solution
     - [Streaming at Scale with Event Hubs and Data Explorer](https://github.com/Azure-Samples/streaming-at-scale/tree/main/eventhubs-dataexplorer)
 
 
-# Next Steps
+# Next steps
 
 - Try the deployment sample for [Connectivity with Industrial Assets using OPC UA and Edge for Linux on Windows (EFLOW)](https://github.com/Azure-Samples/industrial-iot-patterns/tree/main/1_Connectivity)
 
 - Try the deployment sample for [Connecting OPC UA devices to IoT Central using custom modules](https://github.com/iot-for-all/iotc-opcua-iotedge-gateway)
 
 
-# Related Articles
+# Related resources
 
 - [Industrial IoT Visiblity Patterns](./iiot-visibility-patterns.md)
 

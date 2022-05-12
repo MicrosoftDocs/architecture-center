@@ -107,7 +107,7 @@ Following section includes common prediction patterns for industrial solutions.
     - [Azure Machine Learning anywhere with Kubernetes](https://github.com/Azure/AML-Kubernetes)
 
 
-# Next Steps
+# Next steps
 
 - Try the deployment sample for  [Exploratory Data Analysis for failure predictions using machine learning](https://github.com/Azure-Samples/industrial-iot-patterns/tree/main/5_ExplorationDataAnalysis)
 
@@ -122,7 +122,7 @@ Following section includes common prediction patterns for industrial solutions.
 - [Azure Machine Learning anywhere with Kubernetes](https://github.com/Azure/AML-Kubernetes)
 
 
-# Related Articles
+# Related resources
 
 - [Industrial IoT Connectivity Patterns](./iiot-connectivity-patterns.md)
 

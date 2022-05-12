@@ -58,13 +58,13 @@ Following section includes common visibility patterns for industrial solutions.
 
 
 
-# Next Steps
+# Next steps
 
 - Try the deployment sample for [Operational Visibility with Anomaly Detection and Root Cause Analysis](https://github.com/Azure-Samples/industrial-iot-patterns/tree/main/2_OperationalVisibility)
 
 - [Metrics Advisor Overview](https://docs.microsoft.com/en-us/azure/applied-ai-services/metrics-advisor/overview)
 
-# Related Articles
+# Related resources
 
 - [Industrial IoT Connectivity Patterns](./iiot-connectivity-patterns.md)
 

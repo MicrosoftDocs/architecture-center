@@ -32,12 +32,12 @@ Following section includes common transparency patterns for industrial solutions
     - [Overall Equipment Effectiveness(OEE) and KPI Calculation Engine](https://github.com/Azure-Samples/industrial-iot-patterns/tree/main/3_OEECalculationEngine)
 
 
-# Next Steps
+# Next steps
 
 - [Synapse Analytics Overview](https://docs.microsoft.com/en-us/azure/synapse-analytics/overview-what-is)
 
 
-# Related Articles
+# Related resources
 
 - [Industrial IoT Connectivity Patterns](./iiot-connectivity-patterns.md)
 
