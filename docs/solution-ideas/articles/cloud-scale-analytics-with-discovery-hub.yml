@@ -1,8 +1,8 @@
 ### YamlMime:Architecture
 metadata:
-  title: Discovery Hub with cloud scale analytics
+  title: Cloud scale analytics with TimeXtender
   titleSuffix: Azure Solution Ideas
-  description: Use Discovery Hub to define a modern data estate that is ready for cloud scale analytics using a graphical user interface, with definitions stored in a metadata repository.
+  description: Use TimeXtender to build a modern data estate that is ready for cloud scale analytics using a drag-and-drop user interface, with definitions stored in a metadata repository.
   author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
@@ -24,7 +24,7 @@ name: Discovery Hub with cloud scale analytics
 azureCategories:
   - analytics
   - databases
-summary: Use Discovery Hub to define a modern data estate that is ready for cloud scale analytics using a graphical user interface, with definitions stored in a metadata repository.
+summary: Use TimeXtender to build a modern data estate that is ready for cloud scale analytics using a drag-and-drop user interface, with definitions stored in a metadata repository.
 products:
   - azure-analysis-services
   - azure-data-lake-storage
