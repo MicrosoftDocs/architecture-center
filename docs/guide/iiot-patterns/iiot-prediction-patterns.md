@@ -6,6 +6,17 @@ Following section includes common prediction patterns for industrial solutions.
 
 ![Machine learning batch inference](images/ml-batch.png)
 
+- Dataflow
+    1. EdgeHub sends current process & equipment condition data to IoT Hub/ Central using AMQP or MQTT.
+    1. Data from IoT Hub / Central is pushed to Data Explorer using Data Connection in IoT Hub or Data Export in IoT Central.
+    1. Data from IoT Hub / Central is also routed to a Data Lake for long term storage and model training.
+    1. Synapse pipeline fetches the historical process and equipment failure data from on-premises system and stores the data in the Data Lake for model training.
+    1. Machine learning service fetches the failure data, condition data from Data Lake, builds a model and publishes a  batch prediction pipeline endpoint.
+    1. Another Synapse pipeline calls the machine learning batch prediction pipeline on a regular interval e.g. every 15 minutes.
+    1. The batch prediction pipeline fetches the process & equipment condition data (e.g. last 15 minutes of data) from Data Explorer and performs failure prediction using the model.
+    1. The batch prediction pipelines stores the prediction results in a SQL Database.
+    1. PowerBI is connected with SQL Database for reporting and visualization of the predictions.
+
 - Use this pattern when:
     - Need to build custom machine learning models on structured (tabular) data.
     - Need to use raw telemetry data for feature engineering.
@@ -25,6 +36,23 @@ Following section includes common prediction patterns for industrial solutions.
 ## Predict process and equipment failures using machine learning (Near real-time)
 
 ![Machine learning near real-time inference](images/ml-realtime.png)
+
+- Dataflow
+    1. EdgeHub sends current process & equipment condition data to IoT Hub/ Central using AMQP or MQTT.
+    1. Data from IoT Hub / Central is pushed to Data Explorer using Data Connection in IoT Hub or Data Export in IoT Central.
+    1. Data from IoT Hub / Central is also routed to a Data Lake for long term storage and model training.
+    1. Synapse pipeline fetches the historical process and equipment failure data from on-premises system and stores the data in the Data Lake for model training.
+    1. Machine learning service fetches the historical condition data from Data Explorer.
+    1. Machine learning service fetches the historical failure data from Data Lake.
+    1. Machine Learning service builds a model and deploys a real-time endpoint on a managed kubernetes cluster.
+    1. Each new message from IoT Hub / Central that contains current process & equipment condition is routed to an Event Hub for failure prediction.
+    1. Function app with Event Hub trigger fetches the condition message
+    1. Function app passes the message to real-time prediction endpoint which returns the prediction result.
+    1. Function app stores the prediction result in SQL Database for reporting.
+    1. Function app publishes the latest prediction via Web PubSub Service.
+    1. Web App subscribted to Web PubSub service get the message instantly and updates the UI for real-time reporting.
+    1. PowerBI is connected with SQL Database for reporting and visualization of historic predictions.
+
 
 - Use this pattern when:
     - Need to build custom machine learning models on structured (tabular) data.
@@ -51,6 +79,16 @@ Following section includes common prediction patterns for industrial solutions.
 
 ![Machine learning image recognition](images/ml-imagerecognition.png)
 
+- Datafow
+    1.  Machine Learning service builds a defect detection model using initial labeled images stored in Data Lake. It then builds a container image and pushes the image to a container registry.
+    1. IoT Edge module deployment contains multiple modules including defect detection module (created above), prediction store (e.g. sql edge), prediction dashboard (custom web app or grafana) and a file upload module to upload images for model re-training.
+    1. The defect detection module flags the defect and sends the prediction message to IoT Hub / Central using edgeHub.
+    1. Data from IoT Hub / Central is pushed to Data Explorer using Data Connection in IoT Hub or Data Export in IoT Central.
+    1. PowerBI is connected with Data Explorer to historic prediction reporting.
+    1. Data from IoT Hub / Central is also routed to a Data Lake for long term storage and model training.
+    1. File upload module sends the defect detection images to Data Lake for model re-training.
+    1. Machine Learning service re-trains the model using the new data collected in Data Lake.
+
 - Use this pattern when:
     - Need to build custom machine learning models on image data.
     - Need to build pipeline to get data from external device sources like a camera.
@@ -67,3 +105,31 @@ Following section includes common prediction patterns for industrial solutions.
 - Deployment Sample
     - [Vision on Edge (VoE)](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/factory-ai-vision)
     - [Azure Machine Learning anywhere with Kubernetes](https://github.com/Azure/AML-Kubernetes)
+
+
+# Next Steps
+
+- Try the deployment sample for  [Exploratory Data Analysis for failure predictions using machine learning](https://github.com/Azure-Samples/industrial-iot-patterns/tree/main/5_ExplorationDataAnalysis)
+
+- Try the deployment sample for [Operationalizing machine learning based prediction models](https://github.com/Azure-Samples/industrial-iot-patterns/tree/main/6_MachineLearningForIIoT)
+
+- [Machine Learning Overview](https://docs.microsoft.com/EN-US/azure/machine-learning/overview-what-is-azure-machine-learning)
+
+- [No Code / Low Code Automated Machine Learning](https://docs.microsoft.com/en-us/azure/machine-learning/concept-automated-ml)
+
+- [Vision on Edge (VoE)](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/factory-ai-vision)
+
+- [Azure Machine Learning anywhere with Kubernetes](https://github.com/Azure/AML-Kubernetes)
+
+
+# Related Articles
+
+- [Industrial IoT Connectivity Patterns](./iiot-connectivity-patterns.md)
+
+- [Industrial IoT Visibiilty Patterns](./iiot-visibility-patterns.md)
+
+- [Industrial IoT Transparency Patterns](./iiot-transparency-patterns.md)
+
+- [Solutions for the manufacturing industry](https://docs.microsoft.com/en-us/azure/architecture/industries/manufacturing)
+
+- [IoT Well-Architected Framework](https://docs.microsoft.com/en-us/azure/architecture/framework/iot/iot-overview)

@@ -6,6 +6,12 @@ Following section includes common visibility patterns for industrial solutions.
 
 ![Time Series Analysis](images/time-series-analysis.png)
 
+- Dataflow
+    1. EdgeHub sends the data to IoT Hub/ Central using AMQP or MQTT.
+    1. Data from IoT Hub / Central is pushed to Data Explorer using Data Connection in IoT Hub or Data Export in IoT Central.
+    1. Data Explorer dashboards use kql query langauge to fetch the data from the clusters and build near real-time dashboards.
+    1. Use Power BI or Grafana to build more custom dashboards with query builder and integration with other data sources.
+
 - Use this pattern when:
     - Need time series analysis for large scale IIoT telemetry data.
     - Need real-time dashboards and querying capabilities on the factory floor.
@@ -26,7 +32,14 @@ Following section includes common visibility patterns for industrial solutions.
 
 ## Anomaly Detection and Root Cause Analysis
 
-![Anomaly Detection and RCA](images/operational-visibility-sample.png)
+![Anomaly Detection and RCA](images/anomaly-detection.png)
+
+- Dataflow
+    1. EdgeHub sends the data to IoT Hub/ Central using AMQP or MQTT.
+    1. Data from IoT Hub / Central is pushed to Data Explorer using Data Connection in IoT Hub or Data Export in IoT Central.
+    1. Data Explorer dashboards use kql query langauge to fetch the data from the clusters and build near real-time dashboards.
+    1. Metrics Advisor fetches data from Data Explorer using data feed configuration. It configures the metrics level configuration for anomaly detection and an alert that links to a webhook.
+    2. Metrics advisor web hook is connected to a http triggered Logic apps, which gets called when an anomaly is detected.
 
 - Use this pattern when:
     - Need automatic anomaly detection based on machine learning algorithms and range thresholds.
@@ -42,3 +55,23 @@ Following section includes common visibility patterns for industrial solutions.
     
 - Deployment Sample
     - [Operational Visibility with Anomaly Detection and Root Cause Analysis](https://github.com/Azure-Samples/industrial-iot-patterns/tree/main/2_OperationalVisibility)
+
+
+
+# Next Steps
+
+- Try the deployment sample for [Operational Visibility with Anomaly Detection and Root Cause Analysis](https://github.com/Azure-Samples/industrial-iot-patterns/tree/main/2_OperationalVisibility)
+
+- [Metrics Advisor Overview](https://docs.microsoft.com/en-us/azure/applied-ai-services/metrics-advisor/overview)
+
+# Related Articles
+
+- [Industrial IoT Connectivity Patterns](./iiot-connectivity-patterns.md)
+
+- [Industrial IoT Transparency Patterns](./iiot-transparency-patterns.md)
+
+- [Industrial IoT Prediction Patterns](./iiot-prediction-patterns.md)
+
+- [Solutions for the manufacturing industry](https://docs.microsoft.com/en-us/azure/architecture/industries/manufacturing)
+
+- [IoT Well-Architected Framework](https://docs.microsoft.com/en-us/azure/architecture/framework/iot/iot-overview)

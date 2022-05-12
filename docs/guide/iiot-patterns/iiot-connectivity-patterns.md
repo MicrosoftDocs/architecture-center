@@ -27,6 +27,12 @@ Following sections includes common connectivity patterns for industrial solution
 
 ![Integration via OPC UA Server and Edge Gateway](images/edge-opcua.png)
 
+- Dataflow
+    1. PLC's are connected to Industrial Connectivity Software or Historian using a switch or internal network connectivity.
+    1. OPC UA module connects to the OPC UA endpoint provided by the Industrial Connectivity Software and sends the data to edgeHub
+    1. EdgeHub sends the data to IoT Hub/ Central using AMQP or MQTT.
+    1. Data from IoT Hub / Central is pushed to Data Explorer using Data Connection in IoT Hub or Data Export in IoT Central.
+     
 - Use this pattern when:
     - OPC UA Server is already configured or can be configured to connect with PLC's.
     - IoT Edge can be installed at Layer 3 and can connect to PLC via OPC UA Server. 
@@ -47,6 +53,12 @@ Following sections includes common connectivity patterns for industrial solution
 
 ![Integration via Protocol Translation and Edge Gateway](images/edge-protocoltranslation.png)
 
+- Dataflow
+    1. Devices that do not support OPC UA, are connected via a custom protocol translation module to edgeHub.
+    1. EdgeHub sends the data to IoT Hub/ Central using AMQP or MQTT.
+    1. Data from IoT Hub / Central is pushed to Data Explorer using Data Connection in IoT Hub or Data Export in IoT Central.
+
+
 - Use this pattern when:
     - Devices cannot support OPC UA data model or prefer to use other approach.
     - IoT Edge can be installed at Layer 3 and can connect to Devices.
@@ -65,6 +77,11 @@ Following sections includes common connectivity patterns for industrial solution
 ## Cloud connector from Industrial Connectivity Software or Historian
 
 ![Integration via built-in cloud connectors](images/historian-cloudconnector.png)
+
+- Dataflow
+    1. PLC's are connected to Industrial Connectivity Software or Historian using a switch or internal network connectivity.
+    1. Industrial Connectivity Software has built-in cloud connector that sends the data to IoT Hub/ Central using AMQP or MQTT.
+    1. Data from IoT Hub / Central is pushed to Data Explorer using Data Connection in IoT Hub or Data Export in IoT Central.
 
 - Use this pattern when:
     - Industrial Connectivity Software or Historian is available and has built-in cloud connector.
@@ -87,6 +104,11 @@ Following sections includes common connectivity patterns for industrial solution
 
 ![Integration via Cloud SDK and Custom Application](images/direct-sdk.png)
 
+- Dataflow
+    1. Constained devices or add-on sensors send data to custom application. The custom application can be embedded code inside the sensor itself.
+    1. Custom application sends the data to IoT Hub/ Central using AMQP, MQTT or HTTPS.
+    1. Data from IoT Hub / Central is pushed to Data Explorer using Data Connection in IoT Hub or Data Export in IoT Central.
+
 - Use this pattern when:
     - Working with constrained devices or add-on sensors in remote and off-site locations.
     - Management, processing and analytics functionality of edge gateway is not required for the use case.
@@ -106,7 +128,14 @@ Following sections includes common connectivity patterns for industrial solution
 
 ![Nested Edge](images/nested-edge.png)
 
+- Dataflow
+    1. PLC's are connected to layer 2 edge gateway, which is the lower layer edge gateway.
+    1. Layer 2 edge gateway sends the data to layer 3 gateway, which is the parent device. Layer 3 gateway also has local docker registry and api proxy module to support module deployment for lower layer edge gateway(s). 
+    1. Layer 3 edgeHub sends the data to IoT Hub/ Central using AMQP or MQTT.
+    1. Data from IoT Hub / Central is pushed to Data Explorer using Data Connection in IoT Hub or Data Export in IoT Central.
+
 - Use this pattern when:
+
     - Layer 0~1 can only connect with adjacent Layer 2, as per the ISA95 / Purdue model.
     - IoT Edge can be installed at Layer 2 and can connect to Layer 0~1.
 
@@ -124,6 +153,12 @@ Following sections includes common connectivity patterns for industrial solution
 
 ![Resilient Edge](images/resilient-edge.png)
 
+- Dataflow
+    1. PLC's are connected to Industrial Connectivity Software or Historian using a switch or internal network connectivity.
+    1. OPC UA module connects to the OPC UA endpoint provided by the Industrial Connectivity Software and sends the data to edgeHub. The edge runtime in running on a VM which is running inside a kubernetes cluster.
+    1. EdgeHub sends the data to IoT Hub/ Central using AMQP or MQTT.
+    1. Data from IoT Hub / Central is pushed to Data Explorer using Data Connection in IoT Hub or Data Export in IoT Central.
+     
 - Use this pattern when:
     - Kubernetes infrastructure and skillset is already available.
     - Horizontal scaling and hardware failure resiliency is critical.
@@ -142,6 +177,10 @@ Following sections includes common connectivity patterns for industrial solution
 ## Scale to multiple factories and business units
 
 ![Scale Factories](images/scale-factories.png)
+
+- Dataflow
+    1. Multile factories sending the data to IoT Hub / Central
+    2. IoT Hub / Central uses routes, consumer groups and data export to push the data to multiple business unit, project specific resource groups.
 
 - Use this pattern when:
     - Scaling Industrial IoT solution patterns across multiple factories.
@@ -163,11 +202,23 @@ Following sections includes common connectivity patterns for industrial solution
 
 ![Cloud Gateway IoT Hub](images/cloudgw-iothub.png)
 
+- Dataflow
+    1. Edge gateway sends data to IoT Hub using AMQP or MQTT.
+    1. Data Explorer pulls the data from IoT Hub using Streaming Ingestion
+
 ![Cloud Gateway IoT Central](images/cloudgw-iotcentral.png)
+
+- Dataflow
+    1. Edge gateway sends data to IoT Central using AMQP or MQTT.
+    1. IoT Central exports the data to Data Explorer using Data Export.
 
 ![Cloud Gateway Event Hub](images/cloudgw-eventhub.png)
 
-- Use this pattern when:
+- Dataflow
+    1. A custom application sends event hub messages using language specific SDK.
+    1. Data Explorer pulls the data from Event Hub using Streaming Ingestion.
+
+- Use above pattern(s) when:
     - Use IoT Hub or IoT Central when you require device + edge management and two way communication, along with messaging.
     - IoT Central has built-in dashboard and rules engine for alerts.
     - Use Event hub when you only require messaging and have cost constraints.
@@ -183,3 +234,23 @@ Following sections includes common connectivity patterns for industrial solution
     - [Connect OPC UA devices with IoT Central](https://github.com/iot-for-all/iotc-opcua-iotedge-gateway)
     - [Industrial IoT patterns with IoT Central](https://docs.microsoft.com/en-us/azure/iot-central/core/concepts-iiot-architecture)
     - [Streaming at Scale with Event Hubs and Data Explorer](https://github.com/Azure-Samples/streaming-at-scale/tree/main/eventhubs-dataexplorer)
+
+
+# Next Steps
+
+- Try the deployment sample for [Connectivity with Industrial Assets using OPC UA and Edge for Linux on Windows (EFLOW)](https://github.com/Azure-Samples/industrial-iot-patterns/tree/main/1_Connectivity)
+
+- Try the deployment sample for [Connecting OPC UA devices to IoT Central using custom modules](https://github.com/iot-for-all/iotc-opcua-iotedge-gateway)
+
+
+# Related Articles
+
+- [Industrial IoT Visiblity Patterns](./iiot-visibility-patterns.md)
+
+- [Industrial IoT Transparency Patterns](./iiot-transparency-patterns.md)
+
+- [Industrial IoT Prediction Patterns](./iiot-prediction-patterns.md)
+
+- [Solutions for the manufacturing industry](https://docs.microsoft.com/en-us/azure/architecture/industries/manufacturing)
+
+- [IoT Well-Architected Framework](https://docs.microsoft.com/en-us/azure/architecture/framework/iot/iot-overview)
