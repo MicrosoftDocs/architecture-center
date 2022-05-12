@@ -6,14 +6,12 @@ The connected factory signal pipeline components use Azure technologies to ident
 
 Data from all devices follows a standard format, and includes specific contextual information about the originating device or machine. Changes made to the signal pipeline configuration are traceable and can be rolled back.
 
-This solution uses two [Azure Industrial IoT](/azure/industrial-iot) components, [Microsoft OPC Publisher](/azure/industrial-iot/overview-what-is-opc-publisher) and the [OPC Twin](https://azure.github.io/Industrial-IoT/modules/twin.html) edge module.
+This solution can help manufacturing organizations to:
 
-This solution helps manufacturing organizations to:
-
-Digitize manual process management and data gathering.
-Easily migrate to on-premises IoT and cloud solutions.
-Quickly identify and react to issues on factory floors.
-Streamline processes and improve efficiency.
+- Digitize manual process management and data gathering.
+- Easily migrate to on-premises IoT and cloud solutions.
+- Quickly identify and react to issues on factory floors.
+- Streamline processes and improve efficiency.
 
 ## Potential use cases
 
@@ -34,7 +32,8 @@ This architecture uses a pipeline configuration that tracks the details of machi
    - The pipeline configuration state can be draft, final, activating, or active.
    - The signal configurations include attributes like heartbeat interval, sampling interval, and publishing rate.
    - The pipeline has built-in traceability, versioning, and rollback functionality.
-   - It's easy to integrate streaming technologies into the pipeline to provide enriched machine data. The pipeline can use services like Azure Event Hubs, Azure Stream Analytics, Azure Data Lake, Azure Storage, and Azure Data Explorer.
+
+1. It's easy to integrate streaming technologies into the pipeline to provide enriched machine data. The pipeline can use services like Azure Event Hubs, Azure Stream Analytics, Azure Data Lake, Azure Storage, and Azure Data Explorer.
 
 1. The Asset Registry, an ASP.NET Core web API on AKS, does CRUD operations on machine metadata, including the servers that machines are connected to and their available signals.
 
@@ -42,15 +41,19 @@ This architecture uses a pipeline configuration that tracks the details of machi
 
 1. The Configuration Controller, an Azure IoT Edge module, communicates with OPC Publisher to apply the requested configuration version.
 
+1. The solution uses two [Azure Industrial IoT](/azure/industrial-iot) components, [Microsoft OPC Publisher](/azure/industrial-iot/overview-what-is-opc-publisher) and the [OPC Twin](https://azure.github.io/Industrial-IoT/modules/twin.html) edge module.
+
+1. For KEPServer configuration, the Azure IoT Edge module connects to KEPServer’s REST–based Configuration API using a library generated from the built-in KEPServerEX API documentation.
+
 ### Components
 
-- [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer) is a fast, fully managed data analytics service for real-time analysis on large volumes of data streaming from applications, websites, and IoT devices.
+- [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer) is a fast, fully managed data analytics service for real-time analysis of large volumes of data streaming from applications, websites, and IoT devices.
 
-- [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake) makes it easy for developers, data scientists, and analysts to store data of any size, shape, and speed, and do all types of processing and analytics across platforms and languages. Azure Data Lake removes the complexities of ingesting and storing data, making it faster to get up and running with batch, streaming, and interactive analytics.
+- [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake) stores data of any size, shape, and speed, and does all types of processing and analytics across platforms and languages. Azure Data Lake removes the complexities of ingesting and storing data, making it faster to get up and running with batch, streaming, and interactive analytics.
 
 - [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs) is a fully managed, scalable, real-time data ingestion service. Event Hubs can stream millions of events per second from any source to build dynamic data pipelines and immediately respond to business challenges.
 
-- [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge) devices limit costs by preprocessing and sending only necessary data to the cloud. Intelligent devices recognize and respond to sensor input by using onboard processing. Edge devices can respond rapidly or work offline.
+- [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge) devices recognize and respond to sensor input by using onboard processing. Preprocessing and sending only necessary data to the cloud controls costs. Intelligent edge devices can respond rapidly or even work offline.
 
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) provides a cloud-hosted solution back end to connect virtually any device. You can extend your solution from the cloud to the edge with per-device authentication, built-in device management, and scaled provisioning.
 
@@ -66,20 +69,18 @@ This architecture uses a pipeline configuration that tracks the details of machi
 
 - [OPC Twin edge module](https://azure.github.io/Industrial-IoT/modules/twin.html) remotely browses nodes from known OPC UA servers.
 
-- [PTC/Kepware's KEPServerEX](https://www.kepware.com/products/kepserverex) provides an IoT Gateway module that connects to and sends data to IoT Hub over the MQTT protocol. Kepware has connectivity libraries for an array of equipment and can unlock data from both new and legacy industrial devices.
-
-  [ ![Diabram showing the KEPServer gateway configuration.](./media/connected-factory-signal-pipeline-02.png) ](./media/connected-factory-signal-pipeline-02.png#lightbox)]
+- [PTC/Kepware's KEPServerEX](https://www.kepware.com/products/kepserverex) provides an IoT Gateway module that connects to and sends data to IoT Hub over the MQTT protocol. Kepware has connectivity libraries for an array of equipment, and can unlock data from both new and legacy industrial devices.
 
   Using KEPServerEX as the OPC-UA gateway lets brownfield devices connect with the signal pipeline. Supported device types can be configured to automatically connect to the gateway. Removing the need to manage any configuration directly in the gateway's user interface simplifies and standardizes the device setup process.
+  
+  [ ![Diabram showing the KEPServer gateway configuration.](./media/connected-factory-signal-pipeline-02.png) ](./media/connected-factory-signal-pipeline-02.png#lightbox)
 
   The KEPServerEX automation is the first implementation of the generic gateway configuration solution built into the Asset Registry API. This extensible gateway configuration solution consists of the following parts:
 
-- A polymorphic, gateway-agnostic model for gateways, devices, and signals managed by the Asset Registry service.
-- A client library used by the Asset Registry REST API to communicate with the gateway configuration IoT Edge modules.
-- A library for an Azure IoT Edge module that exposes a common interface based on direct methods to configure devices and signals in a gateway.
-- The Azure IoT Edge module for a specific gateway configuration, which translates the generic requests from the direct methods to the proprietary gateway configuration interface and back.
-
-  For KEPServer configuration, the Azure IoT Edge module connects to KEPServer’s REST–based Configuration API using a library generated from the built-in KEPServerEX API documentation.
+  - A polymorphic, gateway-agnostic model for gateways, devices, and signals managed by the Asset Registry service.
+  - A client library used by the Asset Registry REST API to communicate with the gateway configuration IoT Edge modules.
+  - A library for an Azure IoT Edge module that exposes a common interface based on direct methods to configure devices and signals in a gateway.
+  - The Azure IoT Edge module for a specific gateway configuration, which translates the generic requests from the direct methods to the proprietary gateway configuration interface and back.
 
 ### Alternatives
 
@@ -87,17 +88,13 @@ This architecture uses AKS for running the Pipeline Configuration API, the Pipel
 
 As an alternative to Azure Stream Analytics, you could use [HDInsight Storm](/azure/hdinsight/storm/apache-storm-overview) or [HDInsight Spark](/azure/hdinsight/spark/apache-spark-overview) to do streaming analytics.
 
-Also consider using [Azure Monitor](https://azure.microsoft.com/services/monitor) to analyze and optimize the performance of your AKS cluster, Service Bus, IoT Hub, Azure Data Lake, Stream Analytics, and other resources. Use Azure Monitor to monitor and diagnose networking issues.
-
 ## Considerations
 
-### Availability
+These considerations implement the pillars of the Azure Well-Architected Framework, a set of guiding tenets to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
+### Reliability
 
 [Availability zones](/azure/availability-zones/az-overview) are unique physical locations within Azure regions that help protect virtual machines (VMs), applications, and data from datacenter failures. The APIs and Azure services that make up this architecture can be deployed in multiple Azure regions using availability zones. You can also [deploy AKS in availability zones](/azure/aks/availability-zones). IoT Hub provides intra-region high availability by implementing redundancies in almost all layers of the service.
-
-### Scalability
-
-[Autoscale](https://azure.microsoft.com/features/autoscale/) is a built-in feature of many cloud services, mobile services, virtual machines, and websites. Azure Event Hubs, Azure Service Bus, and Azure IoT Hub come with autoscaling features. 
 
 ### Security
 
@@ -105,15 +102,21 @@ Consider using [Azure Active Directory (Azure AD)](/azure/active-directory/funda
 
 Take advantage of [Azure Policy](/azure/governance/policy/overview) to enforce organizational standards and assess compliance at scale. Policies can deny deployments, log compliance issues, and modify resources to make them compliant.
 
-Azure Policy can also enforce built-in security policies to to improve your AKS cluster security. Install the [Azure Policy Add-on for AKS](/azure/governance/policy/concepts/policy-for-kubernetes) to apply individual policy definitions or groups of policy definitions, called *initiatives* or *policysets*, to your cluster.
+Azure Policy can also enforce built-in security policies to improve your AKS cluster security. Install the [Azure Policy Add-on for AKS](/azure/governance/policy/concepts/policy-for-kubernetes) to apply individual policy definitions or groups of policy definitions, called *initiatives* or *policy sets*, to your cluster.
 
-### DevOps
+## Cost optimization
+
+Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs, and the [AKS calculator](https://azure.microsoft.com/pricing/calculator/?service=kubernetes-service) to estimate costs for running AKS in Azure. For more considerations, see [Cost optimization](/azure/architecture/framework/cost/) in the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
+### Operational excellence
 
 Use [continuous integration/continuous deployment (CI/CD) processes](/azure/architecture/example-scenario/apps/devops-with-aks) to deploy the services in this example workload automatically. Use a solution like Azure Pipelines or GitHub Actions.
 
-## Pricing
+Also consider using [Azure Monitor](https://azure.microsoft.com/services/monitor) to analyze and optimize the performance of your Azure services and to monitor and diagnose networking issues.
 
-Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs, and the [AKS calculator](https://azure.microsoft.com/pricing/calculator/?service=kubernetes-service) to estimate costs for running AKS in Azure. For more considerations, see [Cost optimization](/azure/architecture/framework/cost/) in the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+### Performance efficiency
+
+[Autoscale](https://azure.microsoft.com/features/autoscale/) is a built-in feature of many cloud services, mobile services, virtual machines, and websites. Azure Event Hubs, Azure Service Bus, and Azure IoT Hub come with autoscaling features. 
 
 ## Next steps
 
