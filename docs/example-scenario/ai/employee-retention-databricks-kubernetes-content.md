@@ -88,7 +88,6 @@ A proof-of-concept implementation of this scenario is available on GitHub at [em
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/employee-retention-databricks-kubernetes.pptx) of this deployment and its architecture.*
 
-
 This proof-of-concept illustrates:
 
 - How to train an MLflow model for employee attrition on Azure Databricks.
