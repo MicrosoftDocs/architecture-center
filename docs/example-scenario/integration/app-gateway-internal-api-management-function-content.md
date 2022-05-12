@@ -1,4 +1,3 @@
-# Single region deployment using API Management with Azure Function backend
 The solution includes a single region premium API Management instance within an internal VNet exposed through Application Gateway for external traffic with Azure Functions as the backend (exposed through private endpoint). 
 
 ## Architecture 
