@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: alexhart11
-ms.date: 05/02/2022
+ms.date: 05/09/2022
 ms.topic: article
 ms.service: architecture-center
 categories: 
@@ -24,6 +24,42 @@ The following new and updated articles have recently been published in the Azure
 
 ## May 2022
 
+### New articles
+
+- [Deploy microservices with Azure Container Apps and Dapr](./example-scenario/serverless/microservices-with-container-apps-dapr.yml)
+
+### Updated articles
+
+- [Comparing AWS and Azure compute services](./aws-professional/compute.md)  ([#ff9e3d044](https://github.com/MicrosoftDocs/architecture-center/commit/ff9e3d044))
+- [Comparing AWS and Azure messaging services](./aws-professional/messaging.md)  ([#ff9e3d044](https://github.com/MicrosoftDocs/architecture-center/commit/ff9e3d044))
+- [Run Apache Cassandra on Azure VMs](./best-practices/cassandra.md)  ([#ff9e3d044](https://github.com/MicrosoftDocs/architecture-center/commit/ff9e3d044))
+- [Configure hybrid cloud connectivity in Azure and Azure Stack Hub](./hybrid/deployments/solution-deployment-guide-connectivity.md)  ([#ff9e3d044](https://github.com/MicrosoftDocs/architecture-center/commit/ff9e3d044))
+- [Deploy hybrid app with on-premises data that scales cross-cloud](./hybrid/deployments/solution-deployment-guide-cross-cloud-scaling-onprem-data.md)  ([#ff9e3d044](https://github.com/MicrosoftDocs/architecture-center/commit/ff9e3d044))
+- [Deploy an app that scales cross-cloud in Azure and Azure Stack Hub](./hybrid/deployments/solution-deployment-guide-cross-cloud-scaling.md)  ([#ff9e3d044](https://github.com/MicrosoftDocs/architecture-center/commit/ff9e3d044))
+- [Direct traffic with a geo-distributed app using Azure and Azure Stack Hub](./hybrid/deployments/solution-deployment-guide-geo-distributed.md)  ([#ff9e3d044](https://github.com/MicrosoftDocs/architecture-center/commit/ff9e3d044))
+- [Configure hybrid cloud identity for Azure and Azure Stack Hub apps](./hybrid/deployments/solution-deployment-guide-identity.md)  ([#ff9e3d044](https://github.com/MicrosoftDocs/architecture-center/commit/ff9e3d044))
+- [Deploy a highly available MongoDB solution to Azure and Azure Stack Hub](./hybrid/deployments/solution-deployment-guide-mongodb-ha.md)  ([#ff9e3d044](https://github.com/MicrosoftDocs/architecture-center/commit/ff9e3d044))
+- [Deploy a SQL Server 2016 availability group to Azure and Azure Stack Hub](./hybrid/deployments/solution-deployment-guide-sql-ha.md)  ([#ff9e3d044](https://github.com/MicrosoftDocs/architecture-center/commit/ff9e3d044))
+- [Edge Workload Configuration pattern](./patterns/edge-workload-configuration.md)  ([#ff9e3d044](https://github.com/MicrosoftDocs/architecture-center/commit/ff9e3d044))
+- [Implement a secure hybrid network](./reference-architectures/dmz/secure-vnet-dmz.yml)  ([#555b1ef23](https://github.com/MicrosoftDocs/architecture-center/commit/555b1ef23))
+- [Loan chargeoff prediction with SQL Server](./solution-ideas/articles/loan-chargeoff-prediction-with-sql-server.yml)  ([#52f40ed15](https://github.com/MicrosoftDocs/architecture-center/commit/52f40ed15))
+- [Extraneous Fetching antipattern](./antipatterns/extraneous-fetching/index.md)  ([#e6ccf0a5d](https://github.com/MicrosoftDocs/architecture-center/commit/e6ccf0a5d))
+- [Improper Instantiation antipattern](./antipatterns/improper-instantiation/index.md)  ([#e6ccf0a5d](https://github.com/MicrosoftDocs/architecture-center/commit/e6ccf0a5d))
+- [AWS vs. Azure accounts and subscriptions](./aws-professional/accounts.md)  ([#e6ccf0a5d](https://github.com/MicrosoftDocs/architecture-center/commit/e6ccf0a5d))
+- [Compare AWS and Azure database technology](./aws-professional/databases.md)  ([#e6ccf0a5d](https://github.com/MicrosoftDocs/architecture-center/commit/e6ccf0a5d))
+- [Azure for AWS professionals](./aws-professional/index.md)  ([#e6ccf0a5d](https://github.com/MicrosoftDocs/architecture-center/commit/e6ccf0a5d))
+- [Compare AWS and Azure resource management](./aws-professional/resources.md)  ([#e6ccf0a5d](https://github.com/MicrosoftDocs/architecture-center/commit/e6ccf0a5d))
+- [Retry general guidance](./best-practices/transient-faults.md)  ([#e6ccf0a5d](https://github.com/MicrosoftDocs/architecture-center/commit/e6ccf0a5d))
+- [Advanced analytics](./data-guide/scenarios/advanced-analytics.md)  ([#e6ccf0a5d](https://github.com/MicrosoftDocs/architecture-center/commit/e6ccf0a5d))
+- [Processing CSV and JSON files](./data-guide/scenarios/csv-and-json.md)  ([#e6ccf0a5d](https://github.com/MicrosoftDocs/architecture-center/commit/e6ccf0a5d))
+- [Choose a data transfer technology](./data-guide/scenarios/data-transfer.md)  ([#e6ccf0a5d](https://github.com/MicrosoftDocs/architecture-center/commit/e6ccf0a5d))
+- [Extend on-premises data solutions to the cloud](./data-guide/scenarios/hybrid-on-premises-and-cloud.md)  ([#e6ccf0a5d](https://github.com/MicrosoftDocs/architecture-center/commit/e6ccf0a5d))
+- [Interactive data exploration](./data-guide/scenarios/interactive-data-exploration.md)  ([#e6ccf0a5d](https://github.com/MicrosoftDocs/architecture-center/commit/e6ccf0a5d))
+- [Secure data solutions](./data-guide/scenarios/securing-data-solutions.md)  ([#e6ccf0a5d](https://github.com/MicrosoftDocs/architecture-center/commit/e6ccf0a5d))
+- [Azure Arc-enabled server configurations](./hybrid/azure-arc-hybrid-config.yml)  ([#0f687164f](https://github.com/MicrosoftDocs/architecture-center/commit/0f687164f))
+- [Machine teaching with Project Bonsai autonomous systems](./solution-ideas/articles/autonomous-systems.yml)  ([#880425aeb](https://github.com/MicrosoftDocs/architecture-center/commit/880425aeb))
+- [Azure industrial IoT guidance](./guide/iiot-guidance/iiot-architecture.yml)  ([#ab30a3cef](https://github.com/MicrosoftDocs/architecture-center/commit/ab30a3cef))
+- [Azure industrial IoT data analysis](./guide/iiot-guidance/iiot-data.yml)  ([#ab30a3cef](https://github.com/MicrosoftDocs/architecture-center/commit/ab30a3cef))
 
 ## April 2022
 
@@ -177,7 +213,7 @@ The following new and updated articles have recently been published in the Azure
 - [Building blocks for autonomous-driving simulation environments](./industries/automotive/building-blocks-autonomous-driving-simulation-environments.yml)  ([#4a3b27ee3](https://github.com/MicrosoftDocs/architecture-center/commit/4a3b27ee3))
 - [Automated guided vehicles fleet control](./example-scenario/iot/automated-guided-vehicles-fleet-control.yml)  ([#cda2de5cf](https://github.com/MicrosoftDocs/architecture-center/commit/cda2de5cf))
 - [Azure and Power Platform scenarios](./solutions/power-platform-scenarios.md)  ([#7bbec0458](https://github.com/MicrosoftDocs/architecture-center/commit/7bbec0458))
-- [Services in an Azure IIoT solution](./guide/iiot-guidance/iiot-services.md)  ([#57e473f06](https://github.com/MicrosoftDocs/architecture-center/commit/57e473f06))
+- [Services in an Azure industrial IoT (IIoT) analytics solution](./guide/iiot-guidance/iiot-services.md)  ([#57e473f06](https://github.com/MicrosoftDocs/architecture-center/commit/57e473f06))
 - [Build cloud native applications](./solution-ideas/articles/cloud-native-apps.yml)  ([#8f791c4fa](https://github.com/MicrosoftDocs/architecture-center/commit/8f791c4fa))
 - [Secure research environment for regulated data](./example-scenario/ai/secure-compute-for-research.yml)  ([#03768497e](https://github.com/MicrosoftDocs/architecture-center/commit/03768497e))
 - [Baseline architecture for an AKS cluster](./reference-architectures/containers/aks/secure-baseline-aks.yml)  ([#743fb9773](https://github.com/MicrosoftDocs/architecture-center/commit/743fb9773))

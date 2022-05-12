@@ -14,6 +14,8 @@ Consider Azure DevOps and CI/CD processes for:
 
 ![Architecture diagram of the Azure components involved in a DevOps scenario using Azure DevOps and Azure App Service][architecture]
 
+### Dataflow
+
 The data flows through the scenario as follows:
 
 1. A developer changes application source code.
@@ -51,7 +53,7 @@ This [decision tree for Azure compute services](../../guide/technology-choices/c
 
 ## Considerations
 
-### Security and management considerations
+### Security and management
 
 - Consider leveraging one of the [tokenization tasks][vsts-tokenization] available in the VSTS marketplace.
 
