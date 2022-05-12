@@ -1,4 +1,3 @@
-
 Rehosting is a way to run legacy mainframe applications, intact, on an open system. This path is the fastest way to take applications off your mainframe hardware and run them on a Windows or Linux platform in a cloud-native environment. Application code written in legacy languages like COBOL or PL/1 are migrated as is and recompiled in the new environment with no change to the business logic. Rehosting helps to preserve the application's logic. At the same time, rehosting minimizes the risk and cost that comes with recoding the application for the new environment.  
 
 Rehosting is a cost-effective method to address the challenges of maintaining old mainframe hardware. Commonly referred to as *lift and shift*, rehosting moves mission-critical and core applications off the mainframe and migrates them to the cloud. With this approach, the underlying hardware changes, for example from an IBM mainframe to x86. However, the functional and business logic is untouched. This migration is the quickest and least impactful from an end-user perspective. The application retains the same interfaces and look and feel that the users are comfortable with.  
@@ -16,6 +15,8 @@ Many scenarios can benefit from rehosting on Azure. Here are some possible use c
 - **Negligible upskilling**: Applications are rehosted in the cloud with no significant code changes. They continue to provide your development team with the familiar code base, and at the same time eliminate costly development, testing, and reskilling on a newer language.
 
 ## Mainframe architecture
+
+This is the pre-migration architecture.
 
 :::image type="content" source="./media/azure-mainframe-rehost-premigration-diagram.png" alt-text="Diagram that shows the mainframe applications before migration to Azure." lightbox="./media/azure-mainframe-rehost-premigration-diagram.png":::
 
@@ -42,6 +43,8 @@ Many scenarios can benefit from rehosting on Azure. Here are some possible use c
 9. Partitions are necessary to run separate workloads and to segregate work types within the environment.
 
 ## Architecture
+
+This architecture showcases a solution that is rehosted on Microsoft Azure.
 
 :::image type="content" source="./media/azure-mainframe-rehost-postmigration-diagram.png" alt-text="Diagram that shows the mainframe applications after migration to Azure." lightbox="./media/azure-mainframe-rehost-postmigration-diagram.png":::
 
