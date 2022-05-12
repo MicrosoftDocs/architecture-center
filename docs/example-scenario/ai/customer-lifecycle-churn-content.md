@@ -110,7 +110,7 @@ To estimate the cost of Azure products and configurations, visit the [Azure pric
 
 **Principal author:**
 
-* [Giulia Gallo](https://www.linkedin.com/in/giuliagallo) | Senior Cloud Solution Architect 
+* [Giulia Gallo](https://www.linkedin.com/in/giuliagallo) | Senior Cloud Solution Architect
 
 ## Next steps
 

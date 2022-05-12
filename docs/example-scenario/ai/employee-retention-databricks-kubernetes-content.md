@@ -105,7 +105,7 @@ All services deployed in this solution use a consumption-based pricing model. Yo
 
 **Principal author:**
 
-* [Nicholas Moore](LinkedIn: https://www.linkedin.com/in/nicholas-moore) | Cloud Solution Architect
+* [Nicholas Moore](https://www.linkedin.com/in/nicholas-moore) | Cloud Solution Architect
 
 ## Next steps
 
