@@ -124,7 +124,7 @@ Other contributors:
 
 ## Next steps
 
-This document refers to some services, technologies, and terminologies. You can find more information about them in the following resources.
+This document refers to some services, technologies, and terminologies. You can find more information about them in the following resources:
 
 - [MITRE ATT&CK®](https://attack.mitre.org/)
 - [ATT&CK® Navigator)](https://mitre-attack.github.io/attack-navigator/)
