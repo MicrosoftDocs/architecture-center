@@ -78,7 +78,7 @@ This architecture showcases a solution that is rehosted on Microsoft Azure.
 
 - [Azure Virtual Network Interface Cards](/azure/virtual-network/virtual-network-network-interface): A network interface enables an Azure VM to communicate with internet, Azure, and on-premises resources. As shown in this architecture, you can add more network interface cards to the same Azure VM. This way, the Solaris child-VMs have their own dedicated network interface device and IP address.
 
-- [Azure Disk Storage](https://azure.microsoft.com/en-us/services/storage/disks): Managed disks are block-level storage volumes that are managed by Azure and used with Azure VMs. The available types of disks are Azure Ultra Disk Storage, Azure Premium SSD, Azure Standard SSD, and Azure Standard HDD.  For this architecture, we recommend either Premium SSD or Ultra Disk Storage.
+- [Azure Disk Storage](https://azure.microsoft.com/services/storage/disks): Managed disks are block-level storage volumes that are managed by Azure and used with Azure VMs. The available types of disks are Azure Ultra Disk Storage, Azure Premium SSD, Azure Standard SSD, and Azure Standard HDD.  For this architecture, we recommend either Premium SSD or Ultra Disk Storage.
 
 - [Azure Files](https://azure.microsoft.com/services/storage/files): Azure Files offers fully managed file shares in the cloud that are accessible via the industry standard Server Message Block (SMB) protocol. You can mount Azure file shares concurrently by cloud or on-premises deployments of Windows, Linux, and macOS.
 
@@ -109,7 +109,7 @@ Reliability ensures your application can meet the commitments you make to your c
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 - This solution uses an Azure network security group to manage traffic between Azure resources. For more information, see [Network security groups](/azure/virtual-network/network-security-groups-overview).
-- [Azure Bastion](https://azure.microsoft.com/en-us/services/azure-bastion) maximizes admin access security by minimizing open ports. Bastion provides secure and seamless RDP/SSH connectivity to virtual network VMs directly from the Azure portal over TLS.
+- [Azure Bastion](https://azure.microsoft.com/services/azure-bastion) maximizes admin access security by minimizing open ports. Bastion provides secure and seamless RDP/SSH connectivity to virtual network VMs directly from the Azure portal over TLS.
 
 ### Cost optimization
 
