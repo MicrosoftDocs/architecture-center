@@ -26,7 +26,7 @@ The customer had the following requirements:
 
 - The solution must support intermittent low-bandwidth cloud connectivity.
 - Deployed applications must continue to run locally.
-- Local staff needed to use functionality offline or without a cloud round-trip delay.
+- Local staff need to use functionality offline or without a cloud round-trip delay.
 - When connected, the solution must use the cloud connection efficiently.
 - The solution must prioritize sending data according to consistently defined business rules across products.
 
@@ -78,7 +78,7 @@ The solution uses an alternative deployment mechanism, binary patching of Docker
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) is a managed, cloud-hosted service that acts as a central message hub between IoT applications and the devices they control.
 - [Azure Container Registry](https://azure.microsoft.com/services/container-registry) is a cloud-based, private registry service to store and manage private Docker container images and related artifacts.
 - [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) combines continuous integration (CI) and continuous delivery (CD) to automatically test and build code and ship it to any target.
-- [Azure Functions](https://azure.microsoft.com/services/functions) is an event-driven, serverless compute platform that enables running event-triggered code without having to provision or manage infrastructure.
+- [Azure Functions](https://azure.microsoft.com/services/functions) is a serverless compute platform that enables running event-triggered code without having to provision or manage infrastructure.
 - [Azure Storage](https://azure.microsoft.com/services/storage) provides highly scalable, secure, performant, and cost-effective storage for all types of business data, objects, and files.
 - [Azure SQL Database](https://azure.microsoft.com/services/sql-database) is a fully managed, multimodel relational database service built for the cloud.
 - [Docker](https://www.docker.com) is an open platform for developing, shipping, and running containerized applications.
@@ -329,7 +329,7 @@ Several of the deployment processes use IoT Hub. Besides receiving status messag
 
 ### Azure Functions
 
-An Azure function monitors the message stream coming from IoT Hub, and takes action in the cloud.
+Azure Functions monitors the message stream coming from IoT Hub, and takes action in the cloud.
 
 For a success message:
 
