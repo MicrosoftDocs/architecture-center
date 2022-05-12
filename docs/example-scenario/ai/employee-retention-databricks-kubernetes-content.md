@@ -100,6 +100,14 @@ This proof-of-concept illustrates:
 
 All services deployed in this solution use a consumption-based pricing model. You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for a specific scenario. For other considerations, see [Cost optimization](/azure/architecture/framework/cost) in the Well-Architected Framework.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+**Principal author:**
+
+* [Nicholas Moore](LinkedIn: https://www.linkedin.com/in/nicholas-moore) | Cloud Solution Architect
+
 ## Next steps
 
 Product documentation:
