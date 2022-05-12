@@ -38,7 +38,7 @@ When you've established your high-level requirements, you can start to plan more
 
 For a multitenant solution to authenticate and authorize a user or service, it needs a place to store identity information. A *directory* can include authoritative records for each identity, or it might contain references to external identities stored in another identity provider's directory.
 
-When you design an identity system for your multitenant solution, you need to consider which of the following identity sources your tenants and customers require:
+When you design an identity system for your multitenant solution, you need to consider which of the following identity providers, or IdPs, that your tenants and customers require:
 
 - **Local identity provider.** A local identity provider allows a user to sign themselves up to the service by providing a username, email address or an identifier such as a rewards card number, and a credential like a password.
 - **Social identity provider.** A social identity provider allows users to use an identity they have on a social network or other public identity provider, such as Facebook, Google, or a personal Microsoft account.
@@ -46,14 +46,14 @@ When you design an identity system for your multitenant solution, you need to co
 
 Consider whether your tenants might require the use of multiple identity sources within a single tenant. For example, some tenants might need to be able use both local identities and social identities together.
 
-### Sharing identities between tenants
+### Store authentication and tenant authorization information
 
 In a multitenant solution, you need to consider where to store several types of identity information, including:
 
-- Details about user and service accounts, including their names and credentials. This information is used for authentication of your users.
+- Details about user and service accounts, including their names and credentials. This information is used to authenticate your users.
 - Tenant-specific information, such as tenant roles and permissions. This information is used for authorization.
 
-You should consider how your identity information in your multitenant solution will be stored.  Your options might include:
+Options for storing identity information include the following:
 
 - Store all identity and authorization information in the IdP directory, and share it between multiple tenants.
 - Store the user credentials in the IdP directory, and store the authorization information in the application tier alongside the tenant information.
@@ -144,10 +144,7 @@ For more information, see [Role-based and resource-based authorization](../../..
 
 In some solutions, you might use [per-user licensing](pricing-models.md#per-user-pricing) as part of your commercial pricing model, and provide different tiers of user licenses with different capabilities. For example, users with one license might be permitted to use a subset of the features of the application. The capabilities that a specific user is allowed to access based on their license is sometimes called an *entitlement*.
 
-If you plan to support user-based licensing and entitlements, consider the following questions:
-
-- How will licenses be assigned to users? Can licenses be moved between users?
-- Is your identity system responsible for enforcing your licensing model, and authorizing requests based on the user's entitlement? Or, is this the responsibility of the application code?
+Although tracking and enforcing entitlements is similar to authorization, it's ordinarily handled by the application code or by a dedicated entitlements system rather than managed by the identity system.
 
 ## Identity scale and authentication volume
 

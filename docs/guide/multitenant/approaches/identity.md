@@ -103,6 +103,46 @@ However, if a single user is allowed to access multiple tenants, you might need 
 
 An alternative approach is to make the identity system agnostic to tenant identifiers and roles. Each user is identified using their credentials or a federation relationship, and tokens don't include a tenant identifier claim. A separate list or database contains which users have been granted access to each tenant. Then, the application tier can verify whether the specified user should be allowed to access the data for a specific tenant based on looking up that list.
 
+## Use Azure AD or Azure AD B2C
+
+Microsoft provides Azure Active Directory (Azure AD) and Azure AD B2C, which are managed identity platforms that you can use within your own multitenant solution.
+
+Many multitenant solutions are software as a service (SaaS). Your choice of whether to use Azure AD or Azure AD B2C depends in part on how you define your tenants or customer base.
+
+- If your tenants or customers are organizations, you might consider using Azure AD. You can then create a [multitenant application](/azure/active-directory/develop/single-and-multi-tenant-apps) to make your solution available to other Azure AD directories. You can even list your solution in the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps) and make it easily accessible to organizations who use Azure AD.
+- If your tenants or customers don't use Azure AD, or if they are individuals rather than organizations, then consider using Azure AD B2C. Azure AD B2C provides a set of features to control how users sign up and sign in. For example, you can restrict access to your solution just to users that you have already invited, or you might allow for self-service sign-up. Use [custom policies](/azure/active-directory-b2c/active-directory-b2c-overview-custom) in Azure AD B2C to fully control how users interact with the identity platform. You can use [custom branding](/azure/active-directory-b2c/customize-ui-overview), and you can [federate Azure AD B2C with your own Azure AD tenant](/azure/active-directory-b2c/active-directory-b2c-setup-oidc-azure-active-directory) to enable your own staff to sign in. Azure AD B2C also enables [federation with other identity providers](/azure/active-directory-b2c/tutorial-add-identity-providers).
+- Some multitenant solutions are intended for both situations listed above - some tenants might have their own Azure AD tenants, and others might not. You can also use Azure AD B2C for this scenario, and use [custom policies to allow user sign-in from a tenant's Azure AD directory](/azure/active-directory-b2c/active-directory-b2c-setup-commonaad-custom).
+
+## Antipatterns to avoid
+
+### Building or running your own identity system
+
+Building a modern identity platform is complex. There are a range of protocols and standards to support, and it's easy to incorrect implement a protocol and expose a security vulnerability. Standards and protocols change, and you also need to continually update your identity system to mitigate attacks and support recent security features. Additionally, for most solutions, identity doesn't add benefit to the business and is simply a necessary part of implementing a multitenant service.
+
+When you run your own identity system, you also need to store passwords and other credentials. By storing credentials, you create a tempting target for attackers. Even hashing and salting passwords is often insufficient protection, because the computational power available to attackers can make it possible to compromise these forms of credentials.
+
+Instead of building or running your own identity system, it's a good practice to use an off-the-shelf service or component. For example, consider using Azure Active Directory (Azure AD) or Azure AD B2C, which are managed identity platforms. Managed identity platform vendors take responsibility to operate the infrastructure for their platforms, and typically support the current identity and authentication standards.
+
+### Failing to consider tenants' requirements
+
+Tenants often have strong opinions about how identity should be managed for the solutions they use. For example, many enterprise customers require federation with their own identity providers to enable single sign-on experiences and to avoid managing multiple sets of credentials. Other tenants might require multifactor authentication or other forms of protection around the sign-in processes. If you haven't designed for these requirements, it can be challenging to retrofit them later.
+
+Ensure you understand your tenants' identity requirements before you finalize the design of your identity system. Review [Architectural considerations for identity in a multitenant solution](../considerations/identity.md) to understand some specific requirements that often emerge.
+
+### Conflating users and tenants
+
+It's important to clearly consider how your solution defines a user and a tenant. In many situations, the relationship can be complex. For example, a tenant might contain multiple users, and a single user might join multiple tenants.
+
+Ensure you have a clear process for tracking the tenant context within your application and requests. In some situations, this process might require that you include a tenant identifier in every access token, and that you validate the tenant identifier on each request. In other situations, you might need to store the tenant authorization information separately from the user identities and use a more complex authorization system to manage which users can perform which operations against which tenants.
+
+### Conflating role and resource authorization
+
+It's important that you select an appropriate authorization model for your solution. Role-based security approaches can be simple to implement, but resource-based authorization provides more fine-grained control. Consider your tenants' requirements, and whether your tenants need to authorize some users to access specific parts of your solution and not others.
+
+### Failing to write audit logs
+
+Audit logs are an important tool for understanding your environment and how users are using your system. By auditing every identity-related event, you can often determine whether your identity system is under attack, and you can review how your system is being used. Ensure you write and store audit logs within your identity system. Consider whether your solution's identity audit logs should be made available to tenants to review.
+
 ## Next steps
 
 Review [Architectural considerations for identity in a multitenant solution](../considerations/identity.md).
