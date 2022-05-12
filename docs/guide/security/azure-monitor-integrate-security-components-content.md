@@ -69,7 +69,7 @@ Other contributors:
 
 ## Next steps
 
-This document refers to some services, technologies, and terminologies. You can find more information in the following resources:
+This document refers to some services, technologies, and terminologies. You can find more information about them in the following resources:
 
 - [What are public, private, and hybrid clouds?](https://azure.microsoft.com/overview/what-are-private-public-hybrid-clouds/)
 - [Overview of the Azure Security Benchmark (v3)](/security/benchmark/azure/overview)
@@ -86,3 +86,5 @@ This document refers to some services, technologies, and terminologies. You can 
 - [Monitor hybrid security using Microsoft Defender for Cloud and Microsoft Sentinel](../../hybrid/hybrid-security-monitoring.yml)
 - [Multilayered protection for Azure virtual machine access](../../solution-ideas/articles/multilayered-protection-azure-vm.yml)
 - [Azure security solutions for AWS](../../reference-architectures/aws/aws-azure-security-solutions.yml)
+- [Security considerations for highly sensitive IaaS apps in Azure](../../reference-architectures/n-tier/high-security-iaas.yml)
+- [Threat indicators for cyber threat intelligence in Microsoft Sentinel](../../example-scenario/data/sentinel-threat-intelligence.yml)
