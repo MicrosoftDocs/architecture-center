@@ -65,7 +65,7 @@ To help you get started with DataOps production, consider these resources:
 
 Depending on the DataOps technology you use, see the following best practices resources:
 
-- [Apache NiFi monitoring with MonitoFi](../guide/data/monitor-apache-nifi-monitofi.yml)
+- [NiFi System Administrator’s Guide](https://nifi.apache.org/docs/nifi-docs/html/administration-guide.html)
 - [Microsoft Purview accounts architectures and best practices](/azure/purview/concept-best-practices-accounts)
 - [Continuous integration and delivery in Azure Data Factory](/azure/data-factory/continuous-integration-delivery)
 - [Repos for Git integration](/azure/databricks/repos)
