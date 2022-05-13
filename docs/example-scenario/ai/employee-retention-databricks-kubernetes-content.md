@@ -103,7 +103,7 @@ All services deployed in this solution use a consumption-based pricing model. Yo
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-**Principal author:**
+Principal author:
 
 * [Nicholas Moore](https://www.linkedin.com/in/nicholas-moore) | Cloud Solution Architect
 
