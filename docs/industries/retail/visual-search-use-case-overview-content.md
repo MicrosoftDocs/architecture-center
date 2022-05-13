@@ -97,7 +97,7 @@ Depending on the neural network, the feature vector will be more or less long an
 
 Also, you may find that different networks are applicable to different categories, hence an implementation of visual search may actually generate feature vectors of varying size.
 
-Pre-trained neural networks are relatively easy to use but may not be as efficient a custom model trained on your image catalog. Those pre-trained networks are typically designed for classification of benchmark datasets rather than search on your specific collection of images.
+Pre-trained neural networks are relatively easy to use but may not be as efficient as a custom model trained on your image catalog. Those pre-trained networks are typically designed for classification of benchmark datasets rather than search on your specific collection of images.
 
 You may want to modify and retrain them so they produce both a category prediction and a dense (i.e. smaller, not sparse) vector, which will be very useful to restrict the search space, reduce memory and storage requirements. Binary vectors can be used and are often referred to as " [semantic hash](https://www.cs.utoronto.ca/~rsalakhu/papers/semantic_final.pdf)" – a term derived from document encoding and retrieval techniques. The binary representation simplifies further calculations.
 
@@ -160,3 +160,11 @@ Implementing visual search need not be complex. You can use Bing or build your o
 - [Visual Search at Ebay](https://arxiv.org/abs/1706.03154): Cornell University research
 - [Visual Discovery at Pinterest](https://arxiv.org/abs/1702.04680) Cornell University research
 - [Semantic Hashing](https://www.cs.utoronto.ca/~rsalakhu/papers/semantic_final.pdf) University of Toronto research
+
+## Related resources
+
+- [Image classification on Azure](../../example-scenario/ai/intelligent-apps-image-processing.yml)
+- [Knowledge mining in digital asset management](../../solution-ideas/articles/digital-asset-management.yml)
+- [Image classification with convolutional neural networks (CNNs)](../../solution-ideas/articles/image-classification-with-convolutional-neural-networks.yml)
+- [Vision classifier model with Azure Custom Vision Cognitive Service](../../example-scenario/dronerescue/vision-classifier-model-with-custom-vision.yml)
+- [Retail and e-commerce using Cosmos DB](../../solution-ideas/articles/retail-and-e-commerce-using-cosmos-db.yml)

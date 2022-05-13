@@ -2,10 +2,10 @@
 metadata:
   title: Application integration using Azure Event Grid
   titleSuffix: Azure Solution Ideas
-  description: Learn how to integrate your app with Azure Event Grid and take advantage of its reliable delivery, advanced routing, and direct integration with Azure.
+  description: Learn how to integrate your app with Azure Event Grid and take advantage of its reliable delivery, advanced routing, and direct integration.
   author: EdPrice-MSFT
   ms.author: pnp
-  ms.date: 12/16/2019
+  ms.date: 04/15/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
@@ -16,12 +16,12 @@ metadata:
     - application-development
     - event-grid
     - azure
-    - "https://azure.microsoft.com/solutions/architecture/application-integration-using-event-grid/"
+    - "https://azure.microsoft.com/solutions/architecture/application-integration-using-event-grid"
   social_image_url: /azure/architecture/solution-ideas/articles/media/application-integration-using-event-grid.png
 name: Application integration using Azure Event Grid
 azureCategories:
   - analytics
-summary: This scenario shows you how to create an application topic to send your app&apos;s event data to Azure Event Grid. Take advantage of its reliable delivery, advanced routing, and direct integration with Azure.
+summary: This scenario shows you how to create an application topic to send your app event data to Azure Event Grid. Take advantage of its reliable delivery, advanced routing, and direct integration.
 products:
   - azure-event-grid
   - azure-functions

@@ -321,6 +321,18 @@ Consider the following points when planning for security.
 
 - To estimate the cost of the required resources, see the [Container Services calculator](https://azure.microsoft.com/pricing/calculator/?service=kubernetes-service).
 
+## Next steps
+
+- [Introduction to Azure Kubernetes Service](/azure/aks/intro-kubernetes)
+- [What is Azure Virtual Networks?](/azure/virtual-network/virtual-networks-overview)
+- [What is Azure Private Link?](/azure/private-link/private-link-overview)
+- [What is Azure Application Gateway?](/azure/application-gateway/overview)
+- [What is Azure Bastion?](/azure/bastion/bastion-overview)
+- [About Azure Key Vault](/azure/key-vault/general/overview)
+- [Introduction to Azure Container Registry](/azure/container-registry/container-registry-intro)
+- [Welcome to Azure Cosmos DB](/azure/cosmos-db/introduction)
+- [Azure Monitor overview](/azure/azure-monitor/overview)
+
 ## Related resources
 
 - [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](../aks/secure-baseline-aks.yml)

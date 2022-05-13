@@ -46,3 +46,4 @@ Security is a prime concern for businesses that store any sort of custom or clie
 ## Related resources
 
 - [DevSecOps in GitHub](./devsecops-in-github.yml)
+- [DevSecOps for Infrastructure as Code (IaC)](./devsecops-infrastructure-as-code.yml)

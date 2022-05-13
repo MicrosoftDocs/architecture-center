@@ -1,5 +1,3 @@
-
-
 In this scenario, an organization has hosted multiple APIs using [Application Service Environments][ase](ILB ASE) and would like to consolidate these APIs internally using [Azure API Management (APIM)][apim] deployed inside a Virtual Network. The internal API Management instance could also be exposed to external users to allow for utilization of the full potential of the APIs. This external exposure could be achieved using an [Application Gateways][appgtwy] forwarding requests to the internal API Management service, which in turn consumes the APIs deployed in the ASE.
 
 ## Architecture
@@ -7,6 +5,8 @@ In this scenario, an organization has hosted multiple APIs using [Application Se
 ![Architecture diagram][architecture]
 
 The above scenario covers a complete lifecycle of internal APIs getting consumed by the external users.
+
+### Dataflow
 
 The data flows as follows:
 
@@ -70,7 +70,7 @@ Since the above example scenario is hosted completely on an internal network, AP
 
 This example scenario though talks more about configuration, the APIs hosted on the App Service Environments should be resilient enough to handle errors in the requests, which eventually is managed by the API Management service and Application Gateway. Consider [Retry and Circuit breaker patterns][api-pattern] in the API design. For general guidance on designing resilient solutions, see [Designing resilient applications for Azure][resiliency].
 
-## Deploy the scenario
+## Deploy this scenario
 
 ### Prerequisites and assumptions
 

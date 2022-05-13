@@ -40,6 +40,8 @@ This solution uses [Azure Kubernetes Services (AKS)](/azure/aks/intro-kubernetes
 
 ![Infographic of an example hierarchy service.](../media/connected-factory-hierarchy-service-03.png)
 
+*Download a [Visio file](https://arch-center.azureedge.net/connected-factory-hierarchy-service.vsdx) of this architecture.*
+
 ### Workflow
 
 1. The **web app** lets users manage the hierarchy through a UI.

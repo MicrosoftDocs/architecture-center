@@ -22,7 +22,7 @@ The following architectures feature high-availability scenarios:
 
 Designing solutions that continue to function in spite of failure is key to improving the reliability of a solution. In cloud-based solutions, building to survive failure is a shared responsibility. This can be viewed at three levels: a resilient foundation, resilient services, and resilient applications. The foundation is the Microsoft investment in the platform, including availability zones. On top of this foundation are the Azure services that customers can enable to support high availability, such as zone-redundant storage (ZRS), which replicates data across zones. The customer builds applications upon the enabled services supported by the foundation. The applications should be architected to support resiliency.
 
-<div style="text-align: center" align="center"> 
+<div align="center"> 
 <hr />
 
    ### Your applications

@@ -16,13 +16,13 @@ These similar design patterns are variations on the same underlying principle:
 
 ![Architectural diagram showing an App Service web app connecting to a backend Azure SQL Database through a Virtual Network using Private Link to an Azure Private DNS zone.](./media/appsvc-private-sql-solution-architecture.png)
 
-1. Using Azure App Service [regional VNet Integration](/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration), the web app connects to Azure through an **AppSvcSubnet** delegated subnet in an Azure Virtual Network.
+1. Using Azure App Service [regional VNet Integration](/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration), the web app connects to Azure through an **AppSvcSubnet** delegated subnet in an [Azure Virtual Network](/azure/virtual-network/).
 
    - In this example, the Virtual Network only routes traffic and is otherwise empty, but other subnets and workloads could also run in the Virtual Network.
 
    - The App Service and Private Link subnets could be in separate peered Virtual Networks, for example as part of a hub-and-spoke network configuration.
 
-1. [Azure Private Link](/azure/azure-sql/database/private-endpoint-overview#how-to-set-up-private-link-for-azure-sql-database) sets up a [private endpoint](/azure/private-link/private-endpoint-overview) for the Azure SQL database in the **PrivateLinkSubnet** of the Virtual Network.
+1. [Azure Private Link](/azure/azure-sql/database/private-endpoint-overview#how-to-set-up-private-link-for-azure-sql-database) sets up a [private endpoint](/azure/private-link/private-endpoint-overview) for the [Azure SQL Database](/azure/azure-sql/database/) in the **PrivateLinkSubnet** of the Virtual Network.
 
 1. The web app connects to the SQL Database private endpoint through the **PrivateLinkSubnet** of the Virtual Network.
 
@@ -40,13 +40,13 @@ Now `contoso.database.windows.net` no longer resolves to the public IP address, 
 
 This scenario uses the following Azure services:
 
-- [Azure App Service](/azure/app-service/app-service-web-overview) hosts web applications, allowing autoscale and high availability without having to manage infrastructure.
+- [Azure App Service](https://azure.microsoft.com/services/app-service) hosts web applications, allowing autoscale and high availability without having to manage infrastructure.
 
-- [Azure SQL Database](/azure/sql-database/sql-database-technical-overview) is a general-purpose relational database managed service that supports relational data, spatial data, JSON, and XML.
+- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database/) is a general-purpose relational database managed service that supports relational data, spatial data, JSON, and XML.
 
-- [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) is the fundamental building block for private networks in Azure. Azure resources like virtual machines (VMs) can securely communicate with each other, the internet, and on-premises networks through Virtual Networks.
+- [Azure Virtual Network](https://azure.microsoft.com/free/virtual-network) is the fundamental building block for private networks in Azure. Azure resources like virtual machines (VMs) can securely communicate with each other, the internet, and on-premises networks through Virtual Networks.
 
-- [Azure Private Link](/azure/private-link/private-link-overview) provides a private endpoint in a Virtual Network for connectivity to Azure PaaS services like Azure Storage and SQL Database, or to customer or partner services.
+- [Azure Private Link](https://azure.microsoft.com/services/private-link/) provides a private endpoint in a Virtual Network for connectivity to Azure PaaS services like Azure Storage and SQL Database, or to customer or partner services.
 
 ## Alternatives
 
@@ -166,6 +166,22 @@ A slightly more advanced version of this scenario is available as an [Azure Reso
 
 - For more information on inbound and outbound scenarios for App Service, and which features to use in which cases, see the [App Service networking features overview](/azure/app-service/networking-features).
 
+Product documentation:
+
+- [Azure App Service overview](/azure/app-service/app-service-web-overview)
+- [What is Azure SQL Database?](/azure/sql-database/sql-database-technical-overview)
+- [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
+- [What is Azure Private Link?](/azure/private-link/private-link-overview)
+
+Learn modules:
+
+- [Introduction to Azure Private Link](/learn/modules/introduction-azure-private-link/)
+- [Deploy PaaS solutions with Azure SQL](/learn/modules/deploy-paas-solutions-with-azure-sql/)
+- [Secure network connectivity on Azure](/learn/modules/secure-network-connectivity-azure/)
+
 ## Related resources
 
-- For a highly available solution that achieves private connectivity between a web app and a SQL database, see [Multi-region web app with private connectivity to database](../sql-failover/app-service-private-sql-multi-region.yml).
+- [Multi-region web app with private connectivity to database](../sql-failover/app-service-private-sql-multi-region.yml)
+- [Security architecture design](../../guide/security/security-start-here.yml)
+- [Design great API developer experiences using API Management and GitHub](../web/design-api-developer-experiences-management-github.yml)
+- [Azure Private Link in a hub-and-spoke network](../../guide/networking/private-link-hub-spoke-network.yml)

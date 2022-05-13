@@ -120,21 +120,21 @@ Next, take a look at the offerings in the [Azure Marketplace](https://azuremarke
 
 Used during rehost:
 
-- [Azure Advisor](/azure/advisor/advisor-overview?WT.mc_id=retailecomm-docs-scseely) is a personalized cloud consultant that helps you follow best practices to optimize your Azure deployments.
-- The [Azure Migrate](/azure/migrate/migrate-overview?WT.mc_id=retailecomm-docs-scseely) service assesses on-premises workloads for migration to Azure.
-- [Azure Site Recovery](/azure/site-recovery/site-recovery-overview?WT.mc_id=retailecomm-docs-scseely) orchestrates and manages disaster recovery for Azure VMs, and on-premises VMs and physical servers.
-- [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview?WT.mc_id=retailecomm-docs-scseely) enables many types of Azure resources, such as Azure Virtual Machines (VM), to securely communicate with each other, the internet, and on-premises networks.
-- [Azure ExpressRoute](/azure/expressroute/?WT.mc_id=retailecomm-docs-scseely) lets you extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider.
+- [Azure Advisor](https://azure.microsoft.com/services/advisor/) is a personalized cloud consultant that helps you follow best practices to optimize your Azure deployments.
+- The [Azure Migrate](https://azure.microsoft.com/services/azure-migrate/) service assesses on-premises workloads for migration to Azure.
+- [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery) orchestrates and manages disaster recovery for Azure VMs, and on-premises VMs and physical servers.
+- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/) enables many types of Azure resources, such as Azure Virtual Machines (VM), to securely communicate with each other, the internet, and on-premises networks.
+- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) lets you extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider.
 
 Used during refactor:
 
-- [Azure Kubernetes Service](/azure/aks/?WT.mc_id=retailecomm-docs-scseely) manages your hosted Kubernetes environment, making it quick and easy to deploy and manage containerized applications without container orchestration expertise.
-- [Azure SQL Database](/azure/sql-database/sql-database-technical-overview?WT.mc_id=retailecomm-docs-scseely) is a general-purpose relational database managed service in Microsoft Azure. It supports structures such as relational data, JSON, spatial, and XML. SQL Database offers managed single SQL databases, managed SQL databases in an elastic pool, and SQL Managed Instances.
+- [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) manages your hosted Kubernetes environment, making it quick and easy to deploy and manage containerized applications without container orchestration expertise.
+- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/) is a general-purpose relational database managed service in Microsoft Azure. It supports structures such as relational data, JSON, spatial, and XML. SQL Database offers managed single SQL databases, managed SQL databases in an elastic pool, and SQL Managed Instances.
 
 Used during rebuild:
 
-- Azure [API Management](/azure/api-management/?WT.mc_id=retailecomm-docs-scseely) helps organizations publish APIs to external, partner, and internal developers to unlock the potential of their data and services.
-- [Azure Functions](/azure/azure-functions/functions-overview?WT.mc_id=retailecomm-docs-scseely) isa solution for easily running small pieces of code, or &quot;functions,&quot; in the cloud.
+- [Azure API Management](https://azure.microsoft.com/services/api-management) helps organizations publish APIs to external, partner, and internal developers to unlock the potential of their data and services.
+- [Azure Functions](https://azure.microsoft.com/services/functions) is a solution for easily running small pieces of code, or &quot;functions,&quot; in the cloud.
 - [Power BI](https://powerbi.microsoft.com/?WT.mc_id=retailecomm-docs-scseely) is a suite of business analytics tools that deliver insights throughout your organization.
 
 ## Conclusion
@@ -155,3 +155,22 @@ _This article is maintained by Microsoft. It was originally written by the follo
 Many development teams are tempted to do rehost and refactor simultaneously to address technical debt and better leverage capacity. There are benefits to rehosting before jumping into the next steps.  Any issues in the deployment to the new environment will be easier to diagnose and fix. This in turn gives your development and support teams time to ramp up with Azure as the new environment. As you begin to refactor and rebuild the system, you are building on a stable, working application. This allows for smaller, targeted changes and more frequent updates.
 
 We have published a more general whitepaper on migrating to the cloud: [Cloud Migration Essentials](https://azure.microsoft.com/resources/cloud-migration-essentials-e-book/?_lrsc=9618a836-9f81-4087-901f-51058783c3a8&WT.mc_id=retailecomm-docs-scseely). This is a great piece to read through as you plan out your migration.
+
+Product documentation:
+
+- [Introduction to Azure Advisor](/azure/advisor/advisor-overview?WT.mc_id=retailecomm-docs-scseely)
+- [About Azure Migrate](/azure/migrate/migrate-overview?WT.mc_id=retailecomm-docs-scseely)
+- [About Site Recovery](/azure/site-recovery/site-recovery-overview?WT.mc_id=retailecomm-docs-scseely)
+- [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview?WT.mc_id=retailecomm-docs-scseely)
+- [What is Azure ExpressRoute?](/azure/expressroute/?WT.mc_id=retailecomm-docs-scseely)
+- [Azure Kubernetes Service](/azure/aks/?WT.mc_id=retailecomm-docs-scseely)
+- [What is Azure SQL Database?](/azure/sql-database/sql-database-technical-overview?WT.mc_id=retailecomm-docs-scseely)
+- [Azure API Management](/azure/api-management/?WT.mc_id=retailecomm-docs-scseely)
+- [Introduction to Azure Functions](/azure/azure-functions/functions-overview?WT.mc_id=retailecomm-docs-scseely)
+- [What is Power BI?](/power-bi/fundamentals/power-bi-overview)
+
+## Related resources
+
+- [Architect scalable e-commerce web app](../../solution-ideas/articles/scalable-ecommerce-web-app.yml)
+- [Scalable order processing](../../example-scenario/data/ecommerce-order-processing.yml)
+- [Retail - Buy online, pick up in store (BOPIS)](../../example-scenario/iot/vertical-buy-online-pickup-in-store.yml)

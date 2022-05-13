@@ -189,7 +189,7 @@ The following instructions describe how to read, write, and apply transformation
 
   - [Install the geospatial libraries.](#install-geospatial-packages-in-an-azure-synapse-spark-pool)
   - [Create an Azure key vault](/azure/key-vault/general/quick-create-portal#create-a-vault) to store secrets. In this scenario, we'll store the access key of the storage account in the key vault. For instructions, see [Store credentials in Azure Key Vault](/azure/data-factory/store-credentials-in-key-vault).
-  - [Create a linked service](https://docs.microsoft.com/en-us/azure/data-factory/concepts-linked-services?tabs=synapse-analytics#linked-service-with-ui) for Azure Key Vault by using Azure Synapse.
+  - [Create a linked service](/azure/data-factory/concepts-linked-services?tabs=synapse-analytics#linked-service-with-ui) for Azure Key Vault by using Azure Synapse.
   
 #### Instructions
 

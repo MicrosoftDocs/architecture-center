@@ -7,12 +7,12 @@ Store, manage, and analyze HIPAA-compliant and HITRUST-compliant health data and
 ![Architecture Diagram](../media/security-compliance-blueprint-hipaa-hitrust-health-data-ai.png)
 *Download an [SVG](../media/security-compliance-blueprint-hipaa-hitrust-health-data-ai.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
-1. Securely ingest bulk patient data into Azure Blob storage.
-1. Event Grid publishes patient data to Azure Functions for processing, and securely stores patient data in SQL Database.
-1. Analyze patient data using Machine Learning, and create a Machine Learning-trained model.
-1. Ingest new patient data in HL7/FHIR format and publish to Azure Functions for processing. Store in SQL Database.
+1. Securely ingest bulk patient data into [Azure Blob storage](/azure/storage/blobs).
+1. [Event Grid](/azure/event-grid) publishes patient data to [Azure Functions](/azure/azure-functions) for processing, and securely stores patient data in SQL Database.
+1. Analyze patient data using [Machine Learning](/azure/machine-learning), and create a Machine Learning-trained model.
+1. Ingest new patient data in HL7/FHIR format and publish to Azure Functions for processing. Store in [SQL Database](/azure/sql-database).
 1. Analyze newly ingested data using the trained Machine Learning model.
 1. Interact with patient data using Power BI while preserving Azure role-based access control (Azure RBAC).
 
@@ -47,3 +47,9 @@ Store, manage, and analyze HIPAA-compliant and HITRUST-compliant health data and
 - [Monitoring Azure applications and resources](/azure/monitoring-and-diagnostics/monitoring-overview)
 - [What is Operations Management Suite (OMS)?](/azure/operations-management-suite/operations-management-suite-overview)
 - [Built-in roles for Azure role-based access control](/azure/role-based-access-control/built-in-roles)
+
+## Related resources
+
+- [Health data consortium on Azure](../../example-scenario/data/azure-health-data-consortium.yml)
+- [Virtual health on Microsoft Cloud for Healthcare](../../example-scenario/mch-health/virtual-health-mch.yml)
+- [Confidential computing on a healthcare platform](../../example-scenario/confidential/healthcare-inference.yml)

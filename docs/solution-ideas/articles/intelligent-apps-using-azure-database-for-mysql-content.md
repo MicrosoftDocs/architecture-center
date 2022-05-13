@@ -6,10 +6,11 @@ Develop sophisticated, transformational apps using state of the art machine lear
 
 ![Architecture diagram](../media/intelligent-apps-using-azure-database-for-mysql.png)
 
-*Download an [PNG](../media/intelligent-apps-using-azure-database-for-postgresql.png) of this architecture.*
+*Download a [PNG file](../media/intelligent-apps-using-azure-database-for-mysql.png) of this architecture.*
+
+### Dataflow
 
 The data flows through the solution as follows:
-
 
 1. Azure function app could be triggered as a part of Azure data factory pipeline by creating an Azure Function Activity. 
 2. Data could come from various sources, such as Event Hubs for high volumes of data ingestion, or data that's uploaded to Blob Storage. The Azure Function App is triggered as new data is received as part of the pipeline
@@ -19,15 +20,15 @@ The data flows through the solution as follows:
 6. Azure Machine Learning Studio can be used to further analyze the data, using custom Machine Learning algorithms to gain further insights.
 7. The MySQL Power BI Connector provides options for data visualization and analysis in Power BI or a custom web application
 
-
 ### Components
-- [Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/control-flow-azure-function-activity)
+
+- [Azure Data Factory](/azure/data-factory/control-flow-azure-function-activity)
 - [Azure Functions](/azure/azure-functions/functions-overview)
-- [Event Hubs](/azure/event-hubs/)
+- [Event Hubs](/azure/event-hubs)
 - [Blob storage](/azure/storage/blobs/storage-blobs-introduction)
-- [Text Analytics Api](/azure/cognitive-services/text-analytics/)
-- [Azure Database for MySQL](/azure/mysql/)
-- [Azure Machine Learning Studio](/azure/machine-learning/)
+- [Text Analytics API](/azure/cognitive-services/text-analytics)
+- [Azure Database for MySQL](/azure/mysql)
+- [Azure Machine Learning Studio](/azure/machine-learning)
 - [Power BI](/power-bi/fundamentals/power-bi-overview)
 
 ### Alternatives
@@ -45,6 +46,19 @@ The data flows through the solution as follows:
 Azure Cognitive Services Text Analytics API has a maximum size of 5120 characters for a single document and a maximum request size of 1 MB. [View the data and rate limits](/azure/cognitive-services/text-analytics/concepts/data-limits).
 
 ## Next steps
+
+Read more about the following Microsoft technologies:
+
+- [Azure Data Factory](/azure/data-factory/control-flow-azure-function-activity)
+- [Azure Functions](/azure/azure-functions/functions-overview)
+- [Azure Event Hubs](/azure/event-hubs/)
+- [Azure Blob storage](/azure/storage/blobs/storage-blobs-introduction)
+- [Azure Text Analytics API](/azure/cognitive-services/text-analytics)
+- [Azure Database for MySQL](/azure/mysql)
+- [Azure Machine Learning Studio](/azure/machine-learning)
+- [Power BI](/power-bi/fundamentals/power-bi-overview)
+
+## Related resources
 
 - [Understand data store models](../../guide/technology-choices/data-store-overview.md)
 

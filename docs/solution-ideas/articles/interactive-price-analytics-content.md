@@ -28,6 +28,8 @@ This architecture is ideal for the retail industry, providing pricing recommenda
 
 *Download an [SVG](../media/interactive-price-analytics.svg) of this architecture.*
 
+### Workflow
+
 1. [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) enables building pricing models.
 1. [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) stores model and any intermediate data that's generated.
 1. [Azure SQL Server](https://azure.microsoft.com/products/azure-sql/database/) stores transaction history data and any generated model predictions.

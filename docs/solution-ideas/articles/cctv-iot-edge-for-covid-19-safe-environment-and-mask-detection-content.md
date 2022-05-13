@@ -67,3 +67,11 @@ Microsoft Learn paths:
 - [Implement a data streaming solution with Azure Streaming Analytics](/learn/paths/implement-data-streaming-with-asa)
 
 [visio-download]: https://arch-center.azureedge.net/bosch-cctv-mask-detection.vsdx
+
+## Related resources
+
+- [Azure IoT reference architecture](../../reference-architectures/iot.yml)
+- [Cognizant Safe Buildings with IoT and Azure](safe-buildings.yml)
+- [Create smart places by using Azure Digital Twins](../../example-scenario/iot/smart-places.yml)
+- [UVEN smart and secure disinfection and lighting](uven-disinfection.yml)
+

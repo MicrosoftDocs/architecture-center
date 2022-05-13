@@ -19,15 +19,15 @@ Azure Site Recovery with Azure as the failover site eliminates all of these draw
 The cloud components of the proposed solution include the following services:
 
 - An Azure subscription hosting all cloud resources that are part of this solution.
-- An Azure Active Directory (Azure AD) tenant associated with the Azure subscription that provides authentication of Azure AD security principals to authorize access to Azure resources.
-- An Azure Recovery Services vault in the Azure region closest to an on-premises datacenter that will host the Azure Stack Hub deployment.
+- An [Azure Active Directory](/azure/active-directory) (Azure AD) tenant associated with the Azure subscription that provides authentication of Azure AD security principals to authorize access to Azure resources.
+- An [Azure Recovery Services](/azure/backup/backup-azure-recovery-services-vault-overview) vault in the Azure region closest to an on-premises datacenter that will host the Azure Stack Hub deployment.
 
   > [!Note]
   > The choice of the Azure region which is closest to the on-premises datacenter is specific to the sample scenario included in this reference architecture document. From a disaster recovery standpoint, it would be preferable to select an Azure region further away from the location hosting the production environment. The decision, however, might depend on additional factors, such as the need to minimize latency of regional data feeds or to satisfy data residency requirements.
 
-- An Azure ExpressRoute circuit connecting the on-premises datacenters to the Azure region hosting the Azure Recovery Services vault, configured with private peering and Microsoft peering. The former ensures that the latency requirements following a failover during disaster recovery scenarios are satisfied. The purpose of the latter is to minimize the amount of time it takes to replicate changes between the on-premises workloads and the failover site in Azure.
-- An Azure Storage account that hosts blobs containing VHD files created by replication of the operating system and data volumes of protected Azure Stack Hub VMs. These VHD files serve as the source for managed disks of Azure VMs which are automatically provisioned following a failover.
-- An Azure virtual network that will host the disaster recovery environment, configured in a manner that mirrors the virtual network environment in Azure Stack Hub hosting the production workloads, including components such as load balancers and network security groups. This virtual network is typically connected to the Azure Stack Hub virtual network via an ExpressRoute connection to facilitate workload-level recovery.
+- An [Azure ExpressRoute](/azure/expressroute/) circuit connecting the on-premises datacenters to the Azure region hosting the Azure Recovery Services vault, configured with private peering and Microsoft peering. The former ensures that the latency requirements following a failover during disaster recovery scenarios are satisfied. The purpose of the latter is to minimize the amount of time it takes to replicate changes between the on-premises workloads and the failover site in Azure.
+- An [Azure Storage](/azure/storage/blobs/) account that hosts blobs containing VHD files created by replication of the operating system and data volumes of protected [Azure Stack Hub VMs](/azure-stack/user/azure-stack-compute-overview). These VHD files serve as the source for managed disks of Azure VMs which are automatically provisioned following a failover.
+- An [Azure virtual network](/azure/virtual-network) that will host the disaster recovery environment, configured in a manner that mirrors the virtual network environment in Azure Stack Hub hosting the production workloads, including components such as load balancers and network security groups. This virtual network is typically connected to the Azure Stack Hub virtual network via an ExpressRoute connection to facilitate workload-level recovery.
 
   > [!Note]
   > A site-to-site VPN connection might be sufficient in scenarios where Recovery Point Objectives (RPOs) requirements are less stringent.
@@ -45,6 +45,15 @@ The on-premises components of the proposed solution include the following servic
 
 - Azure Stack Hub VMs to be protected, running supported versions of Windows Server, CentOS, or Ubuntu operating systems.
 - Azure Site Recovery Mobility service (also referred to as *mobility agent*) installed and running on protected VMs, which tracks changes to local disks, records them into replication logs, and replicates the logs to the process server, which, in turn, routes them to the target Azure storage account. The logs are used to create recovery points for managed disks implemented by using blobs stored in the Azure storage account you designated.
+
+### Components
+
+- [Azure Active Directory](https://azure.microsoft.com/services/active-directory)
+- [Azure Virtual Network](https://azure.microsoft.com/free/virtual-network)
+- [Azure Recovery Services](https://azure.microsoft.com/services/site-recovery)
+- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute)
+- [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/)
+- [Azure Stack Hub](https://azure.microsoft.com/products/azure-stack/hub/)
 
 ### Alternatives
 

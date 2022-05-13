@@ -58,7 +58,7 @@ Consider these technologies and solutions as you plan and implement your deploym
 
 ## Best practices
 The [Azure Well-Architected Framework](/azure/architecture/framework) is a set of guiding tenets, based on five pillars, that you can use to improve the quality of your architectures. These articles apply the pillars to the use of some Azure networking services: 
-- [Review of Azure Application Gateway](../../networking/guide/waf-application-gateway.md) 
+- [Review of Azure Application Gateway](/azure/architecture/framework/services/networking/azure-application-gateway#securitysecurity) 
 - [Review of Azure Firewall](../../networking/guide/well-architected-framework-azure-firewall.md) 
 - [Review of an Azure NAT gateway](../../networking/guide/well-architected-network-address-translation-gateway.yml) 
 
@@ -118,4 +118,3 @@ These are some additional sample networking architectures:
 These articles provide service mapping and comparison between Azure and other cloud services. They can help you ramp up quickly on Azure.
 - [Compare AWS and Azure networking options](../../aws-professional/networking.md) 
 - [Google Cloud to Azure services comparison - Networking](../../gcp-professional/services.md#networking)
-

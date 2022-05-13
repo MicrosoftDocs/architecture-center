@@ -11,7 +11,7 @@ Learn how to create a CI/CD pipeline to manage your Power Platform Application l
 ![Architecture diagram](../media/azure-devops-continuous-integration-and-continuous-deployment-for-power-apps.png)
 *Download an [SVG](../media/azure-devops-continuous-integration-and-continuous-deployment-for-power-apps.png) of this architecture.*
 
-### Data flow
+### Dataflow
 
 1. The solution is updated, which triggers the build pipeline.
 1. Continuous integration exports the solution from the development environment and commits files to Azure Repos.

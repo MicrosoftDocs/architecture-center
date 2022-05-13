@@ -240,8 +240,8 @@ If a `403 - Forbidden` error returns, kube-apiserver is probably configured with
 ## Next steps
 
 - [Network concepts for applications in AKS](/azure/aks/concepts-network)
-- [Troubleshoot Applications](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application)
-- [Debug Services](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-service)
+- [Troubleshoot Applications](https://kubernetes.io/docs/tasks/debug/debug-application/)
+- [Debug Services](https://kubernetes.io/docs/tasks/debug/debug-application/debug-service/)
 - [Kubernetes Cluster Networking](https://kubernetes.io/docs/concepts/cluster-administration/networking)
 - [Microsoft Learn: Choose the best networking plugin for AKS](/learn/modules/choose-network-plugin-aks)
 
