@@ -4,7 +4,7 @@ A modern IIoT solution goes beyond moving existing industrial processes and tool
 
 ![IIoT Maturity](images/iiot-maturity.png)
 
-There are multiple stages in each of the three key phases shown above. Each stage of an IIoT Solution consists of multiple design patterns. We typically start our IIoT journey with Connectivity as the first step. Computerization is the prerequisite step and it referes to enabling sensors and actuators to monitor production processes. We will be highligting five key stages for a typical IIoT solution:
+There are multiple stages in each of the three key phases shown above. Each stage of an IIoT Solution consists of multiple design patterns. We typically start our IIoT journey with Connectivity as the first step. Computerization is the prerequisite step and it referes to enabling sensors and actuators to monitor production processes. We will be highligting four key stages for a typical IIoT solution:
 
 ## Connectivity 
 - Patterns
@@ -50,11 +50,3 @@ There are multiple stages in each of the three key phases shown above. Each stag
     - [Exploratory Data Analysis for failure predictions using machine learning](https://github.com/Azure-Samples/industrial-iot-patterns/tree/main/5_ExplorationDataAnalysis)
     - [Operationalizing machine learning based prediction models](https://github.com/Azure-Samples/industrial-iot-patterns/tree/main/6_MachineLearningForIIoT)
     - [Operationalizing deep learning based image recognition models on the factory floor](https://github.com/Azure-Samples/industrial-iot-patterns/tree/main/7_ImageRecognitionForIIoT)
-
-## Adaptability 
-
-- Patterns
-    - Control system optimization using Deep Reinforcement Learning (*In Progress...*)
-
-- Solution Samples
-    - [Control system optimization using Deep Reinforcement Learning (DRL)](https://github.com/Azure-Samples/industrial-iot-patterns/tree/main/8_DeepReinforcementLearningForIIoT)
