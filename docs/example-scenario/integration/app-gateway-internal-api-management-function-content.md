@@ -1,9 +1,11 @@
-The solution includes a single region premium API Management instance within an internal VNet exposed through Application Gateway for external traffic with Azure Functions as the backend (exposed through private endpoint). 
+APIs have become increasingly prominent in how companies and customers access services both internally and externally. Internally, APIs are used to access line of business applications, home-built solutions, 3rd party integrations. Externally, more companies are looking to productive and monetize their APIs. With this in mind, API Management becomes a central component to a standardize approach of managing, governing, and publishing APIs to both internal and external audiences. With the help of Application Gateway, it is now possible to protect and restrict the access of APIs served through API Management. This article describes a solution where users are hoping to manage both internal and external APIs through a single API Management instance while maintaining a secure posture from being exposed directly through the internet but instead through an Application Gateway. 
 
 ## Architecture 
-![Architecture diagram](./media/app-gateway-internal-api-management-function.png)
+![This architectural diagram starts with an all-encompassing box that represents the scope of a subscription, a Private DNS zone where private domains will get resolved, and the scope of a virtual network names APIM-CS VNet. Seven additional smaller boxes reside within the big box, with four on the top row and three on the bottom row. Each individual box represents a separate subnet with an attached network security group. From the left most, there is a public IP address that is attached to the Application Gateway on the left most box on the top row. Application Gateway also lives within one of the seven smaller boxes with the subnet named App GW subnet. The to right is another box containing the API Management instance with the subnet names APIM subnet. Next to it is third box on the top row containing a private endpoint for the Azure Functions in the subnet names PE subnet. The right most box on the top row is the backend subnet containing Function Apps, the App Service Plan for the Function, and the storage account associated with the Function App. On the bottom row starting from the left is a box containing the Bastion in the Bastion subnet. The second box contains the management jumbox vm in the Jump Box Subnet and the last box on the bottom row is the DevOps Agent contained within the DevOps subnet.](./media/app-gateway-internal-api-management-function.png)
 
 Download a [Visio file](../images/APIM.vsdx) that contains this architecture diagram.
+
+### Workflow
 
 ### Components
 The architecture leverages the following components:
