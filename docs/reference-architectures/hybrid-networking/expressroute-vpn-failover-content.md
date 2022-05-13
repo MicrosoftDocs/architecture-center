@@ -88,7 +88,7 @@ For general Azure security considerations, see [Microsoft cloud services and net
 
 For ExpressRoute cost considerations, see these articles:
 
-- [Cost considerations in Implementing a Hybrid Network Architecture with Azure ExpressRoute](../../reference-architectures/hybrid-networking/expressroute.yml#cost-considerations).
+- [Cost considerations in Implementing a Hybrid Network Architecture with Azure ExpressRoute](../../reference-architectures/hybrid-networking/expressroute.yml#considerations).
 
 - [Cost considerations in Implementing a Hybrid Network Architecture with Azure and On-premises VPN](../../reference-architectures/hybrid-networking/vpn.yml#cost-considerations).
 
@@ -127,7 +127,7 @@ To deploy the solution, perform the following steps.
 * [ExpressRoute Documentation](/azure/expressroute/)
 * [Azure Security baseline for ExpressRoute](/security/benchmark/azure/baselines/expressroute-security-baseline?toc=%2fazure%2fexpressroute%2fTOC.json)
 * [How to create an ExpressRoute circuit](https://azure.microsoft.com/resources/videos/azure-expressroute-how-to-create-an-expressroute-circuit/)
-* [Azure Networking Blog](https://azure.microsoft.com/en-us/blog/topics/networking/)
+* [Azure Networking Blog](https://azure.microsoft.com/en-us/blog/topics/networking)
 
 <!-- links -->
 
