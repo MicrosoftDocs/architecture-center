@@ -71,16 +71,18 @@ This architecture uses a pipeline configuration that tracks the details of machi
 
 - [PTC/Kepware's KEPServerEX](https://www.kepware.com/products/kepserverex) provides an IoT Gateway module that connects to and sends data to IoT Hub over the MQTT protocol. Kepware has connectivity libraries for an array of equipment, and can unlock data from both new and legacy industrial devices.
 
-  Using KEPServerEX as the OPC-UA gateway lets brownfield devices connect with the signal pipeline. Supported device types can be configured to automatically connect to the gateway. Removing the need to manage any configuration directly in the gateway's user interface simplifies and standardizes the device setup process.
-  
-  [ ![Diabram showing the KEPServer gateway configuration.](./media/connected-factory-signal-pipeline-02.png) ](./media/connected-factory-signal-pipeline-02.png#lightbox)
+#### KEPServerEX Gateway configuration
 
-  The KEPServerEX automation is the first implementation of the generic gateway configuration solution built into the Asset Registry API. This extensible gateway configuration solution consists of the following parts:
+Using KEPServerEX as the OPC-UA gateway lets brownfield devices connect with the signal pipeline. Supported device types can be configured to automatically connect to the gateway. Removing the need to manage any configuration directly in the gateway's user interface simplifies and standardizes the device setup process.
 
-  - A polymorphic, gateway-agnostic model for gateways, devices, and signals managed by the Asset Registry service.
-  - A client library used by the Asset Registry REST API to communicate with the gateway configuration IoT Edge modules.
-  - A library for an Azure IoT Edge module that exposes a common interface based on direct methods to configure devices and signals in a gateway.
-  - The Azure IoT Edge module for a specific gateway configuration, which translates the generic requests from the direct methods to the proprietary gateway configuration interface and back.
+[ ![Diabram showing the KEPServer gateway configuration.](./media/connected-factory-signal-pipeline-02.png) ](./media/connected-factory-signal-pipeline-02.png#lightbox)
+
+The KEPServerEX automation is the first implementation of the generic gateway configuration solution built into the Asset Registry API. This extensible gateway configuration solution consists of the following parts:
+
+- A polymorphic, gateway-agnostic model for gateways, devices, and signals managed by the Asset Registry service.
+- A client library used by the Asset Registry REST API to communicate with the gateway configuration IoT Edge modules.
+- A library for an Azure IoT Edge module that exposes a common interface based on direct methods to configure devices and signals in a gateway.
+- The Azure IoT Edge module for a specific gateway configuration, which translates the generic requests from the direct methods to the proprietary gateway configuration interface and back.
 
 ### Alternatives
 
@@ -94,7 +96,9 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Reliability
 
-[Availability zones](/azure/availability-zones/az-overview) are unique physical locations within Azure regions that help protect virtual machines (VMs), applications, and data from datacenter failures. The APIs and Azure services that make up this architecture can be deployed in multiple Azure regions using availability zones. You can also [deploy AKS in availability zones](/azure/aks/availability-zones). IoT Hub provides intra-region high availability by implementing redundancies in almost all layers of the service.
+[Availability zones](/azure/availability-zones/az-overview) are unique physical locations within Azure regions that help protect virtual machines (VMs), applications, and data from datacenter failures. The APIs and Azure services that make up this architecture can be deployed in multiple Azure regions using availability zones. You can also [deploy AKS in availability zones](/azure/aks/availability-zones).
+
+IoT Hub provides intra-region high availability by implementing redundancies in almost all layers of the service.
 
 ### Security
 
