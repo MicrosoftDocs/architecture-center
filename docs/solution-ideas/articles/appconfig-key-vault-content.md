@@ -56,7 +56,7 @@ The Azure staging and production environments use an [Azure Managed Service Iden
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-**Principal author:**
+Principal author:
 
  * [Sowmyan Soman](https://www.linkedin.com/in/sowmyancs) | Principle Cloud Solution Architect
 
