@@ -15,7 +15,7 @@ Core components of this solution incorporate the ability to pass pre-filtered da
 
 :::image type="content" border="false" source="media/power-platform-write-backs.png" alt-text="Diagram that shows an architecture for Power BI data write-back." lightbox="media/power-platform-write-backs.png"::: 
 
-*Download a [Visio file](https://arch-center.azureedge.net/Power-Platform-Write-Backs.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/power-platform-write-backs.vsdx) of this architecture.*
 
 ### Dataflow 
 
