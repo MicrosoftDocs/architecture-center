@@ -9,9 +9,7 @@ This is the third article that is part of a series of five. To review the previo
 
 This article presents Azure security services according to each Azure service. In this way, you can think of a specific threat against resource—a VM, an operating system, an Azure network, an application—or an attack that might compromise users and passwords. Then use the diagram in this article to help you understand which Azure security services to use to protect resources and user identities from that type of threat.
 
-The Azure security layer in this diagram is based on Azure Security Benchmark (ASB) v3, which is a set of security rules that are implemented through Azure policies. ASB is based on a combination of rules from [CIS Center for Internet Security](https://www.cisecurity.org/) and [National Institute of Standards and Technology](https://www.nist.gov/). For more information about ASB, see [Overview of the Azure Security Benchmark v3](/security/benchmark/azure/overview).
-
-The following diagram doesn't contain all of the Azure security services that are available, but it shows the security services that are most commonly used by organizations. In the diagram, many of the services are labeled with their ASB control codes, in addition to abbreviated names. The control codes correspond to the control domains that are listed in [Controls](/security/benchmark/azure/overview#controls).
+## Architecture
 
 :::image type="content" alt-text="A diagram of on-premises resources, Microsoft 365 services, Azure services, Azure security services, and threats. In the diagram, there are 16 types of threats as classified by the MITRE ATTACK matrix." source="../media/azure-security-build-first-layer-defense-architecture.png" lightbox="../media/azure-security-build-first-layer-defense-architecture.png":::
 
@@ -19,9 +17,16 @@ The following diagram doesn't contain all of the Azure security services that ar
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-monitor-integrate-security-components.vsdm) of this architecture.*
 
-ASB and Azure Security Baselines ([Azure Security Benchmark overview](/security/benchmark/azure/security-baselines-overview)) describe Azure security services. In this article, we highlight only the services that are presented in the diagram.
 
-Let's review some details presented in the diagram.
+The Azure security layer in this diagram is based on Azure Security Benchmark (ASB) v3, which is a set of security rules that are implemented through Azure policies. ASB is based on a combination of rules from [CIS Center for Internet Security](https://www.cisecurity.org/) and [National Institute of Standards and Technology](https://www.nist.gov/). For more information about ASB, see [Overview of the Azure Security Benchmark v3](/security/benchmark/azure/overview).
+
+The diagram doesn't contain all of the Azure security services that are available, but it shows the security services that are most commonly used by organizations. In the diagram, many of the services are labeled with their ASB control codes, in addition to abbreviated names. The control codes correspond to the control domains that are listed in [Controls](/security/benchmark/azure/overview#controls).
+
+
+## Dataflow
+
+ASB and Azure Security Baselines ([Azure Security Benchmark overview](/security/benchmark/azure/security-baselines-overview)) describe Azure security services. In this article, we highlight only the services that are presented in the diagram. All of the security services that are identified in the architectural diagram can work together in any combination according to your IT environment and your organization's security requirements.
+
 
 1.  **AZURE SECURITY BENCHMARK**
 
@@ -44,135 +49,67 @@ Let's review some details presented in the diagram.
 
 2.  **NETWORK**
 
-    - **NSG**
+    The following table describes the network services in the diagram.
     
-      A free service that you attach to a network interface or subnet. An NSG allows you to filter TCP or UDP protocol traffic by using IP address ranges and ports for inbound and outbound connections. For more information about NSGs, see [Network security groups](/azure/virtual-network/network-security-groups-overview).
+    | Label | Description | Documentation |
+    |---|---|---|
+    | **NSG** | A free service that you attach to a network interface or subnet. An NSG allows you to filter TCP or UDP protocol traffic by using IP address ranges and ports for inbound and outbound connections. | [Network security groups](/azure/virtual-network/network-security-groups-overview) |
+    | **VPN** | A virtual private network (VPN) gateway that delivers a tunnel with IPSEC (IKE v1/v2) protection. | [VPN Gateway](https://azure.microsoft.com/en-us/services/vpn-gateway/) |
+    | **AZURE FIREWALL** | A platform as a service (PaaS) that delivers protection in layer four and is attached to an entire VNET. | [What is Azure Firewall](/azure/firewall/overview)? |
+    | **APP GW + WAF** | Azure Application Gateway with Web Application Firewall (WAF). Application Gateway is a load balancer for web traffic that works in layer seven and adds WAF to protect applications that use HTTP and HTTPS. | [What is Azure Application Gateway](/azure/application-gateway/overview)? |
+    | **NVA** | Network Virtual Appliance (NVA), a virtual security services from the marketplace that is provisioned on VMs on Azure. | [Network Virtual Appliances](https://azure.microsoft.com/solutions/network-appliances/) |
+    | **DDOS** | DDoS protection implemented on the virtual network to help you mitigate different types of DDoS attacks. | [Azure DDoS Protection Standard overview](/azure/ddos-protection/ddos-protection-overview) |
+    | **TLS/SSL** | TLS/SSL deliver encryption in transit for most Azure services that exchange information, such as Azure Storage and Web Apps. | [Configure end-to-end TLS by using Application Gateway with PowerShell](/azure/application-gateway/application-gateway-end-to-end-ssl-powershell) |
+    | **PRIVATE LINK** | Service that allows you to create a private network for an Azure service that initially is exposed to the internet. | [What is Azure Private Link](https://docs.microsoft.com/en-us/azure/private-link/private-link-overview)? |
+    | **PRIVATE ENDPOINT** | Creates a network interface and attaches it to the Azure service. Private Endpoint is part of Private Link. This configuration lets the service, by using a private endpoint, be part of your virtual network. | [What is a private endpoint](/azure/private-link/private-endpoint-overview)? |
 
-    - **VPN**
 
-      A virtual private network (VPN) gateway that delivers a tunnel with IPSEC (IKE v1/v2) protection. For more information about site-to-site and point-to-site VPNs, see [VPN Gateway](https://azure.microsoft.com/en-us/services/vpn-gateway/).
+3.  **INFRASTRUCTURE AND ENDPOINTS**
 
-    - **AZURE FIREWALL**
-    
-      A platform as a service (PaaS) that delivers protection in layer four and is attached to an entire VNET. For more information, see [What is Azure Firewall](/azure/firewall/overview)?
+    The following table describes infrastructure and endpoint services that are shown in the diagram.
 
-    - **APP GW + WAF**
+    | Label | Description | Documentation |
+    |---|---|---|
+    | **BASTION** | Bastion provides jump server functionality. This service allows you to access your VMs through RDP or SSH without exposing your VMs to the internet. | [What is Azure Bastion](/azure/bastion/bastion-overview)? |
+    | **ANTIMALWARE** | Microsoft Defender provide anti-malware service and is part of Windows 10, Windows 11, Windows Server 2016, and Windows Server 2019. | [Microsoft Defender Antivirus in Windows](/microsoft-365/security/defender-endpoint/microsoft-defender-antivirus-windows?view=o365-worldwide) |
+    | **DISK ENCRYPT** | Disk Encryption allows you to encrypt the disk of a VM. | [Azure Disk Encryption for Windows VMs](/azure/virtual-machines/windows/disk-encryption-overview) |
+    | **KEYVAULT** | Key Vault, a service to store keys, secrets, and certificates with FIPS 140-2 Level 2 or 3. | [Azure Key Vault basic concepts](/azure/key-vault/general/basic-concepts) |
+    | **RDP SHORT** | Azure Virtual Desktop RDP Shortpath. This feature allows remote users to connect to the Virtual Desktop service from a private network. | [Azure Virtual Desktop RDP Shortpath for managed networks](https://docs.microsoft.com/en-us/azure/virtual-desktop/shortpath) |
+    | **REVERSE CONNECT** | A built-in security feature from Azure Virtual Desktop. Reverse connect guarantees that remote users receive only pixel streams and don't reach the host VMs. | [Understanding Azure Virtual Desktop network connectivity](/azure/virtual-desktop/network-connectivity) |
 
-      Azure Application Gateway with Web Application Firewall (WAF). Application Gateway is a load balancer for web traffic that works in layer seven and adds WAF to protect applications that use HTTP and HTTPS. For more information, see [What is Azure Application Gateway](/azure/application-gateway/overview)?
 
-    - **NVA**
+4.  **APPLICATION AND DATA**
 
-      Network Virtual Appliance (NVA), a virtual security services from the marketplace that is provisioned on VMs on Azure. For more information, see [Network Virtual Appliances](https://azure.microsoft.com/solutions/network-appliances/).
+    The following table describes application and data services that are shown in the diagram.
 
-    - **DDOS**
+    | Label | Description | Documentation |
+    |---|---|---|
+    | **FRONTDOOR + WAF** | A content delivery network (CDN). Front Door combines multiple points of presence to deliver a better connection for users who access the service and adds WAF. | [What is Azure Front Door](/azure/frontdoor/front-door-overview)? |
+    | **API MANAGEMENT** | A service that delivers security for API calls and manages APIs across environments. | [About API Management](/azure/api-management/api-management-key-concepts) |
+    | **PENTEST** | A set of best practices to execute a penetration test in your environment, including Azure resources. | [Penetration testing](/azure/security/fundamentals/pen-testing) |
+    | **STORAGE SAS TOKEN** | A temporary key to allow others to access your Azure storage account. | [Grant limited access to Azure Storage resources using shared access signatures (SAS)](/azure/storage/common/storage-sas-overview) |
+    | **PRIVATE ENDPOINT** | Create a network interface and attach it to your storage account to configure it inside a private network on Azure. | [Use private endpoints for Azure Storage](/azure/storage/common/storage-private-endpoints) |
+    | **STORAGE FIREWALL** | Firewall that allows you to set a range of IP addresses that can access your storage account. | [Configure Azure Storage firewalls and virtual networks](/azure/storage/common/storage-network-security?tabs=azure-portal) |
+    | **ENCRYPTION** (Azure Storage) | Protects your storage account with encryption at rest. | [Azure Storage encryption for data at rest](/azure/storage/common/storage-service-encryption) |
+    | **SQL AUDIT** | Tracks database events and writes them to an audit log in your Azure storage account. | [Auditing for Azure SQL Database and Azure Synapse Analytics](/azure/azure-sql/database/auditing-overview) |
+    | **VULNERABILITY ASSESSMENT** | Service that helps you discover, track, and remediate potential database vulnerabilities. | [SQL vulnerability assessment helps you identify database vulnerabilities](/azure/azure-sql/database/sql-vulnerability-assessment?tabs=azure-powershell) |
+    | **ENCRYPTION** (Azure SQL) | Transparent data encryption (TDE) helps protect Azure SQL database services by encrypting data at rest. | [Transparent data encryption for SQL Database, SQL Managed Instance, and Azure Synapse Analytics](/azure/azure-sql/database/transparent-data-encryption-tde-overview?tabs=azure-portal) |
 
-      DDoS protection implemented on the virtual network to help you mitigate different types of DDoS attacks. For more information, see [Azure DDoS Protection Standard overview](/azure/ddos-protection/ddos-protection-overview).
 
-    - **TLS/SSL**
+5.  **IDENTITY**
 
-      TLS/SSL deliver encryption in transit for most Azure services that exchange information, such as Azure Storage and Web Apps. For more information, see [Configure end-to-end TLS by using Application Gateway with PowerShell](/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
+    The following table describes identity services that are shown in the diagram.
 
-    - **PRIVATE LINK**
+    | Label | Description | Documentation |
+    |---|---|---|
+    | **RBAC** | Azure role-based access control (Azure RBAC) helps you manage access to Azure services by using granular permissions that are based on users' Azure AD credentials. | [What is Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview)? |
+    | **MFA** | Multi-factor authentication offers additional types of authentication beyond user names and passwords. | [How it works: Azure AD Multi-Factor Authentication](/azure/active-directory/authentication/concept-mfa-howitworks) |
+    | **ID PROTECTION** | Identity Protection, a security service from Azure AD, analyses trillions of signals per day to identify and protect users from threats. | [What is Identity Protection](/azure/active-directory/identity-protection/overview-identity-protection)? |
+    | **PIM** | Privileged Identity Management (PIM), a security service from Azure AD. It helps you to provide "super" user privileges temporarily for Azure AD (for example, Global Admin) and Azure subscriptions (for example, owner or contributor). | [What is Azure AD Privileged Identity Management](/azure/active-directory/privileged-identity-management/pim-configure)? |
+    | **COND ACC** | Conditional Access is an intelligent security service that uses policies that you define for various conditions to block or grant access to users. | [What is Conditional Access?](/azure/active-directory/conditional-access/overview) |
 
-      Service that allows you to create a private network for an Azure service that initially is exposed to the internet. For more information, see [What is Azure Private Link](https://docs.microsoft.com/en-us/azure/private-link/private-link-overview)?
 
-    - **PRIVATE ENDPOINT**
-
-      Creates a network interface and attaches it to the Azure service. Private Endpoint is part of Private Link. This configuration lets the service, by using a private endpoint, be part of your virtual network. For more information, see [What is a private endpoint](/azure/private-link/private-endpoint-overview)?
-
-3.  **INFRASTRUCTURE AND ENDPOINT**
-
-    - **BASTION**
-
-      Bastion provides jump server functionality. This service allows you to access your VMs through RDP or SSH without exposing your VMs to the internet. For more information, see [What is Azure Bastion](/azure/bastion/bastion-overview)?
-
-    - **ANTIMALWARE**
-
-      Microsoft Defender provide anti-malware service and is part of Windows 10, Windows 11, Windows Server 2016, and Windows Server 2019. For more information, see [Microsoft Defender Antivirus in Windows](/microsoft-365/security/defender-endpoint/microsoft-defender-antivirus-windows?view=o365-worldwide).
-
-    - **DISK ENCRYPT**
-
-      Disk Encryption allows you to encrypt the disk of a VM. For more information about using BitLocker to secure storage on your VMs, see [Azure Disk Encryption for Windows VMs](/azure/virtual-machines/windows/disk-encryption-overview).
-
-    - **KEYVAULT**
-
-      Key Vault, a service to store keys, secrets, and certificates with FIPS 140-2 Level 2 or 3. For more information about using Key Vault to store secrets, see [Azure Key Vault basic concepts](/azure/key-vault/general/basic-concepts).
-
-    - **RDP SHORT**
-
-      Azure Virtual Desktop RDP Shortpath. This feature allows remote users to connect to the Virtual Desktop service from a private network. For more information about using Azure Virtual Desktop over RDP, see [Azure Virtual Desktop RDP Shortpath for managed networks](https://docs.microsoft.com/en-us/azure/virtual-desktop/shortpath).
-
-    - **Reverse Connect**
-
-      A built-in security feature from Azure Virtual Desktop. Reverse connect guarantees that remote users only receive pixel streams and don't reach the host VMs. For more information, see [Understanding Azure Virtual Desktop network connectivity](/azure/virtual-desktop/network-connectivity).
-
-4.  **Application and Data**
-
-    - **FRONTDOOR + WAF**
-
-      A content delivery network (CDN). Front Door combines multiple points of presence to deliver a better connection for users who access the service and adds WAF. For more information about this CDN, see [What is Azure Front Door](/azure/frontdoor/front-door-overview)?
-
-    - **API MANAGEMENT**
-
-      A service that delivers security for API calls. For more information about managing APIs across environments, see [About API Management](/azure/api-management/api-management-key-concepts).
-
-    - **PENTEST**
-
-      A set of best practices to execute a penetration test in your environment. For more information about penetration testing on Azure, see [Penetration testing](/azure/security/fundamentals/pen-testing).
-
-    - **Storage SAS Token**
-
-      a temporary key to allow others to access your Azure storage account. For more information about using SAS tokens with Azure storage, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](/azure/storage/common/storage-sas-overview).
-
-    - **Storage Private endpoint**
-
-      create a network card and attach it to your storage account to configure it inside a private network on Azure. For more information about configuring private access or Private Link, see [Use private endpoints for Azure Storage](/azure/storage/common/storage-private-endpoints).
-
-    - **Storage Firewall**
-
-      allows you to set a range of IP addresses that can access your storage account. For more information about configuring access to your data in Azure Storage to a virtual network, see [Configure Azure Storage firewalls and virtual networks](/azure/storage/common/storage-network-security?tabs=azure-portal).
-
-    - **Storage encryption**
-
-      set your storage account with encryption at rest. For more information about encryption in Azure Storage, see [Azure Storage encryption for data at rest](/azure/storage/common/storage-service-encryption).
-
-    - **SQL Audit**
-
-      tracks database events and writes them to an audit log in your Azure storage account.  For more information about tracking and logging database events, see [Auditing for Azure SQL Database and Azure Synapse Analytics](/azure/azure-sql/database/auditing-overview).
-
-    - **SQL Vulnerability Assessment**
-
-      is a service that helps you discover, track, and remediate potential database vulnerabilities. For more about assessing vulnerabilities in databases, see [SQL vulnerability assessment helps you identify database vulnerabilities](/azure/azure-sql/database/sql-vulnerability-assessment?tabs=azure-powershell).
-
-    - **SQL Encryption**
-
-      Transparent data encryption (TDE) helps protect Azure SQL database services by encrypting data at rest. For more information about TDE, see [Transparent data encryption for SQL Database, SQL Managed Instance, and Azure Synapse Analytics](/azure/azure-sql/database/transparent-data-encryption-tde-overview?tabs=azure-portal).
-
-5.  **Identity**
-
-    - **Azure role-based access control (Azure RBAC)**
-
-      Azure Azure RBAC helps you provide granular permissions to different Azure services based on Azure AD user's credentials. For more about managing access and permissions, see [What is Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview)?
-
-    - **Multi-factor authentication**
-
-      Multi-factor authentication offers additional authentication types on top of traditional user name and password authentication. For more information about requiring more forms of authentication, see [How it works: Azure AD Multi-Factor Authentication](/azure/active-directory/authentication/concept-mfa-howitworks).
-
-    - **Identity Protection**
-
-      this is a security service from Azure AD. It analyses trillions of signals per day to identify and protect users from threats. For more information about the benefits of using Identity Protection, see [What is Identity Protection](/azure/active-directory/identity-protection/overview-identity-protection)?
-
-    - **Privileged Identity Management (PIM)**
-
-      this is another security service from Azure AD. It helps you to provide "super" user privileges temporarily for Azure AD (for example, Global Admin) and Azure subscriptions (for example, owner or contributor). For more information about PIM's time-based and approval-based role activation, see [What is Azure AD Privileged Identity Management](/azure/active-directory/privileged-identity-management/pim-configure)?
-
-    - **Conditional Access**
-
-      is an intelligent security service based on policies that you define to create rules that allow or deny users to access Azure based on different conditions. For more information about making access conditional, see [What is Conditional Access?](/azure/active-directory/conditional-access/overview).
-
-All security services named in the preceding text that are part of the architecture diagram can work together in any combination according to your business IT environment and your security requirements.
-
-Anyway, Microsoft has other documents that can help you in your security journey for your business IT environment. Here are some of them:
+Microsoft has other documentation that can help you in your security journey for your IT environment. Here are some of them:
 
 - **Cloud Adoption Framework**
 
