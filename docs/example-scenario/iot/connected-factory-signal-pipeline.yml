@@ -17,7 +17,7 @@ products:
   - azure-iot-hub
   - azure-kubernetes-service
   - azure-stream-analytics
-name: Connected factory signal pipeline
+name: Connected factory signal processing pipeline
 summary: See a connected factory signal processing pipeline with a common configuration interface to connect brownfield and modern IoT devices through an OPC UA gateway.
 thumbnailUrl: /azure/architecture/browse/thumbs/connected-factory-signal-pipeline-01.png
 content: |
