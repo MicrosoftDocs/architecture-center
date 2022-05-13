@@ -20,13 +20,14 @@ This article presents Azure security services according to each Azure service. I
 
 The Azure security layer in this diagram is based on Azure Security Benchmark (ASB) v3, which is a set of security rules that are implemented through Azure policies. ASB is based on a combination of rules from [CIS Center for Internet Security](https://www.cisecurity.org/) and [National Institute of Standards and Technology](https://www.nist.gov/). For more information about ASB, see [Overview of the Azure Security Benchmark v3](/security/benchmark/azure/overview).
 
-The diagram doesn't contain all of the Azure security services that are available, but it shows the security services that are most commonly used by organizations. In the diagram, many of the services are labeled with their ASB control codes, in addition to abbreviated names. The control codes correspond to the control domains that are listed in [Controls](/security/benchmark/azure/overview#controls).
+The diagram doesn't contain all of the Azure security services that are available, but it shows the security services that are most commonly used by organizations. 
 
 
-## Dataflow
+## Components
 
-ASB and Azure Security Baselines ([Azure Security Benchmark overview](/security/benchmark/azure/security-baselines-overview)) describe Azure security services. In this article, we highlight only the services that are presented in the diagram. All of the security services that are identified in the architectural diagram can work together in any combination according to your IT environment and your organization's security requirements.
+In this article, we highlight only the services that are presented in the diagram. All of the security services that are identified in the architectural diagram can work together in any combination according to your IT environment and your organization's security requirements.
 
+This section describes the components and services that appear in the diagram. Many of those are labeled with their ASB control codes, in addition to their abbreviated labels. The control codes correspond to the control domains that are listed in [Controls](/security/benchmark/azure/overview#controls). 
 
 1.  **AZURE SECURITY BENCHMARK**
 
@@ -63,7 +64,6 @@ ASB and Azure Security Baselines ([Azure Security Benchmark overview](/security/
     | **PRIVATE LINK** | Service that allows you to create a private network for an Azure service that initially is exposed to the internet. | [What is Azure Private Link](https://docs.microsoft.com/en-us/azure/private-link/private-link-overview)? |
     | **PRIVATE ENDPOINT** | Creates a network interface and attaches it to the Azure service. Private Endpoint is part of Private Link. This configuration lets the service, by using a private endpoint, be part of your virtual network. | [What is a private endpoint](/azure/private-link/private-endpoint-overview)? |
 
-
 3.  **INFRASTRUCTURE AND ENDPOINTS**
 
     The following table describes infrastructure and endpoint services that are shown in the diagram.
@@ -76,7 +76,6 @@ ASB and Azure Security Baselines ([Azure Security Benchmark overview](/security/
     | **KEYVAULT** | Key Vault, a service to store keys, secrets, and certificates with FIPS 140-2 Level 2 or 3. | [Azure Key Vault basic concepts](/azure/key-vault/general/basic-concepts) |
     | **RDP SHORT** | Azure Virtual Desktop RDP Shortpath. This feature allows remote users to connect to the Virtual Desktop service from a private network. | [Azure Virtual Desktop RDP Shortpath for managed networks](https://docs.microsoft.com/en-us/azure/virtual-desktop/shortpath) |
     | **REVERSE CONNECT** | A built-in security feature from Azure Virtual Desktop. Reverse connect guarantees that remote users receive only pixel streams and don't reach the host VMs. | [Understanding Azure Virtual Desktop network connectivity](/azure/virtual-desktop/network-connectivity) |
-
 
 4.  **APPLICATION AND DATA**
 
@@ -95,7 +94,6 @@ ASB and Azure Security Baselines ([Azure Security Benchmark overview](/security/
     | **VULNERABILITY ASSESSMENT** | Service that helps you discover, track, and remediate potential database vulnerabilities. | [SQL vulnerability assessment helps you identify database vulnerabilities](/azure/azure-sql/database/sql-vulnerability-assessment?tabs=azure-powershell) |
     | **ENCRYPTION** (Azure SQL) | Transparent data encryption (TDE) helps protect Azure SQL database services by encrypting data at rest. | [Transparent data encryption for SQL Database, SQL Managed Instance, and Azure Synapse Analytics](/azure/azure-sql/database/transparent-data-encryption-tde-overview?tabs=azure-portal) |
 
-
 5.  **IDENTITY**
 
     The following table describes identity services that are shown in the diagram.
@@ -107,25 +105,6 @@ ASB and Azure Security Baselines ([Azure Security Benchmark overview](/security/
     | **ID PROTECTION** | Identity Protection, a security service from Azure AD, analyses trillions of signals per day to identify and protect users from threats. | [What is Identity Protection](/azure/active-directory/identity-protection/overview-identity-protection)? |
     | **PIM** | Privileged Identity Management (PIM), a security service from Azure AD. It helps you to provide "super" user privileges temporarily for Azure AD (for example, Global Admin) and Azure subscriptions (for example, owner or contributor). | [What is Azure AD Privileged Identity Management](/azure/active-directory/privileged-identity-management/pim-configure)? |
     | **COND ACC** | Conditional Access is an intelligent security service that uses policies that you define for various conditions to block or grant access to users. | [What is Conditional Access?](/azure/active-directory/conditional-access/overview) |
-
-
-Microsoft has other documentation that can help you in your security journey for your IT environment. Here are some of them:
-
-- **Cloud Adoption Framework**
-
-  The Cloud Adoption Framework provides security guidance for your cloud journey by clarifying the processes, best practices, models, and experience. More information about the framework, see [Security in the Microsoft Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/secure/).
-
-- **Azure Well-Architected Framework**
-
-  The Azure Well-Architected Framework is a set of guiding tenets that can be used to improve the quality of a workload. The framework is based on five pillars: reliability, security, cost optimization, operational excellence, and performance efficiency. More information about the framework, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/).
-
-- **Microsoft Security Best Practices**
-
-  This is one of the best Microsoft security documents available. Microsoft Security Best Practices (formerly known as the Azure Security Compass or Microsoft Security Compass) is a collection of best practices that provide clear, actionable guidance for security-related decisions. For a document that brings together all Microsoft security guidance, see [Microsoft Security Best Practices](/security/compass/compass).
-
-- **Microsoft Cybersecurity Reference Architectures (MCRA)**
-
-  This is a compilation of various Microsoft security Reference architectures. For more information about Microsoft security capabilities, see [Microsoft Cybersecurity Reference Architectures](https://aka.ms/mcra).
 
 
 ## Contributors
@@ -144,7 +123,17 @@ Other contributors:
 
 ## Next steps
 
-This document refers to some services, technologies, and terminologies. You can find more information about them in the following resources:
+Microsoft has more documentation that can help you in securing your IT environment, and the following articles can be particularly helpful:
+
+- [Security in the Microsoft Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/secure/). The Cloud Adoption Framework provides security guidance for your cloud journey by clarifying the processes, best practices, models, and experience.
+
+- [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/). The Azure Well-Architected Framework is a set of guiding tenets that you can use to improve the quality of a workload. The framework is based on five pillars: reliability, security, cost optimization, operational excellence, and performance efficiency.
+
+- [Microsoft Security Best Practices](/security/compass/compass). Microsoft Security Best Practices (formerly known as the *Azure Security Compass* or *Microsoft Security Compass*) is a collection of best practices that provide clear, actionable guidance for security-related decisions.
+
+- [Microsoft Cybersecurity Reference Architectures](https://aka.ms/mcra) (MCRA). MCRA is a compilation of various Microsoft security reference architectures. 
+
+In the following resources, you can find more information about the services, technologies, and terminologies that are mentioned in this article:
 
 - [What are public, private, and hybrid clouds?](https://azure.microsoft.com/overview/what-are-private-public-hybrid-clouds/)
 - [Overview of the Azure Security Benchmark (v3)](/security/benchmark/azure/overview)
@@ -154,3 +143,8 @@ This document refers to some services, technologies, and terminologies. You can 
 
 ## Related resources
 
+- [Azure files accessed on-premises and secured by AD DS](../../example-scenario/hybrid/azure-files-on-premises-authentication.yml)
+- [Network-hardened web application with private connectivity to PaaS datastores](../../example-scenario/security/hardened-web-app.yml)
+- [Conditional Access design principles and dependencies](../../conditional-access-design.yml)
+- [Zero-trust network for web applications with Azure Firewall and Application Gateway](../../example-scenario/gateway/application-gateway-before-azure-firewall.yml)
+- [Conditional Access design principles and dependencies](../../guide/security/conditional-access-design.yml)
