@@ -145,6 +145,6 @@ In the following resources, you can find more information about the services, te
 
 - [Azure files accessed on-premises and secured by AD DS](../../example-scenario/hybrid/azure-files-on-premises-authentication.yml)
 - [Network-hardened web application with private connectivity to PaaS datastores](../../example-scenario/security/hardened-web-app.yml)
-- [Conditional Access design principles and dependencies](../../conditional-access-design.yml)
+- [Conditional Access design principles and dependencies](../../guide/security/conditional-access-design.yml)
 - [Zero-trust network for web applications with Azure Firewall and Application Gateway](../../example-scenario/gateway/application-gateway-before-azure-firewall.yml)
 - [Conditional Access design principles and dependencies](../../guide/security/conditional-access-design.yml)
