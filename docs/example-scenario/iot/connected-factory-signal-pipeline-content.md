@@ -1,12 +1,12 @@
 A manufacturing floor might have hundreds or thousands of internet of things (IoT) and industrial IoT (IIoT) devices that capture data at different intervals. Legacy *brownfield* and modern *greenfield* devices often coexist. These devices must capture and format data consistently to analyze and act on. Reliably interconnecting this landscape of heterogeneous devices can be difficult.
 
-This connected factory signal processing pipeline architecture simplifies device interconnection. A common configuration interface connects brownfield devices through an [OPC Unified Architecture (OPC UA)](https://opcfoundation.org/about/opc-technologies/opc-ua/) gateway. OPC UA-capable greenfield devices can connect to the pipeline directly.
+This connected factory signal processing pipeline simplifies device interconnection. A common configuration interface connects brownfield devices through an [OPC Unified Architecture (OPC UA)](https://opcfoundation.org/about/opc-technologies/opc-ua/) gateway. OPC UA-capable greenfield devices connect to the pipeline directly.
 
-The connected factory signal pipeline components use Azure technologies to identify and capture *signals*, or data points, from IIoT devices. For IIoT devices that can't communicate over OPC UA, the architecture uses the [KEPServerEX](https://www.kepware.com/products/kepserverex) IoT gateway and application programming interface (API).
+The signal processing pipeline components use Azure technologies to identify and capture *signals*, or data points, from IIoT devices. For IIoT devices that can't communicate over OPC UA, the architecture uses the [KEPServerEX](https://www.kepware.com/products/kepserverex) IoT gateway and application programming interface (API).
 
 Data from all devices follows a standard format, and includes specific contextual information about the originating device or machine. The pipeline has built-in traceability, versioning, and rollback functionality.
 
-This solution can help manufacturing organizations to:
+The connected factory signal processing pipeline can help manufacturing organizations to:
 
 - Digitize previously manual management processes and data gathering.
 - Easily migrate to on-premises and cloud IoT solutions.
@@ -40,7 +40,7 @@ This architecture uses a pipeline configuration that tracks the details of machi
 
 1. The Configuration Controller, an Azure IoT Edge module, communicates with OPC Publisher to apply the requested configuration version.
 
-1. The solution uses two [Azure Industrial IoT](/azure/industrial-iot) components, [Microsoft OPC Publisher](/azure/industrial-iot/overview-what-is-opc-publisher) and the [OPC Twin](https://azure.github.io/Industrial-IoT/modules/twin.html) edge module.
+1. The solution uses two [Azure Industrial IoT](/azure/industrial-iot) components, OPC Publisher and the OPC Twin edge module.
 
 1. For KEPServer configuration, the Azure IoT Edge module connects to KEPServer’s REST–based Configuration API, using a library generated from the built-in KEPServerEX API documentation.
 
@@ -50,23 +50,23 @@ This architecture uses a pipeline configuration that tracks the details of machi
 
 - [Azure Service Bus](https://azure.microsoft.com/services/service-bus) is a fully managed enterprise message broker with message queues and publish-subscribe topics. Service Bus decouples applications and services from each other.
 
-- [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer) is a fast, fully managed data analytics service for real-time analysis of large volumes of data streaming from applications, websites, and IoT devices.
+- [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs) is a fully managed, scalable, real-time data ingestion service. Event Hubs can stream millions of events per second from any source to build dynamic data pipelines and immediately respond to business challenges.
+
+- [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics) is a real-time analytics and complex event-processing engine. Stream Analytics can analyze and process high volumes of fast-streaming data from multiple sources simultaneously.
 
 - [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake) stores data of any size, shape, and speed, and does all types of processing and analytics across platforms and languages. Azure Data Lake removes the complexities of ingesting and storing data, making it faster to get up and running with batch, streaming, and interactive analytics.
 
-- [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs) is a fully managed, scalable, real-time data ingestion service. Event Hubs can stream millions of events per second from any source to build dynamic data pipelines and immediately respond to business challenges.
+- [Azure Storage](https://azure.microsoft.com/services/storage) is a durable, highly available, and massively scalable cloud storage solution. Azure Storage includes object, file, disk, queue, and table storage capabilities.
+
+- [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer) is a fast, fully managed data analytics service for real-time analysis of large volumes of data streaming from applications, websites, and IoT devices.
 
 - [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge) devices recognize and respond to sensor input by using onboard processing. Preprocessing and sending only necessary data to the cloud controls costs. Intelligent edge devices can respond rapidly or even work offline.
 
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) provides a cloud-hosted solution back end to connect virtually any device. You can extend your solution from the cloud to the edge with per-device authentication, built-in device management, and scaled provisioning.
 
-- [Azure Storage](https://azure.microsoft.com/services/storage) is a durable, highly available, and massively scalable cloud storage solution. Azure Storage includes object, file, disk, queue, and table storage capabilities.
-
-- [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics) is a real-time analytics and complex event-processing engine. Stream Analytics can analyze and process high volumes of fast-streaming data from multiple sources simultaneously.
-
 - [OPC Publisher](/azure/industrial-iot/overview-what-is-opc-publisher) is an Azure IoT Edge module that connects to existing OPC UA servers and publishes telemetry data from OPC UA servers.
 
-- [OPC Twin edge module](https://azure.github.io/Industrial-IoT/modules/twin.html) remotely browses nodes from known OPC UA servers.
+- [OPC Twin](https://azure.github.io/Industrial-IoT/modules/twin.html) is an Azure IoT Edge module that remotely browses nodes from known OPC UA servers.
 
 - [PTC/Kepware's KEPServerEX](https://www.kepware.com/products/kepserverex) provides an IoT Gateway module that connects to and sends data to IoT Hub over the MQTT protocol. Kepware has connectivity libraries for an array of equipment, and can unlock data from both new and legacy industrial devices.
 
@@ -74,9 +74,9 @@ This architecture uses a pipeline configuration that tracks the details of machi
 
 Using KEPServerEX as the OPC-UA gateway lets brownfield devices connect with the signal pipeline. Supported device types can be configured to automatically connect to the gateway. Removing the need to manage any configuration directly in the gateway's user interface simplifies and standardizes the device setup process.
 
-[ ![Diabram showing the KEPServer gateway configuration.](./media/connected-factory-signal-pipeline-02.png) ](./media/connected-factory-signal-pipeline-02.png#lightbox)
+[ ![Diabram showing the KEPServer gateway configuration.](./media/connected-factory-signal-pipeline-server.png) ](./media/connected-factory-signal-pipeline-server.png#lightbox)
 
-The KEPServerEX automation is the first implementation of the generic gateway configuration solution built into the Asset Registry API. This extensible gateway configuration solution consists of the following parts:
+The KEPServerEX automation is the first implementation of the generic gateway configuration solution built into the solution's Asset Registry API. This extensible gateway configuration solution has the following parts:
 
 - A polymorphic, gateway-agnostic model for gateways, devices, and signals managed by the Asset Registry service.
 - A client library used by the Asset Registry REST API to communicate with the gateway configuration IoT Edge modules.
@@ -95,17 +95,17 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Reliability
 
-[Availability zones](/azure/availability-zones/az-overview) are unique physical locations within Azure regions that help protect virtual machines (VMs), applications, and data from datacenter failures. The APIs and Azure services that make up this architecture can be deployed in multiple Azure regions using availability zones. You can also [deploy AKS in availability zones](/azure/aks/availability-zones).
+- [Availability zones](/azure/availability-zones/az-overview) are unique physical locations within Azure regions that help protect virtual machines (VMs), applications, and data from datacenter failures. The APIs and Azure services that make up this architecture can be deployed in multiple Azure regions using availability zones. You can also [deploy AKS in availability zones](/azure/aks/availability-zones).
 
-IoT Hub provides intra-region high availability by implementing redundancies in almost all layers of the service.
+- IoT Hub provides intra-region high availability by implementing redundancies in almost all layers of the service.
 
 ### Security
 
-Consider using [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis) for identity and access control, and [Azure Key Vault](/azure/key-vault/general/overview) to manage keys and secrets.
+- Consider using [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis) for identity and access control, and [Azure Key Vault](/azure/key-vault/general/overview) to manage keys and secrets.
 
-Take advantage of [Azure Policy](/azure/governance/policy/overview) to enforce organizational standards and assess compliance at scale. Policies can deny deployments, log compliance issues, and modify resources to make them compliant.
+- Take advantage of [Azure Policy](/azure/governance/policy/overview) to enforce organizational standards and assess compliance at scale. Policies can deny deployments, log compliance issues, and modify resources to make them compliant.
 
-Azure Policy can also enforce built-in security policies to improve your AKS cluster security. Install the [Azure Policy Add-on for AKS](/azure/governance/policy/concepts/policy-for-kubernetes) to apply individual policy definitions or groups of policy definitions, called *initiatives* or *policy sets*, to your cluster.
+  Azure Policy can also enforce built-in security policies to improve your AKS cluster security. Install the [Azure Policy Add-on for AKS](/azure/governance/policy/concepts/policy-for-kubernetes) to apply individual policy definitions or groups of policy definitions, called *initiatives* or *policy sets*, to your cluster.
 
 ### Cost optimization
 
@@ -113,9 +113,9 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 ### Operational excellence
 
-Use [continuous integration/continuous deployment (CI/CD) processes](/azure/architecture/example-scenario/apps/devops-with-aks) to deploy the services in this example workload automatically. Use a solution like [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) or [GitHub Actions](https://github.com/features/actions).
+- Use [continuous integration/continuous deployment (CI/CD) processes](/azure/architecture/example-scenario/apps/devops-with-aks) to deploy the services in this example workload automatically. Use a solution like [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) or [GitHub Actions](https://github.com/features/actions).
 
-Also consider using [Azure Monitor](https://azure.microsoft.com/services/monitor) to analyze and optimize the performance of your Azure services and to monitor and diagnose networking issues.
+- Also consider using [Azure Monitor](https://azure.microsoft.com/services/monitor) to analyze and optimize the performance of your Azure services and to monitor and diagnose networking issues.
 
 ### Performance efficiency
 
