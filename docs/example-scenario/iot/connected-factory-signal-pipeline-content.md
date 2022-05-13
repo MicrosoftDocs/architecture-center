@@ -1,15 +1,15 @@
-A manufacturing floor might have hundreds or thousands of internet of things (IoT) and industrial IoT (IIoT) devices that capture data at different intervals. Legacy *brownfield* and modern *greenfield* devices often coexist. These devices must capture and format data consistently to analyze and act on. Reliably interconnecting this landscape of heterogeneous devices can be problematic.
+A manufacturing floor might have hundreds or thousands of internet of things (IoT) and industrial IoT (IIoT) devices that capture data at different intervals. Legacy *brownfield* and modern *greenfield* devices often coexist. These devices must capture and format data consistently to analyze and act on. Reliably interconnecting this landscape of heterogeneous devices can be difficult.
 
-The connected factory signal pipeline architecture simplifies the process of interconnecting devices. This solution uses a common configuration interface to connect brownfield devices through an [OPC Unified Architecture (OPC UA)](https://opcfoundation.org/about/opc-technologies/opc-ua/) gateway. OPC UA-capable greenfield devices can connect to the pipeline directly.
+This connected factory signal processing pipeline architecture simplifies device interconnection. A common configuration interface connects brownfield devices through an [OPC Unified Architecture (OPC UA)](https://opcfoundation.org/about/opc-technologies/opc-ua/) gateway. OPC UA-capable greenfield devices can connect to the pipeline directly.
 
-The connected factory signal pipeline components use Azure technologies to identify and capture signals, or data points, from IIoT devices. The architecture uses the [KEPServerEX](https://www.kepware.com/products/kepserverex) IoT gateway and application programming interface (API) for IIoT devices that can't communicate over OPC UA.
+The connected factory signal pipeline components use Azure technologies to identify and capture *signals*, or data points, from IIoT devices. For IIoT devices that can't communicate over OPC UA, the architecture uses the [KEPServerEX](https://www.kepware.com/products/kepserverex) IoT gateway and application programming interface (API).
 
-Data from all devices follows a standard format, and includes specific contextual information about the originating device or machine. Changes made to the signal pipeline configuration are traceable and can be rolled back.
+Data from all devices follows a standard format, and includes specific contextual information about the originating device or machine. The pipeline has built-in traceability, versioning, and rollback functionality.
 
 This solution can help manufacturing organizations to:
 
-- Digitize manual process management and data gathering.
-- Easily migrate to on-premises IoT and cloud solutions.
+- Digitize previously manual management processes and data gathering.
+- Easily migrate to on-premises and cloud IoT solutions.
 - Quickly identify and react to issues on factory floors.
 - Streamline processes and improve efficiency.
 
@@ -27,25 +27,28 @@ This solution can help manufacturing organizations to:
 
 This architecture uses a pipeline configuration that tracks the details of machines, leaf devices, and signals.
 
-1. The Pipeline Configuration API, an ASP.NET Core web API on Azure Kubernetes Service (AKS) does the pipeline configuration create, read, update, and delete (CRUD) operations. The API defines the devices and signals to include in the pipeline, and the data they surface to applications.
+1. The Pipeline Configuration API, an ASP.NET Core web API on Azure Kubernetes Service (AKS), does the pipeline configuration create, read, update, and delete (CRUD) operations. The API defines the devices and signals to include in the pipeline, and the data they surface to applications.
 
    - The pipeline configuration state can be draft, final, activating, or active.
    - The signal configurations include attributes like heartbeat interval, sampling interval, and publishing rate.
-   - The pipeline has built-in traceability, versioning, and rollback functionality.
 
-1. It's easy to integrate streaming technologies into the pipeline to provide enriched machine data. The pipeline can use services like Azure Event Hubs, Azure Stream Analytics, Azure Data Lake, Azure Storage, and Azure Data Explorer.
+1. Streaming, storage, and analytics technologies integrate into the pipeline to provide enriched machine data. The pipeline can use services like Azure Event Hubs, Azure Stream Analytics, Azure Data Lake, Azure Storage, and Azure Data Explorer.
 
 1. The Asset Registry, an ASP.NET Core web API on AKS, does CRUD operations on machine metadata, including the servers that machines are connected to and their available signals.
 
-1. The Pipeline Publisher, an ASP.NET Core web API on AKS, chunks the configuration file and sends it to the configuration controller module to apply a new pipeline version.
+1. The Pipeline Publisher, an ASP.NET Core web API on AKS, chunks the configuration file and sends it to the Configuration Controller module to apply a new pipeline version.
 
 1. The Configuration Controller, an Azure IoT Edge module, communicates with OPC Publisher to apply the requested configuration version.
 
 1. The solution uses two [Azure Industrial IoT](/azure/industrial-iot) components, [Microsoft OPC Publisher](/azure/industrial-iot/overview-what-is-opc-publisher) and the [OPC Twin](https://azure.github.io/Industrial-IoT/modules/twin.html) edge module.
 
-1. For KEPServer configuration, the Azure IoT Edge module connects to KEPServer’s REST–based Configuration API using a library generated from the built-in KEPServerEX API documentation.
+1. For KEPServer configuration, the Azure IoT Edge module connects to KEPServer’s REST–based Configuration API, using a library generated from the built-in KEPServerEX API documentation.
 
 ### Components
+
+- [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) is a managed, serverless Kubernetes platform for microservices apps. Kubernetes is open-source orchestration software for deploying, managing, and scaling containerized apps.
+
+- [Azure Service Bus](https://azure.microsoft.com/services/service-bus) is a fully managed enterprise message broker with message queues and publish-subscribe topics. Service Bus decouples applications and services from each other.
 
 - [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer) is a fast, fully managed data analytics service for real-time analysis of large volumes of data streaming from applications, websites, and IoT devices.
 
@@ -56,10 +59,6 @@ This architecture uses a pipeline configuration that tracks the details of machi
 - [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge) devices recognize and respond to sensor input by using onboard processing. Preprocessing and sending only necessary data to the cloud controls costs. Intelligent edge devices can respond rapidly or even work offline.
 
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) provides a cloud-hosted solution back end to connect virtually any device. You can extend your solution from the cloud to the edge with per-device authentication, built-in device management, and scaled provisioning.
-
-- [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) is a managed, serverless Kubernetes platform for microservices apps. Kubernetes is open-source orchestration software for deploying, managing, and scaling containerized apps.
-
-- [Azure Service Bus](https://azure.microsoft.com/services/service-bus) is a fully managed enterprise message broker with message queues and publish-subscribe topics. Service Bus decouples applications and services from each other.
 
 - [Azure Storage](https://azure.microsoft.com/services/storage) is a durable, highly available, and massively scalable cloud storage solution. Azure Storage includes object, file, disk, queue, and table storage capabilities.
 
@@ -81,8 +80,8 @@ The KEPServerEX automation is the first implementation of the generic gateway co
 
 - A polymorphic, gateway-agnostic model for gateways, devices, and signals managed by the Asset Registry service.
 - A client library used by the Asset Registry REST API to communicate with the gateway configuration IoT Edge modules.
-- A library for an Azure IoT Edge module that exposes a common interface based on direct methods to configure devices and signals in a gateway.
-- The Azure IoT Edge module for a specific gateway configuration, which translates the generic requests from the direct methods to the proprietary gateway configuration interface and back.
+- A library for an Azure IoT Edge module that uses a common interface based on direct methods, to configure devices and signals in a gateway.
+- The Azure IoT Edge module for a specific gateway configuration, which translates the generic direct methods requests to and from the proprietary gateway.
 
 ### Alternatives
 
@@ -92,7 +91,7 @@ As an alternative to Azure Stream Analytics, you could use [HDInsight Storm](/az
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, a set of guiding tenets to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, a set of guiding tenets to improve the quality of a workload. For more information, see the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Reliability
 
@@ -108,13 +107,13 @@ Take advantage of [Azure Policy](/azure/governance/policy/overview) to enforce o
 
 Azure Policy can also enforce built-in security policies to improve your AKS cluster security. Install the [Azure Policy Add-on for AKS](/azure/governance/policy/concepts/policy-for-kubernetes) to apply individual policy definitions or groups of policy definitions, called *initiatives* or *policy sets*, to your cluster.
 
-## Cost optimization
+### Cost optimization
 
 Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs, and the [AKS calculator](https://azure.microsoft.com/pricing/calculator/?service=kubernetes-service) to estimate costs for running AKS in Azure. For more considerations, see [Cost optimization](/azure/architecture/framework/cost/) in the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Operational excellence
 
-Use [continuous integration/continuous deployment (CI/CD) processes](/azure/architecture/example-scenario/apps/devops-with-aks) to deploy the services in this example workload automatically. Use a solution like Azure Pipelines or GitHub Actions.
+Use [continuous integration/continuous deployment (CI/CD) processes](/azure/architecture/example-scenario/apps/devops-with-aks) to deploy the services in this example workload automatically. Use a solution like [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) or [GitHub Actions](https://github.com/features/actions).
 
 Also consider using [Azure Monitor](https://azure.microsoft.com/services/monitor) to analyze and optimize the performance of your Azure services and to monitor and diagnose networking issues.
 
