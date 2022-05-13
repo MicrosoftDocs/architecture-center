@@ -29,4 +29,4 @@ Use the AKS virtual node to provision pods inside ACI that start in seconds. Thi
 
 ## Related resources
 
-If you need a refresher in Kubernetes, complete the [Azure Kubernetes Service Workshop](/learn/modules/aks-workshop) to deploy a multi-container application to Kubernetes on Azure Kubernetes Service (AKS).
+If you need a refresher in Kubernetes, complete the [Introduction to Kubernetes on Azure learning path](/learn/modules/aks-workshop).
