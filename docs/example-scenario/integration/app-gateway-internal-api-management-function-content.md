@@ -42,7 +42,6 @@ For multi-region deployments, consider using [**Azure Front Door**](https://docs
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
-- Review the reference implementation resources at [AppGW-IAPIM-Func](../../reference-implementations/AppGW-IAPIM-Func/) to better understand the specifics of this implementation.
 
 ### Reliability
 
