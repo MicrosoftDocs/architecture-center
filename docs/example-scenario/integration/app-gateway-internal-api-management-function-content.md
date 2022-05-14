@@ -64,7 +64,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 ### Operational excellence 
 
 - API Management configurations should be represented as ARM templates and an infrastructure-as-code mindset should be embraced.
-- A CI/CD process should be leveraged to manage, version and update APIM configurations.
+- A CI/CD process should be leveraged to manage, version and update API Management configurations.
 - The Uri `/status-0123456789abcdef` can be used as a common health endpoint for the APIM service.
 - Client certificate negotiation is enabled is a per-gateway configuration.
 - Certificates updated in the key vault are automatically rotated in API Management and is updated within 4 hours.
