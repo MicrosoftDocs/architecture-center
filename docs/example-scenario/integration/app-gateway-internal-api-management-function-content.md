@@ -16,27 +16,27 @@ The architecture leverages the following components:
 
 - **[Application Gateway](https://docs.microsoft.com/en-us/azure/application-gateway/overview)** a managed service acting as a layer 7 load balancer and [web application firewall](https://docs.microsoft.com/en-us/azure/web-application-firewall/ag/ag-overview) in this use case the application gateway protects the internal APIM instance allowing for use of internal and external mode.
 
-- **[Azure Private DNS Zones](https://docs.microsoft.com/en-us/azure/dns/private-dns-privatednszone)** allow users to manage and resolve domain names within a virtual network without needing to implement a custom DNS solution. A Private Azure DNS zone can be aligned to one or more virtual networks through [virtual network links](https://docs.microsoft.com/en-us/azure/dns/private-dns-virtual-network-links). Due to the internal mode of the APIM instance this reference architecture uses, a private DNS zone is required.
+- **[Azure Private DNS Zones](https://docs.microsoft.com/en-us/azure/dns/private-dns-privatednszone)** allow users to manage and resolve domain names within a virtual network without needing to implement a custom DNS solution. A Private Azure DNS zone can be aligned to one or more virtual networks through [virtual network links](https://docs.microsoft.com/en-us/azure/dns/private-dns-virtual-network-links). Due to the Azure Functions being exposed over a private endpoint, this reference architecture uses, a private DNS zone is required.
 
 - **[Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview)** is a feature of Azure Monitor that helps Developers detect anomalies, diagnose issues, and understand usage patterns with extensible application performance management and monitoring for live web apps. A variety of platforms including .NET, Node.js, Java, and Python are supported for apps that are hosted in Azure, on-prem, hybrid, or other public clouds. Application Insights is included as part of this reference architecture to monitor behaviors of the deployed application.
 
 - **[Log Analytics](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-overview)** is a feature of Azure Monitor that allows users to edit and run log queries with data in Azure Monitor Logs, optionally from within the Azure portal. Developers can run simple queries for a set of records or use Log Analytics to perform advanced analysis and visualize the results. Log Analytics is configured as part of this reference architecture to aggregate all the monitoring logs for additional analysis and reporting.
 
-- **[Azure Virtual Machine](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/overview)** is an on-demand, scalable computing resource that can be used to host a number of different workloads. In this reference architecture, virtual machines are used to provide a management jumpbox server, as well as a host for the DevOps Agent / GitHub Runner.
+- **[Azure Virtual Machine](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/overview)** is a computing resource that can be used to host a number of different workloads. In this reference architecture, virtual machines are used to provide a management jumpbox server, as well as a host for the DevOps Agent / GitHub Runner.
 
-- **[Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/general/basic-concepts)** is a cloud service to securely store and access secrets, ranging from API keys and passwords to certificates and cryptographic keys. While this reference architecture does not store secrets in the Key Vault as part of the infrastructure deployment of this reference architecture, the Key Vault is deployed to facilitate secret management for future code deployments.
+- **[Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/general/basic-concepts)** is a cloud service to securely store and access secrets, ranging from API keys and passwords to certificates and cryptographic keys. This reference architecture uses Azure Key Vault to store the SSL certificates used by the Application Gateway. 
 
 - **[Azure Bastion](https://docs.microsoft.com/en-us/azure/bastion/bastion-overview)** is a Platform-as-a-Service service provisioned within the developer's virtual network which provides secure RDP/SSH connectivity to the developer's virtual machines over TLS from the Azure portal. With Azure Bastion, virtual machines no longer require a public IP address to connect via RDP/SSH. This reference architecture uses Azure Bastion to access the DevOps Agent / GitHub Runner server or the management jump box server.
 
 ### Alternatives
 For the backend services that the API Management instance connects to, there are several alternatives in addition to Azure Functions that is used in this reference implementation:
 
-- [**Azure App Service**](https://docs.microsoft.com/en-us/azure/app-service/overview) is a fully managed HTTP-based service to build, deploy, and scale web apps. .NET, .NET Core, Java, Ruby, Node.js, PHP, and Python are all suported. Applications can run and scale in either Windows or Linux based environment. 
-- [**Azure Kubernetes Service**](https://docs.microsoft.com/en-us/azure/aks/intro-kubernetes) offers fully managed Kubernetes clusters for integrated continuous intgration and continupous delivery (CI/CD) experience, governace, and security.
+- [**Azure App Service**](https://docs.microsoft.com/en-us/azure/app-service/overview) is a fully managed HTTP-based service to build, deploy, and scale web apps. .NET, .NET Core, Java, Ruby, Node.js, PHP, and Python are all supported. Applications can run and scale in either Windows or Linux based environment. 
+- [**Azure Kubernetes Service**](https://docs.microsoft.com/en-us/azure/aks/intro-kubernetes) offers fully managed Kubernetes clusters for integrated continuous integration and continuous delivery (CI/CD) experience, governance, and security.
 - [**Azure Logic Apps**](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-overview) is a cloud based platform for creating and running automated workflows. 
-- [**Azure Container Apps**](https://docs.microsoft.com/en-us/azure/container-apps/overview) enables you to run microservices and contanerized applications on a serverless platform. 
+- [**Azure Container Apps**](https://docs.microsoft.com/en-us/azure/container-apps/overview) enables you to run microservices and containerized applications on a serverless platform. 
 
-For multi-region deployments, consider using [**Azure Front Door**](https://docs.microsoft.com/en-us/azure/frontdoor/front-door-overview) to deliver high aviability, lower latency and scale. 
+For multi-region deployments, consider using [**Azure Front Door**](https://docs.microsoft.com/en-us/azure/frontdoor/front-door-overview) to provide fast, reliable, and secure access between your users and your applications' static and dynamic web content. 
 
 ## Considerations
 
@@ -64,7 +64,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Cost optimization
 - Due to the need of availability zone and virtual network support, the Premium tier is selected following the [pricing for each region](https://azure.microsoft.com/en-gb/pricing/details/api-management/). 
-- For proof of concept or porotypes, other tiers of APIM (Developer, Standard, etc.) are recommended. 
+- For proof of concept or prototypes, other tiers of APIM (Developer, Standard, etc.) are recommended. 
 
 ### Operational excellence 
 
