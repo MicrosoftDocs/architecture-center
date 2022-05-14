@@ -33,10 +33,12 @@ For the backend services that the API Management instance connects to, there are
 
 - [**Azure App Service**](https://docs.microsoft.com/en-us/azure/app-service/overview) is a fully managed HTTP-based service to build, deploy, and scale web apps. .NET, .NET Core, Java, Ruby, Node.js, PHP, and Python are all supported. Applications can run and scale in either Windows or Linux based environment. 
 - [**Azure Kubernetes Service**](https://docs.microsoft.com/en-us/azure/aks/intro-kubernetes) offers fully managed Kubernetes clusters for integrated continuous integration and continuous delivery (CI/CD) experience, governance, and security.
-- [**Azure Logic Apps**](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-overview) is a cloud based platform for creating and running automated workflows. 
+- [**Azure Logic Apps**](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-overview) is a cloud based platform for creating and running automated workflows. An example reference architecture can be found at [Basic enterprise integration on Azure](/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration). 
 - [**Azure Container Apps**](https://docs.microsoft.com/en-us/azure/container-apps/overview) enables you to run microservices and containerized applications on a serverless platform. 
 
 For multi-region deployments, consider using [**Azure Front Door**](https://docs.microsoft.com/en-us/azure/frontdoor/front-door-overview) to provide fast, reliable, and secure access between your users and your applications' static and dynamic web content. 
+
+To get a better understanding around how Application Gateway can protect APIs, please refer to [Protect APIs with Application Gateway and API Management](/azure/architecture/reference-architectures/apis/protect-apis).
 
 ## Considerations
 
@@ -45,21 +47,21 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Reliability
 
-- Deploy at least two scale units spread over two AZs per region to maximize availability and performance
+- Deploy at least two [scale units](/azure/api-management/upgrade-and-scale) of API Management spread over two Availability Zones per region to maximize availability and performance
 
 
 ### Security 
 
 - API Management [validation policies](https://docs.microsoft.com/en-us/azure/api-management/validation-policies) are available to validate API requests and responses against an OpenAPI schema. These are not a replacement for a [Web Application Firewall](https://docs.microsoft.com/en-us/azure/web-application-firewall/overview) but can provide additional protection against some threats. Note that adding validation policies can have performance implications, so we recommend performance load tests to assess their impact on API throughput.
 - Deploy a Web Application Firewall (WAF) in front of API Management to provide protection against common web application exploits and vulnerabilities.
-- [Leverage named values with Key Vault secrets](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-properties?tabs=azure-portal) to protect sensitive information in APIM policies
-- Use [Application Gateway for external access of an internal APIM instance](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-integrate-internal-vnet-appgateway) to protect APIM instance and enable hybrid connectivity
-- Deploy the gateway in a VNet to supporting hybrid connectivity and increasing security
+- [Leverage named values with Key Vault secrets](/azure/api-management/api-management-howto-properties?tabs=azure-portal) to protect sensitive information in APIM policies
+- Use [Application Gateway for external access of an internal APIM instance](/azure/api-management/api-management-howto-integrate-internal-vnet-appgateway) to protect APIM instance and enable hybrid connectivity
+- Deploy the API Management gateway in a VNet to support hybrid connectivity and increased security
 - VNet peering provides great performance in a region but has a scalability limit of max 500 networks, if you require more workloads to be connected, use a [hub spoke design ](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?tabs=cli) or [Azure vWAN](https://microsoft.sharepoint.com/:p:/t/MSUSFY22TSICertCommunity/EcUBpRDWPOhAjYwZ8H9pkr0BTw9X0wSTEGGQKgT5UBwXMg?e=gwvip9)
 
 ### Cost optimization
-- Due to the need of availability zone and virtual network support, the Premium tier is selected following the [pricing for each region](https://azure.microsoft.com/en-gb/pricing/details/api-management/). 
-- For proof of concept or prototypes, other tiers of APIM (Developer, Standard, etc.) are recommended. 
+- Due to the need of availability zone and virtual network support, the Premium tier of API Management is selected following the [pricing for each region.](/pricing/details/api-management/) Additionally, Azure Functions in this workload is hosted on [Premium plan](/pricing/details/functions/) due to the need of VNet access. 
+- For proof of concept or prototypes, other tiers of API Management (Developer, Standard, etc.) are recommended. 
 
 ### Operational excellence 
 
