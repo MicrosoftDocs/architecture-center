@@ -76,7 +76,8 @@ This architecture is available on [GitHub](https://github.com/Azure/apim-landing
 
 ## Next steps
 
-* [Identity and access management for the Azure API Management landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/api-management/identity-and-access-management)
+* This same architecture is used as the foundation of the [Azure API Management landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/api-management/landing-zone-accelerator) in the Cloud Adoption Framework.
+* [Use API Gateways in microservices](/azure/architecture/microservices/design/gateway)
 * [CI/CD for API Management using Azure Resource Manager templates](/azure/api-management/devops-api-development-templates)
 * [Intro to API Management](https://docs.microsoft.com/en-us/learn/modules/introduction-to-azure-api-management/)
 * [Manage APIs with APIM](https://docs.microsoft.com/en-us/learn/modules/publish-manage-apis-with-azure-api-management/)
