@@ -65,20 +65,20 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Operational excellence 
 
-- APIM configurations are represented as ARM templates and an infrastructure-as-code mindset should be embraced.
-- A CI/CD process should be leveraged to manage, version and update APIM configurations.
+- API Management configurations should be represented as ARM templates and an infrastructure-as-code mindset should be embraced.
+- A CI/CD process should be leveraged to manage, version and update API Management configurations.
 - The Uri `/status-0123456789abcdef` can be used as a common health endpoint for the APIM service.
 - Client certificate negotiation is enabled is a per-gateway configuration.
 - Certificates updated in the key vault are automatically rotated in API Management and is updated within 4 hours.
-- Utilize Key Vault for Certificate storage, notification, and rotation.
 
-## Deploy this accelerator
+## Deployment
 
-A deployment for the reference architecture that implements these recommendations and considerations is available on [GitHub](../README.md) 
+This architecture is available on [GitHub](https://github.com/Azure/apim-landing-zone-accelerator). It contains all the necessary infrastructure as code files and [instructions](https://github.com/Azure/apim-landing-zone-accelerator/blob/main/docs/README.md) on how to deploy.
 
 ## Next steps
 
-* [Identity and access management for the Azure API Management landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/api-management/identity-and-access-management)
+* This same architecture is used as the foundation of the [Azure API Management landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/api-management/landing-zone-accelerator) in the Cloud Adoption Framework.
+* [Use API Gateways in microservices](/azure/architecture/microservices/design/gateway)
 * [CI/CD for API Management using Azure Resource Manager templates](/azure/api-management/devops-api-development-templates)
 * [Intro to API Management](https://docs.microsoft.com/en-us/learn/modules/introduction-to-azure-api-management/)
 * [Manage APIs with APIM](https://docs.microsoft.com/en-us/learn/modules/publish-manage-apis-with-azure-api-management/)
