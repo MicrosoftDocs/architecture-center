@@ -14,9 +14,11 @@ azureCategories:
   - integration
   - security
 products:
-  - azure-monitor
-  - azure-log-analytics
-  - azure-sentinel
+  - azure-active-directory
+  - azure-firewall
+  - azure-rbac
+  - azure-web-application-firewall
+  - azure-storage
 name: Building the first layer of defense with Azure Security services
 summary: Placeholder summary.
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-security-build-first-layer-defense-thumbnail.png
