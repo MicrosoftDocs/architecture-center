@@ -42,11 +42,6 @@ For multi-region deployments, consider using [**Azure Front Door**](https://docs
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
-- Review the reference implementation resources at [AppGW-IAPIM-Func](../../reference-implementations/AppGW-IAPIM-Func/) to better understand the specifics of this implementation.
-- It is recommended that you clone this repo and modify the reference implementation resources to suit your requirements and your organization's specific landing zone guidelines.
-- Ensure that the service principal used to deploy the solution has the required permissions to create the resource types listed above.
-- Consider the CI/CD service you will use for deploying the reference implementation. As this reference implementation is an internal API Management, a self-hosted agent is needed to execute the deployment pipelines.  As such the choice is to use either a DevOps Agent or a GitHub Runner. Refer to the [user guide](../README.md) on specific configuration values required for each.
-- Consider the region to which you intend deploying this reference implementation, and consult the [API Management Regions list](https://docs.microsoft.com/en-us/azure/api-management/zone-redundancy) to ensure the selected region has support for zone redundancy.
 
 ### Reliability
 
