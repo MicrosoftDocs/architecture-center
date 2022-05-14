@@ -70,9 +70,9 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 - Certificates updated in the key vault are automatically rotated in API Management and is updated within 4 hours.
 - Utilize Key Vault for Certificate storage, notification, and rotation.
 
-## Deploy this accelerator
+## Deployment
 
-A deployment for the reference architecture that implements these recommendations and considerations is available on [GitHub](../README.md) 
+This architecture is available on [GitHub](https://github.com/Azure/apim-landing-zone-accelerator). It contains all the necessary infrastructure as code files and [instructions](https://github.com/Azure/apim-landing-zone-accelerator/blob/main/docs/README.md) on how to deploy.
 
 ## Next steps
 
