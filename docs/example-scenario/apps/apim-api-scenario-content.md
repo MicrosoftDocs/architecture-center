@@ -34,6 +34,11 @@ The new UI will be hosted as a platform as a service (PaaS) application on Azure
 
 The APIM instance will be configured to map the legacy HTTP services to a new API contract. By doing this, the new Web UI is unaware of the integration with a set of legacy services/APIs and new APIs. In the future, the project team will gradually port functionality to the new APIs and retire the original services. These changes will be handled within APIM configuration, leaving the front-end UI unaffected and avoiding redevelopment work.
 
+### Components
+
+- [Azure API Management](https://azure.microsoft.com/services/api-management)
+- [Azure App Service](https://azure.microsoft.com/services/app-service/)
+
 ### Alternatives
 
 - If the organization was planning to move their infrastructure entirely to Azure, including the VMs hosting the legacy applications, then APIM would still be a great option since it can act as a facade for any addressable HTTP endpoint.
@@ -73,7 +78,23 @@ To view projected costs and customize to your deployment needs, you can modify t
 
 ## Next steps
 
-Review the extensive Azure API Management [documentation and reference articles][apim].
+Product documention:
+
+- [Azure App Service overview](/azure/app-service/overview)
+- [About About API Management](/azure/api-management/api-management-key-concepts)
+
+Learn modules:
+
+- [Explore Azure App Service](/learn/modules/introduction-to-azure-app-service/)
+- [Deploy a website to Azure with Azure App Service](/learn/paths/deploy-a-website-with-azure-app-service/)
+- [Protect your APIs on Azure API Management](/learn/modules/protect-apis-on-api-management/)
+
+## Related resources
+
+- [Architect scalable e-commerce web app](../../solution-ideas/articles/scalable-ecommerce-web-app.yml)
+- [Design great API developer experiences using API Management and GitHub](../../example-scenario/web/design-api-developer-experiences-management-github.yml)
+- [DevTest and DevOps for PaaS solutions](../../solution-ideas/articles/dev-test-paas.yml)
+
 
 <!-- links -->
 

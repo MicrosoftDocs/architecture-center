@@ -5,7 +5,7 @@ metadata:
   description: Use confidential computing and containers to support a provider-hosted application. Securely collaborate with a hospital and a diagnostic provider.
   author: agowdamsft
   ms.author: amgowda
-  ms.date: 03/08/2022
+  ms.date: 04/28/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario

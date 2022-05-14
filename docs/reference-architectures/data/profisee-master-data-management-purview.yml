@@ -5,7 +5,7 @@ metadata:
   description: Integrate Profisee master data management with Azure Purview, to build a foundation for data governance and management. Produce and deliver high-quality, trusted data.
   author: EdPrice-MSFT
   ms.author: gamal
-  ms.date: 06/08/2021
+  ms.date: 05/02/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture

@@ -1779,6 +1779,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/guide/design-principles/use-the-best-data-store.md",
+      "redirect_url": "/azure/architecture/guide/design-principles/use-best-data-store",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/reference-architectures/ai/index.md",
       "redirect_url": "/azure/architecture/reference-architectures/ai/batch-scoring-deep-learning",
       "redirect_document_id": false

@@ -85,7 +85,7 @@ Throughout the process:
 
 - [Power BI](https://powerbi.microsoft.com) is a collection of software services and apps. You can use Power BI to connect unrelated sources of data and create visuals of them.
 
-- The [Azure Maps visual for Power BI](/azure-maps/power-bi-visual-get-started) provides a way to enhance maps with spatial data. You can use this visual to show how location data affects business metrics.
+- The [Azure Maps visual for Power BI](/azure/azure-maps/power-bi-visual-get-started) provides a way to enhance maps with spatial data. You can use this visual to show how location data affects business metrics.
 
 - [Azure App Service](https://azure.microsoft.com/services/app-service) and its [Web Apps][App Service overview] feature provide a framework for building, deploying, and scaling web apps. The App Service platform offers built-in infrastructure maintenance, security patching, and scaling.
 

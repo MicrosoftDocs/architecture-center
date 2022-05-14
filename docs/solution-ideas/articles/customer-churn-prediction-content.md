@@ -6,7 +6,7 @@ Keeping existing customers is five times cheaper than the cost of getting new cu
 
 ## Potential use cases
 
-This solution uses [Azure Machine Learning](/azure/machine-learning) to predict churn probability and helps find patterns in existing data associated with the predicted churn rate. This information provides businesses with actionable intelligence to improve customer retention and profit margins.
+This solution uses [Azure Machine Learning](/azure/machine-learning) to predict churn probability and helps find patterns in existing data associated with the predicted churn rate. In leveraging both historical and near real-time data, users are able to create predictive models to analyze characteristics and identify predictors of the existing audience. This information provides businesses with actionable intelligence to improve customer retention and profit margins.
 
 This solution is optimized for the retail industry.
 
@@ -17,15 +17,17 @@ This solution is optimized for the retail industry.
 
 ### Dataflow
 
-1. Use [Azure Event Hub](/azure/event-hubs/event-hubs-about) to stream all live data into Azure.
+1. Use [Azure Event Hub](https://azure.microsoft.com/services/event-hubs) to stream all live data into Azure.
 
-1. Use [Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction) for real-time analytics and ingest data into [Azure Synapse](/azure/synapse-analytics/overview-what-is) (SQL DW). Combine existing and historical data to create dashboards and reports in Power BI.
+1. Process real-time data using [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics). Stream Analytics can output processed data into [Azure Synapse](https://azure.microsoft.com/services/synapse-analytics/) . This allows customers to combine existing and historical data to create dashboards and reports in Power BI.
 
-1. Ingest historical data at scale into [Azure Blob Storage](/azure/storage/blobs/storage-blobs-overview) to combine with streamed data for ad-hoc insights and experimentation using Azure Machine learning.
+1. Ingest historical data at scale into [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) using [Azure Synapse](https://azure.microsoft.com/services/synapse-analytics/) or another ETL tool.
 
-1. Use [Azure Machine Learning](/azure/machine-learning/) to build models to predict churn probability, data patterns to deliver high intelligent insights and analytics on collected data. These models can be used further to build Power BI reports and analytical dashboards to assist businesses in decision making.
+1. Use [Azure Synapse](https://azure.microsoft.com/services/synapse-analytics/) to combine streaming data with historical data for reporting or experimentation in [Azure Machine Learning](https://azure.microsoft.com/free/machine-learning). 
 
-1. Use [Power BI](/power-bi/) to build operational reports and dashboards on top of Azure Synapse to derive insights and report on business data about user consumption.
+1. Use [Azure Machine Learning](https://azure.microsoft.com/free/machine-learning) to build models for predicting churn probability and identify data patterns to deliver intelligent insights.
+
+1. Use [Power BI](https://powerbi.microsoft.com/) to build operational reports and dashboards on top of Azure Synapse. Azure Machine Learning models can be used to further enhance reporting and to assist businesses in decision making processes.
 
 ### Components
 

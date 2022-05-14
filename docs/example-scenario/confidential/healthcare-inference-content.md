@@ -23,13 +23,13 @@ Diagram showing how data flows between three parties in a healthcare setting. Th
 The diagram outlines the architecture. Throughout the system:
 
 - Network communication is TLS encrypted in transit.
-- Azure Monitor tracks component performance, and Azure Container Registry (ACR) manages the solution's containers.
+- [Azure Monitor](/azure/azure-monitor/) tracks component performance, and [Azure Container Registry](/azure/container-registry/) (ACR) manages the solution's containers.
 
 ### Workflow
 
 The solution involves the following steps:
 
-1. A clerk for a local hospital opens a web portal. The entire web app is an Azure Blob Storage static website.
+1. A clerk for a local hospital opens a web portal. The entire web app is an [Azure Blob Storage](/azure/storage/blobs/) static website.
 1. The clerk enters data into the hospital's web portal, which connects to a Python Flask–based web API built by a popular medical platform vendor. A confidential node in the [SCONE](https://sconedocs.github.io/#scone-executive-summary) confidential computing software protects the patient data. SCONE works within an AKS cluster that has the Software Guard Extensions (SGX) enabled that help run the container in an enclave. The Web API will provide evidence that the sensitive data and app code is encrypted and isolated in a Trusted Execution Environment. This means that no humans, no processes, and no logs have access to the cleartext data or the application code.
 1. The hospital's web app client requests that an attestation service (Azure Attestation) validates this evidence, and receives a signed *attestation token* for other apps to verify.
 1. If the Web API requires additional components (like a Redis cache), it can pass along the attestation token to verify that the data and app code have so far remained in a safe enclave (see step 6 for verification).
@@ -39,11 +39,11 @@ The solution involves the following steps:
 
 ### Components
 
-- [Static website hosting in Blob Storage](/azure/storage/blobs/storage-blob-static-website) serves static content like HTML, CSS, JavaScript, and image files directly from a storage container.
+- [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) serves static content like HTML, CSS, JavaScript, and image files directly from a storage container.
 
 - [Azure Attestation](/azure/attestation/) is a unified solution that remotely verifies the trustworthiness of a platform. Azure Attestation also remotely verifies the integrity of the binaries that run in the platform. Use Azure Attestation to establish trust with the confidential application.
 
-- [AKS Cluster](/azure/aks/intro-kubernetes) simplifies the process of deploying a Kubernetes cluster.
+- [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) simplifies the process of deploying a Kubernetes cluster.
 
 - [Confidential computing nodes](/azure/confidential-computing/confidential-nodes-aks-overview) are hosted on a specific virtual machine series that can run sensitive workloads on AKS within a hardware-based trusted execution environment (TEE) by allowing user-level code to allocate private regions of memory, known as enclaves. Confidential computing nodes can support confidential containers or enclave-aware containers.
 
@@ -110,17 +110,30 @@ The profile doesn't include the following components:
   - Azure Application Gateway and Azure Web Application Firewall
   - Azure Key Vault
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+* [Amar Gowda](https://www.linkedin.com/in/nramar) | Principal Product Manager
+
 ## Next steps
 
-- Learn more about [Azure confidential computing](/azure/confidential-computing/).
+- Learn more about [Azure confidential computing](/azure/confidential-computing)
+- [Static website hosting in Blob Storage](/azure/storage/blobs/storage-blob-static-website)
 - See the [confidential ONNX inference server](https://github.com/microsoft/onnx-server-openenclave) project on GitHub.
+- [Official ONNX runtime website](https://www.onnxruntime.ai/)
+- [Confidential ONNX inference server (GitHub sample)](https://github.com/microsoft/onnx-server-openenclave)
+
+- [Confidential containers on AKS](/azure/confidential-computing/confidential-containers)
+- [MobileCoin use case with anonymized blockchain data](https://customers.microsoft.com/story/844245-mobilecoin-banking-and-capital-markets-azure)
+- [Sample brain segmentation image](https://github.com/mateuszbuda/brain-segmentation-pytorch/blob/master/assets/TCGA_CS_4944.png) for use with the delineation function that invokes the confidential inferencing server.
 
 ## Related resources
 
-- [Confidential containers on AKS](/azure/confidential-computing/confidential-containers).
-- [Official ONNX runtime website](https://www.onnxruntime.ai/).
-- [Confidential ONNX inference server (GitHub sample)](https://github.com/microsoft/onnx-server-openenclave).
-- [MobileCoin use case with anonymized blockchain data](https://customers.microsoft.com/story/844245-mobilecoin-banking-and-capital-markets-azure).
-- [A sample brain segmentation image](https://github.com/mateuszbuda/brain-segmentation-pytorch/blob/master/assets/TCGA_CS_4944.png) for use with the delineation function that invokes the confidential inferencing server.
+- [Health data consortium on Azure](../data/azure-health-data-consortium.yml)
+- [HIPAA and HITRUST compliant health data AI](../../solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml)
+- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](../../reference-architectures/containers/aks/secure-baseline-aks.yml)
 
 [Confidential Healthcare Inference svg]: ./media/confidential-healthcare-inference.svg

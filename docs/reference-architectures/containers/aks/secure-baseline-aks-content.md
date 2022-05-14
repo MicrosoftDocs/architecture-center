@@ -537,11 +537,14 @@ Most workloads hosted in pods emit Prometheus metrics. Azure Monitor is capable 
 
 There are some third-party utilities integrated with Kubernetes. Take advantage of log and metrics platforms such as Grafana or Datadog, if your organization already uses them.
 
-With AKS, Azure manages some core Kubernetes services. Logs from those services should only be enabled per request from customer support. However, it is recommended that you enable these log sources as they can help you troubleshoot cluster issues:
+With AKS, Azure manages some core Kubernetes services and log capture from those services is configured in the Azure Diagnostics settings for the cluster. It is recommended that most clusters have the following enabled at all times as they can help you troubleshoot cluster issues and have a relatively low log density:
 
-- Logging on the ClusterAutoscaler to gain observability into the scaling operations. For more information, see [Retrieve cluster autoscaler logs and status](/azure/aks/cluster-autoscaler#retrieve-cluster-autoscaler-logs-and-status).
-- KubeControllerManager to have observability into pod scheduler.
-- KubeAuditAdmin to have observability into activities that modify your cluster.
+- Logging on the **ClusterAutoscaler** to gain observability into the scaling operations. For more information, see [Retrieve cluster autoscaler logs and status](/azure/aks/cluster-autoscaler#retrieve-cluster-autoscaler-logs-and-status).
+- **KubeControllerManager** to have observability into the interaction between Kubernetes and the Azure control plane.
+- **KubeAuditAdmin** to have observability into activities that modify your cluster.  There is no reason to have both **KubeAudit** and **KubeAuditAdmin** both enabled, as **KubeAudit** is a superset of **KubeAuditAdmin** that includes non-modify (read) operations as well.
+- **Guard** captures Azure Active Directory and Azure RBAC audits.
+
+Other log categories, such as **KubeScheduler** or **KubeAudit**, may be very helpful to enable during early cluster or workload lifecycle development, where added cluster autoscaling, pod placement & scheduling, and similiar data could help troubleshoot cluster or workload operations concerns. Keeping the extended troubleshooting logs on full time, once the troubleshooting needs are over, may be considered an unnecessary cost to ingest and store in Azure Monitor.
 
 ### Enable self-healing
 
@@ -572,8 +575,9 @@ Keeping your node images in sync with the latest weekly release will minimize th
 
 Monitor your container infrastructure for both active threats and potential security risks:
 
-- [Enable Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-enable) for threat detection on your Kubernetes clusters.
-- Use [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction) to monitor Kubernetes security posture.
+- [Enable Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-enable) to [identify and remediate Defender for Cloud recommendations](/azure/defender-for-cloud/defender-for-containers-introduction#hardening) for your Container images.
+- Microsoft Defender for Containers regularly [scans your container images for vulnerabilities](/azure/defender-for-cloud/defender-for-containers-introduction#vulnerability-assessment).
+- Microsoft Defender for Containers also generates [real-time security alerts for suspicious activities](/azure/defender-for-cloud/defender-for-containers-introduction#run-time-protection-for-kubernetes-nodes-and-clusters).
 - For information about security hardening applied to AKS virtual machine hosts, see [Security Hardening in host OS](/azure/aks/security-hardened-vm-host-image).
 
 ## Cluster and workload operations (DevOps)
