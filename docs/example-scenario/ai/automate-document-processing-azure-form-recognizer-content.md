@@ -1,20 +1,4 @@
-Automating document processing and data extraction is an integral task in organizations across all industry verticals. AI is one of the proven solutions in this process, although achieving 100 percent accuracy is a distant reality. But, using AI for digitization instead of purely manual processes can reduce manual effort by up to 90 percent.
-
-Optical character recognition (OCR) can extract content from images and PDF files, which make up most of the documents that organizations use. This process uses key word search and regular expression matching. These mechanisms extract relevant data from full text and then create structured output. This approach has drawbacks. Revising the post-extraction process to meet changing document formats requires extensive maintenance effort.
-
 This article outlines a scalable and secure solution for building an automated document processing pipeline. The solution uses Azure Form Recognizer for the structured extraction of data. Natural language processing (NLP) models and custom models enrich the data.
-
-## Potential use cases
-
-This solution is ideal for the finance industry. The following tasks can benefit from this solution:
-
-* Approving expense reports
-* Processing invoices, receipts, and bills for insurance claims and financial audits
-* Processing claims that include invoices, discharge summaries, and other documents
-* Automating statement of work (SoW) approvals
-* Automating ID extraction for verification purposes, as with passports or driver licenses
-* Automating the process of entering business card data into visitor management systems
-* Identifying purchase patterns and duplicate financial documents for fraud detection
 
 ## Architecture
 
@@ -136,6 +120,24 @@ The pipeline that's used for data enrichment depends on the use case.
   * [Azure Database for PostgreSQL][Azure Database for PostgreSQL].
   * [Azure Database for MySQL][Azure Database for MySQL].
 
+## Scenario details
+
+Automating document processing and data extraction is an integral task in organizations across all industry verticals. AI is one of the proven solutions in this process, although achieving 100 percent accuracy is a distant reality. But, using AI for digitization instead of purely manual processes can reduce manual effort by up to 90 percent.
+
+Optical character recognition (OCR) can extract content from images and PDF files, which make up most of the documents that organizations use. This process uses key word search and regular expression matching. These mechanisms extract relevant data from full text and then create structured output. This approach has drawbacks. Revising the post-extraction process to meet changing document formats requires extensive maintenance effort.
+
+### Potential use cases
+
+This solution is ideal for the finance industry. The following tasks can benefit from this solution:
+
+* Approving expense reports
+* Processing invoices, receipts, and bills for insurance claims and financial audits
+* Processing claims that include invoices, discharge summaries, and other documents
+* Automating statement of work (SoW) approvals
+* Automating ID extraction for verification purposes, as with passports or driver licenses
+* Automating the process of entering business card data into visitor management systems
+* Identifying purchase patterns and duplicate financial documents for fraud detection
+
 ## Considerations
 
 Keep these points in mind when you use this solution.
@@ -242,7 +244,7 @@ After deciding on a pricing tier for each component, use the [Azure Pricing calc
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-**Principal author:**
+Principal author:
 
 * [Jyotsna Ravi](https://in.linkedin.com/in/jyotsna-ravi-50182624) | Senior Customer Engineer
 
