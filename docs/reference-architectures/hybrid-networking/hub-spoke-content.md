@@ -4,6 +4,8 @@ This reference architecture details a hub-spoke topology in Azure. The hub virtu
 
 ![Hub-spoke topology in Azure](./images/hub-spoke.png)
 
+*Download a [Visio file](https://arch-center.azureedge.net/hub-spoke-network-topology-architecture.vsdx) of this architecture.*
+
 ### Workflow
 
 The architecture consists of the following aspects:
@@ -74,6 +76,8 @@ For more information, see [Create VNet peerings](/azure/virtual-network/virtual-
 If you require connectivity between spokes, consider deploying an Azure Firewall or other network virtual appliance. Then create routes to forward traffic from the spoke to the firewall or network virtual appliance, which can then route to the second spoke. In this scenario, you must configure the peering connections to **allow forwarded traffic**.
 
 ![Routing between spokes using Azure Firewall](./images/spoke-spoke-routing.png)
+
+*Download a [Visio file](https://arch-center.azureedge.net/hub-spoke-network-topology-spock-connectivity.vsdx) of this architecture.*
 
 You can also use a VPN gateway to route traffic between spokes, although this choice will impact latency and throughput. See [Configure VPN gateway transit for virtual network peering](/azure/vpn-gateway/vpn-gateway-peering-gateway-transit) for configuration details.
 
