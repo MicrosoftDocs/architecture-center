@@ -1,15 +1,5 @@
 This reference architecture details a hub-spoke topology in Azure. The hub virtual network acts as a central point of connectivity to many spoke virtual networks. The hub can also be used as the connectivity point to your on-premises networks. The spoke virtual networks peer with the hub and can be used to isolate workloads.
 
-## Potential use cases
-
-The benefits of using a hub and spoke configuration include cost savings, overcoming subscription limits, and workload isolation.
-
-Typical uses for this architecture include:
-
-- Workloads deployed in different environments, such as development, testing, and production, that require shared services such as DNS, IDS, NTP, or AD DS. Shared services are placed in the hub virtual network, while each environment is deployed to a spoke to maintain isolation.
-- Workloads that don't require connectivity to each other but require access to shared services.
-- Enterprises that require central control over security aspects, such as a firewall in the hub as a DMZ, and segregated management for the workloads in each spoke.
-
 ## Architecture
 
 ![Hub-spoke topology in Azure](./images/hub-spoke.png)
@@ -32,72 +22,17 @@ The architecture consists of the following aspects:
 
 **VPN device**. A device or service that provides external connectivity to the on-premises network. The VPN device may be a hardware device or a software solution such as the Routing and Remote Access Service (RRAS) in Windows Server 2012. For more information, see [About VPN devices for Site-to-Site VPN Gateway connections](/azure/vpn-gateway/vpn-gateway-about-vpn-devices).
 
-## Deploy this scenario
+## Scenario details
 
-This deployment includes one hub virtual network and two peered spokes. An Azure Firewall and Azure Bastion host are also deployed. Optionally, the deployment can include virtual machines in the first spoke network and a VPN gateway.
+The benefits of using a hub and spoke configuration include cost savings, overcoming subscription limits, and workload isolation.
 
-# [Azure CLI](#tab/cli)
+### Potential use cases
 
-Use the following command to create a resource group for the deployment. Click the **Try it** button to use an embedded shell.
+Typical uses for this architecture include:
 
-```azurecli-interactive
-az group create --name hub-spoke --location eastus
-```
-
-Run the following command to deploy the hub and spoke network configuration, VNet peerings between the hub and spoke, and a Bastion host. When prompted, enter a user name and password. These values can be used to access the virtual machine located in the spoke network.
-
-```azurecli-interactive
-az deployment group create --resource-group hub-spoke \
-    --template-uri https://raw.githubusercontent.com/mspnp/samples/master/solutions/azure-hub-spoke/azuredeploy.json
-```
-
-#### [PowerShell](#tab/powershell)
-
-Use the following command to create a resource group for the deployment. Click the **Try it** button to use an embedded shell.
-
-```azurepowershell-interactive
-New-AzResourceGroup -Name hub-spoke -Location eastus
-```
-
-Run the following command to deploy the hub and spoke network configuration, VNet peerings between the hub and spoke, and a Bastion host. When prompted, enter a user name and password. These values can be used to access the virtual machine located in the spoke network.
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName hub-spoke `
-    -TemplateUri https://raw.githubusercontent.com/mspnp/samples/master/solutions/azure-hub-spoke/azuredeploy.json
-```
-
-#### [Bicep](#tab/bicep)
-
-Use the following command to create a resource group for the deployment. Click the **Try it** button to use an embedded shell.
-
-```azurecli-interactive
-az group create --name hub-spoke --location eastus
-```
-
-Use the following command to download the Bicep template.
-
-```azurecli-interactive
-curl https://raw.githubusercontent.com/mspnp/samples/master/solutions/azure-hub-spoke/bicep/main.bicep > main.bicep
-```
-
-Run the following command to deploy the hub and spoke network configuration, VNet peerings between the hub and spoke, and a Bastion host. When prompted, enter a user name and password. These values can be used to access the virtual machine located in the spoke network.
-
-```azurecli-interactive
-az deployment group create --resource-group hub-spoke --template-file main.bicep
-```
-
-#### [Azure portal](#tab/portal)
-
-Use the following button to deploy the reference using the Azure portal.
-
-[![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsamples%2Fmaster%2Fsolutions%2Fazure-hub-spoke%2Fazuredeploy.json)
-
----
-
-For detailed information and extra deployment options, see the Azure Resource Manager (ARM) templates used to deploy this solution.
-
-> [!div class="nextstepaction"]
-> [Hub and Spoke ARM and Bicep templates](/samples/mspnp/samples/hub-and-spoke-deployment/)
+- Workloads deployed in different environments, such as development, testing, and production, that require shared services such as DNS, IDS, NTP, or AD DS. Shared services are placed in the hub virtual network, while each environment is deployed to a spoke to maintain isolation.
+- Workloads that don't require connectivity to each other but require access to shared services.
+- Enterprises that require central control over security aspects, such as a firewall in the hub as a DMZ, and segregated management for the workloads in each spoke.
 
 ## Recommendations
 
@@ -195,6 +130,73 @@ You can use virtual network peering to route traffic between virtual networks by
 - Different zones have different transfer rates.
 
 For instance, data transfer from a virtual network in zone 1 to another virtual network in zone 2, will incur outbound transfer rate for zone 1 and inbound rate for zone 2. For more information, see [Virtual network pricing](https://azure.microsoft.com/pricing/details/virtual-network).
+
+## Deploy this scenario
+
+This deployment includes one hub virtual network and two peered spokes. An Azure Firewall and Azure Bastion host are also deployed. Optionally, the deployment can include virtual machines in the first spoke network and a VPN gateway.
+
+# [Azure CLI](#tab/cli)
+
+Use the following command to create a resource group for the deployment. Click the **Try it** button to use an embedded shell.
+
+```azurecli-interactive
+az group create --name hub-spoke --location eastus
+```
+
+Run the following command to deploy the hub and spoke network configuration, VNet peerings between the hub and spoke, and a Bastion host. When prompted, enter a user name and password. These values can be used to access the virtual machine located in the spoke network.
+
+```azurecli-interactive
+az deployment group create --resource-group hub-spoke \
+    --template-uri https://raw.githubusercontent.com/mspnp/samples/master/solutions/azure-hub-spoke/azuredeploy.json
+```
+
+#### [PowerShell](#tab/powershell)
+
+Use the following command to create a resource group for the deployment. Click the **Try it** button to use an embedded shell.
+
+```azurepowershell-interactive
+New-AzResourceGroup -Name hub-spoke -Location eastus
+```
+
+Run the following command to deploy the hub and spoke network configuration, VNet peerings between the hub and spoke, and a Bastion host. When prompted, enter a user name and password. These values can be used to access the virtual machine located in the spoke network.
+
+```azurepowershell-interactive
+New-AzResourceGroupDeployment -ResourceGroupName hub-spoke `
+    -TemplateUri https://raw.githubusercontent.com/mspnp/samples/master/solutions/azure-hub-spoke/azuredeploy.json
+```
+
+#### [Bicep](#tab/bicep)
+
+Use the following command to create a resource group for the deployment. Click the **Try it** button to use an embedded shell.
+
+```azurecli-interactive
+az group create --name hub-spoke --location eastus
+```
+
+Use the following command to download the Bicep template.
+
+```azurecli-interactive
+curl https://raw.githubusercontent.com/mspnp/samples/master/solutions/azure-hub-spoke/bicep/main.bicep > main.bicep
+```
+
+Run the following command to deploy the hub and spoke network configuration, VNet peerings between the hub and spoke, and a Bastion host. When prompted, enter a user name and password. These values can be used to access the virtual machine located in the spoke network.
+
+```azurecli-interactive
+az deployment group create --resource-group hub-spoke --template-file main.bicep
+```
+
+#### [Azure portal](#tab/portal)
+
+Use the following button to deploy the reference using the Azure portal.
+
+[![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsamples%2Fmaster%2Fsolutions%2Fazure-hub-spoke%2Fazuredeploy.json)
+
+---
+
+For detailed information and extra deployment options, see the Azure Resource Manager (ARM) templates used to deploy this solution.
+
+> [!div class="nextstepaction"]
+> [Hub and Spoke ARM and Bicep templates](/samples/mspnp/samples/hub-and-spoke-deployment/)
 
 ## Next steps
 
