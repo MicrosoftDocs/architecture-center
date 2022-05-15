@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: AI enrichment with image and text processing
-  titleSuffix: Azure Example Scenarios
+  titleSuffix: Azure Architecture Center
   description: Transform latent information in your image and text data into full text searchable content with Azure Cognitive Search pre-built and custom skills.
   author: jocontr
   ms.author: jocontr
