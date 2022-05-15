@@ -216,7 +216,7 @@ The availability of the architecture depends on the Azure services that make up 
 
 * Machine Learning services depend on many Azure services. To provide resiliency, you need to configure each service to be resilient. For more information, see [Failover for business continuity and disaster recovery][Failover for business continuity and disaster recovery].
 
-## Pricing
+### Cost optimization
 
 The cost of implementing this solution depends on which components you use and which options you choose for each component.
 
