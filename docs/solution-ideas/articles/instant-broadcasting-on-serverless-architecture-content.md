@@ -7,7 +7,7 @@ Simplify one-to-many real-time communication and updates using serverless code.
 ![Architecture Diagram](../media/instant-broadcasting-on-serverless-architecture.png)
 *Download an [SVG](../media/instant-broadcasting-on-serverless-architecture.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
 1. The client pulls web app content from Azure Blob storage.
 1. The web app receives a SignalR token and endpoint.
