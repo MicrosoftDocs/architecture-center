@@ -119,11 +119,11 @@ Review and understand the available security controls and visibility for each se
 
 ## Other criteria
 
-| Criteria | Virtual Machines | App Service | App Spring Cloud | Service Fabric | Azure Functions | Azure Kubernetes Service | Container Instances | Azure Batch |
-|----------|-----------------|-------------|----------------|----------------|-----------------|-------------------------|----------------|-------------|
-| SSL | Configured in VM | Supported | Supported  | Supported |  Supported | [Ingress controller](/azure/aks/ingress) | Use [sidecar](../../patterns/sidecar.yml) container | Supported |
-| Cost | [Windows][cost-windows-vm], [Linux][cost-linux-vm] | [App Service pricing][cost-app-service] | [Azure Spring Cloud pricing][cost-azure-spring-cloud] | [Service Fabric pricing][cost-service-fabric] | [Azure Functions pricing][cost-functions] | [AKS pricing][cost-acs] | [Container Instances pricing](https://azure.microsoft.com/pricing/details/container-instances/) | [Azure Batch pricing][cost-batch]
-| Suitable architecture styles | [N-Tier][n-tier], [Big compute][big-compute] (HPC) | [Web-Queue-Worker][w-q-w], [N-Tier][n-tier] | Spring Boot, [Microservices][microservices] | [Microservices][microservices], [Event-driven architecture][event-driven] | [Microservices][microservices], [Event-driven architecture][event-driven] | [Microservices][microservices], [Event-driven architecture][event-driven] | [Microservices][microservices], task automation, batch jobs  | [Big compute][big-compute] (HPC) |
+| Criteria | Virtual Machines | App Service | App Spring Cloud | Service Fabric | Azure Functions | Azure Kubernetes Service | Container Instances | Azure Batch | Azure Container Apps |
+|----------|-----------------|-------------|----------------|----------------|-----------------|-------------------------|----------------|-------------|-------------|
+| SSL | Configured in VM | Supported | Supported  | Supported |  Supported | [Ingress controller](/azure/aks/ingress) | Use [sidecar](../../patterns/sidecar.yml) container | Supported | [Ingress controller](/azure/container-apps/ingress) |
+| Cost | [Windows][cost-windows-vm], [Linux][cost-linux-vm] | [App Service pricing][cost-app-service] | [Azure Spring Cloud pricing][cost-azure-spring-cloud] | [Service Fabric pricing][cost-service-fabric] | [Azure Functions pricing][cost-functions] | [AKS pricing][cost-acs] | [Container Instances pricing](https://azure.microsoft.com/pricing/details/container-instances/) | [Azure Batch pricing][cost-batch] | [Azure Container Apps pricing][cost-container-apps]
+| Suitable architecture styles | [N-Tier][n-tier], [Big compute][big-compute] (HPC) | [Web-Queue-Worker][w-q-w], [N-Tier][n-tier] | Spring Boot, [Microservices][microservices] | [Microservices][microservices], [Event-driven architecture][event-driven] | [Microservices][microservices], [Event-driven architecture][event-driven] | [Microservices][microservices], [Event-driven architecture][event-driven] | [Microservices][microservices], task automation, batch jobs  | [Big compute][big-compute] (HPC) | [Microservices][microservices], [Event-driven architecture][event-driven]
 
 The output from this flowchart is a **starting point** for consideration. Next, perform a more detailed evaluation of the service to see if it meets your needs.
 
@@ -149,6 +149,7 @@ Perform a more detailed evaluation looking at the following aspects of the servi
 [cost-functions]: https://azure.microsoft.com/pricing/details/functions
 [cost-acs]: https://azure.microsoft.com/pricing/details/kubernetes-service
 [cost-batch]: https://azure.microsoft.com/pricing/details/batch
+[cost-container-apps]: https://azure.microsoft.com/pricing/details/container-apps
 
 [function-plans]: /azure/azure-functions/functions-scale
 [sla-acs]: https://azure.microsoft.com/support/legal/sla/kubernetes-service
