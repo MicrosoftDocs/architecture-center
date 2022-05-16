@@ -4,7 +4,11 @@ Build, deploy, and manage high-quality models with Azure Machine Learning, a ser
 
 ## Potential use cases
 
-* 
+* Use Machine Learning as a Service.
+* Easy & Flexible building interface.
+* Wide range of supported algorithms.
+* Easy implementation of web services.
+* Great documentation for Machine Learning Solutions.
 
 ## Architecture
 
@@ -39,6 +43,18 @@ Build, deploy, and manage high-quality models with Azure Machine Learning, a ser
 ## Pricing
 
 * [Get pricing estimates](https://azure.microsoft.com/pricing/details/machine-learning)
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author(s):
+
+* [Sheri Gilley](https://linkedin.com/in/sdgilley) | Senior Content Developer
+* [Larry Franks](https://linkedin.com/in/larry-franks-88483811) | Content Developer
+* [Lauryn Gayhardt](https://linkedin.com/in/lgayhardt) | Content Developer
+* [Samantha Salgado](https://linkedin.com/in/sam-s-1978991b4) | Content Developer
+
 
 ## Next steps
 

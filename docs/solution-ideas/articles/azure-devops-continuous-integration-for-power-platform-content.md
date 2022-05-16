@@ -4,7 +4,12 @@ Learn how to create a CI/CD pipeline to manage your Power Platform Application l
 
 ## Potential use cases
 
-* 
+* Applications that interact with other Microsoft 365 services.
+* Employee onboarding application.
+* Image processing tools
+* New user setup scenarios
+* Service request applications
+* Applications with complex entity relationships.
 
 ## Architecture
 

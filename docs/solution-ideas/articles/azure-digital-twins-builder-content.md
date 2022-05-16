@@ -60,6 +60,14 @@ Real estate portfolio managers can use BIM and DTs to improve their understandin
 - [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database/#overview) stores and parses the extracted metadata from a model. Due to the complexity of a model's metadata, Autodesk recommends parsing the data by uploading it to Azure SQL Database in a specific structure, and then using a query that Autodesk provides.
 - [Azure Storage](https://azure.microsoft.com/product-categories/storage) provides temporary storage for data that will be used to create a DT, but isn't yet ready for publishing by Azure Twins Service.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+* [Marcus Farquhar](https://www.linedin.com/in/marcusfarquhar) | Technology Innovation and Experimentation Lead
+
 ## Next steps
 
 - [Azure Digital Twins Documentation](/azure/digital-twins)
