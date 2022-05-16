@@ -82,9 +82,9 @@ Notes
 
 ## Scalability
 
-| Criteria | Virtual Machines | App Service |   Azure Spring Cloud | Service Fabric | Azure Functions | Azure Kubernetes Service | Container Instances | Azure Batch |
-|----------|-----------------|-------------|----------------|----------------|-----------------|-------------------------|----------------|-------------|
-| Autoscaling | Virtual machine scale sets | Built-in service | Built-in service | Virtual machine scale sets | Built-in service | Pod auto-scaling<a href="#note1c"><sup>1</sip></a>, cluster auto-scaling<a href="#note2c"><sup>2</sip></a> | Not supported | N/A |
+| Criteria | Virtual Machines | App Service |   Azure Spring Cloud | Service Fabric | Azure Functions | Azure Kubernetes Service | Container Instances | Azure Batch | Azure Container Apps |
+|----------|-----------------|-------------|----------------|----------------|-----------------|-------------------------|----------------|-------------|-------------|
+| Autoscaling | Virtual machine scale sets | Built-in service | Built-in service | Virtual machine scale sets | Built-in service | Pod auto-scaling<a href="#note1c"><sup>1</sip></a>, cluster auto-scaling<a href="#note2c"><sup>2</sip></a> | Not supported | N/A | Scaling rules<a href="#note4c"><sup>4</sip></a> |
 | Load balancer | Azure Load Balancer | Integrated | Integrated | Azure Load Balancer | Integrated | Azure Load Balancer or Application Gateway |  No built-in support | Azure Load Balancer |
 | Scale limit<a href="#note3c"><sup>3</sup></a> | Platform image: 1000 nodes per scale set, Custom image: 600 nodes per scale set | 30 instances, 100 with App Service Environment | 500 app instances in Standard |100 nodes per scale set | 200 instances per Function app | 100 nodes per cluster (default limit) |20 container groups per subscription (default limit). | 20 core limit (default limit). |
 
@@ -93,6 +93,7 @@ Notes
 1. <span id="note1c">See [Autoscale pods](/azure/aks/tutorial-kubernetes-scale#autoscale-pods).</span>
 2. <span id="note2c">See [Automatically scale a cluster to meet application demands on Azure Kubernetes Service (AKS)](/azure/aks/cluster-autoscaler).</span>
 3. <span id="note3c">See [Azure subscription and service limits, quotas, and constraints](/azure/azure-subscription-service-limits)</span>.
+5. <span id="note5c">See [Set scaling rules in Azure Container Apps](/azure/container-apps/scale-app)</span>.
 
 ## Availability
 
