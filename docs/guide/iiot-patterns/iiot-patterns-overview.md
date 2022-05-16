@@ -45,14 +45,6 @@ There are multiple stages in each of the three key phases shown above. Each stag
 
 ## Next steps
 
-- [Industrial IoT Connectivity Patterns](./iiot-connectivity-patterns.md)
-
-- [Industrial IoT Visibiilty Patterns](./iiot-visibility-patterns.md)
-
-- [Industrial IoT Transparency Patterns](./iiot-transparency-patterns.md)
-
-- [Industrial IoT Prediction Patterns](./iiot-prediction-patterns.md)
-
 - [Solutions for the manufacturing industry](/azure/architecture/industries/manufacturing)
 
 - [IoT Well-Architected Framework](/azure/architecture/framework/iot/iot-overview)
