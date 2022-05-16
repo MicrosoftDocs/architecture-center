@@ -1,6 +1,6 @@
 This document describes the architecture and design considerations of a solution that delivers an optimized approach to backup and restore of files and applications of VM-based user workloads hosted on Azure Stack Hub.
 
-## Architectures
+## Architecture
 
 ![Diagram illustrating backup of Azure Stack Hub files and applications hosted on Azure VMs, running such workloads as SQL Server, SharePoint Server, Exchange Server, File Server, and Active Directory Domain Services domain controllers. The backup relies on Azure Backup Server running on a Windows Server VM, with a geo-replicated Azure Recovery Services vault providing long-term storage. Initial backups can be performed by using Azure Import/Export service. Optionally, Azure ExpressRoute can provide high-bandwidth connectivity to Azure.][architectural-diagram]
 
@@ -43,7 +43,7 @@ The recommended solution described in this reference architecture document is un
 - Backup and restore by using a backup solution installed in the same datacenter but outside of Azure Stack Hub. This approach facilitates scenarios that involve an Azure Stack Hub disconnected deployment model.
 - Azure Stack Hub–level backup and restore by using disk snapshots. This approach requires that the VM being backed up is stopped, which is typically not a viable option for business-critical workloads, but might be acceptable in some scenarios.
 
-## Solution details
+## Scenario details
 
 Backup and restore are essential components of any comprehensive business continuity and disaster recovery strategy. Designing and implementing a consistent and reliable backup approach in a hybrid environment is challenging, but can be considerably simplified through integration with services provided by Microsoft Azure. This applies not only to the workloads running on traditional on-premises infrastructure, but also to those hosted by third-party public and private cloud providers. However, benefits of integration with Azure cloud services are particularly evident when the hybrid environments incorporate Azure Stack portfolio offerings, including the Azure Stack Hub.
 
