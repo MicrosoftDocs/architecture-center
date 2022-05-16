@@ -3,7 +3,7 @@ title: DataOps architecture design
 description: DataOps is a lifecycle approach to data analytics that uses agile practices to deliver high-quality data.
 author: EdPrice-MSFT
 ms.author: edprice
-ms.date: 05/15/2022
+ms.date: 05/17/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: reference-architecture
@@ -26,15 +26,15 @@ ms.custom:
 
 DataOps is a lifecycle approach to data analytics. It uses agile practices to orchestrate tools, code, and infrastructure to quickly deliver high-quality data with improved security. When you implement and streamline DataOps processes, your business can easily deliver cost effective analytical insights. DataOps helps you adopt advanced data techniques that can uncover insights and new opportunities.
 
-There are many tools and capabilities to implement DataOps processes, such as:
+There are many tools and capabilities to implement DataOps processes, like:
 
-- [Apache NiFi](https://nifi.apache.org/): Apache NiFi provides a system for processing and distributing data.
-- [Azure Data Factory](https://azure.microsoft.com/services/data-factory): Azure Data Factory is a cloud-based ETL and data integration service. It enables you to create data-driven workflows to orchestrate data movement and transform data at scale.
-- [Azure Databricks](https://azure.microsoft.com/services/databricks): Use Azure Databricks to unlock insights from all your data and build AI solutions. You can also quickly set up your Apache Spark environment, autoscale, and collaborate on shared projects.
-- [Azure Data Lake](https://azure.microsoft.com/services/storage/data-lake-storage): Use a single data storage platform to optimize costs and protect your data with encryption at rest and advanced threat protection.
-- [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics): A limitless analytics service that brings together data integration, enterprise data warehousing, and big data analytics.
-- [Microsoft Purview](https://azure.microsoft.com/services/purview): Microsoft Purview is a unified data governance solution that helps you manage and govern your on-premises, multicloud, and software-as-a-service (SaaS) data.
-- [Power BI](https://powerbi.microsoft.com): Unify data from many sources to create interactive, immersive dashboards and reports that provide actionable insights and drive business results.
+- [Apache NiFi](https://nifi.apache.org/). Apache NiFi provides a system for processing and distributing data.
+- [Azure Data Factory](https://azure.microsoft.com/services/data-factory). Azure Data Factory is a cloud-based ETL and data integration service. It enables you to create data-driven workflows to orchestrate data movement and transform data at scale.
+- [Azure Databricks](https://azure.microsoft.com/services/databricks). Use Azure Databricks to unlock insights from all your data and build AI solutions. You can also quickly set up your Apache Spark environment, autoscale, and collaborate on shared projects.
+- [Azure Data Lake](https://azure.microsoft.com/services/storage/data-lake-storage). Use a single data storage platform to optimize costs and protect your data with encryption at rest and advanced threat protection.
+- [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics). A limitless analytics service that brings together data integration, enterprise data warehousing, and big data analytics.
+- [Microsoft Purview](https://azure.microsoft.com/services/purview). Microsoft Purview is a unified data governance solution that helps you manage and govern your on-premises, multicloud, and software-as-a-service (SaaS) data.
+- [Power BI](https://powerbi.microsoft.com). Unify data from many sources to create interactive, immersive dashboards and reports that provide actionable insights and drive business results.
 
 *Apache®, Apache Spark®, Apache NiFi®, and NiFi® are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
