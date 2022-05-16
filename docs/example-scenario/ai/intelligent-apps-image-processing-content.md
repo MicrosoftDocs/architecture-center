@@ -18,6 +18,8 @@ This solution is ideal for the retail, game, finance, and insurance industries. 
 
 ![Architecture for image classification][architecture]
 
+*Download a [Visio file][visio-download] of this architecture.*
+
 ### Workflow
 
 This scenario covers the back-end components of a web or mobile application. Data flows through the scenario as follows:
@@ -123,3 +125,4 @@ Before deploying this example scenario in a production environment, review recom
 [scalability]: /azure/architecture/framework/scalability/performance-efficiency
 [functions-best-practices]: /azure/azure-functions/functions-best-practices
 [msi]: /azure/app-service/app-service-managed-service-identity
+[visio-download]: https://arch-center.azureedge.net/architecture-image-classification-on-azure.vsdx

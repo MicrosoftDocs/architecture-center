@@ -14,6 +14,10 @@ Consider Azure DevOps and CI/CD processes for:
 
 ![Architecture diagram of the Azure components involved in a DevOps scenario using Azure DevOps and Azure App Service][architecture]
 
+*Download a [Visio file][visio-download] of this architecture.*
+
+### Dataflow
+
 The data flows through the scenario as follows:
 
 1. A developer changes application source code.
@@ -51,7 +55,7 @@ This [decision tree for Azure compute services](../../guide/technology-choices/c
 
 ## Considerations
 
-### Security and management considerations
+### Security and management
 
 - Consider leveraging one of the [tokenization tasks][vsts-tokenization] available in the VSTS marketplace.
 
@@ -134,3 +138,4 @@ Review the following resources to learn more about CI/CD and Azure DevOps:
 [compare-vm-hosting]: /azure/app-service/choose-web-site-cloud-service-vm
 [devops-project-create]: /azure/devops-project/azure-devops-project-aspnet-core
 [terraform]: /azure/terraform
+[visio-download]: https://arch-center.azureedge.net/architecture-devops-dotnet-webapp.vsdx
