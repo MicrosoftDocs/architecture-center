@@ -4,9 +4,9 @@ Azure Web Apps is a fast and simple way to create web apps using ASP.NET, Java, 
 
 ## Potential use cases
 
-Azure Web Apps offer numerous benefits which include the following:
+Azure Web Apps offer numerous benefits that include:
 
-* Highly-secure web apps development.
+* Highly secure web apps development.
 * Multilingual and versatile framework.
 * Global Scale with high availability.
 * Quick analytics and actionable insights.
