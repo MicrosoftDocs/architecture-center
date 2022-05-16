@@ -125,7 +125,7 @@ Running a modern identity system also means you are responsible for generating a
 
 Instead of building or running your own identity system, it's a good practice to use an off-the-shelf service or component. For example, consider using Azure Active Directory (Azure AD) or Azure AD B2C, which are managed identity platforms. Managed identity platform vendors take responsibility to operate the infrastructure for their platforms, and typically support the current identity and authentication standards.
 
-### Failing to consider tenants' requirements
+### Failing to consider your tenants' requirements
 
 Tenants often have strong opinions about how identity should be managed for the solutions they use. For example, many enterprise customers require federation with their own identity providers to enable single sign-on experiences and to avoid managing multiple sets of credentials. Other tenants might require multifactor authentication or other forms of protection around the sign-in processes. If you haven't designed for these requirements, it can be challenging to retrofit them later.
 
