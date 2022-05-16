@@ -6,9 +6,9 @@ Learn how to create a CI/CD pipeline to manage your Power Platform Application l
 
 * Applications that interact with other Microsoft 365 services.
 * Employee onboarding application.
-* Image processing tools
-* New user setup scenarios
-* Service request applications
+* Image processing tools.
+* New user setup scenarios.
+* Service request applications.
 * Applications with complex entity relationships.
 
 ## Architecture
@@ -43,7 +43,7 @@ Learn how to create a CI/CD pipeline to manage your Power Platform Application l
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-**Principal author:**
+Principal author:
 
  * [Sarah Parkes](https://www.linkedin.com/in/sarah-p-a06370) | Cloud Solution Architect
 
