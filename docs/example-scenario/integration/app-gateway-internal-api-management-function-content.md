@@ -38,7 +38,7 @@ For the backend services that the API Management instance connects to, there are
 
 For multi-region deployments, consider using [**Azure Front Door**](https://docs.microsoft.com/en-us/azure/frontdoor/front-door-overview) to provide fast, reliable, and secure access between your users and your applications' static and dynamic web content. 
 
-To get a better understanding around how Application Gateway can protect APIs, please refer to [Protect APIs with Application Gateway and API Management](/azure/architecture/reference-architectures/apis/protect-apis).
+To see additional examples of how Application Gateway can protect APIs, please refer to [Protect APIs with Application Gateway and API Management](/azure/architecture/reference-architectures/apis/protect-apis).
 
 ## Considerations
 
