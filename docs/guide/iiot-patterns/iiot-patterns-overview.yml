@@ -16,6 +16,6 @@ products:
   - azure-data-explorer
 name: Industrial IoT Patterns
 summary: Common patterns to build, deploy and manage Industrial IoT solutions.
-thumbnailUrl: /azure/architecture/browse/thumbs/iiot-maturity.png
+thumbnailUrl: /azure/architecture/guide/iiot-patterns/images/iiot-maturity.png
 content: |
   [!include[](iiot-patterns-overview.md)]
