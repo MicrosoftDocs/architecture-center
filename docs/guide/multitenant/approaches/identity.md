@@ -117,7 +117,7 @@ Many multitenant solutions are software as a service (SaaS). Your choice of whet
 
 ### Building or running your own identity system
 
-Building a modern identity platform is complex. There are a range of protocols and standards to support, and it's easy to incorrect implement a protocol and expose a security vulnerability. Standards and protocols change, and you also need to continually update your identity system to mitigate attacks and support recent security features. It's also important to ensure that an identity system is resilient, because any downtime can have severe consequences for the rest of your solutoin. Additionally, in most situations, identity doesn't add benefit to the business and is simply a necessary part of implementing a multitenant service.
+Building a modern identity platform is complex. There are a range of protocols and standards to support, and it's easy to incorrectly implement a protocol and expose a security vulnerability. Standards and protocols change, and you also need to continually update your identity system to mitigate attacks and support recent security features. It's also important to ensure that an identity system is resilient, because any downtime can have severe consequences for the rest of your solutoin. Additionally, in most situations, identity doesn't add benefit to the business and is simply a necessary part of implementing a multitenant service.
 
 When you run your own identity system, you need to store passwords and other credentials. By storing credentials, you create a tempting target for attackers. Even hashing and salting passwords is often insufficient protection, because the computational power available to attackers can make it possible to compromise these forms of credentials.
 
