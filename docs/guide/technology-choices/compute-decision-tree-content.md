@@ -69,11 +69,11 @@ Notes
 
 ## DevOps
 
-| Criteria | Virtual Machines | App Service | Azure Spring Cloud | Service Fabric | Azure Functions | Azure Kubernetes Service | Container Instances | Azure Batch |
-|----------|-----------------|-------------| -------------|----------------|-----------------|-------------------------|----------------|-------------|
-| Local debugging | Agnostic | IIS Express, others <a href="#note1b"><sup>1</sup></a> | Visual Studio Code, Intellij, Eclipse | Local node cluster | Visual Studio or Azure Functions CLI | Minikube, others | Local container runtime | Not supported |
-| Programming model | Agnostic | Web and API applications, WebJobs for background tasks | Spring Boot, Steeltoe | Guest executable, Service model, Actor model, Containers | Functions with triggers | Agnostic | Agnostic | Command line application |
-| Application update | No built-in support | Deployment slots | Rolling upgrade, Blue-green deployment | Rolling upgrade (per service) | Deployment slots | Rolling update | Not applicable |
+| Criteria | Virtual Machines | App Service | Azure Spring Cloud | Service Fabric | Azure Functions | Azure Kubernetes Service | Container Instances | Azure Batch | Azure Container Apps |
+|----------|-----------------|-------------| -------------|----------------|-----------------|-------------------------|----------------|-------------|-------------|
+| Local debugging | Agnostic | IIS Express, others <a href="#note1b"><sup>1</sup></a> | Visual Studio Code, Intellij, Eclipse | Local node cluster | Visual Studio or Azure Functions CLI | Minikube, others | Local container runtime | Not supported | Local container runtime |
+| Programming model | Agnostic | Web and API applications, WebJobs for background tasks | Spring Boot, Steeltoe | Guest executable, Service model, Actor model, Containers | Functions with triggers | Agnostic | Agnostic | Command line application | Agnostic |
+| Application update | No built-in support | Deployment slots | Rolling upgrade, Blue-green deployment | Rolling upgrade (per service) | Deployment slots | Rolling update | Not applicable | | Revision management |
 
 Notes
 
@@ -85,8 +85,8 @@ Notes
 | Criteria | Virtual Machines | App Service |   Azure Spring Cloud | Service Fabric | Azure Functions | Azure Kubernetes Service | Container Instances | Azure Batch | Azure Container Apps |
 |----------|-----------------|-------------|----------------|----------------|-----------------|-------------------------|----------------|-------------|-------------|
 | Autoscaling | Virtual machine scale sets | Built-in service | Built-in service | Virtual machine scale sets | Built-in service | Pod auto-scaling<a href="#note1c"><sup>1</sip></a>, cluster auto-scaling<a href="#note2c"><sup>2</sip></a> | Not supported | N/A | Scaling rules<a href="#note4c"><sup>4</sip></a> |
-| Load balancer | Azure Load Balancer | Integrated | Integrated | Azure Load Balancer | Integrated | Azure Load Balancer or Application Gateway |  No built-in support | Azure Load Balancer |
-| Scale limit<a href="#note3c"><sup>3</sup></a> | Platform image: 1000 nodes per scale set, Custom image: 600 nodes per scale set | 30 instances, 100 with App Service Environment | 500 app instances in Standard |100 nodes per scale set | 200 instances per Function app | 100 nodes per cluster (default limit) |20 container groups per subscription (default limit). | 20 core limit (default limit). |
+| Load balancer | Azure Load Balancer | Integrated | Integrated | Azure Load Balancer | Integrated | Azure Load Balancer or Application Gateway |  No built-in support | Azure Load Balancer | Integrated |
+| Scale limit<a href="#note3c"><sup>3</sup></a> | Platform image: 1000 nodes per scale set, Custom image: 600 nodes per scale set | 30 instances, 100 with App Service Environment | 500 app instances in Standard |100 nodes per scale set | 200 instances per Function app | 100 nodes per cluster (default limit) |20 container groups per subscription (default limit). | 20 core limit (default limit). | 5 Environments per region, 20 Container apps per environment, 30 Replicas per container app
 
 Notes
 
