@@ -93,7 +93,7 @@ Notes
 1. <span id="note1c">See [Autoscale pods](/azure/aks/tutorial-kubernetes-scale#autoscale-pods).</span>
 2. <span id="note2c">See [Automatically scale a cluster to meet application demands on Azure Kubernetes Service (AKS)](/azure/aks/cluster-autoscaler).</span>
 3. <span id="note3c">See [Azure subscription and service limits, quotas, and constraints](/azure/azure-subscription-service-limits)</span>.
-5. <span id="note5c">See [Set scaling rules in Azure Container Apps](/azure/container-apps/scale-app)</span>.
+4. <span id="note4c">See [Set scaling rules in Azure Container Apps](/azure/container-apps/scale-app)</span>.
 
 ## Availability
 
