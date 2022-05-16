@@ -1,6 +1,6 @@
-This article describes a solution for deploying containerized Docker internet-of-things (IoT) edge modules across intermittent or low-bandwidth internet connections.
+This article describes a solution for deploying containerized internet-of-things (IoT) edge modules across intermittent or low-bandwidth internet connections.
 
-Edge processing is a key internet-of-things (IoT) model for providing low-latency connectivity and conserving bandwidth, such as in mobile scenarios. IoT systems typically provision edge devices by deploying software container images. Interrupted container deployments over intermittent low-bandwidth internet connections can cause failures in mobile scenarios. IoT scenarios that have limited, intermittent, or low bandwidth need reliable and resilient deployment capabilities.
+Edge processing is a key internet-of-things (IoT) pattern for providing low-latency connectivity and conserving bandwidth, such as in mobile scenarios. IoT systems typically provision edge devices by deploying software container images. Interrupted container deployments over intermittent low-bandwidth internet connections can cause failures in mobile scenarios. IoT scenarios that have limited, intermittent, or low bandwidth need reliable and resilient deployment capabilities.
 
 In this example, a large logistics company wanted to improve its worldwide product shipment tracking. The company shipped goods with various ground, air, and sea transportation methods to many locales, including areas with intermittent, low-bandwidth internet connectivity. Depending upon the type of goods, product shipments had various IoT insurance, safety, or tracking devices installed on them, with different capabilities. Devices included GPS trackers, temperature sensors, and data capture tools.
 
@@ -8,7 +8,6 @@ The company was having problems updating devices over their recently developed A
 
 - High bandwidth consumption when deploying updated software to devices.
 - No standardized automated deployment across devices.
-- No way to know which devices had which updates.
 - Limited flexibility of technology selection.
 
 To address these issues, the development team created a solution that:
@@ -18,7 +17,7 @@ To address these issues, the development team created a solution that:
 - Enables reliable deployment monitoring.
 - Takes advantage of various Azure DevOps and cloud services, and uses the customer's preferred legacy tools.
 
-The solution dramatically increased reliability and resiliency of the device provisioning process in limited-connectivity environments. This article describes the solution details and the solution option evaluation process.
+The solution dramatically increased reliability and resiliency of the device provisioning process in limited-connectivity environments. This article describes the solution details and the solution options evaluation process.
 
 ### Customer requirements
 
@@ -43,7 +42,6 @@ There were also the following detailed requirements:
 
 This solution is suitable for IoT scenarios where software containers deliver solutions over low bandwidth, intermittent connections. Examples include:
 
-- Mobile scenarios
 - Remote oil, gas, and mining monitoring
 - Over-the-air automotive updates
 - Anywhere a strong connection isn't guaranteed
@@ -63,10 +61,10 @@ The solution uses an alternative deployment mechanism, binary patching of Docker
 1. Developers interact with edge module source code in a source code repository.
 1. Container Registry stores each module's Docker images.
 1. The manifest repository contains the deployment manifests for all workstreams.
-1. Each module has an Azure Pipelines build pipeline that uses a generic Docker build to create and register modules.
+1. Each module has an Azure Pipelines build pipeline that uses a generic Docker build to create and register modules automatically.
 1. The image-to-device pipeline deploys the Docker images to the targeted devices, as defined by the manifest file.
-1. The manifest-to-device pipeline pushes the deployment manifest to the proper Azure IoT Hub connection for the device being updated.
-1. A third-party fast file transfer solution transfers the files from an Azure Storage account to the device's IoT Hub.
+1. The manifest-to-device pipeline pushes the deployment manifest to the proper Azure IoT Hub for the device being updated.
+1. A third-party fast file transfer solution transfers the files from an Azure Storage account to the device.
 1. The Image Reconstruction IoT Edge module applies the received patches on the devices.
 1. IoT Hub receives status messages from the Image Reconstruction module, and sets the deployment manifest for the device. The rest of the pipeline flow uses this deployment manifest.
 1. Azure Functions monitors the IoT Hub message stream, updates the SQL database, and notifies the user of success or failure.
