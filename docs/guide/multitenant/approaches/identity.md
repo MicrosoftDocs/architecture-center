@@ -48,7 +48,7 @@ You can also consider providing federation as a feature that only applies to cus
 
 ### Single sign-on
 
-Single sign-on experiences enable users to move between applications seamlessly, without being prompted to reauthenticate at each point.
+Single sign-on experiences enable users to switch between applications seamlessly, without being prompted to reauthenticate at each point.
 
 When a user visits an application, the application directs them to an identity provider, which has access to their existing login session and issues a new token for the current application without requiring the user to interact with the login process. A federated identity model support single sign-on experiences by enabling users to use a single identity across multiple applications.
 
