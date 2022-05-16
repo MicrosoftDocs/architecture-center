@@ -91,6 +91,6 @@ For more security, industrial firewalls can use [Service Tags](/azure/virtual-ne
 ## Next steps
 
 - [Azure IoT documentation](/azure/iot-fundamentals)
-- [Microsoft Azure IoT Reference Architecture (PDF)](https://aka.ms/iotrefarchitecture)
+- [Microsoft Azure IoT Reference Architecture (PDF)](/azure/architecture/reference-architectures/iot)
 - [Azure Industrial IoT components, tutorials, and source code](https://azure.github.io/Industrial-IoT)
 - [Understand IoT Edge automatic deployments for single devices or at scale](/azure/iot-edge/module-deployment-monitoring)

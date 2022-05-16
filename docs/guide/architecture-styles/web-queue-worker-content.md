@@ -83,5 +83,5 @@ For more details, see [App Service web application reference architecture][scala
 [caching]: ../../best-practices/caching.yml
 [cdn]: ../../best-practices/cdn.yml
 [data-partition]: ../../best-practices/data-partitioning.yml
-[polyglot]: ../design-principles/use-the-best-data-store.md
+[polyglot]: /azure/architecture/guide/design-principles/use-best-data-store
 [scalable-web-app]: ../../reference-architectures/app-service-web-app/scalable-web-app.yml

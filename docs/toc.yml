@@ -46,7 +46,7 @@ items:
           - name: Use managed services
             href: guide/design-principles/managed-services.md
           - name: Use the best data store
-            href: guide/design-principles/use-the-best-data-store.md
+            href: /azure/architecture/guide/design-principles/use-best-data-store
           - name: Design for evolution
             href: guide/design-principles/design-for-evolution.md
           - name: Build for the needs of business
