@@ -44,12 +44,6 @@ To see additional examples of how Application Gateway can protect APIs, please r
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
-
-### Reliability
-
-- Deploy at least two [scale units](/azure/api-management/upgrade-and-scale) of API Management spread over two Availability Zones per region to maximize availability and performance
-
-
 ### Security 
 
 - API Management [validation policies](https://docs.microsoft.com/en-us/azure/api-management/validation-policies) are available to validate API requests and responses against an OpenAPI schema. These are not a replacement for a [Web Application Firewall](https://docs.microsoft.com/en-us/azure/web-application-firewall/overview) but can provide additional protection against some threats. Note that adding validation policies can have performance implications, so we recommend performance load tests to assess their impact on API throughput.
@@ -67,9 +61,11 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 - API Management configurations should be represented as ARM templates and an infrastructure-as-code mindset should be embraced.
 - A CI/CD process should be leveraged to manage, version and update API Management configurations.
-- The Uri `/status-0123456789abcdef` can be used as a common health endpoint for the APIM service.
+- Custom health probes should be created to help validate the status of your API management instance. Utilize the uri `/status-0123456789abcdef` to create a common health endpoint for the APIM service in the app gateway.
 - Client certificate negotiation is enabled is a per-gateway configuration.
 - Certificates updated in the key vault are automatically rotated in API Management and is updated within 4 hours.
+- Deploy at least two [scale units](/azure/api-management/upgrade-and-scale) of API Management spread over two Availability Zones per region to maximize availability and performance
+- VNet peering provides great performance in a region but has a scalability limit of max 500 networks, if you require more workloads to be connected, use a [hub spoke design ](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?tabs=cli) or [Azure vWAN](https://microsoft.sharepoint.com/:p:/t/MSUSFY22TSICertCommunity/EcUBpRDWPOhAjYwZ8H9pkr0BTw9X0wSTEGGQKgT5UBwXMg?e=gwvip9)
 
 ## Deployment
 
@@ -82,8 +78,7 @@ This architecture is available on [GitHub](https://github.com/Azure/apim-landing
 * [CI/CD for API Management using Azure Resource Manager templates](/azure/api-management/devops-api-development-templates)
 * [Intro to API Management](https://docs.microsoft.com/en-us/learn/modules/introduction-to-azure-api-management/)
 * [Manage APIs with APIM](https://docs.microsoft.com/en-us/learn/modules/publish-manage-apis-with-azure-api-management/)
-* [API Design eBook](https://azure.microsoft.com/mediahandler/files/resourcefiles/api-design/Azure_API-Design_Guide_eBook.pdf)
-* [APIs and MicroServices eBook](https://azure.microsoft.com/mediahandler/files/resourcefiles/apis-microservices-ebook/Azure_API-Microservices_eBook.pdf)
+* [API Management Resources for getting started](https://azure.microsoft.com/en-us/services/api-management/?&ef_id=CjwKCAjw7IeUBhBbEiwADhiEMWkjwSYwO_SwvN1Kw5ODYhv8hepRTpJTiqozVT1EzQamf2WKcufcqRoC1mQQAvD_BwE:G:s&OCID=AID2200277_SEM_CjwKCAjw7IeUBhBbEiwADhiEMWkjwSYwO_SwvN1Kw5ODYhv8hepRTpJTiqozVT1EzQamf2WKcufcqRoC1mQQAvD_BwE:G:s&gclid=CjwKCAjw7IeUBhBbEiwADhiEMWkjwSYwO_SwvN1Kw5ODYhv8hepRTpJTiqozVT1EzQamf2WKcufcqRoC1mQQAvD_BwE#documentation)
 
 ## Related resources
 
