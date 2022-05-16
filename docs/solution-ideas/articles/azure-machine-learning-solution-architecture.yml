@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Solution Ideas
   description: Learn how to build, deploy, and manage high-quality models with Azure Machine Learning, a service for the end-to-end ML lifecycle.
   author: cgronlun
-  ms.author: cgronlun
+  ms.author: pnp
   ms.date: 05/17/2022
   ms.topic: conceptual
   ms.service: architecture-center
