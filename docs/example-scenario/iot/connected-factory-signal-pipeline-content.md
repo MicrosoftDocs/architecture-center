@@ -16,7 +16,7 @@ The connected factory signal processing pipeline can help manufacturing organiza
 ## Potential use cases
 
 - Track status of all connected machines and devices on the shop floor.
-- Enable connectivity to enhance productivity across a plant or factory.
+- Enable connectivity of on-premises assets to enhance productivity across a plant or factory.
 - Predictive maintenance.
 
 ## Architecture
@@ -119,20 +119,21 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 ### Performance efficiency
 
-[Autoscale](https://azure.microsoft.com/features/autoscale/) is a built-in feature of many cloud services, mobile services, virtual machines, and websites. Azure Event Hubs, Azure Service Bus, and Azure IoT Hub come with autoscaling features. 
+[Autoscale](https://azure.microsoft.com/features/autoscale/) is a built-in feature of many cloud services. For example, Azure Virtual Machines, Azure App Service, and Azure Event Hubs come with autoscaling features.
 
 ## Next steps
 
 - [Industrial Services on Azure Kubernetes](https://github.com/Azure/Industrial-IoT/tree/master/docs/services)
 - [Azure IoT Hub](/azure/iot-hub/iot-concepts-and-iot-hub)
 - [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes)
+- [Industrial IoT (IIoT) architecture patterns with Azure IoT Central](/azure/iot-central/core/concepts-iiot-architecture)
 
 Microsoft Learn learning paths:
 
-- [Implement a Data Streaming Solution with Azure Streaming Analytics](/learn/paths/implement-data-streaming-with-asa/)
-- [Introduction to Kubernetes on Azure](/learn/paths/intro-to-kubernetes-on-azure/)
-- [Connect your services together](/learn/paths/connect-your-services-together/)
-- [Build the intelligent edge with Azure IoT Edge](/learn/paths/build-intelligent-edge-with-azure-iot-edge/)
+- [Implement a Data Streaming Solution with Azure Streaming Analytics](/learn/paths/implement-data-streaming-with-asa)
+- [Introduction to Kubernetes on Azure](/learn/paths/intro-to-kubernetes-on-azure)
+- [Connect your services together](/learn/paths/connect-your-services-together)
+- [Build the intelligent edge with Azure IoT Edge](/learn/paths/build-intelligent-edge-with-azure-iot-edge)
 
 ## Related resources
 
