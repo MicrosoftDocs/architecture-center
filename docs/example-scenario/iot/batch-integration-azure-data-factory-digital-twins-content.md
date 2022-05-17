@@ -94,13 +94,13 @@ This scenario relies on managed identities for security of the data.  Data Facto
 - The Custom activity code is contained in a .zip file that's placed in Azure Storage.  A DevOps pipeline can manage the deployment of that code.
 - Data Factory supports an end-to-end DevOps lifecycle.
 
+### Cost optimization
+
+Use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator) to get accurate pricing on Azure Digital Twins, Data Factory, and Azure Batch.
+
 ## Deploy this scenario
 
 You can find a reference implementation on GitHub: [Azure Digital Twins Batch Update Prototype](https://github.com/Azure-Samples/azuredigitaltwins-batchupdate).
-
-## Pricing
-
-Use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator) to get accurate pricing on Azure Digital Twins, Data Factory, and Azure Batch.
 
 ## Contributors
 
