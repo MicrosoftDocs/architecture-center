@@ -50,7 +50,7 @@ Because it supports features like automatic updates, MSIX, together with Azure D
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-**Principal author:**
+Principal author:
 
 * [Matteo Pagani](https://it.linkedin.com/in/matteopagani) | Windows App Consult Tech Lead
 
