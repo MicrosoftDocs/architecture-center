@@ -22,6 +22,6 @@ summary: Learn about options and best practices for spoke-to-spoke communication
 products:
   - azure-firewall
   - azure-virtual-network
-  - azure-virtual-network-manager
+  - virtual-network-manager
 content: |
    [!include[](spoke-to-spoke-networking.md)]
