@@ -2,20 +2,11 @@
 
 Red Hat and Microsoft partnered to create a comprehensive and secure infrastructure on Azure. It's an open source project that Red Hat continually enhances to support versatile and seamless team workflows, on-premises and in the cloud. It can be fully managed or self-managed.
 
-Azure Red Hat OpenShift (ARO) provides highly available OpenShift clusters on demand. The Red Hat JBoss Enterprise Application Platform (JBoss EAP) is an application platform that runs on ARO. It streamlines and simplifies the development and deployment of a diverse range of applications and delivers enterprise-grade security, performance, and scalability. The central console on JBoss EAP bolsters administrative productivity with an easy-to-navigate interface that supports large-scale domain configurations.
-
-## Potential use cases
-
-JBoss EAP is suitable for these uses:
-
-- Modernizing existing applications
-- Developing new cloud-native applications
-- Integrating applications for data management and analytics
-- Integrating software from independent software vendors and cloud providers
-
 ## Architecture
 
 :::image type="content" source="../media/jboss-deployment-red-hat.png" alt-text="Architecture to implement the Red Hat JBoss Enterprise Application Platform (JBoss EAP) on Azure" lightbox="../media/jboss-deployment-red-hat.png":::
+
+### Workflow
 
 - Development Flow
 
@@ -49,6 +40,21 @@ JBoss EAP is suitable for these uses:
 - [Red Hat on Azure](https://azure.microsoft.com/overview/linux-on-azure/red-hat/) is a set of secure, reliable, flexible hybrid cloud environments on Azure, supported by a global user support service from Azure and Red Hat. The environments include [Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift/), [Red Hat Enterprise Linux 8.0](https://azuremarketplace.microsoft.com/marketplace/apps/RedHat.RedHatEnterpriseLinux80-ARM), and [Red Hat JBoss Enterprise Application Platform (JBoss EAP)](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.jboss-eap-rhel).
 - [Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift/) provides highly available, fully managed OpenShift clusters on demand, monitored and operated jointly by Microsoft and Red Hat. Kubernetes is at the core of Red Hat OpenShift. OpenShift brings added-value features to complement Kubernetes, making it a turnkey container platform as a service (PaaS) with a significantly improved developer and operator experience.
 - [Red Hat JBoss Enterprise Application Platform (JBoss EAP)](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.jboss-eap-rhel) is an application platform that delivers enterprise-grade security, performance, and scalability. It can run on-premises, virtual, or in private, public, or hybrid clouds.
+
+## Solution details
+
+Red Hat and Microsoft partnered to create a comprehensive and secure infrastructure on Azure. It's an open source project that Red Hat continually enhances to support versatile and seamless team workflows, on-premises and in the cloud. It can be fully managed or self-managed.
+
+Azure Red Hat OpenShift (ARO) provides highly available OpenShift clusters on demand. The Red Hat JBoss Enterprise Application Platform (JBoss EAP) is an application platform that runs on ARO. It streamlines and simplifies the development and deployment of a diverse range of applications and delivers enterprise-grade security, performance, and scalability. The central console on JBoss EAP bolsters administrative productivity with an easy-to-navigate interface that supports large-scale domain configurations.
+
+### Potential use cases
+
+JBoss EAP is suitable for these uses:
+
+- Modernizing existing applications
+- Developing new cloud-native applications
+- Integrating applications for data management and analytics
+- Integrating software from independent software vendors and cloud providers
 
 ## Next steps
 
