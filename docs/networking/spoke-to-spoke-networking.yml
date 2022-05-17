@@ -23,6 +23,5 @@ products:
   - azure-firewall
   - azure-virtual-network
   - azure-virtual-network-manager
-thumbnailUrl: /azure/architecture/browse/thumbs/<to-be-changed>.png
 content: |
    [!include[](spoke-to-spoke-networking.md)]
