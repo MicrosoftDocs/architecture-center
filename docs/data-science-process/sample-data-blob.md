@@ -1,12 +1,12 @@
 ---
 title: Sample data in Azure Blob storage
 description: Sampling data stored in Azure Blob storage by downloading it programmatically and then sampling it using procedures written in Python.
-services: machine-learning
 author: marktab
 manager: marktab
 editor: marktab
-ms.service: machine-learning
-ms.subservice: team-data-science-process
+services: architecture-center
+ms.service: architecture-center
+ms.subservice: azure-guide
 ms.topic: article
 ms.date: 12/16/2021
 ms.author: tdsp

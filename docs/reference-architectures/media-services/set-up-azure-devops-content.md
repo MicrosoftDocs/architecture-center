@@ -166,7 +166,7 @@ Add Azure Pipelines *variable groups* to store secrets and values to pass into t
 
 Add the Azure Pipelines build and deployment pipelines.
 
-### Add the functions_pr_master.yml pipeline
+### Add the functions_pr_main.yml pipeline
 
 This pipeline runs when you make a code pull request from a feature branch to the main branch.
 
@@ -178,7 +178,7 @@ This pipeline runs when you make a code pull request from a feature branch to th
 
 1. Select **Existing Azure Pipelines YAML file**.
 
-1. Under **Path**, select **/infrastructure/azure-pipelines/functions_pr_master.yml**, and then select **Continue**.
+1. Under **Path**, select **/infrastructure/azure-pipelines/functions_pr_main.yml**, and then select **Continue**.
 
 1. Select **Run** to run the pipeline.
 
@@ -229,7 +229,7 @@ Use this pipeline to create a new single cloud developer environment with a cust
    RUN_FLAG_TERRAFORM = true
    ```
 
-   You can also use Azure CLI to add the variables. Run the following command for each variable respectively, after signing in to the Azure subscription and installing the [Pipelines extension](/azure/devops/pipelines/create-first-pipeline-cli):
+   You can also use Azure CLI to add the variables. Run the following command for each variable respectively, after signing in to the Azure subscription and installing the [Pipelines extension](/azure/devops/pipelines/create-first-pipeline):
 
    ```azurecli
    az pipelines variable create \
@@ -268,11 +268,12 @@ Use this pipeline to delete an environment, like one that the `ci_cd_ext_release
    environment
    RUN_FLAG_SUBSCRIPTIONS_FAIL_GRACEFULLY = false
    RUN_FLAG_SUBSCRIPTIONS_DISABLED = false
+   RUN_FLAG_TERRAFORM = true
    serviceConnectionName = gridwich-connection <or your service connection name>
    applicationName = cl1grw <or your app name>
    ```
 
-   You can also use Azure CLI to add the variables. Run the following command for each variable respectively, after signing in to the Azure subscription and installing the [Pipelines extension](/azure/devops/pipelines/create-first-pipeline-cli):
+   You can also use Azure CLI to add the variables. Run the following command for each variable respectively, after signing in to the Azure subscription and installing the [Pipelines extension](/azure/devops/pipelines/create-first-pipeline):
 
    ```azurecli
    az pipelines variable create \
@@ -307,7 +308,7 @@ Adjust the following suggested settings as you see fit.
 
    Add a **Build validation** build policy with the following settings:
 
-   - Build pipeline: `functions_pr_master`
+   - Build pipeline: `functions_pr_main`
    - Path filter: `/src/*`
    - Display name: `PR Policy`
 

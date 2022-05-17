@@ -4,14 +4,22 @@ titleSuffix: Cloud Design Patterns
 description: Learn how to design your workload configuration processes to control the complexity of devices and systems on your shop floors.
 keywords: edge, workload, configuration
 author: microsoftCSE
+categories: azure
 ms.author: hecamm
-ms.date: 01/19/2022
+ms.date: 03/21/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: design-pattern
 ms.custom:
   - fcp
   - design-pattern
+azureCategories:
+  - analytics
+  - iot
+products:
+  - azure-blob-storage
+  - azure-cosmos-db
+  - azure-iot-edge
 pnp.series.title: Cloud Design Patterns
 pnp.pattern.categories: [availability, design-implementation, management-monitoring]
 ---
@@ -22,14 +30,14 @@ The great variety of systems and devices on the shop floor can make workload con
 
 ## Context and problem
 
-Manufacturing companies, as part of their digital transformation journey, focus increasingly on building software solutions that can be reused as shared capabilities. Due to the variety of devices and systems on the shop floor, the modular workloads are configured to support different protocols, drivers, and data formats. Sometimes even multiple instances of a workload are run with different configurations in the same edge location. For some workloads, the configurations are updated more than once a day. Therefore, configuration management is increasingly important to the scaling out of edge solutions,
+Manufacturing companies, as part of their digital transformation journey, focus increasingly on building software solutions that can be reused as shared capabilities. Due to the variety of devices and systems on the shop floor, the modular workloads are configured to support different protocols, drivers, and data formats. Sometimes even multiple instances of a workload are run with different configurations in the same edge location. For some workloads, the configurations are updated more than once a day. Therefore, configuration management is increasingly important to the scaling out of edge solutions.
 
 ## Solution
 
 There are a few common characteristics of configuration management for edge workloads:
 
 - There are several configuration points that can be grouped into distinct layers, like software source, CI/CD pipeline, cloud tenant, and edge location:
-  :::image type="content" source="_images/edge-workload-configuration-1.png" alt-text="The layers that characterize workload configurations: software source, CI/Cd pipelines, cloud tenant, and edge location." border="false" :::
+  :::image type="content" source="_images/edge-workload-configuration-1.png" alt-text="Diagram of the layers that characterize workload configurations: software source, C I  / C D pipelines, cloud tenant, and edge location." border="false" :::
 - The various layers can be updated by different people.
 - No matter how the configurations are updated, they need to be carefully tracked and audited.
 - For business continuity, it's required that configurations can be accessed offline at the edge.
@@ -68,7 +76,7 @@ The solution to configure edge workloads during run-time can be based on an exte
 
 ### External configuration controller variation
 
-:::image type="content" source="_images/edge-workload-configuration-2.png" alt-text="Architecture for the external configuration controller variation." border="false" :::
+:::image type="content" source="_images/edge-workload-configuration-2.png" alt-text="Diagram of the architecture for the external configuration controller variation." border="false" :::
 
 This variation has a configuration controller that's external to the workload. The role of the cloud configuration controller component is to push edits from the cloud datastore to the workload through the edge configuration controller. The edge also contains a datastore so that the system functions even when disconnected from the cloud.
 
@@ -84,7 +92,7 @@ The benefits of this variation are:
 
 ### Internal configuration provider variation
 
-:::image type="content" source="_images/edge-workload-configuration-3.png" alt-text="Architecture for the internal configuration provider variation." border="false" :::
+:::image type="content" source="_images/edge-workload-configuration-3.png" alt-text="Diagram of the architecture for the internal configuration provider variation." border="false" :::
 
 In the internal configuration provider variation, the workload pulls configurations from a configuration provider. For an implementation example, see [Implement a custom configuration provider in .NET](/dotnet/core/extensions/custom-configuration-provider). That example uses C#, but other languages can be used.
 
@@ -99,7 +107,7 @@ The benefits of this variation are:
 
 ### Solutions based on IoT Edge
 
-:::image type="content" source="_images/edge-workload-configuration-4.png" alt-text="Architecture for the IoT Edge-based variation." border="false" :::
+:::image type="content" source="_images/edge-workload-configuration-4.png" alt-text="Diagram of the architecture for the I o T Edge-based variation." border="false" :::
 
 The cloud component of the IoT Edge reference implementation consists of an IoT hub acting as the cloud configuration controller. The [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) module twin functionality propagates configuration changes and information about the currently applied configuration by using module twin desired and reported properties. The configuration management service acts as the source of the configurations. It can also be a user interface for managing configurations, a build system, and other tools used to author workload configurations.
 
@@ -122,6 +130,6 @@ The edge component can use either the external configuration controller or inter
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs)
 - [Introduction to Azure Blob storage](/azure/storage/blobs/storage-blobs-introduction)
 
-## Related guidance
+## Related resources
 
-- [External Configuration Store pattern](external-configuration-store.md)
+- [External Configuration Store pattern](external-configuration-store.yml)

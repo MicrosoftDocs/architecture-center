@@ -1,0 +1,22 @@
+### YamlMime:Architecture
+metadata:
+  title: SKU optimization for consumer brands
+  description: Retail industry assortment optimization. SKU optimization through insights from AI and ML.
+  author: EdPrice-MSFT
+  ms.author: edprice
+  ms.date: 04/12/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - ai-machine-learning
+products:
+  - azure-data-factory
+  - azure-machine-learning
+  - azure-machine-learning-studio
+  - azure-data-science-vm
+name: SKU optimization for consumer brands
+summary: Retail industry assortment optimization. SKU optimization through insights from AI and ML.
+thumbnailUrl: /azure/architecture/browse/thumbs/architecture-sku-optimization.png
+content: |
+  [!include[](sku-optimization-solution-guide-content.md)]

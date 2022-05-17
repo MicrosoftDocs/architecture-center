@@ -1,10 +1,10 @@
 ---
 title: Test data science code with Azure DevOps
 description: Data science code testing on Azure with the UCI adult income prediction dataset with the Team Data Science Process and Azure DevOps Services
-services: machine-learning
 author: marktab
 manager: marktab
 editor: marktab
+services: architecture-center
 ms.service: architecture-center
 ms.subservice: azure-guide
 ms.topic: article

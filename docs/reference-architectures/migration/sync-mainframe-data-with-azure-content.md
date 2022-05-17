@@ -22,6 +22,8 @@ Data replication and sync scenarios that can benefit from this solution include:
    The diagram contains two parts, one for on-premises components, and one for Azure components. The on-premises part contains rectangles, one that pictures databases and one that contains integration tools. A server icon that represents the self-hosted integration runtime is also located in the on-premises part. The Azure part also contains rectangles. One is for pipelines. Others are for services that the solution uses for staging and preparing data. Another contains Azure databases. Arrows point from on-premises components to Azure components. These arrows represent the flow of data in the replication and sync processes. One of the arrows goes through the on-premises data gateway.
 :::image-end:::
 
+### Workflow
+
 Mainframe and midrange systems update on-premises application databases on a regular interval. To maintain consistency, the solution syncs the latest data with Azure databases. The sync process involves the following steps:
 
 1. These actions occur throughout the process:
@@ -72,11 +74,11 @@ Mainframe and midrange systems update on-premises application databases on a reg
 
 1. Azure Synapse Analytics manages the data and makes it available for business intelligence and machine learning applications.
 
-## Components
+### Components
 
 The solution uses the following components:
 
-### Tools
+#### Tools
 
 - [Microsoft Service for DRDA][Microsoft Service for DRDA] is a component of [Host Integration Server (HIS)][What is HIS]. Microsoft Service for DRDA is an Application Server (AS) that DRDA Application Requester (AR) clients use. Examples of DRDA AR clients include IBM Db2 for z/OS and Db2 for i5/OS. These clients use the AS to convert Db2 SQL statements and run them on SQL Server.
 
@@ -91,7 +93,7 @@ The solution uses the following components:
 
 - [Azure Synapse Analytics][Azure Synapse Analytics] is an analytics service for data warehouses and big data systems. This tool uses Spark technologies and has deep integration with Power BI, Azure Machine Learning, and other Azure services.
 
-### Data integrators
+#### Data integrators
 
 - [Data Factory][Azure Data Factory] is a hybrid data integration service. You can use this fully managed, serverless solution to create, schedule, and orchestrate ETL and [ELT][ELT] workflows.
 
@@ -99,7 +101,7 @@ The solution uses the following components:
 
 - [Azure Databricks][Azure Databricks] is a data analytics platform. Based on the Apache Spark open-source distributed processing system, Azure Databricks is optimized for Azure cloud services. In an analytics workflow, Azure Databricks reads data from multiple sources and uses Spark to provide insights.
 
-### Data storage
+#### Data storage
 
 - [Azure SQL Database][Azure SQL Database] is part of the [Azure SQL][Azure SQL] family and is built for the cloud. This service offers all the benefits of a fully managed and evergreen platform as a service. SQL Database also provides AI-powered, automated features that optimize performance and durability. Serverless compute and [Hyperscale storage options][Hyperscale service tier] automatically scale resources on demand.
 
@@ -119,7 +121,7 @@ The solution uses the following components:
 
 - [Blob Storage][Azure Blob Storage] provides optimized cloud object storage that manages massive amounts of unstructured data.
 
-### Networking
+#### Networking
 
 - An [on-premises data gateway][What is an on-premises data gateway?] acts as a bridge that connects on-premises data with cloud services. Typically, you [install the gateway on a dedicated on-premises VM][Install an on-premises data gateway]. Cloud services can then securely use on-premises data.
 

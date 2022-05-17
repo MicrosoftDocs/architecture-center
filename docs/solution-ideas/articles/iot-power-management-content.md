@@ -1,74 +1,87 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Globally, over 1 billion people lack access to electricity, and over 3 billion people have no internet access. Veriown is an energy provider working with Azure Internet-of-Things (IoT) cloud services to provide life-changing, low-cost electricity and connectivity to remote and rural customers. Veriown's IoT devices combine solar power with internet communications to deliver monumental improvements to users' quality of life.
+This article describes an internet of things (IoT) solution that provides power, light, and internet services to remote locations. A large-scale telecommunications company based the solution on IoT devices that can act as energy and internet hubs for homes and small businesses.
 
-Veriown has run large-scale network and telecommunications infrastructures for years, but has never before provided such a wide scope of services at such low cost. Veriown's Connect devices combine IoT hardware and mobile applications with Azure cloud capabilities to act as energy and internet hubs for homes and small businesses.
+The IoT devices have an IoT gateway that acts as a hub for data transfer and customized service delivery. The devices use a rooftop solar panel to charge a battery, which delivers LED light, USB power, and cellular connectivity. The gateway collects and transmits telemetry data from the solar panel, battery, and output devices. The solution also includes an IoT device with an integrated SIM card and tablet to provide a user interface.
 
-The Connect IoT device uses a rooftop solar panel and charged battery to deliver clean electricity, light, and cellular internet connectivity for pennies a day, with high reliability and minimal downtime. An integrated SIM card and tablet provide individualized access to online content and services like telemedicine, education, news and weather, entertainment, and commerce.
+The basic IoT device provides LED light, USB device charging, internet connectivity, and user support through alerts and chatbots. Users can get more services and content on demand or by subscription.
 
-Azure supports two major workstreams in Veriown's IoT solution:
+The overall solution combines IoT connected devices with Azure platform-based mobile apps. The solution delivers clean, low-cost power and internet services with high reliability and minimal downtime.
 
-- Real-time IoT device telemetry detects transient or long-running anomalies, and the system can respond in real time with chatbots and retrained device actions. For example, in low-power conditions a customer's device can automatically reduce power usage for background or inactive features, so the customer continues to get a good experience with the services they're actively using.
+Azure supports two major workstreams in this IoT solution:
 
-- Post-processing data analytics evaluate usage and incidents to determine algorithms for future needs and preventive maintenance. For example, Veriown could send customers parts that are predicted to fail soon, or could improve the responses of an artificial intelligence (AI) chatbot.
+- Real-time IoT device telemetry detects transient or long-running anomalies. The system can respond via real-time chatbots and take device actions. For example, in low-power conditions, a device can reduce power usage for background or inactive features. The user continues to get a good experience with the services they're actively using.
 
-Since bandwidth is limited and expensive in emerging markets, analyzing usage patterns and incidents can help content and service owners target customers with only the content and services they currently need.
+- Post-processing data analytics and machine learning evaluate usage and incidents to determine predictive maintenance and future needs. Alerts can notify customers about parts that are predicted to fail soon.
 
 ## Potential use cases
 
-A solar-powered Connect device in a customer's home or business can provide:
-- LED light to replace kerosene lanterns
-- USB device charging
-- Telemedicine support
-- Online education
-- Commerce and banking services
-- News and weather
-- Entertainment programming
-- Emergency and support communications
+The following scenarios and industries could use this solution:
 
-The basic Connect device provides light, electricity, internet connectivity, and customer support. Customers can purchase additional services and content as one-offs or subscriptions.
+- Locations with limited centralized power and internet connectivity.
+- News, entertainment, and educational organizations, to deliver content and programming.
+- Financial institutions, to provide online commerce and banking services.
+- Government and public health agencies, for emergency and support communications.
 
 ## Architecture
 
-![Diagram showing data stream coming from the power subsystem to Azure IoT edge and cloud components.](../media/iot-power-architecture.png)
+The architecture consists of:
 
-1. Field sales and service agents use a mobile platform to interact with the cloud application via Azure Application Gateway. End users use a built-in device or mobile interface to access and control their devices and interact with content.
+- A containerized microservices app with end-user interfaces.
+- An analytics and machine learning workflow.
+
+### Application solution
+
+[![Diagram showing user interfaces interacting with Azure Application Gateway and the cloud application components.](../media/iot-power-architecture.png)](../media/iot-power-architecture.png#lightbox)
+
+#### Dataflow
+
+1. Field sales and service agents use a mobile platform to interact with the cloud application via Azure Application Gateway. End users use a built-in interface or mobile app to access and control their devices.
 1. Application Gateway uses messaging protocols to interact with users and operators.
-1. The cloud app consists of containerized microservices that provide functions and interfaces like identity and access management, device upgrades, notifications, and commerce services.
+1. The cloud app consists of containerized microservices that provide features and interfaces like identity and access management, device upgrades, notifications, and commerce services.
+1. Depending on the features used, the app accesses Azure services and resources like [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction) for unstructured data storage, [Azure Cosmos DB](/azure/cosmos-db/introduction) for large structured databases, and [Azure Media Services](https://azure.microsoft.com/services/media-services/) for entertainment content.
+1. The IoT gateway also sends streaming telemetry and user data to the cloud via Azure IoT Hub, to use for analytics and machine learning (ML).
 
-   The app uses Azure services and resources like [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction) for unstructured data storage, [Azure Cosmos DB](/azure/cosmos-db/introduction) for large structured databases, and [Azure Media Services](https://azure.microsoft.com/services/media-services/) to store and deliver entertainment content.
+### Analytics and machine learning solution
 
-The Connect devices also send streaming telemetry and user data to the cloud via Azure IoT Hub. In the business intelligence part of the process:
-1. [IoT Hub and Azure Event Hub](/azure/iot-hub/iot-hub-compare-event-hubs) receive the streaming data and route events.
-1. Azure Databricks *extracts, transforms, and loads (ETLs)* the event data.
-1. Azure Synapse, a SQL big-data warehouse, performs analytics and stores the transformed data.
-1. The analyzed data populates Power BI reports for system evaluation and future planning.
-
-### Analytics and machine learning data flow
-
-The system includes the following data analysis and control loop:
+The business intelligence part of the process includes the following data analysis and control loop:
 
 ![Diagram showing an analytics loop that runs post-processed telemetry data through a trained AI model to control the device.](../media/iot-power-analytics.png)
 
-1. The Connect devices stream telemetry and user behavior to IoT Hub.
-1. IoT Hub sends the data to Azure Databricks and to Azure Machine Learning (ML).
-1. Databricks sends some events, like alarms, directly to Customer Support for intervention.
-1. Synapse Analytics performs analytics on the ETL data.
-1. The analyzed data populates Power BI reports.
-1. Azure ML combines current data with stored external data, like historical weather and forecasts, and uses the results to retrain the power management ML models.
-1. IoT Hub sends the retrained models to the Connect devices, which adjust their behavior and schedules accordingly.
+#### Dataflow
+
+1. IoT Hub receives the streaming telemetry and user data from the IoT devices, and routes events to Azure Databricks via [Azure Functions](https://azure.microsoft.com/services/functions).
+1. Azure Databricks [extracts, transforms, and loads (ETLs)](https://en.wikipedia.org/wiki/Extract,_transform,_load) the event data.
+1. Azure Databricks uses Azure Functions to send some events, like alarms, directly to a customer support app for action.
+1. Azure Databricks sends the ETL data to Azure Synapse, which performs analytics and stores the data.
+1. Power BI reports use the analyzed data and insights. The service provider can use the data for system evaluation and future planning.
+1. Azure Machine Learning uses a Databricks cluster to train and retrain ML models for power management. Model retraining combines current data with stored external data, like historical weather and forecasts, on Azure Cosmos DB.
+1. The retrained model triggers a pipeline that packages the model and sends the retrained models to IoT Hub. IoT Hub sends the updated models to the IoT devices to use for device management.
 
 ### Components
-- [Azure Application Gateway](/azure/application-gateway/overview) manages and load balances traffic to and from cloud web apps.
-- [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) hosts and simplifies [Kubernetes](https://kubernetes.io/) orchestration of [Docker](https://www.docker.com/) containerized apps.
-- [Azure Container Registry (ACR)](/azure/container-registry/container-registry-intro) is a managed, private registry service that supports AKS applications at scale.
-- [Azure IoT Hub](/azure/iot-hub/about-iot-hub) is a central cloud message hub for bi-directional communications between IoT applications and devices.
-- [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) is a fast, easy, and collaborative [Apache Spark](https://spark.apache.org/)-based analytics service for big data pipelines.
-- [Azure Synapse Analytics](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is), formerly SQL Data Warehouse, is an analytics service that brings together enterprise data warehousing and big data analytics.
-- [Power BI](/power-bi/fundamentals/power-bi-overview) is a collection of software services, apps, and connectors that turn data into coherent, immersive, interactive visualizations and reports.
-- [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-ml) is a cloud-based ML environment that uses existing data to forecast future behaviors, outcomes, and trends.
+
+- [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway) manages and load balances traffic to and from cloud web apps.
+- [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) hosts and simplifies [Kubernetes](https://kubernetes.io) orchestration of [Docker](https://www.docker.com) containerized apps.
+- [Azure Container Registry](https://azure.microsoft.com/services/container-registry) is a managed, private registry service that supports AKS applications at scale.
+- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) is a central cloud message hub for bi-directional communications between IoT applications and devices.
+- [Azure Databricks](https://azure.microsoft.com/services/databricks) is a fast, easy, and collaborative [Apache Spark](https://spark.apache.org)-based analytics service for big data pipelines.
+- [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics), formerly SQL Data Warehouse, is an analytics service that brings together enterprise data warehousing and big data analytics.
+- [Power BI](https://powerbi.microsoft.com) is a collection of software services, apps, and connectors that turn data into coherent, immersive, interactive visualizations and reports.
+- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) is a cloud-based ML environment that uses existing data to forecast future behaviors, outcomes, and trends.
 
 ## Next steps
-- [Azure IoT documentation](/azure/iot-fundamentals/)
+
+- [IoT concepts and Azure IoT Hub](/azure/iot-hub/iot-concepts-and-iot-hub)
+- [Introduction to private Docker container registries in Azure](/azure/container-registry/container-registry-intro)
+- [What is dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics?](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is)
+- [MLOps: Model management, deployment, lineage, and monitoring with Azure Machine Learning](/azure/machine-learning/concept-model-management-and-deployment)
+- [Set up a development environment with Azure Databricks and AutoML in Azure Machine Learning](/azure/machine-learning/how-to-configure-databricks-automl-environment)
 - [A solar-powered device will bring online entertainment, education to villages](https://www.thehindubusinessline.com/info-tech/soon-a-solar-powered-device-will-bring-online-entertainment-education-to-villages/article26945331.ece)
-- [Veriown website](https://veriown.com)
+- [Veriown case study](https://mdsglobal.com/veriown-case-study)
+
+## Related resources
+
+- [Choose an Internet of Things (IoT) solution in Azure](../../example-scenario/iot/iot-central-iot-hub-cheat-sheet.yml)
+- [Extract actionable insights from IoT data](../../industries/manufacturing/extract-insights-iot-data.yml)
+- [Task-based consumer mobile app](task-based-consumer-mobile-app.yml)
+- [Ingestion, ETL, and stream processing pipelines with Azure Databricks](ingest-etl-stream-with-adb.yml)

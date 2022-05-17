@@ -9,22 +9,29 @@ For more information, read how [batch transcription](/azure/cognitive-services/s
 ![Architecture Diagram](../media/speech-services.png)
 *Download an [SVG](../media/speech-services.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
-1. Adapt a model for your domain and deploy that model
-1. Upload your recordings to a blob container
-1. Create a POST request to batch transcription
-1. Speech Services schedules the transcription job
-1. Stereo files are split into two channels
-1. Mono files undergo diarization to distinguish between speakers
-1. Download the transcription using the transcription ID
+1. Adapt a model for your domain and deploy that model.
+1. Upload your recordings to a blob container.
+1. Create a POST request to batch transcription.
+1. The Speech service schedules the transcription job.
+1. Stereo files are split into two channels.
+1. Mono files undergo diarization to distinguish between speakers.
+1. Download the transcription using the transcription ID.
 
 ### Components
 
-* [Azure Blob Storage](/azure/storage/blobs)
-* [Speech Services](/azure/cognitive-services/Speech-Service)
+* [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs)
+* [Speech service](https://azure.microsoft.com/en-us/services/cognitive-services/speech-services)
 
 ## Next steps
+
+To learn more about these services, see the following articles:
+
+* [Azure Blob Storage](/azure/storage/blobs)
+* [Speech service](/azure/cognitive-services/Speech-Service)
+
+## Related resources
 
 * [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
 * [Speech-to-text conversion](../../reference-architectures/ai/speech-to-text-transcription-pipeline.yml)

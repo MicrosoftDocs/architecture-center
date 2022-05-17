@@ -1,0 +1,21 @@
+### YamlMime:Architecture
+metadata:
+  title: Rate Limiting pattern
+  description: You can use a rate limiting pattern to help you avoid or minimize throttling errors.
+  author: EdPrice-MSFT
+  ms.author: edprice
+  ms.date: 06/22/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - compute
+products:
+  - azure-service-bus
+  - azure-queue-storage
+  - azure-event-hubs
+name: Rate Limiting pattern
+summary: You can use a rate limiting pattern to help you avoid or minimize throttling errors.
+thumbnailUrl: /azure/architecture/browse/thumbs/rate-limiting-pattern.png
+content: |
+  [!include[](rate-limiting-pattern-content.md)]

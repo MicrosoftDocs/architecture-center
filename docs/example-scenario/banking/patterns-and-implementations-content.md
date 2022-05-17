@@ -85,6 +85,8 @@ Learn more about the component technologies:
 * [Azure Event Hubs — A big data streaming platform and event ingestion service](/azure/event-hubs/event-hubs-about)
 * [Welcome to Azure Cosmos DB](/azure/cosmos-db/introduction)
 
+## Related resources
+
 Explore related architectures:
 
 * [Saga distributed transactions](../../reference-architectures/saga/saga.yml)

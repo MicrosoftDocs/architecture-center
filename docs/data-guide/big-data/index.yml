@@ -1,0 +1,22 @@
+### YamlMime:Architecture
+metadata:
+  title: Big data architectures
+  description: Learn about big data architectures that handle the ingestion, processing, and analysis of data too large or complex for traditional database systems.
+  author: EdPrice-MSFT
+  ms.author: edprice
+  ms.date: 03/09/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - ai-machine-learning
+products:
+  - azure-data-lake-analytics
+  - azure-iot-hub
+  - azure-machine-learning
+  - azure-synapse-analytics
+name: Big data architectures
+summary: Learn about big data architectures that handle the ingestion, processing, and analysis of data too large or complex for traditional database systems.
+thumbnailUrl: /azure/architecture/browse/thumbs/big-data-pipeline.png
+content: |
+  [!include[](index-content.md)]

@@ -7,7 +7,7 @@ Azure is a world-class cloud for hosting virtual machines running Windows or Lin
 ![Architecture diagram](../media/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview.png)
 *Download an [SVG](../media/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
 1. Change application source code.
 1. Commit code to GitHub.
@@ -33,4 +33,4 @@ Azure is a world-class cloud for hosting virtual machines running Windows or Lin
 * [Use Terraform to create a Virtual Machine Scale Set from a Packer customer VM image](/azure/terraform/terraform-create-vm-scaleset-network-disks-using-packer-hcl)
 * [Use Terraform to plan and create a Virtual Machine Scale Set with Managed Disk](/azure/terraform/terraform-create-vm-scaleset-network-disks-hcl)
 * [Use Log Analytics to collect data from Linux computers](/azure/log-analytics/log-analytics-quick-collect-linux-computer)
-* [Get the Azure Extensions Pack for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-azureextensionpack)
+* [Get the Azure Extensions Pack for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)

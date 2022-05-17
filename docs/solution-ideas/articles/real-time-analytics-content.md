@@ -8,7 +8,7 @@ Get insights from live streaming data with ease. Capture data continuously from 
 
 *Download an [SVG](../media/real-time-analytics.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
 1. Easily ingest live streaming data for an application using Azure Event Hubs.
 1. Bring together all your structured data using Synapse Pipelines to Azure Blob Storage.

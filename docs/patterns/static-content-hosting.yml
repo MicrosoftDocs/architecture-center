@@ -1,0 +1,20 @@
+### YamlMime:Architecture
+metadata:
+  title: Static Content Hosting pattern
+  description: Deploy static content to a cloud-based storage service that can deliver them directly to the client.
+  author: EdPrice-MSFT
+  ms.author: edprice
+  ms.date: 02/24/2020
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - containers
+  - storage
+products:
+  - azure-storage
+name: Static Content Hosting pattern
+summary: Deploy static content to a cloud-based storage service that can deliver them directly to the client.
+thumbnailUrl: /azure/architecture/browse/thumbs/static-content-hosting-pattern.png
+content: |
+  [!include[](static-content-hosting-content.md)]

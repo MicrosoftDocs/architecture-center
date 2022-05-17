@@ -35,7 +35,7 @@ Because it supports features like automatic updates, MSIX, together with Azure D
 
 ### Components
 
-- [MSIX](https://docs.microsoft.com/windows/msix) is a powerful technology for packaging and deploying Windows desktop applications.
+- [MSIX](/windows/msix) is a powerful technology for packaging and deploying Windows desktop applications.
 - [Windows Application Packaging Project](/windows/msix/desktop/desktop-to-uwp-packaging-dot-net) is a template that's available in Visual Studio. You can use it to package .NET desktop applications (Windows Forms, WPF, Windows Apps SDK) with MSIX. It's based on MSBuild, so you just need to build your solution with Visual Studio to generate an MSIX package. That makes it a great fit for CI/CD scenarios. Because you don't need to install any special dependencies on the build computer, you can easily use the existing Windows agents provided by Azure DevOps and GitHub.
 - [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) is the Azure DevOps platform for creating pipelines that enable CI/CD scenarios.
 - [GitHub Actions](https://github.com/features/actions) is an alternative to Azure Pipelines. You can use it to manage your CI/CD flows.

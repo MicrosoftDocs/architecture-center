@@ -11,21 +11,28 @@ This solution is built on the Azure managed service: [Media Services](/azure/med
 
 ### Components
 
-* [Partner on-premises live encoder](/azure/media-services/latest/become-on-premises-encoder-partner): Outputs the live source for ingest into the cloud as RTMP(S), or Smooth Streaming.
+* [Partner on-premises live encoder](/azure/media-services/latest/encode-on-premises-encoder-partner): Outputs the live source for ingest into the cloud as RTMP(S), or Smooth Streaming.
 * Stores large amounts of unstructured data, such as text or binary data, that can be accessed from anywhere in the world via HTTP or HTTPS. You can use [Blob storage](https://azure.microsoft.com/services/storage/blobs) to expose data publicly to the world, or to store application data privately.
 * [Media Services](https://azure.microsoft.com/services/media-services): Provides the ability to ingest, encode, preview, store, and deliver your live streaming content. Live Events, Live Outputs, and Streaming Endpoints handle the live streaming functions, including ingestion, formatting, DVR, security, scalability, and redundancy.
-* [Media Servics Streaming Endpoint](/azure/media-services/latest/streaming-endpoint-concept): Represents a streaming service that can deliver content directly to a client player application, or to a content delivery network (CDN) for further distribution.
+* [Media Services Streaming Endpoint](/azure/media-services/latest/stream-streaming-endpoint-concept): Represents a streaming service that can deliver content directly to a client player application, or to a content delivery network (CDN) for further distribution.
 * [Content Delivery Network](https://azure.microsoft.com/services/cdn): Provides secure, reliable content delivery with broad global reach and a rich feature set.
 * [Azure Media Player](https://azure.microsoft.com/services/media-services/media-player): Uses industry standards such as HTML5 (MSE/EME) to provide an enriched adaptive streaming experience. Regardless of the playback technology used, developers have a unified JavaScript interface to access APIs.
-* [Preview monitoring](/azure/media-services/latest/live-events-outputs-concept#live-event-preview-url): Provides the ability to preview and validate a live stream before further processing and delivery.
-* [Multi-DRM content protection](/azure/media-services/latest/content-protection-overview): Delivers content securely using multi-DRM (PlayReady, Widevine, FairPlay Streaming) or AES clear key encryption.
+* [Preview monitoring](/azure/media-services/latest/live-event-outputs-concept#live-event-preview-url): Provides the ability to preview and validate a live stream before further processing and delivery.
+* [Multi-DRM content protection](/azure/media-services/previous/media-services-content-protection-overview): Delivers content securely using multi-DRM (PlayReady, Widevine, FairPlay Streaming) or AES clear key encryption.
 
 ## Next steps
 
-* [Overview of Media Services live transcoding](/azure/media-services/latest/live-event-types-comparison)
+* [Overview of Media Services live transcoding](/azure/media-services/latest/live-event-types-comparison-reference)
 * [How to use Azure Blob storage](/azure/storage/blobs/storage-quickstart-blobs-dotnet)
-* [Overview of Media Services live streaming](/azure/media-services/latest/live-streaming-overview)
-* [Overview of Content Protection](/azure/media-services/latest/content-protection-overview)
+* [Overview of Media Services live streaming](/Azure/media-services/latest/stream-live-streaming-concept)
+* [Overview of Content Protection](/azure/media-services/previous/media-services-content-protection-overview)
 * [Using Azure Content Delivery Network](/azure/cdn/cdn-create-new-endpoint)
 * [Azure Media Services documentation](/azure/media-services/)
 * [Media services content protection](https://azure.microsoft.com/services/media-services/content-protection)
+
+## Related resources
+
+- [Performance tuning - Event streaming](../../performance/event-streaming.yml)
+- [HPC media rendering](../../solution-ideas/articles/azure-batch-rendering.yml)
+- [Test Media Services V3 encoding](../../reference-architectures/media-services/test-encoding.yml)
+- [Content Delivery Network analytics](../../solution-ideas/articles/content-delivery-network-azure-data-explorer.yml)

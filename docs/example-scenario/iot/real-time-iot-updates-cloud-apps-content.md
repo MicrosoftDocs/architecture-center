@@ -71,7 +71,7 @@ To learn about related solutions, see this information:
 
 - [IoT solutions conceptual overview](./introduction-to-solutions.yml)
 - [IoT solution architecture](./devices-platform-application.yml)
-- [Azure industrial IoT analytics guidance](../../guide/iiot-guidance/iiot-architecture.md)
+- [Azure industrial IoT analytics guidance](../../guide/iiot-guidance/iiot-architecture.yml)
 
 ### IoT patterns
 

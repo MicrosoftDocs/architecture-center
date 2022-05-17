@@ -4,7 +4,7 @@ metadata:
   description: Recommended architecture for implementing a simple enterprise integration pattern using Azure Logic Apps and Azure API Management.
   services: logic-apps
   author: mattfarm
-  ms.author: pnp
+  ms.author: mattfarm
   ms.reviewer: jonfan, estfan, LADocs
   ms.date: 12/03/2018
   ms.topic: conceptual

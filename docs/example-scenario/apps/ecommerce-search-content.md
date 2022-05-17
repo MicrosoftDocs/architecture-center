@@ -1,12 +1,12 @@
-
-
 This example scenario shows how using a dedicated search service can dramatically increase the relevance of search results for your e-commerce customers.
 
 Search is the primary mechanism through which customers find and ultimately purchase products, making it essential that search results are relevant to the _intent_ of the search query, and that the end-to-end search experience matches that of search giants by providing near-instant results, linguistic analysis, geo-location matching, filtering, faceting, autocomplete, hit highlighting, etc.
 
 Imagine a typical e-commerce web application with product data stored in a relational database like SQL Server or Azure SQL Database. Search queries are often handled inside the database using `LIKE` queries or [Full-Text Search][docs-sql-fts] features. By using [Azure Cognitive Search][docs-search] instead, you free up your operational database from the query processing and you can easily start taking advantage of those hard-to-implement features that provide your customers with the best possible search experience. Also, because Cognitive Search is a platform as a service (PaaS) component, you don't have to worry about managing infrastructure or becoming a search expert.
 
-## Relevant use cases
+## Potential use cases
+
+This solution is optimized for the retail industry.
 
 Other relevant use cases include:
 
@@ -18,7 +18,9 @@ Ultimately, _any_ application that has some form of search functionality can ben
 
 ## Architecture
 
-![Architecture overview of the Azure components involved in an intelligent product search engine for e-commerce][architecture]
+![Diagram showing an architecture overview of the Azure components involved in an intelligent product search engine for e-commerce.][architecture]
+
+### Workflow
 
 This scenario covers an e-commerce solution where customers can search through a product catalog.
 
@@ -77,7 +79,7 @@ Typical ways to tune your search service include:
 - Using [Microsoft provided language analyzers][search-languages] that use an advanced Natural Language Processing (NLP) stack to better interpret queries
 - Using [custom analyzers][search-analyzers] to ensure your products are found correctly, especially if you want to search on non-language based information like a product's make and model.
 
-## Deploy the scenario
+## Deploy this scenario
 
 To deploy a version of this scenario, you can follow this [step-by-step tutorial][end-to-end-walkthrough] that provides a .NET sample application that runs a job search web site. It demonstrates most of the Azure Cognitive Search features discussed thus far.
 
@@ -91,9 +93,17 @@ We have provided three sample cost profiles based on amount of traffic you expec
 - [Medium][medium-pricing]: Here we are scaling up the Web App to two instances of the `Standard S3` tier, upgrading the search service to a `Standard S1` tier, and using a `Standard S6` SQL Database.
 - [Large][large-pricing]: In the largest profile, we use four instances of a `Premium P2V2` Web App, upgrade the Azure Bot service to the `Standard S1` tier (with 1.000.000 messages in Premium channels), use 2 units of the `Standard S3` search service, and a `Premium P6` SQL Database.
 
-## Related resources
+## Next steps
 
 To learn more about Azure Cognitive Search, visit the [documentation center][docs-search], check out the [samples][search-samples], or see a full fledged [demo site][search-demo] in action.
+
+## Related resources
+
+- [Optimize and reuse an existing recommendation system](/azure/architecture/industries/retail/recommendation-engine-optimization)
+- [Visual search in retail with Cosmos DB](/azure/architecture/industries/retail/visual-search-use-case-overview)
+- [Migrate your e-commerce solution to Azure](/azure/architecture/industries/retail/migrate-ecommerce-solution)
+- [Build a content-based recommendation system](/azure/architecture/example-scenario/ai/scalable-personalization-with-content-based-recommendation-system)
+- [Build a real-time recommendation API on Azure](/azure/architecture/reference-architectures/ai/real-time-recommendation)
 
 <!-- links -->
 [architecture]: ./media/architecture-ecommerce-search.png

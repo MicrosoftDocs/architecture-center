@@ -1,10 +1,8 @@
-
-
 This scenario provides architecture and design guidance for building a continuous integration (CI) and continuous deployment (CD) pipeline. In this example, the CI/CD pipeline deploys a two-tier .NET web application to the Azure App Service.
 
 Migrating to modern CI/CD processes provides many benefits for application builds, deployments, testing, and monitoring. By using Azure DevOps along with other services such as App Service, organizations can focus on the development of their apps rather than the management of the supporting infrastructure.
 
-## Relevant use cases
+## Potential use cases
 
 Consider Azure DevOps and CI/CD processes for:
 
@@ -15,6 +13,10 @@ Consider Azure DevOps and CI/CD processes for:
 ## Architecture
 
 ![Architecture diagram of the Azure components involved in a DevOps scenario using Azure DevOps and Azure App Service][architecture]
+
+*Download a [Visio file][visio-download] of this architecture.*
+
+### Dataflow
 
 The data flows through the scenario as follows:
 
@@ -49,9 +51,11 @@ You could consider these alternatives to hosting in Azure Web Apps:
 
 - [Azure Functions][azure-functions] provides an effective serverless approach if the workload architecture is centered around fine grained distributed components, requiring minimal dependencies, where individual components are only required to run on demand (not continuously) and orchestration of components is not required.
 
-This [decision tree for Azure compute services](../../guide/technology-choices/compute-decision-tree.md) may help when choosing the right path to take for a migration.
+This [decision tree for Azure compute services](../../guide/technology-choices/compute-decision-tree.yml) may help when choosing the right path to take for a migration.
 
-## Management and Security Considerations
+## Considerations
+
+### Security and management
 
 - Consider leveraging one of the [tokenization tasks][vsts-tokenization] available in the VSTS marketplace.
 
@@ -65,7 +69,15 @@ This [decision tree for Azure compute services](../../guide/technology-choices/c
 
 - Consider using [Application Insights][application-insights] and additional monitoring tools as early as possible in your release pipeline. Many organizations only begin monitoring in their production environment. By monitoring your other environments, you can identify bugs earlier in the development process and avoid issues in your production environment.
 
-## Deploy the scenario
+## Cost optimization
+
+Azure DevOps costs depend on the number of users in your organization that require access, along with other factors like the number of concurrent build/releases required and number of test users. For more information, see [Azure DevOps pricing][vsts-pricing-page].
+
+This [pricing calculator][vsts-pricing-calculator] provides an estimate for running Azure DevOps with 20 users.
+
+Azure DevOps is billed on a per-user per-month basis. There may be additional charges depending on concurrent pipelines needed, in addition to any additional test users or user basic licenses.
+
+## Deploy this scenario
 
 ### Prerequisites
 
@@ -81,23 +93,18 @@ Once you've configure a pipeline with Azure DevOps Projects and the build is com
 
 The pipeline creates a release definition and a continuous deployment trigger, deploying our application into the Dev environment. As part of a continuous deployment process, you may see releases that span multiple environments. A release can span both infrastructure (using techniques such as infrastructure-as-code), and can also deploy the application packages required along with any post-configuration tasks.
 
-## Pricing
-
-Azure DevOps costs depend on the number of users in your organization that require access, along with other factors like the number of concurrent build/releases required and number of test users. For more information, see [Azure DevOps pricing][vsts-pricing-page].
-
-This [pricing calculator][vsts-pricing-calculator] provides an estimate for running Azure DevOps with 20 users.
-
-Azure DevOps is billed on a per-user per-month basis. There may be additional charges depending on concurrent pipelines needed, in addition to any additional test users or user basic licenses.
-
-## Related resources
+## Next steps
 
 Review the following resources to learn more about CI/CD and Azure DevOps:
 
 - [What is DevOps?][devops-whatis]
 - [DevOps at Microsoft - How we work with Azure DevOps][devops-microsoft]
 - [Step-by-step Tutorials: DevOps with Azure DevOps][devops-with-vsts]
-- [DevOps Checklist][devops-checklist]
 - [Create a CI/CD pipeline for .NET with Azure DevOps Projects][devops-project-create]
+
+## Related resources
+
+- [DevOps Checklist][devops-checklist]
 
 <!-- links -->
 
@@ -116,7 +123,7 @@ Review the following resources to learn more about CI/CD and Azure DevOps:
 [download-keyvault-secrets]: /vsts/pipelines/tasks/deploy/azure-key-vault?view=vsts
 [vsts]: /azure/devops
 [web-apps]: /azure/app-service/app-service-web-overview
-[vsts-account-create]: /azure/devops/organizations/accounts/create-organization-msa-or-work-student?view=vsts
+[vsts-account-create]: /azure/devops/organizations/accounts/create-organization
 [vsts-approvals]: /vsts/pipelines/release/approvals/approvals?view=vsts
 [vsts-deployment-gates]: /vsts/pipelines/release/approvals/gates?view=vsts
 [vsts-pricing-calculator]: https://azure.com/e/498aa024454445a8a352e75724f900b1
@@ -131,3 +138,4 @@ Review the following resources to learn more about CI/CD and Azure DevOps:
 [compare-vm-hosting]: /azure/app-service/choose-web-site-cloud-service-vm
 [devops-project-create]: /azure/devops-project/azure-devops-project-aspnet-core
 [terraform]: /azure/terraform
+[visio-download]: https://arch-center.azureedge.net/architecture-devops-dotnet-webapp.vsdx

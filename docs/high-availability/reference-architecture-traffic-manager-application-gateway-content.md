@@ -19,7 +19,7 @@ In this scenario, the application consists of three layers:
 > [!NOTE]
 > Azure provides a suite of fully managed load-balancing solutions. If you're looking for Transport Layer Security (TLS) protocol termination ("SSL offload") or per-HTTP/HTTPS request, application-layer processing, review [What is Azure Application Gateway?](/azure/application-gateway/overview). If you're looking for regional load balancing, review [Azure Load Balancer](/azure/load-balancer/load-balancer-overview). Your end-to-end scenarios might benefit from combining these solutions as needed.
 >
-> For a comparison of Azure load-balancing options, see [Overview of load-balancing options in Azure](../guide/technology-choices/load-balancing-overview.md).
+> For a comparison of Azure load-balancing options, see [Overview of load-balancing options in Azure](../guide/technology-choices/load-balancing-overview.yml).
 
 ## Architecture
 
@@ -83,7 +83,7 @@ Consider the following points when configuring Traffic Manager:
 
   For information about the various routing methods, see [Traffic Manager routing methods](/azure/traffic-manager/traffic-manager-routing-methods).
 
-- **Health probe:** Traffic Manager uses an HTTP (or HTTPS) probe to monitor the availability of each region. The probe checks for an HTTP 200 response for a specified URL path. As a best practice, create an endpoint that reports the overall health of the application, and use this endpoint for the health probe. Otherwise, the probe might report a healthy endpoint when critical parts of the application are failing. For more information, see [Health Endpoint Monitoring pattern](../patterns/health-endpoint-monitoring.md).
+- **Health probe:** Traffic Manager uses an HTTP (or HTTPS) probe to monitor the availability of each region. The probe checks for an HTTP 200 response for a specified URL path. As a best practice, create an endpoint that reports the overall health of the application, and use this endpoint for the health probe. Otherwise, the probe might report a healthy endpoint when critical parts of the application are failing. For more information, see [Health Endpoint Monitoring pattern](../patterns/health-endpoint-monitoring.yml).
 
   When Traffic Manager fails over there is a period of time when clients cannot reach the application. The duration is affected by the following factors:
 
@@ -113,7 +113,7 @@ For more information about health probes, see:
 - [Load Balancer health probes](/azure/load-balancer/load-balancer-custom-probe-overview)
 - [Application Gateway health monitoring overview](/azure/application-gateway/application-gateway-probe-overview)
 
-For considerations about designing a health probe endpoint, see [Health Endpoint Monitoring pattern](../patterns/health-endpoint-monitoring.md).
+For considerations about designing a health probe endpoint, see [Health Endpoint Monitoring pattern](../patterns/health-endpoint-monitoring.yml).
 
 ## Manageability considerations
 

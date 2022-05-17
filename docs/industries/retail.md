@@ -84,7 +84,7 @@ The following articles provide detailed analysis of architectures developed and 
 
 The following are other ideas that you can use as a starting point for your retail solution.
 
-**AI**.
+**AI**:
 
 - [Commerce Chatbot with Azure Bot Service](../solution-ideas/articles/commerce-chatbot.yml)
 - [Customer Feedback and Analytics](../solution-ideas/articles/customer-feedback-and-analytics.yml)
@@ -97,7 +97,7 @@ The following are other ideas that you can use as a starting point for your reta
 - [Product recommendations for retail](../solution-ideas/articles/product-recommendations.yml)
 - [Retail Assistant with Visual Capabilities](../solution-ideas/articles/retail-assistant-or-vacation-planner-with-visual-capabilities.yml)
 
-**Analytics**.
+**Analytics**:
 
 - [Big data analytics with Azure Data Explorer](../solution-ideas/articles/big-data-azure-data-explorer.yml)
 - [Demand forecasting and price optimization](../solution-ideas/articles/demand-forecasting-price-optimization-marketing.yml)
@@ -106,21 +106,21 @@ The following are other ideas that you can use as a starting point for your reta
 - [Interactive price analytics](../solution-ideas/articles/interactive-price-analytics.yml)
 - [Modern analytics architecture with Azure Databricks](../solution-ideas/articles/azure-databricks-modern-analytics-architecture.yml)
 
-**Databases**.
+**Databases**:
 
 - [Retail and e-commerce using Azure MySQL](../solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-mysql.yml)
 - [Retail and e-commerce using Azure PostgreSQL](../solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-postgresql.yml)
 - [Retail and e-commerce using Cosmos DB](../solution-ideas/articles/retail-and-e-commerce-using-cosmos-db.yml)
 
-**Mixed Reality**.
+**Mixed Reality**:
 
 - [Facilities management powered by mixed reality and IoT](../solution-ideas/articles/facilities-management-powered-by-mixed-reality-and-iot.yml)
 
-**Networking**.
+**Networking**:
 
 - [Video capture and analytics for retail](../solution-ideas/articles/video-analytics.yml)
 
-**Web**.
+**Web**:
 
 - [E-commerce website running in secured App Service Environment](../solution-ideas/articles/ecommerce-website-running-in-secured-ase.yml)
 - [Architect a scalable e-commerce web app](../solution-ideas/articles/scalable-ecommerce-web-app.yml)

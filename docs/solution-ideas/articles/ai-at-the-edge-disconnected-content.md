@@ -2,14 +2,22 @@
 
 With the Azure AI tools, edge, and cloud platform, edge intelligence is possible. AI-enabled hybrid applications can run where your data lives, on-premises. With [Azure Stack Hub](/azure-stack/operator/azure-stack-overview), bring a trained AI model to the edge and integrate it with your applications for low-latency intelligence, with no tool or process changes for local applications. With Azure Stack Hub, you can ensure that your cloud solutions work even when disconnected from the internet.
 
-This solution idea shows a disconnected Stack Hub scenario. Issues of latency, intermittent connectivity, or regulations may not always allow for connectivity to Azure. In the disconnected scenario, data is processed locally and later aggregated in Azure for further analytics. For the connected version of this scenario, see the article [AI at the edge](./ai-at-the-edge.yml).
+This solution idea shows a disconnected Stack Hub scenario. Issues of latency, intermittent connectivity, or regulations might not always allow for connectivity to Azure. In the disconnected scenario, data is processed locally and later aggregated in Azure for further analytics. For the connected version of this scenario, see the article [AI at the edge](./ai-at-the-edge.yml).
+
+## Potential use cases
+
+You might need to deploy as disconnected if you have the following concerns or considerations:
+
+* You have security or other restrictions that require you to deploy Azure Stack Hub in an environment that isn't connected to the internet.
+* You want to block data (including usage data) from being sent to Azure.
+* You want to use Azure Stack Hub purely as a private cloud solution that's deployed to your corporate intranet, and aren't interested in hybrid scenarios.
 
 ## Architecture
 
 ![Architecture diagram: AI-enabled application running at the edge with Azure Stack Hub and hybrid connectivity).](../media/ai-at-the-edge-disconnected.png)
 *Download an [SVG](../media/ai-at-the-edge-disconnected.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
 1. Data scientists train a model using Azure Machine Learning and an HDInsight cluster. The model is containerized and put into an Azure Container Registry.
 1. The model is deployed to a Kubernetes cluster on Azure Stack Hub.
@@ -32,16 +40,16 @@ Key technologies used to implement this architecture:
 
 ## Next steps
 
-* Want to learn more? Check out the related Learn pathway: [Microsoft Learn Azure Stack Module](/learn/modules/intro-to-azure-stack/)
-* Get Microsoft Certified for Azure Stack Hub with the [Azure Stack Hub Operator Associate](/learn/certifications/azure-stack-hub-operator/) certification
+* Want to learn more? Check out the related Learn pathway: [Microsoft Learn Azure Stack Module](/learn/modules/intro-to-azure-stack)
+* Get Microsoft Certified for Azure Stack Hub with the [Azure Stack Hub Operator Associate](/learn/certifications/azure-stack-hub-operator) certification
 * How to [install the AKS Engine on Linux in Azure Stack Hub](/azure-stack/user/azure-stack-kubernetes-aks-engine-deploy-linux)
 * How to [install the AKS Engine on Windows in Azure Stack Hub](/azure-stack/user/azure-stack-kubernetes-aks-engine-deploy-windows)
 * Deploy your ML models to an edge device with [Azure Stack Edge devices](https://azure.microsoft.com/products/azure-stack/edge/#devices)
-* Innovate further and deploy [Azure Cognitive Services (Speech, Language, Decision, Vision) containers to Azure Stack Hub](/azure-stack/user/azure-stack-solution-template-cognitive-services/)
+* Innovate further and deploy [Azure Cognitive Services (Speech, Language, Decision, Vision) containers to Azure Stack Hub](/azure-stack/user/azure-stack-solution-template-cognitive-services)
 
 ## Related resources
 
-* [App Service documentation](/azure/app-service/)
+* [App Service documentation](/azure/app-service)
 * [Azure Kubernetes Service (AKS) documentation](/azure/aks)
 * [Azure Machine Learning documentation](/azure/machine-learning/service)
 * [Azure Stack Hub documentation](/azure/azure-stack/user/azure-stack-solution-machine-learning)
@@ -53,4 +61,4 @@ Key technologies used to implement this architecture:
 * [Azure Samples - Edge Intelligence on Azure Stack Hub (on GitHub)](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/factory-ai-vision)
 * [Azure Samples -Azure Stack Hub Foundation (on GitHub)](https://github.com/Azure-Samples/Azure-Stack-Hub-Foundation-Core)
 * [Virtual Machines documentation](/azure/virtual-machines/workloads/sap/get-started?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-* [Azure hybrid and multicloud patterns and solutions documentation](/hybrid/app-solutions/)
+* [Azure hybrid and multicloud patterns and solutions documentation](/hybrid/app-solutions)

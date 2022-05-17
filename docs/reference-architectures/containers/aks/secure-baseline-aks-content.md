@@ -105,6 +105,12 @@ AKS maintains two separate groups of nodes (or node pools). The *system node poo
 
 For additional information, [Hub-spoke network topology in Azure](../../hybrid-networking/hub-spoke.yml).
 
+#### Subnet to host the Private Link endpoints
+
+Private Link connections are created for the Azure Container Registry and Azure Key Vault, so these services can be accessed using Private Endpoints within the spoke virtual network. Private Link endpoints don't require a dedicated subnet and could also be placed in the hub virtual network. In the baseline implementation, they're deployed to a dedicated subnet within the spoke virtual network. This approach reduces traffic passing the peered network connection, keeps the resources that belong to the cluster in the same virtual network and allows you to apply granular security rules at the subnet level using network security groups.
+
+For additional information, [Private Link deployment options](../../../guide/networking/private-link-hub-spoke-network.yml#decision-tree-for-private-link-deployment).
+
 ## Plan the IP addresses
 
 ![Network topology of the AKS cluster](images/baseline-network-topology.png)
@@ -267,7 +273,7 @@ Here's an example from this architecture:
 Traefik uses the Kubernetes provider to configure routes. The `annotations`, `tls`, and `entrypoints` indicate that routes will be served over HTTPS. The `middlewares` specifies that only traffic from the Azure Application Gateway subnet is allowed. The responses will use gzip encoding if the client accepts. Because Traefik does TLS termination, communication with the backend services is over HTTP.
 
 ```yaml
-apiVersion:networking.k8s.io/v1beta1
+apiVersion:networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: aspnetapp-ingress
@@ -289,8 +295,10 @@ spec:
       paths:
       - path: /
         backend:
-          serviceName: aspnetapp-service
-          servicePort: http
+          service:
+            name: aspnetapp-service
+            port: 
+              name: http
 ```
 
 ## Secure the network flow
@@ -409,7 +417,7 @@ The manual or programmatic way requires you to monitor and set alerts on CPU uti
 
 Autoscaling is the approach because some of those manual mechanisms are built into the autoscaler.
 
-As a general approach, start by performance testing with a minimum number of pods and nodes. Use those values to establish the baseline expectation. Then use a combination of performance metrics and manual scaling to locate bottlenecks and understand the application's response to scaling. Finally, use this data to set the parameters for autoscaling. For information about a performance tuning scenario using AKS, see [Performance tuning scenario: Distributed business transactions](../../../performance/distributed-transaction.md).
+As a general approach, start by performance testing with a minimum number of pods and nodes. Use those values to establish the baseline expectation. Then use a combination of performance metrics and manual scaling to locate bottlenecks and understand the application's response to scaling. Finally, use this data to set the parameters for autoscaling. For information about a performance tuning scenario using AKS, see [Performance tuning scenario: Distributed business transactions](../../../performance/distributed-transaction.yml).
 
 ### Horizontal Pod Autoscaler
 
@@ -488,7 +496,7 @@ Enabling availability zones won't be enough if the entire region goes down. To h
 
 -   If an Azure resource supports geo-redundancy, provide the location where the redundant service will have its secondary. For example, enabling geo-replication for Azure Container Registry will automatically replicate images to the selected Azure regions, and will provide continued access to images even if a region were experiencing an outage.
 
--   Choose a traffic router that can distribute traffic across zones or regions, depending on your requirement. This architecture deploys Azure Load Balancer because it can distribute non-web traffic across zones. If you need to distribute traffic across regions, Azure Front Door should be considered. For other considerations, see [Choose a load balancer](../../../guide/technology-choices/load-balancing-overview.md).
+-   Choose a traffic router that can distribute traffic across zones or regions, depending on your requirement. This architecture deploys Azure Load Balancer because it can distribute non-web traffic across zones. If you need to distribute traffic across regions, Azure Front Door should be considered. For other considerations, see [Choose a load balancer](../../../guide/technology-choices/load-balancing-overview.yml).
 
 > [!NOTE]
 > We've extended this reference architecture to include multiple regions in an active/active and highly available configuration. For information about that reference architecture, see [AKS baseline for multiregion clusters](../aks-multi-region/aks-multi-cluster.yml).
@@ -529,11 +537,14 @@ Most workloads hosted in pods emit Prometheus metrics. Azure Monitor is capable 
 
 There are some third-party utilities integrated with Kubernetes. Take advantage of log and metrics platforms such as Grafana or Datadog, if your organization already uses them.
 
-With AKS, Azure manages some core Kubernetes services. Logs from those services should only be enabled per request from customer support. However, it is recommended that you enable these log sources as they can help you troubleshoot cluster issues:
+With AKS, Azure manages some core Kubernetes services and log capture from those services is configured in the Azure Diagnostics settings for the cluster. It is recommended that most clusters have the following enabled at all times as they can help you troubleshoot cluster issues and have a relatively low log density:
 
-- Logging on the ClusterAutoscaler to gain observability into the scaling operations. For more information, see [Retrieve cluster autoscaler logs and status](/azure/aks/cluster-autoscaler#retrieve-cluster-autoscaler-logs-and-status).
-- KubeControllerManager to have observability into pod scheduler.
-- KubeAuditAdmin to have observability into activities that modify your cluster.
+- Logging on the **ClusterAutoscaler** to gain observability into the scaling operations. For more information, see [Retrieve cluster autoscaler logs and status](/azure/aks/cluster-autoscaler#retrieve-cluster-autoscaler-logs-and-status).
+- **KubeControllerManager** to have observability into the interaction between Kubernetes and the Azure control plane.
+- **KubeAuditAdmin** to have observability into activities that modify your cluster.  There is no reason to have both **KubeAudit** and **KubeAuditAdmin** both enabled, as **KubeAudit** is a superset of **KubeAuditAdmin** that includes non-modify (read) operations as well.
+- **Guard** captures Azure Active Directory and Azure RBAC audits.
+
+Other log categories, such as **KubeScheduler** or **KubeAudit**, may be very helpful to enable during early cluster or workload lifecycle development, where added cluster autoscaling, pod placement & scheduling, and similiar data could help troubleshoot cluster or workload operations concerns. Keeping the extended troubleshooting logs on full time, once the troubleshooting needs are over, may be considered an unnecessary cost to ingest and store in Azure Monitor.
 
 ### Enable self-healing
 
@@ -564,8 +575,9 @@ Keeping your node images in sync with the latest weekly release will minimize th
 
 Monitor your container infrastructure for both active threats and potential security risks:
 
-- Enable [Microsoft Defender for Kubernetes](/azure/security-center/defender-for-kubernetes-introduction) for threat detection on your Kubernetes clusters.
-- Use [Microsoft Defender for Cloud](/azure/security-center/security-center-intro) (Defender for Cloud) to monitor Kubernetes security posture.
+- [Enable Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-enable) to [identify and remediate Defender for Cloud recommendations](/azure/defender-for-cloud/defender-for-containers-introduction#hardening) for your Container images.
+- Microsoft Defender for Containers regularly [scans your container images for vulnerabilities](/azure/defender-for-cloud/defender-for-containers-introduction#vulnerability-assessment).
+- Microsoft Defender for Containers also generates [real-time security alerts for suspicious activities](/azure/defender-for-cloud/defender-for-containers-introduction#run-time-protection-for-kubernetes-nodes-and-clusters).
 - For information about security hardening applied to AKS virtual machine hosts, see [Security Hardening in host OS](/azure/aks/security-hardened-vm-host-image).
 
 ## Cluster and workload operations (DevOps)

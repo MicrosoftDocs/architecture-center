@@ -6,17 +6,17 @@ This example demonstrates how you can deploy portals that automate manual or pap
 
 ![Architecture Diagram](../media/custom-business-processes.png)
 
-### Data flow
+### Dataflow
 
 The data flows through the solution as follows:
 
-1. The airline system assigns flights to Teams channel which are also displayed in Power Apps.
-2. Custom API Coordinator hosted in Azure API Management receives notifications and handles incoming messages from the airline system.
+1. The airline system assigns flights to Teams channel which are also displayed in [Power Apps](/power-apps/).
+2. Custom API Coordinator hosted in [Azure API Management](/azure/api-management) receives notifications and handles incoming messages from the airline system.
 3. When a user selects a flight to monitor or the system assigns the user to a flight, Graph API call is queued for coordinator to process.
-4. Azure Functions run the Graph API calls which are processed in Azure Storage.
-5. Notifications from airline system are managed by a custom bot messaging service leveraging Azure Bot Service.
-6. Custom bots sends flight updates to users in Teams.
-7. Power BI generates reports from the Azure Data Lake, based on Teams activity.
+4. [Azure Functions](/azure/azure-functions) run the Graph API calls which are processed in [Azure Storage](/azure/storage/).
+5. Notifications from airline system are managed by a custom bot messaging service that leverages [Azure Bot Service](/azure/bot-service).
+6. Custom bots send flight updates to users in Teams.
+7. Power BI generates reports from the [Azure Data Lake](/azure/storage/blobs/data-lake-storage-introduction), based on Teams activity.
 
 ### Components
 
@@ -33,8 +33,23 @@ Data is loaded from these different data sources using several Azure components:
 - [Azure Bot Service](https://azure.microsoft.com/services/bot-service/): A managed service purpose-built for bot development
 - [Azure Data Factory](https://azure.microsoft.com/services/data-factory/): Hybrid data integration service that simplifies ETL at scale
 - [Power Automate](https://flow.microsoft.com/): Streamline repetitive tasks and paperless processes
-- [Power BI](/power-bi) is a suite of business analytics tools to analyze data and share insights.
+- [Power BI](https://powerbi.microsoft.com) is a suite of business analytics tools to analyze data and share insights.
 
 ## Next steps
 
-- Learn more: [https://aka.ms/learnpowerapps](/learn/browse/?products=power-apps)
+- [What is Power BI?](/power-bi/fundamentals/power-bi-overview)
+- [Introduction to Azure Functions](/azure/azure-functions/functions-overview)
+- [About Azure API Management](/azure/api-management/api-management-key-concepts)
+- [What is Azure SQL Database?](/azure/azure-sql/database/sql-database-paas-overview)
+- [Welcome to Azure Cosmos DB](/azure/cosmos-db/introduction)
+- [What is Azure Event Hubs?](/azure/event-hubs/event-hubs-about)
+- [Introduction to Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction)
+- [Azure Bot Service](/azure/bot-service)
+- [What is Azure Data Factory?](/azure/data-factory/introduction)
+- [Introduction to Power Apps](/learn/modules/introduction-power-apps/)
+
+## Related resources
+
+- [Design great API developer experiences using API Management and GitHub](../../example-scenario/web/design-api-developer-experiences-management-github.yml)
+- [API-first SaaS business model](./aks-api-first.yml)
+- [Modern customer support portal](./modern-customer-support-portal-powered-by-an-agile-business-process.yml)

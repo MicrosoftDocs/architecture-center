@@ -147,7 +147,7 @@ Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator) to 
 
 - [Basic web application][basic-web-app]
 - [Run a web application in multiple Azure regions for high availability][web-app-multi-region]
-- [Overview of load-balancing options in Azure](../../guide/technology-choices/load-balancing-overview.md)
+- [Overview of load-balancing options in Azure](../../guide/technology-choices/load-balancing-overview.yml)
 
 <!-- links -->
 
@@ -162,10 +162,10 @@ Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator) to 
 [azure-search-scaling]: /azure/search/search-capacity-planning
 [basic-web-app]: ./basic-web-app.yml
 [basic-web-app-devops]: ./basic-web-app.yml#devops
-[caching-guidance]: ../../best-practices/caching.md
+[caching-guidance]: ../../best-practices/caching.yml
 [cdn-app-service]: /azure/app-service-web/cdn-websites-with-cdn
 [cdn-storage-account]: /azure/cdn/cdn-create-a-storage-account-with-cdn
-[cdn-guidance]: ../../best-practices/cdn.md
+[cdn-guidance]: ../../best-practices/cdn.yml
 [cors]: /azure/app-service-api/app-service-api-cors-consume-javascript
 [cosmosdb]: /azure/cosmos-db
 [datastore]: ../..//guide/technology-choices/data-store-overview.md
@@ -177,5 +177,5 @@ Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator) to 
 [sql-db]: /azure/sql-database
 [sql-elastic]: /azure/sql-database/sql-database-elastic-scale-introduction
 [sql-encryption]: /azure/azure-sql/database/transparent-data-encryption-tde-overview?view=sql-server-ver15
-[visio-download]: https://arch-center.azureedge.net/app-service-reference-architectures.vsdx
+[visio-download]: https://arch-center.azureedge.net/app-service-reference-architectures-scalable-webapp.vsdx
 [web-app-multi-region]: ./multi-region.yml

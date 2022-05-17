@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-The Transit Hub is a dynamic [publish-subscribe model](../../patterns/publisher-subscriber.md) for data producers and data consumers to create and consume validated curated content or data. The model is elastic to allow for scale and performance. Data producers can quickly onboard and upload data to a service. The service validates the data against a schema that the data producer provides. The service then makes the validated data available for subscribers to consume data they're interested in.
+The Transit Hub is a dynamic [publish-subscribe model](../../patterns/publisher-subscriber.yml) for data producers and data consumers to create and consume validated curated content or data. The model is elastic to allow for scale and performance. Data producers can quickly onboard and upload data to a service. The service validates the data against a schema that the data producer provides. The service then makes the validated data available for subscribers to consume data they're interested in.
 
 The service validating the data doesn't need to know about the payload, only whether it's valid against the schema that the producer provides. This flexibility means the service can accept new payload types without having to be redeployed. This solution also lets data consumers get historical data that was published before the consumer subscribed.
 
@@ -60,5 +60,5 @@ This model is especially useful in the following scenarios:
 - [Tutorial: Create a serverless notification app with Azure Functions and Azure Web PubSub service](/azure/azure-web-pubsub/tutorial-serverless-notification)
 ## Related resources
 
-- [Publisher-Subscriber pattern](../../patterns/publisher-subscriber.md)
-- [Asynchronous messaging options in Azure](../../guide/technology-choices/messaging.md)
+- [Publisher-Subscriber pattern](../../patterns/publisher-subscriber.yml)
+- [Asynchronous messaging options in Azure](../../guide/technology-choices/messaging.yml)

@@ -7,7 +7,7 @@ Perform fast, interactive SQL like queries at scale over structured or unstructu
 ![Architecture Diagram](../media/interactive-querying-with-hdinsight.png)
 *Download an [SVG](../media/interactive-querying-with-hdinsight.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
 1. Move data between Azure cloud or any other non Azure cloud using Azure Data Factory
 1. Create a data landing zone using Azure Data Lake Gen2 service, which is also the primary storage account for the Azure HDInsights hadoop cluster
@@ -22,7 +22,7 @@ Perform fast, interactive SQL like queries at scale over structured or unstructu
 * [Azure HDInsight](/azure/hdinsight/hdinsight-overview) makes it easy, fast, and cost-effective to process massive amounts of data. You can use the most popular open-source frameworks such as Hadoop, Spark, Hive, LLAP, Kafka, Storm, R, and more.
 * [Power BI](/power-bi/fundamentals/power-bi-overview) is a suite of business analytics tools that deliver insights throughout your organization. Connect to hundreds of data sources, simplify data prep, and drive adhoc analysis.
 
-## See also
+## Next steps
 
 * [Create a data pipeline to derive sales insights in Azure HDInsight](/azure/hdinsight/hdinsight-sales-insights-etl) build an end-to-end data pipeline that performs extract, transform, and load (ETL) operations.
 * [Visualize Apache Hive data with Microsoft Power BI](/azure/hdinsight/hadoop/apache-hadoop-connect-hive-power-bi) learn how to connect Microsoft Power BI Desktop to Azure HDInsight using ODBC and visualize Apache Hive data.

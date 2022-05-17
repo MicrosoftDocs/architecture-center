@@ -5,7 +5,7 @@ metadata:
   description: Extract, transform, and load (ETL) big data clusters on demand by using Azure HDInsight, Hadoop MapReduce, and Apache Spark.
   author: EdPrice-MSFT
   ms.author: jodobrze
-  ms.date: 11/10/2021
+  ms.date: 03/11/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea

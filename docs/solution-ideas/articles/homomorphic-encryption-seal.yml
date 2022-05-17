@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Example Scenarios
   description: Use the Microsoft Simple Encrypted Arithmetic Library (SEAL) to implement homomorphic encryption so that you can run computations directly on encrypted data.
   author: jocontr
-  ms.author: pnp
+  ms.author: jocontr
   ms.date: 07/13/2020
   ms.topic: conceptual
   ms.service: architecture-center

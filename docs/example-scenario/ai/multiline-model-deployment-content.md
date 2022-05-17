@@ -85,8 +85,8 @@ To estimate your cost, set the expected data volume, the Azure Machine Learning 
 - [Azure Machine Learning pipelines](/azure/machine-learning/concept-ml-pipelines)
 - [What is Azure Pipelines?](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops)
 - [Get started with Azure DevOps Starter](/azure/devops-project/azure-devops-project-github)
-- [Use automated machine learning in Azure Machine Learning](https://docs.microsoft.com/learn/modules/use-automated-machine-learning)
-- [Implement CI/CD with Azure DevOps](https://docs.microsoft.com/learn/modules/implement-ci-cd-azure-devops)
+- [Use automated machine learning in Azure Machine Learning](/learn/modules/use-automated-machine-learning)
+- [Implement CI/CD with Azure DevOps](/learn/modules/implement-ci-cd-azure-devops)
 
 ## Related resources 
 

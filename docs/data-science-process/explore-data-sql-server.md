@@ -1,12 +1,12 @@
 ---
 title: Explore data in a SQL Server virtual machine 
 description: How to explore data that is stored in a SQL Server VM on Azure using SQL or a programming language like Python.
-services: machine-learning
 author: marktab
 manager: marktab
 editor: marktab
-ms.service: machine-learning
-ms.subservice: team-data-science-process
+services: architecture-center
+ms.service: architecture-center
+ms.subservice: azure-guide
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
@@ -22,7 +22,7 @@ categories:
 
 This article covers how to explore data that is stored in a SQL Server VM on Azure. Use SQL or Python to examine the data.
 
-This task is a step in the [Team Data Science Process](overview.md).
+This task is a step in the [Team Data Science Process](overview.yml).
 
 > [!NOTE]
 > The sample SQL statements in this document assume that data is in SQL Server. If it isn't, refer to the cloud data science process map to learn how to move your data to SQL Server.
@@ -71,4 +71,4 @@ data_frame = pd.read_sql('''select <columnname1>, <columnname2>... from <tablena
 Now you can work with the Pandas DataFrame as covered in the topic [Process Azure Blob data in your data science environment](data-blob.md).
 
 ## The Team Data Science Process in action example
-For an end-to-end walkthrough example of the Cortana Analytics Process using a public dataset, see [The Team Data Science Process in action: using SQL Server](sql-walkthrough.md).
+For an end-to-end walkthrough example of the Cortana Analytics Process using a public dataset, see [The Team Data Science Process in action: using SQL Server](/azure/architecture/data-science-process/overview).

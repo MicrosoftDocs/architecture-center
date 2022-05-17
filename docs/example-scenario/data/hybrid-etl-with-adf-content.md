@@ -1,5 +1,3 @@
-
-
 Organizations that migrate their SQL Server databases to the cloud can realize tremendous cost savings, performance gains, added flexibility, and greater scalability. However, reworking existing extract, transform, and load (ETL) processes built with SQL Server Integration Services (SSIS) can be a migration roadblock. In other cases, the data load process requires complex logic and/or specific data tool components that are not yet supported by Azure Data Factory v2. Commonly used SSIS capabilities include Fuzzy Lookup and Fuzzy Grouping transformations, Change Data Capture (CDC), Slowly Changing Dimensions (SCD), and Data Quality Services (DQS).
 
 To facilitate a "lift and shift" migration of an existing SQL database, a hybrid ETL approach may be the most suitable option. A hybrid approach uses Data Factory as the primary orchestration engine, but continues to leverage existing SSIS packages to clean data and work with on-premises resources. This approach uses the Data Factory SQL Server Integrated Runtime (IR) to enable a "lift and shift" migration of existing databases into the cloud, while using existing code and SSIS packages.
@@ -21,7 +19,9 @@ Several potential on-premises use cases are listed below:
 
 ## Architecture
 
-![Architecture overview of a hybrid ETL process using Azure Data Factory][architecture-diagram]
+![Digaram displaying an architecture overview of a hybrid ETL process that uses Azure Data Factory.][architecture-diagram]
+
+### Dataflow
 
 1. Data is sourced from Blob storage into Data Factory.
 2. The Data Factory pipeline invokes a stored procedure to execute an SSIS job hosted on-premises via the Integrated Runtime.

@@ -2,7 +2,11 @@
 
 This solution idea uses historical demand data to forecast demand in future periods across various customers, products, and destinations. One example is when a shipping or delivery company wants to predict the quantities of the different products customers want delivered at different locations and at future times. The company can use demand forecasts as input to an allocation tool. The allocation tool can then optimize operations, such as delivery vehicle routing and planning capacity in the longer term.  A related example is when a vendor or insurer wants to know the number of products that will be returned because of failures.
 
+## Potential use cases
+
 The demand forecasting process described in this solution can be operationalized and deployed in [Microsoft AI platform](https://www.microsoft.com/en-us/ai/ai-platform). Microsoft AI platform has advanced analytics tools for data ingestion, data storage, scheduling, and advanced analytics. These tools are all the essential tools for running a demand forecasting solution that can be integrated with your current production systems.
+
+This solution is optimized for the retail and manufacturing industries.
 
 ## Architecture
 

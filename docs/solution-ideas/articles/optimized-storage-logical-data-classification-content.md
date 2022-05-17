@@ -63,7 +63,7 @@ The application data is stored in Azure Cosmos DB, which replicates data to diff
 
 ## Next steps
 
-- [Web-Queue-Worker architecture style](../../guide/architecture-styles/web-queue-worker.md)
+- [Web-Queue-Worker architecture style](../../guide/architecture-styles/web-queue-worker.yml)
 - [Design a geographically distributed application](/learn/modules/design-a-geographically-distributed-application)
 - [Distribute your data globally with Azure Cosmos DB](/learn/modules/distribute-data-globally-with-cosmos-db)
 - [Choose the appropriate API for Azure Cosmos DB](/learn/modules/choose-api-for-cosmos-db)

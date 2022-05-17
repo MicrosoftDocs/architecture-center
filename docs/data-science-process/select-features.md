@@ -1,12 +1,12 @@
 ---
 title: Feature selection in the Team Data Science Process
 description: Explains the purpose of feature selection and provides examples of their role in the data enhancement process of machine learning.
-services: machine-learning
 author: marktab
 manager: marktab
 editor: marktab
-ms.service: machine-learning
-ms.subservice: team-data-science-process
+services: architecture-center
+ms.service: architecture-center
+ms.subservice: azure-guide
 ms.topic: article
 ms.date: 12/21/2021
 ms.author: tdsp
@@ -22,7 +22,7 @@ categories:
 
 This article explains the purposes of feature selection and provides examples of its role in the data enhancement process of machine learning. These examples are drawn from Azure Machine Learning Studio.
 
-The engineering and selection of features is one part of the Team Data Science Process (TDSP) outlined in the article [What is the Team Data Science Process?](overview.md). Feature engineering and selection are parts of the **Develop features** step of the TDSP.
+The engineering and selection of features is one part of the Team Data Science Process (TDSP) outlined in the article [What is the Team Data Science Process?](overview.yml). Feature engineering and selection are parts of the **Develop features** step of the TDSP.
 
 * **feature engineering**: This process attempts to create additional relevant features from the existing raw features in the data, and to increase predictive power to the learning algorithm.
 * **feature selection**: This process selects the key subset of original data features in an attempt to reduce the dimensionality of the training problem.

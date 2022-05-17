@@ -154,7 +154,7 @@ Various Azure services and configurations make up the Project 15 Open Platform:
 [Notification Hubs]: /azure/notification-hubs/notification-hubs-push-notification-overview
 [Power BI]: /power-bi/fundamentals/power-bi-overview
 [Project 15 on GitHub]: https://aka.ms/project15code
-[Project 15 from Microsoft]: https://aka.ms/project15
+[Project 15 from Microsoft]: /shows/Azure-Videos/project-15
 [Project 15 Open Platform Developer Guide]: https://microsoft.github.io/project15/Developer-Guide/DeveloperGuide.html
 [Project 15 YouTube Channel]: https://aka.ms/project15video
 [Solution details]: #solution-details

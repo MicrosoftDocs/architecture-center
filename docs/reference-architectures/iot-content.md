@@ -8,11 +8,11 @@ Azure IoT solutions involve **things** (typically **devices**) that generate dat
 
 If you want to see IoT reference architectures that address solutions that are specific to industry verticals, you can start here:
 > [!div class="nextstepaction"]
-> [Industry Specific IoT reference architectures](/azure/architecture/reference-architectures/iot/iot-architecture-overview)
+> [Industry specific IoT reference architectures](iot/industry-iot-hub-page.md)
 
 ## Devices
 
-Azure IoT supports a large range of devices, from microcontrollers running Azure RTOS and Azure Sphere to developer boards like [MX Chip](/samples/azure-samples/mxchip-iot-devkit-get-started/sample/) and Raspberry Pi. Azure IoT also supports smart server gateways capable of running custom code. Devices might perform some local processing through a service such as **Azure IoT Edge**, or just connect directly to Azure so that they can send data to and receive data from the IoT solution.
+Azure IoT supports a large range of devices, from microcontrollers running Azure RTOS and [Azure Sphere](/azure-sphere/product-overview/what-is-azure-sphere/) to developer boards like [MX Chip](/samples/azure-samples/mxchip-iot-devkit-get-started/sample/) and Raspberry Pi. Azure IoT also supports smart server gateways capable of running custom code. Devices might perform some local processing through a service such as **Azure IoT Edge**, or just connect directly to Azure so that they can send data to and receive data from the IoT solution.
 
 When devices are connected to the cloud, there are several services that assist with ingesting data. **Azure IoT Hub** is a cloud gateway service that can securely connect and manage devices. **IoT Hub Device Provisioning Service (DPS)** enables zero-touch, just-in-time provisioning that helps to register a large number of devices in a secure and scalable manner. **Azure Digital Twins** enables virtual models of real world systems.
 

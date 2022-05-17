@@ -1,14 +1,14 @@
 ---
 title: Modeling stage of the Team Data Science Process lifecycle
 description: The goals, tasks, and deliverables for the modeling stage of your data-science projects
-services: machine-learning
 author: marktab
 manager: marktab
 editor: marktab
-ms.service: machine-learning
-ms.subservice: team-data-science-process
+services: architecture-center
+ms.service: architecture-center
+ms.subservice: azure-guide
 ms.topic: article
-ms.date: 12/29/2021
+ms.date: 01/31/2022
 ms.author: tdsp
 ms.custom:
   - previous-author=deguhath
@@ -95,6 +95,3 @@ Here are links to each step in the lifecycle of the TDSP:
    4. [Deployment](lifecycle-deployment.md)
    5. [Customer acceptance](lifecycle-acceptance.md)
 
-We provide full end-to-end walkthroughs that demonstrate all the steps in the process for specific scenarios. The [Example walkthroughs](walkthroughs.md) article provides a list of the scenarios with links and thumbnail descriptions. The walkthroughs illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an intelligent application.
-
-For examples of how to execute steps in TDSPs that use Azure Machine Learning, see [Use the TDSP with Azure Machine Learning](/azure/machine-learning/team-data-science-process).

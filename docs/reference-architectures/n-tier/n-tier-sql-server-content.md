@@ -1,6 +1,6 @@
 
 
-This reference architecture shows how to deploy virtual machines (VMs) and a virtual network configured for an [N-tier](../../guide/architecture-styles/n-tier.md) application, using SQL Server on Windows for the data tier. [**Deploy this solution**](#deploy-the-solution).
+This reference architecture shows how to deploy virtual machines (VMs) and a virtual network configured for an [N-tier](../../guide/architecture-styles/n-tier.yml) application, using SQL Server on Windows for the data tier. [**Deploy this solution**](#deploy-the-solution).
 
 [![N-tier architecture using Microsoft Azure](./images/n-tier-sql-server.png)](./images/n-tier-sql-server.png)
 
@@ -178,7 +178,7 @@ For more information about health probes, see:
 - [Load Balancer health probes](/azure/load-balancer/load-balancer-custom-probe-overview)
 - [Application Gateway health monitoring overview](/azure/application-gateway/application-gateway-probe-overview)
 
-For considerations about designing a health probe endpoint, see [Health Endpoint Monitoring pattern](../../patterns/health-endpoint-monitoring.md).
+For considerations about designing a health probe endpoint, see [Health Endpoint Monitoring pattern](../../patterns/health-endpoint-monitoring.yml).
 
 ## Cost considerations
 
@@ -216,11 +216,11 @@ Virtual networks are a traffic isolation boundary in Azure. By default, VMs in o
 
 ## DevOps considerations
 
-In this architecture you use [Azure Building Blocks templates][azbb-template] for provisioning the Azure resources and its dependencies. Since all the main resources and their dependencies are in the same virtual network, they are isolated in the same basic workload, that makes it easier to associate the workload's specific resources to a team, so that the team can independently manage all aspects of those resources. This isolation enables DevOps to perform continuous integration and continuous delivery (CI/CD).
+In this architecture, you use [Azure Building Blocks templates][azbb-template] for provisioning the Azure resources and its dependencies. Since all the main resources and their dependencies are in the same virtual network, they are isolated in the same basic workload, that makes it easier to associate the workload's specific resources to a team, so that the team can independently manage all aspects of those resources. This isolation enables DevOps to perform continuous integration and continuous delivery (CI/CD).
 
 Also, you can use different deployment templates and integrate them with [Azure DevOps Services][az-devops] to provision different environments in minutes, for example to replicate production like scenarios or load testing environments only when needed, saving cost.
 
-In this sceanario you virtual machines are configured by using Virtual Machine Extensions, since they offer the possibility of installing certain additional software, such as anti malware and security agents. VM Extensions are installed and executed only at VM creation time. That means if the Operating System gets configured incorrectly at a later stage, it will require a manual intervention to move it back to its correct state..
+In this scenario your virtual machines are configured by using Virtual Machine Extensions, since they offer the possibility of installing certain additional software, such as anti malware and security agents. VM Extensions are installed and executed only at VM creation time. That means if the Operating System gets configured incorrectly at a later stage, it will require a manual intervention to move it back to its correct state.
 
 Configuration Management Tools, in particular Desired State Configuration (DSC), are used in this architecture to configure Active Directory and a SQL Server Always On Availability Group.
 
@@ -298,7 +298,7 @@ If you specify a region that supports availability zones, the VMs are deployed i
 [load-balancer-hashing]: /azure/load-balancer/components#load-balancing-rules
 [load-balancer]: /azure/load-balancer/load-balancer-standard-overview
 [multi-dc]: ./multi-region-sql-server.yml
-[n-tier]: ../../guide/architecture-styles/n-tier.md
+[n-tier]: ../../guide/architecture-styles/n-tier.yml
 [network-security]: /azure/best-practices-network-security
 [nsg]: /azure/virtual-network/virtual-networks-nsg
 [plan-network]: /azure/virtual-network/virtual-network-vnet-plan-design-arm
@@ -307,7 +307,7 @@ If you specify a region that supports availability zones, the VMs are deployed i
 [resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview
 [sql-alwayson-force-failover]: /sql/database-engine/availability-groups/windows/perform-a-forced-manual-failover-of-an-availability-group-sql-server?view=sql-server-ver15&preserve-view=true
 [sql-alwayson-getting-started]: /sql/database-engine/availability-groups/windows/getting-started-with-always-on-availability-groups-sql-server?view=sql-server-ver15&preserve-view=true
-[sql-alwayson-ilb]: /azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener
+[sql-alwayson-ilb]: /azure/azure-sql/virtual-machines/windows/availability-group-load-balancer-portal-configure
 [sql-alwayson-listeners]: /sql/database-engine/availability-groups/windows/listeners-client-connectivity-application-failover?view=sql-server-ver15&preserve-view=true
 [sql-alwayson-read-only-routing]: /sql/database-engine/availability-groups/windows/listeners-client-connectivity-application-failover?view=sql-server-ver15&preserve-view=true#ConnectToSecondary
 [sql-alwayson]: /sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-ver15&preserve-view=true

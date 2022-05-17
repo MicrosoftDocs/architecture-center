@@ -1,0 +1,21 @@
+### YamlMime:Architecture
+metadata:
+  title: External Configuration Store pattern
+  description: Examine the External Configuration Store pattern, which moves configuration information out of the application deployment package to a centralized location.
+  author: ckittel
+  ms.author: ckittel
+  ms.date: 09/14/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - developer-tools
+  - devops
+products:
+  - azure-app-configuration
+  - azure-blob-storage
+name: External Configuration Store pattern
+summary: Examine the External Configuration Store pattern, which moves configuration information out of the application deployment package to a centralized location.
+thumbnailUrl: /azure/architecture/browse/thumbs/external-configuration-store-overview.png
+content: |
+  [!include[](external-configuration-store-content.md)]

@@ -6,7 +6,7 @@ By using fully managed Azure services such as Event Hubs and Stream Analytics, c
 
 This sample represents one part of a broader data processing architecture and strategy. Other options for this aspect of an overall architecture are discussed later in this article.
 
-## Relevant use cases
+## Potential use cases
 
 Other relevant use cases include:
 
@@ -17,6 +17,8 @@ Other relevant use cases include:
 ## Architecture
 
 ![Architecture overview of the Azure components of a real-time fraud detection scenario][architecture]
+
+### Dataflow
 
 This scenario covers the back-end components of a real-time analytics pipeline. Data flows through the scenario as follows:
 
@@ -31,13 +33,13 @@ This scenario covers the back-end components of a real-time analytics pipeline. 
 - [Azure Stream Analytics][docs-stream-analytics] is an event-processing engine that can analyze high volumes of data streaming from devices and other data sources. It also supports extracting information from data streams to identify patterns and relationships. These patterns can trigger other downstream actions. In this scenario, Stream Analytics transforms the input stream from Event Hubs to identify fraudulent calls.
 - [Blob storage](/azure/storage/blobs/storage-blobs-introduction) is used in this scenario to store the results of the Stream Analytics job.
 
-## Considerations
-
 ### Alternatives
 
 Many technology choices are available for real-time message ingestion, data storage, stream processing, storage of analytical data, and analytics and reporting. For an overview of these options, their capabilities, and key selection criteria, see [Big data architectures: Real-time processing](../../data-guide/technology-choices/real-time-ingestion.md) in the Azure Data Architecture Guide.
 
 Additionally, more complex algorithms for fraud detection can be produced by various machine learning services in Azure. For an overview of these options, see [Technology choices for machine learning](../../data-guide/technology-choices/data-science-and-machine-learning.md) in the [Azure Data Architecture Guide](../../data-guide/index.md).
+
+## Considerations
 
 ### Availability
 
@@ -59,7 +61,7 @@ For general guidance on designing secure solutions, see the [Azure Security Docu
 
 For general guidance on designing resilient solutions, see [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
 
-## Deploy the scenario
+## Deploy this scenario
 
 To deploy this scenario, you can follow this [step-by-step tutorial][tutorial] demonstrating how to manually deploy each component of the scenario. This tutorial also provides a .NET client application to generate sample phone call metadata and send that data to an event hub instance.
 
@@ -73,9 +75,15 @@ We have provided three sample cost profiles based on amount of traffic you expec
 - [Medium][medium-pricing]: process 100M events through five standard streaming units per month.
 - [Large][large-pricing]: process 999 million events through 20 standard streaming units per month.
 
-## Related resources
+## Next steps
 
 More complex fraud detection scenarios can benefit from a machine learning model. For scenarios built using Machine Learning Server, see [Fraud detection using Machine Learning Server][r-server-fraud-detection]. For other solution templates using Machine Learning Server, see [Data science scenarios and solution templates][docs-r-server-sample-solutions].
+
+## Related resources
+
+- [Integrate Event Hubs with serverless functions on Azure](/azure/architecture/serverless/event-hubs-functions/event-hubs-functions)
+- [Serverless event processing](/azure/architecture/reference-architectures/serverless/event-processing)
+- [Stream processing with Azure Stream Analytics](/azure/architecture/reference-architectures/data/stream-processing-stream-analytics)
 
 <!-- links -->
 [product-category]: https://azure.microsoft.com/product-categories/analytics

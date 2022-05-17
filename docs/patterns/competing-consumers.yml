@@ -1,0 +1,20 @@
+### YamlMime:Architecture
+metadata:
+  title: Competing Consumers pattern
+  description: Explore the Competing Consumers pattern. This pattern enables many concurrent consumers to process messages that are received on the same messaging channel.
+  author: EdPrice-MSFT
+  ms.author: pnp
+  ms.date: 06/23/2017
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - web
+products:
+  - azure-functions
+  - azure-service-bus
+name: Competing Consumers pattern
+summary: <Write a summary. Can be same as description.>
+thumbnailUrl: /azure/architecture/browse/thumbs/competing-consumers-diagram.png
+content: |
+  [!include[](competing-consumers-content.md)]

@@ -5,7 +5,7 @@ metadata:
   description: Use APIOps with an Azure API Management instance to build and deploy APIs. This solution provides self-service tools, auditing, policy enforcement, and early feedback.
   author: rishabhsaha
   ms.author: risaha
-  ms.date: 01/20/2022
+  ms.date: 04/08/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
@@ -18,7 +18,7 @@ products:
   - azure-api-management
   - azure-devops
   - azure-pipelines
-name: Automated API deployments with APIOps
+name: Automate API deployments with APIOps
 summary: Use APIOps with an API Management instance to build and deploy APIs. This solution provides self-service tools, auditing, policy enforcement, and early feedback.
 thumbnailUrl: /azure/architecture/browse/thumbs/automated-api-deployments-architecture-diagram.png
 content: |
