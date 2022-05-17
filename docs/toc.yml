@@ -3253,6 +3253,8 @@ items:
                 href: solution-ideas/articles/streaming-using-hdinsight.yml
       - name: DataOps
         items:
+          - name: Get started
+            href: data-guide/azure-dataops-architecture-design.md
           - name: Guides
             items:
               - name: DataOps checklist
