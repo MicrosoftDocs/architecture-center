@@ -145,7 +145,7 @@ Moving your ecommerce system into Azure takes analysis, planning and a defined a
 
 _This article is maintained by Microsoft. It was originally written by the following contributors._
 
-**Principal authors:**
+Principal authors:
 
 - [Scott Seely](https://www.linkedin.com/in/scottseely) | Software Architect
 - [Mariya Zorotovich](https://www.linkedin.com/in/mariyazoro) | Head of Customer Experience, HLS & Emerging Technology
