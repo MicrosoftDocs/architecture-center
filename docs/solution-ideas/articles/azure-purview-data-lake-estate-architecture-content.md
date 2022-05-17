@@ -46,7 +46,7 @@ Scenarios for connecting Azure Purview to Data Lake services:
 
 #### Capabilities
 
-- [Catalog](/azure/purview/overview#data-catalog). The Azure Purview data catalog can automatically capture and describe core characteristics of data at the source, including schema, technical properties, and location. The Azure Purview glossary allows a business-friendly definition of data to be layered on top, to improve search and discovery.
+- [Catalog](/azure/purview/overview#data-catalog). The Microsoft Purview Data Catalog can automatically capture and describe core characteristics of data at the source, including schema, technical properties, and location. The Azure Purview glossary allows a business-friendly definition of data to be layered on top, to improve search and discovery.
 
 - [Classification](/azure/purview/concept-best-practices-classification). Azure Purview automatically classifies datasets and data elements with 100 predefined sensitive-data classifications. It also allows you to define your own custom classification schemes that you can apply manually and automatically.
 
