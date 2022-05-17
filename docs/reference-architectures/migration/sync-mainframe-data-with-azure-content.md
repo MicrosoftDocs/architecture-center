@@ -96,6 +96,7 @@ The solution uses the following components:
 #### Data integrators
 
 - [Data Factory][Azure Data Factory] is a hybrid data integration service. You can use this fully managed, serverless solution to create, schedule, and orchestrate ETL and [ELT][ELT] workflows.
+- [Azure Synapse Analytics] is an enterprise analytics service that accelerates time to insight across data warehouses and big data systems. Azure Synapse brings together the best of SQL technologies used in enterprise data warehousing, Spark technologies used for big data, Data Explorer for log and time series analytics, Pipelines for data integration and ETL/ELT, and deep integration with other Azure services such as Power BI, CosmosDB, and AzureML.
 
 - [SSIS][SQL Server Integration Services] is a platform for building enterprise-level data integration and transformation solutions. You can use SSIS to manage, replicate, cleanse, and mine data.
 
@@ -230,3 +231,4 @@ Use the [Azure pricing calculator][Azure pricing calculator] to estimate the cos
 [Azure Database for MySQL]: https://azure.microsoft.com/services/mysql/
 [What is HIS]: /host-integration-server/what-is-his
 [What is NoSQL? Databases for a cloud-scale future]: https://www.infoworld.com/article/3240644/what-is-nosql-databases-for-a-cloud-scale-future.html
+[Azure Synapse Analytics] https://docs.microsoft.com/en-us/azure/synapse-analytics/overview-what-is
