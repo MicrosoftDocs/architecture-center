@@ -12,7 +12,7 @@ There are three flows that pertain to this architecture: Operations (items 1-3),
 1. Operators or Administrators wanting to perform administration tasks on the CI/CD server would need to first connect to the Bastion Host.
 2. Using the Bastion host, the operator or administrator can then RDP into the Jumpbox server.
 3. From the Jumpbox server, the operator or administrator can RDP into the CI/CD server and perform the required tasks, such as agent upgrades, OS upgrades, etc.
-4. Deployment of the solution is performed via the CI/CD Agent server. The agent on this server will interact with either an Azure DevOps pipeline or a GitHuv workflow when a new deployment is executed.  The agent will then deploy the App Service by connecting to the App Service Environment (ASE) over the VNet peering.
+4. Deployment of the solution is performed via the CI/CD Agent server. The agent on this server will interact with either an Azure DevOps pipeline or a GitHub workflow when a new deployment is executed.  The agent will then deploy the App Service by connecting to the App Service Environment (ASE) over the VNet peering.
 5. Users that want to connect to the deployed App Service will be able to do so over the company's network, using any existing Express Route or VPN if required, and/or over any applicable Azure VNet peering.
 
 ### Components
