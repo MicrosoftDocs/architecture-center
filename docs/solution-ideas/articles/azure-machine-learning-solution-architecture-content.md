@@ -4,16 +4,15 @@ Build, deploy, and manage high-quality models with Azure Machine Learning, a ser
 
 ## Potential use cases
 
-* Use Machine Learning as a Service.
-* Easy & Flexible building interface.
+* Use machine mearning as a service.
+* Easy and flexible building interface.
 * Wide range of supported algorithms.
 * Easy implementation of web services.
-* Great documentation for Machine Learning Solutions.
+* Great documentation for machine learning solutions.
 
 ## Architecture
 
 ![Diagram of a machine learning solution architecture using Azure Machine Learning with Azure services for storage, data analysis, monitoring, authenticating, and secure deployment.](../media/azure-machine-learning-solution-architecture.svg)
-
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/azure-machine-learning-solution-architecture.pptx) of this architecture.*
 
@@ -40,7 +39,7 @@ Build, deploy, and manage high-quality models with Azure Machine Learning, a ser
 * [Azure Load Balancer](https://azure.microsoft.com/services/load-balancer) load-balances internet and private network traffic with high performance and low latency. Load Balancer works across virtual machines, virtual machine scale sets, and IP addresses.
 * [Power BI](https://powerbi.microsoft.com) is a suite of business analytics tools that deliver insights throughout your organization. Connect to hundreds of data sources, simplify data prep, and drive unplanned analysis. Produce beautiful reports, then publish them for your organization to consume on the web and across mobile devices.
 
-## Pricing
+## Cost optimization
 
 * [Get pricing estimates](https://azure.microsoft.com/pricing/details/machine-learning)
 
@@ -48,7 +47,7 @@ Build, deploy, and manage high-quality models with Azure Machine Learning, a ser
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal author(s):
+Principal authors:
 
 * [Sheri Gilley](https://linkedin.com/in/sdgilley) | Senior Content Developer
 * [Larry Franks](https://linkedin.com/in/larry-franks-88483811) | Content Developer
