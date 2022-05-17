@@ -4,8 +4,9 @@ description: How a data scientist can execute a data science project in a tracka
 author: marktab
 manager: marktab
 editor: marktab
-ms.service: machine-learning
-ms.subservice: team-data-science-process
+services: architecture-center
+ms.service: architecture-center
+ms.subservice: azure-guide
 ms.topic: article
 ms.date: 12/14/2021
 ms.author: tdsp
@@ -60,4 +61,4 @@ When multiple models are in production, it can be useful to perform [A/B testing
 
 [Track progress of data science projects](track-progress.md) shows how a data scientist can track the progress of a data science project.
 
-[Model operation and CI/CD](ci-cd-flask.md) shows how CI/CD can be performed with developed models.
+[Model operation and CI/CD](ci-cd-flask.yml) shows how CI/CD can be performed with developed models.

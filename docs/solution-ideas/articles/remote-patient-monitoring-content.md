@@ -9,7 +9,7 @@ Predict and prevent future incidents by combining IoT and intelligence to optimi
 ![Architecture diagram](../media/remote-patient-monitoring.png)
 *Download an [SVG](../media/remote-patient-monitoring.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
 1. Securely ingest medical sensor and device data using Azure IoT Hub.
 1. Securely store sensor and device data in Cosmos DB.

@@ -1,12 +1,12 @@
 ---
 title: Sample data in SQL Server on Azure
 description: Sample data stored in SQL Server on Azure using SQL or the Python programming language, then move it to Azure Machine Learning.
-services: machine-learning
 author: marktab
 manager: marktab
 editor: marktab
-ms.service: machine-learning
-ms.subservice: team-data-science-process
+services: architecture-center
+ms.service: architecture-center
+ms.subservice: azure-guide
 ms.topic: article
 ms.date: 12/16/2021
 ms.author: tdsp
@@ -125,6 +125,6 @@ You can use the following sample code to save the down-sampled data to a file an
 
 ## The Team Data Science Process in Action example
 
-To walk through an example of the Team Data Science Process a using a public dataset, see [Team Data Science Process in Action: using SQL Server](sql-walkthrough.md).
+To walk through an example of the Team Data Science Process a using a public dataset, see [Team Data Science Process in Action: using SQL Server](/azure/architecture/data-science-process/overview).
 
 [import-data]: /azure/machine-learning/studio-module-reference/import-data

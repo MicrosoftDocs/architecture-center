@@ -1,10 +1,10 @@
-
-
 This reference architecture illustrates how to use Microsoft Defender for Cloud and Microsoft Sentinel to monitor the security configuration and telemetry of on-premises and Azure operating system workloads. This includes Azure Stack.
 
 ![Diagram illustrating deployed Microsoft Monitoring Agent on on-premises systems as well as on Azure based virtual machines transferring data to Microsoft Defender for Cloud and Microsoft Sentinel][architectural-diagram]
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
+
+## Potential use cases
 
 Typical uses for this architecture include:
 
@@ -14,7 +14,9 @@ Typical uses for this architecture include:
 
 ## Architecture
 
-The architecture consists of the following components:
+### Workflow
+
+The architecture consists of the following workflow:
 
 - **[Microsoft Defender for Cloud][azure-security-center]**. This is an advanced, unified security-management platform that Microsoft offers to all Azure subscribers. Defender for Cloud  is segmented as a cloud security posture management (CSPM) and cloud workload protection platform (CWPP). CWPP is defined by workload-centric security protection solutions, which are typically agent-based. Microsoft Defender for Cloud provides threat protection for Azure workloads, both on-premises and in other clouds, including Windows and Linux virtual machines (VMs), containers, databases, and Internet of Things (IoT). When activated, the Log Analytics agent deploys automatically into Azure Virtual Machines. For on-premises Windows and Linux servers and VMs, you can manually deploy the agent, use your organization's deployment tool, such as Microsoft Endpoint Protection Manager, or utilize scripted deployment methods. Defender for Cloud begins assessing the security state of all your VMs, networks, applications, and data.
 - **[Microsoft Sentinel][azure-sentinel]**. Is a cloud-native Security Information and Event Management (SIEM) and security orchestration automated response (SOAR) solution that uses advanced AI and security analytics to help you detect, hunt, prevent, and respond to threats across your enterprise.
@@ -25,6 +27,13 @@ The architecture consists of the following components:
 - **On-premises network**. This is the firewall configured to support HTTPS egress from defined systems.
 - **On-premises Windows and Linux systems**. Systems with the Log Analytics Agent installed.
 - **Azure Windows and Linux VMs**. Systems on which the Microsoft Defender for Cloud monitoring agent is installed.
+
+### Components
+
+- [Microsoft Defender for Cloud](https://azure.microsoft.com/services/defender-for-cloud)
+- [Microsoft Sentinel](https://azure.microsoft.com/services/microsoft-sentinel/)
+- [Azure Stack](https://azure.microsoft.com/overview/azure-stack/)
+- [Azure Monitor](https://azure.microsoft.com/services/monitor/)
 
 ## Recommendations
 
@@ -264,7 +273,7 @@ To learn more about Microsoft Sentinel, refer to the following articles:
   1. Azure Monitor workspace offers granularity of billing. For more information, refer to [Manage Usage and Costs with Azure Monitor Logs][azure-monitor-storage-pricing].
   1. Microsoft Sentinel is a paid service. For more information, refer to [Microsoft Sentinel pricing][azure-sentinel-pricing].
 
-## References
+## Next steps
 
 ### Azure Monitor
 
@@ -307,6 +316,13 @@ To learn more about Microsoft Sentinel, refer to the following articles:
 - [Azure Stack][azure-stack]
 - [Azure Stack Automate Onboarding PowerShell][azure-stack-automate-onboarding-powershell]
 - [Azure Stack Hub][azure-stack-hub]
+
+## Related resources
+
+- [Implement a secure hybrid network](../reference-architectures/dmz/secure-vnet-dmz.yml)
+- [Enhanced-security hybrid messaging infrastructure — web access](../example-scenario/hybrid/secure-hybrid-messaging-web.yml)
+- [Centralized app configuration and security](../solution-ideas/articles/appconfig-key-vault.yml)
+- [Automate Sentinel integration with Azure DevOps](../example-scenario/devops/automate-sentinel-integration.yml)
 
 [architectural-diagram]: ./images/hybrid-security-monitoring.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/hybrid-security-monitoring.vsdx

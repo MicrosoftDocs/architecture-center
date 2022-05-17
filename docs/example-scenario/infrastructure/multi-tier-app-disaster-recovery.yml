@@ -4,7 +4,8 @@ metadata:
   titleSuffix: Azure Example Scenarios
   description: Learn how to create a resilient multitier web application built for high availability and disaster recovery on Azure.
   author: sujayt
-  ms.date: 11/16/2018
+  ms.author: sutalasi
+  ms.date: 05/11/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario

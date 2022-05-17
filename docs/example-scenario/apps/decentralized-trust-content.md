@@ -6,7 +6,7 @@ With DLTs (distributed ledger technology), a consortium of banks can establish a
 
 This example will show you how Azure services such as virtual machine scale sets, Virtual Network, Key Vault, Storage, Load Balancer, and Monitor can be quickly provisioned for the deployment of an efficient private Ethereum PoA blockchain where member banks can establish their own nodes.
 
-## Relevant use cases
+## Potential use cases
 
 Other relevant use cases include:
 
@@ -20,10 +20,14 @@ Other relevant use cases include:
 
 ![Decentralized Bank Trust Architecture Diagram](./media/architecture-decentralized-trust.png)
 
-This scenario covers the back-end components that are necessary to create a scalable, secure, and monitored private, enterprise blockchain network within a consortium of two or more members. Details of how these components are provisioned (that is, within different subscriptions and resource groups), as well as the connectivity requirements (that is, VPN or ExpressRoute), that are left for your consideration, based on your organization's policy requirements. Here's how data flows:
+This scenario covers the back-end components that are necessary to create a scalable, secure, and monitored private, enterprise blockchain network within a consortium of two or more members. Details of how these components are provisioned (that is, within different subscriptions and resource groups), as well as the connectivity requirements (that is, VPN or ExpressRoute), that are left for your consideration, are based on your organization's policy requirements. 
+
+### Dataflow
+
+Here's how the data flows:
 
 1. Bank A creates/updates an individual's credit record by sending a transaction to the blockchain network via JSON-RPC.
-2. Data flows from Bank A's private application server to the Azure load balancer, and then to a validating node VM on the virtual machine scale set.
+2. Data flows from Bank A's private application server to the [Azure Load Balancer](/azure/load-balancer/), and then to a validating node VM on the virtual machine scale set.
 3. The Ethereum PoA network creates a block at a preset time (2 seconds for this scenario).
 4. The transaction is bundled into the created block and validated across the blockchain network.
 5. Bank B can read the credit record created by bank A by communicating with its own node similarly via JSON-RPC.
@@ -82,13 +86,32 @@ We have provided three sample cost profiles based on the number of scale set VM 
 
 The above pricing is for one consortium member to start or join a blockchain network. Typically in a consortium where there are multiple companies or organizations involved, each member will get their own Azure subscription.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+* [Vito Chin](https://www.linkedin.com/in/vitochin/) | Senior Cloud Solution Architect
+
 ## Next steps
 
 To see an example of this scenario, deploy the [Ethereum PoA blockchain demo application][deploy] on Azure. Then review the [README of the scenario source code][source].
 
+For more information on using the Ethereum Proof-of-Authority solution template for Azure, review this [usage guide][guide].
+
+Product documentation:
+
+- [Virtual machines](/azure/virtual-machines)
+- [About Azure Key Vault](/azure/key-vault/general/overview)
+- [What is Azure Load Balancer?](/azure/load-balancer/load-balancer-overview)
+- [Introduction to Azure Storage](/azure/storage/common/storage-introduction)
+
 ## Related resources
 
-For more information on using the Ethereum Proof-of-Authority solution template for Azure, review this [usage guide][guide].
+- [Data management in banking](../../industries/finance/data-management-banking-overview.yml)
+- [Patterns and implementations for a banking cloud transformation](../../example-scenario/banking/patterns-and-implementations.yml)
+- [Zero-trust network for web applications with Azure Firewall and Application Gateway](../../example-scenario/gateway/application-gateway-before-azure-firewall.yml)
 
 <!-- links -->
 [small-pricing]: https://azure.com/e/4e429d721eb54adc9a1558fae3e67990

@@ -4,11 +4,11 @@ This reference architecture shows proven practices for a web application that us
 
 ![Diagram showing the reference architecture for a basic web application in Azure.](./images/basic-web-app.png)
 
-*Download a [Visio file](https://arch-center.azureedge.net/app-service-reference-architectures.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/app-service-reference-architectures-basic-webapp.vsdx) of this architecture.*
 
 ### Workflow
 
-The architecture consists of the following components.
+The architecture consists of the following aspects:
 
 **App Service plan**: An [App Service plan](/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview) provides the managed virtual machines (VMs) that host your app. All apps associated with a plan run on the same VM instances.
 
@@ -21,6 +21,15 @@ The architecture consists of the following components.
 **Azure DNS**: [Azure DNS](/azure/dns/dns-overview) is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services. To use a custom domain name (such as `contoso.com`) create DNS records that map the custom domain name to the IP address. For more information, see [Configure a custom domain name in Azure App Service](/azure/app-service-web/web-sites-custom-domain-name).
 
 **Azure SQL Database**: [SQL Database](/azure/sql-database) is a relational database-as-a-service in the cloud. SQL Database shares its code base with the Microsoft SQL Server database engine. Depending on your application requirements, you can also use [Azure Database for MySQL](/azure/mysql) or [Azure Database for PostgreSQL](/azure/postgresql). These are fully managed database services based on the open-source MySQL Server and Postgres database engines.
+
+### Components
+
+- [Azure App Service](https://azure.microsoft.com/services/app-service)
+- [Azure DNS](https://azure.microsoft.com/services/dns)
+- [Azure SQL Database](https://azure.microsoft.com/services/sql-database)
+- [Azure Active Directory](https://azure.microsoft.com/services/active-directory)
+- [Azure Monitor](https://azure.microsoft.com/services/monitor)
+- [Azure Key Vault](https://azure.microsoft.com/services/key-vault)
 
 ## Reference deployment
 
@@ -41,7 +50,7 @@ az deployment group create --resource-group basic-web-app  \
     --template-uri https://raw.githubusercontent.com/mspnp/samples/master/solutions/basic-web-app/azuredeploy.json
 ```
 
-#### [PowerShell](#tab/powershell)
+# [PowerShell](#tab/powershell)
 
 Use the following command to create a resource group for the deployment. Click the **Try it** button to use an embedded shell.
 
@@ -191,7 +200,7 @@ When you swap a deployment slot, the app settings are swapped by default. If you
 
 #### Diagnostics and monitoring
 
-Enable [diagnostics logging](/azure/app-service-web/web-sites-enable-diagnostic-log), including application logging and web server logging. Configure logging to use Azure Log Analytics. For more detailed guidance on logging, see [Monitoring and diagnostics guidance](../../best-practices/monitoring.md).
+Enable [diagnostics logging](/azure/app-service-web/web-sites-enable-diagnostic-log), including application logging and web server logging. Configure logging to use Azure Log Analytics. For more detailed guidance on logging, see [Monitoring and diagnostics guidance](../../best-practices/monitoring.yml).
 
 Use a service such as [New Relic](https://newrelic.com) or [Application Insights](/azure/application-insights/app-insights-overview) to monitor application performance and behavior under load. Be aware of the [data rate limits](/azure/application-insights/app-insights-pricing) for Application Insights.
 

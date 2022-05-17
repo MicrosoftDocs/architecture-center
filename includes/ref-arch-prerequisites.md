@@ -12,6 +12,6 @@
 
 5. From a command prompt, bash prompt, or PowerShell prompt, sign into your Azure account as follows:
 
-   ```bash
+   ```azurecli
    az login
    ```

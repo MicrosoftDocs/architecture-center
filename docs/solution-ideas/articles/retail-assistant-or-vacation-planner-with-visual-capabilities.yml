@@ -2,10 +2,10 @@
 metadata:
   title: Retail assistant with visual capabilities
   titleSuffix: Azure Solution Ideas
-  description: Use Azure services with a retail assistant or vacation planner to improve interactions with customers and provide suggestions based on visual information.
+  description: Use Azure services with a bot assistant to improve interactions with customers and provide suggestions based on visual information.
   author: EdPrice-MSFT
-  ms.author: pnp
-  ms.date: 02/11/2021
+  ms.author: edprice
+  ms.date: 03/25/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
@@ -22,20 +22,20 @@ metadata:
     - vacation planner
     - visual capabilities
     - interactive-diagram
-    - "https://azure.microsoft.com/solutions/architecture/retail-assistant-or-vacation-planner-with-visual-capabilities/"
+    - "https://azure.microsoft.com/solutions/architecture/retail-assistant-or-vacation-planner-with-visual-capabilities"
     - ai-machine-learning
-  social_image_url: /azure/architecture/solution-ideas/articles/media/retail-assistant-or-vacation-planner-with-visual-capabilities.png
+  social_image_url: /azure/architecture/solution-ideas/media/bot-assistant-architecture.png
 name: Retail assistant with visual capabilities
 azureCategories:
   - ai-machine-learning
   - web
-summary: Use Azure services with a retail assistant or vacation planner to improve interactions with customers and provide suggestions based on visual information.
+summary: Use Azure services with a bot assistant to improve interactions with customers and provide suggestions based on visual information.
 products:
   - azure-app-service
   - azure-bing-custom
   - azure-bing-visual
   - azure-bot-service
   - azure-language-understanding
-thumbnailUrl: /azure/architecture/browse/thumbs/retail-assistant-or-vacation-planner-with-visual-capabilities.png
+thumbnailUrl: /azure/architecture/browse/thumbs/bot-assistant-architecture.png
 content: |
   [!include[](retail-assistant-or-vacation-planner-with-visual-capabilities-content.md)]

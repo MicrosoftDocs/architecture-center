@@ -4,8 +4,8 @@ metadata:
   titleSuffix: Azure Solution Ideas
   description: Deploy a connected ecosystem of intelligent IoT Edge devices, Azure services, and cloud-powered apps to create safe and healthy public spaces.
   author: EdPrice-MSFT
-  ms.author: pnp
-  ms.date: 06/12/2020
+  ms.author: edprice
+  ms.date: 03/08/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea

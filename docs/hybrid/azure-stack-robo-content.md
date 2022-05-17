@@ -170,7 +170,7 @@ Microsoft Learn modules:
 - [Azure Automation State Configuration](../example-scenario/state-configuration/state-configuration.yml)
 - [Use Azure Stack HCI stretched clusters for disaster recovery](azure-stack-hci-dr.yml)
 
-[architectural-diagram]: images/azure_stack_robo.png
+[architectural-diagram]: images/azure-stack-robo.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure_stack_robo.vsdx
 [azure-well-architected-framerwork]: /azure/architecture/framework
 [azs-hci]: /azure-stack/hci/overview

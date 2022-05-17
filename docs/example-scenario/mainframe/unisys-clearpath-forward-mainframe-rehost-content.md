@@ -58,7 +58,7 @@ Unisys CPF in Azure uses ASR to ensure system availability and consistency.
 
 Unisys demonstrates operational excellence by presenting a known environment to the staff, while dragging new capabilities like ASR to provide DR failover.
 
-You can optimize your operational efficiency by deploying your solution with ARM templates, and by leveraging Azure Monitor to measure and improve your performance. See the Azure Well-Architected Framework's [Operational excellence principles](/azure/architecture/framework/devops/principles) and [Monitoring for DevOps](/azure/architecture/framework/devops/monitoring).
+You can optimize your operational efficiency by deploying your solution with ARM templates, and by leveraging Azure Monitor to measure and improve your performance. See the Azure Well-Architected Framework's [Operational excellence principles](/azure/architecture/framework/devops/principles) and [Monitoring for DevOps](/azure/architecture/framework/devops/checklist).
 
 ### Performance
 

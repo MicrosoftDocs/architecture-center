@@ -55,7 +55,7 @@ As a best practice, make each notebook modular to promote reusability. You can s
 
 ### Security
 
-User-assigned [managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) is a good way to grant Automation runbooks  access to the other required Azure resources. For example, when the Automation runbook runs [Invoke-SqlNotebook](https://github.com/dfinke/PowerShellNotebook#executing-a-notebook) against an Azure SQL database, the Automation account requires the appropriate access to the database. This authorization is best managed via a user-assigned managed identity that corresponds to a user or a role in Azure SQL.
+User-assigned [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) is a good way to grant Automation runbooks  access to the other required Azure resources. For example, when the Automation runbook runs [Invoke-SqlNotebook](https://github.com/dfinke/PowerShellNotebook#executing-a-notebook) against an Azure SQL database, the Automation account requires the appropriate access to the database. This authorization is best managed via a user-assigned managed identity that corresponds to a user or a role in Azure SQL.
 
 ### DevOps
 
@@ -82,4 +82,3 @@ See these resources:
 
 - [Event-based cloud automation](/azure/architecture/reference-architectures/serverless/cloud-automation)
 - [Data integration with Logic Apps and SQL Server](/azure/architecture/example-scenario/integration/logic-apps-data-integration)
-

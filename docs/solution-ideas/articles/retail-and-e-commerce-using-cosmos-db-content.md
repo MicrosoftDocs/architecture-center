@@ -37,7 +37,7 @@ Explore the related services:
 Explore related data architectures:
 
 * [Azure Data Architecture Guide](../../data-guide/index.md)
-* [Non-relational data and NoSQL](../../data-guide/big-data/non-relational-data.md)
+* [Non-relational data and NoSQL](../../data-guide/big-data/non-relational-data.yml)
 * [Choose an analytical data store in Azure](../../data-guide/technology-choices/analytical-data-stores.md)
 * [Choose a big data storage technology in Azure](../../data-guide/technology-choices/data-storage.md)
 * [Understand data store models](../../guide/technology-choices/data-store-overview.md)
