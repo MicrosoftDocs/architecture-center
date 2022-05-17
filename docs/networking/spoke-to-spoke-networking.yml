@@ -22,7 +22,6 @@ summary: Learn about options and best practices for spoke-to-spoke communication
 products:
   - azure-firewall
   - azure-virtual-network
-  - azure-virtual-network-manager
 thumbnailUrl: /azure/architecture/browse/thumbs/hub-spoke-vwan-architecture-001.png
 content: |
    [!include[](spoke-to-spoke-networking.md)]
