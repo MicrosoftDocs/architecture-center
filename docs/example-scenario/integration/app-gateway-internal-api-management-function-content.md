@@ -84,6 +84,6 @@ This architecture is available on [GitHub](https://github.com/Azure/apim-landing
 
 * [Recommendations and Considerations](docs/README.md#enterprise-scale-architecture)
 * [API Ops](https://github.com/Azure/apiops)
-* [Azure API Management Documentation](https://docs.microsoft.com/en-us/azure/api-management/api-management-terminology)
-* [Application Gateway Documentation](https://docs.microsoft.com/en-us/azure/application-gateway/overview)
-* [Azure API Management landing zone accelerator](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/app-platform/api-management/landing-zone-accelerator)
+* [Azure API Management Documentation](/azure/api-management/api-management-terminology)
+* [Application Gateway Documentation](/azure/application-gateway/overview)
+* [Azure API Management landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/api-management/landing-zone-accelerator)
