@@ -66,7 +66,7 @@ Review these best practices when designing your solutions.
 | [Data management patterns](../patterns/category/data-management.md) | Data management is the key element of cloud applications. It influences most quality attributes. |
 | [Transactional Outbox pattern with Azure Cosmos DB](../best-practices/transactional-outbox-cosmos.yml) | Learn how to use the Transactional Outbox pattern for reliable messaging and guaranteed delivery of events. |
 | [Distribute your data globally with Azure Cosmos DB](/azure/cosmos-db/distribute-data-globally) | To achieve low latency and high availability, some applications need to be deployed in datacenters that are close to their users. |
-| [Use the best data store for the job](../guide/design-principles/use-the-best-data-store.md) | Pick the storage technology that is the best fit for your data and how it will be used. |
+| [Use the best data store for the job](/azure/architecture/guide/design-principles/use-best-data-store) | Pick the storage technology that is the best fit for your data and how it will be used. |
 | [Security in Azure Cosmos DB](/azure/cosmos-db/database-security) | Security best practices help prevent, detect, and respond to database breaches. |
 | [Secure data solutions](../data-guide/scenarios/securing-data-solutions.md) | Address concerns around increased accessibility to data in the cloud and how to secure it. |
 | [Continuous backup with point-in-time restore in Azure Cosmos DB](/azure/cosmos-db/continuous-backup-restore-introduction) | Learn about Azure Cosmos DB's point-in-time restore feature. |
