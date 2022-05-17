@@ -3,7 +3,7 @@ APIs have become increasingly prominent in how companies and customers access se
 ## Architecture 
 ![This architectural diagram starts with an all-encompassing box that represents the scope of a subscription, a Private DNS zone where private domains will get resolved, and the scope of a virtual network names APIM-CS VNet. Seven additional smaller boxes reside within the big box, with four on the top row and three on the bottom row. Each individual box represents a separate subnet with an attached network security group. From the left most, there is a public IP address that is attached to the Application Gateway on the left most box on the top row. Application Gateway also lives within one of the seven smaller boxes with the subnet named App GW subnet. The to right is another box containing the API Management instance with the subnet names APIM subnet. Next to it is third box on the top row containing a private endpoint for the Azure Functions in the subnet names PE subnet. The right most box on the top row is the backend subnet containing Function Apps, the App Service Plan for the Function, and the storage account associated with the Function App. On the bottom row starting from the left is a box containing the Bastion in the Bastion subnet. The second box contains the management jumbox vm in the Jump Box Subnet and the last box on the bottom row is the DevOps Agent contained within the DevOps subnet. On the bottom right of the image are three shared resources with their respective icons from left to right - key vault, application insights, and log analytics workspace.](./media/app-gateway-internal-api-management-function.png)
 
-If you utilize a DevOps tool such as Azure DevOps or GitHub, cloud hosted agents or runners operate over the public internet and since the API management in this architecture is set to an internal network a DevOps agent that has access to the vnet will need to be utilized. The DevOps agent will help deploy policies and additional changes to the API's in your architecture. These ![CI/CD templates](https://docs.microsoft.com/en-us/azure/api-management/devops-api-development-templates) can be utilized the break the process apart and allow your development teams to deploy changes per API and will be executed by the DevOps runners.
+This architecture assumes that policies are in place from the ![Azure Landing Zone Accelerator](https://github.com/Azure/Enterprise-Scale) and a driven downward from the management group structure.
 
 Download a [Visio file](../images/APIM.vsdx) that contains this architecture diagram.
 
@@ -30,6 +30,8 @@ The architecture leverages the following components:
 
 - **[Azure Bastion](https://docs.microsoft.com/en-us/azure/bastion/bastion-overview)** is a Platform-as-a-Service service provisioned within the developer's virtual network which provides secure RDP/SSH connectivity to the developer's virtual machines over TLS from the Azure portal. With Azure Bastion, virtual machines no longer require a public IP address to connect via RDP/SSH. This reference architecture uses Azure Bastion to access the DevOps Agent / GitHub Runner server or the management jump box server.
 
+If you utilize a DevOps tool such as Azure DevOps or GitHub, cloud hosted agents or runners operate over the public internet and since the API management in this architecture is set to an internal network a DevOps agent that has access to the vnet will need to be utilized. The DevOps agent will help deploy policies and additional changes to the API's in your architecture. These ![CI/CD templates](https://docs.microsoft.com/en-us/azure/api-management/devops-api-development-templates) can be utilized the break the process apart and allow your development teams to deploy changes per API and will be executed by the DevOps runners.
+-
 ### Alternatives
 For the backend services that the API Management instance connects to, there are several alternatives in addition to Azure Functions that is used in this reference implementation:
 
@@ -84,7 +86,7 @@ This architecture is available on [GitHub](https://github.com/Azure/apim-landing
 
 ## Related resources
 
-* [Recommendations and Considerations](docs/README.md#enterprise-scale-architecture)
+* [Azure Landing Zone Accelerator](https://github.com/Azure/Enterprise-Scale)
 * [API Ops](https://github.com/Azure/apiops)
 * [Azure API Management Documentation](/azure/api-management/api-management-terminology)
 * [Application Gateway Documentation](/azure/application-gateway/overview)
