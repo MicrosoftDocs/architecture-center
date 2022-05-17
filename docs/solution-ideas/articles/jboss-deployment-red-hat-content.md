@@ -4,7 +4,7 @@ Red Hat and Microsoft partnered to create a comprehensive and secure infrastruct
 
 ## Architecture
 
-:::image type="content" source="../media/jboss-deployment-red-hat.png" alt-text="Architecture to implement the Red Hat JBoss Enterprise Application Platform (JBoss EAP) on Azure" lightbox="../media/jboss-deployment-red-hat.png":::
+:::image type="content" source="../media/jboss-deployment-red-hat.png" alt-text="Architecture to implement the Red Hat JBoss Enterprise Application Platform (JBoss EAP) on Azure." lightbox="../media/jboss-deployment-red-hat.png":::
 
 ### Workflow
 
