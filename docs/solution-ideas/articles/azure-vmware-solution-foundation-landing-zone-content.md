@@ -58,6 +58,14 @@ Sandbox subscriptions are deployed under [Sandbox Management Group](/azure/cloud
 - [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute)
 - [Azure Policy](https://azure.microsoft.com/services/azure-policy)
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Mahesh Kshirsagar](https://www.linkedin.com/in/mahesh-kshirsagar-msft) | Cloud Solution Architect
+
 ## Next steps
 
 Use the following guidance about other Azure VMware Solution ideas:

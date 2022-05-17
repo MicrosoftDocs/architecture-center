@@ -48,6 +48,14 @@ Once an assessment is complete, [reporting](/azure/migrate/tutorial-assess-VMwar
 * [Azure VMware Solution](https://azure.microsoft.com/services/azure-vmware)
 * [Azure Migrate](https://azure.microsoft.com/services/azure-migrate)
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Mahesh Kshirsagar](https://www.linkedin.com/in/mahesh-kshirsagar-msft) | Cloud Solution Architect
+
 ## Next steps
 
 Refer to following additional resources to understand more about Azure VMware Solution.
