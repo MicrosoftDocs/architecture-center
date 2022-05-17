@@ -1276,7 +1276,7 @@ items:
                     href: /azure/governance/policy/samples/gov-dod-impact-level-5
                     maintainContext: true
                   - name: DoD IL6
-                    href: /offerings/offering-dod-il6
+                    href: /azure/compliance/offerings/offering-dod-il6
                     maintainContext: true
               - name: EAR overview
                 href: /azure/compliance/offerings/offering-ear
