@@ -2,12 +2,20 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2022-05-09T14:04:39.673Z</updated>
+    <updated>2022-05-16T14:04:50.487Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://docs.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Rehost a general mainframe on Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/mainframe/mainframe-rehost-architecture-azure</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/mainframe/mainframe-rehost-architecture-azure"/>
+        <updated>2022-05-12T20:20:53.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to create a general mainframe rehosting architecture on Azure. Rehosting is a cost-effective method to maintain old mainframe hardware.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Deploy microservices with Azure Container Apps and Dapr]]></title>
         <id>https://docs.microsoft.com/azure/architecture/example-scenario/serverless/microservices-with-container-apps-dapr</id>
@@ -15,6 +23,118 @@
         <updated>2022-05-02T23:42:24.000Z</updated>
         <summary type="html"><![CDATA[Build a serverless microservices solution on Azure Container Apps using Distributed Application Runtime (Dapr) and Kubernetes Event-Driven Autoscaling (KEDA).]]></summary>
         <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[AI enrichment with image and text processing]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/cognitive-search-with-skillsets</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/cognitive-search-with-skillsets"/>
+        <updated>2022-05-15T09:24:15.000Z</updated>
+        <summary type="html"><![CDATA[Transform latent information in your image and text data into full text searchable content with Azure Cognitive Search pre-built and custom skills.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Run SAP BW/4HANA with Linux VMs]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines"/>
+        <updated>2022-05-15T08:15:44.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the SAP BW/4HANA application tier and how it&apos;s suitable for a high availability, small-scale production environment of SAP BW/4HANA on Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Unisys Dorado mainframe migration to Azure with Astadia and Micro Focus]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/mainframe/migrate-unisys-dorado-mainframe-apps-with-astadia-micro-focus</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/mainframe/migrate-unisys-dorado-mainframe-apps-with-astadia-micro-focus"/>
+        <updated>2022-05-13T07:07:32.000Z</updated>
+        <summary type="html"><![CDATA[Migrate Unisys Dorado mainframe systems with Astadia and Micro Focus products. Move to Azure without rewriting code, switching data models, or updating screens.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Customer lifetime value and churn prediction with Azure AI services]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/ai/customer-lifecycle-churn</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/ai/customer-lifecycle-churn"/>
+        <updated>2022-05-13T03:18:40.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to create a solution for predicting customer lifetime value and churn using Azure Machine Learning.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Employee retention with Databricks and Kubernetes]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/ai/employee-retention-databricks-kubernetes</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/ai/employee-retention-databricks-kubernetes"/>
+        <updated>2022-05-13T03:18:40.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to build, deploy, and monitor a machine learning model for employee attrition that can be integrated with external applications using Databricks and Kubernetes.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Unisys mainframe migration with Asysco]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/migration/unisys-mainframe-migration</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/migration/unisys-mainframe-migration"/>
+        <updated>2022-05-13T00:58:30.000Z</updated>
+        <summary type="html"><![CDATA[Learn about options for using the Asysco Automated Migration Technology (AMT) Framework to migrate Unisys mainframe workloads to Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Refactor IBM z/OS coupling facility]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/zos/refactor-zos-coupling-facility</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/zos/refactor-zos-coupling-facility"/>
+        <updated>2022-05-13T00:34:51.000Z</updated>
+        <summary type="html"><![CDATA[Learn how Azure services and components can provide scale-out performance comparable to IBM z/OS mainframe CF and Parallel Sysplex capabilities.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Active Directory IDaaS in security operations]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/aadsec/azure-ad-security</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/aadsec/azure-ad-security"/>
+        <updated>2022-05-12T21:07:41.000Z</updated>
+        <summary type="html"><![CDATA[Learn how security operations teams can use Azure Active Directory identity and access features in an adaptive, integrated zero-trust security architecture.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Automate document processing with Azure Form Recognizer]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/ai/automate-document-processing-azure-form-recognizer</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/ai/automate-document-processing-azure-form-recognizer"/>
+        <updated>2022-05-12T21:07:41.000Z</updated>
+        <summary type="html"><![CDATA[Build an automated document processing pipeline. Use Azure Form Recognizer to extract data and natural language processing models to enrich the data.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Citizen AI with the Power Platform]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/ai/citizen-ai-power-platform</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/ai/citizen-ai-power-platform"/>
+        <updated>2022-05-12T21:07:41.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to user Azure Machine Learning and Microsoft Power Platform to quickly create a machine learning (ML) proof of concept, and a production version.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Back up files and apps on Azure Stack Hub]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/hybrid/azure-stack-backup</id>
+        <link href="https://docs.microsoft.com/azure/architecture/hybrid/azure-stack-backup"/>
+        <updated>2022-05-11T22:25:30.000Z</updated>
+        <summary type="html"><![CDATA[This solution delivers an optimized approach to backing up and restoring files and applications of VM-based user workloads hosted on Azure Stack Hub.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Design a hybrid Domain Name System solution with Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/hybrid/hybrid-dns-infra</id>
+        <link href="https://docs.microsoft.com/azure/architecture/hybrid/hybrid-dns-infra"/>
+        <updated>2022-05-11T22:12:24.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to design a hybrid Domain Name System (DNS) solution to resolve names for workloads that are hosted on-premises and in Microsoft Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Teacher-provisioned virtual labs in Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/devops/teacher-provisioned-virtual-labs-azure</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/devops/teacher-provisioned-virtual-labs-azure"/>
+        <updated>2022-05-09T23:31:38.000Z</updated>
+        <summary type="html"><![CDATA[Learn how you can use Azure Lab Services to set up identical VMs from templates, for use in training, customer demos, and software development.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[High availability and disaster recovery for IaaS apps]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/infrastructure/iaas-high-availability-disaster-recovery</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/infrastructure/iaas-high-availability-disaster-recovery"/>
+        <updated>2022-05-09T21:20:05.000Z</updated>
+        <summary type="html"><![CDATA[Learn about high-availability (HA) and disaster recovery (DR) options when deploying multitier infrastructure-as-a-service (IaaS) apps to Azure.]]></summary>
+        <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Comparing AWS and Azure compute services]]></title>
