@@ -120,7 +120,7 @@ Learn more:
 [vwan]: /azure/virtual-wan/virtual-wan-about
 [vwan_limits]: /azure/azure-resource-manager/management/azure-subscription-service-limits#virtual-wan-limits
 [vwan_nva]: /azure/virtual-wan/about-nva-hub
-[hubnspoke]: ../../reference-architectures/hybrid-networking/hub-spoke.yml
+[hubnspoke]: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke
 [ars]: /azure/route-server/overview
 [avnm]: /azure/virtual-network-manager/overview
 [avnm_hns]: /azure/virtual-network-manager/concept-connectivity-configuration#hub-and-spoke-topology
