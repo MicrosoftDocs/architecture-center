@@ -35,7 +35,7 @@ Azure Web Apps offer numerous benefits that include:
 * [Azure DevOps](https://azure.microsoft.com/services/devops): Services for teams to share code, track work, and ship software.
 * [Visual Studio](https://www.visualstudio.com/vs/azure): A creative launch pad for viewing and editing code, then debugging, building, and publishing apps for Android, iOS, Windows, the web, and the cloud.
 
-## Deployment
+## Deploy this scenario
 
 * [Deploy to Azure](https://ms.portal.azure.com/#create/Microsoft.AzureProject)
 
