@@ -78,7 +78,6 @@ This is the common "build vs. buy" dilemma that many organizations face in many 
 
 A typical aPaaS solution using [Azure IoT Central](/azure/iot-central/core/overview-iot-central), as the core of the solution, might use the following Azure PaaS and aPaaS services:
 
-* [Azure Event Hubs](/azure/event-hubs/event-hubs-about) as a cross-platform, enterprise-grade messaging and data-flow engine.
 * [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) as an integration platform-as-a-service, or iPaaS, offering.
 * [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) as a data analytics platform.
 * [Power BI](/power-bi/fundamentals/power-bi-overview) as a visualization and reporting platform.
@@ -141,7 +140,6 @@ The *Simple SaaS* approach is the simplest implementation for a SaaS IoT Solutio
 
 Communications to systems outside of IoT Central, such as for longer-term data analysis, along a cold path or connectivity with business operations, is done through other Microsoft PaaS and aPaaS offerings. These additional offerings might include the following services:
 
-* [Azure Event Hubs](/azure/event-hubs/event-hubs-about) as a cross-platform, enterprise-grade messaging and data flow engine.
 * [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) as an integration platform-as-a-service, or iPaaS.
 * [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) as a data analytics platform.
 * [Power BI](/power-bi/fundamentals/power-bi-overview) as a visualization and reporting platform.
