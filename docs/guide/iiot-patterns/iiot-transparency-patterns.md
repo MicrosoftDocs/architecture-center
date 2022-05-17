@@ -9,7 +9,7 @@ Calculate business metrics using IoT telemetry and other business system(s) data
 ![Calculate Overall Equipment Effectiveness using Synapse and Data Explorer](images/oee.png)
 
 - Dataflow
-    1. EdgeHub sends the machine availability data to IoT Hub/ Central using AMQP or MQTT.
+    1. EdgeHub sends the machine availability data to IoT Hub/ Central using AMQP or MQTT. IoT Hub / Central sends module updates to the edge and provides edge management control plan.
     1. Data from IoT Hub / Central goes to Data Explorer using Data Connection in IoT Hub or Data Export in IoT Central.
     1. Data Explorer dashboards use kql query langauge to fetch the data from the cluster and build near real-time dashboard around machine availability.
     1. Data from IoT Hub / Central is pushed to a Data Lake using message routing in IoT Hub and Data Export in IoT Central, for long term storage and processing.

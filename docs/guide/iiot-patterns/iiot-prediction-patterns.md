@@ -9,7 +9,7 @@ Predict process and equipment failures using a batch process.
 [ ![Predict equipment failures using machine learing pipelines.](images/ml-batch.png) ](images/ml-batch.png#lightbox)
 
 - Dataflow
-    1. EdgeHub sends current process & equipment condition data to IoT Hub/ Central using AMQP or MQTT.
+    1. EdgeHub sends current process & equipment condition data to IoT Hub/ Central using AMQP or MQTT. IoT Hub / Central sends module updates to the edge and provides edge management control plan.
     1. Data from IoT Hub / Central goes to Data Explorer using Data Connection in IoT Hub or Data Export in IoT Central.
     1. Data from IoT Hub / Central is also routed to a Data Lake for long term storage and model training.
     1. Synapse pipeline fetches the historical process and equipment failure data from on-premises systems and stores the data in the Data Lake for model training.
@@ -42,7 +42,7 @@ Predict process and equipment failures using an api.
 [ ![Predict equipment failures in near real-time using machine learing pipelines and deployment endpoints.](images/ml-realtime.png) ](images/ml-realtime.png#lightbox)
 
 - Dataflow
-    1. EdgeHub sends current process & equipment condition data to IoT Hub/ Central using AMQP or MQTT.
+    1. EdgeHub sends current process & equipment condition data to IoT Hub/ Central using AMQP or MQTT. IoT Hub / Central sends module updates to the edge and provides edge management control plan.
     1. Data from IoT Hub / Central goes to Data Explorer using Data Connection in IoT Hub or Data Export in IoT Central.
     1. Data from IoT Hub / Central is also routed to a Data Lake for long term storage and model training.
     1. Synapse pipeline fetches the historical process and equipment failure data from on-premises system and stores the data in the Data Lake for model training.
@@ -88,7 +88,7 @@ Automate quality inspection in manufacturing using custom vision.
 - Datafow
     1.  Machine Learning service builds a defect detection model using initial labeled images stored in Data Lake. It then builds a container image and pushes the image to a container registry.
     1. IoT Edge module deployment contains multiple modules including defect detection module (created above), prediction store (e.g. sql edge), prediction dashboard (custom web app or grafana) and a file upload module to upload images for model re-training. These modules are packaged as a container image, stored in a container registry and pulled by the edge via module deployments.
-    1. The defect detection module flags the defect and sends the prediction message to IoT Hub / Central using edgeHub.
+    1. The defect detection module flags the defect and sends the prediction message to IoT Hub / Central using edgeHub. IoT Hub / Central sends module updates to the edge and provides edge management control plan.
     1. Data from IoT Hub / Central goes to Data Explorer using Data Connection in IoT Hub or Data Export in IoT Central.
     1. PowerBI is connected with Data Explorer to historic prediction reporting.
     1. Data from IoT Hub / Central is also routed to a Data Lake for long term storage and model training.
