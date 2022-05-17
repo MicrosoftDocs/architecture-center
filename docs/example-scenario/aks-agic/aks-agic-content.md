@@ -125,7 +125,7 @@ Once deployed with the ability to observe multiple namespaces, AGIC will do the 
 - Compose combined [Application Gateway config](https://github.com/Azure/azure-sdk-for-go/blob/37f3f4162dfce955ef5225ead57216cf8c1b2c70/services/network/mgmt/2016-06-01/network/models.go#L1710-L1744)
 - Apply the config to the associated Application Gateway via [ARM](/azure/azure-resource-manager/management/overview)
 
-## Scenario
+## Scenario details
 
 A multitenant Kubernetes cluster is shared by multiple users and workloads that are commonly referred to as "tenants." This definition includes Kubernetes clusters that are shared by different teams or divisions within an organization. It also includes clusters that are shared by per-customer instances of a software-as-a-service (SaaS) application. Cluster multitenancy is an alternative to managing many single-tenant dedicated clusters. The operators of a multitenant Kubernetes cluster must isolate tenants from each other. This isolation minimizes the damage that a compromised or malicious tenant can do to the cluster and to other tenants. When several users or teams share the same cluster with a fixed number of nodes, there is a concern that one team could use more than its fair share of resources. [Resource Quotas](https://kubernetes.io/docs/concepts/policy/resource-quotas) is a tool for administrators to address this concern.
 
@@ -297,6 +297,17 @@ Although the monitoring considerations are not fully pertaining to multitenancy 
 - Use [Container insights](/azure/azure-monitor/containers/container-insights-overview) to monitor the health status of the AKS cluster and workloads.
 - Configure all the PaaS services (such as Azure Container Registry and Key Vault) to collect diagnostics logs and metrics, to [Azure Monitor Log Analytics](/azure/azure-monitor/logs/log-analytics-overview).
 
+### Cost optimizatoin
+
+The cost of this architecture depends on configuration aspects, like the following:
+
+- Service tiers
+- Scalability, meaning the number of instances that are dynamically allocated by services to support a given demand
+- Automation scripts
+- Your disaster recovery level
+
+After you assess these aspects, go to the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate your costs. Also, for more pricing optimization options, see the [Principles of cost optimization](/azure/architecture/framework/cost/overview) in the Microsoft Azure Well-Architected Framework.
+
 ## Deploy this scenario
 
 The source code for this scenario is available [on GitHub](https://github.com/Azure-Samples/aks-agic). This solution is open source and provided with an [MIT License](https://github.com/Azure-Samples/aks-agic/blob/main/LICENSE.md). You can also find a demo application, as shown in the following figure, in [this GitHub repository](https://github.com/Azure-Samples/aks-multi-tenant-agic).
@@ -318,17 +329,6 @@ For online deployments, you must have an existing Azure account. If you need one
    ```
 
 3. Follow the instructions provided in the [README.md file](https://github.com/Azure-Samples/aks-agic/blob/main/README.md).
-
-## Pricing
-
-The cost of this architecture depends on configuration aspects, like the following:
-
-- Service tiers
-- Scalability, meaning the number of instances that are dynamically allocated by services to support a given demand
-- Automation scripts
-- Your disaster recovery level
-
-After you assess these aspects, go to the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate your costs. Also, for more pricing optimization options, see the [Principles of cost optimization](/azure/architecture/framework/cost/overview) in the Microsoft Azure Well-Architected Framework.
 
 ## Next steps
 
