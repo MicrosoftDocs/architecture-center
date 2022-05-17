@@ -78,7 +78,7 @@ This architecture is available on [GitHub](https://github.com/Azure/apim-landing
 * [CI/CD for API Management using Azure Resource Manager templates](/azure/api-management/devops-api-development-templates)
 * [Intro to API Management](https://docs.microsoft.com/en-us/learn/modules/introduction-to-azure-api-management/)
 * [Manage APIs with APIM](https://docs.microsoft.com/en-us/learn/modules/publish-manage-apis-with-azure-api-management/)
-* [API Management Resources for getting started](https://azure.microsoft.com/en-us/services/api-management/?&ef_id=CjwKCAjw7IeUBhBbEiwADhiEMWkjwSYwO_SwvN1Kw5ODYhv8hepRTpJTiqozVT1EzQamf2WKcufcqRoC1mQQAvD_BwE:G:s&OCID=AID2200277_SEM_CjwKCAjw7IeUBhBbEiwADhiEMWkjwSYwO_SwvN1Kw5ODYhv8hepRTpJTiqozVT1EzQamf2WKcufcqRoC1mQQAvD_BwE:G:s&gclid=CjwKCAjw7IeUBhBbEiwADhiEMWkjwSYwO_SwvN1Kw5ODYhv8hepRTpJTiqozVT1EzQamf2WKcufcqRoC1mQQAvD_BwE#documentation)
+* [API Management Resources for getting started](https://azure.microsoft.com/services/api-management#documentation)
 
 ## Related resources
 
