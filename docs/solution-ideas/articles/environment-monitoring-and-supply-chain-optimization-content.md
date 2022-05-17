@@ -44,7 +44,7 @@ This solution is ideal for the environment, manufacturing, transportation, and a
 
 ### Components
 
-- [Azure IoT Central](https://azure.microsoft.com/services/iot-central) is used as the IoT managed platform. It provides security, scalability, and availability as part of the service so that customers can focus efforts on business requirements. Users can integrate with business components such as Power Apps and Power BI, and create notifications through the [data export feature in IoT Central](/azure/iot-central/core/howto-export-data).
+- [Azure IoT Central](https://azure.microsoft.com/services/iot-central) is used as the IoT managed platform. It provides security, scalability, and availability as part of the service so that customers can focus efforts on business requirements. Users can integrate with business components such as Power Apps and Power BI, and create notifications through the [data export feature in IoT Central](/azure/iot-central/core/howto-export-to-blob-storage).
 
 - [Azure storage](https://azure.microsoft.com/services/storage) is used for storing device information in the cloud in a secure and scalable way that is also cost-effective. The data stored is used for training the ML models.
 
