@@ -95,10 +95,11 @@ The solution uses the following components:
 
 #### Data integrators
 
-- [Data Factory][Azure Data Factory] is a hybrid data integration service. You can use this fully managed, serverless solution to create, schedule, and orchestrate ETL and [ELT][ELT] workflows.
-- [Azure Synapse Analytics] is an enterprise analytics service that accelerates time to insight across data warehouses and big data systems. Azure Synapse brings together the best of SQL technologies used in enterprise data warehousing, Spark technologies used for big data, Data Explorer for log and time series analytics, Pipelines for data integration and ETL/ELT, and deep integration with other Azure services such as Power BI, CosmosDB, and AzureML.
+- [Azure Data Factory][Azure Data Factory] is a hybrid data integration service. You can use this fully managed, serverless solution to create, schedule, and orchestrate ETL and [ELT][ELT] workflows.
 
-- [SSIS][SQL Server Integration Services] is a platform for building enterprise-level data integration and transformation solutions. You can use SSIS to manage, replicate, cleanse, and mine data.
+- [Azure Synapse Analytics] is an enterprise analytics service that accelerates time to insight, across data warehouses and big data systems. Azure Synapse brings together the best of SQL technologies (that are used in enterprise data warehousing), Spark technologies used for big data, Data Explorer for log and time series analytics, Pipelines for data integration and ETL/ELT, and deep integration with other Azure services, such as Power BI, Cosmos DB, and Azure Machine Learning.
+
+- [SQL Server Integration Services (SSIS)][SQL Server Integration Services] is a platform for building enterprise-level data integration and transformation solutions. You can use SSIS to manage, replicate, cleanse, and mine data.
 
 - [Azure Databricks][Azure Databricks] is a data analytics platform. Based on the Apache Spark open-source distributed processing system, Azure Databricks is optimized for Azure cloud services. In an analytics workflow, Azure Databricks reads data from multiple sources and uses Spark to provide insights.
 
