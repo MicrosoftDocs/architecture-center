@@ -71,6 +71,8 @@ This architecture uses a hub-spoke network topology. The hub and spoke(s) are de
 
 ![Hub-spoke network topology](images/secure-baseline-architecture.svg)
 
+*Download a [Visio file](https://arch-center.azureedge.net/secure-baseline-architecture.vsdx) of this architecture.*
+
 ### Hub
 
 The hub virtual network is the central point of connectivity and observability. Within the network, three subnets are deployed.
@@ -315,6 +317,8 @@ Network flow, in this context, can be categorized as:
 
 ![Cluster traffic flow](images/traffic-flow.png)
 
+*Download a [Visio file](https://arch-center.azureedge.net/secure-baseline-aks-traffic-flow.vsdx) of this architecture.*
+
 This architecture has several layers of security to secure all types of traffic.
 
 ### Ingress traffic flow
@@ -322,6 +326,8 @@ This architecture has several layers of security to secure all types of traffic.
 The architecture only accepts TLS encrypted requests from the client. TLS v1.2 is the minimum allowed version with a restricted set of cyphers. Server Name Indication (SNI) strict is enabled. End-to-end TLS is set up through Application Gateway by using two different TLS certificates, as shown in this image.
 
 ![TLS termination](images/tls-termination.png)
+
+*Download a [Visio file](https://arch-center.azureedge.net/secure-baseline-aks-tls-termination.vsdx) of this architecture.*
 
 1. The client sends an HTTPS request to the domain name: bicycle.contoso.com. That name is associated with through a DNS A record to the public IP address of Azure Application Gateway. This traffic is encrypted to make sure that the traffic between the client browser and gateway cannot be inspected or changed.
 
