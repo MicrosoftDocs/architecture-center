@@ -448,31 +448,6 @@ The blob deletion can come from any source, like an explicit request from a requ
 }
 ```
 
-### <a id="encodeviaamsv2"></a>Requester asks Gridwich to encode via Azure Media Services V2
-
-**Requester** > **Gridwich**, uses [RequestMediaServicesV2EncodeCreateDTO](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.Core/src/DTO/Requests/RequestMediaServicesV2EncodeCreateDTO.cs)
-
-```json
-{
-    "id": "GUID-string",
-    "topic": "Topic-string",
-    "subject": "Subject-string",
-    "dataVersion": "DataVersion-string",
-    "data": {
-        "operationContext": <OperationContextObject>,
-          "inputs": [
-                { "blobUri": "StorageURL-string" }
-          ],
-          "outputContainer": "https://<storageaccountname>.blob.core.windows.net/<containername>/",
-          "presetName": "SpriteOnlySetting" or "SpriteAndThumbnailSetting" or "ThumbnailOnlySetting",
-          "thumbnailTimeSeconds": 01.234  // optional, if omitted and a thumbnail is requested,
-                                          // will use "{Best}" to select the first non-blank
-                                          // frame after the first scene change.
-      },
-      "eventType": "request.encode.mediaservicesv2.create"
-}
-```
-
 ### <a id="encodeviaamsv3"></a>Requester asks Gridwich to encode a Media Services V3 transform
 
 **Requester** > **Gridwich**, uses [RequestMediaServicesV3EncodeCreateDTO](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.Core/src/DTO/Requests/RequestMediaServicesV3EncodeCreateDTO.cs)
@@ -526,7 +501,7 @@ The start and end times are always relative to the start of the media file, rega
 }
 ```
 
-The `<encodername>` is one of `cloudport`, `flip`, `mediaservicesv2`, or `mediaservicesv3`.
+The `<encodername>` is one of `cloudport`, `flip`, or `mediaservicesv3`.
 
 ### <a id="encoderstatus"></a>Gridwich encoder asynchronous status messages
 
