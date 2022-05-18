@@ -65,6 +65,19 @@ Training on [Azure Databricks] can happen on any one of the [regions](https://az
 
 This scenario can use Azure Active Directory (Azure AD) to authenticate users to the [Azure Databricks] workspace and the [Azure Kubernetes](/azure/aks/concepts-security) cluster. Permissions can be managed via Azure AD authentication or role-based access control.
 
+### Cost optimization
+
+To better understand the cost of running this scenario on Azure, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/). Good starting assumptions are:
+
+- Training data is of the same scale as the example dataset used (45.8 million rows).
+- Training needs to happen daily to update the serving model.
+- Training will occur on [Azure Databricks] using a cluster provisioned with 12 VMs using **L8s** instances.
+- Training will take an hour, including feature processing and model training plus validation.
+- [Azure Machine Learning] will be used to deploy the model to AKS with a small three-node cluster using **D3** instances.
+- AKS cluster will autoscale as needed, resulting in two nodes per month being active on average.
+
+To see how pricing differs for your use case, change the variables to match your expected data size and serving load requirements. For larger or smaller training data sizes, the size of the Databricks cluster can be increased or reduced, respectively. To handle larger numbers of concurrent users during model serving, the AKS cluster should be increased. For more information on scaling AKS to support latency and load requirements, review the [operationalization notebook](https://github.com/microsoft/recommenders/blob/master/examples/05_operationalize/lightgbm_criteo_o16n.ipynb).
+
 ## Deploy this scenario
 
 ### Prerequisites
@@ -89,19 +102,6 @@ To run the notebooks for training and deploying the recommendation model on [Azu
    5. Select **Import**.
 4. Repeat step 3 for the operationalization notebook here: `https://aka.ms/recommenders/lgbm-criteo-o16n`.
 5. Select the notebook to open it, attach the configured cluster, and execute the notebook.
-
-## Pricing
-
-To better understand the cost of running this scenario on Azure, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/). Good starting assumptions are:
-
-- Training data is of the same scale as the example dataset used (45.8 million rows).
-- Training needs to happen daily to update the serving model.
-- Training will occur on [Azure Databricks] using a cluster provisioned with 12 VMs using **L8s** instances.
-- Training will take an hour, including feature processing and model training plus validation.
-- [Azure Machine Learning] will be used to deploy the model to AKS with a small three-node cluster using **D3** instances.
-- AKS cluster will autoscale as needed, resulting in two nodes per month being active on average.
-
-To see how pricing differs for your use case, change the variables to match your expected data size and serving load requirements. For larger or smaller training data sizes, the size of the Databricks cluster can be increased or reduced, respectively. To handle larger numbers of concurrent users during model serving, the AKS cluster should be increased. For more information on scaling AKS to support latency and load requirements, review the [operationalization notebook](https://github.com/microsoft/recommenders/blob/master/examples/05_operationalize/lightgbm_criteo_o16n.ipynb).
 
 ## Next steps
 
