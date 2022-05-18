@@ -232,4 +232,4 @@ Use the [Azure pricing calculator][Azure pricing calculator] to estimate the cos
 [Azure Database for MySQL]: https://azure.microsoft.com/services/mysql/
 [What is HIS]: /host-integration-server/what-is-his
 [What is NoSQL? Databases for a cloud-scale future]: https://www.infoworld.com/article/3240644/what-is-nosql-databases-for-a-cloud-scale-future.html
-[Azure Synapse Analytics] https://docs.microsoft.com/en-us/azure/synapse-analytics/overview-what-is
+[Azure Synapse Analytics] /azure/synapse-analytics/overview-what-is
