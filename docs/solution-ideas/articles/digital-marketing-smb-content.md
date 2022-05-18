@@ -19,8 +19,8 @@ This solution is built on the Azure managed services: [Azure SQL Database](https
 
 ## Next steps
 
-* [Deploy an ASP.NET web app to Azure App Service, using Visual Studio](/api/Redirect/documentation/articles/web-sites-dotnet-get-started)
-* [SQL Database tutorial: Create a SQL database in minutes by using the Azure portal](/api/Redirect/documentation/articles/sql-database-get-started)
+* [Deploy an ASP.NET web app to Azure App Service, using Visual Studio](/azure/app-service/quickstart-dotnetcore)
+* [SQL Database tutorial: Create a SQL database in minutes by using the Azure portal](/azure/azure-sql/database/single-database-create-quickstart)
 * [Application Performance Management with Application Insights](/azure/azure-monitor/app/app-insights-overview)
-* [Use Azure Content Delivery Network in Azure App Service](/api/Redirect/documentation/articles/cdn-websites-with-cdn)
-* [How to Use Azure Cache for Redis](/api/Redirect/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache)
+* [Use Azure Content Delivery Network in Azure App Service](/Azure/cdn/cdn-add-to-web-app)
+* [How to Use Azure Cache for Redis](/azure/azure-cache-for-redis/cache-dotnet-how-to-use-azure-redis-cache)

@@ -22,7 +22,7 @@ categories:
 
 This article covers how to explore data that is stored in a SQL Server VM on Azure. Use SQL or Python to examine the data.
 
-This task is a step in the [Team Data Science Process](overview.md).
+This task is a step in the [Team Data Science Process](overview.yml).
 
 > [!NOTE]
 > The sample SQL statements in this document assume that data is in SQL Server. If it isn't, refer to the cloud data science process map to learn how to move your data to SQL Server.

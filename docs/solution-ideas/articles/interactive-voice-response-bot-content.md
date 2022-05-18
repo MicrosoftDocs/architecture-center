@@ -6,19 +6,24 @@ This solution idea shows how to architect an interactive voice response (IVR) ap
 
 This particular IVR app processes customer order requests for bicycles and bicycle accessories. However, this IVR architecture can be applied to a wide range of scenarios. Businesses with no existing IVR solution can easily get started automating requests. Or, businesses with human-operated systems can use this solution to extend their existing functionality and workflows.
 
+This solution is optimized for the retail industry.
+
 ## Architecture
 
 ![Architectural diagram: interactive voice response (IVR) application with bot built in Azure.](../media/interactive-voice-response-app-bot.png)
-*Download an [SVG](../media/interactive-voice-response-app-bot.svg) of this architecture.*
 
-### Core Azure services
+*Download an [SVG file](../media/interactive-voice-response-app-bot.svg) of this architecture.*
+
+### Workflow
+
+#### Core Azure services
 
 * Speech service (Bing Speech API or Cognitive Services Speech Service) transcribes raw speech data into text form.
 * Language Understanding (LUIS) identifies caller intent and spoken entities from the transcribed text. Examples of intents include place an order, find an order, and so on. Examples of entities include product categories, dates, times, and so on.
 * Azure Cognitive Search matches and ranks products from the inventory against the caller's description. Common synonyms are identified with advanced text analysis.
 * Microsoft Bot Framework processes conversation results from the caller and manages the call workflow.
 
-### Supporting Azure services
+#### Supporting Azure services
 
 * Azure Web App hosts the core logic of the bot as a Node.js web app.
 * Cosmos DB stores shared session state for every conversation, allowing the web application to scale out in a stateless architecture.

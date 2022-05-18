@@ -4,6 +4,7 @@ metadata:
   titleSuffix: Azure Example Scenarios
   description: Learn about how applications can use cloud-to-device messaging or direct methods to send commands to IoT devices.
   author: wamachine
+  ms.author: jasonwa
   ms.date: 08/10/2020
   ms.topic: conceptual
   ms.service: architecture-center

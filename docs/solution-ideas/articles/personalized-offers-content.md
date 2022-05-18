@@ -11,7 +11,7 @@ By analyzing massive amounts of data, marketers have the unique opportunity to d
 ![Architecture diagram](../media/personalized-offers.png)
 *Download an [SVG](../media/personalized-offers.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
 1. User activity on the website is simulated with an Azure Function and a pair of Azure Storage Queues.
 1. Personalized offer functionality is implemented as an Azure Function.

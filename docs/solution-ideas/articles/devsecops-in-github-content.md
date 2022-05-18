@@ -129,6 +129,7 @@ For long-running or complex Actions, host your own runners for CI/CD jobs. You c
 ## Related resources
 
 - [DevSecOps in Azure][DevSecOps in Azure]
+- [DevSecOps for Infrastructure as Code (IaC)][DevSecOps for Infrastructure as Code (IaC)]
 - [Shift left][Shift left]
 - [Fail fast][Fail fast]
 - [SARIF files][SARIF]
@@ -171,3 +172,4 @@ For long-running or complex Actions, host your own runners for CI/CD jobs. You c
 [GitHub DevSecOps training materials]: https://github.com/devsecops/awesome-devsecops
 [GitHub DevSecOps getting started tips]: https://resources.github.com/whitepapers/Architects-guide-to-DevOps/
 [SARIF]: https://docs.github.com/en/github/finding-security-vulnerabilities-and-errors-in-your-code/sarif-support-for-code-scanning
+[DevSecOps for Infrastructure as Code (IaC)]: ./devsecops-infrastructure-as-code.yml

@@ -12,17 +12,18 @@ Working with other Azure services, Azure Purview can automatically discover, cat
 
 This article describes a solution that uses Azure Purview with these Azure services:
 
-- Azure Data Factory
-- Azure Data Lake Storage
-- Azure Synapse Analytics
-- Power BI
+- Azure Data Factory.
+- Azure Data Lake Storage.
+- Azure Synapse Analytics.
+- Power BI.
 
 ## Potential use cases
 
-The requirements for data management differ across industries. For all industries, the need to govern data at scale has increased as the size and complexity of data and data architectures grow. The solution described here is appropriate for organizations that would benefit from the following outcomes of well-governed data:
-- Automatic discovery of data to accelerate cloud adoption
-- Improved security of data for compliance with data laws and regulations
-- Improved access, discovery, and quality of managed data to enhance analytics
+The requirements for data management differ across industries. For all industries, the need to govern data at scale has increased as the size and complexity of data and data architectures grow. This appropriate for organizations that would benefit from the following outcomes of well-governed data:
+
+- Automatic discovery of data to accelerate cloud adoption.
+- Improved security of data for compliance with data laws and regulations.
+- Improved access, discovery, and quality of managed data to enhance analytics.
 
 ## Architecture
 
@@ -46,7 +47,7 @@ Scenarios for connecting Azure Purview to Data Lake services:
 
 #### Capabilities
 
-- [Catalog](/azure/purview/overview#data-catalog). The Azure Purview data catalog can automatically capture and describe core characteristics of data at the source, including schema, technical properties, and location. The Azure Purview glossary allows a business-friendly definition of data to be layered on top, to improve search and discovery.
+- [Catalog](/azure/purview/overview#data-catalog). The Microsoft Purview Data Catalog can automatically capture and describe core characteristics of data at the source, including schema, technical properties, and location. The Azure Purview glossary allows a business-friendly definition of data to be layered on top, to improve search and discovery.
 
 - [Classification](/azure/purview/concept-best-practices-classification). Azure Purview automatically classifies datasets and data elements with 100 predefined sensitive-data classifications. It also allows you to define your own custom classification schemes that you can apply manually and automatically.
 
@@ -77,6 +78,14 @@ Scenarios for connecting Azure Purview to Data Lake services:
 - [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory) offers cloud-based identity and access management services. These features provide a way for users to sign in and access resources.
 
 - [Azure Monitor](https://azure.microsoft.com/services/monitor) collects and analyzes data on environments and Azure resources. This data includes app telemetry, like performance metrics and activity logs.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Isabel Arevalo](https://www.linkedin.com/in/isabel-arevalo-she-her-b24bb162) | Senior Cloud Solution Architect
 
 ## Next steps
 

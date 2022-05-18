@@ -315,4 +315,4 @@ Read the [Log Analytics tutorial](/azure/azure-monitor/log-query/log-analytics-t
 - [Monitoring Azure Databricks in an Azure Log Analytics workspace](https://github.com/mspnp/spark-monitoring/blob/master/README.md)
 - [Deployment of Azure Log Analytics with Spark metrics](https://github.com/mspnp/spark-monitoring/tree/master/perftools/deployment#deployment-of-log-analytics-with-spark-metrics)
 - [Observability patterns](/dotnet/architecture/cloud-native/observability-patterns)
-- [Retry pattern](../patterns/retry.md)
+- [Retry pattern](../patterns/retry.yml)

@@ -1,8 +1,9 @@
 ---
 title: Data lakes
 description: Learn about data lake storage repositories, which can hold terabytes and petabytes of data in native, raw format.
-author: zoinerTejada
-ms.date: 02/12/2018
+author: EdPrice-MSFT
+ms.author: edprice
+ms.date: 05/02/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -32,7 +33,7 @@ A complete data lake solution consists of both storage and processing. Data lake
 
 Typical uses for a data lake include [data exploration](./interactive-data-exploration.md), data analytics, and machine learning.
 
-A data lake can also act as the data source for a data warehouse. With this approach, the raw data is ingested into the data lake and then transformed into a structured queryable format. Typically this transformation uses an [ELT](../relational-data/etl.md#extract-load-and-transform-elt) (extract-load-transform) pipeline, where the data is ingested and transformed in place. Source data that is already relational may go directly into the data warehouse, using an ETL process, skipping the data lake.
+A data lake can also act as the data source for a data warehouse. With this approach, the raw data is ingested into the data lake and then transformed into a structured queryable format. Typically this transformation uses an [ELT](../relational-data/etl.yml#extract-load-and-transform-elt) (extract-load-transform) pipeline, where the data is ingested and transformed in place. Source data that is already relational may go directly into the data warehouse, using an ETL process, skipping the data lake.
 
 Data lake stores are often used in event streaming or IoT scenarios, because they can persist large amounts of relational and nonrelational data without transformation or schema definition. They are built to handle high volumes of small writes at low latency, and are optimized for massive throughput.
 
@@ -50,3 +51,10 @@ Data lake stores are often used in event streaming or IoT scenarios, because the
 
 - [Data Lake Store](/azure/data-lake-store/) is a hyperscale, Hadoop-compatible repository.
 - [Data Lake Analytics](/azure/data-lake-analytics/) is an on-demand analytics job service to simplify big data analytics.
+
+## Related resources
+
+- [Query a data lake or lakehouse by using Azure Synapse serverless](/azure/architecture/example-scenario/data/synapse-exploratory-data-analytics)
+- [Optimized storage – time based with Data Lake](/azure/architecture/solution-ideas/articles/optimized-storage-time-based-data-lake)
+- [Data management across Azure Data Lake with Microsoft Purview](/azure/architecture/solution-ideas/articles/azure-purview-data-lake-estate-architecture)
+- [Modern data warehouse for small and medium business](/azure/architecture/example-scenario/data/small-medium-data-warehouse)

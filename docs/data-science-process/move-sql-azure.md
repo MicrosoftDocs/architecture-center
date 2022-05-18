@@ -8,13 +8,14 @@ services: architecture-center
 ms.service: architecture-center
 ms.subservice: azure-guide
 ms.topic: article
-ms.date: 12/21/2021
+ms.date: 03/02/2022
 ms.author: tdsp
 ms.custom:
   - previous-author=deguhath
   - previous-ms.author=deguhath
 products:
   - azure-machine-learning
+  - azure-open-datasets
 categories:
   - ai-machine-learning
 ---

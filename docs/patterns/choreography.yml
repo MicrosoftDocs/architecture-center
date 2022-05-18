@@ -1,0 +1,22 @@
+### YamlMime:Architecture
+metadata:
+  title: Choreography pattern
+  description: Let each service decide when and how a business operation is processed, instead of depending on a central orchestrator.
+  author: EdPrice-MSFT
+  ms.author: edprice
+  ms.date: 03/01/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: design-pattern
+  ms.custom: fcp
+azureCategories:
+  - integration
+products:
+  - azure-event-grid
+name: Choreography pattern
+summary: Let each service decide when and how a business operation is processed, instead of depending on a central orchestrator.
+thumbnailUrl: /azure/architecture/browse/thumbs/choreography-example.png
+content: |
+  [!include[](choreography-content.md)]
+ 
+ 

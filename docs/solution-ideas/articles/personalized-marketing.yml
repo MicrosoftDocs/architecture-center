@@ -1,11 +1,11 @@
 ### YamlMime:Architecture
 metadata:
   title: Create personalized marketing solutions
-  titleSuffix: Azure Solution Ideas
+  titleSuffix: Azure Architecture Center
   description: Create personalized marketing offers and improve customer response using big-data insights based on Azure Machine Learning and Stream Analytics.
   author: EdPrice-MSFT
-  ms.author: pnp
-  ms.date: 12/16/2019
+  ms.author: edprice
+  ms.date: 04/13/20ee
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea

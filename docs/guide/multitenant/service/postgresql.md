@@ -74,4 +74,4 @@ More information:
 
 ## Next steps
 
-Review [storage and data approaches for multitenancy](../approaches/storage-data.md).
+Review [storage and data approaches for multitenancy](../approaches/storage-data.yml).

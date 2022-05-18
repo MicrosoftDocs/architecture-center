@@ -3,11 +3,12 @@ title: Dashboards to visualize Azure Databricks metrics
 description: Learn how to set up a Grafana dashboard to monitor performance of Azure Databricks jobs. Azure Databricks is an Apache Spark-based analytics service.
 author: EdPrice-MSFT
 ms.author: pnp
+categories: azure
 ms.date: 12/17/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
-ms.category:
+azureCategories:
   - databases
   - management-and-governance
 products:
@@ -100,7 +101,9 @@ Next, change the Grafana administrator password by following these steps:
 1. Create a service principal that allows Grafana to manage access to your Log Analytics workspace. For more information, see [Create an Azure service principal with Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli)
 
     ```azurecli
-    az ad sp create-for-rbac --name http://<service principal name> --role "Log Analytics Reader"
+    az ad sp create-for-rbac --name http://<service principal name> \
+                    --role "Log Analytics Reader" \
+                    --scopes /subscriptions/mySubscriptionID
     ```
 
 1. Note the values for appId, password, and tenant in the output from this command:

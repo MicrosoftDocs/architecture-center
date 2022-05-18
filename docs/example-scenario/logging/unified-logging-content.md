@@ -16,7 +16,7 @@ Logging, tracing, and monitoring can provide the answers to these questions, as 
 
 For traditional on-premises or monolithic applications, logging, tracing, and monitoring happen within a single process domain. The application consists of a single executable and its dependencies. The executable runs under the single process space on a single virtual machine (VM), or across multiple VMs to increase performance.
 
-Cloud-native development differs from on-premises methodology. Many cloud-native applications consist of platform-as-a-service (PaaS) services built around the [microservices](../../microservices/index.md) architectural paradigm. Microservices architectures involve discrete, loosely coupled services that work within their own process boundaries. Microservices architectures:
+Cloud-native development differs from on-premises methodology. Many cloud-native applications consist of platform-as-a-service (PaaS) services built around the [microservices](../../microservices/index.yml) architectural paradigm. Microservices architectures involve discrete, loosely coupled services that work within their own process boundaries. Microservices architectures:
 
 - Consist of discrete services that are easier to build and simpler to maintain.
 - Focus on business capabilities.
@@ -159,6 +159,6 @@ Incorporating the preceding changes into a distributed application allows team m
 
 ## Next steps
 
-- [Building microservices on Azure](../../microservices/index.md)
+- [Building microservices on Azure](../../microservices/index.yml)
 - [Microservices architecture on Azure Service Fabric](../../reference-architectures/microservices/service-fabric.yml)
 - [Azure Spring Cloud reference architecture](/azure/spring-cloud/reference-architecture)

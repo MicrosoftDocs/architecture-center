@@ -33,7 +33,7 @@ By using natural language processing (NLP) with deep learning for content taggin
 * [Data Lake Storage for Big Data Analytics](https://azure.microsoft.com/services/storage/data-lake-storage)
 * [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning)
 * [Azure Cognitive Search](https://azure.microsoft.com/services/search)
-* [Azure Container Registry](https://docs.microsoft.com/azure/container-registry)
+* [Azure Container Registry](/azure/container-registry)
 * [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service)
 
 ## Next steps

@@ -15,7 +15,7 @@ Other relevant use cases include:
 
 ## Architecture
 
-![Architecture diagram for dev/test environments for SAP workloads](./media/architecture-sap-dev-test.png)
+![Architecture diagram for dev/test environments for S A P workloads](./media/architecture-sap-dev-test-architecture.png)
 
 ### Dataflow
 
@@ -49,15 +49,15 @@ For general guidance on designing scalable solutions, see the [performance effic
 
 For general guidance on designing secure solutions, see the [Azure Security Documentation][security].
 
+#### Data protection and cloning
+
+For general guidance on protecting your application data, see [Azure Application Consistent Snapshot tool](/azure/azure-netapp-files/azacsnap-introduction), which provides application consistent snapshots when used in combination with Azure NetApp Files.
+
 ### Resiliency
 
 For general guidance on designing resilient solutions, see [Designing resilient applications for Azure][resiliency].
 
-### Data protection and cloning
-
-For general guidance on protecting your application data, see [Azure Application Consistent Snapshot tool](/azure/azure-netapp-files/azacsnap-introduction), which provides application consistent snapshots when used in combination with Azure NetApp Files.
-
-## Pricing
+### Cost optimization
 
 To help you explore the cost of running this scenario, all services are preconfigured in the cost calculator examples below. Change the appropriate variables to match the expected traffic for your use case.
 
@@ -82,7 +82,7 @@ Extra Large|64000|M64s|4xP20, 1xP10|[Extra Large](https://azure.com/e/975fb58a96
 
 Select the link below to deploy the solution.
 
-[![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Fapps%2Fsap-2tier%2Fazuredeploy.json)
+[![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Fapps%2Fsap-2tier%2Fazuredeploy.json)
 
 > [!NOTE]
 > SAP and Oracle are not installed during this deployment. You will need to deploy these components separately.

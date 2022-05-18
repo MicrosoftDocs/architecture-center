@@ -4,8 +4,8 @@ metadata:
   titleSuffix: Azure Solution Ideas
   description: Build a machine-learning model with Azure Machine Learning, Azure Synapse Analytics and Power BI that optimizes big data marketing campaigns.
   author: nfmoore
-  ms.author: pnp
-  ms.date: 02/24/2021
+  ms.author: nimoore
+  ms.date: 04/13/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea

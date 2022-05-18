@@ -3,7 +3,7 @@ title: Azure and Power Platform scenarios
 description: Learn about architectures and solutions that use Azure together with Microsoft Power Platform. 
 author: EdPrice-MSFT
 ms.author: edprice
-ms.date: 02/16/2022
+ms.date: 03/16/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -56,6 +56,8 @@ The following articles provide detailed analysis of solutions that feature integ
 |[Modern data warehouse for small and medium businesses](../example-scenario/data/small-medium-data-warehouse.yml)|Use Azure Synapse Analytics, Azure SQL Database, and Azure Data Lake Storage to modernize legacy and on-premises data. This solution integrates easily with Power Platform.| Analytics|
 |[Virtual health on Microsoft Cloud for Healthcare](../example-scenario/mch-health/virtual-health-mch.yml)| Develop a virtual health solution by using Microsoft Cloud for Healthcare. This solution uses Power Apps to host a patient portal and store data, Power BI for reporting, and Power Automate to trigger notifications.|Web|
 
+[Browse all our Power Platform solutions](/azure/architecture/browse/?products=power-platform).
+
 ### Power Apps
 
 |Architecture|Summary|Technology focus|
@@ -66,6 +68,8 @@ The following articles provide detailed analysis of solutions that feature integ
 [Line of business extension](../solution-ideas/articles/lob.yml)|Modernize legacy systems by automating processes. Schedule calculations, connect to third-party data sources or legacy systems, and process and share data. Power Apps retrieves the data, and Power BI provides reporting.| Integration|
 [Web and mobile front ends](../solution-ideas/articles/front-end.yml) |Accelerate development by using a visual designer. Use Azure Functions for low-latency processing and Power Apps and Power Automate for out-of-the-box connectors.|Integration|
 
+[Browse all our Power Apps solutions](/azure/architecture/browse/?expanded=power-platform&products=power-apps).
+
 ### Power Automate
 
 |Architecture|Summary|Technology focus|
@@ -74,6 +78,7 @@ The following articles provide detailed analysis of solutions that feature integ
 |[Power Automate deployment at scale](../example-scenario/power-automate/power-automate.yml)|Learn how to use a hub-and-spoke architectural model to deploy Power Automate parent and child flows.| Integration|
 |[Web and mobile front ends](../solution-ideas/articles/front-end.yml)|Accelerate development by using a visual designer. Use Azure Functions for low-latency processing and Power Apps and Power Automate for out-of-the-box connectors. |Integration|
 
+[Browse all our Power Automate solutions](/azure/architecture/browse/?expanded=power-platform&products=power-automate).
 
 ### Power BI
 
@@ -121,6 +126,10 @@ The following articles provide detailed analysis of solutions that feature integ
 |[Serverless computing solution for LOB apps](../solution-ideas/articles/onboarding-customers-with-a-cloud-native-serverless-architecture.yml)|Build and run customer onboarding applications without managing or maintaining infrastructure. Improve developer productivity with this serverless architecture. Power BI is used to store customer information.| Serverless|
 |[Use a demand forecasting model for price optimization](../solution-ideas/articles/demand-forecasting-price-optimization-marketing.yml)|Predict future customer demand and optimize pricing by using big-data and advanced-analytics services from Azure. Use Power BI to monitor the results.| Analytics|
 
+[Browse all our Power BI solutions](/azure/architecture/browse/?expanded=power-platform&products=power-bi).
+
 ## Related resources
 
 - [Browse all our Power Platform architectures](/azure/architecture/browse/?products=power-platform)
+- [Azure and Microsoft 365 scenarios](/azure/architecture/solutions/microsoft-365-scenarios)
+- [Azure and Dynamics 365 scenarios](/azure/architecture/solutions/dynamics-365-scenarios)

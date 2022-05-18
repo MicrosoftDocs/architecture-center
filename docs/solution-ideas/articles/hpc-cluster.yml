@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Solution Ideas
   description: Run high performance computing (HPC) applications in Azure with a low-maintenance solution that includes the head node, compute nodes, and storage nodes.
   author: fmigacz
-  ms.author: pnp
+  ms.author: fmigacz
   ms.date: 05/06/2021
   ms.topic: conceptual
   ms.service: architecture-center

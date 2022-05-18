@@ -6,7 +6,7 @@ This article describes how a development team used metrics to find bottlenecks a
 
 This scenario involves a drone delivery application. Clients can query a REST API to get their latest invoice information. The invoice includes a summary of the customer's deliveries, packages, and total drone utilization. This application uses a microservices architecture running on AKS, and the information needed for the invoice is spread across several microservices.
 
-Rather than the client calling each service directly, the application implements the [Gateway Aggregation](../patterns/gateway-aggregation.md) pattern. Using this pattern, the client makes a single request to a gateway service. The gateway in turn calls the backend services in parallel, and then aggregates the results into a single response payload.
+Rather than the client calling each service directly, the application implements the [Gateway Aggregation](../patterns/gateway-aggregation.yml) pattern. Using this pattern, the client makes a single request to a gateway service. The gateway in turn calls the backend services in parallel, and then aggregates the results into a single response payload.
 
 ![Diagram showing the Gateway Aggregation pattern](../microservices/images/gateway-aggregation.png)
 

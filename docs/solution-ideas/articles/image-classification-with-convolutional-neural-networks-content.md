@@ -11,7 +11,7 @@ Use this solution to automate failure detection instead of relying solely on hum
 ![Architecture diagram: image classification with convolutional neural networks and Azure Machine Learning.](../media/image-classification-with-convolutional-neural-networks.png)
 *Download an [SVG](../media/image-classification-with-convolutional-neural-networks.svg) of this architecture.*
 
-### Components
+### Workflow
 
 * [Azure Blob Storage](/azure/storage/blobs/): Data is ingested and stored in Azure Blob Storage.
 * [GPU based Azure Data Science Virtual Machine (DSVM)](/azure/machine-learning/data-science-virtual-machine/): The core development environment is the Azure Ubuntu-based GPU DSVM. The data is pulled from blob onto an Azure virtual hard disk (VHD) attached to the DSVM. On that VHD, the data is processed, the images are featurized using a deep neural network (DNN), and a boosted tree model is trained. DSVM IPython Notebook server is used for solution development.

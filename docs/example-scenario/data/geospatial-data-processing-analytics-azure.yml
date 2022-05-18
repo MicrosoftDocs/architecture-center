@@ -5,7 +5,7 @@ metadata:
   description: Collect, process, and store geospatial data by using managed Azure services. Make the data available through web apps. Visualize, explore, and analyze the data.
   author: ribumann
   ms.author: ribumann
-  ms.date: 05/28/2021
+  ms.date: 04/19/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario

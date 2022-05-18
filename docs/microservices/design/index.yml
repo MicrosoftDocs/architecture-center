@@ -1,0 +1,20 @@
+### YamlMime:Architecture
+metadata:
+  title: Design a microservices architecture
+  description: Learn how to design and build a microservices architecture on Azure by following a reference implementation that illustrates best practices.
+  author: EdPrice-MSFT
+  ms.author: pnp
+  ms.date: 02/26/2019
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - developer-tools
+  - featured
+products:
+  - azure-kubernetes-service
+name: Design a microservices architecture
+summary: Learn how to design and build a microservices architecture on Azure by following a reference implementation that illustrates best practices.
+thumbnailUrl: /azure/architecture/browse/thumbs/drone-delivery-implementation.png
+content: |
+  [!include[](index-content.md)]

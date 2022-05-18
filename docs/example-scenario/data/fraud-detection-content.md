@@ -18,6 +18,8 @@ Other relevant use cases include:
 
 ![Architecture overview of the Azure components of a real-time fraud detection scenario][architecture]
 
+### Dataflow
+
 This scenario covers the back-end components of a real-time analytics pipeline. Data flows through the scenario as follows:
 
 1. Mobile phone call metadata is sent from the source system to an Azure Event Hubs instance.

@@ -202,7 +202,7 @@ For more information, see the cost section in [Microsoft Azure Well-Architected 
 [sql-replication]: /azure/sql-database/sql-database-geo-replication-overview
 [sql-rpo]: /azure/sql-database/sql-database-business-continuity#sql-database-features-that-you-can-use-to-provide-business-continuity
 [storage-outage]: /azure/storage/storage-disaster-recovery-guidance
-[visio-download]: https://arch-center.azureedge.net/app-service-reference-architectures.vsdx
+[visio-download]: https://arch-center.azureedge.net/app-service-reference-architectures-multi-region-webapp.vsdx
 [Azure-Active-Directory]: https://azure.microsoft.com/services/active-directory/
 [Azure-DNS]: https://azure.microsoft.com/services/dns/#overview
 [Azure-Content-Delivery-Network]: https://azure.microsoft.com/services/cdn/#overview

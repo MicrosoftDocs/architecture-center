@@ -7,7 +7,7 @@ Visual assistant provides rich information based on content of the image with ca
 ![Architecture diagram](../media/visual-assistant.png)
 *Download an [SVG](../media/visual-assistant.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
 1. Users interact with Bot through mobile app or web app.
 1. Bot understands user intent and conversational context by using LUIS, which is built into the application.
@@ -38,7 +38,7 @@ Visual assistant provides rich information based on content of the image with ca
 * Solidify your understanding of LUIS, Azure Bot Service, and Bing Visual Search with [Microsoft Certified: AI Fundamentals](/learn/certifications/exams/ai-900)
 * Use your knowledge in Azure Cognitive Services and [become a Microsoft Certified: Azure AI Engineer Associate](/learn/certifications/azure-ai-engineer/)
 
-## Recommended resources
+## Related resources
 
 * [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
 * [Image classification on Azure](../../example-scenario/ai/intelligent-apps-image-processing.yml)

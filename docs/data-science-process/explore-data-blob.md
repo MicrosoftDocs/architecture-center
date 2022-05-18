@@ -23,7 +23,7 @@ categories:
 
 This article covers how to explore data that is stored in Azure blob container using the [pandas](https://pandas.pydata.org/) Python package.
 
-This task is a step in the [Team Data Science Process](overview.md).
+This task is a step in the [Team Data Science Process](overview.yml).
 
 ## Prerequisites
 This article assumes that you have:

@@ -4,7 +4,7 @@ This article summarizes the process and components the Microsoft Commercial Soft
 
 Contoso Bank wanted to use simulated and actual applications and existing workloads to monitor the reaction of the solution infrastructure for scalability and performance. The solution had to be compatible with the requirements of the existing payment system.
 
-## Use case
+## Potential use cases
 
 Contoso Bank wanted to use a set of simulations to:
 
@@ -18,9 +18,9 @@ There was also a requirement to propose a smooth DevOps transition from on-premi
 
 ## Architecture
 
-![Full Solution Architecture](./images/banking-system-solution-arch.png)
+![Diagram showing a full solution architecture for a banking system cloud transformation.](./images/banking-system-solution-arch.png)
 
-Three main blocks make up the solution: : back-end services, load testing, and monitoring and Event Autoscaler.
+Three main blocks make up the solution: back-end services, load testing, and monitoring with Event Autoscaler.
 
 The actual Contoso microservices containers were manually pushed through Docker to the Kubernetes cluster. This cluster was:
 
@@ -34,7 +34,9 @@ The actual Contoso microservices containers were manually pushed through Docker 
 
  The CSE team created the other microservices as stubs to specifically isolate the actual Contoso microservices from other external mainframe services that the solution pushed through AzureDevOps Pipelines.
 
-At the core, backend services provide the necessary logic for an EFT to happen:
+### Workflow
+
+At the core, the backend services provide the necessary logic for an EFT to happen:
 
 1. A new EFT starts with an HTTP request received by the Channel Holder service.
 
@@ -52,7 +54,7 @@ At the core, backend services provide the necessary logic for an EFT to happen:
 
     The CSE team used [KEDA](https://keda.sh/). It's a framework that automatically scales applications based on the load of messages the solution processed. In the solution, it was used to scale the EFT Processor as the solution processed new EFTs.
 
-    KEDA is only supported on AKS
+    KEDA is only supported on AKS.
 
 1. Next is load testing. It contains a custom solution based on JMeter, Azure Container Instances (ACI), and Terraform.
 
@@ -116,49 +118,49 @@ This component focuses on running Channel Holder, EFT Controller, and EFT Proces
 
 * Provide a detailed report about the tests executed, the applications' behavior and the Kafka partitioning strategies adopted.
 
-## Components
+### Components
 
 The list below summarizes the technologies that the CSE team used to create this solution:
 
 * Azure
 
-  * [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
+  * [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines)
 
-  * [Azure Kubernetes Services (AKS)](https://azure.microsoft.com/services/kubernetes-service/)
+  * [Azure Kubernetes Services (AKS)](https://azure.microsoft.com/services/kubernetes-service)
 
-  * [Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift/)
+  * [Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift)
 
-  * [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
+  * [Azure SQL Database](https://azure.microsoft.com/services/sql-database)
 
-  * [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) - [(Kafka)](/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview)
+  * [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs) - [(Kafka)](/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview)
 
-  * [Azure Monitor](https://azure.microsoft.com/services/monitor/)
+  * [Azure Monitor](https://azure.microsoft.com/services/monitor)
 
-  * [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)
+  * [Azure Container Registry](https://azure.microsoft.com/services/container-registry)
 
-  * [Azure Container Instances (ACI)](https://azure.microsoft.com/services/container-instances/)
+  * [Azure Container Instances (ACI)](https://azure.microsoft.com/services/container-instances)
 
-  * [Azure Cache for Redis](https://azure.microsoft.com/services/cache/)
+  * [Azure Cache for Redis](https://azure.microsoft.com/services/cache)
 
 * Third-party
 
   * Contoso Bank back-end services
 
-  * [Docker](https://www.docker.com/)
+  * [Docker](https://www.docker.com)
 
-  * [Grafana](https://grafana.com/)
+  * [Grafana](https://grafana.com)
 
-  * [Prometheus](https://prometheus.io/)
+  * [Prometheus](https://prometheus.io)
 
 * Open-source
 
-  * [Jenkins](https://www.jenkins.io/)
+  * [Jenkins](https://www.jenkins.io)
 
-  * [KEDA](https://keda.sh/)
+  * [KEDA](https://keda.sh)
 
-  * [Apache JMeter](https://jmeter.apache.org/)
+  * [Apache JMeter](https://jmeter.apache.org)
 
-  * [Redis](https://redis.io/)
+  * [Redis](https://redis.io)
 
 ## Considerations
 
@@ -296,16 +298,16 @@ At the end of the project, the CSE team shared the following insights:
 
 ## Next steps
 
-For more detail about the processes and technologies used to create this solution, see the following articles:
-
-* [Patterns and implementations](patterns-and-implementations.yml)
-
-* [JMeter implementation reference for load testing pipeline solution](jmeter-load-testing-pipeline-implementation-reference.yml)
-
-## Related resources
-
 * [Load Testing Pipeline with JMeter, ACI, and Terraform](https://github.com/Azure-Samples/jmeter-aci-terraform): GitHub project site
 
 * [Autoscaling Java applications with KEDA using Azure Event Hubs](https://github.com/Azure-Samples/keda-eventhub-kafka-scaler-terraform): KEDA for Java sample
 
 * [Pattern: Saga](https://microservices.io/patterns/data/saga.html): Information about the Saga pattern on Microservices.io
+
+## Related resources
+
+For more detail about the processes and technologies used to create this solution, see the following articles:
+
+* [Patterns and implementations](patterns-and-implementations.yml)
+
+* [JMeter implementation reference for load testing pipeline solution](jmeter-load-testing-pipeline-implementation-reference.yml)

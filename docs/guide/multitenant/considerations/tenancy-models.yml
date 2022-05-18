@@ -1,0 +1,21 @@
+### YamlMime:Architecture
+metadata:
+  title: Tenancy models to consider for a multitenant solution
+  description: This article describes the considerations you need to give to different models of multitenancy.
+  author: EdPrice-MSFT
+  ms.author: edprice
+  ms.date: 02/16/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+  ms.custom: fcp
+azureCategories:
+  - management-and-governance
+  - security
+products:
+  - azure
+name: Tenancy models to consider for a multitenant solution
+summary: This article describes the considerations you need to give to different models of multitenancy.
+thumbnailUrl: /azure/architecture/browse/thumbs/map-logical-physical.png
+content: |
+   [!include[](tenancy-models-content.md)]

@@ -7,7 +7,7 @@ Azure Cache for Redis perfectly complements Azure database services such as Cosm
 ![Diagram shows the Azure Cache for Redis architecture.](../media/data-cache-with-redis-cache.png)
 *Download an [SVG](../media/data-cache-with-redis-cache.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
 1. When an application needs to retrieve data, it will first search to see if it exists in Azure Cache for Redis.
 1. If the data is found in Azure Cache for Redis (cache hit), the application will use this data.
@@ -33,7 +33,7 @@ Key technologies used to implement this architecture:
 
 ## Related resources
 
-* [Cache-Aside Pattern](../../patterns/cache-aside.md)
+* [Cache-Aside Pattern](../../patterns/cache-aside.yml)
 * [Caching Best Practice](../../best-practices/caching.yml)
 * [Scalable web apps with Azure Redis Cache](/azure/architecture/solution-ideas/articles/scalable-web-apps)
 * [Build cloud native applications](/azure/architecture/solution-ideas/articles/cloud-native-apps)

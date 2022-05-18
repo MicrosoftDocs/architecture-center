@@ -5,7 +5,7 @@ metadata:
   description: Many machine learning (ML) problems are too complex for a single ML model to solve. Learn about many models machine learning at scale in Azure with Spark.
   author: james-tn
   ms.author: janguy
-  ms.date: 11/22/2021
+  ms.date: 04/28/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario

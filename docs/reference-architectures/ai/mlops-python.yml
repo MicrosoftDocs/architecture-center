@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Reference Architectures
   description: Implement a continuous integration (CI), continuous delivery (CD), and retraining pipeline for an AI application using Azure DevOps and Azure Machine Learning.
   author: praneet22
-  ms.author: pnp
+  ms.author: prsol
   ms.date: 02/22/2021
   ms.topic: conceptual
   ms.service: architecture-center

@@ -7,7 +7,7 @@ Use the AKS virtual node to provision pods inside ACI that start in seconds. Thi
 ![Architecture Diagram](../media/scale-using-aks-with-aci.png)
 *Download an [SVG](../media/scale-using-aks-with-aci.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
 1. User registers a container in Azure Container Registry.
 1. Container images are pulled from the Azure Container Registry.
@@ -24,9 +24,9 @@ Use the AKS virtual node to provision pods inside ACI that start in seconds. Thi
 ## Next steps
 
 - To learn how to use virtual nodes in AKS, see [Create and configure an Azure Kubernetes Services cluster to use virtual nodes](/azure/aks/virtual-nodes).
-- For information about scaling, see [Scale with ease using AKS and ACI](https://azure.microsoft.com/resources/scale-with-ease-using-aks-and-aci/), [Scaling options for applications in Azure Kubernetes Service (AKS) ](/azure/aks/concepts-scale), and [Scale single database resources in Azure SQL Database](/azure/azure-sql/database/single-database-scale).
+- For information about scaling, see [Scale with ease using AKS and ACI](https://azure.microsoft.com/resources/scale-with-ease-using-aks-and-aci), [Scaling options for applications in Azure Kubernetes Service (AKS) ](/azure/aks/concepts-scale), and [Scale single database resources in Azure SQL Database](/azure/azure-sql/database/single-database-scale).
 - For information about the AKS product roadmap, see [Azure Kubernetes Service Roadmap on GitHub](https://github.com/Azure/AKS/projects/1).
 
 ## Related resources
 
-If you need a refresher in Kubernetes, complete the [Azure Kubernetes Service Workshop](/learn/modules/aks-workshop) to deploy a multi-container application to Kubernetes on Azure Kubernetes Service (AKS).
+If you need a refresher in Kubernetes, complete the [Introduction to Kubernetes on Azure learning path](/learn/paths/intro-to-kubernetes-on-azure).

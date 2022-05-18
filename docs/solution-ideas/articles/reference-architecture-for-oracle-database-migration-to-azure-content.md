@@ -4,7 +4,7 @@ Oracle DB migrations can be accomplished in multiple ways. This solution covers 
 
 ![Architecture Diagram](../media/reference-architecture-for-oracle-database-migration-to-azure.png)
 
-### Data flow
+### Dataflow
 
 1. Connect your Azure environment with your on-premises network via site-to-site VPN or ExpressRoute.
 2. Use DataGuard to mark your OracleDB1 in Azure as your active stand-by.
