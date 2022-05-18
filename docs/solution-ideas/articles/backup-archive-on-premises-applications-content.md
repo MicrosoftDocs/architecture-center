@@ -4,6 +4,15 @@ Back up data and applications from an on-premises system to Azure using Azure Ba
 
 This solution is built on the Azure managed services: [Backup Server](https://azure.microsoft.com/services/backup), [Azure Backup](https://azure.microsoft.com/services/backup), and [Blob Storage](https://azure.microsoft.com/services/storage/blobs). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
 
+## Potential use case
+
+Your organizations backup strategy will differ depending on the workload you need to protect, and Azure Backup can assist you with a wide variety of backup types.
+
+* Simply backup and restore your files and folders, which can be great for storing application configuration changes or other business materials.
+* “Typical” Windows or Linux machines to fine-grained protection for Exchange, SQL, or SharePoint services.
+* Hyper-V, VMWare or even capture system state and do a bare-metal recovery if needed.
+* Create backups of your Azure VMs directly from the portal.
+
 ## Architecture
 
 ![Architecture Diagram](../media/backup-archive-cloud-application.png)
