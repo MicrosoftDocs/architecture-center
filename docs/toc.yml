@@ -46,7 +46,7 @@ items:
           - name: Use managed services
             href: guide/design-principles/managed-services.md
           - name: Use the best data store
-            href: guide/design-principles/use-the-best-data-store.md
+            href: /azure/architecture/guide/design-principles/use-best-data-store
           - name: Design for evolution
             href: guide/design-principles/design-for-evolution.md
           - name: Build for the needs of business
@@ -1266,17 +1266,17 @@ items:
                   - name: DoD IL4
                     href: /azure/compliance/offerings/offering-dod-il4
                     maintainContext: true
-                  - name: DoD IL4 Rgulatory Compliance built-in
+                  - name: DoD IL4 Regulatory Compliance built-in
                     href: /azure/governance/policy/samples/gov-dod-impact-level-4
                     maintainContext: true
                   - name: DoD IL5
                     href: /azure/compliance/offerings/offering-dod-il5
                     maintainContext: true
-                  - name: DoD IL5 Rgulatory Compliance built-in
+                  - name: DoD IL5 Regulatory Compliance built-in
                     href: /azure/governance/policy/samples/gov-dod-impact-level-5
                     maintainContext: true
                   - name: DoD IL6
-                    href: /offerings/offering-dod-il6
+                    href: /azure/compliance/offerings/offering-dod-il6
                     maintainContext: true
               - name: EAR overview
                 href: /azure/compliance/offerings/offering-ear
@@ -3253,6 +3253,8 @@ items:
                 href: solution-ideas/articles/streaming-using-hdinsight.yml
       - name: DataOps
         items:
+          - name: Get started
+            href: data-guide/azure-dataops-architecture-design.md
           - name: Guides
             items:
               - name: DataOps checklist

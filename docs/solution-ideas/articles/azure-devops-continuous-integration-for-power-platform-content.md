@@ -2,6 +2,15 @@
 
 Learn how to create a CI/CD pipeline to manage your Power Platform Application lifecycle using Azure DevOps.
 
+## Potential use cases
+
+* Applications that interact with other Microsoft 365 services.
+* Employee onboarding application.
+* Image processing tools.
+* New user setup scenarios.
+* Service request applications.
+* Applications with complex entity relationships.
+
 ## Architecture
 
 ![Architecture diagram](../media/azure-devops-continuous-integration-and-continuous-deployment-for-power-apps.png)
@@ -29,6 +38,14 @@ Learn how to create a CI/CD pipeline to manage your Power Platform Application l
 ## Pricing
 
 * [Customize and get pricing estimates](https://azure.com/e/b96a4a9dbf804edabc83d00b41ffb245)
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Sarah Parkes](https://www.linkedin.com/in/sarah-p-a06370) | Cloud Solution Architect
 
 ## Next steps
 

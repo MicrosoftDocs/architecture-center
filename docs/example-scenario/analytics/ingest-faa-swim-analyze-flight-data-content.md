@@ -119,11 +119,11 @@ The following steps summarize deployment of this scenario after the environment 
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-**Principal author:**
+Principal author:
 
  * [Marcelo Zambrana](https://www.linkedin.com/in/marcelozambrana) | Senior Cloud Solution Architect
 
-**Other contributors:** 
+Other contributors:
 
  * [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
 

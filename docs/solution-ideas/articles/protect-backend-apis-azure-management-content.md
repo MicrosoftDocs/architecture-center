@@ -61,11 +61,11 @@ This architecture addresses the needs of organizations seeking to:
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-**Principal author:**
+Principal author:
 
 - [Arshad Azeem](https://www.linkedin.com/in/arshadazeem) | Senior Cloud Solution Architect
 
-**Other contributors:**
+Other contributors:
 
 - [Raj Penchala](https://www.linkedin.com/in/rajpenchala/) | Principal Cloud Security Architect
 - [Ryan Hudson](https://www.linkedin.com/in/ryanhudsonit) | Principal Cloud Solution Architect

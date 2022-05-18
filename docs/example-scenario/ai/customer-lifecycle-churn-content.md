@@ -14,7 +14,7 @@ This solution demonstrates how to interconnect the following Azure AI technologi
 
 ## Potential use cases
 
-This solution is helpful in the following use cases:
+This solution is ideal for the retail industry. It's helpful in the following use cases:
 
 - In marketing, to determine how much to spend to acquire a customer.
 - For product teams, to tailor products and services for their best customers.
@@ -27,7 +27,7 @@ This solution is helpful in the following use cases:
 
 *Download a [Visio file](https://arch-center.azureedge.net/architecture-customer-lifetime-churn.vsdx) of this architecture.*
 
-## Dataflow
+### Dataflow
 
 1. **Ingestion and orchestration**: Ingest historical, transactional, and third-party data for the customer from on-premises data sources. Use Azure Data Factory and store the results in Azure Data Lake Storage.
 
