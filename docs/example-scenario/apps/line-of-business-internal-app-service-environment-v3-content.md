@@ -7,13 +7,22 @@ For customers in segments tightly governed and restricted by compliance, having 
 _Download a [Visio file](https://arch-center.azureedge.net/architecture.vsdx) that contains this architecture diagram._
 
 ### Workflow
-There are three flows that pertain to this architecture: Operations (items 1-3), Deployment (item 4) and User (item 5).
+There are three flows that pertain to this architecture: Operations (orange), Deployment (green) and User (purple).
+
+#### Operations
 
 1. Operators or Administrators wanting to perform administration tasks on the CI/CD server, or on the Kudu endpoint for the App Service Environment (ASE), would need to first connect to the Bastion Host.
 2. Using the Bastion host, the operator or administrator can then RDP into the Jumpbox server.
 3. From the Jumpbox server, the operator or administrator can RDP into the CI/CD server and perform the required tasks, such as agent upgrades, OS upgrades, etc. The operator or administrator can also connect from the Jumpbox server to the Kudu endpoint of the ASE to perform administrative tasks or perform advanced troubleshooting.
-4. Deployment of the solution is performed via the CI/CD Agent server. The DevOps agent on this server will connect with an Azure DevOps pipeline when a new deployment is executed, and will then deploy the App Service by connecting to the App Service Environment (ASE) over the VNet peering.
-5. Users that want to connect to the deployed App Service will be able to do so over the company's network, using any existing Express Route or VPN if required, and/or over any applicable Azure VNet peering.
+
+#### Deployment
+
+1. Deployment of the solution is performed via the CI/CD Agent server. The DevOps agent on this server will connect with an Azure DevOps pipeline when a new deployment is executed.
+2. The artifacts will then be deployed to the App Service by connecting to the App Service Environment (ASE) over the VNet peering.
+
+#### User
+
+1. Users that want to connect to the deployed App Service will be able to do so over the company's network, using any existing Express Route or VPN if required, and/or over any applicable Azure VNet peering.
 
 ### Components
 
@@ -36,6 +45,8 @@ The solution uses the following Azure services:
 ### Alternatives
 
 Consider adding an [Azure Application Gateway](/azure/application-gateway/overview) before the App Service to provide Web Application Firewall (WAF) functionality to protect web applications from common exploits and vulnerabilities.
+
+A [self-hosted GitHub Runner](https://docs.github.com/en/enterprise-server@3.5/actions/using-github-hosted-runners) can be used in place of the Azure DevOps self hosted agent.
 
 ## Considerations
 
