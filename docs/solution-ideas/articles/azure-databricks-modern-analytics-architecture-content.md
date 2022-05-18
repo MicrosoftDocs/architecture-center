@@ -27,6 +27,8 @@ The system that Swiss Re Group built for its Property & Casualty Reinsurance div
    The diagram contains several gray rectangles. Labels on the rectangles read Ingest, Process, Serve, Store, and Monitor and govern. Each rectangle contains icons that represent Azure or partner services. The Azure Databricks icon is at the center, along with the Data Lake Storage icon. Arrows point back and forth between icons. The arrows show how data flows through the system, as the diagram explanation steps describe. The lowest rectangle extends across the bottom of the diagram. It contains icons for services that monitor and govern operations and information.
 :::image-end:::
 
+*Download a [Visio file](https://arch-center.azureedge.net/azure-databricks-modern-analytics-architecture.vsdx) of this architecture.*
+
 ### Dataflow
 
 1. Azure Databricks ingests raw streaming data from Azure Event Hubs.
