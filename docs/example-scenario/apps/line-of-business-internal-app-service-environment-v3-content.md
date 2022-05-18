@@ -88,6 +88,6 @@ To get started, review the reference implementation resources at [LOB-ILB-ASEv3]
 
 ## Related resources
 
-* [High availability enterprise deployment using App Services Environment](docs/reference-architectures/enterprise-integration/ase-high-availability-deployment.yml)
-* [Enterprise deployment using App Services Environment](docs/reference-architectures/enterprise-integration/ase-standard-deployment.yml)
+* [High availability enterprise deployment using App Services Environment](/azure/architecture/reference-architectures/enterprise-integration/ase-high-availability-deployment)
+* [Enterprise deployment using App Services Environment](/azure/architecture/reference-architectures/enterprise-integration/ase-standard-deployment)
 * [Landing zone accelerator for App Service](/azure/cloud-adoption-framework/scenarios/app-platform/app-services/landing-zone-accelerator)
