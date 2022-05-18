@@ -22,7 +22,7 @@ This scenario requires a site to site or Express Route connection to your on-pre
 #### External Access Scenario (black circles)
 
 1. An external application accesses a public IP address or custom FQDN that is attached to an Application Gateway.
-2. The Application Gateway acts as the web application firewall, requiring PFX certificates for SSL termination. You will have the option to bring an existing certificate or create a self-signed certificate as part of the deployment.
+2. The Application Gateway acts as the web application firewall, requiring PFX certificates for SSL termination.
 3. API Management connects to the backend APIs hosted on Azure Functions through a private endpoint (available through Azure Functions Premium plan) hosted in its own subnet.
 4. The private endpoint securely accesses the externally-available API hosted on Azure Functions.
 
