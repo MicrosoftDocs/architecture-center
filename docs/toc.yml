@@ -2634,12 +2634,14 @@ items:
                 href: example-scenario/blockchain/multi-cloud-blockchain.yml
           - name: Solution ideas
             items:
+              - name: Supply Chain Management with Quorum Blockchain Service
+                href: guide/blockchain/quorum-blockchain-service.yml
               - name: Blockchain workflow application
                 href: solution-ideas/articles/blockchain-workflow-application.yml
               - name: Supply chain track and trace
                 href: solution-ideas/articles/supply-chain-track-and-trace.yml
       - name: Compute + HPC
-        items:
+        items: 
           - name: Get started
             href: topics/high-performance-computing.md
           - name: Guides
