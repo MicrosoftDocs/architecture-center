@@ -80,6 +80,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 - VNet peering provides great performance in a region but has a scalability limit of max 500 networks, if you require more workloads to be connected, use a [hub spoke design ](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?tabs=cli) or [Azure vWAN](https://microsoft.sharepoint.com/:p:/t/MSUSFY22TSICertCommunity/EcUBpRDWPOhAjYwZ8H9pkr0BTw9X0wSTEGGQKgT5UBwXMg?e=gwvip9)
 
 ### Cost optimization
+
 - Due to the need of availability zone and virtual network support, the Premium tier of API Management is selected following the [pricing for each region.](/pricing/details/api-management/) Additionally, Azure Functions in this workload is hosted on [Premium plan](/pricing/details/functions/) due to the need of VNet access. 
 - For proof of concept or prototypes, other tiers of API Management (Developer, Standard, etc.) are recommended. 
 
@@ -88,7 +89,6 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 - API Management configurations should be represented as ARM templates and an infrastructure-as-code mindset should be embraced.
 - A CI/CD process should be leveraged to manage, version and update API Management configurations.
 - Custom health probes should be created to help validate the status of your API management instance. Utilize the uri `/status-0123456789abcdef` to create a common health endpoint for the APIM service in the app gateway.
-- Client certificate negotiation is enabled is a per-gateway configuration.
 - Certificates updated in the key vault are automatically rotated in API Management and is updated within 4 hours.
 - Deploy at least two [scale units](/azure/api-management/upgrade-and-scale) of API Management spread over two Availability Zones per region to maximize availability and performance
 
