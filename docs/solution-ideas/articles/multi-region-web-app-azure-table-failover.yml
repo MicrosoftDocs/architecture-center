@@ -1,0 +1,27 @@
+### YamlMime:Architecture
+metadata:
+  title: Two-region web application with Table Storage failover
+  titleSuffix: Azure Solution Ideas
+  description: Architecture for a high-availability solution with failover that handles massive amounts of data. It uses Azure Table Storage and has two regions.
+  author: nabilshams
+  ms.author: nasiddi
+  ms.date: 09/14/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+azureCategories:
+  - databases
+  - web
+  - migration
+  - storage
+products:
+  - azure-front-door
+  - azure-app-service
+  - azure-functions
+  - azure-table-storage
+  - azure-cache-redis
+name: Two-region web application with Table Storage failover
+summary: Architecture for a high-availability solution with failover that handles massive amounts of data. It uses Azure Table Storage and has two regions.
+thumbnailUrl: /azure/architecture/browse/thumbs/multi-region-web-app-azure-table-failover.png
+content: |
+  [!include[](multi-region-web-app-azure-table-failover-content.md)]

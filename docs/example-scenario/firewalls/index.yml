@@ -1,9 +1,10 @@
 ### YamlMime:Architecture
 metadata:
-  title: Azure Firewall Architecture Guide
+  title: Azure Firewall architecture overview
   description: Use proven customer engagement practices to design firewalls and proxies in Azure for traditional infrastructure workloads.
   author: RZomerman
-  ms.date: 05/15/2020
+  ms.author: rozome
+  ms.date: 05/16/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
@@ -11,7 +12,7 @@ metadata:
     - networking
   ms.custom:
     - example-scenario
-name: Azure Firewall Architecture Guide
+name: Azure Firewall architecture overview
 azureCategories:
   - networking
 summary: Use proven customer engagement practices to design firewalls and proxies in Azure for traditional infrastructure workloads.

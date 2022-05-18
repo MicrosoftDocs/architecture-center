@@ -4,6 +4,7 @@ metadata:
   titleSuffix: Azure Solution Ideas
   description: Use edge devices in your IoT implementation to provide quick response, high availability, and high bandwidth.
   author: falloutxAY
+  ms.author: ansyeo
   ms.date: 02/18/2021
   ms.topic: conceptual
   ms.service: architecture-center

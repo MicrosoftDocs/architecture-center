@@ -1,7 +1,4 @@
-
 <!-- cSpell:ignore newsfeeds njray Redlock -->
-
-
 
 This example scenario describes a pipeline for mass ingestion and near real-time analysis of documents coming from public RSS news feeds.  It uses [Azure Cognitive Services](/azure/cognitive-services/what-are-cognitive-services) to provide useful insights based on text translation, facial recognition, and sentiment detection. Specifically, image and natural language processing steps are connected together in a messaging pipeline based on [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview). The output of the pipeline is a notification containing the insight or analysis.
 
@@ -108,9 +105,9 @@ All the code for this scenario is available in the [GitHub][github] repository. 
 
 ## Next steps
 
-* [Choosing an analytical data store in Azure](/azure/architecture/data-guide/technology-choices/analytical-data-stores)
-* [Choosing a data analytics technology in Azure](/azure/architecture/data-guide/technology-choices/analysis-visualizations-reporting)
-* [Choosing a big data storage technology in Azure](/azure/architecture/data-guide/technology-choices/data-storage)
+* [Choosing an analytical data store in Azure](../../data-guide/technology-choices/analytical-data-stores.md)
+* [Choosing a data analytics technology in Azure](../../data-guide/technology-choices/analysis-visualizations-reporting.md)
+* [Choosing a big data storage technology in Azure](../../data-guide/technology-choices/data-storage.md)
 * [Introduction to Azure Blob storage](/azure/storage/blobs/storage-blobs-introduction)
 * [Welcome to Azure Cosmos DB](/azure/cosmos-db/introduction)
 * [Introduction to Azure Functions](/azure/azure-functions/functions-overview)
@@ -119,13 +116,12 @@ All the code for this scenario is available in the [GitHub][github] repository. 
 
 Additional analytics architectures:
 
-* [Automated enterprise BI](/azure/architecture/reference-architectures/data/enterprise-bi-adf)
-* [Analytics end-to-end with Azure Synapse](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end)
-* [Data warehousing and analytics](/azure/architecture/example-scenario/data/data-warehouse)
-* [Mass ingestion and analysis of news feeds on Azure](/azure/architecture/example-scenario/ai/newsfeed-ingestion)
-* [Stream processing with Azure Databricks](/azure/architecture/reference-architectures/data/stream-processing-databricks)
-* [Stream processing with Azure Stream Analytics](/azure/architecture/reference-architectures/data/stream-processing-stream-analytics)
-
+* [Automated enterprise BI](../../reference-architectures/data/enterprise-bi-adf.yml)
+* [Analytics end-to-end with Azure Synapse](../dataplate2e/data-platform-end-to-end.yml)
+* [Data warehousing and analytics](../data/data-warehouse.yml)
+* [Mass ingestion and analysis of news feeds on Azure](./news-feed-ingestion-and-near-real-time-analysis.yml)
+* [Stream processing with Azure Databricks](../../reference-architectures/data/stream-processing-databricks.yml)
+* [Stream processing with Azure Stream Analytics](../../reference-architectures/data/stream-processing-stream-analytics.yml)
 
 [architecture]: ./media/mass-ingestion-newsfeeds-architecture.png
 [aai]: /azure/azure-monitor/app/app-insights-overview
@@ -147,7 +143,7 @@ Additional analytics architectures:
 [language]: /azure/cognitive-services/translator/reference/v3-0-languages
 [logic-app]: /azure/logic-apps/logic-apps-overview
 [queues-topics]: /azure/service-bus-messaging/service-bus-queues-topics-subscriptions
-[partial]: https://feedback.azure.com/forums/263030-azure-cosmos-db/suggestions/6693091-be-able-to-do-partial-updates-on-document
+[partial]: https://feedback.azure.com/d365community/idea/eebcd50e-0e25-ec11-b6e6-000d3a4f0858
 [plan]: /azure/azure-functions/functions-scale
 [plan-c]: /azure/azure-functions/consumption-plan
 [plan-ded]: /azure/azure-functions/dedicated-plan

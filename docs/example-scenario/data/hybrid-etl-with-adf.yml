@@ -3,8 +3,8 @@ metadata:
   title: Hybrid ETL with Azure Data Factory
   description: Create a hybrid ETL with existing on-premises SQL Server Integration Services (SSIS) deployments and Azure Data Factory.
   author: alhieng
-  ms.author: pnp
-  ms.date: 11/20/2019
+  ms.author: alhieng
+  ms.date: 03/07/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario

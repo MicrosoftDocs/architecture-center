@@ -1,6 +1,3 @@
-
-
-
 This reference architecture illustrates how to design a hybrid update management solution to manage updates on both Microsoft Azure and on-premises Windows and Linux computers.
 
 ![Azure Update management is configuration component of Azure Automation. Windows and Linux computers, both in Azure and on-premises, send assessment information about missing updates to the Log Analytics workspace. Azure Automation then uses that information to create a schedule for automatic deployment of the missing updates.][architectural-diagram]
@@ -14,16 +11,23 @@ Typical uses for this architecture include:
 
 ## Architecture
 
-The architecture consists of the following components:
+The architecture consists of the following services:
 
-- **Log Analytics workspace** - A [Log Analytics workspace][1] is a data repository for log data that's collected from resources that run in Azure, on-premises, or in another cloud provider.
-- **Automation Hybrid Worker solution** - Create [Hybrid Runbook Workers][2] to run [Azure Automation][3] runbooks on your Azure and non-Azure computers.
-- **Automation account** - This is a cloud service that automates configuration and management across your Azure and non-Azure environments.
-- **Hybrid Runbook Worker** - This is a computer that's configured with the Hybrid Runbook Worker feature and can run runbooks directly on the computer and against the resources in the local environment.
-- **Hybrid Runbook Worker group** - It's a group of Hybrid Runbook Workers used for high availability.
-- **Runbook** - This is a collection of one or more linked activities that together automate a process or operation.
-- **On-premises computers and VMs** - These are on-premises computers and VMs with Windows or Linux operating systems that reside on-premises.
-- **Azure VMs** - Azure VMs include Windows or Linux VMs that are hosted in Azure.
+- **Log Analytics workspace:** A [Log Analytics workspace][1] is a data repository for log data that's collected from resources that run in Azure, on-premises, or in another cloud provider.
+- **Automation Hybrid Worker solution:** Create [Hybrid Runbook Workers][2] to run [Azure Automation][3] runbooks on your Azure and non-Azure computers.
+- **Automation account:** This is a cloud service that automates configuration and management across your Azure and non-Azure environments.
+- **Hybrid Runbook Worker:** This is a computer that's configured with the Hybrid Runbook Worker feature and can run runbooks directly on the computer and against the resources in the local environment.
+- **Hybrid Runbook Worker group:** It's a group of Hybrid Runbook Workers used for high availability.
+- **Runbook:** This is a collection of one or more linked activities that together automate a process or operation.
+- **On-premises computers and VMs:** These are on-premises computers and VMs with Windows or Linux operating systems that reside on-premises.
+- **Azure VMs:** Azure VMs include Windows or Linux VMs that are hosted in Azure.
+
+### Components
+
+- [Azure Automation](https://azure.microsoft.com/services/automation)
+- [Azure Virtual Machines](https://azure.microsoft.com/free/virtual-machines)
+- [Azure Monitor](https://azure.microsoft.com/services/monitor)
+- [Azure Arc](https://azure.microsoft.com/services/azure-arc/)
 
 ## Recommendations
 
@@ -297,11 +301,17 @@ More about Azure Automation:
 - [Hybrid Runbook Worker overview](/azure/automation/automation-hybrid-runbook-worker)
 - [Create an Azure Automation account](/azure/automation/automation-quickstart-create-account)
 - [Pre-requisites: Azure Automation network configuration details](/azure/automation/automation-network-configuration)
-- [Azure Automation Update Management](/azure/architecture/hybrid/azure-update-mgmt)
+- [Azure Automation Update Management](./azure-update-mgmt.yml)
 - [Overview of Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview)
 - [Overview of VM insights](/azure/azure-monitor/vm/vminsights-overview)
 - [Azure Arc Overview](/azure/azure-arc/overview)
 - [What is Azure Arc enabled servers?](/azure/azure-arc/servers/overview)
+
+## Related resources
+
+- [Azure Automation in a hybrid environment](./azure-automation-hybrid.yml)
+- [Event-based cloud automation](../reference-architectures/serverless/cloud-automation.yml)
+- [Azure Automation State Configuration](../example-scenario/state-configuration/state-configuration.yml)
 
 [architectural-diagram]: ./images/azure-update-mgmt.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-update-mgmt.vsdx

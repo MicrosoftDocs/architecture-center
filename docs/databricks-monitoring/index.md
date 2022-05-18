@@ -1,12 +1,16 @@
 ---
-title: Monitoring Azure Databricks with Azure Monitor
-description: A scala library to enable monitoring of Azure Databricks in Azure Log Analytics
-author: PeterTaylor9999
-ms.date: 03/26/2019
+title: Monitor Azure Databricks
+description: Learn how to extend the core monitoring functionality of Azure Databricks to send Apache Spark metrics, events, and logging information to Azure Monitor.
+author: EdPrice-MSFT
+ms.author: edprice
+ms.date: 03/07/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 ms.category:
+  - management-and-governance
+  - databases
+categories:
   - management-and-governance
   - databases
 products:

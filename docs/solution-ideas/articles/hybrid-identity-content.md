@@ -1,6 +1,3 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 The need to keep application components on-premises doesn't have to be a barrier to adopting cloud technologies. With Azure Stack Hub, app components can reside on-premises while interacting with components running in Azure public cloud. This blueprint enables teams to manage identity for users as well as applications in a way that is consistent across clouds.
@@ -10,7 +7,7 @@ The need to keep application components on-premises doesn't have to be a barrier
 ![Architecture diagram](../media/hybrid-identity.png)
 *Download an [SVG](../media/hybrid-identity.svg) of this architecture.*
 
-## Data Flow
+### Data flow
 
 1. Set up an Azure Active Directory tenant.
 1. Create users.
@@ -19,7 +16,7 @@ The need to keep application components on-premises doesn't have to be a barrier
 1. Deploy with service principles.
 1. Application resources can communicate over network.
 
-## Components
+### Components
 
 * [Azure Stack Hub](https://azure.microsoft.com/overview/azure-stack) is a hybrid cloud platform that lets you use Azure services on-premises.
 * [Virtual Machines](https://azure.microsoft.com/services/virtual-machines): Provision Windows and Linux virtual machines in seconds.

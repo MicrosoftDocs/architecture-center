@@ -1,0 +1,26 @@
+### YamlMime:Architecture
+metadata:
+  title: Enhanced-security hybrid messaging — mobile access
+  titleSuffix: Azure Example Scenarios
+  description: This article describes an architecture to enhance your security in a mobile access scenario by using Azure AD Multi-Factor Authentication.
+  author: pakondra
+  ms.author: pakondra
+  ms.date: 12/20/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.custom: fcp
+azureCategories:
+  - "security"
+  - "hybrid"
+  - "identity"
+  - "mobile"
+products:
+  - "azure-active-directory"
+  - "m365"
+  - "office-365"
+name: Enhanced-security hybrid messaging infrastructure — mobile access
+summary: This article describes an architecture to enhance your security in a mobile access scenario by using Azure AD Multi-Factor Authentication.
+thumbnailUrl: /azure/architecture/browse/thumbs/mobile-online.png
+content: |
+  [!include[](secure-hybrid-messaging-mobile-content.md)]

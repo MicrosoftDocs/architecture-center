@@ -1,0 +1,26 @@
+### YamlMime:Architecture
+metadata:
+  title: Azure Kubernetes in event stream processing
+  titleSuffix: Azure Solution Ideas
+  description: A serverless event-driven architecture running on Azure Kubernetes with KEDA scaler that ingests and processes a stream of data, then writes the results to a DB.
+  author: rasavant-ms
+  ms.author: rasavant
+  ms.date: 06/25/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+azureCategories:
+  - analytics
+  - compute
+  - devops
+products:
+  - azure-kubernetes-service
+  - azure-iot-hub
+  - azure-event-hubs
+  - azure-functions
+  - azure-cosmos-db
+name: Azure Kubernetes in event stream processing
+summary: A serverless event-driven architecture running on Azure Kubernetes with KEDA scaler that ingests and processes a stream of data, then writes the results to a DB.
+thumbnailUrl: /azure/architecture/browse/thumbs/serverless-event-processing-aks-card.png
+content: |
+  [!include[](serverless-event-processing-aks-content.md)]

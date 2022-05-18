@@ -7,7 +7,14 @@ This solution idea shows how to deploy an e-commerce web site on Azure. The e-co
 ![Architecture Diagram](../media/retail-and-e-commerce-using-cosmos-db.png)
 *Download an [SVG](../media/retail-and-e-commerce-using-cosmos-db.svg) of this architecture.*
 
-## Components
+### Dataflow
+
+1.	The web application is hosted in an Azure Web App.
+2.	The data (products and session state) gets stored in Azure Cosmos DB.
+3.	Static content and product images are stored in an Azure Storage account.
+4.	Azure Cognitive Search is used to search across all the products. 
+
+### Components
 
 This architecture includes the following components:
 
@@ -25,14 +32,16 @@ Explore the related services:
 * [Introduction to the core Azure Storage services](/azure/storage/common/storage-introduction)
 * [What is Azure Cognitive Search?](/azure/search/search-what-is-azure-search)
 
-Explore related data architecture:
+## Related resources
+
+Explore related data architectures:
 
 * [Azure Data Architecture Guide](../../data-guide/index.md)
-* [Non-relational data and NoSQL](../../data-guide/big-data/non-relational-data.md)
-* [Choosing an analytical data store in Azure](../../data-guide/technology-choices/analytical-data-stores.md)
-* [Choosing a big data storage technology in Azure](../../data-guide/technology-choices/data-storage.md)
+* [Non-relational data and NoSQL](../../data-guide/big-data/non-relational-data.yml)
+* [Choose an analytical data store in Azure](../../data-guide/technology-choices/analytical-data-stores.md)
+* [Choose a big data storage technology in Azure](../../data-guide/technology-choices/data-storage.md)
 * [Understand data store models](../../guide/technology-choices/data-store-overview.md)
-* [Choosing a stream processing technology in Azure](../../data-guide/technology-choices/stream-processing.md)
+* [Choose a stream processing technology in Azure](../../data-guide/technology-choices/stream-processing.md)
 
 Fully deployable architectures:
 

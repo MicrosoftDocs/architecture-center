@@ -1,9 +1,9 @@
 ### YamlMime:Architecture
 metadata:
-  title: Back up on-premises applications and data to cloud
+  title: Back up on-premises applications and data to the cloud
   titleSuffix: Azure Solution Ideas
   description: Use this architecture to back up on-premises applications and data with Azure Backup and Blob storage applications.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
   ms.topic: conceptual
@@ -18,7 +18,7 @@ metadata:
     - e2e-hybrid
     - "https://azure.microsoft.com/solutions/architecture/backup-archive-on-premises-applications/"
     - internal-intro
-name: Back up on-premises applications and data to cloud
+name: Back up on-premises applications and data to the cloud
 azureCategories:
   - storage
   - hybrid

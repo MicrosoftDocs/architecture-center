@@ -3,8 +3,9 @@ metadata:
   title: Environment monitoring and supply chain optimization with IoT
   titleSuffix: Azure Solution Ideas
   description: Learn how to use Azure IoT for environment monitoring and supply chain optimization.
-  author: onaim-msft
-  ms.date: 05/03/2021
+  author: falloutxAY
+  ms.author: ansyeo
+  ms.date: 04/04/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
@@ -25,4 +26,4 @@ products:
   - azure-databricks
 thumbnailUrl: /azure/architecture/browse/thumbs/environment-monitor-supply-chain.png
 content: |
-   [!include[](environment-monitoring-and-supply-chain-optimization.md)]
+   [!include[](environment-monitoring-and-supply-chain-optimization-content.md)]

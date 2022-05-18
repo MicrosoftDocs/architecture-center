@@ -1,9 +1,9 @@
 ### YamlMime:Architecture
 metadata:
-  title: Custom Mobile Workforce App
+  title: Custom mobile workforce app
   titleSuffix: Azure Solution Ideas
   description: Learn how the custom mobile workforce management app architecture is built and implemented with a step-by-step diagram that illustrates the integration of Active Directory, SAP, and Azure App Service.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
   ms.topic: conceptual
@@ -22,7 +22,7 @@ metadata:
     - interactive-diagram
     - "https://azure.microsoft.com/solutions/architecture/custom-mobile-workforce-app/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/custom-mobile-workforce-app.png
-name: Custom Mobile Workforce App
+name: Custom mobile workforce app
 azureCategories:
   - mobile
   - identity

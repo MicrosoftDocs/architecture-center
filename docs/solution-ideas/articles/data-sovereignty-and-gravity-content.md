@@ -1,6 +1,3 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Azure with Azure Stack enables organizations to make technology placement decisions based on business needs-simplifying meeting custom compliance, sovereignty, and data gravity requirements.
@@ -10,13 +7,13 @@ Azure with Azure Stack enables organizations to make technology placement decisi
 ![Architecture diagram](../media/data-sovereignty-and-gravity.png)
 *Download an [SVG](../media/data-sovereignty-and-gravity.svg) of this architecture.*
 
-## Data Flow
+### Data flow
 
 1. User enters data into Azure-based web app.
 1. Application commits data to database over virtual network-to virtual network VPN connection to Azure Stack.
 1. Data is stored in SQL database on virtual machine (VM).
 
-## Components
+### Components
 
 * [Virtual Network](https://azure.microsoft.com/services/virtual-network): Provision private networks, optionally connect to on-premises datacenters
 * [VPN Gateway](https://azure.microsoft.com/services/vpn-gateway): Establish secure, cross-premises connectivity

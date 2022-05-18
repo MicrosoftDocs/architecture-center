@@ -1,6 +1,5 @@
 
 
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Ingest and process millions of streaming events per second with Apache Kafka, Apache Storm, and Apache Spark Streaming.

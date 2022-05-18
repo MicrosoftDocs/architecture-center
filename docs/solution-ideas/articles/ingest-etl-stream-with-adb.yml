@@ -1,0 +1,26 @@
+### YamlMime:Architecture
+metadata:
+  title: Build ETL pipelines with Azure Databricks
+  titleSuffix: Azure Solution Ideas
+  description: Create ETL pipelines for batch and streaming data with Azure Databricks to simplify data lake ingestion at any scale.
+  author: kpistor
+  ms.author: b-macorn
+  ms.date: 6/18/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+azureCategories:
+  - "analytics"
+  - "iot"
+  - "databases"
+products:
+  - "azure-databricks"
+  - "azure-data-lake-storage"
+  - "azure-iot-hub"
+  - "azure-data-factory"
+  - "azure-event-hubs"
+name: Ingestion, ETL, and stream processing pipelines with Azure Databricks
+summary: Create ETL pipelines for batch and streaming data with Azure Databricks to simplify data lake ingestion at any scale.
+thumbnailUrl: /azure/architecture/browse/thumbs/ingest-etl-stream-with-adb.png
+content: |
+  [!include[](ingest-etl-stream-with-adb-content.md)]

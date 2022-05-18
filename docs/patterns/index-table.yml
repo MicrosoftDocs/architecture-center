@@ -1,0 +1,19 @@
+### YamlMime:Architecture
+metadata:
+  title: Index Table pattern
+  description: Learn about the Index Table pattern. Create indexes over the fields in data stores that are frequently referenced by queries.
+  author: EdPrice-MSFT
+  ms.author: edprice
+  ms.date: 06/23/2017
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - storage
+products:
+  - azure-storage
+name: Index Table pattern
+summary: Learn about the Index Table pattern. Create indexes over the fields in data stores that are frequently referenced by queries.
+thumbnailUrl: /azure/architecture/browse/thumbs/index-table.png
+content: |
+  [!include[](index-table-content.md)]

@@ -3,7 +3,7 @@ metadata:
   title: Architect scalable e-commerce web app
   titleSuffix: Azure Solution Ideas
   description: Build scalable e-commerce web apps with Azure Functions and Web Apps so you can create personalized experiences while Azure takes care of the infrastructure.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
   ms.topic: conceptual

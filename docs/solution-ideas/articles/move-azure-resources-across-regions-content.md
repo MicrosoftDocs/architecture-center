@@ -1,11 +1,8 @@
-
-
-
 With the growth of Microsoft Azure and its evolving set of regions worldwide, customers have a need to move deployments from one region to another. Moving applications across regions is an activity that demands a well thought-out plan, to ensure you move all resources seamlessly, and that applications are up and running in the new region with minimal downtime.
 
 The recommendations and architecture in this example provide guidance on efficiently, securely, and seamlessly moving Azure resources across regions.
 
-## Use cases
+## Potential use cases
 
 Some of the top reasons for moving resources to a different region include the following cases:
 
@@ -34,7 +31,7 @@ Some of the top reasons for moving resources to a different region include the f
 - **Internal load balancer**: Network traffic from the VPN gateway is routed to the cloud application through an [internal load balancer (ILB) endpoint](/azure/application-gateway/configure-application-gateway-with-private-frontend-ip) located in the subnet of application tiers.
 - **Platform as a Service (PaaS) resources**: In this example environment, there are a few PaaS services such as Azure IoT hub, Azure Key Vault, and Azure App Service.
 
-## Components
+### Components
 
 The example architecture uses the following components:
 

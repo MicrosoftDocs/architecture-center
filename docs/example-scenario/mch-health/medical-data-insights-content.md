@@ -23,9 +23,11 @@ _Download a [Visio file](https://arch-center.azureedge.net/clinical-insights-sol
 
 Similar to the Virtual Visit solution, the blue-lined boxes in this architecture diagram represent the Microsoft services that are either the underlying services or add-ons required for [Microsoft Cloud for Healthcare](https://www.microsoft.com/industry/health/microsoft-cloud-for-healthcare?rtc=1). Each of these services is licensed separately.
 
-Similar to the previous solution, data flows into this architecture through external medical systems, such as patient and provider schedules, medical records, wearable devices, and so on, and then ingested using the [Azure API for FHIR](/azure/healthcare-apis/fhir/overview). This API can also ingest other structured data required for specific insights, such as, financial data. The API transposes the data to Fast Healthcare Interoperability Resources (FHIR) standard. This data is then stored in Microsoft Dataverse in the [Common Data Model (CDM)](/common-data-model/) format, to be consumed by [Dynamics 365](https://dynamics.microsoft.com/) and [Power BI](https://powerbi.microsoft.com/) components in this solution.
+Similar to the previous solution, data flows into this architecture through external medical systems, such as patient and provider schedules, medical records, wearable devices, and so on, and then ingested using Azure. This process can also ingest other structured data required for specific insights, such as financial data. This data is then stored in Microsoft Dataverse in the [Common Data Model (CDM)](/common-data-model/) format, to be consumed by [Dynamics 365](https://dynamics.microsoft.com/) and [Power BI](https://powerbi.microsoft.com/) components in this solution.
 
 This solution also uses Azure Data Lake to store the large amounts of data required for reporting and analytics. This data is analyzed using Azure Synapse, for use by the machine learning module and Power BI visualizations. Synapse can also pull in unstructured data, such as X-ray images, and feed it into the machine learning algorithm to generate interpretations. These interpretations are stored in a Microsoft Word document, along with a snapshot of the image. This document is stored as a blob or file in Dataverse, for future reference.
+
+### Dataflow
 
 This solution supports the following data flows for each of the user groups shown in the diagram:
 
@@ -45,7 +47,7 @@ This solution supports the following data flows for each of the user groups show
 
     These Power BI reports are integrated with Microsoft Teams. This allows them to be easily shared with other departments using [Teams channels](/microsoftteams/teams-channels-overview), resulting in faster communication and collaboration. Access to these reports can be controlled by setting permission levels per department or user.
 
-## Components
+### Components
 
 Most of the components used in this solution are detailed in the [Components section of the Virtual Visit solution](./virtual-health-mch.yml#components). Additional components used in this solution are described below:
 
@@ -72,7 +74,7 @@ Most of the components used in this solution are detailed in the [Components sec
 - **Sales Insights**. This solution uses [Sales Insights](/dynamics365/ai/sales/overview), a Dynamics 365 add-in, to provide alerts and notifications for the following data changes in the system:
 
   - patient's wearable device exceeds preset thresholds for health metrics, such as heart rate, and
-  
+
   - diagnostic test results are available in the system.
 
   These notifications are triggered from a [Power Automate flow](/power-automate/flow-types). See [Create custom insight cards](/dynamics365/ai/sales/create-insight-cards-flow) on how to create automation flows that integrate with Sales Insights.
@@ -89,7 +91,7 @@ Most of the components used in this solution are detailed in the [Components sec
 
 - **Structured data**. This block represents any structured data not typically considered part of EMR/EHR or PAS systems, that may be required to create insights for the hospital management. For example, the financial records of the healthcare organization.
 
-## Alternatives
+### Alternatives
 
 The [alternatives listed in the Virtual Visits solution](./virtual-health-mch.yml#alternatives) are applicable to this architecture as well.
 
@@ -97,7 +99,9 @@ The [alternatives listed in the Virtual Visits solution](./virtual-health-mch.ym
 
 - Components shown in the above diagram without the blue outlines, will need to be created or replaced by available tools, as per the needs of the healthcare organization.
 
-## Security considerations
+## Considerations
+
+### Security
 
 The security considerations for any architecture involving Microsoft Cloud for Healthcare would be similar. Refer to the [security considerations discussed in the Virtual Visits solution](./virtual-health-mch.yml#security-considerations).
 
@@ -105,7 +109,7 @@ The security considerations for any architecture involving Microsoft Cloud for H
 
 Pricing information for this architecture is similar to the [pricing discussed in the Virtual Visits solution](./virtual-health-mch.yml#pricing).
 
-## Deploy the solution
+## Deploy this scenario
 
 For deploying this solution, go through steps one through four of [the Virtual Visits solution deployment](./virtual-health-mch.yml#deploy-the-solution).
 
@@ -127,7 +131,7 @@ The following are the additional components created specifically for this soluti
 
 - Learn more about the Microsoft Cloud for Healthcare at [What is Microsoft Cloud for Healthcare?](/industry/healthcare/overview)
 
-- Learn more about Azure for healthcare offerings at [Azure for Healthcare—Healthcare Solutions](https://azure.microsoft.com/industries/healthcare/).
+- Learn more about Azure for healthcare offerings at [Azure for Healthcare—Healthcare Solutions](https://azure.microsoft.com/industries/healthcare).
 
 ## Related resources
 

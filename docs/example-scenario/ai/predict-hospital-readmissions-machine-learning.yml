@@ -1,0 +1,25 @@
+### YamlMime:Architecture
+metadata:
+  title: Predict hospital readmissions by using machine learning
+  titleSuffix: Azure Example Scenarios
+  description: Learn how healthcare and life science organizations can centralize data and use data science and machine learning to stay relevant to their customers.
+  author: matthansen0
+  ms.author: mahans
+  ms.date: 10/15/2021
+  ms.custom:
+    - fcp
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+azureCategories:
+- ai-machine-learning
+- analytics
+products:
+ - azure-machine-learning
+ - azure-synapse-analytics
+ - azure-data-factory
+name: Predict hospital readmissions by using traditional and automated machine learning techniques
+summary: Learn how healthcare and life science organizations can centralize data and use data science and machine learning to stay relevant to their customers.
+thumbnailUrl: /azure/architecture/browse/thumbs/predict-hospital-readmissions-machine-learning.png
+content: |
+  [!include[](predict-hospital-readmissions-machine-learning-content.md)]

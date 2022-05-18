@@ -1,6 +1,3 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Businesses and teams across industries have to spend time and money on design reviews. 2D images lose essential detail and context, and physical prototypes are extremely expensive. With this mixed reality scenario, clients, designers, and onsite engineers can easily share and review designs as 3D holograms in the context of their environment, accelerating design decisions and reducing time to market.
@@ -10,7 +7,7 @@ Businesses and teams across industries have to spend time and money on design re
 ![Architecture diagram](../media/collaborative-design-review-powered-by-mixed-reality.png)
 *Download an [SVG](../media/collaborative-design-review-powered-by-mixed-reality.svg) of this architecture.*
 
-## Data Flow
+### Data flow
 
 1. Users of the client application authenticate using their Azure Active Directory credentials from HoloLens or a mobile device.
 1. Device 1 creates an anchor using Azure Spatial Anchors and gets back an anchor ID.
@@ -23,7 +20,7 @@ Businesses and teams across industries have to spend time and money on design re
 1. Device 2 fetches the hologram from Blob storage using the SAS key obtained from the app service.
 1. Device 1 and Device 2 exchange state information over a peer-to-peer networking channel (or through a service relay of your choice).
 
-## Components
+### Components
 
 * [Azure Active Directory](https://azure.microsoft.com/services/active-directory): Synchronize on-premises directories and enable single sign-on
 * [Blob Storage](https://azure.microsoft.com/services/storage/blobs): REST-based object storage for unstructured data

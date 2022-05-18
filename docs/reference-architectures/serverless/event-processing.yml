@@ -2,7 +2,7 @@
 metadata:
   title: Serverless event processing
   description: This article presents a reference architecture for serverless event ingestion and processing using Azure Functions.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 10/16/2018
   ms.topic: conceptual

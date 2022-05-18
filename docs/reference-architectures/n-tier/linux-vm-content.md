@@ -1,6 +1,5 @@
 
 
-
 Provisioning a virtual machine (VM) in Azure requires some additional components besides the VM itself, including networking and storage resources. This article shows best practices for running a Linux VM on Azure.
 
 ![Linux VM in Azure](./images/single-vm-diagram.png)
@@ -37,12 +36,15 @@ When you create a VHD, it is unformatted. Log into the VM to format the disk. In
 
 ```bash
 # Create a partition.
+
 sudo fdisk /dev/sdc     # Enter 'n' to partition, 'w' to write the change.
 
 # Create a file system.
+
 sudo mkfs -t ext3 /dev/sdc1
 
 # Mount the drive.
+
 sudo mkdir /data1
 sudo mount /dev/sdc1 /data1
 ```
@@ -88,7 +90,7 @@ All NSGs contain a set of [default rules][nsg-default-rules], including a rule t
 
 There are various options for VM sizes depending on the usage and workload. The range includes most economical option of the Bs-series to the newest GPU VMs optimized for machine learning. For information about the available options, see [Azure Linux VM pricing][linux-vms-pricing].
 
-For workloads with no predictable time of completion or resource consumption, consider the **Pay as you go** option. 
+For workloads with no predictable time of completion or resource consumption, consider the **Pay as you go** option.
 
 Consider using [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) if you can commit to using a virtual machine over a one-year or three-year term. VM reservations can reduce costs up to 72 % compared to pay-as-you-go prices.
 
@@ -102,15 +104,13 @@ Use the [Azure Pricing Calculator][azure-pricing-calculator] to estimates costs.
 
 For more information, see the cost section in [Microsoft Azure Well-Architected Framework][WAF-cost].
 
-
-
 ## Security considerations
 
-Use [Azure Security Center][security-center] to get a central view of the security state of your Azure resources. Security Center monitors potential security issues and provides a comprehensive picture of the security health of your deployment. Security Center is configured per Azure subscription. Enable security data collection as described in [Onboard your Azure subscription to Security Center Standard][security-center-get-started]. When data collection is enabled, Security Center automatically scans any VMs created under that subscription.
+Use [Microsoft Defender for Cloud][security-center] to get a central view of the security state of your Azure resources. Defender for Cloud monitors potential security issues and provides a comprehensive picture of the security health of your deployment. Defender for Cloud is configured per Azure subscription. Enable security data collection as described in [Onboard your Azure subscription to Defender for Cloud Standard][security-center-get-started]. When data collection is enabled, Defender for Cloud automatically scans any VMs created under that subscription.
 
-**Patch management**. If enabled, Security Center checks whether any security and critical updates are missing. Use [Group Policy settings][group-policy] on the VM to enable automatic system updates.
+**Patch management**. If enabled, Defender for Cloud checks whether any security and critical updates are missing.
 
-**Antimalware**. If enabled, Security Center checks whether antimalware software is installed. You can also use Security Center to install antimalware software from inside the Azure portal.
+**Antimalware**. If enabled, Defender for Cloud checks whether antimalware software is installed. You can also use Defender for Cloud to install antimalware software from inside the Azure portal.
 
 **Access control**. Use [Azure role-based access control (Azure RBAC)][rbac] to control access to Azure resources. Azure RBAC lets you assign authorization roles to members of your DevOps team. For example, the Reader role can view Azure resources but not create, manage, or delete them. Some permissions are specific to an Azure resource type. For example, the Virtual Machine Contributor role can restart or deallocate a VM, reset the administrator password, create a new VM, and so on. Other [built-in roles][rbac-roles] that may be useful for this architecture include [DevTest Labs User][rbac-devtest] and [Network Contributor][rbac-network].
 
@@ -130,7 +130,6 @@ Also, you can use different [Azure Resource Manager templates][arm-template] and
 For higher availability architecture see [Linux N-tier application in Azure with Apache Cassandra](./n-tier-cassandra.yml), the reference architecture includes more than one VM and each VM is included in an availability set.
 
 Consider using the [Azure Monitor][azure-monitor] to Analyze and optimize the performance of your infrastructure, Monitor and diagnose networking issues without logging into your virtual machines.
-
 
 For more information, see the Operational excellence section in [Microsoft Azure Well-Architected Framework][WAF-devops].
 
@@ -181,5 +180,5 @@ For more information, see the Operational excellence section in [Microsoft Azure
 [virtual-machine-sizes]: /azure/virtual-machines/sizes
 [vm-size-tables]: /azure/virtual-machines/sizes
 [vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines
-[WAF-devops]: ../../framework/devops/overview.md
+[WAF-devops]: /azure/architecture/framework/devops/overview
 [WAF-cost]: /azure/architecture/framework/cost/overview

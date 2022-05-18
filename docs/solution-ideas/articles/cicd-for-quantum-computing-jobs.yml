@@ -1,0 +1,27 @@
+### YamlMime:Architecture
+metadata:
+  title: CI/CD for quantum computing jobs
+  titleSuffix: Azure Solution Ideas
+  description: Learn how to orchestrate CI/CD of the quantum computing components of your classical applications to create replicable, manageable hybrid solutions.
+  author: hsirtl
+  ms.author: hsirtl
+  ms.date: 01/06/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.custom: fcp
+azureCategories:
+  - compute
+  - devops
+  - hybrid
+products:
+  - azure-quantum
+  - azure-pipelines
+  - azure-repos
+  - azure-application-insights
+  - azure-storage
+name: CI/CD for quantum computing jobs
+summary: Learn how to orchestrate CI/CD of the quantum computing components of your classical applications to create replicable, manageable hybrid solutions.
+thumbnailUrl: /azure/architecture/browse/thumbs/cicd-for-quantum-computing-jobs.png
+content: |
+  [!include[](cicd-for-quantum-computing-jobs-content.md)]

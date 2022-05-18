@@ -1,0 +1,26 @@
+### YamlMime:Architecture
+metadata:
+  title: Video capture and analytics for retail
+  titleSuffix: Azure Solution Ideas
+  description: See how retailers like grocery stores can use 5G video networks and IoT Edge devices to monitor storefront events and take immediate actions to improve customer experience.
+  author: niravi-msft
+  ms.author: niravi
+  ms.date: 06/16/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+azureCategories:
+  - hybrid
+  - iot
+  - networking
+products:
+  - azure-iot-edge
+  - azure-iot-hub
+  - azure-media-services
+  - azure-stack-edge
+  - azure-web-apps
+name: Video capture and analytics for retail
+summary: See how retailers like grocery stores can use 5G video networks and IoT Edge devices to monitor storefront events and take immediate actions to improve customer experience.
+thumbnailUrl: /azure/architecture/browse/thumbs/video-analytics-architecture.png
+content: |
+  [!include[](video-analytics-content.md)]

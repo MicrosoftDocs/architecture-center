@@ -2,8 +2,9 @@
 metadata:
   title: Mining equipment monitoring
   titleSuffix: Azure Solution Ideas
-  description: Send data to the Azure cloud to monitor its condition and performance. Process the data with Azure Databricks and alert operators and administrators as needed.
+  description: Send equipment data to the Azure cloud to monitor its condition and performance. Process the data with Azure Databricks and alert operators and administrators as needed.
   author: falloutxAY
+  ms.author: ansyeo
   ms.date: 04/16/2021
   ms.topic: conceptual
   ms.service: architecture-center
@@ -18,7 +19,7 @@ name: Mining equipment monitoring
 azureCategories:
   - analytics
   - management-and-governance
-summary: Send data to the Azure cloud to monitor its condition and performance. Process the data with Azure Databricks and alert operators and administrators as needed.
+summary: Send equipment data to the Azure cloud to monitor its condition and performance. Process the data with Azure Databricks and alert operators and administrators as needed.
 products:
   - azure-analysis-services
   - azure-logic-apps

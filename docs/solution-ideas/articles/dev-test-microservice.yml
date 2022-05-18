@@ -3,7 +3,7 @@ metadata:
   title: DevTest and DevOps for microservice solutions
   titleSuffix: Azure Solution Ideas
   description: Configure a DevTest and DevOps infrastructure for developing, testing, and deploying microservice-based software.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 09/17/2020
   ms.topic: conceptual

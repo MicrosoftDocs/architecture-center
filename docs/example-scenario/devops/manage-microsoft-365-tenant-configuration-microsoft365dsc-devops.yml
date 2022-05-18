@@ -1,0 +1,25 @@
+### YamlMime:Architecture
+metadata:
+  title: Manage Microsoft 365 tenant configuration with Azure DevOps
+  titleSuffix: Azure Example Scenarios
+  description: This article describes how to manage Microsoft 365 tenant configuration by using Microsoft365DSC and Azure DevOps. 
+  author: desmay
+  ms.author: desmay
+  ms.date: 12/10/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.custom: fcp 
+azureCategories:
+  - management-and-governance
+  - devops
+products:
+  - azure-devops
+  - azure-key-vault
+  - azure-virtual-machines-windows
+  - m365
+name: Manage Microsoft 365 tenant configuration by using Microsoft365DSC and Azure DevOps
+summary: Manage Microsoft 365 tenant configuration by using Microsoft365DSC and Azure DevOps.
+thumbnailUrl: /azure/architecture/browse/thumbs/manage-microsoft-365-tenant-configuration-microsoft365dsc-azure-devops.png
+content: |
+  [!include[](manage-microsoft-365-tenant-configuration-microsoft365dsc-devops-content.md)]

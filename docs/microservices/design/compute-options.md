@@ -1,12 +1,13 @@
 ---
-title: Choosing an Azure compute option for microservices
+title: Choose a compute option for microservices
 description: Learn about service orchestrator and serverless architecture as compute options, or hosting models for the computing resources where your application runs.
-author: doodlemania2
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 02/25/2019
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
-ms.category:
+categories:
   - compute
   - developer-tools
 products:
@@ -16,7 +17,7 @@ ms.custom:
   - guide
 ---
 
-# Choosing an Azure compute option for microservices
+# Choose an Azure compute option for microservices
 
 The term *compute* refers to the hosting model for the computing resources that your application runs on. For a microservices architecture, two approaches are especially popular:
 
@@ -45,7 +46,7 @@ Sometimes people talk about containers and microservices as if they were the sam
 
 - **Density**. Containers are lightweight compared with running a virtual machine, because they share OS resources. That makes it possible to pack multiple containers onto a single node, which is especially useful when the application consists of many small services.
 
-- **Resource isolation**. You can limit the amount of memory and CPU that is available to a container, which can help to ensure that a runaway process doesn't exhaust the host resources. See the [Bulkhead pattern](../../patterns/bulkhead.md) for more information.
+- **Resource isolation**. You can limit the amount of memory and CPU that is available to a container, which can help to ensure that a runaway process doesn't exhaust the host resources. See the [Bulkhead pattern](../../patterns/bulkhead.yml) for more information.
 
 ## Serverless (Functions as a Service)
 
@@ -53,11 +54,7 @@ With a [serverless](https://azure.microsoft.com/solutions/serverless/) architect
 
 [Azure Functions](/azure/azure-functions/) is a serverless compute service that supports various function triggers, including HTTP requests, Service Bus queues, and Event Hubs events. For a complete list, see [Azure Functions triggers and bindings concepts](/azure/azure-functions/functions-triggers-bindings). Also consider [Azure Event Grid](/azure/event-grid/), which is a managed event routing service in Azure.
 
-<!-- markdownlint-disable MD026 -->
-
 ## Orchestrator or serverless?
-
-<!-- markdownlint-enable MD026 -->
 
 Here are some factors to consider when choosing between an orchestrator approach and a serverless approach.
 
@@ -78,4 +75,4 @@ Our reference implementation primarily uses Kubernetes, but we did use Azure Fun
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Interservice communication](./interservice-communication.md)
+> [Interservice communication](./interservice-communication.yml)

@@ -1,7 +1,4 @@
-
 <!-- cSpell:ignore azurehpc Norne LAPACK Slurm -->
-
-
 
 *Reservoir simulation* uses data-intensive computer models to predict complex flows of fluids such as oil, water, and gas beneath the earth's surface. This example sets up reservoir simulation software on an Azure high-performance computing (HPC) infrastructure. Azure makes it possible to run this type of workload with maximum performance, scalability, and cost efficiency.
 
@@ -13,7 +10,7 @@ A Windows Azure VM running OPM ResInsight, an open-source visualization tool, ac
 
 Using an Azure VM spares the expense of a high-end visualization workstation. The OPM applications benefit from HPC hardware and a shared storage location for the input and output files.
 
-## Relevant use cases
+## Potential use cases
 
 - Do 3D reservoir modeling and visualization of seismic data.
 
@@ -24,6 +21,8 @@ Using an Azure VM spares the expense of a high-end visualization workstation. Th
 ## Architecture
 
 ![Architecture diagram][architecture]
+
+### Workflow
 
 This diagram offers a high-level overview of the architecture used in the example. The workflow is as follows:
 
@@ -36,6 +35,17 @@ This diagram offers a high-level overview of the architecture used in the exampl
 4. OPM Flow sends calculated results to a file share on the head node. A [premium disk][disk] is connected to the head node and set up as an NFS server for the compute nodes and the visualization VM.
 
 5. OPM ResInsight running on a Standard-NV6 Windows VM displays 3D visualizations of results. Users can access the visualization VM through RDP.
+
+### Components
+
+Key technologies used to implement this architecture:
+
+- [Azure CycleCloud](https://azure.microsoft.com/features/azure-cyclecloud)
+- [Azure NetApp Files](https://azure.microsoft.com/services/netapp)
+- [Azure Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets)
+- [Key Vault](https://azure.microsoft.com/services/key-vault)
+- [Linux virtual machines in Azure](https://azure.microsoft.com/services/virtual-machines/linux)
+- [Virtual Machines](https://azure.microsoft.com/services/virtual-machines)
 
 ## Considerations
 
@@ -67,13 +77,13 @@ The following approaches are common in the oil and gas industry. Choose the solu
 
 - For **low-scale workloads** like the current example, consider running NFS on the head node, using a storage-optimized [Lsv2-series VM][lsv2] with large ephemeral disks, or D-series VMs with Azure Premium Storage, depending on your requirements. This solution suits workloads with 500 cores or fewer, throughput of up to 1.5 gigabytes per second (GiB/s), and up to 19 TB RAM and 100 TB storage.
 
-- **Medium to large-scale read-intensive workloads:** Consider using [Avere vFXT for Azure][avere-vfxt] (6 to 24 nodes). This solution works for workloads of up to 50,000 cores, throughput up to 2 GiB/s for writes and up to 14 GiB/s for reads, a cache of up to 192 TB, and a file server of up to 2 petabytes (PB).
+- **Medium to large-scale read-intensive workloads:** Consider using [Avere vFXT for Azure][avere-vfxt] (6 to 24 nodes). This solution works for workloads of up to 50,000 cores, throughput up to 2 GiB/s for writes and up to 14 GiB/s for reads, a cache of up to 192 TB, and a file server of up to 2 petabytes (PB).
 
 - **Balanced or write-intensive medium-scale workloads:** Consider using [Azure NetApps Files][azure-naf] for workloads of up to 4,000 cores, with a throughput up to 6.5 GiB/s, storage up to 100 TB/volume, and a maximize file size of 12 TB.
 
 - **Large-scale workloads:** Use an orchestrated parallel file service, such as Lustre or BeeGFS. This approach works for up to 50,000 cores, with read/write rates up to 50 GiB/s, and 500 TB storage. For even larger clusters, a bare-metal approach may be more cost-effective. For example, Cray ClusterStor is a managed HPC storage solution with the flexibility to support larger elastic clusters on the fly.
 
-## Deployment
+## Deploy this scenario
 
 Get an [example implementation of this OPM Flow architecture][opm-flow] on GitHub.
 
@@ -84,6 +94,12 @@ Get an [example implementation of this OPM Flow architecture][opm-flow] on GitHu
 - Review the [Azure Storage performance and scalability checklist][checklist].
 - Explore an example workload for [computer-aided engineering (CAE) on Azure][cae].
 - Learn about [HPC on Azure][hpc].
+
+## Related resources
+
+- [Solutions for the energy and environment industries](../../industries/energy-environment.md)
+- [Oil and gas tank level forecasting](../../solution-ideas/articles/oil-and-gas-tank-level-forecasting.yml)
+- [Run CFD simulations](hpc-cfd.yml)
 
 <!-- links -->
 

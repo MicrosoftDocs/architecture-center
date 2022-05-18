@@ -1,6 +1,5 @@
 
 
-
 This reference architecture illustrates multiple local branches of an organization that's spread out geographically. Each location is using a Microsoft Azure Function App that's configured with the Premium plan in a nearby cloud region. The developers in this architecture are monitoring all the Azure Function Apps by using Azure Monitor as a single pane of glass.
 
 ![The diagram illustrates multiple local virtual machines (VMs) that are connected to Azure Functions in different regions. Developers are monitoring their function apps by using Azure Monitor.][architectural-diagram]
@@ -47,7 +46,7 @@ You can run Azure Functions on-premises in three ways:
 
 - **[Azure Functions Core Tools][azure-functions-core-tools]**. Azure Functions Core Tools is a developer suite that typically [installs from node package manager (npm)][azure-functions-core-tools-install]. It allows developers to develop, debug, and test function apps at the command prompt on a local computer.
 - **[Azure Functions Docker container image][azure-functions-docker]**. You can use this [container image][azure-functions-docker-hub] as a base image for containers that run Azure Functions on a Docker host or in Kubernetes.
-- **[Kubernetes][kubernetes]**. Azure Functions support [seamless event-driven scale within a Kubernetes cluster][azure-functions-kubernetes] using [Kubernetes-based Event Driven Autoscaling (KEDA)][kubernetes-keda]. To review best practices for managing [Azure Kubernetes Service][azure-kubernetes-service] clusters and [Azure arc enabled Kubernetes][azure-arc-kubernetes] clusters, review the [Run containers in a hybrid environment][reference-architecture-hybrid-containers] reference architecture.
+- **[Kubernetes][kubernetes]**. Azure Functions support [seamless event-driven scale within a Kubernetes cluster][azure-functions-kubernetes] using [Kubernetes-based Event Driven Autoscaling (KEDA)][kubernetes-keda]. To review best practices for managing [Azure Kubernetes Service][azure-kubernetes-service] clusters and [Azure Arc-enabled Kubernetes][azure-arc-kubernetes] clusters, review the [Run containers in a hybrid environment][reference-architecture-hybrid-containers] reference architecture.
 
 ### Network connectivity
 

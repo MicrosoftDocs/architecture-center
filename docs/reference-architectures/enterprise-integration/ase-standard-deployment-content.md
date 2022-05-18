@@ -1,6 +1,5 @@
 
 
-
 [Azure App Service](/azure/app-service/overview) is a PaaS service used to host a variety of apps on Azure: web apps, API apps, functions, and mobile apps. [App Service Environment or ASE](/azure/app-service/environment/intro) allows enterprises to deploy their App Service apps in a subnet in their own Azure Virtual Network, providing an isolated, highly scalable, and dedicated environment for their cloud workloads.
 
 This reference architecture demonstrates a common enterprise workload using ASE, and best practices to tighten security of this workload.
@@ -330,11 +329,11 @@ The deployment scripts in this reference architecture are used to deploy ASE, ot
 
 Apps can be deployed to an internal ASE only from within the virtual network. The following three methods are widely used to deploy ASE apps:
 
-1. **Manually inside the Virtual Network** - Create a virtual machine inside the ASE VNet with the required tools for the deployment. Open up the RDP connection to the VM using an NSG configuration. Copy your code artifacts to the VM, build, and deploy to the ASE subnet. This is a simple way to set up an initial build and test development environment. It is however not recommended for production environment since it cannot scale the required deployment throughput.
+1. **Manually inside the Virtual Network:** Create a virtual machine inside the ASE VNet with the required tools for the deployment. Open up the RDP connection to the VM using an NSG configuration. Copy your code artifacts to the VM, build, and deploy to the ASE subnet. This is a simple way to set up an initial build and test development environment. It is however not recommended for production environment since it cannot scale the required deployment throughput.
 
-1. **Point to site connection from local workstation** - This allows you to extend your ASE VNet to your development machine, and deploy from there. This is another way to set up an initial dev environment, and not recommended for production.
+1. **Point to site connection from local workstation:** This allows you to extend your ASE VNet to your development machine, and deploy from there. This is another way to set up an initial dev environment, and not recommended for production.
 
-1. **Through Azure Pipelines** - This implements a complete CI/CD pipeline, ending in an agent located inside the VNet. This is ideal for production environments requiring high throughput of deployment. The build pipeline remains entirely outside the VNet. The deploy pipeline copies the built objects to the build agent inside the VNet, and then deploys to the ASE subnet. For more information, read this discussion on the [self-hosted build agent between Pipelines and the ASE VNet](/azure/devops/pipelines/agents/v2-windows?view=azure-devops&viewFallbackFrom=vsts).
+1. **Through Azure Pipelines:** This implements a complete CI/CD pipeline, ending in an agent located inside the VNet. This is ideal for production environments requiring high throughput of deployment. The build pipeline remains entirely outside the VNet. The deploy pipeline copies the built objects to the build agent inside the VNet, and then deploys to the ASE subnet. For more information, read this discussion on the [self-hosted build agent between Pipelines and the ASE VNet](/azure/devops/pipelines/agents/v2-windows?view=azure-devops&viewFallbackFrom=vsts).
 
 Using Azure Pipelines is recommended for production environments. Scripting CI/CD with the help of [Azure Pipelines YAML schema](/azure/devops/pipelines/yaml-schema?tabs=schema%2cparameter-schema&view=azure-devops) helps to automate the build and deployment processes. The [azure-pipelines.yml](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/code/web-app-ri/VotingWeb/azure-pipelines.yml) implements such a CI/CD pipeline for the web app in this reference implementation. There are similar CI/CD scripts for the [web API](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/code/web-app-ri/VotingData/azure-pipelines.yml) as well as the [function](https://github.com/mspnp/app-service-environments-ILB-deployments/blob/master/code/function-app-ri/azure-pipelines.yml). Read [Use Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-get-started?view=azure-devops) to learn how these are used to automate CI/CD for each application.
 
@@ -348,13 +347,13 @@ To know some more ways the apps can be deployed to the App Service plans, read [
 
 ## Cost considerations
 
-Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs. Other considerations are described in the Cost section in [Microsoft Azure Well-Architected Framework](../../framework/cost/overview.md). Azure Reservations help you save money by committing to one-year or three-years plans for many Azure resources. Read more in the article [Buy a reservation](/azure/cost-management-billing/reservations/prepare-buy-reservation).
+Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs. Other considerations are described in the Cost section in [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/cost/overview). Azure Reservations help you save money by committing to one-year or three-years plans for many Azure resources. Read more in the article [Buy a reservation](/azure/cost-management-billing/reservations/prepare-buy-reservation).
 
 Here are some points to consider for some of the key services used in this architecture.
 
 ### App Service Environment
 
-There are various [pricing options available for App Service](https://azure.microsoft.com/pricing/details/app-service/windows/). An App Service environment is deployed using the [Isolated Service Plan](/azure/cost-management-billing/reservations/prepay-app-service-isolated-stamp). Within this plan, there are three options for CPU sizes - I1, I2, and I3. This reference implementation is using three I1's per instance.  
+There are various [pricing options available for App Service](https://azure.microsoft.com/pricing/details/app-service/windows/). An App Service environment is deployed using the [Isolated Service Plan](/azure/cost-management-billing/reservations/prepay-app-service-isolated-stamp). Within this plan, there are three options for CPU sizes - I1, I2, and I3. This reference implementation is using three I1's per instance.
 
 ### Application Gateway
 

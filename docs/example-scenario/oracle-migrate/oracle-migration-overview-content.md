@@ -1,6 +1,5 @@
 
 
-
 This series of articles provides a way for you to assess your current Oracle database environment, figure out your best migration path to Azure, and links to documents that help you make your migratory move. Your migration path can be to an Azure Virtual Machine (VM). It might also be to an Azure Managed Database that is running on an Azure VM.
 
 To migrate an Oracle database to an Azure environment, you have to:
@@ -37,7 +36,7 @@ This flow chart shows you the steps to move an Oracle database to either a Postg
 
 ## Oracle database discoveries
 
-The Microsoft Data Migration Jumpstart Engineering team maintains an [inventory of Oracle scripts](https://github.com/microsoft/DataMigrationTeam/tree/master/Oracle%20Inventory%20Script%20Artifacts). You can run the scripts on your Oracle databases to evaluate how many tables, stored procedures, views, packages, etc. exist in the environment. This table shows the assessment principles:
+The Microsoft Data Migration Jumpstart Engineering team maintains an inventory of Oracle scripts. You can run the scripts on your Oracle databases to evaluate how many tables, stored procedures, views, packages, etc. exist in the environment. This table shows the assessment principles:
 
 | Category | Simple | Medium | Large | Complex | Custom |
 | ---------| ------ | ------ | ----- | ------- | ------ |
@@ -47,9 +46,7 @@ The Microsoft Data Migration Jumpstart Engineering team maintains an [inventory 
 | Packages per schema | <10 | 11-25 | 26-50 | 51-100 | >100 |
 | Schema Data Size | <10 GB | 11-75 GB | 76-500 GB | 501-2000 | >2000 |
 
-To evaluate your Oracle database, run the [Oracle PL\SQL](https://github.com/microsoft/DataMigrationTeam/blob/master/Oracle%20Inventory%20Script%20Artifacts/Oracle%20Inventory%20Script%20Artifacts/Oracle_PreSSMA_Pre_v12.sql) and [Oracle PL\SQL 2](https://github.com/microsoft/DataMigrationTeam/blob/master/Oracle%20Inventory%20Script%20Artifacts/Oracle%20Inventory%20Script%20Artifacts/Oracle_PreSSMA_v12_Plus.sql) tools in your existing Oracle database. See the [Assessment guide](https://github.com/microsoft/DataMigrationTeam/blob/master/Oracle%20Inventory%20Script%20Artifacts/Oracle%20Inventory%20Script%20Artifacts/OraclePre-SSMA%20Query%20Guidance.pptx) for instructions on how to run both of the tools.
-
-Download the [Assessment Calculator Template](https://github.com/microsoft/DataMigrationTeam/blob/master/Oracle%20Inventory%20Script%20Artifacts/Oracle%20Inventory%20Script%20Artifacts/Customer%20Assessment%20CalculatorTemplate2.xlsx) spreadsheet so you can record the results.
+Use the [Microsoft Assessment and Planning (MAP) Toolkit](https://go.microsoft.com/fwlink/?LinkID=316883) to evaluate the existing Oracle database and schemas. For more information, refer to the [Oracle to SQL Server: Migration guide](/sql/sql-server/migrate/guides/oracle-to-sql-server).
 
 ## Migration decision tree
 

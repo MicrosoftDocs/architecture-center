@@ -52,7 +52,7 @@ ms.subservice: example-scenario
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="~/example-scenario/ai/movie-recommendations.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="~/example-scenario/ai/movie-recommendations-with-machine-learning.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
@@ -90,7 +90,7 @@ ms.subservice: example-scenario
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="~/example-scenario/ai/scalable-personalization.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="~/example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
@@ -467,7 +467,7 @@ ms.subservice: example-scenario
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="~/example-scenario/data/media/architecture-realtime-analytics-vehicle-data1.png" alt="Architecture diagram for Ingestion and processing of real-time automotive IoT data" height="140px" />
+                            <img src="~/example-scenario/data/media/architecture-realtime-analytics-vehicle-data-1.png" alt="Architecture diagram for Ingestion and processing of real-time automotive IoT data" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
