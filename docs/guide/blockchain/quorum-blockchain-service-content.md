@@ -6,13 +6,14 @@ The need for the block chain technology started with organizations trying to und
 - How was a product built?
 - What were the processes followed to build a product?
 
-Build and maintain the electronic data interface (EDI) across suppliers to track and trace parts of a product is not a worth for some organizations. Using Quorum Blockchain Service (QBS) along with application components such as App Services, Azure Key Vault, Service Bus, and Cosmos DB, organizations can track and trace tokenized version of the product's physical assets along with relevant metadata to meet requirements.
+Build and maintain the electronic data interface (EDI) across suppliers to track and trace parts of a product is not a worth for some organizations. Using Quorum Blockchain Service (QBS) with App Services, Azure Key Vault, Service Bus, and Cosmos DB, organizations can track and trace tokenized version of the product's physical assets and relevant metadata to meet requirements.
 
 ## Potential use cases
 
-With QBS powered by Azure services, an organization can build solutions that can track and provide an immutable history of the product parts and their metadata such as quality certificates. These certificates covers carbon footprint and percentage of recycled component used through a shared ledger.
-Blockchain technology allows the logical data flow / model to be used with physical components deployed with each participant. This reduces the need for participants to trust a single partner.
-While this could be built using traditional centralized components, this is usually not the case with supply chain workloads, as there are many participants that contribute to the entire workflow, each with their own systems that require isolation from others.
+With QBS powered by Azure services, an organization can build solutions that can track and provide an immutable history of the product parts and their metadata such as quality certificates. Through a shared ledger these certificates cover carbon footprint and percentage of recycled component used.
+
+Blockchain technology allows the logical data flow model to use with physical components deployed with each participant. This reduces the need for participants to trust a single partner.
+While this could be built using traditional centralized components, this is usually not the case with supply chain workloads. Supply chain workloads have their own systems that require isolation from others.
 
 This solution is ideal for the sustainability, manufacturing, and energy/environment industries.
 
@@ -55,23 +56,23 @@ Input that is destined to be persisted in the underlying ledger for the solution
 
 - **Output/Analytics**
 
-As data has been persisted to the ledger in QBS the need for both analytics as well as triggers for existing non-blockchain based systems is required in most cases. A listener supporting tooling such as Ethlogger can be configured to run in Azure and send data to off-chain data technologies, such as Azure Cosmos Database or Azure SQL Server. The Ethlogger component is run on either [Azure Virtual Machines](/azure/virtual-machines/) or using container in [Azure Container Instances](/azure/container-instances/).
+As data continues to exist in the ledger in QBS, the need for both analytics and triggers for existing non-blockchain based systems is required in most cases. A listener supporting tooling such as Ethlogger can be configured to run in Azure and send data to off-chain data technologies, such as Azure Cosmos Database or Azure SQL Server. The Ethlogger component is run on either [Azure Virtual Machines](/azure/virtual-machines/) or using container in [Azure Container Instances](/azure/container-instances/).
 
 #### Dataflow in action
 
 ![Data flow across the chip manufacturing supply chain](images/quorum-blockchain-service-data-flow.png)
 
-The diagram above represents a simplified version of the stages in supply chain for chip manufacturing. The stages involved are mining, manufacturing, distribution and retail, where material change hands many times in progression. For a company that values sustainability and ethical responsibility, it becomes important to track and trace the source of truth and quality details of the materials. In the past, each participant would house the data in their own data technology stack and synchronize data to other parties.
+The above diagram represents a simplified version of the stages in supply chain for chip manufacturing. The stages involved are mining, manufacturing, distribution and retail, where material change hands many times in progression. For a company that values sustainability and ethical responsibility, it becomes important to track and trace the source of truth and quality details of the materials. In the past, each participant used to put the data in their own data technology stack and synchronize data to other parties.
 
 The data flow mapping of the above diagram is described below:
 
 - **Mine/manufacturer**
 
-Input is created when raw material arrives at the manufacturer. At this stage the certification of the material is validated (attestation) and provenance of the component is established with a combination of on-chain data in the ledger and off-chain data in traditional storage.
+After raw material is received by the manufacturer, input is created. Then, the certification of the material is checked and ownership of the component is established with on-chain data in the ledger and off-chain data in traditional storage.
 
 - **Distribution**
 
-Once the components are manufactured, they are bundled for distribution. This again leverages the ledger using QBS to establish provenance of this bundled unit, such as a palette. This is done using a combination of on-chain data in the ledger and off-chain data in traditional storage.
+Once the components are manufactured, they are bundled for distribution. The bundle is used in the ledger with QBS to establish provenance, such as a palette. This is done using a combination of on-chain data in the ledger and off-chain data in traditional storage.
 
 - **Retail**
 
