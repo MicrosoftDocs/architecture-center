@@ -29,7 +29,7 @@ The solution uses the following Azure services:
 
 - **[Azure Virtual Machine](/azure/virtual-machines/windows/overview)** is an on-demand, scalable computing resource that can be used to host a number of different workloads. In this reference architecture, virtual machines are used to provide a management jumpbox server, and to provide a host for the DevOps Agent / GitHub Runner. 
 
-- **[Azure Key Vault](/azure/key-vault/general/basic-concepts)** is a cloud service to securely store and access secrets ranging from API keys and passwords to certificates and cryptographic keys. While this reference architecture does not store secrets in Azure Key Vault, an Azure Key Vault is deployed as part of this architecture's infrastructure deployment to facilitate secret management for future code deployments. 
+- **[Azure Key Vault](/azure/key-vault/general/basic-concepts)** is a cloud service to securely store and access secrets ranging from API keys and passwords to certificates and cryptographic keys. An Azure Key Vault is deployed as part of this architecture's infrastructure deployment to facilitate secret management for future code deployments. 
 
 - **[Azure Bastion](/azure/bastion/bastion-overview)** is a Platform-as-a-Service service provisioned within the developer's virtual network which provides secure RDP/SSH connectivity to the developer's virtual machines over TLS from the Azure portal. With Azure Bastion, virtual machines no longer require a public IP address to connect via RDP/SSH. This reference architecture uses Azure Bastion to access the DevOps Agent / GitHub Runner server or the management jumpbox server. 
 
