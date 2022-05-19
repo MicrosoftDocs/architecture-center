@@ -21,7 +21,7 @@ ms.custom:
   - team=cloud_advocates
 ---
 
-# 3. Get the most value from technical talent
+# Get the most value from technical talent
 
 > [!Note]
 > This is article 3 of 6 in **Build applications on the Microsoft Cloud**
@@ -41,7 +41,7 @@ You shouldn’t expect to do everything with low-code. A pro-code approach is be
 
 With Azure and Power Platform, the Microsoft Cloud provides an integrated approach to fusion development. Here are some benefits of this approach:
 
-- Power Platform is built on Azure, so they work well together. For example, applications created on either foundation can easily use the same data sources, as shown in [Create and deploy more applications in less time](create-deploy-more-applications-less-time.md). Both also use the same underlying technologies for identity and security.
+- Power Platform is built on Azure, so they work well together. For example, applications created on either foundation can easily use the same data sources, as shown in [2. Create and deploy more applications in less time](create-deploy-more-applications-less-time.md). Both also use the same underlying technologies for identity and security.
 - Power Platform makes it easy for pro developers to create useful extensions for low-code development. For example, pro developers can use Visual Studio to create custom controls for low-code user interfaces. They can also create custom connectors for accessing applications and data.
 - Developers using both Power Platform and Azure can rely on the same technologies for managing source code and deploying applications. The next section looks at this approach in more detail.
 
@@ -82,20 +82,20 @@ Using the Microsoft Cloud makes possible a modern process for fusion development
 > Another important area for innovation is the Internet of Things (IoT)—networks of physical devices that exchange data with one another and with services. There are billions of connected devices in the world, and more to come. To help your organization take advantage of IoT, the Microsoft Cloud offers such technologies as:
 >
 > - [Azure IoT Hub](/azure/iot-hub), a managed service hosted in the Microsoft Cloud that acts as a central message hub for communication between an IoT application and its attached devices. Your organization can use this service to connect millions of devices to back-end solutions reliably and securely.
-> - [Azure IoT Edge](/azure/iot-edge), which extends IoT Hub by analyzing device data on-premises by edge applications instead of in the cloud. Edge applications react to events more quickly than cloud applications, and reduce traffic to the cloud.
+> - [Azure IoT Edge](/azure/iot-edge), which extends IoT Hub by analyzing device data on-premises by using edge applications instead of cloud applications. Edge applications react to events more quickly than cloud applications, and reduce traffic to the cloud.
 >
 > A third area for innovation is quantum computing. To help your organization start using this technology, the Microsoft Cloud provides [Azure Quantum](/azure/quantum), with two main paths:
 >
 > - [Quantum Computing](/azure/quantum/overview-understanding-quantum-computing), which helps you experiment with and create prototypes using a variety of quantum hardware providers.
 > - [Optimization](/azure/quantum/optimization-overview-introduction), focused on using quantum computing to find the best solution from a set of possible options.
 >
-> Microsoft also provides the Quantum Development Kit (QDK), a set of tools, including the open-source Q# language, for creating quantum software.
+> Microsoft also provides the Quantum Development Kit, a set of tools, including the open-source Q# language, for creating quantum software.
 >
 > The Microsoft Cloud provides leading-edge technologies that can help your organization create real business innovation. Keeping abreast of what new technologies can do is an essential part of succeeding as an application development leader.
 
 ## Next steps
 
-See how enterprise application development leaders integrate new applications with existing solutions by using Azure API Management, Microsoft Graph, and Dynamics 365.
+See how successful enterprise application development leaders integrate new applications with existing solutions by using Azure API Management, Microsoft Graph, and Dynamics 365.
 
 > [!div class="nextstepaction"]
-> [4. Integrate new applications with existing solutions](integrate-new-applications-exisitng-solutions.md)
+> [4. Integrate new applications with existing solutions](integrate-new-applications-existing-solutions.md)

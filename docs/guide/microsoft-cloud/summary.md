@@ -1,6 +1,6 @@
 ---
 title: Build Applications on the Microsoft Cloud (summary)
-description: Learn how the unified collection of services that the Microsoft Cloud provides can deliver more value in less time with better security.
+description: Summary of how the unified collection of services that the Microsoft Cloud provides can deliver more value in less time with better security.
 author: DanWahlin
 ms.author: dwahlin
 ms.contributors: dwahlin-5182022
@@ -21,7 +21,7 @@ ms.custom:
   - team=cloud_advocates
 ---
 
-# 6. Build applications on the Microsoft Cloud: Summary
+# Summary
 
 > [!Note]
 > This is article 6 of 6 in **Build applications on the Microsoft Cloud**
@@ -33,11 +33,13 @@ ms.custom:
 The Microsoft Cloud, shown once more in Figure 10, provides a broad set of useful services to support custom applications. Building on this foundation can help you:
 
 - Create better applications in less time with pro-code development on Azure and low-code development on Power Platform.
-- Get the most value from technical talent with fusion development and an integrated low-code/pro-code development process with GitHub/Azure DevOps.
-- Integrate new applications with existing solutions through Azure API Management, Microsoft Graph, and Dynamics 365.
-- Create and run secure applications with Azure Active Directory for identity and access management, together with Azure Sentinel for SIEM and SOAR.
+- Get the most value from technical talent with fusion development and an integrated low-code and pro-code development process that includes GitHub and Azure DevOps.
+- Integrate new applications with existing solutions by using Azure API Management, Microsoft Graph, and Dynamics 365.
+- Create and run secure applications by using Active Directory for identity and access management.
 
-To learn more about building your applications on the Microsoft Cloud, visit our [Microsoft Cloud resources](https://aka.ms/microsoft-cloud-collection) collection. It provides design guides, solutions, learning resources, and product documentation to help get you started.
+  Use Azure Sentinel for security information and event management (SIEM), and for security orchestration, automation, and response (SOAR).
+
+To learn more about building your applications on the Microsoft Cloud, visit our [Microsoft Cloud resources collection](https://aka.ms/microsoft-cloud-collection). It provides design guides, solutions, learning resources, and product documentation to help get you started.
 
 ## Contributors
 
@@ -56,17 +58,21 @@ Other contributors:
 - [Patrick Chanezon](https://www.linkedin.com/in/chanezon) | General Manager Cloud Developer Advocacy
 - [Sonia Cuff](https://www.linkedin.com/in/soniacuff) | Senior Cloud Advocate
 - [April Dunnam](https://www.linkedin.com/in/aprildunnam) | Senior Cloud Developer Advocate
+- [Ulrich Homann](https://www.linkedin.com/in/ulrichhomann) | CVP & Distinguished Architect
 - [Ivan Judson](https://www.linkedin.com/in/irjudson) | Principal Program Manager
 - [Chad Kittel](https://www.linkedin.com/in/chadkittel) | Principal Software Engineer
 - [Sherry List](https://www.linkedin.com/in/sherrylist) | Senior Program Manager
 - [Waldek Mastykarz](https://www.linkedin.com/in/waldekmastykarz) | Senior Cloud Developer Advocate
 - [Karissa Peth](https://www.linkedin.com/in/karissapeth) | Advocacy Principal Program Manager
+- [Mark Simms](https://www.linkedin.com/in/marksimms2) | Partner Architect
 - [Mike Tillman](https://www.linkedin.com/in/mike-tillman-b978a71) | Principal Content Manager
 - [Dan Wahlin](https://www.linkedin.com/in/danwahlin) | Principal Content Engineer
 
 ## Related resources
 
-- [1. Overview](overview.md)
+These are the other articles in **Build applications on the Microsoft cloud**:
+
+- [1. Build applications on the Microsoft Cloud](overview.md)
 - [2. Create and deploy more applications in less time](create-deploy-more-applications-less-time.md)
 - [3. Get the most value from technical talent](get-most-value-technical-talent.md)
 - [4. Integrate new applications with existing solutions](integrate-new-applications-existing-solutions.md)

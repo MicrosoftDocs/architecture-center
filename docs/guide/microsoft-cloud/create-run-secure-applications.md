@@ -21,7 +21,7 @@ ms.custom:
   - team=cloud_advocates
 ---
 
-# 5. Create and run secure applications
+# Create and run secure applications
 
 > [!Note]
 > This is article 5 of 6 in **Build applications on the Microsoft Cloud**
@@ -62,7 +62,7 @@ Getting identity and access management right is a fundamental part of doing secu
 
 ## Use Microsoft Sentinel to monitor and manage the security of your applications
 
-Everybody building applications today should assume that their software is targeted by attackers. Given this, your organization must continuously monitor and manage the security of your applications and the environment they run in. The Microsoft Cloud provides several tools for doing this.
+Everybody building applications today should assume that their software is targeted by attackers. Given this, your organization must continuously monitor and manage the security of your applications and the environment that they run in. The Microsoft Cloud provides several tools for doing this.
 
 One of the most important of these is [Microsoft Sentinel](/azure/sentinel). Sentinel provides security information and event management (SIEM), letting you capture and analyze a wide range of security-related data. It can also respond automatically to threats, providing security orchestration, automation, and response (SOAR). Sentinel can help your organization find and fix security problems more effectively.
 
@@ -72,7 +72,7 @@ Sentinel’s broad reach encompasses the Microsoft Cloud and beyond through a la
 - [Microsoft 365 Defender](/microsoft-365/security/defender), which provides components such as:
   - [Microsoft Defender for Office 365](/microsoft-365/security/office-365-security), which guards Exchange and other aspects of Office 365.
   - [Microsoft Defender for Identity](/defender-for-identity), which monitors Active Directory to detect compromised identities and other threats.
-  - [Microsoft Defender for Cloud Apps](/defender-cloud-apps), which acts as a cloud access security broker between the users in your organization and the cloud resources they use. It helps you better understand which apps you use, both in the Microsoft Cloud and elsewhere, and who is using them.
+  - [Microsoft Defender for Cloud Apps](/defender-cloud-apps), which acts as a cloud access security broker between the users in your organization and the cloud resources that they use. It helps you better understand which apps you use, both in the Microsoft Cloud and elsewhere, and who is using them.
 
 Microsoft Sentinel can also import Office 365 audit logs, Azure activity logs, and other security relevant information within the Microsoft Cloud. Sentinel can also access security related information from many other sources provided by a diverse set of vendors. Once you’ve connected Sentinel to your information sources, you can analyze the data to understand security incidents and respond to them.
 
@@ -80,7 +80,7 @@ Security isn’t a simple topic. Because of this, Microsoft provides Microsoft S
 
 ## Next steps
 
-See a summary of **Build applications on the Microsoft Cloud** and find out how you can learn more about how to succeed as an enterprise application development leader.
+See a summary of **Build applications on the Microsoft Cloud** and find out how to learn more about succeeding as an enterprise application development leader.
 
 > [!div class="nextstepaction"]
 > [6. Summary](summary.md)

@@ -21,7 +21,7 @@ ms.custom:
   - team=cloud_advocates
 ---
 
-# 4. Integrate new applications with existing solutions
+# Integrate new applications with existing solutions
 
 > [!Note]
 > This is article 4 of 6 in **Build applications on the Microsoft Cloud**
@@ -70,7 +70,7 @@ Connecting new applications to your existing applications and data is important.
 
 High-quality internal applications help employees do their jobs well. Your pro-code and low-code applications can be more useful if they give employees direct access to their organizational data, such as emails, calendar entries, and spreadsheets. This data is often stored in Microsoft 365 tools such as Exchange, SharePoint, and OneDrive.
 
-For example, a custom application can make its users more productive by providing built-in access to calendar data, emails, and chats. This minimizes the time users spend switching between the application and Outlook or Teams. Applications can also show employees relevant documents from OneDrive to help them make better decisions. They get the data the need without having to search.
+For example, a custom application can make its users more productive by providing built-in access to calendar data, emails, and chats. This minimizes the time users spend switching between the application and Outlook or Teams. Applications can also show employees relevant documents from OneDrive to help them make better decisions. They get the data that they need without having to search.
 
 To access this kind of data, your custom applications can use the unified API provided by [Microsoft Graph](/graph). Figure 7 illustrates this idea in our sample application.
 
@@ -122,18 +122,19 @@ There are connections between Dynamics 365 and other parts of the Microsoft Clou
 
 > ## Microsoft Industry Clouds
 >
-> The Microsoft Cloud provides a provides a broadly useful set of services for creating custom applications. Yet the solutions your organization creates probably aren’t generic; they’re specialized for your industry. What the Microsoft Cloud provides is helpful, but you’d also like more support for the industry-specific applications you need to build.
+> The Microsoft Cloud provides a broadly useful set of services for creating custom applications. Yet the solutions your organization creates probably aren’t generic; they’re specialized for your industry. What the Microsoft Cloud provides is helpful, but you’d also like more support for the industry-specific applications you need to build.
 >
 > Microsoft Industry Clouds address this need. Each Industry Cloud builds on the Microsoft Cloud by adding industry-specific components. Here are some Industry Clouds:
 >
 > - [Microsoft Cloud for Healthcare](/industry/healthcare)
-> - [Microsoft Cloud for Manufacturing (preview)](https://www.microsoft.com/industry/manufacturing/microsoft-cloud-for-manufacturing)
+> - Microsoft Cloud for Manufacturing (preview)
 > - [Microsoft Cloud for Retail](/industry/retail)
 > - [Microsoft Cloud for Financial Services](/industry/financial-services)
 > - [Microsoft Cloud for Nonprofit](/industry/nonprofit)
 > - [Microsoft Cloud for Sustainability](/industry/sustainability/overview)
 >
-> Each Industry Cloud is designed to help you get the industry-specific value and compliance that you need. Each includes applications designed for a particular industry. For example, Cloud for Nonprofit includes a pre-built Power Apps solution for volunteer management, and Cloud for Healthcare includes an extensible chatbot so that customers can describe symptoms, then get information about related medical conditions and the type of doctor to consult.*>
+> Each Industry Cloud is designed to help you get the industry-specific value and compliance that you need. Each includes applications designed for a particular industry. For example, Cloud for Nonprofit includes a pre-built Power Apps solution for volunteer management, and Cloud for Healthcare includes an extensible chatbot so that customers can describe symptoms, then get information about related medical conditions and the type of doctor to consult.
+>
 > Industry clouds also include components for application developers. Here are some examples:
 >
 > - Cloud for Retail includes an intelligent recommendations service that suggests products to customers. This service is accessed via an API, so that developers can create customer-specific solutions that use it.
@@ -144,7 +145,7 @@ There are connections between Dynamics 365 and other parts of the Microsoft Clou
 
 ## Next steps
 
-See how enterprise application development leaders create and run secure applications by using Active Directory for identity and access management.
+See how successful enterprise application development leaders create and run secure applications by using Active Directory for identity and access management.
 
 > [!div class="nextstepaction"]
 > [5. Create and run secure applications](create-run-secure-applications.md)

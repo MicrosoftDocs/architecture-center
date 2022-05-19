@@ -1,5 +1,5 @@
 ---
-title: Build Applications on the Microsoft Cloud (overview)
+title: Build applications on the Microsoft Cloud
 description: Learn how the unified collection of services that the Microsoft Cloud provides can deliver more value in less time with better security.
 author: DanWahlin
 ms.author: dwahlin
@@ -21,7 +21,7 @@ ms.custom:
   - team=cloud_advocates
 ---
 
-# 1. Build applications on the Microsoft Cloud
+# Build applications on the Microsoft Cloud
 
 > [!Note]
 > This is article 1 of 6 in **Build applications on the Microsoft Cloud**
@@ -71,11 +71,11 @@ The following table describes each article and provides a link to it. The articl
 | They integrate new applications with existing solutions by using Azure API Management, Microsoft Graph, and Dynamics 365. | [4. Integrate new applications with existing solutions](integrate-new-applications-existing-solutions.md) |
 | They create and run secure applications by using Active Directory for identity and access management. They also use Azure Sentinel for security information and event management (SIEM), and for security orchestration, automation, and response (SOAR).| [5. Create and run secure applications](create-run-secure-applications.md) |
 
-After you read these articles, you can learn more about building applications on the Microsoft Cloud by making use of our [Microsoft Cloud resources](https://aka.ms/microsoft-cloud-collection) collection. It provides design guides, solutions, learning resources, and product documentation to help get you started.
+After you read these articles, you can learn more about building applications on the Microsoft Cloud by making use of our [Microsoft Cloud resources collection](https://aka.ms/microsoft-cloud-collection). It provides design guides, solutions, learning resources, and product documentation to help get you started.
 
 ## Next steps
 
-See how enterprise application development leaders create better applications in less time with pro-code development on Azure and low-code development on Power Platform.
+See how successful enterprise application development leaders create better applications in less time with pro-code development on Azure and low-code development on Power Platform.
 
 > [!div class="nextstepaction"]
 > [2. Create and deploy more applications in less time](create-deploy-more-applications-less-time.md)

@@ -21,12 +21,12 @@ ms.custom:
   - team=cloud_advocates
 ---
 
-# 2. Create and deploy more applications in less time
+# Create and deploy more applications in less time
 
 > [!Note]
 > This is article 2 of 6 in **Build applications on the Microsoft Cloud**
 
-Most enterprise application development leaders share a goal: to create and deploy better applications in less time. This article shows how you can use the Microsoft to reach this goal.
+Most enterprise application development leaders share a goal: to create and deploy better applications in less time. This article shows how you can use the Microsoft Cloud to reach this goal.
 
 - [Use Microsoft Azure to succeed with pro-code development](#use-microsoft-azure-to-succeed-with-pro-code-development)
 - [Use Power Platform to succeed with low-code development](#use-power-platform-to-succeed-with-low-code-development)
@@ -35,7 +35,7 @@ Most enterprise application development leaders share a goal: to create and depl
 
 Professional software developers are the heart of enterprise development organizations. These pro-code developers create custom software using C#, Java, Python, and other programming languages. They also use powerful database systems, messaging services, and other technologies aimed at professional developers.
 
-To support pro-code developers, the Microsoft Cloud provides Microsoft Azure, which has a very broad set of services. Your organization can choose the best options for the applications that you need to create.
+To support pro-code developers, the Microsoft Cloud provides Microsoft Azure, which has a broad set of services. Your organization can choose the best options for the applications that you need to create.
 
 - [Azure Virtual Machines](/azure/virtual-machines), for deploying Linux and Windows virtual machines.
 - [Azure App Service](/azure/app-service), an HTTP-based technology for running web applications and mobile back ends. The software can be written in many different languages, and can run on either Windows or Linux.
@@ -43,7 +43,7 @@ To support pro-code developers, the Microsoft Cloud provides Microsoft Azure, wh
 - [Azure Functions](/azure/azure-functions), for creating callable blocks of code, called functions, then automatically scaling as needed to handle client requests. This approach is an example of serverless computing.
 - [Azure Static Web Apps](/azure/static-web-apps), for automatically building and deploying web applications to Azure, triggered by changes made to application source code in GitHub or in Azure DevOps repositories. Static Web Apps can also host serverless application APIs created with Azure Functions, and deploy front-end web applications built with Angular, React, and other frameworks.
 - [Azure Logic Apps](/azure/logic-apps), a service that makes it possible for developers to create and run automated workflows. These workflows can integrate applications and data, so that your organization can quickly develop scalable integration solutions for enterprise and business-to-business (B2B) scenarios.
-- Relational data services, including these:
+- Relational data services, including:
   - [Azure SQL Database](/azure/azure-sql/database)
   - [Azure Database for MySQL](/azure/mysql)
   - [Azure Database for PostgreSQL](/azure/postgresql)
@@ -66,7 +66,7 @@ To keep the application responsive when it serves a large number of simultaneous
 
 **Figure 3: Pro-code developers can use Azure App Service and Azure SQL Database to create the customer-facing part of the application.**
 
-In our example, the development team chooses to create the application using Azure App Service and Azure SQL Database. The result is a scalable, reliable application that works effectively with the organization’s customers.
+In our example, the development team chooses to create the customer-facing application by using Azure App Service and Azure SQL Database. The result is a scalable, reliable application that works effectively with the organization’s customers.
 
 Besides providing application development tools, Microsoft Cloud also provides operations tools:
 
@@ -87,13 +87,13 @@ The Microsoft Cloud provides Power Platform for low-code development. It include
 - [Power Virtual Agents](/power-virtual-agents) for building chatbots
 - [Power BI](/power-bi) for creating data-driven insights
 
-Although all of these can be used by non-professional developers, low-code development can also have real value for professional developers. Often they can use Power Platform to create an application more quickly than if they used a language like C#.
+Although all of these services can be used by non-professional developers, low-code development can also have real value for professional developers. Often they can use Power Platform to create an application more quickly than if they used a language like C#.
 
 In our example application, we create the employee-facing component by using Power Apps. Figure 4 shows how this looks.
 
 :::image type="content" source="images/low-code-developers-employee-facing.png" alt-text="Diagram that shows a customer application that was written vy using App Service and an employee application that was written by using Power Apps. They share an Azure SQL Database." border="false" :::
 
-**Figure 4: Citizen developers or professional developers can use Power Apps to create low code for the employee-facing part of the solution.**
+**Figure 4: Citizen developers or professional developers can use Power Apps to create a low-code application for the employee-facing part of the solution.**
 
 Here are benefits of the low-code approach:
 
@@ -123,7 +123,7 @@ When appropriate, professional and citizen developers can work together to creat
 
 ## Next steps
 
-See how enterprise application development leaders get the most value from technical talent with fusion development and an integrated low-code and pro-code development process that includes GitHub and Azure DevOps.
+See how successful enterprise application development leaders get the most value from technical talent with fusion development and an integrated low-code and pro-code development process that includes GitHub and Azure DevOps.
 
 > [!div class="nextstepaction"]
 > [3. Get the most value from technical talent](get-most-value-technical-talent.md)
