@@ -1,24 +1,30 @@
 ---
 title: Build Applications on the Microsoft Cloud (overview)
 description: Learn how the unified collection of services that the Microsoft Cloud provides can deliver more value in less time with better security.
-author: scottboc
-ms.author: scottboc
+author: DanWahlin
+ms.author: dwahlin
+ms.contributors: dwahlin-5182022
 ms.date: 05/24/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+categories:
+  - developer-tools
 products:
   - azure
   - power-platform
   - github
   - azure-devops
   - m365
-categories:
-  - developer-tools
-ms.custom: fcp
+ms.custom:
+  - fcp
+  - team=cloud_advocates
 ---
 
-# Build applications on the Microsoft Cloud
+# 1. Build applications on the Microsoft Cloud
+
+> [!Note]
+> This is article 1 of 6 in **Build applications on the Microsoft Cloud**
 
 The Microsoft Cloud provides a unified collection of services for creating applications. Enterprise application development leaders can combine these services to deliver more value in less time with better security. This guide describes the big picture of Microsoft Cloud from an application development perspective, focusing on what leaders must do to be successful.
 
@@ -41,7 +47,9 @@ These services work together and are an integrated platform for application deve
 - [Dynamics 365](/dynamics365) has applications for business, including applications for sales support, financials, and customer service.
 - [Azure Active Directory](/azure/active-directory) and [Microsoft Sentinel](/azure/sentinel) are foundational services for securing applications and systems.
 
-There are many benefits of using the Microsoft Cloud services, including:
+Building new solutions on this kind of broad, unified cloud platform is the next step in the evolution of application development. By providing an integrated set of widely used services, the Microsoft Cloud offers a foundation for doing this.
+
+Using these unified services brings real benefits, including:
 
 - You can easily combine different technologies. For example:
   - Combine a low-code application with more complex software created by professional developers.
@@ -52,49 +60,22 @@ There are many benefits of using the Microsoft Cloud services, including:
 
 ## How enterprise application development leaders succeed
 
-An application development leader needs to do several things to succeed, as discussed in the companion articles in this section. The articles describe a simple scenario of a typical enterprise application and show how Microsoft Cloud contributes to the solution.
+To succeed in a modern enterprise, an application development leader needs to do several things. To help you understand how to succeed at them, the articles in this section walk you through a simple scenario of a typical enterprise application. Along the way, you’ll see examples of the value that each Microsoft Cloud component brings.
+
+The following table describes each article and provides a link to it. The articles are meant to be read in order.
 
 | How enterprise application development leaders succeed | Article that shows how |
 | --------------------------------- | ---------------------------------------- |
-| They create better applications in less time with pro-code development on Azure and low-code development on Power Platform. | [Create and deploy more applications in less time](create-deploy-more-applications-less-time.md) |
-| They get the most value from technical talent with fusion development and an integrated low-code and pro-code development process that includes GitHub and Azure DevOps. | [Get the most value from technical talent](get-most-value-technical-talent.md) |
-| They integrate new applications with existing solutions by using Azure API Management, Microsoft Graph, and Dynamics 365. | [Integrate new applications with existing solutions](integrate-new-applications-existing-solutions.md) |
-| They create and run secure applications by using Active Directory for identity and access management. They also use Azure Sentinel for security information and event management (SIEM), and for security orchestration, automation, and response (SOAR).| [Focus on security](focus-security.md) |
+| They create better applications in less time with pro-code development on Azure and low-code development on Power Platform. | [2. Create and deploy more applications in less time](create-deploy-more-applications-less-time.md) |
+| They get the most value from technical talent with fusion development and an integrated low-code and pro-code development process that includes GitHub and Azure DevOps. | [3. Get the most value from technical talent](get-most-value-technical-talent.md) |
+| They integrate new applications with existing solutions by using Azure API Management, Microsoft Graph, and Dynamics 365. | [4. Integrate new applications with existing solutions](integrate-new-applications-existing-solutions.md) |
+| They create and run secure applications by using Active Directory for identity and access management. They also use Azure Sentinel for security information and event management (SIEM), and for security orchestration, automation, and response (SOAR).| [5. Create and run secure applications](create-run-secure-applications.md) |
 
-After you read these articles, you can learn more about building applications on the Microsoft Cloud by making use of our [Microsoft Cloud resources](https://aka.ms/microsoft-cloud-learning-resources) collection. It provides design guides, solutions, learning resources, and product documentation to help get you started.
-
-## Contributors
-
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
-
-Principal authors:
-
-- [David Chappell](https://www.linkedin.com/in/davidchappellonlinkedin) | Principal Technical Writer
-
-Other contributors:
-
-- [Todd Anglin](https://www.linkedin.com/in/toddanglin) | Principal Cloud Developer Advocate, Lead
-- [Sarah Barrett](https://www.linkedin.com/in/sarah-barrett-42ab1a2a) | Principal PM Manager
-- [Ayca Bas](https://www.linkedin.com/in/aycabas) | Senior Cloud Developer Advocate
-- [Scott Bockheim](https://www.linkedin.com/in/scottbockheim) | Principal PM Manager
-- [Patrick Chanezon](https://www.linkedin.com/in/chanezon) | General Manager Cloud Developer Advocacy
-- [Sonia Cuff](https://www.linkedin.com/in/soniacuff) | Senior Cloud Advocate
-- [April Dunnam](https://www.linkedin.com/in/aprildunnam) | Senior Cloud Developer Advocate
-- [Ivan Judson](https://www.linkedin.com/in/irjudson) | Principal Program Manager
-- [Chad Kittel](https://www.linkedin.com/in/chadkittel) | Principal Software Engineer
-- [Sherry List](https://www.linkedin.com/in/sherrylist) | Senior Program Manager
-- [Waldek Mastykarz](https://www.linkedin.com/in/waldekmastykarz) | Senior Cloud Developer Advocate
-- [Karissa Peth](https://www.linkedin.com/in/karissapeth) | Advocacy Principal Program Manager
-- [Mike Tillman](https://www.linkedin.com/in/mike-tillman-b978a71) | Principal Content Manager
-- [Dan Wahlin](https://www.linkedin.com/in/danwahlin) | Principal Content Engineer
+After you read these articles, you can learn more about building applications on the Microsoft Cloud by making use of our [Microsoft Cloud resources](https://aka.ms/microsoft-cloud-collection) collection. It provides design guides, solutions, learning resources, and product documentation to help get you started.
 
 ## Next steps
 
-- To learn more about building your applications on the Microsoft Cloud, visit our [Microsoft Cloud](https://aka.ms/microsoft-cloud-collection) resources collection. The collection provides design guides, solutions, learning resources, and product documentation to help get you started building your applications on the Microsoft Cloud.
+See how enterprise application development leaders create better applications in less time with pro-code development on Azure and low-code development on Power Platform.
 
-## Related resources
-
-- [Create and deploy more applications in less time](create-deploy-more-applications-less-time.md)
-- [Get the most value from technical talent](get-most-value-technical-talent.md)
-- [Integrate new applications with existing solutions](integrate-new-applications-existing-solutions.md)
-- [Focus on security](focus-security.md)
+> [!div class="nextstepaction"]
+> [2. Create and deploy more applications in less time](create-deploy-more-applications-less-time.md)

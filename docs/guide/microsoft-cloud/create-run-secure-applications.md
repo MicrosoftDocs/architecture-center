@@ -1,26 +1,32 @@
 ---
-title: Focus on security
+title: Create and run secure applications
 description: Learn how to use the unified collection of services that the Microsoft Cloud provides to improve security.
-author: scottboc
-ms.author: scottboc
+author: DanWahlin
+ms.author: dwahlin
+ms.contributors: dwahlin-5182022
 ms.date: 05/24/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+categories:
+  - developer-tools
 products:
   - azure
   - power-platform
   - github
   - azure-devops
   - m365
-categories:
-  - developer-tools
-ms.custom: fcp
+ms.custom:
+  - fcp
+  - team=cloud_advocates
 ---
 
-# Focus on security
+# 5. Create and run secure applications
 
-Good security protects your systems, and therefore your organization, against accidental and intentional damage. It assures that only the right people can access your resources, and minimizes the possibility that they can do inadvertent harm. It also warns you of dangers, violations, and other important security events.
+> [!Note]
+> This is article 5 of 6 in **Build applications on the Microsoft Cloud**
+
+Good security protects your systems, and therefore your organization, against accidental and intentional damage. It assures that only the right people can access your resources and minimizes the possibility that they can do inadvertent harm. It also warns you of dangers, violations, and other important security events.
 
 This article discusses ways that Microsoft Cloud can help you secure your systems.
 
@@ -35,11 +41,11 @@ Building the software to do this is hard. It requires specialists, and it takes 
 
 This is what the Microsoft Cloud provides with [Azure Active Directory](/azure/active-directory) (Azure AD), the world’s largest cloud identity service. If your organization uses any components of the Microsoft Cloud today, such as Azure, Power Platform, Microsoft 365, or Dynamics 365, you’re already using Azure AD. It's used throughout the Microsoft Cloud, giving your users a single identity for all of its components.
 
-Your custom applications built on the Microsoft Cloud should also use Azure AD. Figure 1 shows how this looks for our sample application.
+Your custom applications built on the Microsoft Cloud should also use Azure AD. Figure 9 shows how this looks for our sample application.
 
 :::image type="content" source="images/ad-ad-b2c-provide-identity-services.png" alt-text="Diagram that shows Azure A D B 2 C and Azure A D providing identity services both for customer applications and employee applications." border="false" :::
 
-**Figure 1: Azure Active Directory and Azure Active Directory B2C provide a common identity service for applications built on the Microsoft cloud.**
+**Figure 9: Azure Active Directory and Azure Active Directory B2C provide a common identity service for applications built on the Microsoft cloud.**
 
 As the figure shows, custom applications can use two related identity services:
 
@@ -48,7 +54,7 @@ As the figure shows, custom applications can use two related identity services:
 
 Using Azure AD for identity brings several benefits:
 
-- Having the same identity throughout the Microsoft Cloud makes life simpler for both developers and users of your applications. In the example shown in Figure 1, an employee can start by signing in to their organization’s Azure AD environment, known as a tenant. After they’ve done this, they can access the employee-facing component of the application that was created by using Power Apps. This application can call Azure API Management, Dynamics 365, and Microsoft Graph using the same identity, so the employee doesn’t have to sign in again.
+- Having the same identity throughout the Microsoft Cloud makes life simpler for both developers and users of your applications. In the example shown in Figure 9, an employee can start by signing in to their organization’s Azure AD environment, known as a tenant. After they’ve done this, they can access the employee-facing component of the application that was created by using Power Apps. This application can call Azure API Management, Dynamics 365, and Microsoft Graph using the same identity, so the employee doesn’t have to sign in again.
 - Your developers can use the Microsoft identity platform in applications that they create. The libraries and management tools make it easier for developers to build applications that use identities from Azure AD and elsewhere. To help do this, the Microsoft identity platform implements industry standards such as OAuth 2.0 and OpenID Connect.
 - Using Azure AD and the Microsoft identity platform gives you control over how you use identity. For example, you can turn on support for multi-factor authentication in multiple applications built with the Microsoft identity platform by changing a single setting. Azure AD also integrates with Microsoft’s security tools for monitoring identity-based security threats and attacks.
 
@@ -64,46 +70,17 @@ Sentinel’s broad reach encompasses the Microsoft Cloud and beyond through a la
 
 - [Microsoft Defender for Cloud](/azure/defender-for-cloud), which helps your organization understand and improve the security of your Azure applications. It can also protect specific cloud services such as Azure Storage.
 - [Microsoft 365 Defender](/microsoft-365/security/defender), which provides components such as:
-  - [Microsoft Defender for Office 365](/microsoft-365/security/office-365-security), which guards Exchange.
+  - [Microsoft Defender for Office 365](/microsoft-365/security/office-365-security), which guards Exchange and other aspects of Office 365.
   - [Microsoft Defender for Identity](/defender-for-identity), which monitors Active Directory to detect compromised identities and other threats.
   - [Microsoft Defender for Cloud Apps](/defender-cloud-apps), which acts as a cloud access security broker between the users in your organization and the cloud resources they use. It helps you better understand which apps you use, both in the Microsoft Cloud and elsewhere, and who is using them.
 
 Microsoft Sentinel can also import Office 365 audit logs, Azure activity logs, and other security relevant information within the Microsoft Cloud. Sentinel can also access security related information from many other sources provided by a diverse set of vendors. Once you’ve connected Sentinel to your information sources, you can analyze the data to understand security incidents and respond to them.
 
-Microsoft provides Microsoft Sentinel and other offerings that work together to improve the security of applications running on the Microsoft Cloud.
-
-## Contributors
-
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
-
-Principal authors:
-
-- [David Chappell](https://www.linkedin.com/in/davidchappellonlinkedin) | Principal Technical Writer
-
-Other contributors:
-
-- [Todd Anglin](https://www.linkedin.com/in/toddanglin) | Principal Cloud Developer Advocate, Lead
-- [Sarah Barrett](https://www.linkedin.com/in/sarah-barrett-42ab1a2a) | Principal PM Manager
-- [Ayca Bas](https://www.linkedin.com/in/aycabas) | Senior Cloud Developer Advocate
-- [Scott Bockheim](https://www.linkedin.com/in/scottbockheim) | Principal PM Manager
-- [Patrick Chanezon](https://www.linkedin.com/in/chanezon) | General Manager Cloud Developer Advocacy
-- [Sonia Cuff](https://www.linkedin.com/in/soniacuff) | Senior Cloud Advocate
-- [April Dunnam](https://www.linkedin.com/in/aprildunnam) | Senior Cloud Developer Advocate
-- [Ivan Judson](https://www.linkedin.com/in/irjudson) | Principal Program Manager
-- [Chad Kittel](https://www.linkedin.com/in/chadkittel) | Principal Software Engineer
-- [Sherry List](https://www.linkedin.com/in/sherrylist) | Senior Program Manager
-- [Waldek Mastykarz](https://www.linkedin.com/in/waldekmastykarz) | Senior Cloud Developer Advocate
-- [Karissa Peth](https://www.linkedin.com/in/karissapeth) | Advocacy Principal Program Manager
-- [Mike Tillman](https://www.linkedin.com/in/mike-tillman-b978a71) | Principal Content Manager
-- [Dan Wahlin](https://www.linkedin.com/in/danwahlin) | Principal Content Engineer
+Security isn’t a simple topic. Because of this, Microsoft provides Microsoft Sentinel and other security offerings to address this area. All these technologies work together to improve the security of applications running on the Microsoft Cloud.
 
 ## Next steps
 
-- To learn more about building your applications on the Microsoft Cloud, visit our [Microsoft Cloud](https://aka.ms/microsoft-cloud-collection) resources collection. The collection provides design guides, solutions, learning resources, and product documentation to help get you started building your applications on the Microsoft Cloud.
+See a summary of **Build applications on the Microsoft Cloud** and find out how you can learn more about how to succeed as an enterprise application development leader.
 
-## Related resources
-
-- [Build applications on the Microsoft Cloud (overview)](overview.md)
-- [Create and deploy more applications in less time](create-deploy-more-applications-less-time.md)
-- [Get the most value from technical talent](get-most-value-technical-talent.md)
-- [Integrate new applications with existing solutions](integrate-new-applications-existing-solutions.md)
+> [!div class="nextstepaction"]
+> [6. Summary](summary.md)

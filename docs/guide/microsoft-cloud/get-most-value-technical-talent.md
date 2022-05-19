@@ -1,24 +1,30 @@
 ---
 title: Get the most value from technical talent
 description: Learn how to use the unified collection of services that the Microsoft Cloud provides to get the most value from technical talent.
-author: scottboc
-ms.author: scottboc
+author: DanWahlin
+ms.author: dwahlin
+ms.contributors: dwahlin-5182022
 ms.date: 05/24/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+categories:
+  - developer-tools
 products:
   - azure
   - power-platform
   - github
   - azure-devops
   - m365
-categories:
-  - developer-tools
-ms.custom: fcp
+ms.custom:
+  - fcp
+  - team=cloud_advocates
 ---
 
-# Get the most value from technical talent
+# 3. Get the most value from technical talent
+
+> [!Note]
+> This is article 3 of 6 in **Build applications on the Microsoft Cloud**
 
 Using both pro-code and low-code development can help your organization get the most from on-staff talent. It also changes the way you create software. This article shows ways to use the Microsoft Cloud to get the most from your talent.
 
@@ -50,11 +56,11 @@ Although both professional and non-professional developers can use Power Apps to
 
 GitHub and Azure DevOps overlap in some ways. Both can help developers automate build and deployment, for example. They can also be used together. For example, you can use GitHub for source control and Azure DevOps to implement a pipeline.
 
-Both GitHub and Azure DevOps were created to meet the needs of professional developers, and both are widely used today for this purpose. But both technologies are part of the Microsoft Cloud and can be used by low-code developers to create apps for Power Platform. This means that your organization can use GitHub, Azure DevOps, or both, to support fusion development teams. Figure 1 illustrates this idea.
+Both GitHub and Azure DevOps were created to meet the needs of professional developers, and both are widely used today for this purpose. But both technologies are part of the Microsoft Cloud and can be used by low-code developers to create apps for Power Platform. This means that your organization can use GitHub, Azure DevOps, or both, to support fusion development teams. Figure 5 illustrates this idea.
 
 :::image type="content" source="images/pro-code-low-code-integrated-development.png" alt-text="Diagram that shows developers using GitHub and Azure DevOps to develop a customer application with App Service and an employee application with Power Apps. The apps access the same Azure SQL database." border="false" :::
 
-**Figure 1: Pro-code and low-code development can use an integrated development process.**
+**Figure 5: Pro-code and low-code development can use an integrated development process.**
 
 Here are some benefits of using GitHub and Azure DevOps to support fusion development:
 
@@ -63,62 +69,33 @@ Here are some benefits of using GitHub and Azure DevOps to support fusion develo
 
 Using the Microsoft Cloud makes possible a modern process for fusion development that's built on shared technologies including GitHub and Azure DevOps.
 
-## Sidebar: Use new technologies for business innovation
-
-*One of the best ways to improve your organization is to take advantage of new technologies that facilitate business innovation. Exploiting these advances can lower your costs, reach more customers, and help you enter new lines of business. In fact, ignoring new technology is dangerous: why let your competitors get these benefits first?*
-
-*The Microsoft Cloud provides an ongoing stream of leading-edge technologies for your organization. For example, one important area for innovation is artificial intelligence (AI) and machine learning. Among the advanced AI technologies in the Microsoft Cloud are:*
-
-- *[Azure Cognitive Services](/azure/cognitive-services), which makes it possible for professional developers to exploit machine learning models from Microsoft in their applications. The services available include Computer Vision for processing images, an API for facial recognition, a Language service for understanding natural languages, and a speech service that makes it possible for your applications to have speech-to-text and text-to-speech translation.*
-- *[AI Builder](/ai-builder), a Power Platform capability that makes it possible for low-code developers to create and use their own custom machine learning models. It also provides prebuilt models for common business scenarios such as object detection and extraction of information from invoices or other business documents.*
-- *[Power Apps Ideas](/power-apps/maker/canvas-apps/power-apps-ideas), which gives low-code developers the ability to specify application behavior by expressing what they want in plain natural language. These requests are automatically translated into the Power Fx formulas that Power Apps uses. This translation relies on OpenAI GPT-3, one of the most advanced natural language models in the world.*
-
-*Another important area for innovation is the Internet of Things (IoT)—networks of physical devices that exchange data with one another and with services. There are billions of connected devices in the world, and more to come. To help your organization take advantage of IoT, the Microsoft Cloud offers such technologies as:*
-
-- *[Azure IoT Hub](/azure/iot-hub), a managed service hosted in the Microsoft Cloud that acts as a central message hub for communication between an IoT application and its attached devices. Your organization can use this service to connect millions of devices to back-end solutions reliably and securely.*
-- *[Azure IoT Edge](/azure/iot-edge), which extends IoT Hub by analyzing device data locally instead of in the cloud. Edge applications react to events more quickly and send less data to the cloud.*
-
-*A third area for innovation is quantum computing. To help your organization start using this technology, the Microsoft Cloud provides [Azure Quantum](/azure/quantum), with two main paths:*
-
-- *[Quantum Computing](/azure/quantum/overview-understanding-quantum-computing), which helps you experiment with and create prototypes using a variety of quantum hardware providers.*
-- *[Optimization](/azure/quantum/optimization-overview-introduction), focused on using quantum computing to find the best solution from a set of possible options.*
-
-*Microsoft also provides the Quantum Development Kit (QDK), a set of tools, including the open-source Q# language, for creating quantum software.*
-
-*The Microsoft Cloud provides leading-edge technologies that can help your organization create real business innovation. Keeping abreast of what new technologies can do is an essential part of succeeding as an application development leader.*
-
-## Contributors
-
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
-
-Principal authors:
-
-- [David Chappell](https://www.linkedin.com/in/davidchappellonlinkedin) | Principal Technical Writer
-
-Other contributors:
-
-- [Todd Anglin](https://www.linkedin.com/in/toddanglin) | Principal Cloud Developer Advocate, Lead
-- [Sarah Barrett](https://www.linkedin.com/in/sarah-barrett-42ab1a2a) | Principal PM Manager
-- [Ayca Bas](https://www.linkedin.com/in/aycabas) | Senior Cloud Developer Advocate
-- [Scott Bockheim](https://www.linkedin.com/in/scottbockheim) | Principal PM Manager
-- [Patrick Chanezon](https://www.linkedin.com/in/chanezon) | General Manager Cloud Developer Advocacy
-- [Sonia Cuff](https://www.linkedin.com/in/soniacuff) | Senior Cloud Advocate
-- [April Dunnam](https://www.linkedin.com/in/aprildunnam) | Senior Cloud Developer Advocate
-- [Ivan Judson](https://www.linkedin.com/in/irjudson) | Principal Program Manager
-- [Chad Kittel](https://www.linkedin.com/in/chadkittel) | Principal Software Engineer
-- [Sherry List](https://www.linkedin.com/in/sherrylist) | Senior Program Manager
-- [Waldek Mastykarz](https://www.linkedin.com/in/waldekmastykarz) | Senior Cloud Developer Advocate
-- [Karissa Peth](https://www.linkedin.com/in/karissapeth) | Advocacy Principal Program Manager
-- [Mike Tillman](https://www.linkedin.com/in/mike-tillman-b978a71) | Principal Content Manager
-- [Dan Wahlin](https://www.linkedin.com/in/danwahlin) | Principal Content Engineer
+> ## Use new technologies for business innovation
+>
+> One of the best ways to improve your organization is to take advantage of new technologies that facilitate business innovation. Exploiting these advances can lower your costs, reach more customers, and help you enter new lines of business. In fact, ignoring new technology is dangerous: why let your competitors get these benefits first?
+>
+> The Microsoft Cloud provides an ongoing stream of leading-edge technologies for your organization. For example, one important area for innovation is artificial intelligence (AI) and machine learning. Among the advanced AI technologies in the Microsoft Cloud are:
+>
+> - [Azure Cognitive Services](/azure/cognitive-services), which makes it possible for professional developers to exploit machine learning models from Microsoft in their applications. The services available include Computer Vision for processing images, an API for facial recognition, a Language service for understanding natural languages, and a speech service that makes it possible for your applications to have capabilities such as speech-to-text and text-to-speech conversion, and speech translation.
+> - [AI Builder](/ai-builder), a Power Platform capability that makes it possible for low-code developers to create and use their own custom machine learning models. It also provides prebuilt models for common business scenarios such as object detection and extraction of information from invoices or other business documents.
+> - [Power Apps Ideas](/power-apps/maker/canvas-apps/power-apps-ideas), which gives low-code developers the ability to specify application behavior by expressing what they want in plain natural language. These requests are automatically translated into the Power Fx formulas that Power Apps uses. This translation relies on OpenAI GPT-3, one of the most advanced natural language models in the world.
+>
+> Another important area for innovation is the Internet of Things (IoT)—networks of physical devices that exchange data with one another and with services. There are billions of connected devices in the world, and more to come. To help your organization take advantage of IoT, the Microsoft Cloud offers such technologies as:
+>
+> - [Azure IoT Hub](/azure/iot-hub), a managed service hosted in the Microsoft Cloud that acts as a central message hub for communication between an IoT application and its attached devices. Your organization can use this service to connect millions of devices to back-end solutions reliably and securely.
+> - [Azure IoT Edge](/azure/iot-edge), which extends IoT Hub by analyzing device data on-premises by edge applications instead of in the cloud. Edge applications react to events more quickly than cloud applications, and reduce traffic to the cloud.
+>
+> A third area for innovation is quantum computing. To help your organization start using this technology, the Microsoft Cloud provides [Azure Quantum](/azure/quantum), with two main paths:
+>
+> - [Quantum Computing](/azure/quantum/overview-understanding-quantum-computing), which helps you experiment with and create prototypes using a variety of quantum hardware providers.
+> - [Optimization](/azure/quantum/optimization-overview-introduction), focused on using quantum computing to find the best solution from a set of possible options.
+>
+> Microsoft also provides the Quantum Development Kit (QDK), a set of tools, including the open-source Q# language, for creating quantum software.
+>
+> The Microsoft Cloud provides leading-edge technologies that can help your organization create real business innovation. Keeping abreast of what new technologies can do is an essential part of succeeding as an application development leader.
 
 ## Next steps
 
-- To learn more about building your applications on the Microsoft Cloud, visit our [Microsoft Cloud](https://aka.ms/microsoft-cloud-collection) resources collection. The collection provides design guides, solutions, learning resources, and product documentation to help get you started building your applications on the Microsoft Cloud.
+See how enterprise application development leaders integrate new applications with existing solutions by using Azure API Management, Microsoft Graph, and Dynamics 365.
 
-## Related resources
-
-- [Build applications on the Microsoft Cloud (overview)](overview.md)
-- [Create and deploy more applications in less time](create-deploy-more-applications-less-time.md)
-- [Integrate new applications with existing solutions](integrate-new-applications-existing-solutions.md)
-- [Focus on security](focus-security.md)
+> [!div class="nextstepaction"]
+> [4. Integrate new applications with existing solutions](integrate-new-applications-exisitng-solutions.md)
