@@ -20,10 +20,11 @@ azureCategories:
 summary: TODO #same as description
 products:
   - azure-app-service
-  - active-directory-b2c
+  - azure-active-directory-b2c
   - azure-sql-database
-  - key-vault
-  - logic-apps
+  - azure-key-vault
+  - azure-logic-apps
   - azure-resource-manager
+thumbnailUrl: /azure/architecture/browse/thumbs/architecture-publish-internal-apis-externally.png
 content: |
    [!include[](saas-starter-web-app-content.md)]
