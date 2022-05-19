@@ -76,7 +76,7 @@ The architecture diagram includes the following layers:
 
 ### Components
 
-The example architecture in this article uses the following components:
+The example architecture in this article uses the following Azure components:
 
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is the fundamental building block for your private network in Azure. Virtual Network enables many types of Azure resources to securely communicate with each other, the internet, and on-premises networks. Virtual Network is like a traditional network that you'd operate in your own datacenter, but with the added benefits of Azure's infrastructure, such as scale, availability, and isolation.
 
