@@ -25,7 +25,7 @@ To make the architecture more comprehensive, it was designed to be layered onto 
 
 :::image type="content" alt-text="Diagram of the complete and final architecture that is described in this series of five articles." source="images/azure-monitor-integrate-security-components-architecture.png" lightbox="images/azure-monitor-integrate-security-components-architecture.png":::
 
-©2021 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation.
+*©2021 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation.*
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-monitor-integrate-security-components.vsdm) of this architecture.*
 
