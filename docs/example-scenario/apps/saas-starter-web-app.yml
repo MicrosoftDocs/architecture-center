@@ -1,0 +1,29 @@
+### YamlMime:Architecture
+metadata:
+  title: SaaS Starter web app
+  titleSuffix: Azure Example Scenarios
+  description: TODO
+  author: landonpierce
+  ms.author: landonpierce
+  ms.date: 05/16/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.category:
+    - web
+  ms.custom:
+    - reference-architecture
+    - example-scenario
+name: SaaS Starter web app
+azureCategories:
+  - web
+summary: TODO #same as description
+products:
+  - azure-app-service
+  - active-directory-b2c
+  - azure-sql-database
+  - key-vault
+  - logic-apps
+  - azure-resource-manager
+content: |
+   [!include[](saas-starter-web-app-content.md)]
