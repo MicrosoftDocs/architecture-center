@@ -52,7 +52,7 @@ I agree to the above terms
 </div>
 
  > [!div class="button"]
- > [Download SVG icons](https://arch-center.azureedge.net/icons/Azure_Public_Service_Icons_V4.zip)
+ > [Download SVG icons](https://arch-center.azureedge.net/icons/Azure_Public_Service_Icons_V6.zip)
 
 ## More icon sets from Microsoft
 
