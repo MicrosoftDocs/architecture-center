@@ -6,7 +6,7 @@ In this article, we look at a way to map the threats against your IT environment
 
 MITRE ATT&CK is a global knowledge database that maps threats that are based on the tactics and techniques that are observed in the real world. The MITRE Corporation catalogs every threat available and discovers many details of how those threats work and how you can defend against them. It's a public service that you can access online at [MITRE ATT&CK®](https://attack.mitre.org/).
 
-This article uses a subset of those threats to present an example of how you could map threats against your business IT environment.
+This article uses a subset of those threats to present an example of how you could map threats against your IT environment.
 
 
 ## Potential use cases
@@ -20,13 +20,13 @@ Some organizations use Cyber Kill Chain®, a methodology from Lockheed Martin, t
 
 ## Architecture
 
-:::image type="content" alt-text="Diagram of three categories of services (on-premises, Microsoft 365, and Azure), top techniques of attack, and the resource categories of the Zero Trust model that are threatened by those techniques." source="../media/map-threats-it-environment-architecture.png" lightbox="../media/map-threats-it-environment-architecture.png":::
+:::image type="content" alt-text="Diagram of three categories of services, top techniques of attack, and the resource categories of the Zero Trust model that are threatened by those techniques." source="../media/map-threats-it-environment-architecture.png" lightbox="../media/map-threats-it-environment-architecture.png":::
 
 *©2021 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation.*
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-monitor-integrate-security-components.vsdm) of this architecture.*
 
-For the business IT environment, we specify the components only for the Azure and Microsoft 365 environments. Your specific IT environment might include devices, appliances, and technologies from different technology providers.
+For the IT environment of organizations, we specify the components only for Azure and Microsoft 365. Your specific IT environment might include devices, appliances, and technologies from different technology providers.
 
 For the Azure environment, the diagram shows the components that are listed in the following table.
 
@@ -53,7 +53,7 @@ The diagram represents Microsoft 365 through the components listed in the follow
 
 ### Workflow
 
-To help you understand which part of your IT environment those threats are likely to attack, the architecture diagram in this article is based on a typical IT environment for a business that has on-premises systems, a Microsoft 365 subscription, and an Azure subscription. The resources in each of these layers are services that are common to many companies. They're classified in the diagram according to the pillars of Microsoft Zero Trust: network, infrastructure, endpoint, application, data, and identity. For more information about Zero Trust, see [Embrace proactive security with Zero Trust](https://www.microsoft.com/en-us/security/business/zero-trust).
+To help you understand which part of your IT environment those threats are likely to attack, the architecture diagram in this article is based on a typical IT environment for an organization that has on-premises systems, a Microsoft 365 subscription, and an Azure subscription. The resources in each of these layers are services that are common to many companies. They're classified in the diagram according to the pillars of Microsoft Zero Trust: network, infrastructure, endpoint, application, data, and identity. For more information about Zero Trust, see [Embrace proactive security with Zero Trust](https://www.microsoft.com/en-us/security/business/zero-trust).
 
 The architecture diagram includes the following layers:
 
