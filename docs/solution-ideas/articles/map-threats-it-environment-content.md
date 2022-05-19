@@ -73,6 +73,16 @@ The architecture diagram includes the following layers:
  
     This diagram shows the top 16 threats, according to the tactics and techniques as published by The MITRE Corporation. In red lines, you can see an example of a blended attack, which means that a malicious actor might coordinate multiple attacks simultaneously.
 
+### How to use the MITRE ATT&CK framework
+
+You can start with a simple search for the name of the threat or of the attack code on the main web page, [MITRE ATT&CK®](https://attack.mitre.org/).
+
+You can also browse threats on the tactics or techniques pages:
+
+  - [Enterprise tactics](https://attack.mitre.org/tactics/enterprise/)
+  - [Enterprise techniques](https://attack.mitre.org/techniques/enterprise/)
+
+You can still use [MITRE ATT&CK® Navigator](https://mitre-attack.github.io/attack-navigator/), an intuitive tool provided by MITRE that helps you discover tactics, techniques, and details about threats.
 
 ### Components
 
@@ -95,17 +105,6 @@ The example architecture in this article uses the following Azure components:
 - [Azure SQL database](https://azure.microsoft.com/products/azure-sql/database) is a fully managed PaaS database engine that handles most of the database management functions such as upgrading, patching, backups, and monitoring. It provides these functions without user involvement. SQL Database provides a range of built-in security and compliance features to help your application meet security and compliance requirements.
 
 - [Azure AD](https://azure.microsoft.com/services/active-directory) is a cloud-based identity and access management service. Azure AD helps your users to access external resources, such as Microsoft 365, the Azure portal, and thousands of other SaaS applications. It also helps them access internal resources, like apps on your corporate intranet network.
-
-## How to use the MITRE ATT&CK framework
-
-You can start with a simple search for the name of the threat or of the attack code on the main web page, [MITRE ATT&CK®](https://attack.mitre.org/).
-
-You can also browse threats on the tactics or techniques pages:
-
-  - [Enterprise tactics](https://attack.mitre.org/tactics/enterprise/)
-  - [Enterprise techniques](https://attack.mitre.org/techniques/enterprise/)
-
-You can still use [MITRE ATT&CK® Navigator](https://mitre-attack.github.io/attack-navigator/), an intuitive tool provided by MITRE that helps you discover tactics, techniques, and details about threats.
 
 
 ## Contributors
