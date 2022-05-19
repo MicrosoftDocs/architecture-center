@@ -80,6 +80,8 @@ This article doesn't address the application's underlying services, like App Ser
 
 ## Deploy this scenario 
 
+Note: This scenario assumes you already have a virtual network in place. If you need help creating a virtual network, see [create virtual network with PowerShell](/azure/virtual-network/quick-create-powershell).
+
 ### Deployment with PowerShell
 
 The following deployment steps use PowerShell. You could also use the [Azure portal](/azure/application-gateway/create-url-route-portal) or [Azure CLI](/azure/application-gateway/tutorial-url-redirect-cli) to get the same results.
