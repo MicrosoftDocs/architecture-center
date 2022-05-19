@@ -763,6 +763,8 @@ items:
                 href: example-scenario/apps/decentralized-trust.yml
               - name: Finance management using PostgreSQL
                 href: solution-ideas/articles/finance-management-apps-using-azure-database-for-postgresql.yml
+              - name: Host a Murex MX.3 workload on Azure
+                href: example-scenario/finance/murex-mx3-azure.yml  
               - name: Modernize mainframe & midrange data
                 href: reference-architectures/migration/modernize-mainframe-data-to-azure.yml
               - name: Patterns and implementations in banking
