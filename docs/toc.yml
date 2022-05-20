@@ -4136,6 +4136,8 @@ items:
                 maintainContext: true
           - name: Architectures
             items:
+              - name: API Management landing zone accelerator
+                href: example-scenario/integration/app-gateway-internal-api-management-function.yml
               - name: Basic enterprise integration on Azure
                 href: reference-architectures/enterprise-integration/basic-enterprise-integration.yml
               - name: Data integration with Logic Apps and SQL
