@@ -98,6 +98,14 @@ Deploy the ARM template directly by clicking this button:
 
 [![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fvsuopys%2FSecureSynapse%2Fmaster%2FSecureSynapseARM%2Fazuredeploy.json)
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Kiran Kalyanam](https://www.linkedin.com/in/kirankumarkalyanam) | Senior Software Engineer
+
 ## Next steps
 
 To learn how to further develop this approach, learn the basics of Azure Synapse Analytics by completing the following tutorials:
