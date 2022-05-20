@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: DevOps best practices for mission critical workloads
+  title: Deployment and test practices for mission critical workloads
   description: Reference architecture for a workload that is accessed over a public endpoint without additional dependencies to other company resources.
   author: calcof
   ms.author: pnp

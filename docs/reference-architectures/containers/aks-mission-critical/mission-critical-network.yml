@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Application best practices for mission critical workloads
+  title: Networking considerations for mission critical workloads
   description: Reference architecture for a workload that is accessed over a public endpoint without additional dependencies to other company resources.
   author: calcof
   ms.author: pnp
@@ -9,20 +9,15 @@ metadata:
   ms.service: architecture-center
   ms.subservice: reference-architecture
   ms.category:
-    - containers
+    - management-and-governance
     - networking
-    - security
-    - devops
-name: Application best practices for mission critical workloads
+name: Network considerations
 azureCategories:
-  - containers
-  - integration
-  - security
+  - management-and-governance  
 summary: Reference architecture for a workload that is accessed over a public endpoint without additional dependencies to other company resources.
 products:
-  - azure-event-hubs
-  - azure-kubernetes-service
-  - azure-rbac
+  - azure-monitor
+  - azure-front-door
 thumbnailUrl: /azure/architecture/browse/thumbs/mission-critical-online.png
 content: |
-   [!include[](mission-critical-app-content.md)]
+   [!include[](mission-critical-monitor-network.md)]
