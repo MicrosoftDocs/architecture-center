@@ -24,9 +24,9 @@ ms.custom:
 # Integrate new applications with existing solutions
 
 > [!Note]
-> This is article 4 of 6 in **Build applications on the Microsoft Cloud**
+> This is article 4 of 6 in **Build applications on the Microsoft Cloud**.
 
-It’s rare that new applications don't connect to existing applications and data. High-quality apps that people want to use typically interact with what already exists. In this article we consider a variety of ways that you can use Microsoft Cloud to connect to applications and data.
+It’s rare that new applications don't connect to existing applications and data. High-quality apps that people want to use typically interact with what already exists. In this article, we consider various ways that you can use Microsoft Cloud to connect to applications and data.
 
 - [Use Azure API Management to connect to your existing applications and data](#use-azure-api-management-to-connect-to-your-existing-applications-and-data)
 - [Use Microsoft 365 and Microsoft Graph to connect to your modern work applications and data](#use-microsoft-365-and-microsoft-graph-to-connect-to-your-modern-work-applications-and-data)
@@ -61,7 +61,7 @@ Connecting new applications to your existing applications and data is important.
 > - **Azure:** Many aspects of Azure can connect to your on-premises environment. You can use [VPN Gateway](/azure/vpn-gateway) to connect your on-premises network to Azure. [Azure DevOps pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) can deploy code to the cloud or on-premises. You can run a subset of Azure services on-premises by using [Azure Stack Hub](/azure-stack/user), [Azure Stack HCI](/azure-stack/hci), or [Azure Stack Edge](/azure/databox-online).
 > - **Power Platform:** Microsoft provides an [on-premises gateway](/power-platform/admin/wp-onpremises-gateway) so that your low-code apps can access data stored in your datacenter. For example, an application created with Power Apps can use the gateway to access on-premises SQL Server data, and a Power BI solution can use it to combine data from on-premises data sources with data stored in the cloud.
 > - **Microsoft 365:** Various Microsoft 365 components, including Exchange and SharePoint, can provide hybrid deployment by using connections between cloud and on-premises software.
-> - **Dynamics 365:** Some Dynamics 365 components—Supply Chain Management, for example— allow for a hybrid deployment.
+> - **Dynamics 365:** Some Dynamics 365 components, such as Supply Chain Management, allow for a hybrid deployment.
 > - **Azure Active Directory (Azure AD):** It’s common today to connect this cloud-based identity service with an existing on-premises Active Directory, creating a hybrid solution for managing identity. Identity information can be automatically synchronized between the two services.
 >
 > Your organization can also use [Microsoft Sentinel](/azure/sentinel) and various aspects of [Azure Arc](/azure/azure-arc) to secure and manage your infrastructure on Azure, on other public clouds, or in your own datacenter. This ensures that applications you deploy in a hybrid fashion can still be effectively managed.
@@ -87,7 +87,7 @@ Applications can use the data accessed via Microsoft Graph in many other ways. F
 - A custom application can personalize interactions with employees by displaying employee names and pictures rather than just names.
 - A custom application can check an internal user’s calendar, then automatically suggest times for a meeting with customers. The application can subscribe to changes in the user’s calendar and advise of a need to adjust scheduled meetings.
 - A custom application can automate employee onboarding. It can automatically add a new employee to appropriate Teams channels, email lists, and other areas in Microsoft 365.
-- A custom application that needs to store data can use SharePoint instead of an Azure data service. The application can then can use SharePoint features such as permission management and improved compliance.
+- A custom application that needs to store data can use SharePoint instead of an Azure data service. The application can then use SharePoint features such as permission management and improved compliance.
 
 Microsoft Graph can connect to external data sources including Google Drive, Box, Jira, and Salesforce, so that your custom applications can index and search information stored outside of your Microsoft environment. Microsoft also provides Microsoft Graph Data Connect for moving large amounts of organizational data into Azure datastores. You can then use the data to create machine learning models and do other analysis, helping you better understand what’s happening in your organization.
 
