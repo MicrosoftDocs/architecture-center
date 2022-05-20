@@ -16,27 +16,6 @@ This solution outlines a modern data architecture that achieves these goals. Azu
 
 The system that Swiss Re Group built for its Property & Casualty Reinsurance division inspired this solution. Besides the insurance industry, any area that works with big data or machine learning can also benefit from this solution. Examples include:
 
-- The energy sector.
-- Retail and e-commerce.
-- Banking and finance.
-- Medicine.
-
-Modern data architectures meet these criteria:
-
-- Unify data, analytics, and AI workloads.
-- Run efficiently and reliably at any scale.
-- Provide insights through analytics dashboards, operational reports, or advanced analytics.
-
-This solution outlines a modern data architecture that achieves these goals. Azure Databricks forms the core of the solution. This platform works seamlessly with other services such as Azure Data Lake Storage, Azure Data Factory, Azure Synapse Analytics, and Power BI. Together, these services provide a solution with these qualities:
-
-- Simple: Unified analytics, data science, and machine learning simplify the data architecture.
-- Open: The solution supports open-source code, open standards, and open frameworks. It also works with popular integrated development environments (IDEs), libraries, and programming languages. Through native connectors and APIs, the solution works with a broad range of other services, too.
-- Collaborative: Data engineers, data scientists, and analysts work together with this solution. They can use collaborative notebooks, IDEs, dashboards, and other tools to access and analyze common underlying data.
-
-## Potential use cases
-
-The system that Swiss Re Group built for its Property & Casualty Reinsurance division inspired this solution. Besides the insurance industry, any area that works with big data or machine learning can also benefit from this solution. Examples include:
-
 - The energy sector
 - Retail and e-commerce
 - Banking and finance
