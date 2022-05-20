@@ -11,7 +11,7 @@ This solution is ideal for the finance industry. When organizations task employe
 * Sales
 * IT service management
 * Finances
-* Logicstics
+* Logistics
 
 ## Architecture
 
