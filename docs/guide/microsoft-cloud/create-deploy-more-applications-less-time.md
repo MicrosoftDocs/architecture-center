@@ -24,7 +24,7 @@ ms.custom:
 # Create and deploy more applications in less time
 
 > [!Note]
-> This is article 2 of 6 in **Build applications on the Microsoft Cloud**
+> This is article 2 of 6 in **Build applications on the Microsoft Cloud**.
 
 Most enterprise application development leaders share a goal: to create and deploy better applications in less time. This article shows how you can use the Microsoft Cloud to reach this goal.
 
@@ -91,7 +91,7 @@ Although all of these services can be used by non-professional developers, low-c
 
 In our example application, we create the employee-facing component by using Power Apps. Figure 4 shows how this looks.
 
-:::image type="content" source="images/low-code-developers-employee-facing.png" alt-text="Diagram that shows a customer application that was written vy using App Service and an employee application that was written by using Power Apps. They share an Azure SQL Database." border="false" :::
+:::image type="content" source="images/low-code-developers-employee-facing.png" alt-text="Diagram that shows a customer application that was written by using App Service and an employee application that was written by using Power Apps. They share an Azure SQL Database." border="false" :::
 
 **Figure 4: Citizen developers or professional developers can use Power Apps to create a low-code application for the employee-facing part of the solution.**
 
