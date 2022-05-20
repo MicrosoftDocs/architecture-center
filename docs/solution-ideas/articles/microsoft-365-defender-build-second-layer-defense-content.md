@@ -1,4 +1,4 @@
-It's common for organizations to use a hybrid environment, with resources running on Azure and on premises. Most Azure resources, such as VMs, Azure applications, and Azure Active Directory (Azure AD), can be protected by security services that run on Azure as described in the previous article in this series, [Building the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml). 
+It's common for organizations to use a hybrid environment, with resources running on Azure and on premises. Most Azure resources, such as virtual machines (VMs), Azure applications, and Azure Active Directory (Azure AD), can be protected by security services that run on Azure as described in the previous article in this series, [Building the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml). 
 
 Organizations often also subscribe to Microsoft 365 to provide users with applications like Word, Excel, PowerPoint, and Exchange online. These services are covered in more detail in the second article in this series, [Map threats to your IT environment](./map-threats-it-environment.yml). Microsoft 365 also offers security services that you can use to build an additional layer of security for some of the most used Azure resources.
 
@@ -21,17 +21,17 @@ The following diagram can help you understand the set of solutions and some of t
 
 People are sometimes confused about Microsoft 365 security services and their role in IT cybersecurity. The main causes are names that are similar to each other, including some security services that run on Azure, such as Microsoft Defender for Cloud (formerly known as Azure Security Center) and Defender for Cloud Apps (formerly known as Microsoft Cloud Application Security).
 
-But the confusion isn't only about terminologies. Some services deliver similar protection but for different resources, such as Defender for Identity and Azure Identity Protection. Both services offer protection for identity services, but Defender for Identity protects identity on premises (Active Directory Domain Services, based on Kerberos authentication) while Azure Identity Protection protects identity in the cloud (Azure AD, based on OAuth authentication).
+But the confusion isn't only about terminology. Some services deliver similar protection but for different resources, such as Defender for Identity and Azure Identity Protection. Both services offer protection for identity services, but Defender for Identity protects identity on premises (through Active Directory Domain Services, based on Kerberos authentication) while Azure Identity Protection protects identity in the cloud (through Azure AD, based on OAuth authentication).
 
 These examples show that if you understand how Microsoft 365 security services work and the differences compared to Azure security services, you're able to plan your strategy for security in the Microsoft cloud in an effective way and still provide a great security posture for your IT environment. That is the purpose of this article!
 
-The following diagram illustrates a real use case in which the company or organization might consider using Microsoft 365 Defender security services. The diagram shows the resources that are to be protected. The services that run in the environment are shown on top. Some potential threats are shown at the bottom. Microsoft 365 Defender services are in the middle, defending the organization's resources from the potential threats.
+The following diagram illustrates a real use case in which you might consider using Microsoft 365 Defender security services. The diagram shows the resources that need to be protected. The services that run in the environment are shown on top. Some potential threats are shown at the bottom. Microsoft 365 Defender services are in the middle, defending the organization's resources from the potential threats.
 
 :::image type="content" alt-text="Diagram that shows threats, their attack order, the targeted resources, and the services of Microsoft 365 Defender that can provide protection." source="../media/microsoft-365-defender-build-second-layer-defense-attack-order.png" lightbox="../media/microsoft-365-defender-build-second-layer-defense-attack-order.png":::
 
 ## Architecture
 
-The following diagram shows a layer, labeled as **DEFENDER**, that represents the Microsoft 365 Defender security services. Adding these services to your IT environment helps you to build better defense for your environment. That layer of Defender services can work with Azure security services.
+The following diagram shows a layer, labeled as **DEFENDER**, that represents the Microsoft 365 Defender security services. Adding these services to your IT environment helps you to build better defense for your environment. The services in the Defender layer can work with Azure security services.
 
 :::image type="content" alt-text="Diagram of services, threats, and the security services that you can configure to provide protection to the resources in your IT environment." source="../media/microsoft-365-defender-build-second-layer-defense-architecture.png" lightbox="../media/microsoft-365-defender-build-second-layer-defense-architecture.png":::
 
@@ -57,7 +57,7 @@ The following diagram shows a layer, labeled as **DEFENDER**, that represents th
 
 4.  **Microsoft Defender for Identity**
 
-    Defender for Identity is a cloud-based security solution that uses your on-premises Active Directory signals to identify, detect, and investigate advanced threats, compromised identities, and malicious insider actions that are directed at your organization. It protects Active Directory Domains Services (AD DS) that run on-premises. Even though this service runs on the cloud, it works to protect identities on-premises. Defender for Identity was formerly named Azure Advanced Threat Protection. For more information, see [What is Microsoft Defender for Identity](/defender-for-identity/what-is)?
+    Defender for Identity is a cloud-based security solution that uses your on-premises Active Directory signals to identify, detect, and investigate advanced threats, compromised identities, and malicious insider actions that are directed at your organization. It protects Active Directory Domain Services (AD DS) that run on-premises. Even though this service runs on the cloud, it works to protect identities on-premises. Defender for Identity was formerly named Azure Advanced Threat Protection. For more information, see [What is Microsoft Defender for Identity](/defender-for-identity/what-is)?
 
     If you need protection for identities that are provided by Azure AD and that runs natively on the cloud, consider Azure AD Identity Protection.
 
