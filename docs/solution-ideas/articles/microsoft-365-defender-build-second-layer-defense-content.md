@@ -1,6 +1,6 @@
 It's common for organizations to use a hybrid environment, with resources running on Azure and on premises. Organizations also often subscribe to Microsoft 365 to provide users with applications like Word, Excel, PowerPoint, and Exchange online. These services are covered in more detail in [Map threats to your IT environment](./map-threats-it-environment.yml), the second article in this series of five articles. 
 
-Most Azure resources, such as VMs, Azure applications, and Azure Active Directory (Azure AD), can be protected by security services that run on Azure as described in [Building the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml), the third article in this series. You can consider also using services that are provided by Microsoft 365 to build an additional layer of security for some of the most used Azure resources. To consider using security services from Microsoft 365, it's helpful to understanding some terminology and the structure of Microsoft 365 services.
+Most Azure resources, such as VMs, Azure applications, and Azure Active Directory (Azure AD), can be protected by security services that run on Azure as described in [Building the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml), the third article in this series. You can consider also using services that are provided by Microsoft 365 to build an additional layer of security for some of the most used Azure resources. To consider using security services from Microsoft 365, it's helpful to understanding some terminology and the structure of Microsoft 365 services. This fourth article in a series of five can help.
 
 Microsoft 365 and Office 365 are cloud-based services that are designed to help you meet your organization's needs for robust security, reliability, and user productivity. Microsoft 365 includes services like Power Automate, Forms, Stream, Sway, and Office 365. Office 365 includes several known services like Word, Excel, PowerPoint, Outlook, OneNote, SharePoint, Teams and OneDrive. For more information about subscription options, see [Microsoft 365 and Office 365 plan options](/office365/servicedescriptions/office-365-platform-service-description/office-365-plan-options)
 
@@ -57,7 +57,7 @@ The following diagram shows a layer, labeled as **DEFENDER**, that represents th
 
     Defender for Identity is a cloud-based security solution that uses your on-premises Active Directory signals to identify, detect, and investigate advanced threats, compromised identities, and malicious insider actions that are directed at your organization. It protects Active Directory Domains Services (AD DS) that run on-premises. Even though this service runs on the cloud, it works to protect identities on-premises. Defender for Identity was formerly named Azure Advanced Threat Protection. For more information, see [What is Microsoft Defender for Identity](/defender-for-identity/what-is)?
 
-    If you need protection for identities that are provided by Azure AD and that runs natively on the cloud, consider Azure AD Identity Protection. 
+    If you need protection for identities that are provided by Azure AD and that runs natively on the cloud, consider Azure AD Identity Protection.
 
 5.  **Microsoft Endpoint Manager**
 
@@ -120,7 +120,6 @@ The example architecture in this article uses the following Azure components:
 - [Azure SQL database](https://azure.microsoft.com/products/azure-sql/database) is a fully managed PaaS database engine that handles most of the database management functions such as upgrading, patching, backups, and monitoring. It provides these functions without user involvement. SQL Database provides a range of built-in security and compliance features to help your application meet security and compliance requirements.
 
 
-
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
@@ -137,13 +136,14 @@ Other contributors:
 
 ## Next steps
 
+
+## Related resources
+
 To get all details regarding this Architecture reference, see the other articles in this series:
 
 - Part 1: [Use Azure monitoring to integrate security components](../../guide/security/azure-monitor-integrate-security-components.yml)
 - Part 2: [Map threats to your IT environment](./map-threats-it-environment.yml)
 - Part 3: [Building the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml)
+<!-- - Part 4: [Build the second layer of defense with Microsoft 365 Defender Security services](./microsoft-365-defender-build-second-layer-defense-content.md) -->
 - Part 5: [Integration between Azure and Microsoft 365 Defender security services](./microsoft-365-defender-security-integrate-azure.yml)
-
-## Related resources
-
 

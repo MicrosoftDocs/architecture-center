@@ -123,6 +123,14 @@ Other contributors:
 
 ## Next steps
 
+To get all details regarding this Architecture reference, see the other articles in this series:
+
+- Part 1: [Use Azure monitoring to integrate security components](../../guide/security/azure-monitor-integrate-security-components.yml)
+<!-- - Part 2: [Map threats to your IT environment](./map-threats-it-environment.yml) -->
+- Part 3: [Building the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml)
+- Part 4: [Build the second layer of defense with Microsoft 365 Defender Security services](./microsoft-365-defender-build-second-layer-defense-content.md)
+- Part 5: [Integration between Azure and Microsoft 365 Defender security services](./microsoft-365-defender-security-integrate-azure.yml)
+
 This document refers to some services, technologies, and terminologies. You can find more information about them in the following resources:
 
 - [MITRE ATT&CK®](https://attack.mitre.org/)
