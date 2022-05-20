@@ -1,10 +1,11 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-[Azure Bot Service](/azure/bot-service/) with [Language Understanding](/azure/cognitive-services/luis/) enables developers to create conversational interfaces for banking, travel, and entertainment commerce scenarios. For example, a hotel concierge can use a bot to enhance customer e-mail and phone call interactions. The bot validates customers with Azure Active Directory. Azure Cognitive Services is then used to contextually process customer service text and voice requests. Add the [Speech service](/azure/cognitive-services/speech-service/) to recognize and support voice commands.
+[Azure Bot Service](/azure/bot-service) with [Language Understanding](/azure/cognitive-services/luis) enables developers to create conversational interfaces for banking, travel, and entertainment commerce scenarios. For example, a hotel concierge can use a bot to enhance customer e-mail and phone call interactions. The bot validates customers with Azure Active Directory. Azure Cognitive Services is then used to contextually process customer service text and voice requests. Add the [Speech service](/azure/cognitive-services/speech-service) to recognize and support voice commands.
 
 ## Potential use cases
 
 This solution applies to the following scenarios:
+
 - Banking
 - Travel and hospitality (such as a hotel concierge bot to enhance emails and phone calls)
 - Entertainment commerce
@@ -15,7 +16,7 @@ This solution applies to the following scenarios:
 
 *Download an [SVG](../media/commerce-chatbot-customer-service.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
 1. The customer uses your mobile app.
 1. Using Azure Active Directory B2C, the customer authenticates.
@@ -50,10 +51,10 @@ Product documentation:
 
 Microsoft Learn modules:
 
-* [How to build a basic chatbot](/learn/modules/how-build-basic-chatbot/)
-* [Create Intelligent Bots with the Azure Bot Service](/learn/paths/create-bots-with-the-azure-bot-service/)
-* [Create conversational AI solutions](/learn/paths/create-conversational-ai-solutions/)
-* [Add conversational intelligence to your apps by using Language Understanding Intelligent Service (LUIS)](/learn/modules/create-and-publish-a-luis-model/)
+* [How to build a basic chatbot](/learn/modules/how-build-basic-chatbot)
+* [Create Intelligent Bots with the Azure Bot Service](/learn/paths/create-bots-with-the-azure-bot-service)
+* [Create conversational AI solutions](/learn/paths/create-conversational-ai-solutions)
+* [Add conversational intelligence to your apps by using Language Understanding Intelligent Service (LUIS)](/learn/modules/create-and-publish-a-luis-model)
 
 ## Related resources
 
