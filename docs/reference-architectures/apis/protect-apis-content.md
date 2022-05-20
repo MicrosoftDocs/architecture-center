@@ -80,7 +80,7 @@ This article doesn't address the application's underlying services, like App Ser
 
 ## Deploy this scenario 
 
-Note: This scenario assumes you already have a virtual network in place. If you need help creating a virtual network, see [create virtual network with PowerShell](/azure/virtual-network/quick-create-powershell).
+Note: This scenario assumes you already have a virtual network in place. If you need help creating a virtual network, see [Create a virtual network using PowerShell](/azure/virtual-network/quick-create-powershell).
 
 ### Deployment with PowerShell
 
