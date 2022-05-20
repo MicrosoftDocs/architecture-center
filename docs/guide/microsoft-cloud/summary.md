@@ -24,7 +24,7 @@ ms.custom:
 # Summary
 
 > [!Note]
-> This is article 6 of 6 in **Build applications on the Microsoft Cloud**
+> This is article 6 of 6 in **Build applications on the Microsoft Cloud**.
 
 :::image type="content" source="images/microsoft-cloud-unified-set-services.png" alt-text="Diagram that shows an application using Microsoft services such as Microsoft Azure and Power Platform." border="false" :::
 
