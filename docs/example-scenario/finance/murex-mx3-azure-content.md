@@ -1,5 +1,5 @@
 
-Murex is a leading global software provider of trading, risk management, processing operations and post-trade solutions for capital markets. Many banks deploy Murex's third generation platform MX.3 to manage risk, accelerate transformation, and simplify compliance, all while driving revenue growth. The Murex platform enables customers to gain greater control of their operations, improve efficiency and reduce operational cost.
+Murex is a leading global software provider of trading, risk management, processing operations, and post-trade solutions for capital markets. Many banks deploy Murex's third generation platform MX.3 to manage risk, accelerate transformation, and simplify compliance, all while driving revenue growth. The Murex platform enables customers to gain greater control of their operations, improve efficiency, and reduce operational cost.
 
 MX.3 is a client/server application based on a three-tier architecture structure. Banks use MX.3 for their business requirements, like sales and trading, enterprise risk management, and collateral and investment.
 
@@ -8,6 +8,8 @@ Microsoft Azure provides Murex customers a fast and easy way to create and scale
 The objective of this article is to provide technical details to implement Murex workloads in Azure.
 
 For detailed information about the various tiers and layers of the Murex MX.3 application, compute, and storage requirements, contact the Murex technical team.
+
+*Linux is a trademark of its respective company. No endorsement is implied by the use of this mark.*
 
 ## Potential use cases
 
@@ -46,7 +48,7 @@ Murex MX.3 workloads can run on databases like Oracle, Sybase, or SQL Server. Th
 - [Azure NetApp Files](https://azure.microsoft.com/services/netapp): Azure NetApp Files is an enterprise-class, high-performance, metered file storage service.
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault): Use Azure Key Vault to securely store and access secrets.
 - [Azure VPN Gateway](https://azure.microsoft.com/services/vpn-gateway): VPN Gateway sends encrypted traffic between an Azure virtual network and an on-premises location over the public Internet.
-- [Azure Policy](https://azure.microsoft.com/services/azure-policy): Use Azure Policy to create, assign and, manage policy definitions in your Azure environment.
+- [Azure Policy](https://azure.microsoft.com/services/azure-policy): Use Azure Policy to create, assign, and manage policy definitions in your Azure environment.
 - [Azure Backup](https://azure.microsoft.com/services/backup): Azure Backup is a cost-effective, secure, one-click backup solution that’s scalable based on your backup storage needs.
 
 ## Considerations
@@ -62,7 +64,7 @@ Murex MX.3 is a complex workload with high memory, low latency, and high availab
 - The MX.3 application requires external (internet) and internal (on-premises) connectivity to perform tasks. The Azure architecture for the MX.3 application must support a secure connectivity model to integrate with internal and external services. Use an Azure site-to-site VPN or ExpressRoute (recommended) to connect with on-premises services.
 - For backup, you can use Azure native backup services combined with Azure storage. Use these services for daily, weekly, or monthly backups of the application VMs or any other application tier specific backup/archival requirements. For database requirements, use database native replication or backup tools.
 - To get high availability and resiliency of the Murex solutions on Azure, you should run each layer of the application tier in at least two VMs. You can use an Azure availability set configuration to achieve high availability across multiple VMs. You can also use Azure Virtual Machine Scale Sets for redundancy and improved performance of applications that are distributed across multiple instances. You can achieve high availability for the orchestration layer by hosting them in multiple instances and invoking the instances by using custom scripts. You can use database high availability features like Oracle Data Guard or SQL Server Always On to achieve the high availability requirements.
-- To achieve the required performance metrics for Murex workloads, consider storing the MX.3 application directory and databases on Azure Managed Disks with Premium SSD. For high IOPS and low latency requirements, you can use Azure NetApp Files as the storage option. You can use a proximity placement group and network acceleration in Azure to achieve high network throughput across layers.
+- To achieve the required performance metrics for Murex workloads, consider storing the MX.3 application directory and databases on Azure Managed Disks with Premium SSD. For high input/output operations per second and low latency requirements, you can use Azure NetApp Files as the storage option. You can use a proximity placement group and network acceleration in Azure to achieve high network throughput across layers.
 - You can use Azure Monitor to monitor the Azure infrastructure components. You can use its alerting mechanism to take any preventive actions like auto-scaling or notification.
 - Use services like Azure Key Vault to address the security requirements of the MX.3 application in Azure by storing keys and certificates. You can use Azure virtual networks, network security groups (NSGs), and application security groups to control access between various layers and tiers. You can use Azure Firewall, DDoS protection, and Azure Application Gateway or Web Application Firewall services to protect the front-end layer depending on the security requirements.
 - You can achieve infrastructure automation by using Infrastructure as Code (IaC) services like Azure Resource Manager templates or Terraform scripts. You can use Murex DevOps tools to address the application-level DevOps requirements.
@@ -76,7 +78,7 @@ Reliability ensures your application can meet the commitments you make to your c
 - For the orchestration layers, the servers can be distributed across different VMs if needed. If there are issues with one of the VMs, you can configure automation scripts (Resource Manager template or Terraform) and alert notifications to automatically provision more VMs.
 - For the persistence tier, you can achieve high availability of the Oracle database through an Oracle Data Guard solution. In this solution, multiple VMs run across availability zones with active replication configured between them.  
 - For the application tier, redundant virtual machines are hosted for each of the layers. If there's a disaster in any of the virtual machines, Azure ensures that another instance of the VM is automatically provisioned to support the required level of disaster recovery.
-- For disaster recovery, you should run the disaster recovery site in a different Azure region. You can use Active/Active or Active/Passive disaster recovery configurations based on the RTO/RPO requirements. You can use Site Recovery to automate the disaster recovery process and native database replication. You can also use back up tools to achieve the required level of RPO metrics.
+- For disaster recovery, you should run the disaster recovery site in a different Azure region. You can use Active/Active or Active/Passive disaster recovery configurations based on the recovery point objective and recovery time objective requirements. You can use Site Recovery to automate the disaster recovery process and native database replication. You can also use backup tools to achieve the required level of RPO metrics.
 - For the persistence tier, you should set up Oracle DataGuard with maximum performance (synchronous commit) to avoid any impact on MX.3. Oracle database instances between availability zones ensure the application is recovered with minimal data loss.
 - If there's a region failure, you can use automation scripts (Resource Manager or Terraform) or Site Recovery services to provision the environment quickly in a paired Azure region.
 - Depending on the recovery point objective requirements, you can use native Oracle backup solutions like Recovery Manager (RMAN) to periodically back up the database and restore it.
@@ -85,7 +87,7 @@ Reliability ensures your application can meet the commitments you make to your c
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-- You can use Azure Firewall to protect the MX.3 virtual network. It helps in threat intelligence and controlling inbound traffic to the presentation layer, and outbound traffic from the application tier to the internet.
+- You can use Azure Firewall to protect the MX.3 virtual network. It helps in threat intelligence and controlling inbound traffic to the presentation layer and outbound traffic from the application tier to the internet.
 - Having NSGs in the application subnet and database subnet in an MX.3 application can provide control over network traffic flowing in and out of the database, business, and orchestration layer.
 - You can use the Azure Key Vault service to securely store any sensitive information and certificates.
 
@@ -94,7 +96,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 - You can host infrastructure resources for VDI solutions like Citrix in Azure. The client tier uses VDI solutions to access the application tier and optimize the overall cost and performance of the solution.
-- If the minimum capacity of the VMs is known, you can use the **Reserved Instances** option for all the VMs. This option reduces the costs of the VMs by up to 72 percent.
+- If the minimum capacity of the VMs is known, you can use the **Reserved Instances** option for all the VMs. This option reduces the costs of the VMs.
 
 You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate your costs.
 
@@ -102,7 +104,7 @@ You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/c
 
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
-- You can use Azure Monitor to monitor the platform, and use Azure Monitor Logs to monitor the application. However, you can also configure your own custom tool to monitor the platform and application if necessary.
+- You can use Azure Monitor to monitor the platform and use Azure Monitor Logs to monitor the application. However, you can also configure your own custom tool to monitor the platform and application if necessary.
 - You can use resource tagging to label resources and extend the monitoring of alerts and notifications by using the effective integration of an IT service management system.
 - You can use IaC tools like Resource Manager templates or Terraform scripts to automate the infrastructure provisioning process. You can use Azure DevOps tools to integrate IaC tools with the Murex DevOps tools chain.
 - You can use Azure policies to codify the security or compliance requirements, and to validate the Azure environment for audit and compliance requirements.
@@ -142,11 +144,11 @@ Each component in the landing zone is discussed below.
 
 **Gateway Subnet**: The gateway that sends traffic from on-premises to Azure uses a specific subnet called the gateway subnet. The gateway subnet is part of the virtual network IP address range that you specify when configuring your virtual network. It contains the IP addresses that the virtual network gateway resources and services use.
 
-**Azure Jumpbox VM**: Jumpbox connects the application tier and persistence tier’s Azure VMs by using dynamic IP. Jumpbox prevents all the application and database VMs from being exposed to the public. This connection is your entry point to connect through an RDP from the on-premises network.
+**Azure Jumpbox VM**: Jumpbox connects Azure VMs of the application and persistence tiers by using dynamic IP. Jumpbox prevents all the application and database VMs from being exposed to the public. This connection is your entry point to connect through an RDP from the on-premises network.
 
 **Azure Firewall**: You should route any inbound and outbound connectivity between MX.3 VMs and the internet through Azure Firewall. Typical examples of such connectivity are time sync and anti-virus definition update.
 
-**Azure Bastion**: With Azure Bastion, you can securely connect the application and database VMs through Azure portal. Deploy the Azure Bastion host inside the hub virtual network, and then access the VMs in the peered spoke virtual networks. This component is optional and you can use it as needed.
+**Azure Bastion**: By using Azure Bastion, you can securely connect the application and database VMs through Azure portal. Deploy the Azure Bastion host inside the hub virtual network, and then access the VMs in the peered spoke virtual networks. This component is optional, and you can use it as needed.
 
 **Azure Bastion subnet**: Azure Bastion requires a dedicated subnet: AzureBastionSubnet. You must create this subnet in the hub and you must deploy the Bastion host into this subnet.
 
@@ -164,13 +166,13 @@ Each component in the landing zone is discussed below.
 
 Principal authors:
 
-- [Gansu Adhinarayanan](http://linkedin.com//in/ganapathi-gansu-adhinarayanan-a328b121) | Director - Partner technology strategist
-- [Vandana Bagalkot](http://linkedin.com/in/vandana-bagalkot) | Senior cloud solutions architect
+- [Gansu Adhinarayanan](http://linkedin.com//in/ganapathi-gansu-adhinarayanan-a328b121) | Director - Partner Technology Strategist
+- [Vandana Bagalkot](http://linkedin.com/in/vandana-bagalkot) | Senior Cloud Solutions Architect
 
 Other contributors:
 
-- [Astha Malik](http://linkedin.com/in/astha-malik8) | Senior program manager
-- [Jason Martinez](https://www.linkedin.com/in/jason-martinez-502766123) | Programmer writer
+- [Astha Malik](http://linkedin.com/in/astha-malik8) | Senior Program Manager
+- [Jason Martinez](https://www.linkedin.com/in/jason-martinez-502766123) | Technical Writer
 
 ## Next steps
 
