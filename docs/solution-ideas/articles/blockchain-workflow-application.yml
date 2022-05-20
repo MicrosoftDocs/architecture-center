@@ -27,6 +27,9 @@ azureCategories:
 summary: Explore how blockchain is used to digitize workflows and supply chains across organizations with the Blockchain Workflow Application from Microsoft Azure.
 products:
   - azure-blockchain-service
+  - azure-service-bus
+  - azure-iot-central
+  - azure-event-grid
 thumbnailUrl: /azure/architecture/browse/thumbs/blockchain-workflow-application.png
 content: |
    [!include[](blockchain-workflow-application-content.md)]
