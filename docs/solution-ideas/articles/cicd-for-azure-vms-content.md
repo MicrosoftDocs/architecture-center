@@ -25,7 +25,7 @@ Azure DevOps provides the CI/CD pipeline. It starts with a Git repository for ma
 1. Deployment to staging environment.
 1. Deployment to production environment.
 1. Application Insights collect and analyze health, performance, and usage data.
-1. Review health, performance and usage information.
+1. Review health, performance, and usage information.
 1. Update backlog item.
 
 ### Components
