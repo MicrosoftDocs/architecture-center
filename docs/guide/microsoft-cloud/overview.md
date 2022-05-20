@@ -24,7 +24,7 @@ ms.custom:
 # Build applications on the Microsoft Cloud
 
 > [!Note]
-> This is article 1 of 6 in **Build applications on the Microsoft Cloud**
+> This is article 1 of 6 in **Build applications on the Microsoft Cloud**.
 
 The Microsoft Cloud provides a unified collection of services for creating applications. Enterprise application development leaders can combine these services to deliver more value in less time with better security. This guide describes the big picture of Microsoft Cloud from an application development perspective, focusing on what leaders must do to be successful.
 
