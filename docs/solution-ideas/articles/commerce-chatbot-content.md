@@ -19,8 +19,8 @@ This solution applies to the following scenarios:
 ### Dataflow
 
 1. The customer uses your mobile app.
-1. By using Azure Active Directory B2C, the customer authenticates.
-1. By using the custom application Bot, the customer requests information.
+1. The customer authenticates by using Azure Active Directory B2C.
+1. The customer requests information by using the custom application Bot.
 1. Cognitive Services helps process the natural language request.
 1. The response is reviewed by the customer, who can refine the question using natural language.
 1. Once the customer is happy with the results, the Application Bot updates the reservation.
