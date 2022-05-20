@@ -136,10 +136,17 @@ Other contributors:
 
 ## Next steps
 
+- [Defend against threats with Microsoft 365](/learn/paths/m365-security-threat-protection)
+- [Detect and respond to cyber attacks with Microsoft 365 Defender](/learn/paths/defender-detect-respond)
+- [Get started with Microsoft 365 Defender](/microsoft-365/security/defender/get-started)
+- [Implement threat intelligence in Microsoft 365](/learn/paths/implement-microsoft-365-threat-intelligence)
+- [Manage security with Microsoft 365](/learn/paths/m365-security-management)
+- [Protect against malicious threats with Microsoft Defender for Office 365](/learn/paths/defender-office-365-malicious-threats)
+- [Protect on-premises identities with Microsoft Defender for Cloud for Identity](/learn/paths/defender-identity-protect-on-premises)
 
 ## Related resources
 
-To get all details regarding this Architecture reference, see the other articles in this series:
+To get all details regarding this reference architecture, see the other articles in this series:
 
 - Part 1: [Use Azure monitoring to integrate security components](../../guide/security/azure-monitor-integrate-security-components.yml)
 - Part 2: [Map threats to your IT environment](./map-threats-it-environment.yml)
