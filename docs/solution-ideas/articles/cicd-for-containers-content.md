@@ -21,7 +21,7 @@ By setting up a continuous build to produce your container images and orchestrat
 1. Deployment to Azure Kubernetes Service (AKS).
 1. Container is launched using Container Image from Azure Container Registry.
 1. Application Insights collect and analyze health, performance, and usage data.
-1. Review health, performance and usage information.
+1. Review health, performance, and usage information.
 1. Update backlog item.
 
 ### Components
@@ -31,7 +31,7 @@ By setting up a continuous build to produce your container images and orchestrat
 * Application Insights: Detect, triage, and diagnose issues in your web apps and services
 * [Azure DevOps](https://azure.microsoft.com/services/devops): Build and deploy multi-platform apps to get the most from Azure services
 
-## Pricing
+## Cost optimization
 
 * [Customize and get pricing estimates](https://azure.com/e/91c84e39f4df46afaf6c6c433b2c7d78)
 
