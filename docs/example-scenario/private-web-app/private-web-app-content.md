@@ -18,6 +18,8 @@ These similar design patterns are variations on the same underlying principle:
 
 *Download a [Visio file](https://arch-center.azureedge.net/private-webapp-appsvc-private-sql.vsdx) of this architecture.*
 
+### Workflow
+
 1. Using Azure App Service [regional VNet Integration](/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration), the web app connects to Azure through an **AppSvcSubnet** delegated subnet in an [Azure Virtual Network](/azure/virtual-network/).
 
    - In this example, the Virtual Network only routes traffic and is otherwise empty, but other subnets and workloads could also run in the Virtual Network.
@@ -38,7 +40,7 @@ Using the Private Link-specific hostname like `contoso.privatelink.database.wind
 
 Now `contoso.database.windows.net` no longer resolves to the public IP address, but to the private IP address in the **PrivateLinkSubnet**, as defined in the Azure Private DNS zone. Traffic flows privately over the Virtual Network.
 
-## Components
+### Components
 
 This scenario uses the following Azure services:
 
@@ -50,7 +52,7 @@ This scenario uses the following Azure services:
 
 - [Azure Private Link](https://azure.microsoft.com/services/private-link/) provides a private endpoint in a Virtual Network for connectivity to Azure PaaS services like Azure Storage and SQL Database, or to customer or partner services.
 
-## Alternatives
+### Alternatives
 
 - An alternative approach for private connectivity is an [App Service Environment](/azure/app-service/environment/intro) for hosting the web application within an isolated environment, and [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview) as the database engine. Both of these services are natively deployed within a Virtual Network, so there's no need for VNet Integration or private endpoints. These offerings are typically more costly, because they provide single-tenant isolated deployment and other features.
 
@@ -98,7 +100,7 @@ Private Link introduces an additional component and availability consideration i
 
 Any service in any Azure region that can connect through the Virtual Network can reach the database's private endpoint, for example through [Virtual Network peering](/azure/virtual-network/virtual-network-peering-overview) in hub-and-spoke topologies. The same is true when using App Service regional VNet Integration, which means you can use this solution for cross-region connectivity from App Service to a database or other private endpoint in another Azure region. For a specific use case, see [Multi-region web app with private connectivity to database](../sql-failover/app-service-private-sql-multi-region.yml) for an architecture that supports partial failovers when either the web app or the database fails over to another region.
 
-### Cost
+### Cost optimization
 
 There's no additional cost for App Service regional VNet Integration in a supported pricing tier of Standard or above. Standard is a minimum recommendation for production workloads.
 
