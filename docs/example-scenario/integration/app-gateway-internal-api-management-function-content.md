@@ -8,7 +8,7 @@ With the help of Azure Application Gateway, it's now possible to protect and res
 
 This architecture assumes that the policies are in place from the ![Azure landing zone accelerator](https://github.com/Azure/Enterprise-Scale) and that the structure is driven downward from the management group.
 
-<!--**Download a [Visio file]() of this architecture.**-->
+*Download a [Visio file](https://arch-center.azureedge.net/api-management-landing-zone-accelerator.vsdx) of this architecture.*
 
 ### Workflow
 
