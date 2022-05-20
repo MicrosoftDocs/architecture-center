@@ -6,7 +6,7 @@
 
 This solution applies to the following scenarios:
 
-- Banking
+- Banking and finance
 - Travel and hospitality (such as a hotel concierge bot to enhance emails and phone calls)
 - Entertainment commerce
 
