@@ -1,4 +1,4 @@
-APIs have become increasingly prominent in how companies and customers access services, both internally and externally. Internally, APIs are used to access line-of-business applications, home-built solutions, and 3rd-party integrations. Externally, more companies look to be productive and monetize their APIs. With this in mind, API Management becomes a central component to a standard approach of managing, governing, and publishing APIs to both internal and external audiences.
+APIs have become increasingly prominent in how companies and customers access services, both internally and externally. Internally, APIs are used to access line-of-business applications, home-built solutions, and 3rd-party integrations. Externally, more companies look to be productive and monetize their APIs. With this trend in mind, API Management becomes a central component to a standard approach of managing, governing, and publishing APIs to both internal and external audiences.
 
 With the help of Azure Application Gateway, it's now possible to protect and restrict the access of APIs that are served through Azure API Management. This article describes a solution where you can manage both internal and external APIs through a single API Management instance. You can maintain a secure posture from being exposed directly through the internet, but instead it's accessed through an Application Gateway.
 
@@ -25,31 +25,31 @@ This scenario requires a site-to-site or an Azure ExpressRoute connection to you
 1. An external application accesses a public IP address or custom FQDN, which is attached to Azure Application Gateway.
 2. Application Gateway acts as the web application firewall, which requires PFX certificates for SSL termination.
 3. API Management connects to the backend APIs, which are hosted on Azure Functions, through a private endpoint. This endpoint is available through the Azure Functions Premium plan and is hosted in its own subnet.
-4. The private endpoint securely accesses the externally-available API that's hosted on Azure Functions.
+4. The private endpoint securely accesses the externally available API that's hosted on Azure Functions.
 
 ### Components
 
-The architecture leverages the following components:
+The architecture uses the following components:
 
 - **[Azure API Management](https://azure.microsoft.com/services/api-management)** is a managed service that allows you to manage services across hybrid and multi-cloud environments. API management acts as a facade to abstract the backend architecture, and it provides control and security for API observability and consumption for both internal and external users.
 
-- **[Azure Functions](https://azure.microsoft.com/services/functions)** is a serverless solution that allows you to focus more on blocks of code that can be executed with minimal infrastructure management. Functions can be hosted in [a variety of hosting plans](/azure/azure-functions/functions-scale), whereas this reference architecture uses the premium plan, due to the use of private endpoints.
+- **[Azure Functions](https://azure.microsoft.com/services/functions)** is a serverless solution that allows you to focus more on blocks of code that can be executed with minimal infrastructure management. Functions can be hosted in [various hosting plans](/azure/azure-functions/functions-scale), whereas this reference architecture uses the premium plan, due to the use of private endpoints.
 
 - **[Azure Application Gateway](https://azure.microsoft.com/services/application-gateway)** is a managed service that acts as a layer 7 load balancer and [web application firewall](/azure/web-application-firewall/ag/ag-overview). In this scenario, the application gateway protects the internal APIM instance, which allows you to use the internal and external mode.
 
 - **[Azure DNS's](https://azure.microsoft.com/services/dns) [Private DNS zones](/azure/dns/private-dns-privatednszone)** allow you to manage and resolve domain names within a virtual network, without needing to implement a custom DNS solution. A Private DNS zone can be aligned to one or more virtual networks, through [virtual network links](/azure/dns/private-dns-virtual-network-links). Due to the Azure Functions being exposed over a private endpoint that this reference architecture uses, you must use a private DNS zone.
 
-- **[Azure Monitor's](https://azure.microsoft.com/services/monitor) [Application Insights](/azure/azure-monitor/app/app-insights-overview)** helps developers detect anomalies, diagnose issues, and understand usage patterns. Application Insights features extensible application performance management and monitoring for live web apps. A variety of platforms are supported, including .NET, Node.js, Java, and Python. It supports apps that are hosted in Azure, on-premises, in a hybrid environment, or in other public clouds. Application Insights is included as part of this reference architecture, to monitor the behaviors of the deployed application.
+- **[Azure Monitor's](https://azure.microsoft.com/services/monitor) [Application Insights](/azure/azure-monitor/app/app-insights-overview)** helps developers detect anomalies, diagnose issues, and understand usage patterns. Application Insights features extensible application performance management and monitoring for live web apps. Various platforms are supported, including .NET, Node.js, Java, and Python. It supports apps that are hosted in Azure, on-premises, in a hybrid environment, or in other public clouds. Application Insights is included as part of this reference architecture, to monitor the behaviors of the deployed application.
 
-- **[Azure Monitor's](https://azure.microsoft.com/services/monitor) [Log Analytics](/azure/azure-monitor/logs/log-analytics-overview)** allows you to edit and run log queries with data in Azure Monitor Logs, optionally from within the Azure portal. Developers can run simple queries for a set of records or use Log Analytics to perform advanced analysis. They can then visualize the results. Log Analytics is configured as part of this reference architecture, to aggregate all the monitoring logs for additional analysis and reporting.
+- **[Azure Monitor's](https://azure.microsoft.com/services/monitor) [Log Analytics](/azure/azure-monitor/logs/log-analytics-overview)** allows you to edit and run log queries with data in Azure Monitor Logs, optionally from within the Azure portal. Developers can run simple queries for a set of records or use Log Analytics to perform advanced analysis. They can then visualize the results. Log Analytics is configured as part of this reference architecture, to aggregate all the monitoring logs for more analysis and reporting.
 
-- **[Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines)** is a computing resource that can be used to host a number of different workloads. In this reference architecture, virtual machines are used to provide a management jumpbox server, as well as a host for the DevOps agent or GitHub runner.
+- **[Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines)** is a computing resource that can be used to host many different workloads. In this reference architecture, virtual machines are used to provide a management jumpbox server, as well as a host for the DevOps agent or GitHub runner.
 
 - **[Azure Key Vault](https://azure.microsoft.com/services/key-vault)** is a cloud service that securely stores and accesses secrets, which range from API keys and passwords to certificates and cryptographic keys. This reference architecture uses Azure Key Vault to store the SSL certificates that's used by the Application Gateway.
 
 - **[Azure Bastion](https://azure.microsoft.com/services/azure-bastion)** is a platform-as-a-service that's provisioned within the developer's virtual network. It provides secure RDP/SSH connectivity to the developer's virtual machines over TLS, from the Azure portal. With Azure Bastion, virtual machines no longer require a public IP address to connect via RDP/SSH. This reference architecture uses Azure Bastion to access the DevOps agent or GitHub runner server or the management jump box server.
 
-If you use a DevOps tool, such as Azure DevOps or GitHub, then cloud-hosted agents or runners operate over the public internet. Since the API management in this architecture is set to an internal network, you'll need to use a DevOps agent that has access to the VNet. The DevOps agent will help you deploy policies and additional changes to the APIs in your architecture. These ![CI/CD templates](/azure/api-management/devops-api-development-templates) can be used to break the process apart and to allow your development teams to deploy changes, per API. They are executed by the DevOps runners.
+If you use a DevOps tool, such as Azure DevOps or GitHub, then cloud-hosted agents or runners operate over the public internet. Since the API management in this architecture is set to an internal network, you'll need to use a DevOps agent that has access to the VNet. The DevOps agent will help you deploy policies and other changes to the APIs in your architecture. These ![CI/CD templates](/azure/api-management/devops-api-development-templates) can be used to break the process apart and to allow your development teams to deploy changes, per API. They're executed by the DevOps runners.
 
 ### Alternatives
 
@@ -79,9 +79,9 @@ Reliability ensures your application can meet the commitments you make to your c
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-- API Management [validation policies](/azure/api-management/validation-policies) are available to validate API requests and responses against an OpenAPI schema. These are not a replacement for a [Web Application Firewall](/azure/web-application-firewall/overview), but they can provide additional protection against some threats. Note that adding validation policies can have performance implications, so we recommend you use performance load tests to assess their impact on API throughput.
+- API Management [validation policies](/azure/api-management/validation-policies) are available to validate API requests and responses against an OpenAPI schema. These features aren't a replacement for a [Web Application Firewall](/azure/web-application-firewall/overview), but they can provide additional protection against some threats. Adding validation policies can have performance implications, so we recommend you use performance load tests to assess their impact on API throughput.
 - Deploy Azure Web Application Firewall (WAF) in front of API Management to provide protection against common web application exploits and vulnerabilities.
-- [Leverage named values with Key Vault secrets](/azure/api-management/api-management-howto-properties) to protect sensitive information in APIM policies.
+- [Apply named values with Key Vault secrets](/azure/api-management/api-management-howto-properties) to protect sensitive information in APIM policies.
 - Use [Application Gateway for external access of an internal APIM instance](/azure/api-management/api-management-howto-integrate-internal-vnet-appgateway) to protect APIM instance and to enable hybrid connectivity.
 - Deploy the API Management gateway in a VNet, to support hybrid connectivity and increased security.
 - VNet peering provides great performance in a region, but it has a scalability limit of max 500 networks. If you require more workloads to be connected, use a [hub spoke design](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) or [Azure vWAN](/azure/virtual-wan/virtual-wan-about).
@@ -115,7 +115,7 @@ This architecture is available on [GitHub](https://github.com/Azure/apim-landing
 * [Manage APIs with APIM](/learn/modules/publish-manage-apis-with-azure-api-management/)
 * [API Management Resources for getting started](https://azure.microsoft.com/services/api-management#documentation)
 
-Leverage these key resources:
+See these key resources:
 * [Azure landing zone accelerator](https://github.com/Azure/Enterprise-Scale)
 * [API Ops](https://github.com/Azure/apiops)
 * [Azure API Management documentation](/azure/api-management/api-management-terminology)
