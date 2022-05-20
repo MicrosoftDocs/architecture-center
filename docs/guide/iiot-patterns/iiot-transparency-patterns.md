@@ -13,7 +13,8 @@ Calculate business metrics using IoT telemetry and other business system(s) data
     1. Data from IoT Hub / Central goes to Data Explorer using Data Connection in IoT Hub or Data Export in IoT Central.
     1. Data Explorer dashboards use kql query langauge to fetch the data from the cluster and build near real-time dashboard around machine availability.
     1. Data from IoT Hub / Central is pushed to a Data Lake using message routing in IoT Hub and Data Export in IoT Central, for long term storage and processing.
-    1. Synapse pipeline fetches the production quality data (after every shift) from on-premises system and stores the data in the Data Lake.
+    1. Synapse pipeline fetches the production quality data (after every shift) from on-premises system.
+    1. Synapse pipeline stores the data in the Data Lake for calculation.
     1. Synapse pipeline executes pyspark code, which contains the Overall equipment effectiveness (OEE) calculation business logic.
     1. The pyspark code fetches the machine availability data from Data Explorer, and calculates Availabiltiy
     1. The pyspark code fetches the production quality data from Data Lake, and calculates Quality, Performance and OEE per shift.

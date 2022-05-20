@@ -12,7 +12,8 @@ Predict process and equipment failures using a batch process.
     1. EdgeHub sends current process & equipment condition data to IoT Hub/ Central using AMQP or MQTT. IoT Hub / Central sends module updates to the edge and provides edge management control plan.
     1. Data from IoT Hub / Central goes to Data Explorer using Data Connection in IoT Hub or Data Export in IoT Central.
     1. Data from IoT Hub / Central is also routed to a Data Lake for long term storage and model training.
-    1. Synapse pipeline fetches the historical process and equipment failure data from on-premises systems and stores the data in the Data Lake for model training.
+    1. Synapse pipeline fetches the historical process and equipment failure data from on-premises systems.
+    1. Synape pipeline stores the data in the Data Lake for model training.
     1. Machine learning service fetches the failure data, condition data from Data Lake, builds a model and publishes a  batch prediction pipeline endpoint.
     1. Another Synapse pipeline calls the machine learning batch prediction pipeline on a regular interval e.g. every 15 minutes.
     1. The batch prediction pipeline fetches the process & equipment condition data (e.g. last 15 minutes of data) from Data Explorer and performs failure prediction using the model.
@@ -45,7 +46,8 @@ Predict process and equipment failures using an api.
     1. EdgeHub sends current process & equipment condition data to IoT Hub/ Central using AMQP or MQTT. IoT Hub / Central sends module updates to the edge and provides edge management control plan.
     1. Data from IoT Hub / Central goes to Data Explorer using Data Connection in IoT Hub or Data Export in IoT Central.
     1. Data from IoT Hub / Central is also routed to a Data Lake for long term storage and model training.
-    1. Synapse pipeline fetches the historical process and equipment failure data from on-premises system and stores the data in the Data Lake for model training.
+    1. Synapse pipeline fetches the historical process and equipment failure data from on-premises system.
+    1. Synapse pipeline stores the data in the Data Lake for model training.
     1. Machine learning service fetches the historical condition data from Data Explorer.
     1. Machine learning service fetches the historical failure data from Data Lake.
     1. Machine Learning service builds a model and deploys a real-time endpoint on a managed kubernetes cluster.
