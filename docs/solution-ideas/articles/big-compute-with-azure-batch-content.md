@@ -6,17 +6,9 @@ This solution implements a cloud-native application with Azure Batch, which prov
 
 This solution is built on managed services including Virtual Machines, Storage, and Batch. These Azure services run in a high-availability environment, patched and supported, allowing you to focus on your solution.
 
-The following links provide documentation on deploying and managing the Azure products listed in the solution architecture:
-
-* [Batch documentation](/azure/batch)
-
-* [Virtual Machines](https://azure.microsoft.com/services/virtual-machines)
-
-* [Azure Batch](https://azure.microsoft.com/services/batch)
-
-* [Azure Blob Storage](https://azure.microsoft.com/services/storage)
-
 ## Potential use cases
+
+This solution is ideal for the finance, media, entertainment, energy, and environment industries. It's optimized for the following scenarios:
 
 * Financial risk Monte Carlo simulations
 * Image rendering
@@ -27,6 +19,7 @@ The following links provide documentation on deploying and managing the Azure pr
 ## Architecture
 
 ![Architecture Diagram](../media/big-compute-with-azure-batch.png)
+
 *Download an [SVG](../media/big-compute-with-azure-batch.svg) of this architecture.*
 
 ### Dataflow
@@ -34,9 +27,9 @@ The following links provide documentation on deploying and managing the Azure pr
 1. Upload input files and the applications to your Azure Storage account.
 1. Create a Batch pool of compute nodes, a job to run the workload on the pool, and the tasks in the job.
 1. Batch downloads input files and applications.
-1. Batch monitors task execution.
-1. Batch uploads task output.
-1. Download output files.
+1. Batch monitors the task execution.
+1. Batch uploads the task output.
+1. Download the output files.
 
 ### Components
 
@@ -49,3 +42,13 @@ The following links provide documentation on deploying and managing the Azure pr
 
 * [Quickstart: Upload, download, and list blobs using the Azure portal](/azure/storage/blobs/storage-quickstart-blobs-portal)
 * [Quickstart: Run your first Batch job in the Azure portal](/azure/batch/quick-create-portal)
+
+The following links provide documentation on deploying and managing the Azure products listed in the solution architecture:
+
+* [Batch documentation](/azure/batch)
+
+* [Virtual Machines](https://azure.microsoft.com/services/virtual-machines)
+
+* [Azure Batch](https://azure.microsoft.com/services/batch)
+
+* [Azure Blob Storage](https://azure.microsoft.com/services/storage)
