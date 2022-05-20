@@ -4,6 +4,8 @@ Virtual machines (VMs) are physically separated across zones, and a virtual netw
 
 ## Potential use cases
 
+This solution is ideal for the healthcare industry and the following scenarios:
+
 * Hospitals
 * Data centers
 
@@ -14,13 +16,13 @@ Virtual machines (VMs) are physically separated across zones, and a virtual netw
 
 ### Dataflow
 
-1. Create zone-redundant Load Balancer.
-1. Create front-end subnet.
-1. Create DB subnet.
-1. Create VMs in three Availability Zones.
-1. Configure zone-redundant SQL DB.
+1. Create a zone-redundant Load Balancer.
+1. Create a front-end subnet.
+1. Create a DB subnet.
+1. Create VMs in three availability zones.
+1. Configure a zone-redundant SQL DB.
 1. Add VMs to the load balancer's back-end pool.
-1. Deploy your application on VMs for redundancy and high availability.
+1. Deploy your application on VMs, for redundancy and high availability.
 
 ### Components
 
