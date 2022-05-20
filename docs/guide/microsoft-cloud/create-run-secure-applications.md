@@ -24,7 +24,7 @@ ms.custom:
 # Create and run secure applications
 
 > [!Note]
-> This is article 5 of 6 in **Build applications on the Microsoft Cloud**
+> This is article 5 of 6 in **Build applications on the Microsoft Cloud**.
 
 Good security protects your systems, and therefore your organization, against accidental and intentional damage. It assures that only the right people can access your resources and minimizes the possibility that they can do inadvertent harm. It also warns you of dangers, violations, and other important security events.
 
