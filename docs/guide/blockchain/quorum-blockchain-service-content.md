@@ -27,7 +27,7 @@ This solution is ideal for the sustainability, manufacturing, and energy/environ
 
 Quorum Blockchain Service (QBS) is a managed ledger service from [ConsenSys](https://consensys.net/). It allows organizations to run their own blockchain network without having to deal with infrastructure management.
 
-Following are the features of QBS:
+The following are features of QBS:
 
 - Uses standard Ethereum technology with privacy enhancements.
 - Supports open-source tools such as Truffle for developing and managing lifecycle of smart contracts.
@@ -100,16 +100,16 @@ You can implement the infrastructure and provide ongoing support to the managed 
 
 ## Contributors
 
-This article is maintained by Microsoft. It was originally written by the following contributors:
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-**Principal authors:**
+Principal authors:
 
-- [Samrat Adhikari](https://www.linkedin.com/in/samrat-adhikari-mba-mcis-pmp-csm-8538a9169/) | Senior Manager, Technology Solutions Delivery
-- [Cale Teeter](https://www.linkedin.com/in/caleteeter/) | Senior Software Engineer
+- [Samrat Adhikari](https://www.linkedin.com/in/samrat-adhikari-mba-mcis-pmp-csm-8538a9169) | Senior Manager, Technology Solutions Delivery
+- [Cale Teeter](https://www.linkedin.com/in/caleteeter) | Senior Software Engineer
 
-Others:
+Other contributors:
 
-- [Lavanya Kasturi](https://www.linkedin.com/in/lakshmilavanyakasturi/) | Technical Writer
+- [Lavanya Kasturi](https://www.linkedin.com/in/lakshmilavanyakasturi) | Technical Writer
 
 ## Next steps
 
