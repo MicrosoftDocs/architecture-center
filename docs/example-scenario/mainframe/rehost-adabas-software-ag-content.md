@@ -96,11 +96,11 @@ This solution uses an Azure network security group (NSG) to manage traffic betwe
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-**Principal authors:** 
+Principal authors:
 
  * Marlon Johnson | Senior Program Manager
 
-**Other contributors:** 
+Other contributors:
 
  * [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
  * [Bhaskar Bandam](https://www.linkedin.com/in/bhaskar-bandam-75202a9) | Senior Program Manager

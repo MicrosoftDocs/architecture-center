@@ -31,11 +31,11 @@ Machine teaching bridges AI science and software with traditional engineering an
 
 ## Architecture
 
-Project Bonsai speeds the creation of AI-powered automation. Development and deployment has three phases: Build, Train, and Deploy.
+Project Bonsai speeds the creation of AI-powered automation. Development and deployment have three phases: Build, Train, and Deploy.
 
 ![Diagram that shows the architecture of Project Bonsai.](../media/machine-teaching-1-2.png)
 
-### Workflow
+### Dataflow
 
 1. The Build phase consists of writing the machine teaching program and connecting to a domain-specific training simulator. Simulators generate sufficient training data for experiments and machine practice.
 
@@ -62,7 +62,7 @@ Project Bonsai speeds the creation of AI-powered automation. Development and dep
 
   This architecture uses Storage for storing uploaded simulators as ZIP files.
 
-## Deploy this scenario
+## Deployments
 
 The following implementations are example deployments. You can follow the resources to understand how these solutions were designed. Use Project Bonsai to build and deploy your own solution.
 
@@ -82,9 +82,13 @@ In Bonsai, managed Azure graphics processing unit (GPU) clusters run AI training
 
 The Bonsai platform runs on Azure and charges resource costs to your Azure subscription.
 
+* [Azure Container Registry](https://azure.microsoft.com/services/container-registry) (basic tier) for storing exported brains and uploaded simulators.
+* [Azure Container Instances](https://azure.microsoft.com/services/container-instances) for running simulations.
+* [Azure Storage](https://azure.microsoft.com/services/storage) for storing uploaded simulators as ZIP files.
+
 #### Inkling
 
-Inkling is a declarative, statically-typed programming language for training AI in Bonsai. Inkling abstracts away the dynamic AI algorithms that require expertise in machine learning, enabling more developers to program AI. An Inkling file defines *concepts* necessary to teach the AI, and a *curriculum* to teach the concepts.
+[Inkling](/bonsai/inkling) is a declarative, statically typed programming language for training AI in Bonsai. Inkling abstracts away the dynamic AI algorithms that require expertise in machine learning, enabling more developers to program AI. An Inkling file defines _concepts_ necessary to teach the AI, and _curriculum_, or methods for teaching the concepts.
 
 ![Inkling example](../media/inkling.png)
 
@@ -108,7 +112,7 @@ The Cartpole sample has a pole attached to a cart by an unactivated joint. The c
 
 The pole starts upright, and the goal is to keep it upright as the cart moves. There is a reward generated for every time interval that the pole remains upright. A training episode ends when the pole is more than 15 degrees from vertical, or when the cart moves more than a predefined number of units from the center of the track.
 
-The sample uses Inkling to write the machine teaching program, and a Cartpole simulator to speed and improve the training.
+The sample uses [Inkling](/bonsai/inkling) language to write the machine teaching program, and the provided Cartpole simulator to speed and improve the training.
 
 ![A depiction of the Cartpole simulator, and some Inkling code](../media/cartpole.png)
 

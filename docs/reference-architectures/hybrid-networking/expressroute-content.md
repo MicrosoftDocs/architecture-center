@@ -290,7 +290,7 @@ Microsoft Learn modules:
 [configure-expressroute-routing]: /azure/expressroute/expressroute-howto-routing-arm
 [sla-for-expressroute]: https://azure.microsoft.com/support/legal/sla/expressroute
 [link-vnet-to-expressroute]: /azure/expressroute/expressroute-howto-linkvnet-arm
-[devops-monitoring]: /azure/architecture/framework/devops/monitoring
+[devops-monitoring]: /azure/architecture/framework/devops/checklist
 [ExpressRoute-provisioning]: /azure/expressroute/expressroute-workflows
 [expressroute-introduction]: /azure/expressroute/expressroute-introduction
 [expressroute-peering]: /azure/expressroute/expressroute-circuit-peerings

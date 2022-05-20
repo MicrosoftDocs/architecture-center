@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: alexhart11
-ms.date: 05/09/2022
+ms.date: 05/18/2022
 ms.topic: article
 ms.service: architecture-center
 categories: 
@@ -26,10 +26,25 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
+- [Rehost a general mainframe on Azure](./example-scenario/mainframe/mainframe-rehost-architecture-azure.yml)
 - [Deploy microservices with Azure Container Apps and Dapr](./example-scenario/serverless/microservices-with-container-apps-dapr.yml)
 
 ### Updated articles
 
+- [AI enrichment with image and text processing](./solution-ideas/articles/cognitive-search-with-skillsets.yml)  ([#23d86bc3e](https://github.com/MicrosoftDocs/architecture-center/commit/23d86bc3e))
+- [Run SAP BW/4HANA with Linux VMs](./reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines.yml)  ([#9b2140708](https://github.com/MicrosoftDocs/architecture-center/commit/9b2140708))
+- [Unisys Dorado mainframe migration to Azure with Astadia and Micro Focus](./example-scenario/mainframe/migrate-unisys-dorado-mainframe-apps-with-astadia-micro-focus.yml)  ([#3c8e441a4](https://github.com/MicrosoftDocs/architecture-center/commit/3c8e441a4))
+- [Customer lifetime value and churn prediction with Azure AI services](./example-scenario/ai/customer-lifecycle-churn.yml)  ([#e5ae641d2](https://github.com/MicrosoftDocs/architecture-center/commit/e5ae641d2))
+- [Employee retention with Databricks and Kubernetes](./example-scenario/ai/employee-retention-databricks-kubernetes.yml)  ([#e5ae641d2](https://github.com/MicrosoftDocs/architecture-center/commit/e5ae641d2))
+- [Unisys mainframe migration with Asysco](./reference-architectures/migration/unisys-mainframe-migration.yml)  ([#8c840a658](https://github.com/MicrosoftDocs/architecture-center/commit/8c840a658))
+- [Refactor IBM z/OS coupling facility](./reference-architectures/zos/refactor-zos-coupling-facility.yml)  ([#a7c5e2028](https://github.com/MicrosoftDocs/architecture-center/commit/a7c5e2028))
+- [Azure Active Directory IDaaS in security operations](./example-scenario/aadsec/azure-ad-security.yml)  ([#9906cc127](https://github.com/MicrosoftDocs/architecture-center/commit/9906cc127))
+- [Automate document processing with Azure Form Recognizer](./example-scenario/ai/automate-document-processing-azure-form-recognizer.yml)  ([#9906cc127](https://github.com/MicrosoftDocs/architecture-center/commit/9906cc127))
+- [Citizen AI with the Power Platform](./example-scenario/ai/citizen-ai-power-platform.yml)  ([#9906cc127](https://github.com/MicrosoftDocs/architecture-center/commit/9906cc127))
+- [Back up files and apps on Azure Stack Hub](./hybrid/azure-stack-backup.yml)  ([#9406ca2e6](https://github.com/MicrosoftDocs/architecture-center/commit/9406ca2e6))
+- [Design a hybrid Domain Name System solution with Azure](./hybrid/hybrid-dns-infra.yml)  ([#c0df07107](https://github.com/MicrosoftDocs/architecture-center/commit/c0df07107))
+- [Teacher-provisioned virtual labs in Azure](./example-scenario/devops/teacher-provisioned-virtual-labs-azure.yml)  ([#71daf1b26](https://github.com/MicrosoftDocs/architecture-center/commit/71daf1b26))
+- [High availability and disaster recovery for IaaS apps](./example-scenario/infrastructure/iaas-high-availability-disaster-recovery.yml)  ([#684fcb6b3](https://github.com/MicrosoftDocs/architecture-center/commit/684fcb6b3))
 - [Comparing AWS and Azure compute services](./aws-professional/compute.md)  ([#ff9e3d044](https://github.com/MicrosoftDocs/architecture-center/commit/ff9e3d044))
 - [Comparing AWS and Azure messaging services](./aws-professional/messaging.md)  ([#ff9e3d044](https://github.com/MicrosoftDocs/architecture-center/commit/ff9e3d044))
 - [Run Apache Cassandra on Azure VMs](./best-practices/cassandra.md)  ([#ff9e3d044](https://github.com/MicrosoftDocs/architecture-center/commit/ff9e3d044))
