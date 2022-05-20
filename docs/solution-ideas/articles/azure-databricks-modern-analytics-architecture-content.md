@@ -86,7 +86,7 @@ The system that Swiss Re Group built for its Property & Casualty Reinsurance div
      - Removing users and denying them access.
 
    - Azure Monitor collects and analyzes Azure resource telemetry. By proactively identifying problems, this service maximizes performance and reliability.
-   - Azure Cost Management and Billing provides financial governance services for Azure workloads.
+   - Azure Cost Management and Billing provide financial governance services for Azure workloads.
 
 ### Components
 
@@ -158,26 +158,26 @@ To learn about related solutions, see this information:
 - [Build a real-time recommendation API on Azure][Build a Real-time Recommendation API on Azure]
 
 [AGL achieves machine learning at scale]: https://customers.microsoft.com/story/844796-agl-energy-azure
-[Azure Active Directory]: https://azure.microsoft.com/services/active-directory/
-[Azure Cost Management and Billing]: https://azure.microsoft.com/services/cost-management/
-[Azure Data Factory]: https://azure.microsoft.com/services/data-factory/
+[Azure Active Directory]: https://azure.microsoft.com/services/active-directory
+[Azure Cost Management and Billing]: https://azure.microsoft.com/services/cost-management
+[Azure Data Factory]: https://azure.microsoft.com/services/data-factory
 [Azure Data Lake Storage]: https://azure.microsoft.com/services/storage/data-lake-storage
-[Azure Databricks]: https://azure.microsoft.com/services/databricks/
-[Azure Databricks SQL Analytics guide]: /azure/databricks/sql/
-[Azure Kubernetes Service]: https://azure.microsoft.com/services/kubernetes-service/
-[Azure Machine Learning]: https://azure.microsoft.com/services/machine-learning/
-[Azure Monitor]: https://azure.microsoft.com/services/monitor/
-[Azure Synapse Analytics]: https://azure.microsoft.com/services/synapse-analytics/
+[Azure Databricks]: https://azure.microsoft.com/services/databricks
+[Azure Databricks SQL Analytics guide]: /azure/databricks/sql
+[Azure Kubernetes Service]: https://azure.microsoft.com/services/kubernetes-service
+[Azure Machine Learning]: https://azure.microsoft.com/services/machine-learning
+[Azure Monitor]: https://azure.microsoft.com/services/monitor
+[Azure Synapse Analytics]: https://azure.microsoft.com/services/synapse-analytics
 [Batch scoring of Spark models on Azure Databricks]: ../../reference-architectures/ai/batch-scoring-databricks.yml
 [Build a Real-time Recommendation API on Azure]: ../../reference-architectures/ai/real-time-recommendation.yml
 [Compare the machine learning products and technologies from Microsoft]: ../../data-guide/technology-choices/data-science-and-machine-learning.md
 [Choosing a natural language processing technology in Azure]: ../../data-guide/technology-choices/natural-language-processing.yml
 [Choosing a stream processing technology in Azure]: ../../data-guide/technology-choices/stream-processing.md
 [Databricks Delta Lake]: https://databricks.com/product/delta-lake-on-databricks
-[Event Hubs]: https://azure.microsoft.com/services/event-hubs/
-[Key Vault]: https://azure.microsoft.com/services/key-vault/
+[Event Hubs]: https://azure.microsoft.com/services/event-hubs
+[Key Vault]: https://azure.microsoft.com/services/key-vault
 [Medallion model]: https://techcommunity.microsoft.com/t5/analytics-on-azure/how-to-reduce-infrastructure-costs-by-up-to-80-with-azure/ba-p/1820280
-[MLflow]: https://mlflow.org/
+[MLflow]: https://mlflow.org
 [MLflow Model Registry]: https://www.mlflow.org/docs/latest/registry.html
 [Monitoring Azure Databricks]: ../../databricks-monitoring/index.md
 [Native connectors]: /azure/databricks/data/data-sources/azure/synapse-analytics
@@ -187,6 +187,6 @@ To learn about related solutions, see this information:
 [Spark SQL pools]: /azure/synapse-analytics/spark/apache-spark-overview
 [Stream processing with Azure Databricks]: ../../reference-architectures/data/stream-processing-databricks.yml
 [Swiss Re builds a digital payment platform by using Azure Databricks and Power BI]: https://customers.microsoft.com/story/1335371880067885708-swiss-re-drives-deeper-faster-insights-with-azure-synapse-analytics
-[DevOps solutions on Azure]: https://azure.microsoft.com/solutions/devops/
+[DevOps solutions on Azure]: https://azure.microsoft.com/solutions/devops
 [What is Microsoft Purview?]: /azure/purview/overview
 [What is Power BI?]: /power-bi/fundamentals/power-bi-overview

@@ -8,9 +8,9 @@ This solution is built on the Azure managed services: [Backup Server](https://az
 
 Your organizations backup strategy will differ depending on the workload you need to protect, and Azure Backup can assist you with a wide variety of backup types.
 
-* Simply backup and restore your files and folders, which can be great for storing application configuration changes or other business materials.
+* Backup and restore your files and folders, which can be great for storing application configuration changes or other business materials.
 * “Typical” Windows or Linux machines to fine-grained protection for Exchange, SQL, or SharePoint services.
-* Hyper-V, VMWare or even capture system state and do a bare-metal recovery if needed.
+* Hyper-V, VMware or even capture system state and do a bare-metal recovery if needed.
 * Create backups of your Azure VMs directly from the portal.
 
 ## Architecture
