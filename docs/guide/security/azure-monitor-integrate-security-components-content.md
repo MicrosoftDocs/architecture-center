@@ -15,7 +15,7 @@ This series explores in depth the defense that you can build with these Microsof
 
 ### Diagrams
 
-This series uses architectural diagrams to explain how Microsoft security services work together. The diagram in this article is the final architecture reference for this series, and it presents the whole picture. 
+This series of articles uses architectural diagrams to explain how Microsoft security services work together. The diagram in this article is the final architecture reference for this series, and it presents the whole picture. 
 
 To make the architecture more comprehensive, it was designed to be layered onto the architecture of a typical hybrid IT environment, which in many companies has three layers:
 

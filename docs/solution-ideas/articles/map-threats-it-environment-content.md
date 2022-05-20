@@ -123,7 +123,7 @@ Other contributors:
 
 ## Next steps
 
-To get all details regarding this Architecture reference, see the other articles in this series:
+To get all details regarding this reference architecture, see the other articles in this series:
 
 - Part 1: [Use Azure monitoring to integrate security components](../../guide/security/azure-monitor-integrate-security-components.yml)
 <!-- - Part 2: [Map threats to your IT environment](./map-threats-it-environment.yml) -->
