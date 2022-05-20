@@ -10,7 +10,7 @@ metadata:
   ms.service: architecture-center
   ms.subservice: solution-idea
 azureCategories:
-  - blockchain
+  - compute
 products:
   - azure-blockchain-service
   - azure-virtual-machines
