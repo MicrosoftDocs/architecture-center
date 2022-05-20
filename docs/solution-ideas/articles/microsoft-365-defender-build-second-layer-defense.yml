@@ -14,11 +14,11 @@ azureCategories:
   - integration
   - security
 products:
+  - defender-office365
+  - defender-for-cloud-apps
+  - defender-identity
+  - m365
   - mem
-  - office-365-atp
-  - office-365
-  - office-teams
-  - office-onedrive
 name: Build the second layer of defense with Microsoft 365 Defender Security services
 summary: Placeholder summary.
 thumbnailUrl: /azure/architecture/browse/thumbs/microsoft-365-defender-build-second-layer-defense-thumbnail.png
