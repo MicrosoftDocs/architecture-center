@@ -2,13 +2,14 @@
 
 Collaboration is critical to business efficiency and productivity. Tools like Microsoft Teams provide a great way to collaborate via chat, audio, and video. Word, Excel, and PowerPoint online make it easy to collaborate on various types of documents and spreadsheets with colleagues and customers around the world.  
 
-You can use Azure services to add real-time collaborative functionality to custom applications just as you do with  off-the-shelf solutions. This example solution shows how you can use libraries and Azure services to meet custom collaboration requirements. In addition to real-time collaboration, this solution supports user presence status. Users can work together in the custom app to collect ideas, see when new ideas are added, modified, or deleted in real time, and avoid data conflicts during collaboration sessions. 
+You can use Azure services to add real-time collaborative functionality to custom applications just as you do with  off-the-shelf solutions. This example solution shows how you can use libraries and Azure services to meet custom collaboration requirements. In addition to real-time collaboration, this solution supports user presence status. Users can work together in the custom app to collect ideas, see when new ideas are added, modified, or deleted in real time, and avoid data conflicts during collaboration sessions.
 
 To meet these requirements, the solution uses Fluid Framework and Azure Fluid Relay. It authenticates users against Azure Active Directory (Azure AD) by using the Login component of the Microsoft Graph Toolkit and the Microsoft Authentication Library (MSAL) provider.
 
 ## Potential use cases
 
 This solution applies to companies that build custom application solutions that require:
+
 - Secure application access.
 - Real-time data collaboration among multiple users.
 - Built-in collaboration data-storage capabilities.
@@ -19,7 +20,7 @@ This solution applies to companies that build custom application solutions that 
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/Real-time-data-collaboration.pptx) of this architecture.*
 
-### Workflow
+### Dataflow
 
 - An application uses the Login component of the Microsoft Graph Toolkit to enable a user to sign in. The Login component uses the MSAL provider to validate the user’s credentials against Azure AD.
 - After the user signs in, the client web app uses Fluid Framework to connect to Fluid Relay and creates a collaboration session.
@@ -39,7 +40,15 @@ This solution applies to companies that build custom application solutions that 
 
 Get a [code sample](https://github.com/microsoft/brainstorm-fluidframework-m365-azure) that demonstrates this scenario.
 
-## Next steps 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Dan Wahlin](https://www.linkedin.com/in/danwahlin) | Principal Cloud Developer
+
+## Next steps
 
 For more information about the technologies used in this solution, see these articles:
 

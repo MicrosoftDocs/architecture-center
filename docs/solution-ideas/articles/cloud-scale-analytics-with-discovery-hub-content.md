@@ -2,6 +2,14 @@
 
 Use TimeXtender to define a data estate using a graphical user interface, with definitions stored in a metadata repository. Code for building the data estate is generated automatically while remaining fully customizable. The resulting modern data warehouse is ready to support cloud scale analytics and AI.
 
+## Potential use cases
+
+Organizations use this due to:
+
+* No infrastructure issues or maintenance
+* Consistent performance
+* Deploy and manage both the architecture and the data pipelines, data models and semantic models
+
 ## Architecture
 
 ![Architecture Diagram](../media/cloud-scale-analytics-with-discovery-hub.png)
