@@ -2,6 +2,13 @@
 
 This document describes the architecture and design considerations for reliable, high-performing chat applications. It uses the SignalR Service to implement multi-factor authentication working with Azure App Service.
 
+## Potential use cases
+
+* Ease of use
+* Accessibility
+* Scalability
+* Multi-factor authentication
+
 ## Architecture
 
 ![Architecture Diagram](../media/cross-platform-chat.png)
