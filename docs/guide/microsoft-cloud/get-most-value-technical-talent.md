@@ -24,7 +24,7 @@ ms.custom:
 # Get the most value from technical talent
 
 > [!Note]
-> This is article 3 of 6 in **Build applications on the Microsoft Cloud**
+> This is article 3 of 6 in **Build applications on the Microsoft Cloud**.
 
 Using both pro-code and low-code development can help your organization get the most from on-staff talent. It also changes the way you create software. This article shows ways to use the Microsoft Cloud to get the most from your talent.
 
@@ -52,7 +52,7 @@ Low-code and pro-code development are both important for your organization, and 
 Although both professional and non-professional developers can use Power Apps to create useful applications, it's still important to use a modern development process. Professional developers can help citizen developers understand and use a more professional approach to creating and deploying software. The Microsoft Cloud provides two technologies to implement professional development processes:
 
 - [GitHub](https://docs.github.com/en) provides source code control and other services that help developers collaborate on the same code base. By using GitHub Actions, developers can create workflows that automatically build and deploy code.
-- [Azure DevOps](/azure/devops) also provides source code control and other services that help developers collaborate. Developers can use Devops to create pipelines, which are like workflows, that build and deploy code.
+- [Azure DevOps](/azure/devops) also provides source code control and other services that help developers collaborate. Developers can use DevOps to create pipelines, which are like workflows, that build and deploy code.
 
 GitHub and Azure DevOps overlap in some ways. Both can help developers automate build and deployment, for example. They can also be used together. For example, you can use GitHub for source control and Azure DevOps to implement a pipeline.
 
@@ -65,7 +65,7 @@ Both GitHub and Azure DevOps were created to meet the needs of professional deve
 Here are some benefits of using GitHub and Azure DevOps to support fusion development:
 
 - Just as a group of pro-code developers working together to create a C# application can use GitHub and Azure DevOps for source code control, a group of low-code developers working together to create a Power Apps application can take advantage of these same technologies. Much like pro developers, Power Apps developers can extract apps from a repo, modify them, then return the updated version. This integration gives citizen developers the ability to use a more disciplined development process, improving the quality of the apps they create.
-- Just as pro-code developers automate deployment with GitHub workflows and Azure DevOps pipelines, Power Platform developers can use these same technologies to deploy a solution into the correct environment. This pipeline is typically simpler than one used by pro-code developers. Power Platform solutions aren’t compiled, for example, so there’s no build step.
+- Just as pro-code developers automate deployment with GitHub workflows and Azure Pipelines, Power Platform developers can use these same technologies to deploy a solution into the correct environment. This pipeline is typically simpler than one used by pro-code developers. Power Platform solutions aren’t compiled, for example, so there’s no build step.
 
 Using the Microsoft Cloud makes possible a modern process for fusion development that's built on shared technologies including GitHub and Azure DevOps.
 
