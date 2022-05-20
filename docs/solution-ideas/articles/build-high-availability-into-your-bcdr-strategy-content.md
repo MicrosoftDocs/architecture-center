@@ -2,12 +2,17 @@
 
 Virtual machines (VMs) are physically separated across zones, and a virtual network is created using load balancers at each site. These locations are close enough for high availability replication, so your applications stay running, despite any issues at the physical locations.
 
+## Potential use cases
+
+* Hospitals
+* Data centers
+
 ## Architecture
 
 ![Architecture Diagram](../media/build-high-availability-into-your-bcdr-strategy.png)
 *Download an [SVG](../media/build-high-availability-into-your-bcdr-strategy.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
 1. Create zone-redundant Load Balancer.
 1. Create front-end subnet.

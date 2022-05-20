@@ -2,17 +2,22 @@
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution demonstrates how to use [knowledge mining](https://azure.microsoft.com/solutions/knowledge-mining/) in business process management.
+This solution demonstrates how to use [knowledge mining](https://azure.microsoft.com/solutions/knowledge-mining) in business process management.
 
 ## Potential use cases
 
 When organizations task employees with the review and research of technical data, it can be tedious to read page after page of dense text. Knowledge mining helps employees quickly review these materials. Knowledge mining can help avoid costly mistakes in industries where bidding competition is fierce. Or, in scenarios when the diagnosis of a problem must be quick or in near real time.
 
+* Sales
+* IT service management
+* Finances
+* Logicstics
+
 ## Architecture
 
 ![Architecture Diagram: knowledge mining in business process management, with three steps: ingest, enrich, and explore.](../media/knowledge-mining-business-process-management.png)
 
-### Data flow
+### Dataflow
 
 There are three steps in knowledge mining: ingest, enrich, and explore.
 
@@ -38,14 +43,14 @@ There are three steps in knowledge mining: ingest, enrich, and explore.
 
 Key technologies used to implement tools for technical content review and research
 
-- [Azure Cognitive Search](/azure/search/)
+- [Azure Cognitive Search](/azure/search)
 - [Cognitive Services Form Recognizer](https://azure.microsoft.com/services/cognitive-services/form-recognizer)
 - [Web API custom skill interface](/azure/search/cognitive-search-custom-skill-interface)
 
 ## Next steps
 
-- Use the [knowledge mining solution accelerator](/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining/) to build an initial knowledge mining prototype with Azure Cognitive Search.
+- Use the [knowledge mining solution accelerator](/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining) to build an initial knowledge mining prototype with Azure Cognitive Search.
 
 - Build an Azure Cognitive Search [custom skill](/azure/search/cognitive-search-custom-skill-interface).
 
-- Explore the Microsoft Learning Path [knowledge mining with Azure Cognitive Search](/learn/paths/implement-knowledge-mining-azure-cognitive-search/).
+- Explore the Microsoft Learning Path [knowledge mining with Azure Cognitive Search](/learn/paths/implement-knowledge-mining-azure-cognitive-search).

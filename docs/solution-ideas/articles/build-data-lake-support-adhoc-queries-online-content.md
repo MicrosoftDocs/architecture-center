@@ -46,7 +46,7 @@ these documents. For example, users may need to search by a known transaction
 ID, or by a customer name on a certain date, to retrieve a set of documents that
 is interesting to them.
 
-### Workflow
+### Dataflow
 
 The concept behind this architecture consists in decoupling the metadata useful
 for searching from bare data: 
@@ -329,7 +329,7 @@ select * from metadata where transactionId = '123456'
 
 ## Pricing
 
-In general, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs. See the cost section in [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/) to learn about other considerations.
+In general, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs. See the cost section in [Microsoft Azure Well-Architected Framework](/azure/architecture/framework) to learn about other considerations.
 
 ## Next steps
 
@@ -337,7 +337,7 @@ In general, use the [Azure pricing calculator](https://azure.microsoft.com/prici
 -   [Delta Lake in Azure Synapse Analytics](/azure/synapse-analytics/spark/apache-spark-what-is-delta-lake)
 -   [Delta Lake in Azure Databricks](/azure/databricks/delta/delta-streaming)
 -   [Spark Structured Streaming](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html)
--   [Azure Synapse Analytics](/azure/synapse-analytics/)
+-   [Azure Synapse Analytics](/azure/synapse-analytics)
 -   [What is Delta Lake in Azure Synapse Analytics](/azure/synapse-analytics/spark/apache-spark-what-is-delta-lake)
 -   [Azure Databricks Delta Lake and Delta Engine guide](/azure/databricks/delta)
 -   [Describe Azure Databricks Delta Lake architecture](/learn/modules/describe-azure-databricks-delta-lake-architecture)

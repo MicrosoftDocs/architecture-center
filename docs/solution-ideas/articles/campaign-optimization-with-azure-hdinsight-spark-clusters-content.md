@@ -41,7 +41,7 @@ The [campaign optimization GitHub repo](https://github.com/Microsoft/r-server-ca
 
 ## Pricing
 
-This solution will create an HDInsight Spark cluster with Microsoft Machine Learning Server. This cluster will contain two head nodes, two worker nodes, and one edge node with a total of 32 cores. The approximate cost for this HDInsight Spark cluster can be estimated with the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/). Billing starts once a cluster is created and stops when the cluster is deleted. Billing is pro-rated per minute, so you should always delete your cluster when it is no longer in use. Use the Deployments page to delete the entire solution once you are done.
+This solution will create an HDInsight Spark cluster with Microsoft Machine Learning Server. This cluster will contain two head nodes, two worker nodes, and one edge node with a total of 32 cores. The approximate cost for this HDInsight Spark cluster can be estimated with the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator). Billing starts once a cluster is created and stops when the cluster is deleted. Billing is pro-rated per minute, so you should always delete your cluster when it is no longer in use. Use the Deployments page to delete the entire solution once you are done.
 
 ## Next steps
 
