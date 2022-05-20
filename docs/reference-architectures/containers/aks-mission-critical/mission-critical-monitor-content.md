@@ -177,7 +177,7 @@ There are currently two types of dashboards provided as part of the Reference Im
 
 Azure Portal Dashboard
 
-This can be found by browsing to the Resource Group of the primary stamp of any release unit (prod, int or e2e). There is a resource called <prefix>-global-dashboard dashboard in resource group
+This can be found by browsing to the Resource Group of the primary stamp of any release unit (prod, int or e2e). There is a resource called _prefix_-global-dashboard dashboard in resource group
 Click on that resource and select "Go to dashboard
 
 azure portal dashboard

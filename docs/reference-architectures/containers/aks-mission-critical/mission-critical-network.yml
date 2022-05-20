@@ -20,4 +20,4 @@ products:
   - azure-front-door
 thumbnailUrl: /azure/architecture/browse/thumbs/mission-critical-online.png
 content: |
-   [!include[](mission-critical-monitor-network.md)]
+   [!include[](mission-critical-network.md)]

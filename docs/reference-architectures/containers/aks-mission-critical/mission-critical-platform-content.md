@@ -43,6 +43,8 @@ for each resource in regional resources:
 - Log analytics set up
 - Health services --> Start with this.
 
+## Operations
+
 --- 
 ## Dump zone
 
@@ -50,7 +52,7 @@ for each resource in regional resources:
 
 A _scale unit_ approach is recommended for mission critical workloads where a set of resources can be independently scaled and deployed to keep up with the changes in demand.
 
-![Regional resources](./images/mission-critical-regional-stamp.png)
+![stamp pic]
 
 A scale unit is a logical collection of resources. A stamp is a physical manifest of resources to be deployed. A stamp contains one or more scale units. They are meant to be short lived. After a stamp has served its purpose, it can be removed. 
 
@@ -105,9 +107,9 @@ Infrastructure layer contains all infrastructure components and underlying found
 
 > Note: Bicep (ARM DSL) was considered during the early stages as part of a proof-of-concept. Please refer to the following [(archived stub)](/docs/reference-implementation/ZZZ-Archived-Bicep.md) for more details.
 
-[Configuration layer](/src/config/README.md) applies the initial configuration and additional services on top of the infrastructure components deployed as part of infrastructure layer.
+[Configuration layer]() applies the initial configuration and additional services on top of the infrastructure components deployed as part of infrastructure layer.
 
-[Application layer](/src/app/README.md) contains all components and dependencies related to the application workload itself.
+[Application layer]() contains all components and dependencies related to the application workload itself.
 
 ## Architecture
 
@@ -316,8 +318,8 @@ Azure Policy is used to monitor and enforce certain baselines. All policies are 
 
 This repository also contains a couple of supporting services for the Azure Mission-Critical project:
 
-- [Self-hosted Agents](./build-agents/README.md)
-- [Locust Load Testing](../testing/loadtest-locust/README.md)
+- [Self-hosted Agents]()
+- [Locust Load Testing]()
 
 These supporting services are required / optional based on how you chose to use Azure Mission-Critical.
 
