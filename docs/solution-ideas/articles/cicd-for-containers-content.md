@@ -13,16 +13,16 @@ By setting up a continuous build to produce your container images and orchestrat
 
 ### Dataflow
 
-1. Change application source code
-1. Commit Application Code
-1. Continuous integration triggers application build, container image build and unit tests
-1. Container image pushed to Azure Container Registry
-1. Continuous deployment trigger orchestrates deployment of application artifacts with environment-specific parameters
-1. Deployment to Azure Kubernetes Service (AKS)
-1. Container is launched using Container Image from Azure Container Registry
-1. Application Insights collects and analyses health, performance, and usage data
-1. Review health, performance and usage information
-1. Update backlog item
+1. Change application source code.
+1. Commit Application Code.
+1. Continuous integration triggers application build, container image build and unit tests.
+1. Container image pushed to Azure Container Registry.
+1. Continuous deployment trigger orchestrates deployment of application artifacts with environment-specific parameters.
+1. Deployment to Azure Kubernetes Service (AKS).
+1. Container is launched using Container Image from Azure Container Registry.
+1. Application Insights collects and analyses health, performance, and usage data.
+1. Review health, performance and usage information.
+1. Update backlog item.
 
 ### Components
 
