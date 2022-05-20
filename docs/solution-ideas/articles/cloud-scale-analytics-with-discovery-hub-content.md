@@ -4,8 +4,6 @@ Use TimeXtender to define a data estate using a graphical user interface, with d
 
 ## Potential use cases
 
-Organizations use this due to:
-
 * No infrastructure issues or maintenance
 * Consistent performance
 * Deploy and manage both the architecture and the data pipelines, data models and semantic models
