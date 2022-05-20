@@ -4,6 +4,8 @@ Businesses use blockchain to digitize workflows they share with other organizati
 
 ## Potential use cases
 
+This solution is ideal for the manufacturing and healthcare industries, and it's optimized for the following scenarios:
+
 * Supply chain management
 * Medical data management
 * Smart contract platforms
