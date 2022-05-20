@@ -43,5 +43,5 @@ Microsoft Learn modules:
 ## Related resources
 
 - [Hybrid architecture design](../../hybrid/hybrid-start-here.md)
-- [Enhanced-security hybrid messaging infrastructure — desktop-client access](../../example-scenario/hybrid/secure-hybrid-messaging-client.yml)
+- [Enhanced-security hybrid messaging infrastructure — desktop client access](../../example-scenario/hybrid/secure-hybrid-messaging-client.yml)
 - [Enhanced-security hybrid messaging infrastructure — web access](../../example-scenario/hybrid/secure-hybrid-messaging-web.yml)
