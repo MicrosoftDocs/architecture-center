@@ -20,14 +20,10 @@ This article presents Azure security services according to each Azure service. I
 
 The Azure security layer in this diagram is based on Azure Security Benchmark (ASB) v3, which is a set of security rules that are implemented through Azure policies. ASB is based on a combination of rules from [CIS Center for Internet Security](https://www.cisecurity.org/) and [National Institute of Standards and Technology](https://www.nist.gov/). For more information about ASB, see [Overview of the Azure Security Benchmark v3](/security/benchmark/azure/overview).
 
-The diagram doesn't contain all the Azure security services that are available, but it shows the security services that are most commonly used by organizations. 
+The diagram doesn't contain all the Azure security services that are available, but it shows the security services that are most commonly used by organizations. All the security services that are identified in the architectural diagram can work together in any combination according to your IT environment and your organization's security requirements.
 
 
 ### Workflow
-
-## Components
-
-In this article, we highlight only the services that are presented in the diagram. All the security services that are identified in the architectural diagram can work together in any combination according to your IT environment and your organization's security requirements.
 
 This section describes the components and services that appear in the diagram. Many of those are labeled with their ASB control codes, in addition to their abbreviated labels. The control codes correspond to the control domains that are listed in [Controls](/security/benchmark/azure/overview#controls). 
 
@@ -108,6 +104,27 @@ This section describes the components and services that appear in the diagram. M
     | **PIM** | Privileged Identity Management (PIM), a security service from Azure AD. It helps you to provide superuser privileges temporarily for Azure AD (for example, Global Admin) and Azure subscriptions (for example, owner or contributor). | [What is Azure AD Privileged Identity Management](/azure/active-directory/privileged-identity-management/pim-configure)? |
     | **COND ACC** | Conditional Access is an intelligent security service that uses policies that you define for various conditions to block or grant access to users. | [What is Conditional Access?](/azure/active-directory/conditional-access/overview) |
 
+## Components
+
+The example architecture in this article uses the following Azure components:
+
+- [Azure AD](https://azure.microsoft.com/services/active-directory) is a cloud-based identity and access management service. Azure AD helps your users to access external resources, such as Microsoft 365, the Azure portal, and thousands of other SaaS applications. It also helps them access internal resources, like apps on your corporate intranet network.
+
+- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is the fundamental building block for your private network in Azure. Virtual Network enables many types of Azure resources to securely communicate with each other, the internet, and on-premises networks. Virtual Network is like a traditional network that you'd operate in your own datacenter, but with the added benefits of Azure's infrastructure, such as scale, availability, and isolation.
+
+- [Azure Load Balancer](https://azure.microsoft.com/services/load-balancer) is a high-performance, ultra low-latency Layer 4 load-balancing service (inbound and outbound) for all UDP and TCP protocols. It's built to handle millions of requests per second while ensuring that your solution is highly available. Azure Load Balancer is zone-redundant, ensuring high availability across Availability Zones.
+
+- [Virtual machines](https://azure.microsoft.com/services/virtual-machines) is one of several types of on-demand, scalable computing resources that Azure offers. An Azure virtual machine (VM) gives you the flexibility of virtualization without having to buy and maintain the physical hardware that runs it.
+
+- [Azure Kubernetes service](https://azure.microsoft.com/services/kubernetes-service) (AKS) is a fully managed Kubernetes service for deploying and managing containerized applications. AKS provides serverless Kubernetes, CI/CD, and enterprise-grade security and governance.
+
+- [Azure Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop) is the fundamental building block for private networks in Azure. Azure resources like virtual machines (VMs) can securely communicate with each other, the internet, and on-premises networks through Azure virtual networks.
+
+- [Web Apps](https://azure.microsoft.com/services/app-service/web) is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. You can develop in your favorite language, and applications run and scale with ease on both Windows and Linux-based environments.
+
+- [Azure Storage](https://azure.microsoft.com/product-categories/storage) is highly available, massively scalable, durable, and secure storage for various data objects in the cloud, including object, blob, file, disk, queue, and table storage. All data written to an Azure storage account is encrypted by the service. Azure Storage provides you with fine-grained control over who has access to your data.
+
+- [Azure SQL database](https://azure.microsoft.com/products/azure-sql/database) is a fully managed PaaS database engine that handles most of the database management functions such as upgrading, patching, backups, and monitoring. It provides these functions without user involvement. SQL Database provides a range of built-in security and compliance features to help your application meet security and compliance requirements.
 
 ## Contributors
 
@@ -144,6 +161,15 @@ In the following resources, you can find more information about the services, te
 - [Microsoft 365 Defender](/security/business/threat-protection/microsoft-365-defender)
 
 ## Related resources
+
+To get all details regarding this reference architecture, see the other articles in this series:
+
+- Part 1: [Use Azure monitoring to integrate security components](../../guide/security/azure-monitor-integrate-security-components.yml)
+- Part 2: [Map threats to your IT environment](./map-threats-it-environment.yml)
+<!-- - Part 3: [Building the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml) -->
+- Part 4: [Build the second layer of defense with Microsoft 365 Defender Security services](./microsoft-365-defender-build-second-layer-defense-content.md)
+- Part 5: [Integration between Azure and Microsoft 365 Defender security services](./microsoft-365-defender-security-integrate-azure.yml)
+
 
 - [Azure files accessed on-premises and secured by AD DS](../../example-scenario/hybrid/azure-files-on-premises-authentication.yml)
 - [Network-hardened web application with private connectivity to PaaS datastores](../../example-scenario/security/hardened-web-app.yml)
