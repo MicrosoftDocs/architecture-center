@@ -20,7 +20,7 @@ By setting up a continuous build to produce your container images and orchestrat
 1. Continuous deployment trigger orchestrates deployment of application artifacts with environment-specific parameters.
 1. Deployment to Azure Kubernetes Service (AKS).
 1. Container is launched using Container Image from Azure Container Registry.
-1. Application Insights collects and analyses health, performance, and usage data.
+1. Application Insights collect and analyze health, performance, and usage data.
 1. Review health, performance and usage information.
 1. Update backlog item.
 
