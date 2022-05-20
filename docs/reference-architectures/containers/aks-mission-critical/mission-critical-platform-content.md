@@ -1,7 +1,7 @@
 <!intro>
 - Revist main principles that should be considered (add examples from RI where implemented)
 - Talk about geo distribution
-
+  - Global routing
 
 ## Shared resources
 - Overall reliability consideration
@@ -22,21 +22,22 @@ for each resource in regional resources:
     Talk about secondary aspects such as security
 
 ## Capacity planning
-- Talk about scale units here?
+- Scale unit discussion
+- IP planning
 
 ## Networking consideration
-- Global routing
 - Vnet/subnetting
-- IP planning
-- Allowed/denied traffic
-- Health probes
 
 ## Security
+- Allowed/denied traffic
 - Identity and access management
+  - SAS tokens
+  - Managed identity
 - Data in transit
 - Data at rest
 
-## Monitoring setup
+## Observability setup
+- Health probes
 - Platform logs and metrics
 - Observability from AKS
 - Log analytics set up
