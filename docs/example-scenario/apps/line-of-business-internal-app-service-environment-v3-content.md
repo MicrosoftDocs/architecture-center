@@ -16,30 +16,30 @@ There are three flows with callouts in this architecture: Operations (orange), D
 
 #### Operations
 
-1. Operators or Administrators wanting to perform administration tasks on the CI/CD server, or on the Kudu endpoint for the App Service Environment (ASE), would need to first connect to the Bastion Host.
-2. Using the Bastion host, the operator or administrator can then RDP into the Jumpbox server.
-3. From the Jumpbox server, the operator or administrator can RDP into the CI/CD server and perform the required tasks, such as agent upgrades, OS upgrades, etc. The operator or administrator can also connect from the Jumpbox server to the Kudu endpoint of the ASE to perform administrative tasks or perform advanced troubleshooting.
+1. Operators or administrators will want to perform administration tasks on the continuous integration/continuous deployment (CI/CD) server, or on the Kudu endpoint for the App Service Environment (ASE). First, they'll need to connect to the Azure Bastion host.
+2. Using the Bastion host, the operator or administrator can then use Remote Desk Protocol (RDP) to access the jumpbox server.
+3. From the jumpbox server, the operator or administrator can RDP into the CI/CD server and perform the required tasks, such as agent upgrades, OS upgrades, and so on. The operator or administrator can also connect from the jumpbox server to the Kudu endpoint of the ASE instance, to perform administrative tasks or to perform advanced troubleshooting.
 
 #### Deployment
 
-1. Deployment of the solution is performed via the CI/CD Agent server. The DevOps agent on this server will connect with an Azure DevOps pipeline when a new deployment is executed.
+1. Deployment of the solution is performed via the CI/CD agent server. The DevOps agent on this server will connect with Azure Pipelines when a new deployment is executed.
 2. The artifacts will then be deployed to the App Service by connecting to the App Service Environment (ASE) over the VNet peering.
 
 #### User
 
-1. Users that want to connect to the deployed App Service will be able to do so over the company's network, using any existing Express Route or VPN if required, and/or over any applicable Azure VNet peering.
+1. Users can connect to the deployed App Service over the company's network, by using Azure ExpressRoute or a VPN if required, and/or over any applicable Azure VNet peering.
 
 ### Components
 
 The solution uses the following Azure services:
 
-- **[App Service Environment v3 (ASEv3)](/azure/app-service/environment/overview)** is a single tenant  service for customers that require high scale, network isolation and security, and/or high memory utilization. Apps are hosted in [App Service plans](/azure/app-service/overview-hosting-plans) created in ASEv3 with options of using different tiers within an Isolated v2 Service Plan. Compared to earlier version of ASE numerous improvements have been made including, but not limited to, network dependency, scale time, and the removal of the stamp fee. This solution uses an App Service Environment v3, configured for internal access. 
+- **[Azure App Service Environment v3 (ASEv3)](/azure/app-service/environment/overview)** is a single tenant  service for customers that require high scale, network isolation and security, and/or high memory utilization. Apps are hosted in [App Service plans](/azure/app-service/overview-hosting-plans) created in ASEv3 with options of using different tiers within an Isolated v2 Service Plan. Compared to earlier version of ASE numerous improvements have been made including, but not limited to, network dependency, scale time, and the removal of the stamp fee. This solution uses an App Service Environment v3, configured for internal access. 
   
  - **[Azure Private DNS Zones](/azure/dns/private-dns-privatednszone)** allow users to manage and resolve domain names within a virtual network without needing to implement a custom DNS solution. A Private Azure DNS zone can be aligned to one or more virtual networks through [virtual network links](/azure/dns/private-dns-virtual-network-links). Due to the internal nature of the ASEv3 this reference architecture uses, a private DNS zone is required to resolve the domain names of applications hosted on the App Service Environment.
 
-- **[Application Insights](/azure/azure-monitor/app/app-insights-overview)** is a feature of Azure Monitor that helps Developers detect anomalies, diagnose issues, and understand usage patterns with extensible application performance management and monitoring for live web apps. A variety of platforms including .NET, Node.js, Java, and Python are supported for apps that are hosted in Azure, on-prem, hybrid, or other public clouds. Application Insights is included as part of this reference architecture to monitor behaviors of the deployed application.
+- **[Azure Application Insights](/azure/azure-monitor/app/app-insights-overview)** is a feature of Azure Monitor that helps Developers detect anomalies, diagnose issues, and understand usage patterns with extensible application performance management and monitoring for live web apps. A variety of platforms including .NET, Node.js, Java, and Python are supported for apps that are hosted in Azure, on-prem, hybrid, or other public clouds. Application Insights is included as part of this reference architecture to monitor behaviors of the deployed application.
 
-- **[Log Analytics](/azure/azure-monitor/logs/log-analytics-overview)** is a feature of Azure Monitor that allows users to edit and run log queries with data in Azure Monitor Logs, optionally from within the Azure portal. Developers can run simple queries for a set of records or use Log Analytics to perform advanced analysis and visualize the results. Log Analytics is configured as part of this reference architecture to aggregate all the monitoring logs for additional analysis and reporting.
+- **[Azure Log Analytics](/azure/azure-monitor/logs/log-analytics-overview)** is a feature of Azure Monitor that allows users to edit and run log queries with data in Azure Monitor Logs, optionally from within the Azure portal. Developers can run simple queries for a set of records or use Log Analytics to perform advanced analysis and visualize the results. Log Analytics is configured as part of this reference architecture to aggregate all the monitoring logs for additional analysis and reporting.
 
 - **[Azure Virtual Machine](/azure/virtual-machines/windows/overview)** is an on-demand, scalable computing resource that can be used to host a number of different workloads. In this reference architecture, virtual machines are used to provide a management jumpbox server, and to provide a host for the DevOps Agent / GitHub Runner. 
 
@@ -56,7 +56,6 @@ A [self-hosted GitHub Runner](https://docs.github.com/en/enterprise-server@3.5/a
 ## Considerations
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
-
 
 ### Reliability
 
@@ -86,7 +85,6 @@ For different environments collect telemetry data into different Application Ins
 - Consider using prefixes and suffixes with well-defined conventions to uniquely identify every deployed resource. These naming conventions avoid conflicts when deploying solutions next to each other and improve overall team agility and throughput.
 - Depending on the network configuration, App Services might not be reachable from the public internet and the use of public hosted agents will not work for deployments. Plan to use [self-hosted agents](https://azure.github.io/AppService/2021/01/04/deploying-to-network-secured-sites.html) in that scenario.
 
-
 ## Deploy this scenario
 
 To get started, review the reference implementation resources at [LOB-ILB-ASEv3](https://github.com/Azure/appservice-landing-zone-accelerator/tree/docs-update/docs) to better understand the specifics of this implementation.
@@ -101,9 +99,18 @@ To get started, review the reference implementation resources at [LOB-ILB-ASEv3]
 
 * [Security in Azure App Service](/azure/app-service/overview-security)
 * [Networking for App Service](/azure/app-service/networking-features)
+* [Landing zone accelerator for App Service](/azure/cloud-adoption-framework/scenarios/app-platform/app-services/landing-zone-accelerator)
+
+Learn more about these key services:
+* [Azure App Service Environment v3 (ASEv3)](/azure/app-service/environment/overview)
+* [Azure Private DNS Zones](/azure/dns/private-dns-privatednszone)
+* [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview)
+* [Azure Log Analytics](/azure/azure-monitor/logs/log-analytics-overview)
+* [Azure Virtual Machines overview](/azure/virtual-machines/windows/overview)
+* [Azure Key Vault concepts](/azure/key-vault/general/basic-concepts)
+* [Azure Bastion](/azure/bastion/bastion-overview)
 
 ## Related resources
 
 * [High availability enterprise deployment using App Services Environment](/azure/architecture/reference-architectures/enterprise-integration/ase-high-availability-deployment)
 * [Enterprise deployment using App Services Environment](/azure/architecture/reference-architectures/enterprise-integration/ase-standard-deployment)
-* [Landing zone accelerator for App Service](/azure/cloud-adoption-framework/scenarios/app-platform/app-services/landing-zone-accelerator)
