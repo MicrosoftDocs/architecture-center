@@ -1266,13 +1266,13 @@ items:
                   - name: DoD IL4
                     href: /azure/compliance/offerings/offering-dod-il4
                     maintainContext: true
-                  - name: DoD IL4 Rgulatory Compliance built-in
+                  - name: DoD IL4 Regulatory Compliance built-in
                     href: /azure/governance/policy/samples/gov-dod-impact-level-4
                     maintainContext: true
                   - name: DoD IL5
                     href: /azure/compliance/offerings/offering-dod-il5
                     maintainContext: true
-                  - name: DoD IL5 Rgulatory Compliance built-in
+                  - name: DoD IL5 Regulatory Compliance built-in
                     href: /azure/governance/policy/samples/gov-dod-impact-level-5
                     maintainContext: true
                   - name: DoD IL6
