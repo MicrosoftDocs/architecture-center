@@ -2,9 +2,7 @@ For customers in segments that are tightly governed and restricted by compliance
 
 ## Architecture
 
-![](./media/architecture-line-of-business-internal-app-service-environment-v3.png)
-
-:::image type="complex" source="./media/app-gateway-internal-api-management-function.png" alt-text="Diagram that shows the architecture of the App Service Environment v3 landing zone accelerator.":::
+:::image type="complex" source="./media/architecture-line-of-business-internal-app-service-environment-v3.png" alt-text="Diagram that shows the architecture of the App Service Environment v3 landing zone accelerator.":::
    The entirety of this image is in the scope of a subscription and a private DNS Zone, denoted by a subscription icon and a a Private DNS zone icon in the top-left corner. Below these icons, two blocks are side by side. They represent two virtual networks, with VNet peering between them. The block on the left represents the hub VNet, and the block on the right represents the spoke VNet. Within the left box, there are three smaller boxes. Each box indicates a different subnet and its associated network security group. Starting from the top left is an Azure Bastion instance within the Bastion subnet, and the top right is the jumpbox VM, which resides in the jumpbox subnet. On the bottom right is the third and last box in the hub VNet, which contains the CI/CD agent server that resides in the CI/CD subnet. The box on the right, which represents the spoke VNet, contains only one smaller box, the ASE subnet that has the App Service Environment v3 instance within it. A smaller box represents the App Service Environment. The App Service icon is inside that box. On the bottom center of the image, are shared resources that are also deployed as part of the process. Starting from left to right, the shared resources include Azure Key Vault, Azure Log Analytics workspace, and Azure Application Insights.
 :::image-end:::
 
