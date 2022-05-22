@@ -4498,6 +4498,8 @@ items:
                     href: hybrid/azure-arc-hybrid-config.yml
                   - name: Manage hybrid workloads with WAC
                     href: hybrid/hybrid-server-os-mgmt.yml
+              - name: Line-of-business app with ASEv3
+                href: example-scenario/apps/line-of-business-internal-app-service-environment-v3.yml
           - name: Solution ideas
             items:
               - name: Archive on-premises data to cloud
