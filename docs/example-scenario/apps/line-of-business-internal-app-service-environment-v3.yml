@@ -19,7 +19,7 @@ products:
   - azure-application-insights
   - azure-log-analytics
   - azure-key-vault
-name: Deploy a line-of-business applications using Azure App Service Environment v3
+name: Deploy a line-of-business application using Azure App Service Environment v3
 summary: Learn how to deploy line-of-business applications with an internal App Service Environment v3, while considering networking boundaries, DevOps, management, and more.
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-line-of-business-internal-app-service-environment-v3.png
 content: |
