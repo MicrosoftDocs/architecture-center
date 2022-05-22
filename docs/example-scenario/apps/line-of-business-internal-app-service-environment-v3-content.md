@@ -81,25 +81,23 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
-- Use Application Insights or another Application Performance Management solution to monitor and learn how your application behaves in different environments.
-    - Two ways to enable [Application Insights](/azure/azure-monitor/app/app-insights-overview) currently exist.
-For different environments collect telemetry data into different Application Insights instances.
-    - If your application has multiple components separated into different services but you would like to examine their behavior together, then collect their telemetry data into same Application Insights instance but label them with different cloud role names.
-    - Export Application Insights data to an [Azure Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) Workspace. A single Workspace for the organization is recommended.
-    - Include operational dashboards in application and feature design to ensure the solution can be supported in production.
-    - Implement health checks for your endpoints and use them for health probes, dependency checks and availability tests.
-- Consider using prefixes and suffixes with well-defined conventions to uniquely identify every deployed resource. These naming conventions avoid conflicts when deploying solutions next to each other and improve overall team agility and throughput.
-- Depending on the network configuration, App Services might not be reachable from the public internet and the use of public hosted agents will not work for deployments. Plan to use [self-hosted agents](https://azure.github.io/AppService/2021/01/04/deploying-to-network-secured-sites.html) in that scenario.
+- Use Application Insights or another application performance management solution to monitor and learn how your application behaves in different environments.
+    - There are two ways to enable [Application Insights](/azure/azure-monitor/app/app-insights-overview). For different environments collect telemetry data into different Application Insights instances.
+    - If your application has multiple components separated into different services, you might want to examine their behavior together. Collect their telemetry data into the same Application Insights instance, but label them with different cloud role names.
+    - Export the Application Insights data to an [Azure Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) workspace. We recommend you use a single workspace for the organization.
+    - Include operational dashboards in application and feature design, to ensure the solution can be supported in production.
+    - Implement health checks for your endpoints, and then use them for health probes, dependency checks, and availability tests.
+- Consider using prefixes and suffixes with well-defined conventions, to uniquely identify every deployed resource. These naming conventions avoid conflicts, when you deploy solutions next to each other and improve the overall team agility and throughput.
+- Depending on the network configuration, App Service might not be reachable from the public internet, and the use of public hosted agents won't work for deployments. Use [self-hosted agents](https://azure.github.io/AppService/2021/01/04/deploying-to-network-secured-sites.html) in that scenario.
 
 ## Deploy this scenario
 
-To get started, review the reference implementation resources at [LOB-ILB-ASEv3](https://github.com/Azure/appservice-landing-zone-accelerator/tree/docs-update/docs) to better understand the specifics of this implementation.
+To get started and better understand the specifics of this implementation, review the reference implementation resources, at [User Guide for Reference Implementation Deployment](https://github.com/Azure/appservice-landing-zone-accelerator/tree/docs-update/docs).
 
-- It is recommended that you clone this repo and modify the reference implementation resources to suit your requirements and your organization's specific landing zone guidelines.
-- Before deploying, ensure that the service principal used to deploy the solution has the required permissions to create the resource types listed above.
-- Consider the CI/CD service you will use for deploying the reference implementation. As this reference implementation is an internal ASE, a self-hosted agent is needed to execute the deployment pipelines.  As such there is a choice to use either a DevOps Agent or a GitHub Runner. Refer to the [user guide](https://github.com/Azure/appservice-landing-zone-accelerator/tree/docs-update/docs) on specific configuration values required for each.
-- Consider the region(s) to which you intend deploying this reference implementation, and consult the [ASEv3 Regions list](/azure/app-service/environment/overview#regions) to ensure the selected region(s) are enabled for deployment.
-
+- We recommend that you clone this repo and modify the reference implementation resources to suit your requirements and your organization's specific landing zone guidelines.
+- Before deploying, ensure that the service principal that's used to deploy the solution has the required permissions to create the resource types that we listed above.
+- Consider the CI/CD service that you'll use to deploy the reference implementation. As this reference implementation is an internal ASE, you'll need a self-hosted agent to execute the deployment pipelines. You have the choice to use either a DevOps agent or a GitHub runner. Refer to the [user guide](https://github.com/Azure/appservice-landing-zone-accelerator/tree/docs-update/docs) on the specific configuration values that are required.
+- Consider the region(s) to which you intend to deploy this reference implementation. Consult the [ASEv3 Regions list](/azure/app-service/environment/overview#regions) to ensure the selected region(s) are enabled for deployment.
 
 ## Next steps
 
@@ -119,4 +117,6 @@ Learn more about these key services:
 ## Related resources
 
 * [High availability enterprise deployment using App Services Environment](/azure/architecture/reference-architectures/enterprise-integration/ase-high-availability-deployment)
-* [Enterprise deployment using App Services Environment](/azure/architecture/reference-architectures/enterprise-integration/ase-standard-deployment)
+* [Enterprise deployment using App Service Environment](/azure/architecture/reference-architectures/enterprise-integration/ase-standard-deployment)
+* [High availability enterprise deployment using App Service Environment](/azure/architecture/reference-architectures/enterprise-integration/ase-high-availability-deployment)
+* [E-commerce website running in secured App Service Environment](/azure/architecture/solution-ideas/articles/ecommerce-website-running-in-secured-ase)
