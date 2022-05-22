@@ -15,7 +15,7 @@ azureCategories:
   - management-and-governance
 products:
   - azure-app-service
-  - azure-private-dns
+  - azure-dns
   - azure-application-insights
   - azure-log-analytics
   - azure-key-vault
