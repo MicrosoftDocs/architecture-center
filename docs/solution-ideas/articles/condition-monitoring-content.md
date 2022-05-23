@@ -24,14 +24,11 @@ The data flows through the solution as follows:
 1. Azure IoT Hub connects the devices virtually to the cloud for further data processing. It enables a security-enhanced bidirectional communication between IoT applications and devices.
 1. The Industrial Services is made up of several microservices exposing a REST API. All Industrial Services are deployed to an Azure Kubernetes Service cluster. They implement business logic and functionality for discovery, registration, remote control, and post-processing telemetry of industrial devices. The REST APIs can be used in any programming language and framework that can call an HTTP endpoint.
 1. Azure Event Hubs transforms and stores the data. It provides a distributed stream processing platform with low latency and seamless integration.
-
-There are three predominant use cases in which the data provided by the Industrial Services is used:
-
-8. _Alternative 1:_ Store and analyze the data using Azure Time Series Insights (TSI). The telemetry processor in the Industrial IoT platform forwards contextualized samples to TSI and other consumers.
+1. In one case, store and analyze the data using Azure Time Series Insights (TSI). The telemetry processor in the Industrial IoT platform forwards contextualized samples to TSI and other consumers.
 1. The Time Series Insights Explorer is a web application you can use to visualize the telemetry.
-1. _Alternative 2:_ After the Industrial Services process the data, Azure Data Lake stores and further analyzes the data. Azure Data Lake is a massively scalable data lake with enterprise-grade security and auditing, which allows batch, stream, and interactive analytic programs to run with simplicity. Azure Data Lake solves many of the productivity and scalability challenges that prevent you from maximizing the value of your data assets.
+1. In another case, after the Industrial Services process the data, Azure Data Lake stores and further analyzes the data. Azure Data Lake is a massively scalable data lake with enterprise-grade security and auditing, which allows batch, stream, and interactive analytic programs to run with simplicity. Azure Data Lake solves many of the productivity and scalability challenges that prevent you from maximizing the value of your data assets.
 1. Explore your data with visual reports and collaborate, publish and share them with others. Power BI integrates with other tools, including Microsoft Excel, so you can get up to speed quickly and work seamlessly with your existing solutions.
-1. _Alternative 3:_ Azure Stream Analytics is a real time analytics service. It's easily extensible with custom code and built-in machine learning capabilities for more advanced scenarios.
+1. In a third case, Azure Stream Analytics is a real time analytics service. It's easily extensible with custom code and built-in machine learning capabilities for more advanced scenarios.
 1. Azure Functions is a serverless compute service, which allows you to run small pieces of code (called "functions") without worrying about application infrastructure. With Azure Functions, the cloud infrastructure provides all the up-to-date servers you need to keep your application running at scale.
 1. Azure Notification Hubs allow you to send notifications to a wide range of mobile platforms and can allow notification of operators and administrators on certain events or alerts that require immediate attention.
 
