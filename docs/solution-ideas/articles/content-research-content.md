@@ -11,7 +11,7 @@ When organizations task employees to review and research technical data, it can 
 Industries that rely on knowledge mining:
 
 * Marketing
-* Banking
+* Banking (finance)
 * Service Providers
 * Retail
 
