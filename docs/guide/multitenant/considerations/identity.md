@@ -107,7 +107,7 @@ When a user signs into a multitenant application, your identity system authentic
 
 In most solutions, an identity often represents a user. Some multitenant systems also allow *service identities* to be used by *services* and *applications* to gain access to your application resources. For example, your tenants might need to access an API provided by your solution so that they can automate some of their management tasks.
 
-Service identities are similar to user identities, but usually require different authentication methods, such as keys or certificates. Servide identities don't use multi-factor authentication (MFA). Instead, service identities usually require additional security controls such as regular key-rolling and certificate expiration.
+Service identities are similar to user identities, but usually require different authentication methods, such as keys or certificates. Service identities don't use multi-factor authentication (MFA). Instead, service identities usually require additional security controls such as regular key-rolling and certificate expiration.
 
 If your tenants expect to be able to enable service identity access to your multitenant solution then you should consider the following questions:
 
