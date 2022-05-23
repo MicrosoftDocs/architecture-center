@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: alexhart11
-ms.date: 05/18/2022
+ms.date: 05/23/2022
 ms.topic: article
 ms.service: architecture-center
 categories: 
@@ -26,12 +26,56 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
+- [Line-of-business application using Azure App Service Environment v3](./example-scenario/apps/line-of-business-internal-app-service-environment-v3.yml)
+- [Azure API Management landing zone accelerator](./example-scenario/integration/app-gateway-internal-api-management-function.yml)
+- [Supply chain management - Track and trace with Quorum Blockchain Service](./guide/blockchain/quorum-blockchain-service.yml)
+- [Create and deploy more applications in less time](./guide/microsoft-cloud/create-deploy-more-applications-less-time.md)
+- [Create and run secure applications](./guide/microsoft-cloud/create-run-secure-applications.md)
+- [Get the most value from technical talent](./guide/microsoft-cloud/get-most-value-technical-talent.md)
+- [Integrate new applications with existing solutions](./guide/microsoft-cloud/integrate-new-applications-existing-solutions.md)
+- [Build applications on the Microsoft Cloud](./guide/microsoft-cloud/overview.md)
+- [Build Applications on the Microsoft Cloud (summary)](./guide/microsoft-cloud/summary.md)
+- [DataOps architecture design](./data-guide/azure-dataops-architecture-design.md)
 - [Rehost a general mainframe on Azure](./example-scenario/mainframe/mainframe-rehost-architecture-azure.yml)
 - [Deploy microservices with Azure Container Apps and Dapr](./example-scenario/serverless/microservices-with-container-apps-dapr.yml)
 
 ### Updated articles
 
-- [AI enrichment with image and text processing](./solution-ideas/articles/cognitive-search-with-skillsets.yml)  ([#23d86bc3e](https://github.com/MicrosoftDocs/architecture-center/commit/23d86bc3e))
+- [Connected factory hierarchy service](./solution-ideas/articles/connected-factory-hierarchy-service.yml)  ([#77000cc9c](https://github.com/MicrosoftDocs/architecture-center/commit/77000cc9c))
+- [AKS container CI/CD with Jenkins and Kubernetes](./solution-ideas/articles/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service.yml)  ([#77000cc9c](https://github.com/MicrosoftDocs/architecture-center/commit/77000cc9c))
+- [Content Delivery Network analytics](./solution-ideas/articles/content-delivery-network-azure-data-explorer.yml)  ([#ea876570c](https://github.com/MicrosoftDocs/architecture-center/commit/ea876570c))
+- [Knowledge mining for content research](./solution-ideas/articles/content-research.yml)  ([#ea876570c](https://github.com/MicrosoftDocs/architecture-center/commit/ea876570c))
+- [Knowledge mining in contract management](./solution-ideas/articles/contract-management.yml)  ([#ea876570c](https://github.com/MicrosoftDocs/architecture-center/commit/ea876570c))
+- [Cross-cloud scaling with Azure Functions](./solution-ideas/articles/cross-cloud-scaling.yml)  ([#ea876570c](https://github.com/MicrosoftDocs/architecture-center/commit/ea876570c))
+- [Cross-platform chat](./solution-ideas/articles/cross-platform-chat.yml)  ([#ea876570c](https://github.com/MicrosoftDocs/architecture-center/commit/ea876570c))
+- [Enterprise deployment using Azure ASE](./reference-architectures/enterprise-integration/ase-standard-deployment.yml)  ([#c347481fe](https://github.com/MicrosoftDocs/architecture-center/commit/c347481fe))
+- [Cloud scale analytics with TimeXtender](./solution-ideas/articles/cloud-scale-analytics-with-discovery-hub.yml)  ([#912bfe7b0](https://github.com/MicrosoftDocs/architecture-center/commit/912bfe7b0))
+- [AI enrichment with image and text processing](./solution-ideas/articles/cognitive-search-with-skillsets.yml)  ([#912bfe7b0](https://github.com/MicrosoftDocs/architecture-center/commit/912bfe7b0))
+- [Real-time collaboration with Azure and Microsoft 365](./solution-ideas/articles/collaboration-microsoft-365.yml)  ([#912bfe7b0](https://github.com/MicrosoftDocs/architecture-center/commit/912bfe7b0))
+- [Design review powered by mixed reality](./solution-ideas/articles/collaborative-design-review-powered-by-mixed-reality.yml)  ([#912bfe7b0](https://github.com/MicrosoftDocs/architecture-center/commit/912bfe7b0))
+- [Build high availability into your BCDR strategy](./solution-ideas/articles/build-high-availability-into-your-bcdr-strategy.yml)  ([#9fb434a0e](https://github.com/MicrosoftDocs/architecture-center/commit/9fb434a0e))
+- [Dynamics Business Central as a service on Azure](./solution-ideas/articles/business-central.yml)  ([#9fb434a0e](https://github.com/MicrosoftDocs/architecture-center/commit/9fb434a0e))
+- [Campaign optimization with SQL Server](./solution-ideas/articles/campaign-optimization-with-sql-server.yml)  ([#c9976a6b9](https://github.com/MicrosoftDocs/architecture-center/commit/c9976a6b9))
+- [CI/CD for Azure VMs](./solution-ideas/articles/cicd-for-azure-vms.yml)  ([#c9976a6b9](https://github.com/MicrosoftDocs/architecture-center/commit/c9976a6b9))
+- [CI/CD for quantum computing jobs](./solution-ideas/articles/cicd-for-quantum-computing-jobs.yml)  ([#c9976a6b9](https://github.com/MicrosoftDocs/architecture-center/commit/c9976a6b9))
+- [Baseline architecture for an AKS cluster](./reference-architectures/containers/aks/secure-baseline-aks.yml)  ([#3db03e880](https://github.com/MicrosoftDocs/architecture-center/commit/3db03e880))
+- [Implement the Azure healthcare blueprint for AI](./industries/healthcare/healthcare-ai-blueprint.yml)  ([#7db5a2a8d](https://github.com/MicrosoftDocs/architecture-center/commit/7db5a2a8d))
+- [HPC media rendering](./solution-ideas/articles/azure-batch-rendering.yml)  ([#f198068aa](https://github.com/MicrosoftDocs/architecture-center/commit/f198068aa))
+- [Modern analytics architecture with Azure Databricks](./solution-ideas/articles/azure-databricks-modern-analytics-architecture.yml)  ([#f198068aa](https://github.com/MicrosoftDocs/architecture-center/commit/f198068aa))
+- [CI/CD for Windows desktop apps](./solution-ideas/articles/azure-devops-ci-cd-for-desktop-apps.yml)  ([#f198068aa](https://github.com/MicrosoftDocs/architecture-center/commit/f198068aa))
+- [Distributed training, deep learning models](./reference-architectures/ai/training-deep-learning.yml)  ([#90b3ba7cd](https://github.com/MicrosoftDocs/architecture-center/commit/90b3ba7cd))
+- [Build a content-based recommendation system](./example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml)  ([#1b06ada28](https://github.com/MicrosoftDocs/architecture-center/commit/1b06ada28))
+- [CI/CD for Azure Web Apps](./solution-ideas/articles/azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps.yml)  ([#a123734e9](https://github.com/MicrosoftDocs/architecture-center/commit/a123734e9))
+- [CI/CD for Microsoft Power Platform](./solution-ideas/articles/azure-devops-continuous-integration-for-power-platform.yml)  ([#a123734e9](https://github.com/MicrosoftDocs/architecture-center/commit/a123734e9))
+- [Azure digital twins builder](./solution-ideas/articles/azure-digital-twins-builder.yml)  ([#a123734e9](https://github.com/MicrosoftDocs/architecture-center/commit/a123734e9))
+- [Azure Machine Learning architecture](./solution-ideas/articles/azure-machine-learning-solution-architecture.yml)  ([#a123734e9](https://github.com/MicrosoftDocs/architecture-center/commit/a123734e9))
+- [Data management across Azure Data Lake with Azure Purview](./solution-ideas/articles/azure-purview-data-lake-estate-architecture.yml)  ([#a123734e9](https://github.com/MicrosoftDocs/architecture-center/commit/a123734e9))
+- [Manage data across Azure SQL estate with Azure Purview](./solution-ideas/articles/azure-purview-sql-estate-architecture.yml)  ([#2048589de](https://github.com/MicrosoftDocs/architecture-center/commit/2048589de))
+- [Azure VMware Solution capacity planning](./solution-ideas/articles/azure-vmware-solution-foundation-capacity.yml)  ([#2048589de](https://github.com/MicrosoftDocs/architecture-center/commit/2048589de))
+- [Azure VMware Solution landing zone](./solution-ideas/articles/azure-vmware-solution-foundation-landing-zone.yml)  ([#2048589de](https://github.com/MicrosoftDocs/architecture-center/commit/2048589de))
+- [Azure VMware Solution networking](./solution-ideas/articles/azure-vmware-solution-foundation-networking.yml)  ([#2048589de](https://github.com/MicrosoftDocs/architecture-center/commit/2048589de))
+- [Archive on-premises data to the cloud](./solution-ideas/articles/backup-archive-on-premises.yml)  ([#2048589de](https://github.com/MicrosoftDocs/architecture-center/commit/2048589de))
+- [JBoss deployment with Red Hat on Azure](./solution-ideas/articles/jboss-deployment-red-hat.yml)  ([#de4746681](https://github.com/MicrosoftDocs/architecture-center/commit/de4746681))
 - [Run SAP BW/4HANA with Linux VMs](./reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines.yml)  ([#9b2140708](https://github.com/MicrosoftDocs/architecture-center/commit/9b2140708))
 - [Unisys Dorado mainframe migration to Azure with Astadia and Micro Focus](./example-scenario/mainframe/migrate-unisys-dorado-mainframe-apps-with-astadia-micro-focus.yml)  ([#3c8e441a4](https://github.com/MicrosoftDocs/architecture-center/commit/3c8e441a4))
 - [Customer lifetime value and churn prediction with Azure AI services](./example-scenario/ai/customer-lifecycle-churn.yml)  ([#e5ae641d2](https://github.com/MicrosoftDocs/architecture-center/commit/e5ae641d2))
