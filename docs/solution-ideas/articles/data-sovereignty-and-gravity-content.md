@@ -6,7 +6,7 @@ Azure with Azure Stack enables organizations to make technology placement decisi
 
 Industries that can benefit from this service include:
 
-- Financial services
+- Financial services/finance
 - Government
 - Manufacturing
 - Retail
@@ -19,9 +19,9 @@ Industries that can benefit from this service include:
 
 ### Dataflow
 
-1. User enters data into Azure-based web app.
-1. Application commits data to database over virtual network-to virtual network VPN connection to Azure Stack.
-1. Data is stored in SQL database on virtual machine (VM).
+1. A user enters data into an Azure-based web app.
+1. The application commits the data to a database, over a virtual-network-to-virtual-network VPN connection to Azure Stack.
+1. The data is stored in a SQL database on a virtual machine (VM).
 
 ### Components
 
