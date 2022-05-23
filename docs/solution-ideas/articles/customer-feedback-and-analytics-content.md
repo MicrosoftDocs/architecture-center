@@ -1,8 +1,6 @@
-<!-- cSpell:ignore pracjain keyphrase -->
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-For many companies, customer support is costly and doesn't always operate efficiently. [Knowledge mining](https://azure.microsoft.com/solutions/knowledge-mining/) can help customer support teams quickly find the best answers to customer questions or assess customer sentiment at scale.
+For many companies, customer support is costly and doesn't always operate efficiently. [Knowledge mining](https://azure.microsoft.com/solutions/knowledge-mining) can help customer support teams quickly find the best answers to customer questions or assess customer sentiment at scale.
 
 ## Potential use cases
 
