@@ -85,16 +85,12 @@ The system that Swiss Re Group built for its Property & Casualty Reinsurance div
      - Assigning each user an access level.
      - Removing users and denying them access.
 
-<<<<<<< HEAD
    - Azure Monitor collects and analyzes Azure resource telemetry. By proactively identifying problems, this service maximizes performance and reliability.
-=======
-   - Azure Monitor collects and analyzes Azure resource telemetry. This service maximizes performance and reliability by proactively identifying problems.
->>>>>>> 01afb05d41643781342887167616a00184fcd9ef
    - Azure Cost Management and Billing provide financial governance services for Azure workloads.
 
 ### Components
 
-The solution uses the following components:
+The solution uses the following components.
 
 #### Core components
 
@@ -192,9 +188,5 @@ To learn about related solutions, see this information:
 [Stream processing with Azure Databricks]: ../../reference-architectures/data/stream-processing-databricks.yml
 [Swiss Re builds a digital payment platform by using Azure Databricks and Power BI]: https://customers.microsoft.com/story/1335371880067885708-swiss-re-drives-deeper-faster-insights-with-azure-synapse-analytics
 [DevOps solutions on Azure]: https://azure.microsoft.com/solutions/devops
-<<<<<<< HEAD
 [What is Microsoft Purview?]: /azure/purview/overview
-=======
-[What is Azure Purview?]: /azure/purview/overview
->>>>>>> 01afb05d41643781342887167616a00184fcd9ef
 [What is Power BI?]: /power-bi/fundamentals/power-bi-overview
