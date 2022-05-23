@@ -28,7 +28,7 @@ With private connectivity to a SQL database and high availability, this solution
 
 In the general case, the traffic flow and basic configuration look like the [single-region version][Web app private connectivity to Azure SQL database].
 
-#### Traffic flow
+#### Workflow
 
 1. Azure Front Door routes requests from the internet to a web app.
 1. By using Azure App Service regional VNet Integration, the web app connects to a delegated subnet named **AppSvcSubnet** in Azure Virtual Network.
@@ -156,21 +156,30 @@ In this case:
 
 In general, the [considerations that apply to the single-region version][Considerations that apply to the single-region version] also apply to this solution. Keep the following points in mind, too.
 
-### Availability considerations
+### Availability
 
 This approach achieves a higher availability than a single-region deployment does.
 
 From the point of view of the web app, you can use this architecture in either an active-passive configuration or an active-active configuration. With an active-active approach, Front Door routes traffic to both regions simultaneously.
 
-### Performance considerations
+### Performance
 
 A partial region failover involves cross-region connectivity, which increases latency. Instead of staying within a single region, app requests to the database cross the Azure network backbone into a remote Azure region.
 
 Some implementations can temporarily tolerate this behavior. After the failed app or database is restored, connectivity returns to normal inside a single region. However, in environments with strict latency requirements, even short-lived cross-region connectivity may pose a problem.
 
-### Security considerations
+### Security
 
 As with the single-region scenario, the web apps in this solution use fully private connections to securely connect to both backend databases. The public internet can't access either of the database servers. This type of setup eliminates a common attack vector.
+
+## Cost optimization
+
+- This solution effectively doubles the [cost of the single-region version][Cost of the single-region version]. But certain circumstances can affect this estimate:
+
+  - You use a scaled-down version of the App Service plan in the standby region and scale it up only when it becomes the active region.
+  - You have significant cross-region traffic. [Network traffic between Azure regions incurs charges][Bandwidth Pricing Details].
+
+- Make sure that [the primary and secondary databases use the same service tier][Configuring secondary database]. Otherwise, the secondary database may not keep up with replication changes.
 
 ## Deploy this scenario
 
@@ -190,15 +199,6 @@ At this point:
 
 - The apps in both regions should connect to both databases over their private endpoints.
 - Both apps should continue to function even if the database fails over to the other region.
-
-## Pricing
-
-- This solution effectively doubles the [cost of the single-region version][Cost of the single-region version]. But certain circumstances can affect this estimate:
-
-  - You use a scaled-down version of the App Service plan in the standby region and scale it up only when it becomes the active region.
-  - You have significant cross-region traffic. [Network traffic between Azure regions incurs charges][Bandwidth Pricing Details].
-
-- Make sure that [the primary and secondary databases use the same service tier][Configuring secondary database]. Otherwise, the secondary database may not keep up with replication changes.
 
 ## Next steps
 
@@ -224,7 +224,7 @@ At this point:
 [Complete region failover]: #alternatives
 [Configuring secondary database]: /azure/azure-sql/database/active-geo-replication-overview#configuring-secondary-database
 [Considerations that apply to the single-region version]: ../private-web-app/private-web-app.yml#considerations
-[Cost of the single-region version]: ../private-web-app/private-web-app.yml#cost
+[Cost of the single-region version]: ../private-web-app/private-web-app.yml#cost-optimization
 [Create a Private Endpoint]: /azure/private-link/create-private-endpoint-portal#create-a-private-endpoint
 [Create the SQL failover group]: /azure/azure-sql/database/failover-group-add-single-database-tutorial#2---create-the-failover-group
 [Deploy this scenario single-region version]: ../private-web-app/private-web-app.yml#deploy-this-scenario

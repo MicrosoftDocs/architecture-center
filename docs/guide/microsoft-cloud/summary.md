@@ -4,7 +4,7 @@ description: Summary of how the unified collection of services that the Microsof
 author: DanWahlin
 ms.author: dwahlin
 ms.contributors: dwahlin-5182022
-ms.date: 05/24/2022
+ms.date: 05/23/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -21,7 +21,7 @@ ms.custom:
   - team=cloud_advocates
 ---
 
-# Summary
+# Summary - Build applications on the Microsoft Cloud
 
 > [!Note]
 > This is article 6 of 6 in **Build applications on the Microsoft Cloud**.

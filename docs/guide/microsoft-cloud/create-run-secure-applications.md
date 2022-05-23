@@ -30,10 +30,10 @@ Good security protects your systems, and therefore your organization, against ac
 
 This article discusses ways that Microsoft Cloud can help you secure your systems.
 
-- [Use Azure Activity Directory for a unified identity and access management solution](#use-azure-activity-directory-for-a-unified-identity-and-access-management-solution)
+- [Use Azure Active Directory for a unified identity and access management solution](#use-azure-active-directory-for-a-unified-identity-and-access-management-solution)
 - [Use Microsoft Sentinel to monitor and manage the security of your applications](#use-microsoft-sentinel-to-monitor-and-manage-the-security-of-your-applications)
 
-## Use Azure Activity Directory for a unified identity and access management solution
+## Use Azure Active Directory for a unified identity and access management solution
 
 In our cloud-based world, employees and customers can access your custom applications from many devices in many different locations. Granting access to the right people, with the right restrictions, depends fundamentally on identity. Good security requires that each user prove their identity before they can access systems, and that they only access the resources they require to do their job.
 

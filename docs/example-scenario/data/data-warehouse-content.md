@@ -21,6 +21,8 @@ This approach can also be used to:
 
 ![Architecture for a data warehousing and analysis scenario in Azure](./media/architecture-data-warehousing.png)
 
+*Download a [Visio file](https://arch-center.azureedge.net/architecture-data-warehousing.vsdx) of this architecture.*
+
 The data flows through the solution as follows:
 
 1. For each data source, any updates are exported periodically into a staging area in Azure Blob storage.
