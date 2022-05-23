@@ -23,7 +23,7 @@ With this solution, you can ingest historical transaction data, predict future d
 
 ### Components
 
-* [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) stores the weekly raw sales data, which is read by Spark on HDInsight. As an alternative, use [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/).
+* [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) stores the weekly raw sales data, which is read by Spark on HDInsight. As an alternative, use [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs).
 * Spark on [HDInsight](https://azure.microsoft.com/services/hdinsight) ingests the data and executes data preprocessing, forecasting modeling, and price-optimization algorithms.
 * [Data Factory](https://azure.microsoft.com/services/data-factory) handles orchestration and scheduling of the model retraining.
 * [Power BI](https://powerbi.microsoft.com) enables visualization of results; monitor the results of the sales and predicted future demand and recommended optimal prices.

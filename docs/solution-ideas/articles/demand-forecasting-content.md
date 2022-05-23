@@ -4,23 +4,32 @@ Almost every business needs to predict the future to make better decisions and a
 
 This article focuses on presenting useful links to the forecasting best practices and an example of detailed architecture for an end-to-end implementation in Azure.
 
+## Potential use cases
+
+Some ways an organization can utilized demand forecasting.
+
+- Inventory planning for retail.
+- Network capacity planning.
+- Manpower planning.
+- Increased customer satisfaction.
+
 ## Architecture
 
 ![Architecture diagram](../media/demand-forecasting.png)
 *Download an [SVG](../media/demand-forecasting.svg) of this architecture.*
 
-### Workflow
+### Dataflow
 
-The Microsoft AI Platform provides advanced analytics tools through Microsoft Azure - data ingestion, data storage, data processing, and advanced analytics components - all of the essential elements for building a demand forecasting for energy solution.
+The Microsoft AI Platform provides advanced analytics tools through Microsoft Azure - data ingestion, data storage, data processing, and advanced analytics components. All of the essential elements for building a demand forecasting for energy solution.
 
 This solution combines several Azure services to provide actionable predictions:
 
   1. Event Hubs collects real-time consumption data.
-  2. Stream Analytics aggregates the streaming data and makes it available for visualization.
-  3. Azure SQL Database stores and transforms the consumption data.
-  4. Machine Learning implements and executes the forecasting model.
-  5. Power BI visualizes the real-time energy consumption and the forecast results.
-  6. Finally, Data Factory orchestrates and schedules the entire data flow.
+  1. Stream Analytics aggregates the streaming data and makes it available for visualization.
+  1. Azure SQL Database stores and transforms the consumption data.
+  1. Machine Learning implements and executes the forecasting model.
+  1. Power BI visualizes the real-time energy consumption and the forecast results.
+  1. Finally, Data Factory orchestrates and schedules the entire data flow.
 
 ### Components
 

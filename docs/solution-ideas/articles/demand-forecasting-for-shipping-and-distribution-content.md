@@ -13,7 +13,7 @@ This solution is optimized for the retail and manufacturing industries.
 ![Architecture diagram: demand forecasting for shipping and distribution](../media/demand-forecasting-for-shipping-and-distribution.png)
 *Download an [SVG](../media/demand-forecasting-for-shipping-and-distribution.svg) of this architecture.*
 
-### Workflow
+### Dataflow
 
 For an example of a demand forecasting solution for shipping and distribution similar to the solution described in this article, see the [Azure AI Gallery](https://gallery.azure.ai/Solution/Demand-Forecasting-for-Shipping-and-Distribution-2). General characteristics of demand forecasting solutions like the one proposed here are:
 
@@ -31,9 +31,9 @@ The [AI Gallery solution](https://gallery.azure.ai/Solution/Demand-Forecasting-f
 
 This demand forecasting solution idea uses the following resources hosted and managed in Azure:
 
-* [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database/) instance for persistent storage; to store forecasts and historical distribution data.
-* [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) web service to host forecasting code.
-* [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) for intermediate storage of generated forecasts.
+* [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) instance for persistent storage; to store forecasts and historical distribution data.
+* [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) web service to host forecasting code.
+* [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) for intermediate storage of generated forecasts.
 * [Azure Data Factory](https://azure.microsoft.com/services/data-factory) to orchestrate regular runs of the Azure Machine Learning model.
 * [Power BI](https://powerbi.microsoft.com) dashboard to display and drill down on the forecasts.
 
