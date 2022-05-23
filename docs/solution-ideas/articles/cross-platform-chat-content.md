@@ -2,6 +2,13 @@
 
 This document describes the architecture and design considerations for reliable, high-performing chat applications. It uses the SignalR Service to implement multi-factor authentication working with Azure App Service.
 
+## Potential use cases
+
+* Ease of use
+* Accessibility
+* Scalability
+* Multi-factor authentication
+
 ## Architecture
 
 ![Architecture Diagram](../media/cross-platform-chat.png)
@@ -36,5 +43,5 @@ Microsoft Learn modules:
 ## Related resources
 
 - [Hybrid architecture design](../../hybrid/hybrid-start-here.md)
-- [Enhanced-security hybrid messaging infrastructure — desktop-client access](../../example-scenario/hybrid/secure-hybrid-messaging-client.yml)
+- [Enhanced-security hybrid messaging infrastructure — desktop client access](../../example-scenario/hybrid/secure-hybrid-messaging-client.yml)
 - [Enhanced-security hybrid messaging infrastructure — web access](../../example-scenario/hybrid/secure-hybrid-messaging-web.yml)
