@@ -6,12 +6,12 @@ This article focuses on presenting useful links to the forecasting best practice
 
 ## Potential use cases
 
-Some ways an organization can utilize demand forecasting.
+The following scenarios are ways an organization can utilize demand forecasting:
 
-- Inventory planning for retail.
-- Network capacity planning.
-- Workforce planning.
-- Increased customer satisfaction.
+- Inventory planning for retail
+- Network capacity planning (telecommunications)
+- Workforce planning
+- Increased customer satisfaction
 
 ## Architecture
 
@@ -20,7 +20,7 @@ Some ways an organization can utilize demand forecasting.
 
 ### Dataflow
 
-The Microsoft AI Platform provides advanced analytics tools through Microsoft Azure - data ingestion, data storage, data processing, and advanced analytics components. All of the essential elements for building a demand forecasting for energy solution.
+The Microsoft AI Platform provides advanced analytics tools through Microsoft Azure - data ingestion, data storage, data processing, and advanced analytics components. These tools include all of the essential elements for building a demand-forecasting-for-energy solution.
 
 This solution combines several Azure services to provide actionable predictions:
 
@@ -35,11 +35,11 @@ This solution combines several Azure services to provide actionable predictions:
 
 Key technologies used to implement this architecture:
 
-* [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/): Simple, secure, and scalable real-time data ingestion
-* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/): Provide Serverless real-time analytics, from the cloud to the edge
-* [Azure SQL Database](https://azure.microsoft.com/services/sql-database/): Manage your intelligent SQL in the cloud
+* [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs): Simple, secure, and scalable real-time data ingestion
+* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics): Provide Serverless real-time analytics, from the cloud to the edge
+* [Azure SQL Database](https://azure.microsoft.com/services/sql-database): Manage your intelligent SQL in the cloud
 * [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning): Build, deploy, and manage predictive analytics solutions
-* [Power BI](https://azure.microsoft.com/services/developer-tools/power-bi/): Realize the value of your data and bring the insights discovered in Azure data and analytics tools to the organization.
+* [Power BI](https://azure.microsoft.com/services/developer-tools/power-bi): Realize the value of your data and bring the insights discovered in Azure data and analytics tools to the organization.
 
 ## Next steps
 
