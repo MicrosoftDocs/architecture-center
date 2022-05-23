@@ -20,7 +20,7 @@ name: DevSecOps in Azure
 azureCategories:
   - devops
   - hybrid
-summary: DevSecOps involves utilizing security best practices from the beginning of development, shifting the focus on security away from auditing at the end and towards development in the beginning.
+summary: DevSecOps involves utilizing security best practices from the beginning of development. Shifting the focus on security away from auditing at the end and towards development in the beginning.
 products:
   - azure-boards
   - azure-devops

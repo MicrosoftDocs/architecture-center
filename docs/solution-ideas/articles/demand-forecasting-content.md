@@ -6,11 +6,11 @@ This article focuses on presenting useful links to the forecasting best practice
 
 ## Potential use cases
 
-Some ways an organization can utilized demand forecasting.
+Some ways an organization can utilize demand forecasting.
 
 - Inventory planning for retail.
 - Network capacity planning.
-- Manpower planning.
+- Workforce planning.
 - Increased customer satisfaction.
 
 ## Architecture

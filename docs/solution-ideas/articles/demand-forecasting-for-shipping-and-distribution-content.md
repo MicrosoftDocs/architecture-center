@@ -17,7 +17,7 @@ This solution is optimized for the retail and manufacturing industries.
 
 For an example of a demand forecasting solution for shipping and distribution similar to the solution described in this article, see the [Azure AI Gallery](https://gallery.azure.ai/Solution/Demand-Forecasting-for-Shipping-and-Distribution-2). General characteristics of demand forecasting solutions like the one proposed here are:
 
-* There are numerous kinds of items with differing volumes, that roll up under one or more category levels.
+* There are numerous kinds of items with differing volumes that roll up under one or more category levels.
 * There's a history available for the quantity of the item at each time in the past.
 * The volumes of the items differ widely, with possibly a large number that have zero volume at times.
 * The history of items shows both trend and seasonality, possibly at multiple time scales.
