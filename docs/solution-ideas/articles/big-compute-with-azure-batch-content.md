@@ -10,11 +10,11 @@ This solution is built on managed services including Virtual Machines, Storage, 
 
 This solution is ideal for the finance, media, entertainment, energy, and environment industries. It's optimized for the following scenarios:
 
-* Financial risk Monte Carlo simulations
+* Financial risk Monte Carlo simulations (finance and portfolio)
 * Image rendering
 * Media transcoding
 * File processing
-* Engineering or scientific simulations
+* Engineering or scientific simulations (energy and environment)
 
 ## Architecture
 
