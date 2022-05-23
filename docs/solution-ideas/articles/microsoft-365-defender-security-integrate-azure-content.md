@@ -1,24 +1,28 @@
-This is the last article from a series of five articles about how to build defense in depth for your IT environment running on Microsoft cloud, considering Azure public cloud and Office 365.
+You can enhance the security posture of your organization’s IT environment by using the security features of both Microsoft 365 and Azure. This article, the fifth in a series of five, describes how you can integrate the security features of these services by using Microsoft 365 Defender and Azure Monitoring services. 
 
-Security defense in depth is built with Azure Security services, Microsoft 365 Defender services, and the integration of those services through Azure Monitoring services and Microsoft Sentinel.
+Monitoring solutions on Azure can seem confusing at first, because Azure offers multiple monitoring services. However, each Microsoft Azure monitoring service has its own importance in the Microsoft Security and Monitoring strategy.
 
-[Use Azure monitoring to integrate security components](../../guide/security/azure-monitor-integrate-security-components.yml), the first article, provides an overall view of how you can integrate Azure and Microsoft 365 Defender security services.
+## Potential use cases
 
-[Customer IT environment and the threats](./map-threats-it-environment.yml), the second article, describes some alternatives to map examples of common threats (tactics and techniques) against an example of a hybrid IT environment with on-premises and Microsoft cloud services (Azure and Office 365).
+This reference architecture can help you understand the whole picture of Microsoft Cloud security services and to how to integrate them for the best security posture.
 
-[Building the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml), the third article, maps an example of some Azure security services that create the first layer of defense to protect your Azure environment according to Azure Security Benchmark version 3 (link).
+You don't need to implement all the security services that are presented in this architecture. However, this example and the threat map that's represented in the architecture diagram can help you to understand how to create your own map and then plan accordingly for your security strategy. Select the right Azure security services and the Microsoft 365 Defender services that you want to integrate through Azure so that your IT environment has the security that it needs.
 
-[Build the second layer of defense with Microsoft 365 Defender Security services](./microsoft-365-defender-build-second-layer-defense.yml), the fourth article, describes an example of a series of attacks against your IT environment and how to add another layer of protection but at this time with Microsoft 365 Defender services.
+## Architecture
 
-In this last article, we show you how to integrate all security services to deliver a great security posture to your IT environment. This article considers Azure Monitoring services and Microsoft Sentinel, which are the core piece to integrate the security services that are explained in the previous articles.
+:::image type="content" alt-text="Diagram of the complete reference architecture for this five-article series which shows an IT environment, threats, and security services." source="../media/microsoft-365-defender-security-integrate-azure-architecture.png" lightbox="../media/microsoft-365-defender-security-integrate-azure-architecture.png":::
 
-## Introduction
+*©2021 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation.*
 
-Monitoring solutions on Azure can seem confusing at first sight, because Azure offers multiple monitoring services. However, each Microsoft Azure monitoring service has its own importance in the Microsoft Security and Monitoring strategy.
+*Download a [Visio file](https://arch-center.azureedge.net/azure-monitor-integrate-security-components.vsdm) of this architecture.*
 
-There are a couple of important services that are presented in the next Architecture diagram. Some of those services are focused on capturing information from specific services, such as network (Network watcher) or applications (Application Insights). For some of them, like "Azure Monitor Logs" (also known as Log Analytics) and "Microsoft Sentinel", consider them as core services because they can collect, store, and analyze information from different services, regardless of whether they're network, compute, or applications services.
+This diagram shows a complete architecture reference. It includes an example of an IT environment, a set of example threats that are described according to their tactics (in blue), and their techniques (in the text box) according to the MITRE ATT&CK matrix. The MITRE ATT&CK matrix is covered in [Map threats to your IT environment](./map-threats-it-environment.yml). 
 
-Those are the services in the diagram:
+There are important services that are presented in the diagram. Some of those services, such as Network watcher and Application Insights, are focused on capturing information from specific services. Some of them, like Azure Monitor Logs (also known as Log Analytics) and Microsoft Sentinel, are core services because they can collect, store, and analyze information from various services, regardless of whether they're network, compute, or applications services.
+
+The central part of the diagram has two layers of security services. There's also one layer with specific Azure monitoring services that are integrated through Azure Monitoring (on the left side of the diagram). The key component of this integration is Microsoft Sentinel.
+
+The diagram shows the following services:
 
 - Azure Monitor
 - Azure Monitor Logs (also known as Log Analytics)
@@ -29,61 +33,46 @@ Those are the services in the diagram:
 - Application Insights
 - Storage Analytics
 
-The following diagram shows a complete architecture reference, including an example of a customer environment, a set of known threats used as an example and described according to its tactics (in blue), and its techniques (in the text box) according to the MITRE ATT&CK matrix. The central part of the diagram has two layers of security services. There's also one layer with specific Azure monitoring services that are integrated through Azure Monitoring core services (on the left side of the diagram). The key component of this integration is Microsoft Sentinel.
 
-:::image type="content" alt-text="Image alt text." source="../media/microsoft-365-defender-security-integrate-azure-architecture.png" lightbox="../media/microsoft-365-defender-security-integrate-azure-architecture.png":::
+### Workflow
 
-*©2021 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation.*
+1.  **Azure Monitor** is the umbrella for many Azure monitoring services. It includes log management, metrics, and Application Insights, among others. It also provides a collection of dashboards that are ready for use and management of alerts. For more information, see [Azure Monitor overview](/azure/azure-monitor/overview).
 
-*Download a [Visio file](https://arch-center.azureedge.net/azure-monitor-integrate-security-components.vsdm) of this architecture.*
+2.  **Microsoft Defender for Cloud** delivers a series of recommendations for virtual machines (VMs), storage, applications, and so on, that helps an IT environment to be compliant with various regulatory standards, such as ISO and PCI. At the same time, Defender for Cloud offers a score for the security posture of systems that can help you track the security of your environment. Defender for Cloud also offers automatic alerts that are based on the logs that it collects and analyzes. Defender for Cloud was formerly known as Azure Security Center. For more information, see [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction).
 
-## Components
+3.  **Log Analytics** is one of the most important services. It's responsible for storing all the logs and alerts that are used to create alerts, insights, and incidents. Microsoft Sentinel works on top of Log Analytics. Basically, all data that Log Analytics ingests is available automatically to Microsoft Sentinel. Log Analytics is also known as Azure Monitor Logs. For more information, see [Overview of Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview).
 
-The components, part of the diagram, are explained in a nutshell so that you can digest the information quickly. For detailed information about each service, you can check the link provided.
+4.  **Microsoft Sentinel** works like a façade for Log Analytics. While Log Analytics stores logs and alerts from various sources, Microsoft Sentinel offers APIs that help with ingestion of logs from various sources. Those sources include on-premises VMs, Azure VMs, alerts from Microsoft 365 Defender and other services. Microsoft Sentinel correlates the logs to provide insights about what is going on in your IT environment, avoiding false positives. Microsoft Sentinel is the core of security and monitoring for Microsoft cloud services. For more information about Microsoft Sentinel, see [What is Microsoft Sentinel?](/azure/sentinel/overview).
 
-1.  **Azure Monitor** is the "umbrella" for many Azure monitoring services that include log management, metrics, application insight among others. It also provides a collection of dashboards that are ready to be consumed and an alert management system. For more information about Azure Monitor, see [Azure Monitor overview](/azure/azure-monitor/overview).
+The preceding services in this list are core services that work throughout Azure, Office 365, and on-premises environments. The following services focus on specific resources:
 
-2.  **Microsoft Defender for Cloud** (formerly known as Azure Security Center) delivers a series of recommendations for VMs, storage, applications, etc., that helps you to be compliant with different regulatory standards, such as ISO or PCI. At the same time, it offers a security score systems that can help you track how secure your environment is. It also offers an automatic alert system based on the logs that are collected and analyzed by Defender for Cloud. For more information about Defender for Cloud, see [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction).
+5.  **Network Watcher** provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network. For more information, see [What is Azure Network Watcher](/azure/network-watcher/network-watcher-monitoring-overview)?
 
-3.  **Azure Monitor Logs**, also known as Log Analytics, is one of the most important services. It's responsible for storing all the logs and alerts that are used to create Alerts, Insights and Incidents. It's also the service which Microsoft Sentinel work on top of it. Basically, everything you ingest on Log Analytics is available automatically to Microsoft Sentinel. For more information about Log Analytics, see [Overview of Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview).
+6.  **Traffic Analytics** is part of Network Watcher and works on top of logs from network security groups (NSGs). Traffic Analytics offers many dashboards that are capable of aggregating metrics from outbound and inbound connection in Azure Virtual Network. For more information, see [Traffic Analytics](/azure/network-watcher/traffic-analytics).
 
-4.  **Microsoft Sentinel** works like a façade for Log Analytics. While Log Analytics stores all logs and alerts from various sources, Microsoft Sentinel offers APIs that help with ingestion of logs from various sources. Those sources include on-premises VMs, Azure VMs, alerts from Microsoft 365 Defender Security, and others. Microsoft Sentinel correlates the logs to provide insights about what is going on in your environment, avoiding false positives. Microsoft Sentinel is the core of this whole Security and monitoring system that Microsoft Cloud has. For more information about Microsoft Sentinel, see [What is Microsoft Sentinel?](/azure/sentinel/overview).
+7.  **Application Insights** focuses on applications and provides extensible performance management and monitoring for live web apps, including support for a wide variety of platform such as .NET, Node.js, Java, and Python. Application Insights is a feature of Azure Monitor. For more information, see [Application Insights overview](/azure/azure-monitor/app/app-insights-overview).
 
-The services in the preceding list can be considered core services because they work throughout Azure, Office 365, and on-premises environments. At the same time, there are also other monitoring services that are focused on specific resources:
+8.  **Azure Storage Analytics** performs logging and provides metrics for a storage account. You can use its data to trace requests, analyze usage trends, and diagnose issues with your storage account. For more information, see [Use Azure Storage analytics to collect logs and metrics data](/azure/storage/common/storage-analytics).
 
-5.  **Network Watcher** provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network. For more information about Network Watcher, see [What is Azure Network Watcher](/azure/network-watcher/network-watcher-monitoring-overview)?
+9.  Because this architecture reference is based on [Microsoft Zero Trust](/security/business/zero-trust), the services and components under **Infrastructure and Endpoint** do not have specific monitoring services. Azure Monitor logs and Defender for Cloud are the main services that collect, store, and analyze logs from VMs and others compute services.
 
-6.  **Traffic Analytics** is part of Network Watcher and works on top of logs from network security groups (NSGs). Traffic Analytics offers many dashboards that are capable of agreeing on different metrics from outbound and inbound connection in Azure Virtual Network. For more information about Traffic Analytics, see [Traffic Analytics](/azure/network-watcher/traffic-analytics).
-
-7.  **Application Insights**, which is a feature of Azure Monitor, is focused on applications and provides extensible performance management and monitoring for live web apps, including support for a wide variety of platform such as .NET, Node.js, Java, and Python. For more information about Application Insights, see [Application Insights overview](/azure/azure-monitor/app/app-insights-overview).
-
-8.  **Azure Storage Analytics** is a storage service that performs logging and provides metrics for a storage account. You can use this data to trace requests, analyze usage trends, and diagnose issues with your storage account. For more information about using Storage Analytics to collect logs and metrics, see [Use Azure Storage analytics to collect logs and metrics data](/azure/storage/common/storage-analytics).
-
-9.  Because this architecture reference was based on Microsoft Zero Trust pillars, under the pillar "Infrastructure and Endpoint" wasn't described any specific Monitoring services because actually Azure Monitor logs and Microsoft Defender for Cloud are the main services to collect, store and analyze logs from VMs and others compute services.
-
-The key component in this architecture is Microsoft Sentinel, because it connects all the logs and alerts that are provided by Azure Security Services, Microsoft 365 Defender, and Azure Monitor services. After you have Microsoft Sentinel implemented and receiving logs and alerts from all the sources that his article mentions, the next step is to map a set of queries that query those logs for insights and evidence of indicators of compromise (IOCs). When something is captured by Microsoft Sentinel, you'll be able to investigate it or automate it through an automatic action to mitigate or solve the incident, such as blocking a user on your Azure AD or blocking an IP address through your firewall.
+The key component in this architecture is Microsoft Sentinel, because it connects all the logs and alerts that are provided by Azure security services, Microsoft 365 Defender, and Azure Monitor. After you implement Microsoft Sentinel implemented and it is receiving logs and alerts from all the sources that are identified in this article, the next step is to map a set of queries of those logs to obtain insights and evidence of indicators of compromise (IOCs). When information is captured by Microsoft Sentinel, you can investigate it or allow an automated response that you configure to mitigate or resolve the incident. Automatic responses include such as actions as blocking a user on in Azure Active Directory (Azure AD) or blocking an IP address via the firewall.
 
 For more information about Microsoft Sentinel, see [Microsoft Sentinel documentation](/azure/sentinel)
 
-## Potential use cases
+### How to access Azure security, monitoring, and Microsoft 365 Defender services
 
-This architecture reference can help you understand the whole picture of Microsoft Cloud security services and to how to integrate them for a best security posture.
+The following list presents information about how to access each of the services that are presented in this article:
 
-You don't necessarily need to consider all of the security services presented in this architecture. However, this example and the threat map represented in the architecture diagram can help you to understand how to create your own map and then plan accordingly for your security strategy. Select the right Azure security services and the Microsoft 365 Defender services that you want to integrate with Azure so that your environment has the security that it needs.
-
-## How to access Azure Security, Monitoring and Microsoft 365 Defender services
-
-Because this article presents many different services, the following list presents information about how to access each of those services:
-
-- **Azure Security services**. You can access all of the Azure security services mentioned in the diagrams in this series of articles through the [Azure portal](https://portal.azure.com). In the portal, search for the service that you're interested in.
+- **Azure security services**. You can access all of the Azure security services that are mentioned in the diagrams in this series of articles by using [Azure portal](https://portal.azure.com). In the portal, use the search function locate the services that you're interested in and access them.
 
 - **Azure Monitor**. Azure Monitor is available in all Azure subscriptions. You can access it from a search for *monitor* in the [Azure portal](https://portal.azure.com).
 
-- **Microsoft Defender for Cloud**. Microsoft Defender for Cloud is also available to anyone who accesses the [Azure portal](https://portal.azure.com) for the first time. In the portal search for *Microsoft Defender for Cloud*.
+- **Defender for Cloud**. Microsoft Defender for Cloud is also available to anyone who accesses the [Azure portal](https://portal.azure.com) for the first time. In the portal, search for *Defender for Cloud*.
 
-- **Azure Monitor Logs (aka Log Analytics)**. To access Log Analytics, you'll must create the service, because it doesn't exist by default. In the [Azure portal](https://portal.azure.com), search for *Log Analytics workspace*, and then select **Create**. You're able to access the service after you create it.
+- **Log Analytics**. To access Log Analytics, you must first create the service in the portal, because it doesn't exist by default. In the [Azure portal](https://portal.azure.com), search for *Log Analytics workspace*, and then select **Create**. After creation, you're able to access the service.
 
-- **Microsoft Sentinel**. Microsoft Sentinel works on top of a Log Analytics. So, you must first create a Log Analytics workspace. Next, search for *sentinel* in the [Azure portal](https://portal.azure.com). Then create the service by choosing the workspace that you want to have behind Microsoft Sentinel.
+- **Microsoft Sentinel**. Because Microsoft Sentinel works on top of a Log Analytics, you must first create a Log Analytics workspace. Next, search for *sentinel* in the [Azure portal](https://portal.azure.com). Then create the service by choosing the workspace that you want to have behind Microsoft Sentinel.
 
 - **Microsoft Defender for Endpoint**. Microsoft Defender for Endpoint is part of Microsoft 365 Defender. Access the service through [https://security.microsoft.com](https://security.microsoft.com). (This is a change from the previous URL, *securitycenter.windows.com*.)
 
@@ -93,7 +82,7 @@ Because this article presents many different services, the following list presen
 
 - **Microsoft Defender for Identity**. Microsoft Defender for Identity is part of Microsoft 365. You access the service through [https://portal.atp.azure.com](https://portal.atp.azure.com). Although it's a cloud service, Defender for Identity is responsible for also protecting identity on on-premises systems.
 
-- **Microsoft Endpoint Manager**. Microsoft Endpoint Manager is the new name for Intune, Configuration Manager, and other services. Access it through [https://endpoint.microsoft.com](https://endpoint.microsoft.com).
+- **Endpoint Manager**. Microsoft Endpoint Manager is the new name for Intune, Configuration Manager, and other services. Access it through [https://endpoint.microsoft.com](https://endpoint.microsoft.com).
 
   > [!NOTE]
   >
@@ -107,13 +96,13 @@ Because this article presents many different services, the following list presen
 
 - **Storage Analytics**. Azure Storage offers various types of storage under the same storage account technology. You can find blobs, files, table and queues on top of storage accounts. Storage analytics offers a broad range of metrics to use with those storage services. Access Storage Analytics from your Storage account in the [Azure portal](https://portal.azure.com), then select **Diagnostic settings** in the menu on the left side. Choose one log analytics workspace to send that information. Then you can access some dashboard from **Insights** in the menu on the left side. You can also access a series of workbooks from **workbooks** in the menu on the left side, Metrics and Alerts for your storage account. Everything in your storage account that being monitored is represented in menu.
 
-## How is the pricing for Microsoft Security services
+## Pricing
 
-The pricing for the services that are presented in this series of articles is calculated in various ways. Some services are free of charge, some of have a charge for each use, and some of them have a charge that is based on licensing. So, the best way to estimate the pricing for any of the Azure Security services is to use the [Pricing Calculator](https://azure.microsoft.com/en-us/pricing/calculator/).
+Pricing for the services that are presented in this series of articles is calculated in various ways. Some services are free of charge, some of have a charge for each use, and some of them have a charge that is based on licensing. So, the best way to estimate the pricing for any of the Azure Security services is to use the [Pricing Calculator](https://azure.microsoft.com/en-us/pricing/calculator/).
 
 :::image type="content" alt-text="Image alt text." source="../media/pricing-calculator-web-page.png" lightbox="../media/pricing-calculator-web-page.png":::
 
-In the calculator, search for the service that you're interested in, and select it to get all the variables that determine the price for the service.
+In the calculator, search for a service that you're interested in, and select it to get all the variables that determine the price for the service.
 
 Microsoft 365 Defender security services works with licenses. For information about the licensing requirements, see [Microsoft 365 Defender prerequisites](/microsoft-365/security/defender/prerequisites?view=o365-worldwide).
 
