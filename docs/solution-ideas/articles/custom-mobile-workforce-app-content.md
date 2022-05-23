@@ -4,7 +4,7 @@ This mobile workforce app architecture uses Active Directory to secure corporate
 
 A Xamarin.Forms client app, with support for iOS, Android, and Windows, works offline and enables field engineers to view and edit the jobs assigned to them.
 
-The app is built with Visual Studio (PC or Mac) and Xamarin, sharing C# code across Android, iOS, and Windows without compromising user experience. Visual Studio App Center is used to automate builds and tests and distribute to beta testers and app stores, while also providing usage monitoring and analytics in conjunction with App Insights.
+The app is built with Visual Studio (PC or Mac) and Xamarin, sharing C# code across Android, iOS, and Windows without compromising user experience. Visual Studio App Center is used to automate builds and tests and distribute to beta testers and app stores, while also providing usage monitoring and analytics with App Insights.
 
 ## Potential use cases
 

@@ -38,7 +38,7 @@ Azure Synapse serverless SQL consumes the enhanced Customer Insights data. Azure
   
 4. In Customer Insights, you need to configure an export of data back to the data lake. For more information, see [Set up the connection to Azure Data Lake Storage Gen2](/dynamics365/customer-insights/audience-insights/export-azure-data-lake-storage-gen2).
   
-5. [Create a Logical Data Warehouse](/azure/synapse-analytics/sql/tutorial-logical-data-warehouse) in the Azure Synapse workspace. See the [Azure Synapse serverless SQL pool best practices](/azure/synapse-analytics/sql/best-practices-serverless-sql-pool) to determine whether you need to do additional transformations on the exported Customer Insights data and whether views are better suited than tables.
+5. [Create a Logical Data Warehouse](/azure/synapse-analytics/sql/tutorial-logical-data-warehouse) in the Azure Synapse workspace. See the [Azure Synapse serverless SQL pool best practices](/azure/synapse-analytics/sql/best-practices-serverless-sql-pool) to determine whether you need to do more transformations on the exported Customer Insights data and whether views are better suited than tables.
   
 6. Customer Insights data in the data lake is now exposed as logical SQL Server tables and views that can easily be consumed by Power BI. See [Tutorial for using serverless SQL pools with Power BI](/azure/synapse-analytics/sql/tutorial-connect-power-bi-desktop) for an example.
 

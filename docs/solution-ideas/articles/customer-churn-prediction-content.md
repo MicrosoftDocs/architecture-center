@@ -6,7 +6,7 @@ Keeping existing customers is five times cheaper than the cost of getting new cu
 
 ## Potential use cases
 
-This solution uses [Azure Machine Learning](/azure/machine-learning) to predict churn probability and helps find patterns in existing data associated with the predicted churn rate. In leveraging both historical and near real-time data, users are able to create predictive models to analyze characteristics and identify predictors of the existing audience. This information provides businesses with actionable intelligence to improve customer retention and profit margins.
+This solution uses [Azure Machine Learning](/azure/machine-learning) to predict churn probability and helps find patterns in existing data associated with the predicted churn rate. By using both historical and near real-time data, users are able to create predictive models to analyze characteristics and identify predictors of the existing audience. This information provides businesses with actionable intelligence to improve customer retention and profit margins.
 
 This solution is optimized for the retail industry.
 

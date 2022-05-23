@@ -2,7 +2,7 @@
 metadata:
   title: Custom mobile workforce app
   titleSuffix: Azure Solution Ideas
-  description: Learn how the custom mobile workforce management app architecture is built and implemented with a step-by-step diagram that illustrates the integration of Active Directory, SAP, and Azure App Service.
+  description: Learn how the custom mobile workforce management app architecture is built and implemented.  The step-by-step diagram illustrates the integration of Active Directory, SAP, and Azure App Service.
   author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 05/24/2022
@@ -27,7 +27,7 @@ azureCategories:
   - mobile
   - identity
   - databases
-summary: Learn how the custom mobile workforce management app architecture is built and implemented with a step-by-step diagram that illustrates the integration of Active Directory, SAP, and Azure App Service.
+summary: Learn how the custom mobile workforce management app architecture is built and implemented.  The step-by-step diagram illustrates the integration of Active Directory, SAP, and Azure App Service.
 products:
   - azure-active-directory
   - azure-api-management
