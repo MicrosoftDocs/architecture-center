@@ -19,7 +19,7 @@ The system that Swiss Re Group built for its Property & Casualty Reinsurance div
 - The energy sector
 - Retail and e-commerce
 - Banking and finance
-- Medicine
+- Medicine and healthcare
 
 ## Architecture
 
