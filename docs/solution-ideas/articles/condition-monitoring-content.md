@@ -5,8 +5,8 @@ This solution idea demonstrates how end manufacturers can connect their assets t
 ## Potential use cases
 
 * Manufacturing
-* Electrical power
-* Construction
+* Electrical power and energy
+* Construction and facilities
 * Upstream oil and gas
 
 ## Architecture
