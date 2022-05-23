@@ -10,10 +10,10 @@ The app is built with Visual Studio (PC or Mac) and Xamarin, sharing C# code acr
 
 This solution is optimized for employees that work from the field and don't regularly come into the office.
 
-- Technicians
+- Technicians (telecommunications)
 - Engineers
 - Sales
-- Construction
+- Construction (facilities and real estate)
 
 ## Architecture
 
