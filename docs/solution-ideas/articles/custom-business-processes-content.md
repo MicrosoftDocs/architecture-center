@@ -7,10 +7,10 @@ This example demonstrates how you can deploy portals that automate manual or pap
 The use of digital workflows isn't limited to any one industry. Document-based digital workflows use the same components but arrange them differently to meet the requirements of a process. Some industries that can benefit from automated processes include:
 
 - Manufacturing
-- Health Care
+- Healthcare
 - Finance
 - Law Firms
-- Airlines
+- Airlines (aerospace)
 
 ## Architecture
 
