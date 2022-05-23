@@ -2648,12 +2648,14 @@ items:
                 href: example-scenario/blockchain/multi-cloud-blockchain.yml
           - name: Solution ideas
             items:
+              - name: Supply Chain Management with Quorum Blockchain Service
+                href: guide/blockchain/quorum-blockchain-service.yml
               - name: Blockchain workflow application
                 href: solution-ideas/articles/blockchain-workflow-application.yml
               - name: Supply chain track and trace
                 href: solution-ideas/articles/supply-chain-track-and-trace.yml
       - name: Compute + HPC
-        items:
+        items: 
           - name: Get started
             href: topics/high-performance-computing.md
           - name: Guides
@@ -4152,6 +4154,8 @@ items:
                 maintainContext: true
           - name: Architectures
             items:
+              - name: API Management landing zone accelerator
+                href: example-scenario/integration/app-gateway-internal-api-management-function.yml
               - name: Basic enterprise integration on Azure
                 href: reference-architectures/enterprise-integration/basic-enterprise-integration.yml
               - name: Data integration with Logic Apps and SQL
@@ -4494,6 +4498,8 @@ items:
                     href: hybrid/azure-arc-hybrid-config.yml
                   - name: Manage hybrid workloads with WAC
                     href: hybrid/hybrid-server-os-mgmt.yml
+              - name: Line-of-business app with ASEv3
+                href: example-scenario/apps/line-of-business-internal-app-service-environment-v3.yml
           - name: Solution ideas
             items:
               - name: Archive on-premises data to cloud
