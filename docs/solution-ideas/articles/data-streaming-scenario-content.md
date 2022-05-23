@@ -6,10 +6,10 @@ Use Azure Kubernetes Services to easily ingest & process a real-time data stream
 
 Industries have employed this solution in the following areas:
 
-- Vehicle safety
-- Customer service
+- Vehicle safety (automotive)
+- Customer service (retail and other industries)
 - Healthcare cloud solutions
-- Financial technology solutions
+- Financial technology solutions (in the finance industry)
 
 ## Architecture
 
