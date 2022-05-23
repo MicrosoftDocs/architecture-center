@@ -1,6 +1,15 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Use AKS to easily ingest & process a real-time data stream with millions of data points collected via sensors. Perform fast analysis and computations to develop insights into complex scenarios quickly.
+Use Azure Kubernetes Services to easily ingest & process a real-time data stream with millions of data points collected via sensors. Perform fast analysis and computations to develop insights into complex scenarios quickly.
+
+## Potential use cases
+
+Industries have employed this solution in the following areas:
+
+- Vehicle safety
+- Customer service
+- Healthcare cloud solutions
+- Financial technology solutions
 
 ## Architecture
 
