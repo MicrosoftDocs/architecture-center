@@ -29,7 +29,7 @@ Murex MX.3 workloads can run on databases like Oracle, Sybase, or SQL Server. Th
 ### Workflow
 
 - Access the MX.3 presentation layer component of the application tier that's hosted in Azure by using an Azure ExpressRoute or VPN connection between Azure and your on-premises environment. The connection is protected by using Azure Firewall.
-- Access the presentation layer by using virtual desktop infrastructure (VDI) solutions, like Citrix. You can also directly access the layer through a desktop application.
+- Access the presentation layer by using virtual desktop infrastructure (VDI) solutions, like Citrix. You can also directly access the layer through a desktop application or by using the web interface provided by the MX.3 application.
 - The application tier contains the presentation layer, business layer, orchestration layer, and grid layer. It accesses the Oracle database for storing and retrieving data.  
 - The presentation layer accesses the business layer, orchestration layer, and grid layer components to complete the business process.
 - The Oracle database uses Azure Premium SSD or Azure NetApp Files as the storage mechanism for faster access.
@@ -60,7 +60,7 @@ Murex MX.3 is a complex workload with high memory, low latency, and high availab
 - MX.3 uses a client/server architecture. When implementing it in Azure, you must follow an infrastructure as a service (IaaS) architecture. Carefully analyze any native Azure services to ensure they meet the technical requirements for Murex.
 - You can deploy the MX.3 solution on Azure completely, or you can deploy a partial set of Azure components using a hybrid model. This article doesn't cover hybrid models. You should carefully analyze the architecture and technical requirements before using a hybrid model of deployment. Hybrid models of deployment for MX.3 are subject to technical review by the Murex team.  
 - You can access the MX.3 client tier directly from the user desktop or through VDI solutions like Citrix.
-- The Murex MX.3 workloads across various tiers require specific types of compute resources to meet the functional and technical requirements. See the [Murex deployment strategy](https://www.connect-community.de/sites/default/files/MX.3%20Live%20on%20Production%20-%20Azure%20Deployment%20Strategy.pdf) document to understand the compute, memory, and storage requirements for MX.3 workload.
+- The Murex MX.3 workloads across various tiers require specific types of compute resources to meet the functional and technical requirements. See the [Network-hub-and-spoke model](#network-hub-and-spoke-model) to understand the compute, memory, and storage requirements for an MX.3 workload.
 - The MX.3 application requires external (internet) and internal (on-premises) connectivity to perform tasks. The Azure architecture for the MX.3 application must support a secure connectivity model to integrate with internal and external services. Use an Azure site-to-site VPN or ExpressRoute (recommended) to connect with on-premises services.
 - For backup, you can use Azure native backup services combined with Azure storage. Use these services for daily, weekly, or monthly backups of the application VMs or any other application tier specific backup/archival requirements. For database requirements, use database native replication or backup tools.
 - To get high availability and resiliency of the Murex solutions on Azure, you should run each layer of the application tier in at least two VMs. You can use an Azure availability set configuration to achieve high availability across multiple VMs. You can also use Azure Virtual Machine Scale Sets for redundancy and improved performance of applications that are distributed across multiple instances. You can achieve high availability for the orchestration layer by hosting them in multiple instances and invoking the instances by using custom scripts. You can use database high availability features like Oracle Data Guard or SQL Server Always On to achieve the high availability requirements.
@@ -122,9 +122,9 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 ## Network hub-and-spoke model
 
-A key consideration when you implement MX.3 workloads in Azure is defining the landing zone architecture. This architecture contains the subscription, resource group, virtual network isolation, and connectivity between various components of the solution. This section covers the landing zone architecture to implement an MX.3 workload on Azure, based on the Microsoft Cloud Adoption Framework.
+A key consideration when you implement MX.3 workloads in Azure is defining the landing zone architecture. This architecture contains the subscription, resource group, virtual network isolation, and connectivity between various components of the solution. This section covers the [landing zone architecture](/azure/cloud-adoption-framework/ready/landing-zone) to implement an MX.3 workload on Azure, based on the Microsoft Cloud Adoption Framework.
 
-The diagram below shows a high-level view of a landing zone that uses the hub-spoke network topology in Azure.
+The diagram below shows a high-level view of a landing zone that uses the [hub-spoke network topology in Azure](../../reference-architectures/hybrid-networking/hub-spoke.yml).
 
 :::image type="content" source="./media/azure-hub-and-spoke-model.png" alt-text="Diagram that shows an example of a hub-and-spoke model with Azure services." lightbox="./media/azure-hub-and-spoke-model.png":::
 
@@ -179,6 +179,7 @@ Other contributors:
 - [Centralize your core services by using hub and spoke Azure virtual network architecture](/learn/modules/hub-and-spoke-network-architecture)
 - [Get started with Finance and Operations apps](/learn/paths/get-started-finance-operations)
 - [Hub-and-spoke network topology](/azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology)
+- [Murex MX.3 architecture](https://www.murex.com/solutions/technology/mx3-architecture)
 - [Recommended Practices for Success with Oracle on Azure IaaS](https://github.com/Azure/Oracle-Workloads-for-Azure/blob/main/Oracle%20on%20Azure%20IaaS%20Recommended%20Practices%20for%20Success.pdf)
 - [Reference architectures for Oracle Database Enterprise Edition on Azure](/azure/virtual-machines/workloads/oracle/oracle-reference-architecture)
 - [Running Oracle workloads on Azure using NetApp Files](https://techcommunity.microsoft.com/t5/azure-architecture-blog/run-your-most-demanding-oracle-workloads-in-azure-without/ba-p/3264545)
