@@ -28,15 +28,15 @@ You don't need to implement all the security services that are presented in this
 
 This diagram shows a complete architecture reference. It includes an example of an IT environment, a set of example threats that are described according to their tactics (in blue), and their techniques (in the text box) according to the MITRE ATT&CK matrix. The MITRE ATT&CK matrix is covered in [Map threats to your IT environment](./map-threats-it-environment.yml). 
 
-There are important services that are presented in the diagram. Some of those services, such as Network watcher and Application Insights, are focused on capturing information from specific services. Some of them, like Azure Monitor Logs (also known as Log Analytics) and Microsoft Sentinel, are core services because they can collect, store, and analyze information from various services, regardless of whether they're network, compute, or applications services.
+There are important services that are presented in the diagram. Some of those services, such as Network watcher and Application Insights, are focused on capturing information from specific services. Some of them, like Log Analytics (also known as Azure Monitor Logs) and Microsoft Sentinel, are core services because they can collect, store, and analyze information from various services, regardless of whether they're network, compute, or applications services.
 
 The central part of the diagram has two layers of security services. There's also one layer with specific Azure monitoring services that are integrated through Azure Monitoring (on the left side of the diagram). The key component of this integration is Microsoft Sentinel.
 
-The diagram shows the following services:
+The diagram shows the following services in **Core Monitoring Services** and in the **Monitor** layer:
 
 - Azure Monitor
-- Azure Monitor Logs (also known as Log Analytics)
-- Microsoft Defender for Cloud (formerly known as Azure Security Center)
+- Log Analytics
+- Microsoft Defender for Cloud
 - Microsoft Sentinel
 - Network Watcher
 - Traffic Analytics (part of Network Watcher)
