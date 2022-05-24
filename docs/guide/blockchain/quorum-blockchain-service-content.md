@@ -6,7 +6,7 @@ The need for the block chain technology started with organizations trying to und
 - How was a product built?
 - What were the processes followed to build a product?
 
-Build and maintain the electronic data interface (EDI) across suppliers to track and trace parts of a product is not a worth for some organizations. Using Quorum Blockchain Service (QBS) with App Services, Azure Key Vault, Service Bus, and Cosmos DB, organizations can track and trace tokenized version of the product's physical assets and relevant metadata to meet requirements.
+Build and maintain the electronic data interface (EDI) across suppliers to track and trace parts of a product is not a worth for some organizations. Using ConsenSys Quorum Blockchain Service (QBS) with App Services, Azure Key Vault, Service Bus, and Cosmos DB, organizations can track and trace tokenized version of the product's physical assets and relevant metadata to meet requirements.
 
 ## Potential use cases
 
@@ -30,17 +30,18 @@ Quorum Blockchain Service (QBS) is a managed ledger service from [ConsenSys](htt
 The following are features of QBS:
 
 - Uses standard Ethereum technology with privacy enhancements.
-- Supports open-source tools such as Truffle for developing and managing lifecycle of smart contracts.
+- Supports open-source tools such as [Truffle](https://trufflesuite.com/) for developing and managing lifecycle of smart contracts.
 - Supports event listening models for off-chain storage and integration with open-source tools such as Ethlogger from Splunk.
 - Provides extensions for Visual Studio Code (VS Code).
-  - Users can create and debug smart contracts using Solidity in VS Code.
-  - Users can also deploy assets to Quorum using VS Code.
+  - Users can create and debug smart contracts using [Solidity](https://marketplace.visualstudio.com/items?itemName=JuanBlanco.solidity) in VS Code.
+  - Users can also deploy assets to Quorum via the [TruffleSuite](https://trufflesuite.com/docs/vscode-ext/quickstart/) using VS Code Extension.
 - Provides management APIs and supports monitoring and logging of blockchain nodes with integration to [Azure Monitor](/azure/azure-monitor/overview).
 
 **Getting started with QBS:**
 
 QBS is currently accessible as a Private offering on Azure. You can access QBS using one of the following ways:
 
+- Sign-up directly on the [ConsenSys Quorum Blockchain Service](https://consensys.net/quorum/qbs/#qbs-private-preview) page.
 - Click “Contact Me” on [Microsoft Azure market place](https://azuremarketplace.microsoft.com/marketplace/apps/consensys.qbs-contact-me?tab=Overview).
 - Inquire directly with [QBS Support](https://quorum-support.zendesk.com).
 
@@ -94,7 +95,7 @@ You can implement the infrastructure and provide ongoing support to the managed 
 
 - [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is a fully managed NoSQL database for modern app development that provides single-digit millisecond response times, automatic and instant scalability, and guaranteed speed at any scale. In this scenario Azure Cosmos DB is a data store used to house the output of events raised on the blockchain such as state changes that are used by an analytics solution or simple reporting.
 
-- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database/) is a fully managed platform as a service (PaaS) database engine that handles most of the database management functions such as upgrading, patching, backups, and monitoring without user involvement. In this scenario Azure SQL Database is a data store used to house the output of events raised on the blockchain such as state changes that will ultimately be used by an analytics solution or simple reporting.
+- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database/) is a fully managed platform as a service (PaaS) database engine that handles most of the database management functions such as upgrading, patching, backups, and monitoring without user involvement. In this scenario Azure SQL Database is a data store used to house the output of events raised on the blockchain such as state changes that will ultimately be used by an analytics solution or simple reporting. Additionally, by utilizing the [ledger](/azure/azure-sql/database/ledger-landing) feature of Azure SQL Database, the integrity of output of events from the blockchain replicated to the SQL database can be maintained.
 
 - [Azure Monitor](https://azure.microsoft.com/services/monitor/) provides a comprehensive solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments. In this scenario Azure Monitor provides availability and performance data of the architecture components. QBS is integrated with Azure Monitor to provide additional telemetry data on blockchain nodes.
 
