@@ -1,6 +1,6 @@
-You can enhance the security posture of your organization’s IT environment by using the security features of both Microsoft 365 and Azure. This article, the fifth in a series of five, describes how you can integrate the security features of these services by using Microsoft 365 Defender and Azure Monitoring services. 
+You can enhance the security posture of your organization’s IT environment by using the security features of both Microsoft 365 and Azure. This article, the fifth in a series of five, describes how you can integrate the security features of these services by using Microsoft 365 Defender and Azure monitoring services. 
 
-Monitoring solutions on Azure can seem confusing at first, because Azure offers multiple monitoring services. However, each Microsoft Azure monitoring service has its own importance in security and monitoring strategy that is described in this series. The articles in this series describe the various services and how to plan effective security for your IT environment. 
+Monitoring solutions on Azure can seem confusing at first, because Azure offers multiple monitoring services. However, each Azure monitoring service is important in the security and monitoring strategy that's described in this series. The articles in this series describe the various services and how to plan effective security for your IT environment. 
 
 This article builds on the previous articles in the series:
 
@@ -30,7 +30,7 @@ This diagram shows a complete architecture reference. It includes an example of 
 
 There are important services that are presented in the diagram. Some of those services, such as Network watcher and Application Insights, are focused on capturing information from specific services. Some of them, like Log Analytics (also known as Azure Monitor Logs) and Microsoft Sentinel, are core services because they can collect, store, and analyze information from various services, regardless of whether they're network, compute, or applications services.
 
-The central part of the diagram has two layers of security services. There's also one layer with specific Azure monitoring services that are integrated through Azure Monitoring (on the left side of the diagram). The key component of this integration is Microsoft Sentinel.
+The central part of the diagram has two layers of security services. There's also one layer with specific Azure monitoring services that are integrated through Azure Monitor (on the left side of the diagram). The key component of this integration is Microsoft Sentinel.
 
 The diagram shows the following services in **Core Monitoring Services** and in the **Monitor** layer:
 
@@ -70,7 +70,7 @@ The key component in this architecture is Microsoft Sentinel, because it connect
 
 For more information about Microsoft Sentinel, see [Microsoft Sentinel documentation](/azure/sentinel)
 
-### How to access Azure security, monitoring, and Microsoft 365 Defender services
+### How to access security and monitoring services
 
 The following list presents information about how to access each of the services that are presented in this article:
 
@@ -140,4 +140,7 @@ To get all details regarding this reference architecture, see the other articles
 - Part 3: [Building the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml)
 - Part 4: [Build the second layer of defense with Microsoft 365 Defender Security services](./microsoft-365-defender-build-second-layer-defense.yml)
 <!-- - Part 5: [Integration between Azure and Microsoft 365 Defender security services](./microsoft-365-defender-security-integrate-azure.yml) -->
+
+
+## Related resources
 
