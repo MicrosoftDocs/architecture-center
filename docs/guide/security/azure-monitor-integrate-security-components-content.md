@@ -48,7 +48,7 @@ In addition to this introductory article, this series includes the following art
 
   The fourth article in this series explores security for Microsoft 365 services, like Office 365, Teams, and OneDrive, provided by Microsoft 365 Defender services.
 
-- [Integration between Azure and Microsoft 365 Defender security services](../../solution-ideas/articles/microsoft-365-defender-security-integrate-azure.yml)
+- [Integrate Azure and Microsoft 365 Defender security services](../../solution-ideas/articles/microsoft-365-defender-security-integrate-azure.yml)
 
   The fifth article in this series explains the relationship between Azure Security and Microsoft 365 Defender services and their integration. It describes how integration works and how you can accomplish it by using Microsoft Sentinel and Log Analytics, which are shown on the left side of the architecture diagram. This series calls these *core monitoring services*, because the services that are depicted in the graph can work with the comprehensive services of Azure and Microsoft 365.
 

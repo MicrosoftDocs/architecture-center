@@ -1,8 +1,8 @@
 ### YamlMime:Architecture
 metadata:
-  title: Integration between Azure and Microsoft 365 Defender security services
+  title: Integrate Azure and Microsoft 365 Defender security services
   titleSuffix: Azure Architecture Center
-  description: Placeholder description.
+  description: Integrate security solutions across Azure and Microsoft 365 services to produce robust security for your hybrid and cloud IT environments. 
   author: rudneir2
   ms.author: ruolivei
   ms.custom: fcp
@@ -14,13 +14,12 @@ azureCategories:
   - integration
   - security
 products:
-  - azure-network-watcher
   - azure-sentinel
-  - azure-log-analytics
   - azure-monitor
-  - azure-application-insights
-name: Integration between Azure and Microsoft 365 Defender security services
-summary: Placeholder summary.
+  - defender-for-cloud
+  - azure-log-analytics
+name: Integrate Azure and Microsoft 365 Defender security services
+summary: Integrate security solutions across Azure and Microsoft 365 services to produce robust security for your hybrid and cloud IT environments.
 thumbnailUrl: /azure/architecture/browse/thumbs/microsoft-365-defender-security-integrate-azure-thumbnail.png
 content: |
   [!include[](microsoft-365-defender-security-integrate-azure-content.md)]
