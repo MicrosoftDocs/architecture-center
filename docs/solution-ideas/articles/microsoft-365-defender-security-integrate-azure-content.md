@@ -1,6 +1,16 @@
 You can enhance the security posture of your organization’s IT environment by using the security features of both Microsoft 365 and Azure. This article, the fifth in a series of five, describes how you can integrate the security features of these services by using Microsoft 365 Defender and Azure Monitoring services. 
 
-Monitoring solutions on Azure can seem confusing at first, because Azure offers multiple monitoring services. However, each Microsoft Azure monitoring service has its own importance in the Microsoft Security and Monitoring strategy.
+Monitoring solutions on Azure can seem confusing at first, because Azure offers multiple monitoring services. However, each Microsoft Azure monitoring service has its own importance in security and monitoring strategy that is described in this series. The articles in this series describe the various services and how to plan effective security for your IT environment. 
+
+This article builds on the previous articles in the series:
+
+1. [Use Azure monitoring to integrate security components](../../guide/security/azure-monitor-integrate-security-components.yml) provides an overall view of how you can integrate the security services of Azure and Microsoft 365 Defender.
+
+2. [Map threats to your IT environment](./map-threats-it-environment.yml) describes methods to map examples of common threats, their tactics and techniques, against an example of a hybrid IT environment that uses both on-premises and Microsoft cloud services.
+
+3. [Building the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml) maps an example of some Azure security services that create the first layer of defense to protect your Azure environment according to Azure Security Benchmark version 3.
+
+4. [Build the second layer of defense with Microsoft 365 Defender Security services](./microsoft-365-defender-build-second-layer-defense.yml) describes an example of a series of attacks against your IT environment and how to add another layer of protection by using Microsoft 365 Defender.
 
 ## Potential use cases
 
@@ -64,37 +74,37 @@ For more information about Microsoft Sentinel, see [Microsoft Sentinel documenta
 
 The following list presents information about how to access each of the services that are presented in this article:
 
-- **Azure security services**. You can access all of the Azure security services that are mentioned in the diagrams in this series of articles by using [Azure portal](https://portal.azure.com). In the portal, use the search function locate the services that you're interested in and access them.
+- **Azure security services**. You can access all the Azure security services that are mentioned in the diagrams in this series of articles by using [Azure portal](https://portal.azure.com). In the portal, use the search function locate the services that you're interested in and access them.
 
 - **Azure Monitor**. Azure Monitor is available in all Azure subscriptions. You can access it from a search for *monitor* in the [Azure portal](https://portal.azure.com).
 
-- **Defender for Cloud**. Microsoft Defender for Cloud is also available to anyone who accesses the [Azure portal](https://portal.azure.com) for the first time. In the portal, search for *Defender for Cloud*.
+- **Defender for Cloud**. Defender for Cloud is available to anyone who accesses the [Azure portal](https://portal.azure.com). In the portal, search for *Defender for Cloud*.
 
 - **Log Analytics**. To access Log Analytics, you must first create the service in the portal, because it doesn't exist by default. In the [Azure portal](https://portal.azure.com), search for *Log Analytics workspace*, and then select **Create**. After creation, you're able to access the service.
 
 - **Microsoft Sentinel**. Because Microsoft Sentinel works on top of a Log Analytics, you must first create a Log Analytics workspace. Next, search for *sentinel* in the [Azure portal](https://portal.azure.com). Then create the service by choosing the workspace that you want to have behind Microsoft Sentinel.
 
-- **Microsoft Defender for Endpoint**. Microsoft Defender for Endpoint is part of Microsoft 365 Defender. Access the service through [https://security.microsoft.com](https://security.microsoft.com). (This is a change from the previous URL, *securitycenter.windows.com*.)
+- **Microsoft Defender for Endpoint**. Defender for Endpoint is part of Microsoft 365 Defender. Access the service through [https://security.microsoft.com](https://security.microsoft.com). This is a change from the previous URL, *securitycenter.windows.com*.
 
-- **Microsoft Defender for Cloud Apps**. Microsoft Defender for Cloud Apps is part of Microsoft 365. Access the service through [https://portal.cloudappsecurity.com](https://portal.cloudappsecurity.com).
+- **Microsoft Defender for Cloud Apps**. Defender for Cloud Apps is part of Microsoft 365. Access the service through [https://portal.cloudappsecurity.com](https://portal.cloudappsecurity.com).
 
-- **Microsoft Defender for Office 365**. Microsoft Defender for Office 365 is part of Microsoft 365. Access the service through [https://security.microsoft.com](https://security.microsoft.com), the same portal used for Defender for Endpoint. (This is a change from the previous URL, *protection.office.com*.)
+- **Microsoft Defender for Office 365**. Defender for Office 365 is part of Microsoft 365. Access the service through [https://security.microsoft.com](https://security.microsoft.com), the same portal used for Defender for Endpoint. (This is a change from the previous URL, *protection.office.com*.)
 
-- **Microsoft Defender for Identity**. Microsoft Defender for Identity is part of Microsoft 365. You access the service through [https://portal.atp.azure.com](https://portal.atp.azure.com). Although it's a cloud service, Defender for Identity is responsible for also protecting identity on on-premises systems.
+- **Microsoft Defender for Identity**. Defender for Identity is part of Microsoft 365. You access the service through [https://portal.atp.azure.com](https://portal.atp.azure.com). Although it's a cloud service, Defender for Identity is responsible for also protecting identity on on-premises systems.
 
-- **Endpoint Manager**. Microsoft Endpoint Manager is the new name for Intune, Configuration Manager, and other services. Access it through [https://endpoint.microsoft.com](https://endpoint.microsoft.com).
+- **Microsoft Endpoint Manager**. Endpoint Manager is the new name for Intune, Configuration Manager, and other services. Access it through [https://endpoint.microsoft.com](https://endpoint.microsoft.com).
 
   > [!NOTE]
   >
-  > To learn more about accessing the services that are provided by Microsoft 365 Defender and how each portal is related, see [Build the second layer of defense with Microsoft 365 Defender Security services](./microsoft-365-defender-build-second-layer-defense.yml), the fourth article in this series of articles.
+  > To learn more about accessing the services that are provided by Microsoft 365 Defender and how each portal is related, see [Build the second layer of defense with Microsoft 365 Defender Security services](./microsoft-365-defender-build-second-layer-defense.yml).
 
 - **Azure Network Watcher**. To access Azure Network Watcher, search for *watcher* in the [Azure portal](https://portal.azure.com).
 
-- **Traffic Analytics**. Traffic Analytics is part of Network Watcher. You can access it from the menu on the left side in Network Watcher. It's a powerful network monitor that works based on your NSGs that are implemented on your individual network interfaces and subnets. Network Watcher requires collection of information from the NSGs. For instructions in collecting that information, see [Tutorial: Log network traffic to and from a virtual machine using the Azure portal](/azure/network-watcher/network-watcher-nsg-flow-logging-portal).
+- **Traffic Analytics**. Traffic Analytics is part of Network Watcher. You can access it from the menu on the left side in Network Watcher. It's a powerful network monitor that works based on your NSGs that are implemented on your individual network interfaces and subnets. Network Watcher requires collection of information from the NSGs. For instructions on how to collect that information, see [Tutorial: Log network traffic to and from a virtual machine using the Azure portal](/azure/network-watcher/network-watcher-nsg-flow-logging-portal).
 
 - **Application Insight**. Application Insight is part of Azure Monitor. However, you must first create it for the application that you want to monitor. For some applications built on Azure, such as Web Apps, you can create Application Insight directly from the provisioning of Web Apps. To access it, search for *monitor* in the [Azure portal](https://portal.azure.com). In the **Monitor** page, select **Applications** in the menu on the left side.
 
-- **Storage Analytics**. Azure Storage offers various types of storage under the same storage account technology. You can find blobs, files, table and queues on top of storage accounts. Storage analytics offers a broad range of metrics to use with those storage services. Access Storage Analytics from your Storage account in the [Azure portal](https://portal.azure.com), then select **Diagnostic settings** in the menu on the left side. Choose one log analytics workspace to send that information. Then you can access some dashboard from **Insights** in the menu on the left side. You can also access a series of workbooks from **workbooks** in the menu on the left side, Metrics and Alerts for your storage account. Everything in your storage account that being monitored is represented in menu.
+- **Storage Analytics**. Azure Storage offers various types of storage under the same storage account technology. You can find blobs, files, table and queues on top of storage accounts. Storage analytics offers a broad range of metrics to use with those storage services. Access Storage Analytics from your Storage account in the [Azure portal](https://portal.azure.com), then select **Diagnostic settings** in the menu on the left side. Choose one log analytics workspace to send that information. Then you can access a dashboard from **Insights**. Everything in your storage account that's being monitored is represented in the menu.
 
 ## Pricing
 
