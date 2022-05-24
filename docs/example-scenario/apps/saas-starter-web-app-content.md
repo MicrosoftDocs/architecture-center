@@ -58,6 +58,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 This solution relies on identity as its security paradigm. Authentication and Authorization for the web apps and apis is governed by the [Microsoft Identity Platform](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-overview), which is responsible for issuing and verifying user JWT tokens.
 
 ### Cost optimization
+
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 The cost to run this solution is fairly average in comparison to other web applications. Here are some high level points with an explanation of a few of the "dials" you have when it comes to cost:
@@ -73,10 +74,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 This architecture should be able to scale to meet most medium to medium/large workloads easily. Since it is taking advantage of mostly PaaS offerings, you have many "dials" to turn to scale the solution to fit demand. 
 
-For high throughput scenarios, or scenarios in which you need to serve customers in multiple geographies, you could also consider deploying the applications and databases in multiple regions. See the [Multi-region web app with private database]
-
-
-
+For high throughput scenarios, or scenarios in which you need to serve customers in multiple geographies, you could also consider deploying the applications and databases in multiple regions. See the [Multi-region web app with private database](../sql-failover/app-service-private-sql-multi-region-content.yml) for a great example of this architecture.
 
 ## Deploy this scenario
 
