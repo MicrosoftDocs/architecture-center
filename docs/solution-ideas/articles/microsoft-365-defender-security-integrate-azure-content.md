@@ -20,7 +20,7 @@ You don't need to implement all the security services that are presented in this
 
 ## Architecture
 
-:::image type="content" alt-text="Diagram of the complete reference architecture for this five-article series which shows an IT environment, threats, and security services." source="../media/microsoft-365-defender-security-integrate-azure-architecture.png" lightbox="../media/microsoft-365-defender-security-integrate-azure-architecture.png":::
+:::image type="content" alt-text="Diagram of the complete reference architecture for this five-article series that shows an IT environment, threats, and security services." source="../media/microsoft-365-defender-security-integrate-azure-architecture.png" lightbox="../media/microsoft-365-defender-security-integrate-azure-architecture.png":::
 
 *©2021 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation.*
 
@@ -64,9 +64,9 @@ The preceding services in this list are core services that work throughout Azure
 
 8.  **Azure Storage Analytics** performs logging and provides metrics for a storage account. You can use its data to trace requests, analyze usage trends, and diagnose issues with your storage account. For more information, see [Use Azure Storage analytics to collect logs and metrics data](/azure/storage/common/storage-analytics).
 
-9.  Because this architecture reference is based on [Microsoft Zero Trust](/security/business/zero-trust), the services and components under **Infrastructure and Endpoint** do not have specific monitoring services. Azure Monitor logs and Defender for Cloud are the main services that collect, store, and analyze logs from VMs and others compute services.
+9.  Because this architecture reference is based on [Microsoft Zero Trust](/security/business/zero-trust), the services and components under **Infrastructure and Endpoint** don't have specific monitoring services. Azure Monitor logs and Defender for Cloud are the main services that collect, store, and analyze logs from VMs and others compute services.
 
-The key component in this architecture is Microsoft Sentinel, because it connects all the logs and alerts that are provided by Azure security services, Microsoft 365 Defender, and Azure Monitor. After you implement Microsoft Sentinel implemented and it is receiving logs and alerts from all the sources that are identified in this article, the next step is to map a set of queries of those logs to obtain insights and evidence of indicators of compromise (IOCs). When information is captured by Microsoft Sentinel, you can investigate it or allow an automated response that you configure to mitigate or resolve the incident. Automatic responses include such as actions as blocking a user on in Azure Active Directory (Azure AD) or blocking an IP address via the firewall.
+The key component in this architecture is Microsoft Sentinel, because it connects all the logs and alerts that are provided by Azure security services, Microsoft 365 Defender, and Azure Monitor. After you implement Microsoft Sentinel implemented and it's receiving logs and alerts from all the sources that are identified in this article, the next step is to map a set of queries of those logs to obtain insights and evidence of indicators of compromise (IOCs). When information is captured by Microsoft Sentinel, you can investigate it or allow an automated response that you configure to mitigate or resolve the incident. Automatic responses include such as actions as blocking a user on in Azure Active Directory (Azure AD) or blocking an IP address via the firewall.
 
 For more information about Microsoft Sentinel, see [Microsoft Sentinel documentation](/azure/sentinel)
 
@@ -114,7 +114,7 @@ Pricing for the services that are presented in this series of articles is calcul
 
 In the calculator, search for a service that you're interested in, and select it to get all the variables that determine the price for the service.
 
-Microsoft 365 Defender security services works with licenses. For information about the licensing requirements, see [Microsoft 365 Defender prerequisites](/microsoft-365/security/defender/prerequisites?view=o365-worldwide).
+Microsoft 365 Defender security services work with licenses. For information about the licensing requirements, see [Microsoft 365 Defender prerequisites](/microsoft-365/security/defender/prerequisites?view=o365-worldwide).
 
 
 ## Contributors
