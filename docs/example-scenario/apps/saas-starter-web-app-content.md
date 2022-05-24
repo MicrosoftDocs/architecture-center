@@ -67,7 +67,13 @@ The cost to run this solution is fairly average in comparison to other web appli
 
 - Azure SQL has a few different [purchasing models](https://docs.microsoft.com/azure/azure-sql/database/purchasing-models?view=azuresql) to fit a wide array of use cases, including the ability to autoscale. You'll need to evaluate the usage on the databases to ensure you are rightsizing them.
 
-### Operational excellence
+### Performance Efficiency
+
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+
+This architecture should be able to scale to meet most medium to medium/large workloads easily. Since it is taking advantage of mostly PaaS offerings, you have many "dials" to turn to scale the solution to fit demand. 
+
+For high throughput scenarios, or scenarios in which you need to serve customers in multiple geographies, you could also consider deploying the applications and databases in multiple regions. See the [Multi-region web app with private database]
 
 
 
