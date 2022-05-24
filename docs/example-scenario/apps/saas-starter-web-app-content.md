@@ -51,10 +51,31 @@ This architecture uses the following Azure services:
 - The current solution uses Azure Active Directory B2C as the Identity Provider. Other identity providers, such as [Azure Active Directory](https://azure.microsoft.com/en-us/services/active-directory/), could be used instead as well.
 
 - This solution uses two key vaults: One for the Identity Framework and another for the web and API modules. For tighter security, you could use one key vault per module.
-  
-- For stricter security requirements, you could move to using private networking for communication between microservices. The current solution relies solely on identity and access management as its security paradigm.
+
+- For stricter security and compliance requirements, you could choose to also implement private networking for cross service communication.
 
 - Instead of using REST calls between services, another approach would be to use an [Event Driven Architecture](https://docs.microsoft.com/en-us/azure/architecture/guide/architecture-styles/event-driven) for cross service messaging.
+
+## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
+### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
+This solution relies on identity as its security paradigm. Authentication and Authorization for the web apps and apis is governed by the [Microsoft Identity Platform](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-overview), which is responsible for issuing and verifying user JWT tokens.
+
+### Cost optimization
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+
+The cost to run this solution is fairly average in comparison to other web applications. Here are some high level points with an explanation of a few of the "dials" you have when it comes to cost:
+
+- The 
+
+
+
+### Operational Excellence
 
 ## Deploy this Scenario
 
