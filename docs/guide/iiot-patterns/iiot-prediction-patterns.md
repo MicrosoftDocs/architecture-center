@@ -87,7 +87,7 @@ Automate quality inspection in manufacturing using custom vision.
 
 [ ![Augment manual quality inspection using deep learing based image recognition models on the edge.](images/ml-imagerecognition.png) ](images/ml-imagerecognition.png#lightbox)
 
-- Datafow
+- Dataflow
     1.  Machine Learning service builds a defect detection model using initial labeled images stored in Data Lake. It then builds a container image and pushes the image to a container registry.
     1. IoT Edge module deployment contains multiple modules including defect detection module (created above), prediction store (e.g. sql edge), prediction dashboard (custom web app or grafana) and a file upload module to upload images for model re-training. These modules are packaged as a container image, stored in a container registry and pulled by the edge via module deployments.
     1. The defect detection module flags the defect and sends the prediction message to IoT Hub / Central using edgeHub. IoT Hub / Central sends module updates to the edge and provides edge management control plan.
