@@ -15,7 +15,7 @@ The following scenarios are ways an organization can utilize demand forecasting:
 
 ## Architecture
 
-![Architecture diagram](../media/demand-forecasting.png)
+![Architecture diagram showing the flow of sample data to Power B I: demand forecasting](../media/demand-forecasting.png)
 *Download an [SVG](../media/demand-forecasting.svg) of this architecture.*
 
 ### Dataflow
@@ -29,7 +29,7 @@ This solution combines several Azure services to provide actionable predictions:
   1. Azure SQL Database stores and transforms the consumption data.
   1. Machine Learning implements and executes the forecasting model.
   1. Power BI visualizes the real-time energy consumption and the forecast results.
-  1. Finally, Data Factory orchestrates and schedules the entire data flow.
+  1. Finally, Data Factory orchestrates and schedules the entire dataflow.
 
 ### Components
 

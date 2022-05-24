@@ -12,8 +12,10 @@ With this solution, you can ingest historical transaction data, predict future d
 
 ## Architecture
 
-![Architectural diagram: Demand forecasting for price optimization with Microsoft AI platform](../media/demand-forecasting-price-optimization-marketing.png)
+![Architecture diagram showing the flow of sample data to Power B I: demand forecasting for price optimization with Microsoft AI platform](../media/demand-forecasting-price-optimization-marketing.png)
 *Download an [SVG](../media/demand-forecasting-price-optimization-marketing.svg) of this architecture.*
+
+## Dataflow
 
 [Microsoft AI platform](https://www.microsoft.com/ai/ai-platform) provides advanced analytics tools such as data ingestion, storage, processing, and advanced analytics components. These tools are the essential elements for building a demand forecasting and price optimization solution.
 

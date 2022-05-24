@@ -10,7 +10,7 @@ This solution is optimized for the retail and manufacturing industries.
 
 ## Architecture
 
-![Architecture diagram: demand forecasting for shipping and distribution](../media/demand-forecasting-for-shipping-and-distribution.png)
+![Architecture diagram showing the flow of sample data to Power B I: demand forecasting for shipping and distribution](../media/demand-forecasting-for-shipping-and-distribution.png)
 *Download an [SVG](../media/demand-forecasting-for-shipping-and-distribution.svg) of this architecture.*
 
 ### Dataflow
@@ -31,11 +31,11 @@ The [AI Gallery solution](https://gallery.azure.ai/Solution/Demand-Forecasting-f
 
 This demand forecasting solution idea uses the following resources hosted and managed in Azure:
 
-* [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) instance for persistent storage; to store forecasts and historical distribution data.
-* [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) web service to host forecasting code.
-* [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) for intermediate storage of generated forecasts.
-* [Azure Data Factory](https://azure.microsoft.com/services/data-factory) to orchestrate regular runs of the Azure Machine Learning model.
-* [Power BI](https://powerbi.microsoft.com) dashboard to display and drill down on the forecasts.
+* [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) instance for persistent storage; to store forecasts and historical distribution data
+* [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) web service to host forecasting code
+* [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) for intermediate storage of generated forecasts
+* [Azure Data Factory](https://azure.microsoft.com/services/data-factory) to orchestrate regular runs of the Azure Machine Learning model
+* [Power BI](https://powerbi.microsoft.com) dashboard to display and drill down on the forecasts
 
 ## Next steps
 
