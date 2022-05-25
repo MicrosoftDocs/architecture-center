@@ -83,7 +83,7 @@ For more information on deploying this scenario, see the [Power Automate Communi
 
 Principal author:
 
-- [Steve Pucelik](https://www.linkedin.com/in/stevepucelik) | SR SPECIALIST
+- [Steve Pucelik](https://www.linkedin.com/in/stevepucelik) | Sr. Specialist
 
 ## Next steps
 
