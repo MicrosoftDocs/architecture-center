@@ -38,7 +38,7 @@ This solution architecture models a development and deployment environment that 
 
 1. When a version of the application is ready for quality assurance (QA) testing, Azure Pipelines triggers a QA release. The pipeline tags all appropriate images with the next incremental version, updates the Kubernetes manifest to reflect the image tags, and runs the `apply` command. In this example, while a developer may be iterating on a service in isolation, only builds integrated via CI/CD are moved over to deployment.
 
-1. After testing has approved a version of the service for deployment, GitHub Actions promotes a release from the DevTest Container Registry to a Production Container Registry. GitHub Actions tags the images with the appropriate version and pushes them into the Production Container Registry, following [container registry best practices](/azure/container-registry/container-registry-best-practices).
+1. After testing has approved a version of the service for deployment, GitHub Actions promotes a release from the DevTest Container Registry to a Production Container Registry. GitHub Actions tag the images with the appropriate version and pushes them into the Production Container Registry, following [container registry best practices](/azure/container-registry/container-registry-best-practices).
 
 1. Azure Pipelines creates a release to Production. The pipeline imposes approval gates and pre-stage and post-stage conditions to protect the Production environment from inadvertent or incorrect deployment.
 
