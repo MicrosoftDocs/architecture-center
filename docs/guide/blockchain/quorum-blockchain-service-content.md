@@ -87,9 +87,7 @@ The ledger system of the QBS helps organizations get the history of low-level co
 
 - [Azure Managed Applications](https://azure.microsoft.com/services/managed-applications/) enable you to offer cloud solutions that are easy for consumers to deploy and operate.
   - Publish a managed application to the Azure market place to be available for all the customers.
-  - Publish a managed application to an internal catalog to be available to only users.
-
-You can implement the infrastructure and provide ongoing support to the managed applications.
+  - Publish a managed application to an internal catalog to be available to only your company's users.
 
 - Event Listener: In this scenario, [Ethloggger](https://github.com/splunk/splunk-connect-for-ethereum/blob/main/docs/cli.md) is utilized to send data to off-chain data technologies, such as Azure Cosmos Database or Azure SQL Server.
 
