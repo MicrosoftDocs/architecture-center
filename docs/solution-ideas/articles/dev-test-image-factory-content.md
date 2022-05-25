@@ -10,7 +10,7 @@ Some popular uses for Azure DevTest Labs include:
 
 - Developers need many, sometimes different virtual machines (VMs) and environments as they iterate on apps.
 - Testers use many identical or different VMs and environments for performance testing and sandboxed investigations.
-- Teachers and trainers periodically need new classroom, lab, and hackathon VMs and environments.
+- In the education industry, teachers and trainers periodically need new classroom, lab, and hackathon VMs and environments.
 
 ## Architecture
 
