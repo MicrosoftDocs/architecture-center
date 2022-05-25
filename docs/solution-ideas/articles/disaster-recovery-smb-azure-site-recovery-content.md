@@ -6,7 +6,7 @@ This solution is built on the Azure managed services: [Traffic Manager](https://
 
 ## Potential use cases
 
-Industries that utilize this service include:
+Ideal industries for this solution include healthcare, travel and hospitality, and manufacturing. Industries that utilize this service include:
 
 - Healthcare (portable clinics and pop-up virus testing centers)
 - Restaurants (local and regional chains)
