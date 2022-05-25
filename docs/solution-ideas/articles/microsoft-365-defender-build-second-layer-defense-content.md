@@ -104,7 +104,7 @@ The primary use of *Portal.cloudappsecurity.com* is to manage (4) Defender for C
 Lastly, *endpoint.microsoft.com* provides functionality mainly for Intune and Configuration Manager, but also for other services that are part of Endpoint Manager. Because *security.microsoft.com* and *endpoint.microsoft.com* deliver security protection for endpoints, they have many interactions between them (9) to offer a great security posture for your endpoints.
 
 
-## Components
+### Components
 
 The example architecture in this article uses the following Azure components:
 

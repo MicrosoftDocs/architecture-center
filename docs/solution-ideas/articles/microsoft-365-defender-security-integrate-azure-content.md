@@ -107,7 +107,7 @@ The following list presents information about how to access each of the services
 - **Storage Analytics**. Azure Storage offers various types of storage under the same storage account technology. You can find blobs, files, table and queues on top of storage accounts. Storage analytics offers a broad range of metrics to use with those storage services. Access Storage Analytics from your Storage account in the [Azure portal](https://portal.azure.com), then select **Diagnostic settings** in the menu on the left side. Choose one log analytics workspace to send that information. Then you can access a dashboard from **Insights**. Everything in your storage account that's being monitored is represented in the menu.
 
 
-## Components
+### Components
 
 The example architecture in this article uses the following Azure components:
 
