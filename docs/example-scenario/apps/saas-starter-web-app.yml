@@ -25,6 +25,6 @@ products:
   - azure-key-vault
   - azure-logic-apps
   - azure-resource-manager
-thumbnailUrl: /azure/architecture/browse/thumbs/architecture-publish-internal-apis-externally.png
+thumbnailUrl: /azure/architecture/browse/thumbs/architecture-saas-starter-app.png
 content: |
    [!include[](saas-starter-web-app-content.md)]

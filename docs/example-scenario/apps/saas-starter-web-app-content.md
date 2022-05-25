@@ -16,7 +16,6 @@ Here are some example use cases in which this architecture could be used:
 
 ## Architecture
 
-**This is a stub architecture for the PR review. The real architecture diagram is a WIP and is coming soon!**
 ![Architecture Diagram](./media/architecture-saas-starter-app.png)
 
 ### Workflow
@@ -42,9 +41,7 @@ The effectiveness of any alternative choices will depend greatly on the [tenancy
 
 - The current solution uses Azure Active Directory B2C as the identity drovider. Other identity providers, such as [Azure Active Directory](https://azure.microsoft.com/services/active-directory/), could be used instead as well.
 - This solution uses two key vaults: One for the Identity Framework and another for the web and API modules. For tighter security, you could use one key vault per module.
-
 - For stricter security and compliance requirements, you could choose to also implement private networking for cross service communication.
-
 - Instead of using REST calls between services, another approach would be to use an [Event Driven Architecture](https://docs.microsoft.com/en-us/azure/architecture/guide/architecture-styles/event-driven) for cross service messaging.
 
 ## Considerations
