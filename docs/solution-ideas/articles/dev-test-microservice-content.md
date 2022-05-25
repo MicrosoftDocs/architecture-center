@@ -11,8 +11,8 @@ This solution architecture models a development and deployment environment that 
 ## Potential use cases
 
 - Legacy application modernization
-- Solutions requiring real-time processing (Banking or data streaming)
-- RAM or CPU-intensive parts of an application (Native language processing)
+- Solutions requiring real-time processing (banking/finance or data streaming/media)
+- RAM or CPU-intensive parts of an application (native language processing)
 
 ## Architecture
 
