@@ -20,7 +20,7 @@ Some organizations utilize chatbots in these areas.
 1. An employee accesses the enterprise bot.
 1. Azure Active Directory validates the employee's identity.
 1. The bot queries the employee's Microsoft 365 calendar via Microsoft Graph.
-1. Using data gathered from the calendar, the bot accesses case information in Dynamics CRM.
+1. By using data gathered from the calendar, the bot accesses case information in Dynamics CRM.
 1. Information is returned to the employee, who can filter the data without leaving the bot.
 1. Application Insights monitors the live application to diagnose issues and help understand how to improve bot performance and usability.
 
