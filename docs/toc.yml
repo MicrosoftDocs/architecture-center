@@ -2821,19 +2821,9 @@ items:
               - name: Mission critical workload on AKS
                 items:
                   - name: Introduction
-                    href: reference-architectures/containers/aks-mission-critical/mission-critical-intro.yml
-                  - name: Application design
-                    href: reference-architectures/containers/aks-mission-critical/mission-critical-app.yml                  
+                    href: reference-architectures/containers/aks-mission-critical/mission-critical-intro.yml              
                   - name: Application platform
                     href: reference-architectures/containers/aks-mission-critical/mission-critical-platform.yml                  
-                  - name: Data platform
-                    href: reference-architectures/containers/aks-mission-critical/mission-critical-data.yml
-                  - name: Networking and connectivity platform
-                    href: reference-architectures/containers/aks-mission-critical/mission-critical-network.yml                    
-                  - name: Health modeling
-                    href: reference-architectures/containers/aks-mission-critical/mission-critical-monitor.yml
-                  - name: Deployment and testing
-                    href: reference-architectures/containers/aks-mission-critical/mission-critical-devops.yml
               - name: Multiplayer server hosting with ACI
                 href: /gaming/azure/reference-architectures/multiplayer-synchronous-aci
                 maintainContext: true
