@@ -51,7 +51,7 @@ Consider these points when you analyze and process documents:
 
 ### Availability
 
-Azure replicates data to ensure durability and high availability. Data redundancy protects you from planned and unplanned events including transient hardware failures, network or power outages, and natural disasters. Choose to replicate your data within the same data center, across zonal data centers within the same region, or across geographically separated regions.
+Azure replicates data to ensure durability and high availability. Data redundancy protects you from planned and unplanned events, including transient hardware failures, network or power outages, and natural disasters. Choose to replicate your data within the same data center, across zonal data centers within the same region, or across geographically separated regions.
 
 ### Scalability
 
@@ -67,15 +67,15 @@ Form Recognizer is designed with compliance, privacy, and security in mind.  It 
 
 AI Builder relies on environment security and Dataverse security roles and privileges to grant access to AI features in Power Apps. Privileges are set by default in Dataverse. System administrators can use the default built-in security roles without further actions. For more information, see [Security overview](/power-platform/admin/wp-security).
 
-## Deploy this scenario
-
-For more information on deploying this scenario, see the [Power Automate Community Blog](https://powerusers.microsoft.com/t5/Power-Automate-Community-Blog/Extract-Text-From-Objects/ba-p/1249705) and the [Extract Text From Objects](https://github.com/Spucelik/ExtractTextFromObjects) GitHub repo.
-
-## Pricing
+### Cost optimization
 
 - For Power Automate, make sure the licenses that you've purchased and assigned are adequate for the volume of documents that you process. Include an HTTP premium connector to call Form Recognizer and Azure Functions.
 - Purchase AI Builder credits based on the expected model usage.
 - To estimate the cost of Azure products and configurations, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
+
+## Deploy this scenario
+
+For more information on deploying this scenario, see the [Power Automate Community Blog](https://powerusers.microsoft.com/t5/Power-Automate-Community-Blog/Extract-Text-From-Objects/ba-p/1249705) and the [Extract Text From Objects](https://github.com/Spucelik/ExtractTextFromObjects) GitHub repo.
 
 ## Contributors
 
