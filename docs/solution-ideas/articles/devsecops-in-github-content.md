@@ -1,4 +1,4 @@
-DevSecOps adheres to security best practices starting with the first steps of development. DevSecOps redirects the security focus by using a [shift-left][Shift left] strategy. Instead of pointing toward auditing at the end, it shifts to development in the beginning. Besides producing robust code, this [fail fast][Fail fast] approach helps to resolve problems early on, when they're easy to fix.
+DevSecOps adheres to security best practices, starting with the first steps of development. DevSecOps redirects the security focus by using a [shift-left][Shift left] strategy. Instead of pointing toward auditing at the end, it shifts to development in the beginning. Besides producing robust code, this [fail fast][Fail fast] approach helps to resolve problems early on, when they're easy to fix.
 
 With many security capabilities, GitHub offers tools that support every part of a DevSecOps workflow:
 
