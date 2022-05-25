@@ -1,6 +1,6 @@
 Schematic and industrial diagrams often have objects that contain text. Manually scanning documents for relevant text can be laborious and time consuming.
 
-This article presents a solution for extracting text from images so it can be indexed and retrieved in SharePoint. By using AI Builder and Azure Form Recognizer, you can configure a Power Automate workflow to use a trained model to extract text from an image. Once you've configured a workflow, you can quickly search documents for meaningful text that's imbedded in shapes and objects.
+This article presents a solution for extracting text from images so it can be indexed and retrieved in SharePoint. By using AI Builder and Azure Form Recognizer, you can configure a Power Automate workflow to use a trained model to extract text from an image. Once you've configured a workflow, you can quickly search documents for meaningful text that's embedded in shapes and objects.
 
 ## Potential use cases
 
@@ -51,7 +51,7 @@ Consider these points when you analyze and process documents:
 
 ### Availability
 
-Azure replicates data to ensure durability and high availability. Data redundancy protects you from planned and unplanned events—including transient hardware failures, network or power outages, and natural disasters. Choose to replicate your data within the same data center, across zonal data centers within the same region, or across geographically separated regions.
+Azure replicates data to ensure durability and high availability. Data redundancy protects you from planned and unplanned events including transient hardware failures, network or power outages, and natural disasters. Choose to replicate your data within the same data center, across zonal data centers within the same region, or across geographically separated regions.
 
 ### Scalability
 
@@ -76,6 +76,14 @@ For more information on deploying this scenario, see the [Power Automate Communi
 - For Power Automate, make sure the licenses that you've purchased and assigned are adequate for the volume of documents that you process. Include an HTTP premium connector to call Form Recognizer and Azure Functions.
 - Purchase AI Builder credits based on the expected model usage.
 - To estimate the cost of Azure products and configurations, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+- [Steve Pucelik](https://www.linkedin.com/in/stevepucelik) | SR SPECIALIST
 
 ## Next steps
 
