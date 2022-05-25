@@ -133,8 +133,14 @@ Other contributors:
 
 ## Next steps
 
+- [Implement a secure hybrid network](../../reference-architectures/dmz/secure-vnet-dmz.yml)
 - [Monitor hybrid security using Microsoft Defender for Cloud and Microsoft Sentinel](../../hybrid/hybrid-security-monitoring.yml)
-- [Multilayered protection for Azure virtual machine access](../../solution-ideas/articles/multilayered-protection-azure-vm.yml)
+- [Defend against threats with Microsoft 365](/learn/paths/m365-security-threat-protection)
+- [Detect and respond to cyber attacks with Microsoft 365 Defender](/learn/paths/defender-detect-respond)
+- [Get started with Microsoft 365 Defender](/microsoft-365/security/defender/get-started)
+- [Manage security with Microsoft 365](/learn/paths/m365-security-management)
+- [Protect against malicious threats with Microsoft Defender for Office 365](/learn/paths/defender-office-365-malicious-threats)
+- [Protect on-premises identities with Microsoft Defender for Cloud for Identity](/learn/paths/defender-identity-protect-on-premises)
 
 
 ## Related resources
