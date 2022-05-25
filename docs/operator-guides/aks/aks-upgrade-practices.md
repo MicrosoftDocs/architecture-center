@@ -1,19 +1,21 @@
 ---
-title: AKS Day-2 Operations Guide - Patch and upgrade guidance
+title: AKS Day-2 - Patch and upgrade guidance
 titleSuffix: Azure Architecture Center
 description: Learn about day-2 patching and upgrading practices for Azure Kubernetes Service (AKS) worker nodes and Kubernetes (K8S) versions.
 author: rishabhsaha
-ms.date: 01/11/2021
+ms.date: 04/11/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: reference-architecture
+azureCategories: compute
+categories: compute
 products:
   - azure-kubernetes-service
 ms.custom:
   - e2e-aks
 ---
 
-# Patching and upgrade guidance
+# Patch and upgrade AKS worker nodes
 
 This section of the Azure Kubernetes Service (AKS) day-2 operations guide describes patching and upgrading practices for AKS worker nodes and Kubernetes (K8S) versions.
 
@@ -88,6 +90,7 @@ To upgrade node pools to the latest node image version:
 - [Upgrade all nodes in node pools](/azure/aks/node-image-upgrade#upgrade-all-nodes-in-all-node-pools).
 - [Upgrade a specific node pool](/azure/aks/node-image-upgrade#upgrade-a-specific-node-pool).
 - [Automate node pool upgrades using GitHub Actions](/azure/aks/node-upgrade-github-actions).
+- [Automate node pool upgrades using auto-upgrade channels](/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
 
 ## Cluster upgrades
 
@@ -134,7 +137,7 @@ systempool    1.16.13
 usernodepool  1.16.13
 usernp179     1.17.9
 ```
-  
+
 You can upgrade the control plane first, and then upgrade the individual node pools.
 
 1. Run the [az aks upgrade](/cli/azure/ext/aks-preview/aks#ext_aks_preview_az_aks_upgrade) command with the `--control-plane-only` flag to upgrade only the cluster control plane, and not any of the associated node pools:
@@ -162,7 +165,7 @@ The following table describes characteristics of various AKS upgrade and patchin
 
 |Scenario|User initiated|K8S upgrade|OS kernel upgrade|Node image upgrade|
 |--------|--------------|------------------|-----------------|------------------|-----|
-|Security patching | No  | No | Yes, following reboot | No  |
+|Security patching | No  | No | Yes, following reboot | Yes  |
 |Cluster create | Yes  | Maybe | Yes, if an updated node image uses an updated kernel.|Yes, relative to an existing cluster if a new release is available.|
 |Control plane K8S upgrade | Yes  | Yes | No  | No  |
 |Node pool K8S upgrade | Yes  | Yes | Yes, if an updated node image uses an updated kernel.| Yes, if a new release is available.|

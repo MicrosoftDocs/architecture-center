@@ -1,0 +1,21 @@
+### YamlMime:Architecture
+metadata:
+  title: Valet Key pattern
+  description: Use a token or key that provides clients with restricted direct access to a specific resource or service.
+  author: EdPrice-MSFT
+  ms.author: edprice
+  ms.date: 01/19/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - compute
+  - web
+products:
+  - azure
+  - azure-storage
+name: Valet Key pattern
+summary: Use a token or key that provides clients with restricted direct access to a specific resource or service.
+thumbnailUrl: /azure/architecture/browse/thumbs/valet-key-pattern.png
+content: |
+  [!include[](valet-key-content.md)]

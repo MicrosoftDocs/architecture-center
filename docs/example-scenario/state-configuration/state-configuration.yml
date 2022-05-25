@@ -2,7 +2,7 @@
 metadata:
   title: Azure Automation State Configuration
   description: Use Azure Automation State Configuration to configure Windows and Linux systems.
-  author: neilpeterson
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 4/22/2020
   ms.topic: conceptual

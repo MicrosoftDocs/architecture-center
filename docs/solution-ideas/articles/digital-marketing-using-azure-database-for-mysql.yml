@@ -1,9 +1,9 @@
 ### YamlMime:Architecture
 metadata:
-  title: Digital Marketing using Azure Database for MySQL
+  title: Digital marketing using Azure DB for MySQL
   titleSuffix: Azure Solution Ideas
   description: Use Azure Database for MySQL to engage with customers around the world with rich, personalized digital marketing experiences.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
   ms.topic: conceptual
@@ -20,7 +20,7 @@ metadata:
     - web-apps
     - "https://azure.microsoft.com/solutions/architecture/digital-marketing-using-azure-database-for-mysql/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/digital-marketing-using-azure-database-for-mysql.png
-name: Digital Marketing using Azure Database for MySQL
+name: Digital marketing using Azure Database for MySQL
 azureCategories:
   - databases
 summary: Use Azure Database for MySQL to engage with customers around the world with rich, personalized digital marketing experiences.

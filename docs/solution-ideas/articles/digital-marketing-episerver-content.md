@@ -1,6 +1,5 @@
 
 
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Let your business run multi-channel digital marketing websites on one platform and spin up and spin down campaigns on demand. Take advantage of the comprehensive capabilities of Episerver to manage every aspect of your site and campaign performance.
@@ -12,7 +11,7 @@ This solution is built on the Azure managed services: [Traffic Manager](https://
 ![Architecture Diagram](../media/digital-marketing-episerver.png)
 *Download an [SVG](../media/digital-marketing-episerver.svg) of this architecture.*
 
-## Components
+### Components
 
 * App Service [Web Apps](https://azure.microsoft.com/services/app-service/web) runs in multiple regions, accessible to web and mobile browsers, and is scaled out across multiple server instances.
 * [Traffic Manager](https://azure.microsoft.com/services/traffic-manager) determines which web app is geographically best placed to handle each request.
@@ -25,11 +24,11 @@ This solution is built on the Azure managed services: [Traffic Manager](https://
 
 ## Next steps
 
-* [Deploy an ASP.NET web app to Azure App Service, using Visual Studio](/api/Redirect/documentation/articles/web-sites-dotnet-get-started)
-* [Configure Performance traffic routing method](/api/Redirect/documentation/articles/traffic-manager-configure-performance-routing-method)
-* [Use Azure CDN in Azure App Service](/api/Redirect/documentation/articles/cdn-websites-with-cdn)
-* [SQL Database tutorial: Create a SQL database in minutes by using the Azure portal](/api/Redirect/documentation/articles/sql-database-get-started)
+* [Deploy an ASP.NET web app to Azure App Service, using Visual Studio](/azure/app-service/quickstart-dotnetcore)
+* [Configure Performance traffic routing method](/azure/traffic-manager/traffic-manager-configure-performance-routing-method)
+* [Use Azure CDN in Azure App Service](/Azure/cdn/cdn-add-to-web-app)
+* [SQL Database tutorial: Create a SQL database in minutes by using the Azure portal](/azure/azure-sql/database/single-database-create-quickstart)
 * [How to create a Web App with Azure Cache for Redis](/azure/azure-cache-for-redis/cache-web-app-arm-with-redis-cache-provision)
-* [Get started with Azure Blob storage using .NET](/api/Redirect/documentation/articles/storage-dotnet-how-to-use-blobs)
+* [Get started with Azure Blob storage using .NET](/azure/storage/blobs/storage-blob-dotnet-get-started)
 * [Application Performance Management with Application Insights](/azure/azure-monitor/app/app-insights-overview)
-* [How to configure your App Service application to use Facebook login](/api/Redirect/documentation/articles/app-service-mobile-how-to-configure-facebook-authentication)
+* [How to configure your App Service application to use Facebook login](/azure/app-service/configure-authentication-provider-facebook)

@@ -1,7 +1,7 @@
-
-
-
 Many businesses rely on SQL Server 2008 R2 failover clusters to manage their data. However, [support for SQL Server 2008 R2][Microsoft SQL Server 2008 R2 lifecycle] and [for Windows Server 2008 R2][Windows Server 2008 R2 lifecycle] has ended. Regular security updates are no longer available.
+
+> [!TIP]
+> For those customers who need some more time to upgrade and modernize their SQL Server and Windows Server 2008/2008 R2 on Azure, we will now provide one additional year of free extended security updates, only on Azure. For more information, see [Extended Security Updates for SQL Server and Windows Server 2008 and 2008 R2][Extended Security Updates frequently asked questions].
 
 Customers who would like to migrate to Azure often can't change their infrastructure. The [Azure shared disks][Azure shared disks] feature makes migration possible in this situation. With this feature and a Windows Server 2008 R2 failover cluster, users can replicate their on-premises deployment in Azure. There's no need for third-party software to manage shared storage.
 
@@ -9,7 +9,7 @@ With this solution, users can:
 
 - Keep their current infrastructure.
 - Rehost workloads in Azure with no application code changes.
-- Get [free extended security updates for 2008 R2 versions of SQL Server and Windows Server][Microsoft blog post on free security updates].
+- Get [free extended security updates for 2008 R2 versions of SQL Server and Windows Server][Extended Security Updates frequently asked questions].
 
 ## Potential use cases
 
@@ -21,6 +21,10 @@ This architecture benefits organizations that rely on SQL Server 2008 R2 failove
 A dotted line surrounds most components, including an Azure Load Balancer, two virtual machines, and a file share witness. The line indicates that these components are part of a virtual network. Inside that network, a horizontal, blue rectangle represents an availability set. It contains the two virtual machines and their disks. Lines run between each virtual machine and an S M B file share witness. A black, vertical rectangle contains the file share witness and runs through the availability set. On the top border of that rectangle is the Load Balancer. A line extends from the Load Balancer to the outside of the virtual network rectangle. Outside the virtual network rectangle on the bottom is an Azure shared disk. A line connects that disk to the components in the network.
 :::image-end:::
 
+*Download a [Visio file][Visio version of architecture diagram] of this architecture.*
+
+### Workflow
+
 - As part of a virtual network, an [Azure Load Balancer][Azure Load Balancer] redirects clients by associating a routable, private IP address with the cluster.
 
 - Two [Azure virtual machines (VMs)][Azure virtual machines] run SQL Server 2008 R2 on Windows Server 2008 R2.
@@ -31,7 +35,7 @@ A dotted line surrounds most components, including an Azure Load Balancer, two v
 
 - An [Azure shared disk][Azure shared disks] makes it possible to attach a [managed disk][Introduction to Azure managed disks] to both VMs simultaneously.
 
-## Components
+### Components
 
 - [Azure Load Balancers][Azure Load Balancer] balance traffic inside virtual networks. This architecture uses an internal load balancer. This type uses a private IP address and distributes inbound traffic to back-end pool instances. The load balancer directs traffic according to configured load-balancing rules and health probes. The back-end pool instances can be Azure VMs.
 
@@ -41,7 +45,7 @@ A dotted line surrounds most components, including an Azure Load Balancer, two v
 
 - [Azure shared disk][Azure shared disks] is a feature of [Azure managed disks][Introduction to Azure managed disks]. These shared disks offer shared block storage that multiple VMs can access. You can use this feature to attach a managed disk to multiple VMs simultaneously.
 
-## Alternatives
+### Alternatives
 
 A few alternatives to this architecture exist:
 
@@ -57,11 +61,11 @@ A few alternatives to this architecture exist:
 
 Keep the following points in mind when implementing this architecture.
 
-### Security considerations
+### Security
 
-This solution provides [extended security updates for 2008 R2 versions of SQL Server and Windows Server][Microsoft blog post on free security updates] for three years. Without extended support beyond that point, security breaches or data loss may result.
+This solution provides [extended security updates for SQL Server and Windows Server 2008 and 2008 R2][Extended Security Updates frequently asked questions] for one additional year of free extended security updates, up to July 2023. Without extended support beyond that point, security breaches or data loss may result.
 
-### Scalability considerations
+### Scalability
 
 Windows Server 2008 R2 limits the number of *nodes*, or servers in the failover cluster, to 16.
 
@@ -71,7 +75,7 @@ Windows Server 2008 R2 limits the number of *nodes*, or servers in the failover 
 
 - Use the [Azure pricing calculator][Azure pricing calculator] to explore the cost of running this scenario.
 
-## Deploy the solution
+## Deploy this scenario
 
 Follow these steps to implement this architecture.
 
@@ -102,8 +106,6 @@ Follow these steps to set up the cluster.
      > Don't use the [SQL Server 2008 R2 SP3 on Windows Server 2008 R2][SQL Server 2008 R2 SP3 on Windows Server 2008 R2] image that is available in [Azure Marketplace][Azure Marketplace]. This image pre-configures SQL Server as a standalone instance. However, the solution architecture requires a cluster configuration, making the Azure Marketplace image unsuitable.
 
 2. Configure an [availability set][Configure multiple virtual machines in an availability set for redundancy] to guarantee VM redundancy and availability.
-
-
 
 #### Configure the VMs
 
@@ -169,7 +171,7 @@ In each VM, sign in as a domain administrator, open a command line as an adminis
 
    1. SQL Server: **1433**
    1. Load Balancer Health Probe: **59999**
-  
+
   For complete guidelines, refer to [Configure the Windows Firewall to Allow SQL Server Access][Configure the Windows Firewall to Allow SQL Server Access].
 
 ##### Use the management console
@@ -182,11 +184,11 @@ In each VM, sign in as a domain administrator, open a command line as an adminis
 
       - SQL Server: **1433**
       - Load Balancer Health Probe: **59999**
-  
+
       For complete guidelines, refer to [Configure the Windows Firewall to Allow SQL Server Access][Configure the Windows Firewall to Allow SQL Server Access].
 
 1. Sign in to one VM and use the **Create Cluster** wizard to create a cluster.
-  
+
    - This operation creates a [Cluster Name Object (CNO)][Cluster Name Object] and adds it to the domain.
    - By default, the operation uses [Dynamic Host Configuration Protocol (DHCP)][Dynamic Host Configuration Protocol] to set the cluster IP address.
 
@@ -320,7 +322,6 @@ To transfer data from your on-premises database to the newly created cluster, co
 [How to use Azure PowerShell to provision SQL Server on Azure Virtual Machines]: /azure/azure-sql/virtual-machines/windows/create-sql-vm-powershell
 [Introduction to Azure managed disks]: /azure/virtual-machines/managed-disks-overview
 [KB3125574]: https://support.microsoft.com/help/3125574/convenience-rollup-update-for-windows-7-sp1-and-windows-server-2008-r2
-[Microsoft blog post on free security updates]: https://azure.microsoft.com/blog/announcing-new-options-for-sql-server-2008-and-windows-server-2008-end-of-support
 [Microsoft SQL Server 2008 R2 lifecycle]: /lifecycle/products/microsoft-sql-server-2008-r2
 [Migrate a SQL Server database to SQL Server on an Azure virtual machine]: /azure/azure-sql/virtual-machines/windows/migrate-to-vm-from-sql-server
 [Name resolution that uses your own DNS server]: /azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server
@@ -337,6 +338,7 @@ To transfer data from your on-premises database to the newly created cluster, co
 [Upgrade SQL Server]: /sql/sql-server/end-of-support/sql-server-end-of-life-overview#upgrade-sql-server
 [Upgrading from Windows Server 2008 R2 or Windows Server 2008]: /windows-server/get-started/installation-and-upgrade#upgrading-from-windows-server-2008-r2-or-windows-server-2008
 [Upload a generalized VHD and use it to create new VMs in Azure]: /azure/virtual-machines/windows/upload-generalized-managed
+[Visio version of architecture diagram]: https://arch-center.azureedge.net/US-1778662-PR-1852-windows-server-2008-r2-failover-cluster-with-azure-shared-disk.vsdx
 [What is Azure SQL?]: /azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview
 [What is Azure Virtual Network?]: /azure/virtual-network/virtual-networks-overview
-[Windows Server 2008 R2 lifecycle]: https://docs.microsoft.com/lifecycle/products/windows-server-2008-r2
+[Windows Server 2008 R2 lifecycle]: /lifecycle/products/windows-server-2008-r2

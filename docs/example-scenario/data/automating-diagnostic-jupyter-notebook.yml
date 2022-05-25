@@ -1,0 +1,26 @@
+### YamlMime:Architecture
+metadata:
+  title: Automating diagnostic Jupyter Notebook execution
+  titleSuffix: Azure Example Scenarios
+  description: Learn now to automate diagnostic or routine notebooks by using an Azure serverless architecture.
+  author: MsSQLGirl
+  ms.author: jukoesma
+  ms.date: 04/08/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.custom: fcp
+azureCategories:
+  - developer-tools
+  - devops
+  - integration
+products:
+  - azure-logic-apps
+  - azure-automation
+  - azure-devops
+  - azure-functions
+name: Automate Jupyter Notebooks for diagnostics
+summary: This article describes an approach for automating diagnostic or routine notebooks by using an Azure serverless architecture.
+thumbnailUrl: /azure/architecture/browse/thumbs/automate-diagnostic-jupyter-notebook-thumb.png
+content: |
+  [!include[](automating-diagnostic-jupyter-notebook-content.md)]

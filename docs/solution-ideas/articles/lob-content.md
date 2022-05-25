@@ -1,17 +1,16 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-## Overview
+This example shows how you can modernize your legacy systems that cannot support new processes and provide better user experience.
 
-This example shows how you can modernize your legacy systems that cannot support new processes and provide better user experience. Out of box or custom connectors can help simplify process automation and connect to 3rd party data sources or legacy systems. Azure Functions can then schedule calculations on a scheduled basis to simplify your business processes. Power Apps can be used to process and share data with third parties via standard exports.
+## Potential use cases
+
+Out-of-box or custom connectors can help simplify process automation and connect to 3rd party data sources or legacy systems. Azure Functions can then schedule calculations on a scheduled basis to simplify your business processes. Power Apps can be used to process and share data with third parties via standard exports.
 
 ## Architecture
 
 ![Architecture Diagram](../media/lob.png)
 
-## Data Flow
+### Data flow
 
 The data flows through the solution as follows:
 
@@ -22,17 +21,17 @@ The data flows through the solution as follows:
 5. User reviews and updates POs in Power Apps and sends this data to suppliers through CSV export.
 6. Power BI reports trends in supplier status.
 
-## Components
+### Components
 
 Data is loaded from these different data sources using several Azure components:
 
-- [Power Apps](https://powerapps.microsoft.com/): Increase agility across your organization by rapidly building low-code apps that modernize processes and solve tough challenges.
-- [Azure Functions](https://azure.microsoft.com/services/functions/): Accelerate and simplify application development with serverless compute
-- [Azure API management](https://azure.microsoft.com/services/api-management/): Hybrid, multi-cloud management platform for APIs across all environments
-- [Azure SQL Database](https://azure.microsoft.com/services/sql-database/): Build apps that scale with the pace of your business with managed and intelligent SQL in the cloud
-- [Azure Data Factory](https://azure.microsoft.com/services/data-factory/): Hybrid data integration service that simplifies ETL at scale
-- [Power BI](/power-bi) : a suite of business analytics tools to analyze data and share insights. Power BI can query a semantic model stored in Analysis Services, or it can query Azure Synapse directly.
+- [Power Apps](https://powerapps.microsoft.com): Increase agility across your organization by rapidly building low-code apps that modernize processes and solve tough challenges.
+- [Azure Functions](https://azure.microsoft.com/services/functions): Accelerate and simplify application development with serverless compute
+- [Azure API management](https://azure.microsoft.com/services/api-management): Hybrid, multi-cloud management platform for APIs across all environments
+- [Azure SQL Database](https://azure.microsoft.com/services/sql-database): Build apps that scale with the pace of your business with managed and intelligent SQL in the cloud
+- [Azure Data Factory](https://azure.microsoft.com/services/data-factory): Hybrid data integration service that simplifies ETL at scale
+- [Power BI](/power-bi): a suite of business analytics tools to analyze data and share insights. Power BI can query a semantic model stored in Analysis Services, or it can query Azure Synapse directly.
 
-## Next Steps
+## Next steps
 
 - Learn more: [https://aka.ms/learnpowerapps](/learn/browse/?products=power-apps)

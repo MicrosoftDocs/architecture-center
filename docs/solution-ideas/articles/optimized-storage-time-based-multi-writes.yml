@@ -1,0 +1,27 @@
+### YamlMime:Architecture
+metadata:
+  title: Optimized storage – time based - multi writes
+  titleSuffix: Azure Architecture
+  description: Architecture for a high-availability solution that uses two Azure storage services, one for quick access to high-demand data, the other for low-demand data.
+  author: nabilshams
+  ms.author: nasiddi
+  ms.date: 09/14/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+azureCategories:
+  - databases
+  - web
+  - migration
+  - storage
+products:
+  - azure-front-door
+  - azure-app-service
+  - azure-functions
+  - azure-cosmos-db
+  - azure-table-storage
+name: Optimized storage – time based - multi writes
+summary: Architecture for a high-availability solution that uses two Azure storage services, one for quick access to high-demand data, the other for low-demand data.
+thumbnailUrl: /azure/architecture/browse/thumbs/optimized-storage-time-based-multi-writes.png
+content: |
+  [!include[](optimized-storage-time-based-multi-writes-content.md)]

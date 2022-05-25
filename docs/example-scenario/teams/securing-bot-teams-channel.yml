@@ -1,8 +1,8 @@
 ### YamlMime:Architecture
 metadata:
-  title: Securing your Microsoft Teams channel bot and web app behind a firewall
+  title: Secure your Microsoft Teams channel bot and web app behind a firewall
   titleSuffix: Azure Example Scenarios
-  description: Secure the connection to a Microsoft Teams channel bot’s web app using Azure Private Link and Azure Private Endpoint.
+  description: Secure the connection to a Microsoft Teams channel bot’s web app, using Azure Private Link and Azure Private Endpoint.
   author: ajafry
   ms.author: aljafry
   ms.date: 05/20/2021
@@ -16,8 +16,8 @@ azureCategories:
 products:
   - azure-web-apps
   - azure-web-application-firewall
-name: Securing your Microsoft Teams channel bot and web app behind a firewall
-summary: Secure the connection to a Microsoft Teams channel bot’s web app using Azure Private Link and Azure Private Endpoint.
+name: Secure your Microsoft Teams channel bot and web app behind a firewall
+summary: Secure the connection to a Microsoft Teams channel bot’s web app, using Azure Private Link and Azure Private Endpoint.
 thumbnailUrl: /azure/architecture/browse/thumbs/securing-bot-image-001.png
 content: |
   [!include[](securing-bot-teams-channel-content.md)]

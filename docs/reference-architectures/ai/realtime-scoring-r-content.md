@@ -12,7 +12,7 @@ The architecture of this workflow includes the following components.
 
 - **[Azure Kubernetes Service][aks]** is used to host the deployment and service. This AKS cluster is connected to your Azure Machine Learning workspace.
 
-- **[Azure Machine Learning][aml]** is a cloud-based environment you can use to train, deploy, automate, manage, and track ML models. 
+- **[Azure Machine Learning][aml]** is a cloud-based environment you can use to train, deploy, automate, manage, and track ML models.
 
 ## Performance considerations
 
@@ -30,7 +30,6 @@ In general, open-source R models store all their data in memory, so ensure that 
 
 If you secured the deployed web service using a TLS/SSL certificate, you can use HTTPS to connect to the service using the scoring or swagger URI. HTTPS helps secure communications between a client and a web service by encrypting communications between the two. Encryption uses Transport Layer Security (TLS). TLS is sometimes still referred to as Secure Sockets Layer (SSL), which was the predecessor of TLS.
 
-
 ### Authentication and authorization
 
 Azure Machine Learning provides two ways to control access to your web services.
@@ -38,17 +37,11 @@ Azure Machine Learning provides two ways to control access to your web services.
 - Key-based authentication
 - Token-based authentication
 
-The primary difference between keys and tokens is that keys are static and can be regenerated manually, and tokens need to be refreshed upon expiration. 
+The primary difference between keys and tokens is that keys are static and can be regenerated manually, and tokens need to be refreshed upon expiration.
 
 ## Monitoring and logging considerations
 
-Azure Application Insights can be used to monitor models deployed to web service endpoints in [Azure Kubernetes Service (AKS)][aks] using Azure Machine Learning. The data collected from the endpoint includes:
-Output data
-Responses
-Request rates, response times, and failure rates
-Dependency rates, response times, and failure rates
-Exceptions
-
+Azure Application Insights can be used to monitor models deployed to web service endpoints in [Azure Kubernetes Service (AKS)][aks] using Azure Machine Learning. The data collected from the endpoint includes: Output data Responses Request rates, response times, and failure rates Dependency rates, response times, and failure rates Exceptions
 
 ## Cost considerations
 

@@ -1,8 +1,6 @@
 
 <!-- cSpell:ignore lbrader HANA MSEE Xeon CIDR STONITH VLAN -->
 
-
-
 This reference architecture shows a set of proven practices for running SAP HANA on Azure (Large Instances) with high availability (HA) and disaster recovery (DR). Called HANA Large Instances (HLI), this offering is deployed on physical servers in Azure regions.
 
 :::image type="complex" source="./images/sap-hana-large-instances.png" alt-text="SAP HANA architecture using Azure Large Instances":::
@@ -48,13 +46,13 @@ Requirements can vary, so use these recommendations as a starting point.
 
 ### HANA Large Instances compute
 
-[HANA Large Instances][physical] are physical servers based on the Intel Broadwell and Cascade Lake CPU architecture and configured in a large instance stamp&mdash;that is, a specific set of servers or blades. A compute unit equals one server or blade, and a stamp is made up of multiple servers or blades. Within a large instance stamp, servers are not shared and are dedicated to running one customer’s deployment of SAP HANA.
+[HANA Large Instances][physical] are physical servers based on the Intel Broadwell and Cascade Lake CPU architecture and configured in a large instance stamp&mdash;that is, a specific set of servers or blades. A compute unit equals one server or blade, and a stamp is made up of multiple servers or blades. Within a large instance stamp, servers are not shared and are dedicated to running one customer's deployment of SAP HANA.
 
 A variety of [SKUs are available for HANA Large Instances][skus], supporting up to 24 TB single instance (120 TB scale-out) of memory for BW/4HANA or other SAP HANA workloads.
 
 Choose a SKU that fulfills the sizing requirements you determined in your architecture and design sessions. Always ensure that your sizing applies to the correct SKU. Capabilities and deployment requirements [vary by type][type], and availability varies by region. You can also step up from one SKU to a larger SKU.
 
-Microsoft helps establish the large instance setup, but it is your responsibility to verify the operating system’s configuration settings. Make sure to review the most current SAP Notes for your exact Linux release.
+Microsoft helps establish the large instance setup, but it is your responsibility to verify the operating system's configuration settings. Make sure to review the most current SAP Notes for your exact Linux release.
 
 ### Storage
 
@@ -86,7 +84,7 @@ A multi-host, scale-out deployment is generally used for BW/4HANA deployments as
 
 S/4HANA and SAP Business Suite on HANA on a single blade can scale up to 24 TB with a single-instance node. HANA Large Instances and the Azure storage infrastructure also support S/4HANA and BW/4HANA scale-out deployments. For specific SKUs that are certified for scale-out, please consult the [SAP certified hardware directory][directory].
 
-Memory requirements for HANA increase as data volume grows. Use your system’s current memory consumption as the basis for predicting future consumption, and then map your demand into one of the HANA Large Instances sizes.
+Memory requirements for HANA increase as data volume grows. Use your system's current memory consumption as the basis for predicting future consumption, and then map your demand into one of the HANA Large Instances sizes.
 
 If you already have SAP deployments, SAP provides reports you can use to check the data used by existing systems and calculate memory requirements for a HANA instance. For example, see the following SAP Notes (access requires an SAP Service Marketplace account):
 
@@ -197,7 +195,7 @@ You may wish to review the following [Azure example scenarios](/azure/architectu
 
 <!-- links -->
 
-[aaf-cost]: ../../framework/cost/overview.md
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [az-spot-vms]: /azure/virtual-machines/windows/spot-vms
 [azure-forum]: https://azure.microsoft.com/support/forums
 [classes]: /azure/virtual-machines/workloads/sap/hana-overview-architecture

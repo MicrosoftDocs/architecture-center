@@ -1,9 +1,9 @@
 ### YamlMime:Architecture
 metadata:
-  title: Scalable Web Apps
+  title: Scalable web apps with Azure Redis Cache
   titleSuffix: Azure Solution Ideas
   description: Improve app performance by using Azure Cache for Redis to improve responsiveness and handle increasing loads with fewer web-compute resources.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
   ms.topic: conceptual
@@ -17,7 +17,7 @@ metadata:
     - scalability
     - "https://azure.microsoft.com/solutions/architecture/scalable-web-apps/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/scalable-web-apps.svg
-name: Scalable Web Apps
+name: Scalable web apps with Azure Redis Cache
 azureCategories:
   - web
 summary: Improve app performance by using Azure Cache for Redis to improve responsiveness and handle increasing loads with fewer web-compute resources.

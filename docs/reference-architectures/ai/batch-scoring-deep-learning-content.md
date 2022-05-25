@@ -1,6 +1,5 @@
 
 
-
 This reference architecture shows how to apply neural style transfer to a video, using Azure Machine Learning. *Style transfer* is a deep learning technique that composes an existing image in the style of another image. This architecture can be generalized for any scenario that uses batch scoring with deep learning. [**Deploy this solution**](#deploy-the-solution).
 
 ![Architecture diagram for deep learning models using Azure Machine Learning.](./_images/azure-machine-learning-deep-learning-scoring-pipeline.png)
@@ -121,7 +120,7 @@ To deploy this reference architecture, follow the steps described in the [GitHub
 
 [aml-compute]: /azure/machine-learning/service/concept-compute-target
 [aml-pipeline]: /azure/machine-learning/service/concept-ml-pipelines
-[amls]: /azure/machine-learning/service/overview-what-is-azure-ml
+[amls]: /azure/machine-learning/overview-what-is-azure-machine-learning
 [blob-storage]: /azure/storage/blobs/storage-blobs-introduction
 [deployment]: https://github.com/Azure/Batch-Scoring-Deep-Learning-Models-With-AML
 [deployment2]: https://github.com/Azure/Batch-Scoring-Deep-Learning-Models-With-AKS

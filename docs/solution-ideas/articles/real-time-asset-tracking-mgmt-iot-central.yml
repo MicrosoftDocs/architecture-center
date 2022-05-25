@@ -1,0 +1,25 @@
+### YamlMime:Architecture
+metadata:
+  title: Real-time asset tracking and management using IoT Central
+  titleSuffix: Azure Solution Ideas
+  description: Use Azure IoT Central to capture real-time asset data, and tools like Azure Functions, Azure Notification Hubs, and Power BI to create alerts and reports.
+  author: ypriyay
+  ms.author: priyay
+  ms.date: 06/25/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+azureCategories:
+  - management-and-governance
+  - iot
+products:
+  - azure-iot-central
+  - azure-stream-analytics
+  - azure-sql-database
+  - azure-functions
+  - azure-event-hubs
+name: Real-time asset tracking and management
+summary: Use Azure IoT Central to capture real-time asset data, and tools like Azure Functions, Azure Notification Hubs, and Power BI to create alerts and reports.
+thumbnailUrl: /azure/architecture/browse/thumbs/real-time-asset-tracking-mgmt-iot-central-content.png
+content: |
+  [!include[](real-time-asset-tracking-mgmt-iot-central-content.md)]

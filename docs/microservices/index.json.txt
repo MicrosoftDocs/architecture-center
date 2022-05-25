@@ -13,7 +13,7 @@
                 },
                 {
                     "title": "Microservices architecture style",
-                    "url": "../guide/architecture-styles/microservices.md",
+                    "url": "../guide/architecture-styles/microservices.yml",
                     "summary": "High-level overview of the microservices architecture style"
                 }
             ]

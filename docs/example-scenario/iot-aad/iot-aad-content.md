@@ -1,9 +1,7 @@
 
 <!--cSpell:ignore knicholasa ISV's Woodgrove ecommerce SAML Gmail -->
 
-
-
-IoT device manufacturers are creating custom apps and services to better serve their customers’ device management needs. Developers building IoT apps and services want to provide secure, frictionless access to cloud-connected devices and the telemetry data sent by these devices to the cloud.
+IoT device manufacturers are creating custom apps and services to better serve their customers' device management needs. Developers building IoT apps and services want to provide secure, frictionless access to cloud-connected devices and the telemetry data sent by these devices to the cloud.
 
 In this article we explain how a developer can take advantage of [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis) and the [Microsoft identity platform](/azure/active-directory/develop/v2-overview) to create a secure [SaaS app](https://azure.microsoft.com/overview/what-is-saas/). We'll cover the basic how-tos and benefits of integrating your app with Azure AD , as well as two common customer scenarios IoT developers may encounter.
 
@@ -70,7 +68,7 @@ When a user (or admin) logs in to a multi-tenant application for the first time,
 
 Developers can use the Azure AD consent framework to obtain consent via interactive prompts as part of the first time log in experience. The prompts ensure that users and administrators know exactly what data the app is requesting access to, and they can be confident that it isn't behaving with malicious intent. The consent framework is built on OAuth 2.0 and its various flows, such as authorization code grant and client credentials grant, using public or confidential clients. An example of the consent process is available in the [Azure Active Directory consent framework](/azure/active-directory/develop/consent-framework) document, as well as this [example multi-tenant application](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/2-WebApp-graph-user/2-3-Multi-Tenant/README.md).
 
-Once the user consents, a service principal defining the access policy and permissions for this app is created in the user's tenant, and the sign-in will continue.
+Once the user consents, a service principal defining the access policy and permissions for this app is created in the user's tenant, and the sign-in will continue.
 
 ![Diagram illustrating the process of obtaining user consent. There are steps for obtaining user consent that are labeled and explained below the diagram.](./media/request.png)
 
@@ -88,7 +86,7 @@ In addition to authentication, the developer can enforce *authorization* within 
 
 Authorization rules can be enforced with [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) and [Role Claims](/azure/active-directory/develop/active-directory-enterprise-app-role-management). When using Azure RBAC, a tenant admin grants permissions to use or view resources based on **roles**, and not to individual users or groups.
 
-The developer can [add app roles](/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) to an app and declare them in the [app's manifest](/azure/active-directory/active-directory-application-manifest/). When a user signs into the app, Azure AD emits a claim for each role that the user has been granted, individually and from their group membership. The app can use these role claims with the tenant ID claim to do an access check. This will determine whether a user is allowed to perform an action on a specific resource associated with an Azure AD tenant.
+The developer can [add app roles](/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) to an app and declare them in the [app's manifest](/azure/active-directory/active-directory-application-manifest/). When a user signs into the app, Azure AD emits a claim for each role that the user has been granted, individually and from their group membership. The app can use these role claims with the tenant ID claim to do an access check. This will determine whether a user is allowed to perform an action on a specific resource associated with an Azure AD tenant.
 
 An app does not need any extra Active Directory permissions, other than reading the user's profile, to enable app roles. Role assignment managers within each tenant can then assign these pre-defined app roles to users and manage who has access to which resource following their organization's needs.
 
@@ -128,12 +126,12 @@ Fabrikam, Inc.'s tenant administrators can set the enterprise app settings so th
 In addition, the admins can set up the tenant to require admin consent for certain permissions (e.g. the ability to write data to your Azure AD tenant) regardless of whether regular users can register or consent to new apps.
 
 > [!TIP]
-> The [new admin consent workflow](/azure/active-directory/manage-apps/configure-admin-consent-workflow) gives tenant admins a secure way to grant access to applications that require admin approval while allowing them to disable their end-user’s ability to consent. When a user tries to access an app but is unable to provide consent, they can use the dialog box with the error message to send a request for admin approval. Benefits of the admin consent workflow include the following:
+> The [new admin consent workflow](/azure/active-directory/manage-apps/configure-admin-consent-workflow) gives tenant admins a secure way to grant access to applications that require admin approval while allowing them to disable their end-user's ability to consent. When a user tries to access an app but is unable to provide consent, they can use the dialog box with the error message to send a request for admin approval. Benefits of the admin consent workflow include the following:
 >
->- Helps admins manage access to organizational data and regulate the enterprise apps within their organization.
->- Gives administrators increased visibility into what app users need access to.
+> - Helps admins manage access to organizational data and regulate the enterprise apps within their organization.
+> - Gives administrators increased visibility into what app users need access to.
 >
->The new workflow gives all end-users the ability to request access to apps that they were previously unable to access because of a lack of permissions. The request is sent via email to admins who have been designated as reviewers. A reviewer acts on the request, and the user is notified of the action.
+> The new workflow gives all end-users the ability to request access to apps that they were previously unable to access because of a lack of permissions. The request is sent via email to admins who have been designated as reviewers. A reviewer acts on the request, and the user is notified of the action.
 
 ### Scenario 2: Customer without Azure AD tenant
 
@@ -167,7 +165,7 @@ The developer can [create a security group](/azure/active-directory/fundamentals
 
 In addition, the Woodgrove security group owner can set group-level access policies that will control how the group members can access the app in order to enforce company policies.
 
->[!NOTE]
+> [!NOTE]
 > Depending on the business logic required by your app, security group ownership and membership can be managed by either an account manager who is an employee of the developer's company or by a Woodgrove guest user who is assigned as owner of the group. To learn more about Azure AD security group functionality, see [Manage app and resource access using Azure Active Directory groups](/azure/active-directory/fundamentals/active-directory-manage-groups).
 
 ![Diagram illustrating guest isolation in a tenant with security groups. There are steps for adding a new guest user that are labeled and explained below the diagram.](./media/single-tenant-iot.png)
@@ -199,7 +197,7 @@ This has been an overview of how to use Azure AD to secure your application, foc
 
 - [Signing up and signing in with Azure AD](/azure/active-directory/develop/howto-add-branding-in-azure-ad-apps#signing-up-and-signing-in-with-azure-ad)
 
-- [Self-service group management](/azure/active-directory/fundamentals/active-directory-manage-groups?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)​
+- [Self-service group management](/azure/active-directory/fundamentals/active-directory-manage-groups?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)
 
 - [Restrict your app to a set of users](/azure/active-directory/develop/howto-restrict-your-app-to-a-set-of-users)
 

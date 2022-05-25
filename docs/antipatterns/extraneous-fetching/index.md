@@ -1,12 +1,25 @@
 ---
 title: Extraneous Fetching antipattern
-titleSuffix: Performance antipatterns for cloud apps
-description: Retrieving more data than needed for a business operation can result in unnecessary I/O overhead, cause unnecessary I/O overhead, and reduce responsiveness in entity frameworks.
+titleSuffix: Azure Architecture Center
+description: Learn about ways to mitigate the Extraneous Fetching antipattern, the common design flaw of fetching more data than needed for a business operation.
 author: dragon119
+categories: azure
 ms.date: 06/05/2017
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: anti-pattern
+azureCategories: 
+  - databases 
+  - storage 
+  - web
+  - compute 
+  - devops 
+products:
+  - azure-sql-database
+  - azure-app-service
+  - azure-front-door
+  - azure-functions
+  - azure-table-storage
 ms.custom:
   - article
   - seo-aac-fy21q3
@@ -111,7 +124,7 @@ public async Task<IHttpActionResult> AggregateOnDatabaseAsync()
 }
 ```
 
-When using Entity Framework, ensure that LINQ queries are resolved using the `IQueryable`interface and not `IEnumerable`. You may need to adjust the query to use only functions that can be mapped to the data source. The earlier example can be refactored to remove the `AddDays` method from the query, allowing filtering to be done by the database.
+When using Entity Framework, ensure that LINQ queries are resolved using the `IQueryable` interface and not `IEnumerable`. You may need to adjust the query to use only functions that can be mapped to the data source. The earlier example can be refactored to remove the `AddDays` method from the query, allowing filtering to be done by the database.
 
 ```csharp
 DateTime dateSince = DateTime.Now.AddDays(-7); // AddDays has been factored out.
@@ -240,19 +253,19 @@ Here is the corresponding telemetry for the `AggregateOnDatabaseAsync` method. T
 - [Data partitioning best practices][data-partitioning]
 
 [BusyDatabase]: ../busy-database/index.md
-[data-partitioning]: ../../best-practices/data-partitioning.md
+[data-partitioning]: ../../best-practices/data-partitioning.yml
 [new-relic]: https://newrelic.com/products/application-monitoring
 
 [sample-app]: https://github.com/mspnp/performance-optimization/tree/master/ExtraneousFetching
 
 [chatty-io]: ../chatty-io/index.md
 [MonolithicPersistence]: ../monolithic-persistence/index.md
-[Load-Test-Results-Client-Side1]:_images/LoadTestResultsClientSide1.jpg
-[Load-Test-Results-Client-Side2]:_images/LoadTestResultsClientSide2.jpg
-[Load-Test-Results-Database-Side1]:_images/LoadTestResultsDatabaseSide1.jpg
-[Load-Test-Results-Database-Side2]:_images/LoadTestResultsDatabaseSide2.jpg
-[QueryDetails]: _images/QueryDetails.jpg
-[TelemetryAllFields]: _images/TelemetryAllFields.jpg
-[TelemetryAggregateOnClient]: _images/TelemetryAggregateOnClient.jpg
-[TelemetryRequiredFields]: _images/TelemetryRequiredFields.jpg
-[TelemetryAggregateInDatabaseAsync]: _images/TelemetryAggregateInDatabase.jpg
+[Load-Test-Results-Client-Side1]: ./_images/LoadTestResultsClientSide1.jpg
+[Load-Test-Results-Client-Side2]: ./_images/LoadTestResultsClientSide2.jpg
+[Load-Test-Results-Database-Side1]: ./_images/LoadTestResultsDatabaseSide1.jpg
+[Load-Test-Results-Database-Side2]: ./_images/LoadTestResultsDatabaseSide2.jpg
+[QueryDetails]: ./_images/QueryDetails.jpg
+[TelemetryAllFields]: ./_images/TelemetryAllFields.jpg
+[TelemetryAggregateOnClient]: ./_images/TelemetryAggregateOnClient.jpg
+[TelemetryRequiredFields]: ./_images/TelemetryRequiredFields.jpg
+[TelemetryAggregateInDatabaseAsync]: ./_images/TelemetryAggregateInDatabase.jpg

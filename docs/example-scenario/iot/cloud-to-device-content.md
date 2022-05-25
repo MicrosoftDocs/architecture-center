@@ -1,6 +1,5 @@
 
 
-
 Applications use two primary mechanisms to send commands to IoT devices, *cloud-to-device messaging* and *direct methods*.
 
 - Applications send [cloud-to-device messages](/azure/iot-hub/iot-hub-csharp-csharp-c2d) to device-specific message queues on the IoT platform for devices to read when they're connected. The devices decide when to read the messages.
@@ -53,7 +52,7 @@ IoT command scenarios may involve *connected standby devices* that are in a low-
 
 ![A diagram illustrating how SMS messages or commands sent through the Azure IoT APIs can wake up a device and connect it to IoT Hub to receive commands.](media/connected-standby-devices.png)
 
-1. The application sends commands to devices using the [ServiceClient API](/dotnet/api/microsoft.azure.devices.serviceclient). One instance of **ServiceClient** can send messages and invoke methods for multiple devices. 
+1. The application sends commands to devices using the [ServiceClient API](/dotnet/api/microsoft.azure.devices.serviceclient). One instance of **ServiceClient** can send messages and invoke methods for multiple devices.
 1. The application also sends SMS wakeup calls to standby devices via the mobile provider's SMS gateway.
 1. On wakeup, standby devices use the [DeviceClient API](/dotnet/api/microsoft.azure.devices.client.deviceclient) to connect to IoT Hub and receive commands. One instance of **DeviceClient** represents a single device connected to IoT Hub.
 
@@ -69,7 +68,7 @@ Sending unnecessary wakeup messages through SMS gateways is costly. Before sendi
         // Send the command via direct method. Initially use a timeout of zero
         // for the connection, which determines whether the device is connected to
         // IoT Hub or needs an SMS wakeup sent to it.
-        
+
         var method = new CloudToDeviceMethod("RemoteCommand", funcTimeOut, connTimeOut);
         methodInvocation1.SetPayloadJson(CommandPayload);
 

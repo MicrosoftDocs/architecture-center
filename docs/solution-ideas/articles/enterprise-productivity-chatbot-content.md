@@ -2,12 +2,12 @@
 
 Use [Azure Bot Service](/azure/bot-service/) with [Language Understanding](/azure/cognitive-services/luis/) to build powerful enterprise bots for internal productivity. Enterprise bots streamline common employee tasks by bringing together data from external systems. Examples include data from Microsoft 365 calendar, customer cases stored in Dynamics CRM, and much more. This solution idea shows how you can architect an enterprise bot for employees tasks.
 
-## Architecture of an enterprise bot
+## Architecture
 
 ![Architecture diagram: enterprise bot working with Office 365 and Dynamics CRM to streamline common employee tasks.](../media/enterprise-productivity-chatbot.png)
 *Download an [SVG](../media/enterprise-productivity-chatbot.svg) of this architecture.*
 
-## Data flow of an employee request
+### Data flow
 
 1. An employee accesses the enterprise bot.
 1. Azure Active Directory validates the employee's identity.
@@ -16,7 +16,7 @@ Use [Azure Bot Service](/azure/bot-service/) with [Language Understanding](/azur
 1. Information is returned to the employee, who can filter the data without leaving the bot.
 1. Application Insights monitors the live application to diagnose issues and help understand how to improve bot performance and usability.
 
-## Components
+### Components
 
 Key technologies used to implement this architecture:
 
@@ -31,17 +31,6 @@ Key technologies used to implement this architecture:
 * [Microsoft Dynamics 365](https://dynamics.microsoft.com)
 
 ## Next steps
-
-Azure Architecture Center overview articles:
-
-* [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
-* [Choosing a Azure Cognitive Services technology](../../data-guide/technology-choices/cognitive-services.md)
-
-Azure Architecture Center articles describing other chatbot architectures:
-
-* [Chatbot for hotel booking](../../example-scenario/ai/commerce-chatbot.yml)
-* [Build an enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot.yml)
-* [Speech-to-text conversion](../../reference-architectures/ai/speech-to-text-transcription-pipeline.yml)
 
 Product documentation:
 
@@ -58,3 +47,16 @@ Microsoft Learn modules:
 * [How to build a basic chatbot](/learn/modules/how-build-basic-chatbot/)
 * [Build a bot with QnA Maker and Azure Bot Service](/learn/modules/build-faq-chatbot-qna-maker-azure-bot-service/)
 * [Create Intelligent Bots with the Azure Bot Service](/learn/paths/create-bots-with-the-azure-bot-service/)
+
+## Related resources
+
+Azure Architecture Center overview articles:
+
+* [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
+* [Choosing a Azure Cognitive Services technology](../../data-guide/technology-choices/cognitive-services.md)
+
+Azure Architecture Center articles describing other chatbot architectures:
+
+* [Chatbot for hotel booking](../../example-scenario/ai/commerce-chatbot.yml)
+* [Build an enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot.yml)
+* [Speech-to-text conversion](../../reference-architectures/ai/speech-to-text-transcription-pipeline.yml)

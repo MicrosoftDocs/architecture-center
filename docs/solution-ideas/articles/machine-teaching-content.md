@@ -127,7 +127,7 @@ Concept networks often allow reward functions to be more easily defined. Each co
 
 #### Curriculum learning and apprenticeship learning
 
-Dividing the problem into separate sequential tasks with concept networks allows splitting up the problem into stages of difficulty and presenting it to the agent as a *curriculum* of increasing difficulty. This phased approach starts with a simple problem, lets the agent practice, then challenges it more and more as its ability increases. The reward function changes and evolves as the agent becomes more capable at its task. This *curriculum learning* approach helps guide exploration and drastically reduces required training time. 
+Dividing the problem into separate sequential tasks with concept networks allows splitting up the problem into stages of difficulty and presenting it to the agent as a *curriculum* of increasing difficulty. This phased approach starts with a simple problem, lets the agent practice, then challenges it more and more as its ability increases. The reward function changes and evolves as the agent becomes more capable at its task. This *curriculum learning* approach helps guide exploration and drastically reduces required training time.
 
 You can also constrain the policy search space for the agent by instructing it to learn by mimicking the behavior of an external expert. *Apprenticeship learning* uses expert-guided exemplars to constrain the state space the agent explores. Apprenticeship learning trades off learning known solutions more quickly at the expense of not discovering novel solutions.
 
@@ -301,7 +301,7 @@ Defining exact parameters for machine teaching projects requires quite a bit of 
 
 ### Example project
 
-An example of an autonomous systems AI project is the use case of a manufacturing process optimization. The goal is to optimize the thickness tolerance of a steel beam being manufactured on a production line. Rollers provide pressure across a piece of steel to shape it into the designed thickness. 
+An example of an autonomous systems AI project is the use case of a manufacturing process optimization. The goal is to optimize the thickness tolerance of a steel beam being manufactured on a production line. Rollers provide pressure across a piece of steel to shape it into the designed thickness.
 
 The machine state inputs to the AI system are the rolling force, roller error, and roller noise. The control actions from the AI system are actuator commands to control the operation and motion of the rollers, and optimize the thickness tolerance of the steel beam.
 

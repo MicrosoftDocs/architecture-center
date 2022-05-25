@@ -9,7 +9,7 @@ ms.service: architecture-center
 
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
-| [Simple Storage Services (S3)](https://aws.amazon.com/s3/) | [Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) | Object storage service, for use cases including cloud applications, content distribution, backup, archiving, disaster recovery, and big data analytics. |
+| [Simple Storage Services (S3)](https://aws.amazon.com/s3/) | [Blob storage](/azure/storage/blobs/storage-blobs-introduction) | Object storage service, for use cases including cloud applications, content distribution, backup, archiving, disaster recovery, and big data analytics. |
 
 ### Virtual server disks
 
@@ -27,8 +27,8 @@ ms.service: architecture-center
 
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
-| [S3 Infrequent Access (IA)](https://aws.amazon.com/s3/storage-classes) | [Storage cool tier](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) | Cool storage is a lower-cost tier for storing data that is infrequently accessed and long-lived. |
-| [S3 Glacier](https://aws.amazon.com/s3/storage-classes), Deep Archive | [Storage archive access tier](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) | Archive storage has the lowest storage cost and higher data retrieval costs compared to hot and cool storage. |
+| [S3 Infrequent Access (IA)](https://aws.amazon.com/s3/storage-classes) | [Storage cool tier](/azure/storage/blobs/access-tiers-overview) | Cool storage is a lower-cost tier for storing data that is infrequently accessed and long-lived. |
+| [S3 Glacier](https://aws.amazon.com/s3/storage-classes), Deep Archive | [Storage archive access tier](/azure/storage/blobs/access-tiers-overview) | Archive storage has the lowest storage cost and higher data retrieval costs compared to hot and cool storage. |
 | [Backup](https://aws.amazon.com/backup/) | [Backup](https://azure.microsoft.com/services/backup/) | Back up and recover files and folders from the cloud, and provide offsite protection against data loss. |
 
 ### Hybrid storage
@@ -36,13 +36,13 @@ ms.service: architecture-center
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
 | [Storage Gateway](https://aws.amazon.com/storagegateway/) | [StorSimple](https://azure.microsoft.com/services/storsimple/) | Integrates on-premises IT environments with cloud storage. Automates data management and storage, plus supports disaster recovery. |
-| [DataSync](https://aws.amazon.com/datasync/) | [File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning) | Azure Files can be deployed in two main ways: by directly mounting the serverless Azure file shares or by caching Azure file shares on-premises using Azure File Sync.|
+| [DataSync](https://aws.amazon.com/datasync/) | [File Sync](/azure/storage/files/storage-sync-files-planning) | Azure Files can be deployed in two main ways: by directly mounting the serverless Azure file shares or by caching Azure file shares on-premises using Azure File Sync.|
 
 ### Bulk data transfer
 
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
-| [Import/Export Disk](https://aws.amazon.com/snowball/disk/details/) | [Import/Export](https://docs.microsoft.com/azure/storage/common/storage-import-export-service) | A data transport solution that uses secure disks and appliances to transfer large amounts of data. Also offers data protection during transit. |
+| [Import/Export Disk](https://aws.amazon.com/snowball/disk/details/) | [Import/Export](/azure/storage/common/storage-import-export-service) | A data transport solution that uses secure disks and appliances to transfer large amounts of data. Also offers data protection during transit. |
 | [Import/Export Snowball](https://aws.amazon.com/snowball/), [Snowball Edge](https://aws.amazon.com/snowball-edge/), [Snowmobile](https://aws.amazon.com/snowmobile/) | [Data Box](https://azure.microsoft.com/services/storage/databox/) | Petabyte- to exabyte-scale data transport solution that uses secure data storage devices to transfer large amounts of data to and from Azure. |
 
 #### Storage architectures

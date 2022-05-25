@@ -1,9 +1,9 @@
 ### YamlMime:Architecture
 metadata:
-  title: Loan Credit Risk with SQL Server
+  title: Loan credit risk with SQL Server
   titleSuffix: Azure Solution Ideas
   description: Lending institutions can use the predictive analytics of SQL Server 2016 with R Services to reduce the number of loans to borrowers most likely to default.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
   ms.topic: conceptual
@@ -24,7 +24,7 @@ metadata:
     - "https://azure.microsoft.com/solutions/architecture/loan-credit-risk-with-sql-server/"
     - ai-machine-learning
   social_image_url: /azure/architecture/solution-ideas/articles/media/loan-credit-risk-with-sql-server.png
-name: Loan Credit Risk with SQL Server
+name: Loan credit risk with SQL Server
 azureCategories:
   - databases
   - ai-machine-learning

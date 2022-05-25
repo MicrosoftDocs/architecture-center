@@ -1,6 +1,5 @@
 
 
-
 Provisioning a virtual machine (VM) in Azure requires some additional components besides the VM itself, including networking and storage resources. This article shows best practices for running a Windows VM on Azure.
 
 ![Windows VM in Azure](./images/single-vm-diagram.png)
@@ -68,7 +67,7 @@ All NSGs contain a set of [default rules][nsg-default-rules], including a rule t
 
 There are various options for VM sizes depending on the usage and workload. The range includes most economical option of the Bs-series to the newest GPU VMs optimized for machine learning. For information about the available options, see [Azure Windows VM pricing][windows-vms-pricing].
 
-For workloads with no predictable time of completion or resource consumption, consider the **Pay as you go** option. 
+For workloads with no predictable time of completion or resource consumption, consider the **Pay as you go** option.
 
 Consider using [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) if you can commit to using a virtual machine over a one-year or three-year term. VM reservations can reduce costs up to 72 % compared to pay-as-you-go prices.
 
@@ -82,14 +81,13 @@ Use the [Azure Pricing Calculator][azure-pricing-calculator] to estimates costs.
 
 For more information, see the cost section in [Microsoft Azure Well-Architected Framework][WAF-cost].
 
-
 ## Security considerations
 
-Use [Azure Security Center][security-center] to get a central view of the security state of your Azure resources. Security Center monitors potential security issues and provides a comprehensive picture of the security health of your deployment. Security Center is configured per Azure subscription. Enable security data collection as described in [Onboard your Azure subscription to Security Center Standard][security-center-get-started]. When data collection is enabled, Security Center automatically scans any VMs created under that subscription.
+Use [Microsoft Defender for Cloud][security-center] to get a central view of the security state of your Azure resources. Defender for Cloud monitors potential security issues and provides a comprehensive picture of the security health of your deployment. Defender for Cloud is configured per Azure subscription. Enable security data collection as described in [Onboard your Azure subscription to Defender for Cloud Standard][security-center-get-started]. When data collection is enabled, Defender for Cloud automatically scans any VMs created under that subscription.
 
-**Patch management**. If enabled, Security Center checks whether any security and critical updates are missing. Use [Group Policy settings][group-policy] on the VM to enable automatic system updates.
+**Patch management**. If enabled, Defender for Cloud checks whether any security and critical updates are missing. Use [Group Policy settings][group-policy] on the VM to enable automatic system updates.
 
-**Antimalware**. If enabled, Security Center checks whether antimalware software is installed. You can also use Security Center to install antimalware software from inside the Azure portal.
+**Antimalware**. If enabled, Defender for Cloud checks whether antimalware software is installed. You can also use Defender for Cloud to install antimalware software from inside the Azure portal.
 
 **Access control**. Use [Azure role-based access control (Azure RBAC)][rbac] to control access to Azure resources. Azure RBAC lets you assign authorization roles to members of your DevOps team. For example, the Reader role can view Azure resources but not create, manage, or delete them. Some permissions are specific to an Azure resource type. For example, the Virtual Machine Contributor role can restart or deallocate a VM, reset the administrator password, create a new VM, and so on. Other [built-in roles][rbac-roles] that may be useful for this architecture include [DevTest Labs User][rbac-devtest] and [Network Contributor][rbac-network].
 
@@ -110,7 +108,6 @@ For higher availability architecture see [Windows N-tier application on Azure wi
 
 Consider using the [Azure Monitor][azure-monitor] to Analyze and optimize the performance of your infrastructure, Monitor and diagnose networking issues without logging into your virtual machines.
 
-
 For more information, see the Operational Excellence section in [Azure Well-Architected Framework][WAF-devops].
 
 ## Next steps
@@ -118,13 +115,11 @@ For more information, see the Operational Excellence section in [Azure Well-Arch
 - To provision a Windows VM, see [Create and Manage Windows VMs with Azure PowerShell](/azure/virtual-machines/windows/tutorial-manage-vm)
 - For a complete N-tier architecture on Windows VMs, see [Windows N-tier application on Azure with SQL Server](./n-tier-sql-server.yml).
 
-
-
 <!-- links -->
 
 [arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
 [az-devops]: /azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
-[Microsoft Azure Well-Architected Framework]: ../../framework/cost/overview.md
+[Microsoft Azure Well-Architected Framework]: /azure/architecture/framework/cost/overview
 [azure-monitor]: https://azure.microsoft.com/services/monitor/
 [audit-logs]: https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/
 [azure-storage]: /azure/storage/common/storage-introduction
@@ -161,5 +156,5 @@ For more information, see the Operational Excellence section in [Azure Well-Arch
 [vm-size-tables]: /azure/virtual-machines/sizes
 [vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines
 [windows-vms-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/windows
-[WAF-cost]: ../../framework/cost/overview.md
-[WAF-devops]: ../../framework/devops/overview.md
+[WAF-cost]: /azure/architecture/framework/cost/overview
+[WAF-devops]: /azure/architecture/framework/devops/overview

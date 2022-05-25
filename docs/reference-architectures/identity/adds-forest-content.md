@@ -1,6 +1,5 @@
 
 
-
 This reference architecture shows how to create a separate Active Directory domain in Azure that is trusted by domains in your on-premises AD forest.
 
 ![Secure hybrid network architecture with separate Active Directory domains](./images/adds-forest.png)
@@ -82,7 +81,7 @@ Consider having Active Directory Domain Services as a shared service that is con
 
 The main component of this architecture is the VPN gateway service. You are charged based on the amount of time that the gateway is provisioned and available.
 
-All inbound traffic is free, all outbound traffic is charged. Internet bandwidth costs are applied to VPN outbound traffic.  
+All inbound traffic is free, all outbound traffic is charged. Internet bandwidth costs are applied to VPN outbound traffic.
 
 For more information, see [VPN Gateway Pricing][azure-gateway-charges].
 
@@ -93,7 +92,7 @@ For more information, see [VPN Gateway Pricing][azure-gateway-charges].
 
 <!-- links -->
 
-[aaf-cost]: ../../framework/cost/overview.md
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [adds-extend-domain]: ./adds-extend-domain.yml
 [ADDS-pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds
 [adfs]: ./adfs.yml

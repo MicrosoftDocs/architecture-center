@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Smart, connected Internet of Things (IoT) devices can make life healthier and safer. For example, research increasingly confirms the importance of high-quality light and natural light cycles for promoting human alertness, health, well-being, and productivity. BrainLit's patented BioCentric Lighting™ (BCL) system is a dynamic, self-learning, IoT-based system that creates high-quality natural lighting for indoor environments. 
+Smart, connected Internet of Things (IoT) devices can make life healthier and safer. For example, research increasingly confirms the importance of high-quality light and natural light cycles for promoting human alertness, health, well-being, and productivity. BrainLit's patented BioCentric Lighting™ (BCL) system is a dynamic, self-learning, IoT-based system that creates high-quality natural lighting for indoor environments.
 
 The BCL system can also deliver radiant energy in the non-visible ultraviolet (UV) spectrum to kill viruses. All UV radiation has antimicrobial capabilities. The shortest wavelength, 200-300 nm UVC radiation, causes DNA inactivation and prevents viral replication. UVC radiation disinfection is an important weapon in the fight against COVID. BrainLit's new UVEN concept combines BCL light control with UVC disinfection to promote health and well-being and help kill viruses.
 
@@ -17,24 +17,28 @@ UVEN combined BCL and UVC technology offers:
 
 ## Potential use cases
 
+This solution is ideal for the healthcare and facilities industries. We recommend using the solution in the following scenarios:
+
 - UVEN cells can fit any layout of a specific area, like a reception counter, or split between several areas, like a number of washrooms.
 - The modular system can scale to fit any space, from individual rooms and homes to large campuses and public areas.
 - Azure Sphere-based infrastructure can easily integrate with existing IoT devices or building management systems.
 
 ## Architecture
 
-![UVEN architecture](../media/uven-system.png)
+![Diagram that shows the UVEN architecture.](../media/uven-system.png)
+
+### Workflow
 
 - The system uses radar proximity sensors to detect when people are present. Whenever a space is unoccupied, the panels emit UV radiation to heavily reduce or eliminate viruses and bacteria.
 - One UVEN lighting control system (LCS) can control both BCL light and UVC radiation emissions for up to 20 luminaires. The LCS connects to radar sensors, electrical power, and to the internet or other LCSs for updates and real-time calibration.
 - Several cells can connect in a cluster. Only one of the clustered LCSs needs to connect to the internet. An LCS or cluster can operate standalone, or in an overall UVEN BCL network system with other clusters.
 - A UVEN BCL Net is completely decentralized and offers unlimited scalability, control, and flexibility.
 
-## Components
+### Components
 
 The UVEN system consists of light-emitting diode (LED) luminaires that are controlled by Azure Sphere-powered lighting control systems.
 
-### UVEN components
+#### UVEN components
 
 The basic UVEN ceiling panel consists of dynamic, adaptable LEDs that integrate BCL with disinfection in the same luminaire. As well as offering a large range of visible and UV emissions, the LEDs provide exceptional color and detail rendering, and the ability to dim smoothly down to 0.1%. LEDs are low-cost, long-lasting, and environmentally sustainable compared to traditional incandescent and fluorescent indoor light sources.
 
@@ -46,9 +50,9 @@ UV radiation can damage surfaces and equipment. UVEN advanced sensors and contro
 
 UVEN administrative support tools include an admin panel to maintain information about users and devices, and a dashboard to provide an overall view of user activity and exposure.
 
-### Azure Sphere
+#### Azure Sphere
 
-[Azure Sphere](https://azure.microsoft.com/services/azure-sphere/) is a secure application platform for IoT connected devices with built-in cloud communication and security. The platform consists of an Azure Sphere-certified secured MCU chip that runs a custom high-level Linux-based microcontroller operating system (OS). The Azure Sphere OS provides a platform for IoT application development, including both high-level and real-time capable applications. The OS connects to the cloud-based Azure Sphere Security Service (AS3) for continuous, renewable security.
+[Azure Sphere](https://azure.microsoft.com/services/azure-sphere) is a secure application platform for IoT connected devices with built-in cloud communication and security. The platform consists of an Azure Sphere-certified secured MCU chip that runs a custom high-level Linux-based microcontroller operating system (OS). The Azure Sphere OS provides a platform for IoT application development, including both high-level and real-time capable applications. The OS connects to the cloud-based Azure Sphere Security Service (AS3) for continuous, renewable security.
 
 AS3 establishes a secure connection between a device and the internet or cloud, ensures secure boot, and enables maintenance, updates, and control for Azure Sphere-certified chips. AS3 authenticates device identity, ensures the integrity and trust of the system software, and certifies that the device is running a trusted code base. The service also provides a secure channel to automatically download and install OS and customer application updates to deployed devices.
 
@@ -60,5 +64,13 @@ Azure Sphere *greenfield* implementations involve designing and building new IoT
 
 - For more information, please contact [iotcovidsupport@microsoft.com](mailto:iotcovidsupport@microsoft.com).
 - For more information about the BCL system, see the [BrainLit](https://www.brainlit.com/) website.
-- For more information about Azure Sphere, see the [Azure Sphere documentation](/azure-sphere/).
+- For more information about Azure Sphere, see the [Azure Sphere documentation](/azure-sphere).
 - For Azure Sphere code samples, see [Azure Sphere Samples](https://github.com/Azure/azure-sphere-samples).
+
+## Related resources
+
+- [Azure IoT reference architecture](../../reference-architectures/iot.yml)
+- [Cognizant Safe Buildings with IoT and Azure](safe-buildings.yml)
+- [COVID-19 safe environments with IoT Edge monitoring and alerting](cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml)
+- [Create smart places by using Azure Digital Twins](../../example-scenario/iot/smart-places.yml)
+

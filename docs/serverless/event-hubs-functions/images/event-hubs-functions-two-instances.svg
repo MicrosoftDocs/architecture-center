@@ -1,0 +1,1370 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="635"
+   height="340"
+   viewBox="0 0 168.01041 89.958336"
+   version="1.1"
+   id="svg4087"
+   inkscape:version="1.1 (c68e22c387, 2021-05-23)"
+   sodipodi:docname="event_hubs_functions_two_instances-v2.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview4089"
+     pagecolor="#ffffff"
+     bordercolor="#cccccc"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="1"
+     inkscape:pagecheckerboard="true"
+     inkscape:document-units="mm"
+     showgrid="false"
+     units="px"
+     inkscape:zoom="0.77771465"
+     inkscape:cx="383.81687"
+     inkscape:cy="149.79787"
+     inkscape:window-width="1284"
+     inkscape:window-height="1081"
+     inkscape:window-x="5670"
+     inkscape:window-y="146"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer5" />
+  <defs
+     id="defs4084">
+    <clipPath
+       id="clip0">
+      <rect
+         x="323"
+         y="134"
+         width="653"
+         height="340"
+         id="rect4758" />
+    </clipPath>
+    <clipPath
+       id="clip1">
+      <rect
+         x="807"
+         y="176"
+         width="16"
+         height="16"
+         id="rect4761" />
+    </clipPath>
+    <clipPath
+       id="clip2">
+      <rect
+         x="807"
+         y="176"
+         width="16"
+         height="16"
+         id="rect4764" />
+    </clipPath>
+    <clipPath
+       id="clip3">
+      <rect
+         x="807"
+         y="176"
+         width="16"
+         height="16"
+         id="rect4767" />
+    </clipPath>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     sodipodi:insensitive="true">
+    <rect
+       style="fill:#ffffff;stroke-width:0.264583"
+       id="rect4139"
+       width="168.01042"
+       height="89.958336"
+       x="0"
+       y="-4.9158482e-09" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer5"
+     inkscape:label="Layer 2">
+    <g
+       clip-path="url(#clip0)"
+       transform="matrix(0.26458333,0,0,0.26458333,-86.202129,-36.486051)"
+       id="g5254">
+      <path
+         d="m 814,198 h 77 v 275 h -77 z"
+         fill="#ffffff"
+         fill-rule="evenodd"
+         id="path4772" />
+      <path
+         d="m 814,198 h 77 v 275 h -77 z"
+         fill="#b3b2b3"
+         fill-rule="evenodd"
+         fill-opacity="0.4"
+         id="path4774" />
+      <path
+         d="m 814.5,198.5 h 77 v 275 h -77 z"
+         stroke="#ffffff"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path4776" />
+      <path
+         d="M 525,197 H 721 V 471 H 525 Z"
+         fill="#ffffff"
+         fill-rule="evenodd"
+         id="path4778" />
+      <path
+         d="M 525,197 H 721 V 471 H 525 Z"
+         fill="#0078d4"
+         fill-rule="evenodd"
+         fill-opacity="0.34902"
+         id="path4780" />
+      <path
+         d="m 721.5,197.651 v 273.698 h -196 V 197.651 h 196 M 722,197 H 525 v 275 h 197 z"
+         fill="#ffffff"
+         fill-rule="evenodd"
+         id="path4782" />
+      <path
+         d="m 548,203 h 152 v 21 H 548 Z"
+         fill="#ffffff"
+         fill-rule="evenodd"
+         id="path4784" />
+      <path
+         d="m 548,203 h 152 v 21 H 548 Z"
+         fill="#b3b2b3"
+         fill-rule="evenodd"
+         fill-opacity="0.4"
+         id="path4786" />
+      <text
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="13px"
+         transform="translate(633.148,218)"
+         id="text4788">Partition 1</text>
+      <path
+         d="m 548.5,203.5 h 152 v 21 h -152 z"
+         stroke="#ffffff"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path4790" />
+      <path
+         d="m 758,198 h 32 v 275 h -32 z"
+         fill="#ffffff"
+         fill-rule="evenodd"
+         id="path4792" />
+      <path
+         d="m 758,198 h 32 v 275 h -32 z"
+         fill="#b3b2b3"
+         fill-rule="evenodd"
+         fill-opacity="0.4"
+         id="path4794" />
+      <path
+         d="m 758.5,198.5 h 32 v 275 h -32 z"
+         stroke="#ffffff"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path4796" />
+      <path
+         d="m 571,177.478 c 0.011,0.27 -0.193,0.501 -0.462,0.522 h -4.018 c -0.269,0.011 -0.499,-0.194 -0.519,-0.464 v -3.013 c -0.013,-0.271 0.192,-0.503 0.461,-0.522 h 4.018 c 0.269,-0.013 0.5,0.193 0.52,0.463 z"
+         fill="#76bc43"
+         fill-rule="evenodd"
+         id="path4798" />
+      <path
+         d="m 578,180.475 c 0.011,0.272 -0.193,0.504 -0.462,0.525 h -4.018 c -0.269,0.011 -0.499,-0.195 -0.52,-0.467 v -3.008 c -0.01,-0.271 0.194,-0.503 0.462,-0.525 h 4.017 c 0.269,-0.011 0.499,0.195 0.52,0.467 z"
+         fill="#76bc43"
+         fill-rule="evenodd"
+         id="path4800" />
+      <path
+         d="m 571,183.477 c 0.012,0.271 -0.193,0.503 -0.462,0.523 h -4.018 c -0.269,0.012 -0.5,-0.194 -0.519,-0.464 v -3.013 c -0.013,-0.271 0.192,-0.502 0.461,-0.522 h 4.018 c 0.269,-0.013 0.5,0.193 0.52,0.463 z"
+         fill="#76bc43"
+         fill-rule="evenodd"
+         id="path4802" />
+      <path
+         d="m 564,174.506 c 0.011,0.255 -0.181,0.474 -0.434,0.493 h -4.056 c -0.258,0.013 -0.48,-0.178 -0.51,-0.437 v -3.087 c 0.008,-0.251 0.204,-0.456 0.453,-0.475 h 3.942 c 0.415,0 0.604,0.206 0.604,0.515 z"
+         fill="#8bc63f"
+         fill-rule="evenodd"
+         id="path4804" />
+      <path
+         d="m 563.998,180.487 c 0.022,0.261 -0.17,0.49 -0.43,0.513 h -4.058 c -0.27,0.011 -0.499,-0.201 -0.51,-0.473 0,-10e-4 0,-10e-4 0,-10e-4 v -3.033 c -10e-4,-0.258 0.197,-0.473 0.453,-0.493 h 3.941 c 0.415,0 0.603,0.205 0.603,0.493 z"
+         fill="#76bc43"
+         fill-rule="evenodd"
+         id="path4806" />
+      <path
+         d="m 563.998,186.49 c 0.023,0.259 -0.169,0.487 -0.429,0.51 0,0 -10e-4,0 -10e-4,0 h -4.058 c -0.264,0.01 -0.489,-0.19 -0.51,-0.453 v -3.057 c -0.01,-0.26 0.192,-0.479 0.452,-0.49 h 3.942 c 0.415,0 0.603,0.189 0.603,0.49 z"
+         fill="#76bc43"
+         fill-rule="evenodd"
+         id="path4808" />
+      <path
+         d="M 552.92,165 H 555 v 6.478 c 0,0.289 -0.209,0.522 -0.467,0.522 h -2.064 c -0.258,0 -0.468,-0.233 -0.468,-0.522 v -5.397 c -0.027,-0.566 0.363,-1.048 0.869,-1.078 10e-4,0 0.002,0 0.003,0 z"
+         fill="#999999"
+         fill-rule="evenodd"
+         id="path4810" />
+      <path
+         d="M 552.92,165 H 555 v 6.478 c 0,0.289 -0.209,0.522 -0.467,0.522 h -2.064 c -0.258,0 -0.468,-0.233 -0.468,-0.522 v -5.397 c -0.027,-0.566 0.363,-1.048 0.869,-1.078 10e-4,0 0.002,0 0.003,0 z"
+         fill="#999999"
+         fill-rule="evenodd"
+         fill-opacity="0.501961"
+         id="path4812" />
+      <path
+         d="m 580.016,165 h 2.07 c 0.505,0 0.914,0.463 0.914,1.034 v 5.44 c 0,0.291 -0.208,0.526 -0.465,0.526 0,0 -10e-4,0 -10e-4,0 h -2.068 c -0.257,0 -0.465,-0.235 -0.466,-0.526 V 165 Z"
+         fill="#999999"
+         fill-rule="evenodd"
+         id="path4814" />
+      <path
+         d="m 580.016,165 h 2.07 c 0.505,0 0.914,0.463 0.914,1.034 v 5.44 c 0,0.291 -0.208,0.526 -0.465,0.526 0,0 -10e-4,0 -10e-4,0 h -2.068 c -0.257,0 -0.465,-0.235 -0.466,-0.526 V 165 Z"
+         fill="#999999"
+         fill-rule="evenodd"
+         fill-opacity="0.501961"
+         id="path4816" />
+      <path
+         d="M 583,165.939 V 168 h -31 v -2.061 c 0,-0.518 0.465,-0.939 1.039,-0.939 h 28.94 c 0.567,0.009 1.021,0.427 1.021,0.939 z"
+         fill="#949494"
+         fill-rule="evenodd"
+         id="path4818" />
+      <path
+         d="m 552.462,185 h 2.072 c 0.258,0 0.466,0.267 0.466,0.596 V 193 h -2.085 C 552.41,193 552,192.475 552,191.828 v -6.34 c 0.041,-0.285 0.236,-0.491 0.462,-0.488 z"
+         fill="#999999"
+         fill-rule="evenodd"
+         id="path4820" />
+      <path
+         d="m 552.462,185 h 2.072 c 0.258,0 0.466,0.267 0.466,0.596 V 193 h -2.085 C 552.41,193 552,192.475 552,191.828 v -6.34 c 0.041,-0.285 0.236,-0.491 0.462,-0.488 z"
+         fill="#999999"
+         fill-rule="evenodd"
+         fill-opacity="0.501961"
+         id="path4822" />
+      <path
+         d="m 580.452,185 h 2.08 c 0.258,-0.001 0.467,0.268 0.468,0.6 0,0 0,0 0,0.001 v 0 6.218 c 0,0.652 -0.412,1.181 -0.919,1.181 H 580 v -7.508 c 0.04,-0.281 0.229,-0.487 0.452,-0.492 z"
+         fill="#999999"
+         fill-rule="evenodd"
+         id="path4824" />
+      <path
+         d="m 580.452,185 h 2.08 c 0.258,-0.001 0.467,0.268 0.468,0.6 0,0 0,0 0,0.001 v 0 6.218 c 0,0.652 -0.412,1.181 -0.919,1.181 H 580 v -7.508 c 0.04,-0.281 0.229,-0.487 0.452,-0.492 z"
+         fill="#999999"
+         fill-rule="evenodd"
+         fill-opacity="0.501961"
+         id="path4826" />
+      <path
+         d="M 552,191.748 V 189 h 31 v 2.748 c 0,0.691 -0.465,1.252 -1.039,1.252 H 553.039 C 552.465,193 552,192.439 552,191.748 Z"
+         fill="#949494"
+         fill-rule="evenodd"
+         id="path4828" />
+      <path
+         d="m 557,208 h -2 v 12 h 2 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path4830" />
+      <path
+         d="m 561,208 h -3 v 12 h 3 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path4832" />
+      <path
+         d="m 565,208 h -3 v 12 h 3 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path4834" />
+      <path
+         d="m 569,208 h -3 v 12 h 3 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path4836" />
+      <path
+         d="M 572.996,208 H 570 v 12 h 3 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path4838" />
+      <path
+         d="m 577,208 h -3 v 12 h 3 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path4840" />
+      <path
+         d="m 581,208 h -3 v 12 h 3 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path4842" />
+      <path
+         d="m 548,229 h 152 v 22 H 548 Z"
+         fill="#ffffff"
+         fill-rule="evenodd"
+         id="path4844" />
+      <path
+         d="m 548,229 h 152 v 22 H 548 Z"
+         fill="#b3b2b3"
+         fill-rule="evenodd"
+         fill-opacity="0.4"
+         id="path4846" />
+      <text
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="13px"
+         transform="translate(633.148,244)"
+         id="text4848">Partition 2</text>
+      <path
+         d="m 548.5,229.5 h 152 v 22 h -152 z"
+         stroke="#ffffff"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path4850" />
+      <path
+         d="m 557,234 h -2 v 12 h 2 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path4852" />
+      <path
+         d="m 561,234 h -3 v 12 h 3 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path4854" />
+      <path
+         d="m 565,234 h -3 v 12 h 3 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path4856" />
+      <path
+         d="m 569,234 h -3 v 12 h 3 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path4858" />
+      <path
+         d="m 573,234 h -3 v 12 h 3 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path4860" />
+      <path
+         d="m 577,234 h -3 v 12 h 2.999 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path4862" />
+      <path
+         d="m 581,234 h -3 v 12 h 3 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path4864" />
+      <path
+         d="m 584,234 h -2 v 12 h 2 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path4866" />
+      <path
+         d="m 588,234 h -2 v 12 h 2 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path4868" />
+      <path
+         d="m 592,234 h -3 v 12 h 3 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path4870" />
+      <path
+         d="m 548,256 h 152 v 21 H 548 Z"
+         fill="#ffffff"
+         fill-rule="evenodd"
+         id="path4872" />
+      <path
+         d="m 548,256 h 152 v 21 H 548 Z"
+         fill="#b3b2b3"
+         fill-rule="evenodd"
+         fill-opacity="0.4"
+         id="path4874" />
+      <text
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="13px"
+         transform="translate(633.148,270)"
+         id="text4876">Partition 3</text>
+      <path
+         d="m 548.5,256.5 h 152 v 21 h -152 z"
+         stroke="#ffffff"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path4878" />
+      <path
+         d="m 557,260 h -2 v 12 h 2 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path4880" />
+      <path
+         d="m 561,260 h -3 v 12 h 3 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path4882" />
+      <path
+         d="m 565,260 h -3 v 12 h 3 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path4884" />
+      <path
+         d="m 569,260 h -3 v 12 h 3 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path4886" />
+      <path
+         d="M 572.996,260 H 570 v 12 h 3"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path4888" />
+      <path
+         d="m 548,282 h 152 v 21 H 548 Z"
+         fill="#ffffff"
+         fill-rule="evenodd"
+         id="path4890" />
+      <path
+         d="m 548,282 h 152 v 21 H 548 Z"
+         fill="#b3b2b3"
+         fill-rule="evenodd"
+         fill-opacity="0.4"
+         id="path4892" />
+      <text
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="13px"
+         transform="translate(633.148,296)"
+         id="text4894">Partition 4</text>
+      <path
+         d="m 548.5,282.5 h 152 v 21 h -152 z"
+         stroke="#ffffff"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path4896" />
+      <path
+         d="m 557,286 h -2 v 12 h 2 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path4898" />
+      <path
+         d="m 561,286 h -2 v 12 h 2 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path4900" />
+      <path
+         d="m 565,286 h -3 v 12 h 3 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path4902" />
+      <path
+         d="m 569,286 h -3 v 12 h 3 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path4904" />
+      <path
+         d="m 573,286 h -3 v 12 h 3 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path4906" />
+      <path
+         d="m 577,286 h -3 v 12 h 3 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path4908" />
+      <path
+         d="m 581,286 h -3 v 12 h 3 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path4910" />
+      <path
+         d="m 585,286 h -3 v 12 h 3 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path4912" />
+      <path
+         d="m 329,298 h 10 v 10 h -10 z"
+         fill="#5e9741"
+         fill-rule="evenodd"
+         id="path4914" />
+      <path
+         d="m 343,298 h 10 v 10 h -10 z"
+         fill="#5e9741"
+         fill-rule="evenodd"
+         id="path4916" />
+      <path
+         d="m 357,298 h 10 v 10 h -10 z"
+         fill="#5e9741"
+         fill-rule="evenodd"
+         id="path4918" />
+      <path
+         d="m 371,298 h 10 v 10 h -10 z"
+         fill="#5e9741"
+         fill-rule="evenodd"
+         id="path4920" />
+      <path
+         d="m 385,298 h 10 v 10 h -10 z"
+         fill="#5e9741"
+         fill-rule="evenodd"
+         id="path4922" />
+      <path
+         d="m 399,298 h 10 v 10 h -10 z"
+         fill="#5e9741"
+         fill-rule="evenodd"
+         id="path4924" />
+      <path
+         d="m 413,298 h 10 v 10 h -10 z"
+         fill="#5e9741"
+         fill-rule="evenodd"
+         id="path4926" />
+      <path
+         d="m 329,311 h 10 v 10 h -10 z"
+         fill="#5e9741"
+         fill-rule="evenodd"
+         id="path4928" />
+      <path
+         d="m 343,311 h 10 v 10 h -10 z"
+         fill="#5e9741"
+         fill-rule="evenodd"
+         id="path4930" />
+      <path
+         d="m 357,311 h 10 v 10 h -10 z"
+         fill="#5e9741"
+         fill-rule="evenodd"
+         id="path4932" />
+      <path
+         d="m 371,311 h 10 v 10 h -10 z"
+         fill="#5e9741"
+         fill-rule="evenodd"
+         id="path4934" />
+      <path
+         d="m 385,311 h 10 v 10 h -10 z"
+         fill="#5e9741"
+         fill-rule="evenodd"
+         id="path4936" />
+      <path
+         d="m 399,311 h 10 v 10 h -10 z"
+         fill="#5e9741"
+         fill-rule="evenodd"
+         id="path4938" />
+      <path
+         d="m 413,311 h 10 v 10 h -10 z"
+         fill="#5e9741"
+         fill-rule="evenodd"
+         id="path4940" />
+      <path
+         d="m 329,324 h 10 v 10 h -10 z"
+         fill="#5e9741"
+         fill-rule="evenodd"
+         id="path4942" />
+      <path
+         d="m 343,324 h 10 v 10 h -10 z"
+         fill="#5e9741"
+         fill-rule="evenodd"
+         id="path4944" />
+      <path
+         d="m 357,324 h 10 v 10 h -10 z"
+         fill="#5e9741"
+         fill-rule="evenodd"
+         id="path4946" />
+      <path
+         d="m 371,324 h 10 v 10 h -10 z"
+         fill="#5e9741"
+         fill-rule="evenodd"
+         id="path4948" />
+      <path
+         d="m 385,324 h 10 v 10 h -10 z"
+         fill="#5e9741"
+         fill-rule="evenodd"
+         id="path4950" />
+      <path
+         d="m 399,324 h 10 v 10 h -10 z"
+         fill="#5e9741"
+         fill-rule="evenodd"
+         id="path4952" />
+      <path
+         d="m 413,324 h 10 v 10 h -10 z"
+         fill="#5e9741"
+         fill-rule="evenodd"
+         id="path4954" />
+      <path
+         d="m 329,337 h 10 v 10 h -10 z"
+         fill="#5e9741"
+         fill-rule="evenodd"
+         id="path4956" />
+      <path
+         d="m 343,337 h 10 v 10 h -10 z"
+         fill="#5e9741"
+         fill-rule="evenodd"
+         id="path4958" />
+      <path
+         d="m 357,337 h 10 v 10 h -10 z"
+         fill="#5e9741"
+         fill-rule="evenodd"
+         id="path4960" />
+      <path
+         d="m 371,337 h 10 v 10 h -10 z"
+         fill="#5e9741"
+         fill-rule="evenodd"
+         id="path4962" />
+      <path
+         d="m 385,337 h 10 v 10 h -10 z"
+         fill="#5e9741"
+         fill-rule="evenodd"
+         id="path4964" />
+      <path
+         d="m 399,337 h 10 v 10 h -10 z"
+         fill="#5e9741"
+         fill-rule="evenodd"
+         id="path4966" />
+      <path
+         d="m 413,337 h 10 v 10 h -10 z"
+         fill="#5e9741"
+         fill-rule="evenodd"
+         id="path4968" />
+      <path
+         d="m 329,350 h 10 v 10 h -10 z"
+         fill="#5e9741"
+         fill-rule="evenodd"
+         id="path4970" />
+      <path
+         d="m 343,350 h 10 v 10 h -10 z"
+         fill="#5e9741"
+         fill-rule="evenodd"
+         id="path4972" />
+      <path
+         d="m 357,350 h 10 v 10 h -10 z"
+         fill="#5e9741"
+         fill-rule="evenodd"
+         id="path4974" />
+      <path
+         d="m 371,350 h 10 v 10 h -10 z"
+         fill="#5e9741"
+         fill-rule="evenodd"
+         id="path4976" />
+      <path
+         d="m 385,350 h 10 v 10 h -10 z"
+         fill="#5e9741"
+         fill-rule="evenodd"
+         id="path4978" />
+      <path
+         d="m 399,350 h 10 v 10 h -10 z"
+         fill="#5e9741"
+         fill-rule="evenodd"
+         id="path4980" />
+      <path
+         d="m 413,350 h 10 v 10 h -10 z"
+         fill="#5e9741"
+         fill-rule="evenodd"
+         id="path4982" />
+      <path
+         d="m 329,364 h 10 v 10 h -10 z"
+         fill="#5e9741"
+         fill-rule="evenodd"
+         id="path4984" />
+      <path
+         d="m 343,364 h 10 v 10 h -10 z"
+         fill="#5e9741"
+         fill-rule="evenodd"
+         id="path4986" />
+      <path
+         d="m 357,364 h 10 v 10 h -10 z"
+         fill="#5e9741"
+         fill-rule="evenodd"
+         id="path4988" />
+      <path
+         d="m 371,364 h 10 v 10 h -10 z"
+         fill="#5e9741"
+         fill-rule="evenodd"
+         id="path4990" />
+      <path
+         d="m 385,364 h 10 v 10 h -10 z"
+         fill="#5e9741"
+         fill-rule="evenodd"
+         id="path4992" />
+      <path
+         d="m 399,364 h 10 v 10 h -10 z"
+         fill="#5e9741"
+         fill-rule="evenodd"
+         id="path4994" />
+      <path
+         d="m 413,364 h 10 v 10 h -10 z"
+         fill="#5e9741"
+         fill-rule="evenodd"
+         id="path4996" />
+      <path
+         d="m 521,335.5 -10.477,-7.479 V 334 H 440.89 v -42.5 c 0,-0.828 -0.543,-1.5 -1.213,-1.5 H 429 v 3 h 9.464 v 85 H 429 v 3 h 10.677 c 0.67,0 1.213,-0.672 1.213,-1.5 V 337 h 69.633 v 5.98 z"
+         fill="#979797"
+         fill-rule="evenodd"
+         id="path4998" />
+      <path
+         d="m 818,204 h 70 v 118 h -70 z"
+         fill="#e17a26"
+         fill-rule="evenodd"
+         id="path5000" />
+      <text
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="13px"
+         transform="translate(837.515,259)"
+         id="text5006">Lease <tspan
+   font-size="13px"
+   x="6.4133301"
+   y="16"
+   id="tspan5002">1</tspan><tspan
+   font-size="13px"
+   x="13.2466"
+   y="16"
+   id="tspan5004">-</tspan>5</text>
+      <path
+         d="m 455.803,346.038 v 0 c -0.258,-0.266 -0.613,-0.415 -0.982,-0.414 -0.368,-0.001 -0.721,0.148 -0.977,0.414 h -0.006 c -0.26,0.268 -0.403,0.627 -0.4,1 -0.005,0.373 0.139,0.733 0.4,1 l 0.006,0.007 c 0.257,0.263 0.609,0.41 0.977,0.408 0.369,0.002 0.722,-0.145 0.982,-0.408 v -0.007 c 0.261,-0.267 0.405,-0.627 0.4,-1 0.003,-0.373 -0.14,-0.732 -0.4,-1 z m -0.982,19.325 v 0 c 0.369,-10e-4 0.722,-0.149 0.982,-0.412 v -0.007 c 0.26,-0.265 0.403,-0.622 0.4,-0.994 0.003,-0.373 -0.14,-0.732 -0.4,-1 v 0 c -0.258,-0.266 -0.613,-0.416 -0.982,-0.414 -0.369,-0.002 -0.722,0.148 -0.977,0.414 h -0.006 c -0.26,0.268 -0.403,0.627 -0.4,1 -0.003,0.372 0.14,0.729 0.4,0.994 l 0.006,0.007 c 0.257,0.263 0.609,0.412 0.977,0.412 z m 7.553,-4.278 v 0 c 0.357,-0.095 0.662,-0.331 0.843,-0.656 l 0.026,-0.05 v 0 c 0.164,-0.315 0.203,-0.68 0.109,-1.022 -0.091,-0.361 -0.324,-0.671 -0.646,-0.859 l -0.02,-0.013 c -0.664,-0.371 -1.503,-0.133 -1.875,0.531 -0.385,0.674 -0.16,1.534 0.507,1.932 v 0 c 0.319,0.186 0.699,0.235 1.054,0.137 z m -6.132,-7.038 v 0 c -0.762,-0.786 -2.014,-0.805 -2.799,-0.042 -0.014,0.014 -0.028,0.028 -0.042,0.042 -0.378,0.386 -0.587,0.904 -0.585,1.444 -0.002,0.541 0.208,1.062 0.585,1.451 0.769,0.785 2.028,0.797 2.813,0.027 0.01,-0.008 0.019,-0.018 0.028,-0.027 0.378,-0.389 0.588,-0.91 0.587,-1.451 0.002,-0.54 -0.209,-1.059 -0.587,-1.444 z m -0.8,-2.406 v 0 c 0.795,0.135 1.525,0.521 2.086,1.1 v 0 c 0.088,0.09 0.173,0.188 0.253,0.287 l 1.385,-0.816 c -0.439,-1.361 0.12,-2.847 1.348,-3.579 l 0.023,-0.015 c 0.679,-0.395 1.488,-0.5 2.245,-0.293 0.771,0.212 1.425,0.723 1.817,1.421 v 0 c 0.396,0.7 0.504,1.528 0.3,2.307 -0.201,0.777 -0.702,1.443 -1.394,1.85 l -0.19,0.113 h -0.019 c -0.642,0.311 -1.373,0.379 -2.061,0.192 -0.56,-0.153 -1.064,-0.465 -1.449,-0.901 l -1.382,0.814 c 0.163,0.44 0.246,0.906 0.246,1.376 0,0.472 -0.083,0.94 -0.246,1.384 l 1.382,0.81 c 0.383,-0.437 0.887,-0.751 1.449,-0.901 0.767,-0.213 1.587,-0.102 2.27,0.307 l 0.045,0.022 v 0 c 0.669,0.411 1.153,1.066 1.349,1.826 0.204,0.778 0.096,1.606 -0.3,2.306 l -0.025,0.05 v 0 0 c -0.396,0.668 -1.035,1.156 -1.783,1.364 -0.766,0.209 -1.584,0.101 -2.27,-0.3 v -0.006 c -1.227,-0.732 -1.787,-2.216 -1.348,-3.577 l -1.385,-0.813 c -0.079,0.1 -0.164,0.192 -0.253,0.282 v 0 c -0.561,0.577 -1.292,0.959 -2.086,1.09 v 1.633 c 0.568,0.123 1.088,0.41 1.494,0.826 v 0 0 c 1.169,1.194 1.169,3.107 0,4.301 v 0.008 0 c -1.14,1.168 -3.01,1.19 -4.177,0.05 -0.017,-0.016 -0.033,-0.033 -0.05,-0.05 v 0 -0.008 c -1.172,-1.194 -1.172,-3.107 0,-4.301 v 0 0 c 0.405,-0.416 0.923,-0.703 1.491,-0.826 v -1.629 c -0.793,-0.131 -1.523,-0.513 -2.083,-1.09 v 0 c -1.499,-1.531 -1.499,-3.979 0,-5.51 v 0 c 0.56,-0.579 1.289,-0.965 2.083,-1.1 v -1.621 c -0.567,-0.127 -1.085,-0.414 -1.491,-0.829 v 0 0 c -1.17,-1.195 -1.17,-3.105 0,-4.301 v 0 0 c 1.133,-1.168 2.999,-1.195 4.167,-0.06 0.02,0.019 0.04,0.04 0.06,0.06 v 0 0 c 1.168,1.196 1.168,3.106 0,4.301 v 0 c -0.408,0.415 -0.927,0.702 -1.494,0.829 z m 7.775,-1.082 -0.011,-0.017 c -0.183,-0.314 -0.482,-0.544 -0.832,-0.64 -0.356,-0.099 -0.737,-0.048 -1.056,0.14 v 0 c -0.322,0.188 -0.556,0.497 -0.649,0.858 -0.095,0.362 -0.044,0.747 0.14,1.073 l 0.006,0.008 c 0.182,0.318 0.484,0.551 0.838,0.645 0.355,0.101 0.735,0.051 1.051,-0.138 l 0.018,-0.009 c 0.312,-0.19 0.537,-0.494 0.628,-0.847 0.097,-0.362 0.049,-0.747 -0.135,-1.073 v 0"
+         fill="#231f20"
+         fill-rule="evenodd"
+         id="path5008" />
+      <path
+         d="m 469,351 h 1.645 v 4.324 l 2.37,-2.259 h 1.975 l -2.862,2.617 L 475,359 h -1.883 l -2.47,-2.964 V 359 H 469 v -8"
+         fill="#231f20"
+         fill-rule="evenodd"
+         id="path5010" />
+      <path
+         d="m 476.699,356.528 c -0.019,1.083 0.815,1.977 1.865,1.998 0.014,0 0.028,0 0.043,0 0.711,0.026 1.368,-0.39 1.668,-1.054 0.141,-0.287 0.224,-0.602 0.24,-0.923 0.012,-0.318 -0.047,-0.635 -0.172,-0.926 -0.295,-0.72 -0.986,-1.18 -1.744,-1.16 -1.052,0.003 -1.902,0.887 -1.898,1.972 0,0.026 10e-4,0.051 0.002,0.077 z m 5.301,3.263 h -1.497 v -0.944 c -0.445,0.755 -1.257,1.197 -2.113,1.15 -1.872,0 -3.39,-1.566 -3.39,-3.497 0,-1.932 1.518,-3.497 3.39,-3.497 0.858,-0.043 1.67,0.403 2.113,1.163 v -0.96 H 482 v 6.583"
+         fill="#231f20"
+         fill-rule="evenodd"
+         id="path5012" />
+      <path
+         d="M 483.949,353.653 H 483 v -1.206 h 0.949 v -0.369 c 0,-1.948 1.735,-2.065 3.051,-2.078 v 1.203 c -0.463,0 -1.217,0 -1.217,0.922 v 0.322 H 487 v 1.206 h -1.217 V 359 h -1.834 v -5.347"
+         fill="#231f20"
+         fill-rule="evenodd"
+         id="path5014" />
+      <path
+         d="m 488.004,351 h 1.369 v 4.324 l 1.975,-2.259 h 1.643 l -2.385,2.617 L 493,359 h -1.571 l -2.059,-2.964 V 359 H 488 v -8"
+         fill="#231f20"
+         fill-rule="evenodd"
+         id="path5016" />
+      <path
+         d="m 494.944,356.531 c -0.023,1.082 0.93,1.977 2.13,1.998 0.016,0 0.033,0 0.049,0 0.812,0.025 1.562,-0.39 1.905,-1.054 0.164,-0.287 0.258,-0.602 0.275,-0.923 0.014,-0.318 -0.054,-0.635 -0.196,-0.926 -0.337,-0.72 -1.127,-1.181 -1.992,-1.16 -1.202,0.004 -2.174,0.887 -2.17,1.972 0,0.026 0.002,0.051 0.003,0.077 z m 6.056,3.263 h -1.71 v -0.945 c -0.51,0.756 -1.438,1.196 -2.417,1.147 -2.139,0 -3.873,-1.565 -3.873,-3.496 0,-1.932 1.734,-3.497 3.873,-3.497 0.981,-0.043 1.908,0.403 2.415,1.163 v -0.96 h 1.71 v 6.583"
+         fill="#231f20"
+         fill-rule="evenodd"
+         id="path5018" />
+      <path
+         d="m 548,308 h 152 v 21 H 548 Z"
+         fill="#ffffff"
+         fill-rule="evenodd"
+         id="path5020" />
+      <path
+         d="m 548,308 h 152 v 21 H 548 Z"
+         fill="#b3b2b3"
+         fill-rule="evenodd"
+         fill-opacity="0.4"
+         id="path5022" />
+      <text
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="13px"
+         transform="translate(633.148,322)"
+         id="text5024">Partition 5</text>
+      <path
+         d="m 548.5,308.5 h 152 v 21 h -152 z"
+         stroke="#ffffff"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path5026" />
+      <path
+         d="m 557,312 h -2 v 13 h 2 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path5028" />
+      <path
+         d="m 561,312 h -3 v 13 h 3 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path5030" />
+      <path
+         d="m 565,312 h -3 v 13 h 3 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path5032" />
+      <path
+         d="m 569,312 h -3 v 13 h 3 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path5034" />
+      <path
+         d="M 572.996,312 H 570 v 13 h 3"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path5036" />
+      <path
+         d="m 548,334 h 152 v 21 H 548 Z"
+         fill="#ffffff"
+         fill-rule="evenodd"
+         id="path5038" />
+      <path
+         d="m 548,334 h 152 v 21 H 548 Z"
+         fill="#b3b2b3"
+         fill-rule="evenodd"
+         fill-opacity="0.4"
+         id="path5040" />
+      <text
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="13px"
+         transform="translate(633.148,348)"
+         id="text5042">Partition 6</text>
+      <path
+         d="m 548.5,334.5 h 152 v 21 h -152 z"
+         stroke="#ffffff"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path5044" />
+      <path
+         d="m 557,338 h -2 v 13 h 2 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path5046" />
+      <path
+         d="m 561,338 h -3 v 13 h 3 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path5048" />
+      <path
+         d="m 565,338 h -3 v 13 h 3 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path5050" />
+      <path
+         d="m 569,338 h -3 v 13 h 3 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path5052" />
+      <path
+         d="m 573,338 h -3 v 13 h 3 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path5054" />
+      <path
+         d="m 577,338 h -3 v 13 h 2.999 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path5056" />
+      <path
+         d="m 581,338 h -3 v 13 h 3 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path5058" />
+      <path
+         d="m 584,338 h -2 v 13 h 2 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path5060" />
+      <path
+         d="m 588,338 h -2 v 13 h 2 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path5062" />
+      <path
+         d="m 592,338 h -3 v 13 h 3 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path5064" />
+      <path
+         d="m 548,360 h 152 v 21 H 548 Z"
+         fill="#ffffff"
+         fill-rule="evenodd"
+         id="path5066" />
+      <path
+         d="m 548,360 h 152 v 21 H 548 Z"
+         fill="#b3b2b3"
+         fill-rule="evenodd"
+         fill-opacity="0.4"
+         id="path5068" />
+      <text
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="13px"
+         transform="translate(633.148,375)"
+         id="text5070">Partition 7</text>
+      <path
+         d="m 548.5,360.5 h 152 v 21 h -152 z"
+         stroke="#ffffff"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path5072" />
+      <path
+         d="m 557,364 h -2 v 13 h 2 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path5074" />
+      <path
+         d="m 561,364 h -2 v 13 h 2 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path5076" />
+      <path
+         d="m 565,364 h -3 v 13 h 3 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path5078" />
+      <path
+         d="m 569,364 h -3 v 13 h 3 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path5080" />
+      <path
+         d="m 573,364 h -3 v 13 h 3 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path5082" />
+      <path
+         d="m 577,364 h -3 v 13 h 3 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path5084" />
+      <path
+         d="m 581,364 h -3 v 13 h 3 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path5086" />
+      <path
+         d="m 585,364 h -3 v 13 h 3 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path5088" />
+      <path
+         d="m 548,386 h 152 v 21 H 548 Z"
+         fill="#ffffff"
+         fill-rule="evenodd"
+         id="path5090" />
+      <path
+         d="m 548,386 h 152 v 21 H 548 Z"
+         fill="#b3b2b3"
+         fill-rule="evenodd"
+         fill-opacity="0.4"
+         id="path5092" />
+      <text
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="13px"
+         transform="translate(633.148,401)"
+         id="text5094">Partition 8</text>
+      <path
+         d="m 548.5,386.5 h 152 v 21 h -152 z"
+         stroke="#ffffff"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path5096" />
+      <path
+         d="m 557,391 h -2 v 12 h 2 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path5098" />
+      <path
+         d="m 561,391 h -3 v 12 h 3 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path5100" />
+      <path
+         d="m 565,391 h -3 v 12 h 3 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path5102" />
+      <path
+         d="m 569,391 h -3 v 12 h 3 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path5104" />
+      <path
+         d="M 572.996,391 H 570 v 12 h 3"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path5106" />
+      <path
+         d="m 548,412 h 152 v 21 H 548 Z"
+         fill="#ffffff"
+         fill-rule="evenodd"
+         id="path5108" />
+      <path
+         d="m 548,412 h 152 v 21 H 548 Z"
+         fill="#b3b2b3"
+         fill-rule="evenodd"
+         fill-opacity="0.4"
+         id="path5110" />
+      <text
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="13px"
+         transform="translate(633.148,427)"
+         id="text5112">Partition 9</text>
+      <path
+         d="m 548.5,412.5 h 152 v 21 h -152 z"
+         stroke="#ffffff"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path5114" />
+      <path
+         d="m 557,417 h -2 v 12 h 2 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path5116" />
+      <path
+         d="m 561,417 h -3 v 12 h 3 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path5118" />
+      <path
+         d="m 565,417 h -3 v 12 h 3 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path5120" />
+      <path
+         d="m 569,417 h -3 v 12 h 3 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path5122" />
+      <path
+         d="m 573,417 h -3 v 12 h 3 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path5124" />
+      <path
+         d="m 577,417 h -3 v 12 h 2.999 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path5126" />
+      <path
+         d="m 581,417 h -3 v 12 h 3 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path5128" />
+      <path
+         d="m 584,417 h -2 v 12 h 2 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path5130" />
+      <path
+         d="m 588,417 h -2 v 12 h 2 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path5132" />
+      <path
+         d="m 592,417 h -3 v 12 h 3 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path5134" />
+      <path
+         d="m 548,438 h 152 v 22 H 548 Z"
+         fill="#ffffff"
+         fill-rule="evenodd"
+         id="path5136" />
+      <path
+         d="m 548,438 h 152 v 22 H 548 Z"
+         fill="#b3b2b3"
+         fill-rule="evenodd"
+         fill-opacity="0.4"
+         id="path5138" />
+      <text
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="13px"
+         transform="translate(626.315,453)"
+         id="text5140">Partition 10</text>
+      <path
+         d="m 548.5,438.5 h 152 v 22 h -152 z"
+         stroke="#ffffff"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path5142" />
+      <path
+         d="m 557,443 h -2 v 12 h 2 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path5144" />
+      <path
+         d="m 561,443 h -3 v 12 h 3 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path5146" />
+      <path
+         d="m 565,443 h -3 v 12 h 3 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path5148" />
+      <path
+         d="m 569,443 h -3 v 12 h 3 z"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path5150" />
+      <path
+         d="M 572.996,443 H 570 v 12 h 3"
+         fill="#005ca1"
+         fill-rule="evenodd"
+         id="path5152" />
+      <text
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="13px"
+         transform="translate(332.187,278)"
+         id="text5158">Event Producers<tspan
+   font-size="13px"
+   x="127.981"
+   y="25"
+   id="tspan5154">HTTPs</tspan><tspan
+   font-size="13px"
+   x="127.981"
+   y="41"
+   id="tspan5156">AMQP</tspan></text>
+      <path
+         d="m 707,374 -7,-3.5 7,-3.5 z"
+         fill="#3c3c41"
+         fill-rule="evenodd"
+         id="path5160" />
+      <path
+         d="m 743.5,397.5 h -38"
+         stroke="#3c3c41"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path5162" />
+      <path
+         d="m 707,393 -7,3.999 7,4.001 z"
+         fill="#3c3c41"
+         fill-rule="evenodd"
+         id="path5164" />
+      <path
+         d="m 743.5,424.5 h -38"
+         stroke="#3c3c41"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path5166" />
+      <path
+         d="m 707,420 -7,3.5 7,3.5 z"
+         fill="#3c3c41"
+         fill-rule="evenodd"
+         id="path5168" />
+      <path
+         d="m 744.5,370.5 h -39"
+         stroke="#3c3c41"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path5170" />
+      <text
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="13px"
+         transform="translate(597.54,183)"
+         id="text5172">Azure Event Hubs</text>
+      <path
+         d="m 812,400 6,-3.5 -6,-3.5 z"
+         fill="#3c3c41"
+         fill-rule="evenodd"
+         id="path5174" />
+      <path
+         d="m 743.5,397.5 h 68.263"
+         stroke="#000000"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path5176" />
+      <path
+         d="m 818,339 h 70 v 125 h -70 z"
+         fill="#e17a26"
+         fill-rule="evenodd"
+         id="path5178" />
+      <text
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="13px"
+         transform="translate(837.515,397)"
+         id="text5184">Lease <tspan
+   font-size="13px"
+   x="3"
+   y="16"
+   id="tspan5180">6</tspan><tspan
+   font-size="13px"
+   x="9.8333101"
+   y="16"
+   id="tspan5182">-</tspan>10</text>
+      <path
+         d="m 705.5,345.5 h 36.032 c 1.085,0.002 1.965,0.659 1.968,1.469 v 102.062 c -0.003,0.81 -0.883,1.467 -1.968,1.469 H 705.5"
+         stroke="#3c3c41"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path5186" />
+      <path
+         d="m 707,340 -7,3.999 7,4.001 z"
+         fill="#3c3c41"
+         fill-rule="evenodd"
+         id="path5188" />
+      <path
+         d="m 707,447 -7,3.5 7,3.5 z"
+         fill="#3c3c41"
+         fill-rule="evenodd"
+         id="path5190" />
+      <path
+         d="m 707,243 -7,-3.5 7,-3.5 z"
+         fill="#3c3c41"
+         fill-rule="evenodd"
+         id="path5192" />
+      <path
+         d="m 743.5,266.5 h -37"
+         stroke="#3c3c41"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path5194" />
+      <path
+         d="m 707,262 -7,3.999 7,4.001 z"
+         fill="#3c3c41"
+         fill-rule="evenodd"
+         id="path5196" />
+      <path
+         d="m 744.5,293.5 h -39"
+         stroke="#3c3c41"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path5198" />
+      <path
+         d="m 707,289 -7,3.5 7,3.5 z"
+         fill="#3c3c41"
+         fill-rule="evenodd"
+         id="path5200" />
+      <path
+         d="m 744.5,239.5 h -38"
+         stroke="#3c3c41"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path5202" />
+      <path
+         d="m 812,269 6,-3.5 -6,-3.5 z"
+         fill="#3c3c41"
+         fill-rule="evenodd"
+         id="path5204" />
+      <path
+         d="m 743.5,266.5 h 67.992"
+         stroke="#000000"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path5206" />
+      <path
+         d="m 705.5,214.5 h 36.98 c 1.114,0.002 2.017,0.659 2.02,1.469 v 102.062 c -0.003,0.81 -0.906,1.467 -2.02,1.469 H 705.5"
+         stroke="#3c3c41"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path5208" />
+      <path
+         d="m 707,209 -7,3.999 7,4.001 z"
+         fill="#3c3c41"
+         fill-rule="evenodd"
+         id="path5210" />
+      <path
+         d="m 707,316 -7,3.5 7,3.5 z"
+         fill="#3c3c41"
+         fill-rule="evenodd"
+         id="path5212" />
+      <text
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="13px"
+         transform="translate(824.187,187)"
+         id="text5216">Function App<tspan
+   font-size="13px"
+   x="72.569603"
+   y="80"
+   id="tspan5214">Function_1</tspan></text>
+      <g
+         clip-path="url(#clip1)"
+         id="g5230">
+        <g
+           clip-path="url(#clip2)"
+           id="g5228">
+          <g
+             clip-path="url(#clip3)"
+             id="g5226">
+            <path
+               d="m 814.577,185.949 h -2.81 c -0.082,0.003 -0.152,-0.06 -0.157,-0.142 0,-0.02 0.006,-0.04 0.015,-0.058 l 3.368,-6.666 c 0.029,-0.053 0.086,-0.085 0.146,-0.083 h 3.323 c 0.082,-0.003 0.152,0.06 0.157,0.142 0,0.028 -0.01,0.056 -0.027,0.078 l -3.956,5.215 h 3.858 c 0.082,-0.003 0.151,0.06 0.156,0.142 10e-4,0.037 -0.013,0.074 -0.04,0.1 l -6.41,6.665 c -0.06,0.036 -0.488,0.391 -0.278,-0.148 v 0 z"
+               fill="#000000"
+               fill-opacity="0.1"
+               id="path5218" />
+            <path
+               d="m 812.294,186.763 c 0.083,0.081 0.084,0.214 0.003,0.297 -10e-4,0.001 -0.002,0.002 -0.003,0.003 v 0 l -0.459,0.46 c -0.081,0.081 -0.213,0.082 -0.294,0.001 0,0 -0.001,-0.001 -0.001,-0.001 l -3.409,-3.4 c -0.162,-0.163 -0.162,-0.427 0,-0.59 l 0.461,-0.463 z m 9.578,-3.229 -0.458,-0.46 -3.7,3.694 c -0.081,0.082 -0.081,0.213 0,0.295 l 0.459,0.46 c 0.082,0.081 0.213,0.081 0.295,0 l 3.409,-3.4 c 0.161,-0.164 0.159,-0.428 -0.005,-0.589 z m -0.46,-0.461 z"
+               fill="#50e6ff"
+               id="path5220" />
+            <path
+               d="m 812.224,180.631 c 0.081,0.082 0.081,0.213 0,0.295 l -3.639,3.65 -0.462,-0.461 c -0.163,-0.162 -0.164,-0.425 -0.002,-0.588 10e-4,-10e-4 10e-4,-10e-4 0.002,-0.002 l 3.344,-3.355 c 0.082,-0.081 0.213,-0.081 0.295,0 z m 9.654,2.892 -3.345,-3.355 c -0.08,-0.083 -0.213,-0.085 -0.296,-0.004 -10e-4,0.001 -0.003,0.002 -0.004,0.004 l -0.462,0.46 c -0.083,0.08 -0.085,0.213 -0.005,0.296 0.002,0.001 0.003,0.003 0.005,0.004 l 3.639,3.649 0.462,-0.46 v 0 c 0.166,-0.159 0.171,-0.423 0.012,-0.588 -0.002,-0.002 -0.004,-0.004 -0.006,-0.006 z"
+               fill="#1490df"
+               id="path5222" />
+            <path
+               d="m 814.577,184.551 h -2.81 c -0.082,0.003 -0.152,-0.06 -0.157,-0.142 0,-0.021 0.006,-0.041 0.015,-0.059 l 3.368,-6.665 c 0.029,-0.053 0.085,-0.086 0.146,-0.085 h 3.323 c 0.082,-0.003 0.151,0.059 0.157,0.141 0,0.029 -0.01,0.056 -0.027,0.079 l -3.956,5.217 h 3.858 c 0.082,-0.004 0.152,0.059 0.156,0.141 10e-4,0.037 -0.014,0.074 -0.04,0.1 l -6.41,6.665 c -0.06,0.036 -0.488,0.392 -0.278,-0.148 v 0 z"
+               fill="#fea11b"
+               id="path5224" />
+          </g>
+        </g>
+      </g>
+      <text
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="13px"
+         transform="translate(896.831,397)"
+         id="text5232">Function_2</text>
+      <path
+         d="m 779.105,186 c 0.487,0.006 0.887,-0.377 0.894,-0.856 0,0 0,-0.001 0,-0.001 v -0.011 c 0.004,-0.049 -0.003,-0.098 -0.022,-0.143 -0.347,-2.747 -1.944,-4.989 -4.981,-4.989 -3.037,0 -4.679,1.935 -4.992,4.989 -0.046,0.484 0.312,0.915 0.804,0.967 h 8.297 z"
+         fill="#2e76bc"
+         fill-rule="evenodd"
+         id="path5234" />
+      <path
+         d="M 775.519,180.454 C 774.98,180.458 774.451,180.3 774,180 l 1.511,4 1.489,-3.966 c -0.446,0.275 -0.959,0.42 -1.481,0.42 z"
+         fill="#ffffff"
+         fill-rule="evenodd"
+         fill-opacity="0.8"
+         id="path5236" />
+      <path
+         d="m 778,177 c 0,1.657 -1.343,3 -3,3 -1.657,0 -3,-1.343 -3,-3 0,-1.657 1.343,-3 3,-3 1.657,0 3,1.343 3,3 z"
+         fill="#2e76bc"
+         fill-rule="evenodd"
+         id="path5238" />
+      <path
+         d="m 773.577,189 c 0.783,0 1.419,-0.656 1.419,-1.465 0.006,-0.057 0.006,-0.115 0,-0.172 -0.562,-4.614 -3.107,-8.363 -7.958,-8.363 -4.852,0 -7.5,3.182 -8.031,8.326 -0.077,0.81 0.495,1.532 1.279,1.615 h 13.264 z"
+         fill="#50c8e9"
+         fill-rule="evenodd"
+         id="path5240" />
+      <path
+         d="M 767.501,180.685 C 766.612,180.68 765.745,180.442 765,180 l 2.501,6 2.499,-5.954 c -0.753,0.42 -1.618,0.642 -2.499,0.639 z"
+         fill="#ffffff"
+         fill-rule="evenodd"
+         fill-opacity="0.8"
+         id="path5242" />
+      <path
+         d="m 772,176 c 0,2.209 -2.015,4 -4.5,4 -2.485,0 -4.5,-1.791 -4.5,-4 0,-2.209 2.015,-4 4.5,-4 2.485,0 4.5,1.791 4.5,4 z"
+         fill="#50c8e9"
+         fill-rule="evenodd"
+         id="path5244" />
+      <path
+         d="m 786.461,183 c 0.297,0 0.539,0 0.539,0 v 11 c 0,0 -0.242,0 -0.539,0 h -13.922 c -0.297,0 -0.539,0 -0.539,0 v -11 c 0,0 0.241,0 0.539,0 z"
+         fill="#2e76bc"
+         fill-rule="evenodd"
+         id="path5246" />
+      <path
+         d="m 785.715,184 c 0.157,0 0.285,0 0.285,0 v 9 c 0,0 -0.128,0 -0.285,0 h -13.429 c -0.158,0 -0.286,0 -0.286,0 v -9 c 0,0 0.128,0 0.286,0 z"
+         fill="#d3e9f9"
+         fill-rule="evenodd"
+         fill-opacity="0.901961"
+         id="path5248" />
+      <text
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="13px"
+         transform="translate(749.079,151)"
+         id="text5252">Consumer <tspan
+   font-size="13px"
+   x="5.7533598"
+   y="16"
+   id="tspan5250">Group 1</tspan></text>
+    </g>
+  </g>
+</svg>

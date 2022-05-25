@@ -1,14 +1,13 @@
 
 
-
 When developing web services, you may need to get tokens using the [OAuth 2.0 On-Behalf-Of (OBO) flow](/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow). The OBO flow serves the use case where an application invokes a service or web API, which in turn needs to call another service or web API. OBO propagates the delegated user identity and permissions through the request chain. When an application needs to use access and refresh tokens indefinitely, typically in offline access scenarios, it's critical to store the refresh tokens securely.
 
->[!WARNING]
->Carefully consider the risk and responsibility involved in storing any security tokens, since these tokens can give a malicious actor access to resources protected by the organization's Azure Active Directory (Azure AD). A security breach of an application that targets **Accounts in any organizational directory (Any Azure AD directory - Multitenant)** can be especially disastrous.
+> [!WARNING]
+> Carefully consider the risk and responsibility involved in storing any security tokens, since these tokens can give a malicious actor access to resources protected by the organization's Azure Active Directory (Azure AD). A security breach of an application that targets **Accounts in any organizational directory (Any Azure AD directory - Multitenant)** can be especially disastrous.
 >
->Storing access tokens poses a greater security risk, since an access token in and of itself can access resources. The recommended approach is not to store access tokens, but get the access tokens as needed. Securely store only the refresh tokens, with as much rigor as if they were access tokens.
+> Storing access tokens poses a greater security risk, since an access token in and of itself can access resources. The recommended approach is not to store access tokens, but get the access tokens as needed. Securely store only the refresh tokens, with as much rigor as if they were access tokens.
 >
->If necessary, you can [revoke refresh tokens](/azure/active-directory/develop/access-tokens#token-revocation) if they become compromised.
+> If necessary, you can [revoke refresh tokens](/azure/active-directory/develop/access-tokens#token-revocation) if they become compromised.
 
 This solution uses Azure Key Vault, Azure Functions, and Azure DevOps to securely update and store OBO refresh tokens.
 
@@ -43,7 +42,7 @@ In the Azure portal, add a Key Vault access policy to allow the Azure Functions 
 
 ### Azure CLI
 
-You can also set Azure Key Vault policy by using the [Azure CLI](/cli/azure/keyvault?view=azure-cli-latest):
+You can also set Azure Key Vault policy by using the [Azure CLI](/cli/azure/keyvault):
 
 ```azurecli
 az keyvault set-policy --name $<Key Vault Name> --spn $<Service Connection Principal> --secret-permissions set

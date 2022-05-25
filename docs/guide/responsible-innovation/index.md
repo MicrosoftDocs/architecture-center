@@ -6,9 +6,10 @@ author: dcass
 ms.date: 05/18/2020
 ms.topic: conceptual
 ms.service: architecture-center
+products: azure
 ms.subservice: guide
-ms.category:
-  - fcp
+azureCategories: developer-tools
+categories: developer-tools
 ms.custom:
   - guide
   - seo-aac-fy21q3
@@ -25,7 +26,7 @@ keywords:
 
 ## Judgment Call
 
-[Judgment Call](./judgmentcall.md) is an award-winning responsible innovation game and team-based activity that puts Microsoft’s AI principles of fairness, privacy and security, reliability and safety, transparency, inclusion, and accountability into action. The game provides an easy-to-use method for cultivating stakeholder empathy through *scenario-imagining*. Game participants write product reviews from the perspective of a particular stakeholder, describing what kind of impact and harms the technology could produce from their point of view.
+[Judgment Call](./judgmentcall.md) is an award-winning responsible innovation game and team-based activity that puts Microsoft's AI principles of fairness, privacy and security, reliability and safety, transparency, inclusion, and accountability into action. The game provides an easy-to-use method for cultivating stakeholder empathy through *scenario-imagining*. Game participants write product reviews from the perspective of a particular stakeholder, describing what kind of impact and harms the technology could produce from their point of view.
 
 ## Harms Modeling
 

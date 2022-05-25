@@ -1,7 +1,6 @@
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-
-
-Smart group spaces can help people get back to work and play As Soon And Safely As Possible (ASASAP) after COVID-19 shutdowns. Insight's [Connected Platform for Detection and Prevention](https://www.insight.com/en_US/what-we-do/digital-innovation/solutions/connected-platform-for-detection-and-prevention.html) rapidly deploys and manages a flexible, scalable [intelligent edge and cloud](https://azure.microsoft.com/overview/future-of-cloud/) ecosystem that helps detect and prevent COVID-19 infection in large group spaces. 
+Smart group spaces can help people get back to work and play As Soon And Safely As Possible (ASASAP) after COVID-19 shutdowns. Insight's [Connected Platform for Detection and Prevention](https://www.insight.com/en_US/what-we-do/digital-innovation/solutions/connected-platform-for-detection-and-prevention.html) rapidly deploys and manages a flexible, scalable [intelligent edge and cloud](https://azure.microsoft.com/overview/future-of-cloud/) ecosystem that helps detect and prevent COVID-19 infection in large group spaces.
 
 This article describes a Connected Platform solution to help provide COVID-19 detection and prevention at a theme park.
 
@@ -15,11 +14,15 @@ This article describes a Connected Platform solution to help provide COVID-19 de
 ## Potential use cases
 
 - Large, high-usage spaces with controlled entry and access.
-- Facilities like offices, factories, theaters, stadiums, malls, transportation centers, and tourist attractions.
+- Facilities like offices, factories, theaters, stadiums, malls, transportation centers, theme parks, and tourist attractions.
+
+This solution is ideal for the healthcare and facilities industries.
 
 ## Architecture
 
-![Insight Connected Platform architecture](../media/insight-connected-platform.png)
+![Diagram showing the Insight Connected Platform architecture.](../media/insight-connected-platform.png)
+
+### Workflow
 
 1. Thermal cameras and other sensors provide temperature and visual data through various network protocols like Bluetooth and WiFi to the Internet of Things (IoT) Edge gateway.
 2. The IoT Edge gateway preprocesses data and can respond quickly using onboard resources.
@@ -30,7 +33,7 @@ This article describes a Connected Platform solution to help provide COVID-19 de
 6. Azure API Management incorporates internal and external APIs when deploying to endpoints like web apps, mobile apps, Azure maps, and [Power BI](https://powerbi.microsoft.com).
 7. Azure components and deployed apps can share Azure services like [Azure Security](https://azure.microsoft.com/overview/security/), [Azure Active Directory](https://azure.microsoft.com/services/active-directory/), [Azure Key Vault](https://azure.microsoft.com/services/key-vault/), and [Azure Monitor](https://azure.microsoft.com/services/monitor/).
 
-## Components
+### Components
 
 - [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) intelligent devices recognize and respond to sensor input by using onboard processing. These devices can respond rapidly, or even offline. Intelligent Edge devices limit costs by preprocessing and sending only necessary data to the cloud.
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) connects virtually any IoT device with Azure cloud services. IoT Hub enables highly secure and reliable bi-directional communication, management, and provisioning for IoT Edge devices.
@@ -46,7 +49,8 @@ This article describes a Connected Platform solution to help provide COVID-19 de
 
 - For more information, please contact [iotcovidsupport@microsoft.com](mailto:iotcovidsupport@microsoft.com), and see [Connected Platform for Detection and Prevention](https://www.insight.com/en_US/what-we-do/digital-innovation/solutions/connected-platform-for-detection-and-prevention.html).
 - For more information about the Insight Connected Platform, see [Connected Platform](https://www.insight.com/en_US/what-we-do/digital-innovation/connected-platform.html).
+- [Anomaly detection in Azure Stream Analytics](/azure/stream-analytics/stream-analytics-machine-learning-anomaly-detection)
 
 ## Related resources
-- [Anomaly detection in Azure Stream Analytics](/azure/stream-analytics/stream-analytics-machine-learning-anomaly-detection)
+
 - [Microservices architecture on Azure Kubernetes Service (AKS)](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)

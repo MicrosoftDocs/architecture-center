@@ -1,18 +1,24 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Microsoft Azure's Predictive Maintenance solution demonstrates how to combine real-time aircraft data with analytics to monitor aircraft health.
 
 This solution is built with [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics), [Event Hubs](https://azure.microsoft.com/services/event-hubs), [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning), [HDInsight](https://azure.microsoft.com/services/hdinsight), [Azure SQL Database](https://azure.microsoft.com/services/sql-database), [Data Factory](https://azure.microsoft.com/services/data-factory), and [Power BI](https://powerbi.microsoft.com). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
 
+## Potential use cases
+
+With the right information, it's possible to determine the condition of equipment in order to predict when maintenance should be performed. Predictive maintenance can be used for the following items:
+
+* Real-time diagnostics.
+* Real-time flight assistance.
+* Prognostics.
+* Cost reduction.
+
 ## Architecture
 
 ![Architecture diagram: aircraft engine monitoring for predictive aircraft maintenance with Azure.](../media/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.png)
 *Download an [SVG](../media/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.svg) of this architecture.*
 
-## Components
+### Components
 
 * [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics) provides near real-time analytics on the input stream from the Azure Event Hub. Input data is filtered and passed to a Machine Learning endpoint, finally sending the results to the Power BI dashboard.
 * [Event Hubs](https://azure.microsoft.com/services/event-hubs) ingests raw assembly-line data and passes it on to Stream Analytics.
@@ -24,13 +30,6 @@ This solution is built with [Azure Stream Analytics](https://azure.microsoft.com
 
 ## Next steps
 
-Read other Azure Architecture Center articles about predictive maintenance and prediction with machine learning:
-
-* [Predictive maintenance](./predictive-maintenance.yml)
-* [Predictive maintenance for industrial IoT](./iot-predictive-maintenance.yml)
-* [Predictive marketing with machine learning](./predictive-marketing-campaigns-with-machine-learning-and-spark.yml)
-* [Predict length of stay and patient flow](./predict-length-of-stay-and-patient-flow-with-healthcare-analytics.yml)
-
 See product documentation:
 
 * [Stream Analytics](/azure/stream-analytics/stream-analytics-introduction)
@@ -40,3 +39,12 @@ See product documentation:
 * [SQL Database](/azure/sql-database)
 * [Azure Data Factory](/azure/data-factory/data-factory-introduction)
 * [Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page)
+
+## Related resources
+
+Read other Azure Architecture Center articles about predictive maintenance and prediction with machine learning:
+
+* [Predictive maintenance](./predictive-maintenance.yml)
+* [Predictive maintenance for industrial IoT](./iot-predictive-maintenance.yml)
+* [Predictive marketing with machine learning](./predictive-marketing-campaigns-with-machine-learning-and-spark.yml)
+* [Predict length of stay and patient flow](./predict-length-of-stay-and-patient-flow-with-healthcare-analytics.yml)

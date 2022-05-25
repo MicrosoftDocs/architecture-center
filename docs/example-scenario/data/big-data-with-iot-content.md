@@ -13,7 +13,7 @@ The company wants to build a cloud-based "smart construction" solution. It shoul
 
 Using managed Azure services such as IoT Hub and HDInsight will allow the customer to rapidly build and deploy a comprehensive solution with a lower operating cost. If you have additional data analytics needs, you should review the list of available [fully managed data analytics services in Azure][product-category].
 
-## Relevant use cases
+## Potential use cases
 
 Other relevant use cases include:
 
@@ -80,13 +80,13 @@ Additional IoT architectures:
 - [IoT using Cosmos DB](../../solution-ideas/articles/iot-using-cosmos-db.yml)
 - [Retail - Buy online, pickup in store (BOPIS)](../iot/vertical-buy-online-pickup-in-store.yml)
 - [Predictive maintenance with the intelligent IoT Edge](../predictive-maintenance/iot-predictive-maintenance.yml)
-- [Secure your IoT SaaS app with the Microsoft identity platform](../iot-aad/iot-aad.yml)
+- [Secure your IoT SaaS app with the Microsoft identity platform](../../reference-architectures/iot.yml)
 
 IoT architecture guides:
 
 - [IoT concepts](../iot/introduction-to-solutions.yml)
 - [Azure IoT Edge Vision](../../guide/iot-edge-vision/index.md)
-- [Azure industrial IoT analytics guidance](../../guide/iiot-guidance/iiot-architecture.md)
+- [Azure industrial IoT analytics guidance](../../guide/iiot-guidance/iiot-architecture.yml)
 - [IoT patterns](../iot/measure-control-loop.yml)
 
 <!-- links -->

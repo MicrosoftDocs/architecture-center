@@ -31,7 +31,7 @@ With SEAL homomorphic encryption, cloud providers never have unencrypted access 
 
 - Homomorphic encryption isn't efficient. Because homomorphic encryption comes with a large performance overhead, computations that are already costly to do on unencrypted data probably aren't feasible on encrypted data.
 
-- Data encrypted with homomorphic encryption is many times larger than unencrypted data, so it may not make sense to encrypt entire large databases, for example, with this technology. Instead, scenarios where strict privacy requirements prohibit unencrypted cloud computation, but the computations themselves are fairly lightweight, are meaningful use cases. 
+- Data encrypted with homomorphic encryption is many times larger than unencrypted data, so it may not make sense to encrypt entire large databases, for example, with this technology. Instead, scenarios where strict privacy requirements prohibit unencrypted cloud computation, but the computations themselves are fairly lightweight, are meaningful use cases.
 
 - Typically, homomorphic encryption schemes have a single secret key, which is held by the data owner. That's why homomorphic encryption isn't reasonable for scenarios where multiple different private data owners want to engage in collaborative computation.
 

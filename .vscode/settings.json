@@ -368,5 +368,11 @@
     ],
     "docLog.userName": "adamboeglin",
     "docLog.monthsAgo": 4,
-    "docLog.repoTitle": "the Azure Architecture Center"
+    "docLog.repoTitle": "the Azure Architecture Center",
+    "markdownlint.config": {
+        "MD028": false,
+        "MD025": {
+            "front_matter_title": ""
+        }
+    }
 }

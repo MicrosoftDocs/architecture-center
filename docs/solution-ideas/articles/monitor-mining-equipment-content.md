@@ -10,6 +10,10 @@ Mining companies can have Azure continually monitor the performance data from th
 
 :::image type="content" source="../media/monitor-mining-equipment.png" alt-text="Architecture for monitoring mining equipment" lightbox="../media/monitor-mining-equipment.png":::
 
+*Download a [Visio file](https://arch-center.azureedge.net/US-1816419-PR-2777-monitor-mining-equipment.vsdx) of this architecture.*
+
+### Data flow
+
 The data flows through the solution as follows:
 
 1. Equipment and other assets have integrated sensor systems that deliver sensor data (in CSV files) to a folder in an FTP server or to Azure Storage.
@@ -24,7 +28,7 @@ The data flows through the solution as follows:
 1. Notification Hub then sends notifications to various mobile platforms to alert operators and administrators of events that require attention.
 1. Monitoring advisors can create visual reports to explore the data. They can publish and share them, and collaborate with others. Power BI integrates with other tools, including Power Apps. Advisors can integrate Power BI reports into a Canvas App in Power Apps for a good user experience.
 
-## Components
+### Components
 
 Data is loaded from these different data sources using several Azure components:
 
@@ -60,14 +64,14 @@ Information about the Delta Lake open-source project for building a Lakehouse ar
 See the following related database architectural guidance:
 
 - [Azure Data Architecture Guide](../../data-guide/index.md)
-- [Non-relational data and NoSQL](../../data-guide/big-data/non-relational-data.md)
-- [Big data architectures](../../data-guide/big-data/index.md)
-- [Batch processing](../../data-guide/big-data/batch-processing.md)
+- [Non-relational data and NoSQL](../../data-guide/big-data/non-relational-data.yml)
+- [Big data architectures](../../data-guide/big-data/index.yml)
+- [Batch processing](../../data-guide/big-data/batch-processing.yml)
 - [Choosing a batch processing technology in Azure](../../data-guide/technology-choices/batch-processing.md)
 - [Data lakes](../../data-guide/scenarios/data-lake.md)
 - [Choosing a big data storage technology in Azure](../../data-guide/technology-choices/data-storage.md)
 - [Modernize mainframe & midrange data](../../reference-architectures/migration/modernize-mainframe-data-to-azure.yml)
-- [Profisee master data management with Azure Data Factory](../../reference-architectures/data/profisee-master-data-management-data-factory.yml)
+- [Master data management with Profisee and Azure Data Factory](../../reference-architectures/data/profisee-master-data-management-data-factory.yml)
 - [Master Data Management powered by CluedIn](../../reference-architectures/data/cluedin.yml)
 - [DataOps for the modern data warehouse](../../example-scenario/data-warehouse/dataops-mdw.yml)
 - [Data warehousing and analytics](../../example-scenario/data/data-warehouse.yml)
@@ -77,6 +81,6 @@ See the following related IoT architectural guidance:
 
 - [IoT solutions conceptual overview](../../example-scenario/data/big-data-with-iot.yml)
 - [Vision with Azure IoT Edge](../../guide/iot-edge-vision/index.md)
-- [Azure Industrial IoT Analytics Guidance](../../guide/iiot-guidance/iiot-architecture.md)
+- [Azure Industrial IoT Analytics Guidance](../../guide/iiot-guidance/iiot-architecture.yml)
 - [Azure IoT reference architecture](../../reference-architectures/iot.yml)
 - [IoT and data analytics](../../example-scenario/data/big-data-with-iot.yml)
