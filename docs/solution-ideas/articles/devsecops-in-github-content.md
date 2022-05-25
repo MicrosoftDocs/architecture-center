@@ -1,4 +1,4 @@
-Starting with the first steps of development, DevSecOps adheres to security best practices. By using a [shift-left][Shift left] strategy, DevSecOps redirects the security focus. Instead of pointing toward auditing at the end, it shifts to development in the beginning. Besides producing robust code, this [fail fast][Fail fast] approach helps to resolve problems early on, when they're easy to fix.
+DevSecOps adheres to security best practices starting with the first steps of development. DevSecOps redirects the security focus by using a [shift-left][Shift left] strategy. Instead of pointing toward auditing at the end, it shifts to development in the beginning. Besides producing robust code, this [fail fast][Fail fast] approach helps to resolve problems early on, when they're easy to fix.
 
 With many security capabilities, GitHub offers tools that support every part of a DevSecOps workflow:
 
@@ -8,7 +8,7 @@ With many security capabilities, GitHub offers tools that support every part of 
 - Action-based workflows that automate every step of development, testing, and deployment.
 - Spaces that provide a way to privately discuss and resolve security threats and then publish the information.
 
-Combined with the monitoring and evaluation power of Azure, these features provide a superb service for building secure cloud solutions.
+These features provide a superb service for building secure cloud solutions combined with the monitoring and evaluation power of Azure.
 
 ## Potential use cases
 
@@ -22,12 +22,12 @@ GitHub DevSecOps installations cover many security scenarios. Possibilities incl
 ## Architecture
 
 :::image type="complex" source="../media/devsecops-in-github-data-flow.png" alt-text="Architecture diagram highlighting the security checks that run in various GitHub and Azure components in a GitHub DevSecOps environment." border="false":::
-   Architecture diagram highlighting security checks that run in a GitHub DevSecOps environment. After Azure AD authenticates developers, Codespaces run security scans. GitHub Actions then test security and encrypt sensitive data. In production, Azure Policy, Microsoft Defender for Cloud, and Azure Monitor evaluate deployed software for risks.
+   Architecture diagram highlighting security checks that run in a GitHub DevSecOps environment. After Azure AD authenticates developers, Codespaces runs security scans. GitHub Actions then test security and encrypt sensitive data. In production, Azure Policy, Microsoft Defender for Cloud, and Azure Monitor evaluate deployed software for risks.
 :::image-end:::
 *Download an [.svg][DevSecOps in GitHub svg] of this architecture.*
 
 1. When developers access GitHub resources, GitHub redirects them to Azure Active Directory (Azure AD) for SAML authentication. In a single sign-on (SSO) procedure, the [Microsoft Authenticator app][Microsoft Authenticator] then uses FIDO2 strong authentication. The passwordless [FIDO2 security keys][FIDO2 security keys] align with the latest [Fast Identity Online (FIDO) Alliance][FIDO Alliance] specifications.
-1. Developers begin working on tasks in Codespaces. Organized into containers, these pre-built development environments provide correctly configured IDEs that are equipped with required security scanning extensions.
+1. Developers begin working on tasks in Codespaces. These pre-built development environments organized into containers provide correctly configured IDEs that are equipped with required security scanning extensions.
 1. When developers commit new code, GitHub Actions automatically scan the code to quickly find vulnerabilities and coding errors.
 1. Pull requests (PRs) trigger code builds and automated testing through GitHub Actions. GitHub encrypts secrets and credentials at rest and obfuscates these entries in logs.
 1. GitHub Actions deploy build artifacts to Azure App Service while making changes to other cloud resources, such as service endpoints.
@@ -39,7 +39,7 @@ GitHub DevSecOps installations cover many security scenarios. Possibilities incl
 
 - [Azure AD][Azure AD] is a multi-tenant, cloud-based identity service that controls access to Azure and other cloud apps like [Microsoft 365][Microsoft 365] and GitHub.
 - [GitHub][GitHub] provides a code-hosting platform that developers can use for collaborating on both open-source and [inner-source][Inner source] projects.
-- [Codespaces][Codespaces] is an online development environment. Hosted by GitHub and powered by [Visual Studio Code][Visual Studio Code], this tool provides a complete development solution in the cloud.
+- [Codespaces][Codespaces] is an online development environment, hosted by GitHub and powered by [Visual Studio Code][Visual Studio Code]. This tool provides a complete development solution in the cloud.
 - [GitHub Security][GitHub Security] works to eliminate threats in a number of ways. Agents and services identify vulnerabilities in repositories and in dependent packages. They also upgrade dependencies to up-to-date, secure versions.
 - [GitHub Actions][GitHub Actions] are custom workflows that provide continuous integration (CI) and continuous deployment (CD) capabilities directly in repositories. Computers called *runners* host these CI/CD jobs.
 - [App Service][App Service] provides a framework for building, deploying, and scaling web apps. This platform offers built-in infrastructure maintenance, security patching, and scaling.
@@ -51,7 +51,7 @@ GitHub DevSecOps installations cover many security scenarios. Possibilities incl
 
 [GitHub Security][GitHub Security] provides multiple features for addressing security risks:
 
-- [Code scanning][GitHub code scanning] inspects code for known vulnerabilities and coding errors. As an example, if a developer leaves a database connection string exposed in code, this feature discovers the secret. After verifying its validity with the database, GitHub starts the process of obtaining an uncompromised string. These checks use [CodeQL][CodeQL], a code analysis platform that improves upon traditional analyzers by treating code as data. Scans automatically run at scheduled times or after certain events occur, like commits or pushes.
+- [Code scanning][GitHub code scanning] inspects code for known vulnerabilities and coding errors. As an example, if a developer leaves a database connection string exposed in code, this feature discovers the secret. GitHub starts the process of obtaining an uncompromised string after verifying its validity with the database. These checks use [CodeQL][CodeQL], a code analysis platform that improves upon traditional analyzers by treating code as data. Scans automatically run at scheduled times or after certain events occur, like commits or pushes.
 - [GitHub Dependabot][GitHub Dependabot] checks for outdated or vulnerable packages and applications. This automated agent updates software, replacing out-of-date or insecure dependencies with newer, secure versions. For instance, if your project uses an open-source library, Dependabot examines that library. Suppose the library doesn't encrypt sensitive cleartext that it stores in a database. In this case, Dependabot creates a PR to upgrade the library to a version that encrypts the data.
 - [Vulnerability management][GitHub vulnerability management] identifies and updates known vulnerabilities in code and in software packages that the code uses. It runs checks whenever the following events occur:
 
@@ -118,7 +118,7 @@ For long-running or complex Actions, host your own runners for CI/CD jobs. You c
 
 - GitHub bills customers for GitHub Actions by the minute. In addition, the choice of operating system that hosts Actions jobs affects the per-minute consumption rate and per-minute cost. Wherever possible, choose Linux to host Actions. See [About billing for GitHub actions][About billing for GitHub actions].
 - Project managers on tight schedules may worry that adding security measures will delay development. Experience the opposite by saving time with these guidelines:
-  - Shift testing left, closer to the source. Teams make fewer mistakes as a result.
+  - Shift testing left, closer to the source. Teams will have fewer mistakes as a result.
   - Address issues during programming, rather than months down the line in production. Then developers don't need to refresh their knowledge of the code.
 
 ## Contributors

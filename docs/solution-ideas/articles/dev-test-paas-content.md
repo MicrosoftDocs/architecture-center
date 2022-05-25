@@ -23,7 +23,7 @@ This architecture is useful for organizations who require:
 
 1. Source code is available in [GitHub](https://azure.microsoft.com/products/github) repos, which integrate seamlessly with [Azure DevOps](https://azure.microsoft.com/services/devops).
 
-1. Similar to Azure DevOps, GitHub Actions sets automated builds to trigger on GitHub commits or pull requests. In the current solution, the build action publishes artifacts to a [GitHub Package](https://github.com/features/packages) source package for deployment.
+1. Similar to Azure DevOps, GitHub Actions set automated builds to trigger on GitHub commits or pull requests. In the current solution, the build action publishes artifacts to a [GitHub Package](https://github.com/features/packages) source package for deployment.
 
 1. [Azure Boards](https://github.com/marketplace/azure-boards) connects back to GitHub Repos to generate work items from automated and manual testing, and tracks all work in the development cycle.
 
@@ -32,11 +32,11 @@ This architecture is useful for organizations who require:
 1. [Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-get-started) is the solution for Azure PaaS deployments. Azure Pipelines handles continuous deployment (CD) and release tasks, which consume the package versions exposed by GitHub Actions builds. Azure Pipelines uses [Azure Key Vault](/azure/devops/pipelines/release/azure-key-vault) to securely consume secrets like credentials and connection strings required for release and deployment configurations.
 
 1. Azure Pipelines deployment tasks specifically support Azure PaaS resources, including web application deployments:
-   1. In conjunction with the continuous builds from GitHub Actions, a continuous release deploys the latest application build to a Development environment.
+   1. With the continuous builds from GitHub Actions, a continuous release deploys the latest application build to a Development environment.
    1. The pipeline promotes the build selected for testing up to the next deployment ring, the Test environment.
    1. After the build passes all tests, it's promoted and staged in the next outer ring for [User Acceptance Testing (UAT)](https://wikipedia.org/wiki/Acceptance_testing#User_acceptance_testing).
 
-   All three DevTest environments exist under a discounted-cost [Azure DevTest Subscription](https://azure.microsoft.com/pricing/dev-test). [Azure Policy](/azure/governance/policy/overview) can add additional rules for the size and number of App Services or PaaS databases to limit costs.
+   All three DevTest environments exist under a discounted-cost [Azure DevTest Subscription](https://azure.microsoft.com/pricing/dev-test). [Azure Policy](/azure/governance/policy/overview) can add more rules for the size and number of App Services or PaaS databases to limit costs.
 
 1. When solution quality reaches a Production state, Azure Pipelines triggers a Production release. The pipeline limits Production deployments to the minimum number necessary.
 
@@ -99,5 +99,5 @@ Tools like [Entity Framework](/ef) can provide source control for database schem
 - [DevTest and DevOps for microservices](dev-test-microservice.yml)
 - [Set up Azure DevOps](/azure/devops/get-started)
 - [Create a lab in Azure DevTest Labs](/azure/lab-services/tutorial-create-custom-lab)
-- [Create a SQL database in minutes by using the Azure portal](/azure/sql-database/sql-database-single-database-get-started)
+- [Create an SQL database in minutes by using the Azure portal](/azure/sql-database/sql-database-single-database-get-started)
 - [How to create a web app with Azure Cache for Redis](/azure/azure-cache-for-redis/cache-web-app-howto)

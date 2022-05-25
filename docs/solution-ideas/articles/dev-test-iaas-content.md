@@ -6,7 +6,7 @@
 
 ## Potential use cases
 
-Those that use this solution include:
+Departments that use this solution include:
 
 - IT operators
 - DevOps teams
@@ -21,7 +21,7 @@ Those that use this solution include:
 
 1. Instead of manually configuring development environments, developers can use [Azure Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop) images, pre-configured with the libraries, tools, and runtimes they need for their projects. Adding a developer to an [Azure DevTest Subscription](https://azure.microsoft.com/pricing/dev-test) makes the appropriate Azure Virtual Desktop image available to them from the DevTest environment.
 
-1. Source code is available in [GitHub](https://azure.microsoft.com/products/github/) repos, which integrate seamlessly with Azure DevOps. The [Visual Studio](https://visualstudio.microsoft.com) development environment combines GitHub source code editing with features like work item and pull request tracking.
+1. Source code is available in [GitHub](https://azure.microsoft.com/products/github/) repos, which integrate seamlessly with Azure DevOps. The [Visual Studio](https://visualstudio.microsoft.com) development environment combines GitHub source code editing with features like work item and pulls request tracking.
 
 1. [Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-get-started) triggers automated continuous integration (CI) builds from GitHub repos and automatically delivers them to the DevTest environments, reaching quality assurance (QA) testing quickly with low developer overhead. Azure Pipelines uses [Azure Key Vault](/azure/devops/pipelines/release/azure-key-vault) to securely consume secrets like credentials and connection strings required for release and deployment configurations.
 
@@ -39,7 +39,7 @@ Those that use this solution include:
 
    [User Acceptance Testing (UAT)](https://wikipedia.org/wiki/Acceptance_testing#User_acceptance_testing) validates a staged VM or virtual machine scale set before deployment to Production.
 
-   Approvals are usually required for releases to higher-cost, client-facing Production destinations. Production remains isolated and protected from inadvertent or unapproved deployments.
+   Approvals are required for releases to higher-cost, client-facing Production destinations. Production remains isolated and protected from inadvertent or unapproved deployments.
 
 This scenario uses a separate DevTest and Production [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory) per subscription to create a distinct separation of concerns. To meet compliance requirements, the Production subscription's Azure AD might need to include a smaller cross section of users than the DevTest Azure AD.
 
@@ -65,7 +65,7 @@ This scenario uses a separate DevTest and Production [Azure Active Directory (Az
 
 - [Azure Policy](https://azure.microsoft.com/services/azure-policy) governs resources to meet organizational standards and compliance. In a DevTest role, Azure Policy can regulate and limit the number and costs of VMs in the subscription. Auditing can provide insights and track the usage of the DevTest VMs.
 
-- [Azure Monitor](/azure/devtest-labs/security-baseline) can work across subscriptions to monitor VMs in both Production and DevTest environments. Azure Monitor can collect log data from VM operating systems as well as crash dump files, and aggregate them for viewing in [Microsoft Defender for Cloud](/azure/security-center/security-center-enable-data-collection).
+- [Azure Monitor](/azure/devtest-labs/security-baseline) can work across subscriptions to monitor VMs in both Production and DevTest environments. Azure Monitor can collect log data from VM operating systems and crash dump files, and aggregate them for viewing in [Microsoft Defender for Cloud](/azure/security-center/security-center-enable-data-collection).
 
 ### Alternatives
 

@@ -4,7 +4,7 @@ Microservice architectures design applications as collections of loosely coupled
 
 Microservices introduce complexities in the development cycle compared to traditional monolithic applications. Traditionally, development occurs in a local or virtual replica of the application stack, which configures and runs compute and storage components locally in isolation. In a microservice model, developers need to test their services against the existing architecture, catch integration issues early to save on build and deployment time, and keep integrated builds clean over the lifecycle of the application.
 
-*Development testing (DevTest)* is a software development approach that integrates testing early in the development phase to speed development. *DevOps* is a set of practices that combine software development and IT operations to shorten the development cycle and provide high-quality continuous delivery. [Kubernetes](https://kubernetes.io/) is an open-source container orchestration system for automating application deployments.
+*Development testing (DevTest)* is a software development approach that integrates testing early in the development phase to speed development. *DevOps* is a set of practices that combine software development and IT operations to shorten the development cycle and provide high-quality continuous delivery. [Kubernetes](https://kubernetes.io) is an open-source container orchestration system for automating application deployments.
 
 This solution architecture models a development and deployment environment that uses DevOps in DevTest for rapid iterative development of an [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) microservice application.
 
@@ -24,13 +24,13 @@ This solution architecture models a development and deployment environment that 
 
 1. Each microservice codebase uses a separate [GitHub](https://azure.microsoft.com/en-us/products/github) code repository for source control.
 
-1. [GitHub Actions](https://docs.github.com/en/actions/creating-actions/creating-a-docker-container-action) builds the microservice container images and pushes them to [Azure Container Registries](/azure/container-registry/container-registry-intro). GitHub Actions also updates the *latest* tag of repositories for continuous integration (CI), or tags repositories for release.
+1. [GitHub Actions](https://docs.github.com/en/actions/creating-actions/creating-a-docker-container-action) builds the microservice container images and pushes them to [Azure Container Registries](/azure/container-registry/container-registry-intro). GitHub Actions also update the *latest* tag of repositories for continuous integration (CI), or tags repositories for release.
 
 1. GitHub Actions automated testing generates work items for [Azure Boards](https://github.com/marketplace/azure-boards), making all work items manageable in one place.
 
 1. [Visual Studio Code](https://code.visualstudio.com) extensions support Azure Boards and GitHub integration. Associating Azure Boards work items with GitHub repos ties requirements to code, driving the development loop forward.
 
-1. Commits merged into the integration branch trigger GitHub Actions builds and [Docker](https://www.docker.com) pushes to the DevTest container registries. Each microservice has its own repository in Container Registries, paralleling the GitHub repositories. CI builds are usually tagged with *latest*, representing the most recent successful microservice builds.
+1. Commits merged into the integration branch trigger GitHub Actions builds and [Docker](https://www.docker.com) pushes to the DevTest container registries. Each microservice has its own repository in Container Registries, paralleling the GitHub repositories. CI builds are tagged with *latest*, representing the most recent successful microservice builds.
 
 1. [Azure Pipelines](/azure/devops/pipelines/ecosystems/kubernetes/aks-template) runs the Kubernetes `apply` command to trigger deployment of the updated Container Registry images to the DevTest Kubernetes clusters. Azure can authenticate AKS to run unattended Container Registry pulls, simplifying the continuous deployment (CD) process.
 
