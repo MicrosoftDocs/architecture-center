@@ -31,6 +31,7 @@ Here are some example use cases in which this architecture could be used:
 #### Add a user to tenant
 
 ![Sequence diagram that shows the addition of a new user to a tenant](./media/saas-starter-app-sequence-diagram-add-user.svg)
+
 ### Components
 
 This architecture uses the following Azure services:
@@ -68,7 +69,6 @@ The components in this solution have some cost associated with their operation, 
 
 - The [App Service plan](/azure/app-service/overview-hosting-plans) that runs the application can be scaled to fit the throughput that you need. In addition, you could run each app on a separate plan if you require a higher throughput, but you will incur a higher cost as a result.
 - [Azure AD B2C provides two SKUs](https://azure.microsoft.com/pricing/details/active-directory/external-identities/), Premium P1 and Premium P2. Both SKUs include a free allowance for the number of monthly active users (MAUs), but you need to evaluate which features each SKU provides to determine which is required for your use case.
-
 - [Azure SQL has several purchasing models](/azure/azure-sql/database/purchasing-models) to fit a wide array of use cases, including the ability to autoscale. You need to evaluate the usage on your own databases to ensure you size them correctly.
 
 ### Performance efficiency
