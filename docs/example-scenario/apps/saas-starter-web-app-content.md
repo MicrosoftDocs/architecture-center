@@ -20,11 +20,17 @@ Here are some example use cases in which this architecture could be used:
 
 ### Workflow
 
-*Sequence diagram showing different scenarios:
-1. Onboarding new tenant
-1. Signing up and signing in
-1. Adding a user to a tenant
+#### User sign in
 
+![Sequence Diagram depicting the signing in of a user](./media/saas-starter-app-sequence-diagram-sign-in.svg)
+
+#### Onboarding a new tenant
+
+![Sequence Diagram depicting the onboarding of a new tenant](./media/saas-starter-app-sequence-diagram-onboarding.svg)
+
+#### Adding another user to tenant
+
+![Sequence Diagram depicting the adding of a user to a tenant](./media/saas-starter-app-sequence-diagram-add-user.svg)
 ### Components
 
 This architecture uses the following Azure services:
