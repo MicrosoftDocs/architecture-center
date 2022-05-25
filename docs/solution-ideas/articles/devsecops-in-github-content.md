@@ -121,6 +121,14 @@ For long-running or complex Actions, host your own runners for CI/CD jobs. You c
   - Shift testing left, closer to the source. Teams make fewer mistakes as a result.
   - Address issues during programming, rather than months down the line in production. Then developers don't need to refresh their knowledge of the code.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Frank Migacz](https://www.linkedin.com/in/fmigacz) | App Innovation
+
 ## Next steps
 
 - [Training materials, tools, and other resources on GitHub DevSecOps][GitHub DevSecOps training materials]
@@ -134,30 +142,30 @@ For long-running or complex Actions, host your own runners for CI/CD jobs. You c
 - [Fail fast][Fail fast]
 - [SARIF files][SARIF]
 
-[Shift left]: https://devops.com/devops-shift-left-avoid-failure/
+[Shift left]: https://devops.com/devops-shift-left-avoid-failure
 [Fail fast]: https://whatis.techtarget.com/definition/fail-fast
 [DevSecOps in GitHub svg]: ../media/devsecops-in-github.svg
 [Microsoft Authenticator]: /azure/active-directory/user-help/user-help-auth-app-overview
 [FIDO2 security keys]: /azure/active-directory/authentication/concept-authentication-passwordless#fido2-security-keys
-[FIDO Alliance]: https://fidoalliance.org/
+[FIDO Alliance]: https://fidoalliance.org
 [Azure AD]: /azure/active-directory/fundamentals/active-directory-whatis
 [Microsoft 365]: https://www.microsoft.com/microsoft-365/what-is-microsoft-365
 [GitHub]: https://docs.github.com/en/github
-[Inner source]: https://resources.github.com/whitepapers/introduction-to-innersource/
+[Inner source]: https://resources.github.com/whitepapers/introduction-to-innersource
 [Codespaces]: https://docs.github.com/en/github/developing-online-with-codespaces/about-codespaces
-[Visual Studio Code]: https://code.visualstudio.com/
+[Visual Studio Code]: https://code.visualstudio.com
 [GitHub Security]: https://github.com/features/security
 [GitHub Actions]: https://docs.github.com/en/actions/getting-started-with-github-actions/about-github-actions
-[App Service]: https://azure.microsoft.com/services/app-service/
+[App Service]: https://azure.microsoft.com/services/app-service
 [Azure Policy]: /azure/governance/policy/overview
 [Azure Monitor]: /azure/azure-monitor/overview
 [GitHub code scanning]: https://docs.github.com/en/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning
 [CodeQL]: https://securitylab.github.com/tools/codeql
 [GitHub Dependabot]: https://docs.github.com/en/free-pro-team@latest/github/administering-a-repository/about-dependabot-version-updates
 [GitHub vulnerability management]: https://docs.github.com/en/github/managing-security-vulnerabilities
-[WhiteSource]: https://www.whitesourcesoftware.com/
+[WhiteSource]: https://www.whitesourcesoftware.com
 [GitHub Advisory Database]: https://github.com/advisories
-[National Vulnerability Database]: https://nvd.nist.gov/
+[National Vulnerability Database]: https://nvd.nist.gov
 [GitHub tracking]: https://docs.github.com/en/github/managing-security-vulnerabilities/browsing-security-vulnerabilities-in-the-github-advisory-database#about-the-github-advisory-database
 [GitHub security advisories]: https://docs.github.com/en/github/managing-security-vulnerabilities/about-github-security-advisories
 [PHP Security Advisories Database]: https://github.com/FriendsOfPHP/security-advisories
@@ -170,6 +178,6 @@ For long-running or complex Actions, host your own runners for CI/CD jobs. You c
 [Configure Dependabot security updates]: https://docs.github.com/en/github/managing-security-vulnerabilities/configuring-github-dependabot-security-updates
 [DevSecOps in Azure]: ./devsecops-in-azure.yml
 [GitHub DevSecOps training materials]: https://github.com/devsecops/awesome-devsecops
-[GitHub DevSecOps getting started tips]: https://resources.github.com/whitepapers/Architects-guide-to-DevOps/
+[GitHub DevSecOps getting started tips]: https://resources.github.com/whitepapers/Architects-guide-to-DevOps
 [SARIF]: https://docs.github.com/en/github/finding-security-vulnerabilities-and-errors-in-your-code/sarif-support-for-code-scanning
 [DevSecOps for Infrastructure as Code (IaC)]: ./devsecops-infrastructure-as-code.yml
