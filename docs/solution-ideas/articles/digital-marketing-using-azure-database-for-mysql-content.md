@@ -2,7 +2,7 @@
 
 Engage with customers around the world with rich, personalized digital marketing experiences. Quickly build and launch digital campaigns that automatically scale based on customer demand.
 
-Digital marketing is the marketing of products or services using digital technologies, mainly on the Internet, but also including mobile phones, display advertising, and any other digital medium.Digital marketing methods such as search engine optimization (SEO), search engine marketing (SEM), content marketing, influencer marketing, content automation, campaign marketing, data-driven marketing, e-commerce marketing, social media marketing, social media optimization, e-mail direct marketing, display advertising, e–books, and optical disks and games are becoming more common in our advancing technology.
+Digital marketing is the marketing of products or services using digital technologies, mainly on the Internet, but also including mobile phones, display advertising, and any other digital medium. Digital marketing methods such as search engine optimization (SEO), search engine marketing (SEM), content marketing, influencer marketing, content automation, campaign marketing, data-driven marketing, e-commerce marketing, social media marketing, social media optimization, e-mail direct marketing, display advertising, e–books, and optical disks and games are becoming more common in our advancing technology.
 
 This solution consists of the Azure managed services: Azure CDN, Webapps, Azure Database for MySQL, Application Insights, and Azure Cache for Redis. These services run in a high-availability environment, patched and supported, which allows you to focus on your solution instead of the environment the services run in.
 
@@ -17,11 +17,11 @@ This solution is used by retailers and others selling goods or services.
 
 ### Dataflow
 
-1. Web app service can provide with content management system and supports WordPress, Umbraco, Joomla! and Drupal
-1. Azure Content Delivery Network (CDN) lets you reduce load times, save bandwidth and speed responsiveness
-1. Load customer data into an Azure Database for MySQL which is a fully managed database service with minimal requirements
-1. Store session state and output cache on Azure Cache for Redis to improve performance and reduce the load on your web front end
-1. Detect issues, diagnose crashes, and track usage in your web app with Application Insights. Make informed decisions throughout the development lifecycle
+1. Web app service can provide with content management system and supports WordPress, Umbraco, Joomla! and Drupal.
+1. Azure Content Delivery Network (CDN) lets you reduce load times, save bandwidth and speed responsiveness.
+1. Load customer data into an Azure Database for MySQL, which is a fully managed database service with minimal requirements.
+1. Store session state and output cache on Azure Cache for Redis to improve performance and reduce the load on your web front end.
+1. Detect issues, diagnose crashes, and track usage in your web app with Application Insights. Make informed decisions throughout the development lifecycle.
 
 ### Components
 

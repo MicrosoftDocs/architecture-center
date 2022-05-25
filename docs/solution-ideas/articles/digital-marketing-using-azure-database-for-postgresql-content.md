@@ -28,7 +28,7 @@ This solution is used by retailers and others selling goods or services.
 * [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql): A fully managed and intelligent Azure database for PostgreSQL.
 * [Azure Monitor Application Insights](https://azure.microsoft.com/services/monitor): Application Insights provides health and performance monitoring and diagnostics.
 * [Azure CDN](https://azure.microsoft.com/services/cdn): A content delivery network serves static content like images, scripts, and CSS, and it reduces the load on web app servers.
-* [Azure Cache for Redis](https://azure.microsoft.com/services/cache): Enables very fast queries and improves scalability by reducing the load on the main database.
+* [Azure Cache for Redis](https://azure.microsoft.com/services/cache): Enables fast queries and improves scalability by reducing the load on the main database.
 
 ## Next steps
 
