@@ -162,17 +162,9 @@ In the following resources, you can find more information about the services, te
 
 ## Related resources
 
-To get all details regarding this reference architecture, see the other articles in this series:
-
 - Part 1: [Use Azure monitoring to integrate security components](../../guide/security/azure-monitor-integrate-security-components.yml)
 - Part 2: [Map threats to your IT environment](./map-threats-it-environment.yml)
 - Part 4: [Build the second layer of defense with Microsoft 365 Defender Security services](./microsoft-365-defender-build-second-layer-defense.yml)
 - Part 5: [Integration between Azure and Microsoft 365 Defender security services](./microsoft-365-defender-security-integrate-azure.yml)
 <!-- - Part 3: [Building the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml) -->
 
-
-- [Azure files accessed on-premises and secured by AD DS](../../example-scenario/hybrid/azure-files-on-premises-authentication.yml)
-- [Network-hardened web application with private connectivity to PaaS datastores](../../example-scenario/security/hardened-web-app.yml)
-- [Conditional Access design principles and dependencies](../../guide/security/conditional-access-design.yml)
-- [Zero-trust network for web applications with Azure Firewall and Application Gateway](../../example-scenario/gateway/application-gateway-before-azure-firewall.yml)
-- [Conditional Access design principles and dependencies](../../guide/security/conditional-access-design.yml)
