@@ -3,7 +3,8 @@ A key design area of any mission critical architecture is the application platfo
 -	A mission-critical application must be highly reliable and resistant to datacenter and regional failures. Building _zonal and regional redundancy_ in an active-active configuration is the main strategy. As you choose Azure services, consider its Availability Zones support and using multiple Azure regions. 
 -	Use a _scale units_ to handle increased load. Scale units allow you to logically group services and a unit can be scaled independent of other units or services in the architecture. Use your capacity model and expected performance to define a unit.
 In this architecture, the application platform consists of global and regional resources. The regional resources are provisioned as part of a deployment stamp. Each stamp equates to a scale unit.  The sections address the preceding recommendations and highlight some cross-cutting considerations. 
-## Global and regional resources
+
+## Global resources
 Certain resources in this architecture are globally distributed and shared by resources deployed in regions. They are used to distribute traffic across multiple regions, store permanent state, and cache static data. Global resources are expected to be long living. Their lifetime spans the life of the system.
 
 It’s recommended that global resources communicate with regional or other resources with low latency and the desired consistency. <otherwise?> Any dependency on regional resources should be avoided because unavailability of the regional resource can be a cause of failure. For example, certificates or secrets shouldn’t be kept in a key store that’s deployed regionally. Because regional resources consume global resources, it’s critical that global resources are configured with high availability and disaster recovery. Otherwise, if these resources become unavailable, the entire system is at risk. 
@@ -15,7 +16,8 @@ In this architecture, global resources are Azure Front Door, Azure Cosmos DB, Az
 
 Front Door is used as the only entry point for user traffic. If Front Door becomes unavailable, the entire system is at risk. <Add a sentence about platform guarantee>.
 
-All backend services are configured to only accept traffic from the provisioned Front Door instance. Misconfigurations can lead to outages. Missing SSL certificate can also cause mismatched configuration and can prevent users from using the front end. To avoid such situations, configuration errors should be caught during testing. If case of outages, roll back to the previous configuration, re-issuing the certificate, if possible.  However, expect the unavailability while changes take effect. 
+All backend services are configured to only accept traffic from the provisioned Front Door instance. Misconfigurations can lead to outages. Missing SSL certificate can also cause mismatched configuration and can prevent users from using the front end. To avoid such situations, configuration errors should be caught during testing. If case of outages, roll back to the previous configuration, re-issuing the certificate, if possible.  However, expect the unavailability while changes take effect.
+
 In this implementation, each stamp is pre-provisioned with a Public IP address. Front Door uses the DNS name for backend. If Azure DNS is unavailable, DNS resolution for user requests and between different components of the application will fail. Consider using some external DNS services as backup for all PaaS components. <Bypassing DNS by switching to IP is not an option, because Azure services don’t have static, guaranteed IP addresses.>
 
 ### Azure Container Registry
