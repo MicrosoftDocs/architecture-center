@@ -85,9 +85,9 @@ This document refers to some services, technologies, and terminologies. You can 
 
 To get all details regarding this reference architecture, see the other articles in this series:
 
-- Part 2: [Map threats to your IT environment](../../map-threats-it-environment.yml)
-- Part 3: [Building the first layer of defense with Azure Security services](../../azure-security-build-first-layer-defense.yml)
-- Part 4: [Build the second layer of defense with Microsoft 365 Defender Security services](../../microsoft-365-defender-build-second-layer-defense.yml)
-- Part 5: [Integrate Azure and Microsoft 365 Defender security services](../../microsoft-365-defender-security-integrate-azure.yml)
+- Part 2: [Map threats to your IT environment](../../solution-ideas/articles/map-threats-it-environment.yml)
+- Part 3: [Building the first layer of defense with Azure Security services](../../solution-ideas/articles/azure-security-build-first-layer-defense.yml)
+- Part 4: [Build the second layer of defense with Microsoft 365 Defender Security services](../../solution-ideas/articles/microsoft-365-defender-build-second-layer-defense.yml)
+- Part 5: [Integrate Azure and Microsoft 365 Defender security services](../../solution-ideas/articles/microsoft-365-defender-security-integrate-azure.yml)
 <!-- - Part 1: [Use Azure monitoring to integrate security components](./guide/security/azure-monitor-integrate-security-components.yml) -->
 
