@@ -118,7 +118,7 @@ The example architecture in this article uses the following Azure components:
 
 - [Azure Kubernetes service](https://azure.microsoft.com/services/kubernetes-service) (AKS) is a fully managed Kubernetes service for deploying and managing containerized applications. AKS provides serverless Kubernetes, CI/CD, and enterprise-grade security and governance.
 
-- [Azure Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop) is the fundamental building block for private networks in Azure. Azure resources like virtual machines (VMs) can securely communicate with each other, the internet, and on-premises networks through Azure virtual networks.
+- [Azure Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop) is a desktop and app virtualization service that runs on the cloud to provide desktops for remote users.
 
 - [Web Apps](https://azure.microsoft.com/services/app-service/web) is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. You can develop in your favorite language, and applications run and scale with ease on both Windows and Linux-based environments.
 
@@ -145,11 +145,8 @@ Other contributors:
 Microsoft has more documentation that can help you secure your IT environment, and the following articles can be particularly helpful:
 
 - [Security in the Microsoft Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/secure/). The Cloud Adoption Framework provides security guidance for your cloud journey by clarifying the processes, best practices, models, and experience.
-
 - [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/). The Azure Well-Architected Framework is a set of guiding tenets that you can use to improve the quality of a workload. The framework is based on five pillars: reliability, security, cost optimization, operational excellence, and performance efficiency.
-
 - [Microsoft Security Best Practices](/security/compass/compass). Microsoft Security Best Practices (formerly known as the *Azure Security Compass* or *Microsoft Security Compass*) is a collection of best practices that provide clear, actionable guidance for security-related decisions.
-
 - [Microsoft Cybersecurity Reference Architectures](https://aka.ms/mcra) (MCRA). MCRA is a compilation of various Microsoft security reference architectures. 
 
 In the following resources, you can find more information about the services, technologies, and terminologies that are mentioned in this article:
