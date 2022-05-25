@@ -8,7 +8,7 @@ This solution is built on the Azure managed services: [Traffic Manager](https://
 
 ## Potential use cases
 
-This solution is mainly used by retail to provide up to date product offerings.
+This solution is used by retail to provide up to date product offerings.
 
 ## Architecture
 
@@ -20,8 +20,8 @@ This solution is mainly used by retail to provide up to date product offerings.
 * App Service [Web Apps](https://azure.microsoft.com/services/app-service/web) runs in multiple regions, accessible to web and mobile browsers, and is scaled out across multiple server instances.
 * [Traffic Manager](https://azure.microsoft.com/services/traffic-manager) determines which web app is geographically best placed to handle each request.
 * [Content Delivery Network](/azure/cdn/cdn-add-to-web-app): A content delivery network serves static content such as images, script, and CSS, and reduces the load on the Web App servers.
-* [Azure SQL Database](https://azure.microsoft.com/services/sql-database): A SQL Database stores and serves data about the site.
-* [Azure Cache for Redis](https://azure.microsoft.com/services/cache) enables very fast queries, and improves scalability by reducing the load on the main database.
+* [Azure SQL Database](https://azure.microsoft.com/services/sql-database): An SQL Database stores and serves data about the site.
+* [Azure Cache for Redis](https://azure.microsoft.com/services/cache) enables fast queries and improves scalability by reducing the load on the main database.
 * Azure [Blob storage](https://azure.microsoft.com/services/storage/blobs) provides high-performance, high-scale storage.
 * [Azure Monitor](https://azure.microsoft.com/services/monitor): Application Insights provides service health, performance monitoring, and diagnostics.
 * [Identity provider](/azure/app-service/app-service-authentication-overview): An identity provider such as Azure Active Directory or Facebook handles authentication to the app.
@@ -31,7 +31,7 @@ This solution is mainly used by retail to provide up to date product offerings.
 * [Deploy an ASP.NET web app to Azure App Service, using Visual Studio](/azure/app-service/quickstart-dotnetcore)
 * [Configure Performance traffic routing method](/azure/traffic-manager/traffic-manager-configure-performance-routing-method)
 * [Use Azure CDN in Azure App Service](/Azure/cdn/cdn-add-to-web-app)
-* [SQL Database tutorial: Create a SQL database in minutes by using the Azure portal](/azure/azure-sql/database/single-database-create-quickstart)
+* [SQL Database tutorial: Create an SQL database in minutes by using the Azure portal](/azure/azure-sql/database/single-database-create-quickstart)
 * [How to create a Web App with Azure Cache for Redis](/azure/azure-cache-for-redis/cache-web-app-arm-with-redis-cache-provision)
 * [Get started with Azure Blob storage using .NET](/azure/storage/blobs/storage-blob-dotnet-get-started)
 * [Application Performance Management with Application Insights](/azure/azure-monitor/app/app-insights-overview)

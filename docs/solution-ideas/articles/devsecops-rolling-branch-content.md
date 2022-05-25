@@ -46,7 +46,7 @@ A developer’s day:
 * [GitHub Actions](https://github.com/features/actions). The engine that enables your CI/CD to work, like Jenkins or Azure DevOps.
   * [Workflows Triggers](https://docs.github.com/actions/learn-github-actions/events-that-trigger-workflows): You can configure your workflows to run when a specific activity on GitHub happens, at a scheduled time, or when an event outside of GitHub occurs.
   * [Deployment reviewers](https://docs.github.com/actions/managing-workflow-runs/reviewing-deployments): Jobs that reference an environment configured with required reviewers will wait for an approval before starting.
-* [GitHub Advanced Security](https://docs.github.com/get-started/learning-about-github/about-github-advanced-security). Advanced Security provides features to improve and maintain the quality of your code in three major areas. It requires an additional license.
+* [GitHub Advanced Security](https://docs.github.com/get-started/learning-about-github/about-github-advanced-security). Advanced Security provides features to improve and maintain the quality of your code in three major areas. It requires an extra license.
   * **Code scanning**: Search for potential security vulnerabilities and coding errors in your code.
   * **Secret scanning**: Detect secrets (for example, keys and tokens) that have been checked into the repository.
   * **Dependency review**: Show the full impact of changes to dependencies and see details of any vulnerable versions before you merge a PR.

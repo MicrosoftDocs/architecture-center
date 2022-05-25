@@ -24,7 +24,7 @@ This solution is used across multiple industries to improve customer experience 
 ## Next steps
 
 * [Deploy an ASP.NET web app to Azure App Service, using Visual Studio](/azure/app-service/app-service-web-get-started-dotnet)
-* [SQL Database tutorial: Create a SQL database in minutes by using the Azure portal](/azure/sql-database/sql-database-single-database-get-started)
+* [SQL Database tutorial: Create an SQL database in minutes by using the Azure portal](/azure/sql-database/sql-database-single-database-get-started)
 * [How to create a Web App with Azure Cache for Redis](/azure/azure-cache-for-redis/cache-web-app-howto)
 * [Use Azure Cognitive Search](https://azure.microsoft.com/services/search)
 * [Application Performance Management with Azure Monitor](/azure/azure-monitor/app/app-insights-overview)
