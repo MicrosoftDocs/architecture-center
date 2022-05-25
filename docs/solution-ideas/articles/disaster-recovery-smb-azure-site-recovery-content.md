@@ -4,9 +4,17 @@ Small and medium businesses can inexpensively implement disaster recovery to the
 
 This solution is built on the Azure managed services: [Traffic Manager](https://azure.microsoft.com/services/traffic-manager), [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery), and [Virtual Network](https://azure.microsoft.com/services/virtual-network). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
 
+## Potential use cases
+
+Industries that utilize this service include:
+
+- Healthcare (portable clinics and pop-up virus testing centers)
+- Restaurants (local and regional chains)
+- Logistics (local and regional supply chains)
+
 ## Architecture
 
-![Architecture Diagram](../media/disaster-recovery-smb-azure-site-recovery.png)
+![Architecture diagram shows the flow from customers through the D N S routing to a before and after failover virtual machines: disaster recovery S M B Azure site](../media/disaster-recovery-smb-azure-site-recovery.png)
 *Download an [SVG](../media/disaster-recovery-smb-azure-site-recovery.svg) of this architecture.*
 
 ### Components
