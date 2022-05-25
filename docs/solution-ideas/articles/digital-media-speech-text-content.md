@@ -8,7 +8,7 @@ This solution is built on the Azure managed services: [Content Delivery Network]
 
 ## Architecture
 
-![Architecture Diagram](../media/digital-media-speech-text.png)
+![Architecture diagram shows the flow from the source through Azure blob storage and live encoder to the streaming endpoint.](../media/digital-media-speech-text.png)
 *Download an [SVG](../media/digital-media-speech-text.svg) of this architecture.*
 
 ### Dataflow
@@ -27,7 +27,7 @@ This solution is built on the Azure managed services: [Content Delivery Network]
 * [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs)
 * [Azure Media Services](https://azure.microsoft.com/services/media-services)
 * [Azure Encoding](https://azure.microsoft.com/services/media-services/encoding)
-* [Azure Media Player](https://azure.microsoft.com/services/media-services/media-player) 
+* [Azure Media Player](https://azure.microsoft.com/services/media-services/media-player)
 * [Azure Content Delivery Network](https://azure.microsoft.com/services/cdn)
 * [Azure Cognitive Search](https://azure.microsoft.com/services/search)
 * [Azure Web Apps](https://azure.microsoft.com/services/app-service/web)

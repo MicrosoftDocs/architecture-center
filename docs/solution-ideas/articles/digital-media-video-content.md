@@ -4,9 +4,13 @@ A basic video-on-demand solution that gives you the capability to stream recorde
 
 This solution is built on the Azure managed services: [Blob Storage](https://azure.microsoft.com/services/storage/blobs), [Content Delivery Network](https://azure.microsoft.com/services/cdn), and [Azure Media Player](https://azure.microsoft.com/services/media-services/media-player). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
 
+## Potential use cases
+
+This solution applies to television, movie, and various online streaming services.
+
 ## Architecture
 
-![Architecture Diagram](../media/digital-media-video.png)
+![Architecture diagram shows the flow from the video files through Azure Blob Storage and Live Encoder to the streaming endpoint.](../media/digital-media-video.png)
 *Download an [SVG](../media/digital-media-video.svg) of this architecture.*
 
 ### Components
@@ -20,7 +24,7 @@ This solution is built on the Azure managed services: [Blob Storage](https://azu
 
 ## Next steps
 
-* [Azure Media Services overview](/azure/media-services/)
+* [Azure Media Services overview](/azure/media-services)
 * [How to use Azure Blob storage](/azure/storage/blobs/storage-quickstart-blobs-portal)
 * [How to encode an asset using Media Encoder](/azure/media-services/latest/stream-files-tutorial-with-api)
 * [How to manage streaming endpoints](/azure/media-services/latest/stream-streaming-endpoint-concept)
