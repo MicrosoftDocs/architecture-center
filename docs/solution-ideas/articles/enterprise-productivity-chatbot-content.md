@@ -4,11 +4,11 @@ Use [Azure Bot Service](/azure/bot-service/) with [Language Understanding](/azur
 
 ## Potential use cases
 
-Some organizations utilize chatbots in these areas.
+This solution is ideal for the HR, sales, and manufacturing industries. Some organizations utilize chatbots in these areas:
 
 - Human Resources (recruitment, on-boarding, and training)
 - Sales and Marketing (schedule meetings and provide contextual responses)
-- Supply Chain (real-time shipping updates and simplify lodging claims)
+- Supply Chain (real-time shipping updates and simplify logging claims)
 
 ## Architecture
 
