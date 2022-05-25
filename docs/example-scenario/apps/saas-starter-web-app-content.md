@@ -22,15 +22,15 @@ Here are some example use cases in which this architecture could be used:
 
 #### User sign in
 
-![Sequence diagram that shows the user sign-in process](./media/saas-starter-app-sequence-diagram-sign-in.svg)
+[ ![Sequence diagram that shows the user sign-in process](./media/saas-starter-app-sequence-diagram-sign-in.png)](./media/saas-starter-app-sequence-diagram-sign-in.png#lightbox)
 
 #### Onboard a new tenant
 
-[ ![Sequence diagram that shows the tenant onboarding process](./media/saas-starter-app-sequence-diagram-onboarding.svg)](./media/saas-starter-app-sequence-diagram-onboarding.svg#lightbox)
+[ ![Sequence diagram that shows the tenant onboarding process](./media/saas-starter-app-sequence-diagram-onboarding.png)](./media/saas-starter-app-sequence-diagram-onboarding.png#lightbox)
 
 #### Add a user to tenant
 
-![Sequence diagram that shows the addition of a new user to a tenant](./media/saas-starter-app-sequence-diagram-add-user.svg)
+[ ![Sequence diagram that shows the addition of a new user to a tenant](./media/saas-starter-app-sequence-diagram-add-user.png)](./media/saas-starter-app-sequence-diagram-add-user.png)
 
 ### Components
 
