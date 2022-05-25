@@ -6,9 +6,13 @@ Let your business run multi-channel digital marketing websites on one platform a
 
 This solution is built on the Azure managed services: [Traffic Manager](https://azure.microsoft.com/services/traffic-manager), [Content Delivery Network](https://azure.microsoft.com/services/cdn), [Azure SQL Database](https://azure.microsoft.com/services/sql-database), [Azure Cache for Redis](https://azure.microsoft.com/services/cache) and [Azure Monitor](https://azure.microsoft.com/services/monitor). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
 
+## Potential use cases
+
+This solution is mainly used by retail to provide up to date product offerings.
+
 ## Architecture
 
-![Architecture Diagram](../media/digital-marketing-episerver.png)
+![Architecture Diagram showing from browser through Episerver to databases](../media/digital-marketing-episerver.png)
 *Download an [SVG](../media/digital-marketing-episerver.svg) of this architecture.*
 
 ### Components

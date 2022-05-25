@@ -4,9 +4,13 @@ With the Sitecore Experience Platform (xP), you have at your fingertips the comp
 
 This solution is built on the Azure managed services: [Azure SQL Database](https://azure.microsoft.com/services/sql-database), [Azure Cache for Redis](https://azure.microsoft.com/services/cache), [Azure Cognitive Search](https://azure.microsoft.com/services/search), and [Azure Monitor](https://azure.microsoft.com/services/monitor). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
 
+## Potential use cases
+
+This solution is used across multiple industries to improve customer experience and engagement.
+
 ## Architecture
 
-![Architecture diagram](../media/digital-marketing-sitecore.png)
+![Architecture diagram show the flow from the browser through Sitecore to Azure.](../media/digital-marketing-sitecore.png)
 *Download an [SVG](../media/digital-marketing-sitecore.svg) of this architecture.*
 
 ### Components

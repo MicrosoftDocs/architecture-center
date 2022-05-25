@@ -54,6 +54,14 @@ A developer’s day:
 * [SonarCloud](https://sonarcloud.io/code-quality). Sonar Cloud’s static analysis detects bugs and code issues in your repositories and provides the feedback you need to write better code.
 * [Branching strategy](/azure/devops/repos/git/git-branching-guidance). Define the naming conventions, ownership, PRs, and reviewers of branches for a Git project at an organization level.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Francesco De Liva](https://www.linkedin.com/in/francescodeliva) | App Innovation / Cloud Solution Architect
+
 ## Next steps
 
 * [Secure DevOps](https://www.microsoft.com/securityengineering/devsecops)

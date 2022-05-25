@@ -4,9 +4,18 @@ Start simple with the content management system that enables you to easily maint
 
 This solution is built on the Azure managed services: [Azure SQL Database](https://azure.microsoft.com/services/sql-database), [Azure Monitor](https://azure.microsoft.com/services/monitor), [Content Delivery Network](https://azure.microsoft.com/services/cdn), and [Azure Cache for Redis](https://azure.microsoft.com/services/cache). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
 
+## Potential use cases
+
+Organizations use content management systems because:
+
+- No programming experience needed
+- Easy collaboration and access
+- Website security
+- Cost effective
+
 ## Architecture
 
-![Architecture diagram](../media/digital-marketing-smb.png)
+![Architecture diagram show flow from the browser through C M S to databases and application insights.](../media/digital-marketing-smb.png)
 *Download an [SVG](../media/digital-marketing-smb.svg) of this architecture.*
 
 ### Components
