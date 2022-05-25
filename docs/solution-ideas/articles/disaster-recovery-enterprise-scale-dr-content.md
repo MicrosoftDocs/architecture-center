@@ -19,7 +19,7 @@ Organizations that utilize this service include:
 
 ### Components
 
-* DNS traffic is routed via [Traffic Manager](https://azure.microsoft.com/services/traffic-manager) which can easily move traffic from one site to another based on policies defined by your organization.
+* DNS traffic is routed via [Traffic Manager](https://azure.microsoft.com/services/traffic-manager), which can easily move traffic from one site to another based on policies defined by your organization.
 * [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery) orchestrates the replication of machines and manages the configuration of the failback procedures.
 * [Blob storage](https://azure.microsoft.com/services/storage/blobs) stores the replica images of all machines that are protected by Site Recovery.
 * [Azure Active Directory](https://azure.microsoft.com/services/active-directory) is the replica of the on-premises [Azure Active Directory](https://azure.microsoft.com/services/active-directory) services allowing cloud applications to be authenticated and authorized by your company.

@@ -15,7 +15,7 @@ Organizations that utilize double-take include SMEs to Fortune 500 companies.
 
 ### Components
 
-* DNS traffic is routed via [Traffic Manager](https://azure.microsoft.com/services/traffic-manager) which can easily move traffic from one site to another based on policies defined by your organization.
+* DNS traffic is routed via [Traffic Manager](https://azure.microsoft.com/services/traffic-manager), which can easily move traffic from one site to another based on policies defined by your organization.
 * [VPN Gateway](https://azure.microsoft.com/services/vpn-gateway): The VPN gateway maintains the communication between the on-premises network and the cloud network securely and privately.
 * [Virtual Network](https://azure.microsoft.com/services/virtual-network): The virtual network is where the failover site will be created when a disaster occurs.
 

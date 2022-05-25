@@ -19,7 +19,7 @@ Industries that utilize this service include:
 
 ### Components
 
-* DNS traffic is routed via [Traffic Manager](https://azure.microsoft.com/services/traffic-manager) which can easily move traffic from one site to another based on policies defined by your organization.
+* DNS traffic is routed via [Traffic Manager](https://azure.microsoft.com/services/traffic-manager), which can easily move traffic from one site to another based on policies defined by your organization.
 * [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery) orchestrates the replication of machines and manages the configuration of the failback procedures.
 * [Virtual Network](https://azure.microsoft.com/services/virtual-network): The virtual network is where the failover site will be created when a disaster occurs.
 * [Blob storage](https://azure.microsoft.com/services/storage/blobs) stores the replica images of all machines that are protected by Site Recovery.
