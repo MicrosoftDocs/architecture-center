@@ -44,6 +44,11 @@ This architecture uses Azure Cosmos DB with SQL API. Multi-master write is enabl
 
 For details on data considerations, see <!coming soon>.
 
+## Deployment stamp resources
+Each region can have one or more stamps. Stamps are expected to have a short life span. They can get destroyed and created as needed, while resources outside the stamp will persist.
+
+
+
 ## Regional resources
 
 Regional resources can have dependencies on global resources, but not stamp resources because stamps are meant to be short lived. Regional resources share the lifetime of the region. So, state stored in a region cannot live beyond the lifetime of the region. If state needs to be shared across regions, consider using a global data store.
@@ -52,10 +57,7 @@ Regional resources don't need to be globally distributed. Direct communication w
 
 Determine the scale limit of regional resources by combining all stamps within the region.
 
-## Deployment stamp resources
-Each region can have one or more stamps. Stamps are expected to have a short life span. They can get destroyed and created as needed, while resources outside the stamp will persist.
-
-### Monitoring data for global resources
+### Monitoring data for stamp resources
 Each region has an individual Log Analytics workspace configured to store all log and metric data emitted from stamp resources. Because regional resource outlive stamp resources, data is available even when the stamp is deleted. 
 
 Azure Log Analytics and Azure Application Insights are used to store logs and metrics from the platform. It's recommended that you restrict daily quota on storage especially on environments that are used for load testing. Also, set retention policy to store all data. These restrictions will prevent any overspend that is incurred by storing data that is not needed beyond a limit. 
@@ -64,20 +66,6 @@ Similarly, Application Insights is also deployed as a regional resource to colle
 
 
 
-
-
-
-## Stamp resources
-- Overall reliability consideration
-- Failure points
-  - Mitigation
-  - Alternate ways
-
-## Regional resources
-for each resource in regional resources:
-    Take some configurations
-    Talk about how it's boosting reliability
-    Talk about secondary aspects such as security
 
 ## Capacity planning
 - Scale unit discussion
