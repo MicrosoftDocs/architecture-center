@@ -2097,11 +2097,17 @@ items:
             maintainContext: true
       - name: Sports
         items:
-          - name: Analyze Olympic sports with sensors and vision
-            href: /archive/msdn-magazine/2018/november/machine-learning-analyzing-olympic-sports-combining-sensors-and-vision-ai
-            maintainContext: true
-          - name: Baseball decision analysis with ML.NET
-            href: data-guide/big-data/baseball-ml-workload.yml
+          - name: Guides
+            items:
+              - name: Analyze Olympic sports with sensors and vision
+                href: /archive/msdn-magazine/2018/november/machine-learning-analyzing-olympic-sports-combining-sensors-and-vision-ai
+                maintainContext: true
+          - name: Architectures
+            items: 
+                - name: Baseball decision analysis with ML.NET
+                  href: data-guide/big-data/baseball-ml-workload.yml
+                - name: Sports analytics on Azure
+                  href: example-scenario/analytics/sports-analytics-architecture-azure.yml  
       - name: IoT-specific industry solutions
         href: reference-architectures/iot/industry-iot-hub-page.md
   - name: Azure categories
