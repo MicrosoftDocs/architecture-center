@@ -74,7 +74,7 @@ For more information about Microsoft Sentinel, see [Microsoft Sentinel documenta
 
 The following list provides information about how to access each of the services that are presented in this article:
 
-- **Azure security services**. You can access all the Azure security services that are mentioned in the diagrams in this series of articles by using [Azure portal](https://portal.azure.com). In the portal, use the search function locate the services that you're interested in and access them.
+- **Azure security services**. You can access all the Azure security services that are mentioned in the diagrams in this series of articles by using [Azure portal](https://portal.azure.com). In the portal, use the search function to locate the services that you're interested in and access them.
 
 - **Azure Monitor**. Azure Monitor is available in all Azure subscriptions. You can access it from a search for *monitor* in the [Azure portal](https://portal.azure.com).
 
@@ -82,7 +82,7 @@ The following list provides information about how to access each of the services
 
 - **Log Analytics**. To access Log Analytics, you must first create the service in the portal, because it doesn't exist by default. In the [Azure portal](https://portal.azure.com), search for *Log Analytics workspace*, and then select **Create**. After creation, you're able to access the service.
 
-- **Microsoft Sentinel**. Because Microsoft Sentinel works on top of a Log Analytics, you must first create a Log Analytics workspace. Next, search for *sentinel* in the [Azure portal](https://portal.azure.com). Then create the service by choosing the workspace that you want to have behind Microsoft Sentinel.
+- **Microsoft Sentinel**. Because Microsoft Sentinel works on top of Log Analytics, you must first create a Log Analytics workspace. Next, search for *sentinel* in the [Azure portal](https://portal.azure.com). Then create the service by choosing the workspace that you want to have behind Microsoft Sentinel.
 
 - **Microsoft Defender for Endpoint**. Defender for Endpoint is part of Microsoft 365 Defender. Access the service through [https://security.microsoft.com](https://security.microsoft.com). This is a change from the previous URL, *securitycenter.windows.com*.
 
@@ -104,7 +104,7 @@ The following list provides information about how to access each of the services
 
 - **Application Insight**. Application Insight is part of Azure Monitor. However, you must first create it for the application that you want to monitor. For some applications built on Azure, such as Web Apps, you can create Application Insight directly from the provisioning of Web Apps. To access it, search for *monitor* in the [Azure portal](https://portal.azure.com). In the **Monitor** page, select **Applications** in the menu on the left side.
 
-- **Storage Analytics**. Azure Storage offers various types of storage under the same storage account technology. You can find blobs, files, table and queues on top of storage accounts. Storage analytics offers a broad range of metrics to use with those storage services. Access Storage Analytics from your Storage account in the [Azure portal](https://portal.azure.com), then select **Diagnostic settings** in the menu on the left side. Choose one log analytics workspace to send that information. Then you can access a dashboard from **Insights**. Everything in your storage account that's being monitored is represented in the menu.
+- **Storage Analytics**. Azure Storage offers various types of storage under the same storage account technology. You can find blobs, files, tables, and queues on top of storage accounts. Storage analytics offers a broad range of metrics to use with those storage services. Access Storage Analytics from your Storage account in the [Azure portal](https://portal.azure.com), then select **Diagnostic settings** in the menu on the left side. Choose one log analytics workspace to send that information. Then you can access a dashboard from **Insights**. Everything in your storage account that's being monitored is represented in the menu.
 
 
 ### Components
@@ -131,7 +131,7 @@ The example architecture in this article uses the following Azure components:
 
 ## Pricing
 
-Pricing for the Azure services that are presented in this series of articles is calculated in various ways. Some services are free of charge, some of have a charge for each use, and some of them have a charge that is based on licensing. So, the best way to estimate the pricing for any of the Azure security services is to use the [Pricing Calculator](https://azure.microsoft.com/en-us/pricing/calculator/). In the calculator, search for a service that you're interested in, and select it to get all the variables that determine the price for the service.
+Pricing for the Azure services that are presented in this series of articles is calculated in various ways. Some services are free of charge, some have a charge for each use, and some have a charge that is based on licensing. The best way to estimate the pricing for any of the Azure security services is to use the [Pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator/). In the calculator, search for a service that you're interested in, and then select it to get all the variables that determine the price for the service.
 
 Microsoft 365 Defender security services work with licenses. For information about the licensing requirements, see [Microsoft 365 Defender prerequisites](/microsoft-365/security/defender/prerequisites?view=o365-worldwide).
 
