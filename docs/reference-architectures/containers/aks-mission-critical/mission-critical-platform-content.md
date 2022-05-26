@@ -59,7 +59,15 @@ Each region can have one or more stamps. In this architecture, the stamp deploys
 - **Availability/disaster recovery**: Because of the temporary nature of stamps, disaster recovery is done by redeploying the stamp. If resources are in an unhealthy state, the stamp, as a whole, can be destroyed and redeployed.
 
 ### Compute cluster
-The workload is containerized in an Azure Kubernetes Service (AKS) cluster. 
+Each stamp has an Azure Kubernetes Service (AKS) cluster that runs the containerized workload. 
+
+The AKS cluster is stateless and doesn't have persistent volumes. It uses ephemeral OS disks instead of managed disks.
+
+The AKS cluster with autoscaling and ephemeral disks. The cluster has Uptime SLA, RBAC, Azure policy, monitoring, and availability zones configured. The cluster is also configured for automatic node image upgrades and to scale appropriately during those upgrades to allow for zero downtime while upgrades are being performed.
+
+The AKS cluster has a load balanced end point managed by an ingress controller. Inbound TLS from Azure Front Door is terminated at the ingress controller, which is independent from any additional pod-to-pod TLS configured within the cluster. The ingress controller also handles path-based routing and HTTP header checks to ensure traffic is originating from this solution's Azure Front Door instance. While it is possible for services in the same AKS cluster to communicate directly with each other, in this architecture there is no direct communication between backend services, instead services use the message broker (addressed below) to proxy that communication.
+
+In addition to AKS, Azure offers other compute services such as Azure Functions or Azure App Services. However, those options are suitable for workloads where offloading compute management to Azure is preferred.
 
 
 o	(Lifetime) - The lifetime of the cluster is bound to the ephemeral nature of the stamp.  AKS clusters are ephemeral are not expected to receive application or system-level maintenance. Changes to the cluster are 
@@ -75,11 +83,30 @@ o	(Security) AAD integration and Managed Identities for AKS
 o	(Availability) Auto scaling of nodes
 o	(Observability) AKS Container Insights can be configured to integrate with a Log Analytics workspace. This is critical in this architecture because stamps are ephemeral. The logs from AKS are pushed to a regional Log Analytics workspace.
 o	(Security) role-based access control (RBAC)
+
+
+Azure Kubernetes Service (AKS) is used as the compute platform as it is most versatile and as Kubernetes is the de-facto compute platform standard for modern applications, both inside and outside of Azure.
+
+This Azure Mission-Critical reference implementation uses Linux-only clusters as its sample workload is written in .NET Core and there is no requirement for any Windows-based containers.
+
+- `role_based_access_control` (RBAC) is **enabled**.
+- `sku_tier` set to **Paid** (Uptime SLA) to achieve the 99.95% SLA within a single region (with `availability_zones` enabled).
+- `http_application_routing` is **disabled** as it is [not recommended for production environments](https://docs.microsoft.com/azure/aks/http-application-routing), a separate Ingress controller solution will be used.
+- Managed Identities (SystemAssigned) are used, instead of Service Principals.
+- `azure_policy_enabled` is set to `true` to enable the use of [Azure Policies in Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/use-azure-policy). The policy configured in the reference implementation is in "audit-only" mode. It is mostly integrated to demonstrate how to set this up through Terraform.
+- `oms_agent` is configured to enable the Container Insights addon and ship AKS monitoring data to Azure Log Analytics via an in-cluster OMS Agent (DaemonSet).
+- Diagnostic settings are configured to store all log and metric data in Log Analytics.
+- `default_node_pool` settings
+  - `availability_zones` is set to `3` to leverage all three AZs in a given region.
+  - `enable_auto_scaling` is configured to let the default node pool automatically scale out if needed.
+  - `os_disk_type` is set to `Ephemeral` to leverage [Ephemeral OS disks](https://docs.microsoft.com/azure/aks/cluster-configuration#ephemeral-os) for performance reasons.
+  - `upgrade_settings` `max_surge` is set to `33%` which is the [recommended value for production workloads](https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade)
+
  
-o	Web Site
-o	Key Vault
-o	NGINX
-o	Service Bus
+### Web Site
+### Key Vault
+### NGINX
+### Event Hubs
 
 ## Regional resources
 
