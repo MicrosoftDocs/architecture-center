@@ -103,6 +103,14 @@ To run the notebooks for training and deploying the recommendation model on [Azu
 4. Repeat step 3 for the operationalization notebook here: `https://aka.ms/recommenders/lgbm-criteo-o16n`.
 5. Select the notebook to open it, attach the configured cluster, and execute the notebook.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+- [Scott Graham](/) | Principal Data Scientist
+
 ## Next steps
 
 - To see more examples, tutorials, and tools to help you build your own recommendation system, visit the [Microsoft Recommenders] GitHub repository.
