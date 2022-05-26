@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution describes how buildings and campuses can securely, reliably, and scalably connect their on-premises Internet of Things (IoT) devices to the cloud. Cloud services can store and analyze the IoT data to diagnose anomalies and take corrective or preventive actions. Azure cloud services can further analyze and store the data, and use machine learning to optimize building settings.
+This solution describes how buildings and campuses can securely and reliably connect, and scale their on-premises Internet of Things (IoT) devices to the cloud. Cloud services can store and analyze the IoT data to diagnose anomalies and take corrective or preventive actions. Azure cloud services can further analyze and store the data, and use machine learning to optimize building settings.
 
 ## Potential use cases
 

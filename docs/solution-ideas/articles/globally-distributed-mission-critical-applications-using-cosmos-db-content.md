@@ -4,7 +4,7 @@ Guarantee access to users around the world with the high-availability and low-la
 
 This solution is best for those organizations that need to have services offered in an area or region. Some industries that utilize globally distributed applications include:
 
-- Streaming video (Netflix, Youtube, HBO, etc.)
+- Streaming video services (Netflix, Youtube, HBO, etc.)
 - Pickup and delivery services (Uber and Uber Eats, Lyft, Instacart, Doordash, etc.)
 
 ## Architecture
@@ -19,7 +19,7 @@ This solution is best for those organizations that need to have services offered
 1. In the landed region where the application is hosted the application will handle the session and the connection towards the database.
 1. This application can range from a simple static page up until a microservices-oriented application hosted in Kubernetes for instance.
 1. The connection between the application landscape and the Cosmos DB is handled through an Azure Active Directory User who can pick up the Cosmos DB keys in Key Vault.
-1. By using the Azure Cosmos DB multi-homing APIs, your application is aware of the nearest region and can send requests to that region. The nearest region is identified without any configuration changes. As you add and remove regions to and from your Azure Cosmos account, your application doesn't need to be redeployed or paused, it continues to be highly available at all times. Underneath the covers, Cosmos DB will handle the global distribution and replication of the data based upon the number of defined regions. As an addition one should also benefit from the Automatic Failover option to fail over to the region with the highest failover priority with no user action should a region become unavailable. When automatic failover is enabled, region priority can be modified.
+1. Your application is aware of the nearest region and can send requests to that region by using the Azure Cosmos DB multi-homing APIs. The nearest region is identified without any configuration changes. As you add and remove regions to and from your Azure Cosmos account, your application doesn't need to be redeployed or paused, it continues to be highly available at all times. Underneath the covers, Cosmos DB will handle the global distribution and replication of the data based upon the number of defined regions. As an addition one should also benefit from the Automatic Failover option to fail over to the region with the highest failover priority with no user action should a region become unavailable. When automatic failover is enabled, region priority can be modified.
 
 ### Components
 
@@ -48,25 +48,25 @@ You can extend this scenario with several compute and serverless options.
 
 The availability of the Cosmos DB instance depends on a number of factors. The greater the number of regions that Cosmos is replicated to, the greater the availability of the application. Each region contains all the data partitions of an Azure Cosmos DB container and can serve reads, by default. To increase the availability of the data layer, you can enable multi-region write. Doing this increases the availability of the data layer. You can also increase availability by employing weaker consistency levels and availability zones.
 
-When considering the above approach, if you achieve high availability on Azure Cosmos DB Automatic Failover, you are configuring your solution to keep the running application at it's highest possible provided SLA.
+When considering the above approach, if you achieve high availability on Azure Cosmos DB Automatic Failover, you're configuring your solution to keep the running application at its highest possible provided SLA.
 
 For the application layer, Traffic Manager should be configured with nested profiles. When pushing this design to the highest level, you can scale the different application choices, per region. The per-region deployment also takes a high-availability approach.
 
 ### Performance
 
-System performance is affected by a number of factors at the compute and database level. The SKU for an App Service plan or other compute option affects the memory and cores that are available in each region. Additionally, the number of regions the compute layer is deployed to dictates the scale that it is capable of handling. Deployment of additional locations takes pressure off existing regions and should cause linear increases in the maximum throughput that the application can fulfill.
+System performance is affected by a number of factors at the compute and database level. The SKU for an App Service plan or other compute option affects the memory and cores that are available in each region. Additionally, the number of regions the compute layer is deployed to can dictate the scale that it's capable of handling. Deployment of additional locations takes pressure off existing regions and should cause linear increases in the maximum throughput that the application can fulfill.
 
-Cosmos DB should be configured so that it does not cause a bottleneck for the compute tier resources. Each database and container in Cosmos DB should be configured to auto-scale and should be supplied with a maximum request unit value that ensures Cosmos DB does not throttle requests. To determine appropriate max request unit values for the Cosmos DB entities, you can run load tests near approximate maximum throughput for the application. When compared with their stronger counterparts, weaker consistency levels offer higher throughput and performance benefits.
+Cosmos DB should be configured so that it doesn't cause a bottleneck for the compute tier resources. Each database and container in Cosmos DB should be configured to auto-scale and should be supplied with a maximum request unit value that ensures Cosmos DB doesn't throttle requests. To determine appropriate max request unit values for the Cosmos DB entities, you can run load tests near approximate maximum throughput for the application. When compared with their stronger counterparts, weaker consistency levels offer higher throughput and performance benefits.
 
 Crucially, when implementing the logic in code that reads from and writes to Cosmos DB, whether it be through the SDK, Azure Functions bindings, and so on, `PreferredLocations` should be used so that each regional API routes requests to the closest Cosmos DB region. Based on the Azure Cosmos DB account configuration, current regional availability, and the preference list specified, the SDK chooses the most optimal endpoint to perform the read and write operations. This process results in significant performance boosts.
 
 ### Resiliency
 
-For higher resiliency, you can use availability zones for Azure Cosmos DB deployments. Resiliency also depends on the consistency level choices that you make on your Cosmos DB deployment. Depending on this consistency level, you will achieve a different level of resiliency (see [Consistency, availability, and performance tradeoffs](/azure/cosmos-db/consistency-levels) for more info).
+For higher resiliency, you can use availability zones for Azure Cosmos DB deployments. Resiliency also depends on the consistency level choices that you make on your Cosmos DB deployment. Depending on this consistency level, you'll achieve a different level of resiliency (see [Consistency, availability, and performance tradeoffs](/azure/cosmos-db/consistency-levels) for more info).
 
 ### Scalability
 
-Scaling is based upon many levels in this diagram. Azure Cosmos DB is purpose-built for elastic scale and predictable performance. On the level of the application, you need to look at the compute model used. Azure Functions and App Service can autoscale. For Azure Virtual Machines, you can use Azure Virtual Machine Scale Sets. When you are aware of this need, you should always consider a serverless option, when possible.
+Scaling is based upon many levels in this diagram. Azure Cosmos DB is purpose-built for elastic scale and predictable performance. On the level of the application, you need to look at the compute model used. Azure Functions and App Service can autoscale. For Azure Virtual Machines, you can use Azure Virtual Machine Scale Sets. When you're aware of this need, you should always consider a serverless option, when possible.
 
 ### Security
 

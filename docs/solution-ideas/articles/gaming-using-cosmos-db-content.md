@@ -4,7 +4,7 @@ This gaming solution idea elastically scales your database to accommodate unpred
 
 ## Potential use cases
 
-This specific scenario is based on a gaming scenario, but the design patterns are relevant for many industries that are required to process high-traffic web calls and API requests, such as e-commerce and retail applications.
+This specific scenario is based on a gaming scenario. The design patterns are relevant for many industries that are required to process high-traffic web calls and API requests, such as e-commerce and retail applications.
 
 ## Architecture
 
@@ -41,7 +41,7 @@ This architecture includes the following components:
 
 - [Azure Databricks](https://azure.microsoft.com/services/databricks) is an Apache Spark-based analytics platform optimized for the Microsoft Azure cloud services platform.
 
-- [Azure Functions](https://azure.microsoft.com/services/functions) are serverless compute options that allow applications to run on-demand without having to manage infrastructure.
+- [Azure Functions](https://azure.microsoft.com/services/functions) is a serverless compute options that allow applications to run on-demand without having to manage infrastructure.
 
 - [Azure Notification Hubs](https://azure.microsoft.com/services/notification-hubs/#overview) is a massively scalable push notification engine for quickly sending notifications to variety of mobile devices and platforms.
 
