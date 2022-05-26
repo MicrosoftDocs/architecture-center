@@ -50,9 +50,9 @@ This solution is ideal for the environment, manufacturing, transportation, and a
 
 - [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) is used to store application key performance indicators (KPIs) and model outputs. Cosmos DB is a fully managed NoSQL database service for modern application development. It provides high-speed transactions and can easily enable the service for global distribution.
 
-- [Azure Databricks](https://azure.microsoft.com/services/databricks) is a data analytics platform optimized for the Microsoft Azure cloud services platform. It is used for transforming, manipulating, and normalizing data so that it can be properly consumed by the machine learning pipeline.
+- [Azure Databricks](https://azure.microsoft.com/services/databricks) is a data analytics platform optimized for the Microsoft Azure cloud services platform. It's used for transforming, manipulating, and normalizing data so that it can be properly consumed by the machine learning pipeline.
 
-- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) is used to create wildfire prediction models. The models provide the intelligence required to assess the risk of a wildfire. Input from multiple data sources is required to train the model for accuracy. This can include satellite imagery, historical data, local soil conditions, and weather data. Based on the predicated wildfire area from the model, the Supply Chain and Logistics Solution can reroute trucks.
+- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) is used to create wildfire prediction models. The models provide the intelligence required to assess the risk of a wildfire. Input from multiple data sources is required to train the model for accuracy. These sources can include satellite imagery, historical data, local soil conditions, and weather data. Based on the predicated wildfire area from the model, the Supply Chain and Logistics Solution can reroute trucks.
 
 For more detailed discussions, see the [Azure IoT reference architecture](../../reference-architectures/iot.yml) to understand and explore the various implementation choices available.
 
@@ -60,7 +60,7 @@ For more detailed discussions, see the [Azure IoT reference architecture](../../
 
 There has been a significant [increase in wildfires](https://news.sciencebrief.org/wildfires-sep2020-update) in recent years, posing a growing danger to humans and the global supply chain. With the number of acres burned increasing by the year, [supply chain resilience to climate change](https://www.thebci.org/uploads/assets/e02a3e5f-82e5-4ff1-b8bc61de9657e9c8/BCI-0007h-Supply-Chain-Resilience-ReportLow-Singles.pdf) is top of mind for many leaders.
 
-In the United States, the annual average of area affected by wildfires is approximately 7,000,000 acres. This is more than double the average during the 1990s. The situation is even more alarming in other countries. For example, in Australia there is an extra month of summer compared to 50 years ago and long-term drought has further worsened fire conditions. Massive bushfires there have caused economic damage nearly 10 times greater than in the United States. Australian wildfires can [impact the global food supply](https://www.foxbusiness.com/money/australian-wildfires-global-food-supply), including goods like beef, milk, wine, and wheat.
+In the United States, the annual average of area affected by wildfires is approximately 7,000,000 acres. This area is more than double the average during the 1990s. The situation is even more alarming in other countries. For example, in Australia there's an extra month of summer compared to 50 years ago and long-term drought has further worsened fire conditions. Massive bush fires there have caused economic damages nearly 10 times greater than in the United States. Australian wildfires can [impact the global food supply](https://www.foxbusiness.com/money/australian-wildfires-global-food-supply), including goods like beef, milk, wine, and wheat.
 
 Risks to businesses worldwide [continue to increase each year](https://mitsloan.mit.edu/ideas-made-to-matter/supply-chain-resilience-era-climate-change), and supply chain resiliency during natural disasters is critical to maintaining the flow of goods globally. [Integrating weather-based forecasts and predictions](https://lot.dhl.com/if-australias-bushfires-are-the-new-normal-how-should-companies-manage-risks) into supply chain capacity planning can help operators adjust production and manage shipping schedules. This system can minimize disruptions and adverse effects.
 
@@ -71,7 +71,7 @@ Warehouse operators and major distribution centers will benefit from a predictiv
 ### Requirements
 
 - Automation is critical. It can't be assumed that operators and facility managers can gather data across multiple systems to make timely decisions.
-- Warehouses, distribution facilities, and operation managers need to be notified by multiple means when there is immediate danger, ensuring the information is received in a timely fashion. Examples include data dashboard, email, and text message.
+- Warehouses, distribution facilities, and operation managers need to be notified by multiple means when there's immediate danger, ensuring the information is received in a timely fashion. Examples include data dashboard, email, and text message.
 - Only changes in the data need to be reported.
 - The delivery and deployment of the solution needs to be simple. It should be installed without the need of a technician, using plug and play technology.
 - The solution needs to be low maintenance and cost effective.
@@ -96,7 +96,7 @@ This solution uses a LoRa network to provide cellular connectivity. LoRa has goo
 
 ### Plug and play
 
-In a remote setting, it's critical that devices are easy to deploy without requiring specialized expertise. myDevices has an extensive catalog of IoT devices and gateways that can be applied to multiple scenarios. They are Plug and Play certified, so all the user needs to do is place them in the right location and turn them on. With their IoT Central integration, customers can easily customize their dashboard to consume their device data and create alerts.
+In a remote setting, it's critical that devices are easy to deploy without requiring specialized expertise. myDevices has an extensive catalog of IoT devices and gateways that can be applied to multiple scenarios. They're Plug and Play certified, so all the user needs to do is place them in the right location and turn them on. With their IoT Central integration, customers can easily customize their dashboard to consume their device data and create alerts.
 
 ## Contributors
 

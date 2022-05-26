@@ -4,7 +4,7 @@ Today's organizations are generating ever-increasing amounts of structured and u
 
 ## Potential use cases
 
-Organization utilize ERP to assist with the following:
+Organizations utilize ERP to assist with:
 
 - Cost savings (automate simple tasks)
 - Workflow visibility (managers can see project status)
