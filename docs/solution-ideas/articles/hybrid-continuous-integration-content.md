@@ -73,6 +73,14 @@ Automated deployments reduce the chance of human error. Fast and routine deploym
 
 Deployment automation systems are the key control point in a DevOps solution. Implementations can vary. The selection of the correct server size depends on the size of the expected workload. VMs cost more to scale than containers. To use containers for scaling, however, your build process must run with containers. See [Design for scaling](/azure/architecture/framework/scalability/design-scale) for additional scaling guidance.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Bryan Lamos](https://www.linkedin.com/in/bryanlamos) | Senior Content Developer
+
 ## Next steps
 
 - See the [Azure DevOps documentation](/azure/devops) to learn more about Azure DevOps and related tools, including Azure Repos and Azure Pipelines.

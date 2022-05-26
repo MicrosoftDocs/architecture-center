@@ -1,5 +1,7 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
+## Potential use cases
+
 This templated risk analysis solution uses Azure HPC compute and GPU virtual machines (VMs) to expand on-premises TIBCO GridServer compute to Azure using Azure CycleCloud for auto-scaling integration. The job executes both on-premises and in the cloud by using Avere vFXT fast caching and native NFS access to market data available on-premises.
 
 ## Architecture
@@ -7,7 +9,7 @@ This templated risk analysis solution uses Azure HPC compute and GPU virtual mac
 ![Architecture diagram](../media/hpc-risk-analysis.png)
 *Download an [SVG](../media/hpc-risk-analysis.svg) of this architecture.*
 
-### Data Flow
+### Dataflow
 
 1. Operations team uses Azure CycleCloud to configure and launch risk analysis grid in Azure.
 1. Azure CycleCloud orchestrates VM creation and software configuration for TIBCO GridServer brokers and HPCCA, in-memory data cache, and Avere vFXT cache.

@@ -21,7 +21,7 @@ With SEAL homomorphic encryption, cloud providers never have unencrypted access 
 ### Components
 
 - [.NET Core 2.2](https://dotnet.microsoft.com/download/dotnet/2.2)
-- [Microsoft SEAL](https://www.microsoft.com/research/project/microsoft-seal/)
+- [Microsoft SEAL](https://www.microsoft.com/research/project/microsoft-seal)
 
 ## Considerations
 
@@ -41,8 +41,16 @@ With SEAL homomorphic encryption, cloud providers never have unencrypted access 
 
 ## Deploy this scenario
 
-The [sample code](https://zarmada.blob.core.windows.net/ai-school-module-updates/ai-school-lab-seal.zip) includes a console app, an API to implement a basic client-server interaction with homomorphic encryption, and complete instructions. To use the code, download and extract the ZIP to a local folder. The code project requires [Visual Studio 2019](https://www.visualstudio.com/downloads/) and [.NET Core version 2.2](https://dotnet.microsoft.com/download/dotnet-core/2.2).
+The [sample code](https://zarmada.blob.core.windows.net/ai-school-module-updates/ai-school-lab-seal.zip) includes a console app, an API to implement a basic client-server interaction with homomorphic encryption, and complete instructions. To use the code, download and extract the ZIP to a local folder. The code project requires [Visual Studio 2019](https://www.visualstudio.com/downloads) and [.NET Core version 2.2](https://dotnet.microsoft.com/download/dotnet-core/2.2).
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Jose Contreras](https://www.linkedin.com/in/josedanielcontreras) | Principal Software Engineering Manager
 
 ## Next steps
 
-To learn more about homomorphic encryption and the Microsoft SEAL library, see [Microsoft SEAL](https://www.microsoft.com/research/project/microsoft-seal/) from Microsoft Research, and the [SEAL code project](https://github.com/microsoft/SEAL) on GitHub.
+To learn more about homomorphic encryption and the Microsoft SEAL library, see [Microsoft SEAL](https://www.microsoft.com/research/project/microsoft-seal) from Microsoft Research, and the [SEAL code project](https://github.com/microsoft/SEAL) on GitHub.
