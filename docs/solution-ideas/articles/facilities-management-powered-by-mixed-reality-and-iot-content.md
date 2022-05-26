@@ -18,7 +18,7 @@ This scenario shows how you can visualize a virtual replica of your physical spa
 1. The Azure AD token is then sent to the [Azure Spatial Anchors](/azure/spatial-anchors) service to retrieve an access token for the client to later use.
 1. Your app service retrieves information about the IoT sensors present in the area specified by the client and returns IoT sensor IDs and the anchor IDs they correspond to in Azure Spatial Anchors.
 1. The Azure Spatial Anchors authorization token is returned to the client alongside the anchor IDs of the IoT sensors and other metadata required by the client application.
-1. The client application completes a visual scan of the environment and retrieves its position in the area. By using the nearby API of Azure Spatial Anchors, it retrieves the position of all nearby anchors.
+1. The client application completes a visual scan of the environment and retrieves its position in the area. It retrieves the position of all nearby anchors by using the nearby API of Azure Spatial Anchors.
 1. The client application requests IoT sensor data and controls to be displayed as holograms in the space, where the sensors are located, making it easy for the operator to detect and fix any issues. The data is fetched by the app's web service from [Azure Cosmos DB](/azure/cosmos-db), the service storing this data.
 1. When IoT sensor data is updated, Azure Digital Twins pushes it to [Event Hubs](/azure/event-hubs).
 1. [Azure Functions](/azure/azure-functions) uses an Event Hubs trigger to process the change and update data in Azure Cosmos DB as needed.
