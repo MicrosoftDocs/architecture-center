@@ -29,7 +29,7 @@ This solution is built on the Azure managed services: [Azure Stream Analytics](h
 1. The model with best performance is registered in Azure Machine Learning using AutoML, which makes it available for deployment.  
 1. Deploy: The model registered in Azure Machine Learning can be deployed, which provides a live endpoint that can be exposed for inferencing.
 1. The deployment can be done through Azure Kubernetes Service (AKS), while you run a Kubernetes-managed cluster where the containers are deployed from images that are stored in Azure Container Registry. Alternatively, Azure Container Instances can be used instead of AKS.
-1. Inference: Once the model is deployed, the inferencing of new data can be done via the available endpoint. Batch and near real-time predications can be supported. The inference results can be stored as documents within Azure Data Lake Storage or in tabular form in Azure Synapse or Azure SQL Database.
+1. Inference: Once the model is deployed, the inferencing of new data can be done via the available endpoint. Batch and near real-time predictions can be supported. The inference results can be stored as documents within Azure Data Lake Storage or in tabular form in Azure Synapse or Azure SQL Database.
 1. Visualize: The stored model results can be consumed through user interfaces, such as Power BI dashboards, or through custom-built web applications. The results are written to a storage option in a file or tabular format, then are properly indexed by Azure Cognitive Search. The model runs as batch inference and stores the results in the respective datastore.
 
 ### Components
