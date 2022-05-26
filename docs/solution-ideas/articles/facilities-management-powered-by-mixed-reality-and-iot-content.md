@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Improve uptime and operations in hospitality, manufacturing, retail, and more with mixed reality and IoT.
+Improve uptime and operations in travel and hospitality, manufacturing, retail, and more with mixed reality and IoT.
 
 ## Potential use cases
 
