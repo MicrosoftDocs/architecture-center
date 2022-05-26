@@ -47,7 +47,32 @@ For details on data considerations, see <!coming soon>.
 ## Deployment stamp resources
 Each region can have one or more stamps. Stamps are expected to have a short life span. They can get destroyed and created as needed, while resources outside the stamp will persist.
 
+o	Lifetime - Stamps are ephemeral. Once a stamp deems itself unhealthy, it can be destroyed.
+o	State - Because stamps are ephemeral, components in a stamp should be stateless
+o	Reach - Stamp resources should not need to be globally distributed.  Can talk to regional and global resources.  They should not talk to other regions or other stamps.
+o	Dependencies - Stamps can and will have regional and global dependencies. They should not have dependencies upon more than one region or other stamps.
+o	Scale limits - The throughput of stamp resources needs to be determined via testing. The throughput of the overall stamp is limited to least performant component. Stamp throughput needs to take into account both the estimated high-level of demand plus any failover as the result of another stamp in the region becoming unavailable.
+o	Availability/DR - Because stamps are intended to be stateless, there should not be a disaster recovery story here. Stamps are intended to be ephemeral. Once they are unhealthy, the stamp, as a whole, can be destroyed.
 
+o	AKS
+o	(Lifetime) - The lifetime of the cluster is bound to the ephemeral nature of the stamp.  AKS clusters are ephemeral are not expected to receive application or system-level maintenance. Changes to the cluster are 
+o	(State) - AKS clusters are stateless.  (vis policy) Disks are ephemeral OS.  No persistent volumes
+o	(Reach/Security) - Speak to global/regional resources via private endpoints. Expose ingress - ILB
+o	Dependencies - Global ACR, KV, Cosmos, AAD, SB, Storage Accounts
+o	(Scale Limits) - Testing per/handler.  HPA and cluster autoscaler
+ 
+o	(Availability) The AKS API endpoint has a 99.95% uptime SLA for clusters that use Availability Zones.
+o	(Security/Reliability) Ingress via in ILB.  AFD connects to ILB via Private Endpoints
+o	(Security) Network Policy
+o	(Security) AAD integration and Managed Identities for AKS
+o	(Availability) Auto scaling of nodes
+o	(Observability) AKS Container Insights can be configured to integrate with a Log Analytics workspace. This is critical in this architecture because stamps are ephemeral. The logs from AKS are pushed to a regional Log Analytics workspace.
+o	(Security) role-based access control (RBAC)
+ 
+o	Web Site
+o	Key Vault
+o	NGINX
+o	Service Bus
 
 ## Regional resources
 
