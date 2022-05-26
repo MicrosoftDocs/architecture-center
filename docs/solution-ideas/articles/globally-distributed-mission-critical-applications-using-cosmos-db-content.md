@@ -1,11 +1,18 @@
 Guarantee access to users around the world with the high-availability and low-latency capabilities built into Microsoft's global datacenters.
 
+## Potential use cases
+
+This solution is best for those organizations that need to have services offered in an area or region. Some industries that utilize globally distributed applications include:
+
+- Streaming video (Netflix, Youtube, HBO, etc.)
+- Pickup and delivery services (Uber and Uber Eats, Lyft, Instacart, Doordash, etc.)
+
 ## Architecture
 
-![Architecture Diagram](../media/globally-distributed-mission-critical-applications-using-cosmos-db.png)
+![Architecture diagram shows the flow of a user accessing an app, Azure Traffic Manager routes the connection to the best location for access, to the Azure Cosmos D B. ](../media/globally-distributed-mission-critical-applications-using-cosmos-db.png)
 <br /> *Download an [SVG](../media/globally-distributed-mission-critical-applications-using-cosmos-db.svg) version of this architecture.*
 
-### Data flow
+### Dataflow
 
 1. User accesses the application through the dedicated client.
 1. Azure Traffic Manager will route the user's connection to the best location for accessing the application, based upon a single or nested routing profiles.
