@@ -48,7 +48,7 @@ The diagram represents Microsoft 365 through the components listed in the follow
 
 | Label | Description | Documentation |
 |---|---|---|
-| **O365** | Microsoft 365 services (formerly Office 365). The applications that Microsoft 365 makes available depends on the type of license. | [Microsoft 365 - Subscription for Office Apps](https://www.microsoft.com/en-us/microsoft-365) |
+| **OFFICE 365** | Microsoft 365 services (formerly Office 365). The applications that Microsoft 365 makes available depends on the type of license. | [Microsoft 365 - Subscription for Office Apps](https://www.microsoft.com/en-us/microsoft-365) |
 | **Azure** | Azure AD, the same one utilized by Azure. Many companies use the same Azure AD service for Azure and Microsoft 365. | [What is Azure Active Directory?](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis) |
 
 ### Workflow
