@@ -2,6 +2,8 @@
 
 The focus of this article is to show a practical architecture that uses Azure services to process and maintain data used by sports analytics solutions. It provides a framework for sports organizations to build highly scalable solutions with, while giving them the flexibility to add more services that meet the nuanced requirements of their use cases.
 
+*Apache®, [Apache Spark®](https://spark.apache.org), and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
+
 ## Potential use cases
 
 This solution is ideal for the sports industry, and applies to the following scenarios:
