@@ -6,6 +6,8 @@ This article doesn't address the application's underlying services, like App Ser
 
 ![Diagram showing how Application Gateway and API Management protect APIs.](images/protect-apis.png)
 
+*Download a [Visio file](https://arch-center.azureedge.net/protect-apis.vsdx) of this architecture.*
+
 ### Workflow
 
 - Application Gateway sets up a URL redirection mechanism that sends the request to the proper [backend pool](/azure/application-gateway/application-gateway-components#backend-pools), depending on the URL format of the API call:
