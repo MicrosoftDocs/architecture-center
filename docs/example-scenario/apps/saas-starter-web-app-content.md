@@ -21,9 +21,9 @@ Here are some example use cases in which this architecture could be used:
 ### Workflow
 
 1. SaaS Customer Admin navigates to the site hosted on the Onboarding & Administration app service.
-1. SaaS Customer Admin signs in using the workflow described [below](./saas-starter-web-app-content.yml#user-sign-in).
-1. SaaS Customer Admin completes the onboarding flow as described [below](./saas-starter-web-app-content.yml#onboard-a-new-tenant).
-1. SaaS Customer Admin navigates to the tenant admin area in the site hosted on the Onboarding & Administration app and adds a SaaS Customer User to their newly created tenant as described in the Add a user to tenant flow [below](./saas-starter-web-app-content.yml#add-a-user-to-tenant).
+1. SaaS Customer Admin signs in using the workflow described [below](#user-sign-in).
+1. SaaS Customer Admin completes the onboarding flow as described [below](#onboard-a-new-tenant).
+1. SaaS Customer Admin navigates to the tenant admin area in the site hosted on the Onboarding & Administration app and adds a SaaS Customer User to their newly created tenant as described in the Add a user to tenant flow [below](#add-a-user-to-tenant).
 1. SaaS Customer User navigates to the site hosted on the SaaS Application Web app service and uses the SaaS application.
 
 #### User sign in
@@ -124,7 +124,7 @@ The components in this solution have some cost associated with their operation, 
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
-This architecture should be able to scale to meet most medium to medium/large workloads easily. Since it mostly uses Azure's platform (PaaS) services, you have many options to adjust the scale of the solution based on your requirements and load. 
+This architecture should be able to scale to meet most medium to medium/large workloads easily. Since it mostly uses Azure's platform (PaaS) services, you have many options to adjust the scale of the solution based on your requirements and load.
 
 For high throughput scenarios, or scenarios in which you need to serve customers in multiple geographies, you could also consider deploying the applications and databases in multiple regions. See the [Multi-region web app with private database](../sql-failover/app-service-private-sql-multi-region.yml) for a great example of this architecture.
 
