@@ -33,7 +33,7 @@ With SEAL homomorphic encryption, cloud providers never have unencrypted access 
 
 - Data encrypted with homomorphic encryption is many times larger than unencrypted data, so it may not make sense to encrypt entire large databases, for example, with this technology. Instead, scenarios where strict privacy requirements prohibit unencrypted cloud computation, but the computations themselves are fairly lightweight, are meaningful use cases.
 
-- Typically, homomorphic encryption schemes have a single secret key, which is held by the data owner. That's why homomorphic encryption isn't reasonable for scenarios where multiple different private data owners want to engage in collaborative computation.
+- Typically, homomorphic encryption schemes have a single secret key, which is held by the data owner. Homomorphic encryption isn't reasonable for scenarios where multiple different private data owners want to engage in collaborative computation.
 
 - It isn't always easy or straightforward to translate an unencrypted computation into a computation on encrypted data. Even if new users can program and run a computation using Microsoft SEAL, there can be a great difference between efficient and inefficient implementation. It can be hard to know how to improve performance.
 
