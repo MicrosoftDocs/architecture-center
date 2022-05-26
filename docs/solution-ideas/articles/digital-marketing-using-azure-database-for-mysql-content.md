@@ -17,10 +17,10 @@ This solution is used by retailers and others selling goods or services.
 
 ### Dataflow
 
-1. Web app service can provide with content management system and supports WordPress, Umbraco, Joomla! and Drupal.
-1. Azure Content Delivery Network (CDN) lets you reduce load times, save bandwidth and speed responsiveness.
-1. Load customer data into an Azure Database for MySQL, which is a fully managed database service with minimal requirements.
-1. Store session state and output cache on Azure Cache for Redis to improve performance and reduce the load on your web front end.
+1. The web app service provides the content management system and supports WordPress, Umbraco, Joomla!, and Drupal.
+1. Azure Content Delivery Network (CDN) lets you reduce load times, save bandwidth, and speeds up responsiveness.
+1. Load customer data into Azure Database for MySQL, which is a fully managed database service with minimal requirements.
+1. Store session state and output cache on Azure Cache for Redis, to improve performance and reduce the load on your web front end.
 1. Detect issues, diagnose crashes, and track usage in your web app with Application Insights. Make informed decisions throughout the development lifecycle.
 
 ### Components
@@ -33,7 +33,7 @@ This solution is used by retailers and others selling goods or services.
 
 ## Next steps
 
-* Explore on marketplace for [CMS templates](https://azuremarketplace.microsoft.com/marketplace/apps/category/web?page=1&subcategories=blogs-cmss)
+* Explore Azure marketplace for [CMS templates](https://azuremarketplace.microsoft.com/marketplace/apps/category/web?page=1&subcategories=blogs-cmss).
 
 ## Related resources
 
