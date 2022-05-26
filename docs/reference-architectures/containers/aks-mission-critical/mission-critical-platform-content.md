@@ -45,16 +45,16 @@ This architecture uses Azure Cosmos DB with SQL API. Multi-master write is enabl
 For details on data considerations, see <!coming soon>.
 
 ## Deployment stamp resources
-Each region can have one or more stamps. Stamps are expected to have a short life span. They can get destroyed and created as needed, while resources outside the stamp will persist.
 
-o	Lifetime - Stamps are ephemeral. Once a stamp deems itself unhealthy, it can be destroyed.
-o	State - Because stamps are ephemeral, components in a stamp should be stateless
-o	Reach - Stamp resources should not need to be globally distributed.  Can talk to regional and global resources.  They should not talk to other regions or other stamps.
-o	Dependencies - Stamps can and will have regional and global dependencies. They should not have dependencies upon more than one region or other stamps.
-o	Scale limits - The throughput of stamp resources needs to be determined via testing. The throughput of the overall stamp is limited to least performant component. Stamp throughput needs to take into account both the estimated high-level of demand plus any failover as the result of another stamp in the region becoming unavailable.
-o	Availability/DR - Because stamps are intended to be stateless, there should not be a disaster recovery story here. Stamps are intended to be ephemeral. Once they are unhealthy, the stamp, as a whole, can be destroyed.
+Each region can have one or more stamps. In this architecture, the stamp deploys the workload and resources that are closely related. 
+- **Lifetime**: Consider resources that are expected to have a short life span (ephemeral) with the intent that they can get destroyed and created as needed. For example, a stamp deems itself unhealthy. Regional resources outside the stamp continue to persist.
+- **Storing state**: Because stamps are ephemeral, a stamp should be stateless as much as possible.
+- **Reach**: Stamp resources can communicate with regional and global resources. However, communication with other regions or other stamps should be avoided. In this architecture there isn't a need for these resources to be globally distributed.
+- **Dependencies**: Stamps are expected to have regional and global dependencies. They should not have dependencies on more than one region or other stamps.
+- **Scale limits**: Throughput is established through testing. The throughput of the overall stamp is limited to the least performant resource. Stamp throughput needs to take into account both the estimated high-level of demand plus any failover as the result of another stamp in the region becoming unavailable.
+- **Availability/disaster recovery**: Because of the temporary nature of stamps, disaster recovery is done by redeploying the stamp. If resources are in an unhealthy state, the stamp, as a whole, can be destroyed and redeployed.
 
-o	AKS
+## Compupte cluster
 o	(Lifetime) - The lifetime of the cluster is bound to the ephemeral nature of the stamp.  AKS clusters are ephemeral are not expected to receive application or system-level maintenance. Changes to the cluster are 
 o	(State) - AKS clusters are stateless.  (vis policy) Disks are ephemeral OS.  No persistent volumes
 o	(Reach/Security) - Speak to global/regional resources via private endpoints. Expose ingress - ILB
