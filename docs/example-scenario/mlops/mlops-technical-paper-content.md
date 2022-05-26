@@ -321,7 +321,7 @@ The team devised the architectural design to support a batch data processing sch
 Azure Data Factory does the following:
 
 - Triggers an Azure Function to start data ingestion and a run of the Azure Machine Learning pipeline.
-1. Launches a durable function to poll the Azure Machine Learning pipeline for completion.
+- Launches a durable function to poll the Azure Machine Learning pipeline for completion.
 
 Custom dashboards in Power BI display the results. Other Azure dashboards that are connected to SQL Azure, Azure Monitor, and App Insights via OpenCensus Python SDK, track Azure resources. These dashboards provide information about the health of the machine learning system. They also yield data that the client uses for product order forecasting.
 
