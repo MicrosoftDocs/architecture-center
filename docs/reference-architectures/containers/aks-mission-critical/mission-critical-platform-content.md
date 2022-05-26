@@ -2,31 +2,69 @@ A key design area of any mission critical architecture is the application platfo
 -	Design and deploy in layers: the right set of services, their configuration, and the application-specific dependencies. This layered approach helps in creating segmentation that's useful in defining roles and functions and assigning appropriate privileges. Also, deployment is more manageable.   
 -	A mission-critical application must be highly reliable and resistant to datacenter and regional failures. Building _zonal and regional redundancy_ in an active-active configuration is the main strategy. As you choose Azure services, consider its Availability Zones support and using multiple Azure regions. 
 -	Use a _scale units_ to handle increased load. Scale units allow you to logically group services and a unit can be scaled independent of other units or services in the architecture. Use your capacity model and expected performance to define a unit.
-In this architecture, the application platform consists of global and regional resources. The regional resources are provisioned as part of a deployment stamp. Each stamp equates to a scale unit.  The sections address the preceding recommendations and highlight some cross-cutting considerations. 
+
+In this architecture, the application platform consists of global and regional resources. The regional resources are provisioned as part of a deployment stamp. Each stamp equates to a scale unit. The sections address the preceding recommendations and highlight some cross-cutting considerations. 
 
 ## Global resources
+
 Certain resources in this architecture are globally distributed and shared by resources deployed in regions. They are used to distribute traffic across multiple regions, store permanent state, and cache static data. Global resources are expected to be long living. Their lifetime spans the life of the system.
 
 It’s recommended that global resources communicate with regional or other resources with low latency and the desired consistency. <otherwise?> Any dependency on regional resources should be avoided because unavailability of the regional resource can be a cause of failure. For example, certificates or secrets shouldn’t be kept in a key store that’s deployed regionally. Because regional resources consume global resources, it’s critical that global resources are configured with high availability and disaster recovery. Otherwise, if these resources become unavailable, the entire system is at risk. 
 
 For performance, the global resources should be scaled such that they can handle throughput of the system as a whole.
+
 In this architecture, global resources are Azure Front Door, Azure Cosmos DB, Azure Container Registry, and Azure Log Analytics for storing logs from global resources. For information about these resources, see <link>.
 
-### Azure Front Door
+### Global load balancer
 
-Front Door is used as the only entry point for user traffic. If Front Door becomes unavailable, the entire system is at risk. <Add a sentence about platform guarantee>.
+Azure Front Door is used as the only entry point for user traffic. If Front Door becomes unavailable, the entire system is at risk. <Add a sentence about platform guarantee>.
 
 All backend services are configured to only accept traffic from the provisioned Front Door instance. Misconfigurations can lead to outages. Missing SSL certificate can also cause mismatched configuration and can prevent users from using the front end. To avoid such situations, configuration errors should be caught during testing. If case of outages, roll back to the previous configuration, re-issuing the certificate, if possible.  However, expect the unavailability while changes take effect.
 
 In this implementation, each stamp is pre-provisioned with a Public IP address. Front Door uses the DNS name for backend. If Azure DNS is unavailable, DNS resolution for user requests and between different components of the application will fail. Consider using some external DNS services as backup for all PaaS components. <Bypassing DNS by switching to IP is not an option, because Azure services don’t have static, guaranteed IP addresses.>
 
-### Azure Container Registry
-Container registry is used to store all container images. It’s recommended that you use Premium SKU to enable geo replication. The zone redundance feature ensures resiliency and high availability within a specific region. In case of a regional outage, Container Registry fails over to replica regions. Thus, any request is automatically re-routed to another region. During the fail over, no Docker images can be pulled while DNS failover needs to happen <need to understand>.
+### Container Registry
+Azure Container Registry is used to store Open Container Initiative (OCI) artifacts. It doesn't participate in the request flow and is only accessed periodically. If images aren’t available, new compute nodes will not be able to pull images, but existing nodes can still use cached images. So, a single instance can be considered. 
 
-If images are inadvertently deleted, new nodes will not be able to pull images but existing nodes can still use cached images. <how to detect this early>.  In this case, run the build pipelines to get images back in the registry.
+Container registry required to exist before stamp resources are deployed and shouldn't have dependency on regional resources. Enable zone redundancy and geo-replication of registries so that runtime access to images is fast and resilient to failures. 
 
-### Azure Log Analytics for global resources
-Diagnostic settings are configured to store all log and metric data for 30 days (retention policy) in Log Analytics. 
+The primary strategy for disaster recovery is redeployment. The artifacts in a container registry can be regenerated from the pipelines.  
+
+It’s recommended that you use Premium SKU to enable geo replication. The zone redundancy feature ensures resiliency and high availability within a specific region. In case of a regional outage, replicas in other regions are available for data plane operations. With this SKU you can configure private link with private endpoints to restrict access to the registry. Only your application can  accessing that service. This ensures that all of the potential throughput is available to your application.
+
+<need to understand>Thus, any request is automatically re-routed to another region. During the fail over, no Docker images can be pulled while DNS failover needs to happen <need to understand>.
+
+
+### Database
+It's recommended that all state is stored global in an external database. Build redundancy by deploying the database across regions. For mission-critical workloads, data consistency should be a primary concern. Also, in case of a failure, write requests to the database should still be functional. 
+
+Data replication in an active-active configuraiton is strongly recommended. The application should be able to instantly connect with another region. Al instances should be able to handle read _and_ write requests.
+
+This architecture uses Azure Cosmos DB with SQL API. Multi-master write is enabled with replicas deployed to every region in which a stamp is deployed. Zone redundancy is also enabled within  each replicated region. 
+
+For details on data considerations, see <!coming soon>.
+
+## Regional resources
+
+Regional resources can have dependencies on global resources, but not stamp resources because stamps are meant to be short lived. Regional resources share the lifetime of the region. So, state stored in a region cannot live beyond the lifetime of the region. If state needs to be shared across regions, consider using a global data store.
+
+Regional resources don't need to be globally distributed. Direct communication with other regions should be avoided at all cost. 
+
+Determine the scale limit of regional resources by combining all stamps within the region.
+
+## Deployment stamp resources
+Each region can have one or more stamps. Stamps are expected to have a short life span. They can get destroyed and created as needed, while resources outside the stamp will persist.
+
+### Monitoring data for global resources
+Each region has an individual Log Analytics workspace configured to store all log and metric data emitted from stamp resources. Because regional resource outlive stamp resources, data is available even when the stamp is deleted. 
+
+Azure Log Analytics and Azure Application Insights are used to store logs and metrics from the platform. It's recommended that you restrict daily quota on storage especially on environments that are used for load testing. Also, set retention policy to store all data. These restrictions will prevent any overspend that is incurred by storing data that is not needed beyond a limit. 
+
+Similarly, Application Insights is also deployed as a regional resource to collect all application monitoring data.
+
+
+
+
 
 
 ## Stamp resources
