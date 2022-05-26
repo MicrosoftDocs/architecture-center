@@ -160,6 +160,8 @@ In the following resources, you can find more information about the services, te
 
 ## Related resources
 
+For more details about this reference architecture, see the other articles in this series:
+
 - Part 1: [Use Azure monitoring to integrate security components](../../guide/security/azure-monitor-integrate-security-components.yml)
 - Part 2: [Map threats to your IT environment](./map-threats-it-environment.yml)
 - Part 4: [Build the second layer of defense with Microsoft 365 Defender Security services](./microsoft-365-defender-build-second-layer-defense.yml)

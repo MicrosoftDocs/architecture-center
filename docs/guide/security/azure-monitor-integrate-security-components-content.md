@@ -83,7 +83,7 @@ This document refers to some services, technologies, and terminologies. You can 
 
 ## Related resources
 
-To get all details regarding this reference architecture, see the other articles in this series:
+For more details about this reference architecture, see the other articles in this series:
 
 - Part 2: [Map threats to your IT environment](../../solution-ideas/articles/map-threats-it-environment.yml)
 - Part 3: [Building the first layer of defense with Azure Security services](../../solution-ideas/articles/azure-security-build-first-layer-defense.yml)

@@ -1,12 +1,12 @@
 You can enhance the security posture of your organization’s IT environment by using the security features of both Microsoft 365 and Azure. This article, the fifth in a series of five, describes how you can integrate the security features of these services by using Microsoft 365 Defender and Azure monitoring services. 
 
-Monitoring solutions on Azure can seem confusing at first, because Azure offers multiple monitoring services. However, each Azure monitoring service is important in the security and monitoring strategy that's described in this series. The articles in this series describe the various services and how to plan effective security for your IT environment. 
+Monitoring solutions on Azure might seem confusing at first, because Azure offers multiple monitoring services. However, each Azure monitoring service is important in the security and monitoring strategy that's described in this series. The articles in this series describe the various services and how to plan effective security for your IT environment. 
 
 This article builds on the previous articles in the series:
 
 1. [Use Azure monitoring to integrate security components](../../guide/security/azure-monitor-integrate-security-components.yml) provides an overall view of how you can integrate the security services of Azure and Microsoft 365 Defender.
 
-2. [Map threats to your IT environment](./map-threats-it-environment.yml) describes methods to map examples of common threats, their tactics and techniques, against an example of a hybrid IT environment that uses both on-premises and Microsoft cloud services.
+2. [Map threats to your IT environment](./map-threats-it-environment.yml) describes methods to map examples of common threats, tactics, and techniques against an example of a hybrid IT environment that uses both on-premises and Microsoft cloud services.
 
 3. [Building the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml) maps an example of some Azure security services that create the first layer of defense to protect your Azure environment according to Azure Security Benchmark version 3.
 
@@ -48,7 +48,7 @@ The diagram shows the following services in **Core Monitoring Services** and in 
 
 1.  **Azure Monitor** is the umbrella for many Azure monitoring services. It includes log management, metrics, and Application Insights, among others. It also provides a collection of dashboards that are ready for use and management of alerts. For more information, see [Azure Monitor overview](/azure/azure-monitor/overview).
 
-2.  **Microsoft Defender for Cloud** delivers a series of recommendations for virtual machines (VMs), storage, applications, and so on, that helps an IT environment to be compliant with various regulatory standards, such as ISO and PCI. At the same time, Defender for Cloud offers a score for the security posture of systems that can help you track the security of your environment. Defender for Cloud also offers automatic alerts that are based on the logs that it collects and analyzes. Defender for Cloud was formerly known as Azure Security Center. For more information, see [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction).
+2.  **Microsoft Defender for Cloud** delivers recommendations for virtual machines (VMs), storage, applications, and other resources, that help an IT environment to be compliant with various regulatory standards, such as ISO and PCI. At the same time, Defender for Cloud offers a score for the security posture of systems that can help you track the security of your environment. Defender for Cloud also offers automatic alerts that are based on the logs that it collects and analyzes. Defender for Cloud was formerly known as Azure Security Center. For more information, see [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction).
 
 3.  **Log Analytics** is one of the most important services. It's responsible for storing all the logs and alerts that are used to create alerts, insights, and incidents. Microsoft Sentinel works on top of Log Analytics. Basically, all data that Log Analytics ingests is available automatically to Microsoft Sentinel. Log Analytics is also known as Azure Monitor Logs. For more information, see [Overview of Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview).
 
@@ -66,13 +66,13 @@ The preceding services in this list are core services that work throughout Azure
 
 9.  Because this architecture reference is based on [Microsoft Zero Trust](/security/business/zero-trust), the services and components under **Infrastructure and Endpoint** don't have specific monitoring services. Azure Monitor logs and Defender for Cloud are the main services that collect, store, and analyze logs from VMs and others compute services.
 
-The key component in this architecture is Microsoft Sentinel, because it connects all the logs and alerts that are provided by Azure security services, Microsoft 365 Defender, and Azure Monitor. After you implement Microsoft Sentinel implemented and it's receiving logs and alerts from all the sources that are identified in this article, the next step is to map a set of queries of those logs to obtain insights and evidence of indicators of compromise (IOCs). When information is captured by Microsoft Sentinel, you can investigate it or allow an automated response that you configure to mitigate or resolve the incident. Automatic responses include such as actions as blocking a user on in Azure Active Directory (Azure AD) or blocking an IP address via the firewall.
+The key component in this architecture is Microsoft Sentinel, because it connects all the logs and alerts that are provided by Azure security services, Microsoft 365 Defender, and Azure Monitor. After you implement Microsoft Sentinel and it's receiving logs and alerts from all the sources that are identified in this article, the next step is to map a set of queries of those logs to obtain insights and evidence of indicators of compromise (IOCs). When information is captured by Microsoft Sentinel, you can investigate it or allow an automated response that you configure to mitigate or resolve the incident. Automatic responses include actions like blocking a user on in Azure Active Directory (Azure AD) or blocking an IP address via the firewall.
 
-For more information about Microsoft Sentinel, see [Microsoft Sentinel documentation](/azure/sentinel)
+For more information about Microsoft Sentinel, see [Microsoft Sentinel documentation](/azure/sentinel).
 
 ### How to access security and monitoring services
 
-The following list presents information about how to access each of the services that are presented in this article:
+The following list provides information about how to access each of the services that are presented in this article:
 
 - **Azure security services**. You can access all the Azure security services that are mentioned in the diagrams in this series of articles by using [Azure portal](https://portal.azure.com). In the portal, use the search function locate the services that you're interested in and access them.
 
@@ -131,11 +131,7 @@ The example architecture in this article uses the following Azure components:
 
 ## Pricing
 
-Pricing for the services that are presented in this series of articles is calculated in various ways. Some services are free of charge, some of have a charge for each use, and some of them have a charge that is based on licensing. So, the best way to estimate the pricing for any of the Azure Security services is to use the [Pricing Calculator](https://azure.microsoft.com/en-us/pricing/calculator/).
-
-:::image type="content" alt-text="Image alt text." source="../media/pricing-calculator-web-page.png" lightbox="../media/pricing-calculator-web-page.png":::
-
-In the calculator, search for a service that you're interested in, and select it to get all the variables that determine the price for the service.
+Pricing for the Azure services that are presented in this series of articles is calculated in various ways. Some services are free of charge, some of have a charge for each use, and some of them have a charge that is based on licensing. So, the best way to estimate the pricing for any of the Azure security services is to use the [Pricing Calculator](https://azure.microsoft.com/en-us/pricing/calculator/). In the calculator, search for a service that you're interested in, and select it to get all the variables that determine the price for the service.
 
 Microsoft 365 Defender security services work with licenses. For information about the licensing requirements, see [Microsoft 365 Defender prerequisites](/microsoft-365/security/defender/prerequisites?view=o365-worldwide).
 
@@ -168,7 +164,7 @@ Other contributors:
 
 ## Related resources
 
-To get all details regarding this reference architecture, see the other articles in this series:
+For more details about this reference architecture, see the other articles in this series:
 
 - Part 1: [Use Azure monitoring to integrate security components](../../guide/security/azure-monitor-integrate-security-components.yml)
 - Part 2: [Map threats to your IT environment](./map-threats-it-environment.yml)

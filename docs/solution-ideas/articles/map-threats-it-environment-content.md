@@ -135,7 +135,7 @@ This document refers to some services, technologies, and terminologies. You can 
 
 ## Related resources
 
-To get all details regarding this reference architecture, see the other articles in this series:
+For more details about this reference architecture, see the other articles in this series:
 
 - Part 1: [Use Azure monitoring to integrate security components](../../guide/security/azure-monitor-integrate-security-components.yml)
 - Part 3: [Building the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml)
