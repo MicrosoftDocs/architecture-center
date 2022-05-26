@@ -4,7 +4,7 @@ Securely store data and provide high-value analytics over aggregated data, using
 
 ## Potential use cases
 
-This architecture is a simple example of a 3-tier application design on Azure with Power BI for data analytics. A use of case for a finance management application is used to add business context, but this design is applicable for many use cases.
+This architecture is a simple example of a three tier application design on Azure with Power BI for data analytics. A use of case for a finance management application is used to add business context, but this design is applicable for many use cases.
 
 ## Architecture
 

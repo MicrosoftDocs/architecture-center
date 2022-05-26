@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Leverage Azure Functions for low latency processing and quick reads/writes to Azure Table Storage. Azure Power Apps and Power Automate provide out-of-box connectors for you to tap into data sources that can live anywhere, including in a 3rd-party systems.
+Utilize Azure Functions for low latency processing and quick reads/writes to Azure Table Storage. Azure Power Apps and Power Automate provide out-of-box connectors for you to tap into data sources that can live anywhere, including in a 3rd-party systems.
 
 ## Potential use cases
 
@@ -16,7 +16,7 @@ The data flows through the solution as follows:
 
 1. Power Apps reads data from custom web APIs surfaced through Functions
 1. Functions, upon calls from Power Automate, convert raw data into HTML
-1. Power Automate reads and writes data from Azure Table Storage and retrieve data from 3rd party auditing system
+1. Power Automate reads and writes data from Azure Table Storage and retrieve data from third party auditing system
 1. Telemetry data is written to Azure Table Storage
 1. Power Apps presents rich information across iOS, Android and web.
 
