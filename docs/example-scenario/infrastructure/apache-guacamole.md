@@ -46,15 +46,11 @@ Customers who doesn't need this high level of control using their own solution c
 
 ## Deploy this scenario
 
-* I recommend using the Bash environment in [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/quickstart). If you prefer to run on your own Windows, Linux, or macOS, [install](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) the Azure CLI to run referenced commands.
+Is recommend using the Bash environment in [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/quickstart). If you prefer to run on your own Windows, Linux, or macOS, [install](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) the Azure CLI to run referenced commands.
 
-[![launch-cloud-shell.png)](images/launch-cloud-shell.png)](http://shell.azure.com/)
+### Setup
 
-![cloud-shell.png)](images/cloud-shell.png)
-
-## Setup
-
-### Declaring variables
+#### Declaring variables
 
 ```
 # Variables
@@ -73,12 +69,12 @@ pipdnsname=loadbalancerguacamole
 lbname=lbguacamole
 ```
 
-### Resource  group creation
+#### Resource  group creation
 ```
 az group create --name $rg --location $location
 ```
 
-### MySQL Creation
+#### MySQL Creation
 ```
 az mysql server create \
 --resource-group $rg \
@@ -91,7 +87,7 @@ az mysql server create \
 --ssl-enforcement Disabled
 ```
 
-### MySQL Firewall Settings
+#### MySQL Firewall Settings
 
 ```
 az mysql server firewall-rule create \
@@ -102,7 +98,7 @@ az mysql server firewall-rule create \
 --end-ip-address 255.255.255.255
 ```
 
-### VNET creation
+#### VNET creation
 ```
 az network vnet create \
 --resource-group $rg \
@@ -112,7 +108,7 @@ az network vnet create \
 --subnet-prefix 10.0.1.0/24
 ```
 
-### Availability set creation
+#### Availability set creation
 ```
 az vm availability-set create \
 --resource-group $rg \
@@ -121,7 +117,7 @@ az vm availability-set create \
 --platform-update-domain-count 3
 ```
 
-### VMs Creation
+#### VMs Creation
 ```
 for i in `seq 1 2`; do
 az vm create --resource-group $rg \
@@ -142,7 +138,7 @@ After executing these commands, two virtual machines will be created inside the 
 
 It is important to note that the SSH keys will be stored in the ~/.ssh directory of the host where the commands were executed (Azure Cloud Shell in this case). As the VMs are being created without a public ip address, we will be creating INAT rules a few steps ahead to be able to connect to the VMs through the Azure Load Balancer.
 
-### Setting NSG rules
+#### Setting NSG rules
 ```
 az network nsg rule create \
 --resource-group $rg \
@@ -158,7 +154,7 @@ az network nsg rule create \
 --destination-port-range 80
 ```
 
-### Generating the Guacamole setup script locally on the VMs
+#### Generating the Guacamole setup script locally on the VMs
 ```
 for i in `seq 1 2`; do
 az vm run-command invoke -g $rg -n Guacamole-VM$i  \
@@ -167,7 +163,7 @@ az vm run-command invoke -g $rg -n Guacamole-VM$i  \
 done
 ```
 
-### Adjusting database credentials to match the variables 
+#### Adjusting database credentials to match the variables 
 ```
 for i in `seq 1 2`; do
 az vm run-command invoke -g $rg -n Guacamole-VM$i  \
@@ -178,7 +174,7 @@ az vm run-command invoke -g $rg -n Guacamole-VM$i  \
 done
 ```
 
-### Executing the Guacamole setup script
+#### Executing the Guacamole setup script
 ```
 for i in `seq 1 2`; do
 az vm run-command invoke -g $rg -n Guacamole-VM$i \
@@ -187,7 +183,7 @@ az vm run-command invoke -g $rg -n Guacamole-VM$i \
 done
 ```
 
-### Installing Nginx to be used as Proxy for Tomcat
+#### Installing Nginx to be used as Proxy for Tomcat
 ```
 for i in `seq 1 2`; do
 az vm run-command invoke -g $rg -n Guacamole-VM$i \
@@ -196,7 +192,7 @@ done
 ```
 _Here are more information about Proxying Guacamole: [https://guacamole.apache.org/doc/gug/reverse-proxy.html](https://guacamole.apache.org/doc/gug/reverse-proxy.html)_
 
-### Configuring NGINX
+#### Configuring NGINX
 ```
 for i in `seq 1 2`; do
 az vm run-command invoke -g $rg -n Guacamole-VM$i \
@@ -223,7 +219,7 @@ EOT"
 done
 ```
 
-### Restart NGINX
+#### Restart NGINX
 ```
 for i in `seq 1 2`; do
 az vm run-command invoke -g $rg -n Guacamole-VM$i \
@@ -232,7 +228,7 @@ az vm run-command invoke -g $rg -n Guacamole-VM$i \
 done
 ```
 
-### Restart Tomcat
+#### Restart Tomcat
 ```
 for i in `seq 1 2`; do
 az vm run-command invoke -g $rg -n Guacamole-VM$i \
@@ -241,7 +237,7 @@ az vm run-command invoke -g $rg -n Guacamole-VM$i \
 done
 ```
 
-### Change to call guacamole directly at "/" instead of "/guacamole" 
+#### Change to call guacamole directly at "/" instead of "/guacamole" 
 ```
 for i in `seq 1 2`; do
 az vm run-command invoke -g $rg -n Guacamole-VM$i \
@@ -250,7 +246,7 @@ az vm run-command invoke -g $rg -n Guacamole-VM$i \
 done
 ```
 
-### Creation of Public IP for the Azure Load Balancer
+#### Creation of Public IP for the Azure Load Balancer
 ```
 az network public-ip create -g $rg -n $lbguacamolepip -l $location \
 --dns-name $pipdnsname \
@@ -259,7 +255,7 @@ az network public-ip create -g $rg -n $lbguacamolepip -l $location \
 --sku Standard
 ```
 
-### Creation of Azure Load Balancer
+#### Creation of Azure Load Balancer
 ```
 az network lb create -g $rg \
 --name $lbname -l $location \
@@ -269,7 +265,7 @@ az network lb create -g $rg \
 --sku Standard
 ```
 
-### Creation of the healthprobe
+#### Creation of the healthprobe
 ```
 az network lb probe create \
 --resource-group $rg \
@@ -281,7 +277,7 @@ az network lb probe create \
 --interval 15 
 ```
 
-### Creation of the load balancing rule
+#### Creation of the load balancing rule
 ```
 az network lb rule create \
 --resource-group $rg \
@@ -296,8 +292,8 @@ az network lb rule create \
 --load-distribution SourceIPProtocol
 ```
 
-### Adding the VMs to the Load Balancer
-#### Adding the VM1 to the Load Balancer
+#### Adding the VMs to the Load Balancer
+##### Adding the VM1 to the Load Balancer
 ```
 az network nic ip-config update \
 --name ipconfigGuacamole-VM1 \
@@ -306,7 +302,7 @@ az network nic ip-config update \
 --lb-address-pools backendpool \
 --lb-name $lbname 
 ```
-#### Adding the VM2 to the Load Balancer
+##### Adding the VM2 to the Load Balancer
 ```
 az network nic ip-config update \
 --name ipconfigGuacamole-VM2 \
@@ -315,7 +311,7 @@ az network nic ip-config update \
 --lb-address-pools backendpool \
 --lb-name $lbname 
 ```
-### Creating the INAT rules
+#### Creating the INAT rules
 
 The INAT rules will allow connections made directly to the load balancer's address to be routed to servers under it according to the chosen port.
 
@@ -368,13 +364,13 @@ ssh -i .ssh/id_rsa guacauser@<loadbalancer-public-ip> -p 21 (To access VM1)
 ssh -i .ssh/id_rsa guacauser@<loadbalancer-public-ip> -p 23 (To access VM2)
 ```
 
-## Testing
+### Testing
 
 You try to access the client at ```http://<loadbalancer-public-ip>``` or ```http://<loadbalancer-public-ip-dns-name>``` and you should see the Guacamole's login screen and use the default user and password (guacadmin/guacadmin) to login: 
     
 ![guacamolelogin.png](images/guacamolelogin.png)
     
-## Adding SSL in 5 steps
+### Adding SSL in 5 steps
     
 Maybe you want to consider the usage of an SSL to be more compliant with security requirements. To add SSL we will use [Certbot](https://certbot.eff.org/) to get a certificate from [Let's Encrypt](https://letsencrypt.org/). Here are the steps you need to follow:
 
@@ -483,13 +479,13 @@ az network lb rule create \
 
 
 
-## Test the SSL
+### Test the SSL
 
 Now you can access through ```https://<yourdomainname.com>``` 
 
 ![ssltest.png](images/ssltest.png)
 
-## Plus!
+### Plus!
 
 Here I’m going to show you how to automate the process of creating a cron job that will automatically renew the expired certificates.
 
@@ -526,7 +522,7 @@ Now, this cron job will check if some of the certificates are expired it will re
 
 This cron job would get triggered twice every day to renew the certificate. Line certbot -q renew will check if the certificate is getting expired in the next 30 days or not. If it is getting expired then it will auto-renew it quietly without generating output. If the certificate is not getting expired then it will not perform any action. While renewing the certificate it will use the same information provided during certificate creation such as email address, domain name, web server root path, etc.
 
-## Conclusion
+### Conclusion
 
 Enjoy your own "jump-server environment", leveraging a high-available and scalable architecture. If you need more information about how to add your connections, take a look at the official documentation from Apache Guacamole here: [https://guacamole.apache.org/doc/gug/administration.html](https://guacamole.apache.org/doc/gug/administration.html)
 
