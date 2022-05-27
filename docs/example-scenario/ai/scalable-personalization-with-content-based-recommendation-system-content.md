@@ -109,7 +109,7 @@ To run the notebooks for training and deploying the recommendation model on [Azu
 
 Principal author:
 
-- [Scott Graham](/) | Principal Data Scientist
+- [Scott Graham](https://www.linkedin.com/in/scott-graham-3a23822) | Principal Data Scientist
 
 ## Next steps
 
