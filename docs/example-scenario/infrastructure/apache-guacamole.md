@@ -366,7 +366,7 @@ ssh -i .ssh/id_rsa guacauser@<loadbalancer-public-ip> -p 23 (To access VM2)
 
 You try to access the client at ```http://<loadbalancer-public-ip>``` or ```http://<loadbalancer-public-ip-dns-name>``` and you should see the Guacamole's login screen and use the default user and password (guacadmin/guacadmin) to login: 
     
-![Apache Guacamole login screen](media/apache-guacamole-login.png)[(media/apache-guacamole-login.png#lightbox)]
+![Apache Guacamole login screen](media/apache-guacamole-login.png)
     
 ### Adding SSL in 5 steps
     
