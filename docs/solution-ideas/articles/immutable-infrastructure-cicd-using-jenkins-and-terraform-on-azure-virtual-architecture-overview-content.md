@@ -10,7 +10,7 @@ Organizations utilize this solution for some of the benefits that include:
 - Simplified and reliable deployments.
 - Fault tolerance.
 - Resolve issues faster.
-- It takes the most advantage of the cloud, hence it's legitimate DevOps functions.
+- It takes the most advantage of the cloud, hence its legitimate DevOps functions.
 
 ## Architecture
 
