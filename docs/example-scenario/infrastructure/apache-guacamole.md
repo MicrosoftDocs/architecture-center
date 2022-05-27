@@ -25,6 +25,8 @@ The environment to be built will leverage the usage of Azure Database for MySQL 
 
 ## Architecture
 
+The drawing below refers to the suggested architecture. This architecture includes a public load balancer that receives external accesses and directs them to two virtual machines in the web layer. The web layer communicates with the data layer where we have a MySQL database responsible for storing login information, accesses, and connections.
+
 [![Diagram of the reference architecture Apache Guacamole on Azure](media/azure-architecture-guacamole.png)](media/azure-architecture-guacamole.png#lightbox)
 
 Download a Visio file of this architecture
