@@ -1,33 +1,32 @@
-> The H1 title is a noun phrase with a present tense verb that describes the scenario (no gerunds, "-ing" verbs). Don't enter it here, but as the **name** value in the corresponding YAML file.
+This example scenario discusses a [highly available](https://wikipedia.org/wiki/High_availability) solution for a jump server solution running on Azure using an open-source tool called Apache Guacamole, which similar functionalities from [Azure Bastion](https://docs.microsoft.com/en-us/azure/bastion/bastion-overview)
 
-Introductory section - no heading
+Apache Guacamole is a clientless remote desktop gateway that supports standard protocols like VNC, RDP, and SSH. Clientless means your clients don't need to install anything but just use a web browser to remotely access your fleet of VMs.
 
-> This should be an introduction of the business problem and why this scenario was built to solve it.
->> What industry is the customer in?
->> What prompted them to solve the problem?
->> What services were used in building out this solution?
->> What does this example scenario show? What are the customer's goals?
+The Guacamole comprises two main components:
 
-> What were the benefits of implementing the solution described below?
+* Guacamole Server which provides guacd which is like a proxy server for the client to connect to the remote server.
+* Guacamole Client is a servelet container that users will log in via web browser.
+
+For more information about Guacamole, visit its [architecture page](https://guacamole.apache.org/doc/gug/guacamole-architecture.html).
+
+To offer high availability, this solution:
+
+* Make use of [Availability Sets](https://docs.microsoft.com/en-us/azure/virtual-machines/availability#availability-sets) for Virtual Machines ensuring 99.95% of SLA
+* Use Azure Database for MySQL, a highly available, scalable, managed database as service guarantees a [99.99% SLA](https://docs.microsoft.com/en-us/azure/mysql/concepts-high-availability).
+
+The environment to be built will leverage the usage of Azure Database for MySQL (DBaaS), Azure Load Balancer, and Virtual Machines with [Nginx as Reverse Proxy](https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/), [Tomcat as Application Service](https://tomcat.apache.org/), and the [Certbot](https://certbot.eff.org/) to get free SSL certificates from [Let's Encrypt](https://letsencrypt.org/).
 
 ## Potential use cases
 
-> Are there any other use cases or industries where this would be a fit?
-> How similar or different are they to what's in this article?
-
-These other uses cases have similar design patterns:
-
-- List of example use cases
+* Access your computers from any device: As Guacamole requires only a reasonably-fast, standards-compliant browser, Guacamole will run on many devices, including mobile phones and tablets.
+* Keep a computer in the “cloud”: Computers hosted on virtualized hardware are more resilient to failures, and with so many companies now offering on-demand computing resources, Guacamole is a perfect way to access several machines that are only accessible over the internet.
+* Provide easy access to a group of people: Guacamole allows you to centralize access to a large group of machines, and specify on a per-user basis which machines are accessible. Rather than remember a list of machines and credentials, users need only log into a central server and click on one of the connections listed.
+* Adding HTML5 remote access to your existing infrastructure: As Guacamole is an API, not just a web application, the core components and libraries provided by the Guacamole project can be used to add HTML5 remote access features to an existing application. You need not use the main Guacamole web application; you can write (or integrate with) your own rather easily.
 
 ## Architecture
 
-> Architecture diagram goes here
+:::image type="content" source="../media/azure-architecture-guacamole.png" border="false" alt-text="Diagram that shows the components of the Apache Guacamole deployed on Azure.":::
 
-> Under the architecture diagram, include this sentence and a link to the Visio file or the PowerPoint file: 
-
-*Download a [Visio file](https://arch-center.azureedge.net/[filename].vsdx) of this architecture.*
-
-> Note that Visio or PowerPoint files are not allowed in the GitHub repo. Send the file or provide a link so the file can be uploaded to our limited-access CDN server.
 
 ### Dataflow
 
