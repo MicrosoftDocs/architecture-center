@@ -61,9 +61,9 @@ Click on the Deploy button to test the automation and the entire solution will b
 
 Your Azure subscription used for the deployment will incur consumption charges on the services used in this solution, approximately $1.15/hour for the default VM.
 
-Ensure that you stop your VM instance when not actively using the solution. If you run the VM, you will incur higher costs.
+Ensure that you stop your VM instance when not actively using the solution. If you run the VM, you'll incur higher costs.
 
-Make sure to delete the solution if you are not using it.
+Make sure to delete the solution if you're not using it.
 
 ## Contributors
 
