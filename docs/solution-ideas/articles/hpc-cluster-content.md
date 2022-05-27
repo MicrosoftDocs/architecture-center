@@ -6,7 +6,7 @@ Industries that benefit from HPC in the cloud include:
 
 - Media and entertainment (edit videos, render special effects, and livestream events)
 - Artificial intelligence and machine learning (detect credit card fraud)
-- Financial services (track real-time stock trends and automate trading)
+- Financial services and the finance industry (track real-time stock trends and automate trading)
 
 ## Architecture
 
