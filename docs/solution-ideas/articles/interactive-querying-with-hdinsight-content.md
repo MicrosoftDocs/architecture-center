@@ -2,6 +2,10 @@
 
 Perform fast, interactive SQL like queries at scale over structured or unstructured data with Apache Hive LLAP on Azure HDInsight.
 
+## Potential use cases
+
+Azure HDInsight powers mission critical applications ranging in a wide variety of sectors including, manufacturing, retail education, nonprofit, government, healthcare, media, banking, telecommunication, insurance, and many more industries ranging in use cases from ETL to Data Warehousing, from Machine Learning to IoT, and more.
+
 ## Architecture
 
 ![Architecture Diagram](../media/interactive-querying-with-hdinsight.png)

@@ -1,6 +1,6 @@
 <!-- cSpell:ignore xlink -->
 
-The Price Analytics solution uses your transactional history data to show you how the demand for your products responds to the prices you offer. It recommends pricing changes and allows you to simulate how changes in price would affect your demand, at a fine granularity.
+The Price Analytics solution utilizes your transactional history data to show you how the demand for your products responds to the prices you offer. It recommends pricing changes and allows you to simulate how changes in price would affect your demand, at a fine granularity.
 
 The solution provides a dashboard where you can see the following:
 
@@ -28,23 +28,23 @@ This architecture is ideal for the retail industry, providing pricing recommenda
 
 *Download an [SVG](../media/interactive-price-analytics.svg) of this architecture.*
 
-### Workflow
+### Dataflow
 
 1. [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) enables building pricing models.
-1. [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) stores model and any intermediate data that's generated.
-1. [Azure SQL Server](https://azure.microsoft.com/products/azure-sql/database/) stores transaction history data and any generated model predictions.
-1. [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) is used to schedule periodic (for example, weekly) model refreshes.
-1. [Power BI](https://powerbi.microsoft.com/what-is-power-bi/) enables a visualization of the results.
+1. [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) stores model and any intermediate data that's generated.
+1. [Azure SQL Server](https://azure.microsoft.com/products/azure-sql/database) stores transaction history data and any generated model predictions.
+1. [Azure Data Factory](https://azure.microsoft.com/services/data-factory) is used to schedule periodic (for example, weekly) model refreshes.
+1. [Power BI](https://powerbi.microsoft.com/what-is-power-bi) enables a visualization of the results.
 1. [Excel](https://www.microsoft.com/microsoft-365/excel) spreadsheets consume predictive web services.
 
 ### Components
 
-- [Azure Data Factory](https://azure.microsoft.com/services/data-factory/)
-- [Azure Machine Learning Services](https://azure.microsoft.com/services/machine-learning/)
+- [Azure Data Factory](https://azure.microsoft.com/services/data-factory)
+- [Azure Machine Learning Services](https://azure.microsoft.com/services/machine-learning)
 - [Microsoft Excel](https://www.microsoft.com/microsoft-365/excel) worksheets
-- [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/)
-- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database/)
-- [Dashboard](https://powerbi.microsoft.com/diad/) in [Power BI](https://powerbi.microsoft.com/)
+- [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs)
+- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database)
+- [Dashboard](https://powerbi.microsoft.com/diad) in [Power BI](https://powerbi.microsoft.com)
 
 ## Solution description
 
@@ -102,7 +102,7 @@ Read the [Technical Deployment Guide](https://github.com/Azure/cortana-intellige
 
 ## Pricing
 
-To calculate a current estimate, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/). The estimated solution should include the following service costs:
+To calculate a current estimate, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator). The estimated solution should include the following service costs:
 
 * S1 standard ML service plan
 * S2 SQL Database
@@ -120,7 +120,7 @@ Learn more about the component technologies:
 - [Introduction to Azure Blob storage](/azure/storage/blobs/storage-blobs-introduction)
 - [What is Azure SQL Database?](/azure/azure-sql/database/sql-database-paas-overview)
 - [What is Power BI?](/power-bi/fundamentals/power-bi-overview)
-- [Create dashboards in Power BI](/learn/modules/create-dashboards-power-bi/)
+- [Create dashboards in Power BI](/learn/modules/create-dashboards-power-bi)
 
 Learn more about pricing solutions:
 
