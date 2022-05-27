@@ -68,7 +68,8 @@ lbname=lbguacamole
 ```
 
 ### Resource  group creation
-```
+
+```bash
 az group create --name $rg --location $location
 ```
 
