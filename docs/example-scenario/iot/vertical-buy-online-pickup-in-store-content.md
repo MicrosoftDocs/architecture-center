@@ -8,7 +8,7 @@ This solution provides alerts to the store associates and trigger a work order t
 
 ### Workflow
 
-1.  Video feed is obtained as cars come into the parking area. The IP camera hosting a Real-Time Streaming Protocol (RTSP) server sends the feed to Live View Analytics (LVA) module. The LVA module processes the frame rate and sends the image to Azure Cognitive Services running on the gateway. Azure Cognitive Services extracts only the license plate details and sends it to the cloud application.
+1.  The video feed shows cars come into the parking area. The IP camera hosting a Real-Time Streaming Protocol (RTSP) server sends the feed to Live View Analytics (LVA) module. The LVA module processes the frame rate and sends the image to Azure Cognitive Services running on the gateway. Azure Cognitive Services extracts only the license plate details and sends it to the cloud application.
 
 2.  Azure IoT Central is used because it is a fully managed application platform. It allows Contoso to extend it easily and focus on features that directly impact the business.
 
