@@ -1,6 +1,10 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This line-of-business application solution provides a mechanism for monitoring and responding to customer feedback. Easily connect multiple business systems to enable nimbler customer support.
+Easily connect multiple business systems to enable nimbler customer support.
+
+## Potential use cases
+
+This line-of-business application solution provides a mechanism for monitoring and responding to customer feedback.
 
 ## Architecture
 

@@ -2,6 +2,10 @@
 
 Easily migrate existing application to container(s) and run within the Azure managed Kubernetes service (AKS). Control access via integration with Azure Active Directory and access SLA-backed Azure Services, such as Azure Database for MySQL using OSBA (Open Service Broker for Azure), for your data needs.
 
+## Potential use cases
+
+This solution is for migrating current applications.
+
 ## Architecture
 
 ![Architecture Diagram](../media/migrate-existing-applications-with-aks.png)
