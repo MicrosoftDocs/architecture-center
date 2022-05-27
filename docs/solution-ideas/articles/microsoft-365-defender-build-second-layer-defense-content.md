@@ -1,8 +1,11 @@
-It's common for organizations to use a hybrid environment, with resources running both on Azure and on-premises. Most Azure resources, such as virtual machines (VMs), Azure applications, and Azure Active Directory (Azure AD), can be protected by security services that run on Azure as described in the previous article in this series, [Building the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml). 
+It's common for organizations to use a hybrid environment, with resources running both on Azure and on-premises. Most Azure resources, such as virtual machines (VMs), Azure applications, and Azure Active Directory (Azure AD), can be protected by security services that run on Azure. 
 
-Organizations often also subscribe to Microsoft 365 to provide users with applications like Word, Excel, PowerPoint, and Exchange online. These services are covered in more detail in the second article in this series, [Map threats to your IT environment](./map-threats-it-environment.yml). Microsoft 365 also offers security services that you can use to build an additional layer of security for some of the most used Azure resources.
+Organizations often also subscribe to Microsoft 365 to provide users with applications like Word, Excel, PowerPoint, and Exchange online. Microsoft 365 also offers security services that you can use to build an additional layer of security for some of the most used Azure resources.
 
-To consider using security services from Microsoft 365, it's helpful to know some terminology and understand the structure of Microsoft 365 services. This fourth article in a series of five can help with that.
+To consider using security services from Microsoft 365, it's helpful to know some terminology and understand the structure of Microsoft 365 services. This fourth article in a series of five can help with that. This article builds on topics that are covered in the previous articles, particularly:
+
+- [Map threats to your IT environment](./map-threats-it-environment.yml)
+- [Building the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml)
 
 Microsoft 365 and Office 365 are cloud-based services that are designed to help you meet your organization's needs for robust security, reliability, and user productivity. Microsoft 365 includes services like Power Automate, Forms, Stream, Sway, and Office 365. Office 365 includes the well-known suite of productivity applications. For more information about subscription options for these two services, see [Microsoft 365 and Office 365 plan options](/office365/servicedescriptions/office-365-platform-service-description/office-365-plan-options).
 
@@ -13,7 +16,7 @@ Depending on the license that you acquire for Microsoft 365, you can also get th
 -   Microsoft Defender for Office 365
 -   Microsoft Defender for Cloud Apps
 
-The following diagram can help you understand the set of solutions and some of the main services that Microsoft 365 offers.
+The following diagram illustrates the relationship of solutions and main services that Microsoft 365 offers, though not all services are listed.
 
 :::image type="content" alt-text="Diagram of services and products that are part of Microsoft 365." source="../media/microsoft-365-defender-build-second-layer-defense-azure-services.png":::
 
