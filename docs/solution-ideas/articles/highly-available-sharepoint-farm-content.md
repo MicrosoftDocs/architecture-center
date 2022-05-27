@@ -1,6 +1,10 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution provides a highly available deployment of SharePoint using a load balanced Azure Active Directory (Azure AD), highly available SQL always on instance, and highly available SharePoint resources. It addresses the requirement to deliver highly available intranet capability using the latest and greatest supported platforms.
+This solution provides a highly available deployment of SharePoint using a load balanced Azure Active Directory (Azure AD), highly available SQL always on instance, and highly available SharePoint resources.
+
+## Potential use cases
+
+This solution address the capability to deliver highly available intranet capability to teams within your business, by using the latest and greatest support platforms.
 
 ## Architecture
 
@@ -11,7 +15,7 @@ This solution provides a highly available deployment of SharePoint using a load 
 <p>Use ExpressRoute or VPN Gateway for management access to resource group.</p>
 </div>
 
-### Data flow
+### Dataflow
 
 1. Create resource group for the storage, network, and virtual machine, plus other dependent elements.
 1. Create virtual network to host the virtual machines and load balancers for the deployment. Ensure the network has appropriate network security groups implemented to protect network traffic flow.
