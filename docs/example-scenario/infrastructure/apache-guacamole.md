@@ -367,6 +367,8 @@ ssh -i .ssh/id_rsa guacauser@<loadbalancer-public-ip> -p 23 (To access VM2)
 You try to access the client at ```http://<loadbalancer-public-ip>``` or ```http://<loadbalancer-public-ip-dns-name>``` and you should see the Guacamole's login screen and use the default user and password (guacadmin/guacadmin) to login: 
     
 ![Apache Guacamole login screen](media/apache-guacamole-login.png)
+
+Enjoy your own "jump-server environment", leveraging a high-available and scalable architecture. If you need more information about how to add your connections, take a look at the official documentation from Apache Guacamole.
     
 ### Adding SSL in 5 steps
     
@@ -481,7 +483,7 @@ Now you can access through ```https://<yourdomainname.com>```
 
 ![Apache Guacamole SSL login screen](media/apache-guacamole-ssltest.png)
 
-### Plus!
+### Automating the SSL certificates renewal
 
 Here I’m going to show you how to automate the process of creating a cron job that will automatically renew the expired certificates.
 
