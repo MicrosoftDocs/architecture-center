@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-The energy consumption and energy demand change over time. The monitoring of this change over time, results in time-series that can be leveraged to understand patterns, and to forecast future behaviors. Learn how Microsoft Azure can help accurately forecast spikes in demand for energy products and services to give your company a competitive advantage.
+The energy consumption and energy demand change over time. The monitoring of this change over time, results in time-series that can be utilized to understand patterns, and to forecast future behaviors. Learn how Microsoft Azure can help accurately forecast spikes in demand for energy products and services to give your company a competitive advantage.
 
 ## Potential use cases
 
@@ -13,24 +13,24 @@ This solution is built on the Azure managed services: [Azure Stream Analytics](h
 ![Architecture diagram: using Azure services like Machine Learning in a solution that forecasts energy and power demand.](../media/forecast-energy-power-demand.png)
 *Download an [SVG](../media/forecast-energy-power-demand.svg) of this architecture.*
 
-### Workflow
+### Dataflow
 
 1. Time series data can be stored in various formats, depending on its original source. Data can be stored as files within Azure Data Lake Storage or in tabular form in Azure Synapse or Azure SQL Database.
-2. Read: Azure Machine Learning (ML) can connect and read from such sources. Ingestion of time series data into Azure Machine Learning, enables automated machine learning (AutoML) to pre-process the data and to train and register a model.
-3. The first step within AutoML is configuration and preprocessing the time series data. In this step, the provided data is prepared for training. The data drives the following features and forecasted configurations:
+1. Read: Azure Machine Learning (ML) can connect and read from such sources. Ingestion of time series data into Azure Machine Learning, enables automated machine learning (AutoML) to pre-process the data and to train and register a model.
+1. The first step within AutoML is configuration and preprocessing the time series data. In this step, the provided data is prepared for training. The data drives the following features and forecasted configurations:
     - Imputed missing values
     - Holiday and DateTime feature engineering
     - Lags and rolling windows
     - Rolling origin cross validation
-4. During the training stage, AutoML leverages the preprocessed dataset to train, select, and explain the best forecasting model.
+1. During the training stage, AutoML uses the preprocessed dataset to train, select, and explain the best forecasting model.
     - Model training: A wide range of machine learning models can be used, ranging from classical forecasting, deep neural networks, and regression models.
     - Model evaluation: The evaluation of models allows AutoML to assess the performance of each trained model, and it enables you to select the best performing model for deployment.
-    - Explainability: AutoML provides the ability to provide explainability for the selected model. This enables you to better understand what features are driving the model outcomes.
-5. The model with best performance is registered in Azure Machine Learning using AutoML, which makes it available for deployment.  
-6. Deploy: The model registered in Azure Machine Learning can be deployed, which provides a live endpoint that can be exposed for inferencing.
-7. The deployment can be done through Azure Kubernetes Service (AKS), while you run a Kubernetes-managed cluster where the containers are deployed from images that are stored in Azure Container Registry. Alternatively, Azure Container Instances can be used instead of AKS.
-8. Inference: Once the model is deployed, the inferencing of new data can be done via the available endpoint. Near real-time and batch predictions can be supported. The inference results can be stored as documents within Azure Data Lake Storage or in tabular form in Azure Synapse or Azure SQL Database.
-9. Visualize: The stored model results can be consumed through user interfaces, such as Power BI dashboards, or through custom-built web applications. The results are written to a storage option in a file or tabular format, then are properly indexed by Azure Cognitive Search. The model runs as batch inference and stores the results in the respective datastore.
+    - Explainability: AutoML provides explainability for the selected model, which enables you to better understand what features are driving the model outcomes.
+1. The model with best performance is registered in Azure Machine Learning using AutoML, which makes it available for deployment.  
+1. Deploy: The model registered in Azure Machine Learning can be deployed, which provides a live endpoint that can be exposed for inferencing.
+1. The deployment can be done through Azure Kubernetes Service (AKS), while you run a Kubernetes-managed cluster where the containers are deployed from images that are stored in Azure Container Registry. Alternatively, Azure Container Instances can be used instead of AKS.
+1. Inference: Once the model is deployed, the inferencing of new data can be done via the available endpoint. Batch and near real-time predictions can be supported. The inference results can be stored as documents within Azure Data Lake Storage or in tabular form in Azure Synapse or Azure SQL Database.
+1. Visualize: The stored model results can be consumed through user interfaces, such as Power BI dashboards, or through custom-built web applications. The results are written to a storage option in a file or tabular format, then are properly indexed by Azure Cognitive Search. The model runs as batch inference and stores the results in the respective datastore.
 
 ### Components
 
@@ -38,6 +38,14 @@ This solution is built on the Azure managed services: [Azure Stream Analytics](h
 * [Azure Automated Machine Learning](https://azure.microsoft.com/services/machine-learning/automatedml): Use Azure ML to forecast the energy demand of a particular region.
 * [MLOps](https://azure.microsoft.com/services/machine-learning/mlops): Design, deploy, and manage production model workflows.
 * [Power BI Azure ML integration](/power-bi/connect-data/service-aml-integrate): Consume model prediction results in Power BI.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Dr. Carlos Santos](https://www.linkedin.com/in/carlosafsantos) | Senior Cloud Solution Architect - AI & Data Science
 
 ## Next steps
 
