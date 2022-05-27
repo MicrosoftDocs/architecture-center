@@ -1,10 +1,10 @@
-This is the second article in a series of five articles that are introduced in the first article, [Use Azure monitoring to integrate security components](../../guide/security/azure-monitor-integrate-security-components.yml). This article explains how to diagram the essential IT environment of your organization and develop a threat map. These diagrams can help you to plan and build your defensive layer of security. Understanding your IT environment and how it's architected is essential to defining the security services that the environment requires for necessary levels of protection. 
+This article explains how to diagram the essential IT environment of your organization and develop a threat map. These diagrams can help you to plan and build your defensive layer of security. Understanding your IT environment and how it's architected is essential to defining the security services that the environment requires for necessary levels of protection. 
 
 Computer systems contain information that is valuable to the organizations that produce it—and to malicious actors. A malicious actor can be an individual or a group of people who perform malicious acts against a person or organization. Their efforts can cause harm to the computers, devices, systems, and networks of companies. Their goals are to compromise or steal valuable information by using threats like malware or brute force attacks.
 
-In this article, we look at a way to map the threats against your IT environment so that you can plan how to use Microsoft security services to implement your security strategy. The good news is that you don't need to create a threat map from scratch. The MITRE ATT&CK matrix is a great solution to help you develop a threat map.
+In this article, we look at a way to map the threats against your IT environment so that you can plan how to use Microsoft security services to implement your security strategy. This is the second article in a series of five articles that are introduced in [Use Azure monitoring to integrate security components](../../guide/security/azure-monitor-integrate-security-components.yml). 
 
-MITRE ATT&CK is a global knowledge database that maps threats that are based on the tactics and techniques that are observed in the real world. The MITRE Corporation catalogs every threat available and discovers many details of how those threats work and how you can defend against them. It's a public service that you can access online at [MITRE ATT&CK®](https://attack.mitre.org/).
+The good news is that you don't need to create a threat map from scratch. The MITRE ATT&CK matrix is a great solution to help you develop a threat map. MITRE ATT&CK is a global knowledge database that maps threats that are based on the tactics and techniques that are observed in the real world. The MITRE Corporation catalogs every threat available and discovers many details of how those threats work and how you can defend against them. It's a public service that you can access online at [MITRE ATT&CK®](https://attack.mitre.org/).
 
 This article uses a subset of those threats to present an example of how you could map threats against your IT environment.
 
@@ -35,13 +35,13 @@ For the Azure environment, the diagram shows the components that are listed in t
 | **VNET** | [What is Azure Virtual Network](https://azure.microsoft.com/en-us/services/virtual-network)? |
 | **LBS** | [What is Azure Load Balancer](/azure/load-balancer/load-balancer-overview)? |
 | **PIPS** | [Public IP addresses](/azure/virtual-network/ip-services/public-ip-addresses) |
-| **Servers** | [Virtual Machines](/services/virtual-machines/) |
+| **SERVERS** | [Virtual Machines](/services/virtual-machines/) |
 | **K8S** | [Azure Kubernetes Service](/azure/aks/intro-kubernetes) |
 | **VDI** | [What is Azure Virtual Desktop?](/azure/virtual-desktop/overview) |
-| **Web Apps** | [App Service overview](/azure/app-service/overview) |
-| **Azure Storage** | [Introduction to Azure Storage](/azure/storage/common/storage-introduction) |
+| **WEB APPS** | [App Service overview](/azure/app-service/overview) |
+| **AZURE STORAGE** | [Introduction to Azure Storage](/azure/storage/common/storage-introduction) |
 | **DB** | [What is Azure SQL Database?](/azure/azure-sql/database/sql-database-paas-overview) |
-| **Azure AD** | [What is Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis)? |
+| **AZURE AD** | [What is Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis)? |
 
 
 The diagram represents Microsoft 365 through the components listed in the following table.
@@ -49,7 +49,7 @@ The diagram represents Microsoft 365 through the components listed in the follow
 | Label | Description | Documentation |
 |---|---|---|
 | **OFFICE 365** | Microsoft 365 services (formerly Office 365). The applications that Microsoft 365 makes available depends on the type of license. | [Microsoft 365 - Subscription for Office Apps](https://www.microsoft.com/en-us/microsoft-365) |
-| **Azure** | Azure AD, the same one utilized by Azure. Many companies use the same Azure AD service for Azure and Microsoft 365. | [What is Azure Active Directory?](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis) |
+| **AZURE AD** | Azure AD, the same one utilized by Azure. Many companies use the same Azure AD service for Azure and Microsoft 365. | [What is Azure Active Directory?](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis) |
 
 ### Workflow
 
