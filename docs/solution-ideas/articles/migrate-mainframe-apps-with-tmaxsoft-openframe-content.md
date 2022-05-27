@@ -30,7 +30,7 @@ Many scenarios can benefit from TmaxSoft OpenFrame lift and shift. Possibilities
 
 1. Azure ExpressRoute creates private connections between the on-premises infrastructure and Azure. Transport Layer Security (TLS) connections that use port 443 provide access to web-based applications:
    - After migration, the web application presentation layer remains virtually unchanged. As a result, end users require minimal retraining. Alternatively, the web application presentation layer can be updated to align with UX goals.
-   - [Azure VM Bastion hosts][What is Azure Bastion] work to maximize security. When giving administrators access to VMs, these hosts minimize the number of open ports.
+   - [Azure VM Bastion hosts][What is Azure Bastion] work to maximize security. While giving administrators access to VMs, these hosts minimize the number of open ports.
    - OpenFrame provides middleware integration. For instance, this functionality works with web services and [message queues (MQs)][Message queues].
 
 1. The TmaxSoft solution uses two VMs. Each one runs an application server, and an Azure Load Balancer manages approaching traffic. OpenFrame supports both [active-active][Active-active definition] and [active-passive][Active-passive definition] configurations.
