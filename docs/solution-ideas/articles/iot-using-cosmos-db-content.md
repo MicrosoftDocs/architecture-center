@@ -4,11 +4,11 @@ This article describes an internet-of-things (IoT) workload that relies on sever
 
 Global distribution transparently scales and replicates data across Azure regions. You can scale throughput and storage worldwide, and pay for only the amount you need. Instant elastic scaling accommodates diverse and unpredictable IoT workloads, without sacrificing ingestion or query performance.
 
-Azure Cosmos DB is ideal for IoT workloads because it can:
+Azure Cosmos DB is ideal for IoT workloads because it's capable of:
 
-- Ingest device telemetry data at high rates, and return indexed queries with low latency and high availability.
-- Store JSON format from different device vendors, which provides flexibility in payload schema.
-- Use wire protocol–compatible API endpoints for Cassandra, MongoDB, SQL, Gremlin, etcd, and table databases, and built-in support for Jupyter Notebook files.
+- Ingesting device telemetry data at high rates, and return indexed queries with low latency and high availability.
+- Storing JSON format from different device vendors, which provides flexibility in payload schema.
+- By using wire protocol–compatible API endpoints for Cassandra, MongoDB, SQL, Gremlin, etcd, and table databases, and built-in support for Jupyter Notebook files.
 
 ## Potential use cases
 
