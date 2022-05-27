@@ -22,4 +22,4 @@ name: Secure Data Lakehouse on Synapse
 summary: Synapse is a versatile data platform that supports various enterprise data scenarios. There are many technical choices to make when trying to configure the infrastructure securely. This article provides guidance for building a secure and cost-efficiencies data lakehouse platform on Synapse. It describes technologies used to create the data lakehouse solutions and introduces the design and implementation suggestions. They help to make these technologies work together seamlessly under security protections. Network and Asset Protection, Identity and Access control, and DevOps security are key focuses in this security design. The primary services used to implement the solution are synapse serverless SQL, Spark,  Pipeline, Azure DataLake, and Power BI. 
 thumbnailUrl: /azure/architecture/browse/thumbs/<browse-png-filename>.png
 content: |
-  [!include[](security-data-lakehouse-synapse-content.md)]
+  [!include[](secure-data-lakehouse-synapse-content.md)]
