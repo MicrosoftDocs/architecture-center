@@ -25,19 +25,19 @@ This solution is optimized for the retail industry.
 
 ### Components
 
-* Application Insights, a feature of [Azure Monitor](https://azure.microsoft.com/services/monitor/)
-* [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
-* [Azure App Service](https://azure.microsoft.com/services/app-service/)
-* [Azure Bot Services](https://azure.microsoft.com/services/bot-services/)
-* [Language Understanding (LUIS)](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/)
-* [QnA Maker](https://azure.microsoft.com/services/cognitive-services/qna-maker/) with [active learning](/azure/cognitive-services/qnamaker/how-to/use-active-learning)
+* Application Insights, a feature of [Azure Monitor](https://azure.microsoft.com/services/monitor)
+* [Azure Active Directory](https://azure.microsoft.com/services/active-directory)
+* [Azure App Service](https://azure.microsoft.com/services/app-service)
+* [Azure Bot Services](https://azure.microsoft.com/services/bot-services)
+* [Language Understanding (LUIS)](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service)
+* [QnA Maker](https://azure.microsoft.com/services/cognitive-services/qna-maker) with [active learning](/azure/cognitive-services/qnamaker/how-to/use-active-learning)
 
 ## Next steps
 
 Microsoft Learn modules:
 
-* [Build a bot with QnA Maker and Azure Bot Service](/learn/modules/build-faq-chatbot-qna-maker-azure-bot-service/)
-* [Manage your Language Understanding Intelligent Service (LUIS) Apps](/learn/modules/manage-language-understanding-intelligent-service-apps/)
+* [Build a bot with QnA Maker and Azure Bot Service](/learn/modules/build-faq-chatbot-qna-maker-azure-bot-service)
+* [Manage your Language Understanding Intelligent Service (LUIS) Apps](/learn/modules/manage-language-understanding-intelligent-service-apps)
 
 ## Related resources
 
