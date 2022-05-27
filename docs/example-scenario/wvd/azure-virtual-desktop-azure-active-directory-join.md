@@ -98,7 +98,7 @@ Azure AD registration logs are in Event Viewer on the local client. You can view
 
 In the next step, you enable sign-in access to the VMs. These VMs are Azure objects, and the authentication mechanism is Azure AD. You can manage user sign-in permission through Azure role-based access control (RBAC).
 
-Go to Azure Virtual Desktop [Desktop application group](/azure/virtual-desktop/manage-app-groups), to sign into a VM. For Azure AD join, the same users and groups that are in the Desktop application group must also be added to the **Virtual Machine User Login** RBAC role. This role isn't a [Azure Virtual Desktop role](/azure/virtual-desktop/rbac), but an Azure role with **Log in to Virtual Machine** DataAction permission.
+Sign in to VMs by going to Azure Virtual Desktop [Desktop application group](/azure/virtual-desktop/manage-app-groups). For Azure AD join, the same users and groups that are in the Desktop application group must also be added to the **Virtual Machine User Login** RBAC role. This role isn't a [Azure Virtual Desktop role](/azure/virtual-desktop/rbac), but an Azure role with **Log in to Virtual Machine** DataAction permission.
 
 :::image type="content" source="images/sign-in-role.png" alt-text="Screenshot that shows the Azure Virtual Desktop required role for V M sign-in.":::
 
