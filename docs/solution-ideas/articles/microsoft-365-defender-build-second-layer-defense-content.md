@@ -18,7 +18,8 @@ Depending on the license that you acquire for Microsoft 365, you can also get th
 
 The following diagram illustrates the relationship of solutions and main services that Microsoft 365 offers, though not all services are listed.
 
-:::image type="content" alt-text="Diagram of services and products that are part of Microsoft 365." source="../media/microsoft-365-defender-build-second-layer-defense-azure-services.png":::
+:::image type="content" alt-text="Diagram of services and products that are part of Microsoft 365." source="../media/microsoft-365-defender-build-second-layer-defense-services-diagram.png":::
+
 
 ## Potential use case
 
