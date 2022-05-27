@@ -291,7 +291,7 @@ az network lb rule create \
 --load-distribution SourceIPProtocol
 ```
 
-#### Adding the VM1 to the Load Balancer
+### Adding the VM1 to the Load Balancer
 ```
 az network nic ip-config update \
 --name ipconfigGuacamole-VM1 \
@@ -300,7 +300,7 @@ az network nic ip-config update \
 --lb-address-pools backendpool \
 --lb-name $lbname 
 ```
-#### Adding the VM2 to the Load Balancer
+### Adding the VM2 to the Load Balancer
 ```
 az network nic ip-config update \
 --name ipconfigGuacamole-VM2 \
