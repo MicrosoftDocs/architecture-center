@@ -518,10 +518,6 @@ Now, this cron job will check if some of the certificates are expired it will re
 
 This cron job would get triggered twice every day to renew the certificate. Line certbot -q renew will check if the certificate is getting expired in the next 30 days or not. If it is getting expired then it will auto-renew it quietly without generating output. If the certificate is not getting expired then it will not perform any action. While renewing the certificate it will use the same information provided during certificate creation such as email address, domain name, web server root path, etc.
 
-### Conclusion
-
-Enjoy your own "jump-server environment", leveraging a high-available and scalable architecture. If you need more information about how to add your connections, take a look at the official documentation from Apache Guacamole here: [https://guacamole.apache.org/doc/gug/administration.html](https://guacamole.apache.org/doc/gug/administration.html)
-
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
@@ -533,29 +529,10 @@ Principal authors:
 
 ## Next steps
 
-> Link to Docs and Learn articles, along with any third-party documentation.
-> Where should I go next if I want to start building this?
-> Are there any relevant case studies or customers doing something similar?
-> Is there any other documentation that might be useful? Are there product documents that go into more detail on specific technologies that are not already linked?
-
-Examples:
-* [Azure Kubernetes Service (AKS) documentation](/azure/aks)
-* [Azure Machine Learning documentation](/azure/machine-learning)
-* [What are Azure Cognitive Services?](/azure/cognitive-services/what-are-cognitive-services)
-* [What is Language Understanding (LUIS)?](/azure/cognitive-services/luis/what-is-luis)
-* [What is the Speech service?](/azure/cognitive-services/speech-service/overview)
-* [What is Azure Active Directory B2C?](/azure/active-directory-b2c/overview)
-* [Introduction to Bot Framework Composer](/composer/introduction)
-* [What is Application Insights](/azure/azure-monitor/app/app-insights-overview)
+* [Apache Guacamole oficial docummentation](https://guacamole.apache.org/doc/gug/administration.html)
  
 ## Related resources
 
-> Use "Related resources" for architecture information that's relevant to the current article. It must be content that the Azure Architecture Center TOC refers to, but may be from a repo other than the AAC repo.
-> Links to articles in the AAC repo should be repo-relative, for example (../../solution-ideas/articles/article-name.yml).
-
-Examples:
-  - [Artificial intelligence (AI) - Architectural overview](/azure/architecture/data-guide/big-data/ai-overview)
-  - [Choosing a Microsoft cognitive services technology](/azure/architecture/data-guide/technology-choices/cognitive-services)
-  - [Chatbot for hotel reservations](/azure/architecture/example-scenario/ai/commerce-chatbot)
-  - [Build an enterprise-grade conversational bot](/azure/architecture/reference-architectures/ai/conversational-bot)
-  - [Speech-to-text conversion](/azure/architecture/reference-architectures/ai/speech-ai-ingestion)
+* [Azure Bastion](https://azure.microsoft.com/en-us/services/azure-bastion/)
+* [Azure Bastion Documentation](https://docs.microsoft.com/en-us/azure/bastion/bastion-overview)
+  
