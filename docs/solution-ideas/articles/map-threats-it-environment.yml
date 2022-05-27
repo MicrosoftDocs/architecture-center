@@ -6,7 +6,7 @@ metadata:
   author: rudneir2
   ms.author: ruolivei
   ms.custom: fcp
-  ms.date: 04/25/2022
+  ms.date: 06/01/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
@@ -15,7 +15,7 @@ azureCategories:
   - security
 products:
   - azure
-  - azure-sentinel
+  - office-365
 name: Map threats to your IT environment
 summary: Diagram the IT environment of your organization and develop a threat map to plan and build your defensive layer of security. This article is part of a series.
 thumbnailUrl: /azure/architecture/browse/thumbs/map-threats-it-environment-thumbnail.png

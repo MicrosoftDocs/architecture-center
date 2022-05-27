@@ -2,11 +2,11 @@
 metadata:
   title: Integrate Azure and Microsoft 365 Defender security services
   titleSuffix: Azure Architecture Center
-  description: Integrate security solutions across Azure and Microsoft 365 services to produce robust security for your hybrid and cloud IT environments. 
+  description: Integrate security solutions from Azure and Microsoft 365 to create robust security for your hybrid and cloud IT environments. This article is part of a series.
   author: rudneir2
   ms.author: ruolivei
   ms.custom: fcp
-  ms.date: 04/25/2022
+  ms.date: 06/01/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
@@ -19,7 +19,7 @@ products:
   - defender-for-cloud
   - azure-log-analytics
 name: Integrate Azure and Microsoft 365 Defender security services
-summary: Integrate security solutions across Azure and Microsoft 365 services to produce robust security for your hybrid and cloud IT environments.
+summary: Integrate security solutions from Azure and Microsoft 365 to create robust security for your hybrid and cloud IT environments. This article is part of a series.
 thumbnailUrl: /azure/architecture/browse/thumbs/microsoft-365-defender-security-integrate-azure-thumbnail.png
 content: |
   [!include[](microsoft-365-defender-security-integrate-azure-content.md)]
