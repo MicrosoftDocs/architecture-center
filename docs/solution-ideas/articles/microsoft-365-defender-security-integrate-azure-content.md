@@ -92,11 +92,7 @@ The following list provides information about how to access each of the services
 
 - **Microsoft Defender for Identity**. Defender for Identity is part of Microsoft 365. You access the service through [https://portal.atp.azure.com](https://portal.atp.azure.com). Although it's a cloud service, Defender for Identity is responsible for also protecting identity on on-premises systems.
 
-- **Microsoft Endpoint Manager**. Endpoint Manager is the new name for Intune, Configuration Manager, and other services. Access it through [https://endpoint.microsoft.com](https://endpoint.microsoft.com).
-
-  > [!NOTE]
-  >
-  > To learn more about accessing the services that are provided by Microsoft 365 Defender and how each portal is related, see [Build the second layer of defense with Microsoft 365 Defender Security services](./microsoft-365-defender-build-second-layer-defense.yml).
+- **Microsoft Endpoint Manager**. Endpoint Manager is the new name for Intune, Configuration Manager, and other services. Access it through [https://endpoint.microsoft.com](https://endpoint.microsoft.com). To learn more about accessing the services that are provided by Microsoft 365 Defender and how each portal is related, see [Build the second layer of defense with Microsoft 365 Defender Security services](./microsoft-365-defender-build-second-layer-defense.yml).
 
 - **Azure Network Watcher**. To access Azure Network Watcher, search for *watcher* in the [Azure portal](https://portal.azure.com).
 
