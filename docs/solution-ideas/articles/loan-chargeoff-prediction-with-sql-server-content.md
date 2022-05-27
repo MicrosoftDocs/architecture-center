@@ -1,8 +1,10 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-A charged off loan is a loan that is declared by a creditor (usually a lending institution) that an amount of debt is unlikely to be collected, usually when the loan repayment is severely delinquent by the debtor. Given that high chargeoff has a negative impact on lending institutions’ year-end financials, lending institutions often monitor loan chargeoff risk very closely to prevent loans from getting charged-off. 
+A charged off loan is a loan that is declared by a creditor (usually a lending institution) that an amount of debt is unlikely to be collected, usually when the loan repayment is severely delinquent by the debtor. Given that high chargeoff has a negative impact on lending institutions’ year-end financials, lending institutions often monitor loan chargeoff risk very closely to prevent loans from getting charged-off.
 
-This solution demonstrates how to build and deploy a machine learning model, with SQL Server 2019 pre-installed in a Data Science VM with R Services embedded, to predict if a bank loan will need to be charged off within the given period. 
+## Potential use cases
+
+This solution demonstrates how to build and deploy a machine learning model, with SQL Server 2019 pre-installed in a Data Science VM with R Services embedded, to predict if a bank loan will need to be charged off within the given period.
 
 ## Architecture
 
@@ -13,9 +15,9 @@ This solution demonstrates how to build and deploy a machine learning model, wit
 
 1. Develop and deploy R code into R Studio IDE, which is installed on a VM or Data Scientist workstation. It's connected to a Data Science VM, where SQL Server is installed.
 
-2. Predict and score the model. The prediction and scored data can be visualized into Power BI.
+1. Predict and score the model. The prediction and scored data can be visualized into Power BI.
 
-Data scientists do the data preparation, model training, and evaluation from their favorite R IDE. DBAs can take care of the deployment using SQL stored procedures with embedded R code. 
+Data scientists do the data preparation, model training, and evaluation from their favorite R IDE. DBAs can take care of the deployment using SQL stored procedures with embedded R code.
 
 Finally, a Power BI report is used to visualize the predicted and scored results that are deployed.
 
@@ -69,7 +71,7 @@ Make sure to delete the solution if you are not using it.
 
 Principal authors:
 
- - [Avijit Prasad](https://www.linkedin.com/in/avijit-prasad-96768a42) | Cloud Consultant
+ - [Avijit Prasad](https://www.linkedin.com/in/avijit-prasad🌐-96768a42) | Cloud Consultant
 
 ## Next steps
 
