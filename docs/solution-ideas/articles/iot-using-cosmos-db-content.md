@@ -12,7 +12,7 @@ Azure Cosmos DB is ideal for IoT workloads because it's capable of:
 
 ## Potential use cases
 
-- Use built-in, globally distributed Cosmos DB capabilities to enable low latency read-writes for highly responsive IoT applications.
+- Use built-in, globally distributed Cosmos DB capabilities to enable low latency read-write for highly responsive IoT applications.
 - Handle data from a wide variety of device vendors and data types.
 
 ## Architecture
