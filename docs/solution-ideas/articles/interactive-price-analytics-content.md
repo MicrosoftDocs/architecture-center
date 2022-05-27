@@ -2,7 +2,7 @@
 
 The Price Analytics solution utilizes your transactional history data to show you how the demand for your products responds to the prices you offer. It recommends pricing changes and allows you to simulate how changes in price would affect your demand, at a fine granularity.
 
-The solution provides a dashboard where you can see the following:
+The solution provides a dashboard where you can see:
 
 - Optimal pricing recommendations.
 - Item elasticities at an item-site-channel-segment level.
@@ -50,7 +50,7 @@ This architecture is ideal for the retail industry, providing pricing recommenda
 
 At the core of a rigorous price analysis workflow is price elasticity modeling and optimal pricing recommendations. The state-of-the-art modeling approach mitigates the two worst pitfalls of modeling price sensitivity from historical data: confounding and data sparsity.
 
-Confounding is the presence of factors other than price that affect demand. We use a "double-ML" approach that subtracts out the predictable components of price and demand variation before estimating the elasticity. This approach immunizes the estimates to most forms of confounding. The solution can also be customized by an implementation partner to use your data capturing potential external demand drivers other than price. Our [blog post](/archive/blogs/intel/building-a-pricing-engine-using-azureml-and-python) gives more detail on the data science of prices.
+Confounding is the presence of factors other than price that affects demand. We use a "double-ML" approach that subtracts out the predictable components of price and demand variation before estimating the elasticity. This approach immunizes the estimates to most forms of confounding. The solution can also be customized by an implementation partner to use your data capturing potential external demand drivers other than price. Our [blog post](/archive/blogs/intel/building-a-pricing-engine-using-azureml-and-python) gives more detail on the data science of prices.
 
 Data sparsity occurs because the optimal price varies at a fine grain: businesses can set prices by item, site, sales channel, and even customer segment. But pricing solutions often only give estimates at product category level, because the transaction history may only contain a few sales for each specific situation. Our pricing solution uses "hierarchical regularization" to produce consistent estimates in such data-poor situations: in absence of evidence, the model borrows information from other items in the same category, same items in other sites, and so on. As the amount of historical data on a given item-site-channel combination increases, its elasticity estimate will be fine-tuned more specifically.
 
@@ -75,13 +75,13 @@ Technical resources deploy the solution and connect it to a business data wareho
 
 ### Getting started
 
-Deploy the solution with the button on the right. Instructions at the end of the deployment will have important configuration information. Please leave them open.
+Deploy the solution with the button on the right. Instructions at the end of the deployment will have important configuration information. Leave them open.
 
 The solution deploys with the same example data set of orange juice prices that you find behind the Try-It-Now button on the right.
 
-While the solution is deploying, you can get a head start and do the following:
+While the solution is deploying, you can get a head start by testing and reviewing:
 
-* See what is available in the Try-It-Now dashboard.
+* The Try-It-Now dashboard.
 * Read the [User Guide](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/User%20Guide/UserGuide.md) for usage instructions from the perspective of a pricing analyst (MSFT login required).
 * Review the [Technical Deployment Guide](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/Technical%20Deployment%20Guide/TechnicalDeploymentGuide.md) for a technical implementation view (MSFT login required).
 * Download the interactive Excel worksheet.
@@ -109,7 +109,7 @@ To calculate a current estimate, use the [Azure pricing calculator](https://azur
 * App hosting plan
 * Miscellaneous ADF data activities and storage costs
 
-If you're just exploring the solution, you can delete it in a few days or hours. The costs are will stop being charged when you delete the Azure components.
+If you're just exploring the solution, you can delete it in a few days or hours. The costs will stop being charged when you delete the Azure components.
 
 ## Next steps
 

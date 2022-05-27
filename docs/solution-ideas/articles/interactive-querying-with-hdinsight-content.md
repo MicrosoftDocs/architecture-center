@@ -4,7 +4,7 @@ Perform fast, interactive SQL like queries at scale over structured or unstructu
 
 ## Potential use cases
 
-Azure HDInsight powers mission critical applications ranging in a wide variety of sectors including, manufacturing, retail education, nonprofit, government, healthcare, media, banking, telecommunication, insurance, and many more industries ranging in use cases from ETL to Data Warehousing, from Machine Learning to IoT, and more.
+Azure HDInsight powers mission critical applications ranging in a wide variety of industries. Some of those industries including, manufacturing, retail education, nonprofit, government, healthcare, media, banking, telecommunication, insurance, and many more. They range in use cases from ETL to Data Warehousing, from Machine Learning to IoT, and more.
 
 ## Architecture
 
@@ -14,7 +14,7 @@ Azure HDInsight powers mission critical applications ranging in a wide variety o
 ### Dataflow
 
 1. Move data between Azure cloud or any other non Azure cloud using Azure Data Factory
-1. Create a data landing zone using Azure Data Lake Gen2 service, which is also the primary storage account for the Azure HDInsights hadoop cluster
+1. Create a data landing zone using Azure Data Lake Gen2 service, which is also the primary storage account for the Azure HDInsight hadoop cluster
 1. Run ELT procedures using Azure Data Factory or Hive to transform incoming data in HDFS
 1. Create external tables in Hive using this data in HDFS
 1. Use Power BI to interpret this data and create new visualizations
