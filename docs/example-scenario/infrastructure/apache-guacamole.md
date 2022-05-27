@@ -50,7 +50,7 @@ Is recommend using the Bash environment in [Azure Cloud Shell](https://docs.micr
 
 ### Declaring variables
 
-```
+```bash
 # Variables
 rg=rg-guacamole
 location=eastus
