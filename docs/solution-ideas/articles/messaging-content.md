@@ -2,7 +2,7 @@
 
 ## Potential use cases
 
-This example scenario demonstrates how to use Azure Cache for Redis as a message broker to implement a publish/subscribe asynchronous messaging capability.  It's ideal for routing real-time messages and scaling up web communication frameworks such as SignalR.
+This scenario demonstrates how to use Azure Cache for Redis as a message broker to implement a publish/subscribe asynchronous messaging capability.  It's ideal for routing real-time messages and scaling up web communication frameworks such as SignalR.
 
 ## Architecture
 
