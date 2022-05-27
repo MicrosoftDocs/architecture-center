@@ -38,7 +38,7 @@ The *paradox of automation* claims that the more efficient an automated system b
 
 In the preceding diagram, the **Control** and **Optimization** categories relate to automation of work. On this side of the AI spectrum, there are practically infinite problem spaces. Subject matter expertise is a strategic asset, simulations are the most doable training option, and explainability is paramount.
 
-Orchestrators include [smart manufacturing](https://en.wikipedia.org/wiki/Smart_manufacturing) and the [Bonsai machine teaching platform](https://azure.microsoft.com/services/project-bonsai/). Use cases include advanced robotics, autonomous vehicles, dark factories, smart sensors, route optimization, inventory optimization, and virtual assistants.
+Orchestrators include [smart manufacturing](https://en.wikipedia.org/wiki/Smart_manufacturing) and the [Bonsai machine teaching platform](https://azure.microsoft.com/services/project-bonsai). Use cases include advanced robotics, autonomous vehicles, dark factories, smart sensors, route optimization, inventory optimization, and virtual assistants.
 
 ## Reinforcement learning
 
@@ -172,7 +172,7 @@ Simulation tools include:
 
 - [Simulink](https://www.mathworks.com/products/simulink.html), a graphical programming tool developed by MathWorks for modeling, simulating, and analyzing dynamic systems.
 - [Gazebo](http://gazebosim.org/), a tool to allow accurate simulation of populations of robots in complex indoor and outdoor environments.
-- [Microsoft AirSim](https://microsoft.github.io/AirSim/), an open-source robotics simulation platform.
+- [Microsoft AirSim](https://microsoft.github.io/AirSim), an open-source robotics simulation platform.
 
 ## Machine teaching paradigm
 
@@ -191,7 +191,7 @@ While ML experts are few, subject-matter experts are plentiful. Globally, there 
 
 For engineers, machine teaching raises the bar of abstraction beyond AI algorithm selection and hyper-parameter tweaking to focus on more valuable application domain problems. Engineers building autonomous systems can create accurate, detailed models of systems and environments, and make them intelligent using methods like deep learning, imitation learning, and reinforcement learning. Another welcome outcome of machine teaching is a faster time to model deployment, by reducing or eliminating the need for manual intervention from machine learning experts during development.
 
-Machine teaching streamlines the process of building ML solutions by looking at common ML practices and adopting beneficial strategies into its own methods. With instruction and configuration from the developer, [Bonsai](https://azure.microsoft.com/services/project-bonsai/), the machine teaching service in the [Microsoft Autonomous Systems Platform](https://www.microsoft.com/ai/autonomous-systems-platform), can automate the development of AI models into an AI system.
+Machine teaching streamlines the process of building ML solutions by looking at common ML practices and adopting beneficial strategies into its own methods. With instruction and configuration from the developer, [Bonsai](https://azure.microsoft.com/services/project-bonsai), the machine teaching service in the [Microsoft Autonomous Systems Platform](https://www.microsoft.com/ai/autonomous-systems-platform), can automate the development of AI models into an AI system.
 
 Bonsai provides an easily understandable central dashboard that tracks the current state of each project with version control tools. Using this machine-teaching infrastructure ensures that model results can be reproduced, and lets developers easily refresh AI systems with future AI algorithmic breakthroughs.
 
@@ -222,11 +222,11 @@ The following diagram shows a representative pipeline for building a machine lea
 ![A diagram showing a typical pipeline for building a machine learning model.](../media/machine-teaching-2-3.png)
 
 1. The problem owner collects and labels datasets, or assembles a label guideline so the labeling task can be outsourced.
-2. The problem owner reviews the labels until their quality is satisfactory.
-3. Machine-learning experts select an algorithm, model architecture, objective function, regularizers, and cross-validation sets.
-4. Engineers train the model cyclically, adjusting the features or creating new features to improve model accuracy and speed.
-5. The model is tested on a small sample. If the system doesn't do well in the test, the preceding steps are repeated.
-6. Model performance is monitored in the field. If performance falls below a critical level, the model is modified by repeating the preceding steps.
+1. The problem owner reviews the labels until their quality is satisfactory.
+1. Machine-learning experts select an algorithm, model architecture, objective function, regularizers, and cross-validation sets.
+1. Engineers train the model cyclically, adjusting the features or creating new features to improve model accuracy and speed.
+1. The model is tested on a small sample. If the system doesn't do well in the test, the preceding steps are repeated.
+1. Model performance is monitored in the field. If performance falls below a critical level, the model is modified by repeating the preceding steps.
 
 Machine teaching automates the creation of such models, easing the need for manual intervention in the learning process to improve feature selection or examples, or tweaking of hyper-parameters. In effect, machine teaching introduces a level of abstraction into the AI elements of the model, allowing the developer to focus on the domain knowledge. This abstraction also allows the AI algorithm to be replaced by new more innovative algorithms in time, without requiring a respecification of the problem.
 
@@ -237,10 +237,10 @@ The following image shows the high-level process of machine teaching:
 ![The machine teaching process at a high level.](../media/machine-teaching-2-6.png)
 
 1. The teacher first questions whether a training set is realizable.
-2. If the training set isn't realizable, the teacher determines whether the issue is due to inadequate labeling or feature deficiencies. After correcting the labeling or adding features, the teacher again assesses whether the training set is realizable.
-3. If the training set is realizable, the teacher assesses whether training quality criteria are being met.
-4. If quality criteria aren't being met, the teacher finds the test errors and adds the fixes to the training set, then repeats the assessment steps.
-5. Once the training set is realizable and quality criteria are met, the process finishes.
+1. If the training set isn't realizable, the teacher determines whether the issue is due to inadequate labeling or feature deficiencies. After correcting the labeling or adding features, the teacher again assesses whether the training set is realizable.
+1. If the training set is realizable, the teacher assesses whether training quality criteria are being met.
+1. If quality criteria aren't being met, the teacher finds the test errors and adds the fixes to the training set, then repeats the assessment steps.
+1. Once the training set is realizable and quality criteria are met, the process finishes.
 
 The process is a pair of indefinite loops, ending only when the model and the training itself are of sufficient quality.
 
@@ -292,12 +292,12 @@ The following diagram shows the phases of iterative machine teaching model devel
 ![Diagram showing the phases of iterative model development.](../media/machine-teaching-3-6.png)
 
 1. Set up initial rough simulation model for approach validation.
-2. Enhance simulation fidelity by modeling environment dynamics concurrent with iterative teaching refinements.
-3. Generalize model with dynamic randomization and expansion.
-4. Measure real system dynamics and test trained model on real equipment.
-5. Expand model to cover more equipment variation.
+1. Enhance simulation fidelity by modeling environment dynamics concurrent with iterative teaching refinements.
+1. Generalize model with dynamic randomization and expansion.
+1. Measure real system dynamics and test trained model on real equipment.
+1. Expand model to cover more equipment variation.
 
-Defining exact parameters for machine teaching projects requires quite a bit of experimentation and empirical exploration. A machine teaching platform like [Bonsai](https://azure.microsoft.com/services/project-bonsai/) in the [Microsoft Autonomous Systems platform](https://www.microsoft.com/ai/autonomous-systems-platform) uses DRL innovations and simulations to help simplify AI model development.
+Defining exact parameters for machine teaching projects requires quite a bit of experimentation and empirical exploration. A machine teaching platform like [Bonsai](https://azure.microsoft.com/services/project-bonsai) in the [Microsoft Autonomous Systems platform](https://www.microsoft.com/ai/autonomous-systems-platform) uses DRL innovations and simulations to help simplify AI model development.
 
 ### Example project
 
@@ -309,9 +309,9 @@ First, find or develop a simulator that can simulate agents, sensors, and the en
 
 ![Simulink model for steel beam manufacturing process.](../media/machine-teaching-4-4-3.png)
 
-Use the [Bonsai](/bonsai/) machine teaching service in the Microsoft Autonomous Systems Platform to build a machine teaching plan into a model, train the model against the simulator, and deploy the trained AI system to the real production facility.
+Use the [Bonsai](/bonsai) machine teaching service in the Microsoft Autonomous Systems Platform to build a machine teaching plan into a model, train the model against the simulator, and deploy the trained AI system to the real production facility.
 
-[Inkling](/bonsai/inkling/) is a purpose-specific language to formally describe machine teaching plans. In Bonsai, you can use Inkling to deconstruct the problem into schema:
+[Inkling](/bonsai/inkling) is a purpose-specific language to formally describe machine teaching plans. In Bonsai, you can use Inkling to deconstruct the problem into schema:
 
 ![Define machine state and control action in Inkling code.](../media/machine-teaching-4-4-4.png)
 
@@ -333,7 +333,7 @@ In the sample Cartpole project in Bonsai, the goal is to teach a pole to remain 
 
 Applying a force to the cart controls the system. The supported agent actions are to push the cart to the left or the right. The program provides a positive reward for every time step that the pole remains upright. The episode ends when the pole is over 15 degrees from vertical, or the cart moves more than a predefined number of units from the center.
 
-The example uses [Inkling](/bonsai/inkling/) language to write the machine teaching program, and the provided Cartpole simulator to speed and improve the training.
+The example uses [Inkling](/bonsai/inkling) language to write the machine teaching program, and the provided Cartpole simulator to speed and improve the training.
 
 ![Inkling code and Cartpole simulator](../media/cartpole.png)
 
@@ -343,8 +343,8 @@ The following Bonsai screenshot shows a Cartpole training, with **Goal satisfact
 
 For more information about the Cartpole example or to try it yourself, see:
 
-- [Quickstart: Balance a pole with AI (Cartpole)](/bonsai/quickstart/cartpole/)
-- [Learn how you can teach an AI agent to balance a pole](https://blogs.microsoft.com/ai-for-business/cartpole-demo/)
+- [Quickstart: Balance a pole with AI (Cartpole)](/bonsai/quickstart/cartpole)
+- [Learn how you can teach an AI agent to balance a pole](https://blogs.microsoft.com/ai-for-business/cartpole-demo)
 
 #### Oil drilling
 
@@ -356,18 +356,26 @@ The available sensor information includes the direction of drill bit force, weig
 
 For more information and a demo of this solution, see [Motion control: Horizontal oil drilling](https://aidemos.microsoft.com/machineteaching/motion-control).
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+**Principal author:**
+
+ * [Jose Contreras](https://www.linkedin.com/in/josedanielcontreras) | Principal Software Engineering Manager
+
 ## Next steps
 
 - [Machine teaching for autonomous systems](autonomous-systems.yml)
 - [Autonomous systems with Microsoft AI](https://www.microsoft.com/ai/autonomous-systems)
 - [Autonomy for industrial control systems](https://www.microsoft.com/ai/autonomous-systems-solutions)
-- [Machine teaching: How people's expertise makes AI even more powerful](https://blogs.microsoft.com/ai/machine-teaching/)
-- [Microsoft broadens availability of autonomous systems tools for engineers and developers](https://blogs.microsoft.com/ai-for-business/build-bonsai-public-preview/)
+- [Machine teaching: How people's expertise makes AI even more powerful](https://blogs.microsoft.com/ai/machine-teaching)
+- [Microsoft broadens availability of autonomous systems tools for engineers and developers](https://blogs.microsoft.com/ai-for-business/build-bonsai-public-preview)
 - [Innovation space: Autonomous systems (Video)](https://www.youtube.com/watch?v=3hSAFtWcui8&feature=youtu.be)
-- [Microsoft The AI Blog](https://blogs.microsoft.com/ai/)
-- [Bonsai documentation](/bonsai/)
+- [Microsoft The AI Blog](https://blogs.microsoft.com/ai)
+- [Bonsai documentation](/bonsai)
 - [Microsoft AirSim on GitHub](https://github.com/Microsoft/AirSim)
-- [Aerial Informatics and Robotics Platform (AirSim)](https://www.microsoft.com/research/project/aerial-informatics-robotics-platform/)
+- [Aerial Informatics and Robotics Platform (AirSim)](https://www.microsoft.com/research/project/aerial-informatics-robotics-platform)
 - [Gazebo](http://gazebosim.org/)
 - [Simulink](https://www.mathworks.com/products/simulink.html)
 
@@ -377,6 +385,6 @@ For more information and a demo of this solution, see [Motion control: Horizonta
 - ["AI use cases: innovations solving more than just toy problems," 2017 March 2](https://medium.com/@BonsaiAI/ai-use-cases-9d1b70e61396)
 - [Patrice Y. Simard, Saleema Amershi, David M. Chickering, et al., "Machine Teaching: A New Paradigm for Building Machine Learning Systems," 2017](https://arxiv.org/abs/1707.06742v2)
 - [Carlos E. Perez, "Deep Teaching: The Sexiest Job of the Future," 2017 July 29](https://medium.com/intuitionmachine/why-teaching-will-be-the-sexiest-job-of-the-future-a-i-economy-b8e1c2ee413e)
-- [Tambet Matiisen, "Demystifying deep reinforcement learning," 2015 December 19](https://neuro.cs.ut.ee/demystifying-deep-reinforcement-learning/)
-- [Andrej Karpathy, "Deep Reinforcement Learning: Pong from Pixels," 2016 May 31](http://karpathy.github.io/2016/05/31/rl/)
+- [Tambet Matiisen, "Demystifying deep reinforcement learning," 2015 December 19](https://neuro.cs.ut.ee/demystifying-deep-reinforcement-learning)
+- [Andrej Karpathy, "Deep Reinforcement Learning: Pong from Pixels," 2016 May 31](http://karpathy.github.io/2016/05/31/rl)
 - [David Kestenbaum, "Pop Quiz: How Do You Stop Sea Captains From Killing Their Passengers?" 2010 September 10](https://www.npr.org/sections/money/2010/09/09/129757852/pop-quiz-how-do-you-stop-sea-captains-from-killing-their-passengers?t=1556642213216)

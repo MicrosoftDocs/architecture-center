@@ -10,16 +10,16 @@ Out-of-box or custom connectors can help simplify process automation and connect
 
 ![Architecture Diagram](../media/lob.png)
 
-### Data flow
+### Dataflow
 
 The data flows through the solution as follows:
 
 1. Supplier data stored in CDS is moved to SQL via Data Factory.
-2. Purchase order (PO) data stored in ERP system is sent to Azure SQL database.
-3. Azure Functions uses API to surface PO data monthly and creates a task for user to review.
-4. Power Apps retrieves data from Azure SQL Database through API.
-5. User reviews and updates POs in Power Apps and sends this data to suppliers through CSV export.
-6. Power BI reports trends in supplier status.
+1. Purchase order (PO) data stored in ERP system is sent to Azure SQL database.
+1. Azure Functions uses API to surface PO data monthly and creates a task for user to review.
+1. Power Apps retrieves data from Azure SQL Database through API.
+1. User reviews and updates POs in Power Apps and sends this data to suppliers through CSV export.
+1. Power BI reports trends in supplier status.
 
 ### Components
 
