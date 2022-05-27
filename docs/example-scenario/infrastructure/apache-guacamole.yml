@@ -10,7 +10,7 @@ metadata:
   ms.service: architecture-center
   ms.subservice: example-scenario
 azureCategories:
-  - Compute
+  - compute
 products:
   - azure
   - azure-virtual-machines
