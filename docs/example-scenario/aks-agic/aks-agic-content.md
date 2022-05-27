@@ -297,7 +297,7 @@ Although the monitoring considerations are not fully pertaining to multitenancy 
 - Use [Container insights](/azure/azure-monitor/containers/container-insights-overview) to monitor the health status of the AKS cluster and workloads.
 - Configure all the PaaS services (such as Azure Container Registry and Key Vault) to collect diagnostics logs and metrics, to [Azure Monitor Log Analytics](/azure/azure-monitor/logs/log-analytics-overview).
 
-### Cost optimizatoin
+### Cost optimization
 
 The cost of this architecture depends on configuration aspects, like the following:
 
