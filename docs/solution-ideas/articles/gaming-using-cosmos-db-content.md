@@ -4,7 +4,7 @@ This gaming solution idea elastically scales your database to accommodate unpred
 
 ## Potential use cases
 
-This specific scenario is based on a gaming scenario. The design patterns are relevant for many industries that are required to process high-traffic web calls and API requests, such as e-commerce and retail applications.
+This specific scenario is based on a gaming scenario, for the game development industry. The design patterns are relevant for many industries that are required to process high-traffic web calls and API requests, such as e-commerce and retail applications.
 
 ## Architecture
 
@@ -12,6 +12,7 @@ This specific scenario is based on a gaming scenario. The design patterns are re
 *Download an [SVG](../media/gaming-using-cosmos-db.svg) of this architecture.*
 
 ### Dataflow
+
 1. [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview) routes a user's game traffic to the apps hosted in [Azure App Service](/azure/app-service-web/app-service-web-overview), Functions, or Containers, and to APIs that are published via Azure API Gateway.
 1. [Azure CDN](/azure/cdn/cdn-overview) serves static images and game content to the user that are stored in [Azure Blob Storage](/azure/storage/blobs/storage-blobs-overview).
 1. [Azure Cosmos DB](/azure/cosmos-db/introduction) stores user's game state data.
