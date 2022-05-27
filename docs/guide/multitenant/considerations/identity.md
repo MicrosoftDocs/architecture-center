@@ -22,7 +22,7 @@ ms.custom:
 
 # Architectural considerations for identity in a multitenant solution
 
-Identity is an important aspect of any multitenant solution. The identity components of your application are responsible for verifying who a user is (*authentication*) and enforcing the permissions that are granted to the user within the scope of a tenant (*authorization*). You might also need to provide authentication and authorization to external services as well. A user's identity determines what information a user or service will get access to it. It is important that you consider your identity requirements to isolate your application and data between tenants.
+Identity is an important aspect of any multitenant solution. The identity components of your application are responsible for verifying who a user is (*authentication*) and enforcing the permissions that are granted to the user within the scope of a tenant (*authorization*). Your customers might also wish authorize external applications to access their data or integrate to your solution. A user's identity determines what information a user or service will get access to it. It is important that you consider your identity requirements to isolate your application and data between tenants.
 
 Before defining a multitenant identity strategy, you should first consider the high-level identity requirements of your service, including:
 
