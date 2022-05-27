@@ -19,14 +19,14 @@ The architecture may be appropriate for any application that uses massive amount
 ## Dataflow
 
 1. The client authenticates with Azure Active Directory (Azure AD) and is granted access to web applications hosted on Azure App Service.
-1. Azure Front Door, a firewall and layer 7 load balancer, switches user traffic to the standby region in case of a regional outage.
+1. Azure Front Door, a firewall and layer 7 load balancer, switches user traffic to the standby region if there is a regional outage.
 1. Azure App Service hosts websites and RESTful web APIs. Browser clients run AJAX applications that use the APIs.
 1. Web APIs delegate function apps to handle background tasks. The tasks are queued in Azure Queue Storage queues.
 1. The function apps hosted by Azure Functions perform the background tasks, triggered by the queued messages.
 1. Azure Cache for Redis caches database data for the function apps. This offloads database activity and speeds up the function apps and web apps.
 1. Azure Cosmos DB holds recently generated data.
 1. Azure Cosmos DB issues a change feed that can be used to replicate changes.
-1. A function app reads the change feed and replicate the changes to Table Storage tables. Another function app periodically removes expired data from Azure Cosmos DB.
+1. A function app reads the change feed and replicates the changes to Table Storage tables. Another function app periodically removes expired data from Azure Cosmos DB.
 1. Table Storage provides low-cost storage.
 
 ### Components

@@ -36,7 +36,7 @@ Many scenarios can benefit from TmaxSoft OpenFrame lift and shift. Possibilities
 1. The TmaxSoft solution uses two VMs. Each one runs an application server, and an Azure Load Balancer manages approaching traffic. OpenFrame supports both [active-active][Active-active definition] and [active-passive][Active-passive definition] configurations.
 1. [OpenFrame language compilers][Tmax OpenFrame documentation] migrate COBOL, Assembler, PL/I, Easytrieve, and other mainframe applications to Azure by recompiling the source.
 1. [OpenFrame Online][Tmax OpenFrame documentation] provides tools and commands that replace CICS, IMS-DC, Application Development and Maintenance (ADM), and Application Infrastructure and Middleware (AIM) technologies.
-1. [OpenFrame Batch][Tmax OpenFrame documentation] provides tools for managing batch programs that replace the job entry subsystem (JES). By supporting native Job Control Language (JCL) syntax and batch utilities, OpenFrame Batch minimizes code updates.
+1. [OpenFrame Batch][Tmax OpenFrame documentation] provides tools for managing batch programs that replace the job entry subsystem (JES). OpenFrame Batch minimizes code updates by supporting native Job Control Language (JCL) syntax and batch utilities.
 1. Tmax Access Control Facility (TACF) Security provides authentication and authorization features in OpenFrame by extracting and migrating mainframe security rules.
 1. [UnixODBC (Open Database Connectivity)][UnixODBC] connection drivers communicate with relational database management systems (RDBMSs). Examples include Azure SQL Database, Microsoft SQL Server, Oracle, Db2 LUW, Tibero, Postgres, and MySQL.
 1. Azure File Share is mounted on the Linux server VMs. As a result, COBOL programs have easy access to the Azure Files repository for file processing. Load modules and various log files also use Azure File Share.
@@ -45,7 +45,7 @@ Many scenarios can benefit from TmaxSoft OpenFrame lift and shift. Possibilities
 
 ### Components
 
-- [Azure ExpressRoute][Azure ExpressRoute] extends on-premises networks into the Microsoft cloud. By using a connectivity provider, ExpressRoute establishes private connections to Microsoft cloud services like [Microsoft Azure][What is Azure] and [Microsoft 365][What is Microsoft 365].
+- [Azure ExpressRoute][Azure ExpressRoute] extends on-premises networks into the Microsoft cloud by using a connectivity provider. ExpressRoute establishes private connections to Microsoft cloud services like [Microsoft Azure][What is Azure] and [Microsoft 365][What is Microsoft 365].
 
 - [Azure VM Bastion][What is Azure Bastion] provides secure and seamless [Remote Desktop Protocol (RDP)][RDP] and [Secure Shell (SSH)][SSH] connectivity to VMs in a network. Instead of using a public IP address, users connect to the VMs directly from the Azure portal.
 
