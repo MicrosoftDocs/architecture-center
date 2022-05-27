@@ -2,6 +2,16 @@
 
 Azure is a world-class cloud for hosting virtual machines running Windows or Linux. Whether you use Java, Node.js, Go, or PHP to develop your applications, you'll need a continuous integration and continuous deployment (CI/CD) pipeline to push changes to these virtual machines automatically.
 
+## Potential use cases
+
+Organizations utilize this solution for some of the benefits that include:
+
+- Changes in the application start with a software push to the Git code repository instead of logging into the server via SSH.
+- Simplified and reliable deployments.
+- Fault tolerance.
+- Resolve issues faster.
+- It takes the most advantage of the cloud, hence it is legitimate DevOps functions.
+
 ## Architecture
 
 ![Architecture diagram](../media/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview.png)

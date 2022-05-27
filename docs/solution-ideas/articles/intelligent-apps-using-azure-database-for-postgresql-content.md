@@ -53,7 +53,7 @@ Additionally, you can automate your Azure Machine Learning lifecycle by using [A
 
 ## Pricing
 
-Azure Cognitive Services Text Analytics API pricing is determined by the instance selected and the number of transactions per month. For further details, explore the [pricing calculator for Text Analytics here](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
+Azure Cognitive Services Text Analytics API pricing is determined by the instance selected and the number of transactions per month. For further details, explore the [pricing calculator for Text Analytics here](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics).
 
 ## Next steps
 
@@ -68,5 +68,5 @@ Azure Cognitive Services Text Analytics API pricing is determined by the instanc
 
 ## Related resources
 
-* Follow along with this Learn Module and apply the [Text Analytics API](/learn/modules/classify-user-feedback-with-the-text-analytics-api/)
-* Expand your Azure Cognitive Services knowledge and [become a Microsoft Certified Azure AI Engineer](/learn/certifications/azure-ai-engineer/)
+* Follow along with this Learn Module and apply the [Text Analytics API](/learn/modules/classify-user-feedback-with-the-text-analytics-api)
+* Expand your Azure Cognitive Services knowledge and [become a Microsoft Certified Azure AI Engineer](/learn/certifications/azure-ai-engineer)

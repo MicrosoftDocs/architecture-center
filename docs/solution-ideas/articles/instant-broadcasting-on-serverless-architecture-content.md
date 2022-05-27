@@ -2,6 +2,15 @@
 
 Simplify one-to-many real-time communication and updates using serverless code.
 
+## Potential use cases
+
+Common applications of serverless architecture include:
+
+- Event-triggered computing
+- Elastic resizing for live video broadcast
+- IoT data processing
+- Shared delivery dispatch system
+
 ## Architecture
 
 ![Architecture Diagram](../media/instant-broadcasting-on-serverless-architecture.png)
@@ -23,6 +32,14 @@ Simplify one-to-many real-time communication and updates using serverless code.
 - [Azure Functions](https://azure.microsoft.com/services/functions) is a serverless compute option. It uses an event-driven model, where a piece of code (a *function*) is invoked by a trigger.
 - [Azure SignalR Service](https://azure.microsoft.com/services/signalr-service) provides asynchronous communication between the client and the server. It supports any scenario that requires pushing data from server to client in real time.
 - [Azure SQL Database](https://azure.microsoft.com/services/sql-database) is a fully managed relational database with built-in intelligence.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Yee Shian Lee](https://www.linkedin.com/in/yeeshian) | Senior Cloud Architect
 
 ## Next steps
 
