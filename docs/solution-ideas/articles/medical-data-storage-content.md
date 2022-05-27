@@ -2,12 +2,16 @@
 
 Cloud and hybrid solutions from Microsoft help you manage medical data storage efficiently and cost effectively, while infusing intelligence and maintaining compliance.
 
+## Potential use cases
+
+This solution primarily for medical and medical insurance industries.
+
 ## Architecture
 
 ![Architecture diagram](../media/medical-data-storage.png)
 *Download an [SVG](../media/medical-data-storage.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
 1. Securely ingest medical image data using Azure Data Factory.
 1. Securely store medical image data in Azure Data Lake Store and/or Azure Blob Storage.
