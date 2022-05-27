@@ -4,7 +4,7 @@ The need to keep application components on-premises doesn't have to be a barrier
 
 ## Potential use cases
 
-This solution enables teams to manage identity for users as well as applications in a way that is consistent across clouds.
+This solution enables teams to manage identity for users and applications in a way that is consistent across clouds.
 
 ## Architecture
 

@@ -4,7 +4,7 @@ This architecture uses Azure Relay Hybrid Connections to connect from Azure to e
 
 ## Potential use cases
 
-Edge devices are often behind a corporate firewall or NAT device. They are unable to communicate with the public cloud or edge devices on other corporate networks. You might need to expose certain ports and functionality, in a secure manner, to users in the public cloud. This architecture uses Azure Relay to establish a WebSockets tunnel between two endpoints that can't directly communicate. Devices that aren't on-premises, but need to connect to an on-premises endpoint, will connect to an endpoint in the public cloud. This endpoint will redirect the traffic on predefined routes over a secure channel. An endpoint inside the on-premises environment receives the traffic and routes it to the correct destination.
+Edge devices are often behind a corporate firewall or NAT device. They're unable to communicate with the public cloud or edge devices on other corporate networks. You might need to expose certain ports and functionality, in a secure manner, to users in the public cloud. This architecture uses Azure Relay to establish a WebSockets tunnel between two endpoints that can't directly communicate. Devices that aren't on-premises, but need to connect to an on-premises endpoint, will connect to an endpoint in the public cloud. This endpoint will redirect the traffic on predefined routes over a secure channel. An endpoint inside the on-premises environment receives the traffic and routes it to the correct destination.
 
 ## Architecture
 
@@ -41,7 +41,7 @@ Azure Relay connections aren't redundant. To ensure high-availability, you must 
 
 ### Security
 
-This pattern, as shown, allows for unfettered access to a port on an internal device from the edge. Consider adding an authentication mechanism to the service on the internal device, or in front of the hybrid relay endpoint. See [Azure Relay authentication and authorization](/azure/azure-relay/relay-authentication-and-authorization) and [Network security for Azure Relay](/azure/azure-relay/network-security) for additional network security guidance.
+This pattern, as shown, allows for unfettered access to a port on an internal device from the edge. Consider adding an authentication mechanism to the service on the internal device, or in front of the hybrid relay endpoint. See [Azure Relay authentication and authorization](/azure/azure-relay/relay-authentication-and-authorization) and [Network security for Azure Relay](/azure/azure-relay/network-security) for more network security guidance.
 
 ### Operational excellence
 

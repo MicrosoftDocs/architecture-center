@@ -1,10 +1,12 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution outlines an AI-based footfall detection architecture for analyzing visitor traffic in retail stores. The solution generates insights from real world actions, by using Azure, Azure Stack Hub, and the Custom Vision AI Dev Kit.
+Gain insights on how customers receive their current products, in relation to store layout. 
 
 ## Potential use cases
 
-Gain insights on how customers receive their current products, in relation to store layout. With this scenario, you don't have to place staff in every section, and you don't need a team of analysts to review all of a store's camera footage. The solution also doesn't require stores to have enough bandwidth to stream video from all their cameras, to the cloud for analysis. The solution provides an unobtrusive, privacy-friendly way to determine customer demographics, loyalty, and reactions to store displays and products.
+This solution outlines an AI-based footfall detection architecture for analyzing visitor traffic in retail stores. The solution generates insights from real world actions, by using Azure, Azure Stack Hub, and the Custom Vision AI Dev Kit.
+
+With this scenario, you don't have to place staff in every section, and you don't need a team of analysts to review all of a store's camera footage. The solution also doesn't require stores to have enough bandwidth to stream video from all their cameras, to the cloud for analysis. The solution provides an unobtrusive, privacy-friendly way to determine customer demographics, loyalty, and reactions to store displays and products.
 
 ## Architecture
 
@@ -26,12 +28,12 @@ _Download a [Visio file](https://arch-center.azureedge.net/hybrid-footfall-detec
 
 #### In-store hardware
 
-* [Custom Vision AI Dev Kit](https://azure.github.io/Vision-AI-DevKit-Pages) provides in-store filtering, by using a local ML model that only captures images of people for analysis. It is securely provisioned and updated through IoT Hub.
+* [Custom Vision AI Dev Kit](https://azure.github.io/Vision-AI-DevKit-Pages) provides in-store filtering, by using a local ML model that only captures images of people for analysis. It's securely provisioned and updated through IoT Hub.
 
 #### Azure
 
 * [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs) is a fully managed, real-time data ingestion service that's simple, trusted, and scalable. Stream millions of events per second, from any source, to build dynamic data pipelines and to immediately respond to business challenges.
-* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics) is an easy-to-use, real-time analytics service that is designed for mission-critical workloads. Go from zero to production in minutes. It is SQL—easily extensible, with custom code and built-in machine-learning capabilities, for more advanced scenarios.
+* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics) is an easy-to-use, real-time analytics service that is designed for mission-critical workloads. Go from zero to production in minutes. It's SQL—easily extensible, with custom code and built-in machine-learning capabilities, for more advanced scenarios.
 * [Microsoft Power BI](https://powerbi.microsoft.com) is a suite of business analytics tools that deliver insights throughout your organization. Connect to hundreds of data sources, simplify data prep, and drive improvised analysis. Produce beautiful reports, and then publish them for your organization, to consume on the web and across mobile devices.
 
 #### Azure Stack Hub
@@ -57,7 +59,7 @@ Depending on your business needs, you might want to implement a mechanism to cac
 
 ### Security
 
-This solution captures customer images, which makes security a paramount consideration. Refer to the WAF [Data protection](/azure/architecture/framework/security/design-storage) guidance to secure the storage accounts, including configuring proper access policies and rotating keys regularly. Ensure storage accounts and Event Hubs have retention policies that meet your corporate and government privacy regulations.
+This solution captures customer images, which make security a paramount consideration. Refer to the WAF [Data protection](/azure/architecture/framework/security/design-storage) guidance to secure the storage accounts, including configuring proper access policies and rotating keys regularly. Ensure storage accounts and Event Hubs have retention policies that meet your corporate and government privacy regulations.
 
 Provide security through [identity and access management](/azure/architecture/framework/security/design-identity), making sure to tier the user access levels. Tiering ensures that users only have access to the data that they need for their roles.
 
@@ -91,6 +93,6 @@ See the following articles, to learn more about the topics introduced in this ar
 
 ## Related resources
 
-* See the [Analytics end-to-end with Azure Synapse](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end) architecture for a more comprehensive scenario that illustrates additional mechanisms to enrich and serve data.
+* See the [Analytics end-to-end with Azure Synapse](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end) architecture for a more comprehensive scenario that illustrates other mechanisms to enrich and serve data.
 * [AI at the edge with Azure Stack Hub](./ai-at-the-edge.yml)
 * [Deploy AI and ML computing on-premises and to the edge](../../hybrid/deploy-ai-ml-azure-stack-edge.yml)

@@ -18,7 +18,7 @@ The links below provide documentation on deploying and managing the Azure produc
 
 ### Dataflow
 
-1. Log into an on-premises head node.
+1. Log in to an on-premises head node.
 1. Add Azure compute nodes to the cluster.
 1. Start the compute nodes.
 1. Submit jobs to the cluster.
