@@ -4,8 +4,8 @@ Guarantee access to users around the world with the high-availability and low-la
 
 This solution is ideal for the media and entertainment industry and the travel and hospitality industry. It's best for organizations that need to have services offered in an area or region. Some scenarios that utilize globally distributed applications include:
 
-- Streaming video services (Netflix, Youtube, HBO, etc.)
-- Pickup and delivery services (Uber and Uber Eats, Lyft, Instacart, Doordash, etc.)
+- Streaming video services (Netflix, Youtube, HBO, and so on)
+- Pickup and delivery services (Uber and Uber Eats, Lyft, Instacart, Doordash, and so on)
 
 ## Architecture
 
