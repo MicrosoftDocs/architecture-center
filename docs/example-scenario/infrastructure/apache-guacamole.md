@@ -479,7 +479,7 @@ az network lb rule create \
 
 Now you can access through ```https://<yourdomainname.com>``` 
 
-![ssltest.png](images/ssltest.png)
+![Apache Guacamole SSL login screen](media/apache-guacamole-ssltest.png)
 
 ### Plus!
 
