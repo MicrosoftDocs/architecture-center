@@ -27,6 +27,7 @@ The environment to be built will leverage the usage of Azure Database for MySQL 
 
 [![Diagram of the reference architecture Apache Guacamole on Azure](media/azure-architecture-guacamole.png)](media/azure-architecture-guacamole.png#lightbox)
 
+Download a Visio file of this architecture
 
 ### Dataflow
 
