@@ -48,9 +48,7 @@ Customers who doesn't need this high level of control using their own solution c
 
 Is recommend using the Bash environment in [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/quickstart). If you prefer to run on your own Windows, Linux, or macOS, [install](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) the Azure CLI to run referenced commands.
 
-### Setup
-
-#### Declaring variables
+### Declaring variables
 
 ```
 # Variables
@@ -69,12 +67,12 @@ pipdnsname=loadbalancerguacamole
 lbname=lbguacamole
 ```
 
-#### Resource  group creation
+### Resource  group creation
 ```
 az group create --name $rg --location $location
 ```
 
-#### MySQL Creation
+### MySQL Creation
 ```
 az mysql server create \
 --resource-group $rg \
@@ -87,7 +85,7 @@ az mysql server create \
 --ssl-enforcement Disabled
 ```
 
-#### MySQL Firewall Settings
+### MySQL Firewall Settings
 
 ```
 az mysql server firewall-rule create \
@@ -98,7 +96,7 @@ az mysql server firewall-rule create \
 --end-ip-address 255.255.255.255
 ```
 
-#### VNET creation
+### VNET creation
 ```
 az network vnet create \
 --resource-group $rg \
@@ -108,7 +106,7 @@ az network vnet create \
 --subnet-prefix 10.0.1.0/24
 ```
 
-#### Availability set creation
+### Availability set creation
 ```
 az vm availability-set create \
 --resource-group $rg \
@@ -117,7 +115,7 @@ az vm availability-set create \
 --platform-update-domain-count 3
 ```
 
-#### VMs Creation
+### VMs Creation
 ```
 for i in `seq 1 2`; do
 az vm create --resource-group $rg \
@@ -138,7 +136,7 @@ After executing these commands, two virtual machines will be created inside the 
 
 It is important to note that the SSH keys will be stored in the ~/.ssh directory of the host where the commands were executed (Azure Cloud Shell in this case). As the VMs are being created without a public ip address, we will be creating INAT rules a few steps ahead to be able to connect to the VMs through the Azure Load Balancer.
 
-#### Setting NSG rules
+### Setting NSG rules
 ```
 az network nsg rule create \
 --resource-group $rg \
@@ -154,7 +152,7 @@ az network nsg rule create \
 --destination-port-range 80
 ```
 
-#### Generating the Guacamole setup script locally on the VMs
+### Generating the Guacamole setup script locally on the VMs
 ```
 for i in `seq 1 2`; do
 az vm run-command invoke -g $rg -n Guacamole-VM$i  \
@@ -163,7 +161,7 @@ az vm run-command invoke -g $rg -n Guacamole-VM$i  \
 done
 ```
 
-#### Adjusting database credentials to match the variables 
+### Adjusting database credentials to match the variables 
 ```
 for i in `seq 1 2`; do
 az vm run-command invoke -g $rg -n Guacamole-VM$i  \
@@ -174,7 +172,7 @@ az vm run-command invoke -g $rg -n Guacamole-VM$i  \
 done
 ```
 
-#### Executing the Guacamole setup script
+### Executing the Guacamole setup script
 ```
 for i in `seq 1 2`; do
 az vm run-command invoke -g $rg -n Guacamole-VM$i \
@@ -183,7 +181,7 @@ az vm run-command invoke -g $rg -n Guacamole-VM$i \
 done
 ```
 
-#### Installing Nginx to be used as Proxy for Tomcat
+### Installing Nginx to be used as Proxy for Tomcat
 ```
 for i in `seq 1 2`; do
 az vm run-command invoke -g $rg -n Guacamole-VM$i \
@@ -192,7 +190,7 @@ done
 ```
 _Here are more information about Proxying Guacamole: [https://guacamole.apache.org/doc/gug/reverse-proxy.html](https://guacamole.apache.org/doc/gug/reverse-proxy.html)_
 
-#### Configuring NGINX
+### Configuring NGINX
 ```
 for i in `seq 1 2`; do
 az vm run-command invoke -g $rg -n Guacamole-VM$i \
@@ -219,7 +217,7 @@ EOT"
 done
 ```
 
-#### Restart NGINX
+### Restart NGINX
 ```
 for i in `seq 1 2`; do
 az vm run-command invoke -g $rg -n Guacamole-VM$i \
@@ -228,7 +226,7 @@ az vm run-command invoke -g $rg -n Guacamole-VM$i \
 done
 ```
 
-#### Restart Tomcat
+### Restart Tomcat
 ```
 for i in `seq 1 2`; do
 az vm run-command invoke -g $rg -n Guacamole-VM$i \
@@ -237,7 +235,7 @@ az vm run-command invoke -g $rg -n Guacamole-VM$i \
 done
 ```
 
-#### Change to call guacamole directly at "/" instead of "/guacamole" 
+### Change to call guacamole directly at "/" instead of "/guacamole" 
 ```
 for i in `seq 1 2`; do
 az vm run-command invoke -g $rg -n Guacamole-VM$i \
@@ -246,7 +244,7 @@ az vm run-command invoke -g $rg -n Guacamole-VM$i \
 done
 ```
 
-#### Creation of Public IP for the Azure Load Balancer
+### Creation of Public IP for the Azure Load Balancer
 ```
 az network public-ip create -g $rg -n $lbguacamolepip -l $location \
 --dns-name $pipdnsname \
@@ -255,7 +253,7 @@ az network public-ip create -g $rg -n $lbguacamolepip -l $location \
 --sku Standard
 ```
 
-#### Creation of Azure Load Balancer
+### Creation of Azure Load Balancer
 ```
 az network lb create -g $rg \
 --name $lbname -l $location \
@@ -265,7 +263,7 @@ az network lb create -g $rg \
 --sku Standard
 ```
 
-#### Creation of the healthprobe
+### Creation of the healthprobe
 ```
 az network lb probe create \
 --resource-group $rg \
@@ -277,7 +275,7 @@ az network lb probe create \
 --interval 15 
 ```
 
-#### Creation of the load balancing rule
+### Creation of the load balancing rule
 ```
 az network lb rule create \
 --resource-group $rg \
@@ -292,8 +290,7 @@ az network lb rule create \
 --load-distribution SourceIPProtocol
 ```
 
-#### Adding the VMs to the Load Balancer
-##### Adding the VM1 to the Load Balancer
+#### Adding the VM1 to the Load Balancer
 ```
 az network nic ip-config update \
 --name ipconfigGuacamole-VM1 \
@@ -302,7 +299,7 @@ az network nic ip-config update \
 --lb-address-pools backendpool \
 --lb-name $lbname 
 ```
-##### Adding the VM2 to the Load Balancer
+#### Adding the VM2 to the Load Balancer
 ```
 az network nic ip-config update \
 --name ipconfigGuacamole-VM2 \
@@ -311,7 +308,7 @@ az network nic ip-config update \
 --lb-address-pools backendpool \
 --lb-name $lbname 
 ```
-#### Creating the INAT rules
+### Creating the INAT rules
 
 The INAT rules will allow connections made directly to the load balancer's address to be routed to servers under it according to the chosen port.
 
