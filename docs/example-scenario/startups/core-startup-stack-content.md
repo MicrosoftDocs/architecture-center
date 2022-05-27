@@ -14,6 +14,8 @@ While the app is ambitious, it doesn't yet need a complex, microservice-driven a
 
 *Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/Startup%20Stack%20Architecture.vsdx) of this architecture.*
 
+### Workflow
+
 In this core startup stack architecture:
 
 - [Azure App Service](/azure/app-service/overview) provides a simple app server to deploy scalable applications without configuring servers, load balancers, or other infrastructure.
@@ -58,7 +60,7 @@ If something goes wrong with your app, you want to spend as little time as possi
 
 The lack of repeatable and rapid deployments is one of the worst impediments to speed when you're iterating on a product. A well-configured CI/CD pipeline streamlines the code deployment process on your app server. Quick and easy deployments mean that you see the results of your labor quickly. Frequent integration avoids divergent code bases that lead to merge conflicts.
 
-## Deploy this architecture
+## Deploy this scenario
 
 You can see a sample core startup stack implementation [on GitHub](https://github.com/Azure-Samples/core-startup-stack-rails). The sample uses a Ruby on Rails app. The concepts and techniques are the same for most projects you build by using a [Dockerfile](https://docs.docker.com/engine/reference/builder).
 
