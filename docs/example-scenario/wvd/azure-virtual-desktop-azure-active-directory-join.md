@@ -4,7 +4,7 @@ description: Learn how to configure Azure AD domain join for Azure Virtual Deskt
 author: TomHickling
 ms.author: thhickli
 ms.date: 5/27/2022
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: architecture-center
 ms.subservice: azure-guide
 ms.category:
