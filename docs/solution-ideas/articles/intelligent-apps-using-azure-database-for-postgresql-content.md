@@ -47,7 +47,7 @@ All data in PostgreSQL is automatically [encrypted](/azure/postgresql/concepts-d
 
 ### DevOps
 
-You can configure GitHub Actions to connect to your Azure PostgreSQL database by using its connection string and setting up a workflow. For further information on how to do so, see [Quickstart: Use GitHub Actions to connect to Azure PostgreSQL](/azure/postgresql/how-to-deploy-github-action).
+You can configure GitHub Actions to connect to your Azure PostgreSQL database by using its connection string and setting up a workflow. For more information, see [Quickstart: Use GitHub Actions to connect to Azure PostgreSQL](/azure/postgresql/how-to-deploy-github-action).
 
 Additionally, you can automate your Azure Machine Learning lifecycle by using [Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning). The [MLOps with Azure ML GitHub repo](https://github.com/Microsoft/MLOpsPython) demonstrates how to operationalize an MLOps workflow and build out a CI/CD pipeline for your project.
 

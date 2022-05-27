@@ -41,7 +41,7 @@ The data flows through the solution as follows:
 
 ### Alternatives
 
-- The use of Azure Functions to process data as it is received is just one approach for how data could be processed. For scenarios where a large amount of data already exists in the data source, then other forms of batch processing should be considered.
+- The use of Azure Functions to process data as it is received shows one approach for how data could be processed. For scenarios where a large amount of data already exists in the data source, then other forms of batch processing should be considered.
 - [Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction) provides event-processing for high volumes of fast streaming data from multiple sources simultaneously and includes integration options with Power BI.
 - For comparisons of other alternatives, see:
 

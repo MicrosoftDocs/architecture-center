@@ -22,7 +22,7 @@ Common applications of serverless architecture include:
 1. The web app receives a SignalR token and endpoint.
 1. The user connects to the web app.
 1. The connection triggers a database event via Azure Functions
-1. Functions pushes data to Azure SignalR Service.
+1. Functions push data to Azure SignalR Service.
 1. In turn, SignalR Service pushes the data to the client.
 
 ### Components
