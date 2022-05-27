@@ -2,7 +2,7 @@ Guarantee access to users around the world with the high-availability and low-la
 
 ## Potential use cases
 
-This solution is best for those organizations that need to have services offered in an area or region. Some industries that utilize globally distributed applications include:
+This solution is ideal for the media and entertainment industry and the travel and hospitality industry. It's best for organizations that need to have services offered in an area or region. Some scenarios that utilize globally distributed applications include:
 
 - Streaming video services (Netflix, Youtube, HBO, etc.)
 - Pickup and delivery services (Uber and Uber Eats, Lyft, Instacart, Doordash, etc.)
@@ -113,6 +113,7 @@ Related full architectures:
 * [Scalable order processing](../../example-scenario/data/ecommerce-order-processing.yml)
 
 Related architecture guidance:
+
 * [Deploying multi-region APIs that write to Cosmos DB](../../patterns/geodes.yml)
 * [Choosing an analytical data store in Azure](../../data-guide/technology-choices/analytical-data-stores.md)
 * [Choosing a big data storage technology in Azure](../../data-guide/technology-choices/data-storage.md)
