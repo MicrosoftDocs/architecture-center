@@ -76,6 +76,7 @@ It's common for multitenant solutions to allow a single user or service identity
 - How does a user switch between tenants?
 - If you use service identities, how does a service identity specify the tenant it needs to access?
 - Is there tenant specific information stored in the user identity record that could leak information between tenants? For example, suppose a user signed up with a social identity and was then granted access to two tenants. Tenant A enriched the user's identity with additional information. Should tenant B have access to the enriched information?
+- How do users get mapped to a tenant? For example, the domain name of the user's sign-up e-mail address or an attribute of the user's identity record are common methods of mapping a user to a tenant.
 
 ## User sign-up process for local identities or social identities
 
