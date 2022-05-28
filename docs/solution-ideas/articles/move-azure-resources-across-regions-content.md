@@ -15,6 +15,8 @@ Some of the top reasons for moving resources to a different region include the f
 
 ![Diagram architecture configuration.](../media/move-azure-resources-architecture-diagram.png)
 
+## Dataflow
+
 - **On-premises data center network**: A private local-area network running within an organization to support the on-premises resources.
 - **ExpressRoute circuit**: ExpressRoute connections use a private, dedicated connection through a third-party connectivity provider. The private connection extends an on-premises network into Azure.
 - **Local edge routers**: Routers that connect the on-premises network to the circuit managed by the third-party provider. Depending on how you've provisioned your connection, you may need to provide the public IP addresses that the routers use.
@@ -35,14 +37,14 @@ Some of the top reasons for moving resources to a different region include the f
 
 The example architecture uses the following components:
 
-* [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/)
-* [Azure VPN Gateway](https://azure.microsoft.com/services/vpn-gateway/)
-* [Azure Active Directory Domain Services](https://azure.microsoft.com/services/active-directory-ds/)
-* [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)
-* [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
-* [Azure App Service](https://azure.microsoft.com/services/app-service/)
-* [Cognitive services](https://azure.microsoft.com/services/cognitive-services/)
-* [Azure Automation](https://azure.microsoft.com/services/automation/)
+* [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute)
+* [Azure VPN Gateway](https://azure.microsoft.com/services/vpn-gateway)
+* [Azure Active Directory Domain Services](https://azure.microsoft.com/services/active-directory-ds)
+* [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub)
+* [Azure Key Vault](https://azure.microsoft.com/services/key-vault)
+* [Azure App Service](https://azure.microsoft.com/services/app-service)
+* [Cognitive services](https://azure.microsoft.com/services/cognitive-services)
+* [Azure Automation](https://azure.microsoft.com/services/automation)
 
 ## Steps to move resources across regions
 
@@ -52,13 +54,13 @@ Since your requirements might differ from the example architecture, use the foll
 
    * Planned downtime: Plan the region move as a maintenance activity with scheduled downtime to minimize customer impact.
 
-   * Azure subscription limits and quota: Ensure that your subscription has enough resources to support the specific resource type. For example, ensure the target region supports virtual machines with sizes that match the virtual machines in your source region. Contact [support](https://azure.microsoft.com/support/options/) to enable the required quota if needed. To learn more, see [Azure subscription and service limits, quotas, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits).
+   * Azure subscription limits and quota: Ensure that your subscription has enough resources to support the specific resource type. For example, ensure the target region supports virtual machines with sizes that match the virtual machines in your source region. Contact [support](https://azure.microsoft.com/support/options) to enable the required quota if needed. To learn more, see [Azure subscription and service limits, quotas, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
    * Account permissions: If you created a free Azure account, you're the administrator of your subscription. If you're not the subscription administrator, work with the administrator to assign the permissions that you need to move the resources. Verify that your Azure subscription allows you to create the necessary resource in the target region.
 
-   * Resource identification: Identify and categorize your resources based on the type of resource needed to export an [Azure Resource Manager (ARM)](https://azure.microsoft.com/features/resource-manager/) template or to start replication using various technologies. For each of the resource types you want to move, the steps may be different. Refer to [Moving Azure resources across regions](/azure/azure-resource-manager/management/move-region) to identify the corresponding steps for each of the resource types.
+   * Resource identification: Identify and categorize your resources based on the type of resource needed to export an [Azure Resource Manager (ARM)](https://azure.microsoft.com/features/resource-manager) template or to start replication using various technologies. For each of the resource types you want to move, the steps may be different. Refer to [Moving Azure resources across regions](/azure/azure-resource-manager/management/move-region) to identify the corresponding steps for each of the resource types.
 
-2. Move the networking components.
+1. Move the networking components.
 
    * Network Security Groups: You can't move network security groups from one region to another. However, you can use an ARM template to export the existing configuration and security rules of a network security group. You can then stage the resource in another region by exporting the group to a template, modifying the parameters to match the destination region, and then deploying the template to the new region.
 
@@ -68,15 +70,15 @@ Since your requirements might differ from the example architecture, use the foll
 
    * Public IP addresses: Since Azure Public IPs are region-specific, you can't move them from one region to another. However, you can use an ARM template to export the existing configuration and security rules of a network security group. You can then stage the resource in another region by exporting the group to a template, modifying the parameters to match the destination region, and then deploying the template to the new region.
 
-3. Move the app components.
+1. Move the app components.
 
    * Virtual machine resources: Moving virtual machine resources requires [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery) to move the resources by replicating them in the target region. To understand more about a virtual machine move using Site Recovery, see [Move Azure VMs to another region](/azure/site-recovery/azure-to-azure-tutorial-migrate).
 
    * SQL resources: SQL databases make use of the SQL Failover Group mechanism to move across regions. To learn more about moving SQL databases, see [Move resources to new region - Azure SQL Database & Azure SQL Managed Instance](/azure/azure-sql/database/move-resources-across-regions).
 
-4. Move the PaaS services: PaaS services have their own specific steps for orchestrating the move. To find the latest information on the list of supported services, see [Support for moving Azure resources across regions](/azure/azure-resource-manager/management/region-move-support).
+1. Move the PaaS services: PaaS services have their own specific steps for orchestrating the move. To find the latest information on the list of supported services, see [Support for moving Azure resources across regions](/azure/azure-resource-manager/management/region-move-support).
 
-5. Move the on-premises infrastructure: To ensure you have the full source region recreated on the target region, re-establish and configure your on-premises components as they were before and connect them to the Azure network.
+1. Move the on-premises infrastructure: To ensure you have the full source region recreated on the target region, re-establish and configure your on-premises components as they were before and connect them to the Azure network.
 
 ## Considerations
 
