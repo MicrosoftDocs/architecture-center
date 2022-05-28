@@ -80,7 +80,7 @@ It's common for multitenant solutions to allow a single user or service identity
 
 ## User sign-up process for local identities or social identities
 
-Consider whether your multitenant solution should allow users to sign themselves up for an identity in your solution. This might be required if you don't require federation with a tenant's identity source. If a self-sign up process is needed, then you should consider the following questions:
+Some tenants might need to allow users to sign themselves up for an identity in your solution. This might be required if you don't require federation with a tenant's identity provider. If a self-sign up process is needed, then you should consider the following questions:
 
 - Which identity sources are users allowed to sign up from? For example, can a user create a local identity as well as use a social identity provider?
 - If only local identities are allowed, will only specific email domains be allowed? For example, can a tenant specify that only users who have an @contoso.com email address are permitted to sign-up?
