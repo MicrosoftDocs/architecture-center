@@ -120,11 +120,11 @@ To deploy this scenario and similar solutions, see the following GitHub reposito
 
 Principal author:
 
+- [Giulia Gallo](https://www.linkedin.com/in/giuliagallo) | Senior Cloud Solution Architect
 - [Jake Switzer](https://www.linkedin.com/in/jake-switzer-1629a983) | Sports Analytics Solution Architect
 
 Other contributors:
 
-- [Giulia Gallo](https://www.linkedin.com/in/giuliagallo) | Senior Cloud Solution Architect
 - [Jason Martinez](https://www.linkedin.com/in/jason-martinez-502766123) | Technical Writer
 
 ## Next steps
