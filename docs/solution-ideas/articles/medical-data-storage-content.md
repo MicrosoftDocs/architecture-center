@@ -4,7 +4,7 @@ Cloud and hybrid solutions from Microsoft help you manage medical data storage e
 
 ## Potential use cases
 
-This solution primarily for medical and medical insurance industries.
+This solution is primarily for the healthcare, medical, medical insurance, and finance industries.
 
 ## Architecture
 
