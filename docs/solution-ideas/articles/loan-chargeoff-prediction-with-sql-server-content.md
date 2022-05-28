@@ -4,7 +4,7 @@ A charged off loan is a loan that is declared by a creditor (usually a lending i
 
 ## Potential use cases
 
-This solution demonstrates how to build and deploy a machine learning model, with SQL Server 2019 pre-installed in a Data Science VM with R Services embedded, to predict if a bank loan will need to be charged off within the given period.
+This solution demonstrates how to build and deploy a machine learning model, with SQL Server 2019 pre-installed in a Data Science VM with R Services embedded, to predict if a bank loan will need to be charged off within the given period. This solution is ideal for the finance industry.
 
 ## Architecture
 
