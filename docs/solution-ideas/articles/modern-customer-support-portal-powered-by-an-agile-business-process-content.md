@@ -4,7 +4,7 @@ Easily connect multiple business systems to enable nimbler customer support.
 
 ## Potential use cases
 
-This line-of-business application solution provides a mechanism for monitoring and responding to customer feedback.
+This line-of-business application solution provides a mechanism for monitoring and responding to customer feedback. This solution is ideal for the retail industry and the travel and hospitality industries.
 
 ## Architecture
 
