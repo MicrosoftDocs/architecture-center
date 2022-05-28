@@ -1633,10 +1633,10 @@ items:
                 maintainContext: true
           - name: Compliance solutions
             items:
-              - name: CDSA overview
+              - name: CDSA
                 href: /azure/compliance/offerings/offering-cdsa
                 maintainContext: true
-              - name: MPA overview
+              - name: MPA
                 href: /azure/compliance/offerings/offering-mpa
                 maintainContext: true
       - name: Energy and Environment
@@ -2086,13 +2086,13 @@ items:
                 maintainContext: true
           - name: Fundraising and Engagement
             items:
-              - name: Fundraising and Engagement overview
+              - name: Overview
                 href: /dynamics365/industry/nonprofit/fundraising-engagement-get-started-overview
                 maintainContext: true
-              - name: Configure Fundraising and Engagement
+              - name: Configure
                 href: /dynamics365/industry/nonprofit/fundraising-engagement-configure
                 maintainContext: true
-              - name: Deploy Fundraising and Engagement
+              - name: Deploy
                 href: /dynamics365/industry/nonprofit/fundraising-engagement-deploy
                 maintainContext: true
           - name: Dynamics 365 nonprofit accelerator for Azure
@@ -2651,7 +2651,7 @@ items:
                 href: example-scenario/blockchain/multi-cloud-blockchain.yml
           - name: Solution ideas
             items:
-              - name: Supply Chain Management with Quorum Blockchain Service
+              - name: Supply chain with Quorum Blockchain Service
                 href: guide/blockchain/quorum-blockchain-service.yml
               - name: Blockchain workflow application
                 href: solution-ideas/articles/blockchain-workflow-application.yml
@@ -2677,7 +2677,7 @@ items:
                     href: industries/finance/risk-grid-banking-solution-guide.yml
               - name: VM security baselines
                 items:
-                  - name: Security baseline for virtual machine scale sets
+                  - name: Security baseline for VM scale sets
                     href: /security/benchmark/azure/baselines/virtual-machine-scale-sets-security-baseline
                     maintainContext: true
                   - name: Security baseline for Linux VMs
@@ -2786,15 +2786,15 @@ items:
                     items:
                       - name: Overview
                         href: operator-guides/aks/aks-triage-practices.md
-                      - name: 1- Cluster health
+                      - name: 1. Cluster health
                         href: operator-guides/aks/aks-triage-cluster-health.md
-                      - name: 2- Node and pod health
+                      - name: 2. Node and pod health
                         href: operator-guides/aks/aks-triage-node-health.md
-                      - name: 3- Workload deployments
+                      - name: 3. Workload deployments
                         href: operator-guides/aks/aks-triage-deployment.md
-                      - name: 4- Admission controllers
+                      - name: 4. Admission controllers
                         href: operator-guides/aks/aks-triage-controllers.md
-                      - name: 5- Container registry connectivity
+                      - name: 5. Container registry connectivity
                         href: operator-guides/aks/aks-triage-container-registry.md
                   - name: Patch and upgrade worker nodes
                     href: operator-guides/aks/aks-upgrade-practices.md
@@ -2815,17 +2815,17 @@ items:
               - name: Orchestrate multi-container applications
                 href: /dotnet/architecture/containerized-lifecycle/design-develop-containerized-apps/orchestrate-high-scalability-availability
                 maintainContext: true
-              - name: Governance disciplines for AKS
-                href: /azure/cloud-adoption-framework/scenarios/aks/eslz-security-governance-and-compliance
-                maintainContext: true
               - name: Cost governance with Kubecost
-                href: /azure/cloud-adoption-framework/scenarios/aks/eslz-cost-governance-with-kubecost
+                href: /azure/cloud-adoption-framework/scenarios/app-platform/aks/cost-governance-with-kubecost
                 maintainContext: true
-              - name: BCDR considerations for AKS
-                href: /azure/cloud-adoption-framework/scenarios/aks/eslz-business-continuity-and-disaster-recovery
+              - name: Operations management for AKS
+                href: /azure/cloud-adoption-framework/scenarios/app-platform/aks/management
                 maintainContext: true
               - name: Security considerations
                 items:
+                  - name: Security for AKS
+                    href: /azure/cloud-adoption-framework/scenarios/app-platform/aks/security
+                    maintainContext: true
                   - name: Confidential containers on Azure
                     href: /azure/confidential-computing/confidential-containers
                     maintainContext: true
@@ -2881,10 +2881,6 @@ items:
                 href: example-scenario/apps/build-cncf-incubated-graduated-projects-aks.yml  
               - name: CI/CD pipeline for container workloads
                 href: example-scenario/apps/devops-with-aks.yml
-              - name: Deploy microservices with Container Apps
-                href: example-scenario/serverless/microservices-with-container-apps.yml
-              - name: Deploy microservices with Container Apps and Dapr
-                href: example-scenario/serverless/microservices-with-container-apps-dapr.yml
               - name: Firewall protection for an AKS cluster
                 href: example-scenario/aks-firewall/aks-firewall.yml
               - name: GitOps for AKS
@@ -2893,6 +2889,10 @@ items:
                 href: example-scenario/magento/magento-azure.yml
               - name: Microservices architecture on AKS
                 href: reference-architectures/containers/aks-microservices/aks-microservices.yml
+              - name: Microservices with Container Apps
+                href: example-scenario/serverless/microservices-with-container-apps.yml
+              - name: Microservices with Container Apps and Dapr
+                href: example-scenario/serverless/microservices-with-container-apps-dapr.yml
               - name: Multiplayer server hosting with ACI
                 href: /gaming/azure/reference-architectures/multiplayer-synchronous-aci
                 maintainContext: true
