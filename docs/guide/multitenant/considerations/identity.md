@@ -71,7 +71,7 @@ Options for storing identity information include the following:
 
 It's common for multitenant solutions to allow a single user or service identity to access the application and data of multiple tenants. Consider whether this is required for your solution. If it is, then you also need to consider the following decisions:
 
-- Should an identity record be shared across multiple tenants (service-wide identity) or stored and managed within the context of a single tenant (per-tenant local identity)?
+- Does an identity record need to be used by multiple tenants (service-wide identity) or just a single tenant (per-tenant local identity)?
 - How does your solution identify and grant permissions to a user who has access to multiple tenants? For example, could a user be an administrator in a training tenant, and have read-only access to a production tenant? Or, could you have separate tenants for different departments in an organization, but need to maintain consistent user identities across all of the tenants?
 - How does a user switch between tenants?
 - If you use service identities, how does a service identity specify the tenant it needs to access?
