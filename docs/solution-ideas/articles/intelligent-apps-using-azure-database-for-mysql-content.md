@@ -4,7 +4,7 @@ Develop sophisticated, transformational apps using state of the art machine lear
 
 ## Potential use cases
 
-Some organizations that use MySql for applications include:
+This solution is ideal for the finance, education, and telecommunication industries. Some organizations that use MySql for applications include:
 
 - Financial Institutions
 - Universities
