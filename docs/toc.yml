@@ -1309,7 +1309,7 @@ items:
                   - name: FedRAMP moderate compliance
                     href: /azure/governance/policy/samples/fedramp-moderate
                     maintainContext: true
-                  - name: Compliance acceleration with FedRAMP ATO
+                  - name: Compliance with FedRAMP ATO
                     href: /azure/azure-government/compliance/documentation-accelerate-compliance
                     maintainContext: true
               - name: IRS 1075 overview
@@ -1349,7 +1349,7 @@ items:
                     href: industries/manufacturing/predictive-maintenance-overview.yml
                   - name: Predictive maintenance solution
                     href: industries/manufacturing/predictive-maintenance-solution.yml
-                  - name: Upscale ML lifecycle with MLOps framework
+                  - name: MLOps framework to upscale ML lifecycle
                     href: example-scenario/mlops/mlops-technical-paper.yml
               - name: IoT scenarios
                 items:
