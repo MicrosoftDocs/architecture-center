@@ -8,9 +8,9 @@ This solution is built on the Azure managed services: [Azure SQL Database](https
 
 Some industries that utilize Umbraco include:
 
-- Banking and financial services
+- Banking, finance, and financial services
 - Retail
-- Logistics and distribution
+- Logistics, distribution, and manufacturing
 
 ## Architecture
 
@@ -33,6 +33,7 @@ Use the following pre-built template to deploy this architecture to Azure:
 - [View template source](https://azure.microsoft.com/resources/templates/umbraco-cms-webapp-redis-cache)
 
 ## Next steps
+
 <!-- markdownlint-disable MD024 -->
 * [Create a Web App](https://azure.microsoft.com/get-started/web-app)
 * [Quickstart: Create an Azure SQL Database single database](/azure/azure-sql/database/single-database-create-quickstart)
