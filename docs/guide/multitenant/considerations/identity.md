@@ -49,7 +49,7 @@ When you design an identity system for your multitenant solution, you need to co
 - **Use the tenant's Azure AD/M365.** A tenant might have their own Azure AD/M365 tenant and wants your solution to use it. This is possible when you solution is designed as an [Azure AD tenant as a multitenant solution](/azure/active-directory/develop/howto-convert-app-to-be-multi-tenant).
 - **Federation with a tenant's identity provider.** A tenant might have their own IdP other than Azure AD/M365 and want your solution to federate with it. Federation enables single sign-on (SSO) experiences, and enables tenants to manage the lifecycle and security policies of their users independently of your solution.
 
-Consider whether your tenants might require the use of multiple identity sources within a single tenant. For example, some tenants might need to be able use both local identities and social identities together.
+You should consider if your tenants need to support multiple identity providers. For example, you might need to support local identities, social identities and federated identities within a single tenant. A common use case for this is in business-to-business applications that are federated, but also need to support granting access to private contractors or guest users who don't have an account in the federated tenant.
 
 ### Store authentication and tenant authorization information
 
