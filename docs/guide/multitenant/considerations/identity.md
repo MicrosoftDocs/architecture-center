@@ -31,6 +31,7 @@ Before defining a multitenant identity strategy, you should first consider the h
 
 - Will user or service identities be used to access a single application, multiple applications or services within a suite? For example, a retail solution might have both a point of sale and a stock application that share the same identity solution.
 - Are you planning on implementing modern authentication and authorization such as OAuth2 and OpenID Connect?
+- Does your solution just provide authentication and authentication to your UI based applications or will you also provide API access to your tenants and 3rd parties?
 - Will tenants need to federate to their own identity provider and will multiple different identity providers need to be supported for each tenant? For example, you might have tenants with Azure AD, Auth0 and Active Directory Federation Services (ADFS) who wish to federate with your solution.
 - Are specific compliance requirements that they need to meet, such as [GDPR](/compliance/regulatory/gdpr)?
 - Do your tenants require their identity information to be located within a specific geographic region?
@@ -106,12 +107,13 @@ A common requirement for corporate or enterprise customers of a solution is a se
 
 ## User authentication process
 
-When a user signs into a multitenant application, your identity system authenticates the user. You should consider the following questions when planning your authentication process:
+When a user signs into a multitenant application, your identity system authenticates the user. You should consider the following when planning your authentication process:
 
-- Do you need to enable tenants to configure specific multi-factor authentication (MFA) policies? For example, if one of your tenants is in the financial services industry, they need to implement strict MFA policies, while a small online retailer might not have the same requirements.
-- Do you need to enable tenants to configure specific conditional access rules? For example, different tenants might need to block sign-in attempts from specific geographic regions.
-- Do you need to customize the sign-in process for each tenant? For example, do you need to show a customer's logo? Or, does information about each user need to be extracted from another system, such as a rewards number, and returned to the identity provider to add to the user profile?
+- Do your tenants need to configure their own multi-factor authentication (MFA) policies? For example, if one of your tenants is in the financial services industry, they need to implement strict MFA policies, while a small online retailer might not have the same requirements.
+- Do your tenants need to configure their own conditional access rules? For example, different tenants might need to block sign-in attempts from specific geographic regions.
+- Do your tenants need to customize the sign-in process for each tenant? For example, do you need to show a customer's logo? Or, does information about each user need to be extracted from another system, such as a rewards number, and returned to the identity provider to add to the user profile?
 - Do your users need to impersonate other users? For example, a support team member might wish to investigate an issue another user is having by impersonating their user account without having to authenticate as the user.
+- Do your users need to gain access to the APIs for your solution? For example, users or 3rd party applications might need to directly call your APIs to extend your solution without a user interface to provide an authentication flow.
 
 ## Service authentication process
 
