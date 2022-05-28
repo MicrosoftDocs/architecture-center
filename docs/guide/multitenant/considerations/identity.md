@@ -29,7 +29,7 @@ Identity is an important aspect of any multitenant solution. The identity compon
 
 Before defining a multitenant identity strategy, you should first consider the high-level identity requirements of your service, including:
 
-- Will user or service identities be used to access a single application, multiple applications or services within a suite?
+- Will user or service identities be used to access a single application, multiple applications or services within a suite? For example, a retail solution might have both a point of sale and a stock application that share the same identity solution.
 - Are you planning on implementing modern authentication and authorization such as OAuth2 and OpenID Connect?
 - Do your tenants have specific compliance requirements that they need to meet, such as [GDPR](/compliance/regulatory/gdpr)?
 - Do your tenants require their identity information to be located within a specific geographic region?
