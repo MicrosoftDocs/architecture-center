@@ -25,7 +25,7 @@ ms.custom:
 Identity is an important aspect of any multitenant solution. The identity components of your application are responsible for verifying who a user is (*authentication*) and enforcing the permissions that are granted to the user within the scope of a tenant (*authorization*). Your customers might also wish authorize external applications to access their data or integrate to your solution. A user's identity determines what information a user or service will get access to it. It is important that you consider your identity requirements to isolate your application and data between tenants.
 
 > [!CAUTION]
-> Authentication and authorization services within multitenant and SaaS applications are usually provided by a 3rd party identity provider (IdP). Modern IdPs are provided as part of an Identity as a Service (IDaaS) platforms. Building your own IdP is complex, expensive and unnecessary. It is also [an antipattern](../approaches/identity.md#building-or-running-your-own-identity-system). We don't recommend it.
+> Authentication and authorization services within multitenant and SaaS applications are usually provided by a 3rd party identity provider (IdP). An identity provider is usually an integral part of an Identity as a Service (IDaaS) platform. Building your own IdP is complex, expensive and difficult to build securely. Building your own identity provider is [an antipattern](../approaches/identity.md#building-or-running-your-own-identity-system). We don't recommend it.
 
 Before defining a multitenant identity strategy, you should first consider the high-level identity requirements of your service, including:
 
@@ -55,8 +55,12 @@ You should consider if your tenants need to support multiple identity providers.
 
 In a multitenant solution, you need to consider where to store several types of identity information, including:
 
-- Details about user and service accounts, including their names and credentials. This information is used to authenticate your users.
+- Details about user and service accounts, including their names and other information required by your tenants.
+- Information required to securely authenticate your users, including information required to provide multi-factor authentication (MFA).
 - Tenant-specific information, such as tenant roles and permissions. This information is used for authorization.
+
+> [!CAUTION]
+> We don't recommend building authentication processes yourself. An identity provider that is part of an Identity as a Service (IDaaS) platform will provide these authentication services to your application as well as other important features such as MFA and conditional access. Building your own identity provider is [an antipattern](../approaches/identity.md#building-or-running-your-own-identity-system). We don't recommend it.
 
 Options for storing identity information include the following:
 
