@@ -2,7 +2,7 @@
 
 This solution provides a multilayered approach for protecting virtual machines (VMs) in Azure. Users need to connect to VMs for management and administrative purposes. It's critical to minimize the attack surface that connectivity creates.
 
-This solution achieves non-persistent granular access to VMs by incorporating several protection mechanisms, . It aligns with the *principle of least privilege (PoLP)* and the concept of *separation of duties*. To reduce exposure to attacks, this solution locks down inbound traffic to VMs, but it makes VM connections accessible when needed. Implementing this type of protection minimizes the risk of many popular cyber attacks on VMs, such as brute-force attacks and distributed denial-of-service (DDoS) attacks.
+This solution achieves non-persistent granular access to VMs by incorporating several protection mechanisms. It aligns with the *principle of least privilege (PoLP)* and the concept of *separation of duties*. To reduce exposure to attacks, this solution locks down inbound traffic to VMs, but it makes VM connections accessible when needed. Implementing this type of protection minimizes the risk of many popular cyber attacks on VMs, such as brute-force attacks and distributed denial-of-service (DDoS) attacks.
 
 This solution uses many Azure services and features including:
 
@@ -58,7 +58,7 @@ The defense in depth strategy and the solution in this article apply to many sce
 
 1. **Network based just-in-time access**: After authentication and authorization, the custom role is temporarily linked to the user's identity. The user then requests JIT VM access. That access opens a connection from the Azure Bastion subnet on port 3389 for RDP or port 22 for SSH. The connection runs directly to the VM network interface card (NIC) or the VM NIC subnet. Azure Bastion opens an internal RDP session by using that connection. The session is limited to the Azure virtual network and isn't exposed to the public internet.
 
-1. **Connecting to the Azure VM**: The user accesses Azure Bastion by using a temporary token, . Through this service, the user establishes an indirect RDP connection to the Azure VM. The connection only works for a limited amount of time.
+1. **Connecting to the Azure VM**: The user accesses Azure Bastion by using a temporary token. Through this service, the user establishes an indirect RDP connection to the Azure VM. The connection only works for a limited amount of time.
 
 ### Components
 
