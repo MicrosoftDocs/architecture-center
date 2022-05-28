@@ -47,7 +47,7 @@ When you design an identity system for your multitenant solution, you need to co
 - **Local identity provider.** A local identity provider allows a user to sign themselves up to the service by providing a username, email address or an identifier such as a rewards card number, and a credential like a password.
 - **Social identity provider.** A social identity provider allows users to use an identity they have on a social network or other public identity provider, such as Facebook, Google, or a personal Microsoft account.
 - **Use the tenant's Azure AD/M365.** A tenant might have their own Azure AD/M365 tenant and wants your solution to use it. This is possible when you solution is designed as an [Azure AD tenant as a multitenant solution](/azure/active-directory/develop/howto-convert-app-to-be-multi-tenant).
-- **Federation with a tenant's identity provider.** A tenant might have their own IdP other than Azure AD/M365 and want your solution to federate with it. Federation enables single sign-on (SSO) experiences, and enables tenants to manage the lifecycle and security of their users independently of your solution.
+- **Federation with a tenant's identity provider.** A tenant might have their own IdP other than Azure AD/M365 and want your solution to federate with it. Federation enables single sign-on (SSO) experiences, and enables tenants to manage the lifecycle and security policies of their users independently of your solution.
 
 Consider whether your tenants might require the use of multiple identity sources within a single tenant. For example, some tenants might need to be able use both local identities and social identities together.
 
