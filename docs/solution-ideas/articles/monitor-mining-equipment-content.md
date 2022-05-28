@@ -4,7 +4,7 @@ Mining companies can have Azure continually monitor the performance data from th
 
 ## Potential use cases
 
-- Monitoring of mining equipment, and other equipment that can provide the needed data.
+- Monitor mining equipment and other equipment that can provide the needed data.
 
 ## Architecture
 
@@ -35,7 +35,7 @@ Data is loaded from these different data sources using several Azure components:
 - [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) makes Azure Storage the foundation for building enterprise data lakes on Azure. It can quickly process massive amounts of data (petabytes).
 - [Azure Data Factory](https://azure.microsoft.com/services/data-factory) is a managed service that orchestrates and automates data movement and data transformation. In this architecture, it copies the data from the source to Azure Storage.
 - [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) are automated workflows for common enterprise orchestration tasks. Logic Apps includes [connectors](/connectors/) for many popular cloud services, on-premises products, and other applications.
-- [Azure Databricks](https://azure.microsoft.com/services/databricks) is an Apache Spark-based analytics platform optimized for the Microsoft Azure cloud services platform. Designed in collaboration with the founders of Apache Spark, Databricks is integrated with Azure to provide one-click setup, streamlined workflows, and an interactive workspace.
+- [Azure Databricks](https://azure.microsoft.com/services/databricks) is an Apache Spark-based analytics platform optimized for the Microsoft Azure cloud services platform. Databricks is integrated with Azure to provide one-click setup, streamlined workflows, and an interactive workspace that was designed in collaboration with the founders of Apache Spark.
 - [Azure Databricks – Auto Loader](/azure/databricks/spark/latest/structured-streaming/auto-loader) provides a structured streaming source called cloudFiles. The cloudFiles source automatically processes new files as they arrive at a directory, and can also process other files in the directory.
 - [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) is a distributed system for storing and analyzing large datasets. Its use of massive parallel processing (MPP) makes it suitable for running high-performance analytics.
 - [Azure Functions](https://azure.microsoft.com/services/functions) allows you to run small pieces of code (called "functions") without worrying about application infrastructure. Azure Functions is a great solution for processing bulk data, integrating systems, working with the internet-of-things (IoT), and building simple APIs and micro-services.

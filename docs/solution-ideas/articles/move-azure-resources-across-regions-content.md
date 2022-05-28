@@ -28,7 +28,7 @@ Some of the top reasons for moving resources to a different region include the f
 
    * **Web tier**: The top layer, including the user interface. This layer parses user interactions and passes the actions to the next layer for processing.
    * **Business or App tier**: Processes the user interactions and makes logical decisions about the next steps. This layer connects the web tier and the data tier.
-   * **Data tier**: Stores the application data. In this case, a SQL database stores the data.
+   * **Data tier**: Stores the application data. In this case, an SQL database stores the data.
 
 - **Internal load balancer**: Network traffic from the VPN gateway is routed to the cloud application through an [internal load balancer (ILB) endpoint](/azure/application-gateway/configure-application-gateway-with-private-frontend-ip) located in the subnet of application tiers.
 - **Platform as a Service (PaaS) resources**: In this example environment, there are a few PaaS services such as Azure IoT hub, Azure Key Vault, and Azure App Service.
@@ -84,11 +84,11 @@ Since your requirements might differ from the example architecture, use the foll
 
 Consider the following points when making a cross-regional move:
 
-* Your plan for migrating across regions must take into account complex infrastructure. Modern infrastructure environments often span across on-premises infrastructure to the cloud. Some even have an additional level of complexity, with a multi-cloud strategy containing private or public deployments.
+* Your plan for migrating across regions must take into account complex infrastructure. Modern infrastructure environments often span across on-premises infrastructure to the cloud. Some even have an extra level of complexity, with a multi-cloud strategy containing private or public deployments.
 
 * Move resource types together. By combining the move of similar resource types (for example, 50 virtual machines or 20 SQL databases), you can plan the preparation step of your move more easily and ensure that long-running operations complete together, which helps reduce downtime.
 
-* Move all resources within an application together. You can select the resources of an application and try to move them together in a set, to ensure that you are able to bring up the app on the target region in an orchestrated manner.
+* Move all resources within an application together. You can select the resources of an application and try to move them together in a set, to ensure that you're able to bring up the app on the target region in an orchestrated manner.
 
 * Ensure that you cover your capacity needs. The ability to verify capacity or quota is available in the target region to support current and potential business growth before the actual move.
 
@@ -100,7 +100,7 @@ Consider the following points when making a cross-regional move:
 
 * Ensure you do due diligence by testing and validating the original configurations, connectivity, proper security configuration, policies, data replication, and database connections before you commit the move to the target region.
 
-* After you move the resources to the target, ensure the final configuration is up and running by making final changes like the following:
+* After you move the resources to the target, ensure the final configuration is up and running by making final changes like:
   * Change the DNS configuration to point to a new IP.
   * Delete resources in the source region to avoid double billing and to prevent issues due to the existence of two separate data sets that overlap in scope and configuration.
   * Delete any auxiliary resources created for the move. For example, delete any storage accounts that were used for intermediate transfer.
