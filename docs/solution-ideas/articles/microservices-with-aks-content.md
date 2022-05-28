@@ -2,7 +2,7 @@
 
 ## Potential use cases
 
-Use AKS to simplify the deployment and management of microservices based architecture. AKS streamlines horizontal scaling, self-healing, load balancing, secret management.
+Use AKS to simplify the deployment and management of microservices-based architecture. AKS streamlines horizontal scaling, self-healing, load balancing, and secret management.
 
 ## Architecture
 
