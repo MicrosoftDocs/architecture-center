@@ -84,8 +84,8 @@ Some tenants might need to allow users to sign themselves up for an identity in 
 
 - Which identity sources are users allowed to sign up from? For example, can a user create a local identity as well as use a social identity provider?
 - If only local identities are allowed, will only specific email domains be allowed? For example, can a tenant specify that only users who have an @contoso.com email address are permitted to sign-up?
-- Is user verification required? For example, will an email or phone verification be used?
 - What is the unique principal name (UPN) that should be used to uniquely identify each local identity? For example, email address, username, phone number and rewards card number are all common choices for unique principal names.
+- Will a user be required to verify their unique principal name (UPN)? For example, if the users e-mail address or phone number is used as a UPN, how will these be verified?
 - Do tenant administrators need to approve sign-ups?
 - Do tenants require a tenant specific sign-up experience or URL? For example, do your tenants require a branded sign-up experience when users sign up, or do they require the ability to intercept a sign-up request and perform additional validation before it proceeds?
 
