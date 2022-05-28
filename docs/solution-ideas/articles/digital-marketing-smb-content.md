@@ -6,7 +6,7 @@ This solution is built on the Azure managed services: [Azure SQL Database](https
 
 ## Potential use cases
 
-Organizations use content management systems because:
+This solution is ideal for the retail industry. Organizations use content management systems because:
 
 - No programming experience needed
 - Easy collaboration and access
