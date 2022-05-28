@@ -86,7 +86,7 @@ items:
               - name: Compare Azure Stack HCI and Stack Hub
                 href: /azure-stack/hci/concepts/compare-azure-stack-hub
                 maintainContext: true
-              - name: Compare Azure Stack HCI and Windows Server
+              - name: Compare Stack HCI and Windows Server
                 href: /azure-stack/hci/concepts/compare-windows-server
                 maintainContext: true
               - name: Choose drives for Azure Stack HCI
@@ -107,6 +107,9 @@ items:
                 maintainContext: true
               - name: Managed disk types
                 href: /azure/virtual-machines/disks-types
+                maintainContext: true
+              - name: Data transfer solutions
+                href: /azure/storage/common/storage-choose-data-transfer-solution
                 maintainContext: true
           - name: Choose a data store
             items:
@@ -420,7 +423,7 @@ items:
                 href: example-scenario/governance/governance-teams-guest-users.yml
               - name: Hybrid SharePoint farm with Microsoft 365
                 href: solution-ideas/articles/sharepoint-farm-microsoft-365.yml
-              - name: Manage Microsoft 365 configuration with DevOps
+              - name: Manage Microsoft 365 tenants with DevOps
                 href: example-scenario/devops/manage-microsoft-365-tenant-configuration-microsoft365dsc-devops.yml
               - name: Real-time collaboration
                 href: solution-ideas/articles/collaboration-microsoft-365.yml           
