@@ -31,7 +31,8 @@ Before defining a multitenant identity strategy, you should first consider the h
 
 - Will user or service identities be used to access a single application, multiple applications or services within a suite? For example, a retail solution might have both a point of sale and a stock application that share the same identity solution.
 - Are you planning on implementing modern authentication and authorization such as OAuth2 and OpenID Connect?
-- Do your tenants have specific compliance requirements that they need to meet, such as [GDPR](/compliance/regulatory/gdpr)?
+- Will tenants need to federate to their own identity provider and will multiple different identity providers need to be supported for each tenant? For example, you might have tenants with Azure AD, Auth0 and Active Directory Federation Services (ADFS) who wish to federate with your solution.
+- Are specific compliance requirements that they need to meet, such as [GDPR](/compliance/regulatory/gdpr)?
 - Do your tenants require their identity information to be located within a specific geographic region?
 - Do users of your solution require access to one tenant or multiple? Do they need to the ability to quickly switch between tenants, or view consolidated information from multiple tenants?
 
@@ -41,11 +42,15 @@ When you've established your high-level requirements, you can start to plan more
 
 For a multitenant solution to authenticate and authorize a user or service, it needs a place to store identity information. A *directory* can include authoritative records for each identity, or it might contain references to external identities stored in another identity provider's directory.
 
-When you design an identity system for your multitenant solution, you need to consider which of the following identity providers, or IdPs, that your tenants and customers require:
+When you design an identity system for your multitenant solution, you need to consider which of the following identity providers (IdPs), that your tenants and customers require:
 
 - **Local identity provider.** A local identity provider allows a user to sign themselves up to the service by providing a username, email address or an identifier such as a rewards card number, and a credential like a password.
 - **Social identity provider.** A social identity provider allows users to use an identity they have on a social network or other public identity provider, such as Facebook, Google, or a personal Microsoft account.
-- **Federation with a tenant's identity provider.** A tenant or customer might have their own identity directory and want your solution to federate with it. Federation enables single sign-on (SSO) experiences, and enables tenants to manage the lifecycle of their users independently of your solution.
+- **Federation with a tenant's Azure AD.** A tenant might have their own Azure AD and want your solution to federate with it.
+- **Federation with a tenant's other identity provider.** A tenant might have their own IdP other than Azure AD and want your solution to federate with it.
+
+> [!NOTE]
+> Federation enables single sign-on (SSO) experiences, and enables tenants to manage the lifecycle and security of their users independently of your solution.
 
 Consider whether your tenants might require the use of multiple identity sources within a single tenant. For example, some tenants might need to be able use both local identities and social identities together.
 
@@ -102,9 +107,9 @@ A common requirement for corporate or enterprise customers of a solution is a se
 When a user signs into a multitenant application, your identity system authenticates the user. You should consider the following questions when planning your authentication process:
 
 - Do you need to enable tenants to configure specific multi-factor authentication (MFA) policies? For example, if one of your tenants is in the financial services industry, they need to implement strict MFA policies, while a small online retailer might not have the same requirements.
-- Do you need to enable tenants to configure specific conditional access rules? For example, different tenants may need to block sign-in attempts from specific geographic regions.
+- Do you need to enable tenants to configure specific conditional access rules? For example, different tenants might need to block sign-in attempts from specific geographic regions.
 - Do you need to customize the sign-in process for each tenant? For example, do you need to show a customer's logo? Or, does information about each user need to be extracted from another system, such as a rewards number, and returned to the identity provider to add to the user profile?
-- Do your users need to impersonate other users? For example, a support team member may wish to investigate an issue another user is having by impersonating their user account without having to authenticate as the user.
+- Do your users need to impersonate other users? For example, a support team member might wish to investigate an issue another user is having by impersonating their user account without having to authenticate as the user.
 
 ## Service authentication process
 
@@ -122,7 +127,7 @@ If your tenants expect to be able to enable service identity access to your mult
 
 ## Federating with an identity provider for single-sign on (SSO)
 
-Tenants who already have their own user directories may want your solution to use the identities in their directory, instead of managing another directory with distinct identities. This is called *federation*.
+Tenants who already have their own user directories might want your solution to use the identities in their directory, instead of managing another directory with distinct identities. This is called *federation*.
 
 Federation is particularly important when some tenants would like to specify their own identity policies, or enable single sign-on (SSO) experiences.
 
