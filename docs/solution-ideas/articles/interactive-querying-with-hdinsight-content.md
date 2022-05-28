@@ -4,7 +4,7 @@ Perform fast, interactive SQL like queries at scale over structured or unstructu
 
 ## Potential use cases
 
-Azure HDInsight powers mission critical applications ranging in a wide variety of industries. Some of those industries including, manufacturing, retail education, nonprofit, government, healthcare, media, banking, telecommunication, insurance, and many more. They range in use cases from ETL to Data Warehousing, from Machine Learning to IoT, and more.
+Azure HDInsight powers mission critical applications ranging in a wide variety of industries. Some of those industries including manufacturing, retail, education, nonprofit, government, healthcare, media, banking, telecommunication, insurance, finance, and many more. They range in use cases from ETL to Data Warehousing, from Machine Learning to IoT, and more.
 
 ## Architecture
 
