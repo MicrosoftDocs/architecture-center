@@ -150,11 +150,11 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-**Principal authors:**
+Principal authors:
 
 * [Pratim Dasgupta](https://www.linkedin.com/in/pratimdasgupta/) | Engineering Architect
 
-**Other contributors:**
+Other contributors:
 
 * [Ashish Khandelwal](https://www.linkedin.com/in/ashish-khandelwal-839a851a3/) | Senior Engineering Architect Manager
 * [Seetharaman Sankaran](https://www.linkedin.com/in/seetharamsan/) | Senior Engineering Architect

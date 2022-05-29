@@ -264,7 +264,7 @@ A Log Analytics gateway sends data to Azure Automation and a Monitor Log Analyti
 ## Related resources
 
 - [Microsoft Well-Architected Framework operational excellence](/azure/architecture/framework/devops/index)
-- [Monitoring for DevOps](/azure/architecture/framework/devops/monitoring)
+- [Monitoring for DevOps](/azure/architecture/framework/devops/checklist)
 - [Alerting](/azure/architecture/framework/devops/monitor-alerts)
 - [Hybrid availability and performance monitoring](../../hybrid/hybrid-perf-monitoring.yml)
 - [Web application monitoring on Azure](../../reference-architectures/app-service-web-app/app-monitoring.yml)

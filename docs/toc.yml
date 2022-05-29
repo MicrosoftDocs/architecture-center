@@ -46,7 +46,7 @@ items:
           - name: Use managed services
             href: guide/design-principles/managed-services.md
           - name: Use the best data store
-            href: guide/design-principles/use-the-best-data-store.md
+            href: /azure/architecture/guide/design-principles/use-best-data-store
           - name: Design for evolution
             href: guide/design-principles/design-for-evolution.md
           - name: Build for the needs of business
@@ -384,6 +384,20 @@ items:
       - name: Solutions across Microsoft platforms
         expanded: true
         items:
+          - name: Build applications on the Microsoft cloud
+            items:
+              - name: 1. Overview
+                href: guide/microsoft-cloud/overview.md
+              - name: 2. Create and deploy more applications in less time
+                href: guide/microsoft-cloud/create-deploy-more-applications-less-time.md
+              - name: 3. Get the most value from technical talent
+                href: guide/microsoft-cloud/get-most-value-technical-talent.md
+              - name: 4. Integrate new applications with existing solutions
+                href: guide/microsoft-cloud/integrate-new-applications-existing-solutions.md
+              - name: 5. Create and run secure applications
+                href: guide/microsoft-cloud/create-run-secure-applications.md
+              - name: 6. Summary
+                href: guide/microsoft-cloud/summary.md
           - name: Azure and Power Platform scenarios 
             items:
                - name: Overview
@@ -1270,17 +1284,17 @@ items:
                   - name: DoD IL4
                     href: /azure/compliance/offerings/offering-dod-il4
                     maintainContext: true
-                  - name: DoD IL4 Rgulatory Compliance built-in
+                  - name: DoD IL4 Regulatory Compliance built-in
                     href: /azure/governance/policy/samples/gov-dod-impact-level-4
                     maintainContext: true
                   - name: DoD IL5
                     href: /azure/compliance/offerings/offering-dod-il5
                     maintainContext: true
-                  - name: DoD IL5 Rgulatory Compliance built-in
+                  - name: DoD IL5 Regulatory Compliance built-in
                     href: /azure/governance/policy/samples/gov-dod-impact-level-5
                     maintainContext: true
                   - name: DoD IL6
-                    href: /offerings/offering-dod-il6
+                    href: /azure/compliance/offerings/offering-dod-il6
                     maintainContext: true
               - name: EAR overview
                 href: /azure/compliance/offerings/offering-ear
@@ -2638,12 +2652,14 @@ items:
                 href: example-scenario/blockchain/multi-cloud-blockchain.yml
           - name: Solution ideas
             items:
+              - name: Supply Chain Management with Quorum Blockchain Service
+                href: guide/blockchain/quorum-blockchain-service.yml
               - name: Blockchain workflow application
                 href: solution-ideas/articles/blockchain-workflow-application.yml
               - name: Supply chain track and trace
                 href: solution-ideas/articles/supply-chain-track-and-trace.yml
       - name: Compute + HPC
-        items:
+        items: 
           - name: Get started
             href: topics/high-performance-computing.md
           - name: Guides
@@ -3257,6 +3273,8 @@ items:
                 href: solution-ideas/articles/streaming-using-hdinsight.yml
       - name: DataOps
         items:
+          - name: Get started
+            href: data-guide/azure-dataops-architecture-design.md
           - name: Guides
             items:
               - name: DataOps checklist
@@ -4140,6 +4158,8 @@ items:
                 maintainContext: true
           - name: Architectures
             items:
+              - name: API Management landing zone accelerator
+                href: example-scenario/integration/app-gateway-internal-api-management-function.yml
               - name: Basic enterprise integration on Azure
                 href: reference-architectures/enterprise-integration/basic-enterprise-integration.yml
               - name: Data integration with Logic Apps and SQL
@@ -4366,6 +4386,8 @@ items:
                     href: example-scenario/mainframe/refactor-adabas-aks.yml
                   - name: Refactor mainframe with Raincode
                     href: reference-architectures/app-modernization/raincode-reference-architecture.yml
+                  - name: Rehost a general mainframe on Azure
+                    href: example-scenario/mainframe/mainframe-rehost-architecture-azure.yml 
                   - name: Rehost Adabas & Natural applications
                     href: example-scenario/mainframe/rehost-adabas-software-ag.yml
                   - name: Rehost mainframe with NTT DATA UniKix
@@ -4480,6 +4502,8 @@ items:
                     href: hybrid/azure-arc-hybrid-config.yml
                   - name: Manage hybrid workloads with WAC
                     href: hybrid/hybrid-server-os-mgmt.yml
+              - name: Line-of-business app with ASEv3
+                href: example-scenario/apps/line-of-business-internal-app-service-environment-v3.yml
           - name: Solution ideas
             items:
               - name: Archive on-premises data to cloud

@@ -5,7 +5,7 @@ metadata:
   description: Azure Kubernetes Service (AKS) simplifies the deployment and management of microservices-based architecture.
   author: EdPrice-MSFT
   ms.author: edprice
-  ms.date: 03/15/2022
+  ms.date: 05/11/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea

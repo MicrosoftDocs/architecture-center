@@ -4,13 +4,15 @@ Quantum computing applies the unique behavior of quantum physics to computing. T
 
 The resulting combination of classical and quantum components must be reflected in the build process. This is true for both the [loosely coupled](../../example-scenario/quantum/loosely-coupled-quantum-computing-job.yml) and the [tightly coupled](../../example-scenario/quantum/tightly-coupled-quantum-computing-job.yml) integration approaches. The quantum components have special requirements in their [software development lifecycle](/azure/quantum/overview-what-is-qsharp-and-qdk#what-can-i-do-with-the-qdk). For quality assurance, quantum jobs should be run on simulators, sized on resource estimators, and, in some cases, run on quantum hardware. After successful tests, developers can integrate the job artifacts into the classical components that submit the job to quantum targets at runtime.
 
-This solution shows how to implement continuous integration and continuous delivery (CI/CD) for quantum computing by using Azure services like Azure Quantum, Azure Repos, and Azure Pipelines. 
+This solution shows how to implement continuous integration and continuous delivery (CI/CD) for quantum computing by using Azure services like Azure Quantum, Azure Repos, and Azure Pipelines.
 
 ## Potential use cases
+
 This solution applies when quantum computing jobs are run as part of a classical application. It applies to these broad categories:
+
 - Optimization
 - Simulation
-- Machine learning 
+- Machine learning
 
 ## Architecture
 
@@ -48,6 +50,14 @@ The solution uses the following other components:
 * [Azure Key Vault](https://azure.microsoft.com/services/key-vault) safeguards and maintains control of keys and other secrets, like the quantum workspace name.
 * [Azure Storage](https://azure.microsoft.com/services/storage) holds the input and output data of the quantum job.
 * [Application Insights](/azure/azure-monitor/app/app-insights-overview) monitors the application, detects application anomalies like poor performance and failures, and sends telemetry to the Azure portal.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Holger Sirtl](https://www.linkedin.com/in/hsirtl) | Cloud Solution Architect and Quantum Ambassador
 
 ## Next steps
 

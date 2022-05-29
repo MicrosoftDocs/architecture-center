@@ -58,6 +58,14 @@ Two roles in this solution idea are:
 
 The AI Gallery [campaign optimization with SQL Server solution](https://gallery.azure.ai/Solution/Campaign-Optimization-with-SQL-Server) implements this solution idea with SQL [Server 2016 R Services](/sql/machine-learning/r/sql-server-r-services) and [Power BI](https://powerbi.microsoft.com/what-is-power-bi/) as an interactive visualization tool. The gallery solution uses simulated data, which can easily be configured to use custom data, to model the acquisition campaign response. The model uses predictors such as demographics, historical campaign performance, and product details. The solution predicts the probability of a lead conversion from each channel, at various times of the day and days of the week, for every lead in the database. The final recommendation for targeting each lead is decided based upon the combination of channel, day of week and time of day with the highest probability of conversion. The solution has been modeled after a standardized data science process, where the data preparation, model training and evaluation can be easily done by a data scientist and the insights visualized and correlated to KPIs by marketing via Power BI visualization.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Prabhjot Kaur](https://www.linkedin.com/in/kaur-profile) | Senior Cloud Solution Architect
+
 ## Next steps
 
 Read product documentation:

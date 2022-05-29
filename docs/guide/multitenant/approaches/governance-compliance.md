@@ -113,7 +113,7 @@ Use tools like [Azure Policy](/azure/governance/policy/overview), [Microsoft Def
 
 Your tenants might require that you demonstrate your compliance with specific standards. Use the [Service Trust Portal](https://servicetrust.microsoft.com) to generate compliance documentation that you can provide to your tenants or to third-party auditors.
 
-Some multitenant solutions incorporate Microsoft 365 and use services like Microsoft OneDrive, Microsoft SharePoint, and Microsoft Exchange Online. The [Microsoft 365 Compliance Center](https://compliance.microsoft.com) helps you understand how these services comply with regulatory standards.
+Some multitenant solutions incorporate Microsoft 365 and use services like Microsoft OneDrive, Microsoft SharePoint, and Microsoft Exchange Online. The [Microsoft Purview compliance portal](https://compliance.microsoft.com) helps you understand how these services comply with regulatory standards.
 
 ### Deployment Stamps pattern
 

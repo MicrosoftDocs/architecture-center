@@ -10,7 +10,7 @@ An implementation of this architecture is available on [GitHub](https://github.c
 
 ## Potential use cases
 
-This solution is ideal for the aerospace industry. It addresses these scenarios:
+This solution is ideal for the aerospace and aircraft industries. It addresses these scenarios:
 
 - Raster data ingestion and processing
 - Object detection via pre-trained AI models
@@ -404,11 +404,11 @@ For more information, see [Manage packages](/azure/synapse-analytics/spark/apach
 
 _This article is being updated and maintained by Microsoft. It was originally written by the following contributors._
 
-**Principal authors:** 
+Principal authors:
  * [Kungumaraj Nachimuthu](https://www.linkedin.com/in/kungumarajnachimuthu) | Senior Software Engineer
  * [Karthick Narendran](https://www.linkedin.com/in/karthick-r-narendran-1b540314) | Senior Software Engineer
 
-**Additional contributors:** 
+Additional contributors:
  * [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
  * [Taylor Corbett](https://www.linkedin.com/in/gtcorbett) | Senior Data Scientist
  * [Tushar Dhadiwal](https://www.linkedin.com/in/tushar-dhadiwal) | Senior Software Engineer

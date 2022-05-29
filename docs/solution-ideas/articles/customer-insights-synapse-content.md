@@ -4,7 +4,6 @@
 
 This article describes the dataflow, product integrations, and configurations that are available for building an enhanced customer dimension that can be consumed by analytics platforms external to Dynamics 365 and Customer Insights. [Audience insights](https://dynamics.microsoft.com/ai/customer-insights/audience-insights-capability) is the feature of Customer Insights that provides the ability to unify customer data sources and enhance customer profiles. For more information, see [the audience insights overview](/dynamics365/customer-insights/audience-insights/overview?branch=master#main-benefits).
 
-
 The following table shows an example of enhanced customer records that are produced by the Customer Insights data unification process. This process takes customer data from multiple source systems and cleans and merges it. Customer Insights can also enrich customer records with attributes like churn scores and brand affinities. Here are some fictional examples of this type of record:
 
 :::image type="content" source="../media/customer-dimension-example.png" alt-text="Example customer records in a database table." lightbox="../media/customer-dimension-example.png":::
@@ -17,7 +16,7 @@ This architecture is applicable to any organization that needs to create records
 
 This solution is optimized for the retail industry.
 
-## Architecture 
+## Architecture
 
 :::image type="complex" border="false" source="../media/customer-insights-synapse.png" alt-text="Diagram that shows a reference architecture for building an enhanced customer dimension.":::
    Architecture diagram that shows the flow of data from the source system on the left to Power BI on the right. The architecture uses Azure Data Factory, Azure Data Lake, Customer Insights, and Azure Synapse Analytics serverless SQL to build an enhanced customer dimension.
@@ -39,7 +38,7 @@ Azure Synapse serverless SQL consumes the enhanced Customer Insights data. Azure
   
 4. In Customer Insights, you need to configure an export of data back to the data lake. For more information, see [Set up the connection to Azure Data Lake Storage Gen2](/dynamics365/customer-insights/audience-insights/export-azure-data-lake-storage-gen2).
   
-5. [Create a Logical Data Warehouse](/azure/synapse-analytics/sql/tutorial-logical-data-warehouse) in the Azure Synapse workspace. See the [Azure Synapse serverless SQL pool best practices](/azure/synapse-analytics/sql/best-practices-serverless-sql-pool) to determine whether you need to do additional transformations on the exported Customer Insights data and whether views are better suited than tables.
+5. [Create a Logical Data Warehouse](/azure/synapse-analytics/sql/tutorial-logical-data-warehouse) in the Azure Synapse workspace. See the [Azure Synapse serverless SQL pool best practices](/azure/synapse-analytics/sql/best-practices-serverless-sql-pool) to determine whether you need to do more transformations on the exported Customer Insights data and whether views are better suited than tables.
   
 6. Customer Insights data in the data lake is now exposed as logical SQL Server tables and views that can easily be consumed by Power BI. See [Tutorial for using serverless SQL pools with Power BI](/azure/synapse-analytics/sql/tutorial-connect-power-bi-desktop) for an example.
 
@@ -55,6 +54,14 @@ Azure Synapse serverless SQL consumes the enhanced Customer Insights data. Azure
 This solution uses the Logical Data Warehouse (LDW) pattern to consume the enhanced data from Customer Insights. You can also use other data warehouse patterns.
 
 Data Factory and Azure Synapse both provide data integration pipelines. See the [breakdown of feature parity](/azure/synapse-analytics/data-integration/concepts-data-factory-differences) for a comparison.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Jon Dobrzeniecki](https://www.linkedin.com/in/jonathan-dobrzeniecki) | Cloud Solution Architect
 
 ## Next steps
 
