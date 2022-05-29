@@ -11,7 +11,7 @@ items:
     items:
       - name: Introduction
         href: guide/index.md
-      - name: Architecture styles 
+      - name: Architecture styles
         items:
           - name: Overview
             href: guide/architecture-styles/index.md
@@ -1014,7 +1014,7 @@ items:
                     href: /azure/iot-central/healthcare/tutorial-health-data-triage
                     maintainContext: true
               - name: Healthcare for data management
-                href: /azure/cloud-adoption-framework/scenarios/data-management/architectures/reference-architecture-lamna
+                href: /azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/reference-architecture-lamna
                 maintainContext: true
           - name: Architectures
             items:
@@ -3156,14 +3156,14 @@ items:
                 href: reference-architectures/data/profisee-master-data-management-purview.yml
               - name: Data landing zones
                 items:
-                  - name: Single data landing zone
-                    href: /azure/cloud-adoption-framework/scenarios/data-management/architectures/reference-architecture-adatum
+                  - name: "Adatum scenario: cloud-scale analytics"
+                    href: /azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/reference-architecture-adatum
                     maintainContext: true
-                  - name: Multiple data landing zones
-                    href: /azure/cloud-adoption-framework/scenarios/data-management/architectures/reference-architecture-relecloud
+                  - name: "Relecloud scenario: cloud-scale analytics"
+                    href: /azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/reference-architecture-relecloud
                     maintainContext: true
-                  - name: Highly sensitive data landing zones
-                    href: /azure/cloud-adoption-framework/scenarios/data-management/architectures/reference-architecture-lamna
+                  - name: "Lamna Healthcare: cloud-scale analytics"
+                    href: /azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/reference-architecture-lamna
                     maintainContext: true
               - name: DataOps for modern data warehouse
                 href: example-scenario/data-warehouse/dataops-mdw.yml
@@ -3288,7 +3288,7 @@ items:
                     href: guide/data/monitor-apache-nifi-monitofi.yml
                   - name: Helm-based deployments for Apache NiFi
                     href: guide/data/helm-deployments-apache-nifi.yml
-              - name: Azure Purview guidance
+              - name: Microsoft Purview guidance
                 items:
                   - name: Accounts architectures and best practices
                     href: /azure/purview/concept-best-practices-accounts
@@ -3465,7 +3465,7 @@ items:
                         href: microservices/design/index.yml
                       - name: Choose a compute option
                         href: microservices/design/compute-options.md
-                      - name: Expose Azure Spring Cloud via a reverse proxy
+                      - name: Spring Cloud via reverse proxy
                         href: reference-architectures/microservices/spring-cloud-reverse-proxy.yml
                       - name: Interservice communication
                         href: microservices/design/interservice-communication.yml
@@ -3513,10 +3513,6 @@ items:
                 items:
                    - name: Decompose apps with Service Fabric
                      href: example-scenario/infrastructure/service-fabric-microservices.yml
-                   - name: Deploy microservices and Container Apps
-                     href: example-scenario/serverless/microservices-with-container-apps.yml
-                   - name: Deploy microservices with Container Apps and Dapr
-                     href: example-scenario/serverless/microservices-with-container-apps-dapr.yml
                    - name: High-availability blue/green deployment
                      href: example-scenario/blue-green-spring/blue-green-spring.yml
                    - name: Microservices on Azure Service Fabric
@@ -3524,6 +3520,10 @@ items:
                    - name: Microservices with Azure Spring Cloud
                      href: /azure/spring-cloud/reference-architecture
                      maintainContext: true
+                   - name: Microservices with Container Apps
+                     href: example-scenario/serverless/microservices-with-container-apps.yml
+                   - name: Microservices with Container Apps and Dapr
+                     href: example-scenario/serverless/microservices-with-container-apps-dapr.yml
                    - name: Unified logging for microservices apps
                      href: example-scenario/logging/unified-logging.yml     
           - name: Serverless applications
@@ -3631,7 +3631,7 @@ items:
                     href: guide/azure-resource-manager/advanced-templates/objects-as-parameters.md
                   - name: Property transformer and collector
                     href: guide/azure-resource-manager/advanced-templates/collector.md
-                  - name: Infrastructure as code using Bicep and ACR
+                  - name: Infrastructure as code with Bicep and ACR
                     href: guide/azure-resource-manager/advanced-templates/enterprise-infrastructure-bicep-container-registry.yml
               - name: DevTest Labs guidance
                 items:
@@ -3807,7 +3807,7 @@ items:
                   - name: Compare Azure Stack HCI and Stack Hub
                     href: /azure-stack/hci/concepts/compare-azure-stack-hub
                     maintainContext: true
-                  - name: Compare Azure Stack HCI and Windows Server
+                  - name: Compare Stack HCI to Windows Server
                     href: /azure-stack/hci/concepts/compare-windows-server
                     maintainContext: true
                   - name: Choose drives for Azure Stack HCI
@@ -4006,7 +4006,7 @@ items:
                     href: guide/security/conditional-access-design.yml
                   - name: Conditional Access architecture  
                     href: guide/security/conditional-access-architecture.yml
-                  - name: Conditional Access framework and policies
+                  - name: Conditional Access framework
                     href: guide/security/conditional-access-framework.md
               - name: Identity in multitenant applications
                 items:
