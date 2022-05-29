@@ -4,11 +4,11 @@ Mining companies can have Azure continually monitor the performance data from th
 
 ## Potential use cases
 
-- Monitor mining equipment and other equipment that can provide the needed data.
+- Monitor mining equipment and other equipment that can provide the needed data. This solution is ideal for the energy industry.
 
 ## Architecture
 
-:::image type="content" source="../media/monitor-mining-equipment.png" alt-text="Architecture for monitoring mining equipment" lightbox="../media/monitor-mining-equipment.png":::
+:::image type="content" source="../media/monitor-mining-equipment.png" alt-text="Diagram showing the architecture for monitoring mining equipment." lightbox="../media/monitor-mining-equipment.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1816419-PR-2777-monitor-mining-equipment.vsdx) of this architecture.*
 
