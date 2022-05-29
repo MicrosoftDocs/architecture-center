@@ -1,6 +1,6 @@
 This article discusses a recommended architecture for IoT applications using Azure PaaS (platform-as-a-service) components. The following diagram reflects different Azure components that can be used to architect an IoT solution. The diagram shows, and the article highlights, most of the commonly used services, but no solution requires all of them. 
 
-[ ![Diagram of the architecture](./iot/images/iot-refarch.svg) ](./iot/images/iot-refarch.svg#lightbox)
+[ ![Diagram showing architecture for I O T applications using Azure Platform As A Service components.](./iot/images/iot-refarch.svg) ](./iot/images/iot-refarch.svg#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-iot-reference-architecture.vsdx) of this architecture.*
 

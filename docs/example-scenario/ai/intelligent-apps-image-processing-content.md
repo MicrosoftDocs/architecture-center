@@ -2,7 +2,7 @@ This scenario is relevant for businesses that need to process images.
 
 Potential applications include classifying images for a fashion website, analyzing text and images for insurance claims, or understanding telemetry data from game screenshots. Traditionally, companies would need to develop expertise in machine learning models, train the models, and finally run the images through their custom process to get the data out of the images.
 
-By using Azure services such as the Computer Vision API and Azure Functions, companies can eliminate the need to manage individual servers, while reducing costs and leveraging the expertise that Microsoft has already developed around processing images with Cognitive Services. This example scenario specifically addresses an image-processing use case. If you have different AI needs, consider the full suite of [Cognitive Services](/azure/cognitive-services/).
+By using Azure services such as the Computer Vision API and Azure Functions, companies can eliminate the need to manage individual servers, while reducing costs and utilizing the expertise that Microsoft has already developed with processing images with Cognitive Services. This example scenario specifically addresses an image-processing use case. If you have different AI needs, consider the full suite of [Cognitive Services](/azure/cognitive-services/).
 
 ## Potential use cases
 
@@ -12,7 +12,7 @@ This solution is ideal for the retail, game, finance, and insurance industries. 
 
 - **Classifying telemetry data from screenshots of games.** The classification of video games from screenshots is evolving into a relevant problem in social media, coupled with computer vision. For example, when Twitch streamers play different games in succession, they might skip manually updating their stream information. Failure to update stream information could result in the misclassification of streams in user searches and might lead to the loss of potential viewership for both the content creators and the streaming platforms. While introducing novel games, a custom model route could be helpful to introduce the capability to detect novel images from those games.
 
-- **Classifying images for insurance claims.** Image classification can help reduce the time and cost of the claims processing and underwriting. It could help analyze the natural-disaster damage, vehicle-damage assessment, and identify residential and commercial properties.
+- **Classifying images for insurance claims.** Image classification can help reduce the time and cost of claims processing and underwriting. It could help analyze natural-disaster damage, vehicle-damage, and identify residential and commercial properties.
 
 ## Architecture
 
@@ -45,6 +45,8 @@ This scenario covers the back-end components of a web or mobile application. Dat
 - [Logic Apps](https://azure.microsoft.com/services/logic-apps). If you don't need to react in real-time on added files to a blob, you might consider using Logic Apps. A logic app which can check if a file was added might be start by the [recurrence trigger or sliding windows trigger](/azure/logic-apps/concepts-schedule-automated-recurring-tasks-workflows).
 
 ## Considerations
+
+Consider these points when implementing this solution:
 
 ### Scalability
 
@@ -84,12 +86,13 @@ We have provided three sample cost profiles based on amount of traffic (we assum
 
 Principal authors:
 
- * [David Stanford](https://www.linkedin.com/in/das0) | Principal Program Manager
- * [Ashish Chauhan](https://www.linkedin.com/in/a69171115) | Senior Solution Architect
+* [David Stanford](https://www.linkedin.com/in/das0) | Principal Program Manager
+* [Ashish Chauhan](https://www.linkedin.com/in/a69171115) | Senior Solution Architect
 
 ## Next steps
 
 Product documentation
+
 - [What is Computer Vision?](/azure/cognitive-services/computer-vision/home)
 - [AI enrichment in Azure Cognitive Search](/azure/search/cognitive-search-concept-intro)
 - [Introduction to Azure Functions](/azure/azure-functions/functions-overview)
@@ -98,6 +101,7 @@ Product documentation
 - [Welcome to Azure Cosmos DB](/azure/cosmos-db/introduction)
 
 For a guided learning path, see:
+
 - [Build a serverless web app in Azure][serverless]
 - [Classify images with the Custom Vision service](/learn/modules/classify-images-custom-vision)
 - [Use AI to recognize objects in images by using the Custom Vision service](/learn/modules/train-custom-vision-ai/)
@@ -111,7 +115,6 @@ Before deploying this example scenario in a production environment, review recom
 
 - [Knowledge mining in digital asset management](../../solution-ideas/articles/digital-asset-management.yml)
 - [AI enrichment with image and natural language processing in Azure Cognitive Search](../../solution-ideas/articles/cognitive-search-with-skillsets.yml)
-
 
 <!-- links -->
 [architecture]: ./media/architecture-intelligent-apps-image-processing.png

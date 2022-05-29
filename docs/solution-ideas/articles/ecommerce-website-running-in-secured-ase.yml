@@ -4,8 +4,13 @@ metadata:
   titleSuffix: Azure Solution Ideas
   description: Keep sensitive user and payment data from an e-commerce website secure by using the Microsoft Azure App Service Environment.
   author: EdPrice-MSFT
+<<<<<<< HEAD
   ms.author: pnp
   ms.date: 12/16/2022
+=======
+  ms.author: edprice
+  ms.date: 05/30/2022
+>>>>>>> e2efd1cb5e5dda746c91654922e6c3609b436440
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea

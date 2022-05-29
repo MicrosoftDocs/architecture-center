@@ -4,6 +4,10 @@ To plan disaster recovery for an enterprise-grade conversational bot (chatbot), 
 
 The core components of a typical enterprise-grade chatbot solution in Azure are discussed in [Enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot.yml).
 
+## Potential use cases
+
+This solution is ideal for the telecommunications industry. This article covers the most essential design aspects, and introduces the tools needed to build a robust, secure, and actively learning bot.
+
 ## Architecture
 
 The diagram below shows deployment of a chatbot solution for disaster recovery. The failover mode is *active-passive* in two different Azure regions.
@@ -12,7 +16,7 @@ The diagram below shows deployment of a chatbot solution for disaster recovery. 
 
 *Download a [Visio file](https://arch-center.azureedge.net/Bot_DR.vsdx) of this architecture.*
 
-### Workflow
+### Dataflow
 
 Disaster recovery solutions vary depending on your SLA and the Azure services you use.
 

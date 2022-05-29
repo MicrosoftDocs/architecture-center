@@ -6,18 +6,18 @@ This example scenario shows how your business can use machine learning to automa
 
 ![Architectural diagram: training, evaluation, and deployment of a machine learning model for content-based personalization on Apache Spark using Azure Databricks.](./media/architecture-scalable-personalization.png)
 
-This example scenario covers the training, evaluation, and deployment of a machine learning model for content-based personalization on Apache Spark using [Azure Databricks]. In this case, a model is trained with a supervised classification algorithm on a dataset containing user and item features. The label for each example is a binary value indicating that the user engaged with (for example, clicked) an item. This scenario covers a subset of the steps required for a full end-to-end recommendation system workload. The broader context of this scenario is based on a generic e-commerce website with a front end that serves rapidly changing content to its users. This website uses cookies and user profiles to personalize the content for that user. Along with user profiles, the website may have information about every item it serves to each user. 
+This example scenario covers the training, evaluation, and deployment of a machine learning model for content-based personalization on Apache Spark using [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks). In this case, a model is trained with a supervised classification algorithm on a dataset containing user and item features. The label for each example is a binary value indicating that the user engaged with (for example, clicked) an item. This scenario covers a subset of the steps required for a full end-to-end recommendation system workload. The broader context of this scenario is based on a generic e-commerce website with a front end that serves rapidly changing content to its users. This website uses cookies and user profiles to personalize the content for that user. Along with user profiles, the website may have information about every item it serves to each user. 
 
 ### Dataflow
 
 Once the data is available, the following steps are executed to build and operationalize a recommendation system:
 
-1. The sets of distinct user and item data are preprocessed and joined, which results in a mixture of numeric and categorical features to be used for predicting user-item interactions (clicks). This table is uploaded to [Azure Blob Storage]. For demonstration purposes, the [Criteo display advertising challenge dataset](https://labs.criteo.com/2014/02/download-dataset/) is used. This dataset matches the described anonymized table, as it contains a binary label for observed user clicks, 13 numerical features, and another 26 categorical features.
-2. The [MMLSpark] library enables training a [LightGBM] classifier on [Azure Databricks] to predict the click probability as a function of the numeric and categorical features that were created in the previous step. [LightGBM] is a highly efficient machine learning algorithm, and [MMLSpark] enables distributed training of [LightGBM] models over large datasets.
+1. The sets of distinct user and item data are preprocessed and joined, which results in a mixture of numeric and categorical features to be used for predicting user-item interactions (clicks). This table is uploaded to [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction). For demonstration purposes, the [Criteo display advertising challenge dataset](https://labs.criteo.com/2014/02/download-dataset/) is used. This dataset matches the described anonymized table, as it contains a binary label for observed user clicks, 13 numerical features, and another 26 categorical features.
+2. The [MMLSpark] library enables training a [LightGBM] classifier on [Azure Databricks] to predict the click probability as a function of the numeric and categorical features that were created in the previous step. LightBGM is a highly efficient machine learning algorithm, and MMLSpark enables distributed training of LightGBM models over large datasets.
 3. The trained classifier is serialized and stored in the Azure Model Registry. With Azure Model Registry, you can store and organize different versions of the model (for example, based on newer data or different hyperparameters) within an Azure Machine Learning (Azure ML) Workspace.
 4. A serving script is defined using the [MML Spark Serving] library to provide predictions from the trained model.
-5. Azure ML is used to create a Docker image in the [Azure Container Registry] that holds the image with the scoring script and all necessary dependencies for serving predictions.
-6. Azure ML is also used to provision the compute for serving predictions. A Kubernetes cluster is configured using [Azure Kubernetes Service] (AKS) with the number of nodes needed to handle expected load. The virtual machine size can be adjusted based on the model's computation and memory requirements.
+5. Azure ML is used to create a Docker image in the [Azure Container Registry](/azure/container-registry/) that holds the image with the scoring script and all necessary dependencies for serving predictions.
+6. Azure ML is also used to provision the compute for serving predictions. A Kubernetes cluster is configured using [Azure Kubernetes Service](/azure/aks/intro-kubernetes) (AKS) with the number of nodes needed to handle expected load. The virtual machine size can be adjusted based on the model's computation and memory requirements.
 7. The scoring service is deployed as a web service on the AKS cluster. The service provides an endpoint where user and item features can be sent to receive the predicted probability of a click for that user and item.
 
 ### Components
@@ -102,6 +102,14 @@ To run the notebooks for training and deploying the recommendation model on [Azu
    5. Select **Import**.
 4. Repeat step 3 for the operationalization notebook here: `https://aka.ms/recommenders/lgbm-criteo-o16n`.
 5. Select the notebook to open it, attach the configured cluster, and execute the notebook.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+- [Scott Graham](https://www.linkedin.com/in/scott-graham-3a23822) | Principal Data Scientist
 
 ## Next steps
 
