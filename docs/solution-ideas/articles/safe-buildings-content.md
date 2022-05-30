@@ -8,7 +8,7 @@ Using [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) and other Az
 
 ## Potential use cases
 
-**Safe Buildings** adapts to stores, offices, factories, warehouses, recreation spaces, hotels, and restaurants. It's adaptable to any interior space where people congregate.
+**Safe Buildings** adapts to stores, offices, factories, warehouses, recreation spaces, hotels, and restaurants. It's adaptable to any interior space where people congregate. This solution is ideal for the facilities, real estate, retail, travel and hospitality, and healthcare industries.
 
 ## Architecture
 
@@ -85,4 +85,3 @@ Using [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) and other Az
 - [COVID-19 safe environments with IoT Edge monitoring and alerting](cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml)
 - [Create smart places by using Azure Digital Twins](../../example-scenario/iot/smart-places.yml)
 - [UVEN smart and secure disinfection and lighting](uven-disinfection.yml)
-

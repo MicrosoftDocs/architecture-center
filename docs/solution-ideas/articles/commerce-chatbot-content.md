@@ -1,14 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-[Azure Bot Service](/azure/bot-service) with [Language Understanding](/azure/cognitive-services/luis) enables developers to create conversational interfaces for banking, travel, and entertainment commerce scenarios. For example, a hotel concierge can use a bot to enhance customer e-mail and phone call interactions. The bot validates customers with Azure Active Directory. Azure Cognitive Services is then used to contextually process customer service text and voice requests. Add the [Speech service](/azure/cognitive-services/speech-service) to recognize and support voice commands.
-
-## Potential use cases
-
-This solution applies to the following scenarios:
-
-- Banking and finance
-- Travel and hospitality (such as a hotel concierge bot to enhance emails and phone calls)
-- Entertainment commerce
+[Azure Bot Service](/azure/bot-service) with [Language Understanding](/azure/cognitive-services/luis) enables developers to create conversational interfaces for banking, travel, and entertainment commerce scenarios.
 
 ## Architecture
 
@@ -37,6 +29,18 @@ Key technologies used to implement this architecture:
 * [Azure Cognitive Services Speech Services](https://azure.microsoft.com/services/cognitive-services/speech-services)
 * [Azure SQL Database](https://azure.microsoft.com/services/sql-database)
 * [Azure Monitor](https://azure.microsoft.com/services/monitor): Application Insights is a feature of Azure Monitor.
+
+## Scenario details
+
+[Azure Bot Service](/azure/bot-service) with [Language Understanding](/azure/cognitive-services/luis) enables developers to create conversational interfaces for banking, travel, and entertainment commerce scenarios. For example, a hotel concierge can use a bot to enhance customer e-mail and phone call interactions. The bot validates customers with Azure Active Directory. Azure Cognitive Services is then used to contextually process customer service text and voice requests. Add the [Speech service](/azure/cognitive-services/speech-service) to recognize and support voice commands.
+
+### Potential use cases
+
+This solution applies to the following scenarios:
+
+- Banking and finance
+- Travel and hospitality (such as a hotel concierge bot to enhance emails and phone calls)
+- Entertainment commerce (and retail)
 
 ## Next steps
 

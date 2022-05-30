@@ -8,7 +8,7 @@ The solution uses the Federal Aviation Administration (FAA) System Wide Informat
 
 ## Potential use cases
 
-This solution consumes multiple data sources for flight data patterns. It's ideal for the aerospace and aviation industries.
+This solution consumes multiple data sources for flight data patterns. It's ideal for the aerospace, aircraft, and aviation industries.
 
 The solution environment is flexible, so it can be extended to analyze other SWIM data sources or similar streamed data sources. 
 

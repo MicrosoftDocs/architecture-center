@@ -6,7 +6,7 @@ This solution acts as a credit-risk analyzer, helping you score credit risk and 
 
 ## Potential use cases
 
-Data-driven credit-risk modeling reduces the number of loans offered to borrowers who are likely to default, increasing the profitability of your loan portfolio.
+Data-driven credit risk modeling reduces the number of loans offered to borrowers who are likely to default, increasing the profitability of your loan portfolio. This solution is ideal for the finance industry.
 
 ## Architecture
 
