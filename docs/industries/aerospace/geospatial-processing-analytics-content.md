@@ -10,7 +10,7 @@ An implementation of this architecture is available on [GitHub](https://github.c
 
 ## Potential use cases
 
-This solution is ideal for the aerospace industry. It addresses these scenarios:
+This solution is ideal for the aerospace and aircraft industries. It addresses these scenarios:
 
 - Raster data ingestion and processing
 - Object detection via pre-trained AI models
