@@ -37,10 +37,10 @@ CluedIn runs on [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/ser
 CluedIn uses and supports many database sources and services, including:
 
 - [Azure SQL Database](https://azure.microsoft.com/services/sql-database), a managed relational cloud database service that is always up to date and can automatically scale resources on demand.
-- [Azure SQL Managed Instance](https://azure.microsoft.com/services/azure-sql/sql-managed-instance), for broad SQL Server engine compatibility with existing SQL Server applications. Managed Instance provides on-premises database infrastructures with Azure cloud benefits like elastic scale, unified management, and a cloud billing model.
+- [Azure SQL Managed Instance](https://azure.microsoft.com/services/azure-sql/sql-managed-instance), for broad SQL Server engine compatibility with existing SQL Server applications. SQL Managed Instance provides on-premises database infrastructures with Azure cloud benefits like elastic scale, unified management, and a cloud billing model.
 - [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db), a fully managed, non-relational NoSQL serverless database for modern app development.
 - [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake), a scalable data storage and analytics service.
-- [Azure Data Factory](https://azure.microsoft.com/services/data-factory), a fully managed, serverless data integration solution for ingesting, preparing, and transforming data at scale. CluedIn uses over 90 built-in Data Factory connectors to acquire data from sources like Amazon Redshift, Google BigQuery, HDFS, Oracle Exadata, Teradata, Salesforce, Marketo, ServiceNow, and all Azure data services.
+- [Azure Data Factory](https://azure.microsoft.com/services/data-factory), a fully managed, serverless data integration solution for ingesting, preparing, and transforming data at scale. CluedIn uses over 90 built-in Data Factory connectors to acquire data. The sources include Amazon Redshift, Google BigQuery, HDFS, Oracle Exadata, Teradata, Salesforce, Marketo, ServiceNow, and all Azure data services.
 
 CluedIn provides processed, governed data to many analytics apps and services, including:
 
@@ -67,23 +67,23 @@ With eventual connectivity, data isn't joined or blended upon entry or loading i
 
 This sophisticated data merging technique provides a foundation for data-driven solutions. The CluedIn Data Fabric integrates data into a pipeline that cleans, prepares, models, governs, enriches, deduplicates, and catalogs data to make it easily available and accessible for business uses.
 
-CluedIn provides businesses with metrics about the quality of data it ingests, intelligently detecting dirty data and preparing it for cleaning by data engineers and data stewards. Proprietary fuzzy logic machine learning algorithms help business users and curators label data, and teach the system to identify, correct, and prevent data quality issues over time.
+CluedIn provides businesses with metrics about the quality of data it ingests, intelligently detecting dirty data and preparing it for cleaning by data engineers and data stewards. Proprietary fuzzy logic machine learning algorithms help business users and curators label data. The algorithms teach the system to identify, correct, and prevent data quality issues, over time.
 
-CluedIn includes enterprise-grade governance, for assurance that you can use your data safely and confidently. CluedIn can stream cleaned, governed data directly to analysis systems like Power BI, Azure Databricks, Azure Synapse Analytics, or Azure Cognitive Services  to make it easily available to the rest of the business. Native support for autoscaling leverages the power of Azure to provide a scalable environment for the biggest data workloads.
+CluedIn includes enterprise-grade governance, for assurance that you can use your data safely and confidently. CluedIn can stream cleaned, governed data directly to analysis systems like Power BI, Azure Databricks, Azure Synapse Analytics, or Azure Cognitive Services. This process makes the data readily available to the rest of the business. Native support for autoscaling uses the power of Azure to provide a scalable environment for the biggest data workloads.
 
 ### Potential use cases
 
 #### Building a single view of data
 
- - Due to CluedIn's semantic modelling, it makes building a Single View of your Master Data a much easier thing to achieve compared to traditional approaches. CluedIn's customers are using CluedIn to build a connected, historical and high quality view of their most critical business data. CluedIn not only supports mastering of classic Master domains like People, Companies, Vendors and Products - it supports and endless number of different domains as well as unstructured domains like files, mail, events and more. If you require a centralised repository of master data that is clean, enriched, governed, quality-controlled and cataloged, then CluedIn is a good fit for your use cases.
+ - Due to CluedIn's semantic modeling, it makes building a Single View of your Master Data a much easier thing to achieve compared to traditional approaches. CluedIn's customers are using CluedIn to build a connected, historical and high quality view of their most critical business data. CluedIn not only supports mastering of classic Master domains like People, Companies, Vendors and Products - it supports and endless number of different domains as well as unstructured domains like files, mail, events and more. If you require a centralized repository of master data that is clean, enriched, governed, quality-controlled and cataloged, then CluedIn is a good fit for your use cases.
 
 #### A data fabric
 
- - CluedIn is a Gartner Cool Vendor in 2020, due to its ability to orchestrate data from across 10's, 100's and 1000's of different and complex datasources into a unified data hub. If you need to wrangle data from a lot of different datasources with ease, then CluedIn can be used as a data fabric to achieve this. This can provide a streaming infrastructure for your data that can also proactively clean and master the data as it flows onto downstream consumers.
+ - CluedIn is a Gartner Cool Vendor in 2020, due to its ability to orchestrate data from across tens, hundreds, and thousands of different and complex datasources, into a unified data hub. If you need to wrangle data from many different datasources with ease, then you can use CluedIn as a data fabric. This process can provide a streaming infrastructure for your data that can also proactively clean and master the data, as it flows onto downstream consumers.
 
 #### Sophisticated merging and linking of master data
 
- - CluedIn's unique data modelling approach utilizes a graph database, which allows for complex data to be merged and linked with simplicity. Unlike traditional approaches, to solve this challenge, CluedIn adds additional machine learning and graph analytics to merge, match, and link records with a very high precision.
+ - CluedIn's unique data modeling approach utilizes a graph database, which allows for complex data to be merged and linked with simplicity. Unlike traditional approaches, to solve this challenge, CluedIn adds other machine learning and graph analytics to merge, match, and link records with a high precision.
 
 ## Considerations
 
@@ -101,7 +101,7 @@ The CluedIn platform has the following characteristics and considerations:
 
 - CluedIn runs in [Docker containers](https://hub.docker.com/) and uses [Kubernetes](https://kubernetes.io/) to host and orchestrate the different pieces of the application. This architecture means that CluedIn works well in elastic environments and can automatically scale to needed sizes and infrastructure.
 
-- Native support for autoscaling leverages the power of Azure to provide a scalable environment for the biggest data workloads.
+- Native support for autoscaling uses the power of Azure to provide a scalable environment for the biggest data workloads.
 
 - Schemaless graph modeling automatically infers a data model from the source data. New data sources automatically connect to all other data sources, rather than having to be explicitly integrated. The number of data sources can scale infinitely without increasing integration complexity.
 
@@ -131,7 +131,7 @@ The pricing for CluedIn is open and transparent. You can see the pricing on thei
 
 #### Azure sizing and starting a trial
 
-You can start a 7-day trial of CluedIn on their [website](https://www.cluedin.com/cluedin-on-microsoft-azure), which can also help you scope your Azure hosting costs with prebuilt Azure estimates for different sized environments.
+You can start a seven-day trial of CluedIn on their [website](https://www.cluedin.com/cluedin-on-microsoft-azure), which can also help you scope your Azure hosting costs with prebuilt Azure estimates for different sized environments.
 
 ## Deploy this scenario
 
