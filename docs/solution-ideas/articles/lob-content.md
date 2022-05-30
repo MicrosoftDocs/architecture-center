@@ -1,10 +1,10 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This example shows how you can modernize your legacy systems that cannot support new processes and provide better user experience.
+This example shows how you can modernize your legacy systems that can't support new processes and provide better user experience.
 
 ## Potential use cases
 
-Out-of-box or custom connectors can help simplify process automation and connect to 3rd party data sources or legacy systems. Azure Functions can then schedule calculations on a scheduled basis to simplify your business processes. Power Apps can be used to process and share data with third parties via standard exports.
+Out-of-box or custom connectors can help simplify process automation and connect to third party data sources or legacy systems. Azure Functions can then schedule calculations on a scheduled basis to simplify your business processes. Power Apps can be used to process and share data with third parties via standard exports.
 
 ## Architecture
 
