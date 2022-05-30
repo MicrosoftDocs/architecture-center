@@ -4603,9 +4603,9 @@ items:
         items:
           - name: Guides
             items:
-              - name: Migration scenarios
+              - name: Migration deployments
                 items:
-                  - name: Migrate a Cloud Services app to Service Fabric
+                  - name: Migrate Cloud Services to Service Fabric
                     href: service-fabric/migrate-from-cloud-services.yml
                   - name: Migrate a monolith app to microservices
                     href: microservices/migrate-monolith.yml
