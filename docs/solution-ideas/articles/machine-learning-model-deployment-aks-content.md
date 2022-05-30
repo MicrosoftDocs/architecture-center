@@ -10,7 +10,7 @@ In this solution, [Kubeflow](https://www.kubeflow.org/docs/about/kubeflow) is us
 
 ## Architecture
 
-![Architecture diagram: deploying machine learning models to Azure Kubernetes Services (AKS)](../media/machine-learning-model-deployment-to-aks.png)
+![Architecture diagram: deploying machine learning models to Azure Kubernetes Services (AKS).](../media/machine-learning-model-deployment-to-aks.png)
 *Download an [SVG](../media/machine-learning-model-deployment-to-aks.svg) of this architecture.*
 
 ### Dataflow

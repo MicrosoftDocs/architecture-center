@@ -8,7 +8,7 @@ Out-of-box or custom connectors can help simplify process automation and connect
 
 ## Architecture
 
-![Architecture Diagram](../media/lob.png)
+![Architecture shows data from C D S to S Q L via Data Factory and from E R P to S Q L. Power app gets data, sends via C S V, Power B I shows trends.](../media/lob.png)
 
 ### Dataflow
 
