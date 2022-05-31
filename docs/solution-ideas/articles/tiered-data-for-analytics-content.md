@@ -2,6 +2,10 @@
 
 Easily tier data and applications on-premises and in Azure, with architecture that supports greater efficiency in applications. Filter unnecessary data early in the process, easily bring cloud applications close to the data on-premises, and analyze large scale aggregate data from multiple locations in Azure, for fleet-level insights.
 
+## Potential use cases
+
+
+
 ## Architecture
 
 ![Architecture diagram](../media/tiered-data-for-analytics.png)

@@ -13,12 +13,16 @@ The following Azure services are used in the solution architecture:
 - [Visual Studio App Center](https://www.visualstudio.com/app-center)
 - [App Service - Mobile Apps](https://azure.microsoft.com/services/app-service/mobile)
 
+## Potential use cases
+
+
+
 ## Architecture
 
 ![Architecture diagram](../media/task-based-consumer-mobile-app.png)
 *Download an [SVG](../media/task-based-consumer-mobile-app.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
 1. Create the mobile app using Visual Studio and Xamarin.
 1. Create and configure a new Mobile Apps back end on the Azure portal, or through Visual Studio, and configure the solution in Visual Studio to communicate with the back end.

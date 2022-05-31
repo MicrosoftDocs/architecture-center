@@ -2,12 +2,16 @@
 
 Use Azure Stack to update and extend your legacy application data with the latest cloud technology such as Azure web services, containers, serverless computing, and microservices architectures. This is a solution to create new applications while integrating and preserving legacy data in mainframe and core business process applications.
 
+## Potential use cases
+
+
+
 ## Architecture
 
 ![Architecture diagram](../media/unlock-legacy-data.png)
 *Download an [SVG](../media/unlock-legacy-data.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
 1. User enters data into Azure-based web app.
 1. Application commits data to database over virtual network-to-virtual network VPN connection to Azure Stack.

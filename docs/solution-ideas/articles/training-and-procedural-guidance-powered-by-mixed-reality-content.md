@@ -2,12 +2,16 @@
 
 Enable your team and employees to learn new processes and materials faster, with fewer errors, and greater confidence by providing persistent holographic instructions mapped to precise locations in their physical workspace. Jumpstart employee comprehension with head-up, hands-free experiences using HoloLens devices. And with Azure Spatial Anchors, you can place directions on the procedure's most important objects and return to this content over time.
 
+## Potential use cases
+
+
+
 ## Architecture
 
 ![Architecture Diagram](../media/training-and-procedural-guidance-powered-by-mixed-reality.png)
 *Download an [SVG](../media/training-and-procedural-guidance-powered-by-mixed-reality.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
 1. The user creating the training session authenticates using their Azure Active Directory credentials from HoloLens.
 1. The client application connects to its own web service to create a training session. Metadata about that training session is stored in Azure Cosmos DB.
