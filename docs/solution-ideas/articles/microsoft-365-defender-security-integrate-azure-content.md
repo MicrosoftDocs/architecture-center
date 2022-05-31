@@ -22,9 +22,9 @@ You don't need to implement all the security services that are presented in this
 
 :::image type="content" alt-text="Diagram of the complete reference architecture for this five-article series that shows an IT environment, threats, and security services." source="../media/microsoft-365-defender-security-integrate-azure-architecture.png" lightbox="../media/microsoft-365-defender-security-integrate-azure-architecture.png":::
 
-*©2021 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation.*
-
 *Download a [Visio file](https://arch-center.azureedge.net/azure-monitor-integrate-security-components.vsdm) of this architecture.*
+
+*©2021 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation.*
 
 This diagram shows a complete architecture reference. It includes an example of an IT environment, a set of example threats that are described according to their tactics (in blue), and their techniques (in the text box) according to the MITRE ATT&CK matrix. The MITRE ATT&CK matrix is covered in [Map threats to your IT environment](./map-threats-it-environment.yml). 
 
@@ -42,7 +42,6 @@ The diagram shows the following services in **Core Monitoring Services** and in 
 - Traffic Analytics (part of Network Watcher)
 - Application Insights
 - Storage Analytics
-
 
 ### Workflow
 
@@ -102,7 +101,6 @@ The following list provides information about how to access each of the services
 
 - **Storage Analytics**. Azure Storage offers various types of storage under the same storage account technology. You can find blobs, files, tables, and queues on top of storage accounts. Storage analytics offers a broad range of metrics to use with those storage services. Access Storage Analytics from your Storage account in the [Azure portal](https://portal.azure.com), then select **Diagnostic settings** in the menu on the left side. Choose one log analytics workspace to send that information. Then you can access a dashboard from **Insights**. Everything in your storage account that's being monitored is represented in the menu.
 
-
 ### Components
 
 The example architecture in this article uses the following Azure components:
@@ -131,12 +129,11 @@ Pricing for the Azure services that are presented in this series of articles is 
 
 Microsoft 365 Defender security services work with licenses. For information about the licensing requirements, see [Microsoft 365 Defender prerequisites](/microsoft-365/security/defender/prerequisites?view=o365-worldwide).
 
-
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors: 
+Principal author: 
 
  * [Rudnei Oliveira](https://www.linkedin.com/in/rudnei-r-oliveira-69443523) | Senior Customer Engineer
 
@@ -145,18 +142,14 @@ Other contributors:
  * [Gary Moore](https://www.linkedin.com/in/gwmoore) | Programmer/Writer
  * [Andrew Nathan](https://www.linkedin.com/in/andrew-nathan) | Senior Customer Engineering Manager
 
-
 ## Next steps
 
-- [Implement a secure hybrid network](../../reference-architectures/dmz/secure-vnet-dmz.yml)
-- [Monitor hybrid security using Microsoft Defender for Cloud and Microsoft Sentinel](../../hybrid/hybrid-security-monitoring.yml)
 - [Defend against threats with Microsoft 365](/learn/paths/m365-security-threat-protection)
 - [Detect and respond to cyber attacks with Microsoft 365 Defender](/learn/paths/defender-detect-respond)
 - [Get started with Microsoft 365 Defender](/microsoft-365/security/defender/get-started)
 - [Manage security with Microsoft 365](/learn/paths/m365-security-management)
 - [Protect against malicious threats with Microsoft Defender for Office 365](/learn/paths/defender-office-365-malicious-threats)
 - [Protect on-premises identities with Microsoft Defender for Cloud for Identity](/learn/paths/defender-identity-protect-on-premises)
-
 
 ## Related resources
 
@@ -166,5 +159,9 @@ For more details about this reference architecture, see the other articles in th
 - Part 2: [Map threats to your IT environment](./map-threats-it-environment.yml)
 - Part 3: [Building the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml)
 - Part 4: [Build the second layer of defense with Microsoft 365 Defender Security services](./microsoft-365-defender-build-second-layer-defense.yml)
-<!-- - Part 5: [Integrate Azure and Microsoft 365 Defender security services](./microsoft-365-defender-security-integrate-azure.yml) --> 
 
+For related architectures on Azure Architecture Center, see the following articles:
+
+- [Implement a secure hybrid network](../../reference-architectures/dmz/secure-vnet-dmz.yml)
+- [Monitor hybrid security using Microsoft Defender for Cloud and Microsoft Sentinel](../../hybrid/hybrid-security-monitoring.yml)
+<!-- - Part 5: [Integrate Azure and Microsoft 365 Defender security services](./microsoft-365-defender-security-integrate-azure.yml) --> 
