@@ -2,6 +2,10 @@
 
 Visual assistant provides rich information based on content of the image with capabilities such as reading business card, identifying barcode, and recognizing popular people, places, objects, artworks, and monuments.
 
+## Potential use cases
+
+
+
 ## Architecture
 
 ![Architecture diagram](../media/visual-assistant.png)

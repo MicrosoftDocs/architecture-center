@@ -16,6 +16,8 @@ This approach can also:
 
 :::image type="content" source="../media/video-analytics-architecture.png" alt-text="Screenshot showing on-premises video capture and analysis through Azure Stack Edge with Azure Video Analyzer and Spatial Analysis. Event notifications pass through Azure IoT Hub to a web app for alerts, and to Azure Media Services Storage for long-term analysis." border="false":::
 
+### Dataflow
+
 1. 5G-enabled IP cameras capture video in real time, and send the video feed to a 5G Radio Access Network (RAN) device.
 
 1. The 5G radios in the stores forward the data to the 5G packet core running on the Azure Stack Edge IoT Edge server.

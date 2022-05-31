@@ -10,7 +10,7 @@ A microservices-based architecture enables organizations to seamlessly scale on 
 
 ![Architecture diagram](../media/webapps.png)
 
-### Data flow
+### Dataflow
 
 This reference architecture is inspired by HSBC's digital payment platform, PayMe for Business. Each microservice is fully contained and connects to its own database hosted on a PaaS instance. The architecture uses polyglot persistence with a purpose-built data store for each microservice. The analytical platform pulls the data from the disparate data stores to form a unified data platform, which can be used to serve analytical reports, historical reports for end users and train the ML models for recommendation engine.
 

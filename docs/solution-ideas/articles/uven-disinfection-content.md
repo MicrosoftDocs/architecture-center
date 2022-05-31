@@ -27,7 +27,7 @@ This solution is ideal for the healthcare and facilities industries. We recommen
 
 ![Diagram that shows the UVEN architecture.](../media/uven-system.png)
 
-### Workflow
+### Dataflow
 
 - The system uses radar proximity sensors to detect when people are present. Whenever a space is unoccupied, the panels emit UV radiation to heavily reduce or eliminate viruses and bacteria.
 - One UVEN lighting control system (LCS) can control both BCL light and UVC radiation emissions for up to 20 luminaires. The LCS connects to radar sensors, electrical power, and to the internet or other LCSs for updates and real-time calibration.

@@ -12,7 +12,7 @@ By using natural language processing (NLP) with deep learning for content taggin
 
 *Download an [SVG file](../media/website-content-tag-suggestion-with-deep-learning-and-nlp.svg) of this architecture.*
 
-### Workflow
+### Dataflow
 
 1. Data is stored in various formats, depending on its original source. Data can be stored as files within Azure Data Lake Storage or in tabular form in Azure Synapse or Azure SQL Database. 
 
