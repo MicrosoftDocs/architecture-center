@@ -2819,7 +2819,25 @@ items:
               - name: Microservices architecture on AKS
                 href: reference-architectures/containers/aks-microservices/aks-microservices.yml
               - name: Mission critical workload on AKS
-                href: reference-architectures/containers/aks-mission-critical/mission-critical-intro.yml                    
+                items:
+                  - name: Introduction
+                    href: reference-architectures/containers/aks-mission-critical/mission-critical-intro.yml
+                  - name: Application design
+                    href: reference-architectures/containers/aks-mission-critical/mission-critical-app-design.yml                  
+                  - name: Application platform
+                    href: reference-architectures/containers/aks-mission-critical/mission-critical-app-platform.yml                  
+                  - name: Data platform
+                    href: reference-architectures/containers/aks-mission-critical/mission-critical-data-platform.yml
+                  - name: Networking and connectivity platform
+                    href: reference-architectures/containers/aks-mission-critical/mission-critical-networking.yml                    
+                  - name: Health modeling
+                    href: reference-architectures/containers/aks-mission-critical/mission-critical-health-modeling.yml
+                  - name: Deployment and testing
+                    href: reference-architectures/containers/aks-mission-critical/mission-critical-deploy-test.yml
+                  - name: Security
+                    href: reference-architectures/containers/aks-mission-critical/mission-critical-security.yml
+                  - name: Operational procedures
+                    href: reference-architectures/containers/aks-mission-critical/mission-critical-operational.yml
               - name: Multiplayer server hosting with ACI
                 href: /gaming/azure/reference-architectures/multiplayer-synchronous-aci
                 maintainContext: true
