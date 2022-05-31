@@ -5108,22 +5108,10 @@ items:
                     maintainContext: true
               - name: Highly secure IaaS apps
                 href: reference-architectures/n-tier/high-security-iaas.yml
-              - name: Integrate Data Explorer with Sentinel
-                href: /azure/sentinel/store-logs-in-azure-data-explorer?tabs=adx-event-hub
-                maintainContext: true
               - name: Microsoft Cybersecurity Architectures
                 href: /security/cybersecurity-reference-architecture/mcra
                 maintainContext: true
-              - name: SecOps best practices
-                href: /security/compass/security-operations
-                maintainContext: true
-              - name: Security design principles
-                href: /azure/architecture/framework/security/security-principles
-                maintainContext: true
-              - name: Security patterns
-                href: /azure/architecture/framework/security/security-patterns
-                maintainContext: true
-              - name: Use Azure monitoring to integrate security components
+              - name: Use Azure monitoring to integrate security
                 href: guide/security/azure-monitor-integrate-security-components.yml
               - name: Virtual Network security options
                 href: example-scenario/gateway/firewall-application-gateway.yml
@@ -5209,11 +5197,11 @@ items:
                 items: 
                   - name: Map threats to your IT environment
                     href: solution-ideas/articles/map-threats-it-environment.yml
-                  - name: Building the first layer of defense with Azure Security services
+                  - name: "First layer of defense: Azure security"
                     href: solution-ideas/articles/azure-security-build-first-layer-defense.yml
-                  - name: Build the second layer of defense with Microsoft 365 Defender Security services
+                  - name: "Second layer of defense: M365 Defender"
                     href: solution-ideas/articles/microsoft-365-defender-build-second-layer-defense.yml
-                  - name: Integration between Azure and Microsoft 365 Defender security services
+                  - name: Integrate Azure and M365 Defender security
                     href: solution-ideas/articles/microsoft-365-defender-security-integrate-azure.yml
       - name: Storage
         items:

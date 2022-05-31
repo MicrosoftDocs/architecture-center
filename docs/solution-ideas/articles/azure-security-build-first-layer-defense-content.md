@@ -15,10 +15,9 @@ This article presents Azure security services according to each Azure service. I
 
 :::image type="content" alt-text="A diagram of on-premises resources, Microsoft 365 services, Azure services, Azure security services, and threats. In the diagram, there are 16 types of threats as classified by the MITRE ATTACK matrix." source="../media/azure-security-build-first-layer-defense-architecture.png" lightbox="../media/azure-security-build-first-layer-defense-architecture.png":::
 
-*©2021 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation.*
-
 *Download a [Visio file](https://arch-center.azureedge.net/azure-monitor-integrate-security-components.vsdm) of this architecture.*
 
+*©2021 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation.*
 
 The Azure security layer in this diagram is based on Azure Security Benchmark (ASB) v3, which is a set of security rules that are implemented through Azure policies. ASB is based on a combination of rules from [CIS Center for Internet Security](https://www.cisecurity.org) and [National Institute of Standards and Technology](https://www.nist.gov). For more information about ASB, see [Overview of the Azure Security Benchmark v3](/security/benchmark/azure/overview).
 
@@ -133,7 +132,7 @@ The example architecture in this article uses the following Azure components:
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors: 
+Principal author: 
 
  * [Rudnei Oliveira](https://www.linkedin.com/in/rudnei-r-oliveira-69443523) | Senior Customer Engineer
 

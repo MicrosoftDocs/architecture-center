@@ -8,7 +8,6 @@ The good news is that you don't need to create a threat map from scratch. The MI
 
 This article uses a subset of those threats to present an example of how you could map threats against your IT environment.
 
-
 ## Potential use cases
 
 Some threats are widespread regardless of the industry segment, such as ransomware, DDoS attacks, cross-site scripting, SQL injection, and so on. However, some organizations have concerns about specific types of threats that are particular to their industry or that were the basis of cyber-attacks that they've experienced. The diagram presented in this article can help you map such threats for your organization according to the area that malicious actors are likely to attack. Developing a threat map helps you to plan the layers of defense that are necessary to have a more secure environment.
@@ -17,14 +16,13 @@ You can use this diagram with different combinations of attacks to understand ho
 
 Some organizations use Cyber Kill Chain®, a methodology from Lockheed Martin, to map and understand how an attack or a series of attacks are performed against an IT environment. Cyber Kill Chain organizes threats and attacks by considering fewer tactics and techniques than the MITRE ATT&CK framework. Still, it's effective in helping you to understand threats and how they might be executed. For more information about this methodology, see [Cyber Kill Chain](https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html).
 
-
 ## Architecture
 
 :::image type="content" alt-text="Diagram of three categories of services, top techniques of attack, and the resource categories of the Zero Trust model that are threatened by those techniques." source="../media/map-threats-it-environment-architecture.png" lightbox="../media/map-threats-it-environment-architecture.png":::
 
-*©2021 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation.*
-
 *Download a [Visio file](https://arch-center.azureedge.net/azure-monitor-integrate-security-components.vsdm) of this architecture.*
+
+*©2021 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation.*
 
 For the IT environment of organizations, we specify the components only for Azure and Microsoft 365. Your specific IT environment might include devices, appliances, and technologies from different technology providers.
 
@@ -106,12 +104,11 @@ The example architecture in this article uses the following Azure components:
 
 - [Azure SQL database](https://azure.microsoft.com/products/azure-sql/database) is a fully managed PaaS database engine that handles most of the database management functions such as upgrading, patching, backups, and monitoring. It provides these functions without user involvement. SQL Database provides a range of built-in security and compliance features to help your application meet security and compliance requirements.
 
-
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors: 
+Principal author: 
 
  * [Rudnei Oliveira](https://www.linkedin.com/in/rudnei-r-oliveira-69443523) | Senior Customer Engineer
 
@@ -119,7 +116,6 @@ Other contributors:
 
  * [Gary Moore](https://www.linkedin.com/in/gwmoore) | Programmer/Writer
  * [Andrew Nathan](https://www.linkedin.com/in/andrew-nathan) | Senior Customer Engineering Manager
-
 
 ## Next steps
 
