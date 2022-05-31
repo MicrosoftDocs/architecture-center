@@ -52,7 +52,7 @@ The next four scenarios show the options available to you, to connect to Azure P
 
 #### Capabilities
 
-- [Catalog](/azure/purview/overview#data-catalog). Azure Purview data catalog can automatically capture and describe core characteristics of data at the source. The characteristics include schema, technical properties, and location. Azure Purview glossary allows a business-friendly definition of data to be layered on top to improve search and discovery.
+- [Catalog](/azure/purview/overview#data-catalog). Microsoft Purview Data Catalog can automatically capture and describe core characteristics of data at the source. The characteristics include schema, technical properties, and location. Azure Purview glossary allows a business-friendly definition of data to be layered on top to improve search and discovery.
 
 - [Classification](/azure/purview/concept-best-practices-classification). Azure Purview automatically classifies datasets and data elements with over 100 predefined sensitive-data classifications. It also allows users to define their own custom classification schemes that can be applied manually and automatically.
 
@@ -81,6 +81,14 @@ The solution uses the following components:
 - [Azure AD](https://azure.microsoft.com/services/active-directory) offers cloud-based identity and access management services. These features provide a way for users to sign in and access resources.
 
 - [Azure Monitor](https://azure.microsoft.com/services/monitor) collects and analyzes data on environments and Azure resources. This data includes app telemetry, such as performance metrics and activity logs.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Isabel Arevalo](https://www.linkedin.com/in/isabel-arevalo-she-her-b24bb162) | Senior Cloud Solution Architect
 
 ## Next steps
 

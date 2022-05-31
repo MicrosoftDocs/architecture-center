@@ -64,6 +64,8 @@ Learn more about the component technologies:
 - [What is Azure Firewall?](/azure/firewall/overview)
 - [Azure Monitor overview](/azure/azure-monitor/overview)
 
+## Related resources
+
 Explore related architectures:
 
 - [Azure firewall architecture guide](../../example-scenario/firewalls/index.yml)

@@ -98,7 +98,7 @@ During the model run, the actuaries use data delivery mechanisms that can handle
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-**Principal author:**
+Principal author:
 
 - [Scott Seely](https://www.linkedin.com/in/scottseely) | Software Architect
 

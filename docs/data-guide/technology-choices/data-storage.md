@@ -2,6 +2,7 @@
 title: Choose a data storage technology
 description: Compare big data storage technology options in Azure, including key selection criteria and a capability matrix.
 author: EdPrice-MSFT
+categories: azure
 ms.date: 11/19/2020
 ms.topic: conceptual
 ms.service: architecture-center
@@ -144,6 +145,7 @@ The following tables summarize the key differences in capabilities.
 | SQL language support           | Yes                                                                                                                                                                             |
 | Pricing model                  | Elastically scalable cluster instances                                                                                                                                          |
 | Authentication                 | Based on [Azure Active Directory identities](https://github.com/uglide/azure-content/blob/master/articles/active-directory/active-directory-authentication-scenarios.md) |
-| Encryption at rest             | Supported, customer managed keys                                                                                                                                                |                                                                                                                                            |
+| Encryption at rest             | Supported, customer managed keys                                                                                                                                                |                                                                                                                                            
 | Analytics workload performance | Optimized performance for parallel analytics workloads                                                                                                                         |
 | Size limits                    | Linearly scalable               |
+

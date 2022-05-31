@@ -1,14 +1,16 @@
 <!-- cSpell:ignore RRAS -->
 
-This reference architecture shows how to connect an on-premises network to an Azure virtual network (VNet) using ExpressRoute, with a site-to-site virtual private network (VPN) as a failover connection. Traffic flows between the on-premises network and the Azure VNet through an ExpressRoute connection. If there is a loss of connectivity in the ExpressRoute circuit, traffic is routed through an IPSec VPN tunnel. [**Deploy this solution**](#deploy-the-solution).
+This reference architecture shows how to connect an on-premises network to an Azure virtual network (VNet) using ExpressRoute, with a site-to-site virtual private network (VPN) as a failover connection. Traffic flows between the on-premises network and the Azure VNet through an ExpressRoute connection. If there is a loss of connectivity in the ExpressRoute circuit, traffic is routed through an IPSec VPN tunnel. [**Deploy this solution**](#deploy-this-scenario).
 
 Note that if the ExpressRoute circuit is unavailable, the VPN route will only handle private peering connections. Public peering and Microsoft peering connections will pass over the Internet.
+
+## Architecture
 
 ![Reference architecture for a highly available hybrid network architecture using ExpressRoute and VPN gateway](./images/expressroute-vpn-failover.png)
 
 *Download a [Visio file][visio-download] of this architecture.*
 
-## Architecture
+### Workflow
 
 The architecture consists of the following components.
 
@@ -74,25 +76,27 @@ After you have established the virtual network gateway connections, test the env
 3. Verify that you can still connect from your on-premises network to your Azure VNet using the VPN virtual network gateway connection.
 4. Contact your provider to reestablish ExpressRoute connectivity.
 
-## DevOps considerations
+## Considerations
+
+### DevOps
 
 For ExpressRoute DevOps considerations, see the [Implementing a Hybrid Network Architecture with Azure ExpressRoute][guidance-expressroute] guidance.
 
 For site-to-site VPN DevOps considerations, see the [Implementing a Hybrid Network Architecture with Azure and On-premises VPN][guidance-vpn] guidance.
 
-## Security considerations
+### Security
 
 For general Azure security considerations, see [Microsoft cloud services and network security][best-practices-security].
 
-## Cost considerations
+### Cost optimization
 
 For ExpressRoute cost considerations, see these articles:
 
-- [Cost considerations in Implementing a Hybrid Network Architecture with Azure ExpressRoute](../../reference-architectures/hybrid-networking/expressroute.yml#cost-considerations).
+- [Cost considerations in Implementing a Hybrid Network Architecture with Azure ExpressRoute](../../reference-architectures/hybrid-networking/expressroute.yml#considerations).
 
 - [Cost considerations in Implementing a Hybrid Network Architecture with Azure and On-premises VPN](../../reference-architectures/hybrid-networking/vpn.yml#cost-considerations).
 
-## Deploy the solution
+## Deploy this scenario
 
 **Prerequisites**. You must have an existing on-premises infrastructure already configured with a suitable network appliance.
 
@@ -127,7 +131,7 @@ To deploy the solution, perform the following steps.
 * [ExpressRoute Documentation](/azure/expressroute/)
 * [Azure Security baseline for ExpressRoute](/security/benchmark/azure/baselines/expressroute-security-baseline?toc=%2fazure%2fexpressroute%2fTOC.json)
 * [How to create an ExpressRoute circuit](https://azure.microsoft.com/resources/videos/azure-expressroute-how-to-create-an-expressroute-circuit/)
-* [Azure Networking Blog](https://azure.microsoft.com/en-us/blog/topics/networking/)
+* [Azure Networking Blog](https://azure.microsoft.com/en-us/blog/topics/networking)
 
 <!-- links -->
 
