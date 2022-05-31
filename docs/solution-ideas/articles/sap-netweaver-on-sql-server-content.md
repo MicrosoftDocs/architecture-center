@@ -11,7 +11,7 @@ This system takes advantage of OS clustering for high availability, premium stor
 ![Architecture diagram](../media/sap-netweaver-on-sql-server.png)
 *Download an [SVG](../media/sap-netweaver-on-sql-server.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
 1. Using Azure Active Directory synchronized with on-premises Active Directory, SAP application user authenticates from on-premises to SAP landscape on Azure with single sign-on credentials.
 1. Azure high-speed ExpressRoute Gateway connects on-premises network to Azure virtual machines and other resources securely.
