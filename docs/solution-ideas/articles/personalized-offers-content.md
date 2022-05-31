@@ -6,6 +6,10 @@ Surfacing offers that are customized for the user has become essential to buildi
 
 By analyzing massive amounts of data, marketers have the unique opportunity to deliver highly relevant and personalized offers to each user. However, building a reliable and scalable big data infrastructure, and developing sophisticated machine learning models that personalize to each user is not trivial.
 
+## Potential use cases
+
+
+
 ## Architecture
 
 ![Architecture diagram](../media/personalized-offers.png)

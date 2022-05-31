@@ -2,6 +2,10 @@
 
 This architecture shows how you can create a solution personalizing offers with [Azure Functions](/azure/azure-functions/functions-overview), [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-ml), and [Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction).
 
+## Potential use cases
+
+
+
 ## Architecture
 
 ![Architecture diagram: personalizing offers with machine learning and near real time analytics.](../media/personalized-marketing.png)
