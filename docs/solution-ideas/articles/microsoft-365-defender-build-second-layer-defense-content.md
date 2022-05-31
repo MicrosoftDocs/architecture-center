@@ -20,7 +20,6 @@ The following diagram illustrates the relationship of solutions and main service
 
 :::image type="content" alt-text="Diagram of services and products that are part of Microsoft 365." source="../media/microsoft-365-defender-build-second-layer-defense-services-diagram.png":::
 
-
 ## Potential use case
 
 People are sometimes confused about Microsoft 365 security services and their role in IT cybersecurity. The main causes are names that are similar to each other, including some security services that run on Azure, such as Microsoft Defender for Cloud (formerly known as Azure Security Center) and Defender for Cloud Apps (formerly known as Microsoft Cloud Application Security).
@@ -39,9 +38,9 @@ The following diagram shows a layer, labeled as **DEFENDER**, that represents th
 
 :::image type="content" alt-text="Diagram of services, threats, and the security services that you can configure to provide protection to the resources in your IT environment." source="../media/microsoft-365-defender-build-second-layer-defense-architecture.png" lightbox="../media/microsoft-365-defender-build-second-layer-defense-architecture.png":::
 
-*©2021 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation.*
-
 *Download a [Visio file](https://arch-center.azureedge.net/azure-monitor-integrate-security-components.vsdm) of this architecture.*
+
+*©2021 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation.*
 
 ### Workflow
 
@@ -94,7 +93,6 @@ The threats named in the diagram follow a common attack order:
 
 The diagram also shows in the layer labeled as **DEFENDER** which Microsoft 365 Defender services can monitor and mitigate those attacks. This is an example of how Defender provides an additional layer of security that works with Azure security services to offer additional protection of the resources that are shown in the diagram. For more information about how potential attacks threaten your IT environment, see the second article in this series, [Map threats to your IT environment](../../solution-ideas/articles/map-threats-it-environment.yml). For more information about Microsoft 365 Defender, see [Microsoft 365 Defender](https://docs.microsoft.com/en-us/microsoft-365/security/defender/microsoft-365-defender?view=o365-worldwide).
 
-
 ### Access and manage Microsoft 365 Defender Security services
 
 Currently, you might need to use multiple portals to manage Microsoft 365 Defender services. However, Microsoft is working to centralize functionality as much as possible. The following diagram shows which portals are currently available and their relationships with each other.
@@ -106,7 +104,6 @@ Currently, you might need to use multiple portals to manage Microsoft 365 Defend
 The primary use of *Portal.cloudappsecurity.com* is to manage (4) Defender for Cloud Apps. It allows you to manage cloud apps and some apps that run on-premises, manage unauthorized apps (shadow IT), and review user signals from Identity Protection. You can also use this portal to manage many signals and features from (5) Identity protection on-premises, which allows you to consolidate many functions from (6) *portal.atp.azure.com* on (4) the portal for Defender for Cloud Apps. However, you can still access (6) *portal.atp.azure.com* if you need it.
 
 Lastly, *endpoint.microsoft.com* provides functionality mainly for Intune and Configuration Manager, but also for other services that are part of Endpoint Manager. Because *security.microsoft.com* and *endpoint.microsoft.com* deliver security protection for endpoints, they have many interactions between them (9) to offer a great security posture for your endpoints.
-
 
 ### Components
 
@@ -130,12 +127,11 @@ The example architecture in this article uses the following Azure components:
 
 - [Azure SQL database](https://azure.microsoft.com/products/azure-sql/database) is a fully managed PaaS database engine that handles most of the database management functions such as upgrading, patching, backups, and monitoring. It provides these functions without user involvement. SQL Database provides a range of built-in security and compliance features to help your application meet security and compliance requirements.
 
-
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors: 
+Principal author: 
 
  * [Rudnei Oliveira](https://www.linkedin.com/in/rudnei-r-oliveira-69443523) | Senior Customer Engineer
 
@@ -143,7 +139,6 @@ Other contributors:
 
  * [Gary Moore](https://www.linkedin.com/in/gwmoore) | Programmer/Writer
  * [Andrew Nathan](https://www.linkedin.com/in/andrew-nathan) | Senior Customer Engineering Manager
-
 
 ## Next steps
 
@@ -164,4 +159,3 @@ For more details about this reference architecture, see the other articles in th
 - Part 3: [Building the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml)
 - Part 5: [Integration between Azure and Microsoft 365 Defender security services](./microsoft-365-defender-security-integrate-azure.yml)
 <!-- - Part 4: [Build the second layer of defense with Microsoft 365 Defender Security services](./microsoft-365-defender-build-second-layer-defense.yml) -->
-
