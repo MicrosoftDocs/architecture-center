@@ -2,6 +2,10 @@
 
 Build scalable e-commerce web apps with Azure Functions and Web Apps, so you can create personalized experiences while Azure takes care of the infrastructure. This solution is ideal for the retail industry.
 
+## Potential use cases
+
+
+
 ## Architecture
 
 <!-- cSpell:ignore helvetica -->
@@ -9,7 +13,7 @@ Build scalable e-commerce web apps with Azure Functions and Web Apps, so you can
 ![Architecture Diagram](../media/scalable-ecommerce-web-app.png)
 *Download an [SVG](../media/scalable-ecommerce-web-app.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
 1. User accesses the web app in browser and signs in.
 1. Browser pulls static resources such as images from Azure Content Delivery Network.

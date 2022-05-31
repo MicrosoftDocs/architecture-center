@@ -2,6 +2,10 @@
 
 Rapidly build engaging, performant, and scalable cross-platform and native apps for iOS, Android, Windows, or Mac.
 
+## Potential use cases
+
+
+
 ## Architecture
 
 ![Architecture Diagram](../media/scalable-web-and-mobile-applications-using-azure-database-for-postgresql.png)
