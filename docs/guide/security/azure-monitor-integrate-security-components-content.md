@@ -2,7 +2,6 @@ This article introduces a series of articles about how to integrate security ser
 
 Microsoft offers many documents and reference architectures about IT security. For example, you can learn about Zero Trust concepts, understand how Microsoft 365 Defender services work to protect your Office environment, and get an architectural design with various security services from Microsoft Azure Cloud. You can find a compilation of various security-oriented reference architectures on [Microsoft Cybersecurity Reference Architectures](/security/cybersecurity-reference-architecture/mcra).
 
-
 ## Architectures in this series
 
 This article is the first in a series of five articles that present a logical and organized way to understand and integrate the security solutions that are available from Microsoft Azure public cloud and from Microsoft 365 services. This first article provides an overview of the series. It briefly explains the content of the architecture and how it was built. The other articles in this series explain each part in more detail.
@@ -57,7 +56,7 @@ In addition to this introductory article, this series includes the following art
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors: 
+Principal author: 
 
  * [Rudnei Oliveira](https://www.linkedin.com/in/rudnei-r-oliveira-69443523) | Senior Customer Engineer
 
