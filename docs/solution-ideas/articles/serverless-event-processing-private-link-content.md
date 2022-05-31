@@ -13,6 +13,8 @@ A popular use case for implementing an end-to-end event stream processing patter
 
 [![Diagram showing data flowing into a VNet and then being processed by the architecture described in this article.](../media/serverless-event-processing-private-link-diagram.png)](../media/serverless-event-processing-private-link-diagram.png#lightbox)
 
+### Dataflow
+
 1. VNet integration is used to put all Azure resources behind [Azure Private Endpoints](/azure/private-link/private-endpoint-overview).
 1. Events arrive at the Input Event Hub.
 1. The De-batching and Filtering Azure Function is triggered to handle the event. This step filters out unwanted events and de-batches the received events before submitting them to the Output Event Hub.

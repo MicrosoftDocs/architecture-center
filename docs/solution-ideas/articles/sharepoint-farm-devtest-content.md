@@ -11,7 +11,7 @@ This solution address the capability to deliver agile development architecture t
 ![Architecture diagram](../media/sharepoint-farm-devtest.png)
 *Download an [SVG](../media/sharepoint-farm-devtest.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
 1. Create resource group for the storage, network, and virtual machine, plus other dependent elements.
 1. Create a virtual network to host the virtual machines and load balancers for the deployment. Ensure the network has appropriate Network Security Groups implement to protect network traffic flow.

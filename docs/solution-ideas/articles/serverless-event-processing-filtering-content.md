@@ -13,6 +13,8 @@ A popular use case for implementing an end-to-end event stream processing patter
 
 ![Diagram showing the data flow and key processing points in the architecture described in this article](../media/serverless-event-processing-filtering-diagram.png)
 
+### Dataflow
+
 1. Events arrive at the Input Event Hub.
 1. The De-batching and Filtering Azure Function is triggered to handle the event. This step filters out unwanted events and de-batches the received events before submitting them to the Output Event Hub.
 1. If the De-batching and Filtering Azure Function fails to store the event successfully, the event is submitted to the Deadletter Event Hub 1.

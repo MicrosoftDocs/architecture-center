@@ -11,7 +11,7 @@ Start simple with the content management system that enables you to easily maint
 ![Architecture Diagram](../media/simple-branded-website.png)
 *Download an [SVG](../media/simple-branded-website.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
 1. User accesses Web Apps from Azure App Service in a browser.
 1. Application Insights detects issues and analyzes usage for your web apps.
