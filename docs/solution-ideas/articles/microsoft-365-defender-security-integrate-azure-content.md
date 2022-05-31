@@ -127,7 +127,7 @@ The example architecture in this article uses the following Azure components:
 
 ## Pricing
 
-Pricing for the Azure services that are presented in this series of articles is calculated in various ways. Some services are free of charge, some have a charge for each use, and some have a charge that is based on licensing. The best way to estimate the pricing for any of the Azure security services is to use the [Pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator/). In the calculator, search for a service that you're interested in, and then select it to get all the variables that determine the price for the service.
+Pricing for the Azure services that are presented in this series of articles is calculated in various ways. Some services are free of charge, some have a charge for each use, and some have a charge that is based on licensing. The best way to estimate the pricing for any of the Azure security services is to use the [Pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator). In the calculator, search for a service that you're interested in, and then select it to get all the variables that determine the price for the service.
 
 Microsoft 365 Defender security services work with licenses. For information about the licensing requirements, see [Microsoft 365 Defender prerequisites](/microsoft-365/security/defender/prerequisites?view=o365-worldwide).
 

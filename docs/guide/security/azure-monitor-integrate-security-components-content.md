@@ -29,7 +29,7 @@ To make the architecture more comprehensive, it was designed to be layered onto 
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-monitor-integrate-security-components.vsdm) of this architecture.*
 
-At the bottom of the diagram is a layer that represents some of the most familiar techniques of attack according to MITRE ATT&CK matrix ([MITRE ATT&CK®](https://attack.mitre.org/)) and the tactics involved (in blue text). From a threat perspective, malicious actors have evolved with new technologies and scenarios, especially public and hybrid clouds. 
+At the bottom of the diagram is a layer that represents some of the most familiar techniques of attack according to MITRE ATT&CK matrix ([MITRE ATT&CK®](https://attack.mitre.org)) and the tactics involved (in blue text). From a threat perspective, malicious actors have evolved with new technologies and scenarios, especially public and hybrid clouds. 
 
 ### Articles
 
@@ -71,12 +71,12 @@ Other contributors:
 
 This document refers to some services, technologies, and terminologies. You can find more information about them in the following resources:
 
-- [What are public, private, and hybrid clouds?](https://azure.microsoft.com/overview/what-are-private-public-hybrid-clouds/)
+- [What are public, private, and hybrid clouds?](https://azure.microsoft.com/overview/what-are-private-public-hybrid-clouds)
 - [Overview of the Azure Security Benchmark (v3)](/security/benchmark/azure/overview)
 - [Embrace proactive security with Zero Trust](https://www.microsoft.com/security/business/zero-trust)
 - [Microsoft 365](https://www.microsoft.com/microsoft-365) subscription information
 - [Microsoft 365 Defender](https://www.microsoft.com/security/business/threat-protection/microsoft-365-defender)
-- [MITRE ATT&CK®](https://attack.mitre.org/)
+- [MITRE ATT&CK®](https://attack.mitre.org)
 - [The Cyber Kill Chain®](https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html) from Lockheed Martin
 - [What is Microsoft Sentinel?](/azure/sentinel/overview)
 - [Overview of Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview)

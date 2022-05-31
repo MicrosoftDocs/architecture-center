@@ -20,7 +20,7 @@ This article presents Azure security services according to each Azure service. I
 *Download a [Visio file](https://arch-center.azureedge.net/azure-monitor-integrate-security-components.vsdm) of this architecture.*
 
 
-The Azure security layer in this diagram is based on Azure Security Benchmark (ASB) v3, which is a set of security rules that are implemented through Azure policies. ASB is based on a combination of rules from [CIS Center for Internet Security](https://www.cisecurity.org/) and [National Institute of Standards and Technology](https://www.nist.gov/). For more information about ASB, see [Overview of the Azure Security Benchmark v3](/security/benchmark/azure/overview).
+The Azure security layer in this diagram is based on Azure Security Benchmark (ASB) v3, which is a set of security rules that are implemented through Azure policies. ASB is based on a combination of rules from [CIS Center for Internet Security](https://www.cisecurity.org) and [National Institute of Standards and Technology](https://www.nist.gov). For more information about ASB, see [Overview of the Azure Security Benchmark v3](/security/benchmark/azure/overview).
 
 The diagram doesn't contain all the Azure security services that are available, but it shows the security services that are most commonly used by organizations. All the security services that are identified in the architectural diagram can work together in any combination according to your IT environment and your organization's security requirements.
 
@@ -55,10 +55,10 @@ This section describes the components and services that appear in the diagram. M
     | Label | Description | Documentation |
     |---|---|---|
     | **NSG** | A free service that you attach to a network interface or subnet. An NSG allows you to filter TCP or UDP protocol traffic by using IP address ranges and ports for inbound and outbound connections. | [Network security groups](/azure/virtual-network/network-security-groups-overview) |
-    | **VPN** | A virtual private network (VPN) gateway that delivers a tunnel with IPSEC (IKE v1/v2) protection. | [VPN Gateway](https://azure.microsoft.com/en-us/services/vpn-gateway/) |
+    | **VPN** | A virtual private network (VPN) gateway that delivers a tunnel with IPSEC (IKE v1/v2) protection. | [VPN Gateway](https://azure.microsoft.com/en-us/services/vpn-gateway) |
     | **AZURE FIREWALL** | A platform as a service (PaaS) that delivers protection in layer 4 and is attached to an entire virtual network. | [What is Azure Firewall](/azure/firewall/overview)? |
     | **APP GW + WAF** | Azure Application Gateway with Web Application Firewall (WAF). Application Gateway is a load balancer for web traffic that works in layer 7 and adds WAF to protect applications that use HTTP and HTTPS. | [What is Azure Application Gateway](/azure/application-gateway/overview)? |
-    | **NVA** | Network Virtual Appliance (NVA), a virtual security services from the marketplace that is provisioned on VMs on Azure. | [Network Virtual Appliances](https://azure.microsoft.com/solutions/network-appliances/) |
+    | **NVA** | Network Virtual Appliance (NVA), a virtual security services from the marketplace that is provisioned on VMs on Azure. | [Network Virtual Appliances](https://azure.microsoft.com/solutions/network-appliances) |
     | **DDOS** | DDoS protection implemented on the virtual network to help you mitigate different types of DDoS attacks. | [Azure DDoS Protection Standard overview](/azure/ddos-protection/ddos-protection-overview) |
     | **TLS/SSL** | TLS/SSL deliver encryption in transit for most Azure services that exchange information, such as Azure Storage and Web Apps. | [Configure end-to-end TLS by using Application Gateway with PowerShell](/azure/application-gateway/application-gateway-end-to-end-ssl-powershell) |
     | **PRIVATE LINK** | Service that allows you to create a private network for an Azure service that initially is exposed to the internet. | [What is Azure Private Link](https://docs.microsoft.com/en-us/azure/private-link/private-link-overview)? |
@@ -147,14 +147,14 @@ Other contributors:
 
 Microsoft has more documentation that can help you secure your IT environment, and the following articles can be particularly helpful:
 
-- [Security in the Microsoft Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/secure/). The Cloud Adoption Framework provides security guidance for your cloud journey by clarifying the processes, best practices, models, and experience.
-- [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/). The Azure Well-Architected Framework is a set of guiding tenets that you can use to improve the quality of a workload. The framework is based on five pillars: reliability, security, cost optimization, operational excellence, and performance efficiency.
+- [Security in the Microsoft Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/secure). The Cloud Adoption Framework provides security guidance for your cloud journey by clarifying the processes, best practices, models, and experience.
+- [Microsoft Azure Well-Architected Framework](/azure/architecture/framework). The Azure Well-Architected Framework is a set of guiding tenets that you can use to improve the quality of a workload. The framework is based on five pillars: reliability, security, cost optimization, operational excellence, and performance efficiency.
 - [Microsoft Security Best Practices](/security/compass/compass). Microsoft Security Best Practices (formerly known as the *Azure Security Compass* or *Microsoft Security Compass*) is a collection of best practices that provide clear, actionable guidance for security-related decisions.
 - [Microsoft Cybersecurity Reference Architectures](https://aka.ms/mcra) (MCRA). MCRA is a compilation of various Microsoft security reference architectures. 
 
 In the following resources, you can find more information about the services, technologies, and terminologies that are mentioned in this article:
 
-- [What are public, private, and hybrid clouds?](https://azure.microsoft.com/overview/what-are-private-public-hybrid-clouds/)
+- [What are public, private, and hybrid clouds?](https://azure.microsoft.com/overview/what-are-private-public-hybrid-clouds)
 - [Overview of the Azure Security Benchmark (v3)](/security/benchmark/azure/overview)
 - [Embrace proactive security with Zero Trust](/security/business/zero-trust)
 - [Microsoft 365](/microsoft-365) subscription information

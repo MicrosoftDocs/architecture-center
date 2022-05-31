@@ -4,7 +4,7 @@ Computer systems contain information that is valuable to the organizations that 
 
 In this article, we look at a way to map the threats against your IT environment so that you can plan how to use Microsoft security services to implement your security strategy. This is the second article in a series of five articles that are introduced in [Use Azure monitoring to integrate security components](../../guide/security/azure-monitor-integrate-security-components.yml). 
 
-The good news is that you don't need to create a threat map from scratch. The MITRE ATT&CK matrix is a great solution to help you develop a threat map. MITRE ATT&CK is a global knowledge database that maps threats that are based on the tactics and techniques that are observed in the real world. The MITRE Corporation catalogs every threat available and discovers many details of how those threats work and how you can defend against them. It's a public service that you can access online at [MITRE ATT&CK®](https://attack.mitre.org/).
+The good news is that you don't need to create a threat map from scratch. The MITRE ATT&CK matrix is a great solution to help you develop a threat map. MITRE ATT&CK is a global knowledge database that maps threats that are based on the tactics and techniques that are observed in the real world. The MITRE Corporation catalogs every threat available and discovers many details of how those threats work and how you can defend against them. It's a public service that you can access online at [MITRE ATT&CK®](https://attack.mitre.org).
 
 This article uses a subset of those threats to present an example of how you could map threats against your IT environment.
 
@@ -35,7 +35,7 @@ For the Azure environment, the diagram shows the components that are listed in t
 | **VNET** | [What is Azure Virtual Network](https://azure.microsoft.com/en-us/services/virtual-network)? |
 | **LBS** | [What is Azure Load Balancer](/azure/load-balancer/load-balancer-overview)? |
 | **PIPS** | [Public IP addresses](/azure/virtual-network/ip-services/public-ip-addresses) |
-| **SERVERS** | [Virtual Machines](/services/virtual-machines/) |
+| **SERVERS** | [Virtual Machines](/services/virtual-machines) |
 | **K8S** | [Azure Kubernetes Service](/azure/aks/intro-kubernetes) |
 | **VDI** | [What is Azure Virtual Desktop?](/azure/virtual-desktop/overview) |
 | **WEB APPS** | [App Service overview](/azure/app-service/overview) |
@@ -75,14 +75,14 @@ The architecture diagram includes the following layers:
 
 ### How to use the MITRE ATT&CK framework
 
-You can start with a simple search for the name of the threat or of the attack code on the main web page, [MITRE ATT&CK®](https://attack.mitre.org/).
+You can start with a simple search for the name of the threat or of the attack code on the main web page, [MITRE ATT&CK®](https://attack.mitre.org).
 
 You can also browse threats on the tactics or techniques pages:
 
-  - [Enterprise tactics](https://attack.mitre.org/tactics/enterprise/)
-  - [Enterprise techniques](https://attack.mitre.org/techniques/enterprise/)
+  - [Enterprise tactics](https://attack.mitre.org/tactics/enterprise)
+  - [Enterprise techniques](https://attack.mitre.org/techniques/enterprise)
 
-You can still use [MITRE ATT&CK® Navigator](https://mitre-attack.github.io/attack-navigator/), an intuitive tool provided by MITRE that helps you discover tactics, techniques, and details about threats.
+You can still use [MITRE ATT&CK® Navigator](https://mitre-attack.github.io/attack-navigator), an intuitive tool provided by MITRE that helps you discover tactics, techniques, and details about threats.
 
 ### Components
 
@@ -125,13 +125,13 @@ Other contributors:
 
 This document refers to some services, technologies, and terminologies. You can find more information about them in the following resources:
 
-- [MITRE ATT&CK®](https://attack.mitre.org/)
-- [ATT&CK® Navigator)](https://mitre-attack.github.io/attack-navigator/)
-- [Public Preview: The MITRE ATT&CK Framework Blade in Microsoft Sentinel](https://azurecloudai.blog/2022/02/25/public-preview-the-mitre-attck-framework-blade-in-microsoft-sentinel/), a post from the Azure Cloud & AI Domain Blog
+- [MITRE ATT&CK®](https://attack.mitre.org)
+- [ATT&CK® Navigator)](https://mitre-attack.github.io/attack-navigator)
+- [Public Preview: The MITRE ATT&CK Framework Blade in Microsoft Sentinel](https://azurecloudai.blog/2022/02/25/public-preview-the-mitre-attck-framework-blade-in-microsoft-sentinel), a post from the Azure Cloud & AI Domain Blog
 - [The Cyber Kill Chain®](https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html)
 - [Embrace proactive security with Zero Trust](https://www.microsoft.com/security/business/zero-trust)
 - [Blended threat](https://en.wikipedia.org/wiki/Blended_threat) on Wikipedia
-- [How cyberattacks are changing according to new Microsoft Digital Defense Report](https://www.microsoft.com/security/blog/2021/10/11/how-cyberattacks-are-changing-according-to-new-microsoft-digital-defense-report/) from Microsoft Security Blog
+- [How cyberattacks are changing according to new Microsoft Digital Defense Report](https://www.microsoft.com/security/blog/2021/10/11/how-cyberattacks-are-changing-according-to-new-microsoft-digital-defense-report) from Microsoft Security Blog
 
 ## Related resources
 
