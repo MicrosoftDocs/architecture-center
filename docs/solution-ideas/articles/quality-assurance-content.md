@@ -9,16 +9,16 @@ This solution shows how to predict failures using the example of manufacturing p
 ![Architecture Diagram](../media/quality-assurance.png)
 *Download an [SVG](../media/quality-assurance.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
 1. Source system event generator streams data into Azure Event Hub.
-2. Event Hub uses Capture to send raw event to Data Lake.
-3. A Stream Analytics Job read real-time data from Event Hub.
-4. A Stream Analytics Job calls ML model in Azure Machine Learning to predict failure/defect.
-5. A Stream Analytics Job sends stream aggregations to Power BI real-time dashboard for operations.
-6. A Stream Analytics Job pushes the processed real-time data into Azure Synapse SQL Pool.
-7. A Logic Apps sends alerts from streaming data to a mobile phone.
-8. Power BI is used for results visualization.
+1. Event Hub uses Capture to send raw event to Data Lake.
+1. A Stream Analytics Job read real-time data from Event Hub.
+1. A Stream Analytics Job calls ML model in Azure Machine Learning to predict failure/defect.
+1. A Stream Analytics Job sends stream aggregations to Power BI real-time dashboard for operations.
+1. A Stream Analytics Job pushes the processed real-time data into Azure Synapse SQL Pool.
+1. A Logic Apps sends alerts from streaming data to a mobile phone.
+1. Power BI is used for results visualization.
 
 ### Components
 

@@ -2,6 +2,10 @@
 
 Get insights from live streaming data with ease. Capture data continuously from any IoT device, or logs from website clickstreams, and process it in near-real time.
 
+## Potential use cases
+
+
+
 ## Architecture
 
 :::image type="content" source="../media/real-time-analytics.png" alt-text="Diagram of a real time analytics on big data architecture using Azure Synapse Analytics with Azure Data Lake Storage Gen2, Event Hub, Azure Analysis Services, Azure Cosmos DB, and Power BI." border="false":::

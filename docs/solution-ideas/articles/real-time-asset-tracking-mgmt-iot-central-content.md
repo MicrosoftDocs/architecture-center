@@ -46,6 +46,12 @@ These other uses cases have similar design patterns:
 - [Power BI](https://powerbi.microsoft.com) is a suite of business analytics tools that deliver insights throughout your organization. You can use it to produce beautiful reports and publish them on the web and across mobile devices.
 - [Power BI Embedded](https://azure.microsoft.com/services/power-bi-embedded/) puts Power BI into your applications, so that you can quickly and easily provide interactive reports, dashboards, and analytics in your applications, and brand them as your own.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
 ## Next steps
 
 - [What is Azure IoT Central?](/azure/iot-central/core/overview-iot-central)

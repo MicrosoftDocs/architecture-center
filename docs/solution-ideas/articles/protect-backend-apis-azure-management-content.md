@@ -29,7 +29,7 @@ This architecture addresses the needs of organizations seeking to:
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1932168-protect-backend-apis-azure-management.vsdx) of this architecture.*
 
-### Workflow
+### Dataflow
 
 1. To gain access to an application, an API client authenticates by providing credentials such as username and password. The IdP is Azure AD B2C in this solution, but you can use a different one.
 1. The authentication request goes via Azure Front Door to Azure AD B2C, which is configured with a custom domain for sign-in. Azure AD B2C authenticates the user and returns a JSON Web Token (JWT) bearer token back to the user.
