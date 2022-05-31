@@ -4,6 +4,10 @@ With Speech services, it's easy to transcribe every call. Index the transcriptio
 
 For more information, read how [batch transcription](/azure/cognitive-services/speech-service/batch-transcription) works with Speech Services.
 
+## Potential use cases
+
+
+
 ## Architecture
 
 ![Architecture Diagram](../media/speech-services.png)

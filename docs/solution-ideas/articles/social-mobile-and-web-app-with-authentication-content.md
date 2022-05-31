@@ -20,7 +20,7 @@ The mobile client app works in offline mode, which allows you to view and upload
 ![Architecture Diagram](../media/social-mobile-and-web-app-with-authentication.png)
 *Download an [SVG](../media/social-mobile-and-web-app-with-authentication.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
 1. Create the app using Visual Studio and Xamarin.
 1. Add the Azure App Service Mobile Apps back end service to the app solution.
