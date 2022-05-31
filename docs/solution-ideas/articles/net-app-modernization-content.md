@@ -2,18 +2,24 @@
 
 Modern web applications must meet higher user expectations and greater demands than ever before. By migrating legacy .NET applications to Azure, organizations can ensure their apps are incredibly secure, flexible and available from anywhere in the world, and scalable to meet spikes in demand.
 
+## Potential use cases
+
+All organizations can utilize this scenario, but it is most common in the retail industry.
+
 ## Architecture
 
-![Architecture Diagram](../media/net-app-modernization.png)
+![Once app is migrated to Azure, W C F / R E S T services app point to it. Assess database, migrate it, provision two web apps, then deploy the apps.](../media/net-app-modernization.png)
 
 The following annotations describe the migration process:
 
+## Dataflow
+
 1. Provision an Azure SQL Database instance in Azure. After the app website is migrated to Azure, the WCF/REST services app will point to this instance.
-2. Assess the database using Data Migration Assistant and migrate it using the Database Migration Service.
-3. Provision the two web apps.
-4. Set up Azure DevOps: create a new Azure DevOps project, and import the GitHub repo.
-5. Configure connection strings so that the web tier web app, the WCF/REST services web app, and the SQL instance can communicate.
-6. Set up build and release pipelines to create the app, and deploy to two separate web apps.
+1. Assess the database using Data Migration Assistant and migrate it using the Database Migration Service.
+1. Provision the two web apps.
+1. Set up Azure DevOps: create a new Azure DevOps project, and import the GitHub repo.
+1. Configure connection strings so that the web tier web app, the WCF/REST services web app, and the SQL instance can communicate.
+1. Set up build and release pipelines to create the app, and deploy to two separate web apps.
 
 ### Components
 
@@ -31,8 +37,8 @@ For the data tier of the app, this company chose Azure SQL Database for its dyna
 By following this process, customers can connect to the online retail catalog via the web app. The load balancer automatically scales during periods of increased traffic to improve application uptime. Product inventory and pricing are queried and pulled from Azure SQL Database, as follows:
 
 1. Customers connect to the online catalog via the front end web app
-2. Azure App Service provides security and automated management.  DevOps capabilities are also possible such as continuous deployment from Azure DevOps.
-3. Product inventory and pricing are queried and pulled from Azure SQL Database.
+1. Azure App Service provides security and automated management.  DevOps capabilities are also possible such as continuous deployment from Azure DevOps.
+1. Product inventory and pricing are queried and pulled from Azure SQL Database.
 
 ## Next Steps
 
