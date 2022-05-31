@@ -2,12 +2,17 @@
 
 Generate personalized recommendations for customers in real time, using low-latency and tunable consistency settings for immediate insights.
 
+## Potential use cases
+
+
+
 ## Architecture
 
 ![Architecture Diagram](../media/personalization-using-cosmos-db.png)
 *Download an [SVG](../media/personalization-using-cosmos-db.svg) of this architecture.*
 
-### Data flow
+### Dataflow
+
 1. Shopper/User signs in to e-commerce app using their own credentials.
 2. Shopper/User places the order and order goes to Azure API Apps.
 3. Data gets stored in Cosmos DB (Customer Order).

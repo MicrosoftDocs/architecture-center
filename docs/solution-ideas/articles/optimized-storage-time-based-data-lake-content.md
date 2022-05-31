@@ -60,6 +60,12 @@ The architecture may be appropriate for any application that uses massive amount
 - If you're migrating data from old storage system, you may need to write routines to copy a portion of old data to Cosmos DB. Make sure that you have timestamp and copy flags to track the progress of migration of data.
 - You can further optimize the overall architecture by replacing Azure Redis cache with Azure Cosmos DB integrated cache.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
 ## Next steps
 
 - [Web-Queue-Worker architecture style](../../guide/architecture-styles/web-queue-worker.yml)

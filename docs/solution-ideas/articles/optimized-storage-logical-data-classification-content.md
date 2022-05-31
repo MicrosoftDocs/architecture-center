@@ -61,6 +61,12 @@ The application data is stored in Azure Cosmos DB, which replicates data to diff
 - Azure Data Factory or a third-party tool can migrate data from Azure Cosmos DB to Azure Table storage.
 - If you're migrating data from an old storage system, you need to write routines to copy old data to Cosmos DB. Make sure that you have timestamp and copy flags to track the progress of migration of data.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+ * [Nabil Siddiqui](https://www.linkedin.com/in/nabilshams) | Cloud Solution Architect - Digital and Application Innovation
+
 ## Next steps
 
 - [Web-Queue-Worker architecture style](../../guide/architecture-styles/web-queue-worker.yml)
