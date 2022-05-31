@@ -2,7 +2,7 @@ Scaling AI and machine learning initiatives in regulated environments poses sign
 
 The architecture presented in this article follows the Enterprise Scale Analytics and AI reference architecture design and was one of its first implementations.
 
-Setup of data science projects and development of machine learning models in life sciences and healthcare environments will, in almost all cases, require access to high business impact data sources. These sources can be clinical trial protocol information (without patient data), molecules chemical formulae, or manufacturing processes secrets, just to list some examples.
+Setup of data science projects and development of machine learning models in life sciences and healthcare environments will, in almost all cases, require access to high business impact data sources. For example, these sources can be clinical trial protocol information (without patient data), molecule's chemical formulae, or manufacturing process secrets.
 
 In regulated industries, IT systems are classified based on the classification of the data sources those systems access. AI and machine learning environments running on Azure are classified as high business impact (HBI), and are required to comply with an extensive set of information security risk management (ISRM) policies and controls.
 
@@ -98,7 +98,7 @@ In distributed organizations, business groups operate independently and with hig
 
 This architecture is based on the following principles:
 
-- It follows the concept of Enterprise-scale, which is an architectural approach and a reference implementation aligned with the Azure roadmap and part of the Microsoft Cloud Adoption Framework (CAF). It enables effective construction and operationalization of landing zones on Azure, at scale. The name Landing Zone is used as a boundary in which new or migrated applications land in Azure, and in this scenario, it refers to parts of the data platform that are used to host the data and the AI/ML models.
+- Enterprise-scale, which is an architectural approach and a reference implementation aligned with the Azure roadmap and part of the Microsoft Cloud Adoption Framework (CAF). It enables effective construction and operationalization of landing zones on Azure, at scale. The name Landing Zone is used as a boundary in which new or migrated applications land in Azure, and in this scenario, it refers to parts of the data platform that are used to host the data and the AI/ML models.
 - Traditional monolithic data platform architectures have an inherent limitation that slows the delivery of features and values. The architecture described here lets organizations scale their data estate and address the challenges of a centralized monolithic data lake by using a decentralized approach with separation of ownership (data mesh). The approach lets organizations scale to thousands of ingest pipelines and data products, while keeping the data platform secure and maintainable by decoupling the core data platform and data management services (deployed in a separate landing zone called Data Management Zone) from data domains and data products (deployed to one or more Data Landing Zones).
 - Subscriptions are used as units of management and scale aligned with business needs and priorities. Scaling is achieved by providing new subscriptions (Data Landing Zones) to business units, based on criteria such as different business stakeholders, different business goals and requirements, and data residency requirements (where data needs to be hosted in a specific geo-region).
 - Azure Policies are used to provide guardrails and ensure continued compliance within the company's IT landscape.
@@ -218,6 +218,14 @@ Below are some highly recommended practices:
 - Establish a transparent cost model for platform shared services.
 - Use tags consistently to associate use case and "product" resources with cost centers.
 - Use Azure Advisor and Azure Budget to understand where resources aren't being used in the most optimal way and review configurations regularly.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+- [Eran Sagi](https://il.linkedin.com/in/sagieran) | AI Solution Architect
 
 ## Next steps
 

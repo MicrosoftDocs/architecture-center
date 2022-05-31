@@ -1,14 +1,4 @@
-Large, unstructured datasets like the [JFK Files](https://www.archives.gov/research/jfk/2017-release), which contains over 34,000 pages of documents about the CIA investigation of the 1963 JFK assassination, include typewritten and handwritten notes, photos and diagrams, and other unstructured data that standard search solutions can't parse.
-
-*AI enrichment* in Azure Cognitive Search can extract and enhance searchable, indexable text from images, blobs, and other unstructured data sources like the JFK Files by using pre-trained machine learning skillsets from the Cognitive Services [Computer Vision](/azure/cognitive-services/computer-vision/home) and [Text Analytics](/azure/cognitive-services/text-analytics/overview) APIs. You can also create and attach [custom skills](/azure/search/cognitive-search-custom-skill-interface) to add special processing for domain-specific data like CIA Cryptonyms. Azure Cognitive Search can then index and search the context.
-
-The Azure Cognitive Search skills in this example solution fall into the following categories:
-
-- *Image-processing* built-in skills like [optical character recognition (OCR)](/azure/search/cognitive-search-skill-ocr), [print extraction](/azure/cognitive-services/computer-vision/concept-recognizing-text#read-api), and [image analysis](/azure/search/cognitive-search-skill-image-analysis) include object and face detection, tag and caption generation, and celebrity and landmark identification. These skills create text representations of image content, which are searchable using the query capabilities of Azure Cognitive Search. Document *cracking* is the process of extracting or creating text content from non-text sources.
-
-- *Natural language processing* built-in skills like [entity recognition](/azure/search/cognitive-search-skill-entity-recognition), [language detection](/azure/search/cognitive-search-skill-language-detection), [key phrase extraction](/azure/search/cognitive-search-skill-keyphrases), and [text recognition](/azure/cognitive-services/computer-vision/concept-recognizing-text) map unstructured text to searchable and filterable fields in an index.
-
-- *Custom skills* that capture domain-specific data. These skills are build with the [custom skills interface](/azure/search/cognitive-search-custom-skill-interface).
+The Azure Cognitive Search skills in this example solution include image processing, natural language processing, and custom skills that capture domain-specific data.
 
 ## Potential use cases
 
@@ -20,14 +10,16 @@ The Azure Cognitive Search skills in this example solution fall into the followi
 
 ## Architecture
 
-![Cognitive Search architecture to convert unstructured into structured data](../media/cognitive-search-for-ai-enrichment.png)
-
 This diagram illustrates the process of passing unstructured data through the Cognitive Search skills pipeline to produce structured, indexable data.
 
-1. Blob storage provides unstructured document and image data to Cognitive Search.
-1. Cognitive Search applies pre-built cognitive skillsets to the data, including OCR, text and handwriting recognition, image analysis, entity recognition, and full-text search.
+![Cognitive Search architecture to convert unstructured into structured data](../media/cognitive-search-for-ai-enrichment.png)
+
+### Dataflow
+
+1. Blob storage provides the unstructured document and image data to Cognitive Search.
+1. Cognitive Search applies pre-built cognitive skill sets to the data, including OCR, text and handwriting recognition, image analysis, entity recognition, and full-text search.
 1. The Cognitive Search extensibility mechanism uses an Azure Function to apply the CIA Cryptonyms custom skill to the data.
-1. The pre-built and custom skillsets deliver structured knowledge that Azure Cognitive Search can index.
+1. The pre-built and custom skill sets deliver structured knowledge that Azure Cognitive Search can index.
 
 ### Components
 
@@ -53,7 +45,21 @@ Azure Cognitive Search works with other Azure components to provide this solutio
 
 #### Azure App Service
 
-This example solution also builds a standalone web app in [Azure App Service](/azure/app-service/) for testing, demonstrating, searching the index, and exploring connections in the enriched and indexed documents.
+This example solution also builds a standalone web app in [Azure App Service](/azure/app-service) for testing, demonstrating, searching the index, and exploring connections in the enriched and indexed documents.
+
+## Scenario details
+
+Large, unstructured datasets like the [JFK Files](https://www.archives.gov/research/jfk/2017-release), which contains over 34,000 pages of documents about the CIA investigation of the 1963 JFK assassination, include typewritten and handwritten notes, photos and diagrams, and other unstructured data that standard search solutions can't parse.
+
+*AI enrichment* in Azure Cognitive Search can extract and enhance searchable, indexable text from images, blobs, and other unstructured data sources like the JFK Files by using pre-trained machine learning skill sets from the Cognitive Services [Computer Vision](/azure/cognitive-services/computer-vision/home) and [Text Analytics](/azure/cognitive-services/text-analytics/overview) APIs. You can also create and attach [custom skills](/azure/search/cognitive-search-custom-skill-interface) to add special processing for domain-specific data like CIA Cryptonyms. Azure Cognitive Search can then index and search the context.
+
+The Azure Cognitive Search skills in this example solution fall into the following categories:
+
+- *Image processing* built-in skills like [optical character recognition (OCR)](/azure/search/cognitive-search-skill-ocr), [print extraction](/azure/cognitive-services/computer-vision/concept-recognizing-text#read-api), and [image analysis](/azure/search/cognitive-search-skill-image-analysis) include object and face detection, tag and caption generation, and celebrity and landmark identification. These skills create text representations of image content, which are searchable using the query capabilities of Azure Cognitive Search. Document *cracking* is the process of extracting or creating text content from non-text sources.
+
+- *Natural language processing* built-in skills like [entity recognition](/azure/search/cognitive-search-skill-entity-recognition), [language detection](/azure/search/cognitive-search-skill-language-detection), [key phrase extraction](/azure/search/cognitive-search-skill-keyphrases), and [text recognition](/azure/cognitive-services/computer-vision/concept-recognizing-text) map unstructured text to searchable and filterable fields in an index.
+
+- *Custom skills* that capture domain-specific data. These skills are build with the [custom skills interface](/azure/search/cognitive-search-custom-skill-interface).
 
 ## Considerations
 
@@ -65,6 +71,14 @@ This example solution also builds a standalone web app in [Azure App Service](/a
 ## Deploy this scenario
 
 This example solution uses Azure Cognitive Search AI enrichment to extract meaning from the original complex, unstructured JFK Files dataset. You can [work through the project](https://github.com/microsoft/AzureSearch_JFK_Files), watch the process in action in an [online video](/shows/AI-Show/Using-Cognitive-Search-to-Understand-the-JFK-Documents), or explore the JFK Files with an [online demo](https://aka.ms/jfkfiles-demo).
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Jose Contreras](https://www.linkedin.com/in/josedanielcontreras) | Principal Software Engineering Manager
 
 ## Next steps
 
@@ -83,7 +97,7 @@ Read product documentation:
 - [Recognize printed and handwritten text](/azure/cognitive-services/computer-vision/concept-recognizing-text)
 - [How to use Named Entity Recognition in Text Analytics](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking)
 - [Azure Blob storage](/azure/storage/blobs/storage-blobs-introduction)
-- [Azure Functions](/azure/azure-functions/)
+- [Azure Functions](/azure/azure-functions)
 
 Try the Microsoft Learn path:
 

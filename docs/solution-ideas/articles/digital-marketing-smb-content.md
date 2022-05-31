@@ -4,9 +4,18 @@ Start simple with the content management system that enables you to easily maint
 
 This solution is built on the Azure managed services: [Azure SQL Database](https://azure.microsoft.com/services/sql-database), [Azure Monitor](https://azure.microsoft.com/services/monitor), [Content Delivery Network](https://azure.microsoft.com/services/cdn), and [Azure Cache for Redis](https://azure.microsoft.com/services/cache). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
 
+## Potential use cases
+
+This solution is ideal for the retail industry. Organizations use content management systems because:
+
+- No programming experience needed
+- Easy collaboration and access
+- Website security
+- Cost effective
+
 ## Architecture
 
-![Architecture diagram](../media/digital-marketing-smb.png)
+![Architecture diagram show flow from the browser through C M S to databases and application insights.](../media/digital-marketing-smb.png)
 *Download an [SVG](../media/digital-marketing-smb.svg) of this architecture.*
 
 ### Components
@@ -20,7 +29,7 @@ This solution is built on the Azure managed services: [Azure SQL Database](https
 ## Next steps
 
 * [Deploy an ASP.NET web app to Azure App Service, using Visual Studio](/azure/app-service/quickstart-dotnetcore)
-* [SQL Database tutorial: Create a SQL database in minutes by using the Azure portal](/azure/azure-sql/database/single-database-create-quickstart)
+* [SQL Database tutorial: Create an SQL database in minutes by using the Azure portal](/azure/azure-sql/database/single-database-create-quickstart)
 * [Application Performance Management with Application Insights](/azure/azure-monitor/app/app-insights-overview)
 * [Use Azure Content Delivery Network in Azure App Service](/Azure/cdn/cdn-add-to-web-app)
 * [How to Use Azure Cache for Redis](/azure/azure-cache-for-redis/cache-dotnet-how-to-use-azure-redis-cache)

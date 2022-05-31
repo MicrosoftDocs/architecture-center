@@ -229,7 +229,7 @@ You also can use the [Azure Connectivity Toolkit (AzureCT)][azurect] to monitor 
 
 For more information, see the DevOps section in [Microsoft Azure Well-Architected Framework][AAF-devops]. For information specific to monitoring, see [Monitoring For DevOps][devops-monitoring].
 
-## Cost considerations
+### Cost optimization
 
 Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. For general considerations, see the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
@@ -290,7 +290,7 @@ Microsoft Learn modules:
 [configure-expressroute-routing]: /azure/expressroute/expressroute-howto-routing-arm
 [sla-for-expressroute]: https://azure.microsoft.com/support/legal/sla/expressroute
 [link-vnet-to-expressroute]: /azure/expressroute/expressroute-howto-linkvnet-arm
-[devops-monitoring]: /azure/architecture/framework/devops/monitoring
+[devops-monitoring]: /azure/architecture/framework/devops/checklist
 [ExpressRoute-provisioning]: /azure/expressroute/expressroute-workflows
 [expressroute-introduction]: /azure/expressroute/expressroute-introduction
 [expressroute-peering]: /azure/expressroute/expressroute-circuit-peerings

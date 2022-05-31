@@ -48,7 +48,7 @@ The second workflow is how authors contribute new content:
 
 ### Alternatives
 
-- [SQL Server for Linux](/azure/virtual-machines/linux/sql/sql-server-linux-virtual-machines-overview) can replace the MariaDB data store.
+- [SQL Server for Linux](/azure/azure-sql/virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview) can replace the MariaDB data store.
 - [Azure database for MySQL](/azure/mysql/overview) can replace the MariaDB data store if you prefer a fully managed solution.
 
 ## Considerations

@@ -6,6 +6,8 @@ This article doesn't address the application's underlying services, like App Ser
 
 ![Diagram showing how Application Gateway and API Management protect APIs.](images/protect-apis.png)
 
+*Download a [Visio file](https://arch-center.azureedge.net/protect-apis.vsdx) of this architecture.*
+
 ### Workflow
 
 - Application Gateway sets up a URL redirection mechanism that sends the request to the proper [backend pool](/azure/application-gateway/application-gateway-components#backend-pools), depending on the URL format of the API call:
@@ -79,6 +81,9 @@ This article doesn't address the application's underlying services, like App Ser
 - For more information about API Management security, see [Azure security baseline for API Management](/security/benchmark/azure/baselines/api-management-security-baseline).
 
 ## Deploy this scenario 
+
+> [!NOTE]
+> This scenario assumes you already have a virtual network in place. If you need help creating a virtual network, see [Create a virtual network using PowerShell](/azure/virtual-network/quick-create-powershell).
 
 ### Deployment with PowerShell
 
