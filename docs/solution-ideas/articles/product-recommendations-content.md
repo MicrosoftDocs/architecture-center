@@ -2,6 +2,10 @@
 
 A deep understanding between customer interests and purchasing patterns is a critical component of any retail business intelligence operation. This solution implements a process of aggregating customer data into a complete profile. Advanced machine learning models are backed by the reliability and processing power of Azure to provide predictive insights on simulated customers.
 
+## Potential use cases
+
+
+
 ## Architecture
 
 ![Architecture diagram](../media/product-recommendations.png)

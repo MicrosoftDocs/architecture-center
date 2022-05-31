@@ -132,24 +132,24 @@ Various Azure services and configurations make up the Project 15 Open Platform:
 - [Environment monitoring and supply chain optimization with IoT](/azure/architecture/solution-ideas/articles/environment-monitoring-and-supply-chain-optimization)
 
 [AI for Earth]: https://www.microsoft.com/ai/ai-for-earth
-[API Apps]: https://azure.microsoft.com/services/app-service/api/
-[App Service]: https://azure.microsoft.com/services/app-service/
+[API Apps]: https://azure.microsoft.com/services/app-service/api
+[App Service]: https://azure.microsoft.com/services/app-service
 [Azure AD]: /azure/active-directory/fundamentals/active-directory-whatis
-[Azure Defender]: https://azure.microsoft.com/services/azure-defender/
-[Azure Digital Twins]: https://azure.microsoft.com/services/digital-twins/
-[Azure Maps]: https://azure.microsoft.com/services/azure-maps/
+[Azure Defender]: https://azure.microsoft.com/services/azure-defender
+[Azure Digital Twins]: https://azure.microsoft.com/services/digital-twins
+[Azure Maps]: https://azure.microsoft.com/services/azure-maps
 [Azure SignalR Service]: /aspnet/signalr/overview/getting-started/introduction-to-signalr
 [Blob Storage]: /azure/storage/blobs/storage-blobs-introduction
 [Deploying Project 15 from Microsoft Open Platform]: https://microsoft.github.io/project15/Deploy/Deployment.html
-[device provisioning service of IoT Hub]: /azure/iot-dps/
+[device provisioning service of IoT Hub]: /azure/iot-dps
 [Event Hubs]: /azure/event-hubs/event-hubs-about
-[Event Grid]: https://azure.microsoft.com/services/event-grid/
-[Functions]: https://azure.microsoft.com/services/functions/
-[Introduction to Azure IoT]: /learn/paths/introduction-to-azure-iot/
-[IoT Hub]: https://azure.microsoft.com/services/iot-hub/
-[Logic Apps]: https://azure.microsoft.com/services/logic-apps/
+[Event Grid]: https://azure.microsoft.com/services/event-grid
+[Functions]: https://azure.microsoft.com/services/functions
+[Introduction to Azure IoT]: /learn/paths/introduction-to-azure-iot
+[IoT Hub]: https://azure.microsoft.com/services/iot-hub
+[Logic Apps]: https://azure.microsoft.com/services/logic-apps
 [Machine Learning]: /azure/machine-learning/overview-what-is-azure-ml
-[Microsoft learning channels]: /learn/
+[Microsoft learning channels]: /learn
 [Microsoft & Sustainability]: https://www.microsoft.com/sustainability
 [Notification Hubs]: /azure/notification-hubs/notification-hubs-push-notification-overview
 [Power BI]: /power-bi/fundamentals/power-bi-overview
@@ -159,5 +159,5 @@ Various Azure services and configurations make up the Project 15 Open Platform:
 [Project 15 YouTube Channel]: https://aka.ms/project15video
 [Solution details]: #solution-details
 [Stream Analytics]: https://azure.microsoft.com/services/stream-analytics
-[Time Series Insights]: https://azure.microsoft.com/services/time-series-insights/
-[Web Apps]: https://azure.microsoft.com/services/app-service/web/
+[Time Series Insights]: https://azure.microsoft.com/services/time-series-insights
+[Web Apps]: https://azure.microsoft.com/services/app-service/web

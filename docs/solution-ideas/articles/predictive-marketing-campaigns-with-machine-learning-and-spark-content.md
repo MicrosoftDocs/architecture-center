@@ -21,7 +21,7 @@ Optimizing your campaigns with predictive marketing helps improve both sales lea
 
 ### Components
 
-* [Power BI](https://powerbi.microsoft.com) 
+* [Power BI](https://powerbi.microsoft.com)
 * [Storage Accounts](https://azure.microsoft.com/services/storage)
 * [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning)
 * [Azure HDInsight](https://azure.microsoft.com/services/hdinsight)

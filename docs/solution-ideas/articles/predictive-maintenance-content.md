@@ -2,12 +2,16 @@
 
 This predictive maintenance solution monitors aircraft and predicts the remaining useful life of aircraft engine components. While it's customized for aircraft monitoring, it can easily be generalized for other predictive maintenance scenarios.
 
+## Potential use cases
+
+
+
 ## Architecture
 
 ![Architecture diagram: predictive maintenance for aircraft components using Microsoft Azure cloud services.](../media/predictive-maintenance.png)
 *Download an [SVG](../media/predictive-maintenance.svg) of this architecture.*
 
-### Workflow
+### Dataflow
 
   1. The simulation data is streamed by a newly deployed Azure Web Job, AeroDataGenerator.
   2. This synthetic data feeds into the [Azure Event Hubs](/azure/event-hubs) service as data points.

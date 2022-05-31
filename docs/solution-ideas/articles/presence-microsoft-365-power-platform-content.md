@@ -7,6 +7,7 @@ You can also add presence to custom collaboration applications by using Microsof
 The solution provides presence for a JavaScript front-end application. It uses Microsoft Graph and Azure Active Directory (Azure AD) to provide real-time presence information. It also uses Power Automate, Azure Event Hubs, Azure Functions, and Azure SignalR Service.
 
 ## Potential use cases
+
 This solution applies to companies that use custom applications that require:
 - Real-time change tracking on Microsoft 365 data.
 - Broadcasting of data to the browser in real time.
@@ -19,7 +20,7 @@ This solution applies to companies that use custom applications that require:
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/real-time-presence.pptx) of this architecture.*
 
-### Workflow
+### Dataflow
 
 1. A Power Automate flow gets an access token for Microsoft Graph by using Azure AD.
 2. The Power Automate flow retrieves members of the selected team who are on Microsoft Teams. The flow creates a Microsoft Graph presence API subscription and updates it every hour to track changes in presence for the selected team members.
