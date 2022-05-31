@@ -163,5 +163,5 @@ For more details about this reference architecture, see the other articles in th
 - Part 2: [Map threats to your IT environment](./map-threats-it-environment.yml)
 - Part 3: [Building the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml)
 - Part 5: [Integration between Azure and Microsoft 365 Defender security services](./microsoft-365-defender-security-integrate-azure.yml)
-<!-- - Part 4: [Build the second layer of defense with Microsoft 365 Defender Security services](./microsoft-365-defender-build-second-layer-defense.yml) -->
+
 
