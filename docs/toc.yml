@@ -5197,11 +5197,11 @@ items:
                 items: 
                   - name: Map threats to your IT environment
                     href: solution-ideas/articles/map-threats-it-environment.yml
-                  - name: Building the first layer of defense with Azure Security services
+                  - name: "First layer of defense: Azure security"
                     href: solution-ideas/articles/azure-security-build-first-layer-defense.yml
-                  - name: Build the second layer of defense with Microsoft 365 Defender Security services
+                  - name: "Second layer of defense: M365 Defender"
                     href: solution-ideas/articles/microsoft-365-defender-build-second-layer-defense.yml
-                  - name: Integration between Azure and Microsoft 365 Defender security services
+                  - name: Integrate Azure and M365 Defender security
                     href: solution-ideas/articles/microsoft-365-defender-security-integrate-azure.yml
       - name: Storage
         items:
