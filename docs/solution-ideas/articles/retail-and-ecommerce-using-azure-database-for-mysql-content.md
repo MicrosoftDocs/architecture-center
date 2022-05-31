@@ -2,6 +2,10 @@
 
 Build secure and scalable e-commerce solutions that meet the demands of both customers and business. Engage customers through customized products and offers, process transactions quickly and securely, and focus on fulfillment and customer service. This solution is ideal for the retail industry.
 
+## Potential use cases
+
+
+
 ## Architecture
 
 ![Architecture Diagram](../media/retail-and-ecommerce-using-azure-database-for-mysql.png)

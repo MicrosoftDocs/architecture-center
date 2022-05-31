@@ -2,6 +2,10 @@
 
 This solution idea shows how to deploy an e-commerce web site on Azure. The e-commerce web site is hosted on Azure Web App and uses Azure Cosmos DB as data store for  product information and session state. Azure Search provides search functionality over diverse product catalogs, traffic spikes, and rapidly changing inventory. This solution is ideal for the retail industry.
 
+## Potential use cases
+
+
+
 ## Architecture
 
 ![Architecture Diagram](../media/retail-and-e-commerce-using-cosmos-db.png)
@@ -10,9 +14,9 @@ This solution idea shows how to deploy an e-commerce web site on Azure. The e-co
 ### Dataflow
 
 1.	The web application is hosted in an Azure Web App.
-2.	The data (products and session state) gets stored in Azure Cosmos DB.
-3.	Static content and product images are stored in an Azure Storage account.
-4.	Azure Cognitive Search is used to search across all the products. 
+1.	The data (products and session state) gets stored in Azure Cosmos DB.
+1.	Static content and product images are stored in an Azure Storage account.
+1.	Azure Cognitive Search is used to search across all the products. 
 
 ### Components
 
