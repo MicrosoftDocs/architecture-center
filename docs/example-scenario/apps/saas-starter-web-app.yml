@@ -2,7 +2,7 @@
 metadata:
   title: SaaS Starter web app
   titleSuffix: Azure Example Scenarios
-  description: This reference architecture provides a starting point for building SaaS on Azure and includes common SaaS components such as identity, onboarding, and tenant management.
+  description: This architecture provides a starting point for building SaaS on Azure and includes common SaaS components such as identity, onboarding, and tenant management.
   author: landonpierce
   ms.author: landonpierce
   ms.date: 05/16/2022
@@ -12,17 +12,15 @@ metadata:
   ms.category:
     - web
   ms.custom:
-    - reference-architecture
     - example-scenario
 name: SaaS Starter web app
 azureCategories:
   - web
-summary: This reference architecture provides a starting point for building SaaS on Azure and includes common SaaS components such as identity, onboarding, and tenant management.
+summary: This architecture provides a starting point for building SaaS on Azure and includes common SaaS components such as identity, onboarding, and tenant management.
 products:
   - azure-app-service
   - azure-active-directory-b2c
   - azure-sql-database
-  - azure-key-vault
   - azure-logic-apps
   - azure-resource-manager
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-saas-starter-app.png

@@ -4,7 +4,7 @@ Software as a Service (SaaS) is a complex topic with many points to consider. In
 1. How do you set up an identity solution for use in a multitenant architecture?
 1. How do you handle onboarding new customers?
 
-This reference architecture aims to answer some of these questions and is meant to provide a starting place into the world of SaaS. However, as there is no "one size fits all" approach to this subject, this architecture is meant to be adaptable to fit a wide range of scenarios.
+This architecture aims to answer some of these questions and is meant to provide a starting place into the world of SaaS. However, as there is no "one size fits all" approach to this subject, this architecture is meant to be adaptable to fit a wide range of scenarios.
 
 ## Potential use cases
 
@@ -37,7 +37,7 @@ Here are some example use cases in which this architecture could be used:
 1. Permissions API looks up the users information in its data store and returns a list of permissions and roles assigned to that user.
 1. Identity Provider adds the permissions and roles as custom claims to the JWT token.
 1. Identity Provider returns the JWT token to the frontend application.
-1. The frontend application redirects the user to the application home page with a JWT Token. The user is now signed in.
+1. The frontend application redirects the user to the application home page with a JWT token. The user is now signed in.
 
 #### Onboard a new tenant
 
@@ -74,7 +74,7 @@ Here are some example use cases in which this architecture could be used:
 1. Onboarding & Admin App issues a POST request to the Tenant Data API to add a permission for user 2 on tenant 1.
 1. Tenant Data API verifies that user 1 has a valid JWT claim to tenant1 and has the users.write permission on it.
 1. Tenant Data API issues a POST request to the Permissions API to add a permission for user 2 on tenant 1.
-1. Permissions Api issues a GET request to the Identity Provider to lookup the user by the provided email and ensure they exist.
+1. Permissions API issues a GET request to the Identity Provider to lookup the user by the provided email and ensure they exist.
 1. Identity Provider finds the user and returns their object ID from its data store.
 1. Permissions API adds a permission record in its data store for user 2 on tenant 1 using user 2's object ID.
 1. Permissions API returns successfully.
