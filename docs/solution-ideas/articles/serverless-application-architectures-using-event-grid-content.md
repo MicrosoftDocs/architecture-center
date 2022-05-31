@@ -4,6 +4,10 @@ This solution idea publishes Azure Blob storage events using Azure Event Grid. T
 
 The core design concept uses Event Grid to connect data sources and event handlers. Event Grid decouples event publishers from event subscribers, by using a pub/sub model and a simple HTTP-based event delivery. This process allows the system to build scalable serverless applications. For example, Event Grid instantly triggers a serverless function to run an image process (such as to shrink an image), whenever someone adds a new photo to a Blob storage container.
 
+## Potential use cases
+
+
+
 ## Architecture
 
 ![Diagram of the serverless application architecture.](../media/serverless-application-architectures-using-event-grid.png)

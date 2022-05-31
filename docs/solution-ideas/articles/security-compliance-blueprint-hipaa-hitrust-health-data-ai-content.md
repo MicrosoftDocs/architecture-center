@@ -2,6 +2,10 @@
 
 Store, manage, and analyze HIPAA-compliant and HITRUST-compliant health data and medical records with the highest level of built-in security.
 
+## Potential use cases
+
+
+
 ## Architecture
 
 ![Architecture Diagram](../media/security-compliance-blueprint-hipaa-hitrust-health-data-ai.png)

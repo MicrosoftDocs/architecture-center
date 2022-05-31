@@ -13,6 +13,8 @@ A popular use case for implementing an end-to-end event stream processing patter
 
 ![Diagram showing the data flow described in this article](../media/serverless-event-processing-aks-diagram.png)
 
+### Dataflow
+
 1. Azure Kubernetes Service (AKS) with the KEDA scaler is used to autoscale Azure Functions containers based on the number of events needing to be processed.
 1. Events arrive at the Input Event Hub.
 1. The De-batching and Filtering Azure Function is triggered to handle the event. This step filters out unwanted events and de-batches the received events before submitting to the Output Event Hub.

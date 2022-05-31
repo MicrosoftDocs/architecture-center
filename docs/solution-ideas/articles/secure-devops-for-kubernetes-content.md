@@ -11,7 +11,7 @@ Put guardrails around the development processes, by using CI/CD with dynamic pol
 ![Architecture diagram](../media/secure-devops-for-kubernetes.png)
 *Download an [SVG](../media/secure-devops-for-kubernetes.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
 1. Developers rapidly iterate, test, and debug different parts of an application together, in the same Kubernetes cluster.
 1. Code is merged into a GitHub repository, after which automated builds and tests are run by Azure Pipelines.
