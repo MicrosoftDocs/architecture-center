@@ -1,20 +1,6 @@
 <!-- cSpell:ignore sujayt -->
 
-This example scenario is applicable to any industry that needs to deploy resilient multitier applications built for high availability and disaster recovery. In this scenario, the application consists of three layers.
-
-- Web tier: The top layer including the user interface. This layer parses user interactions and passes the actions to next layer for processing.
-- Business tier: Processes the user interactions and makes logical decisions about the next steps. This layer connects the web tier and the data tier.
-- Data tier: Stores the application data. Either a database, object storage, or file storage is typically used.
-
-Common application scenarios include any mission-critical application running on Windows or Linux. This can be an off-the-shelf application such as SAP and SharePoint or a custom line-of-business application.
-
-## Potential use cases
-
-Other relevant use cases include:
-
-- Deploying highly resilient applications such as SAP and SharePoint
-- Designing a business continuity and disaster recovery plan for line-of-business applications
-- Configure disaster recovery and perform related drills for compliance purposes
+For this solution, common application scenarios include any mission-critical application that's running on Windows or Linux. This can be an off-the-shelf application, such as SAP or SharePoint, or a custom line-of-business application.
 
 ## Architecture
 
@@ -49,6 +35,24 @@ Other relevant use cases include:
 - The database can be replaced by any standard database application available.
 
 ## Scenario details
+
+This example scenario is applicable to any industry that needs to deploy resilient multitier applications built for high availability and disaster recovery. In this scenario, the application consists of three layers.
+
+- Web tier: The top layer including the user interface. This layer parses user interactions and passes the actions to next layer for processing.
+- Business tier: Processes the user interactions and makes logical decisions about the next steps. This layer connects the web tier and the data tier.
+- Data tier: Stores the application data. Either a database, object storage, or file storage is typically used.
+
+Common application scenarios include any mission-critical application running on Windows or Linux. This can be an off-the-shelf application such as SAP and SharePoint or a custom line-of-business application.
+
+## Potential use cases
+
+Other relevant use cases include:
+
+- Deploying highly resilient applications such as SAP and SharePoint
+- Designing a business continuity and disaster recovery plan for line-of-business applications
+- Configure disaster recovery and perform related drills for compliance purposes
+
+### Key technologies
 
 This scenario demonstrates a multitier application that uses ASP.NET and Microsoft SQL Server. In [Azure regions that support availability zones](/azure/availability-zones/az-overview#services-support-by-region), you can deploy your virtual machines (VMs) in a source region across availability zones and replicate the VMs to the target region used for disaster recovery. In Azure regions that don't support availability zones, you can deploy your VMs within an [availability set](/azure/virtual-machines/availability-set-overview) and replicate the VMs to the target region.
 
@@ -85,7 +89,7 @@ All the virtual network traffic into the front-end application tier is protected
 
 For general guidance on designing secure scenarios, see the [Azure Security Documentation][security].
 
-## Pricing
+### Cost optimization
 
 Configuring disaster recovery for Azure VMs using Azure Site Recovery will incur the following charges on an ongoing basis.
 
