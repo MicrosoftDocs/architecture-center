@@ -91,7 +91,7 @@ This subnet is a placeholder for [Azure Bastion](/azure/bastion/bastion-overview
 
 ### Spoke
 
-The spoke virtual network will contain the AKS cluster and other related resources. The spoke has three subnets:
+The spoke virtual network will contain the AKS cluster and other related resources. The spoke has four subnets:
 
 #### Subnet to host Azure Application Gateway
 
