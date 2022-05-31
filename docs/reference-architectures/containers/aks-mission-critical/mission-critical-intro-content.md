@@ -30,6 +30,7 @@ Some design choices in this architecture address those factors. For example, the
 - Global distribution of resources to build redundancy. 
 - A _scale unit_ approach where a logical set of resources can be independently deployed to keep up with the changes in demand. 
 
+
 ![Mission critical online](./images/mission-critical-architecture-online.png)
 
 The components of this architecture can be broadly categorized in this manner. For product documentation about Azure services, see [Related resources](#related-resources). 
@@ -123,7 +124,7 @@ Monitoring data from application and the infrastructure must be always be availa
 - **Azure Log Analytics** is used to store logs and metrics for all application and infrastructure components. 
 - **Azure Application Insights** is used to collect all application monitoring data.
 
-![Monitoring resources](./images/mission-critical-monitoring-resources.png)
+![Monitoring resources](./images/mission-critical-monitoring-resources.svg)
 
 Monitoring data for global resources and regional resources should be stored independently. A single, centralized observability store isn't recommended to avoid a single point of failure. Cross-workspace querying is used to still achieve a single pane of glass.
 
