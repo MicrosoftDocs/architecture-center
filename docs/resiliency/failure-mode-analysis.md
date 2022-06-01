@@ -6,6 +6,8 @@ ms.date: 05/07/2018
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+azureCategories: management-and-governance
+categories: management-and-governance
 products:
   - azure-app-service
 ms.custom:

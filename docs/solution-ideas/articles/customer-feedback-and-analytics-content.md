@@ -1,8 +1,6 @@
-<!-- cSpell:ignore pracjain keyphrase -->
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-For many companies, customer support is costly and doesn't always operate efficiently. [Knowledge mining](https://azure.microsoft.com/solutions/knowledge-mining/) can help customer support teams quickly find the best answers to customer questions or assess customer sentiment at scale.
+For many companies, customer support is costly and doesn't always operate efficiently. [Knowledge mining](https://azure.microsoft.com/solutions/knowledge-mining) can help customer support teams quickly find the best answers to customer questions or assess customer sentiment at scale.
 
 ## Potential use cases
 
@@ -22,7 +20,7 @@ There are three steps in knowledge mining: ingest, enrich, and explore.
 
 - **Ingest**
 
-The ingest step aggregates content from a range of sources, including structured and unstructured data. For customer support and feedback analysis, you can ingest different types of content like customer support tickets, chat logs, call transcriptions, customer emails, customer payment history, product reviews, social media feeds, online comments, feedback forms, and surveys.
+The ingest step aggregates content from a range of sources, including structured and unstructured data. For customer support and feedback analysis, you can ingest different types of content. This content includes customer support tickets, chat logs, call transcriptions, customer emails, customer payment history, product reviews, social media feeds, online comments, feedback forms, and surveys.
 
 - **Enrich**
 

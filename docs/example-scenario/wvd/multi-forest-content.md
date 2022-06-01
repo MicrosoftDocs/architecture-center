@@ -1,6 +1,7 @@
 Many organizations desire to leverage Azure Virtual Desktop (AVD) and create environments with multiple on-premises Active Directory forests. This article expands on the architecture described in the [AVD at enterprise scale article](./windows-virtual-desktop.yml) and helps understand how multiple domains and AVD can be integrated using [Azure AD Connect](/azure/active-directory/hybrid/whatis-hybrid-identity) to sync users from on-premises [Active Directory Domain Services (AD DS)](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) to [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis).
 
 ## Architecture
+
 :::image type="content" source="images/wvd-multi-forest-adds.png" alt-text="Azure Virtual Desktop with AD Domain Services" lightbox="images/wvd-multi-forest-adds.png":::
 
 ### Dataflow
@@ -26,7 +27,7 @@ Additionally, the following components are also used in this architecture:
 
 - **Azure subscriptions, AVD workspaces, and host pools:** Multiple subscriptions, AVD workspaces, and host pools can be leveraged for administration boundaries and business requirements.
 
-## Scenario
+## Scenario details
 
 This architecture diagram shows a typical scenario that involves the following:
 

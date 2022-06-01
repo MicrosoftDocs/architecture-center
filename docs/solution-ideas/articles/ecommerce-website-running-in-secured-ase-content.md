@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Keep sensitive user and payment data from an e-commerce website secure by using the Microsoft Azure App Service Environment.
+Keep sensitive user and payment data from an e-commerce website secure by using the Microsoft Azure App Service Environment. This solution is ideal for the retail industry.
 
 ## Architecture
 

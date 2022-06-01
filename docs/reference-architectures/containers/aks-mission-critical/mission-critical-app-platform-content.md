@@ -1,3 +1,4 @@
+
 A key design area of any mission critical architecture is the application platform. Platform refers to the infrastructure components and Azure services that must be provisioned to support the workload. Here are some overarching recommendations as you build the platform.
 
 -	Design in layers: the right set of services, their configuration, and the application-specific dependencies. This layered approach helps in creating segmentation that's useful in defining roles and functions and assigning appropriate privileges. Also, deployment is more manageable.   
@@ -141,6 +142,7 @@ Azure Log Analytics and Azure Application Insights are used to store logs and me
 Similarly, Application Insights is also deployed as a regional resource to collect all application monitoring data.
 
 
+
 ## Capacity planning
 - Scale unit discussion
 - IP planning
@@ -223,7 +225,8 @@ The Azure Mission-Critical reference implementations are composed of three disti
 - Configuration
 - Application
 
-Infrastructure layer contains all infrastructure components and underlying foundational services required for Azure Mission-Critical reference implementation. It is deployed using [Terraform](./workload/README.md).
+
+Infrastructure layer contains all infrastructure components and underlying foundational services required for Azure Mission-Critical reference implementation. It is deployed using [Terraform]().
 
 > Note: Bicep (ARM DSL) was considered during the early stages as part of a proof-of-concept. Please refer to the following [(archived stub)](/docs/reference-implementation/ZZZ-Archived-Bicep.md) for more details.
 
@@ -463,12 +466,3 @@ This will, for example, result in `aoprod-global-rg` for global services in prod
 
 This will result in, for example, `aoprod7745-eastus2-aks` for an AKS cluster in `eastus2`.
 
----
-
-
-- **Lifetime**: 
-- **Storing state**: 
-- **Reach**: 
-- **Dependencies**: 
-- **Scale limits**: 
-- **Availability/disaster recovery**: 

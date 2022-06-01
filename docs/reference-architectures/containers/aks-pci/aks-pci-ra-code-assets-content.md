@@ -214,7 +214,7 @@ The in-cluster `omsagent` pods running in `kube-system` are the Log Analytics co
 
 ### Security monitoring
 
-Use [Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction.md) in Microsoft Defender for Cloud to view and remediate security recommendations and to view security alerts on your container resources. Enable Microsoft Defender plans as they apply to various components of the cardholder data environment.
+Use [Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction) in Microsoft Defender for Cloud to view and remediate security recommendations and to view security alerts on your container resources. Enable Microsoft Defender plans as they apply to various components of the cardholder data environment.
 
 Integrate logs so that you're able to review, analyze, and query data efficiently. Azure provides several technology options. You can use Azure Monitor to write logs into a Log Analytics workspace. Another option is to integrate data into security information and event management (SIEM) solutions, such as Microsoft Sentinel.
 
