@@ -288,7 +288,7 @@ A key requirement for any MLOps process is that it meet the needs of the many us
 The team had to address three key findings from the persona and role studies:
 
 * Data scientists and engineers have a mismatch of approach and skills in their work. Making it easy for the data scientist and the engineer to collaborate is a major consideration for the design of the MLOps process flow. It requires new skill acquisitions by all team members.
-* There's a need to unify all of the principle personas without alienating anyone. A way to do this is to:
+* There's a need to unify all of the principal personas without alienating anyone. A way to do this is to:
   * Make sure they understand the conceptual model for MLOps.
   * Agree on the team members that will work together.
   * Establish working guidelines to achieve common goals.
@@ -408,7 +408,7 @@ The dashboards were designed to provide readily usable information for consumpti
   * [Azure Machine Learning Model Registry](/azure/machine-learning/concept-model-management-and-deployment#register-package-and-deploy-models-from-anywhere)
 * [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs)
 * [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage)
-* [Azure DevOps Pipelines](https://azure.microsoft.com/services/devops/pipelines)
+* [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines)
 * [Azure Data Factory](https://azure.microsoft.com/services/data-factory)
 * [Azure Functions for Python](https://azure.microsoft.com/services/functions)
 * [Azure Monitor](https://azure.microsoft.com/services/monitor)
