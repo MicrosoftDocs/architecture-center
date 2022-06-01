@@ -18,68 +18,84 @@ Here are some example use cases in which this architecture could be used:
 
 ![Architecture diagram that shows the control plane, identity framework, and end user S a a S application.](./media/architecture-saas-starter-app.png)
 
+### Terminology
+
+This table outlines the meaning of common terms found in our workflows section below.
+
+| Term         | Description                                                                             | Example |
+| ------------ | --------------------------------------------------------------------------------------- | ------ |
+| SaaS Vendor or ISV  | The entity that owns the SaaS application and code and sells the SaaS product.| Contoso Inc, selling their SaaS application: Contoso Tickets |
+| Tenant       | A purchased instance of the SaaS application. | Joe's coffee shop |
+| SaaS Customer Admin | People who purchase or administer an application tenant. | Joe: owner of Joe's coffee shop |
+| SaaS Customer User | People who use an application tenant without administering it, usually belonging to the same company or group as SaaS Customer Admin | Jill: event manager at Joe's coffee shop, Susan: Customer of Joe's coffee shop |
+| End User         | Term includes SaaS Customer Admin, SaaS Customer User, or any other user types that get introduced. Used as a generic term to describe users who log into the application. | Joe, Jill, and Susan are all End Users (from the ISV perspective) |
+| Frontend Application | Used as a generic term to describe any frontend application. | The Onboarding & Admin Web App and SaaS Web App are both frontend applications.  |
+
 ### Workflow
 
-1. SaaS Customer Admin navigates to the site hosted on the Onboarding & Administration app service.
-1. SaaS Customer Admin signs in using the workflow described [below](#user-sign-in).
-1. SaaS Customer Admin completes the onboarding flow as described [below](#onboard-a-new-tenant).
-1. SaaS Customer Admin navigates to the tenant admin area in the site hosted on the Onboarding & Administration app and adds a SaaS Customer User to their newly created tenant as described in the Add a user to tenant flow [below](#add-a-user-to-tenant).
-1. SaaS Customer User navigates to the site hosted on the SaaS Application Web app service and uses the SaaS application.
+1. SaaS Customer Admin navigates to the site hosted on the Onboarding & Admin App.
+2. SaaS Customer Admin signs in using the workflow described [below](#user-sign-in).
+3. SaaS Customer Admin completes the onboarding flow as described [below](#onboard-a-new-tenant).
+4. SaaS Customer Admin navigates to the tenant admin area on the Onboarding & Admin App and adds a SaaS Customer User to their newly created tenant as described in the Add a user to tenant flow [below](#add-a-user-to-tenant).
+5. SaaS Customer User navigates to the SaaS Application App and uses the SaaS application.
 
-#### User sign in
+#### User sign-in
 
 [ ![Sequence diagram that shows the user sign-in process](./media/saas-starter-app-sequence-diagram-sign-in.png)](./media/saas-starter-app-sequence-diagram-sign-in.png#lightbox)
 
-1. User navigates to either frontend application and clicks a "Login" button.
-1. Frontend application redirects user to a sign in page hosted by the identity provider.
-1. User enters account information and submits the login form to the identity provider.
-1. Identity Provider issues a POST request with the user's email and object ID to retrieve their permissions and roles.
-1. Permissions API looks up the users information in its data store and returns a list of permissions and roles assigned to that user.
-1. Identity Provider adds the permissions and roles as custom claims to the JWT token.
-1. Identity Provider returns the JWT token to the frontend application.
-1. The frontend application redirects the user to the application home page with a JWT token. The user is now signed in.
+1. End User navigates to either frontend application and clicks a "Login" button.
+1. Frontend Application redirects End User to a sign in page hosted by the identity provider.
+1. End User enters account information and submits the login form to the identity provider.
+1. Identity Provider [issues a POST request](https://docs.microsoft.com/azure/active-directory-b2c/api-connectors-overview?pivots=b2c-custom-policy) with the End User's email and object ID to retrieve their permissions and roles.
+1. Permission Data API looks up the End User's information in its data store and returns a list of permissions and roles assigned to that End User.
+1. Identity Provider adds the permissions and roles as custom claims to the JWT ID token.
+1. Identity Provider redirects the End User to the Frontend Application sign-in endpoint with a JWT ID token.
+1. Frontend Application validates the JWT ID Token presented.
+1. Frontend Application returns a successful sign-in page and the End User is now signed in.
+
+See the documentation on the [OpenID Connect protocol](https://docs.microsoft.com/azure/active-directory/develop/v2-protocols-oidc) for more information on how this sign-in flow works.
 
 #### Onboard a new tenant
 
 [ ![Sequence diagram that shows the tenant onboarding process](./media/saas-starter-app-sequence-diagram-onboarding.png)](./media/saas-starter-app-sequence-diagram-onboarding.png#lightbox)
 
-1. User navigates to the Onboarding & Admin App and completes a sign-up process.
+1. SaaS Customer Admin navigates to the Onboarding & Admin App and completes a sign-up form.
 1. Onboarding & Admin App issues a POST request to the Tenant Data API to create a new tenant.
 1. Tenant Data API creates a new tenant in its data store.
-1. Tenant Data API issues a POST request to the Permissions API to add the user as a tenant admin.
-1. Permissions API creates a new permission record in its data store.
-1. Permissions API returns successfully.
+1. Tenant Data API issues a POST request to the Permission Data API grant the SaaS Customer Admin permissions to the newly created tenant.
+1. Permission Data API creates a new permission record in its data store.
+1. Permission Data API returns successfully.
 1. Tenant Data API returns successfully.
-1. Onboarding & Admin App issues a POST request to the Email Logic App to send a "tenant created" email to the user.
+1. Onboarding & Admin App issues a POST request to the Email Logic App to send a "tenant created" email to the SaaS Customer Admin.
 1. Email Logic App sends the email.
 1. Email Logic App returns successfully.
-1. Onboarding & Admin App issues a request to the Identity Provider to refresh the User's JWT token.
-1. Identity Provider issues a POST request with the user's email and object ID to retrieve their permissions and roles.
-1. Permissions API looks up the users information in its data store and returns a list of permissions and roles assigned to that user.
-1. Identity Provider adds the permissions and roles as custom claims to the JWT token.
-1. Identity Provider returns the JWT token to the Onboarding & Admin App.
-1. Onboarding & Admin App returns a Success Message and a new JWT token to the user
+1. Onboarding & Admin App issues a request to the Identity Provider to refresh the SaaS Customer Admin's JWT ID token so that it will include a JWT claim to the newly created tenant.
+1. Identity Provider [issues a POST request](https://docs.microsoft.com/azure/active-directory-b2c/api-connectors-overview?pivots=b2c-custom-policy) with the SaaS Customer Admin's email and object ID to retrieve their permissions and roles.
+1. Permission Data API looks up the SaaS Customer Admin's information in its data store and returns a list of permissions and roles assigned to the SaaS Customer Admin.
+1. Identity Provider adds the permissions and roles as custom claims to the JWT ID token.
+1. Identity Provider returns the JWT ID token to the Onboarding & Admin App.
+1. Onboarding & Admin App returns a Success Message and a new JWT ID token to the SaaS Customer Admin.
 
 #### Add a user to tenant
 
 [ ![Sequence diagram that shows the addition of a new user to a tenant](./media/saas-starter-app-sequence-diagram-add-user.png)](./media/saas-starter-app-sequence-diagram-add-user.png)
 
-1. User 1 navigates to the admin section of the Onboarding & Admin App and requests to see a list of tenants.
-1. Onboarding & Admin App issues a GET request to the Tenant Data API to get a list of tenants for user 1.
-1. Tenant Data API issues a GET request to the Permissions API to get a list of tenants user 1 has access to view.
-1. Permissions API returns a list of tenants.
-1. Tenant Data API looks up the tenant information in its data store and returns a list of tenant data.
-1. Onboarding & Admin App returns the list of tenant data to user 1.
-1. User 1 selects tenant 1 to add a user to and enters the email address for user 2.
-1. Onboarding & Admin App issues a POST request to the Tenant Data API to add a permission for user 2 on tenant 1.
-1. Tenant Data API verifies that user 1 has a valid JWT claim to tenant1 and has the users.write permission on it.
-1. Tenant Data API issues a POST request to the Permissions API to add a permission for user 2 on tenant 1.
-1. Permissions API issues a GET request to the Identity Provider to lookup the user by the provided email and ensure they exist.
-1. Identity Provider finds the user and returns their object ID from its data store.
-1. Permissions API adds a permission record in its data store for user 2 on tenant 1 using user 2's object ID.
-1. Permissions API returns successfully.
-1. Tenant Data API returns successfully.
-1. Onboarding & Admin App returns successfully.
+1. SaaS Customer Admin requests to see a list of tenants from the tenant admin area on the Onboarding & Admin App.
+2. Onboarding & Admin App issues a GET request to the Tenant Data API to get a list of tenants for SaaS Customer Admin.
+3. Tenant Data API issues a GET request to the Permission Data API to get a list of tenants SaaS Customer Admin has access to view.
+4. Permission Data API returns a list of tenant permissions.
+5. Tenant Data API looks up the tenant information in its data store and returns a list of tenant data based on the list of tenant permissions received.
+6. Onboarding & Admin App returns the list of tenant data to SaaS Customer Admin.
+7. SaaS Customer Admin selects a tenant from the list to add a SaaS Customer User to and enters the email address for the SaaS Customer User.
+8. Onboarding & Admin App issues a POST request to the Tenant Data API to add a permission for the SaaS Customer User on the specified tenant.
+9. Tenant Data API verifies that the SaaS Customer Admin has a valid JWT claim to the specified tenant and has the users.write permission on it.
+10. Tenant Data API issues a POST request to the Permission Data API to add a permission for the SaaS Customer User on the specified tenant.
+11. Permission Data API issues a GET request to the Identity Provider to lookup the SaaS Customer User by the provided email.
+12. Identity Provider returns the SaaS Customer User's Object ID.
+13. Permission Data API adds a permission record in its data store for the SaaS Customer User on the specified tenant using their Object ID.
+14. Permission Data API returns successfully.
+15. Tenant Data API returns successfully.
+16. Onboarding & Admin App returns successfully.
 
 ### Components
 
