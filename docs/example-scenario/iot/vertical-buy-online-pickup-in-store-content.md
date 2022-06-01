@@ -2,16 +2,18 @@
 
 This internet of things (IoT)-based solution provides greater efficiency for buy online, pick up in store (BOPIS) retail scenarios, decreasing wait times to increase customer satisfaction.
 
-Contoso is a European retailer, with more than 1,000 mid-sized supermarkets located in cities and suburbs. Recently, Contoso customers increasingly use BOPIS, also called curbside pickup. Increased BOPIS usage means longer wait times for pickup, increasing customer dissatisfaction and causing some customers to choose other retailers.
+Contoso is a European retailer, with more than 1,000 mid-sized supermarkets located in cities and suburbs. Contoso customers increasingly use BOPIS, also called curbside pickup. Increased BOPIS usage means longer wait times for pickup, which increases customer dissatisfaction and causes some customers to choose other retailers.
 
-To ensure that customers got the freshest produce, Contoso previously started packing temperature-controlled items only after BOPIS customers arrived, causing long wait times. To improve BOPIS efficiency, Contoso developed an application that alerts store associates and triggers work orders to start packing fresh produce when customers get near the store. By decreasing customer waiting time, this solution improves a key aspect of the curbside pickup experience.
+To ensure that customers got the freshest produce, Contoso previously started packing temperature-controlled items only after BOPIS customers arrived, causing long wait times. To improve BOPIS efficiency, Contoso has developed an application that alerts store associates and triggers work orders to start packing fresh produce when customers get near the store.
+
+By decreasing customer wait time, this solution improves a key aspect of the curbside pickup experience.
 
 This solution had the following requirements:
 
 - The system must gather information about how far away customers are, and when they arrive at the parking lot.
 - Per regulatory requirements, the system must protect customers' personal privacy when storing and accessing data about their movements.
 - If a vehicle's license plate details aren't present or don't match the database, the system should use GPS to help identify customer locations.
-- Since the application is available throughout Europe, its database must provides multi-master read and write to account for SKU variability.
+- Since the application is available throughout Europe, its database must provide multi-master read and write capabilities.
 - Database reads and writes must be low latency for a seamless user experience.
 
 ## Potential use cases
@@ -46,9 +48,9 @@ This solution had the following requirements:
 
 ### Components
 
-- [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge) runs analytics applications on-premises to ensure low latency, lower bandwidth usage, and privacy, such as extracting only license plate details. The IoT Edge runtime allows the use and orchestration of container-based modules.
+- [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge) runs analytics applications on-premises to ensure low latency and lower bandwidth usage. The IoT Edge runtime allows the use and orchestration of container-based modules.
 
-- [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services) allows the AI model to run at the edge to adhere to privacy regulations and to lower required bandwidth. Contoso can use ML services without spending engineering efforts to create and train the model.
+- [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services) allows the AI model to run at the edge to lower required bandwidth and adhere to privacy regulations, such as extracting only license plate details. Contoso can use machine learning services without spending engineering efforts to create and train the model.
 
 - [IoT Central](https://azure.microsoft.com/services/iot-central) is a fully managed application platform as a service (aPaaS) that extends easily to let companies focus on business priorities. IoT Central reduces the burden and cost of developing, managing, and maintaining enterprise-grade IoT solutions.
 
@@ -58,7 +60,7 @@ This solution had the following requirements:
 
 - [Azure Functions](https://azure.microsoft.com/services/functions) is a serverless compute service for running single-function programs without having to maintain infrastructure. In this solution, Azure Functions processes the events from Event Hubs and sends the data to the curbside pickup application API. Azure Functions also reads the change feed in Azure Cosmos DB to write data into Azure Storage.
 
-- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) provides a low-latency database with guaranteed availability and automatic scalability. The curbside pickup application uses NoSQL documents to store the data, because of the variety in order SKUs.
+- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) provides a low-latency database with guaranteed availability and automatic scalability. The curbside pickup application uses NoSQL documents to store the data, because of the variability in order SKUs.
 
 - [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) hosts the curbside pickup application. The application is a microservices design, built in a cluster of containers, and managed in a hosted Azure Kubernetes service. AKS handles critical tasks like health monitoring and maintenance.
 
@@ -71,8 +73,8 @@ To understand and explore the various implementation choices available, see the 
 ## Next steps
 
 - [Is curbside pickup just getting started?](https://retailwire.com/discussion/is-curbside-pickup-just-getting-started)
-- [Oneview Commerce](https://www.oneviewcommerce.com)
-- [Ombori](https://ombori.com/)
+- [OneView Commerce](https://www.oneviewcommerce.com)
+- [Ombori](https://ombori.com)
 - [Avanade intelligent store](https://www.avanade.com/en/industry/retail/intelligent-store-whitepaper)
 
 ## Related resources
@@ -80,5 +82,5 @@ To understand and explore the various implementation choices available, see the 
 - [IoT reference architecture](../../reference-architectures/iot.yml)
 - [Getting started with Azure IoT solutions](../../reference-architectures/iot/iot-architecture-overview.md)
 - [Scalable order processing](../data/ecommerce-order-processing.yml)
-- [Magento e-commerce platform in Azure Kubernetes Service](../example-scenario/magento/magento-azure.yml)
-- [E-commerce front end](../example-scenario/apps/ecommerce-scenario.yml)
+- [Magento e-commerce platform in Azure Kubernetes Service](../magento/magento-azure.yml)
+- [E-commerce front end](../apps/ecommerce-scenario.yml)
