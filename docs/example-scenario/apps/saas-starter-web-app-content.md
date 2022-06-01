@@ -25,10 +25,10 @@ This table outlines the meaning of common terms found in our workflows section b
 | Term         | Description                                                                             | Example |
 | ------------ | --------------------------------------------------------------------------------------- | ------ |
 | SaaS Vendor or ISV  | The entity that owns the SaaS application and code and sells the SaaS product.| Contoso Inc, selling their SaaS application: Contoso Tickets |
-| Tenant       | A purchased instance of the SaaS application. | Joe's coffee shop |
-| SaaS Customer Admin | People who purchase or administer an application tenant. | Joe: owner of Joe's coffee shop |
-| SaaS Customer User | People who use an application tenant without administering it, usually belonging to the same company or group as SaaS Customer Admin | Jill: event manager at Joe's coffee shop, Susan: Customer of Joe's coffee shop |
-| End User         | Term includes SaaS Customer Admin, SaaS Customer User, or any other user types that get introduced. Used as a generic term to describe users who log into the application. | Joe, Jill, and Susan are all End Users (from the ISV perspective) |
+| Tenant       | A purchased instance of the SaaS application. | Fourth Coffee Shop |
+| SaaS Customer Admin | People who purchase or administer an application tenant. | Joe: Owner of Fourth Coffee Shop |
+| SaaS Customer User | People who use an application tenant without administering it, usually belonging to the same company or group as SaaS Customer Admin. | Jill: event manager at Fourth Coffee Shop, Susan: Customer of Fourth Coffee Shop |
+| End User         | Term includes SaaS Customer Admin, SaaS Customer User, or any other user types that get introduced. Used as a generic term to describe users who sign into the application. | Joe, Jill, and Susan are all End Users (from the ISV perspective) |
 | Frontend Application | Used as a generic term to describe any frontend application. | The Onboarding & Admin App and SaaS App are both frontend applications.  |
 
 ### Workflow
