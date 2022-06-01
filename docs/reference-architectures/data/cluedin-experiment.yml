@@ -22,4 +22,4 @@ name: Master data management with Azure and CluedIn
 summary: Use the CluedIn eventual connectivity data integration technique to seamlessly blend data from many siloed data sources into Azure data management and analytics services.
 thumbnailUrl: /azure/architecture/browse/thumbs/cluedin-architecture-small.png
 content: |
-  [!include[](cluedin-content.md)]
+  [!include[](cluedin-experiment-content.md)]
