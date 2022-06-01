@@ -56,7 +56,7 @@ The cost of developing and maintaining infrastructure as code assets can be cost
 
 #### Cluster deployment
 
-Once the cluster stamp definition has been defined, you have many options for deploying individual or multiple stamp instances. Our recommendation is to use modern continuous integration technology such as GitHub Actions or Azure Pipelines. The benefit of continuous integration-based deployment solutions include:
+Once the cluster stamp definition has been defined, you have many options for deploying individual or multiple stamp instances. Our recommendation is to use modern continuous integration technology such as GitHub Actions or Azure Pipelines. The benefits of continuous integration-based deployment solutions include:
 
 - Code-based deployments that allow for stamps to be added and removed using code
 - Integrated testing capabilities
