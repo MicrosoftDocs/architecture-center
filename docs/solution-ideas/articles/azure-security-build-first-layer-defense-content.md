@@ -13,7 +13,7 @@ This article presents Azure security services according to each Azure service. I
 
 ## Architecture
 
-:::image type="content" alt-text="A diagram of on-premises resources, Microsoft 365 services, Azure services, Azure security services, and threats. In the diagram, there are 16 types of threats as classified by the MITRE ATTACK matrix." source="../media/azure-security-build-first-layer-defense-architecture.png" lightbox="../media/azure-security-build-first-layer-defense-architecture.png":::
+:::image type="content" alt-text="A diagram of on-premises resources, services from Microsoft 365 and Azure, and 16 types of threats as classified by the MITRE ATTACK matrix." source="../media/azure-security-build-first-layer-defense-architecture.png" lightbox="../media/azure-security-build-first-layer-defense-architecture.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-monitor-integrate-security-components.vsdm) of this architecture.*
 
@@ -54,13 +54,13 @@ This section describes the components and services that appear in the diagram. M
     | Label | Description | Documentation |
     |---|---|---|
     | **NSG** | A free service that you attach to a network interface or subnet. An NSG allows you to filter TCP or UDP protocol traffic by using IP address ranges and ports for inbound and outbound connections. | [Network security groups](/azure/virtual-network/network-security-groups-overview) |
-    | **VPN** | A virtual private network (VPN) gateway that delivers a tunnel with IPSEC (IKE v1/v2) protection. | [VPN Gateway](https://azure.microsoft.com/en-us/services/vpn-gateway) |
+    | **VPN** | A virtual private network (VPN) gateway that delivers a tunnel with IPSEC (IKE v1/v2) protection. | [VPN Gateway](https://azure.microsoft.com/services/vpn-gateway) |
     | **AZURE FIREWALL** | A platform as a service (PaaS) that delivers protection in layer 4 and is attached to an entire virtual network. | [What is Azure Firewall](/azure/firewall/overview)? |
     | **APP GW + WAF** | Azure Application Gateway with Web Application Firewall (WAF). Application Gateway is a load balancer for web traffic that works in layer 7 and adds WAF to protect applications that use HTTP and HTTPS. | [What is Azure Application Gateway](/azure/application-gateway/overview)? |
     | **NVA** | Network Virtual Appliance (NVA), a virtual security services from the marketplace that is provisioned on VMs on Azure. | [Network Virtual Appliances](https://azure.microsoft.com/solutions/network-appliances) |
     | **DDOS** | DDoS protection implemented on the virtual network to help you mitigate different types of DDoS attacks. | [Azure DDoS Protection Standard overview](/azure/ddos-protection/ddos-protection-overview) |
     | **TLS/SSL** | TLS/SSL deliver encryption in transit for most Azure services that exchange information, such as Azure Storage and Web Apps. | [Configure end-to-end TLS by using Application Gateway with PowerShell](/azure/application-gateway/application-gateway-end-to-end-ssl-powershell) |
-    | **PRIVATE LINK** | Service that allows you to create a private network for an Azure service that initially is exposed to the internet. | [What is Azure Private Link](https://docs.microsoft.com/en-us/azure/private-link/private-link-overview)? |
+    | **PRIVATE LINK** | Service that allows you to create a private network for an Azure service that initially is exposed to the internet. | [What is Azure Private Link](/azure/private-link/private-link-overview)? |
     | **PRIVATE ENDPOINT** | Creates a network interface and attaches it to the Azure service. Private Endpoint is part of Private Link. This configuration lets the service, by using a private endpoint, be part of your virtual network. | [What is a private endpoint](/azure/private-link/private-endpoint-overview)? |
 
 3.  **INFRASTRUCTURE AND ENDPOINTS**
@@ -73,7 +73,7 @@ This section describes the components and services that appear in the diagram. M
     | **ANTIMALWARE** | Microsoft Defender provides anti-malware service and is part of Windows 10, Windows 11, Windows Server 2016, and Windows Server 2019. | [Microsoft Defender Antivirus in Windows](/microsoft-365/security/defender-endpoint/microsoft-defender-antivirus-windows?view=o365-worldwide) |
     | **DISK ENCRYPT** | Disk Encryption allows you to encrypt the disk of a VM. | [Azure Disk Encryption for Windows VMs](/azure/virtual-machines/windows/disk-encryption-overview) |
     | **KEYVAULT** | Key Vault, a service to store keys, secrets, and certificates with FIPS 140-2 Level 2 or 3. | [Azure Key Vault basic concepts](/azure/key-vault/general/basic-concepts) |
-    | **RDP SHORT** | Azure Virtual Desktop RDP Shortpath. This feature allows remote users to connect to the Virtual Desktop service from a private network. | [Azure Virtual Desktop RDP Shortpath for managed networks](https://docs.microsoft.com/en-us/azure/virtual-desktop/shortpath) |
+    | **RDP SHORT** | Azure Virtual Desktop RDP Shortpath. This feature allows remote users to connect to the Virtual Desktop service from a private network. | [Azure Virtual Desktop RDP Shortpath for managed networks](/azure/virtual-desktop/shortpath) |
     | **REVERSE CONNECT** | A built-in security feature from Azure Virtual Desktop. Reverse connect guarantees that remote users receive only pixel streams and don't reach the host VMs. | [Understanding Azure Virtual Desktop network connectivity](/azure/virtual-desktop/network-connectivity) |
 
 4.  **APPLICATION AND DATA**

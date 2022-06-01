@@ -18,7 +18,7 @@ Some organizations use Cyber Kill Chain®, a methodology from Lockheed Martin, t
 
 ## Architecture
 
-:::image type="content" alt-text="Diagram of three categories of services, top techniques of attack, and the resource categories of the Zero Trust model that are threatened by those techniques." source="../media/map-threats-it-environment-architecture.png" lightbox="../media/map-threats-it-environment-architecture.png":::
+:::image type="content" alt-text="Diagram of three categories of services, top techniques of attack, and categories of the Zero Trust model that are threatened by those techniques." source="../media/map-threats-it-environment-architecture.png" lightbox="../media/map-threats-it-environment-architecture.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-monitor-integrate-security-components.vsdm) of this architecture.*
 
@@ -30,7 +30,7 @@ For the Azure environment, the diagram shows the components that are listed in t
 
 | Label | Documentation |
 |---|---|---|
-| **VNET** | [What is Azure Virtual Network](https://azure.microsoft.com/en-us/services/virtual-network)? |
+| **VNET** | [What is Azure Virtual Network](https://azure.microsoft.com/services/virtual-network)? |
 | **LBS** | [What is Azure Load Balancer](/azure/load-balancer/load-balancer-overview)? |
 | **PIPS** | [Public IP addresses](/azure/virtual-network/ip-services/public-ip-addresses) |
 | **SERVERS** | [Virtual Machines](/services/virtual-machines) |
@@ -46,12 +46,12 @@ The diagram represents Microsoft 365 through the components listed in the follow
 
 | Label | Description | Documentation |
 |---|---|---|
-| **OFFICE 365** | Microsoft 365 services (formerly Office 365). The applications that Microsoft 365 makes available depends on the type of license. | [Microsoft 365 - Subscription for Office Apps](https://www.microsoft.com/en-us/microsoft-365) |
-| **AZURE AD** | Azure AD, the same one utilized by Azure. Many companies use the same Azure AD service for Azure and Microsoft 365. | [What is Azure Active Directory?](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis) |
+| **OFFICE 365** | Microsoft 365 services (formerly Office 365). The applications that Microsoft 365 makes available depends on the type of license. | [Microsoft 365 - Subscription for Office Apps](https://www.microsoft.com/microsoft-365) |
+| **AZURE AD** | Azure AD, the same one utilized by Azure. Many companies use the same Azure AD service for Azure and Microsoft 365. | [What is Azure Active Directory?](/azure/active-directory/fundamentals/active-directory-whatis) |
 
 ### Workflow
 
-To help you understand which part of your IT environment those threats are likely to attack, the architecture diagram in this article is based on a typical IT environment for an organization that has on-premises systems, a Microsoft 365 subscription, and an Azure subscription. The resources in each of these layers are services that are common to many companies. They're classified in the diagram according to the pillars of Microsoft Zero Trust: network, infrastructure, endpoint, application, data, and identity. For more information about Zero Trust, see [Embrace proactive security with Zero Trust](https://www.microsoft.com/en-us/security/business/zero-trust).
+To help you understand which part of your IT environment those threats are likely to attack, the architecture diagram in this article is based on a typical IT environment for an organization that has on-premises systems, a Microsoft 365 subscription, and an Azure subscription. The resources in each of these layers are services that are common to many companies. They're classified in the diagram according to the pillars of Microsoft Zero Trust: network, infrastructure, endpoint, application, data, and identity. For more information about Zero Trust, see [Embrace proactive security with Zero Trust](https://www.microsoft.com/security/business/zero-trust).
 
 The architecture diagram includes the following layers:
 

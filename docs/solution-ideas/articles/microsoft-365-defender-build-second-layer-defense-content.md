@@ -36,7 +36,7 @@ The following diagram illustrates a real use case in which you might consider us
 
 The following diagram shows a layer, labeled as **DEFENDER**, that represents the Microsoft 365 Defender security services. Adding these services to your IT environment helps you to build better defense for your environment. The services in the Defender layer can work with Azure security services.
 
-:::image type="content" alt-text="Diagram of services, threats, and the security services that you can configure to provide protection to the resources in your IT environment." source="../media/microsoft-365-defender-build-second-layer-defense-architecture.png" lightbox="../media/microsoft-365-defender-build-second-layer-defense-architecture.png":::
+:::image type="content" alt-text="Diagram of services, threats, and the security services that you can configure to provide protection to the resources in your I T environment." source="../media/microsoft-365-defender-build-second-layer-defense-architecture.png" lightbox="../media/microsoft-365-defender-build-second-layer-defense-architecture.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-monitor-integrate-security-components.vsdm) of this architecture.*
 
@@ -91,7 +91,7 @@ The threats named in the diagram follow a common attack order:
 
 6. If the credentials provide access to an account that has elevated privilege, the attacker compromises additional systems.
 
-The diagram also shows in the layer labeled as **DEFENDER** which Microsoft 365 Defender services can monitor and mitigate those attacks. This is an example of how Defender provides an additional layer of security that works with Azure security services to offer additional protection of the resources that are shown in the diagram. For more information about how potential attacks threaten your IT environment, see the second article in this series, [Map threats to your IT environment](../../solution-ideas/articles/map-threats-it-environment.yml). For more information about Microsoft 365 Defender, see [Microsoft 365 Defender](https://docs.microsoft.com/en-us/microsoft-365/security/defender/microsoft-365-defender?view=o365-worldwide).
+The diagram also shows in the layer labeled as **DEFENDER** which Microsoft 365 Defender services can monitor and mitigate those attacks. This is an example of how Defender provides an additional layer of security that works with Azure security services to offer additional protection of the resources that are shown in the diagram. For more information about how potential attacks threaten your IT environment, see the second article in this series, [Map threats to your IT environment](../../solution-ideas/articles/map-threats-it-environment.yml). For more information about Microsoft 365 Defender, see [Microsoft 365 Defender](/microsoft-365/security/defender/microsoft-365-defender?view=o365-worldwide).
 
 ### Access and manage Microsoft 365 Defender Security services
 

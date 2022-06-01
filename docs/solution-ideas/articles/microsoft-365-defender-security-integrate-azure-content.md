@@ -20,7 +20,7 @@ You don't need to implement all the security services that are presented in this
 
 ## Architecture
 
-:::image type="content" alt-text="Diagram of the complete reference architecture for this five-article series that shows an IT environment, threats, and security services." source="../media/microsoft-365-defender-security-integrate-azure-architecture.png" lightbox="../media/microsoft-365-defender-security-integrate-azure-architecture.png":::
+:::image type="content" alt-text="Diagram of the complete reference architecture for this five-article series that shows an I T environment, threats, and security services." source="../media/microsoft-365-defender-security-integrate-azure-architecture.png" lightbox="../media/microsoft-365-defender-security-integrate-azure-architecture.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-monitor-integrate-security-components.vsdm) of this architecture.*
 
@@ -125,7 +125,7 @@ The example architecture in this article uses the following Azure components:
 
 ## Pricing
 
-Pricing for the Azure services that are presented in this series of articles is calculated in various ways. Some services are free of charge, some have a charge for each use, and some have a charge that is based on licensing. The best way to estimate the pricing for any of the Azure security services is to use the [Pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator). In the calculator, search for a service that you're interested in, and then select it to get all the variables that determine the price for the service.
+Pricing for the Azure services that are presented in this series of articles is calculated in various ways. Some services are free of charge, some have a charge for each use, and some have a charge that is based on licensing. The best way to estimate the pricing for any of the Azure security services is to use the [Pricing calculator](https://azure.microsoft.com/pricing/calculator). In the calculator, search for a service that you're interested in, and then select it to get all the variables that determine the price for the service.
 
 Microsoft 365 Defender security services work with licenses. For information about the licensing requirements, see [Microsoft 365 Defender prerequisites](/microsoft-365/security/defender/prerequisites?view=o365-worldwide).
 
