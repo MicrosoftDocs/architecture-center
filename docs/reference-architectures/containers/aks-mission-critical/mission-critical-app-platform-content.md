@@ -4,9 +4,9 @@ A key design area of any mission critical architecture is the application platfo
 -	A mission-critical application must be highly reliable and resistant to datacenter and regional failures. Building _zonal and regional redundancy_ in an active-active configuration is the main strategy. As you choose Azure services, consider its Availability Zones support and using multiple Azure regions. 
 -	Use _scale units_ to handle increased load. Scale units allow you to logically group services and a unit can be scaled independent of other units or services in the architecture. Use your capacity model and expected performance to define a unit.
 
-In this architecture, the application platform consists of global and regional resources. The regional resources are provisioned as part of a deployment stamp. Each stamp equates to a scale unit. The sections address the preceding recommendations and highlight these cross-cutting concepts:
+In this architecture, the application platform consists of global and regional resources. The regional resources are provisioned as part of a deployment stamp. Each stamp equates to a scale unit. The resources in each set have distinct characteristics:
 
-|Concept|Consideration|
+|Characteristic|Consideration|
 |---|---|
 |Lifetime|What is the expected lifetime of resource? Should the resource share the lifetime with the entire system, region, or should they be temporary?|
 |State|Should the resource persist state? |
@@ -20,12 +20,14 @@ In this architecture, the application platform consists of global and regional r
 
 Certain resources in this architecture are shared by resources deployed in regions. In this architecture, they are used to distribute traffic across multiple regions, store permanent state, and cache static data. 
 
-- **Lifetime**: The resources are expected to be long living. Their lifetime spans the life of the system.
-- **State**: Only the global resources in the entire system should store permanent state over the lifetime of the system.
-- **Reach**: The resources should be globally distributed. It’s recommended that these resources communicate with regional or other resources with low latency and the desired consistency. 
-- **Dependencies**: The resources should avoid dependency  on regional resources because unavailability of the regional resource can be a cause of failure. For example, certificates or secrets shouldn’t be kept in a key store that’s deployed regionally. 
-- **Scale limits**: The resources should be scaled such that they can handle throughput of the system as a whole.
-- **Availability/disaster recovery**: Because regional and stamp resources can consume global resources, it’s critical that global resources are configured with high availability and disaster recovery. Otherwise, if these resources become unavailable, the entire system is at risk. 
+|Characteristic|Consideration|
+|---|---|
+|Lifetime|The resources are expected to be long living. Their lifetime spans the life of the system.|
+|State| Only the global resources in the entire system should store permanent state over the lifetime of the system.|
+|Reach|The resources should be globally distributed. It’s recommended that these resources communicate with regional or other resources with low latency and the desired consistency.|
+|Dependencies| The resources should avoid dependency  on regional resources because unavailability of the regional resource can be a cause of failure. For example, certificates or secrets shouldn’t be kept in a key store that’s deployed regionally. |
+|Scale limits|The resources should be scaled such that they can handle throughput of the system as a whole.|
+|Availability/disaster recovery|Because regional and stamp resources can consume global resources, it’s critical that global resources are configured with high availability and disaster recovery. Otherwise, if these resources become unavailable, the entire system is at risk. |
 
 In this architecture, global resources are Azure Front Door, Azure Cosmos DB, Azure Container Registry, and Azure Log Analytics for storing logs and metrics from global resources. 
 
@@ -64,29 +66,28 @@ For details on data considerations, see <!coming soon>.
 
 Each region can have one or more stamps. In this architecture, the stamp deploys the workload and resources that participate in completing a business transaction. 
 
-- **Lifetime**: The resources are expected to have a short life span (ephemeral) with the intent that they can get destroyed and created as needed. For example, when a stamp deems itself unhealthy. Regional resources outside the stamp continue to persist.
-- **Storing state**: Because stamps are ephemeral, a stamp should be stateless as much as possible.
-- **Reach**: Can communicate with regional and global resources. However, communication with other regions or other stamps should be avoided. In this architecture, there isn't a need for these resources to be globally distributed.
-- **Dependencies**: The resources are expected to have regional and global dependencies. They shouldn't have dependencies on more than one region or other stamps.
-- **Scale limits**: Throughput is established through testing. The throughput of the overall stamp is limited to the least performant resource. Stamp throughput needs to take into account both the estimated high-level of demand plus any failover as the result of another stamp in the region becoming unavailable.
-- **Availability/disaster recovery**: Because of the temporary nature of stamps, disaster recovery is done by redeploying the stamp. If resources are in an unhealthy state, the stamp, as a whole, can be destroyed and redeployed.
+|Characteristic|Consideration|
+|---|---|
+|Lifetime|The resources are expected to have a short life span (ephemeral) with the intent that they can get destroyed and created as needed. For example, when a stamp deems itself unhealthy. Regional resources outside the stamp continue to persist.|
+|State| Because stamps are ephemeral, a stamp should be stateless as much as possible.|
+|Reach|Can communicate with regional and global resources. However, communication with other regions or other stamps should be avoided. In this architecture, there isn't a need for these resources to be globally distributed.|
+|Dependencies| The resources are expected to have regional and global dependencies. They shouldn't have dependencies on more than one region or other stamps. |
+|Scale limits|Throughput is established through testing. The throughput of the overall stamp is limited to the least performant resource. Stamp throughput needs to take into account both the estimated high-level of demand plus any failover as the result of another stamp in the region becoming unavailable.|
+|Availability/disaster recovery|Because of the temporary nature of stamps, disaster recovery is done by redeploying the stamp. If resources are in an unhealthy state, the stamp, as a whole, can be destroyed and redeployed. |
 
 ### Compute cluster
-Each stamp has an Azure Kubernetes Service (AKS) cluster that runs the containerized workload. 
+Each stamp has an Azure Kubernetes Service (AKS) cluster that runs the containerized workload. AKS serves the need as Kubernetes is the de-facto compute platform standard for modern applications.
 
-The AKS cluster is stateless and doesn't have persistent volumes. It uses ephemeral OS disks instead of managed disks.
+The lifetime of the AKS cluster is bound to the ephemeral nature of the stamp. The cluster is stateless and doesn't have persistent volumes. It uses ephemeral OS disks instead of managed disks. They are not expected to receive application or system-level maintenance.
 
-The AKS cluster with autoscaling and ephemeral disks. The cluster has Uptime SLA, RBAC, Azure policy, monitoring, and availability zones configured. The cluster is also configured for automatic node image upgrades and to scale appropriately during those upgrades to allow for zero downtime while upgrades are being performed.
+To complete a business transaction, the cluster needs to communicate with various global and resources within the stamp. Those paths are secured through private endpoints. 
+
+The cluster is configured to use Azure Active Directory (AD) for user authentication.
+
+The cluster has Uptime SLA, RBAC, Azure policy, monitoring, and availability zones configured. The cluster is also configured for automatic node image upgrades and to scale appropriately during those upgrades to allow for zero downtime while upgrades are being performed.
 
 The AKS cluster has a load balanced end point managed by an ingress controller. Inbound TLS from Azure Front Door is terminated at the ingress controller, which is independent from any additional pod-to-pod TLS configured within the cluster. The ingress controller also handles path-based routing and HTTP header checks to ensure traffic is originating from this solution's Azure Front Door instance. While it is possible for services in the same AKS cluster to communicate directly with each other, in this architecture there is no direct communication between backend services, instead services use the message broker (addressed below) to proxy that communication.
 
-In addition to AKS, Azure offers other compute services such as Azure Functions or Azure App Services. However, those options are suitable for workloads where offloading compute management to Azure is preferred.
-
-
-o	(Lifetime) - The lifetime of the cluster is bound to the ephemeral nature of the stamp.  AKS clusters are ephemeral are not expected to receive application or system-level maintenance. Changes to the cluster are 
-o	(State) - AKS clusters are stateless.  (vis policy) Disks are ephemeral OS.  No persistent volumes
-o	(Reach/Security) - Speak to global/regional resources via private endpoints. Expose ingress - ILB
-o	Dependencies - Global ACR, KV, Cosmos, AAD, SB, Storage Accounts
 o	(Scale Limits) - Testing per/handler.  HPA and cluster autoscaler
  
 o	(Availability) The AKS API endpoint has a 99.95% uptime SLA for clusters that use Availability Zones.
@@ -125,13 +126,14 @@ This Azure Mission-Critical reference implementation uses Linux-only clusters as
 
 A system can have resources that are deployed in region but outlive the stamp resources. In this architecture, observability data for stamp resources are stored in regional data stores. 
 
-
-- **Lifetime**: The resources share the lifetime of the region and out live the stamp resources.
-- **State**: State stored in a region cannot live beyond the lifetime of the region. If state needs to be shared across regions, consider using a global data store.
-- **Reach**: The resources don't need to be globally distributed. Direct communication with other regions should be avoided at all cost. 
-- **Dependencies**: The resources can have dependencies on global resources, but not on stamp resources because stamps are meant to be short lived.
-- **Scale limits**: Determine the scale limit of regional resources by combining all stamps within the region.
-- **Availability/disaster recovery**: <TBD>
+|Characteristic|Consideration|
+|---|---|
+|Lifetime|The resources share the lifetime of the region and out live the stamp resources.|
+|State| State stored in a region cannot live beyond the lifetime of the region. If state needs to be shared across regions, consider using a global data store.|
+|Reach|The resources don't need to be globally distributed. Direct communication with other regions should be avoided at all cost. |
+|Dependencies| The resources can have dependencies on global resources, but not on stamp resources because stamps are meant to be short lived. |
+|Scale limits|Determine the scale limit of regional resources by combining all stamps within the region.|
+|Availability/disaster recovery|Coming Soon! |
 
 ### Monitoring data for stamp resources
 Deploying monitoring resources is a typical example for regional resources. In this architecture, each region has an individual Log Analytics workspace configured to store all log and metric data emitted from stamp resources. Because regional resource outlive stamp resources, data is available even when the stamp is deleted. 
