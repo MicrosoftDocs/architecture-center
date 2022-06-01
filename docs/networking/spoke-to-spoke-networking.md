@@ -21,7 +21,7 @@ There are two main ways of connecting spoke VNets to each other:
 
 # Direct connectivity between spokes
 
-Direct connections between the spokes will typically offer better performance and scalability than sending traffic through a Network Virtual Appliance across the hub. Sending traffic through NVAs can add latency to the traffic if the NVAs are in a different Availability Zone, and at least two VNet peerings need to be crossed when sending traffic over the hub. There are multiple options that can be chosen to connect directly two spoke VNets to each other:
+Direct connections between the spokes will typically offer better throughput, latency and scalability than sending traffic through a Network Virtual Appliance across the hub. Sending traffic through NVAs can add latency to the traffic if the NVAs are in a different Availability Zone, and at least two VNet peerings need to be crossed when sending traffic over the hub. There are multiple options that can be chosen to connect directly two spoke VNets to each other:
 
 - [VNet Peering][vnet_peering]: The advantage of direct VNet peerings over the spokes are a lower cost, since fewer VNet peering hops are required, and better performance, because traffic do not need to traverse any network appliance that introduce additional latency or potential bottlenecks. Other scenarios include cross tenant connectivity. However, customers might have requirements around inspecting traffic between spoke VNets that might demand sending traffic through centralized networking devices in the hub VNet.
 
@@ -55,7 +55,7 @@ An important consideration when connecting directly spoke VNets to each other in
 
 # Using centralized network appliances
 
-As opposed to interconnecting spoke VNets directly to each other, NVAs can be used to forward traffic between spokes, providing additional network services such as deep packet inspection, traffic segmentation or monitoring. These NVAs would be typically located in a hub VNet where the spokes are peered to. There are multiple options that can be chosen as a network virtual appliance:
+As opposed to interconnecting spoke VNets directly to each other, NVAs can be used to forward traffic between spokes. NVAs provide additional network services such as deep packet inspection, traffic segmentation or monitoring, although they can introduce additional latency and performance bottlenecks if not properly sized. These NVAs would be typically located in a hub VNet where the spokes are peered to. There are multiple options that can be chosen as a network virtual appliance:
 
 - Virtual WAN Hub router: fully managed by Microsoft, Virtual WAN contains a virtual router that will attract traffic from the spokes, and route it either to another VNet connected to Virtual WAN or to on-premises networks via ExpressRoute, Site-to-Site or Point-to-Site VPN tunnels. This Virtual WAN router scales up and down automatically, so customers only need to make sure that the traffic volume between spokes stays within the [Virtual WAN Limits][vwan_limits].
 
@@ -104,11 +104,11 @@ Virtual WAN creates a similar topology and takes over the routing complexity bot
 
 # Hybrid approaches
 
-Most situations will require a hybrid approach, where traffic between certain spokes need to go over direct connections, and the rest of the spokes will communicate through a central Azure Firewall or virtual network appliance. For example, if two specific spokes have particularly high bandwidth requirements because databases are synchronizing data, you could selectively create peerings only between those two VNets. Another scenario would be if the spoke VNets are part of the same environment. For example, allowing a spoke Development VNet to connect directly to another spoke Development VNet. However, not allowing a spoke Development VNet to connect direclty to another spoke Production VNet unless explicitly allowed and inspected through the central hub VNet firewall.
+Most situations will require a hybrid approach, where traffic between certain spokes need to go over direct connections, and the rest of the spokes will communicate through a central Azure Firewall or virtual network appliance. For example, if two specific spokes have particularly high bandwidth and low latency requirements because databases are synchronizing data, you could selectively create peerings only between those two VNets. Another scenario would be if the spoke VNets are part of the same environment. For example, allowing a spoke Development VNet to connect directly to another spoke Development VNet. However, not allowing a spoke Development VNet to connect direclty to another spoke Production VNet unless explicitly allowed and inspected through the central hub VNet firewall.
 
 ![The network diagram shows a 2-region hub and spoke design with some spokes interconnected through VNet peerings](media/spoke-to-spoke-through-selective-peerings-2-hubs.png)
 
-Another common pattern is interconnecting spokes in one region through direct VNet peerings or AVNM [connected groups][avnm_connected_group], but leaving inter-regional traffic to cross NVAs. The main reason behind this model is typically to reduce the number of VNet peerings in the architecture. However, a few disadvantages of this model include the additional VNet peering hops for cross-region traffic which adds on costs due to the multiple VNet peerings it traverses, as well as the additional load to the hub NVAs to front all cross-regional traffic.  
+Another common pattern is interconnecting spokes in one region through direct VNet peerings or AVNM [connected groups][avnm_connected_group], but leaving inter-regional traffic to cross NVAs. The main motivation for this model is typically to reduce the number of VNet peerings in the architecture. However, disadvantages  include the additional VNet peering hops for cross-region traffic, which add on costs due to the multiple VNet peerings it traverses, as well as the additional load to the hub NVAs to front all cross-regional traffic.  
 
 ![The network diagram shows a 2-region hub and spoke design with spokes in the same region interconnected through VNet peerings](media/spoke-to-spoke-through-peerings-2-hubs.png)
 
