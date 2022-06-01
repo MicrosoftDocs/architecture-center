@@ -1,12 +1,10 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This internet of things (IoT)-based solution provides greater efficiency for buy online, pick up in store (BOPIS) retail scenarios, decreasing wait times to increase customer satisfaction.
+This solution uses internet of things (IoT) technology to help reduce curbside pickup wait times in retail buy online, pick up in store (BOPIS) scenarios.
 
-Contoso is a European retailer, with more than 1,000 mid-sized supermarkets located in cities and suburbs. Contoso customers increasingly use BOPIS, also called curbside pickup. Increased BOPIS usage means longer wait times for pickup, which increases customer dissatisfaction and causes some customers to choose other retailers.
+Contoso, a European retailer with over 1,000 mid-sized supermarkets in cities and suburbs, saw increased BOPIS usage by their customers. Increased BOPIS usage meant longer pickup wait times, which decreased customer satisfaction and caused some customers to choose other retailers. The company wanted to improve their BOPIS efficiency to decrease wait times and increase customer satisfaction.
 
-To ensure that customers got the freshest produce, Contoso previously started packing temperature-controlled items only after BOPIS customers arrived, causing long wait times. To improve BOPIS efficiency, Contoso has developed an application that alerts store associates and triggers work orders to start packing fresh produce when customers get near the store.
-
-By decreasing customer wait time, this solution improves a key aspect of the curbside pickup experience.
+To ensure that customers got the freshest produce, Contoso had previously started packing temperature-controlled items only after customers arrived for pickup. This practice contributed to long pickup wait times. Contoso developed a solution that alerts store associates and triggers work orders to start packing fresh produce when customers get near the store. By decreasing customer wait time, the solution improves a key aspect of the curbside pickup experience.
 
 This solution had the following requirements:
 
@@ -14,7 +12,7 @@ This solution had the following requirements:
 - Per regulatory requirements, the system must protect customers' personal privacy when storing and accessing data about their movements.
 - If a vehicle's license plate details aren't present or don't match the database, the system should use GPS to help identify customer locations.
 - Since the application is available throughout Europe, its database must provide multi-master read and write capabilities.
-- Database reads and writes must be low latency for a seamless user experience.
+- Database reads and writes must be low latency, for a seamless user experience.
 
 ## Potential use cases
 
