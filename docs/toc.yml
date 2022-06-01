@@ -2823,7 +2823,7 @@ items:
                   - name: Introduction
                     href: reference-architectures/containers/aks-mission-critical/mission-critical-intro.yml              
                   - name: Application platform
-                    href: reference-architectures/containers/aks-mission-critical/mission-critical-platform.yml                  
+                    href: reference-architectures/containers/aks-mission-critical/mission-critical-app-platform.yml                  
               - name: Multiplayer server hosting with ACI
                 href: /gaming/azure/reference-architectures/multiplayer-synchronous-aci
                 maintainContext: true

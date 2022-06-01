@@ -1,41 +1,54 @@
 A key design area of any mission critical architecture is the application platform. Platform refers to the infrastructure components and Azure services that must be provisioned to support the workload. Here are some overarching recommendations as you build the platform.
--	Design and deploy in layers: the right set of services, their configuration, and the application-specific dependencies. This layered approach helps in creating segmentation that's useful in defining roles and functions and assigning appropriate privileges. Also, deployment is more manageable.   
--	A mission-critical application must be highly reliable and resistant to datacenter and regional failures. Building _zonal and regional redundancy_ in an active-active configuration is the main strategy. As you choose Azure services, consider its Availability Zones support and using multiple Azure regions. 
--	Use a _scale units_ to handle increased load. Scale units allow you to logically group services and a unit can be scaled independent of other units or services in the architecture. Use your capacity model and expected performance to define a unit.
 
-In this architecture, the application platform consists of global and regional resources. The regional resources are provisioned as part of a deployment stamp. Each stamp equates to a scale unit. The sections address the preceding recommendations and highlight some cross-cutting considerations. 
+-	Design in layers: the right set of services, their configuration, and the application-specific dependencies. This layered approach helps in creating segmentation that's useful in defining roles and functions and assigning appropriate privileges. Also, deployment is more manageable.   
+-	A mission-critical application must be highly reliable and resistant to datacenter and regional failures. Building _zonal and regional redundancy_ in an active-active configuration is the main strategy. As you choose Azure services, consider its Availability Zones support and using multiple Azure regions. 
+-	Use _scale units_ to handle increased load. Scale units allow you to logically group services and a unit can be scaled independent of other units or services in the architecture. Use your capacity model and expected performance to define a unit.
+
+In this architecture, the application platform consists of global and regional resources. The regional resources are provisioned as part of a deployment stamp. Each stamp equates to a scale unit. The sections address the preceding recommendations and highlight these cross-cutting concepts:
+
+|Concept|Consideration|
+|---|---|
+|Lifetime|What is the expected lifetime of resource? Should the resource share the lifetime with the entire system, region, or should they be temporary?|
+|State|Should the resource persist state? |
+|Reach|Is the resource required to be globally distributed? Can the resource communicate with other resources, globally or in regions?|
+|Dependencies| What's the dependency on other resources, , globally or in other regions?|
+|Scale limits|What is the expected throughput?|
+|Availability/disaster recovery|Is the resource configured for high availability?|
+
 
 ## Global resources
 
 Certain resources in this architecture are shared by resources deployed in regions. In this architecture, they are used to distribute traffic across multiple regions, store permanent state, and cache static data. 
 
-- **Lifetime**: Expected to be long living. Their lifetime spans the life of the system.
-- **Storing state**: Only global resources in the entire system should store permanent state over the lifetime of the system.
-- **Reach**: Globally distributed. It’s recommended that these resources communicate with regional or other resources with low latency and the desired consistency. <otherwise?>.
-- **Dependencies**: Any dependency on regional resources should be avoided because unavailability of the regional resource can be a cause of failure. For example, certificates or secrets shouldn’t be kept in a key store that’s deployed regionally. 
-- **Scale limits**: For performance, the global resources should be scaled such that they can handle throughput of the system as a whole.
+- **Lifetime**: The resources are expected to be long living. Their lifetime spans the life of the system.
+- **State**: Only the global resources in the entire system should store permanent state over the lifetime of the system.
+- **Reach**: The resources should be globally distributed. It’s recommended that these resources communicate with regional or other resources with low latency and the desired consistency. 
+- **Dependencies**: The resources should avoid dependency  on regional resources because unavailability of the regional resource can be a cause of failure. For example, certificates or secrets shouldn’t be kept in a key store that’s deployed regionally. 
+- **Scale limits**: The resources should be scaled such that they can handle throughput of the system as a whole.
 - **Availability/disaster recovery**: Because regional and stamp resources can consume global resources, it’s critical that global resources are configured with high availability and disaster recovery. Otherwise, if these resources become unavailable, the entire system is at risk. 
 
-In this architecture, global resources are Azure Front Door, Azure Cosmos DB, Azure Container Registry, and Azure Log Analytics for storing logs from global resources. 
+In this architecture, global resources are Azure Front Door, Azure Cosmos DB, Azure Container Registry, and Azure Log Analytics for storing logs and metrics from global resources. 
 
 ### Global load balancer
 
 Azure Front Door is used as the only entry point for user traffic. If Front Door becomes unavailable, the entire system is at risk. <Add a sentence about platform guarantee>.
 
-All backend services are configured to only accept traffic from the provisioned Front Door instance. Misconfigurations can lead to outages. Missing SSL certificate can also cause mismatched configuration and can prevent users from using the front end. To avoid such situations, configuration errors should be caught during testing. If case of outages, roll back to the previous configuration, re-issuing the certificate, if possible.  However, expect the unavailability while changes take effect.
+All backend services are configured to only accept traffic from the provisioned Front Door instance. 
+
+Misconfigurations can lead to outages. To avoid such situations, configuration errors should be caught during testing. Missing SSL certificate can also cause mismatched configuration and can prevent users from using the front end. In case of outages, roll back to the previous configuration, re-issue the certificate, if possible.  However, expect the unavailability while changes take effect.
 
 In this implementation, each stamp is pre-provisioned with a Public IP address. Front Door uses the DNS name for backend. If Azure DNS is unavailable, DNS resolution for user requests and between different components of the application will fail. Consider using some external DNS services as backup for all PaaS components. <Bypassing DNS by switching to IP is not an option, because Azure services don’t have static, guaranteed IP addresses.>
 
 ### Container Registry
 Azure Container Registry is used to store Open Container Initiative (OCI) artifacts. It doesn't participate in the request flow and is only accessed periodically. If images aren’t available, new compute nodes will not be able to pull images, but existing nodes can still use cached images. So, a single instance can be considered. 
 
-Container registry required to exist before stamp resources are deployed and shouldn't have dependency on regional resources. Enable zone redundancy and geo-replication of registries so that runtime access to images is fast and resilient to failures. 
+Container registry is required to exist before stamp resources are deployed and shouldn't have dependency on regional resources. Enable zone redundancy and geo-replication of registries so that runtime access to images is fast and resilient to failures. 
 
 The primary strategy for disaster recovery is redeployment. The artifacts in a container registry can be regenerated from the pipelines.  
 
-It’s recommended that you use Premium SKU to enable geo replication. The zone redundancy feature ensures resiliency and high availability within a specific region. In case of a regional outage, replicas in other regions are available for data plane operations. With this SKU you can configure private link with private endpoints to restrict access to the registry. Only your application can  accessing that service. This ensures that all of the potential throughput is available to your application.
+It’s recommended that you use Premium SKU to enable geo replication. The zone redundancy feature ensures resiliency and high availability within a specific region. In case of a regional outage, replicas in other regions are available for data plane operations. With this SKU you can configure private link with private endpoints to restrict access to the registry. This way, only your application can access that service. This also ensures that all of the potential throughput is available to your application.
 
-<need to understand>Thus, any request is automatically re-routed to another region. During the fail over, no Docker images can be pulled while DNS failover needs to happen <need to understand>.
+<pri: need to understand>Thus, any request is automatically re-routed to another region. During the fail over, no Docker images can be pulled while DNS failover needs to happen <need to understand>.
 
 
 ### Database
@@ -51,10 +64,10 @@ For details on data considerations, see <!coming soon>.
 
 Each region can have one or more stamps. In this architecture, the stamp deploys the workload and resources that participate in completing a business transaction. 
 
-- **Lifetime**: Expected to have a short life span (ephemeral) with the intent that they can get destroyed and created as needed. For example, a stamp deems itself unhealthy. Regional resources outside the stamp continue to persist.
+- **Lifetime**: The resources are expected to have a short life span (ephemeral) with the intent that they can get destroyed and created as needed. For example, when a stamp deems itself unhealthy. Regional resources outside the stamp continue to persist.
 - **Storing state**: Because stamps are ephemeral, a stamp should be stateless as much as possible.
-- **Reach**: Can communicate with regional and global resources. However, communication with other regions or other stamps should be avoided. In this architecture there isn't a need for these resources to be globally distributed.
-- **Dependencies**: Expected to have regional and global dependencies. They should not have dependencies on more than one region or other stamps.
+- **Reach**: Can communicate with regional and global resources. However, communication with other regions or other stamps should be avoided. In this architecture, there isn't a need for these resources to be globally distributed.
+- **Dependencies**: The resources are expected to have regional and global dependencies. They shouldn't have dependencies on more than one region or other stamps.
 - **Scale limits**: Throughput is established through testing. The throughput of the overall stamp is limited to the least performant resource. Stamp throughput needs to take into account both the estimated high-level of demand plus any failover as the result of another stamp in the region becoming unavailable.
 - **Availability/disaster recovery**: Because of the temporary nature of stamps, disaster recovery is done by redeploying the stamp. If resources are in an unhealthy state, the stamp, as a whole, can be destroyed and redeployed.
 
@@ -113,15 +126,15 @@ This Azure Mission-Critical reference implementation uses Linux-only clusters as
 A system can have resources that are deployed in region but outlive the stamp resources. In this architecture, observability data for stamp resources are stored in regional data stores. 
 
 
-- **Lifetime**: Share the lifetime of the region. and out live the stamp resources.
-- **Storing state**: State stored in a region cannot live beyond the lifetime of the region. If state needs to be shared across regions, consider using a global data store.
-- **Reach**: Don't need to be globally distributed. Direct communication with other regions should be avoided at all cost. 
-- **Dependencies**: Can have dependencies on global resources, but not on stamp resources because stamps are meant to be short lived.
+- **Lifetime**: The resources share the lifetime of the region and out live the stamp resources.
+- **State**: State stored in a region cannot live beyond the lifetime of the region. If state needs to be shared across regions, consider using a global data store.
+- **Reach**: The resources don't need to be globally distributed. Direct communication with other regions should be avoided at all cost. 
+- **Dependencies**: The resources can have dependencies on global resources, but not on stamp resources because stamps are meant to be short lived.
 - **Scale limits**: Determine the scale limit of regional resources by combining all stamps within the region.
-- **Availability/disaster recovery**: 
+- **Availability/disaster recovery**: <TBD>
 
 ### Monitoring data for stamp resources
-Each region has an individual Log Analytics workspace configured to store all log and metric data emitted from stamp resources. Because regional resource outlive stamp resources, data is available even when the stamp is deleted. 
+Deploying monitoring resources is a typical example for regional resources. In this architecture, each region has an individual Log Analytics workspace configured to store all log and metric data emitted from stamp resources. Because regional resource outlive stamp resources, data is available even when the stamp is deleted. 
 
 Azure Log Analytics and Azure Application Insights are used to store logs and metrics from the platform. It's recommended that you restrict daily quota on storage especially on environments that are used for load testing. Also, set retention policy to store all data. These restrictions will prevent any overspend that is incurred by storing data that is not needed beyond a limit. 
 
