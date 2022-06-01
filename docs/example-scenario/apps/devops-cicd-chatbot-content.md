@@ -8,11 +8,11 @@ Infrastructure as code uses Azure Resource Manager templates ([ARM templates](/a
 
 ## Potential use cases
 
-The architectural considerations discussed in this article are relevant for a variety of organizations across many industries including:
+Consider Azure DevOps and CI/CD processes for:
 
-- Banking
-- Healthcare
-- Information Technology
+- Accelerating application development and development lifecycles.
+- Building quality and consistency into an automated build and release process
+- Increasing application stability and uptime.
 
 ## Architecture
 
