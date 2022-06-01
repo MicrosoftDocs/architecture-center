@@ -17,9 +17,9 @@ Manufacturing processes use IoT computer vision in safety and quality assurance 
 
 ### Dataflow
 
-1. The IoT Edge module captures the live video stream, breaks it down into frames, and performs inference on the image data to determine if an incident has occurred.
-1. IoT Edge uploads the raw video files to Azure Storage, which acts as a raw media store.
-1. The edge module sends the inferencing results and metadata to Azure IoT Hub, which acts as a central message hub for communications in both directions.
+1. The IoT Edge custom module captures the live video stream, breaks it down into frames, and performs inference on the image data to determine if an incident has occurred.
+1. The custom module also uses Azure storage SDK methods or blob API to upload the raw video files to Azure Storage, which acts as a raw media store.
+1. The custom module sends the inferencing results and metadata to Azure IoT Hub, which acts as a central message hub for communications in both directions.
 1. Azure Logic Apps monitors IoT Hub for messages about incident events. Logic Apps routes inferencing results and metadata to Microsoft Dataverse for storage.
 1. When an incident occurs, Logic Apps sends SMS and e-mail notifications to the site engineer. The site engineer uses a mobile app based on Power Apps to acknowledge and resolve the incident.
 1. Power Apps pulls inferencing results and metadata from Dataverse and raw video files from Blob Storage to display relevant information about the incident. Power Apps updates Dataverse with the incident resolution that the site engineer provided. This step acts as human-in-the-loop validation for model retraining purposes.

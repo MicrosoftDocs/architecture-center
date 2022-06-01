@@ -26,9 +26,9 @@ This solution had the following requirements:
 
 ### Workflow
 
-1. The video feed shows cars coming into the parking area. The IP camera hosting a Real-Time Streaming Protocol (RTSP) server sends the feed to an Azure IoT Edge video analyzer module that processes the frame rate.
+1. The video feed shows cars coming into the parking area. The IP camera hosting a Real-Time Streaming Protocol (RTSP) server sends the feed to an Azure IoT Edge custom module that ingests the video and processes the frames. The module sends the images to Azure Cognitive Services running on the gateway.
 
-   An Azure Cognitive Services edge module extracts only the license plate details, and sends them to the cloud application. This process ensures that no facial images or privacy data are sent to storage.
+   Azure Cognitive Services extracts only the license plate details and sends them to the cloud application. This process ensures that no facial images or privacy data are sent to storage.
 
 1. Azure IoT Central ingests the data and sends it to Azure Event Hubs.
 
