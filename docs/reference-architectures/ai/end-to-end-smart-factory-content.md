@@ -1,6 +1,6 @@
 This example architecture shows an end-to-end approach to internet-of-things (IoT) computer vision in manufacturing. Fully automated smart factories use artificial intelligence (AI) and machine learning (ML) to analyze data, run systems, and improve processes over time.
 
-In this example, cameras send images to an Azure Video Analyzer edge device that runs an ML model. The model calculates inferences, and sends actionable output to the cloud for further processing. Human interventions are part of the intelligence the ML model captures. The ML process is a continuous cycle of training, testing, tuning, and validating the ML algorithms.
+In this example, cameras send images to an Azure IoT Edge device that runs an ML model. The model calculates inferences, and sends actionable output to the cloud for further processing. Human interventions are part of the intelligence the ML model captures. The ML process is a continuous cycle of training, testing, tuning, and validating the ML algorithms.
 
 ## Potential use cases
 
@@ -17,8 +17,8 @@ Manufacturing processes use IoT computer vision in safety and quality assurance 
 
 ### Dataflow
 
-1. The Video Analyzer edge module captures the live video stream, breaks it down into frames, and performs inference on the image data to determine if an incident has occurred.
-1. Video Analyzer uploads the raw video files and sends them to Azure Storage, which acts as a raw media store.
+1. The IoT Edge module captures the live video stream, breaks it down into frames, and performs inference on the image data to determine if an incident has occurred.
+1. IoT Edge uploads the raw video files to Azure Storage, which acts as a raw media store.
 1. The edge module sends the inferencing results and metadata to Azure IoT Hub, which acts as a central message hub for communications in both directions.
 1. Azure Logic Apps monitors IoT Hub for messages about incident events. Logic Apps routes inferencing results and metadata to Microsoft Dataverse for storage.
 1. When an incident occurs, Logic Apps sends SMS and e-mail notifications to the site engineer. The site engineer uses a mobile app based on Power Apps to acknowledge and resolve the incident.
@@ -31,12 +31,12 @@ Manufacturing processes use IoT computer vision in safety and quality assurance 
 1. Azure Machine Learning uses the dataset in the Premium data cache to train the model, validate the trained model's performance, score it against the newly trained model, and register the model into the Azure Machine Learning registry.
 1. The Azure Pipelines model orchestrator reviews the performance of the newly trained ML model and determines if it's better than previous models. If the new model performs better, the pipeline downloads the model from Azure Machine Learning and builds a new version of the ML inferencing module to publish in Azure Container Registry.
 1. When a new ML inferencing module is ready, Azure Pipelines deploys the module container from Container Registry to the IoT Edge module in IoT Hub.
-1. IoT Hub updates the Video Analyzer edge device with the new ML inferencing module.
+1. IoT Hub updates the IoT Edge device with the new ML inferencing module.
 
 ### Components
 
-- [Azure Video Analyzer](https://azure.microsoft.com/products/video-analyzer) is an AI service for quickly building an AI-powered video analytics solution to extract actionable insights from videos, whether stored or streaming.
-- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) is a managed service that enables reliable and secure bidirectional communications between millions of IoT devices and a cloud-based back end. It provides per-device authentication, message routing, integration with other Azure services, and management features to control and configure the devices.
+- [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge) service analyzes device data locally to send less data to the cloud, react to events quickly, and operate in low-connectivity conditions. An IoT Edge ML module can extract actionable insights from streaming video data.
+- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) is a managed service that enables reliable and secure bidirectional communications between millions of IoT devices and a cloud-based back end. IoT Hub provides per-device authentication, message routing, integration with other Azure services, and management features to control and configure IoT devices.
 - [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) is a serverless cloud service for creating and running automated workflows that integrate apps, data, services, and systems. Developers can use a visual designer to schedule and orchestrate common task workflows.  Logic Apps has [connectors](/connectors) for many popular cloud services, on-premises products, and other software as a service applications. In this solution, Logic Apps runs the automated notification workflow that sends SMS and email alerts to site engineers.
 - [Power Apps](https://powerapps.microsoft.com) is a data platform and a suite of apps, services, and connectors. It serves as a rapid application development environment. The underlying data platform is Microsoft Dataverse.
 - [Dataverse](/power-apps/maker/data-platform/data-platform-intro) is a cloud-based storage platform for Power Apps. Dataverse supports human-in-the-loop notifications and stores metadata associated with the MLOps data pipeline.
@@ -131,7 +131,6 @@ Principal Author:
 
 ## Next steps
 
-- [What is Azure Video Analyzer? (preview)](/azure/azure-video-analyzer/video-analyzer-docs/overview)
 - [IoT concepts and Azure IoT Hub](/azure/iot-hub/about-iot-hub)
 - [What is Azure Logic Apps?](/azure/logic-apps/logic-apps-overview)
 - [What is Power Apps?](/powerapps/powerapps-overview)
