@@ -6,7 +6,7 @@ In this example, cameras send images to an Azure IoT Edge device that runs an ML
 
 Manufacturing processes use IoT computer vision in safety and quality assurance applications. IoT computer vision systems can:
 
-- Help ensure compliance with manufacturing guidelines like proper labelling.
+- Help ensure compliance with manufacturing guidelines like proper labeling.
 - Identify manufacturing defects like surface unevenness.
 - Enhance security by monitoring building or area entrances.
 - Uphold worker safety by detecting personal protective equipment (PPE) usage and other safety practices.
@@ -27,7 +27,7 @@ Manufacturing processes use IoT computer vision in safety and quality assurance 
 1. Data Factory stores the raw video files, plus the metadata, in Azure Data Lake, which serves as a video archive for auditing purposes.
 1. Data Factory breaks raw video files into frames, converts the inferencing results into labels, and uploads the data into Blob Storage, which acts as the ML data store.
 1. Changes to the model code automatically trigger the Azure Pipelines model orchestrator pipeline, which operators can also trigger manually. Code changes also start the ML model training and validation process in Azure Machine Learning.
-1. Azure Machine Learning starts training the model by validating the data from the ML data store and copying the required datasets to Azure Premium Blob Storage, a performance tier that provides a data cache for faster model training.
+1. Azure Machine Learning starts training the model by validating the data from the ML data store and copying the required datasets to Azure Premium Blob Storage. This performance tier provides a data cache for faster model training.
 1. Azure Machine Learning uses the dataset in the Premium data cache to train the model, validate the trained model's performance, score it against the newly trained model, and register the model into the Azure Machine Learning registry.
 1. The Azure Pipelines model orchestrator reviews the performance of the newly trained ML model and determines if it's better than previous models. If the new model performs better, the pipeline downloads the model from Azure Machine Learning and builds a new version of the ML inferencing module to publish in Azure Container Registry.
 1. When a new ML inferencing module is ready, Azure Pipelines deploys the module container from Container Registry to the IoT Edge module in IoT Hub.
@@ -37,12 +37,12 @@ Manufacturing processes use IoT computer vision in safety and quality assurance 
 
 - [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge) service analyzes device data locally to send less data to the cloud, react to events quickly, and operate in low-connectivity conditions. An IoT Edge ML module can extract actionable insights from streaming video data.
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) is a managed service that enables reliable and secure bidirectional communications between millions of IoT devices and a cloud-based back end. IoT Hub provides per-device authentication, message routing, integration with other Azure services, and management features to control and configure IoT devices.
-- [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) is a serverless cloud service for creating and running automated workflows that integrate apps, data, services, and systems. Developers can use a visual designer to schedule and orchestrate common task workflows.  Logic Apps has [connectors](/connectors) for many popular cloud services, on-premises products, and other software as a service applications. In this solution, Logic Apps runs the automated notification workflow that sends SMS and email alerts to site engineers.
+- [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) is a serverless cloud service for creating and running automated workflows that integrate apps, data, services, and systems. Developers can use a visual designer to schedule and orchestrate common task workflows.  Logic Apps has [connectors](/connectors) for many popular cloud services, on-premises products, and other software as a service (SaaS) applications. In this solution, Logic Apps runs the automated notification workflow that sends SMS and email alerts to site engineers.
 - [Power Apps](https://powerapps.microsoft.com) is a data platform and a suite of apps, services, and connectors. It serves as a rapid application development environment. The underlying data platform is Microsoft Dataverse.
 - [Dataverse](/power-apps/maker/data-platform/data-platform-intro) is a cloud-based storage platform for Power Apps. Dataverse supports human-in-the-loop notifications and stores metadata associated with the MLOps data pipeline.
-- [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) is scalable and secure object storage for unstructured data. You can use it for archives, data lakes, high-performance computing, machine learning, and cloud-native workloads. In this solution it provides a local data store for the ML data store and a Premium data cache for training the ML model. The premium tier of Blob Storage is for workloads that require fast response times and high transaction rates, like the human-in-the-loop video labeling in this example.
+- [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) is scalable and secure object storage for unstructured data. You can use it for archives, data lakes, high-performance computing, machine learning, and cloud-native workloads. In this solution, Blob storage provides a local data store for the ML data store and a Premium data cache for training the ML model. The premium tier of Blob Storage is for workloads that require fast response times and high transaction rates, like the human-in-the-loop video labeling in this example.
 - [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) is a massively scalable and secure storage service for high-performance analytics workloads. The data typically comes from multiple heterogeneous sources and can be structured, semi-structured, or unstructured. Azure Data Lake Storage Gen2 combines Azure Data Lake Storage Gen1 capabilities with Blob Storage, and provides file system semantics, file-level security, and scale. It also offers the tiered storage, high availability, and disaster recovery capabilities of Blob Storage. In this solution, Data Lake Storage provides the archival video store for the raw video files and metadata.
-- [Azure Data Factory](https://azure.microsoft.com/services/data-factory) is a hybrid, fully managed, serverless solution for data integration and transformation workflows. It provides a code-free UI and an easy-to-use monitoring panel. It uses pipelines for data movement, and mapping data flows to perform various transformation tasks such as extract, transform, and load (ETL), and extract, load, and transform (ELT). In this example, Data Factory orchestrates the data in an ETL pipeline to the inferencing data, which it stores for retraining purposes.
+- [Azure Data Factory](https://azure.microsoft.com/services/data-factory) is a hybrid, fully managed, serverless solution for data integration and transformation workflows. It provides a code-free UI and an easy-to-use monitoring panel. Azure Data Factory uses pipelines for data movement. Mapping data flows perform various transformation tasks such as extract, transform, and load (ETL) and extract, load, and transform (ELT). In this example, Data Factory orchestrates the data in an ETL pipeline to the inferencing data, which it stores for retraining purposes.
 - [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) is an enterprise-grade machine learning service for building and deploying models quickly. It provides users at all skill levels with a low-code designer, automated machine learning, and a hosted Jupyter notebook environment that supports various IDEs.
 - [Azure Pipelines](https://azure.microsoft.com/en-us/services/devops/pipelines), part of [Azure DevOps](https://azure.microsoft.com/services/devops) team-based developer services, creates continuous integration (CI) and continuous deployment (CD) pipelines. In this example, the Azure Pipelines model orchestrator validates ML code, triggers serverless task pipelines, compares ML models, and builds the inferencing container.
 - [Container Registry](https://azure.microsoft.com/services/container-registry) creates and manages the Docker registry to build, store, and manage Docker container images, including containerized ML models.
@@ -79,7 +79,7 @@ This solution is divided into three operational areas:
 
   - *Site engineers* receive the incident notifications that Logic Apps sends, and manually validate the results or predictions of the ML model. For example, the site engineer might examine a valve that the model predicted had failed.
 
-  - *Data labelers* label data sets for retraining, to complete the loop of the end-to-end solution. The data labeling process is especially important for image data, as a first step in training a reliable model through algorithms. In this example, Azure Data Factory organizes the video frames into positive and false positive groupings, which makes the data labeler's work easier.
+  - *Data labelers* label data sets for retraining, to complete the loop of the end-to-end solution. The data labeling process is especially important for image data, as a first step in training a reliable model through algorithms. In this example, Azure Data Factory organizes the video frames into positive and false positive groupings, which make the data labeler's work easier.
 
   - *Data scientists* use the labeled data sets to train the algorithms to make correct real-life predictions. Data scientists use MLOps with GitHub Actions or Azure Pipelines in a CI process to automatically train and validate a model. Training can be triggered manually, or automatically by checking in new training scripts or data. Data scientists work in an [Azure Machine Learning workspace](/azure/machine-learning/concept-workspace) that can automatically register, deploy, and manage models.
 
@@ -93,7 +93,7 @@ This solution is divided into three operational areas:
 
 IoT devices have limited memory and processing power, so it's important to limit the size of the model container sent to the device. Be sure to use an IoT device that can do model inference and produce results in an acceptable amount of time.
 
-To optimize performance for training models, this example architecture uses [Azure Premium Blob Storage](https://azure.microsoft.com/services/storage/blobs/). This performance tier is designed for workloads that require very fast response times and high transaction rates, like the human-in-the-loop video labeling scenario.
+To optimize performance for training models, this example architecture uses [Azure Premium Blob Storage](https://azure.microsoft.com/services/storage/blobs/). This performance tier is designed for workloads that require fast response times and high transaction rates, like the human-in-the-loop video labeling scenario.
 
 Performance considerations also apply to the data ingestion pipeline. Data Factory maximizes data movement by providing a highly performant, cost-effective solution.
 
@@ -101,9 +101,13 @@ Performance considerations also apply to the data ingestion pipeline. Data Facto
 
 Most of the components used in this solution are managed services that automatically scale.
 
-Scalability for the IoT application depends on [IoT Hub quotas and throttling](/azure/iot-hub/iot-hub-devguide-quotas-throttling). Factors to consider include the maximum daily quota of messages into IoT Hub, the quota of connected devices in an IoT Hub instance, and the ingestion and processing throughput.
+Scalability for the IoT application depends on [IoT Hub quotas and throttling](/azure/iot-hub/iot-hub-devguide-quotas-throttling). Factors to consider include:
 
-In ML, scalability refers to scale-out clusters used to train models against large datasets. Scalability also enables the ML model to meet the demands of the applications that consume it. To meet these needs, the ML cluster must provide scale-out on CPUs and on graphics processing unit (GPU)-enabled nodes.
+- The maximum daily quota of messages into IoT Hub.
+- The quota of connected devices in an IoT Hub instance.
+- Ingestion and processing throughput.
+
+In ML, scalability refers to scale out clusters used to train models against large datasets. Scalability also enables the ML model to meet the demands of the applications that consume it. To meet these needs, the ML cluster must provide scale-out on CPUs and on graphics processing unit (GPU)-enabled nodes.
 
 For general guidance on designing scalable solutions, see the [performance efficiency checklist](/azure/architecture/framework/scalability/performance-efficiency) in the Azure Architecture Center.
 
