@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Azure considerations for mission critical workloads
+  title: Application platform considerations for mission critical workloads on Azure
   description: Reference architecture for a workload that is accessed over a public endpoint without additional dependencies to other company resources.
   author: calcof
   ms.author: pnp
@@ -13,7 +13,7 @@ metadata:
     - networking
     - identity
     - security
-name: Azure considerations for mission critical workloads
+name: Application platform considerations for mission-critical workloads on Azure
 azureCategories:
     - containers
     - networking

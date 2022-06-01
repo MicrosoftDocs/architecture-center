@@ -59,7 +59,7 @@ You can protect encryption keys and certificates by storing them in [Azure Key V
 
 To protect keys in Key Vault, you can enable [soft delete](/azure/key-vault/key-vault-ovw-soft-delete), which ensures that deleted keys are recoverable. For additional protection, you can [back up individual keys](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey) to an encrypted file that you can use to [restore the keys](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey), potentially to another Azure region in the same geography.
 
-When hosting SQL Server on a VM, you can use the [SQL Server Connector for Microsoft Azure Key Vault](/sql/relational-databases/security/encryption/extensible-key-management-using-azure-key-vault-sql-server) to get keys for *transparent data encryption (TDE)*, *column level encryption (CLE)*, and backup encryption. For details, see [Configure Azure Key Vault integration for SQL Server on Azure virtual machines](/azure/virtual-machines/windows/sql/virtual-machines-windows-ps-sql-keyvault).
+When hosting SQL Server on a VM, you can use the [SQL Server Connector for Microsoft Azure Key Vault](/sql/relational-databases/security/encryption/extensible-key-management-using-azure-key-vault-sql-server) to get keys for *transparent data encryption (TDE)*, *column level encryption (CLE)*, and backup encryption. For details, see [Configure Azure Key Vault integration for SQL Server on Azure virtual machines](/azure/azure-sql/virtual-machines/windows/azure-key-vault-integration-configure).
 
 ### Azure Disk Encryption
 
@@ -138,7 +138,7 @@ In IaaS architectures, replicating data between regions is the responsibility of
 Setting up replication between IaaS database servers isn't straightforward, and you need to take business continuity requirements into account. Azure database services such as [Azure SQL Database](/azure/sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery), Azure Database for MySQL, and [Cosmos DB](/azure/cosmos-db/distribute-data-globally) make replication between regions easier, but may not meet security requirements for highly sensitive workloads.
 
 For more information and guidance for multi-region SQL Server and Oracle deployments, see:
-- [Configure an availability group on Azure SQL Server virtual machines in different regions](/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-dr)
+- [Configure an availability group on Azure SQL Server virtual machines in different regions](/azure/azure-sql/virtual-machines/windows/availability-group-manually-configure-multiple-regions)
 - [Disaster recovery for an Oracle Database 12c database in an Azure environment](/azure/virtual-machines/workloads/oracle/oracle-disaster-recovery)
 
 ### Cross-region peering

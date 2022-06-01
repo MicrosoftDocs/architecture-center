@@ -1,28 +1,4 @@
-Microservices are an increasingly popular architecture style that can have many benefits, including high scalability, shorter development cycles, and increased simplicity. You can use containers as a mechanism to deploy microservices applications, and then use a container orchestrator like Kubernetes to simplify operations. There are many factors to consider for large scale microservices architectures. Typically, the infrastructure platform requires significant understanding of complex technologies like the container orchestrators.
-
-[Azure Container Apps (Preview)](/azure/container-apps/overview) is a fully managed serverless container service for running modern applications at scale. It enables you to deploy containerized apps through abstraction of the underlying platform. This way, you won't need to manage a complicated infrastructure. Container Apps is powered by open-source technologies.
-
-This architecture uses Azure Container Apps integration with a managed version of the [Distributed Application Runtime (Dapr)](https://dapr.io/). Dapr is an open source project that helps developers with the inherent challenges in distributed applications, like state management and service invocation.
-
-Container Apps also provides a managed version of [Kubernetes Event-driven Autoscaling (KEDA)](https://keda.sh/). KEDA lets your containers autoscale based on incoming events from external services like Azure Service Bus and Azure Cache for Redis.
-
-You can also enable HTTPS ingress in Container Apps without creating more Azure networking resources. You can use [Envoy proxy](https://www.envoyproxy.io/), which also allows traffic splitting scenarios.
-
-To explore how Container Apps compares to other container hosting platforms in Azure, see [Comparing Container Apps with other Azure container options](/azure/container-apps/compare-options). Container Apps is currently in public preview and isn't recommended for production workloads.
-
 This article describes a solution for running an order management system with 10 microservices on Container Apps. The solution also uses microservices best practices through Dapr and event-driven scaling with KEDA.
-
-*Dapr and Traefik are trademarks of their respective companies. No endorsement is implied by the use of these marks.*
-
-## Potential use cases
-
-This solution applies to any organization that uses stateless and stateful microservices for distributed systems. The solution is best for consumer packaged goods and manufacturing industries that have an ordering and fulfillment system.
-
-These other solutions have similar designs:
-
-- Microservices architecture on Azure Kubernetes Service (AKS)
-- Microservices architecture on Azure Functions
-- Event-driven architectures
 
 ## Architecture
 
@@ -90,6 +66,34 @@ This solution uses the following components:
 In this architecture, you deploy a Traefik proxy to enable path-based routing for the Vue.js API. There are many alternative open-source proxies that you can use for this purpose. Two other popular projects are [NGINX](https://www.nginx.com) and [HAProxy](https://www.haproxy.com).
 
 All Azure infrastructure, except Azure SQL Database, use Dapr components for interoperability. One benefit of Dapr is that you can swap all these components by changing the container apps deployment configuration. In this case, Azure Service Bus, Cosmos DB, Cache for Redis, and Blob Storage were chosen to showcase some of the 70+ Dapr components available. A list of alternative [pub/sub brokers](https://docs.dapr.io/reference/components-reference/supported-pubsub), [state stores](https://docs.dapr.io/reference/components-reference/supported-state-stores) and [output bindings](https://docs.dapr.io/reference/components-reference/supported-bindings) are in the Dapr docs.
+
+## Scenario details
+
+Microservices are an increasingly popular architecture style that can have many benefits, including high scalability, shorter development cycles, and increased simplicity. You can use containers as a mechanism to deploy microservices applications, and then use a container orchestrator like Kubernetes to simplify operations. There are many factors to consider for large scale microservices architectures. Typically, the infrastructure platform requires significant understanding of complex technologies like the container orchestrators.
+
+[Azure Container Apps (Preview)](/azure/container-apps/overview) is a fully managed serverless container service for running modern applications at scale. It enables you to deploy containerized apps through abstraction of the underlying platform. This way, you won't need to manage a complicated infrastructure. Container Apps is powered by open-source technologies.
+
+This architecture uses Azure Container Apps integration with a managed version of the [Distributed Application Runtime (Dapr)](https://dapr.io/). Dapr is an open source project that helps developers with the inherent challenges in distributed applications, like state management and service invocation.
+
+Container Apps also provides a managed version of [Kubernetes Event-driven Autoscaling (KEDA)](https://keda.sh/). KEDA lets your containers autoscale based on incoming events from external services like Azure Service Bus and Azure Cache for Redis.
+
+You can also enable HTTPS ingress in Container Apps without creating more Azure networking resources. You can use [Envoy proxy](https://www.envoyproxy.io/), which also allows traffic splitting scenarios.
+
+To explore how Container Apps compares to other container hosting platforms in Azure, see [Comparing Container Apps with other Azure container options](/azure/container-apps/compare-options). Container Apps is currently in public preview and isn't recommended for production workloads.
+
+This article describes a solution for running an order management system with 10 microservices on Container Apps. The solution also uses microservices best practices through Dapr and event-driven scaling with KEDA.
+
+*Dapr and Traefik are trademarks of their respective companies. No endorsement is implied by the use of these marks.*
+
+### Potential use cases
+
+This solution applies to any organization that uses stateless and stateful microservices for distributed systems. The solution is best for consumer packaged goods and manufacturing industries that have an ordering and fulfillment system.
+
+These other solutions have similar designs:
+
+- Microservices architecture on Azure Kubernetes Service (AKS)
+- Microservices architecture on Azure Functions
+- Event-driven architectures
 
 ## Considerations
 

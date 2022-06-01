@@ -1,11 +1,11 @@
 ### YamlMime:Architecture
 metadata:
-  title: Instant broadcasting on serverless architecture
+  title: Instant broadcasting with serverless code
   titleSuffix: Azure Solution Ideas
   description: Simplify one-to-many real-time communication and updates by using SignalR Service and the serverless code of Azure Functions.
   author: yeeshian
   ms.author: yeeshianlee
-  ms.date: 11/08/2021
+  ms.date: 05/27/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
@@ -18,9 +18,9 @@ metadata:
     - signalr service
     - media
     - interactive-diagram
-    - "https://azure.microsoft.com/solutions/architecture/instant-broadcasting-on-serverless-architecture/"
+    - "https://azure.microsoft.com/solutions/architecture/instant-broadcasting-on-serverless-architecture"
   social_image_url: /azure/architecture/solution-ideas/articles/media/instant-broadcasting-on-serverless-architecture.png
-name: Instant broadcasting on serverless architecture
+name: Instant broadcasting with serverless code
 azureCategories:
   - media
   - developer-tools

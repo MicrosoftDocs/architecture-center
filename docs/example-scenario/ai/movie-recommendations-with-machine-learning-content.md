@@ -1,4 +1,4 @@
-Providing personalized product recommendations to customers can be a very effective way for a business to increase sales. It can also be cost effective, because in many cases you can use machine learning to provide the recommendations.
+Providing personalized product recommendations to customers can be an effective way for a business to increase sales. It can also be cost effective, because in many cases you can use machine learning to provide the recommendations.
 
 The solution described in this article uses machine learning to create movie recommendations automatically and at scale. Azure Machine Learning calculates the recommendations by applying the [alternating least squares][als] (ALS) algorithm to a dataset of viewer movie ratings. A data science virtual machine (DSVM) coordinates the process of training the Machine Learning model.
 
