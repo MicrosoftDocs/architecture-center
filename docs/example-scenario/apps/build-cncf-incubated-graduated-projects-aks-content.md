@@ -142,14 +142,6 @@ The load balancer that's associated with this AKS cluster incurs a charge. For m
 
 The virtual network that's used by the AKS cluster incurs a charge. For more information, see [Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network).
 
-## Contributors
-
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
-
-Principal author:
-
-* [Srikant Sarwa](https://www.linkedin.com/in/srikant-sarwa-1889808) | Senior Customer Engineer
-
 ## Next steps
 
 - [Quickstart: Deploy an AKS cluster by using the Azure portal](/azure/aks/kubernetes-walkthrough-portal)
