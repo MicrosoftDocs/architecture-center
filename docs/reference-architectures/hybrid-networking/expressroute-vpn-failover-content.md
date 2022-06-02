@@ -1,6 +1,6 @@
 <!-- cSpell:ignore RRAS -->
 
-This reference architecture shows how to connect an on-premises network to an Azure virtual network (VNet) using ExpressRoute, with a site-to-site virtual private network (VPN) as a failover connection. Traffic flows between the on-premises network and the Azure VNet through an ExpressRoute connection. If there is a loss of connectivity in the ExpressRoute circuit, traffic is routed through an IPSec VPN tunnel. [**Deploy this solution**](#deploy-this-scenario).
+This reference architecture shows how to connect an on-premises network to an Azure virtual network (VNet) using ExpressRoute, with a site-to-site virtual private network (VPN) as a failover connection. Traffic flows between the on-premises network and the Azure VNet through an ExpressRoute connection. If there's a loss of connectivity in the ExpressRoute circuit, traffic is routed through an IPSec VPN tunnel. [**Deploy this solution**](#deploy-this-scenario).
 
 Note that if the ExpressRoute circuit is unavailable, the VPN route will only handle private peering connections. Public peering and Microsoft peering connections will pass over the Internet.
 
@@ -34,7 +34,7 @@ The following recommendations apply for most scenarios. Follow these recommendat
 
 ### VNet and GatewaySubnet
 
-Create the ExpressRoute virtual network gateway connection and the VPN virtual network gateway connection in the same VNet with a Gateway object already in place. They will both share the same subnet named *GatewaySubnet*.
+Create the ExpressRoute virtual network gateway connection and the VPN virtual network gateway connection in the same VNet with a Gateway object already in place. They'll both share the same subnet named *GatewaySubnet*.
 
 If the VNet already includes a subnet named *GatewaySubnet*, ensure that it has a /27 or larger address space. If the existing subnet is too small, use the following PowerShell command to remove the subnet:
 
@@ -43,7 +43,7 @@ $vnet = Get-AzVirtualNetwork -Name <your-vnet-name> -ResourceGroupName <your-res
 Remove-AzVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet
 ```
 
-If the VNet does not contain a subnet named **GatewaySubnet**, create a new one using the following PowerShell command:
+If the VNet doesn't contain a subnet named **GatewaySubnet**, create a new one using the following PowerShell command:
 
 ```powershell
 $vnet = Get-AzVirtualNetwork -Name <your-vnet-name> -ResourceGroupName <your-resource-group>
@@ -65,7 +65,7 @@ Follow the instructions in [Configure a hybrid network architecture with Azure E
 
 Follow the instructions in [Configure a hybrid network architecture with Azure and On-premises VPN][configure-vpn] to establish your VPN virtual network gateway connection.
 
-After you have established the virtual network gateway connections, test the environment as follows:
+After you've established the virtual network gateway connections, test the environment as follows:
 
 1. Make sure you can connect from your on-premises network to your Azure VNet.
 2. Contact your provider to stop ExpressRoute connectivity for testing.
@@ -96,7 +96,7 @@ For ExpressRoute cost considerations, see these articles:
 
 To deploy the solution, perform the following steps.
 
-1. Click the link below.
+1. Select the link below.
 
     [![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.network%2fexpressroute-private-peering-vnet%2fazuredeploy.json)
 
@@ -120,7 +120,7 @@ To deploy the solution, perform the following steps.
 
 1. To complete the deployment of site-to-site VPN as a backup to ExpressRoute, see [Create a site-to-site VPN connection](/azure/vpn-gateway/tutorial-site-to-site-portal).
 
-1. Once you've successfully configured a VPN connection to the same on-premises network you configured ExpressRoute, you'll then have completed the set up to back up your ExpressRoute connection in case of total failure at the peering location.
+1. Once you've successfully configured a VPN connection to the same on-premises network you configured ExpressRoute, you'll then have completed the setup to back up your ExpressRoute connection if there is total failure at the peering location.
 
 ## Next Steps
 
