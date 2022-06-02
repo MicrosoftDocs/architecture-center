@@ -5381,12 +5381,12 @@ items:
                 maintainContext: true
               - name: Azure AD join for Azure Virtual Desktop
                 href: example-scenario/wvd/azure-virtual-desktop-azure-active-directory-join.md
-              - name: Multi-Region BCDR for Azure Virtual Desktop
-                href: example-scenario/wvd/azure-virtual-desktop-multi-region-bcdr.yml
                 maintainContext: true
               - name: Connect RDP Shortpath
                 href: /azure/virtual-desktop/shortpath
                 maintainContext: true
+              - name: Multiregion BCDR for Azure Virtual Desktop
+                href: example-scenario/wvd/azure-virtual-desktop-multi-region-bcdr.yml
               - name: FSLogix guidance
                 items:
                   - name: FSLogix for the enterprise
