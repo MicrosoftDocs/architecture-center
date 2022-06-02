@@ -7,7 +7,7 @@ A key design area of any mission critical architecture is the application platfo
 
 In this architecture, the application platform consists of global and regional resources. The regional resources are provisioned as part of a deployment stamp. Each stamp equates to a scale unit. The resources in each set have distinct characteristics:
 
-|Characteristic|Consideration|
+|Characteristics|Considerations|
 |---|---|
 |Lifetime|What is the expected lifetime of resource? Should the resource share the lifetime with the entire system, region, or should they be temporary?|
 |State|Should the resource persist state? |
@@ -21,38 +21,32 @@ In this architecture, the application platform consists of global and regional r
 
 Certain resources in this architecture are shared by resources deployed in regions. In this architecture, they are used to distribute traffic across multiple regions, store permanent state, and cache static data. 
 
-|Characteristic|Consideration|
+|Characteristics|Considerations|
 |---|---|
 |Lifetime|The resources are expected to be long living. Their lifetime spans the life of the system.|
 |State| Only the global resources in the entire system should store permanent state over the lifetime of the system.|
 |Reach|The resources should be globally distributed. It’s recommended that these resources communicate with regional or other resources with low latency and the desired consistency.|
-|Dependencies| The resources should avoid dependency  on regional resources because unavailability of the regional resource can be a cause of failure. For example, certificates or secrets shouldn’t be kept in a key store that’s deployed regionally. |
+|Dependencies| The resources should avoid dependency on regional resources because unavailability of the regional resource can be a cause of failure. For example, certificates or secrets shouldn’t be kept in a key store that’s deployed regionally. |
 |Scale limits|The resources should be scaled such that they can handle throughput of the system as a whole.|
-|Availability/disaster recovery|Because regional and stamp resources can consume global resources, it’s critical that global resources are configured with high availability and disaster recovery. Otherwise, if these resources become unavailable, the entire system is at risk. |
+|Availability/disaster recovery|Because regional and stamp resources can consume global resources, it’s critical that global resources are configured with high availability and disaster recovery. Otherwise, if these resources become unavailable, the entire system is at risk.|
 
 In this architecture, global resources are Azure Front Door, Azure Cosmos DB, Azure Container Registry, and Azure Log Analytics for storing logs and metrics from global resources. 
 
+![Global resources](./images/global-resources.png)
+
 ### Global load balancer
 
-Azure Front Door is used as the only entry point for user traffic. If Front Door becomes unavailable, the entire system is at risk. <Add a sentence about platform guarantee>.
+Azure Front Door is used as the only entry point for user traffic. If Front Door becomes unavailable, the entire system is at risk. Azure guarantees that Azure Front Door will deliver the requested content without error 99.99% of the time. 
 
-All backend services are configured to only accept traffic from the provisioned Front Door instance. 
-
-Misconfigurations can lead to outages. To avoid such situations, configuration errors should be caught during testing. Missing SSL certificate can also cause mismatched configuration and can prevent users from using the front end. In case of outages, roll back to the previous configuration, re-issue the certificate, if possible.  However, expect the unavailability while changes take effect.
-
-In this implementation, each stamp is pre-provisioned with a Public IP address. Front Door uses the DNS name for backend. If Azure DNS is unavailable, DNS resolution for user requests and between different components of the application will fail. Consider using some external DNS services as backup for all PaaS components. <Bypassing DNS by switching to IP is not an option, because Azure services don’t have static, guaranteed IP addresses.>
+The Front Door instance sends traffic to the configured backend services, such as the compute cluster and frontend. Such misconfigurations can lead to outages. To avoid such situations, catch errors during testing. Another common error is missing SSL certificate that can prevent users from using the front end. As mitigation, roll back to the previous configuration, re-issue the certificate, if possible. However, expect unavailability while changes take effect.
 
 ### Container Registry
-Azure Container Registry is used to store Open Container Initiative (OCI) artifacts. It doesn't participate in the request flow and is only accessed periodically. If images aren’t available, new compute nodes will not be able to pull images, but existing nodes can still use cached images. So, a single instance can be considered. 
 
-Container registry is required to exist before stamp resources are deployed and shouldn't have dependency on regional resources. Enable zone redundancy and geo-replication of registries so that runtime access to images is fast and resilient to failures. 
+Azure Container Registry is used to store Open Container Initiative (OCI) artifacts. It doesn't participate in the request flow and is only accessed periodically. So, a single instance can be considered. 
 
-The primary strategy for disaster recovery is redeployment. The artifacts in a container registry can be regenerated from the pipelines.  
+Container registry is required to exist before stamp resources are deployed and shouldn't have dependency on regional resources. Enable zone redundancy and geo-replication of registries so that runtime access to images is fast and resilient to failures. If Container registry is unavailable, the instance fails over to replica regions and requests are automatically re-routed to another region. Expect transient errors in pulling images until failover is complete. Failures can also occur if images are deleted unadvertantly, new compute nodes will not be able to pull images, but existing nodes can still use cached images. The primary strategy for disaster recovery is redeployment. The artifacts in a container registry can be regenerated from the pipelines.  
 
-It’s recommended that you use Premium SKU to enable geo replication. The zone redundancy feature ensures resiliency and high availability within a specific region. In case of a regional outage, replicas in other regions are available for data plane operations. With this SKU you can configure private link with private endpoints to restrict access to the registry. This way, only your application can access that service. This also ensures that all of the potential throughput is available to your application.
-
-<pri: need to understand>Thus, any request is automatically re-routed to another region. During the fail over, no Docker images can be pulled while DNS failover needs to happen <need to understand>.
-
+It’s recommended that you use the Premium SKU to enable geo replication. The zone redundancy feature ensures resiliency and high availability within a specific region. In case of a regional outage, replicas in other regions are available for data plane operations. With this SKU you can restrict access to the registry through private endpoints. This way, only your application can access that service. This also ensures that all of the potential throughput is available to your application.
 
 ### Database
 It's recommended that all state is stored global in an external database. Build redundancy by deploying the database across regions. For mission-critical workloads, data consistency should be a primary concern. Also, in case of a failure, write requests to the database should still be functional. 
@@ -62,6 +56,19 @@ Data replication in an active-active configuraiton is strongly recommended. The 
 This architecture uses Azure Cosmos DB with SQL API. Multi-master write is enabled with replicas deployed to every region in which a stamp is deployed. Zone redundancy is also enabled within each replicated region. 
 
 For details on data considerations, see <!coming soon>.
+
+### Global monitoring
+
+Azure Log Analytics is used to store diagnostic logs from all global resources. It's recommended that you restrict daily quota on storage especially on environments that are used for load testing. Also, set retention policy. These restrictions will prevent any overspend that is incurred by storing data that is not needed beyond a limit. 
+
+
+### Other causes for full outage
+
+The system is likely to use other critical platform services that can cause the entire system to be at risk, such as Azure DNS and Azure Active Directory (AD). Unavailability of those services is unlikely. Azure DNS  guarantees 100% availability SLA for valid DNS requests. Azure Active Directory guarantees at least 99.9% uptime. Still, you should be aware of the impact in the event of a failure.
+
+In this implementation, there are hard dependencies on Azure DNS. Front Door uses Azure DNS to reach the backend and other global services. In the event that Azure Container Registry is unavailable, Azure DNS is used to fail over requests to another region. In both cases, if Azure DNS is unavailable, name resolution for user requests from Front Door will fail; Docker images won't be pulled from the registry. Because both Azure services use Azure DNS, using an external DNS service as backup will not mitigate the risk. Expect full outage.
+
+Similarly, Azure AD is used for control plane operations such as creating new AKS nodes, pulling images from Container Registry, or accessing Key Vault on pod startup. If Azure AD is unavailable, running components should not affected. But, new pods or AKS nodes won't be functional. Consider scaling in during this time and expect decreased user experience. 
 
 ## Deployment stamp resources
 
@@ -76,52 +83,49 @@ Each region can have one or more stamps. In this architecture, the stamp deploys
 |Scale limits|Throughput is established through testing. The throughput of the overall stamp is limited to the least performant resource. Stamp throughput needs to take into account both the estimated high-level of demand plus any failover as the result of another stamp in the region becoming unavailable.|
 |Availability/disaster recovery|Because of the temporary nature of stamps, disaster recovery is done by redeploying the stamp. If resources are in an unhealthy state, the stamp, as a whole, can be destroyed and redeployed. |
 
+In this architecture, global resources are Azure Kubernetes Service (AKS), Azure Event Hubs, Azure Key Vault, and Azure Storage Accounts. 
+
+![Stamp resources](./images/stamp-resources.png)
+
 ### Compute cluster
-Each stamp has an Azure Kubernetes Service (AKS) cluster that runs the containerized workload. AKS serves the need as Kubernetes is the de-facto compute platform standard for modern applications.
+
+To containerize the workload, each stamp needs to run a compute cluster. In this architecture, Azure Kubernetes Service (AKS) is chosen because it Kubernetes is the most popular compute platform for modern applications.
 
 The lifetime of the AKS cluster is bound to the ephemeral nature of the stamp. The cluster is stateless and doesn't have persistent volumes. It uses ephemeral OS disks instead of managed disks. They are not expected to receive application or system-level maintenance.
 
-To complete a business transaction, the cluster needs to communicate with various global and resources within the stamp. Those paths are secured through private endpoints. 
+To increase reliability, the cluster is configured to use all three availability zones in a given region. This makes it possible for the cluster to use AKS Uptime SLA that guarantees 99.95% SLA availability of the AKS API endpoint. 
 
-The cluster is configured to use Azure Active Directory (AD) for user authentication.
+Scale limits also impact reliability. Even though, the cluster only uses the default node pool to run the simple workload, autoscaling is enabled to let the node pool automatically scale out if needed. For complex workloads, separating system and user node pools is necessary. All node pools should be autoscaled.  
 
-The cluster has Uptime SLA, RBAC, Azure policy, monitoring, and availability zones configured. The cluster is also configured for automatic node image upgrades and to scale appropriately during those upgrades to allow for zero downtime while upgrades are being performed.
+At the pod level, the Horizontal Pod Autoscaler (HPA) scales pods based on configured CPU, memory, or custom metrics. Load test the components of the workload to establish a baseline for the autoscaler values.
 
-The AKS cluster has a load balanced end point managed by an ingress controller. Inbound TLS from Azure Front Door is terminated at the ingress controller, which is independent from any additional pod-to-pod TLS configured within the cluster. The ingress controller also handles path-based routing and HTTP header checks to ensure traffic is originating from this solution's Azure Front Door instance. While it is possible for services in the same AKS cluster to communicate directly with each other, in this architecture there is no direct communication between backend services, instead services use the message broker (addressed below) to proxy that communication.
+The cluster is also configured for automatic node image upgrades and to scale appropriately during those upgrades to allow for zero downtime while upgrades are being performed.
 
-o	(Scale Limits) - Testing per/handler.  HPA and cluster autoscaler
- 
-o	(Availability) The AKS API endpoint has a 99.95% uptime SLA for clusters that use Availability Zones.
-o	(Security/Reliability) Ingress via in ILB.  AFD connects to ILB via Private Endpoints
-o	(Security) Network Policy
-o	(Security) AAD integration and Managed Identities for AKS
-o	(Availability) Auto scaling of nodes
-o	(Observability) AKS Container Insights can be configured to integrate with a Log Analytics workspace. This is critical in this architecture because stamps are ephemeral. The logs from AKS are pushed to a regional Log Analytics workspace.
-o	(Security) role-based access control (RBAC)
+Observability is critical in this architecture because stamps are ephemeral. Diagnostic settings are configured to store all log and metric data in a regional Log Analytics workspace. Also, AKS Container Insights is enabled through an in-cluster OMS Agent. This way cluster monitoring data is integrated with the Log Analytics workspace.
 
-
-Azure Kubernetes Service (AKS) is used as the compute platform as it is most versatile and as Kubernetes is the de-facto compute platform standard for modern applications, both inside and outside of Azure.
-
-This Azure Mission-Critical reference implementation uses Linux-only clusters as its sample workload is written in .NET Core and there is no requirement for any Windows-based containers.
-
-- `role_based_access_control` (RBAC) is **enabled**.
-- `sku_tier` set to **Paid** (Uptime SLA) to achieve the 99.95% SLA within a single region (with `availability_zones` enabled).
-- `http_application_routing` is **disabled** as it is [not recommended for production environments](https://docs.microsoft.com/azure/aks/http-application-routing), a separate Ingress controller solution will be used.
-- Managed Identities (SystemAssigned) are used, instead of Service Principals.
-- `azure_policy_enabled` is set to `true` to enable the use of [Azure Policies in Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/use-azure-policy). The policy configured in the reference implementation is in "audit-only" mode. It is mostly integrated to demonstrate how to set this up through Terraform.
-- `oms_agent` is configured to enable the Container Insights addon and ship AKS monitoring data to Azure Log Analytics via an in-cluster OMS Agent (DaemonSet).
-- Diagnostic settings are configured to store all log and metric data in Log Analytics.
-- `default_node_pool` settings
-  - `availability_zones` is set to `3` to leverage all three AZs in a given region.
-  - `enable_auto_scaling` is configured to let the default node pool automatically scale out if needed.
-  - `os_disk_type` is set to `Ephemeral` to leverage [Ephemeral OS disks](https://docs.microsoft.com/azure/aks/cluster-configuration#ephemeral-os) for performance reasons.
-  - `upgrade_settings` `max_surge` is set to `33%` which is the [recommended value for production workloads](https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade)
-
- 
-### Web Site
 ### Key Vault
-### NGINX
+
+Azure Key Vault is used to store global secrets such as connection strings to the database and stamp secrets such as the Event Hubs connection string. 
+
 ### Event Hubs
+The only stateful service in the stamp is the message broker, Azure Event Hubs, which stores requests for a short period. The broker serves the need for buffering and reliable messaging. The processed requests are persisted in the global database.
+
+In this architecture, Standard SKU is used and zone redundancy is enabled for high availability. 
+
+Event Hubs health is verified by the HealthService component running on the compute cluster. It performs periodic checks against various resources. This is useful in detecting unhealthy conditions. Suppose messages cannot be sent to the event hub. This condition will make the stamp unusable for any write operations. HealthService should automatically detect this and take the stamp out of rotation.
+
+For scalability, enabling auto-inflate through a Terraform variable is recommended.
+
+For more information about HealthService and Event Hubs implementation, see Data platform considerations. 
+
+### Storage accounts
+
+In this architecture two storage accounts are provisioned. Both accounts are deployed in zone-redundant mode (ZRS).
+
+One account is used Event Hub checkpointing. If this account is not responsive, the stamp won't be able to process messages from Event Hub and might even impact other services in the stamp. This condition is periodically checked by the HealthService. 
+
+The other is used to host the UI single-page application. If serving of the static web site has any issues, Front Door will detect the issue (through configured health probes?) and won't send traffic to this storage account. During this time, Front Door can use cached content.
+
 
 ## Regional resources
 
@@ -136,6 +140,9 @@ A system can have resources that are deployed in region but outlive the stamp re
 |Scale limits|Determine the scale limit of regional resources by combining all stamps within the region.|
 |Availability/disaster recovery|Coming Soon! |
 
+
+![Regional resources](./images/regional-resources.png)
+
 ### Monitoring data for stamp resources
 Deploying monitoring resources is a typical example for regional resources. In this architecture, each region has an individual Log Analytics workspace configured to store all log and metric data emitted from stamp resources. Because regional resource outlive stamp resources, data is available even when the stamp is deleted. 
 
@@ -147,27 +154,8 @@ Similarly, Application Insights is also deployed as a regional resource to colle
 
 ## Capacity planning
 - Scale unit discussion
-- IP planning
 
-## Networking consideration
-- Vnet/subnetting
 
-## Security
-- Allowed/denied traffic
-- Identity and access management
-  - SAS tokens
-  - Managed identity
-- Data in transit
-- Data at rest
-
-## Observability setup
-- Health probes
-- Platform logs and metrics
-- Observability from AKS
-- Log analytics set up
-- Health services --> Start with this.
-
-## Operations
 
 --- 
 ## Dump zone
@@ -330,141 +318,11 @@ As regional availability of services used in reference implementation and AZs ra
 
 > Note: If the target availability SLA for your application workload can be achieved without AZs and/or your workload is not bound with compliance related to data sovereignty, an alternate region where all services/AZs are available can be considered.
 
-### Global resources
 
-#### Azure Front Door
-
-- Front Door is used as the only entry point for user traffic. All backend systems are locked down to only allow traffic that comes through the AFD instance.
-- Each stamp comes with a pre-provisioned Public IP address resource, which DNS name is used as a backend for Front Door.
-- Diagnostic settings are configured to store all log and metric data for 30 days (retention policy) in Log Analytics.
-
-#### Azure Cosmos DB
-
-- SQL-API (Cosmos DB API) is being used
-- `Multi-master write` is enabled
-- The account is replicated to every region in which there is a stamp deployed.
-- `zone_redundancy` is enabled for each replicated region.
-- Request Unit `autoscaling` is enabled on container-level.
-
-#### Azure Container Registry
-
-- `sku` is set to *Premium* to allow geo-replication.
-- `georeplication_locations` is automatically set to reflect all regions that a regional stamp was deployed to.
-- `zone_redundancy_enabled` provides resiliency and high availability within a specific region.
-- `admin_enabled` is set to *false*. The admin user access will not be used. Access to images stored in ACR, for example for AKS, is only possible using AzureAD role assignments.
-- Diagnostic settings are configured to store all log and metric data in Log Analytics.
-
-#### Azure Log Analytics for Global Resources
-
-- Used to collect [diagnostic logs](https://docs.microsoft.com/azure/azure-monitor/essentials/diagnostic-settings) of the global resources
-- `daily_quota_gb` is set to prevent overspend, especially on environments that are used for load testing.
-- `retention_in_days` is used to prevent overspend by storing data longer than needed in Log Analytics - long term log and metric retention is supposed to happen in Azure Storage.
 
 ### Stamp resources
 
 A _stamp_ is a regional deployment and can also be considered as a scale-unit. For now we only always deploy one stamp in an Azure Region but this can be extended to allow multiple stamps per region if required.
 
-#### Networking
 
-The current networking setup consists of a single Azure Virtual Network per _stamp_ that consists of one subnet dedicated for Azure Kubernetes Service (AKS).
-
-- Each stamp infrastructure includes a pre-provisioned static _Public IP address_ resource with a DNS name (_[prefix]-cluster.[region].cloudapp.azure.com_). This _Public IP address_ is used for the Kubernetes Ingress controller Load Balancer and as a backend address for Azure Front Door.
-- Diagnostic settings are configured to store all log and metric data in Log Analytics.
-
-#### Azure Key Vault
-
-- Key Vault is used as the sole configuration store by the application for both secret as well as non-sensitive values.
-- `sku_name` is set to *standard*.
-- Diagnostic settings are configured to store all log and metric data in Log Analytics.
-
-#### Azure Kubernetes Service
-
-Azure Kubernetes Service (AKS) is used as the compute platform as it is most versatile and as Kubernetes is the de-facto compute platform standard for modern applications, both inside and outside of Azure.
-
-This Azure Mission-Critical reference implementation uses Linux-only clusters as its sample workload is written in .NET Core and there is no requirement for any Windows-based containers.
-
-- `role_based_access_control` (RBAC) is **enabled**.
-- `sku_tier` set to **Paid** (Uptime SLA) to achieve the 99.95% SLA within a single region (with `availability_zones` enabled).
-- `http_application_routing` is **disabled** as it is [not recommended for production environments](https://docs.microsoft.com/azure/aks/http-application-routing), a separate Ingress controller solution will be used.
-- Managed Identities (SystemAssigned) are used, instead of Service Principals.
-- `azure_policy_enabled` is set to `true` to enable the use of [Azure Policies in Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/use-azure-policy). The policy configured in the reference implementation is in "audit-only" mode. It is mostly integrated to demonstrate how to set this up through Terraform.
-- `oms_agent` is configured to enable the Container Insights addon and ship AKS monitoring data to Azure Log Analytics via an in-cluster OMS Agent (DaemonSet).
-- Diagnostic settings are configured to store all log and metric data in Log Analytics.
-- `default_node_pool` settings
-  - `availability_zones` is set to `3` to leverage all three AZs in a given region.
-  - `enable_auto_scaling` is configured to let the default node pool automatically scale out if needed.
-  - `os_disk_type` is set to `Ephemeral` to leverage [Ephemeral OS disks](https://docs.microsoft.com/azure/aks/cluster-configuration#ephemeral-os) for performance reasons.
-  - `upgrade_settings` `max_surge` is set to `33%` which is the [recommended value for production workloads](https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade).
-
-> **Important!** In production environments it's recommended to separate system and user node pools (see [Manage system node pools in Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/use-system-pools)). This Azure Mission-Critical reference implementation is using a single (system) node pool for cost-saving purposes and to reduce overhead.
-
-> The `kubernetes.tf` file contains a commented-out example for an additional user node pool with a taint `workload=true:NoSchedule` set to prevent non-workload pods from being scheduled. The `node_label` set to `role=workload` can be used to target this node pool when deploying a workload (see [charts/catalogservice](/src/app/charts/catalogservice/) for an example).
-
-Individual stamps are considered ephemeral and stateless. Updates to the infrastructure and application are following a [Zero-downtime Update Strategy](/docs/reference-implementation/DeployAndTest-DevOps-Zero-Downtime-Update-Strategy.md) and do not touch existing stamps. Updates to Kubernetes are therefore primarily rolled out by releasing new versions and replacing existing stamps. To update node images between two releases, the `automatic_channel_upgrade` in combination with `maintenance_window` is used:
-
-- `automatic_channel_upgrade` is set to `node-image` to [automatically upgrade node pools](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel) with the most recent AKS node image.
-- `maintenance_window` contains the allowed window to run `automatic_channel_upgrade` upgrades. It is currently set to `allowed` on `Sunday` between 0 and 2 AM.
-
-#### Azure Log Analytics for Stamp Resources
-
-Each region has an individual Log Analytics workspace configured to store all log and metric data. As each stamp deployment is considered ephemeral, these workspaces are deployed as part of the global resources and do not share the lifecycle of a stamp. This ensures that when a stamp is deleted (which happens regularly), logs are still available. Log Analytics workspaces reside in a separate resource group `<prefix>-monitoring-rg`.
-
-- `sku` is set to *PerGB2018*.
-- `daily_quota_gb` is set to `30` GB to prevent overspend, especially on environments that are used for load testing.
-- `retention_in_days` is set to `30` days to prevent overspend by storing data longer than needed in Log Analytics - long term log and metric retention is supposed to happen in Azure Storage.
-- For the Health Model, a set of Kusto Functions needs to be added to LogAnalytics. There is a sub-resource type called `SavedSearch`. Because these queries can get quite bulky, they are loaded from files instead of specified inline in Terraform. They are stored in the subdirectory monitoring/queries in the `/src/infra` directory.
-
-#### Azure Application Insights
-
-As with Log Analytics, Application Insights is also deployed per-region and does not share the lifecycle of an stamp. All Application Insight resources are deployed in a separate resource group `<prefix>-monitoring-rg` and are deployed as part of the global resources deployment.
-
-- Log Analytics Workspace-attached mode is being used.
-- `daily_data_cap_in_gb` is set to `30` GB to prevent overspend, especially on environments that are used for load testing.
-
-#### Azure Policy
-
-Azure Policy is used to monitor and enforce certain baselines. All policies are assigned on a per-stamp, per-resource group level. Azure Kubernetes Service is configured to use the `azure_policy` addon to leverage Policies configured outside of Kubernetes.
-
-#### Azure Event Hub
-
-- Each stamp has one `standard` tier, `zone_redundant` Event Hub Namespace.
-- Auto-inflate (auto-scaleup) can be optionally enabled via a Terraform variable.
-- The namespace holds one Event Hub `backendqueue-eh` with dedicated consumer groups for each consumer (currently only one).
-- Diagnostic settings are configured to store all log and metric data in Log Analytics.
-
-#### Azure Storage Accounts
-
-- Two storage accounts are deployed per stamp:
-  - A "public" storage account with "static web site" enabled. This is used to host the UI single-page application.
-  - A "private" storage account which is used for internals such as the health service and the Event Hub checkpointing.
-- Both accounts are deployed in zone-redundant mode (`ZRS`).
-
-#### Supporting services
-
-This repository also contains a couple of supporting services for the Azure Mission-Critical project:
-
-- [Self-hosted Agents]()
-- [Locust Load Testing]()
-
-These supporting services are required / optional based on how you chose to use Azure Mission-Critical.
-
-## Naming conventions
-
-All resources used for Azure Mission-Critical follow a pre-defined and consistent naming structure to make it easier to identify them and to avoid confusion. Resource abbreviations are based on the [Cloud Adoption Framework](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/resource-abbreviations#general). These abbreviations are typically attached as a suffix to each resource in Azure.
-
-A **prefix** is used to uniquely identify "deployments" as some names in Azure must be worldwide unique. Examples of these include Storage Accounts, Container Registries and CosmosDB accounts.
-
-**Resource groups**
-
-Resource group names begin with the prefix and then indicate whether they contain per-stamp or global resources. In case of per-stamp resource groups, the name also contains the Azure region they are deployed to.
-
-`<prefix><suffix>-<global | stamp>-<region>-rg`
-
-This will, for example, result in `aoprod-global-rg` for global services in prod or `aoprod7745-stamp-eastus2-rg` for a stamp deployment in `eastus2`.
-
-**Resources**
-
-`<prefix><suffix>-<region>-<resource>` for resources that support `-` in their names and `<prefix><region><resource>` for resources such as Storage Accounts, Container Registries and others that do not support `-` in their names.
-
-This will result in, for example, `aoprod7745-eastus2-aks` for an AKS cluster in `eastus2`.
 
