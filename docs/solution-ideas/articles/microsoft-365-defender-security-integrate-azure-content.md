@@ -8,7 +8,7 @@ This article builds on the previous articles in the series:
 
 2. [Map threats to your IT environment](./map-threats-it-environment.yml) describes methods to map examples of common threats, tactics, and techniques against an example of a hybrid IT environment that uses both on-premises and Microsoft cloud services.
 
-3. [Building the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml) maps an example of some Azure security services that create the first layer of defense to protect your Azure environment according to Azure Security Benchmark version 3.
+3. [Build the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml) maps an example of some Azure security services that create the first layer of defense to protect your Azure environment according to Azure Security Benchmark version 3.
 
 4. [Build the second layer of defense with Microsoft 365 Defender Security services](./microsoft-365-defender-build-second-layer-defense.yml) describes an example of a series of attacks against your IT environment and how to add another layer of protection by using Microsoft 365 Defender.
 
@@ -157,7 +157,7 @@ For more details about this reference architecture, see the other articles in th
 
 - Part 1: [Use Azure monitoring to integrate security components](../../guide/security/azure-monitor-integrate-security-components.yml)
 - Part 2: [Map threats to your IT environment](./map-threats-it-environment.yml)
-- Part 3: [Building the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml)
+- Part 3: [Build the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml)
 - Part 4: [Build the second layer of defense with Microsoft 365 Defender Security services](./microsoft-365-defender-build-second-layer-defense.yml)
 
 For related architectures on Azure Architecture Center, see the following articles:
