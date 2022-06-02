@@ -79,6 +79,11 @@ Follow [these security guidelines](https://docs.microsoft.com/azure/security/fun
 
 ### Resiliency
 
+The solution's resiliency depends on the failure modes of individual services like Virtual Machines, Azure Database for MySQL, and Azure Load Balancer Azure. For more information, see [Resiliency checklist](https://docs.microsoft.com/azure/architecture/checklist/resiliency-per-service) for specific Azure services.
+
+Consider the information [available here](https://docs.microsoft.com/azure/architecture/framework/resiliency/design-checklist) when designing for reliability, and also this guide about [Azure Resiliency](https://docs.microsoft.com/en-us/azure/availability-zones/overview).
+
+Levarage the business continuity and disaster recovery guidance [published here](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/design-area/management-business-continuity-disaster-recovery).
 
 ### Cost optimization
 
