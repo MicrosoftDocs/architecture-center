@@ -1,6 +1,6 @@
 This example scenario shows how using a dedicated search service can dramatically increase the relevance of search results for your e-commerce customers.
 
-Search is the primary mechanism through which customers find and ultimately purchase products, making it essential that search results are relevant to the _intent_ of the search query, and that the end-to-end search experience matches that of search giants by providing near-instant results, linguistic analysis, geo-location matching, filtering, faceting, autocomplete, hit highlighting, etc.
+Search is the primary mechanism through which customers find and ultimately purchase products, making it essential that search results are relevant to the _intent_ of the search query, and that the end-to-end search experience matches that of search giants by providing near-instant results, linguistic analysis, geo-location matching, filtering, faceting, autocomplete, hit highlighting, and so on.
 
 Imagine a typical e-commerce web application with product data stored in a relational database like SQL Server or Azure SQL Database. Search queries are often handled inside the database using `LIKE` queries or [Full-Text Search][docs-sql-fts] features. By using [Azure Cognitive Search][docs-search] instead, you free up your operational database from the query processing and you can easily start taking advantage of those hard-to-implement features that provide your customers with the best possible search experience. Also, because Cognitive Search is a platform as a service (PaaS) component, you don't have to worry about managing infrastructure or becoming a search expert.
 
@@ -87,11 +87,19 @@ To deploy a version of this scenario, you can follow this [step-by-step tutorial
 
 To explore the cost of running this scenario, all the services mentioned above are pre-configured in the cost calculator. To see how the pricing would change for your particular use case change the appropriate variables to match your expected usage.
 
-We have provided three sample cost profiles based on amount of traffic you expect to get:
+We have provided three sample cost profiles based on amount of traffic you expect to handle:
 
 - [Small][small-pricing]: In this profile, we're using a single `Standard S1` Web App to host the website, the free tier of the Azure Bot service, a single `Basic` search service, and a `Standard S2` SQL Database.
 - [Medium][medium-pricing]: Here we are scaling up the Web App to two instances of the `Standard S3` tier, upgrading the search service to a `Standard S1` tier, and using a `Standard S6` SQL Database.
 - [Large][large-pricing]: In the largest profile, we use four instances of a `Premium P2V2` Web App, upgrade the Azure Bot service to the `Standard S1` tier (with 1.000.000 messages in Premium channels), use 2 units of the `Standard S3` search service, and a `Premium P6` SQL Database.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+- [Jelle Druyts](/) | Principal Customer Engineer
 
 ## Next steps
 
