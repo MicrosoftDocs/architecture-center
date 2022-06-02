@@ -153,6 +153,23 @@ For high throughput scenarios, or scenarios in which you need to serve customers
 
 If you'd like to deploy this scenario, the [Azure SaaS Dev Kit](https://github.com/Azure/azure-saas) is a deployable reference implementation of this architecture.
 
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+ - [Landon Pierce](https://www.linkedin.com/in/landon-pierce-a84b37b6) | Customer Engineer
+
+Other contributors: 
+
+ - [John Downs](https://www.linkedin.com/in/john-downs) | Senior Customer Engineer
+ - [Gary Moore](https://www.linkedin.com/in/gwmoore) | Programmer/Writer
+ - [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv) | Principal Customer Engineer
+ - [Jason Young](https://www.linkedin.com/in/jasony) | Principal SVC Engineering Manager
+
+
 ## Next steps
 
 Here are some additional recommended resources for building a SaaS application on Azure:
