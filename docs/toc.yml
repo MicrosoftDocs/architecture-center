@@ -5257,6 +5257,8 @@ items:
               - name: Microsoft Cybersecurity Architectures
                 href: /security/cybersecurity-reference-architecture/mcra
                 maintainContext: true
+              - name: Use Azure monitoring to integrate security
+                href: guide/security/azure-monitor-integrate-security-components.yml
               - name: Virtual Network security options
                 href: example-scenario/gateway/firewall-application-gateway.yml
               - name: Zero-trust network for web applications
@@ -5335,6 +5337,18 @@ items:
                 href: example-scenario/integrated-multiservices/virtual-network-integration.yml
               - name: Web app private database connectivity
                 href: example-scenario/private-web-app/private-web-app.yml
+          - name: Solution ideas
+            items:
+              - name: Threat assessments
+                items: 
+                  - name: Map threats to your IT environment
+                    href: solution-ideas/articles/map-threats-it-environment.yml
+                  - name: "First layer of defense: Azure security"
+                    href: solution-ideas/articles/azure-security-build-first-layer-defense.yml
+                  - name: "Second layer of defense: M365 Defender"
+                    href: solution-ideas/articles/microsoft-365-defender-build-second-layer-defense.yml
+                  - name: Integrate Azure and M365 Defender security
+                    href: solution-ideas/articles/microsoft-365-defender-security-integrate-azure.yml
       - name: Storage
         items:
           - name: Get started
