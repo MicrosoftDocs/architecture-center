@@ -8,6 +8,11 @@ This architecture supports disaster recovery with Azure services but does not co
 
 The focus of this document is on the core Azure operations needed to support Jenkins, including the use of Azure Storage to maintain build artifacts, the security items needed for SSO, other services that can be integrated, and scalability for the pipeline. The architecture is designed to work with an existing source control repository. For example, a common scenario is to start Jenkins jobs based on GitHub commits.
 
+## Potential use cases
+
+- Automate CI/CD pipelines
+- Ensure high availability (HA) for mission-critical services
+
 ## Architecture
 
 The architecture consists of the following components:
