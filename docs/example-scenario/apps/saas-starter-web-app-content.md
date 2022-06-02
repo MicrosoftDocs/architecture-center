@@ -16,7 +16,7 @@ Following are some example use cases in which you could use this architecture:
 
 ## Architecture
 
-![Architecture diagram that shows the control plane, identity framework, and end user S a a S application.](./media/architecture-saas-starter-app.png)
+:::image type="content" alt-text="Architecture diagram that shows the control plane, identity framework, and end user S a a S application." source="./media/architecture-saas-starter-app.png" lightbox="./media/architecture-saas-starter-app.png":::
 
 ### Terminology
 
@@ -109,8 +109,11 @@ The addition of a user to a tenant workflow consists of the following steps:
 This architecture uses the following Azure services:
 
 - [Azure App Service](https://azure.microsoft.com/services/app-service) enables you to build and host web apps and API apps in the programming language that you choose without needing to manage infrastructure.
+
 - [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory/external-identities/b2c/) easily enables identity and access management for end user applications.
+
 - [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database/) is a general-purpose relational database managed service that supports relational data, spatial data, JSON, and XML.
+
 - [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) lets you quickly build powerful integrations using a simple GUI tool.
 
 ### Alternatives
@@ -118,7 +121,9 @@ This architecture uses the following Azure services:
 The effectiveness of any alternative choices depend greatly on the [tenancy model](../../guide/multitenant/considerations/tenancy-models.yml) that you intend for your SaaS application to support. Following are examples of some alternative approaches that you can follow when you implement this solution:
 
 - The current solution uses Azure Active Directory B2C as the identity provider. You could instead use other identity providers, such as [Azure Active Directory](https://azure.microsoft.com/services/active-directory/).
+
 - For stricter security and compliance requirements, you could choose to implement private networking for cross-service communication.
+
 - Instead of using REST calls between services, you could implement an [event-driven architectural style](/azure/architecture/guide/architecture-styles/event-driven) for cross-service messaging.
 
 ## Considerations
