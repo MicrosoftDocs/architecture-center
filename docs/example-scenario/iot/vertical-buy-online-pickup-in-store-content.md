@@ -11,7 +11,7 @@ This solution had the following requirements:
 - The system must gather information about how far away customers are, and when they arrive at the parking lot.
 - Per regulatory requirements, the system must protect customers' personal privacy when storing and accessing data about their movements.
 - If a vehicle's license plate details aren't present or don't match the database, the system should use GPS to help identify customer locations.
-- Since the application is available throughout Europe, its database must provide multi-master read and write capabilities.
+- Since the application is available throughout Europe, its database must provide multi-master read and write capabilities to ensure data consistency.
 - Database reads and writes must be low latency, for a seamless user experience.
 
 ## Potential use cases
@@ -71,7 +71,6 @@ To understand and explore the various implementation choices available, see the 
 ## Next steps
 
 - [Is curbside pickup just getting started?](https://retailwire.com/discussion/is-curbside-pickup-just-getting-started)
-- [OneView Commerce](https://www.oneviewcommerce.com)
 - [Ombori](https://ombori.com)
 - [Avanade intelligent store](https://www.avanade.com/en/industry/retail/intelligent-store-whitepaper)
 
