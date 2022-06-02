@@ -117,7 +117,7 @@ Access management in Dataverse and other Azure services helps ensure that only a
 
 For general guidance on designing secure IoT solutions, see the [Azure Security Documentation](/azure/security) and the [Azure IoT reference architecture](../iot.yml#security).
 
-## Pricing
+### Cost optimization
 
 In general, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs. For other considerations, see [Cost optimization](/azure/architecture/framework/cost/index).
 
