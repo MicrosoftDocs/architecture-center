@@ -68,7 +68,18 @@ Regarding the Azure Database for MySQL (Data Tier), since it's a managed databas
 To allow auto-scale, please consider the usage of [Azure Virtual Machine Scale Sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview) which allows you to create and manage a group of load balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule
 
 ### Security
+
+The usage of [Azure Web Application Firewall](https://docs.microsoft.com/azure/web-application-firewall/overview) helps protect your application from common vulnerabilities. This Application Gateway option uses Open Web Application Security Project (OWASP) rules to prevent attacks like cross-site scripting, session hijacks, and other exploits. You could consider adding this to this solution.
+
+Make sure to leverage the [Azure Network Security Groups](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview) to filter network traffic to and from Azure resources in an Azure virtual network as an additional protection layer.
+
+Additionally, consider the [Private Link for Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/single-server/concepts-data-access-security-private-link). Private Link allows you to connect to PaaS services in Azure via a private endpoint. Azure Private Link essentially brings Azure services inside your private Virtual Network (VNet). The PaaS resources can be accessed using the private IP address just like any other resource in the VNet.
+
+Follow [these security guidelines](https://docs.microsoft.com/azure/security/fundamentals/overview) when you implement this solution.
+
 ### Resiliency
+
+
 ### Cost optimization
 
 ## Deploy this scenario
