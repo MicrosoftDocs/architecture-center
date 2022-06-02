@@ -31,6 +31,13 @@ The drawing below refers to the suggested architecture. This architecture includ
 
 Download a Visio file of this architecture
 
+## Dataflow
+
+1. Users start the connection over the Internet
+2. The connection from the user is established with the Azure Public Load Balancer 
+3. The Azure Public Load Balancer receives external access and directs the traffic for the two virtual machines in the Web Tier. 
+4. The Web Tier communicates with Azure Database for MySQL in the Data Tier which is responsible for storing login information, accesses, and connections. 
+
 ### Components
 
 - [Azure Load Balancer](https://azure.microsoft.com/services/load-balancer): A service to distribute load (incoming network traffic) across a group of backend resources or servers
