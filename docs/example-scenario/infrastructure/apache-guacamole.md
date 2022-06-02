@@ -51,6 +51,26 @@ Download a Visio file of this architecture
 
 Customers who doesn't need this high level of control using their own solution can implement a solution similar to this leveraging the usage of [Azure Bastion](https://azure.microsoft.com/services/azure-bastion/), a fully managed service that provides secure and seamless Remote Desktop Protocol (RDP) and Secure Shell Protocol (SSH) access to VMs without any exposure through public IP addresses. 
 
+## Considerations
+
+The following considerations apply to this scenario.
+
+### Availability
+
+The availability of the architecture depends on the Azure services that make up the solution. 
+
+For Azure Virtual Machines (Web Tier) the usage of [availability sets](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview#what-is-an-availability-set) ensures a logical grouping of VMs that allows Azure to understand how your application is built to provide for redundancy and availability. We recommended that two or more VMs are created within an availability set to provide for a highly available application and to meet the [99.95% Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines).
+
+Regarding the Azure Database for MySQL (Data Tier), since it's a managed database as a service, its architecture is optimized for built-in high availability with [99.99% availability](https://docs.microsoft.com/en-us/azure/mysql/concepts-high-availability)
+
+### Scalability
+
+To allow auto-scale, please consider the usage of [Azure Virtual Machine Scale Sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview) which allows you to create and manage a group of load balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule
+
+### Security
+### Resiliency
+### Cost optimization
+
 ## Deploy this scenario
 
 Is recommend using the Bash environment in [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/quickstart). If you prefer to run on your own Windows, Linux, or macOS, [install](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) the Azure CLI to run referenced commands.
