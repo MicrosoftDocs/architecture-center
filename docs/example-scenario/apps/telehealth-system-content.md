@@ -131,18 +131,18 @@ Product documentation:
 
 Real-time communications:
 
-More information about how WebRTC provides real-time communication capabilities to mobile applications is available on the [WebRTC project site](https://webrtc.org/).
+More information about how WebRTC provides real-time communication capabilities to mobile applications is available on the [WebRTC project site](https://webrtc.org).
 
 Turn servers:
 
-Use a client library such as [Icelink](https://www.frozenmountain.com/products-services/icelink/) (loaded by the application on the phone and by the fitting software of the desktop of the hearing aid professional) to manage the turn servers\* and the types of connection (tcp, udp, p2p) between the two clients (fitting software and application on the phone). The client library:
+Use a client library such as [Icelink](https://www.frozenmountain.com/products-services/icelink) (loaded by the application on the phone and by the fitting software of the desktop of the hearing aid professional) to manage the turn servers\* and the types of connection (tcp, udp, p2p) between the two clients (fitting software and application on the phone). The client library:
 
 - Creates the streaming channel
 - Establishes the connections
 - Manages the connection in case of errors, missing packets, automatically adjusts the streaming to the variations of the bandwidth
 - Encode/decodes the calls (audio and/or video) during the calls
 
-\*Turn servers are network entities in charge of relaying media in VoIP related protocols. In this solution they are hosted by [https://xirsys.com/](https://xirsys.com/) in several datacenters worldwide. Establishes direct connection between two clients under the same session.
+\*Turn servers are network entities in charge of relaying media in VoIP related protocols. In this solution they are hosted by [https://xirsys.com/](https://xirsys.com) in several datacenters worldwide. Establishes direct connection between two clients under the same session.
 
 ## Related resources
 
