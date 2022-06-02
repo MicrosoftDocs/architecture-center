@@ -181,4 +181,12 @@ Here are some additional recommended resources for building a SaaS application o
 - [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/)
 - [WingTips Tickets SaaS application](/azure/azure-sql/database/saas-tenancy-welcome-wingtip-tickets-app) - Provides details about tradeoffs between various tenancy models within the database layer.
 
+## Related resources
 
+- [Tenancy models to consider for a multitenant solution](/azure/architecture/guide/multitenant/considerations/tenancy-models)
+- [Architectural approaches for compute in multitenant solutions](/azure/architecture/guide/multitenant/approaches/compute)
+- [Architectural approaches for storage and data in multitenant solutions](/azure/architecture/guide/multitenant/approaches/storage-data)
+- [Azure App Service and Azure Functions considerations for multitenancy](/azure/architecture/guide/multitenant/service/app-service)
+- [Multitenant SaaS on Azure](/azure/architecture/example-scenario/multi-saas/multitenant-saas)
+- [Tenancy models for SaaS applications](/azure/architecture/isv/application-tenancy)
+- [Cloud Design Patterns](/azure/architecture/patterns/)
