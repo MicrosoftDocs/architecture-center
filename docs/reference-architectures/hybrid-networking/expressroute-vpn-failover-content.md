@@ -136,8 +136,8 @@ To deploy the solution, perform the following steps.
 [vpn-appliance]: /azure/vpn-gateway/vpn-gateway-about-vpn-devices
 [connect-to-an-Azure-vnet]: /microsoft-365/enterprise/connect-an-on-premises-network-to-a-microsoft-azure-virtual-network?view=o365-worldwide
 [expressroute-prereq]: /azure/expressroute/expressroute-prerequisites
-[implementing-expressroute]: ./expressroute.yml
-[implementing-vpn]: /azure/expressroute/expressroute-howto-coexist-resource-manager
+[configure-expressroute]: ./expressroute.yml
+[configure-vpn]: /azure/expressroute/expressroute-howto-coexist-resource-manager
 [guidance-expressroute]: ./expressroute.yml
 [guidance-vpn]: /azure/expressroute/use-s2s-vpn-as-backup-for-expressroute-privatepeering
 [best-practices-security]: /azure/best-practices-network-security
