@@ -87,6 +87,13 @@ Levarage the business continuity and disaster recovery guidance [published here]
 
 ### Cost optimization
 
+To better understand the cost of running this scenario on Azure, use the [pricing calculator](https://azure.microsoft.com/pricing/calculator).
+
+* [Linux Virtual Machines Pricing](https://azure.microsoft.compricing/details/virtual-machines/linux/)
+* [Azure Database for MySQL pricing](https://azure.microsoft.com/pricing/details/mysql/server/)
+* [Load Balancer pricing](https://azure.microsoft.com/pricing/details/load-balancer/)
+* [Azure Reserved Virtual Machine Instances](https://azure.microsoft.com/pricing/reserved-vm-instances/)
+
 ## Deploy this scenario
 
 Is recommend using the Bash environment in [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/quickstart). If you prefer to run on your own Windows, Linux, or macOS, [install](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) the Azure CLI to run referenced commands.
