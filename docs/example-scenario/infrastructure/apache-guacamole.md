@@ -38,7 +38,7 @@ Download a Visio file of this architecture
 3. The Azure Public Load Balancer receives external access and directs the traffic for the two virtual machines in the Web Tier. 
 4. The Web Tier communicates with Azure Database for MySQL in the Data Tier which is responsible for storing login information, accesses, and connections. 
 
-### Components
+## Components
 
 - [Azure Load Balancer](https://azure.microsoft.com/services/load-balancer): A service to distribute load (incoming network traffic) across a group of backend resources or servers
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network): The fundamental building block for your private network in Azure
@@ -47,7 +47,7 @@ Download a Visio file of this architecture
 - [Azure Availability Set](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview): A logical grouping of VMs that allows Azure to understand how your application is built to provide for redundancy and availability
 - [Azure Database for MySQL](https://azure.microsoft.com/en-us/services/mysql/): A fully managed MySQL Database as a Service 
 
-### Alternatives
+## Alternatives
 
 Customers who doesn't need this high level of control using their own solution can implement a solution similar to this leveraging the usage of [Azure Bastion](https://azure.microsoft.com/services/azure-bastion/), a fully managed service that provides secure and seamless Remote Desktop Protocol (RDP) and Secure Shell Protocol (SSH) access to VMs without any exposure through public IP addresses. 
 
