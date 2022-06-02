@@ -1,5 +1,10 @@
 In this scenario, an organization has hosted multiple APIs using [Application Service Environments][ase](ILB ASE) and would like to consolidate these APIs internally using [Azure API Management (APIM)][apim] deployed inside a Virtual Network. The internal API Management instance could also be exposed to external users to allow for utilization of the full potential of the APIs. This external exposure could be achieved using an [Application Gateways][appgtwy] forwarding requests to the internal API Management service, which in turn consumes the APIs deployed in the ASE.
 
+## Potential use cases
+
+- Synchronize customer address information internally after a change made by customer
+- Attract developers to your platform by exposing unique data assets
+
 ## Architecture
 
 ![Architecture diagram][architecture]
@@ -135,6 +140,12 @@ To view projected costs and customize to your deployment needs, you can modify t
 Similarly, the [App Service Environments pricing guidance is provided here][ase-pricing]
 
 Application Gateway pricing can be [configured here][appgtwy-pricing] depending upon the required tier and resources.
+
+## Next steps
+
+- [Tutorial: Import and publish your first API][/azure/api-management/import-and-publish]
+- [Tutorial: Create and publish a product][/azure/api-management/api-management-howto-add-products?tabs=azure-portal]
+- [Tutorial: Publish multiple versions of your API][/azure/api-management/api-management-get-started-publish-versions]
 
 ## Related resources
 
