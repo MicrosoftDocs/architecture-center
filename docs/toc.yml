@@ -345,6 +345,10 @@ items:
                 href: guide/multitenant/approaches/iot.md
               - name: AI and ML
                 href: guide/multitenant/approaches/ai-ml.md
+          - name: Architectures
+            items:
+              - name: SaaS Starter web app
+                href: example-scenario/apps/saas-starter-web-app.yml
           - name: Service-specific guidance
             items:
               - name: Overview
