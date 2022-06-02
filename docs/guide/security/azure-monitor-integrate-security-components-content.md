@@ -40,7 +40,7 @@ In addition to this introductory article, this series includes the following art
   The second article in this series explores how you can use this architectural reference with a different set of tactics and techniques or with varying methodologies, like [the Cyber Kill Chain®](https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html), a framework developed by Lockheed Martin.
 
 
-- [Building the first layer of defense with Azure Security services](../../solution-ideas/articles/azure-security-build-first-layer-defense.yml)
+- [Build the first layer of defense with Azure Security services](../../solution-ideas/articles/azure-security-build-first-layer-defense.yml)
 
   The third article in this series explores in detail the security services of Microsoft's cloud services. It describes how to protect Azure services, like virtual machines, storage, network, application, database, and other Azure services.
 
@@ -86,7 +86,7 @@ This document refers to some services, technologies, and terminologies. You can 
 For more details about this reference architecture, see the other articles in this series:
 
 - Part 2: [Map threats to your IT environment](../../solution-ideas/articles/map-threats-it-environment.yml)
-- Part 3: [Building the first layer of defense with Azure Security services](../../solution-ideas/articles/azure-security-build-first-layer-defense.yml)
+- Part 3: [Build the first layer of defense with Azure Security services](../../solution-ideas/articles/azure-security-build-first-layer-defense.yml)
 - Part 4: [Build the second layer of defense with Microsoft 365 Defender Security services](../../solution-ideas/articles/microsoft-365-defender-build-second-layer-defense.yml)
 - Part 5: [Integrate Azure and Microsoft 365 Defender security services](../../solution-ideas/articles/microsoft-365-defender-security-integrate-azure.yml)
 
