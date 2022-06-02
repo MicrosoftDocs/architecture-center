@@ -213,7 +213,7 @@ For more information about the individual pieces of the solution architecture, s
 [bastion-host]: https://en.wikipedia.org/wiki/Bastion_host
 [create-availability-group]: /sharepoint/administration/sharepoint-intranet-farm-in-azure-phase-5-create-the-availability-group-and-add
 [hybrid-ra]: ../hybrid-networking/index.yml
-[hybrid-vpn-ra]: ../hybrid-networking/vpn.yml
+[hybrid-vpn-ra]: /azure/expressroute/expressroute-howto-coexist-resource-manager
 [load-balancer]: /azure/load-balancer/load-balancer-internal-overview
 [managed-disks]: /azure/storage/storage-managed-disks-overview
 [minroles]: /SharePoint/install/overview-of-minrole-server-roles-in-sharepoint-server
