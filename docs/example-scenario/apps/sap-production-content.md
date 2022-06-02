@@ -112,7 +112,7 @@ Guides linked within the NFS tier section contain the necessary steps and design
 
 **SAP application servers pool** Two or more application servers where high availability is achieved by load-balancing requests through SAP message server or web dispatchers. Each application server is independent and there is no network load balancing required for this pool of VMs.
 
-**SAP web dispatcher pool** 
+**SAP web dispatcher pool**
 The Web Dispatcher component is used as a load balancer for SAP traffic among the SAP application servers. To achieve [high availability of the SAP Web Dispatcher](https://help.sap.com/viewer/683d6a1797a34730a6e005d1e8de6f22/201909.002/en-US/489a9a6b48c673e8e10000000a42189b.htm), Azure Load Balancer implements either the failover cluster or the parallel Web Dispatcher setup.
 
 [Embedded Web Dispatcher](https://help.sap.com/viewer/00b4e4853ef3494da20ebcaceb181d5e/LATEST/2e708e2d42134b4baabdfeae953b24c5.html) on (A)SCS is a special option. You should take into account proper sizing because of additional workload on (A)SCS.
@@ -167,6 +167,19 @@ Communities can answer questions and help you set up a successful deployment. Co
 - [Azure Community Support](https://azure.microsoft.com/support/forums)
 - [SAP Community](https://www.sap.com/community.html)
 - [Stack Overflow for SAP](http://stackoverflow.com/tags/sap/info)
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+* [Robert Biro](https://ch.linkedin.com/in/robert-biro-38991927) | Senior Architect
+
+## Next steps
+
+- [SAP NetWeaver on SQL Server][/azure/architecture/solution-ideas/articles/sap-netweaver-on-sql-server]
+- [High availability for SAP NetWeaver on Azure VMs][/azure/virtual-machines/workloads/sap/high-availability-guide]
 
 ## Related resources
 
