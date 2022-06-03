@@ -11,7 +11,7 @@
         </figure>
     </div>
     <div class="card-content">
-        <a class="card-content-title has-margin-top-none" href="https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices">
+        <a class="card-content-title has-margin-top-none" href="/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices">
             <p>Microservices architecture on Azure Kubernetes Service (AKS)</p>
         </a>
         <ul class="card-content-metadata">
