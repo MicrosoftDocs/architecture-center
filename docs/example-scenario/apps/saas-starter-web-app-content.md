@@ -34,9 +34,13 @@ The following table describes terms that appear in this article.
 ### Workflow
 
 1. *SaaS customer admin* navigates to the site that is hosted on the *Onboarding & admin app*.
+
 2. *SaaS customer admin* signs in by using the [user sign-in](#user-sign-in) workflow.
+
 3. *SaaS customer admin* completes the [onboarding flow](#onboard-a-new-tenant).
+
 4. *SaaS customer admin* navigates to the tenant admin area on the *Onboarding & admin app* and [adds a *SaaS Customer User*](#add-a-user-to-tenant) to their newly created tenant.
+
 5. *SaaS customer user* navigates to the *SaaS application app* and uses the SaaS application.
 
 #### User sign-in
@@ -46,14 +50,23 @@ The user sign-in workflow consists of the following steps:
 [ ![Sequence diagram that shows the user sign-in process](./media/saas-starter-app-sequence-diagram-sign-in.png)](./media/saas-starter-app-sequence-diagram-sign-in.png#lightbox)
 
 1. *End user* navigates to a *frontend application* and selects a **Login** button.
+
 1. *Frontend application* redirects *end user* to a sign-in page that is hosted by the *identity provider*.
+
 1. *End User* enters account information and submits the sign-in form to the *Identity provider*.
+
 1. *Identity provider* [issues a POST request](/azure/active-directory-b2c/api-connectors-overview?pivots=b2c-custom-policy) with the *end user*'s email address and object ID to retrieve their permissions and roles.
+
 1. *Permission data API* looks up the *end user*'s information in the *Permission data storage* and returns a list of permissions and roles that are assigned to that *end user*.
+
 1. *Identity provider* adds the permissions and roles as custom claims to the ID token, which is a JSON web token (JWT).
+
 1. *Identity provider* returns an ID token to the *end user* and initiates a redirect to the *frontend application*.
+
 1. *End user* is redirected to the sign-in endpoint on the *frontend application* and presents the ID token.
+
 1. *Frontend application* validates the presented ID token.
+
 1. *Frontend application* returns a successful sign-in page and the *end user* is now signed in.
 
 For more information about how this sign-in flow works, see [OpenID Connect protocol](/azure/active-directory/develop/v2-protocols-oidc) .
@@ -65,20 +78,35 @@ The tenant onboarding workflow consists of the following steps:
 [ ![Sequence diagram that shows the tenant onboarding process](./media/saas-starter-app-sequence-diagram-onboarding.png)](./media/saas-starter-app-sequence-diagram-onboarding.png#lightbox)
 
 1. *SaaS customer admin* navigates to the *Onboarding & admin app* and completes a sign-up form.
+
 1. *Onboarding & admin app* issues a POST request to the *Tenant data API* to create a new tenant.
+
 1. *Tenant data API* creates a new tenant in the tenant data storage.
+
 1. *Tenant data API* issues a POST request to the *Permission data API* to grant the *SaaS customer admin* permissions to the newly created tenant.
+
 1. *Permission data API* creates a new permission record in the *Permission data storage*.
+
 1. *Permission data API* returns successfully.
+
 1. *Tenant data API* returns successfully.
+
 1. *Onboarding & admin app* issues a POST request to the *Email notification provider* to send a "tenant created" email message to the *SaaS customer admin*.
+
 1. *Email notification provider* sends the email.
+
 1. *Email notification provider* returns successfully.
+
 1. *Onboarding & admin app* issues a request to the *Identity provider* to refresh the *SaaS customer admin*'s ID token so that it will include a JWT claim to the newly created tenant.
+
 1. *Identity provider* [issues a POST request](/azure/active-directory-b2c/api-connectors-overview?pivots=b2c-custom-policy) with the *SaaS customer admin*'s email address and object ID to retrieve their permissions and roles.
+
 1. *Permission data API* looks up the *SaaS customer admin*'s information in the *Permission data storage* and returns a list of permissions and roles assigned to the *SaaS customer admin*.
+
 1. *Identity provider* adds the permissions and roles as custom claims to the ID token.
+
 1. *Identity provider* returns the ID token to the *Onboarding & Admin App*.
+
 1. *Onboarding & admin app* returns a success message and a new ID token to the *SaaS Customer Admin*.
 
 #### Add a user to tenant
@@ -88,20 +116,35 @@ The addition of a user to a tenant workflow consists of the following steps:
 [ ![Sequence diagram that shows the addition of a new user to a tenant](./media/saas-starter-app-sequence-diagram-add-user.png)](./media/saas-starter-app-sequence-diagram-add-user.png#lightbox)
 
 1. *SaaS customer admin* requests to see a list of tenants from the tenant admin area on the *Onboarding & admin app*.
+
 1. *Onboarding & admin app* issues a GET request to the *Tenant data API* to get a list of tenants for *SaaS customer admin*.
+
 1. *Tenant data API* issues a GET request to the *Permission data API* to get a list of tenants that *SaaS customer admin* has access to view.
+
 1. *Permission data API* returns a list of tenant permissions.
+
 1. *Tenant data API* looks up the tenant information in the Tenant data storage and returns a list of tenant data based on the list of tenant permissions received.
+
 1. *Onboarding & admin app* returns the list of tenant data to *SaaS customer admin*.
+
 1. *SaaS customer admin* selects a tenant from the list to add a *SaaS customer user* to and enters the email address for the *SaaS customer user*.
+
 1. *Onboarding & admin app* issues a POST request to the *Tenant data API* to add a permission for the *SaaS customer user* on the specified tenant.
+
 1. *Tenant data API* verifies that the *SaaS customer admin* has a valid JWT claim to the specified tenant and has the users.write permission on it.
+
 1. *Tenant data API* issues a POST request to the *Permission data API* to add a permission for the *SaaS customer user* on the specified tenant.
+
 1. *Permission data API* issues a GET request to the *Identity provider* to look up the *SaaS customer user* by the provided email address.
+
 1. *Identity provider* returns the *SaaS customer user*'s object ID.
+
 1. *Permission data API* adds a permission record in the *Permission data storage* for the *SaaS customer user* on the specified tenant by using their object ID.
+
 1. *Permission data API* returns successfully.
+
 1. *Tenant data API* returns successfully.
+
 1. *Onboarding & admin app* returns successfully.
 
 ### Components
