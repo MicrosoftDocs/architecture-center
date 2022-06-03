@@ -157,7 +157,7 @@ Observability is critical in this architecture because stamps are ephemeral. Dia
 
 Azure Key Vault is used to store global secrets such as connection strings to the database and stamp secrets such as the Event Hubs connection string. 
 
-This architecture uses a Secrets Store CSI driver in the compute cluster to get/set secrets from Key Vault. Secrets are needed when new pods are spwaned. If Key Vault is unavailable, new pods might not get started. As a result there might be disruption; scale out operations can be impacted, updates can fail, new deployments can't be executed. Possible mitigation: HCD cache?
+This architecture uses a Secrets Store CSI driver in the compute cluster to get/set secrets from Key Vault. Secrets are needed when new pods are spawned. If Key Vault is unavailable, new pods might not get started. As a result there might be disruption; scale out operations can be impacted, updates can fail, new deployments can't be executed. Possible mitigation: HCD cache?
 
 Key Vault has a limit on the number of operations. Due to the automatic update of secrets, the limit can be reached if there are many pods. You can choose to decrease the frequency to avoid this situation. 
 
