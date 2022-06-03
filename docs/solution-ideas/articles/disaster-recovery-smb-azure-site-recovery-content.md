@@ -14,12 +14,7 @@ Ideal industries for this solution include healthcare, travel and hospitality, a
 
 ## Architecture
 
-<<<<<<< HEAD
 ![Architecture diagram shows from customers through D N S routing to a before and after failover virtual machines: disaster recovery S M B Azure site.](../media/disaster-recovery-smb-azure-site-recovery.png)
-=======
-![Architecture diagram shows the flow from customers through the D N S routing to a before and after failover virtual machines: disaster recovery S M B Azure site](../media/disaster-recovery-smb-azure-site-recovery.png)
-
->>>>>>> d160201a9aa08588837ecf6bc54cc9df5cb8624a
 *Download an [SVG](../media/disaster-recovery-smb-azure-site-recovery.svg) of this architecture.*
 
 ### Components
