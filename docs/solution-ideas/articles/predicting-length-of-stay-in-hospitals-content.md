@@ -4,21 +4,21 @@ This solution enables a predictive model for the length of stay for in-hospital 
 
 ## Potential use cases
 
-
+This solution enables a predictive model for Length of Stay for in-hospital admissions.
 
 ## Architecture
 
-![Architecture Diagram](../media/predicting-length-of-stay-in-hospitals.png)
+![Architecture Diagram shows the flow of information from ingest to score to predict length of stay in hospitals.](../media/predicting-length-of-stay-in-hospitals.png)
 *Download an [SVG](../media/predicting-length-of-stay-in-hospitals.svg) of this architecture.*
 
 ### Components
 
-* [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/)
-* [Power BI](https://powerbi.microsoft.com/)
+* [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning)
+* [Power BI](https://powerbi.microsoft.com)
 
 ## Solution details
 
-This solution enables a predictive model for Length of Stay for in-hospital admissions. Length of Stay (LOS) is defined in number of days from the initial admit date to the date that the patient is discharged from any given hospital facility. There can be significant variation of LOS across various facilities and across disease conditions and specialties even within the same healthcare system. Advanced LOS prediction at the time of admission can greatly enhance the quality of care as well as operational workload efficiency and help with accurate planning for discharges resulting in lowering of various other quality measures such as readmissions.
+Length of Stay (LOS) is defined in number of days from the initial admit date to the date that the patient is discharged from any given hospital facility. There can be significant variation of LOS across various facilities and across disease conditions and specialties even within the same healthcare system. Advanced LOS prediction at the time of admission can greatly enhance the quality of care as well as operational workload efficiency and help with accurate planning for discharges resulting in lowering of various other quality measures such as readmissions.
 
 ### Business perspective
 
@@ -39,7 +39,7 @@ This solution includes the R code needed by a data scientist in the R folder. It
 
 ## Deploy this scenario
 
-For deployment instructions and more details on the technical implementation, please see the [Predicting Length of Stay in Hospitals](https://github.com/Microsoft/r-server-hospital-length-of-stay) GitHub repo.
+For deployment instructions and more details on the technical implementation, see [Predicting Length of Stay in Hospitals](https://github.com/Microsoft/r-server-hospital-length-of-stay) GitHub repo.
 
 ## Pricing
 

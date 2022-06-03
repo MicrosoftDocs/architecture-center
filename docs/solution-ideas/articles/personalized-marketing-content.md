@@ -4,7 +4,9 @@ This architecture shows how you can create a solution personalizing offers with 
 
 ## Potential use cases
 
+By personalizing your offers, you'll deliver an individualized experience for current and prospective customers, boosting engagement and improving customer conversion, lifetime value, and retention.
 
+This solution is ideal for the retail and marketing industries.
 
 ## Architecture
 
@@ -41,12 +43,6 @@ Marketers using intelligent systems and analyzing massive amounts of data can de
 
 This architecture shows how you can create a solution personalizing offers with [Azure Functions](/azure/azure-functions/functions-overview), [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-ml), and [Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction).
 
-### Potential use cases
-
-By personalizing your offers, you'll deliver an individualized experience for current and prospective customers, boosting engagement and improving customer conversion, lifetime value, and retention.
-
-This solution is ideal for the retail and marketing industries.
-
 ## Next steps
 
 See the product documentation:
@@ -62,9 +58,9 @@ See the product documentation:
 
 Try a Microsoft Learn path:
 
-* [Implement a Data Streaming Solution with Azure Streaming Analytics](/learn/paths/implement-data-streaming-with-asa/)
-* [Build a Machine Learning model](/learn/modules/machine-learning-model-nasa/)
-* [Create serverless apps with Azure Functions](/learn/paths/create-serverless-applications/)
+* [Implement a Data Streaming Solution with Azure Streaming Analytics](/learn/paths/implement-data-streaming-with-asa)
+* [Build a Machine Learning model](/learn/modules/machine-learning-model-nasa)
+* [Create serverless apps with Azure Functions](/learn/paths/create-serverless-applications)
 
 ## Related resources
 
