@@ -19,8 +19,7 @@ Gridwich Acknowledgment and Gridwich Failure are different from other Gridwich e
 
 - **Initiate new Encode job**
 
-  - [Encode with Media Services V2](#encodeviaamsv2)
-  - [Encode with Media Services V3](#encodeviaamsv3)
+  - [Encode with Media Services](#encodeviaamsv3)
   - [Encode with CloudPort workflow](#encodeviacp)
   - [Encode with Flip](#encodeviaflip)
 
@@ -448,7 +447,7 @@ The blob deletion can come from any source, like an explicit request from a requ
 }
 ```
 
-### <a id="encodeviaamsv3"></a>Requester asks Gridwich to encode a Media Services V3 transform
+### <a id="encodeviaamsv3"></a>Requester asks Gridwich to encode a Media Services v3 transform
 
 **Requester** > **Gridwich**, uses [RequestMediaServicesV3EncodeCreateDTO](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.Core/src/DTO/Requests/RequestMediaServicesV3EncodeCreateDTO.cs)
 

@@ -140,4 +140,4 @@ Microsoft Learn modules:
 
 - [Gridwich content protection and DRM](gridwich-content-protection-drm.yml)
 - [Gridwich operations for Azure Storage](gridwich-storage-service.yml)
-- [Test Media Services V3 encoding](test-encoding.yml)
+- [Test Media Services v3 encoding](test-encoding.yml)
