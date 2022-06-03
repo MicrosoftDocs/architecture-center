@@ -43,11 +43,33 @@ We work closely with IBM and other partners to ensure the guidance found in this
 
 Before you proceed with your deployment, you need to make a series of design decisions:
 
-1. What applications do you need?
-2. What dependencies do you have to set up?
-3. What number and sizes of virtual nachines do you need? 
-4. How to install OpenShift?
-5. What data sources are you going to use?
+1. What applications do you need? What do your applications need?
+1. How to install OpenShift? What version of OpenShift?
+1. What dependencies do you have to set up?
+1. What data sources are you going to be needed?
+1. What number and sizes of virtual nachines do you need? 
+
+### Maximo Application Suite
+
+Microsoft has tested Maximo Application Suite 8.5, 8.6 and 8.7 on Azure. Our current recommendation is to use Maximo Application Suite 8.7 with the latest version for each of the applications (e.g. manage, health) on top. 
+
+Review what applications you need to complete your business scenario and then review the [requirements for each of the applications](https://www.ibm.com/support/pages/node/6538166). For each of the applications you may need separate databases. We have tested and support the following databases on Azure:
+
+* [SQL Server](https://azure.microsoft.com/en-us/services/virtual-machines/sql-server/#overview) on Azure 2019 on Windows or Linux
+* IBM [DB2Wh on Cloud Pak for Data 3.5](https://www.ibm.com/docs/en/cloud-paks/cp-data/3.5.0?topic=services-db2-warehouse)
+
+Also supported is to run Oracle Exadata on a VM or on Oracle Cloud Infrastructure using the [OCI Interconnect](https://docs.oracle.com/en/solutions/learn-azure-oci-interconnect/index.html), but we have not tested the solution. Currently not supported are Azure SQL DB and Azure CosmosDB. These databases may be supported in future releases of Maximo.
+
+> [!NOTE] 
+> Some databases can not be mixed because you need different features. For example, you can't use the database for health + manage in combination with monitor. You can mix databases, i.e. use SQL Server and DB2WH in conjunction.
+
+Maximo and some of its application have dependencies on MongoDB and/or Kafka. How you deploy these solutions should be a performance and operations consideration. The defaults are to deploy MongoDB Community Edition and Strimzi Kafka inside the clusters. Maximo also uses Crunchy PostgreSQL inside OpenShift, this dependency can not be externalized.
+
+For state based services running inside of the OpenShift cluster, it is necessary to frequently perform backups and move them into another region. Plan and decide accordingly, especially when running Kafka or MongoDB inside of OpenShift.
+
+For services that retain state, when possible, use external Azure PaaS offerings to improve upon the supportability in the event of an outage.
+
+Some of the services may require other IBM tooling such as IBM Watson ML or AppConnect. All of these can be deployed on top of the same OpenShift cluster. 
 
 ### OpenShift
 
@@ -95,42 +117,22 @@ If you are short on IP addresses, the minimum highly available set up can use is
 
 If you want to use a different CNI, size your networks accordingly. Maximo with some standard applications deploys a lot of Pods (800+), you are likely going to need a /21 or larger. 
 
-### Maximo Application Suite
+### Database specifics
 
-Considerations:
+For Maximo Manage, IBM BAS and Monitor IoT parts, Maximo uses MongoDB. The default is to deploy MongoDB CE inside of the cluster. While this may work for smaller deployments, it is not a recommended pattern for larger and/or production deployments. For those, please use at MongoDB Atlas on Azure as it provides you with an externalized store, backups, scaling and more. CosmosDB with the MongoDB backend isn't supported right now.
 
-- **External Dependencies** - If MAS takes dependencies on any external services (databases, kafka, etc.) this should be a performance consideration in case the OpenShift cluster is deployed within another region. Consider reviewing that services' HA/DR options as well.
-- **Backup and Restore** - For state based services running inside of the OpenShift cluster, it is necessary to frequently perform backups and move them into another region.
-- **State** - For services that retain state, when possible, use external Azure PaaS offerings to improve upon the supportability in the event of an outage.
+Kafka is also used throughout Maximo, notably for IBM BAS and for Maximo Monitor. The default is to deploy Strimzi Kafka on OpenShift and use that. Management of this does involve understanding Kafka and its operational procedures. If you need a less management intensive solution we recommende you use Confluent Kafka on Azure. EventHubs with Kafka endpoints isn't supported right now. 
 
-<!-- TODO: Sizing of network -->
+Maximo comes packed with many databases inside of its pods and those databases retain state on the filesystem provisioned for Maximo. Use a zone redundant storage mechanism to retain the state outside of your clusters and be able to absorb zone failures. Our recommended pattern is to use Azure File Storage with the following configurations:
 
-### Data sources
+* **Standard**: Provision _SMB_ shares for lower throughput / rwo workloads. Great fit for parts of the application that are not chatty and only need a single persistent volume (e.g., IBM SLS)
+* **Premium**: Provision _NFS_ shares for higher throughput / rwx workloads. Used throughout the cluster for RWX workloads, such as the DB2WH in CP4D or Postgres in Manage.
 
-Maximo has multiple data sources. Some are to persist state (e.g. a database) whereas others are used to provide data into and out of Maximo. Depending on the Maximo applications you are deploying you'll need a different setup.
+Make sure policies for enforcing secure transfer on the Azure Blob Storage are disabled or the accounts exempted. Azure Files Premium with NFS requires secure transfer to be set to off. Ensure that Private Endpoints are used to guarantee private connectivity and secure it that way.
 
-<!-- TODO: review database selection and criteria -->
-When you need to use a relational database for Maximo Health and Maximo Manage please use the following:
+By default DB2WH wants to deploy on top of OpenShift Data Foundation (previously OCS). For cost, performance, scaling and reliability reasons it is recommended to use Azure Files Premium with NFS instead of ODF/OCS.
 
-- Microsoft SQL Server 2019 on a VM. Azure SQL DB is currently not supported. 
-- IBM DB2 Warehouse which comes as part of IBM CloudPak for Data (CP4D)
-- Oracle Exadata on a VM
-
-For Maximo Manage, IBM BAS and IoT parts, Maximo uses MongoDB. The default is to deploy MongoDB CE inside of the cluster. While this may work for smaller deployments, it is not a recommended pattern for larger and/or production deployments. For those, please use at MongoDB Atlas on Azure. 
-
-<!-- TODO: Add Strimzi vs Confluence guidance -->
-Maximo Application Suite comes packed with databases inside of its pods and those databases retain state on the filesystem provisioned for MAS. Use a zone redundant storage mechanism to retain the state outside of your clusters and be able to absorb zone failures. Our recommended pattern is to use Azure File Storage in the following patterns:
-
-  - Standard: Provisions _SMB_ shares for lower throughput / rwo workloads. Great fit for parts of the application that are not chatty and only need a single persistent volume (e.g. IBM SLS)
-  - Premium: Provisions _NFS_ shares for higher throughput / rwx workloads. Used throughout the cluster for RWX workloads, such as the DB2WH in CP4D or Postgres in Manage.
-  
-The Azure Files Premium with NFS can be used in place of the OpenShift Data Foundation (previously OCS). For cost, performance, scaling and reliability reasons you want avoid running ODF/OCS yourself.
-
-<!-- TODO: disable https on blob because it breaks NFS -->
-
-Avoid using Azure Blob, as it doesn't support required hardlinks. 
-
-<!-- TODO: there was something with ANF here too -->
+Do not use Azure Blob with CSI drivers, it doesn't support required hardlinks which gives problems. 
 
 ### Security and authentication
 
