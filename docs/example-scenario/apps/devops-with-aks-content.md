@@ -6,7 +6,7 @@ By using Azure services such as Azure Kubernetes Service, Container Registry, an
 
 ## Potential use cases
 
-Other relevant use cases include:
+Relevant use cases include:
 
 - Modernizing application development practices to a microservice, container-based approach.
 - Speeding up application development and deployment lifecycles.
