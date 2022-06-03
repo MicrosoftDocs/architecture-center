@@ -4,7 +4,7 @@ Modern web applications must meet higher user expectations and greater demands t
 
 ## Potential use cases
 
-All organizations can utilize this scenario, but it is most common in the retail industry.
+Any organization can utilize this scenario, but it's most common in the retail industry.
 
 ## Architecture
 
@@ -12,7 +12,7 @@ All organizations can utilize this scenario, but it is most common in the retail
 
 The following annotations describe the migration process:
 
-## Dataflow
+### Dataflow
 
 1. Provision an Azure SQL Database instance in Azure. After the app website is migrated to Azure, the WCF/REST services app will point to this instance.
 1. Assess the database using Data Migration Assistant and migrate it using the Database Migration Service.
@@ -32,7 +32,7 @@ The following annotations describe the migration process:
 
 In this scenario, a global online retail business needs to modernize their existing .NET application due to changes in customer demand. They migrate their web and mobile application to the cloud for increased efficiency, agility, and scale, as well as reduced costs. Here, we show a proposed architecture: a fully managed platform for building, deploying, and scaling your web apps with Azure App Service and Azure SQL Database.
 
-For the data tier of the app, this company chose Azure SQL Database for its dynamic scalability, built-in intelligence optimization, and global scalability and availability. They leveraged Azure Database Migration Service to migrate their on-premises database to Azure SQL. For the app tier, they chose Azure App Service, a PaaS service that enables them to deploy the app with just a few configuration changes using Visual Studio. They chose to deploy two web apps, one for the customer-facing front-end website, and the other a WCF (Windows Communication Framework) or REST services app that talks to both the front-end app and the database and processes business logic.
+For the data tier of the app, this company chose Azure SQL Database for its dynamic scalability, built-in intelligence optimization, and global scalability and availability. They utilized Azure Database Migration Service to migrate their on-premises database to Azure SQL. For the app tier, they chose Azure App Service, a PaaS service that enables them to deploy the app with just a few configuration changes using Visual Studio. They chose to deploy two web apps, one for the customer-facing front-end website, and the other a WCF (Windows Communication Framework) or REST services app that talks to both the front-end app and the database and processes business logic.
 
 By following this process, customers can connect to the online retail catalog via the web app. The load balancer automatically scales during periods of increased traffic to improve application uptime. Product inventory and pricing are queried and pulled from Azure SQL Database, as follows:
 

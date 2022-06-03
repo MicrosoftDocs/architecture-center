@@ -37,7 +37,7 @@ The architecture may be appropriate for any application that uses massive amount
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1857597-PR-3334-multi-region-web-app-multi-writes-azure-table.vsdx) of this architecture.*
 
-## Dataflow
+### Dataflow
 
 1. The client authenticates with Azure Active Directory (Azure AD) and is granted access to web applications hosted on Azure App Service.
 1. Azure Front Door, a firewall and layer 7 load balancer, switches user traffic to a different Azure region in case of a regional outage.

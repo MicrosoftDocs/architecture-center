@@ -33,12 +33,12 @@ Forecasts are created by harnessing the power of real-time and historical data r
 
 ### Components
 
-* [Azure Data Factory](https://azure.microsoft.com/services/data-factory/)
-* [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)
-* [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/)
-* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)
-* [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/)
-* [Power BI](https://powerbi.microsoft.com/)
+* [Azure Data Factory](https://azure.microsoft.com/services/data-factory)
+* [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs)
+* [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning)
+* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics)
+* [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics)
+* [Power BI](https://powerbi.microsoft.com)
 
 ## Deploy this scenario
 
@@ -64,8 +64,8 @@ Product documentation:
 
 Microsoft Learn modules:
 
-- [Train a machine learning model with Azure Machine Learning](/learn/modules/train-local-model-with-azure-mls/)
-- [Integrate data with Azure Data Factory or Azure Synapse Pipeline](/learn/modules/data-integration-azure-data-factory/)
+- [Train a machine learning model with Azure Machine Learning](/learn/modules/train-local-model-with-azure-mls)
+- [Integrate data with Azure Data Factory or Azure Synapse Pipeline](/learn/modules/data-integration-azure-data-factory)
 
 ## Related resources
 

@@ -4,11 +4,13 @@ This serverless architecture enables you to build and run applications without h
 
 ## Potential use cases
 
+This scenario is for organizations that have customers.
 
+- Service based subscriptions (streaming videos, applications such as Office 365 and Adobe , )
 
 ## Architecture
 
-![Architecture Diagram](../media/onboarding-customers-with-a-cloud-native-serverless-architecture.png)
+![Architecture diagram shows customer information sent to endpoint, their photo to Face A P I, added to mailing list, and record created.](../media/onboarding-customers-with-a-cloud-native-serverless-architecture.png)
 
 *Download an [SVG](../media/onboarding-customers-with-a-cloud-native-serverless-architecture.svg) of this architecture.*
 <div class="architecture-tooltip-content" id="architecture-tooltip-2">
