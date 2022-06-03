@@ -38,7 +38,7 @@ This architecture includes the following components:
 
 ## Considerations
 
-API management, in front of the container service provides many benefits such as rate throttling, API versioning, policies.  For further information, refer to [Azure API Management](/azure/api-management/api-management-key-concepts).
+API management, in front of the container service provides many benefits such as rate throttling, API versioning, policies.  For further information, see [Azure API Management](/azure/api-management/api-management-key-concepts).
 
 ### Scalability
 
