@@ -1,8 +1,8 @@
 ### YamlMime:Architecture
 metadata:
-  title: SaaS Starter web app
+  title: Starter web app for SaaS development
   titleSuffix: Azure Architecture Center
-  description: This architecture provides a starting point for building SaaS on Azure and includes common SaaS components such as identity, onboarding, and tenant management.
+  description: A starting point for building software as a service (SaaS) on Azure. This architecture includes common SaaS components such as identity, onboarding, and tenant management.
   author: landonpierce
   ms.author: landonpierce
   ms.date: 06/05/2022
@@ -15,7 +15,7 @@ metadata:
 name: SaaS Starter web app
 azureCategories:
   - web
-summary: This architecture provides a starting point for building SaaS on Azure and includes common SaaS components such as identity, onboarding, and tenant management.
+summary: This architecture provides a starting point for building software as a service (SaaS) on Azure. It includes common SaaS components such as identity, onboarding, and tenant management.
 products:
   - azure-app-service
   - azure-active-directory-b2c

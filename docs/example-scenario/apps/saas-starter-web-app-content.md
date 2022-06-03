@@ -69,7 +69,7 @@ The user sign-in workflow consists of the following steps:
 
 1. *Frontend application* returns a successful sign-in page and the *end user* is now signed in.
 
-For more information about how this sign-in flow works, see [OpenID Connect protocol](/azure/active-directory/develop/v2-protocols-oidc) .
+For more information about how this sign-in flow works, see [OpenID Connect protocol](/azure/active-directory/develop/v2-protocols-oidc).
 
 #### Onboard a new tenant
 
