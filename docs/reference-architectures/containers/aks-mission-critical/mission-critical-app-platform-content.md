@@ -69,7 +69,7 @@ For details on data considerations, see <!coming soon>.
 Azure Log Analytics is used to store diagnostic logs from all global resources. It's recommended that you restrict daily quota on storage especially on environments that are used for load testing. Also, set retention policy. These restrictions will prevent any overspend that is incurred by storing data that is not needed beyond a limit. 
 
 
-### Other foundational services
+### Considerations for foundational services
 
 The system is likely to use other critical platform services that can cause the entire system to be at risk, such as Azure DNS and Azure Active Directory (AD). Unavailability of those services is unlikely. Azure DNS  guarantees 100% availability SLA for valid DNS requests. Azure Active Directory guarantees at least 99.9% uptime. Still, you should be aware of the impact in the event of a failure.
 
@@ -108,6 +108,7 @@ A stamp can also be considered as a scale-unit. All components and services with
 - Load test the services to determine a range within which requests will be served. Based on the results configure minimum and maximum instances and target metrics. When the target is reached, you can choose to automate scaling of the entire unit.
 
   **Scalability requirements**
+
   | Metric | max |
   | --- | --- |
   | Users | 25k |
@@ -116,6 +117,7 @@ A stamp can also be considered as a scale-unit. All components and services with
   This definition is used to evaluate the capabilities of a unit on a regular basis, which later then needs to be translated into a capacity model. This influences the configuration:
 
   **Configuration**
+  
   | Component | min | max |
   | --- | --- | --- |
   | AKS nodes | 3 | 12 |
