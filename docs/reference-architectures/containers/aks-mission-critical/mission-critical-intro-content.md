@@ -2,31 +2,34 @@ This reference architecture describes the design decisions for a mission critica
 
 ## Path to production
 
-The architecture guidance references an [example implementation](https://github.com/Azure/Mission-Critical-Online) only for illustrative purposes. It shows a simplified architecture that is still reliable and can be considered as your first step toward production. The example workload contains a microservices application that doesn't require direct connectivity to other resources of an organization. The application is accessed over a public endpoint. It's hosted in an Azure Kubernetes Service (AKS) cluster and uses other Azure-native platform capabilities.
+The architecture guidance references an [example implementation](https://github.com/Azure/Mission-Critical-Online) only for illustrative purposes. It shows a simple architecture that is still reliable and can be considered as your first step toward production. The example workload contains a microservices application that doesn't require direct connectivity to other resources of an organization. The application is accessed over a public endpoint. It's hosted in an Azure Kubernetes Service (AKS) cluster and uses other Azure-native platform capabilities.
 
 > ![GitHub logo](../../../_images/github.svg) [Mission-Critical open source project](http://github.com/azure/mission-critical)
 
-As the next step, refer to the [Mission-Critical Connected](https://github.com/Azure/Mission-Critical-Connected) reference implementation that extends the implementation with added security measures. This implementation is not referenced in this architecture. For solution guidance, see [Reference Implementation - Solution Guide](https://github.com/Azure/Mission-Critical-Connected/blob/main/docs/reference-implementation/README.md).
+As the next step, refer to the [Mission-Critical Connected](https://github.com/Azure/Mission-Critical-Connected) reference implementation that extends the implementation with added security measures. This implementation isn't referenced in this architecture. For solution guidance, see [Reference Implementation - Solution Guide](https://github.com/Azure/Mission-Critical-Connected/blob/main/docs/reference-implementation/README.md).
 
 ## Business requirements and availability targets
 
-Ultimately all design decisions will depend on the business requirements and the Service Level Agreement (SLA) and Service Level Objective (SLO). Both are percentage figures represents the amount of time in a month when the application is available. This architecture targets availability of 99.95%.
+All design decisions must align with the business requirements and the Service Level Agreement (SLA) and Service Level Objective (SLO). Both are percentage figures that represent the amount of time in a month when the application is available. This architecture targets availability of 99.95%.
 
-To define a realistic SLO it's important to understand the SLAs of the individual Azure components. Cloud services rely on each other and can potentially fail at the same time, therefore, their availability numbers need to be combined into a composite SLA.
+To define a realistic SLO it's important to understand the SLAs of the individual Azure services. Because  services rely on each other and can potentially fail at the same time, combine their availability numbers to a composite SLA.
 
-Composite SLA is calculated as individual SLAs multiplied with each other. For example, 
+> [!TIP]
+> Composite SLA is calculated as individual SLAs multiplied with each other. For example, 
+>
+> Composite SLA = (SLA DNS × SLA Cosmos DB × SLA Front Door × SLA Active Directory)
+> 
+> Composite SLA = 1 × 0.99999 × 0.9999 × 0.9999 = 0.99979 = 99.979%
+>
+> After accounting for deployment and application outages, this architecture targets a final SLO of 99.95%.
 
-Composite SLA = (SLA DNS × SLA Cosmos DB × SLA Front Door × SLA Active Directory)
-
-Composite SLA = 1 × 0.99999 × 0.9999 × 0.9999 = 0.99979 = 99.979%
-
-After accounting for deployment and application outages, this architecture targets a final SLO of 99.95%.
+> For additional considerations, see [Well-architected mission critical workloads: Design for business requirements](/azure/architecture/framework/mission-critical/mission-critical-design-methodology#1design-for-business-requirements).
 
 ## Architecture
 
 Several factors can affect an application's reliability. The application's ability to recover from performance bottlenecks, regional availability, deployment efficacy, and security are common areas that should be analyzed holistically.
 
-Some design choices in this architecture address those factors. For example, the design supports,
+Some design choices in this architecture address those factors. Main strategies are:
 - Global distribution of resources to build redundancy. 
 - A _scale unit_ approach where a logical set of resources can be independently deployed to keep up with the changes in demand. 
 
@@ -36,15 +39,17 @@ Some design choices in this architecture address those factors. For example, the
 The components of this architecture can be broadly categorized in this manner. For product documentation about Azure services, see [Related resources](#related-resources). 
 
 ### Global resources
-The global resources are non-ephemeral and have the capability of being globally replicated in an active-active configuration. 
+The global resources share the lifetime of the system. They have the capability of being globally replicated in an active-active configuration. 
 
 #### Global load balancer
 
 A global load balancer is needed to route traffic to the regional deployments with some level of guarantee based on the availability of backend services in a region. Also, this component should have the capability of inspecting ingress traffic, for example through web application firewall. 
 
-**Azure Front Door** fulfills those requirements. It implements Layer 7 global routing with features such as SSL offloading, web application firewall, and others. The Premium SKU supports private endpoints. You can configure routing rules to allow or deny incoming traffic. It has health probes that check the availability of resources provisioned in a region before routing traffic. It also has built-in content delivery network (CDN) to cache static assets. 
+**Azure Front Door** fulfills those requirements. It implements Layer 7 global routing with features such as SSL offloading, web application firewall, and others. You can configure routing rules to allow or deny incoming traffic. It has health probes that check the availability of resources provisioned in a region before routing traffic. It also has built-in content delivery network (CDN) to cache static assets. 
 
 Another option is Traffic Manager. It uses DNS to route traffic at Layer 4. However in this architecture, the capability to route HTTP(S) traffic is required.
+
+> For additional considerations, see [Well-architected mission critical workloads: Global traffic routing](/azure/architecture/framework/mission-critical/mission-critical-networking-connectivity#global-traffic-routing).
 
 #### Database
 
@@ -52,12 +57,13 @@ All state related to the workload is stored in an external database, **Azure Cos
 
 Also, enable autoscaling at the container-level so that containers automatically scale the provisioned throughput as needed.
 
+> For additional considerations, see [Well-architected mission critical workloads: Globally distributed multi-write datastore](/azure/architecture/framework/mission-critical/mission-critical-data-platform#globally-distributed-multi-write-datastore).
+
 #### Container registry
 
-**Azure Container Registry** is used to store all container images. The offering has geo-replication capabilities that allow the resources to function as a single registry, serving multiple regions with multi-master regional registries.
+**Azure Container Registry** is used to store all container images. It has geo-replication capabilities that allow the resources to function as a single registry, serving multiple regions with multi-master regional registries.
 
 As a security measure, only allow access to required entities and authenticate that access. For example, in the implementation, admin access is disabled. The compute cluster can pull images only with Azure Active Directory role assignments.  
-
 
 ### Regional resources
 The regional resources are deployed as part of a _stamp_ to one Azure region. These resources share nothing with resources in another region. They can be independently removed or replicated to additional regions. They, however share [global resources](#global-resources) between each other. 
@@ -85,19 +91,25 @@ Azure offers other compute services such as Azure Functions, Azure App Services.
 > [!NOTE] 
 >  Avoid storing state on the compute cluster, keeping in mind the ephemeral nature of the stamps. As much as possible, persist state in an external database to keep scaling and recovery operations lightweight. For example in AKS, pods change frequently. Attaching state to pods will add the burden of data consistency.
 
+> For additional considerations, see [Well-architected mission critical workloads: Container Orchestration and Kubernetes](/azure/architecture/framework/mission-critical/mission-critical-application-platform#container-orchestration-and-kubernetes).
+
 #### Message broker
 
 To achieve high responsiveness even during peak load, the design uses asynchronous messaging for long-running requests. As a request is quickly acknowledged back to the frontend APIs, the request is also queued in a message broker. The messages are consumed by a backend service that, for instance, handles write to a database. 
 
 The entire stamp is stateless except for certain points, such as the message broker. Data is queued in the broker for a short period. The queue is drained after the message is processed and stored in a global database. 
 
-In this design, **Azure Event Hubs** is used with additional Azure Storage account for checkpointing purposes. After messages are in the queue, Event Hubs guarantees at least once delivery. This means even if Event Hubs becomes unavailable, messages will be in the queue after the service is restored. However, it's the consumers responsibility to determine whether the message still needs processing. Some strategies are discussed in !coming soon!. 
+In this design, **Azure Event Hubs** is used with additional Azure Storage account for checkpointing purposes. After messages are in the queue, Event Hubs guarantees at least once delivery. This means even if Event Hubs becomes unavailable, messages will be in the queue after the service is restored. However, it's the consumers responsibility to determine whether the message still needs processing.  
     
 Another choice is Azure Serice Bus that offers reliable messaging features such as a built-in dead letter queue and deduping capabilities. 
 
+> For additional considerations, see [Well-architected mission critical workloads: Loosely coupled event-driven architecture](/azure/architecture/framework/mission-critical/mission-critical-application-design#loosely-coupled-event-driven-architecture).
+
 #### Managed secret store
 
-Each stamp has its own **Azure Key Vault** that stores secrets and configuration. There are common secrets such as connection strings to the global database but there's also information unique to a stamp, such as the Event Hubs connection string. Also, independent resources avoid a single point of failure.     
+Each stamp has its own **Azure Key Vault** that stores secrets and configuration. There are common secrets such as connection strings to the global database but there's also information unique to a stamp, such as the Event Hubs connection string. Also, independent resources avoid a single point of failure.
+
+> For additional considerations, see [Well-architected mission critical workloads: Data integrity protection](/azure/architecture/framework/mission-critical/mission-critical-security#data-integrity-protection).
 
 ### Deployment pipeline
 
@@ -109,9 +121,11 @@ A code sharing platform that is highly available. **GitHub** is a popular choice
 
 #### Continuous Integration/Continuous Delivery (CI/CD) pipelines
 
-Automated pipelines is required for building, testing, and deploying a mission workload in preproduction _and_ production environments. **Azure Pipelines** is chosen given its rich tool set that can target Azure and other cloud platforms. 
+Automated pipelines are required for building, testing, and deploying a mission workload in preproduction _and_ production environments. **Azure Pipelines** is chosen given its rich tool set that can target Azure and other cloud platforms. 
 
 Another choice is GitHub Actions as the CI pipeline. The added benefit is that source code and pipeline can be colocated. However, Azure Pipelines was chosen because of the richer CD capabilities. 
+
+> For additional considerations, see [Well-architected mission critical workloads: DevOps processes](/azure/architecture/framework/mission-critical/mission-critical-operational-procedures#devops-processes).
 
 #### Build Agents
 
@@ -119,7 +133,7 @@ Remove any management burden on the developers for maintenance tasks. So, **Micr
 
 ### Observability resources
 
-Monitoring data from application and the infrastructure must be always be available for processing and analysis. The implementation provides a baseline that gives you holistic observability of the system. 
+Monitoring data from application and the infrastructure must always be available for processing and analysis. The implementation provides a baseline that gives you holistic observability of the system. 
 
 - **Azure Log Analytics** is used to store logs and metrics for all application and infrastructure components. 
 - **Azure Application Insights** is used to collect all application monitoring data.
@@ -128,9 +142,11 @@ Monitoring data from application and the infrastructure must be always be availa
 
 Monitoring data for global resources and regional resources should be stored independently. A single, centralized observability store isn't recommended to avoid a single point of failure. Cross-workspace querying is used to still achieve a single pane of glass.
 
-In this architecture, data from shared services such as,  Azure Front Door, Cosmos DB, Container Registry are stored in dedicated instance of Log Analytics Workspace.
+In this architecture, data from shared services such as, Azure Front Door, Cosmos DB, Container Registry are stored in dedicated instance of Log Analytics Workspace.
 
 Similarly, monitoring resources per stamp must be independent. If you tear down a stamp, you still want to preserve observability. Each regional stamp has its own dedicated Application Insights and Log Analytics Workspace. The resources are provisioned per region but they outlive the stamps. 
+
+> For additional considerations, see [Well-architected mission critical workloads: Health modeling and observability](/azure/architecture/framework/mission-critical/mission-critical-health-modeling).
 
 ## Request and processor flows
 
