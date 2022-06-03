@@ -63,7 +63,7 @@ Once developed, the models can run in:
 
 After deployment, you continue to build and maintain the PdM solution.
 
-With Azure you can train and test the models on your technology of choice. You can use  GPUs, field-programmable gate arrays (FPGAs), CPUs, large-memory machines, and so on. Azure fully embraces the open-source tools that data scientists use, such as R and Python. As the analysis completes, the results can be displayed in other facets of the dashboard or in other reports. These reports can appear in custom tools or in reporting tools like [Power BI](/power-bi) or [Azure Time Series Insights](/azure/time-series-insights).
+With Azure you can train and test the models on your technology of choice. You can use  GPUs, field-programmable gate arrays (FPGAs), CPUs, large-memory machines, and so on. Azure fully embraces the open-source tools that data scientists use, such as R and Python. As the analysis completes, the results can be displayed in other facets of the dashboard or in other reports. These reports can appear in custom tools or in reporting tools like [Power BI](/power-bi).
 
 Whatever your PdM needs, Azure has the tools, the scale, and the capabilities to build a solid solution.
 
@@ -88,7 +88,11 @@ To see an example solution, review the solution, guide, and playbook for [PdM in
 - [Azure SQL](https://azure.microsoft.com/services/azure-sql) is a family of SQL cloud databases that provides a unified experience for your entire SQL portfolio, and a wide range of deployment options from edge to cloud.
 - [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database), part of the Azure SQL family, is a fully managed platform as a service (PaaS) database engine. It always runs on the latest stable version of the SQL Server database engine and patched OS. It handles most database management functions for you, including upgrading, patching, backups, and monitoring. It provides the broadest SQL Server engine compatibility, so you can migrate your SQL Server databases without changing your apps.
 - [Power BI](https://powerbi.microsoft.com/) is a suite of business analytics tools that provides the capabilities to create rich interactive data visualizations. It includes services, apps, and connectors that can turn unrelated sources of data into coherent, visually immersive, and interactive insights. Power BI can connect to hundreds of data sources, simplify data preparation, and support ad hoc analysis.
-- [Time Series Insights](https://azure.microsoft.com/services/time-series-insights) is a fully managed analytics, storage, and visualization service for time series data. It provides visualizations such as overlays of different time series, dashboard comparisons, accessible tabular views, and heat maps. It can receive data from Event Hubs, IoT Hub or Blob storage, and provides SQL-like filtering and aggregation, alleviating the need for user-defined functions. All data in Time Series Insights is stored in-memory and in SSDs, which ensures that the data is always ready for interactive analytics. For example, a typical aggregation of over tens of millions of events completes in milliseconds. Time Series Insights can give you a global view of your data, so that you can quickly validate your IoT solution and avoid costly downtime to mission-critical devices.  
+- [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer) is a fast and highly scalable data exploration service for log and telemetry data. You can use Azure Data Explorer to develop a time series service. Azure Data Explorer includes native support for creation, manipulation, and analysis of multiple time series with near real-time monitoring solutions and workflows.
+
+  Azure Data Explorer can ingest data from [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs), [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics), [Power Automate](https://powerautomate.microsoft.com), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps), Kafka, Apache Spark, and many other services and platforms. Ingestion is scalable, and there are no limits. Supported Azure Data Explorer ingestion formats include JSON, CSV, Avro, Parquet, ORC, TXT, and other formats.
+
+- The Azure Data Explorer [Web UI](/azure/data-explorer/web-query-data) lets you run queries and [build data visualization dashboards](/azure/data-explorer/azure-data-explorer-dashboards). Azure Data Explorer also integrates with other dashboard services like Power BI, Grafana, and other data visualization tools that use ODBC and JDBC connectors. The optimized native [Azure Data Explorer connector for Power BI](/azure/data-explorer/power-bi-connector) supports direct query or import mode, including query parameters and filters. For more information, see [Data visualization with Azure Data Explorer](/azure/data-explorer/viz-overview).
 
 ## Conclusion
 
@@ -121,7 +125,7 @@ Principal author:
 - [Azure Relay documentation](/azure/azure-relay)
 - [Azure SQL documentation](/azure/azure-sql?view=azuresql)
 - [Power BI documentation](/power-bi)
-- [Azure Time Series Insights Documentation](/azure/time-series-insights)
+- [Time series analysis in Azure Data Explorer](/azure/data-explorer/time-series-analysis)
 
 ## Related resources
 
