@@ -6,7 +6,7 @@ Marketing campaigns are about more than the message being delivered; when and ho
 
 This solution architecture uses machine learning with historical campaign data to predict customer responses and recommend an optimized plan for connecting with your leads. Recommendations include the best channel to use (email, SMS, cold call, and so on), the best day of the week, and the best time of the day.
 
-Optimizing your campaigns with predictive marketing helps improve both sales leads and revenue generation and can provide strong ROI for your marketing investment. This solution is ideal for the retail industry.
+Optimizing your campaigns with predictive marketing help improve both sales leads and revenue generation and can provide strong ROI for your marketing investment. This solution is ideal for the retail industry.
 
 ## Architecture
 

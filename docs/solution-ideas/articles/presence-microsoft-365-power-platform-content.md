@@ -9,6 +9,7 @@ The solution provides presence for a JavaScript front-end application. It uses M
 ## Potential use cases
 
 This solution applies to companies that use custom applications that require:
+
 - Real-time change tracking on Microsoft 365 data.
 - Broadcasting of data to the browser in real time.
 - Notifications to application users when a person's availability changes.
@@ -24,10 +25,10 @@ This solution applies to companies that use custom applications that require:
 
 1. A Power Automate flow gets an access token for Microsoft Graph by using Azure AD.
 2. The Power Automate flow retrieves members of the selected team who are on Microsoft Teams. The flow creates a Microsoft Graph presence API subscription and updates it every hour to track changes in presence for the selected team members.
-3. When there's a change in member presence, the Microsoft Graph Change Tracking application policy gets a connection string to Event Hubs from Key Vault.         
+3. When there's a change in member presence, the Microsoft Graph Change Tracking application policy gets a connection string to Event Hubs from Key Vault.
 4. When a Microsoft Graph change notification is processed, the message is placed in Event Hubs.
-5. Azure Functions takes the Microsoft Graph messages from Event Hubs as input. 
-6. Azure SignalR Service is defined as an output in Azure Functions. This allows a browser to subscribe to Azure SignalR Service and receive messages in real time. 
+5. Azure Functions takes the Microsoft Graph messages from Event Hubs as input.
+6. Azure SignalR Service is defined as an output in Azure Functions. This allows a browser to subscribe to Azure SignalR Service and receive messages in real time.
 7. To receive the presence messages in the browser, an app subscribes to Azure SignalR Service.
 
 ### Components
@@ -47,6 +48,14 @@ This solution applies to companies that use custom applications that require:
 
 Get a [code sample](https://github.com/microsoft/brainstorm-fluidframework-m365-azure) that demonstrates this solution.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+* [Dan Wahlin](https://www.linkedin.com/in/danwahlin) | Principle Cloud Developer
+
 ## Next steps
 
 For more information about the services and products that are used in this solution, see these articles:
@@ -57,7 +66,7 @@ For more information about the services and products that are used in this solut
 - [Key Vault](/azure/key-vault/general/overview)
 - [Event Hubs](/azure/event-hubs/event-hubs-features)
 - [Azure Functions](/azure/azure-functions/functions-overview)
-- [Azure SignalR Service](/azure/azure-signalr) 
+- [Azure SignalR Service](/azure/azure-signalr)
 
 ## Related resources
 

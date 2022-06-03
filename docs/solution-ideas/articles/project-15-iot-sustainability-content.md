@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-The mission of [Project 15 from Microsoft][Project 15 from Microsoft] is to empower scientists and conservationists around the world. The project pairs conservation teams with a community of developers, students, and Microsoft partners. Backed by the power of Azure and an Internet of Things (IoT) open platform, the project helps these teams capture and analyze the data they need to preserve critical species and ecosystems.
+The mission of [Project 15 from Microsoft][Project 15 from Microsoft] is to empower scientists and conservationists around the world. The project pairs conservation teams with a community of developers, students, and Microsoft partners. The project helps these teams capture and analyze the data they need to preserve critical species and ecosystems which is backed by the power of Azure and an Internet of Things (IoT) open platform.
 
 A key part of these solutions is the Project 15 Open Platform, which Microsoft designed and built. This open-source software connects to the cloud and securely manages devices that conservation projects use. Its architecture serves as a reference for building end-to-end IoT solutions.
 
@@ -27,6 +27,8 @@ The following sections provide insight into Project 15 Open Platform functionali
 Diagram showing components and functionality of the Project 15 Open Platform. Bars show areas of functionality, such as user management and security. Boxes represent actions that the platform handles like connect devices and ingest data. Between the boxes are arrows that indicate the flow of data in the system. The components are color coded. Light green elements are fully included in the platform. Dark green elements are included but need customization. Blue elements aren't included by default and require full customization. Images of animals and plants connected to sensors and trackers are also visible. Arrows indicate that their data flows into the system, and the system can manage these devices.
 :::image-end:::
 
+### Dataflow
+
 Open Platform components fall into these categories:
 
 - **Fully included:** Azure Services that you deploy once. You expand these components when you add devices to the solution.
@@ -38,7 +40,7 @@ Open Platform components fall into these categories:
 ### Solution details
 
 :::image type="complex" source="../media/project-15-ref-architecture.png" alt-text="Diagram showing how the Project 15 Open Platform collects, processes, analyzes, stores, secures, visualizes, and monitors IoT device data.":::
-Diagram showing the Azure components that make up the Project 15 Open Platform. Boxes represent layers of the solution, such as the gateway, the data process layer, the presentation layer, and the storage layer. Arrows show how data flows between these layers. Additional arrows show how users and devices interact with the system.
+Diagram showing the Azure components that make up the Project 15 Open Platform. Boxes represent layers of the solution, such as the gateway, the data process layer, the presentation layer, and the storage layer. Arrows show how data flows between these layers. Arrows show how users and devices interact with the system.
 :::image-end:::
 
 Various Azure services and configurations make up the Project 15 Open Platform:
@@ -60,7 +62,7 @@ Various Azure services and configurations make up the Project 15 Open Platform:
 
 1. Databases, Azure Blob Storage, and tables store telemetry and file data from offices in the field.
 
-1. Other Azure components provide additional functionality:
+1. Other Azure components provide more functionality:
 
    - Azure Functions and the API Apps feature of Azure App Service work to make device management events available in websites.
    - Azure Active Directory (Azure AD) manages users.
@@ -79,11 +81,11 @@ Various Azure services and configurations make up the Project 15 Open Platform:
 
 - [Event Hubs][Event Hubs] is a fully managed big data streaming platform.
 
-- [Event Grid][Event Grid] simplifies event-based apps. While decoupling event publishers from event subscribers, this service routes events from sources to destinations.
+- [Event Grid][Event Grid] simplifies event-based apps. This service routes events from sources to destinations while decoupling event publishers from event subscribers.
 
 - [Stream Analytics][Stream Analytics] provides real-time serverless stream processing that can run queries in the cloud and on devices on the edge of the network. Stream Analytics on IoT Edge can filter or aggregate data that you send to the cloud for further processing or storage.
 
-- [Functions][Functions] is an event-driven serverless compute platform that you can use to build and debug locally without additional setup. With Functions, you can deploy and operate at scale in the cloud and use triggers and bindings to integrate services.
+- [Functions][Functions] are an event-driven serverless compute platform that you can use to build and debug locally without extra setup. With Functions, you can deploy and operate at scale in the cloud and use triggers and bindings to integrate services.
 
 - [Time Series Insights][Time Series Insights] is an analytics platform that you can use to monitor, analyze, and visualize IoT time series data.
 
@@ -116,6 +118,14 @@ Various Azure services and configurations make up the Project 15 Open Platform:
 - Deployment to Azure happens with the push of a button. The main components of the infrastructure for a standard IoT solution are then up and running.
 
 - See [Deploying Project 15 from Microsoft Open Platform][Deploying Project 15 from Microsoft Open Platform].
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Pamela Cortez](https://www.linkedin.com/in/pamelacortezhellotechie) | Azure IoT Principle PM
 
 ## Next steps
 
