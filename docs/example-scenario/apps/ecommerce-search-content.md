@@ -79,11 +79,7 @@ Typical ways to tune your search service include:
 - Using [Microsoft provided language analyzers][search-languages] that use an advanced Natural Language Processing (NLP) stack to better interpret queries
 - Using [custom analyzers][search-analyzers] to ensure your products are found correctly, especially if you want to search on non-language based information like a product's make and model.
 
-## Deploy this scenario
-
-To deploy a version of this scenario, you can follow this [step-by-step tutorial][end-to-end-walkthrough] that provides a .NET sample application that runs a job search web site. It demonstrates most of the Azure Cognitive Search features discussed thus far.
-
-## Pricing
+### Cost optimization
 
 To explore the cost of running this scenario, all the services mentioned above are pre-configured in the cost calculator. To see how the pricing would change for your particular use case change the appropriate variables to match your expected usage.
 
@@ -93,13 +89,17 @@ We have provided three sample cost profiles based on amount of traffic you expec
 - [Medium][medium-pricing]: Here we are scaling up the Web App to two instances of the `Standard S3` tier, upgrading the search service to a `Standard S1` tier, and using a `Standard S6` SQL Database.
 - [Large][large-pricing]: In the largest profile, we use four instances of a `Premium P2V2` Web App, upgrade the Azure Bot service to the `Standard S1` tier (with 1.000.000 messages in Premium channels), use 2 units of the `Standard S3` search service, and a `Premium P6` SQL Database.
 
+## Deploy this scenario
+
+To deploy a version of this scenario, you can follow this [step-by-step tutorial][end-to-end-walkthrough] that provides a .NET sample application that runs a job search web site. It demonstrates most of the Azure Cognitive Search features discussed thus far.
+
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 
-- [Jelle Druyts](/) | Principal Customer Engineer
+- [Jelle Druyts]([/](https://www.linkedin.com/in/jelle-druyts-0b76823)) | Principal Customer Engineer
 
 ## Next steps
 
