@@ -217,7 +217,7 @@ To learn about related solutions, see the following information:
 [Introduction to Azure Data Lake Storage Gen2]: /azure/storage/blobs/data-lake-storage-introduction
 [Key rotation and regeneration]: /azure/cosmos-db/secure-access-to-data?tabs=using-primary-key#key-rotation
 [Kubernetes]: https://kubernetes.io
-[Microsoft Docs]: https://docs.microsoft.com
+[Microsoft Docs]: /
 [MongoDB]: https://www.mongodb.com
 [Open source on Azure]: https://azure.microsoft.com/en-au/overview/open-source
 [Overview of Event Hubs Dedicated]: /azure/event-hubs/event-hubs-dedicated-overview

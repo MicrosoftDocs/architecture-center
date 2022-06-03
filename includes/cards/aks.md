@@ -7,7 +7,7 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices"><img src="/azure/architecture/browse/thumbs/aks.png" class="diagram" alt="Architecture Diagram of microservices architecture on Azure Kubernetes Service (AKS)." data-linktype="relative-path"></a>
+            <a href="/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices"><img src="/azure/architecture/browse/thumbs/aks.png" class="diagram" alt="Architecture Diagram of microservices architecture on Azure Kubernetes Service (AKS)." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
