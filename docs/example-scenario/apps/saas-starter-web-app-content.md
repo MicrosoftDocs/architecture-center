@@ -29,7 +29,7 @@ The following table describes terms that appear in this article.
 | SaaS customer admin | People who purchase or administer an application tenant. | Joe, owner of Fourth Coffee Shop. |
 | SaaS customer user | People who use an application tenant without administering it and usually belong to the same company or group as the SaaS customer admin. | Jill, event manager at Fourth Coffee Shop, and Susan, customer of Fourth Coffee Shop. |
 | End user         | A SaaS customer admin, SaaS customer user, or any other user types that are introduced. This is a generic term to describe users who sign into the application. | Joe, Jill, and Susan are all end users (from the ISV perspective). |
-| Frontend application | Any frontend application. | The Onboarding & Admin App and SaaS App are both frontend applications. |
+| Frontend application | Any frontend application. | The Onboarding & admin app and SaaS app are both frontend applications. |
 
 ### Workflow
 
@@ -108,7 +108,7 @@ The addition of a user to a tenant workflow consists of the following steps:
 
 This architecture uses the following Azure services:
 
-- [Azure App Service](https://azure.microsoft.com/services/app-service) enables you to build and host web apps and API apps in the programming language that you choose without needing to manage infrastructure.
+- [App Service](https://azure.microsoft.com/services/app-service) enables you to build and host web apps and API apps in the programming language that you choose without needing to manage infrastructure.
 
 - [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory/external-identities/b2c/) easily enables identity and access management for end user applications.
 
@@ -142,7 +142,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 The components in this solution have some cost associated with their operation, but the cost is modest for most web applications and SaaS solutions. Additionally, you can control the cost by managing the following resource settings:
 
-- You can scale the [App Service plan](/azure/app-service/overview-hosting-plans) that runs the application to fit the throughput that you need. In addition, you could run each app on a separate plan if you require higher throughput, but you will incur a higher cost as a result.
+- You can scale the App Service plan that runs the application to fit the throughput that you need. In addition, you could run each app on a separate plan if you require higher throughput, but you will incur a higher cost as a result. For more information, see [Azure App Service plan overview](/azure/app-service/overview-hosting-plans).
 
 - Azure AD B2C provides two SKUs: Premium P1 and Premium P2. Both SKUs include a free allowance for the number of monthly active users (MAUs), but you need to evaluate which features that each SKU provides to determine which is required for your use case. For more information, see [Azure Active Directory External Identities pricing](https://azure.microsoft.com/pricing/details/active-directory/external-identities/).
 
@@ -150,11 +150,11 @@ The components in this solution have some cost associated with their operation, 
 
 ### Performance efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Overview of the performance efficiency pillar](/azure/architecture/framework/scalability/overview).
 
 This architecture should be able to scale to easily meet most medium to medium-large workloads. Since the architecture mostly uses Azure's platform (PaaS) services, you have many options to adjust the scale of the solution based on your requirements and load.
 
-For high-throughput scenarios, or scenarios in which you need to serve customers in multiple geographies, you can also consider deploying the applications and databases in multiple regions. For a great example of this architecture, see the [Multi-region web app with private database](../sql-failover/app-service-private-sql-multi-region.yml).
+For high-throughput scenarios, or scenarios in which you need to serve customers in multiple geographies, you can also consider deploying the applications and databases in multiple regions. For a great example of this architecture, see [Multi-region web app with private connectivity to a database](../sql-failover/app-service-private-sql-multi-region.yml).
 
 ## Deploy this scenario
 
