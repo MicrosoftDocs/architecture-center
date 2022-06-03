@@ -27,6 +27,8 @@ Optimizing your campaigns with machine learning helps improve both sales leads a
 
 Principal author:
 
+ *[Nicholas Moore](https://www.linkedin.com/in/nicholas-moore) | Cloud Architecture / Data / Artificial Intelligence
+
 ## Next steps
 
 Learn more with the following learning paths:
@@ -46,14 +48,14 @@ Learn more with the following learning paths:
 <!-- links -->
 [architecture-png]: ../media/optimize-marketing-with-machine-learning.png
 [architecture-svg]: ../media/optimize-marketing-with-machine-learning.png
-[synapse-docs]: /azure/synapse-analytics/
-[aml-docs]: /azure/machine-learning/
-[pbi-docs]: /power-bi/
+[synapse-docs]: /azure/synapse-analytics
+[aml-docs]: /azure/machine-learning
+[pbi-docs]: /power-bi
 [synapse-overview]: /azure/synapse-analytics/overview-what-is
 [aml-overview]: /azure/machine-learning/overview-what-is-azure-ml
 [apache-spark-machine-learning-training]: /azure/synapse-analytics/spark/apache-spark-machine-learning-training
 [tutorial-sql-pool-model-scoring-wizard]: /azure/synapse-analytics/machine-learning/tutorial-sql-pool-model-scoring-wizard
 [pbi-overview]: /power-bi/fundamentals/power-bi-overview
-[ms-learn-create-ml]: /learn/paths/create-machine-learn-models/
-[ms-learn-build-ai-solutions]: /learn/paths/build-ai-solutions-with-azure-ml-service/
-[ms-learn-synapse-data-integration]: /learn/paths/data-integration-scale-azure-data-factory/
+[ms-learn-create-ml]: /learn/paths/create-machine-learn-models
+[ms-learn-build-ai-solutions]: /learn/paths/build-ai-solutions-with-azure-ml-service
+[ms-learn-synapse-data-integration]: /learn/paths/data-integration-scale-azure-data-factory
