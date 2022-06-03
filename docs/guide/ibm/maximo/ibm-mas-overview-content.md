@@ -1,6 +1,6 @@
 ## Introduction to IBM Maximo Application Suite
 
-Maximo Application Suite (MAS) or Maximo is an Enterprise Asset Management platform focused on operational resiliency and reliability that leverages condition-based asset maintenance. The suite consists of a core application platform, Maximo Application Suite, and applications on top of the platform. Each of the application performs a specific benefit:
+Maximo Application Suite, also MAS or Maximo, is an Enterprise Asset Management platform focused on operational resiliency and reliability that leverages condition-based asset maintenance. The suite consists of a core application platform, Maximo Application Suite, and applications on top of the platform. Each of the application performs a specific benefit:
 
 - Manage: reduce downtime and costs through asset management to improve operational performance.
 - Monitor: advanced AI-powered remote asset monitoring at scale using IoT.
@@ -22,20 +22,32 @@ MAS 8.x runs on OpenShift and it is beneficial to familiarize yourself with Open
    The diagram contains a large rectangle with the label Azure Virtual Network. Inside it, another large rectangle.
 :::image-end:::
 
-<!-- TODO: Needs a bit more explanation and direction -->
+The architecture we developed provides you with the following:
 
-## Design recommendations
+* Highly available workload across availability zones
+* A privatized deployment of worker and control machines and integrated with storage
+* Azure Files Premium and Standard for storage, which avoids using OpenShift Container Storage
+* Azure SQL running on a virtual machine or DB2WH on Azure Storage inside of the cluster
+* Azure DNS for DNS management of OpenShift
+* Azure Active Directory for Single Sign On into Maximo
 
-At this time, IBM MAS 8.7 supports OpenShift versions 4.8. It is recommended to use this version to avoid falling out of official support for either IBM MAS or RedHat OpenShift. Before building out your own deployment, we strongly recommend deploying our [QuickStart Guide](https://github.com/Azure/maximo) reference architecture so that you have a good understanding of how the deployment and configuration works. This will speed up the process of creating the design requirements for your implementation.
+The workload can be both deployed internally or externally facing, depending on your requirements. 
+
+## Design choices and Azure recommendations
+
+At this time, we recommend deploying IBM MAS 8.7. Version 8.7 is pinned on OpenShift version 4.8.x. It is recommended to use a version >= 4.8.22 to make sure all applications work properly.
+
+Avoid using earlier or later major versions (e.g. 4.6 or 4.9) to avoid falling out of official support for either IBM MAS or RedHat OpenShift. Before building out your own deployment, we strongly recommend deploying our [QuickStart Guide](https://github.com/Azure/maximo) reference architecture so that you have a good understanding of how the deployment and configuration works. This will speed up the process of creating the design requirements for your implementation.
 
 We work closely with IBM and other partners to ensure the guidance found in this document and our quickstart gives you the best experience on Azure. It follows the best practices as outlined in the [Azure Well Architected Framework](/azure/architecture/framework/). Please do not hesitate to reach out to your IBM account team for support beyond the documentation provided.
 
-<!-- TODO: This is the bestest practice and aligned with WAF -->
-<!-- TODO: Merge parts with the intro -->
+Before you proceed with your deployment, you need to make a series of design decisions:
 
-## Azure recommendations
-
-Your IBM team can provide you a sizing recommendation based on your existing installation or business requirements. Once complete, you can calculate the number of control and worker nodes you will need for your cluster. A list of recommended Azure components is below.
+1. What applications do you need?
+2. What dependencies do you have to set up?
+3. What number and sizes of virtual nachines do you need? 
+4. How to install OpenShift?
+5. What data sources are you going to use?
 
 ### OpenShift
 
@@ -49,36 +61,39 @@ Your IBM team can provide you a sizing recommendation based on your existing ins
 
 Considerations:
 
-- **Region Selection** - Inside the OpenShift platform, it attempts to load balance workloads across all available nodes. When configuring the IPI for deployment, it will attempt to provision nodes across zones, when possible. In the event of a zone outage, OpenShift can still function by having nodes in other zones take over the work (assuming those nodes have enough room to schedule the pods). It is recommended to use a region with [availability zones](/azure/availability-zones/az-overview#azure-regions-with-availability-zones). 
-- **Backup & Recover** - Although Azure RedHat OpenShift is not supported by MAS, you can use [their instructions](/azure/openshift/howto-create-a-backup) to do backups and recovery. 
-- **Failover** - Consider deploying OpenShift into 2 regions and use [RedHat's Advanced Cluster Management platform](https://www.redhat.com/en/technologies/management/advanced-cluster-management). If your solution has public endpoints, you can either place Azure Front Door or Azure Traffic Manager in front of them to redirect traffic to the appropriate cluster in the event of an outage. In this situation, you would need to migrate your applications state and persistent volumes as well.
+- **Region Selection**: it is recommended to use a region with [availability zones](/azure/availability-zones/az-overview#azure-regions-with-availability-zones). When using OpenShift IPI for deployment, the IPI will automatically attempt to provision nodes across zones. OpenShift itself will by default balance workloads across all available nodes across the availability zones. In the event of a zone outage, your solution can keep on functioning by having nodes in other zones that can take over the work. 
+- **Backup & Recovery**: although Azure RedHat OpenShift is not supported by Maximo, you can use [their instructions](/azure/openshift/howto-create-a-backup) for backup and recovery. 
+- **Failover** - Consider deploying OpenShift into 2 regions and use [RedHat's Advanced Cluster Management platform](https://www.redhat.com/en/technologies/management/advanced-cluster-management). If your solution has public endpoints, you can place Azure Traffic Manager in front of them to redirect traffic to the appropriate cluster in the event of an outage. In this situation, you would need to migrate your applications state and persistent volumes as well.
 
-<!-- TODO: Added network sizing, this is only placement so far -->
+### Sizing your environment
 
-### Sizing and VM choice
+For all workloads (except visual inspection), we recommend using the latest Ds series VMs as your worker nodes. These can be [Dsv3](/azure/virtual-machines/dv3-dsv3-series#dsv3-series), [Dasv4](/azure/virtual-machines/dav4-dasv4-series#dasv4-series), [Dsv4](/azure/virtual-machines/dv4-dsv4-series#dsv4-series), [Dasv5](/azure/virtual-machines/dasv5-dadsv5-series#dasv5-series), or [Dsv5](/azure/virtual-machines/dv5-dsv5-series#dsv5-series). We recommend using the latest version when possible, as you get better performance. Only use SKUs with Premium Disks.
 
-For all workloads except Visual Inspection we recommend using the Dsv4 Series
+Visual Inspection needs GPU nodes to perform its machine learing. The solution uses CUDA and only supports Nvidia GPUs. Recommended machine types are the [NCv3](/azure/virtual-machines/ncv3-series) and [NCasT4_v3](/azure/virtual-machines/nct4-v3-series). If you need to train using YOLOv3, you'll need Ampere based GPUs. Use the [NVadsA10 v5](/azure/virtual-machines/nva10v5-series) or [NC A100 v4](/azure/virtual-machines/nc-a100-v4-series) for larger training tasks.
 
-- Control nodes, you will want at minimum 1 Node per Availability Zone within the selected region. In our diagram above, we suggest 3 - D8s_v4 nodes.
-- Worker nodes, you will want a minimum of 2 Nodes per Availability Zone within the selected region. In our diagram above, we suggest 6 - D8s_v4 nodes.
+For the GPU machines, we recommend starting with the smallest node and working your way up as your requirements increase. For all other machines, we recommend a highly available, cross availability zone set up:
 
-> [!NOTE]
-> Sizing for the worker nodes will vary based on which MAS services are deployed and the expected load on your environment.
+> [!WARN]
+> If you need GPU machines, you need OpenShift 4.8.22 as a minimum version to enable the GPUs through the Nvidia Operator.
 
-<!-- TODO: Add the minimum requirement number of nodes, which is 9 for an HA setup -->
+* Control nodes, you will want at a minimum 1 machine per availability zone within the selected region. The minimum recommended vCPU count is 4. Our reference uses 3x `Standard_D8s_v4` nodes
+- Worker nodes, you will want a minimum of 2 machines per availability zone within the selected region. The minimum recommended vCPU count is 8. Our reference uses 6x `Standard_D8s_v4` nodes.
 
-If you need a JumpBox to do your installation, you should be able to get by with a `Standard_B2ms` running RHEL 8.4.
+Maximo Application Suite core requires 23 vCPUs for a standard sized base install. Sizing for the worker nodes will vary based on which Maximo applications are deployed and the expected load on your environment. For example, manage for 10 users needs an additional 13 vCPUs.
 
-#### GPU nodes
+Try to keep VM types similar to provide proximity with each of the availability zones between worker and control nodes. I.e. if you use a v4 for your control nodes, use a v4 for your worker nodes.
 
-<!-- TODO: GPU nodes -->
-<!-- TODO: Make sure you are on OpenShift 4.8.22 etc. -->
+If you need a jump box to do `oc` work or install Maximo, than we recommend to deploy a `Standard_B2ms` running RHEL 8.4. It has been sufficient in our tests.
 
-### Network and placement considerations
+### Network
 
-If there is already an existing support strategy in place for OpenShift then you can skip over the OpenShift specific considerations and handle MAS only. 
+With OpenShift we use the default [OpenShift SDN CNI provider](https://docs.openshift.com/container-platform/4.8/networking/cluster-network-operator.html). You need to size your network for the number of OpenShift control and worker nodes you need, as well as any requirements like databases, and storage accounts.
 
-<!-- TODO: link to the MAS piece (#anchor)-->
+For a standard Maximo production install, we recommend a VNet with a /24 of address space with a /25 for the worker nodes and a /27 subnet for the control nodes. An additional /27 is needed for private endpoints and your database servers if required. 
+
+If you are short on IP addresses, the minimum highly available set up can use is a /27.
+
+If you want to use a different CNI, size your networks accordingly. Maximo with some standard applications deploys a lot of Pods (800+), you are likely going to need a /21 or larger. 
 
 ### Maximo Application Suite
 
