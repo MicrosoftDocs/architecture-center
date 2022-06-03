@@ -44,7 +44,7 @@ Azure App Services or Azure Functions are straightforward options for operating 
 ### Resources
 - **Concept:** [User Identity](https://docs.microsoft.com/azure/communication-services/concepts/identity-model)
 - **Quickstart:** [Create and manage access tokens](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens)
-- **Tutorial:** [Build a identity management service use Azure Functions](https://docs.microsoft.com/azure/communication-services/tutorials/trusted-service-tutorial)
+- **Tutorial:** [Build a identity management service using Azure Functions](https://docs.microsoft.com/azure/communication-services/tutorials/trusted-service-tutorial)
 - **Sample:** [Build a identity management service use Azure Functions](https://github.com/Azure-Samples/communication-services-authentication-hero-nodejs)
 
 ## User calling an app or phone number 
