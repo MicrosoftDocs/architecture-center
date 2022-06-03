@@ -51,7 +51,7 @@ Create a subnet named *GatewaySubnet*, with an address range of /27. The virtual
 For more information about setting up the gateway, see the following reference architectures, depending on your connection type:
 
 - [Hybrid network using ExpressRoute](./expressroute.yml)
-- [Hybrid network using a VPN gateway](./vpn.yml)
+- [Hybrid network using a VPN gateway](/azure/expressroute/expressroute-howto-coexist-resource-manager)
 
 For higher availability, you can use ExpressRoute plus a VPN for failover. See [Connect an on-premises network to Azure using ExpressRoute with VPN failover](./expressroute-vpn-failover.yml).
 
@@ -219,7 +219,7 @@ Explore the following related architectures:
 
 - [Azure firewall architecture guide](../../example-scenario/firewalls/index.yml)
 - [Firewall and Application Gateway for virtual networks](../../example-scenario/gateway/firewall-application-gateway.yml)
-- [Extend an on-premises network using VPN](./vpn.yml)
+- [Extend an on-premises network using VPN](/azure/expressroute/expressroute-howto-coexist-resource-manager)
 - [Troubleshoot a hybrid VPN connection](./troubleshoot-vpn.yml)
 - [Hybrid connection](../../solution-ideas/articles/hybrid-connectivity.yml)
 - [Connect standalone servers by using Azure Network Adapter](../../hybrid/azure-network-adapter.yml)
