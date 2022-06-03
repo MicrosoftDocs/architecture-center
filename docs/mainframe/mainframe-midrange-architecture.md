@@ -2,8 +2,8 @@
 title: Azure mainframe and midrange architecture concepts and patterns
 titleSuffix: Azure Architecture Center
 description: An overview of Microsoft's Azure mainframe and midrange architectural concepts and guidance offerings.
-author: jjfrost
-ms.author: jfrost
+author: bhbandam
+ms.author: bhbandam
 ms.date: 12/13/2021
 ms.topic: conceptual
 ms.service: architecture-center

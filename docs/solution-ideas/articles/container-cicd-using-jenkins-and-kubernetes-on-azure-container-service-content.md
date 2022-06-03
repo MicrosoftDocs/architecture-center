@@ -4,12 +4,18 @@ Containers make it easy for you to continuously build and deploy applications. B
 
 By setting up a continuous build to produce your container images and orchestration, you can increase the speed and reliability of your deployment.
 
+## Potential use cases
+
+* Modernize application development practices to a microservice, container-based approach.
+* Speeding up application development and deployment lifecycles.
+* Automating deployments to test or acceptance environments for validation.
+
 ## Architecture
 
 ![Architecture diagram](../media/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service.png)
 *Download an [SVG](../media/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
 1. Change application source code.
 1. Commit code to GitHub.

@@ -1,5 +1,3 @@
-<!-- cSpell:ignore pracjain -->
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 This architecture demonstrates how to use [knowledge mining](https://azure.microsoft.com/solutions/knowledge-mining) in digital asset management.
@@ -32,16 +30,16 @@ There are three steps in knowledge mining: ingest, enrich, and explore.
 
 Key technologies used to implement tools for technical content review and research:
 
-- [Azure Cognitive Search](/azure/search/)
-- [Cognitive Services Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/)
-- [Cognitive Services Face](https://azure.microsoft.com/services/cognitive-services/face/)
+- [Azure Cognitive Search](/azure/search)
+- [Cognitive Services Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision)
+- [Cognitive Services Face](https://azure.microsoft.com/services/cognitive-services/face)
 - [Cognitive Search custom skill interface](/azure/search/cognitive-search-custom-skill-interface)
 
 ## Next steps
 
 - Read an architecture overview on [artificial intelligence (AI)](../../data-guide/big-data/ai-overview.md).
 
-- Use the [Knowledge Mining Solution Accelerator](/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining/) to build an initial knowledge mining prototype with Azure Cognitive Search.
+- Use the [Knowledge Mining Solution Accelerator](/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining) to build an initial knowledge mining prototype with Azure Cognitive Search.
 - Build an Azure Cognitive Search [custom skill](/azure/search/cognitive-search-custom-skill-interface).
 
-- Explore the Microsoft Learning Path [knowledge mining with Azure Cognitive Search](/learn/paths/implement-knowledge-mining-azure-cognitive-search/).
+- Explore the Microsoft Learning Path [knowledge mining with Azure Cognitive Search](/learn/paths/implement-knowledge-mining-azure-cognitive-search).
