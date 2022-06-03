@@ -75,8 +75,8 @@ Principal author:
 
 ## Related resources
 
-[High-performance computing (HPC) on Azure][/azure/architecture/topics/high-performance-computing]
-[Run containerized HPC workloads with Batch Shipyard][https://github.com/Azure/batch-shipyard]
+[High-performance computing (HPC) on Azure](/azure/architecture/topics/high-performance-computing)
+[Run containerized HPC workloads with Batch Shipyard](https://github.com/Azure/batch-shipyard)
 <!-- links -->
 [architecture]: ./media/architecture-hpc-saas.png
 [source-document]: https://customers.microsoft.com/story/altair-manufacturing-azure

@@ -143,9 +143,9 @@ Application Gateway pricing can be [configured here][appgtwy-pricing] depending 
 
 ## Next steps
 
-- [Tutorial: Import and publish your first API][/azure/api-management/import-and-publish]
-- [Tutorial: Create and publish a product][/azure/api-management/api-management-howto-add-products?tabs=azure-portal]
-- [Tutorial: Publish multiple versions of your API][/azure/api-management/api-management-get-started-publish-versions]
+- [Tutorial: Import and publish your first API](/azure/api-management/import-and-publish)
+- [Tutorial: Create and publish a product](/azure/api-management/api-management-howto-add-products?tabs=azure-portal)
+- [Tutorial: Publish multiple versions of your API](/azure/api-management/api-management-get-started-publish-versions)
 
 ## Related resources
 

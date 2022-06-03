@@ -117,7 +117,7 @@ Principal authors:
 
 ## Next steps
 
-To get started with implementing a comparable architecture for your business, consider building skills around web services, databases such as [Azure Database for PostgreSQL](/azure/postgresql), and mobile application development techniques and technologies such as [Xamarin](/xamarin) and [.Net Core](/dotnet/core).
+To get started with implementing a comparable architecture for your business, consider building skills around web services, databases such as [Azure Database for PostgreSQL](/azure/postgresql), and mobile application development techniques and technologies such as [Xamarin](/xamarin) and [.NET Core](/dotnet/core).
 
 Product documentation:
 

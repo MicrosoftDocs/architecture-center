@@ -30,7 +30,7 @@ The actual Contoso microservices containers were manually pushed through Docker 
 
 * Azure Kubernetes Services (AKS) for the node autoscaler for Channel Holder.
 
- The CSE team created the other microservices as stubs to specifically isolate the actual Contoso microservices from other external mainframe services that the solution pushed through AzureDevOps Pipelines.
+ The CSE team created the other microservices as stubs to specifically isolate the actual Contoso microservices from other external mainframe services that the solution pushed through Azure Pipelines.
 
 ### Workflow
 
@@ -292,7 +292,7 @@ At the end of the project, the CSE team shared the following insights:
 
   * The team recommended the use of the Azure Event Hubs for Kafka, but for Contoso Bank, schema registry was an important feature. To attend to Contoso Bank in the requested time frame, the team had to consider the use of schema registry in another instance of AKS.
 
-  * The Kafka protocol with Schema Registry was not supported by Event Hub Scaler in KEDA.
+  * The Kafka protocol with Schema Registry was not supported by Event Hubs Scaler in KEDA.
 
 ## Next steps
 
