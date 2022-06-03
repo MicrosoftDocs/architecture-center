@@ -4,7 +4,7 @@ This reference architecture implements an [extract, load, and transform (ELT)](.
 
 ![GitHub logo](../../_images/github.png) A reference implementation for this architecture is available on [GitHub][github-folder].
 
-![Diagram showing the architecture for Enterprise BI in Azure with Azure Synapse](./images/enterprise-bi-synapse.png)
+![Diagram showing the architecture for Enterprise BI in Azure with Azure Synapse.](./images/enterprise-bi-synapse.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/enterprise-bi-synapse.vsdx) of this architecture.*
 
