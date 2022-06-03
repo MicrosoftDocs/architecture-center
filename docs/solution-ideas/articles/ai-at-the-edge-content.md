@@ -14,18 +14,21 @@ There's a wide range of Edge AI applications that monitor and provide informatio
 
 ## Architecture
 
-![Architecture diagram: AI-enabled application running at the edge with Azure Stack Hub.](../media/ai-at-the-edge.png)
+![Architecture diagram: AI-enabled application running at the edge with Azure Stack Hub.](../media/ai-at-the-edge.svg)
 *Download an [SVG](../media/ai-at-the-edge.svg) of this architecture.*
 
 ### Dataflow
 
-1. Data scientists train a model using Azure Machine Learning and an HDInsight cluster. The model is containerized and put into an Azure Container Registry.
+1. Data is processed using Azure Data Factory to be placed on Azure Data Lake.
+1. Data from Azure data Factory is placed into the Azure Data Lake Storage for training.
+1. Data scientists train a model using Azure Machine Learning. The model is containerized and put into an Azure Container Registry.
 1. The model is deployed to a Kubernetes cluster on Azure Stack Hub.
+1. The on prem web application can be used to score data provided by the end user to score against the model deployed in the Kubernetes cluster.
 1. End users provide data that's scored against the model.
 1. Insights and anomalies from scoring are placed into a queue.
+1. A function app gets triggered once scoring information is placed in the queue.
 1. A function sends compliant data and anomalies to Azure Storage.
-1. Globally relevant and compliant insights are available in the global app.
-1. Data from edge scoring is used to improve the model.
+1. Globally relevant and compliant insights are available for consumption in Power Bi and a global app.
 1. (feedback loop) The model retraining can be triggered by a schedule. Data scientists work on the optimization. The improved model is deployed and containerized as an update to the container registry.
 
 ### Components
@@ -33,7 +36,8 @@ There's a wide range of Edge AI applications that monitor and provide informatio
 Key technologies used to implement this architecture:
 
 * [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning): Build, deploy, and manage predictive analytics solutions
-* [HDInsight](https://azure.microsoft.com/services/hdinsight): Provision cloud Hadoop, Spark, HBase, and Storm clusters
+* [Azure Data Factory](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-data-ingest-adf): Ingest data into Azure Data Factory
+* [Azure Data Lake Storage](https://docs.microsoft.com/en-us/azure/data-factory/load-azure-data-lake-storage-gen2?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json): Load data into Azure Data Lake Storage Gen2 with Azure Data Factory
 * [Container Registry](https://azure.microsoft.com/services/container-registry): Store and manage container images across all types of Azure deployments
 * [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service): Simplify the deployment, management, and operations of Kubernetes
 * [Storage](https://azure.microsoft.com/services/storage): Durable, highly available, and massively scalable cloud storage
@@ -53,12 +57,12 @@ Key technologies used to implement this architecture:
 ## Related resources
 
 * [App Service documentation](/azure/app-service/)
+* [Azure Data Lake Storage Gen 2](https://docs.microsoft.com/en-us/azure/databricks/data/data-sources/azure/adls-gen2/)
 * [Azure Kubernetes Service (AKS) documentation](/azure/aks)
 * [Azure Machine Learning documentation](/azure/machine-learning/service)
 * [Azure Stack Hub documentation](/azure/azure-stack/user/azure-stack-solution-machine-learning)
 * [Azure Stack Hub Deployment Options](/azure-stack/operator/azure-stack-overview#deployment-options)
 * [Container Registry documentation](/azure/container-registry)
-* [HDInsight documentation](/azure/hdinsight)
 * [Storage documentation](/azure/storage)
 * [AKS Engine on Azure Stack Hub (on GitHub)](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md)
 * [Azure Samples - Edge Intelligence on Azure Stack Hub (on GitHub)](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/factory-ai-vision)
