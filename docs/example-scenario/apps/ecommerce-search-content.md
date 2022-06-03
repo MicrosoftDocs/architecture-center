@@ -99,7 +99,7 @@ To deploy a version of this scenario, you can follow this [step-by-step tutorial
 
 Principal author:
 
-- [Jelle Druyts]([/](https://www.linkedin.com/in/jelle-druyts-0b76823)) | Principal Customer Engineer
+- [Jelle Druyts](https://www.linkedin.com/in/jelle-druyts-0b76823) | Principal Customer Engineer
 
 ## Next steps
 
