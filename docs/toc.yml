@@ -3941,8 +3941,6 @@ items:
                 href: example-scenario/hybrid/secure-hybrid-messaging-web.yml
               - name: Extend on-premises using ExpressRoute
                 href: reference-architectures/hybrid-networking/expressroute.yml
-              - name: Extend an on-premises network using VPN
-                href: reference-architectures/hybrid-networking/vpn.yml    
               - name: Hybrid availability and monitoring
                 href: hybrid/hybrid-perf-monitoring.yml
               - name: Hybrid file services

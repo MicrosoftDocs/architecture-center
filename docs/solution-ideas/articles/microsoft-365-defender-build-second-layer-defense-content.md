@@ -5,7 +5,7 @@ Organizations often also subscribe to Microsoft 365 to provide users with applic
 To consider using security services from Microsoft 365, it's helpful to know some terminology and understand the structure of Microsoft 365 services. This fourth article in a series of five can help with that. This article builds on topics that are covered in the previous articles, particularly:
 
 - [Map threats to your IT environment](./map-threats-it-environment.yml)
-- [Building the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml)
+- [Build the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml)
 
 Microsoft 365 and Office 365 are cloud-based services that are designed to help you meet your organization's needs for robust security, reliability, and user productivity. Microsoft 365 includes services like Power Automate, Forms, Stream, Sway, and Office 365. Office 365 includes the well-known suite of productivity applications. For more information about subscription options for these two services, see [Microsoft 365 and Office 365 plan options](/office365/servicedescriptions/office-365-platform-service-description/office-365-plan-options).
 
@@ -156,6 +156,6 @@ For more details about this reference architecture, see the other articles in th
 
 - Part 1: [Use Azure monitoring to integrate security components](../../guide/security/azure-monitor-integrate-security-components.yml)
 - Part 2: [Map threats to your IT environment](./map-threats-it-environment.yml)
-- Part 3: [Building the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml)
+- Part 3: [Build the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml)
 - Part 5: [Integration between Azure and Microsoft 365 Defender security services](./microsoft-365-defender-security-integrate-azure.yml)
 
