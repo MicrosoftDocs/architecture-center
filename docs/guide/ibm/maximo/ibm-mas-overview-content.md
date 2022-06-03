@@ -32,32 +32,6 @@ This guide provides general information for running MAS on Azure and assumes you
 :::image-end:::
 
 <!-- TODO: Needs a bit more explanation and direction -->
-The IPI install pattern along with a `install-config.yaml` file will produce the above architecture minus the following:
-
-- Domain Name with DNS Zone
-- BYO Virtual Network (Optional)
-- Premium Storage (NFS) with a Private Endpoint
-- Standard Storage (SMB) with a Private Endpoint
-- JumpBox (used for access / installation)
-- SQL Server (Optional)
-- Virtual Network Gateway and other services outside of the Virtual Network
-
-> [!NOTE]
-> Example of a install-config-yaml file can be found in the official [QuickStart Guide: Maximo Application Suite on Azure](https://github.com/Azure/maximo) under the path `/src/ocp/install-config.yaml`
-
-## Prerequisites
-
-1. Access to an Azure Subscription with User Access Administrator privileges
-1. Application Registration (SPN) that has Contributor and User Access Administrator privileges
-1. Domain or delegated Sub Domain to a Azure DNS Zone
-1. RedHat OpenShift Service Agreement (Pull Secret and other keys)
-1. IBM MAS Entitlement Key
-1. IBM MAS License File
-1. An idea of the size cluster you need, work with IBM for sizing
-1. Determine if you will provide an existing VNet or let the IPI create one
-1. Determine what your HA/DR requirements are
-
-For a step-by-step guide for installing OpenShift and MAS on Azure, including how to address the prerequisites, pleas see our official [QuickStart Guide](https://github.com/Azure/maximo) on GitHub.
 
 ## Design recommendations
 
@@ -72,7 +46,19 @@ We work closely with IBM and other Partners to ensure the guidance found in this
 
 Your IBM team can provide you a sizing recommendation based on your existing installation or business requirements. Once complete, you can calculate the number of control and worker nodes you will need for your cluster. A list of recommended Azure components is below.
 
-### VM types
+### OpenShift
+
+<!-- TODO: Add clear statement you can't use ARO -->
+
+Considerations:
+
+- **Region Selection** - Inside the OpenShift platform, it attempts to load balance workloads across all available nodes. When configuring the IPI for deployment, it will attempt to provision nodes across zones, when possible. In the event of a zone outage, OpenShift can still function by having nodes in other zones take over the work (assuming those nodes have enough room to schedule the pods). It is recommended to use a region with [availability zones](/azure/availability-zones/az-overview#azure-regions-with-availability-zones). 
+- **Backup & Recover** - Although Azure RedHat OpenShift is not supported by MAS, you can use [their instructions](/azure/openshift/howto-create-a-backup) to do backups and recovery. 
+- **Failover** - Consider deploying OpenShift into 2 regions and use [RedHat's Advanced Cluster Management platform](https://www.redhat.com/en/technologies/management/advanced-cluster-management). If your solution has public endpoints, you can either place Azure Front Door or Azure Traffic Manager in front of them to redirect traffic to the appropriate cluster in the event of an outage. In this situation, you would need to migrate your applications state and persistent volumes as well.
+
+<!-- TODO: Added network sizing, this is only placement so far -->
+
+### Sizing and VM choice
 
 For all workloads except Visual Inspection we recommend using the Dsv4 Series
 
@@ -86,7 +72,7 @@ For all workloads except Visual Inspection we recommend using the Dsv4 Series
 
 If you need a JumpBox to do your installation, you should be able to get by with a `Standard_B2ms` running RHEL 8.4.
 
-### GPU nodes
+#### GPU nodes
 
 <!-- TODO: GPU nodes -->
 <!-- TODO: Make sure you are on OpenShift 4.8.22 etc. -->
@@ -96,16 +82,6 @@ If you need a JumpBox to do your installation, you should be able to get by with
 If there is already an existing support strategy in place for OpenShift then you can skip over the OpenShift specific considerations and handle MAS only. 
 
 <!-- TODO: link to the MAS piece (#anchor)-->
-
-### OpenShift
-
-Considerations:
-
-- **Region Selection** - Inside the OpenShift platform, it attempts to load balance workloads across all available nodes. When configuring the IPI for deployment, it will attempt to provision nodes across zones, when possible. In the event of a zone outage, OpenShift can still function by having nodes in other zones take over the work (assuming those nodes have enough room to schedule the pods). It is recommended to use a region with [availability zones](/azure/availability-zones/az-overview#azure-regions-with-availability-zones). 
-- **Backup & Recover** - Although Azure RedHat OpenShift is not supported by MAS, you can use [their instructions](/azure/openshift/howto-create-a-backup) to do backups and recovery. 
-- **Failover** - Consider deploying OpenShift into 2 regions and use [RedHat's Advanced Cluster Management platform](https://www.redhat.com/en/technologies/management/advanced-cluster-management). If your solution has public endpoints, you can either place Azure Front Door or Azure Traffic Manager in front of them to redirect traffic to the appropriate cluster in the event of an outage. In this situation, you would need to migrate your applications state and persistent volumes as well.
-
-<!-- TODO: Added network sizing, this is only placement so far -->
 
 ### Maximo Application Suite
 
@@ -121,6 +97,7 @@ Considerations:
 
 Maximo has multiple data sources. Some are to persist state (e.g. a database) whereas others are used to provide data into and out of Maximo. Depending on the Maximo applications you are deploying you'll need a different setup.
 
+<!-- TODO: review database selection and criteria -->
 When you need to use a relational database for Maximo Health and Maximo Manage please use the following:
 
 - Microsoft SQL Server 2019 on a VM. Azure SQL DB is currently not supported. 
@@ -129,6 +106,7 @@ When you need to use a relational database for Maximo Health and Maximo Manage p
 
 For Maximo Manage, IBM BAS and IoT parts, Maximo uses MongoDB. The default is to deploy MongoDB CE inside of the cluster. While this may work for smaller deployments, it is not a recommended pattern for larger and/or production deployments. For those, please use at MongoDB Atlas on Azure. 
 
+<!-- TODO: Add Strimzi vs Confluence guidance -->
 Maximo Application Suite comes packed with databases inside of its pods and those databases retain state on the filesystem provisioned for MAS. Use a zone redundant storage mechanism to retain the state outside of your clusters and be able to absorb zone failures. Our recommended pattern is to use Azure File Storage in the following patterns:
 
   - Standard: Provisions _SMB_ shares for lower throughput / rwo workloads. Great fit for parts of the application that are not chatty and only need a single persistent volume (e.g. IBM SLS)
@@ -142,7 +120,49 @@ Avoid using Azure Blob, as it doesn't support required hardlinks.
 
 <!-- TODO: there was something with ANF here too -->
 
+### Security and authentication
+
+<!-- TODO: add details around certificates and authentication patterns (SAML) -->
+
+
 ## Deployment
+
+There are three steps you need to take to deploy Maximo on Azure:
+
+1. Deploy OpenShift
+1. Install Maximo Application Suite Core
+1. Install Maximo Applications and its dependencies
+
+<!-- TODO: briefly touch upon what is out there and then send to GitHub -->
+
+The IPI install pattern along with a `install-config.yaml` file will produce the above architecture minus the following:
+
+- Domain Name with DNS Zone
+- BYO Virtual Network (Optional)
+- Premium Storage (NFS) with a Private Endpoint
+- Standard Storage (SMB) with a Private Endpoint
+- JumpBox (used for access / installation)
+- SQL Server (Optional)
+- Virtual Network Gateway and other services outside of the Virtual Network
+
+> [!NOTE]
+> Example of a install-config-yaml file can be found in the official [QuickStart Guide: Maximo Application Suite on Azure](https://github.com/Azure/maximo) under the path `/src/ocp/install-config.yaml`
+
+### Prerequisites
+
+1. Access to an Azure Subscription with User Access Administrator privileges
+1. Application Registration (SPN) that has Contributor and User Access Administrator privileges
+1. Domain or delegated Sub Domain to a Azure DNS Zone
+1. RedHat OpenShift Service Agreement (Pull Secret and other keys)
+1. IBM MAS Entitlement Key
+1. IBM MAS License File
+1. An idea of the size cluster you need, work with IBM for sizing
+1. Determine if you will provide an existing VNet or let the IPI create one
+1. Determine what your HA/DR requirements are
+
+For a step-by-step guide for installing OpenShift and MAS on Azure, including how to address the prerequisites, pleas see our official [QuickStart Guide](https://github.com/Azure/maximo) on GitHub.
+
+### Deploying
 
 It's best to deploy workloads using an infrastructure as code (IaC) process. Container workloads can be sensitive to misconfigurations that often occur with manual deployments and reduce productivity.
 
@@ -167,7 +187,7 @@ Carefully evaluate the services and technologies that you select for the areas a
 > [!NOTE]
 > Once OpenShift has been installed, the control plane owner will be responsible for maintaining and scaling the worker nodes on Azure. You increase the cluster size through the admin console using MachineSets, not the Azure portal.
 
-Use [network security groups](/azure/virtual-network/security-overview) to filter network traffic to and from resources in your [virtual network](/azure/virtual-network/virtual-networks-overview). With these groups, you can define rules that grant or deny access to your SAS services. Examples include:
+Use [network security groups](/azure/virtual-network/security-overview) to filter network traffic to and from resources in your [virtual network](/azure/virtual-network/virtual-networks-overview). With these groups, you can define rules that grant or deny access to your Maximo services. Examples include:
 
 - Allow SSH access into the OpenShift nodes for troubleshooting
 - Blocking access to parts of the cluster
@@ -188,6 +208,10 @@ Manage remote access to your VMs through [Azure Bastion](/azure/bastion/bastion-
 
 - VMs
 - Secure Shell Protocol (SSH) ports
+
+## Operationalization
+
+<!-- TODO: Day2 ops -->
 
 ## Contributors
 
