@@ -1,11 +1,16 @@
 
-A key design area of any mission critical architecture is the application platform. Platform refers to the infrastructure components and Azure services that must be provisioned to support the workload. Here are some overarching recommendations as you build the platform.
+A key design area of any mission critical architecture is the application platform. Platform refers to the infrastructure components and Azure services that must be provisioned to support the application. Here are some overarching recommendations as you build the platform.
 
--	Design in layers: the right set of services, their configuration, and the application-specific dependencies. This layered approach helps in creating segmentation that's useful in defining roles and functions and assigning appropriate privileges. Also, deployment is more manageable.   
--	A mission-critical application must be highly reliable and resistant to datacenter and regional failures. Building _zonal and regional redundancy_ in an active-active configuration is the main strategy. As you choose Azure services, consider its Availability Zones support and using multiple Azure regions. 
+-	Design in layers. Choose the right set of services, their configuration, and the application-specific dependencies. This layered approach helps in creating segmentation that's useful in defining roles and functions and assigning appropriate privileges. Also, deployment is more manageable. 
+
+-	A mission-critical application must be highly reliable and resistant to datacenter and regional failures. Building _zonal and regional redundancy_ in an active-active configuration is the main strategy. As you choose Azure services, consider its Availability Zones support and using multiple Azure regions. Check [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-region) to determine support for services.
+
 -	Use _scale units_ to handle increased load. Scale units allow you to logically group services and a unit can be scaled independent of other units or services in the architecture. Use your capacity model and expected performance to define a unit.
 
-In this architecture, the application platform consists of global and regional resources. The regional resources are provisioned as part of a deployment stamp. Each stamp equates to a scale unit. The resources in each set have distinct characteristics:
+In this architecture, the application platform consists of global, deployment stamp, and regional resources. The regional resources are provisioned as part of a deployment stamp. Each stamp equates to a scale unit.
+
+
+The resources in each set have distinct characteristics:
 
 |Characteristics|Considerations|
 |---|---|
@@ -53,7 +58,9 @@ It's recommended that all state is stored global in an external database. Build 
 
 Data replication in an active-active configuraiton is strongly recommended. The application should be able to instantly connect with another region. Al instances should be able to handle read _and_ write requests.
 
-This architecture uses Azure Cosmos DB with SQL API. Multi-master write is enabled with replicas deployed to every region in which a stamp is deployed. Zone redundancy is also enabled within each replicated region. 
+This architecture uses Azure Cosmos DB with SQL API. Multi-master write is enabled with replicas deployed to every region in which a stamp is deployed. Each stamp can write locally and  Cosmos DB handles data replication and synchronization between the stamps.
+
+Zone redundancy is also enabled within each replicated region. 
 
 For details on data considerations, see <!coming soon>.
 
@@ -62,36 +69,75 @@ For details on data considerations, see <!coming soon>.
 Azure Log Analytics is used to store diagnostic logs from all global resources. It's recommended that you restrict daily quota on storage especially on environments that are used for load testing. Also, set retention policy. These restrictions will prevent any overspend that is incurred by storing data that is not needed beyond a limit. 
 
 
-### Other causes for full outage
+### Other foundational services
 
 The system is likely to use other critical platform services that can cause the entire system to be at risk, such as Azure DNS and Azure Active Directory (AD). Unavailability of those services is unlikely. Azure DNS  guarantees 100% availability SLA for valid DNS requests. Azure Active Directory guarantees at least 99.9% uptime. Still, you should be aware of the impact in the event of a failure.
 
-In this implementation, there are hard dependencies on Azure DNS. Front Door uses Azure DNS to reach the backend and other global services. In the event that Azure Container Registry is unavailable, Azure DNS is used to fail over requests to another region. In both cases, if Azure DNS is unavailable, name resolution for user requests from Front Door will fail; Docker images won't be pulled from the registry. Because both Azure services use Azure DNS, using an external DNS service as backup will not mitigate the risk. Expect full outage.
+There are hard dependencies on Azure DNS because many Azure services use DNS. For instance, 
+- Front Door uses Azure DNS to reach the backend and other global services. 
+- Azure Container Registry uses Azure DNS to fail over requests to another region. 
+
+In both cases, both Azure services will be impacted if Azure DNS is unavailable. In the preceding examples, name resolution for user requests from Front Door will fail; Docker images won't be pulled from the registry. Using an external DNS service as backup will not mitigate the risk. Expect full outage.
 
 Similarly, Azure AD is used for control plane operations such as creating new AKS nodes, pulling images from Container Registry, or accessing Key Vault on pod startup. If Azure AD is unavailable, running components should not affected. But, new pods or AKS nodes won't be functional. Consider scaling in during this time and expect decreased user experience. 
 
+Expect disruption in the system caused by foundational services that impact the Azure services chosen in the architecture.
+
 ## Deployment stamp resources
 
-Each region can have one or more stamps. In this architecture, the stamp deploys the workload and resources that participate in completing a business transaction. 
+In this architecture, the deployment stamp deploys the workload and provisions resources that participate in completing the business transactions. A stamp typically corresponds to a deployment to an Azure region. Although, a region can have more than one stamp. 
 
-|Characteristic|Consideration|
+|Characteristics|Considerations|
 |---|---|
-|Lifetime|The resources are expected to have a short life span (ephemeral) with the intent that they can get destroyed and created as needed. For example, when a stamp deems itself unhealthy. Regional resources outside the stamp continue to persist.|
+|Lifetime|The resources are expected to have a short life span (ephemeral) with the intent that they can get added and removed dynamically while regional resources outside the stamp continue to persist. The ephemeral nature is needed to provide more resiliency, scale, and proximity to users. |
 |State| Because stamps are ephemeral, a stamp should be stateless as much as possible.|
 |Reach|Can communicate with regional and global resources. However, communication with other regions or other stamps should be avoided. In this architecture, there isn't a need for these resources to be globally distributed.|
-|Dependencies| The resources are expected to have regional and global dependencies. They shouldn't have dependencies on more than one region or other stamps. |
+|Dependencies| The stamp resources must be independent. That is, they should not rely on other stamps or components in other regions. They are expected to have regional and global dependencies. </br>The main shared component between stamps which requires synchronization at runtime is the database layer and container registry.|
 |Scale limits|Throughput is established through testing. The throughput of the overall stamp is limited to the least performant resource. Stamp throughput needs to take into account both the estimated high-level of demand plus any failover as the result of another stamp in the region becoming unavailable.|
 |Availability/disaster recovery|Because of the temporary nature of stamps, disaster recovery is done by redeploying the stamp. If resources are in an unhealthy state, the stamp, as a whole, can be destroyed and redeployed. |
 
-In this architecture, global resources are Azure Kubernetes Service (AKS), Azure Event Hubs, Azure Key Vault, and Azure Storage Accounts. 
+In this architecture, stamp resources are Azure Kubernetes Service (AKS), Azure Event Hubs, Azure Key Vault, and Azure Storage Accounts. 
 
 ![Stamp resources](./images/stamp-resources.png)
+
+### Scale unit
+A stamp can also be considered as a scale-unit. All components and services within a given stamp are configured and tested to serve requests in a given range. Here are some scaling and availability considerations when choosing Azure services in a unit:
+
+- Evaluate capacity relations between all resources in a scale unit. For example, to handle 100 incoming requests, 5 ingress controller pods and 3 catalog service pods and 1000 RUs in Cosmos DB would be needed. So, when autoscaling the ingress pods, expect scaling of the catalog service and cosmos RUs given those ranges.
+
+- Load test the services to determine a range within which requests will be served. Based on the results configure minimum and maximum instances and target metrics. When the target is reached, you can choose to automate scaling of the entire unit.
+
+  **Scalability requirements**
+  | Metric | max |
+  | --- | --- |
+  | Users | 25k |
+  | New requests/sec. | 200 |
+
+  This definition is used to evaluate the capabilities of a unit on a regular basis, which later then needs to be translated into a capacity model. This influences the configuration:
+
+  **Configuration**
+  | Component | min | max |
+  | --- | --- | --- |
+  | AKS nodes | 3 | 12 |
+  | Ingress controller replicas | 3 | 24 |
+  | Service replicas | 3 | 24 |
+  | Worker replicas | 3 | 12 |
+  | Event Hub throughput units | 1 | 10 |
+  | Cosmos DB RUs | 4000 | 40000 |
+
+  Each SU is deployed into an Azure region and is therefore primarily handling traffic from that given area (although it can take over traffic from other regions when needed). This geographic spread will likely result in load patterns and business hours that might vary from region to region and as such, every SU is designed to scale-in/-down when idle.
+
+- The Azure subscription scale limits and quotas must support the capacity and cost model set by the business requirements. Also check the limits of individual services in consideration.
+
+- Choose services that support availability zones to build redundancy. This might limit your technology choices.
+
+For other considerations about the size of a unit, and combination of resources, see [Misson critical guidance in Well-architected Framework: ](https://docs.microsoft.com/en-us/azure/architecture/framework/mission-critical/mission-critical-application-design#scale-unit-architecture).
 
 ### Compute cluster
 
 To containerize the workload, each stamp needs to run a compute cluster. In this architecture, Azure Kubernetes Service (AKS) is chosen because it Kubernetes is the most popular compute platform for modern applications.
 
-The lifetime of the AKS cluster is bound to the ephemeral nature of the stamp. The cluster is stateless and doesn't have persistent volumes. It uses ephemeral OS disks instead of managed disks. They are not expected to receive application or system-level maintenance.
+The lifetime of the AKS cluster is bound to the ephemeral nature of the stamp. The cluster is stateless and doesn't have persistent volumes. It uses ephemeral OS disks instead of managed disks because they aren't expected to receive application or system-level maintenance.
 
 To increase reliability, the cluster is configured to use all three availability zones in a given region. This makes it possible for the cluster to use AKS Uptime SLA that guarantees 99.95% SLA availability of the AKS API endpoint. 
 
@@ -99,13 +145,19 @@ Scale limits also impact reliability. Even though, the cluster only uses the def
 
 At the pod level, the Horizontal Pod Autoscaler (HPA) scales pods based on configured CPU, memory, or custom metrics. Load test the components of the workload to establish a baseline for the autoscaler values.
 
-The cluster is also configured for automatic node image upgrades and to scale appropriately during those upgrades to allow for zero downtime while upgrades are being performed.
+The cluster is also configured for automatic node image upgrades and to scale appropriately during those upgrades to allow for zero downtime while upgrades are being performed. Upgrades should occur at different times across the stamps. If one if upgrade fails, another cluster shouldn't be affected. Also, cluster upgrades should be rolled across the nodes so that they aren't unavailable at the same time.
 
-Observability is critical in this architecture because stamps are ephemeral. Diagnostic settings are configured to store all log and metric data in a regional Log Analytics workspace. Also, AKS Container Insights is enabled through an in-cluster OMS Agent. This way cluster monitoring data is integrated with the Log Analytics workspace.
+Observability is critical in this architecture because stamps are ephemeral. Diagnostic settings are configured to store all log and metric data in a regional Log Analytics workspace. Also, AKS Container Insights is enabled through an in-cluster OMS Agent. This agent allows the cluster to send monitoring data to the Log Analytics workspace.
+
+<Failure cases- coming soon!>
 
 ### Key Vault
 
 Azure Key Vault is used to store global secrets such as connection strings to the database and stamp secrets such as the Event Hubs connection string. 
+
+This architecture uses a Secrets Store CSI driver in the compute cluster to get/set secrets from Key Vault. Secrets are needed when new pods are spwaned. If Key Vault is unavailable, new pods might not get started. As a result there might be disruption; scale out operations can be impacted, updates can fail, new deployments can't be executed. Possible mitigation: HCD cache?
+
+Key Vault has a limit on the number of operations. Due to the automatic update of secrets, the limit can be reached if there are many pods. You can choose to decrease the frequency to avoid this situation. 
 
 ### Event Hubs
 The only stateful service in the stamp is the message broker, Azure Event Hubs, which stores requests for a short period. The broker serves the need for buffering and reliable messaging. The processed requests are persisted in the global database.
@@ -149,180 +201,5 @@ Deploying monitoring resources is a typical example for regional resources. In t
 Azure Log Analytics and Azure Application Insights are used to store logs and metrics from the platform. It's recommended that you restrict daily quota on storage especially on environments that are used for load testing. Also, set retention policy to store all data. These restrictions will prevent any overspend that is incurred by storing data that is not needed beyond a limit. 
 
 Similarly, Application Insights is also deployed as a regional resource to collect all application monitoring data.
-
-
-
-## Capacity planning
-- Scale unit discussion
-
-
-
---- 
-## Dump zone
-
-### Scale units
-
-A _scale unit_ approach is recommended for mission critical workloads where a set of resources can be independently scaled and deployed to keep up with the changes in demand.
-
-![stamp pic]
-
-A scale unit is a logical collection of resources. A stamp is a physical manifest of resources to be deployed. A stamp contains one or more scale units. They are meant to be short lived. After a stamp has served its purpose, it can be removed. 
-
-Consider a use case where you want to deploy updates. It's recommended that a stamp is immutable. That is, deploy a new stamp with updates instead of redeploying the stamp with in- place updates. During the upgrade period, you might have the old and new stamps serving traffic simultaneously. After all the clients have migrated to the new version, you can remove the old stamp.
-
-Here's another example. Suppose a stamp experiences high traffic and reaches its capacity. You deploy additional stamp in another region. When the traffic is back to normal, you can remove that additional stamp.
-
-When a scale unit in a stamp reaches peak capacity, the entire stamp is considered at peak capacity regardless of the utilization of other scale units within that stamp. That's why relationship between related scale-units, and the components inside a single scale-unit, should be defined according to a capacity model, that balances the individual scalability of resources.
-
-The capacity relations between all resources in a scale unit should be known and factored in. E.g.: "To handle 100 incoming requests, we need 5 ingress controller pods and 3 catalog service pods and 1000 RUs in Cosmos".
-
-Thus, when scaling the ingress pods (ideally automatically), you should expect scaling of the catalog service and cosmos RUs within the same relations
-
-Here are some scaling and availability considerations when choosing Azure services in a unit:
-
-- Evaluate autoscaling capabilities of all the services. Load test the services to determine a range within which requests will be served. Based on the results configure minimum and maximum instances and target metrics. When the target is reached, you can choose to automate scaling of the entire unit. 
-
--  The Azure subscription scale limits and quotas must support the capacity and cost model set by the business requirements. Also check the limits of individual services in consideration. 
-
-- Choose services that support availability zones to build redundancy. This might limit your technology choices.
-
-For other considerations about the size of a unit, and combination of resources, see [Misson critical guidance in Well-architected Framework: ](https://docs.microsoft.com/en-us/azure/architecture/framework/mission-critical/mission-critical-application-design#scale-unit-architecture).
-
-
-## Table of contents
-
-- [Architecture](#architecture)
-  - [Stamp independence](#stamp-independence)
-  - [Stateless compute clusters](#stateless-compute-clusters)
-  - [Scale Units](#scale-units)
-- [Infrastructure](#infrastructure)
-  - [Available Azure regions](#available-azure-regions)
-  - [Global resources](#global-resources)
-  - [Stamp resources](#stamp-resources)
-  - [Naming conventions](#naming-conventions)
-
----
-
-The Azure Mission-Critical reference implementation follows a layered and modular approach. This approach achieves the following goals:
-
-- Cleaner and manageable deployment design
-- Ability to switch service(s) with other services providing similar capabilities depending on requirements
-- Separation between layers which enables implementation of RBAC easier in case multiple teams are responsible for different aspects of Azure Mission-Critical application deployment and operations
-
-The Azure Mission-Critical reference implementations are composed of three distinct layers:
-
-- Infrastructure
-- Configuration
-- Application
-
-
-Infrastructure layer contains all infrastructure components and underlying foundational services required for Azure Mission-Critical reference implementation. It is deployed using [Terraform]().
-
-> Note: Bicep (ARM DSL) was considered during the early stages as part of a proof-of-concept. Please refer to the following [(archived stub)](/docs/reference-implementation/ZZZ-Archived-Bicep.md) for more details.
-
-[Configuration layer]() applies the initial configuration and additional services on top of the infrastructure components deployed as part of infrastructure layer.
-
-[Application layer]() contains all components and dependencies related to the application workload itself.
-
-## Architecture
-
-![Architecture overview](/docs/media/mission-critical-architecture-online.svg)
-
-### Stamp independence
-
-Every [stamp](https://docs.microsoft.com/azure/architecture/patterns/deployment-stamp) - which usually corresponds to a deployment to one Azure Region - is considered independent. Stamps are designed to work without relying on components in other regions (i.e. "share nothing").
-
-The main shared component between stamps which requires synchronization at runtime is the database layer. For this, **Azure Cosmos DB** was chosen as it provides the crucial ability of multi-region writes i.e., each stamp can write locally with Cosmos DB handling data replication and synchronization between the stamps.
-
-Aside from the database, a geo-replicated **Azure Container Registry** (ACR) is shared between the stamps. The ACR is replicated to every region which hosts a stamp to ensure fast and resilient access to the images at runtime.
-
-Stamps can be added and removed dynamically as needed to provide more resiliency, scale and proximity to users.
-
-A global load balancer is used to distribute and load balance incoming traffic to the stamps (see [Networking](/docs/reference-implementation/Networking-Design-Decisions.md) for details).
-
-### Stateless compute clusters
-
-As much as possible, no state should be stored on the compute clusters with all states externalized to the database. This allows users to start a user journey in one stamp and continue it in another.
-
-### Scale Units
-
-In addition to [stamp independence](#stamp-independence) and [stateless compute clusters](#stateless-compute-clusters), each "stamp" is considered to be a Scale Unit (SU) following the [Deployment stamps pattern](https://docs.microsoft.com/azure/architecture/patterns/deployment-stamp). All components and services within a given stamp are configured and tested to serve requests in a given range. This includes auto-scaling capabilities for each service as well as proper minimum and maximum values and regular evaluation.
-
-An example Scale Unit design in Azure Mission-Critical consists of scalability requirements i.e. minimum values / the expected capacity:
-
-**Scalability requirements**
-| Metric | max |
-| --- | --- |
-| Users | 25k |
-| New games/sec. | 200 |
-| Get games/sec. | 5000 |
-
-This definition is used to evaluate the capabilities of a SU on a regular basis, which later then needs to be translated into a Capacity Model. This in turn will inform the configuration of a SU which is able to serve the expected demand:
-
-**Configuration**
-| Component | min | max |
-| --- | --- | --- |
-| AKS nodes | 3 | 12 |
-| Ingress controller replicas | 3 | 24 |
-| Game Service replicas | 3 | 24 |
-| Result Worker replicas | 3 | 12 |
-| Event Hub throughput units | 1 | 10 |
-| Cosmos DB RUs | 4000 | 40000 |
-
-> Note: Cosmos DB RUs are scaled in all regions simultaneously.
-
-Each SU is deployed into an Azure region and is therefore primarily handling traffic from that given area (although it can take over traffic from other regions when needed). This geographic spread will likely result in load patterns and business hours that might vary from region to region and as such, every SU is designed to scale-in/-down when idle.
-
-## Infrastructure
-
-### Available Azure Regions
-
-The reference implementation of Azure Mission-Critical deploys a set of Azure services. These services are not available across all Azure regions. In addition, only regions which offer **[Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-region)** (AZs) are considered for a stamp. AZs are gradually being rolled-out and are not yet available across all regions. Due to these constraints, the reference implementation cannot be deployed to all Azure regions.
-
-As of March 2022, following regions have been successfully tested with the reference implementation of Azure Mission-Critical:
-
-**Europe/Africa**
-
-- northeurope
-- westeurope
-- germanywestcentral
-- francecentral
-- uksouth
-- norwayeast
-- swedencentral
-- southafricanorth
-
-**Americas**
-
-- westus2
-- eastus
-- eastus2
-- centralus
-- southcentralus
-- brazilsouth
-- canadacentral
-
-**Asia Pacific**
-
-- australiaeast
-- southeastasia
-- eastasia
-- japaneast
-- koreacentral
-
-> Note: Depending on which regions you select, you might need to first request quota with Azure Support for some of the services (mostly for AKS VMs and Cosmos DB).
-
-It's worth calling out that where an Azure service is not available, an equivalent service may be deployed in its place. Availability Zones are the main limiting factor as far as the reference implementation of AZ is concerned.
-
-As regional availability of services used in reference implementation and AZs ramp-up, we foresee this list changing and support for additional Azure regions improving where reference implementation can be deployed.
-
-> Note: If the target availability SLA for your application workload can be achieved without AZs and/or your workload is not bound with compliance related to data sovereignty, an alternate region where all services/AZs are available can be considered.
-
-
-
-### Stamp resources
-
-A _stamp_ is a regional deployment and can also be considered as a scale-unit. For now we only always deploy one stamp in an Azure Region but this can be extended to allow multiple stamps per region if required.
-
 
 
