@@ -16,7 +16,7 @@ Following are some example use cases in which you could use this architecture:
 
 ## Architecture
 
-:::image type="content" alt-text="Architecture diagram that shows the control plane, identity framework, and end user S a a S application." source="./media/architecture-saas-starter-app.png" lightbox="./media/architecture-saas-starter-app.png":::
+:::image type="content" alt-text="Architecture diagram that shows the control plane, identity framework, and end-user S a a S application." source="./media/architecture-saas-starter-app.png" lightbox="./media/architecture-saas-starter-app.png":::
 
 ### Terminology
 
@@ -47,7 +47,7 @@ The following table describes terms that appear in this article.
 
 The user sign-in workflow consists of the following steps:
 
-[ ![Sequence diagram that shows the user sign-in process](./media/saas-starter-app-sequence-diagram-sign-in.png)](./media/saas-starter-app-sequence-diagram-sign-in.png#lightbox)
+:::image type="content" alt-text="Sequence diagram that shows the sign-in process for a user." source="./media/saas-starter-app-sequence-diagram-sign-in.png" lightbox="./media/saas-starter-app-sequence-diagram-sign-in.png":::
 
 1. *End user* navigates to a *frontend application* and selects a **Login** button.
 
@@ -75,7 +75,7 @@ For more information about how this sign-in flow works, see [OpenID Connect prot
 
 The tenant onboarding workflow consists of the following steps:
 
-[ ![Sequence diagram that shows the tenant onboarding process](./media/saas-starter-app-sequence-diagram-onboarding.png)](./media/saas-starter-app-sequence-diagram-onboarding.png#lightbox)
+:::image type="content" alt-text="Sequence diagram that shows the process for tenant onboarding." source="./media/saas-starter-app-sequence-diagram-onboarding.png" lightbox="./media/saas-starter-app-sequence-diagram-onboarding.png":::
 
 1. *SaaS customer admin* navigates to the *Onboarding & admin app* and completes a sign-up form.
 
@@ -113,7 +113,7 @@ The tenant onboarding workflow consists of the following steps:
 
 The addition of a user to a tenant workflow consists of the following steps:
 
-[ ![Sequence diagram that shows the addition of a new user to a tenant](./media/saas-starter-app-sequence-diagram-add-user.png)](./media/saas-starter-app-sequence-diagram-add-user.png#lightbox)
+:::image type="content" alt-text="Sequence diagram that shows the addition of a new user to a tenant." source="./media/saas-starter-app-sequence-diagram-add-user.png" lightbox="./media/saas-starter-app-sequence-diagram-add-user.png":::
 
 1. *SaaS customer admin* requests to see a list of tenants from the tenant admin area on the *Onboarding & admin app*.
 
