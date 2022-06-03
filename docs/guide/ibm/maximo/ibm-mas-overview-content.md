@@ -1,27 +1,18 @@
 ## Introduction to IBM Maximo Application Suite
 
-The Maximo Application Suite (MAS) is an Enterprise Asset Management platform focused on operational resiliency and reliability that leverages condition-based asset maintenance. The suite has several core components:
+Maximo Application Suite (MAS) or Maximo is an Enterprise Asset Management platform focused on operational resiliency and reliability that leverages condition-based asset maintenance. The suite consists of a core application platform, Maximo Application Suite, and applications on top of the platform. Each of the application performs a specific benefit:
 
-- Manage - Reduce downtime and costs through asset management to improve operational performance.
-- Monitor - Advanced AI-powered remote asset monitoring at scale.
-- Health - Manage the health of assets using IoT data from sensors, asset data and maintenance history.
-- Visual Inspection - Inspection of assets using mobile devices that focuses on identification of emerging issues.
-- Predict - Machine learning and data analytics focused on predicting future failures.
-- Mobile - Capability to integrate the various asset and facility management solutions.
+- Manage: reduce downtime and costs through asset management to improve operational performance.
+- Monitor: advanced AI-powered remote asset monitoring at scale using IoT.
+- Health: manage asset health using IoT data from sensors, asset data and maintenance history.
+- Visual Inspection: train and use visual inspection machine learning models to do use visual analysis of emerging issues.
+- Predict: machine learning and data analytics focused on predicting future failures.
+
+Maximo Application Suite 8.x and the applications above have been tested and validated for use on Azure. This guidance provides a design for running Maximo 8.x on Azure. It assumes you will have support from IBM and a partner for installation. If you have questions, please reach out to your IBM team. 
 
 <!-- TODO: Add the layer cake -->
-The following components have been tested on Azure:
 
-- Maximo Application Suite Core
-- Manage
-- Monitor
-
-This guide provides general information for running MAS on Azure and assumes you will have support from an IBM Partner for installation. MAS 8.x runs on OpenShift and it is beneficial to familiarize yourself with the suggested patterns for [Preparing to install on Azure](https://docs.openshift.com/container-platform/4.8/installing/installing_azure/preparing-to-install-on-azure.html). For this guide, we will be focusing on the IPI pattern.
-
-<!-- TODO: Explain IPI vs UPI or at least link to a resource that explains what it is -->
-
-> [!NOTE]
-> Air gapped patterns have not been tested but would require using the [User Provided Infrastructure (UPI)](https://github.com/openshift/installer/blob/master/docs/user/azure/install_upi.md) as a starting point.
+MAS 8.x runs on OpenShift and it is beneficial to familiarize yourself with OpenShift and the suggested patterns for [installation on Azure](https://docs.openshift.com/container-platform/4.8/installing/installing_azure/preparing-to-install-on-azure.html). 
 
 <!-- TODO: Introduce the reference architecture that is found on GitHub -->
 
@@ -35,9 +26,9 @@ This guide provides general information for running MAS on Azure and assumes you
 
 ## Design recommendations
 
-At this time, IBM MAS 8.7 supports OpenShift versions 4.8. It is recommended to use this version to avoid falling out of official support for either IBM MAS or RedHat OpenShift. Before, building out your own deployment, we strongly recommend deploying our [QuickStart Guide](https://github.com/Azure/maximo) reference architecture so that you have a good understanding of how the deployment and configuration works. This will speed up the process of creating the design requirements for your implementation.
+At this time, IBM MAS 8.7 supports OpenShift versions 4.8. It is recommended to use this version to avoid falling out of official support for either IBM MAS or RedHat OpenShift. Before building out your own deployment, we strongly recommend deploying our [QuickStart Guide](https://github.com/Azure/maximo) reference architecture so that you have a good understanding of how the deployment and configuration works. This will speed up the process of creating the design requirements for your implementation.
 
-We work closely with IBM and other Partners to ensure the guidance found in this document will give you the best experience on Azure. Please do not hesitate to reach out to your Account Team for support beyond this documentation.
+We work closely with IBM and other partners to ensure the guidance found in this document and our quickstart gives you the best experience on Azure. It follows the best practices as outlined in the [Azure Well Architected Framework](/azure/architecture/framework/). Please do not hesitate to reach out to your IBM account team for support beyond the documentation provided.
 
 <!-- TODO: This is the bestest practice and aligned with WAF -->
 <!-- TODO: Merge parts with the intro -->
@@ -48,7 +39,13 @@ Your IBM team can provide you a sizing recommendation based on your existing ins
 
 ### OpenShift
 
-<!-- TODO: Add clear statement you can't use ARO -->
+> [!NOTE]
+> Running Maximo Application Suite on top of Azure RedHat OpenShift is not supported.
+
+<!-- TODO: Explain IPI vs UPI or at least link to a resource that explains what it is -->
+
+> [!NOTE]
+> Air gapped patterns have not been tested but would require using the [User Provided Infrastructure (UPI)](https://github.com/openshift/installer/blob/master/docs/user/azure/install_upi.md) as a starting point.
 
 Considerations:
 
@@ -149,6 +146,8 @@ The IPI install pattern along with a `install-config.yaml` file will produce the
 > Example of a install-config-yaml file can be found in the official [QuickStart Guide: Maximo Application Suite on Azure](https://github.com/Azure/maximo) under the path `/src/ocp/install-config.yaml`
 
 ### Prerequisites
+
+Before you start, please review the [requirements of IBM for deploying Maximo](https://www.ibm.com/support/pages/node/6538166). Make sure you have the resources available to you before starting the deployment.
 
 1. Access to an Azure Subscription with User Access Administrator privileges
 1. Application Registration (SPN) that has Contributor and User Access Administrator privileges
