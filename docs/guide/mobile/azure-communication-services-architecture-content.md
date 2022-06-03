@@ -69,7 +69,7 @@ Azure App Services is a straightforward option for create a custom Web app. This
 - **Hero Sample:** [Group Calling for Web, iOS, and Android](https://docs.microsoft.com/azure/communication-services/samples/calling-hero-sample.md)
 
 ## User joining a group call without solicitation
-You may want users to join a call without an explicit invitation. Your app may have a persistant *social space* or *club* that is includes a video callling channel, and users join that video call at their leisure. In this dataflow, we show a call that is initially created by a client and allows a remote client to join without explicit invitation.
+You may want users to join a call without an explicit invitation. Your app may have a persistent *social space* or *club* that is includes a video calling channel, and users join that video call at their leisure. In this dataflow, we show a call that is initially created by a client and allows a remote client to join without explicit invitation.
 
 :::image type="content" source="./media/architecture_v2_calling_join_client_driven.svg" alt-text="Diagram showing Communication Services architecture calling out-of-band signaling.":::
 
