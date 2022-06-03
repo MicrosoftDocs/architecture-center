@@ -4,7 +4,7 @@ Get insights from live streaming data with ease. Capture data continuously from 
 
 ## Potential use cases
 
-
+This solution is for building analytics from live streaming data. It can be implemented by various organizations.
 
 ## Architecture
 

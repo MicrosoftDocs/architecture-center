@@ -67,7 +67,7 @@ Principal author:
 
 Other contributors:
 
-- [Raj Penchala](https://www.linkedin.com/in/rajpenchala/) | Principal Cloud Security Architect
+- [Raj Penchala](https://www.linkedin.com/in/rajpenchala) | Principal Cloud Security Architect
 - [Ryan Hudson](https://www.linkedin.com/in/ryanhudsonit) | Principal Cloud Solution Architect
 
 ## Next steps
