@@ -9,12 +9,13 @@ This solution is built on the Azure managed services: [Traffic Manager](https://
 Ideal industries for this solution include healthcare, travel and hospitality, and manufacturing. Industries that utilize this service include:
 
 - Healthcare (portable clinics and pop-up virus testing centers)
-- Restaurants (local and regional chains)
-- Logistics (local and regional supply chains)
+- Restaurants (local and regional chains, in the travel and hospitality industries)
+- Logistics (local and regional supply chains, in the manufacturing industry)
 
 ## Architecture
 
 ![Architecture diagram shows the flow from customers through the D N S routing to a before and after failover virtual machines: disaster recovery S M B Azure site](../media/disaster-recovery-smb-azure-site-recovery.png)
+
 *Download an [SVG](../media/disaster-recovery-smb-azure-site-recovery.svg) of this architecture.*
 
 ### Components
