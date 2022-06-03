@@ -76,7 +76,7 @@ You may want users to join a call without an explicit invitation. Your app may h
 ### Dataflows
 1. Initiating user initializes their Call client and makes a group call.
 2. The initiating user shares the group call ID with a Communication Controller service.
-3. The communication controller service shares the call ID with other users. For example, if the application orients around clubs, the group call ID would be an attribute of the club's data model stored in CosmosDB.
+3. The communication controller service shares the call ID with other users. For example, if the application orients around clubs, the group call ID would be an attribute of the club's data model stored in Cosmos DB.
 4. Other users join the call using the group call ID.
 5. The users communicate with each other using voice and video in a call.
 
