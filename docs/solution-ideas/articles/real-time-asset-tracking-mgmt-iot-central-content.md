@@ -6,7 +6,7 @@ It uses Azure IoT Central to receive data from IoT sensors and export it to Azur
 
 ## Potential use cases
 
-These other uses cases have similar design patterns:
+These other use cases have similar design patterns:
 
 - **Management and inventory:** Track vehicles and assets.
 - **Driver scoring:** Use metrics such as location, speed, out-of-route distance, and hard braking to monitor driver behavior.
