@@ -156,7 +156,7 @@ Perform a more detailed evaluation looking at the following aspects of the servi
 [function-plans]: /azure/azure-functions/functions-scale
 [sla-acs]: https://azure.microsoft.com/support/legal/sla/kubernetes-service
 [sla-app-service]: https://azure.microsoft.com/support/legal/sla/app-service
-[sla-azure-spring-cloud]: /cli/azure/spring-cloud
+[sla-azure-spring-cloud]: https://azure.microsoft.com/support/legal/sla/spring-apps
 [sla-batch]: https://azure.microsoft.com/support/legal/sla/batch
 [sla-functions]: https://azure.microsoft.com/support/legal/sla/functions
 [sla-sf]: https://azure.microsoft.com/support/legal/sla/service-fabric
