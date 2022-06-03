@@ -4,14 +4,14 @@ Software as a Service (SaaS) is a complex topic with many points to consider. In
 1. How do I set up an identity solution for use in a multitenant architecture?
 1. How do I handle onboarding new customers?
 
-This architecture aims to answer some of these questions and provide a starting place into the world of SaaS. However, because there is no "one size fits all" approach to this subject, this architecture is adaptable to fit a wide range of scenarios.
+This architecture aims to answer some of these questions and provide a starting place into the world of SaaS. However, because there's no "one size fits all" approach to this subject, this architecture is adaptable to fit a wide range of scenarios.
 
 ## Potential use cases
 
 Following are some example use cases in which you could use this architecture:
 
 - Modernize an existing application to support full multitenancy as part of a shift to a SaaS-based business model.
-- Develop a greenfield SaaS offering for the first time.
+- Develop a completely new SaaS offering.
 - Migrate a SaaS offering from another cloud service to Azure.
 
 ## Architecture
@@ -45,9 +45,9 @@ The user sign-in workflow consists of the following steps:
 
 [ ![Sequence diagram that shows the user sign-in process](./media/saas-starter-app-sequence-diagram-sign-in.png)](./media/saas-starter-app-sequence-diagram-sign-in.png#lightbox)
 
-1. *End user* navigates to a *frontend application* and clicks a **Login** button.
+1. *End user* navigates to a *frontend application* and selects a **Login** button.
 1. *Frontend application* redirects *end user* to a sign-in page that is hosted by the *identity provider*.
-1. *End User* enters account information and submits the login form to the *Identity Provider*.
+1. *End User* enters account information and submits the sign-in form to the *Identity provider*.
 1. *Identity provider* [issues a POST request](/azure/active-directory-b2c/api-connectors-overview?pivots=b2c-custom-policy) with the *end user*'s email address and object ID to retrieve their permissions and roles.
 1. *Permission data API* looks up the *end user*'s information in the *Permission data storage* and returns a list of permissions and roles that are assigned to that *end user*.
 1. *Identity provider* adds the permissions and roles as custom claims to the ID token, which is a JSON web token (JWT).
@@ -118,7 +118,7 @@ This architecture uses the following Azure services:
 
 ### Alternatives
 
-The effectiveness of any alternative choices depend greatly on the [tenancy model](../../guide/multitenant/considerations/tenancy-models.yml) that you intend for your SaaS application to support. Following are examples of some alternative approaches that you can follow when you implement this solution:
+The effectiveness of any alternative choices depends greatly on the [tenancy model](../../guide/multitenant/considerations/tenancy-models.yml) that you intend for your SaaS application to support. Following are examples of some alternative approaches that you can follow when you implement this solution:
 
 - The current solution uses Azure Active Directory B2C as the identity provider. You could instead use other identity providers, such as [Azure Active Directory](https://azure.microsoft.com/services/active-directory/).
 
@@ -142,7 +142,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 The components in this solution have some cost associated with their operation, but the cost is modest for most web applications and SaaS solutions. Additionally, you can control the cost by managing the following resource settings:
 
-- You can scale the App Service plan that runs the application to fit the throughput that you need. In addition, you could run each app on a separate plan if you require higher throughput, but you will incur a higher cost as a result. For more information, see [Azure App Service plan overview](/azure/app-service/overview-hosting-plans).
+- You can scale the App Service plan that runs the application to fit the throughput that you need. In addition, you could run each app on a separate plan if you require higher throughput, but you'll incur a higher cost as a result. For more information, see [Azure App Service plan overview](/azure/app-service/overview-hosting-plans).
 
 - Azure AD B2C provides two SKUs: Premium P1 and Premium P2. Both SKUs include a free allowance for the number of monthly active users (MAUs), but you need to evaluate which features that each SKU provides to determine which is required for your use case. For more information, see [Azure Active Directory External Identities pricing](https://azure.microsoft.com/pricing/details/active-directory/external-identities/).
 
@@ -158,7 +158,7 @@ For high-throughput scenarios, or scenarios in which you need to serve customers
 
 ## Deploy this scenario
 
-If you'd like to deploy this scenario, see the [Azure SaaS Dev Kit](https://github.com/Azure/azure-saas) on GitHub. It is a deployable reference implementation of this architecture.
+If you'd like to deploy this scenario, see the [Azure SaaS Dev Kit](https://github.com/Azure/azure-saas) on GitHub. It's a deployable reference implementation of this architecture.
 
 
 ## Contributors
