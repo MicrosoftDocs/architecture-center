@@ -110,7 +110,7 @@ We have provided three sample cost profiles based on amount of traffic you expec
 
 Principal author:
 
-- [Chris Mason](/) | Senior Manager, Software Engineering
+- Chris Mason | Senior Manager, Software Engineering
 
 ## Next steps
 
