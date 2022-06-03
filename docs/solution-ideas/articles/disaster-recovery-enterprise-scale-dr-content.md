@@ -8,8 +8,8 @@ This solution is built on the Azure managed services: [Traffic Manager](https://
 
 Organizations that utilize this service include:
 
-- Hospitals
-- Universities
+- Hospitals (healthcare)
+- Universities (education)
 - Government (local, state, and federal)
 
 ## Architecture
