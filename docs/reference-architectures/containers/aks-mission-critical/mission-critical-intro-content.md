@@ -42,7 +42,7 @@ The global resources are non-ephemeral and have the capability of being globally
 
 A global load balancer is needed to route traffic to the regional deployments with some level of guarantee based on the availability of backend services in a region. Also, this component should have the capability of inspecting ingress traffic, for example through web application firewall. 
 
-**Azure Front Door** fulfills those requirements. It allows for Layer 7 global routing, such as SSL offload, web application firewall, and others. You can configure routing rules to allow or deny incoming traffic. It has health probes that check the availability of resources provisioned in a region before routing traffic. It also has built-in content delivery network (CDN) to cache static assets. 
+**Azure Front Door** fulfills those requirements. It implements Layer 7 global routing with features such as SSL offloading, web application firewall, and others. The Premium SKU supports private endpoints. You can configure routing rules to allow or deny incoming traffic. It has health probes that check the availability of resources provisioned in a region before routing traffic. It also has built-in content delivery network (CDN) to cache static assets. 
 
 Another option is Traffic Manager. It uses DNS to route traffic at Layer 4. However in this architecture, the capability to route HTTP(S) traffic is required.
 
@@ -132,11 +132,36 @@ In this architecture, data from shared services such as,  Azure Front Door, Cosm
 
 Similarly, monitoring resources per stamp must be independent. If you tear down a stamp, you still want to preserve observability. Each regional stamp has its own dedicated Application Insights and Log Analytics Workspace. The resources are provisioned per region but they outlive the stamps. 
 
-## Request flow
+## Request and processor flows
 
-!coming soon!
-- image
-- complete request flow of a business transaction.
+This image shows the request and background processor flow of the reference implementation.
+
+:::image type="content" source="./images/request-flow.png" alt-text="Diagram of the request flow." lightbox="./images/request-flow.png":::
+
+The description of this flow is in the following sections.
+
+### Website request flow
+
+1. A request for the web user interface is sent to a global load balancer. For this reference architecture, the global load balancer is Azure Front Door. Front Door was chosen because of its rich feature set listed in the components section above.
+2. The WAF Rules are evaluated. WAF rules positively affect the reliability of the system by protecting against a variety of attacks such as cross-site scripting (XSS) and SQL injection. Azure Front Door will return an error to the requester if a WAF rule is violated and processing stops. If there are no WAF rules violated, Azure Front Door continues processing.
+3. Azure Front Door uses routing rules to determine which backend pool to forward a request to. [How requests are matched to a routing rule](/azure/frontdoor/front-door-route-matching). In this reference implementation, the routing rules allow Azure Front Door to route UI and frontend API requests to different backend resources. In this case, the pattern "/*" matches the UI routing rule. This rule routes the request to a backend pool that contains storage accounts with static websites that host the Single Page Application (SPA). Azure Front Door uses the Priority and Weight assigned to the backends in the pool to select the backend to route the request. [Traffic routing methods to origin](/azure/frontdoor/routing-methods). Azure Front Door uses health probes to ensure that requests aren't routed to backends that aren't healthy. The SPA is served from the selected storage account with static website.
+
+> [!NOTE]
+> The terms **backend pools** and **backends** in Azure Front Door Classic are called **origin groups** and **origins** in Azure Front Door Standard or Premium Tiers.  
+
+4. The SPA Makes an API call to the Azure Front Door frontend host. The pattern of the API request URL is "/api/*".
+
+### Frontend API request flow
+
+5. The WAF Rules are evaluated like in step 2.
+6. Azure Front Door matches the request to the API routing rule by the "/api/*" pattern. The API routing rule routes the request to a backend pool that contains the public IP addresses for NGINX Ingress Controllers that know how to route requests to the correct service in Azure Kubernetes Service (AKS). Like before, Azure Front Door uses the Priority and Weight assigned to the backends to select the correct NGINX Ingress Controller backend.
+7. For GET requests, the frontend API performs read operations on a database. For this reference implementation, the database is a global Azure Cosmos DB instance. Azure Cosmos DB has several features that makes it a good choice for a mission critical workload including the ability to easily configure multi-write regions, allowing for automatic failover for reads and writes to secondary regions. The API uses the client SDK configured with retry logic to communicate with Cosmos DB. The SDK determines the optimal order of available Cosmos DB regions to communicate with based on the ApplicationRegion parameter.
+8. For POST or PUT requests, the Frontend API performs writes to a message broker. For this reference architecture, the message broker is Microsoft Azure Service Bus. Service Bus is a good choice for mission critical workloads where every message must be processed because of features like ensuring every message is processed at least once and dead lettering. A handler will later read messages from Service Bus and perform any required writes to Cosmos DB. The API uses the client SDK to perform writes. The client can be configured for retries.
+
+## Background processor flow
+
+9. The background processors subscribe to a topic in Service Bus and receives messages to process. The background processors use the client SDK to perform reads. The client can be configured for retries.
+10. The background processors perform the appropriate write operations on the global Azure Cosmos DB instance. The background processors use the client SDK configured with retry to connect to Azure Cosmos DB. The client's preferred region list could be configured with multiple regions. In that case, if a write fails, the retry will be done on the next preferred region.
 
 ## Related resources
 
