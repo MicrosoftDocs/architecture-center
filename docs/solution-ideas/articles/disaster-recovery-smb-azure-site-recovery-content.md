@@ -14,7 +14,7 @@ Industries that utilize this service include:
 
 ## Architecture
 
-![Architecture diagram shows the flow from customers through the D N S routing to a before and after failover virtual machines: disaster recovery S M B Azure site](../media/disaster-recovery-smb-azure-site-recovery.png)
+![Architecture diagram shows from customers through D N S routing to a before and after failover virtual machines: disaster recovery S M B Azure site.](../media/disaster-recovery-smb-azure-site-recovery.png)
 *Download an [SVG](../media/disaster-recovery-smb-azure-site-recovery.svg) of this architecture.*
 
 ### Components

@@ -10,7 +10,7 @@ Organizations that utilize double-take include SMEs to Fortune 500 companies.
 
 ## Architecture
 
-![Architecture Diagram show the flow from customers through the D N S routing to a before and after failover virtual machines: disaster recovery S M B double take](../media/disaster-recovery-smb-double-take-dr.png)
+![Architecture Diagram shows from customers through D N S routing to a before and after failover virtual machines: disaster recovery S M B double take.](../media/disaster-recovery-smb-double-take-dr.png)
 *Download an [SVG](../media/disaster-recovery-smb-double-take-dr.svg) of this architecture.*
 
 ### Components

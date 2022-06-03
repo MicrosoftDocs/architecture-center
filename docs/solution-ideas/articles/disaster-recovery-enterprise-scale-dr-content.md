@@ -14,7 +14,7 @@ Organizations that utilize this service include:
 
 ## Architecture
 
-![Architecture diagram shows the flow from users through the D N S routing to a before and after failover virtual machines: disaster recovery enterprise scale.](../media/disaster-recovery-enterprise-scale-dr.png)
+![Architecture diagram shows from users through the D N S routing to a before and after failover virtual machines: disaster recovery enterprise scale.](../media/disaster-recovery-enterprise-scale-dr.png)
 *Download an [SVG](../media/disaster-recovery-enterprise-scale-dr.svg) of this architecture.*
 
 ### Components
