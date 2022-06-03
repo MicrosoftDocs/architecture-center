@@ -124,7 +124,7 @@ We have provided three sample cost profiles based on amount of traffic you expec
 
 Principal author:
 
-* [Faisal Mustafa](/) | Senior Customer Engineer
+* Faisal Mustafa | Senior Customer Engineer
 
 ## Next steps
 
