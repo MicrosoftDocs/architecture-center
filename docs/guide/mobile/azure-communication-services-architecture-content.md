@@ -24,7 +24,7 @@ A common data flow is client applications initiating communication by requesting
 2. What phone number do I use to call my friend Joseph? 
 3. What are the names of my teammates? What chat threads do we have on-going?
 
-Your control service fulfills these requests by providing clients Azure Communication Services tokens and identifiers for users, threads, phone numbers, and calls, which are then used by clients to interact with the Azure data plane. Azure Communication Service APIs do not constrain the design of your end-user experience or the concepts that control communcation. 
+Your control service fulfills these requests by providing clients Azure Communication Services tokens and identifiers for users, threads, phone numbers, and calls, which are then used by clients to interact with the Azure data plane. Azure Communication Service APIs do not constrain the design of your end-user experience or the concepts that control communication. 
 
 In the WebRTC standard, the process of clients requesting control information from services is called *control messages* or *signaling* - and ACS identifiers such as call ID are comparable to [WebRTC session descriptions](https://datatracker.ietf.org/doc/html/rfc8866). 
 
