@@ -1,10 +1,10 @@
 This architecture uses multiple storage services to optimize storage performance and cost. Azure Cosmos DB holds recent data, and provides availability, performance, and resiliency. Azure Table Storage holds all data, both recent and historical, providing cost-effective storage for the historical data. The native Azure Storage replication capabilities replicate the Azure Cosmos DB data to other regions. The Azure Table Storage data must be replicated also, using either native replication or Azure Data Factory. Periodically, Azure Data Factory deletes historical data from Azure Cosmos DB to reduce costs.
 
-In the scenario, the application generates 3TB of data each month, with three months of data stored in Azure Cosmos DB for high availability and performance. The application data is also written to Azure Table storage in the primary region, where it may subsequently be duplicated to another Azure region using Azure Data Factory. To keep storage costs low, any data that is more than three months old is erased from Azure Cosmos DB.
+In the scenario, the application generates three TB of data each month, with three months of data stored in Azure Cosmos DB for high availability and performance. The application data is also written to Azure Table storage in the primary region, where it may then be duplicated to another Azure region using Azure Data Factory. To keep storage costs low, any data that is more than three months old is erased from Azure Cosmos DB.
 
-Other benefits of this approach includes additional resiliency against individual storage service failures and enabling request classification based on their criticality to use the appropriate storage services.
+Other benefits of this approach include extra resiliency against individual storage service failures and enabling request classification based on their criticality to use the appropriate storage services.
 
-This technique is especially useful in scenarios when you're re-platforming your storage technology to make sure that the system will continue to perform as expected during the migration phase.
+This technique is especially useful in scenarios when you're replatforming your storage technology to make sure that the system will continue to perform as expected during the migration phase.
 
 ## Potential use cases
 
@@ -25,7 +25,7 @@ The architecture may be appropriate for any application that uses massive amount
 ### Dataflow
 
 1. The client authenticates with Azure Active Directory (Azure AD) and is granted access to web applications hosted on Azure App Service.
-1. Azure Front Door, a firewall and layer 7 load balancer, switches user traffic to a different Azure region in case of a regional outage.
+1. Azure Front Door, a firewall and layer 7 load balancer, switches user traffic to a different Azure region if there is a regional outage.
 1. Azure App Service hosts websites and RESTful web APIs. Browser clients run AJAX applications that use the APIs.
 1. Web APIs delegate function apps to handle background tasks. The tasks are queued in Azure Queue Storage queues.
 1. The function apps hosted by Azure Functions perform the background tasks, triggered by the queued messages. **The function apps update both Azure Cosmos DB and Table Storage.**

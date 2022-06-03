@@ -17,14 +17,14 @@ Organizations use customers shopping history to provide relevant product recomme
 1. Shopper/User places the order and order goes to Azure API Apps.
 1. Data gets stored in Cosmos DB (Customer Order).
 1. The change feed is enabled on the Cosmos DB and processes all the changes for available events.
-1. Using Apache Spark on Azure Data Bricks, data is trained and stored in Cosmos DB (Product+ User Vectors)
+1. By using Apache Spark on Azure Data Bricks, data is trained and stored in Cosmos DB (Product+ User Vectors)
 1. Latest Recommendation will be fetched by the e-commerce store UI using Azure Container Service (Recommendation APIs).
 
 ### Components
 
 This architecture includes the following components:
 
-* [**Azure Web App**](/azure/app-service/overview) is part of Azure App Service. It is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. You can develop in your favorite language, be it .NET, .NET Core, Java, Ruby, Node.js, PHP, or Python. Applications run and scale with ease on both Windows and Linux-based environments.
+* [**Azure Web App**](/azure/app-service/overview) is part of Azure App Service. It's an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. You can develop in your favorite language, be it .NET, .NET Core, Java, Ruby, Node.js, PHP, or Python. Applications run and scale with ease on both Windows and Linux-based environments.
 
 * [**Azure Cosmos DB**](/azure/cosmos-db/introduction) is a multiple model database that can serve data elastically at a massive scale. Azure Cosmos DB was designed for applications that are globally distributed in a multi-write model.
 
@@ -38,7 +38,7 @@ This architecture includes the following components:
 
 ## Considerations
 
-API management, in front of the container service provides a number of benefits such as rate throttling, API versioning, policies.  For further information, please refer to [Azure API Management](/azure/api-management/api-management-key-concepts).
+API management, in front of the container service provides many benefits such as rate throttling, API versioning, policies.  For further information, refer to [Azure API Management](/azure/api-management/api-management-key-concepts).
 
 ### Scalability
 

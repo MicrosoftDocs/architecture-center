@@ -4,7 +4,7 @@ Understanding the data usage patterns is critical for designing an optimized tie
 
 1. The hot tier has data that needs to remain highly available and accessible. Configuration data, customer profiles, current student courses, and current marketing campaigns are examples of hot tier data.
 1. The cool tier has data with lower availability requirements—data that can be stored at lower cost than hot tier data. For example, Azure Table storage, with latency above 10 ms, is cool tier storage compared to Azure Cosmos DB.
-1. Archive data is classified as historical data that is kept for a specific period for legal and compliance requirements. You can keep archive data in Azure Data Lake Storage for long retention periods at very low cost.
+1. Archive data is classified as historical data that is kept for a specific period for legal and compliance requirements. You can keep archive data in Azure Data Lake Storage for long retention periods at low cost.
 
 ## Potential use cases
 
@@ -25,7 +25,7 @@ The application data is stored in Azure Cosmos DB, which replicates data to diff
 *Download a [Visio file](https://arch-center.azureedge.net/US-1857597-PR-3334-optimized-storage-logical-data-classification.vsdx) of this architecture.*
 
 1. The client authenticates with Azure Active Directory (Azure AD) and is granted access to web applications hosted on Azure App Service.
-1. Azure Front Door, a firewall and layer 7 load balancer, switches user traffic to a different Azure region in case of a regional outage.
+1. Azure Front Door, a firewall and layer 7 load balancer, switches user traffic to a different Azure region if there is a regional outage.
 1. Azure App Service hosts websites and RESTful web APIs. Browser clients run AJAX applications that use the APIs.
 1. Web APIs delegate function apps to handle background tasks. The tasks are queued in Azure Queue Storage queues.
 1. The function apps hosted by Azure Functions perform the background tasks, triggered by the queued messages.
