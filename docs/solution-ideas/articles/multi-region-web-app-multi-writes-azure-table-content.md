@@ -1,13 +1,13 @@
-This architecture provides a high availability solution for a web application that uses massive amounts of data. It is a flexible approach that can provide a global solution that distributes applications and data to keep it close to users.
+This architecture provides a high availability solution for a web application that uses massive amounts of data. It's a flexible approach that can provide a global solution that distributes applications and data to keep it close to users.
 
-The architecture requires custom replication software. This can be challenging to create, depending on the applications and the configuration.
+The architecture requires custom replication software. depending on the applications and the configuration, this can be challenging to create.
 
 Here are some possible configurations:
 
-- **Active/Passive:** There is a primary region that normally provides service to all users. There is also a standby region that becomes active when the primary region cannot function. When the primary system is active, a replication service replicates database changes to the standby region.
-- **Active/Active:** There is a primary region that normally is active, providing read service to nearby users and write service to all users. One or more other regions are active and provide read-only service to nearby users. Writes are always directed to the primary region, and reads are always directed to the nearest active region.
+- **Active/Passive:** There's a primary region that normally provides service to all users. There's also a standby region that becomes active when the primary region can't function. When the primary system is active, a replication service replicates database changes to the standby region.
+- **Active/Active:** There's a primary region that normally is active, providing read service to nearby users and write service to all users. One or more other regions are active and provide read-only service to nearby users. Writes are always directed to the primary region, and reads are always directed to the nearest active region.
 
-   As with the Active/Passive configuration, there is a standby region that becomes active when the primary region cannot function. When the primary system is active, a replication service replicates database changes to the read-only regions and the standby region. When the standby region is active, the replication service replicates database changes to the read-only regions.
+   As with the Active/Passive configuration, there's a standby region that becomes active when the primary region can't function. When the primary system is active, a replication service replicates database changes to the read-only regions and the standby region. When the standby region is active, the replication service replicates database changes to the read-only regions.
 
    One drawback to this approach is the high latency of write operations.
 - **Multi-active:** There are multiple active regions, each capable of providing full service to users. User activity is always directed to the nearest active region.
@@ -16,7 +16,7 @@ Here are some possible configurations:
 
 Since replication is a custom implementation, the consistency level can be whatever is needed.
 
-The possible difficulty of implementing custom replication and the time required to do it are important considerations with this architecture.
+The possible difficulty of implementing custom replication and the time required are important considerations with this architecture.
 
 > [!Note]
 > Your application may require multiple storage accounts under some circumstances. See [Considerations](#considerations) for more information.
@@ -40,7 +40,7 @@ The architecture may be appropriate for any application that uses massive amount
 ### Dataflow
 
 1. The client authenticates with Azure Active Directory (Azure AD) and is granted access to web applications hosted on Azure App Service.
-1. Azure Front Door, a firewall and layer 7 load balancer, switches user traffic to a different Azure region in case of a regional outage.
+1. Azure Front Door, a firewall and layer 7 load balancer, switches user traffic to a different Azure region if there is a regional outage.
 1. Azure App Service hosts websites and RESTful web APIs. Browser clients run AJAX applications that use the APIs.
 1. Web APIs delegate function apps to handle background tasks. The tasks are queued in Azure Queue Storage queues.
 1. The function apps hosted by Azure Functions perform the background tasks, triggered by the queued messages.
@@ -71,9 +71,9 @@ The architecture may be appropriate for any application that uses massive amount
 
 ## Considerations
 
-- The architecture requires custom replication software. This can be challenging to create, depending on the applications and the configuration. The possible difficulty of implementing custom replication and the time required to do it are important considerations with this architecture.
+- The architecture requires custom replication software. This can be challenging to create, depending on the applications and the configuration. The possible difficulty of implementing custom replication and the time required are important considerations with this architecture.
 - Because replication is custom-designed, developers have great flexibility in implementing a data consistency strategy.
-- There are performance limits on Table Storage that can be overcome by adding Storage accounts. The following circumstances may require additional accounts:
+- There are performance limits on Table Storage that can be overcome by adding Storage accounts. The following circumstances may require more accounts:
    - To implement multi-tenancy to support multiple customers
    - To support customers with higher transaction rates
    - To support customers with large datasets

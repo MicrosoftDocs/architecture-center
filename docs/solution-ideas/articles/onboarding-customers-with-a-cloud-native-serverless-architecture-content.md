@@ -6,7 +6,7 @@ This serverless architecture enables you to build and run applications without h
 
 This scenario is for organizations that have customers.
 
-- Service based subscriptions (streaming videos, applications such as Office 365 and Adobe , )
+- Service based subscriptions (streaming videos, applications such as Office 365 and Adobe, etc.)
 
 ## Architecture
 

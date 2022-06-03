@@ -24,7 +24,7 @@ Forecasts are created by harnessing the power of real-time and historical data r
 
 ### Dataflow
 
-  1. The data feeds into the [Azure Event Hubs](/azure/event-hubs/event-hubs-about) and [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) service as data points or events, that will be used in the rest of the solution flow.
+  1. The data feeds into the [Azure Event Hubs](/azure/event-hubs/event-hubs-about) and [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) service as data points or events that will be used in the rest of the solution flow.
   1. [Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction) analyzes the data to provide near real-time analytics on the input stream from the event hub and directly publish to Power BI for visualization.
   1. [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) is used to make forecast on the tank level of particular region given the inputs received.
   1. Azure Synapse Analytics is used to store the prediction results received from Azure Machine Learning. These results are then consumed in the Power BI dashboard.
