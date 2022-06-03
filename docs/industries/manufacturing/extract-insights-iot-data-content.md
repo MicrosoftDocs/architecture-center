@@ -273,5 +273,4 @@ We covered a lot of concepts, and we would like to give the reader a set of star
 - [IoT and data analytics](../..//example-scenario/data/big-data-with-iot.yml)
 - [End-to-end computer vision at the edge for manufacturing](../../reference-architectures/ai/end-to-end-smart-factory.yml)
 - [Condition monitoring for industrial IoT](../../solution-ideas/articles/condition-monitoring.yml)
-- [IoT and data analytics](../../example-scenario/data/big-data-with-iot.yml)
 - [IoT Edge railroad maintenance and safety system](../../example-scenario/predictive-maintenance/iot-predictive-maintenance.yml)
