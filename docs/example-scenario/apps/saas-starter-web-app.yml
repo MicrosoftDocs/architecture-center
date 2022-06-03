@@ -12,7 +12,7 @@ metadata:
   ms.custom: fcp
   ms.category:
     - web
-name: SaaS Starter web app
+name: Starter web app for SaaS development
 azureCategories:
   - web
 summary: This architecture provides a starting point for building software as a service (SaaS) on Azure. It includes common SaaS components such as identity, onboarding, and tenant management.
