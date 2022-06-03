@@ -59,7 +59,7 @@ The user sign-in workflow consists of the following steps:
 
 1. *Permission data API* looks up the *end user*'s information in the *Permission data storage* and returns a list of permissions and roles that are assigned to that *end user*.
 
-1. *Identity provider* adds the permissions and roles as custom claims to the ID token, which is a JSON web token (JWT).
+1. *Identity provider* adds the permissions and roles as custom claims to the [ID token](/azure/active-directory/develop/id-tokens), which is a JSON web token (JWT).
 
 1. *Identity provider* returns an ID token to the *end user* and initiates a redirect to the *frontend application*.
 
