@@ -6,7 +6,7 @@ This solution is built on the Azure managed services: [Event Hubs](https://azure
 
 ## Potential use cases
 
-Organizations can utilize this to predict when vehicle maintenance needs to be done and when to refurbish their fleet of company vehicles.
+Organizations can utilize predictive insights to determine when vehicle maintenance needs to be done and when to refurbish their fleet of company vehicles.
 
 ## Architecture
 

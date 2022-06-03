@@ -1,10 +1,10 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-In today's highly competitive and connected environment, modern businesses can no longer survive with generic, static online content. Furthermore, marketing strategies using traditional tools are often expensive, hard to implement, and do not produce the desired return on investment. These systems often fail to take full advantage of the data collected to create a more personalized experience for the user.
+In today's highly competitive and connected environment, modern businesses can no longer survive with generic, static online content. Furthermore, marketing strategies using traditional tools are often expensive, hard to implement, and don't produce the desired return on investment. These systems often fail to take full advantage of the data collected to create a more personalized experience for the user.
 
 Surfacing offers that are customized for the user has become essential to building customer loyalty and remaining profitable. On a retail website, customers desire intelligent systems that provide offers and content, based on their unique interests and preferences. Today's digital marketing teams can build this intelligence using the data generated from all types of user interactions.
 
-By analyzing massive amounts of data, marketers have the unique opportunity to deliver highly relevant and personalized offers to each user. However, building a reliable and scalable big data infrastructure, and developing sophisticated machine learning models that personalize to each user is not trivial.
+Marketers have the unique opportunity to deliver highly relevant and personalized offers to each user by analyzing massive amounts of data. However, building a reliable and scalable big data infrastructure, and developing sophisticated machine learning models that personalize to each user isn't trivial.
 
 ## Potential use cases
 
