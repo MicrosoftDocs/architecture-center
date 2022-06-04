@@ -32,3 +32,7 @@ products:
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-disaster-recovery-multi-tier-app.png
 content: |
    [!include[](multi-tier-app-disaster-recovery-content.md)]
+adobe-target: true
+  adobe-target-activity: DocsExp–450939–A/B–Docs/Architecture–ArchDiagrams–FY22Q4
+  adobe-target-experience: Experience B
+  adobe-target-content: ./multi-tier-app-disaster-recovery-experiment.yml
