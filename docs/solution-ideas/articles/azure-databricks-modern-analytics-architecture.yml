@@ -24,3 +24,7 @@ summary: Create a modern analytics architecture with Azure Databricks, Data Lake
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-databricks-modern-analytics-architecture-diagram-thumbnail.png
 content: |
   [!include[](azure-databricks-modern-analytics-architecture-content.md)]
+adobe-target: true
+adobe-target-activity: DocsExp–450939–A/B–Docs/Architecture–ArchDiagrams–FY22Q4
+adobe-target-experience: Experience B
+adobe-target-content: ./azure-databricks-modern-analytics-architecture-experiment.yml
