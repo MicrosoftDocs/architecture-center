@@ -78,14 +78,26 @@ Some of the services may require other IBM tooling such as IBM Watson ML or AppC
 
 <!-- TODO: Explain IPI vs UPI or at least link to a resource that explains what it is -->
 
+
+
 > [!NOTE]
-> Air gapped patterns have not been tested but would require using the [User Provided Infrastructure (UPI)](https://github.com/openshift/installer/blob/master/docs/user/azure/install_upi.md) as a starting point.
+> Once OpenShift has been installed, the control plane owner will be responsible for maintaining and scaling the worker nodes on Azure. You increase the cluster size through the admin console using MachineSets, not the Azure portal.
+
 
 Considerations:
 
 - **Region Selection**: it is recommended to use a region with [availability zones](/azure/availability-zones/az-overview#azure-regions-with-availability-zones). When using OpenShift IPI for deployment, the IPI will automatically attempt to provision nodes across zones. OpenShift itself will by default balance workloads across all available nodes across the availability zones. In the event of a zone outage, your solution can keep on functioning by having nodes in other zones that can take over the work. 
 - **Backup & Recovery**: although Azure RedHat OpenShift is not supported by Maximo, you can use [their instructions](/azure/openshift/howto-create-a-backup) for backup and recovery. 
 - **Failover** - Consider deploying OpenShift into 2 regions and use [RedHat's Advanced Cluster Management platform](https://www.redhat.com/en/technologies/management/advanced-cluster-management). If your solution has public endpoints, you can place Azure Traffic Manager in front of them to redirect traffic to the appropriate cluster in the event of an outage. In this situation, you would need to migrate your applications state and persistent volumes as well.
+
+#### Air gap installations
+
+> [!WARN]
+> Air gapped patterns have not been tested in full but would require using the [User Provided Infrastructure (UPI)](https://github.com/openshift/installer/blob/master/docs/user/azure/install_upi.md) as a starting point.
+
+In some cases you need do an air gap install of Maximo on Azure. Air gapping means you do an "offline", a public internet disconnected, installation of Maximo on OpenShift. By default we do not recommend you do an air gap install as it creates very significant complexity to the operations of your solution. Things such as mirroring containers, keeping the mirrors updated against security vulnerabilities, doing the install, firewall management are going to very time consuming.
+
+For air gap installations, please refer to the OpenShift documentation on how to mirror and install OpenShift air gapped. Once OpenShift is up, refer to the IBM Maximo documentation on how to mirror and air gap install Maximo.
 
 ### Sizing your environment
 
@@ -136,6 +148,9 @@ Do not use Azure Blob with CSI drivers, it doesn't support required hardlinks wh
 
 ### Security and authentication
 
+MAS currently supports the use of SAML via Azure Active Directory (Azure AD). You can find more information at the following locations: [IBM configuration](https://www.ibm.com/docs/en/mas83/8.3.0?topic=administration-configuring-suite#saml) and [Azure configuration](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/add-application-portal-setup-sso). When managing IaaS resources, you can use Azure AD for authentication and authorization to the Azure portal.
+
+<!-- TODO: Needs to be fleshed out more, considerations for the SAML etc -->
 <!-- TODO: add details around certificates and authentication patterns (SAML) -->
 
 
@@ -189,9 +204,9 @@ Before building out your environment, review the [QuickStart Guide: Maximo Appli
 
 ## Security
 
-Maintaining access and visibility into yours assets maintenance lifecycle can be one of your organization's greatest opportunity to operate efficiently and maintain uptime. It's important, then, to secure access to your MAS architecture. To achieve this goal, use secure authentication and address network vulnerabilities. Use encryption to protect all data moving in and out of your architecture.
+Maintaining access and visibility into yours assets maintenance lifecycle can be one of your organization's greatest opportunity to operate efficiently and maintain uptime. It's important to secure access to your Maximo deployment. To achieve this goal, use secure authentication (e.g., SAML) and keep your solutions up-to-date. Use encryption to protect all data moving in and out of your architecture.
 
-Azure delivers MAS by using an infrastructure as a service (IaaS) cloud model. Microsoft builds security protections into the service at the following levels:
+Azure delivers Maximo by using an infrastructure as a service (IaaS) and Platform as a Service (PaaS) cloud model. Microsoft builds security protections into the service at the following levels:
 
 - Physical datacenter
 - Physical network
@@ -200,9 +215,6 @@ Azure delivers MAS by using an infrastructure as a service (IaaS) cloud model. M
 
 Carefully evaluate the services and technologies that you select for the areas above the hypervisor, such as the latest patched version of OpenShift for a major release. Make sure to provide the proper security controls for your architecture.
 
-> [!NOTE]
-> Once OpenShift has been installed, the control plane owner will be responsible for maintaining and scaling the worker nodes on Azure. You increase the cluster size through the admin console using MachineSets, not the Azure portal.
-
 Use [network security groups](/azure/virtual-network/security-overview) to filter network traffic to and from resources in your [virtual network](/azure/virtual-network/virtual-networks-overview). With these groups, you can define rules that grant or deny access to your Maximo services. Examples include:
 
 - Allow SSH access into the OpenShift nodes for troubleshooting
@@ -210,24 +222,11 @@ Use [network security groups](/azure/virtual-network/security-overview) to filte
 
 [Server-side encryption (SSE) of Azure Disk Storage](/azure/virtual-machines/disk-encryption) protects your data. It also helps you meet organizational security and compliance commitments. With Azure managed disks, SSE encrypts the data at rest when persisting it to the cloud. This behavior applies by default to both OS and data disks.
 
-### Identity management
-
-MAS currently supports the use of SAML via Azure Active Directory (Azure AD). You can find more information at the following locations: [IBM configuration](https://www.ibm.com/docs/en/mas83/8.3.0?topic=administration-configuring-suite#saml) and [Azure configuration](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/add-application-portal-setup-sso). When managing IaaS resources, you can use Azure AD for authentication and authorization to the Azure portal.
-
-<!-- TODO: Needs to be fleshed out more, considerations for the SAML etc -->
-
 ### Protect your infrastructure
 
 Control access to the Azure resources that you deploy. Every Azure subscription has a [trust relationship](/azure/active-directory/active-directory-how-subscriptions-associated-directory) with an Azure AD tenant. Use [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) to grant users within your organization the correct permissions to Azure resources. Grant access by assigning Azure roles to users or groups at a certain scope. The scope can be a subscription, a resource group, or a single resource. Make sure to [audit all changes to infrastructure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-audit).
 
-Manage remote access to your VMs through [Azure Bastion](/azure/bastion/bastion-overview). Don't expose any of these components to the internet:
-
-- VMs
-- Secure Shell Protocol (SSH) ports
-
-## Operationalization
-
-<!-- TODO: Day2 ops -->
+Manage remote access to your VMs through [Azure Bastion](/azure/bastion/bastion-overview). Don't expose components like virtual machines without NSGs on them. 
 
 ## Contributors
 
