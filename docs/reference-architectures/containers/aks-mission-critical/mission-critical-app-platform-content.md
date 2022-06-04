@@ -137,17 +137,17 @@ For other considerations about the size of a unit, and combination of resources,
 
 ### Compute cluster
 
-To containerize the workload, each stamp needs to run a compute cluster. In this architecture, Azure Kubernetes Service (AKS) is chosen because it Kubernetes is the most popular compute platform for modern applications.
+To containerize the workload, each stamp needs to run a compute cluster. In this architecture, Azure Kubernetes Service (AKS) is chosen because it Kubernetes is the most popular compute platform for modern, containerized applications.
 
 The lifetime of the AKS cluster is bound to the ephemeral nature of the stamp. The cluster is stateless and doesn't have persistent volumes. It uses ephemeral OS disks instead of managed disks because they aren't expected to receive application or system-level maintenance.
 
-To increase reliability, the cluster is configured to use all three availability zones in a given region. This makes it possible for the cluster to use AKS Uptime SLA that guarantees 99.95% SLA availability of the AKS API endpoint. 
+To increase reliability, the cluster is configured to use all three availability zones in a given region. This makes it possible for the cluster to use [AKS Uptime SLA](https://docs.microsoft.com/azure/aks/uptime-sla) that guarantees 99.95% SLA availability of the AKS control plane. 
 
-Scale limits also impact reliability. Even though, the cluster only uses the default node pool to run the simple workload, autoscaling is enabled to let the node pool automatically scale out if needed. For complex workloads, separating system and user node pools is necessary. All node pools should be autoscaled.  
+Scale limits also impact reliability. The cluster only uses the default node pool to run the simple workload, but autoscaling is enabled to let the node pool automatically scale out if needed, which improves reliability. For complex workloads, multiple node pools are necessary, allowing the system resources and applications to be run in separate node pools. When using multiple node pools, all node pools should be autoscaled.  
 
-At the pod level, the Horizontal Pod Autoscaler (HPA) scales pods based on configured CPU, memory, or custom metrics. Load test the components of the workload to establish a baseline for the autoscaler values.
+At the pod level, the Horizontal Pod Autoscaler (HPA) scales pods based on configured CPU, memory, or custom metrics. Load test the components of the workload to establish a baseline for the autoscaler and HPA values.
 
-The cluster is also configured for automatic node image upgrades and to scale appropriately during those upgrades to allow for zero downtime while upgrades are being performed. Upgrades should occur at different times across the stamps. If one if upgrade fails, another cluster shouldn't be affected. Also, cluster upgrades should be rolled across the nodes so that they aren't unavailable at the same time.
+The cluster is also configured for automatic node image upgrades and to scale appropriately during those upgrades. This scaling allows for zero downtime while upgrades are being performed. If the cluster in one stamp fails during an upgrade, other clusters in other stamps shouldn't be affected, but upgrades across stamps should occur at different times to maintain availability. Also, cluster upgrades are automatically rolled across the nodes so that they aren't unavailable at the same time.
 
 Observability is critical in this architecture because stamps are ephemeral. Diagnostic settings are configured to store all log and metric data in a regional Log Analytics workspace. Also, AKS Container Insights is enabled through an in-cluster OMS Agent. This agent allows the cluster to send monitoring data to the Log Analytics workspace.
 
