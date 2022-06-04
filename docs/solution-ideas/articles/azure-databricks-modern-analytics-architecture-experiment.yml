@@ -23,4 +23,5 @@ name: Modern analytics architecture with Azure Databricks
 summary: Create a modern analytics architecture with Azure Databricks, Data Lake Storage, and other Azure services. Unify data, analytics, and AI workloads at any scale.
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-databricks-modern-analytics-architecture-diagram-thumbnail.png
 content: |
-  [!include[](azure-databricks-modern-analytics-architecture-content.md)]
+  [!include[](azure-databricks-modern-analytics-architecture-experiment-content.md)]
+robots: noindex
