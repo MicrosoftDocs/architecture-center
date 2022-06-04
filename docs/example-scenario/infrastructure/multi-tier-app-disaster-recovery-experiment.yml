@@ -32,3 +32,4 @@ products:
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-disaster-recovery-multi-tier-app.png
 content: |
    [!include[](multi-tier-app-disaster-recovery-content.md)]
+robots: noindex
