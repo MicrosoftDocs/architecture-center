@@ -112,7 +112,7 @@ The following image shows five blocks that represent stages of transformation. T
 
 ![Diagram showing five stages of transformation.](./images/extract-insights-iot-data/lambda-architecture-all.png)
 
-The options for the data ingestion service on the speed layer are covered in the previous section, “Ingesting the data stream.”
+The options for the data ingestion service on the speed layer are covered in the previous section, [Ingest the data stream](#ingest-the-data-stream).
 
 [Apache Kafka on HDInsight](/azure/hdinsight/kafka/apache-kafka-introduction?WT.mc_id=iotinsightssoln-docs-ercenk) can be a service option to implement the data stream both for the data ingestion service and the stream processing.
 
@@ -266,7 +266,7 @@ We covered a lot of concepts, and we would like to give the reader a set of star
 - Analysis clients:
   - [Learning Power BI](/power-bi/guided-learning/?WT.mc_id=iotinsightssoln-docs-ercenk)
   - See the [Power BI demo](https://microsoft.github.io/PowerBI-JavaScript/demo/v2-demo/index.html).
-
+  - [Data visualization with Azure Data Explorer](/azure/data-explorer/viz-overview)
 ## Related resources
 
 - [Azure industrial IoT analytics guidance](../../guide/iiot-guidance/iiot-architecture.yml)

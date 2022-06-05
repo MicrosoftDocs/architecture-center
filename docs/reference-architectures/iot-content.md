@@ -1,59 +1,67 @@
-This article discusses a recommended architecture for IoT applications using Azure PaaS (platform-as-a-service) components. The following diagram reflects different Azure components that can be used to architect an IoT solution. The diagram shows, and the article highlights, most of the commonly used services, but no solution requires all of them. 
+The recommended way to get started with internet-of-things (IoT) applications is with [Azure IoT Central](/azure/iot-central), an IoT application platform-as-a-service (aPaaS). IoT Central simplifies and accelerates IoT solution development and operations by preassembling, scaling, and managing many of the Azure platform-as-a-service (PaaS) services this article describes. IoT Central provides an out-of-box, ready to use UX and API surface area, complete with the capabilities you need to connect, manage, and operate fleets of devices at scale.
 
-[ ![Diagram showing architecture for I O T applications using Azure Platform As A Service components.](./iot/images/iot-refarch.svg) ](./iot/images/iot-refarch.svg#lightbox)
+To architect customized IoT solutions, you can assemble Azure PaaS (platform-as-a-service) components as this article outlines. The following diagram and article describe Azure components and services commonly used in IoT solutions, but no single solution uses all of these components.
+
+To help decide between IoT Central and a PaaS-based IoT approach based on solution needs, see [Choose an Internet of Things (IoT) solution in Azure](../example-scenario/iot/iot-central-iot-hub-cheat-sheet.yml).
+
+[ ![Diagram showing architecture for I O T applications using Azure PaaS components.](./iot/images/iot-refarch.svg) ](./iot/images/iot-refarch.svg#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-iot-reference-architecture.vsdx) of this architecture.*
 
-This reference architecture uses Azure PaaS (platform-as-a-service) components. Microsoft recommends getting started with [Azure IoT Central](/azure/iot-central/), which is an aPaaS (application platform-as-a-service) IoT solution platform. It is designed to simplify and accelerate IoT solution assembly and operations by preassembling, scaling, and managing many of the same PaaS services described in this reference architecture. The result is an out-of-the-box and ready to use UX and API surface area complete with the capabilities needed to connect, manage, and operate fleets of devices at scale. [Learn more](/azure/architecture/example-scenario/iot/iot-central-iot-hub-cheat-sheet) about how to compare IoT Central (aPaaS) to a PaaS solution approach based on your solution needs.
+## Workflow
 
-Azure IoT solutions involve **things** (typically **devices**) that generate data, **insights** that you form about the data, and **actions** that you take based on the insights. Consider a motor that sends temperature data. This data is used to evaluate whether the motor is performing as expected. The insight about its performance is used to prioritize a maintenance schedule for the motor.
+Azure IoT solutions involve:
 
-If you want to see IoT reference architectures that address solutions that are specific to industry verticals, you can start here:
-> [!div class="nextstepaction"]
-> [Industry specific IoT reference architectures](iot/industry-iot-hub-page.md)
+- **Things**, typically **devices** that generate data.
+- **Insights** that you form about the data.
+- **Actions** that you take based on insights.
 
-## Devices
+For example, a motor sends temperature data. You use this data to evaluate whether the motor is performing as expected. You use the insight about the motor's performance to prioritize its maintenance schedule.
 
-Azure IoT supports a large range of devices, from microcontrollers running Azure RTOS and [Azure Sphere](/azure-sphere/product-overview/what-is-azure-sphere/) to developer boards like [MX Chip](/samples/azure-samples/mxchip-iot-devkit-get-started/sample/) and Raspberry Pi. Azure IoT also supports smart server gateways capable of running custom code. Devices might perform some local processing through a service such as **Azure IoT Edge**, or just connect directly to Azure so that they can send data to and receive data from the IoT solution.
+To see IoT architectures for industry-specific solutions, see [Industry specific IoT reference architectures](iot/industry-iot-hub-page.md).
+
+### Devices
+
+Azure IoT supports a large range of devices, from microcontrollers running Azure RTOS and [Azure Sphere](/azure-sphere/product-overview/what-is-azure-sphere) to developer boards like [MX Chip](/samples/azure-samples/mxchip-iot-devkit-get-started/sample) and Raspberry Pi. Azure IoT also supports smart server gateways capable of running custom code. Devices might perform some local processing through a service such as **Azure IoT Edge**, or just connect directly to Azure so that they can send data to and receive data from the IoT solution.
 
 When devices are connected to the cloud, there are several services that assist with ingesting data. **Azure IoT Hub** is a cloud gateway service that can securely connect and manage devices. **IoT Hub Device Provisioning Service (DPS)** enables zero-touch, just-in-time provisioning that helps to register a large number of devices in a secure and scalable manner. **Azure Digital Twins** enables virtual models of real world systems.
 
-## Insights
+### Insights
 
-Once devices have been connected in the cloud, their data can be processed and explored to gain custom insights about their environment. At a high level, there are three ways to process data &mdash; hot path, warm path, and cold path. The difference between them has to do with requirements for latency and data access.
+Once devices are connected to the cloud, you can process and explore their data to gain customized insights about their environment. At a high level, there are three ways to process data: hot path, warm path, and cold path. The paths differ in their requirements for latency and data access.
 
-- The **hot path** analyzes data in near-real-time as it arrives. In the hot path, telemetry must be processed with very low latency. The hot path is typically implemented using a stream processing engine. Consider using services such as **Azure Stream Analytics** or **HDInsight**. The output may trigger an alert, or be written to a structured format that can be queried using analytical tools.
-- The **warm path** analyzes data that can accommodate longer delays for more detailed processing. Consider **Azure Data Explorer** or **Azure Time Series Insights** for storing and analyzing large volumes of data.
-- The **cold path** performs batch processing at longer intervals (hourly or daily). The cold path typically operates over large volumes of data which can be stored in **Azure Data Lake**, and the results don't need to be as timely as the hot or warm paths. Consider using **Azure Machine Learning** or **Azure Databricks** to analyze cold data.
+- The **hot path** analyzes data in near-real-time as it arrives. Hot path telemetry must be processed with very low latency. The hot path typically uses a stream processing engine. Consider using services such as **Azure Stream Analytics** or **HDInsight**. The output might trigger an alert, or be written to a structured format that can be queried using analytical tools.
+- The **warm path** analyzes data that can accommodate longer delays for more detailed processing. Consider **Azure Data Explorer** for storing and analyzing large volumes of data.
+- The **cold path** performs batch processing at longer intervals, like hourly or daily. The cold path typically operates over large volumes of data, which can be stored in **Azure Data Lake**. Results don't need to be as timely as in the hot or warm paths. Consider using **Azure Machine Learning** or **Azure Databricks** to analyze cold data.
 
-## Actions
+### Actions
 
-You can use the insights gathered about your data to manage and control your environment. Business integration actions might include storing informational messages, raising alarms, sending email or SMS messages, or integrating with business applications such as CRM and ERP. The following services are available for management and business integration:
+You can use the insights you gather about your data to manage and control your environment. Business integration actions might include storing informational messages, raising alarms, sending email or SMS messages, or integrating with business applications such as CRM (customer relationship management) and ERP (enterprise resource planning). You can use the following services for management and business integration:
 
-- **Power BI** connects to, models, and visualizes your data. Power BI enables you to collaborate on data and use artificial intelligence to make data-driven decisions.
-- **Azure Maps** allows you to create location aware web and mobile applications using geospatial services (search, maps, routing, tracking, and traffic), APIs, and SDKs.
-- **Azure Cognitive Search** provides a search service over varied types of content. This includes indexing, AI enrichment, and querying capabilities.
+- **Power BI** connects to, models, and visualizes your data. Power BI lets you collaborate on data and use artificial intelligence to make data-driven decisions.
+- **Azure Maps** creates location-aware web and mobile applications by using geospatial APIs, SDKs, and services like search, maps, routing, tracking, and traffic.
+- **Azure Cognitive Search** provides a search service over varied types of content. Cognitive Search includes indexing, AI enrichment, and querying capabilities.
 - **Azure API Management** provides a single place to manage all of your APIs.
-- **Azure Web Apps** enables you to deploy web applications that scale with your organization.
-- **Mobile Apps** allows you to build cross platform and native apps for iOs, Android, Windows, or Mac.
-- **Dynamics 365** combines CRM (customer relationship management) and ERP (enterprise resource planning) in the cloud.
+- **Azure Web Apps** deploys web applications that scale with your organization.
+- **Mobile Apps** builds cross platform and native apps for iOs, Android, Windows, or Mac.
+- **Dynamics 365** combines CRM and ERP in the cloud.
 - **Microsoft Flow** is a SaaS offering for automating workflows across applications and other SaaS services.
-- **Azure Logic Apps** is a cloud-based PaaS offering used to create and automate workflows that integrate your apps, data, services, and systems.
+- **Azure Logic Apps** creates and automates workflows that integrate your apps, data, services, and systems.
 
-There are also several services provided by Azure to help you monitor your entire IoT solution and keep it secure. Diagnostic services include **Azure Monitor**. Security services such as **Azure Active Directory** and **Microsoft Defender for IoT** help you control, view, and manage your security settings, threat detection and response.
+Azure also provides several services to help you monitor your entire IoT solution and keep it secure. Diagnostic services include **Azure Monitor**. Security services such as **Azure Active Directory (Azure AD)** and **Microsoft Defender for IoT** help you control, view, and manage security settings and threat detection and response.
 
-## Digital Twins
+## Manageability considerations
 
-Customers are exploring [Digital Twins](/azure/digital-twins/) as a mechanism to control and monitor connected environments. A digital twin is a virtual model of a real-world environment that is driven with data from business systems and IoT devices. It is used to enable insights and actions for a business or organization. Developers and architects are looking to digital twins as the solution that enables intelligent and connected environments such as the following:
+You can use **Azure Digital Twins** to control and monitor connected environments. A digital twin is a virtual model of a real-world environment that is driven with data from business systems and IoT devices. Businesses and organizations use digital twins to enable insights and actions. Developers and architects use digital twin solutions to help implement intelligent and connected environments such as:
 
-- Predictive maintenance in manufacturing
-- Supply chain visibility
-- Smart shelves for real-time inventory
-- Connected homes and smart buildings
+- Predictive maintenance in manufacturing.
+- Supply chain visibility.
+- Smart shelves for real-time inventory.
+- Connected homes and smart buildings.
 
-## Deployment at scale
+## Scalability considerations
 
-Build your solution to deploy at global scale. For optimal scalability, build your IoT application as discrete services that can scale independently. This section contains scalability considerations for various Azure services.
+Build your solution to deploy at global scale. For optimal scalability, build your IoT application with discrete services that can scale independently. This section describes scalability considerations for several Azure services.
 
 **Functions**. When reading from the Event Hubs endpoint, there is a maximum of function instance per event hub partition. The maximum processing rate is determined by how fast one function instance can process the events from a single partition. The function should process messages in batches.
 
@@ -70,7 +78,7 @@ Each IoT hub is provisioned with a certain number of units in a specific pricing
 
 IoT Hub automatically partitions device messages based on the device ID. All of the messages from a particular device will always arrive on the same partition, but a single partition will have messages from multiple devices. Therefore, the unit of parallelization is the partition ID.
 
-## Security
+## Security considerations
 
 This section contains considerations for building secure solutions.
 
@@ -109,7 +117,7 @@ For example:
 
 For additional security considerations, see [Internet of Things (IoT) security architecture](/azure/iot-fundamentals/iot-security-architecture).
 
-## Reliability and performance
+## Availability considerations
 
 A key area of consideration for resilient IoT solutions is business continuity and disaster recovery. Designing for High Availability (HA) and Disaster Recovery (DR) can help you define and achieve required uptime goals for your solution.
 
