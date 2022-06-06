@@ -111,7 +111,7 @@ The tenant onboarding workflow consists of the following steps:
 
 1. The *Onboarding & admin app* returns a success message and a new ID token to the *SaaS Customer Admin*.
 
-#### Add a user to tenant
+#### Add a user to a tenant
 
 The addition of a user to a tenant workflow consists of the following steps:
 
