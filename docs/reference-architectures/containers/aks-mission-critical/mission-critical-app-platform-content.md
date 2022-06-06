@@ -5,22 +5,20 @@ A key design area of any mission critical architecture is the application platfo
 
 -	A mission-critical application must be highly reliable and resistant to datacenter and regional failures. Building _zonal and regional redundancy_ in an active-active configuration is the main strategy. As you choose Azure services, consider its Availability Zones support and using multiple Azure regions. Check [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-region) to determine support for services.
 
--	Use _scale units_ to handle increased load. Scale units allow you to logically group services and a unit can be scaled independent of other units or services in the architecture. Use your capacity model and expected performance to define a unit.
+-	Use _scale units_ to handle increased load. Scale units allow you to logically group services and a unit can be scaled independent of other units or services in the architecture. Use your capacity model and expected performance to define the required scale of a unit.
 
 In this architecture, the application platform consists of global, deployment stamp, and regional resources. The regional resources are provisioned as part of a deployment stamp. Each stamp equates to a scale unit.
-
 
 The resources in each set have distinct characteristics:
 
 |Characteristics|Considerations|
 |---|---|
-|Lifetime|What is the expected lifetime of resource? Should the resource share the lifetime with the entire system, region, or should they be temporary?|
+|Lifetime|What is the expected lifetime of resource? Should the resource share the lifetime with the entire system, region, or should it be temporary?|
 |State|Should the resource persist state? |
 |Reach|Is the resource required to be globally distributed? Can the resource communicate with other resources, globally or in regions?|
-|Dependencies| What's the dependency on other resources, , globally or in other regions?|
+|Dependencies|What's the dependency on other resources, globally or in other regions?|
 |Scale limits|What is the expected throughput?|
 |Availability/disaster recovery|Is the resource configured for high availability?|
-
 
 ## Global resources
 
@@ -35,7 +33,7 @@ Certain resources in this architecture are shared by resources deployed in regio
 |Scale limits|The resources should be scaled such that they can handle throughput of the system as a whole.|
 |Availability/disaster recovery|Because regional and stamp resources can consume global resources, it’s critical that global resources are configured with high availability and disaster recovery. Otherwise, if these resources become unavailable, the entire system is at risk.|
 
-In this architecture, global resources are Azure Front Door, Azure Cosmos DB, Azure Container Registry, and Azure Log Analytics for storing logs and metrics from global resources. 
+In this architecture, global resources are Azure Front Door, Azure Cosmos DB, Azure Container Registry, and Azure Log Analytics for storing logs and metrics from global resources.
 
 ![Global resources](./images/global-resources.png)
 
@@ -43,43 +41,44 @@ In this architecture, global resources are Azure Front Door, Azure Cosmos DB, Az
 
 Azure Front Door is used as the only entry point for user traffic. If Front Door becomes unavailable, the entire system is at risk. Azure guarantees that Azure Front Door will deliver the requested content without error 99.99% of the time. 
 
-The Front Door instance sends traffic to the configured backend services, such as the compute cluster and frontend. Such misconfigurations can lead to outages. To avoid such situations, catch errors during testing. Another common error is missing SSL certificate that can prevent users from using the front end. As mitigation, roll back to the previous configuration, re-issue the certificate, if possible. However, expect unavailability while changes take effect.
+The Front Door instance sends traffic to the configured backend services, such as the compute cluster and frontend. Backend misconfigurations can lead to outages. To avoid such situations, catch errors during testing. Another common error is missing SSL certificate that can prevent users from using the front end. As mitigation, roll back to the previous configuration, re-issue the certificate, if possible. However, expect unavailability while changes take effect.
 
 ### Container Registry
 
-Azure Container Registry is used to store Open Container Initiative (OCI) artifacts. It doesn't participate in the request flow and is only accessed periodically. So, a single instance can be considered. 
+Azure Container Registry is used to store Open Container Initiative (OCI) artifacts. It doesn't participate in the request flow and is only accessed periodically. So, a single instance can be considered.
 
-Container registry is required to exist before stamp resources are deployed and shouldn't have dependency on regional resources. Enable zone redundancy and geo-replication of registries so that runtime access to images is fast and resilient to failures. If Container registry is unavailable, the instance fails over to replica regions and requests are automatically re-routed to another region. Expect transient errors in pulling images until failover is complete. Failures can also occur if images are deleted unadvertantly, new compute nodes will not be able to pull images, but existing nodes can still use cached images. The primary strategy for disaster recovery is redeployment. The artifacts in a container registry can be regenerated from the pipelines.  
+Container registry is required to exist before stamp resources are deployed and shouldn't have dependency on regional resources. Enable zone redundancy and geo-replication of registries so that runtime access to images is fast and resilient to failures. If container registry is unavailable, the instance fails over to replica regions and requests are automatically re-routed to another region. Expect transient errors in pulling images until failover is complete. Failures can also occur if images are deleted inadvertently, new compute nodes will not be able to pull images, but existing nodes can still use cached images. The primary strategy for disaster recovery is redeployment. The artifacts in a container registry can be regenerated from pipelines.
 
 It’s recommended that you use the Premium SKU to enable geo replication. The zone redundancy feature ensures resiliency and high availability within a specific region. In case of a regional outage, replicas in other regions are available for data plane operations. With this SKU you can restrict access to the registry through private endpoints. This way, only your application can access that service. This also ensures that all of the potential throughput is available to your application.
 
 ### Database
-It's recommended that all state is stored global in an external database. Build redundancy by deploying the database across regions. For mission-critical workloads, data consistency should be a primary concern. Also, in case of a failure, write requests to the database should still be functional. 
 
-Data replication in an active-active configuraiton is strongly recommended. The application should be able to instantly connect with another region. Al instances should be able to handle read _and_ write requests.
+It's recommended that all state is stored global in a database separated from regional stamps. Build redundancy by deploying the database across regions. For mission-critical workloads, data consistency should be the primary concern. Also, in case of a failure, write requests to the database should still be functional.
 
-This architecture uses Azure Cosmos DB with SQL API. Multi-master write is enabled with replicas deployed to every region in which a stamp is deployed. Each stamp can write locally and  Cosmos DB handles data replication and synchronization between the stamps.
+Data replication in an active-active configuration is strongly recommended. The application should be able to instantly connect with another region. All instances should be able to handle read _and_ write requests.
 
-Zone redundancy is also enabled within each replicated region. 
+This architecture uses Azure Cosmos DB with SQL API. Multi-master write is enabled with replicas deployed to every region in which a stamp is deployed. Each stamp can write locally and Cosmos DB handles data replication and synchronization between the stamps.
+
+Zone redundancy is also enabled within each replicated region.
 
 For details on data considerations, see <!coming soon>.
 
 ### Global monitoring
 
-Azure Log Analytics is used to store diagnostic logs from all global resources. It's recommended that you restrict daily quota on storage especially on environments that are used for load testing. Also, set retention policy. These restrictions will prevent any overspend that is incurred by storing data that is not needed beyond a limit. 
-
+Azure Log Analytics is used to store diagnostic logs from all global resources. It's recommended that you restrict daily quota on storage especially on environments that are used for load testing. Also, set retention policy. These restrictions will prevent any overspend that is incurred by storing data that is not needed beyond a limit.
 
 ### Considerations for foundational services
 
 The system is likely to use other critical platform services that can cause the entire system to be at risk, such as Azure DNS and Azure Active Directory (AD). Unavailability of those services is unlikely. Azure DNS  guarantees 100% availability SLA for valid DNS requests. Azure Active Directory guarantees at least 99.9% uptime. Still, you should be aware of the impact in the event of a failure.
 
-There are hard dependencies on Azure DNS because many Azure services use DNS. For instance, 
-- Front Door uses Azure DNS to reach the backend and other global services. 
-- Azure Container Registry uses Azure DNS to fail over requests to another region. 
+There are hard dependencies on Azure DNS because many Azure services use DNS. For instance:
+
+- Azure Front Door uses Azure DNS to reach the backend and other global services.
+- Azure Container Registry uses Azure DNS to fail over requests to another region.
 
 In both cases, both Azure services will be impacted if Azure DNS is unavailable. In the preceding examples, name resolution for user requests from Front Door will fail; Docker images won't be pulled from the registry. Using an external DNS service as backup will not mitigate the risk. Expect full outage.
 
-Similarly, Azure AD is used for control plane operations such as creating new AKS nodes, pulling images from Container Registry, or accessing Key Vault on pod startup. If Azure AD is unavailable, running components should not affected. But, new pods or AKS nodes won't be functional. Consider scaling in during this time and expect decreased user experience. 
+Similarly, Azure AD is used for control plane operations such as creating new AKS nodes, pulling images from Container Registry, or accessing Key Vault on pod startup. If Azure AD is unavailable, running components should not affected. But, new pods or AKS nodes won't be functional. Consider scaling in during this time and expect decreased user experience.
 
 Expect disruption in the system caused by foundational services that impact the Azure services chosen in the architecture.
 
@@ -96,11 +95,12 @@ In this architecture, the deployment stamp deploys the workload and provisions r
 |Scale limits|Throughput is established through testing. The throughput of the overall stamp is limited to the least performant resource. Stamp throughput needs to take into account both the estimated high-level of demand plus any failover as the result of another stamp in the region becoming unavailable.|
 |Availability/disaster recovery|Because of the temporary nature of stamps, disaster recovery is done by redeploying the stamp. If resources are in an unhealthy state, the stamp, as a whole, can be destroyed and redeployed. |
 
-In this architecture, stamp resources are Azure Kubernetes Service (AKS), Azure Event Hubs, Azure Key Vault, and Azure Storage Accounts. 
+In this architecture, stamp resources are Azure Kubernetes Service (AKS), Azure Event Hubs, Azure Key Vault, and Azure Storage Accounts.
 
 ![Stamp resources](./images/stamp-resources.png)
 
 ### Scale unit
+
 A stamp can also be considered as a scale-unit. All components and services within a given stamp are configured and tested to serve requests in a given range. Here are some scaling and availability considerations when choosing Azure services in a unit:
 
 - Evaluate capacity relations between all resources in a scale unit. For example, to handle 100 incoming requests, 5 ingress controller pods and 3 catalog service pods and 1000 RUs in Cosmos DB would be needed. So, when autoscaling the ingress pods, expect scaling of the catalog service and cosmos RUs given those ranges.
@@ -133,11 +133,11 @@ A stamp can also be considered as a scale-unit. All components and services with
 
 - Choose services that support availability zones to build redundancy. This might limit your technology choices.
 
-For other considerations about the size of a unit, and combination of resources, see [Misson critical guidance in Well-architected Framework: ](https://docs.microsoft.com/en-us/azure/architecture/framework/mission-critical/mission-critical-application-design#scale-unit-architecture).
+For other considerations about the size of a unit, and combination of resources, see [Misson critical guidance in Well-architected Framework: ](https://docs.microsoft.com/azure/architecture/framework/mission-critical/mission-critical-application-design#scale-unit-architecture).
 
 ### Compute cluster
 
-To containerize the workload, each stamp needs to run a compute cluster. In this architecture, Azure Kubernetes Service (AKS) is chosen because it Kubernetes is the most popular compute platform for modern, containerized applications.
+To containerize the workload, each stamp needs to run a compute cluster. In this architecture, Azure Kubernetes Service (AKS) is chosen because Kubernetes is the most popular compute platform for modern, containerized applications.
 
 The lifetime of the AKS cluster is bound to the ephemeral nature of the stamp. The cluster is stateless and doesn't have persistent volumes. It uses ephemeral OS disks instead of managed disks because they aren't expected to receive application or system-level maintenance.
 
@@ -194,14 +194,12 @@ A system can have resources that are deployed in region but outlive the stamp re
 |Scale limits|Determine the scale limit of regional resources by combining all stamps within the region.|
 |Availability/disaster recovery|Coming Soon! |
 
-
 ![Regional resources](./images/regional-resources.png)
 
 ### Monitoring data for stamp resources
+
 Deploying monitoring resources is a typical example for regional resources. In this architecture, each region has an individual Log Analytics workspace configured to store all log and metric data emitted from stamp resources. Because regional resource outlive stamp resources, data is available even when the stamp is deleted. 
 
 Azure Log Analytics and Azure Application Insights are used to store logs and metrics from the platform. It's recommended that you restrict daily quota on storage especially on environments that are used for load testing. Also, set retention policy to store all data. These restrictions will prevent any overspend that is incurred by storing data that is not needed beyond a limit. 
 
 Similarly, Application Insights is also deployed as a regional resource to collect all application monitoring data.
-
-
