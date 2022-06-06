@@ -59,7 +59,7 @@ Build data lake solutions using the following services offered by Azure:
 
 - [Data Lake Store](/azure/data-lake-store) is a hyperscale, Hadoop-compatible repository.
 - [Data Lake Analytics](/azure/data-lake-analytics) is an on-demand analytics job service to simplify big data analytics.
-- [Azure HD Insight](/azure/data-lake-store) is a managed, full-spectrum, open-source analytics service in the cloud for enterprises. 
+- [Azure HD Insight](/azure/hdinsight/hdinsight-overview) is a managed, full-spectrum, open-source analytics service in the cloud for enterprises. 
 
 ## Contributors
 
