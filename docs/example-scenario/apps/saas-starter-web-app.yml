@@ -22,6 +22,6 @@ products:
   - azure-sql-database
   - azure-logic-apps
   - azure-resource-manager
-thumbnailUrl: /azure/architecture/browse/thumbs/saas-starter-web-app-thumbnail.png
+thumbnailUrl: /azure/architecture/browse/thumbs/saas-starter-web-app-thumbnail.svg
 content: |
    [!include[](saas-starter-web-app-content.md)]
