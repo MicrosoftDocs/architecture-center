@@ -24,6 +24,8 @@ This solution had the following requirements:
 
 ![Architecture diagram showing the data flow for the buy-online-pick-up-in-store IoT solution.](media/bopis.png)
 
+*Download a [Visio file](https://arch-center.azureedge.net/iot-vertical-buy-online-pickup-in-store.vsdx) of this architecture.*
+
 ### Workflow
 
 1. The video feed shows cars coming into the parking area. The IP camera hosting a Real-Time Streaming Protocol (RTSP) server sends the feed to an Azure IoT Edge custom module that ingests the video and processes the frames. The module sends the images to Azure Cognitive Services running on the gateway.
