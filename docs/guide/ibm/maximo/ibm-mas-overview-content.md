@@ -235,13 +235,11 @@ _This article is being updated and maintained by Microsoft. It was originally wr
 
 For help getting started, see the following resources:
 
-- Bulleted list of third-party and other Docs and Microsoft links.
-- Links shouldn't include en-us locale unless they don't work without it.
-- Docs links should be site-relative, for example (/azure/feature/article-name).
-- Don't include trailing slash in any links.
+- [Installing Openshift on Azure docs](https://docs.openshift.com/container-platform/4.6/installing/installing_azure/installing-azure-default.html)
+- [QuickStart Guide: Maximo Application Suite on Azure](https://github.com/azure/maximo)
+- [Openshift UPI Guide](https://github.com/openshift/installer/blob/master/docs/user/azure/install_upi.md)
 
 ## Related resources
 
-- OpenShift
-- Related Azure Architecture Center articles.
-- Links should be repo-relative, for example (../../solution-ideas/articles/article-name.yml).
+- [IBM Passport Advantage](https://www.ibm.com/software/passportadvantage/pao_customer.html)
+- [Red Hat Customer Portal](https://access.redhat.com/)
