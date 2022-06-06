@@ -249,7 +249,7 @@ One of the most important dependencies for Virtual Desktop is the availability o
   - You can provide high availability and disaster recovery by installing a second instance of the service in the secondary region and enable [staging mode](/azure/active-directory/hybrid/plan-connect-topologies#staging-server).
   - If there's a recovery, the administrator is required to promote the secondary instance by taking it out of staging mode. They must follow the same procedure as placing a server into staging mode.
 
-    :::image type="content" source="images/active-directory-connect-configuration-wizard.png" alt-text="Screenshot that shows the AD Connect configuration wizard.":::
+    :::image type="content" source="images/active-directory-connect-configuration-wizard.png" alt-text="Screenshot that shows the A D Connect configuration wizard.":::
 
 - **Azure Active Directory Domain Services**
   - You can use Azure AD DS in some scenarios as an alternative to Active Directory Domain Services.
