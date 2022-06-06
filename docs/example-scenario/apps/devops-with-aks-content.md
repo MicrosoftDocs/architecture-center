@@ -16,6 +16,8 @@ Relevant use cases include:
 
 ![Architecture overview of the Azure components involved in a DevOps scenario using Jenkins, Azure Container Registry, and Azure Kubernetes Service][architecture]
 
+*Download a [Visio file](https://arch-center.azureedge.net/architecture-devops-with-aks.vsdx) of this architecture.*
+
 ### Dataflow
 
 This scenario covers a DevOps pipeline for a Node.js web application and database back end. The data flows through the scenario as follows:
