@@ -41,7 +41,7 @@ The following table describes terms that appear in this article.
 
 3. The *SaaS customer admin* completes the [onboarding flow](#onboard-a-new-tenant).
 
-4. The *SaaS customer admin* navigates to the tenant admin area on the *Onboarding & admin app* and [adds a *SaaS Customer User*](#add-a-user-to-tenant) to their newly created tenant.
+4. The *SaaS customer admin* navigates to the tenant admin area on the *Onboarding & admin app* and [adds a *SaaS Customer User*](#add-a-user-to-a-tenant) to their newly created tenant.
 
 5. The *SaaS customer user* navigates to the *SaaS application app* and uses the SaaS application.
 
