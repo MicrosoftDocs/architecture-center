@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Real-time machine learning inference and low-code UI on Azure
+  title: Real-time machine learning architecture on Azure
   titleSuffix: Azure Example Scenarios
   description: Learn how to quickly build an architecture with real-time inference by using Azure Machine Learning and low-code UI with Microsoft Power Platform.
   author: christinas

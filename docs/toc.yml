@@ -388,14 +388,14 @@ items:
                  href: solution-ideas/articles/azure-devops-continuous-integration-for-power-platform.yml
                - name: Citizen AI with Power Platform
                  href: example-scenario/ai/citizen-ai-power-platform.yml
-               - name: End-to-end architecture with real-time ML
-                 href: example-scenario/ai/deploy-real-time-ml-model-application-ui.yml
                - name: Eventual consistency with Power Apps
                  href: reference-architectures/power-platform/eventual-consistency.yml
                - name: Extract text using Power Automate
                  href: example-scenario/ai/extract-object-text.yml
                - name: Power Automate deployment at scale
                  href: example-scenario/power-automate/power-automate.yml
+               - name: Real-time machine learning architecture on Azure
+                 href: example-scenario/ai/deploy-real-time-ml-model-application-ui.yml  
           - name: Azure and Microsoft 365 scenarios
             items:
               - name: Overview
@@ -1724,7 +1724,7 @@ items:
                 href: example-scenario/data/realtime-analytics-vehicle-iot.yml
               - name: Real-time asset tracking for vehicles
                 href: solution-ideas/articles/real-time-asset-tracking-mgmt-iot-central.yml
-              - name: Real-time machine learning inference and low-code UI on Azure
+              - name: Real-time machine learning architecture on Azure
                 href: example-scenario/ai/deploy-real-time-ml-model-application-ui.yml  
               - name: Run CFD simulations
                 href: example-scenario/infrastructure/hpc-cfd.yml
@@ -2284,8 +2284,6 @@ items:
                 href: example-scenario/ai/customer-lifecycle-churn.yml
               - name: Distributed deep learning training
                 href: reference-architectures/ai/training-deep-learning.yml
-              - name: End-to-end architecture with real-time ML
-                href: example-scenario/ai/deploy-real-time-ml-model-application-ui.yml
               - name: End-to-end computer vision at the edge
                 href: reference-architectures/ai/end-to-end-smart-factory.yml
               - name: Enterprise-grade conversational bot
@@ -2310,6 +2308,8 @@ items:
                 href: example-scenario/ai/predict-hospital-readmissions-machine-learning.yml
               - name: Quality assurance
                 href: solution-ideas/articles/quality-assurance.yml
+              - name: Real-time machine learning architecture on Azure
+                href: example-scenario/ai/deploy-real-time-ml-model-application-ui.yml
               - name: Real-time recommendation API
                 href: reference-architectures/ai/real-time-recommendation.yml
               - name: Real-time scoring Python models
