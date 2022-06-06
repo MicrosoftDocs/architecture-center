@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: alexhart11
-ms.date: 05/31/2022
+ms.date: 06/06/2022
 ms.topic: article
 ms.service: architecture-center
 categories: 
@@ -21,6 +21,31 @@ The Azure Architecture Center (AAC) helps you design, build, and operate solutio
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWxOYN]
 
 The following new and updated articles have recently been published in the Azure Architecture Center.
+
+## June 2022
+
+### New articles
+
+- [Use Azure monitoring to integrate security components](./guide/security/azure-monitor-integrate-security-components.yml)
+- [Building the first layer of defense with Azure security services](./solution-ideas/articles/azure-security-build-first-layer-defense.yml)
+- [Map threats to your IT environment](./solution-ideas/articles/map-threats-it-environment.yml)
+- [Build the second layer of defense with Microsoft 365 Defender Security services](./solution-ideas/articles/microsoft-365-defender-build-second-layer-defense.yml)
+- [Integrate Azure and Microsoft 365 Defender security services](./solution-ideas/articles/microsoft-365-defender-security-integrate-azure.yml)
+
+### Updated articles
+
+- [Migrate a web app using Azure APIM](./example-scenario/apps/apim-api-scenario.yml)  ([#e3cdcbf47](https://github.com/MicrosoftDocs/architecture-center/commit/e3cdcbf47))
+- [Build CNCF projects by using Azure Kubernetes Service](./example-scenario/apps/build-cncf-incubated-graduated-projects-aks.yml)  ([#e3cdcbf47](https://github.com/MicrosoftDocs/architecture-center/commit/e3cdcbf47))
+- [CI/CD pipeline for chatbots with ARM templates](./example-scenario/apps/devops-cicd-chatbot.yml)  ([#e3cdcbf47](https://github.com/MicrosoftDocs/architecture-center/commit/e3cdcbf47))
+- [Design a CI/CD pipeline using Azure DevOps](./example-scenario/apps/devops-dotnet-webapp.yml)  ([#e3cdcbf47](https://github.com/MicrosoftDocs/architecture-center/commit/e3cdcbf47))
+- [E-commerce front end](./example-scenario/apps/ecommerce-scenario.yml)  ([#e3cdcbf47](https://github.com/MicrosoftDocs/architecture-center/commit/e3cdcbf47))
+- [Intelligent e-commerce product search engine](./example-scenario/apps/ecommerce-search.yml)  ([#e3cdcbf47](https://github.com/MicrosoftDocs/architecture-center/commit/e3cdcbf47))
+- [Securely managed web applications](./example-scenario/apps/fully-managed-secure-apps.yml)  ([#949652e67](https://github.com/MicrosoftDocs/architecture-center/commit/949652e67))
+- [Computer-aided engineering](./example-scenario/apps/hpc-saas.yml)  ([#949652e67](https://github.com/MicrosoftDocs/architecture-center/commit/949652e67))
+- [Publish internal APIs to external users](./example-scenario/apps/publish-internal-apis-externally.yml)  ([#949652e67](https://github.com/MicrosoftDocs/architecture-center/commit/949652e67))
+- [SAP deployment in Azure using an Oracle database](./example-scenario/apps/sap-production.yml)  ([#949652e67](https://github.com/MicrosoftDocs/architecture-center/commit/949652e67))
+- [Scalable cloud applications and SRE](./example-scenario/apps/scalable-apps-performance-modeling-site-reliability.yml)  ([#949652e67](https://github.com/MicrosoftDocs/architecture-center/commit/949652e67))
+- [Patterns and implementations for a banking cloud transformation](./example-scenario/banking/patterns-and-implementations.yml)  ([#949652e67](https://github.com/MicrosoftDocs/architecture-center/commit/949652e67))
 
 ## May 2022
 
@@ -76,7 +101,7 @@ The following new and updated articles have recently been published in the Azure
 - [Finance management apps with Azure DB for MySQL](./solution-ideas/articles/finance-management-apps-using-azure-database-for-mysql.yml)  ([#fc3a262de](https://github.com/MicrosoftDocs/architecture-center/commit/fc3a262de))
 - [Finance management apps using Azure Database for PostgreSQL](./solution-ideas/articles/finance-management-apps-using-azure-database-for-postgresql.yml)  ([#fc3a262de](https://github.com/MicrosoftDocs/architecture-center/commit/fc3a262de))
 - [Forecast energy and power demand](./solution-ideas/articles/forecast-energy-power-demand.yml)  ([#fc3a262de](https://github.com/MicrosoftDocs/architecture-center/commit/fc3a262de))
-- [Retail - Buy online, pick up in store (BOPIS)](./example-scenario/iot/vertical-buy-online-pickup-in-store.yml)  ([#d72d45d80](https://github.com/MicrosoftDocs/architecture-center/commit/d72d45d80))
+- [Buy online, pick up in store (retail)](./example-scenario/iot/vertical-buy-online-pickup-in-store.yml)  ([#d72d45d80](https://github.com/MicrosoftDocs/architecture-center/commit/d72d45d80))
 - [Environment monitoring and supply chain optimization with IoT](./solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml)  ([#ba84547f1](https://github.com/MicrosoftDocs/architecture-center/commit/ba84547f1))
 - [Deliver highly scalable customer service and ERP applications](./solution-ideas/articles/erp-customer-service.yml)  ([#ba84547f1](https://github.com/MicrosoftDocs/architecture-center/commit/ba84547f1))
 - [Extend your on-premises big data investments with HDInsight](./solution-ideas/articles/extend-your-on-premises-big-data-investments-with-hdinsight.yml)  ([#ba84547f1](https://github.com/MicrosoftDocs/architecture-center/commit/ba84547f1))
@@ -139,8 +164,8 @@ The following new and updated articles have recently been published in the Azure
 - [CI/CD for Microsoft Power Platform](./solution-ideas/articles/azure-devops-continuous-integration-for-power-platform.yml)  ([#a123734e9](https://github.com/MicrosoftDocs/architecture-center/commit/a123734e9))
 - [Azure digital twins builder](./solution-ideas/articles/azure-digital-twins-builder.yml)  ([#a123734e9](https://github.com/MicrosoftDocs/architecture-center/commit/a123734e9))
 - [Azure Machine Learning architecture](./solution-ideas/articles/azure-machine-learning-solution-architecture.yml)  ([#a123734e9](https://github.com/MicrosoftDocs/architecture-center/commit/a123734e9))
-- [Data management across Azure Data Lake with Azure Purview](./solution-ideas/articles/azure-purview-data-lake-estate-architecture.yml)  ([#a123734e9](https://github.com/MicrosoftDocs/architecture-center/commit/a123734e9))
-- [Manage data across Azure SQL estate with Azure Purview](./solution-ideas/articles/azure-purview-sql-estate-architecture.yml)  ([#2048589de](https://github.com/MicrosoftDocs/architecture-center/commit/2048589de))
+- [Data management across Azure Data Lake with Microsoft Purview](./solution-ideas/articles/azure-purview-data-lake-estate-architecture.yml)  ([#a123734e9](https://github.com/MicrosoftDocs/architecture-center/commit/a123734e9))
+- [Manage data across Azure SQL estate with Microsoft Purview](./solution-ideas/articles/azure-purview-sql-estate-architecture.yml)  ([#2048589de](https://github.com/MicrosoftDocs/architecture-center/commit/2048589de))
 - [Azure VMware Solution capacity planning](./solution-ideas/articles/azure-vmware-solution-foundation-capacity.yml)  ([#2048589de](https://github.com/MicrosoftDocs/architecture-center/commit/2048589de))
 - [Azure VMware Solution landing zone](./solution-ideas/articles/azure-vmware-solution-foundation-landing-zone.yml)  ([#2048589de](https://github.com/MicrosoftDocs/architecture-center/commit/2048589de))
 - [Azure VMware Solution networking](./solution-ideas/articles/azure-vmware-solution-foundation-networking.yml)  ([#2048589de](https://github.com/MicrosoftDocs/architecture-center/commit/2048589de))
@@ -350,68 +375,4 @@ The following new and updated articles have recently been published in the Azure
 - [Build a chatbot for hotel booking](./example-scenario/ai/commerce-chatbot.yml)  ([#abfbdb23b](https://github.com/MicrosoftDocs/architecture-center/commit/abfbdb23b))
 - [Citizen AI with the Power Platform](./example-scenario/ai/citizen-ai-power-platform.yml)  ([#7636a039e](https://github.com/MicrosoftDocs/architecture-center/commit/7636a039e))
 - [SAP S/4HANA in Linux on Azure](./reference-architectures/sap/sap-s4hana.yml)  ([#f032d0008](https://github.com/MicrosoftDocs/architecture-center/commit/f032d0008))
-
-## February 2022
-
-### New articles
-
-- [SWIFT&#x27;s Alliance Messaging Hub (AMH) with Alliance Connect Virtual](./example-scenario/finance/swift-alliance-messaging-hub-vsrx.yml)
-- [Web architecture design](./guide/web/web-start-here.md)
-- [SWIFT&#x27;s Alliance Access with Alliance Connect Virtual in Azure](./example-scenario/finance/swift-alliance-access-vsrx-on-azure.yml)
-- [Azure public multi-access edge compute deployment](./example-scenario/hybrid/public-multi-access-edge-compute-deployment.yml)
-- [Multi-tier app service with private endpoint](./example-scenario/web/multi-tier-app-service-private-endpoint.yml)
-- [Azure and Microsoft 365 scenarios](./solutions/microsoft-365-scenarios.md)
-- [Big data analytics on confidential computing](./example-scenario/confidential/data-analytics-containers-spark-kubernetes-azure-sql.yml)
-- [Multitenancy checklist on Azure](./guide/multitenant/checklist.md)
-- [Solutions for the telecommunications industry](./industries/telecommunications.md)
-- [Real-time collaboration with Azure and Microsoft 365](./solution-ideas/articles/collaboration-microsoft-365.yml)
-- [Real-time presence with Microsoft 365, Azure, and Power Platform](./solution-ideas/articles/presence-microsoft-365-power-platform.yml)
-- [Networking architecture design](./guide/networking/networking-start-here.md)
-- [Azure and Power Platform scenarios](./solutions/power-platform-scenarios.md)
-- [Architectural approaches for AI and ML in multitenant solutions](./guide/multitenant/approaches/ai-ml.md)
-- [Tiered data for analytics](./example-scenario/hybrid/hybrid-tiered-data-analytics.yml)
-- [Architectural approaches for messaging in multitenant solutions](./guide/multitenant/approaches/messaging.md)
-- [Trusted Internet Connection (TIC) 3.0 compliance](./example-scenario/security/trusted-internet-connections.yml)
-- [Actuarial risk analysis and financial modeling](./industries/finance/actuarial-risk-analysis-financial-model.yml)
-- [Data management in banking](./industries/finance/data-management-banking-overview.yml)
-- [Enable the financial services risk lifecycle with Azure and R](./industries/finance/financial-risk-model.md)
-- [Risk grid computing in banking](./industries/finance/risk-grid-banking-overview.yml)
-- [Risk grid computing solution](./industries/finance/risk-grid-banking-solution-guide.yml)
-- [Implement the Azure healthcare blueprint for AI](./industries/healthcare/healthcare-ai-blueprint.yml)
-- [High-performance computing (HPC) for manufacturing](./industries/manufacturing/compute-manufacturing-overview.yml)
-- [Extract actionable insights from IoT data](./industries/manufacturing/extract-insights-iot-data.yml)
-- [Introduction to predictive maintenance in manufacturing](./industries/manufacturing/predictive-maintenance-overview.yml)
-- [Predictive maintenance solution](./industries/manufacturing/predictive-maintenance-solution.yml)
-- [Migrate your e-commerce solution to Azure](./industries/retail/migrate-ecommerce-solution.md)
-- [Reuse recommender systems and algorithms from R with Azure](./industries/retail/recommendation-engine-optimization.yml)
-- [Data management in the retail industry](./industries/retail/retail-data-management-overview.md)
-- [SKU optimization for consumer brands](./industries/retail/sku-optimization-solution-guide.yml)
-- [Visual search in retail with Azure Cosmos DB](./industries/retail/visual-search-use-case-overview.yml)
-- [Solutions for the education industry](./industries/education.md)
-- [Security architecture design](./guide/security/security-start-here.yml)
-- [Azure Database for PostgreSQL considerations for multitenancy](./guide/multitenant/service/postgresql.md)
-- [Hybrid geo-distributed architecture](./example-scenario/hybrid/hybrid-geo-distributed.yml)
-- [Cross-cloud scaling with Traffic Manager](./example-scenario/hybrid/hybrid-cross-cloud-scaling.yml)
-- [Cross-cloud scaling - on-premises data](./example-scenario/hybrid/hybrid-cross-cloud-scale-on-premises-data.yml)
-- [Identity architecture design](./identity/identity-start-here.yml)
-- [Customer 360 with Azure Synapse and Dynamics 365 Customer Insights](./example-scenario/analytics/synapse-customer-insights.yml)
-
-### Updated articles
-
-- [SWIFT&#x27;s Alliance Messaging Hub (AMH) with Alliance Connect](./example-scenario/finance/swift-alliance-messaging-hub.yml)  ([#6313f457f](https://github.com/MicrosoftDocs/architecture-center/commit/6313f457f))
-- [Magento e-commerce platform in Azure Kubernetes Service](./example-scenario/magento/magento-azure.yml)  ([#cd094d538](https://github.com/MicrosoftDocs/architecture-center/commit/cd094d538))
-- [Stream processing with Databricks](./reference-architectures/data/stream-processing-databricks.yml)  ([#63ef47fc7](https://github.com/MicrosoftDocs/architecture-center/commit/63ef47fc7))
-- [Build a real-time recommendation API on Azure](./reference-architectures/ai/real-time-recommendation.yml)  ([#447842379](https://github.com/MicrosoftDocs/architecture-center/commit/447842379))
-- [Intelligent e-commerce product search engine](./example-scenario/apps/ecommerce-search.yml)  ([#bacf3790c](https://github.com/MicrosoftDocs/architecture-center/commit/bacf3790c))
-- [Protect APIs with Azure Application Gateway and Azure API Management](./reference-architectures/apis/protect-apis.yml)  ([#6f273719b](https://github.com/MicrosoftDocs/architecture-center/commit/6f273719b))
-- [Speech services](./solution-ideas/articles/speech-services.yml)  ([#09941baed](https://github.com/MicrosoftDocs/architecture-center/commit/09941baed))
-- [Camera selection for Azure IoT Edge vision AI](./guide/iot-edge-vision/camera.md)  ([#cc5ff9493](https://github.com/MicrosoftDocs/architecture-center/commit/cc5ff9493))
-- [Computer vision with Azure IoT Edge](./guide/iot-edge-vision/index.md)  ([#cc5ff9493](https://github.com/MicrosoftDocs/architecture-center/commit/cc5ff9493))
-- [Machine learning in IoT Edge Vision](./guide/iot-edge-vision/machine-learning.yml)  ([#cc5ff9493](https://github.com/MicrosoftDocs/architecture-center/commit/cc5ff9493))
-- [Suggest content tags with NLP using deep learning](./solution-ideas/articles/website-content-tag-suggestion-with-deep-learning-and-nlp.yml)  ([#eeb4d1f81](https://github.com/MicrosoftDocs/architecture-center/commit/eeb4d1f81))
-- [Pricing models for a multitenant solution](./guide/multitenant/considerations/pricing-models.md)  ([#af94529db](https://github.com/MicrosoftDocs/architecture-center/commit/af94529db))
-- [Real-time fraud detection](./example-scenario/data/fraud-detection.yml)  ([#ce2fecdfd](https://github.com/MicrosoftDocs/architecture-center/commit/ce2fecdfd))
-- [Monitor a microservices app in AKS](./microservices/logging-monitoring.yml)  ([#bcb227d09](https://github.com/MicrosoftDocs/architecture-center/commit/bcb227d09))
-- [N-tier architecture style](./guide/architecture-styles/n-tier.yml)  ([#4a1bad2c3](https://github.com/MicrosoftDocs/architecture-center/commit/4a1bad2c3))
-- [End-to-end governance in Azure](./example-scenario/governance/end-to-end-governance-in-azure.yml)  ([#d92ed29b2](https://github.com/MicrosoftDocs/architecture-center/commit/d92ed29b2))
 
