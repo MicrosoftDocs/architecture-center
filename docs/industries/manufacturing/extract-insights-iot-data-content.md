@@ -1,6 +1,6 @@
 If you're responsible for the machines on a factory floor, you're already aware that the Internet of Things (IoT) is the next step in improving your processes and results. Having sensors on machines or on the factory floor is the first step. The next step is to use the data, which is the subject of this document. This guide provides a technical overview of the components needed to extract actionable insights from IoT data analytics.
 
-IoT analytics solutions are about transforming raw IoT data coming from a set of devices to a form that is better suited for analytics. Once that's done we can actually perform analytics. Some examples of analytics include:
+IoT analytics solutions are about transforming raw IoT data coming from a set of devices to a form that is better suited for analytics. Once that's done, we can actually perform analytics. Some examples of analytics include:
 
 - Simple visualizations of telemetry, for example, a bar chart showing temperatures over time
 - Calculation of a key performance indicator (KPI), for example, overall equipment effectiveness (OEE)
@@ -74,7 +74,7 @@ If the data is available externally and is accessible from internet, several Azu
 - [Pipelines and activities in Azure Data Factory](/azure/data-factory/copy-activity-overview/?WT.mc_id=iotinsightssoln-docs-ercenk)
 - [Azure Functions](/azure/azure-functions/functions-overview)
 
-Each of the services above have their own benefits and costs, depending on the scenario. For example, Logic Apps provide a means for [transforming XML documents](/azure/logic-apps/logic-apps-enterprise-integration-transform?WT.mc_id=iotinsightssoln-docs-ercenk). However, the data can be an overly complex XML document, so it may not be practical to develop a large XSLT script to transform the data. In this case, one might develop a hybrid solution using multiple microservices from different Azure services. For example, a microservice, implemented in Azure Logic Apps, can poll an HTTP endpoint, store the raw result temporarily, and notify another microservice. The other microservice—which transforms the message—can be custom code hosted on [Azure Functions Host](https://github.com/Azure/azure-functions-host).
+Each of the services above have their own benefits and costs, depending on the scenario. For example, Logic Apps provides a means for [transforming XML documents](/azure/logic-apps/logic-apps-enterprise-integration-transform?WT.mc_id=iotinsightssoln-docs-ercenk). However, the data can be an overly complex XML document, so it may not be practical to develop a large XSLT script to transform the data. In this case, one might develop a hybrid solution using multiple microservices from different Azure services. For example, a microservice, implemented in Azure Logic Apps, can poll an HTTP endpoint, store the raw result temporarily, and notify another microservice. The other microservice—which transforms the message—can be custom code hosted on [Azure Functions Host](https://github.com/Azure/azure-functions-host).
 
 ![Diagram showing Https polled for data and processed by Functions.](./images/extract-insights-iot-data/poll-logic-process.png)
 
@@ -93,7 +93,7 @@ Choosing between the services below depends on the needs of the project, such as
 
 ## Process and store the data
 
-The IoT applications introduce challenges, as they're event-driven systems, that also need to keep and operate on historical data. The incoming data is an append type of data and can potentially grow large. There's a need to keep data for longer periods, primarily for these reasons: archive, batch analytics, and to build machine learning (ML) models. On the other hand, the event stream is crucial for analyzing in near real-time to detect anomalies, recognize patterns over rolling time windows, or triggering alerts, if values go over or below a threshold.
+The IoT applications introduce challenges, as they're event-driven systems that also need to keep and operate on historical data. The incoming data is an append type of data and can potentially grow large. There's a need to keep data for longer periods, primarily for these reasons: archive, batch analytics, and to build machine learning (ML) models. On the other hand, the event stream is crucial for analyzing in near real-time to detect anomalies, recognize patterns over rolling time windows, or triggering alerts, if values go over or below a threshold.
 
 Microsoft’s [Azure IoT Reference Architecture](../../reference-architectures/iot/iot-architecture-overview.md) presents a recommended data flow for device to cloud messages and events in an IoT solution using Lambda architecture. The Lambda architecture enables the analysis of both near real-time, streaming data, as well as archived data, which makes it the best option for processing of the incoming data.
 
@@ -105,7 +105,7 @@ The Lambda architecture addresses this problem by creating two paths for data fl
 - A speed layer (warm path) analyzes data in real time. This layer is designed for low latency, at the expense of accuracy. It's a faster processing pipeline that archives and displays incoming messages, and analyzes these records generating short term critical information and actions such as alarms.
 - The batch layer feeds into a “serving layer,” which responds to queries. The batch layer indexes the batch view for efficient querying. The speed layer updates the serving layer with incremental updates based on the most recent data.
 
-The following image shows five blocks that represent stages of transformation. The first block is the data stream, which feeds both the speed layer and batch layer in parallel. Both layers feed the serving layer, The speed layer and the serving layer both feed the analytics client.
+The following image shows five blocks that represent stages of transformation. The first block is the data stream, which feeds both the speed layer and batch layer in parallel. Both layers feed the serving layer. The speed layer and the serving layer both feed the analytics client.
 ![Diagram showing Lambda architecture.](./images/extract-insights-iot-data/lambda-schematic.png)
 
  Azure platform provides various services that can be used for implementing the architecture. The following diagram shows how those services can be mapped to implement it. The figure shows the five stages of transformation, with each stage containing relevant Azure technologies. The darker colored boxes represent the availability of multiple options to perform those tasks.
@@ -118,11 +118,11 @@ The options for the data ingestion service on the speed layer are covered in the
 
 Use [Azure Stream Analytics](/azure/stream-analytics?WT.mc_id=iotinsightssoln-docs-ercenk) if you're using Event Hubs for the data ingestion service. Azure Stream Analytics is an event-processing engine that allows you to examine high volumes of data streaming from devices. Incoming data can originate from devices, sensors, web sites, social media feeds, applications, and more. It also supports extracting information from data streams, identifying patterns, and relationships.
 
-Stream Analytics queries start with a source of streaming data that is ingested into Azure Event Hub, Azure IoT Hub or from a data store like Azure Blob Storage. To examine a stream, create a Stream Analytics job that specifies the input source that streams data. The job also specifies a transformation query that defines how to look for data, patterns, or relationships. The transformation query leverages a SQL-like query language that is used to filter, sort, aggregate, and join streaming data over a period of time.
+Stream Analytics queries start with a source of streaming data that is ingested into Azure Event Hubs, Azure IoT Hub, or from a data store like Azure Blob Storage. To examine a stream, create a Stream Analytics job that specifies the input source that streams data. The job also specifies a transformation query that defines how to look for data, patterns, or relationships. The transformation query leverages a SQL-like query language that is used to filter, sort, aggregate, and join streaming data over a period of time.
 
 ## Warm path
 
-The example scenario for this document is a machine utilization KPI (introduced at the beginning of the guide). We could opt for a naive interpretation of the data and assume that if the machine is sending data then it's being utilized. However, the machine could be sending data while not really producing anything (for example, it could be idle, or being maintained). This highlights a very common challenge when trying to extract insight out of IoT data: the data you're looking for isn't available in the data you're getting. So, in our example, we aren't getting data clearly and unequivocally telling us whether or not the machine is producing.  Therefore, we need to infer utilization by combining the data we are getting with other sources of data, and applying rules to determine of whether or not the machine is producing. In addition, these rules may change from company to company since they may have different interpretations of what “producing” is. The warm path is all about analyzing as the data flows through the system. We process this stream in near-real time, save it to the warm storage, and push it to the analytics clients.
+The example scenario for this document is a machine utilization KPI (introduced at the beginning of the guide). We could opt for a naive interpretation of the data and assume that if the machine is sending data then it's being utilized. However, the machine could be sending data while not really producing anything (for example, it could be idle, or being maintained). This highlights a very common challenge when trying to extract insight out of IoT data: the data you're looking for isn't available in the data you're getting. So, in our example, we aren't getting data clearly and unequivocally telling us whether or not the machine is producing.  Therefore, we need to infer utilization by combining the data we're getting with other sources of data, and applying rules to determine of whether or not the machine is producing. In addition, these rules may change from company to company since they may have different interpretations of what “producing” is. The warm path is all about analyzing as the data flows through the system. We process this stream in near-real time, save it to the warm storage, and push it to the analytics clients.
 
 Azure Event Hubs is a big data streaming platform and event ingestion service, capable of receiving and processing millions of events per second. Event Hubs can process and store events, data, or telemetry produced by distributed software and devices. Data sent to an event hub can be transformed and stored using any real-time analytics provider or batching/storage adapters. Event Hubs makes the perfect match for the first step in the warm path for the data flow.
 
@@ -130,7 +130,7 @@ The figure below shows the speed layer stage. It consists of an event hub, a Str
 
 ![Diagram showing Lambda architecture: speed layer highlighted.](./images/extract-insights-iot-data/lambda-speed-layer.png)
 
-The Azure platform provides many options for processing the events on an Event Hub, however, we recommend Stream Analytics. Stream Analytics can also push data to the Power BI service to visualize streamed data.
+The Azure platform provides many options for processing the events on an event hub; however, we recommend Stream Analytics. Stream Analytics can also push data to the Power BI service to visualize streamed data.
 
 Stream Analytics can execute complex analysis at scale, for example, tumbling/sliding/hopping windows, stream aggregations, and external data source joins. For even more complex processing, performance can be extended by cascading multiple instances of Event Hubs, Stream Analytics jobs, and Azure functions, as shown in the following figure.
 
@@ -161,7 +161,7 @@ Azure Data Explorer provides a [Web UI](/azure/data-explorer/web-query-data), wh
 > [!NOTE]
 > IoT systems that use Azure Time Series Insights (TSI) for a time series service can migrate to Azure Data Explorer. The TSI service won't be supported after March 2025. For more information, see [Migrate to Azure Data Explorer](/azure/time-series-insights/migration-to-adx).
 
-Cold storage for an IoT application is certain to grow large over time. This is where data is stored for the long term and aggregated at the batch views for analytics. Data for ML models is also stored here. We recommend [Azure Storage](/azure/storage/?WT.mc_id=iotinsightssoln-docs-ercenk) for the cold storage. It's a Microsoft-managed service providing cloud storage that is highly available, secure, durable, scalable, and redundant. Azure Storage includes Azure Blobs (objects), Azure Data Lake Storage Gen2, Azure Files, Azure Queues, and Azure Tables. The cold storage can be either Blobs, Data Lake Storage Gen2, or Azure Tables, or a combination of those.
+Cold storage for an IoT application is certain to grow large over time. This is where data is stored for the long term and aggregated at the batch views for analytics. Data for ML models is also stored here. We recommend [Azure Storage](/azure/storage/?WT.mc_id=iotinsightssoln-docs-ercenk) for the cold storage. It's a Microsoft-managed service providing cloud storage that is highly available, secure, durable, scalable, and redundant. Azure Storage includes Azure Blobs (objects), Azure Data Lake Storage Gen2, Azure Files, Azure Queues, and Azure Tables. The cold storage can be either Blobs, Data Lake Storage Gen2, Azure Tables, or a combination of those services.
 
 [Azure Table storage](/azure/cosmos-db/table-storage-overview?WT.mc_id=iotinsightssoln-docs-ercenk) is a service that stores structured NoSQL data in the cloud, providing a key/attribute store with a schemaless design. Because Table Storage is schemaless, it's easy to adapt your data as the needs of your application evolve. Access to Table Storage data is fast and cost-effective for many types of applications and is typically lower in cost than traditional SQL for similar volumes of data. We use one table for samples, and one table for events that are received from data streams. The design of the partition key is an especially important concept; both tables use the hour of the timestamp on the event or the sample. For more information, see [Understanding the Table Service Data Model](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?WT.mc_id=iotinsightssoln-docs-ercenk).
 
@@ -179,7 +179,7 @@ For example, as shown in the following figure, Data Factory pipelines read data 
 
 Azure SQL Database (SQL DB) is a relational database-as-a-service based on the latest version of Microsoft SQL Server Database Engine. SQL DB is a high-performance, reliable, and secure database you can use to build data-driven applications and websites. As an Azure service,  there's no need to manage its infrastructure. As the data volume increases, the solution can start using techniques to aggregate and store data for speeding up the queries. Pre-calculating aggregations is a well-known technique, especially for append-only data. It's also useful for managing costs.
 
-Azure SQL Data Warehouse provides many additional features that can be useful in some scenarios. It's a cloud-based enterprise data warehouse that leverages massively parallel processing  to quickly run complex queries across petabytes of data. If you need to keep petabytes of data, and want to have queries running fast, we recommend SQL Data Warehouse.
+Azure SQL Data Warehouse provides many more features that can be useful in some scenarios. It's a cloud-based enterprise data warehouse that leverages massively parallel processing  to quickly run complex queries across petabytes of data. If you need to keep petabytes of data, and want to have queries running fast, we recommend SQL Data Warehouse.
 
 ## Visualizing the data
 
@@ -187,7 +187,7 @@ At this layer, we want to merge the two data pipelines (warm and cold paths) to 
 
 [![Diagram showing Lambda architecture: analytics clients layer highlighted.](./images/extract-insights-iot-data/lambda-analytics-clients.png)](./images/extract-insights-iot-data/lambda-analytics-clients.png#lightbox)
 
-[Microsoft Power BI](/power-bi/?WT.mc_id=iotinsightssoln-docs-ercenk) and [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer) provide data visualizations out-of-the-box. Power BI is business analytics solution that lets you visualize your data and share insights across your organization, or embed them in your app or website. [Power BI Desktop](https://powerbi.microsoft.com/desktop/?WT.mc_id=iotinsightssoln-docs-ercenk) is a free and powerful tool for modelling reports and their underlying data sources.  The applications embedding Power BI visualizations use the reports authored by the desktop tool and hosted on the Power BI Service.
+[Microsoft Power BI](/power-bi/?WT.mc_id=iotinsightssoln-docs-ercenk) and [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer) provide data visualizations out-of-the-box. Power BI is business analytics solution that lets you visualize your data and share insights across your organization, or embed them in your app or website. [Power BI Desktop](https://powerbi.microsoft.com/desktop/?WT.mc_id=iotinsightssoln-docs-ercenk) is a free and powerful tool for modeling reports and their underlying data sources.  The applications embedding Power BI visualizations use the reports authored by the desktop tool and hosted on the Power BI Service.
 
 Azure Data Explorer provides a web application, the [Web UI](/azure/data-explorer/web-query-data), where you can run queries and build dashboards. For more information about dashboards, see [Visualize data with Azure Data Explorer dashboards (Preview)](/azure/data-explorer/azure-data-explorer-dashboards). Azure Data Explorer also integrates with other dashboard services like Power BI.
 
@@ -197,7 +197,7 @@ If you require a browser-based user interface that aggregates data from multiple
 
 ## Pillars of software quality (PoSQ)
 
-A successful cloud application is built on these [pillars of software quality](/azure/architecture/guide/pillars?WT.mc_id=iotinsightssoln-docs-ercenk): Scalability, availability, resiliency, management, and security. In this section, we'll briefly cover those pillars for each component as necessary. We don’t cover availability, resiliency, management and DevOps, since they're mostly addressed at the implementation level, and we want to mention Azure platform provides extensive means for achieving those through APIs, tools, diagnostics and logging. In addition to the mentioned pillars, we'll also mention cost efficiency.
+A successful cloud application is built on these [pillars of software quality](/azure/architecture/guide/pillars?WT.mc_id=iotinsightssoln-docs-ercenk): Scalability, availability, resiliency, management, and security. In this section, we'll briefly cover those pillars for each component as necessary. We don’t cover availability, resiliency, management, and DevOps, since they're mostly addressed at the implementation level. The Azure platform provides extensive means for achieving those pillars through APIs, tools, diagnostics, and logging. In addition to the mentioned pillars, we'll also mention cost efficiency.
 
 Let’s quickly review those pillars:
 
@@ -219,13 +219,13 @@ As for the systems providing the source data, we need to be careful about not to
 
 ## PoSQ: Warm path
 
-**Scalability**: If Azure Event Hubs is the used in the ingestion subsystem, the main scalability mechanism is [throughput units](/azure/event-hubs/event-hubs-features#throughput-units?WT.mc_id=iotinsightssoln-docs-ercenk). Event Hubs provide the capability of setting the throughput units statically, or through the [auto-inflate feature](/azure/event-hubs/event-hubs-auto-inflate?WT.mc_id=iotinsightssoln-docs-ercenk).
+**Scalability**: If Azure Event Hubs is used in the ingestion subsystem, the main scalability mechanism is [throughput units](/azure/event-hubs/event-hubs-features#throughput-units?WT.mc_id=iotinsightssoln-docs-ercenk). Event Hubs provides the capability of setting the throughput units statically, or through the [auto-inflate feature](/azure/event-hubs/event-hubs-auto-inflate?WT.mc_id=iotinsightssoln-docs-ercenk).
 
 [Streaming Units](/azure/stream-analytics/stream-analytics-streaming-unit-consumption?WT.mc_id=iotinsightssoln-docs-ercenk) (SUs) in Stream Analytics represent the computing resources that are allocated to execute a job. The higher the number of SUs, the more CPU and memory resources are allocated for your job. This capacity lets you focus on the query logic and abstracts the need to manage the hardware to run your Stream Analytics job in a timely manner. In addition to SUs, making efficient use of them through [properly parallelizing the queries](/azure/stream-analytics/stream-analytics-scale-jobs?WT.mc_id=iotinsightssoln-docs-ercenk) is crucial.
 
 Azure Cosmos DB implementations need to be provisioned with the right throughput parameters and proper partitioning design. Provisioning the throughput is available at the container or the data base level, and expressed in [Request Units](/azure/cosmos-db/request-units?WT.mc_id=iotinsightssoln-docs-ercenk) (RUs). Cosmos DB provides a tool for estimating the RUs. In addition to provisioning the throughput, [efficiently partitioning the database](/azure/cosmos-db/partition-data?WT.mc_id=iotinsightssoln-docs-ercenk) is key.
 
-**Security**: Access to Azure Event Hubs by clients is through a combination of Shared Access Signature (SAS) tokens and event publishers for client authentication. The security for back-end applications follow the same concepts as the Service Bus topics. A thorough description of the Event Hubs security model is in the [Event Hubs authentication and security model overview](/azure/event-hubs/event-hubs-authentication-and-security-model-overview?WT.mc_id=iotinsightssoln-docs-ercenk).
+**Security**: Access to Azure Event Hubs by clients is through a combination of Shared Access Signature (SAS) tokens and event publishers for client authentication. The security for back-end applications follows the same concepts as the Service Bus topics. A thorough description of the Event Hubs security model is in the [Event Hubs authentication and security model overview](/azure/event-hubs/event-hubs-authentication-and-security-model-overview?WT.mc_id=iotinsightssoln-docs-ercenk).
 
 Securing the Cosmos DB databases provides controlled access to the data, and encryption at rest. For more information, see [Azure Cosmos DB database security](/azure/cosmos-db/database-security?WT.mc_id=iotinsightssoln-docs-ercenk).
 
@@ -241,7 +241,7 @@ Azure SQL Database has many options to manage scalability, both vertically and h
 
 **Security**: Azure Data Explorer supports virtual network injection, Private Link, and encryption at rest with customer-managed keys. Azure Data Explorer includes granular role-based access control (RBAC) roles for functions and data access, row-level security (RLS), and data masking. Azure Data Explorer is built on Azure Blob Storage for Azure-supported 99.9% availability.
 
-Azure Data Factory provides multiple methods for securing data store credentials, either in its managed store, or in Azure Key Vault. In-transit data encryption depends on the data store’s transport (e.g. HTTPS or TLS). At-rest data encryption also depends on the data stores. See [Security considerations for data movement in Azure Data Factory](/azure/data-factory/data-movement-security-considerations?WT.mc_id=iotinsightssoln-docs-ercenk) for further details.
+Azure Data Factory provides multiple methods for securing data store credentials, either in its managed store, or in Azure Key Vault. In-transit data encryption depends on the data store’s transport (for example HTTPS or TLS). At-rest data encryption also depends on the data stores. See [Security considerations for data movement in Azure Data Factory](/azure/data-factory/data-movement-security-considerations?WT.mc_id=iotinsightssoln-docs-ercenk) for further details.
 
 SQL Database provides an extensive set of security features for data access, monitoring and auditing as well as encrypting data at rest. For details, see [Security Center for SQL Server Database Engine and Azure SQL Database](/sql/relational-databases/security/security-center-for-sql-server-database-engine-and-azure-sql-database?WT.mc_id=iotinsightssoln-docs-ercenk).
 
@@ -249,7 +249,7 @@ SQL Database provides an extensive set of security features for data access, mon
 
 ## Next steps
 
-We covered a lot of concepts, and we would like to give the reader a set of starting points to learn more and apply the techniques to their own requirements. Here are some tutorials we believe can be useful for this purpose.
+We covered many concepts, and we want to give you a set of starting points to learn more and apply the techniques to your own requirements. Here are some tutorials we believe can be useful for this purpose.
 
 - Converting the data to a stream:
   - [Creating a Logic App running on a schedule](/azure/logic-apps/tutorial-build-schedule-recurring-logic-app-workflow?WT.mc_id=iotinsightssoln-docs-ercenk)

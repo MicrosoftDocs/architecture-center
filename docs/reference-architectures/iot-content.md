@@ -1,8 +1,8 @@
-The recommended way to get started with internet-of-things (IoT) applications is with [Azure IoT Central](/azure/iot-central), an IoT application platform-as-a-service (aPaaS). IoT Central simplifies and accelerates IoT solution development and operations by preassembling, scaling, and managing many of the Azure platform-as-a-service (PaaS) services this article describes. IoT Central provides an out-of-box, ready to use UX and API surface area, complete with the capabilities you need to connect, manage, and operate fleets of devices at scale.
+The recommended way to get started with internet-of-things (IoT) applications is to use [Azure IoT Central](/azure/iot-central), an IoT application platform-as-a-service (aPaaS) that simplifies and accelerates IoT solution development and operations. IoT Central preassembles, scales, and manages many of the Azure platform-as-a-service (PaaS) services this article describes. IoT Central provides an out-of-box, ready to use UX and API surface area, complete with the capabilities you need to connect, manage, and operate fleets of devices at scale.
 
-To architect customized IoT solutions, you can assemble Azure PaaS (platform-as-a-service) components as this article outlines. The following diagram and article describe Azure components and services commonly used in IoT solutions, but no single solution uses all of these components.
+Alternatively, you can create custom IoT solutions by assembling Azure PaaS (platform-as-a-service) components as this article outlines. The article and this diagram describe Azure components and services IoT solutions commonly use, but no single solution uses all of these components.
 
-To help decide between IoT Central and a PaaS-based IoT approach based on solution needs, see [Choose an Internet of Things (IoT) solution in Azure](../example-scenario/iot/iot-central-iot-hub-cheat-sheet.yml).
+To help decide between IoT Central and a PaaS-based IoT approach, based on your solution's needs, see [Choose an Internet of Things (IoT) solution in Azure](../example-scenario/iot/iot-central-iot-hub-cheat-sheet.yml).
 
 [ ![Diagram showing architecture for I O T applications using Azure PaaS components.](./iot/images/iot-refarch.svg) ](./iot/images/iot-refarch.svg#lightbox)
 
@@ -36,7 +36,14 @@ Once devices are connected to the cloud, you can process and explore their data 
 
 ### Actions
 
-You can use the insights you gather about your data to manage and control your environment. Business integration actions might include storing informational messages, raising alarms, sending email or SMS messages, or integrating with business applications such as CRM (customer relationship management) and ERP (enterprise resource planning). You can use the following services for management and business integration:
+You can use the insights you gather about your data to manage and control your environment. Business integration actions might include:
+
+- Storing informational messages.
+- Raising alarms.
+- Sending email or SMS messages.
+- Integrating with business applications such as customer relationship management (CRM) and enterprise resource planning (ERP).
+
+You can use the following services for management and business integration:
 
 - **Power BI** connects to, models, and visualizes your data. Power BI lets you collaborate on data and use artificial intelligence to make data-driven decisions.
 - **Azure Maps** creates location-aware web and mobile applications by using geospatial APIs, SDKs, and services like search, maps, routing, tracking, and traffic.
@@ -63,18 +70,18 @@ You can use **Azure Digital Twins** to control and monitor connected environment
 
 Build your solution to deploy at global scale. For optimal scalability, build your IoT application with discrete services that can scale independently. This section describes scalability considerations for several Azure services.
 
-**Functions**. When reading from the Event Hubs endpoint, there is a maximum of function instance per event hub partition. The maximum processing rate is determined by how fast one function instance can process the events from a single partition. The function should process messages in batches.
+**Functions**. When functions read from the Event Hubs endpoint, there's a maximum number of function instances per event hub partition. The maximum processing rate is determined by how fast one function instance can process the events from a single partition. The function should process messages in batches.
 
 **IoT Hub**. For IoT Hub, consider the following scale factors:
 
 - The maximum [daily quota](/azure/iot-hub/iot-hub-devguide-quotas-throttling) of messages into IoT Hub.
 - The quota of connected devices in an IoT Hub instance.
-- Ingestion throughput &mdash; how quickly IoT Hub can ingest messages.
-- Processing throughput &mdash; how quickly the incoming messages are processed.
+- Ingestion throughput: How quickly IoT Hub can ingest messages.
+- Processing throughput: How quickly the incoming messages are processed.
 
 Each IoT hub is provisioned with a certain number of units in a specific pricing and scale tier. The tier and number of units determine the maximum daily quota of messages that devices can send to the hub. For more information, see [IoT Hub quotas and throttling](/azure/iot-hub/iot-hub-devguide-quotas-throttling). You can scale up a hub without interrupting existing operations.
 
-**Stream Analytics**. Stream Analytics jobs scale best if they are parallel at all points in the Stream Analytics pipeline, from input to query to output. A fully parallel job allows Stream Analytics to split the work across multiple compute nodes. For more information, see [Leverage query parallelization in Azure Stream Analytics](/azure/stream-analytics/stream-analytics-parallelization).
+**Stream Analytics**. Stream Analytics jobs scale best if they're parallel at all points in the Stream Analytics pipeline, from input to query to output. A fully parallel job allows Stream Analytics to split the work across multiple compute nodes. For more information, see [Leverage query parallelization in Azure Stream Analytics](/azure/stream-analytics/stream-analytics-parallelization).
 
 IoT Hub automatically partitions device messages based on the device ID. All of the messages from a particular device will always arrive on the same partition, but a single partition will have messages from multiple devices. Therefore, the unit of parallelization is the partition ID.
 
@@ -82,9 +89,9 @@ IoT Hub automatically partitions device messages based on the device ID. All of 
 
 This section contains considerations for building secure solutions.
 
-### Zero Trust security model
+### Zero trust security model
 
-Zero Trust is a security model that assumes breaches will happen and treats every access attempt as if it originates from an open network. Zero Trust assumes that you have implemented the basics such as securing identities and limiting access. This includes explicitly verifying users, having visibility into their devices, and being able to make dynamic access decisions using real-time risk detection. After the basics are met, you can shift your focus to the following Zero Trust requirements for IoT solutions:
+Zero trust is a security model that assumes breaches will happen, and treats every access attempt as if it originates from an open network. Zero trust assumes that you've implemented the basics, such as securing identities and limiting access. Basic security implementation includes explicitly verifying users, having visibility into their devices, and being able to make dynamic access decisions using real-time risk detection. After you meet the basics, you can shift your focus to the following zero trust requirements for IoT solutions:
 
 - Use strong identity to authenticate devices.
 - Use least privileged access to mitigate blast radius.
@@ -96,10 +103,10 @@ Read the [Zero Trust Cybersecurity for the Internet of Things](https://azure.mic
 
 ### Trustworthy and secure communication
 
-All information received from and sent to a device must be trustworthy. Unless a device can support the following cryptographic capabilities, it should be constrained to local networks and all internetwork communication should go through a field gateway:
+All information received from and sent to a device must be trustworthy. Unless a device can support the following cryptographic capabilities, it should be constrained to local networks, and all inter-network communication should go through a field gateway:
 
 - Data encryption and digital signatures with a provably secure, publicly analyzed, and broadly implemented symmetric-key encryption algorithm.
-- Support for either TLS 1.2 for TCP or other stream-based communication paths or DTLS 1.2 for datagram-based communication paths. Support of X.509 certificate handling is optional and can be replaced by the more compute-efficient and wire-efficient pre-shared key mode for TLS, which can be implemented with support for the AES and SHA-2 algorithms.
+- Support for either TLS 1.2 for TCP or other stream-based communication paths, or DTLS 1.2 for datagram-based communication paths. Support of X.509 certificate handling is optional. You can replace X.509 certificate handling with the more compute-efficient and wire-efficient pre-shared key mode for TLS, which you can implement with support for the AES and SHA-2 algorithms.
 - Updateable key-store and per-device keys. Each device must have unique key material or tokens that identify it to the system. The devices should store the key securely on the device (for example, using a secure key-store). The device should be able to update the keys or tokens periodically, or reactively in emergency situations such as a system breach.
 - The firmware and application software on the device must allow for updates to enable the repair of discovered security vulnerabilities.
 
@@ -107,7 +114,7 @@ Many devices are too constrained to support these requirements. In that case, a 
 
 ### Physical tamper-proofing
 
-It is strongly recommended that device design incorporates features that defend against physical manipulation attempts, to help ensure the security integrity and trustworthiness of the overall system.
+Recommended device design incorporates features that defend against physical manipulation attempts, to help ensure the security integrity and trustworthiness of the overall system.
 
 For example:
 
@@ -115,7 +122,7 @@ For example:
 - Secure boot loader and secure software loading anchored in the TPM.
 - Use sensors to detect intrusion attempts and attempts to manipulate the device environment with alerting and potential "digital self-destruction" of the device.
 
-For additional security considerations, see [Internet of Things (IoT) security architecture](/azure/iot-fundamentals/iot-security-architecture).
+For more security considerations, see [Internet of Things (IoT) security architecture](/azure/iot-fundamentals/iot-security-architecture).
 
 ## Availability considerations
 
@@ -137,7 +144,7 @@ In general, use the [Azure pricing calculator](https://azure.microsoft.com/prici
 
 ## Next steps
 
-For more information about the individual pieces of a solution architecture, see the following topics:
+For more information about the individual pieces of a solution architecture, see the following product pages:
 
 - [Azure IoT Edge](/azure/iot-edge/)
 - [Azure IoT Hub](/azure/iot-hub/)
@@ -145,7 +152,6 @@ For more information about the individual pieces of a solution architecture, see
 - [Azure Digital Twins](/azure/digital-twins/)
 - [Azure Stream Analytics](/azure/stream-analytics/)
 - [Azure HDInsight](/azure/hdinsight/)
-- [Azure Time Series Insights](/azure/time-series-insights/)
 - [Azure Data Explorer](/azure/data-explorer/)
 - [Azure Machine Learning](/azure/machine-learning/)
 - [Azure Databricks](/azure/databricks/)
