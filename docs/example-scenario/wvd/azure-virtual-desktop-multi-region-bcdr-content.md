@@ -4,7 +4,7 @@ As you continue to enable remote work for your organization with Virtual Desktop
 
 There are several types of disasters and outages, and each can have a different impact. Resiliency and recovery are discussed in depth for both local and region-wide events, including recovery of the service in a different remote Azure region. This type of recovery is called geo disaster recovery. It's critical to build your Virtual Desktop architecture for resiliency and availability. You should provide maximum local resiliency to reduce the impact of failure events. This resiliency also reduces the requirements to execute recovery procedures. This article also provides information about high-availability and best practices.
 
-## Virtual Desktop Control Plane
+## Virtual Desktop control plane
 
 Virtual Desktop offers BCDR for its control plane to preserve customer metadata during outages. When an outage occurs in a region, the service infrastructure components fail over to the secondary location and continue functioning as normal. You can still access service-related metadata, and users can still connect to available hosts. End-user connections stay online if the tenant environment or hosts remain accessible. [Data locations for Azure Virtual Desktop](/azure/virtual-desktop/data-locations) are different from the location of the host pool session host virtual machines (VMs) deployment. It's possible to locate Virtual Desktop metadata in one of the supported regions, and then deploy VMs in a different location. No other action is required.
 
@@ -35,7 +35,7 @@ Depending on the number of availability zones you use, evaluate over-provisionin
 > [!NOTE]
 > Azure availability zones are a high-availability feature that can improve resiliency. However, do not consider them a disaster recovery solution able to protect from region-wide disasters.  
 
-:::image type="content" source="images/azure-az-picture.png " alt-text="Image that shows Azure zones, datacenters, and geographies.":::
+:::image type="content" source="images/azure-az-picture.png " alt-text="Diagram that shows Azure zones, datacenters, and geographies.":::
 
 Because of the possible combinations of types, replication options, service capabilities, and availability restrictions in some regions, the [Cloud Cache](/fslogix/cloud-cache-resiliency-availability-cncpt) component from [FSLogix](/fslogix/overview) is used instead of specific storage replication mechanisms.
 
@@ -43,10 +43,8 @@ OneDrive isn't covered in this article. For more information on redundancy and h
 
 For the remainder of this article, you're going to learn about solutions for the two different Virtual Desktop host pool types. There are also observations provided so that you can compare this architecture with other solutions:
 
-- **Personal**
-  - In this type of host pool, a user has a permanently assigned session host, which should never change. Since it's personal, this VM can store user data. The assumption is to use replication and backup techniques to preserve and protect the state.
-- **Pooled**
-  - Users are temporarily assigned one of the available session host VMs from the pool, either directly through a desktop application group or by using remote apps. VMs are stateless and user data and profiles are stored in external storage or OneDrive.
+- **Personal:** In this type of host pool, a user has a permanently assigned session host, which should never change. Since it's personal, this VM can store user data. The assumption is to use replication and backup techniques to preserve and protect the state.
+- **Pooled:** Users are temporarily assigned one of the available session host VMs from the pool, either directly through a desktop application group or by using remote apps. VMs are stateless and user data and profiles are stored in external storage or OneDrive.
 
 Cost implications are discussed, but the primary goal is providing an effective geo disaster recovery deployment with minimal data loss.
 For more BCDR details, see the following resources:
@@ -89,7 +87,7 @@ For each single Virtual Desktop host pool, you can base your BCDR strategy on an
 
 - **Active-Passive**
   - Like active-active, for each host pool in the primary region, you deploy a second host pool in the secondary region.
-    - The amount of compute resources active in the secondary region is reduced compared to the primary region, depending on the budget available. You can use automatic scaling to provide more compute capacity, but it requires more time, and Azure capacity isn't guaranteed.
+  - The amount of compute resources active in the secondary region is reduced compared to the primary region, depending on the budget available. You can use automatic scaling to provide more compute capacity, but it requires more time, and Azure capacity isn't guaranteed.
   - This configuration provides higher RTO when compared to the active-active approach, but it's less expensive.
   - You need administrator intervention to execute a failover procedure if there's an Azure outage. The secondary host pool doesn't normally provide the users access to Virtual Desktop resources.
   - Each host pool has its own storage accounts for persistent user profiles.
@@ -201,13 +199,13 @@ The following example shows a Cloud Cache configuration and related registry key
   - Registry Key path = **HKEY_LOCAL_MACHINE > SOFTWARE > FSLogix > Profiles**
   - *CCDLocations* value = **type=smb,connectionString=\\northeustg1\profiles;type=smb,connectionString=\\westeustg1\profiles**
 
-    :::image type="content" source="images/fslogix-cc-registry-keys-hires.png" alt-text="Screenshot that shows the Cloud Cache registry keys." lightbox="images/fslogix-cc-registry-keys-hires.png":::
+    :::image type="content" source="images/fslogix-cloud-cache-registry-keys-hires.png" alt-text="Screenshot that shows the Cloud Cache registry keys." lightbox="images/fslogix-cloud-cache-registry-keys-hires.png":::
 
 - Office container storage account URI = **\\northeustg2\odcf**
   - Registry Key path = **HKEY_LOCAL_MACHINE > SOFTWARE >Policy > FSLogix > ODFC**
   - *CCDLocations* value = **type=smb,connectionString=\\northeustg2\odfc;type=smb,connectionString=\\westeustg2\odfc**
 
-    :::image type="content" source="images/fslogix-cc-registry-keys-office-hires.png" alt-text="Screenshot that shows the Cloud Cache registry keys for Office Container." lightbox="images/fslogix-cc-registry-keys-office-hires.png":::
+    :::image type="content" source="images/fslogix-cloud-cache-registry-keys-office-hires.png" alt-text="Screenshot that shows the Cloud Cache registry keys for Office Container." lightbox="images/fslogix-cloud-cache-registry-keys-office-hires.png":::
 
 > [!NOTE]
 > In the screenshots above, not all the recommended registry keys for FSLogix and Cloud Cache are reported, for brevity and simplicity. For more information, see [FSLogix for the enterprise](/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix).
@@ -251,7 +249,7 @@ One of the most important dependencies for Virtual Desktop is the availability o
   - You can provide high availability and disaster recovery by installing a second instance of the service in the secondary region and enable [staging mode](/azure/active-directory/hybrid/plan-connect-topologies#staging-server).
   - If there's a recovery, the administrator is required to promote the secondary instance by taking it out of staging mode. They must follow the same procedure as placing a server into staging mode.
 
-    :::image type="content" source="images/ad-connect-configuration-wizard.png" alt-text="Screenshot that shows the AD Connect configuration wizard.":::
+    :::image type="content" source="images/active-directory-connect-configuration-wizard.png" alt-text="Screenshot that shows the AD Connect configuration wizard.":::
 
 - **Azure Active Directory Domain Services**
   - You can use Azure AD DS in some scenarios as an alternative to Active Directory Domain Services.
