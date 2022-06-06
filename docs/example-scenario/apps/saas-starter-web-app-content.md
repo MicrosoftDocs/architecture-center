@@ -210,7 +210,7 @@ If you'd like to deploy this scenario, see the [Azure SaaS Dev Kit](https://gith
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors:
+Principal author:
 
  - [Landon Pierce](https://www.linkedin.com/in/landon-pierce-a84b37b6) | Customer Engineer
 
