@@ -20,6 +20,6 @@ products:
   - power-bi
 name: Build an architecture with real-time machine learning inference and low-code web application UI on Azure
 summary: Learn how to quickly build an architecture with real-time inference by using Azure Machine Learning and low-code UI with Microsoft Power Platform.
-thumbnailUrl: /azure/architecture/browse/thumbs/deploy-real-time-ML-model-application-UI.png
+thumbnailUrl: /azure/architecture/browse/thumbs/deploy-real-time-ml-model-application-ui.png
 content: |
-  [!include[](deploy-real-time-ML-model-application-ui-content.md)]
+  [!include[](deploy-real-time-ml-model-application-ui-content.md)]
