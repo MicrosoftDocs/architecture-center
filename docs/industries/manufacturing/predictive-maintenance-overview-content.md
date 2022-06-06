@@ -46,7 +46,7 @@ PdM uses models to predict when an asset is likely to have a component fail, so 
 
 To build a PdM solution, we start with data. Ideally the data shows normal operation and the state of the equipment before, during, and after failures. The data comes from sensors, notes maintained by equipment operators, run information, environmental data, machine specifications, and so on. Systems of record can include historians, manufacturing execution systems, enterprise resource planning (ERP), and so on. The data is made available for analytics in a variety of ways. The following diagram illustrates [The Team Data Science Process (TDSP)](/azure/machine-learning/team-data-science-process). The process is customized for manufacturing and does an excellent job of explaining the various concerns that one has when building and executing machine learning models.
 
-:::image type="content" source="images/predictive-maintenance-overview/data-science-diagram-inline.png" alt-text="The diagram summarizes the Team Data Science Process." lightbox="images/predictive-maintenance-overview/data-science-diagram-inline.png":::
+:::image type="content" source="images/predictive-maintenance-overview/data-science-diagram-inline.png" alt-text="The diagram summarizes the Team Data Science Process." border="false" lightbox="images/predictive-maintenance-overview/data-science-diagram-inline.png":::
 
 Your first task is to identify the types of failures you want to predict. With that in mind, you then identify the data sources that have relevant data about that failure type. The pipeline gets the data into the system from your environment. The data scientists use their favorite machine learning tools to prepare the data. At this point, they're ready to create and train models that can identify diverse types of issues. The models answer questions like:
 
@@ -81,7 +81,7 @@ To see an example solution, review the solution, guide, and playbook for [PdM in
 - [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs) is a highly scalable data streaming platform and event ingestion service, capable of receiving and processing millions of events per second. Event Hubs can process and store events, data, or telemetry produced by distributed software and devices. Data sent to an event hub can be transformed and stored using any real-time analytics provider or batching and storage adapters. Event Hubs provides publish-subscribe capabilities with low latency at massive scale, which makes it appropriate for big data scenarios.
 - [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge) deploys cloud workloads to run on edge devices via standard containers. IoT Edge intelligent devices can respond quickly and offline, reducing latency and bandwidth usage, and increasing reliability. They can also limit costs by preprocessing and sending only necessary data to the cloud. Devices can run AI and machine learning modules, Azure and third-party services, and custom business logic.
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) is a fully managed service that enables reliable and secure bidirectional communications between millions of IoT devices and a cloud-based back end. It provides per-device authentication, message routing, integration with other Azure services, and management features to control and configure the devices.
-- [Machine Learning](https://azure.microsoft.com/services/machine-learning) is an enterprise-grade machine learning service for building and deploying models quickly. It provides users at all skill levels with a low-code designer, automated machine learning, and a hosted Jupyter notebook environment that supports various IDEs.
+- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) is an enterprise-grade machine learning service for building and deploying models quickly. It provides users at all skill levels with a low-code designer, automated machine learning, and a hosted Jupyter notebook environment that supports various IDEs.
 
   Machine learning enables computers to learn from data and experiences and to act without being explicitly programmed. Customers can build AI applications that intelligently sense, process, and act on information, augmenting human capabilities, increasing speed and efficiency, and helping organizations achieve more.
 - [Azure Service Bus](https://azure.microsoft.com/services/service-bus) is a fully managed enterprise message broker with message queues and publish-subscribe topics. It's used to connect applications, services, and devices. Together with Azure Relay, Service Bus can connect to remotely hosted applications and services.
@@ -98,9 +98,7 @@ To see an example solution, review the solution, guide, and playbook for [PdM in
 
  PdM improves on preventive maintenance schedules by identifying specific components to inspect and repair or replace. It requires machines that are instrumented and connected to provide data for building PdM solutions.
 
-There are many resources to help you get started.
-
-Microsoft's infrastructure can help you build solutions that run on the device, at the edge, and in the cloud.
+Microsoft's infrastructure can help you build solutions that run on the device, at the edge, and in the cloud. There are many resources to help you get started.
 
 To begin, pick out the top one to three failures that you want to prevent and begin your discovery process with those items. Then, identify how to get the data that helps identify the failures. Combine that data with the skills that you get from the [Foundations of data science for machine learning](/learn/paths/machine-learning-foundations-using-data-science) course to build your PdM models.
 

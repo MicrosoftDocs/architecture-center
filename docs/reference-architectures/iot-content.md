@@ -22,7 +22,7 @@ To see IoT architectures for industry-specific solutions, see [Industry specific
 
 ### Devices
 
-Azure IoT supports a large range of devices, from microcontrollers running Azure RTOS and [Azure Sphere](/azure-sphere/product-overview/what-is-azure-sphere) to developer boards like [MX Chip](/samples/azure-samples/mxchip-iot-devkit-get-started/sample) and Raspberry Pi. Azure IoT also supports smart server gateways capable of running custom code. Devices might perform some local processing through a service such as **Azure IoT Edge**, or just connect directly to Azure so that they can send data to and receive data from the IoT solution.
+Azure IoT supports a large range of devices, from microcontrollers running **Azure RTOS** and **Azure Sphere** to developer boards like [MX Chip](/samples/azure-samples/mxchip-iot-devkit-get-started/sample) and Raspberry Pi. Azure IoT also supports smart server gateways capable of running custom code. Devices might perform some local processing through a service such as **Azure IoT Edge**, or just connect directly to Azure so that they can send data to and receive data from the IoT solution.
 
 When devices are connected to the cloud, there are several services that assist with ingesting data. **Azure IoT Hub** is a cloud gateway service that can securely connect and manage devices. **IoT Hub Device Provisioning Service (DPS)** enables zero-touch, just-in-time provisioning that helps to register a large number of devices in a secure and scalable manner. **Azure Digital Twins** enables virtual models of real world systems.
 
@@ -70,20 +70,26 @@ You can use **Azure Digital Twins** to control and monitor connected environment
 
 Build your solution to deploy at global scale. For optimal scalability, build your IoT application with discrete services that can scale independently. This section describes scalability considerations for several Azure services.
 
-**Functions**. When functions read from the Event Hubs endpoint, there's a maximum number of function instances per event hub partition. The maximum processing rate is determined by how fast one function instance can process the events from a single partition. The function should process messages in batches.
+### IoT Hub
 
-**IoT Hub**. For IoT Hub, consider the following scale factors:
+IoT Hub automatically partitions device messages based on the device ID. All of the messages from a particular device will always arrive on the same partition, but a single partition will have messages from multiple devices. Therefore, the unit of parallelization is the partition ID.
+
+Each IoT hub is provisioned with a certain number of units in a specific pricing and scale tier. The tier and number of units determine the maximum daily quota of messages that devices can send to the hub. For more information, see [IoT Hub quotas and throttling](/azure/iot-hub/iot-hub-devguide-quotas-throttling). You can scale up a hub without interrupting existing operations.
+
+For IoT Hub, consider the following scale factors:
 
 - The maximum [daily quota](/azure/iot-hub/iot-hub-devguide-quotas-throttling) of messages into IoT Hub.
 - The quota of connected devices in an IoT Hub instance.
 - Ingestion throughput: How quickly IoT Hub can ingest messages.
 - Processing throughput: How quickly the incoming messages are processed.
 
-Each IoT hub is provisioned with a certain number of units in a specific pricing and scale tier. The tier and number of units determine the maximum daily quota of messages that devices can send to the hub. For more information, see [IoT Hub quotas and throttling](/azure/iot-hub/iot-hub-devguide-quotas-throttling). You can scale up a hub without interrupting existing operations.
+### Azure Functions
 
-**Stream Analytics**. Stream Analytics jobs scale best if they're parallel at all points in the Stream Analytics pipeline, from input to query to output. A fully parallel job allows Stream Analytics to split the work across multiple compute nodes. For more information, see [Leverage query parallelization in Azure Stream Analytics](/azure/stream-analytics/stream-analytics-parallelization).
+When **Azure Functions** reads from an **Azure Event Hubs** endpoint, there's a maximum number of function instances per event hub partition. The maximum processing rate is determined by how fast one function instance can process the events from a single partition. The function should process messages in batches.
 
-IoT Hub automatically partitions device messages based on the device ID. All of the messages from a particular device will always arrive on the same partition, but a single partition will have messages from multiple devices. Therefore, the unit of parallelization is the partition ID.
+### Stream Analytics
+
+Stream Analytics jobs scale best if they're parallel at all points in the Stream Analytics pipeline, from input to query to output. A fully parallel job allows Stream Analytics to split the work across multiple compute nodes. For more information, see [Leverage query parallelization in Azure Stream Analytics](/azure/stream-analytics/stream-analytics-parallelization).
 
 ## Security considerations
 
@@ -91,7 +97,9 @@ This section contains considerations for building secure solutions.
 
 ### Zero trust security model
 
-Zero trust is a security model that assumes breaches will happen, and treats every access attempt as if it originates from an open network. Zero trust assumes that you've implemented the basics, such as securing identities and limiting access. Basic security implementation includes explicitly verifying users, having visibility into their devices, and being able to make dynamic access decisions using real-time risk detection. After you meet the basics, you can shift your focus to the following zero trust requirements for IoT solutions:
+Zero trust is a security model that assumes breaches will happen, and treats every access attempt as if it originates from an open network. Zero trust assumes that you've implemented the basics, such as securing identities and limiting access.
+
+Basic security implementation includes explicitly verifying users, having visibility into their devices, and being able to make dynamic access decisions using real-time risk detection. After you meet the basics, you can shift your focus to the following zero trust requirements for IoT solutions:
 
 - Use strong identity to authenticate devices.
 - Use least privileged access to mitigate blast radius.
@@ -107,20 +115,20 @@ All information received from and sent to a device must be trustworthy. Unless a
 
 - Data encryption and digital signatures with a provably secure, publicly analyzed, and broadly implemented symmetric-key encryption algorithm.
 - Support for either TLS 1.2 for TCP or other stream-based communication paths, or DTLS 1.2 for datagram-based communication paths. Support of X.509 certificate handling is optional. You can replace X.509 certificate handling with the more compute-efficient and wire-efficient pre-shared key mode for TLS, which you can implement with support for the AES and SHA-2 algorithms.
-- Updateable key-store and per-device keys. Each device must have unique key material or tokens that identify it to the system. The devices should store the key securely on the device (for example, using a secure key-store). The device should be able to update the keys or tokens periodically, or reactively in emergency situations such as a system breach.
+- Updateable key-store and per-device keys. Each device must have unique key material or tokens that identify it to the system. The devices should store the key securely on the device (for example, using a secure key store). The device should be able to update the keys or tokens periodically, or reactively in emergency situations such as a system breach.
 - The firmware and application software on the device must allow for updates to enable the repair of discovered security vulnerabilities.
 
-Many devices are too constrained to support these requirements. In that case, a field gateway should be used. Devices connect securely to the field gateway through a local area network, and the gateway enables secure communication to the cloud.
+Many devices are too constrained to support these requirements. In that case, you should use a field gateway. Devices connect securely to the field gateway through a local area network, and the gateway enables secure communication to the cloud.
 
 ### Physical tamper-proofing
 
-Recommended device design incorporates features that defend against physical manipulation attempts, to help ensure the security integrity and trustworthiness of the overall system.
+Recommended device design incorporates features that defend against physical manipulation attempts, to help ensure the security, integrity, and trustworthiness of the overall system.
 
 For example:
 
 - Choose microcontrollers/microprocessors or auxiliary hardware that provides secure storage and use of cryptographic key material, such as trusted platform module (TPM) integration.
-- Secure boot loader and secure software loading anchored in the TPM.
-- Use sensors to detect intrusion attempts and attempts to manipulate the device environment with alerting and potential "digital self-destruction" of the device.
+- Anchor secure boot loader and secure software loading in the TPM.
+- Use sensors to detect intrusion attempts and attempts to manipulate the device environment, with alerting and potential "digital self-destruction" of the device.
 
 For more security considerations, see [Internet of Things (IoT) security architecture](/azure/iot-fundamentals/iot-security-architecture).
 
@@ -130,37 +138,55 @@ A key area of consideration for resilient IoT solutions is business continuity a
 
 Different Azure services offer different options for redundancy and failover to help you achieve the uptime goals that best suit your business objectives. Incorporating any of these HA/DR alternatives into your IoT solution requires a careful evaluation of the trade-offs between the:
 
-- Level of resiliency you require
-- Implementation and maintenance complexity
-- Cost of Goods Sold (COGS) impact
+- Level of resiliency you require.
+- Implementation and maintenance complexity.
+- Cost of Goods Sold (COGS) impact.
 
-The article [Azure Business Continuity Technical Guidance](/azure/architecture/resiliency) describes a general framework to help you think about business continuity and disaster recovery. The [Disaster recovery and high availability for Azure applications](/azure/architecture/reliability/disaster-recovery) paper provides architecture design guidance on strategies for Azure applications to achieve High Availability (HA) and Disaster Recovery (DR).
+The article [Azure Business Continuity Technical Guidance](/azure/architecture/resiliency) describes a general framework to help you think about business continuity and disaster recovery. The [Disaster recovery and high availability for Azure applications](/azure/architecture/reliability/disaster-recovery) paper provides architecture design guidance on strategies for Azure applications to achieve HA/DR.
 
 You can also find service-specific performance information in the documentation for each Azure IoT service.
 
 ## Cost considerations
 
-In general, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs. Other considerations are described in the Cost section in [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/cost/overview).
+In general, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs. Other considerations are described in the Cost section in [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/cost/overview).
 
 ## Next steps
 
-For more information about the individual pieces of a solution architecture, see the following product pages:
+For more information about the individual pieces of a solution architecture, see the following product documentation:
 
-- [Azure IoT Edge](/azure/iot-edge/)
-- [Azure IoT Hub](/azure/iot-hub/)
-- [Azure IoT Hub Device Provisioning Service (DPS)](/azure/iot-dps/)
-- [Azure Digital Twins](/azure/digital-twins/)
-- [Azure Stream Analytics](/azure/stream-analytics/)
-- [Azure HDInsight](/azure/hdinsight/)
-- [Azure Data Explorer](/azure/data-explorer/)
-- [Azure Machine Learning](/azure/machine-learning/)
-- [Azure Databricks](/azure/databricks/)
-- [Power BI](/power-bi/connect-data/)
-- [Azure Maps](/azure/azure-maps/)
-- [Azure Cognitive Search](/azure/search/)
-- [API Management](/azure/api-management/)
-- [Azure App Service](/azure/app-service/)
-- [Azure Mobile Apps](/azure/developer/mobile-apps/)
-- [Dynamics 365](/dynamics365/)
+- [Azure RTOS](/azure/rtos)
+- [Azure Sphere](/azure-sphere/product-overview/what-is-azure-sphere)
+- [Azure IoT Edge](/azure/iot-edge)
+- [Azure IoT Hub](/azure/iot-hub)
+- [Azure IoT Hub Device Provisioning Service (DPS)](/azure/iot-dps)
+- [Azure Digital Twins](/azure/digital-twins)
+- [Azure Event Hubs](/azure/event-hubs)
+- [Azure Functions](/azure/azure-functions)
+- [Azure Stream Analytics](/azure/stream-analytics)
+- [Azure HDInsight](/azure/hdinsight)
+- [Azure Data Explorer](/azure/data-explorer)
+- [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction)
+- [Azure Machine Learning](/azure/machine-learning)
+- [Azure Databricks](/azure/databricks)
+- [Power BI](/power-bi/connect-data)
+- [Azure Maps](/azure/azure-maps)
+- [Azure Cognitive Search](/azure/search)
+- [API Management](/azure/api-management)
+- [Azure App Service](/azure/app-service)
+- [Azure Mobile Apps](/azure/developer/mobile-apps)
+- [Dynamics 365](/dynamics365)
 - [Microsoft Power Automate (Microsoft Flow)](/power-automate/getting-started)
-- [Azure Logic Apps](/azure/logic-apps/)
+- [Azure Logic Apps](/azure/logic-apps)
+- [Azure Monitor](/azure/azure-monitor)
+- [Azure AD](/azure/active-directory)
+- [Microsoft Defender for IoT](/azure/defender-for-iot)
+
+## Related resources
+
+- [IoT conceptual overview](../example-scenario/iot/introduction-to-solutions.yml)
+- [Choose an Internet of Things (IoT) solution in Azure](../example-scenario/iot/iot-central-iot-hub-cheat-sheet.yml)
+- [Azure industrial IoT analytics guidance](../guide/iiot-guidance/iiot-architecture.yml)
+- [Industry specific Azure IoT reference architectures](iot/industry-iot-hub-page.md)
+- [Create smart places by using Azure Digital Twins](../example-scenario/iot/smart-places.yml)
+- [IoT and data analytics](../example-scenario/data/big-data-with-iot.yml)
+
