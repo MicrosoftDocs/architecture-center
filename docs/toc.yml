@@ -5381,7 +5381,6 @@ items:
                 maintainContext: true
               - name: Azure AD join for Azure Virtual Desktop
                 href: example-scenario/wvd/azure-virtual-desktop-azure-active-directory-join.md
-                maintainContext: true
               - name: Connect RDP Shortpath
                 href: /azure/virtual-desktop/shortpath
                 maintainContext: true
