@@ -72,8 +72,6 @@ Build your solution to deploy at global scale. For optimal scalability, build yo
 
 ### IoT Hub
 
-IoT Hub automatically partitions device messages based on the device ID. All of the messages from a particular device will always arrive on the same partition, but a single partition will have messages from multiple devices. Therefore, the unit of parallelization is the partition ID.
-
 Each IoT hub is provisioned with a certain number of units in a specific pricing and scale tier. The tier and number of units determine the maximum daily quota of messages that devices can send to the hub. For more information, see [IoT Hub quotas and throttling](/azure/iot-hub/iot-hub-devguide-quotas-throttling). You can scale up a hub without interrupting existing operations.
 
 For IoT Hub, consider the following scale factors:
@@ -83,6 +81,8 @@ For IoT Hub, consider the following scale factors:
 - Ingestion throughput: How quickly IoT Hub can ingest messages.
 - Processing throughput: How quickly the incoming messages are processed.
 
+IoT Hub automatically partitions device messages based on the device ID. All of the messages from a particular device will always arrive on the same partition, but a single partition will have messages from multiple devices. Therefore, the unit of parallelization is the partition ID.
+
 ### Azure Functions
 
 When **Azure Functions** reads from an **Azure Event Hubs** endpoint, there's a maximum number of function instances per event hub partition. The maximum processing rate is determined by how fast one function instance can process the events from a single partition. The function should process messages in batches.
@@ -91,6 +91,7 @@ When **Azure Functions** reads from an **Azure Event Hubs** endpoint, there's a 
 
 Stream Analytics jobs scale best if they're parallel at all points in the Stream Analytics pipeline, from input to query to output. A fully parallel job allows Stream Analytics to split the work across multiple compute nodes. For more information, see [Leverage query parallelization in Azure Stream Analytics](/azure/stream-analytics/stream-analytics-parallelization).
 
+<a name="security"></a>
 ## Security considerations
 
 This section contains considerations for building secure solutions.
@@ -99,7 +100,7 @@ This section contains considerations for building secure solutions.
 
 Zero trust is a security model that assumes breaches will happen, and treats every access attempt as if it originates from an open network. Zero trust assumes that you've implemented the basics, such as securing identities and limiting access.
 
-Basic security implementation includes explicitly verifying users, having visibility into their devices, and being able to make dynamic access decisions using real-time risk detection. After you meet the basics, you can shift your focus to the following zero trust requirements for IoT solutions:
+Basic security implementation includes explicitly verifying users, having visibility into their devices, and being able to make dynamic access decisions using real-time risk detection. After you do the basics, you can shift your focus to the following zero trust requirements for IoT solutions:
 
 - Use strong identity to authenticate devices.
 - Use least privileged access to mitigate blast radius.
@@ -185,6 +186,7 @@ For more information about the individual pieces of a solution architecture, see
 
 - [IoT conceptual overview](../example-scenario/iot/introduction-to-solutions.yml)
 - [Choose an Internet of Things (IoT) solution in Azure](../example-scenario/iot/iot-central-iot-hub-cheat-sheet.yml)
+- [Internet of Things (IoT) security architecture](/azure/iot-fundamentals/iot-security-architecture)
 - [Azure industrial IoT analytics guidance](../guide/iiot-guidance/iiot-architecture.yml)
 - [Industry specific Azure IoT reference architectures](iot/industry-iot-hub-page.md)
 - [Create smart places by using Azure Digital Twins](../example-scenario/iot/smart-places.yml)
