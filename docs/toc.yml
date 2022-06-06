@@ -395,7 +395,7 @@ items:
                - name: Power Automate deployment at scale
                  href: example-scenario/power-automate/power-automate.yml
                - name: Real-time machine learning architecture on Azure
-                 href: example-scenario/ai/deploy-real-time-ml-model-application-ui.yml  
+                 href: example-scenario/ai/deploy-real-time-machine-learning-model-application-ui.yml  
           - name: Azure and Microsoft 365 scenarios
             items:
               - name: Overview
@@ -1725,7 +1725,7 @@ items:
               - name: Real-time asset tracking for vehicles
                 href: solution-ideas/articles/real-time-asset-tracking-mgmt-iot-central.yml
               - name: Real-time machine learning architecture on Azure
-                href: example-scenario/ai/deploy-real-time-ml-model-application-ui.yml  
+                href: example-scenario/ai/deploy-real-time-machine-learning-model-application-ui.yml  
               - name: Run CFD simulations
                 href: example-scenario/infrastructure/hpc-cfd.yml
           - name: Datasets
@@ -2309,7 +2309,7 @@ items:
               - name: Quality assurance
                 href: solution-ideas/articles/quality-assurance.yml
               - name: Real-time machine learning architecture on Azure
-                href: example-scenario/ai/deploy-real-time-ml-model-application-ui.yml
+                href: example-scenario/ai/deploy-real-time-machine-learning-model-application-ui.yml
               - name: Real-time recommendation API
                 href: reference-architectures/ai/real-time-recommendation.yml
               - name: Real-time scoring Python models
