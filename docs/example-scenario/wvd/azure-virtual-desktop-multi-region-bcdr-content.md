@@ -81,9 +81,9 @@ For each single Virtual Desktop host pool, you can base your BCDR strategy on an
   
     :::image type="content" source="images/avd-multiple-workspaces.png " alt-text="Picture that explains the usage of multiple workspaces.":::
 
-- If you need storage to manage FSLogix Profile and Office containers, use Cloud Cache to ensure almost zero RPO.
-  - To avoid profile conflicts, don't permit users to access both host pools at the same time.
-  - Due to the active-active nature of this scenario, you should educate your users on how to use these resources in the proper way.
+  - If you need storage to manage FSLogix Profile and Office containers, use Cloud Cache to ensure almost zero RPO.
+    - To avoid profile conflicts, don't permit users to access both host pools at the same time.
+    - Due to the active-active nature of this scenario, you should educate your users on how to use these resources in the proper way.
 
 - **Active-Passive**
   - Like active-active, for each host pool in the primary region, you deploy a second host pool in the secondary region.
