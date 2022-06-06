@@ -1,9 +1,9 @@
 ---
 title: Data lakes
 description: Learn about data lake storage repositories, which can hold terabytes and petabytes of data in native, raw format.
-author: EdPrice-MSFT
-ms.author: edprice
-ms.date: 05/02/2022
+author: PRASADA1207
+ms.author: prasada
+ms.date: 06/08/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -16,7 +16,7 @@ ms.custom:
   - guide
 ---
 
-# What is a data lake ?
+# What is a data lake?
 
 A data lake is a storage repository that holds a large amount of data in its native, raw format. Data lake stores are optimized for scaling to terabytes and petabytes of data. The data typically comes from multiple heterogeneous sources, and may be structured, semi-structured, or unstructured. The idea with a data lake is to store everything in its original, untransformed state. This approach differs from a traditional [data warehouse](../relational-data/data-warehousing.yml), which transforms and processes the data at the time of ingestion.
 
@@ -31,7 +31,7 @@ Advantages of a data lake:
 
 A complete data lake solution consists of both storage and processing. Data lake storage is designed for fault-tolerance, infinite scalability, and high-throughput ingestion of data with varying shapes and sizes. Data lake processing involves one or more processing engines built with these goals in mind, and can operate on data stored in a data lake at scale.
 
-## When to use a data lake ?
+## When to use a data lake
 
 Typical uses for a data lake include [data exploration](./interactive-data-exploration.md), data analytics, and machine learning.
 
@@ -52,15 +52,26 @@ Data lake stores are often used in event streaming or IoT scenarios, because the
 - A data lake may become a dumping ground for data that is never actually analyzed or mined for insights.
 
 ## Technology Choices
-   Build Data Lake solutions using these powerful solutions offered by Azure :
-   ![image](https://user-images.githubusercontent.com/76814154/171924203-3cc54c6f-0f45-4485-8167-2de6adf97a5b.png)
 
-- [Data Lake Store](/azure/data-lake-store/) is a hyperscale, Hadoop-compatible repository.
-- [Data Lake Analytics](/azure/data-lake-analytics/) is an on-demand analytics job service to simplify big data analytics.
-- [Azure HD Insight ](/azure/data-lake-store/) is a managed, full-spectrum, open-source analytics service in the cloud for enterprises. 
+Build data lake solutions using the following services offered by Azure:
+
+![image](https://user-images.githubusercontent.com/76814154/171924203-3cc54c6f-0f45-4485-8167-2de6adf97a5b.png)
+
+- [Data Lake Store](/azure/data-lake-store) is a hyperscale, Hadoop-compatible repository.
+- [Data Lake Analytics](/azure/data-lake-analytics) is an on-demand analytics job service to simplify big data analytics.
+- [Azure HD Insight](/azure/data-lake-store) is a managed, full-spectrum, open-source analytics service in the cloud for enterprises. 
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Other contributor:
+
+ - [Avijit Prasad](https://www.linkedin.com/in/avijit-prasad%F0%9F%8C%90-96768a42) | Cloud Consultant
 
 ## Related resources
-- [Learn choosing an analytical data store in Azure](https://docs.microsoft.com/en-us/azure/architecture/data-guide/technology-choices/analytical-data-stores)
+
+- [Choose an analytical data store in Azure](/azure/architecture/data-guide/technology-choices/analytical-data-stores)
 - [Query a data lake or lakehouse by using Azure Synapse serverless](/azure/architecture/example-scenario/data/synapse-exploratory-data-analytics)
 - [Optimized storage – time based with Data Lake](/azure/architecture/solution-ideas/articles/optimized-storage-time-based-data-lake)
 - [Data management across Azure Data Lake with Microsoft Purview](/azure/architecture/solution-ideas/articles/azure-purview-data-lake-estate-architecture)
