@@ -34,6 +34,6 @@ products:
   - azure-monitor
   - azure-pipelines
 
-thumbnailUrl: /azure/architecture/browse/thumbs/architecture-devops-with-aks.png
+thumbnailUrl: /azure/architecture/browse/thumbs/architecture-devops-with-aks-thumbnail.png
 content: |
    [!include[](devops-with-aks-content.md)]
