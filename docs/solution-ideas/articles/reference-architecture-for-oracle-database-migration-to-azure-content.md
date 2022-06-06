@@ -47,7 +47,7 @@ Consider using a hyperthreaded memory-optimized virtual machine with constrained
 
 #### Storage
 
-Use multiple premium or ultra disks (managed disks) for performance and availability on your Oracle database. When using managed disks, the disk/device name may change on reboots. It's recommended that you use the device UUID instead of the name, to ensure your mounts persist across reboots. Consider using Oracle Automatic Storage Management (ASM) for streamlined storage management for your database.
+Use multiple premium or ultra disks (managed disks) for performance and availability on your Oracle database. The disk/device name may change on reboots when using managed disks. It's recommended that you use the device UUID instead of the name, to ensure your mounts persist across reboots. Consider using Oracle Automatic Storage Management (ASM) for streamlined storage management for your database.
 
 #### Testing and tuning
 
