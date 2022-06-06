@@ -1,11 +1,11 @@
 ### YamlMime:Architecture
 metadata:
-  title: End-to-end architecture with real-time ML inference and low-code web application UI on Azure
+  title: Real-time machine learning inference and low-code UI on Azure
   titleSuffix: Azure Example Scenarios
-  description: Learn how to quickly build an architecture with real-time inference with Azure Machine Learning and using low-code UI with Microsoft Power Platform.
+  description: Learn how to quickly build an architecture with real-time inference by using Azure Machine Learning and low-code UI with Microsoft Power Platform.
   author: christinas
   ms.author: christinas
-  ms.date: 04/28/2022
+  ms.date: 06/07/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
@@ -18,8 +18,8 @@ products:
   - power-apps
   - power-automate
   - power-bi
-name: End-to-end architecture with real-time ML inference and low-code web application UI on Azure
-summary: Learn how to quickly build an architecture with real-time inference with Azure Machine Learning and using low-code UI with Microsoft Power Platform.
+name: Build an architecture with real-time machine learning inference and low-code web application UI on Azure
+summary: Learn how to quickly build an architecture with real-time inference by using Azure Machine Learning and low-code UI with Microsoft Power Platform.
 thumbnailUrl: /azure/architecture/browse/thumbs/deploy-real-time-ML-model-application-UI.png
 content: |
-  [!include[](deploy-real-time-ML-model-application-UI-content.md)]
+  [!include[](deploy-real-time-ML-model-application-ui-content.md)]

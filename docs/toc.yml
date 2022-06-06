@@ -1724,6 +1724,8 @@ items:
                 href: example-scenario/data/realtime-analytics-vehicle-iot.yml
               - name: Real-time asset tracking for vehicles
                 href: solution-ideas/articles/real-time-asset-tracking-mgmt-iot-central.yml
+              - name: Real-time machine learning inference and low-code UI on Azure
+                href: example-scenario/ai/deploy-real-time-ml-model-application-ui.yml  
               - name: Run CFD simulations
                 href: example-scenario/infrastructure/hpc-cfd.yml
           - name: Datasets
