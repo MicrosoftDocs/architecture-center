@@ -133,7 +133,7 @@ The addition of a user to a tenant workflow consists of the following steps:
 
 1. The *Onboarding & admin app* issues a POST request to the *Tenant data API* to add a permission for the *SaaS customer user* on the specified tenant.
 
-1. The *Tenant data API* verifies that the *SaaS customer admin* has a valid JWT claim to the specified tenant and has the users's write permission on it.
+1. The *Tenant data API* verifies that the *SaaS customer admin* has a valid JWT claim to the specified tenant and has the user's write permission on it.
 
 1. The *Tenant data API* issues a POST request to the *Permission data API* to add a permission for the *SaaS customer user* on the specified tenant.
 
