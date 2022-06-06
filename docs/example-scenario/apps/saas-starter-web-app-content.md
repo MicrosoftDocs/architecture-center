@@ -49,7 +49,7 @@ The following table describes terms that appear in this article.
 
 The user sign-in workflow consists of the following steps:
 
-:::image type="content" alt-text="Sequence diagram that shows the sign-in process for a user." source="./media/saas-starter-app-sequence-diagram-sign-in.png" lightbox="./media/saas-starter-app-sequence-diagram-sign-in.png":::
+:::image type="content" alt-text="Sequence diagram that shows the sign-in process for a user." source="./media/saas-starter-app-sequence-diagram-sign-in.svg" lightbox="./media/saas-starter-app-sequence-diagram-sign-in.svg":::
 
 1. The *End user* navigates to a *front-end application* and selects a **Login** button.
 
@@ -77,7 +77,7 @@ For more information about how this sign-in flow works, see [OpenID Connect prot
 
 The tenant onboarding workflow consists of the following steps:
 
-:::image type="content" alt-text="Sequence diagram that shows the process for tenant onboarding." source="./media/saas-starter-app-sequence-diagram-onboarding.png" lightbox="./media/saas-starter-app-sequence-diagram-onboarding.png":::
+:::image type="content" alt-text="Sequence diagram that shows the process for tenant onboarding." source="./media/saas-starter-app-sequence-diagram-onboarding.svg" lightbox="./media/saas-starter-app-sequence-diagram-onboarding.svg":::
 
 1. The *SaaS customer admin* navigates to the *Onboarding & admin app* and completes a sign-up form.
 
@@ -115,7 +115,7 @@ The tenant onboarding workflow consists of the following steps:
 
 The addition of a user to a tenant workflow consists of the following steps:
 
-:::image type="content" alt-text="Sequence diagram that shows the addition of a new user to a tenant." source="./media/saas-starter-app-sequence-diagram-add-user.png" lightbox="./media/saas-starter-app-sequence-diagram-add-user.png":::
+:::image type="content" alt-text="Sequence diagram that shows the addition of a new user to a tenant." source="./media/saas-starter-app-sequence-diagram-add-user.svg" lightbox="./media/saas-starter-app-sequence-diagram-add-user.svg":::
 
 1. The *SaaS customer admin* requests to see a list of tenants from the tenant admin area on the *Onboarding & admin app*.
 
