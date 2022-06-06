@@ -8,7 +8,7 @@ Maximo Application Suite, also MAS or Maximo, is an Enterprise Asset Management 
 - Visual Inspection: train and use visual inspection machine learning models to do use visual analysis of emerging issues.
 - Predict: machine learning and data analytics focused on predicting future failures.
 
-Maximo Application Suite 8.x and the applications above have been tested and validated for use on Azure. This guidance provides a design for running Maximo 8.x on Azure. It assumes you will have support from IBM and a partner for installation. If you have questions, please reach out to your IBM team. 
+Maximo Application Suite 8.x and the applications above have been tested and validated for use on Azure. This guidance provides a design for running Maximo 8.x on Azure. It assumes you will have support from IBM and a partner for installation. If you have product questions, please reach out to your IBM team. 
 
 <!-- TODO: Add the layer cake -->
 
@@ -22,12 +22,12 @@ MAS 8.x runs on OpenShift and it is beneficial to familiarize yourself with Open
    The diagram contains a large rectangle with the label Azure Virtual Network. Inside it, another large rectangle.
 :::image-end:::
 
-The architecture we developed provides you with the following:
+The architecture provides you with the following:
 
 * Highly available workload across availability zones
-* A privatized deployment of worker and control machines and integrated with storage
-* Azure Files Premium and Standard for storage, which avoids using OpenShift Container Storage
-* Azure SQL running on a virtual machine or DB2WH on Azure Storage inside of the cluster
+* A privatized deployment of worker and control nodes with integrated with storage
+* Azure Files Premium and Standard for storage (Openshift Data Foundation not required)
+* Azure SQL running on a virtual machine or container based DB2WH
 * Azure DNS for DNS management of OpenShift
 * Azure Active Directory for Single Sign On into Maximo
 
@@ -35,30 +35,31 @@ The workload can be both deployed internally or externally facing, depending on 
 
 ## Design choices and Azure recommendations
 
-At this time, we recommend deploying IBM MAS 8.7. Version 8.7 is pinned on OpenShift version 4.8.x. It is recommended to use a version >= 4.8.22 to make sure all applications work properly.
+We recommend installing the latest stable version of IBM MAS as it will provide the best integration options with Azure. Pay close attention to the versions of Openshift supported as it will vary depending on the version of MAS. Currently the release cycle for Azure Redhat Openshift (ARO) is too frequent making this option unsupported by IBM.
 
-Avoid using earlier or later major versions (e.g. 4.6 or 4.9) to avoid falling out of official support for either IBM MAS or RedHat OpenShift. Before building out your own deployment, we strongly recommend deploying our [QuickStart Guide](https://github.com/Azure/maximo) reference architecture so that you have a good understanding of how the deployment and configuration works. This will speed up the process of creating the design requirements for your implementation.
+Using earlier or later major versions of Openshift (e.g. 4.6 or 4.9) can cause you to falling out of official support for IBM MAS. Before building out your own deployment, we strongly recommend deploying our [QuickStart Guide](https://github.com/Azure/maximo) so that you have a good understanding of how the deployment and configuration works. This will speed up the process of creating the design requirements for your implementation.
 
 We work closely with IBM and other partners to ensure the guidance found in this document and our quickstart gives you the best experience on Azure. It follows the best practices as outlined in the [Azure Well Architected Framework](/azure/architecture/framework/). Please do not hesitate to reach out to your IBM account team for support beyond the documentation provided.
 
 Before you proceed with your deployment, you need to make a series of design decisions:
 
-1. What applications do you need? What do your applications need?
-1. How to install OpenShift? What version of OpenShift?
-1. What dependencies do you have to set up?
-1. What data sources are you going to be needed?
+1. What applications do you need? What dependencies do your applications have?
+1. What version of OpenShift is required?
+1. How to install OpenShift? (IPI or UPI)
+1. What databases will be needed?
 1. What number and sizes of virtual nachines do you need? 
+1. Will users connect from external networks?
 
 ### Maximo Application Suite
 
-Microsoft has tested Maximo Application Suite 8.5, 8.6 and 8.7 on Azure. Our current recommendation is to use Maximo Application Suite 8.7 with the latest version for each of the applications (e.g. manage, health) on top. 
+Microsoft has tested Maximo Application Suite 8.5+ on Azure. Our recommendation is to use the lastest version of Maximo Application Suite (8.7).
 
 Review what applications you need to complete your business scenario and then review the [requirements for each of the applications](https://www.ibm.com/support/pages/node/6538166). For each of the applications you may need separate databases. We have tested and support the following databases on Azure:
 
 * [SQL Server](https://azure.microsoft.com/en-us/services/virtual-machines/sql-server/#overview) on Azure 2019 on Windows or Linux
 * IBM [DB2Wh on Cloud Pak for Data 3.5](https://www.ibm.com/docs/en/cloud-paks/cp-data/3.5.0?topic=services-db2-warehouse)
 
-Also supported is to run Oracle Exadata on a VM or on Oracle Cloud Infrastructure using the [OCI Interconnect](https://docs.oracle.com/en/solutions/learn-azure-oci-interconnect/index.html), but we have not tested the solution. Currently not supported are Azure SQL DB and Azure CosmosDB. These databases may be supported in future releases of Maximo.
+You may also choose to run Oracle Exadata on a VM or on Oracle Cloud Infrastructure using the [OCI Interconnect](https://docs.oracle.com/en/solutions/learn-azure-oci-interconnect/index.html), but we have not tested this configuration. Currently not supported are Azure SQL DB and Azure CosmosDB. These databases may be supported in future releases of Maximo.
 
 > [!NOTE] 
 > Some databases can not be mixed because you need different features. For example, you can't use the database for health + manage in combination with monitor. You can mix databases, i.e. use SQL Server and DB2WH in conjunction.
@@ -76,8 +77,9 @@ Some of the services may require other IBM tooling such as IBM Watson ML or AppC
 > [!NOTE]
 > Running Maximo Application Suite on top of Azure RedHat OpenShift is not supported.
 
-<!-- TODO: Explain IPI vs UPI or at least link to a resource that explains what it is -->
-
+Before you install Openshift, you will need to determine which method you will be using:
+- **Installer Provisioned Infrastructure (IPI)** - This method uses an installer to deploy and configure the Openshift environment on Azure. This is the most common method for deploying on Azure and should be used unless you have strict security requirements.
+- **User Provisioned Infrastructure (UPI)** - This method allows fine grained control over the deployment which is typically used when you require a completely private (air gapped) installation. This method should be chosen when you have no outbound internet access for provisioning. This method will require additional steps and considerations to build the environment. 
 
 
 > [!NOTE]
@@ -86,7 +88,7 @@ Some of the services may require other IBM tooling such as IBM Watson ML or AppC
 
 Considerations:
 
-- **Region Selection**: it is recommended to use a region with [availability zones](/azure/availability-zones/az-overview#azure-regions-with-availability-zones). When using OpenShift IPI for deployment, the IPI will automatically attempt to provision nodes across zones. OpenShift itself will by default balance workloads across all available nodes across the availability zones. In the event of a zone outage, your solution can keep on functioning by having nodes in other zones that can take over the work. 
+- **Region Selection**: it is recommended to use a region with [availability zones](/azure/availability-zones/az-overview#azure-regions-with-availability-zones). During deployment, OpenShift will automatically attempt to provision nodes across zones based on the configuration found in your `install-config.yaml`. OpenShift itself will by default balance workloads across all available nodes across the availability zones. In the event of a zone outage, your solution can keep on functioning by having nodes in other zones that can take over the work. 
 - **Backup & Recovery**: although Azure RedHat OpenShift is not supported by Maximo, you can use [their instructions](/azure/openshift/howto-create-a-backup) for backup and recovery. 
 - **Failover** - Consider deploying OpenShift into 2 regions and use [RedHat's Advanced Cluster Management platform](https://www.redhat.com/en/technologies/management/advanced-cluster-management). If your solution has public endpoints, you can place Azure Traffic Manager in front of them to redirect traffic to the appropriate cluster in the event of an outage. In this situation, you would need to migrate your applications state and persistent volumes as well.
 
@@ -95,9 +97,9 @@ Considerations:
 > [!WARN]
 > Air gapped patterns have not been tested in full but would require using the [User Provided Infrastructure (UPI)](https://github.com/openshift/installer/blob/master/docs/user/azure/install_upi.md) as a starting point.
 
-In some cases you need do an air gap install of Maximo on Azure. Air gapping means you do an "offline", a public internet disconnected, installation of Maximo on OpenShift. By default we do not recommend you do an air gap install as it creates very significant complexity to the operations of your solution. Things such as mirroring containers, keeping the mirrors updated against security vulnerabilities, doing the install, firewall management are going to very time consuming.
+In some cases you may requirean air gap installation of Maximo on Azure. Air gapped means you have no inbound/outbound internet access to retrieve the install dependancies at runtime for the installation of Maximo or OpenShift. By default we do not recommend you do an air gap install as it creates very significant complexity to the operations of your solution. Things such as mirroring containers, keeping the mirrors updated against security vulnerabilities, doing the install, firewall management, etc can become very time consuming.
 
-For air gap installations, please refer to the OpenShift documentation on how to mirror and install OpenShift air gapped. Once OpenShift is up, refer to the IBM Maximo documentation on how to mirror and air gap install Maximo.
+For air gap installations, please refer to the OpenShift documentation for image mirroring and install details. Once OpenShift is up, refer to the IBM Maximo documentation for simliar guidance.
 
 ### Sizing your environment
 
@@ -131,20 +133,20 @@ If you want to use a different CNI, size your networks accordingly. Maximo with 
 
 ### Database specifics
 
-For Maximo Manage, IBM BAS and Monitor IoT parts, Maximo uses MongoDB. The default is to deploy MongoDB CE inside of the cluster. While this may work for smaller deployments, it is not a recommended pattern for larger and/or production deployments. For those, please use at MongoDB Atlas on Azure as it provides you with an externalized store, backups, scaling and more. CosmosDB with the MongoDB backend isn't supported right now.
+Various components of the Maximo Application Suite leverage MongoDB as a metadata store. The default guidance is to deploy MongoDB CE inside of the cluster. When using this method, ensure that you have a proper backup/restore procedure in place. Consider using MongoDB Atlas on Azure as it provides you with an externalized store, backups, scaling and more. Azure CosmosDB using MongoDB APIs is currently not supported.
 
-Kafka is also used throughout Maximo, notably for IBM BAS and for Maximo Monitor. The default is to deploy Strimzi Kafka on OpenShift and use that. Management of this does involve understanding Kafka and its operational procedures. If you need a less management intensive solution we recommende you use Confluent Kafka on Azure. EventHubs with Kafka endpoints isn't supported right now. 
+If you are deploying IoT services, you will be required to provide a Kafka endpoint as well. The default guidance is to deploy Strimzi Kafka inside the OpenShift cluster. In the event of a DR scenario, data inside Strimzi will most likley be lost. If this is unacceptable, consider using Confluent Kafka on Azure. Currently, Azure EventHubs with Kafka endpoints isn't supported. 
 
-Maximo comes packed with many databases inside of its pods and those databases retain state on the filesystem provisioned for Maximo. Use a zone redundant storage mechanism to retain the state outside of your clusters and be able to absorb zone failures. Our recommended pattern is to use Azure File Storage with the following configurations:
+Maximo comes packed with many databases inside of its pods and those databases retain state on the filesystem provisioned for Maximo. We recommend using a zone redundant storage mechanism to retain the state outside of your clusters and be able to absorb zone failures. Our recommended pattern is to use Azure File Storage with the following configurations:
 
 * **Standard**: Provision _SMB_ shares for lower throughput / rwo workloads. Great fit for parts of the application that are not chatty and only need a single persistent volume (e.g., IBM SLS)
 * **Premium**: Provision _NFS_ shares for higher throughput / rwx workloads. Used throughout the cluster for RWX workloads, such as the DB2WH in CP4D or Postgres in Manage.
 
-Make sure policies for enforcing secure transfer on the Azure Blob Storage are disabled or the accounts exempted. Azure Files Premium with NFS requires secure transfer to be set to off. Ensure that Private Endpoints are used to guarantee private connectivity and secure it that way.
+Make sure policies for enforcing secure transfer on the Azure Blob Storage are disabled or the accounts exempted. Azure Files Premium with NFS requires secure transfer to be set to off. Ensure that Private Endpoints are used to guarantee private connectivity to your shares.
 
 By default DB2WH wants to deploy on top of OpenShift Data Foundation (previously OCS). For cost, performance, scaling and reliability reasons it is recommended to use Azure Files Premium with NFS instead of ODF/OCS.
 
-Do not use Azure Blob with CSI drivers, it doesn't support required hardlinks which gives problems. 
+Do not use Azure Blob with CSI drivers, it doesn't support required hardlinks which will prevent pods from running. 
 
 ### Security and authentication
 
@@ -153,49 +155,29 @@ MAS currently supports the use of SAML via Azure Active Directory (Azure AD). Yo
 <!-- TODO: Needs to be fleshed out more, considerations for the SAML etc -->
 <!-- TODO: add details around certificates and authentication patterns (SAML) -->
 
+## Deployment Prerequisites
 
-## Deployment
+Before you start, please review the [requirements of IBM for deploying Maximo](https://www.ibm.com/support/pages/node/6538166). Make sure you have the below resources available before starting the deployment:
 
-There are three steps you need to take to deploy Maximo on Azure:
+1. Access to an Azure Subscription with Reader privileges
+1. Application Registration (SPN) that has Contributor and User Access Administrator privileges to the subscription
+1. Domain or delegated Sub Domain to a Azure DNS Zone
+1. RedHat OpenShift Service Agreement (Pull Secret)
+1. IBM MAS Entitlement Key
+1. IBM MAS License File (Created after MAS install)
+1. IBM recommended cluster sizing
+1. Determine if you will provide an existing VNet or let the IPI create one
+1. Determine what your HA/DR requirements are
+1. Create an install-config.yaml file for the installer
 
-1. Deploy OpenShift
-1. Install Maximo Application Suite Core
-1. Install Maximo Applications and its dependencies
-
-<!-- TODO: briefly touch upon what is out there and then send to GitHub -->
-
-The IPI install pattern along with a `install-config.yaml` file will produce the above architecture minus the following:
-
-- Domain Name with DNS Zone
-- BYO Virtual Network (Optional)
-- Premium Storage (NFS) with a Private Endpoint
-- Standard Storage (SMB) with a Private Endpoint
-- JumpBox (used for access / installation)
-- SQL Server (Optional)
-- Virtual Network Gateway and other services outside of the Virtual Network
+For a step-by-step guide for installing OpenShift and MAS on Azure, including how to address the prerequisites, pleas see our official [QuickStart Guide](https://github.com/Azure/maximo) on GitHub.
 
 > [!NOTE]
 > Example of a install-config-yaml file can be found in the official [QuickStart Guide: Maximo Application Suite on Azure](https://github.com/Azure/maximo) under the path `/src/ocp/install-config.yaml`
 
-### Prerequisites
-
-Before you start, please review the [requirements of IBM for deploying Maximo](https://www.ibm.com/support/pages/node/6538166). Make sure you have the resources available to you before starting the deployment.
-
-1. Access to an Azure Subscription with User Access Administrator privileges
-1. Application Registration (SPN) that has Contributor and User Access Administrator privileges
-1. Domain or delegated Sub Domain to a Azure DNS Zone
-1. RedHat OpenShift Service Agreement (Pull Secret and other keys)
-1. IBM MAS Entitlement Key
-1. IBM MAS License File
-1. An idea of the size cluster you need, work with IBM for sizing
-1. Determine if you will provide an existing VNet or let the IPI create one
-1. Determine what your HA/DR requirements are
-
-For a step-by-step guide for installing OpenShift and MAS on Azure, including how to address the prerequisites, pleas see our official [QuickStart Guide](https://github.com/Azure/maximo) on GitHub.
-
 ### Deploying
 
-It's best to deploy workloads using an infrastructure as code (IaC) process. Container workloads can be sensitive to misconfigurations that often occur with manual deployments and reduce productivity.
+It's best to deploy workloads using an infrastructure as code (IaC) process. Container based workloads can be sensitive to misconfigurations that often occur with manual deployments and reduce productivity.
 
 Before building out your environment, review the [QuickStart Guide: Maximo Application Suite on Azure](https://github.com/azure/maximo#getting-started) to develop and understanding of the design parameters. 
 
