@@ -37,16 +37,16 @@ This architecture extends the [Analytics end-to-end with Azure Synapse](../datap
 
 [Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) fulfills the role of a low-code GUI for machine learning development. It has automated machine learning and deploys to batch or real-time endpoints. [Microsoft Power Platform](https://powerplatform.microsoft.com), which includes [Microsoft Power Apps](https://powerapps.microsoft.com) and [Microsoft Power Automate](https://flow.microsoft.com), provides the tools to rapidly build a custom application and workflow that implements your machine learning algorithm. Now your end business users can build production grade machine learning applications to transform their legacy business processes.
 
-:::image type="content" source="media/deploy-real-time-ml-model-application-ui.png" alt-text="Diagram that shows a machine learning model created in Machine Learning that obtains car data from Data Lake Storage and provides inferences to an endpoint. An app created with Power Platform accesses the endpoint and interacts with the user." lightbox="media/deploy-real-time-ml-model-application-ui.png" :::
+:::image type="content" source="media/deploy-real-time-machine-learning-model-application-ui.png" alt-text="Diagram that shows a machine learning model created in Machine Learning that obtains car data from Data Lake Storage and provides inferences to an endpoint. An app created with Power Platform accesses the endpoint and interacts with the user." lightbox="media/deploy-real-time-machine-learning-model-application-ui.png" :::
 
-*Download a [Visio file](https://arch-center.azureedge.net/[filename].vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/deploy-real-time-machine-learning-model-application-ui.vsdx) of this architecture.*
 
 ### Dataflow
 
 1. **Ingest:** Semi-structured data, like json, xml, csv, and logs, is loaded into Data Lake Storage. You can extend the scope of data ingestion by using [Azure Synapse pipelines](/azure/data-factory/concepts-pipelines-activities) to pull batch data from a wide variety of sources. You can extend the scope to more data types—without changing the architecture design—both on-premises and in the cloud. This data includes:
 
-  - Unstructured data like video, images, audio, and free text.
-  - Structured data like relational databases and Azure data services.
+   - Unstructured data like video, images, audio, and free text.
+   - Structured data like relational databases and Azure data services.
 
 2. **Store:** You can ingest data in a raw format and then transform it in [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction).
 
@@ -104,11 +104,11 @@ See the following links for more Azure service pricing resources:
 
 Here's an example user interface for the app, which was created in Power Apps by using the low-code interface that Power Apps provides.
 
-:::image type="content" source="media/deploy-real-time-ml-model-car-price-predictor.png" alt-text="Screenshot that shows the UI controls, like buttons and drop-down lists, for the user to enter car data." lightbox="media/deploy-real-time-ml-model-car-price-predictor.png" :::
+:::image type="content" source="media/deploy-real-time-machine-learning-model-car-price-predictor.png" alt-text="Screenshot that shows the UI controls, like buttons and drop-down lists, for the user to enter car data." lightbox="media/deploy-real-time-machine-learning-model-car-price-predictor.png" :::
 
 You can use Power Automate to build a low-code workflow to parse the user's input, pass it to the Machine Learning endpoint, and retrieve the prediction. You can also use [Power BI to interact with the Machine Learning model](/power-bi/connect-data/service-aml-integrate) and create custom business reports and dashboards.
 
-:::image type="content" source="media/deploy-real-time-ml-model-car-price-predictor-dashboard.png" alt-text="Diagram that shows the workflow." lightbox="media/deploy-real-time-ml-model-car-price-predictor-dashboard.png" :::
+:::image type="content" source="media/deploy-real-time-machine-learning-model-car-price-predictor-dashboard.png" alt-text="Diagram that shows the workflow." lightbox="media/deploy-real-time-machine-learning-model-car-price-predictor-dashboard.png" :::
 
 To deploy this end-to-end example, follow the [step by step instructions by using this sample Power App](https://github.com/Azure/carprice-aml-powerapp).
 
