@@ -20,7 +20,14 @@ ms.custom:
 
 A data lake is a storage repository that holds a large amount of data in its native, raw format. Data lake stores are optimized for scaling to terabytes and petabytes of data. The data typically comes from multiple heterogeneous sources, and may be structured, semi-structured, or unstructured. The idea with a data lake is to store everything in its original, untransformed state. This approach differs from a traditional [data warehouse](../relational-data/data-warehousing.yml), which transforms and processes the data at the time of ingestion.
 
-![image](https://user-images.githubusercontent.com/76814154/172106259-8c57e192-ec37-4ad9-8443-9efde679d6fa.png)
+![A diagram that shows the different data lake use cases.](https://user-images.githubusercontent.com/76814154/172106259-8c57e192-ec37-4ad9-8443-9efde679d6fa.png)
+
+The following are key data lake use cases:
+- Cloud and IoT data movement
+- Big data processing
+- Analytics
+- Reporting
+- On-premises data movement
 
 Advantages of a data lake:
 
@@ -39,7 +46,9 @@ A data lake can also act as the data source for a data warehouse. With this appr
 
 Data lake stores are often used in event streaming or IoT scenarios, because they can persist large amounts of relational and nonrelational data without transformation or schema definition. They are built to handle high volumes of small writes at low latency, and are optimized for massive throughput.
 
-![image](https://user-images.githubusercontent.com/76814154/172106101-f189332e-c729-48cc-b6cd-e4eb083d1838.png)
+The following table compares data lakes and data warehouses:
+
+![A table that compares data lake features with data warehouse features.](https://user-images.githubusercontent.com/76814154/172106101-f189332e-c729-48cc-b6cd-e4eb083d1838.png)
 
 ## Challenges
 
@@ -55,11 +64,11 @@ Data lake stores are often used in event streaming or IoT scenarios, because the
 
 Build data lake solutions using the following services offered by Azure:
 
-![image](https://user-images.githubusercontent.com/76814154/171924203-3cc54c6f-0f45-4485-8167-2de6adf97a5b.png)
+![A diagram that shows the key data lake services.](https://user-images.githubusercontent.com/76814154/171924203-3cc54c6f-0f45-4485-8167-2de6adf97a5b.png)
 
-- [Data Lake Store](/azure/data-lake-store) is a hyperscale, Hadoop-compatible repository.
-- [Data Lake Analytics](/azure/data-lake-analytics) is an on-demand analytics job service to simplify big data analytics.
 - [Azure HD Insight](/azure/hdinsight/hdinsight-overview) is a managed, full-spectrum, open-source analytics service in the cloud for enterprises. 
+- [Azure Data Lake Store](/azure/data-lake-store) is a hyperscale, Hadoop-compatible repository.
+- [Azure Data Lake Analytics](/azure/data-lake-analytics) is an on-demand analytics job service to simplify big data analytics.
 
 ## Contributors
 
