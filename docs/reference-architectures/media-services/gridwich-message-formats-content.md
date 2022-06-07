@@ -47,7 +47,7 @@ Gridwich Acknowledgment and Gridwich Failure are different from other Gridwich e
   - [Set blob metadata](#requester-asks-gridwich-to-place-some-metadata-onto-a-blob)
   - [Copy blob](#requester-asks-gridwich-to-copy-a-blob-to-a-new-destination)
   - [Delete blob](#requester-asks-gridwich-to-delete-a-blob)
-  - [Change blob access tier](#requester-asks-gridwich-to-change-a-blob's-storage-tier)
+  - [Change blob access tier](#requester-asks-gridwich-to-change-a-blobs-storage-tier)
   - [Get blob SAS URL](#requester-asks-gridwich-to-return-a-time-expiration-content-sas-url)
   - [Analyze blob](#requester-asks-gridwich-to-perform-an-analysis-of-a-blob-via-mediainfo), for example via MediaInfo
 
@@ -133,7 +133,7 @@ The `data.eventType` string value is the top level `eventType` property from the
 
 The Failure event doesn't include the original request `eventType` value, but does include the operation context and the handler name that was processing the request. The `log*` properties relate to the problem information that the configured Application Insights instance recorded.
 
-For a limited set of operations, the Failure event object differs significantly from the preceding message. For more information, see [Roll storage keys](#rollkey).
+For a limited set of operations, the Failure event object differs significantly from the preceding message. For more information, see [Roll storage keys](#requester-asks-gridwich-to-rotate-to-a-new-storage-key).
 
 ### Requester asks Gridwich to place some metadata onto a blob
 
