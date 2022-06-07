@@ -20,24 +20,24 @@ This solution provides a heterogeneous, multi-party, cloud-agnostic DLT network.
 
 ![Diagram showing a three-party blockchain network with each party using a different cloud provider, managed and monitored through BAF and Azure Arc.](media/multi-cloud-blockchain-network.png)
 
-1. [Kubernetes](https://kubernetes.io) is the standard infrastructure that hosts both the ledger and the application. This example assumes three managed Kubernetes clusters.
-   - Party A uses [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes).
-   - Party B uses [GCP Google Kubernetes Engine (GKE)](https://cloud.google.com/kubernetes-engine).
-   - Party C uses [Amazon Elastic Kubernetes Service (EKS)](https://aws.amazon.com/eks/).
+- [Kubernetes](https://kubernetes.io) is the standard infrastructure that hosts both the ledger and the application. This example assumes three managed Kubernetes clusters.
+  - Party A uses [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes).
+  - Party B uses [GCP Google Kubernetes Engine (GKE)](https://cloud.google.com/kubernetes-engine).
+  - Party C uses [Amazon Elastic Kubernetes Service (EKS)](https://aws.amazon.com/eks/).
 
    Each party hosts their nodes in a different location.
 
-1. BAF deploys the distributed network across the three cloud services.
+- BAF deploys the distributed network across the three cloud services.
 
-1. Azure Arc-enabled Kubernetes centrally manages and monitors all the Kubernetes clusters, with:
+- Azure Arc-enabled Kubernetes centrally manages and monitors all the Kubernetes clusters, with:
 
-   - [GitOps-based cluster configuration deployment and management](/azure/azure-arc/kubernetes/conceptual-configurations).
-   - [Azure Monitor Container insights](/azure/azure-monitor/containers/container-insights-analyze) monitoring.
-   - [Azure Policy for Kubernetes](/azure/governance/policy/concepts/policy-for-kubernetes) policy management.
+  - [GitOps-based cluster configuration deployment and management](/azure/azure-arc/kubernetes/conceptual-configurations).
+  - [Azure Monitor Container insights](/azure/azure-monitor/containers/container-insights-analyze) monitoring.
+  - [Azure Policy for Kubernetes](/azure/governance/policy/concepts/policy-for-kubernetes) policy management.
 
-1. [Azure DevOps](https://dev.azure.com/) provides application and infrastructure lifecycle management. An [Ansible Controller on an Azure Linux virtual machine (VM)](https://azuredevopslabs.com/labs/vstsextend/ansible) is the custom Azure DevOps continuous integration and continuous delivery (CI/CD) agent.
+- [Azure DevOps](https://dev.azure.com/) provides application and infrastructure lifecycle management. An [Ansible Controller on an Azure Linux virtual machine (VM)](https://azuredevopslabs.com/labs/vstsextend/ansible) is the custom Azure DevOps continuous integration and continuous delivery (CI/CD) agent.
 
-1. [Azure Container Registry](https://azure.microsoft.com/services/container-registry) stores and shares private, application-related container images. [Docker Registry](https://docs.docker.com/registry) pulls ledger-specific images.
+- [Azure Container Registry](https://azure.microsoft.com/services/container-registry) stores and shares private, application-related container images. [Docker Registry](https://docs.docker.com/registry) pulls ledger-specific images.
 
 ### Components
 
