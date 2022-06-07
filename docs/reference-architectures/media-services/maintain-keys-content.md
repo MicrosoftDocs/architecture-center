@@ -49,7 +49,7 @@ On success, the Logic App sends the following response back through Event Grid:
 }
 ```
 
-While the request message accepts an `operationContext` value, the response doesn't include it. See [Roll key message format](gridwich-message-formats.yml#rollkey) for details about this message and response.
+While the request message accepts an `operationContext` value, the response doesn't include it. See [Roll key message format](gridwich-message-formats.yml#requester-asks-gridwich-to-rotate-to-a-new-storage-key) for details about this message and response.
 
 ## Secret Changed Handler Logic App for third-party keys
 
