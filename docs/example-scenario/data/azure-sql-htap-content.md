@@ -105,6 +105,14 @@ The following table lists sample cost profiles for varying amounts of 1-kilobyte
 | Medium | 1,500 messages per second | [Medium profile][Medium cost profile] |
 | Large | More than 5,000 messages per second | [Large profile][Large cost profile] |
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+* [Pablo Ahumada Koschitzky](https://es.linkedin.com/in/pahumadakoschitzky/es) | Sr Cloud Solution Architect
+
 ## Next steps
 
 - [Stream processing with Azure Stream Analytics][Stream processing with Azure Stream Analytics]
