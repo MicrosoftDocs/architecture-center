@@ -70,7 +70,7 @@ Options for storing identity information include the following:
 - Store all identity and authorization information in the IdP directory, and share it between multiple tenants.
 - Store the user credentials in the IdP directory, and store the authorization information in the application tier alongside the tenant information.
 
-## Determine the number of identities for a user
+### Determine the number of identities for a user
 
 It's common for multitenant solutions to allow a user or workload identity to access the application and data of multiple tenants. Consider whether this is required for your solution. If it is, then you should consider the following:
 
