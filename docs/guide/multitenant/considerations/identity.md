@@ -70,16 +70,24 @@ Options for storing identity information include the following:
 - Store all identity and authorization information in the IdP directory, and share it between multiple tenants.
 - Store the user credentials in the IdP directory, and store the authorization information in the application tier alongside the tenant information.
 
-## Account access to multiple tenants
+### Determine the number of identities for a user
 
-It's common for multitenant solutions to allow a single user or workload identity to access the application and data of multiple tenants. Consider whether this is required for your solution. If it is, then you also need to consider the following decisions:
+It's common for multitenant solutions to allow a single user or workload identity to access the application and data of multiple tenants. Consider whether this is required for your solution. If it is, then you should consider the following:
 
-- Does an identity record need to be used by multiple tenants (service-wide identity) or just a single tenant (per-tenant local identity)?
+- Should you create a single user identity for each person, or create separate identities for each tenant-user combination?
+  - It's best to use a single identity for each person wherever possible. It becomes difficult to manage multiple user accounts, both for you as the solution vendor and also for your users. Additionally, many of the intelligent threat protections offered by a modern IdP rely on each person having a single user account.
+  - However, in some situations, it might be necessary for a user to have multiple distinct identities. For example, if somebody uses your system both for work and personal purposes, they might want to separate their user accounts. Or, if your tenants have strict regulatory or geographical data storage requirements, they might require a person to have multiple identities so they can comply with regulations or laws.
+- If you use per-tenant identities, avoid storing credentials multiple times. Users should have their credentials stored against a single identity, and you should use features like guest identities to refer to the same user credentials from multiple tenants' identity records.
+
+## Granting users access to multiple tenants
+
+If users need to be granted access to multiple tenants, then you also need to consider the following decisions:
+
 - How does your solution identify and grant permissions to a user who has access to multiple tenants? For example, could a user be an administrator in a training tenant, and have read-only access to a production tenant? Or, could you have separate tenants for different departments in an organization, but need to maintain consistent user identities across all of the tenants?
 - How does a user switch between tenants?
 - If you use workload identities, how does a workload identity specify the tenant it needs to access?
-- Is there tenant specific information stored in the user identity record that could leak information between tenants? For example, suppose a user signed up with a social identity and was then granted access to two tenants. Tenant A enriched the user's identity with additional information. Should tenant B have access to the enriched information?
-- How do users get mapped to a tenant? For example, during the sign-up process, you might use the domain name of the user's sign-up email address as a way to identify the tenant that they belong to. Or, you might use another attribute of the user's identity record to map the user to a tenant. You should then store the mapping based on the underlying immutable unique identifiers for both the tenant and the user.
+- Is there tenant-specific information stored in the user's identity record that could leak information between tenants? For example, suppose a user signed up with a social identity and was then granted access to two tenants. Tenant A enriched the user's identity with additional information. Should tenant B have access to the enriched information?
+- How are users mapped to a tenant? For example, during the sign-up process, you might use the domain name of the user's sign-up email address as a way to identify the tenant that they belong to. Or, you might use another attribute of the user's identity record to map the user to a tenant. You should then store the mapping based on the underlying immutable unique identifiers for both the tenant and the user.
 
 ## User sign-up process for local identities or social identities
 
