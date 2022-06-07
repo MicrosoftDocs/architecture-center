@@ -39,7 +39,7 @@ Before defining a multitenant identity strategy, you should first consider the h
 - Will user or [workload identities](#workload-identities) be used to access a single application or multiple applications within a product family? For example, a retail product family might have both a point-of-sale application and an inventory management application that share the same identity solution.
 - Are you planning on implementing modern authentication and authorization such as OAuth2 and OpenID Connect?
 - Does your solution only provide authentication to your UI-based applications? Or, do you also provide API access to your tenants and third parties?
-- Will tenants need to federate to their own IdP, and will multiple different identity providers need to be supported for each tenant? For example, you might have tenants with Azure AD, Auth0 and Active Directory Federation Services (ADFS) who each wishes to federate with your solution. You also need to understand which federation protocols of your tenants' IdPs you'll support, because the protococols influence the requirements for your own IdP.
+- Will tenants need to federate to their own IdP, and will multiple different identity providers need to be supported for each tenant? For example, you might have tenants with Azure AD, Auth0 and Active Directory Federation Services (ADFS) who each wishes to federate with your solution. You also need to understand which federation protocols of your tenants' IdPs you'll support, because the protocols influence the requirements for your own IdP.
 - Are there specific compliance requirements that they need to meet, such as [GDPR](/compliance/regulatory/gdpr)?
 - Do your tenants require their identity information to be located within a specific geographic region?
 - Do users of your solution require access to data from one tenant or multiple tenants within your application? Do they need to the ability to quickly switch between tenants or view consolidated information from multiple tenants? For example, a user who has signed into the Azure portal can easily switch between different Azure Active Directories and subscriptions that they have access to.
@@ -57,7 +57,7 @@ When you design an identity system for your multitenant solution, you need to co
 - **Use the tenant's Azure AD or Microsoft 365 directory.** A tenant might already have their own Azure AD or Microsoft 365 directory, and want your solution to use their directory as the IdP for accessing your solution. This approach is possible when your solution is built as [a multitenant Azure AD application](/azure/active-directory/develop/howto-convert-app-to-be-multi-tenant).
 - **Federation with a tenant's identity provider.** A tenant might have their own IdP other than Azure AD or Microsoft 365, and want your solution to federate with it. Federation enables single sign-on (SSO) experiences, and enables tenants to manage the lifecycle and security policies of their users independently of your solution.
 
-You should consider if your tenants need to support multiple identity providers. For example, you might need to support local identities, social identities, and federated identities all within a single tenant. Commonly, this happens when companies acquire solutions that need to be used for their own employees as well as for contractors or consultants. They might use federation for their own employees' access to the solution, while also allowing contractors or guest users who don't have an account in the federated IdP.
+You should consider if your tenants need to support multiple identity providers. For example, you might need to support local identities, social identities, and federated identities all within a single tenant. This requirement is common when companies use solutions both for their own employees as well as for contractors or consultants. They might use federation for their own employees' access to the solution, while also allowing contractors or guest users who don't have an account in the federated IdP.
 
 ### Store authentication and tenant authorization information
 
@@ -68,7 +68,7 @@ In a multitenant solution, you need to consider where to store several types of 
 - Tenant-specific information, such as tenant roles and permissions. This information is used for authorization.
 
 > [!CAUTION]
-> We don't recommend building authentication processes yourself. An identity provider that is part of an Identity as a Service (IDaaS) platform will provide these authentication services to your application as well as other important features such as MFA and conditional access. [Building your own identity provider is an antipattern](../approaches/identity.md#building-or-running-your-own-identity-system). We don't recommend it.
+> We don't recommend building authentication processes yourself. Modern IdPs provide these authentication services to your application, and also include other important features like MFA and conditional access. [Building your own identity provider is an antipattern](../approaches/identity.md#building-or-running-your-own-identity-system). We don't recommend it.
 
 Consider the following options for storing identity information:
 
@@ -77,7 +77,7 @@ Consider the following options for storing identity information:
 
 ### Determine the number of identities for a user
 
-It's common for multitenant solutions to allow a user or workload identity to access the application and data of multiple tenants. Consider whether this approach is required for your solution. If it is, then you should consider the following:
+It's common for multitenant solutions to allow a user or workload identity to access the application and data of multiple tenants. Consider whether this approach is required for your solution. If it is, then you should consider the following questions:
 
 - Should you create a single user identity for each person, or create separate identities for each tenant-user combination?
   - It's best to use a single identity for each person wherever possible. It becomes difficult to manage multiple user accounts, both for you as the solution vendor and also for your users. Additionally, many of the intelligent threat protections offered by a modern IdP rely on each person having a single user account.
@@ -100,16 +100,16 @@ If a single user needs to be granted access to multiple tenants, then you need t
 - If you use workload identities, how does a workload identity specify the tenant it needs to access?
 - Is there tenant-specific information stored in the user's identity record that could leak information between tenants? For example, suppose a user signed up with a social identity and was then granted access to two tenants. Tenant A enriched the user's identity with more information. Should tenant B have access to the enriched information?
 
-## User sign-up process for local identities or social identities
+## User sign up process for local identities or social identities
 
 Some tenants might need to allow users to sign themselves up for an identity in your solution. Self-service sign-up might be required if you don't require federation with a tenant's identity provider. If a self-sign up process is needed, then you should consider the following questions:
 
 - Which identity sources are users allowed to sign up from? For example, can a user create a local identity and also use a social identity provider?
 - If only local identities are allowed, will only specific email domains be allowed? For example, can a tenant specify that only users who have an @contoso.com email address are permitted to sign up?
-- What is the user principal name (UPN) that should be used to uniquely identify each local identity during the sign-in process? For example, email address, username, phone number and rewards card number are all common choices for UPNs. However, UPNs can change over time. When you refer to the identity in your application's authorization rules or audit logs, it's a good practice to use the underlying immutable unique identifier of the identity. Azure AD provides te object ID (OID), which is an immutable identifier.
-- Will a user be required to verify their UPN? For example, if the user's email address or phone number is used as a UPN, how will these be verified?
+- What is the user principal name (UPN) that should be used to uniquely identify each local identity during the sign-in process? For example, email address, username, phone number and rewards card number are all common choices for UPNs. However, UPNs can change over time. When you refer to the identity in your application's authorization rules or audit logs, it's a good practice to use the underlying immutable unique identifier of the identity. Azure AD provides an object ID (OID), which is an immutable identifier.
+- Will a user be required to verify their UPN? For example, if the user's email address or phone number is used as a UPN, how will you verify the information is accurate?
 - Do tenant administrators need to approve sign-ups?
-- Do tenants require a tenant specific sign-up experience or URL? For example, do your tenants require a branded sign-up experience when users sign up, or do they require the ability to intercept a sign-up request and perform extra validation before it proceeds?
+- Do tenants require a tenant specific sign-up experience or URL? For example, do your tenants require a branded sign-up experience when users sign up? Do your tenants require the ability to intercept a sign-up request and perform extra validation before it proceeds?
 
 ### Tenant access for self sign-up users
 
@@ -142,7 +142,7 @@ In most solutions, an identity often represents a user. Some multitenant systems
 
 Workload identities are similar to user identities, but usually require different authentication methods, such as keys or certificates. Workload identities don't use MFA. Instead, workload identities usually require other security controls such as regular key-rolling and certificate expiration.
 
-If your tenants expect to be able to enable workload identity access to your multitenant solution then you should consider the following questions:
+If your tenants expect to be able to enable workload identity access to your multitenant solution, then you should consider the following questions:
 
 - How will workload identities will be created and managed in each tenant?
 - How will workload identity requests be scoped to the tenant?
