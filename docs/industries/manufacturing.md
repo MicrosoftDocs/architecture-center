@@ -32,8 +32,6 @@ Microsoft Azure holds the promise of the [fourth industrial revolution](https://
 - Unlock innovation and new business models.
 - Engage with customers in new ways.
 
-To learn how you can modernize your manufacturing business using Azure, visit [Azure for manufacturing](https://azure.microsoft.com/industries/discrete-manufacturing/). For more resources, see [Microsoft Trusted Cloud for Manufacturing](https://www.microsoft.com/trust-center/manufacturing).
-
 <br>
 
 <!-- markdownlint-disable MD034 -->
@@ -43,6 +41,8 @@ To learn how you can modernize your manufacturing business using Azure, visit [A
 <!-- markdownlint-enable MD034 -->
 
 <br>
+
+To learn how you can modernize your manufacturing business using Azure, visit [Azure for manufacturing](https://azure.microsoft.com/industries/discrete-manufacturing/). For more resources, see [Microsoft Trusted Cloud for Manufacturing](https://www.microsoft.com/trust-center/manufacturing).
 
 ## Architecture guides for manufacturing
 

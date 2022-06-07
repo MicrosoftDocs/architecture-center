@@ -33,7 +33,7 @@ If you're new to Azure, the best place to start is with Microsoft Learn. Microso
 
 Explore some options for [connecting an on-premises network to Azure](../reference-architectures/hybrid-networking/index.yml):
 
-- [Extend an on-premises network using VPN](../reference-architectures/hybrid-networking/vpn.yml)
+- [Extend an on-premises network using VPN](/azure/expressroute/expressroute-howto-coexist-resource-manager)
 - [Extend an on-premises network using ExpressRoute](../reference-architectures/hybrid-networking/expressroute.yml)
 - [Connect an on-premises network to Azure using ExpressRoute](../reference-architectures/hybrid-networking/expressroute-vpn-failover.yml)
 

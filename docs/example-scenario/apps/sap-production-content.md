@@ -105,6 +105,7 @@ Options to provide an NFS tier are
 As this is tied strongly with the chosen NFS solution
 
 Chosen cluster solution requires a mechanism to decide in case of software or infrastructure unavailability which VM should serve the respective service(s). With SAP on Azure, two options are available for Linux based implementation of STONITH - how to deal with unresponsive VM or application
+
 - _SUSE-Linux-only_ **SBD (STONITH Block Device)** - using one or three additional VMs which serve as iSCSI exports of a small block device, which is accessed regularly by the actual cluster member VMs, two (A)SCS/ERS VMs in this cluster pool. The VMs use these SBD mounts to cast votes and thus achieve quorum for cluster decisions. The architecture contained on this page does NOT contain the 1 or 3 additional SBD VMs. RedHat does not support any SBD implementations in Azure and thus this option is only available to SUSE SLES operating system.
 - **Azure Fence Agent** - without utilizing additional VMs, Azure management API is used for regular checks for VM availability. 
 
@@ -112,7 +113,7 @@ Guides linked within the NFS tier section contain the necessary steps and design
 
 **SAP application servers pool** Two or more application servers where high availability is achieved by load-balancing requests through SAP message server or web dispatchers. Each application server is independent and there is no network load balancing required for this pool of VMs.
 
-**SAP web dispatcher pool** 
+**SAP web dispatcher pool**
 The Web Dispatcher component is used as a load balancer for SAP traffic among the SAP application servers. To achieve [high availability of the SAP Web Dispatcher](https://help.sap.com/viewer/683d6a1797a34730a6e005d1e8de6f22/201909.002/en-US/489a9a6b48c673e8e10000000a42189b.htm), Azure Load Balancer implements either the failover cluster or the parallel Web Dispatcher setup.
 
 [Embedded Web Dispatcher](https://help.sap.com/viewer/00b4e4853ef3494da20ebcaceb181d5e/LATEST/2e708e2d42134b4baabdfeae953b24c5.html) on (A)SCS is a special option. You should take into account proper sizing because of additional workload on (A)SCS.
@@ -135,11 +136,12 @@ Every tier in the SAP application stack uses a different DR strategy.
 **Central services and application servers tier**
 SAP central services and application servers don't contain business data. On Azure, a simple DR strategy is to create SAP application servers in the secondary region, and then shut them down. If there are configuration changes or kernel updates on the primary application server, you need to apply the same changes to the virtual machines in the secondary region. For example, copy the SAP kernel executable files to the DR virtual machines.
 
-For automatic replication of application servers to a secondary region, we recommend [Azure Site Recovery (ASR)](/azure/site-recovery/site-recovery-overview). You can also use Azure Site Recovery to set up DR for a [multitier SAP NetWeaver application](/azure/site-recovery/site-recovery-sap) deployment.
-When protecting a clustered environment with ASR, pre-scripted actions would need to be prepared within custom scripts, tested and set to be executed within ASR recovery plans in order to change or disable cluster services.
+For automatic replication of application servers to a secondary region, we recommend [Azure Site Recovery](/azure/site-recovery/site-recovery-overview). You can also use Azure Site Recovery to set up DR for a [multitier SAP NetWeaver application](/azure/site-recovery/site-recovery-sap) deployment.
+When protecting a clustered environment with Azure Site Recovery, pre-scripted actions would need to be prepared within custom scripts, tested and set to be executed within Azure Site Recovery recovery plans in order to change or disable cluster services.
 
 **NFS tier**
 With most business critical data located within central SAP shared NFS volumes such as transport directory and sapmnt, protecting them for an interruption requiring a DR failover is crucial. Depending on the NFS architecture chosen, different solutions are possible
+
 - **File-based replication** With NFS tiers deployed in different regions but without direct service-driven replication, VM bound tools such as rsync can be executed on schedule to keep an asynchronous replication from source region NFS volumes to target region's NFS volumes. For Azure Files NFS, a VM in primary region (e.g. (A)SCS VM) can access an NFS volume located in another region through global vnet peering. During a DR failover situation a DNS and/or configuration switch needs to be performed to have the SAP systems in DR region connect to the DR located NFS volume(s).
 - **Azure NetApp Files** volumes can be protected with automated, asynchronous storage replication. [Cross-region replication](/azure/azure-netapp-files/cross-region-replication-introduction) is available between select region pairs. An alternative when dealing with regions not in select regions pairs is to use earlier mentioned file-based replication, requiring a VM operational in the target region with mounted NetApp NFS volume from same region, as Azure NetApp Files [does not allow cross-region access](/azure/azure-netapp-files/azure-netapp-files-network-topologies#supported-network-topologies) of NFS volumes. File-based replication is thus VM-to-VM between regions, each mounting respective regions NetApp NFS volume.
 - **3rd party backup tools** Other vendor tooling providing file based replication between NFS volumes of any source and target.
@@ -167,6 +169,19 @@ Communities can answer questions and help you set up a successful deployment. Co
 - [Azure Community Support](https://azure.microsoft.com/support/forums)
 - [SAP Community](https://www.sap.com/community.html)
 - [Stack Overflow for SAP](http://stackoverflow.com/tags/sap/info)
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+* [Robert Biro](https://ch.linkedin.com/in/robert-biro-38991927) | Senior Architect
+
+## Next steps
+
+- [SAP NetWeaver on SQL Server](/azure/architecture/solution-ideas/articles/sap-netweaver-on-sql-server)
+- [High availability for SAP NetWeaver on Azure VMs](/azure/virtual-machines/workloads/sap/high-availability-guide)
 
 ## Related resources
 

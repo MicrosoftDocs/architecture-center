@@ -345,6 +345,10 @@ items:
                 href: guide/multitenant/approaches/iot.md
               - name: AI and ML
                 href: guide/multitenant/approaches/ai-ml.md
+          - name: Architectures
+            items:
+              - name: SaaS Starter web app
+                href: example-scenario/apps/saas-starter-web-app.yml
           - name: Service-specific guidance
             items:
               - name: Overview
@@ -3941,8 +3945,6 @@ items:
                 href: example-scenario/hybrid/secure-hybrid-messaging-web.yml
               - name: Extend on-premises using ExpressRoute
                 href: reference-architectures/hybrid-networking/expressroute.yml
-              - name: Extend an on-premises network using VPN
-                href: reference-architectures/hybrid-networking/vpn.yml    
               - name: Hybrid availability and monitoring
                 href: hybrid/hybrid-perf-monitoring.yml
               - name: Hybrid file services
@@ -5544,6 +5546,8 @@ items:
               - name: Connect RDP Shortpath
                 href: /azure/virtual-desktop/shortpath
                 maintainContext: true
+              - name: Multiregion BCDR for Azure Virtual Desktop
+                href: example-scenario/wvd/azure-virtual-desktop-multi-region-bcdr.yml
               - name: FSLogix guidance
                 items:
                   - name: FSLogix for the enterprise
@@ -5654,6 +5658,8 @@ items:
                 href: reference-architectures/apis/protect-apis.yml
               - name: Real-time location sharing
                 href: example-scenario/signalr/index.yml
+              - name: SaaS Starter web app
+                href: example-scenario/apps/saas-starter-web-app.yml
               - name: Scalable and secure WordPress on Azure
                 href: example-scenario/infrastructure/wordpress.yml
               - name: Scalable cloud applications and SRE
