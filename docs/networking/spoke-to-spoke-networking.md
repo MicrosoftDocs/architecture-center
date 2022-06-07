@@ -29,6 +29,8 @@ Direct connections between the spokes will typically offer better throughput, la
   1. Hub and spoke with spokes are not connected to each other.
   2. Hub and spoke with spokes are directly connected to each other, without any hop in the middle.
   3. Meshed group of VNets that are interconnected.
+  
+    ![The network diagram shows the different Azure Virtual Network Manager supported topologies and a short description](media/avnm-connectivity-options.png)
    
   When creating a hub and spoke topology with AVNM where spokes are connected to each other, direct connectivity between spokes VNets in the same [network group][avnm_network_group] is automatically created bi-directionally. AVNM brings the ability to statically or dynamically add spoke VNets membership to a specific network group, thus automatically creating the connectivity for any VNet. Multiple network groups can be created to isolate clusters of spoke VNets from direct connectivity. Each network group provides the same region and multi-region support for spoke-to-spoke connectivity. Currently AVNM does not provide connectivity across tenants. Please make sure to stay below the maximum limts of AVNM described in the [Azure Virtual Network Manager FAQ][avnm_limits].
 
@@ -49,7 +51,7 @@ Designs interconnecting all spoke VNets to each other can also be extended to mu
 > [!NOTE]
 > When connecting spoke vnets directly, either in the same region or different regions, consider doing this for spoke VNets in the same environment. For example, connect a spoke Development vnet with another spoke Development vnet; but avoid connecting a spoke Development vnet with another spoke Production vnet. 
 
-An important consideration when connecting directly spoke VNets to each other in a fully messhed topology is the potentially high number of VNet peerings required, as the following chart shows. In that case, Azure Virtual Network Manager is strongly recommended to create VNet peerings automatically.
+An important consideration when connecting directly spoke VNets to each other in a fully meshed topology is the potentially high number of VNet peerings required, as the following chart shows. In that case, Azure Virtual Network Manager is strongly recommended to create VNet connectivity automatically.
 
 ![The chart shows how the required number of peerings grows with the factorial of the number of spokes](media/peering-number-chart.png)
 
@@ -104,11 +106,11 @@ Virtual WAN creates a similar topology and takes over the routing complexity bot
 
 # Hybrid approaches
 
-Most situations will require a hybrid approach, where traffic between certain spokes need to go over direct connections, and the rest of the spokes will communicate through a central Azure Firewall or virtual network appliance. For example, if two specific spokes have particularly high bandwidth and low latency requirements because databases are synchronizing data, you could selectively create peerings only between those two VNets. Another scenario would be if the spoke VNets are part of the same environment. For example, allowing a spoke Development VNet to connect directly to another spoke Development VNet. However, not allowing a spoke Development VNet to connect direclty to another spoke Production VNet unless explicitly allowed and inspected through the central hub VNet firewall.
+Most situations will require a hybrid approach, where traffic between certain spokes need to go over direct connections, and the rest of the spokes will communicate through a central Azure Firewall or virtual network appliance. For example, if two specific spokes have particularly high bandwidth and low latency requirements because databases are synchronizing data, you could selectively create peerings only between those two VNets. Another scenario would be if the spoke VNets are part of the same environment. For example, allowing a spoke Development VNet to connect directly to another spoke Development VNet. However, not allowing a spoke Development VNet to connect directly to another spoke Production VNet unless explicitly allowed and inspected through the central hub VNet firewall.
 
 ![The network diagram shows a 2-region hub and spoke design with some spokes interconnected through VNet peerings](media/spoke-to-spoke-through-selective-peerings-2-hubs.png)
 
-Another common pattern is interconnecting spokes in one region through direct VNet peerings or AVNM [connected groups][avnm_connected_group], but leaving inter-regional traffic to cross NVAs. The main motivation for this model is typically to reduce the number of VNet peerings in the architecture. However, disadvantages  include the additional VNet peering hops for cross-region traffic, which add on costs due to the multiple VNet peerings it traverses, as well as the additional load to the hub NVAs to front all cross-regional traffic.  
+Another common pattern is interconnecting spokes in one region through direct VNet peerings or AVNM [connected groups][avnm_connected_group], but leaving inter-regional traffic to cross NVAs. The main motivation for this model is typically to reduce the number of VNet peerings in the architecture. However, compared to the first model (direct connectivity between spokes), disadvantages introduced in this model include more VNet peering hops for cross-region traffic, which add on costs due to the multiple VNet peerings it traverses, as well as the additional load to the hub NVAs to front all cross-regional traffic.  
 
 ![The network diagram shows a 2-region hub and spoke design with spokes in the same region interconnected through VNet peerings](media/spoke-to-spoke-through-peerings-2-hubs.png)
 
@@ -122,7 +124,7 @@ The same designs are applicable for Virtual WAN as well. However, a consideratio
 ## Next steps
 
 Learn more:
-
+- [Cloud Adoption Framework: Landing Zone Network Topology and Connectivity][caf_network-topology-and-connectivity]
 - [VNet Peerings][vnet_peering]
 - [Azure Virtual Network Manager][avnm]
 - [Virtual WAN][vwan]
@@ -147,3 +149,4 @@ Learn more:
 [vnet_peering]: /azure/virtual-network/virtual-network-peering-overview
 [macsec]: /azure/virtual-network/virtual-networks-faq#is-vnet-peering-traffic-encrypted
 [udr_route_selection]: /azure/virtual-network/virtual-networks-udr-overview#how-azure-selects-a-route
+[caf_network-topology-and-connectivity]: /azure/cloud-adoption-framework/ready/landing-zone/design-area/network-topology-and-connectivity
