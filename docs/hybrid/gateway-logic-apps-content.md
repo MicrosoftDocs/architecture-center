@@ -78,7 +78,7 @@ An on-premises data gateway can be used with more than just Logic Apps. It's pos
 
 * [Connect an on-premises network to Azure](../reference-architectures/hybrid-networking/index.yml)
 * [Extend an on-premises network using ExpressRoute](../reference-architectures/hybrid-networking/expressroute.yml)
-* [Extend an on-premises network using VPN](../reference-architectures/hybrid-networking/vpn.yml)
+* [Extend an on-premises network using VPN](/azure/expressroute/expressroute-howto-coexist-resource-manager)
 
 [architectural-diagram]: ./images/gateway-logic-apps.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/gateway-logic-apps.vsdx

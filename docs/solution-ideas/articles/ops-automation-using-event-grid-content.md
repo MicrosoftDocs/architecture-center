@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Azure Event Grid can be used as an essential building block in the automation of cloud operations. 
+Azure Event Grid can be used as an essential building block in the automation of cloud operations.
 
 ## Potential use cases
 
@@ -15,11 +15,11 @@ One scenario is to simplify the management of resources, such as policy enforcem
 ### Dataflow
 
 1. A user deploys a new resource in Azure.
-2. The deployment creates the resource (in this sample, a VM).
-3. The deployment triggers the Event Grid.
-4. The event is fired, and the subscriber Automation account receives the event.
-5. The Automation account applies a tag to the new deployed resource (a task example).
-6. The event can optionally also be consumed by a Logic App, and the Logic App could make an entry in an operation tool (for example).
+1. The deployment creates the resource (in this sample, a VM).
+1. The deployment triggers the Event Grid.
+1. The event is fired, and the subscriber Automation account receives the event.
+1. The Automation account applies a tag to the new deployed resource (a task example).
+1. The event can optionally also be consumed by a Logic App, and the Logic App could make an entry in an operation tool (for example).
 
 ### Components
 

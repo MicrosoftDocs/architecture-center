@@ -8,6 +8,7 @@ ms.date: 03/21/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+categories: containers
 ms.category:
   - containers
 products:

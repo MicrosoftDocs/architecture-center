@@ -1,12 +1,10 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution describes how buildings and campuses can securely, reliably, and scalably connect their on-premises Internet of Things (IoT) devices to the cloud. Cloud services can store and analyze the IoT data to diagnose anomalies and take corrective or preventive actions.
-
-In this solution, a healthcare facility uses LTE or 5G-enabled IoT devices to track both patient health and building performance. The devices use built-in Azure Sphere certified chips to stream data to on-premises edge servers, which communicate with the Azure cloud. On-premises network administrators can view network health through the packet cores on the edge servers.
-
-Azure cloud services can further analyze and store the data, and use machine learning to optimize building settings.
+This solution describes how buildings and campuses can securely and reliably connect, and scale their on-premises Internet of Things (IoT) devices to the cloud. Cloud services can store and analyze the IoT data to diagnose anomalies and take corrective or preventive actions. Azure cloud services can further analyze and store the data, and use machine learning to optimize building settings.
 
 ## Potential use cases
+
+In this solution, a healthcare facility uses LTE or 5G-enabled IoT devices to track both patient health and building performance. The devices use built-in Azure Sphere certified chips to stream data to on-premises edge servers, which communicate with the Azure cloud. On-premises network administrators can view network health through the packet cores on the edge servers.
 
 Other examples of this approach include:
 
@@ -43,15 +41,23 @@ Other examples of this approach include:
 
 This solution uses the following Azure components:
 
-- [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) is a portfolio of devices that bring compute, storage, and intelligence to the IoT Edge. Azure Stack Edge acts as a cloud storage gateway that enables data transfers to Azure, while retaining local access to files.
-- [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/) connects Kubernetes clusters running inside or outside of Azure.
+- [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge) is a portfolio of devices that bring compute, storage, and intelligence to the IoT Edge. Azure Stack Edge acts as a cloud storage gateway that enables data transfers to Azure, while retaining local access to files.
+- [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes) connects Kubernetes clusters running inside or outside of Azure.
 - [Azure Sphere](https://azure.microsoft.com/services/azure-sphere) is a comprehensive IoT security solution that includes hardware, OS, and cloud components for IoT device security.
 - [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge) deploys cloud intelligence locally on IoT devices.
-- [Azure IoT Hub](https://azure.microsoft.com/en-us/services/iot-hub/) is a cloud-based managed service for bidirectional communication between IoT devices and Azure.
+- [Azure IoT Hub](https://azure.microsoft.com/en-us/services/iot-hub) is a cloud-based managed service for bidirectional communication between IoT devices and Azure.
 - [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) is an integrated data science solution for data scientists and developers to build, train, and deploy machine learning models.
 - [Azure Digital Twins](https://azure.microsoft.com/services/digital-twins) is an IoT platform that creates digital representations of real-world things, places, processes, and people in the cloud.
 - [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights) is an end-to-end IoT analytics platform to monitor, analyze, and visualize industrial IoT analytics data at scale.
 - [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) is a scalable and secure data lake for high-performance analytics workloads.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Nikhil Ravi](https://www.linkedin.com/in/nikhilravi) | Production Management Leader
 
 ## Next steps
 

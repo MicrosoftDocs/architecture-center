@@ -25,6 +25,8 @@ The architecture may be appropriate for any application that uses massive amount
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1857597-PR-3334-multi-region-web-app-cosmos-db-replication.vsdx) of this architecture.*
 
+## Dataflow
+
 1. The client authenticates with Azure Active Directory (Azure AD) and is granted access to web applications hosted on Azure App Service.
 1. Azure Front Door, a firewall and layer 7 load balancer, switches user traffic to a different Azure region in case of a regional outage.
 1. Azure App Service hosts websites and RESTful web APIs. Browser clients run AJAX applications that use the APIs.
@@ -60,9 +62,17 @@ The architecture may be appropriate for any application that uses massive amount
 - As the data grows, Cosmos DB becomes more expensive. You may need to implement data tiering strategies to control cost.
 - If you're migrating data from another storage system, you need to write routines to copy the data to Azure Cosmos DB. Make sure that you have timestamp and copy flags to track the progress of data migration.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Nabil Siddiqui](https://www.linkedin.com/in/nabilshams) | Cloud Solution Architect - Digital and Application Innovation
+
 ## Next steps
 
-- [Web-Queue-Worker architecture style](../../guide/architecture-styles/web-queue-worker.md)
+- [Web-Queue-Worker architecture style](../../guide/architecture-styles/web-queue-worker.yml)
 - [Design a geographically distributed application](/learn/modules/design-a-geographically-distributed-application)
 - [Distribute your data globally with Azure Cosmos DB](/learn/modules/distribute-data-globally-with-cosmos-db)
 - [Choose the appropriate API for Azure Cosmos DB](/learn/modules/choose-api-for-cosmos-db)

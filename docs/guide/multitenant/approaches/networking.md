@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes approaches to consider for networking in a multitenant solution.
 author: johndowns
 ms.author: jodowns
-ms.date: 12/14/2021
+ms.date: 03/29/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -140,7 +140,7 @@ Tenants can deploy a private endpoint within their VNet and configure it to your
 
 ### Domain names, subdomains, and TLS
 
-When you work with domain names and transport-layer security (TLS) in a multitenant solution, there are a number of considerations. [Review the considerations for multitenancy and domain names](../considerations/domain-names.md).
+When you work with domain names and transport-layer security (TLS) in a multitenant solution, there are a number of considerations. [Review the considerations for multitenancy and domain names](../considerations/domain-names.yml).
 
 ### Gateway Routing and Gateway Offloading patterns
 
@@ -191,10 +191,10 @@ In modern networks, it's important to combine network-layer security with other 
 
 When you use the [Gateway Offloading pattern](../../../patterns/gateway-offloading.yml), you might consider rewriting the `Host` header of HTTP requests. This practice can simplify the configuration of your backend web application service by offloading the custom domain and TLS management to the gateway.
 
-However, `Host` header rewrites can cause problems for some backend services. If your application issues HTTP redirects or cookies, the mismatch in host names can break the application's functionality. In particular, this issue can arise when you use backend services that are themselves multitenant, like Azure App Service, Azure Functions, and Azure Spring Cloud.
+However, `Host` header rewrites can cause problems for some backend services. If your application issues HTTP redirects or cookies, the mismatch in host names can break the application's functionality. In particular, this issue can arise when you use backend services that are themselves multitenant, like Azure App Service, Azure Functions, and Azure Spring Cloud. For more information, see the [host name preservation best practice](../../../best-practices/host-name-preservation.yml).
 
 Ensure you test your application's behavior with the gateway configuration that you plan to use.
 
 ## Next steps
 
-Review [considerations when using domain names in a multitenant solution](../considerations/domain-names.md).
+Review [considerations when using domain names in a multitenant solution](../considerations/domain-names.yml).

@@ -187,7 +187,7 @@ Fully deployable architectures that use Azure NetApp Files:
 [Migration overview: SQL Server to SQL Server on Azure VMs]: /azure/azure-sql/migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-migration-overview
 [Pricing section of this article]: #pricing
 [Quickstart: Create SQL Server 2017 on a Windows virtual machine in the Azure portal]: /azure/azure-sql/virtual-machines/windows/sql-vm-create-portal-quickstart
-[Real-time, high-level reference design]: https://docs.netapp.com/us-en/netapp-solutions/ent-apps-db/sql-srv-anf_reference_design_real-time_high-level_design.html#backup-and-recovery
+[Real-time, high-level reference design]: https://docs.netapp.com/us-en/netapp-solutions/databases/sql-srv-anf_reference_design_real-time_high-level_design.html#backup-and-recovery
 [Run SAP BW/4HANA with Linux virtual machines on Azure]: ../../reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines.yml
 [Run SAP NetWeaver in Windows on Azure]: ../../reference-architectures/sap/sap-netweaver.yml
 [Security considerations for SQL Server on Azure Virtual Machines]: /azure/azure-sql/virtual-machines/windows/security-considerations-best-practices

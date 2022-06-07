@@ -4,7 +4,7 @@ This architecture uses Azure Relay Hybrid Connections to connect from Azure to e
 
 ## Potential use cases
 
-Edge devices are often behind a corporate firewall or NAT device. They are unable to communicate with the public cloud or edge devices on other corporate networks. You might need to expose certain ports and functionality, in a secure manner, to users in the public cloud. This architecture uses Azure Relay to establish a WebSockets tunnel between two endpoints that can't directly communicate. Devices that aren't on-premises, but need to connect to an on-premises endpoint, will connect to an endpoint in the public cloud. This endpoint will redirect the traffic on predefined routes over a secure channel. An endpoint inside the on-premises environment receives the traffic and routes it to the correct destination.
+Edge devices are often behind a corporate firewall or NAT device. They're unable to communicate with the public cloud or edge devices on other corporate networks. You might need to expose certain ports and functionality, in a secure manner, to users in the public cloud. This architecture uses Azure Relay to establish a WebSockets tunnel between two endpoints that can't directly communicate. Devices that aren't on-premises, but need to connect to an on-premises endpoint, will connect to an endpoint in the public cloud. This endpoint will redirect the traffic on predefined routes over a secure channel. An endpoint inside the on-premises environment receives the traffic and routes it to the correct destination.
 
 ## Architecture
 
@@ -14,9 +14,9 @@ _Download a [Visio file](https://arch-center.azureedge.net/hybrid-relay-connecti
 ### Dataflow
 
 1. A device connects to the virtual machine (VM) in Azure, on a predefined port. The VM provides a publicly accessible endpoint for the on-premises resource.
-2. Traffic is forwarded to the Azure Relay in Azure. An Azure Relay provides the infrastructure for maintaining the tunnel and connection between the Azure VM and Azure Stack Hub VM.
-3. The VM on Azure Stack Hub, which has already established a long-lived connection to the Azure Relay, receives the traffic and forwards it to the destination. The VM provides the server-side of the Hybrid Relay tunnel.
-4. The on-premises service or endpoint processes the request.
+1. Traffic is forwarded to the Azure Relay in Azure. An Azure Relay provides the infrastructure for maintaining the tunnel and connection between the Azure VM and Azure Stack Hub VM.
+1. The VM on Azure Stack Hub, which has already established a long-lived connection to the Azure Relay, receives the traffic and forwards it to the destination. The VM provides the server-side of the Hybrid Relay tunnel.
+1. The on-premises service or endpoint processes the request.
 
 ### Components
 
@@ -41,7 +41,7 @@ Azure Relay connections aren't redundant. To ensure high-availability, you must 
 
 ### Security
 
-This pattern, as shown, allows for unfettered access to a port on an internal device from the edge. Consider adding an authentication mechanism to the service on the internal device, or in front of the hybrid relay endpoint. See [Azure Relay authentication and authorization](/azure/azure-relay/relay-authentication-and-authorization) and [Network security for Azure Relay](/azure/azure-relay/network-security) for additional network security guidance.
+This pattern, as shown, allows for unfettered access to a port on an internal device from the edge. Consider adding an authentication mechanism to the service on the internal device, or in front of the hybrid relay endpoint. See [Azure Relay authentication and authorization](/azure/azure-relay/relay-authentication-and-authorization) and [Network security for Azure Relay](/azure/azure-relay/network-security) for more network security guidance.
 
 ### Operational excellence
 

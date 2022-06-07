@@ -62,7 +62,7 @@ Another approach can be to allow tenants to initiate their own updates, at a tim
 > [!WARNING]
 > Be careful about enabling tenants to initiate their own updates. This is complex to implement, and it will require significant development and testing effort to deliver and maintain.
 
-Whatever you do, ensure you have a process to monitor the health of your tenants, especially before and after updates are applied. Often, critical production incidents (also called _live-site incidents_) happen after updates to code or configuration. Therefore, it's important you proactively monitor for and respond to any issues to retain customer confidence. For more information about monitoring, see [Monitoring for DevOps](/azure/architecture/framework/devops/monitoring).
+Whatever you do, ensure you have a process to monitor the health of your tenants, especially before and after updates are applied. Often, critical production incidents (also called _live-site incidents_) happen after updates to code or configuration. Therefore, it's important you proactively monitor for and respond to any issues to retain customer confidence. For more information about monitoring, see [Monitoring for DevOps](/azure/architecture/framework/devops/checklist).
 
 ## Communicate with your customers
 
@@ -89,7 +89,7 @@ If one of your customers has a problem because of an update, you need to ensure 
 
 ## Deployment strategies to support updates
 
-Consider how you will deploy updates to your infrastructure. This is heavily influenced by the [tenancy model](tenancy-models.md) that you use. Three common approaches for deploying updates are deployment stamps, feature flags, and deployment rings.
+Consider how you will deploy updates to your infrastructure. This is heavily influenced by the [tenancy model](tenancy-models.yml) that you use. Three common approaches for deploying updates are deployment stamps, feature flags, and deployment rings.
 
 In all cases, ensure that you have sufficient reporting/visibility, so that you know what version of infrastructure, software, or feature each tenant is on, what they are eligible to migrate to, and any time-related data associated those states.
 
@@ -115,5 +115,5 @@ If your service exposes an external API, consider that any updates you apply mig
 
 ## Next steps
 
-- Consider when you would [map requests to tenants, in a multitenant solution](map-requests.md).
+- Consider when you would [map requests to tenants, in a multitenant solution](map-requests.yml).
 - Review the [DevOps checklist](../../../checklist/dev-ops.md) in Azure Well-Architected Framework.

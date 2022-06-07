@@ -211,7 +211,7 @@ Consider these patterns when implementing asynchronous messaging:
 - [Queue-based Load Leveling Pattern](../../patterns/queue-based-load-leveling.yml). This pattern uses a message broker to act as a buffer between a producer and a consumer to help to minimize the impact on availability and responsiveness of intermittent heavy loads for both those entities.
 - [Retry Pattern](../../patterns/retry.yml). A producer or consumer might be unable connect to a queue, but the reasons for this failure may be temporary and quickly pass. This pattern describes how to handle this situation to add resiliency to an application.
 - [Scheduler Agent Supervisor Pattern](../../patterns/scheduler-agent-supervisor.yml). Messaging is often used as part of a workflow implementation. This pattern demonstrates how messaging can coordinate a set of actions across a distributed set of services and other remote resources, and enable a system to recover and retry actions that fail.
-- [Choreography pattern](../../patterns/choreography.md). This pattern shows how services can use messaging to control the workflow of a business transaction.
+- [Choreography pattern](../../patterns/choreography.yml). This pattern shows how services can use messaging to control the workflow of a business transaction.
 - [Claim-Check Pattern](../../patterns/claim-check.yml). This pattern shows how to split a large message into a claim check and a payload.
 
 ## Community resources

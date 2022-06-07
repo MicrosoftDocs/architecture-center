@@ -4,8 +4,8 @@ metadata:
   titleSuffix: Azure Solution Ideas
   description: Boost manufacturing productivity and automate failure detection using convolutional neural networks (CNNs) and gradient-boosting decision tree algorithms.
   author: EdPrice-MSFT
-  ms.author: pnp
-  ms.date: 12/16/2019
+  ms.author: edprice
+  ms.date: 05/27/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
@@ -21,7 +21,7 @@ metadata:
     - ai-ml
     - failure detection
     - automated manufacturing solutions
-    - "https://azure.microsoft.com/solutions/architecture/image-classification-with-convolutional-neural-networks/"
+    - "https://azure.microsoft.com/solutions/architecture/image-classification-with-convolutional-neural-networks"
     - ai-machine-learning
     - aml-project-improvement
   social_image_url: /azure/architecture/solution-ideas/articles/media/image-classification-with-convolutional-neural-networks.png

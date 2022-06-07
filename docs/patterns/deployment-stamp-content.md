@@ -3,7 +3,7 @@ The deployment stamp pattern involves provisioning, managing, and monitoring a h
 
 ## Context and problem
 
-When hosting an application in the cloud there are certain considerations to be made. One key thing to keep in mind is the performance and reliability of your application. If you host a single instance of your solution, you might be subject to the following limitations:
+When hosting an application in the cloud, there are certain considerations to be made. One key thing to keep in mind is the performance and reliability of your application. If you host a single instance of your solution, you might be subject to the following limitations:
 
 - **Scale limits.** Deploying a single instance of your application might result in natural scaling limits. For example, you might use services that have limits on the number of inbound connections, host names, TCP sockets, or other resources.
 - **Non-linear scaling or cost.** Some of your solution's components might not scale linearly with the number of requests or the amount of data. Instead, there can be a sudden decrease in performance or increase in cost once a threshold has been met. For example, you might use a database and discover that the marginal cost of adding more capacity (scaling up) becomes prohibitive, and that scaling out is a more cost-effective strategy. Similarly, [Azure Front Door](https://azure.microsoft.com/pricing/details/frontdoor/) has higher per-domain pricing when a high number of custom domains are deployed, and it might be better to spread the custom domains across multiple Front Door instances.
@@ -57,7 +57,7 @@ The Deployment Stamp pattern works well if each stamp is addressed independently
 
 Clients are then responsible for connecting to the correct stamp.
 
-If a single ingress point for all traffic is required, a traffic routing service can be used to resolve the stamp for a given request, customer, or tenant. The traffic routing service either directs the client to the relevant URL for the stamp (for example, using an HTTP 302 response status code), or might act as a reverse proxy and forward the traffic to the relevant stamp without the client being aware.
+If a single ingress point for all traffic is required, a traffic routing service can be used to resolve the stamp for a given request, customer, or tenant. The traffic routing service either directs the client to the relevant URL for the stamp (for example, using an HTTP 302 response status code), or it might act as a reverse proxy and forward the traffic to the relevant stamp, without the client being aware.
 
 A centralized traffic routing service can be a complex component to design, especially when a solution runs across multiple regions. Consider deploying the traffic routing service into multiple regions (potentially including every region that stamps are deployed into), and then ensuring the data store (mapping tenants to stamps) is synchronized. The traffic routing component might itself by an instance of the [geode pattern](geodes.yml).
 
@@ -65,9 +65,17 @@ For example, [Azure API Management](/azure/api-management/) could be deployed to
 
 To enable geo-distribution of requests and geo-redundancy of the traffic routing service, [API Management can be deployed across multiple regions](/azure/api-management/api-management-howto-deploy-multi-region), or [Azure Front Door](/azure/frontdoor/) can be used to direct traffic to the closest instance. Front Door can be configured with a [backend pool](/azure/frontdoor/front-door-backend-pool#backend-pools), enabling requests to be directed to the closest available API Management instance. If you application is not exposed via HTTP/S, you can use a [cross-region Azure Load Balancer](/azure/load-balancer/cross-region-overview) to distribute incoming calls to regional Azure Load Balancers. The [global distribution feature of Azure Cosmos DB](/azure/cosmos-db/distribute-data-globally) can be used to keep the mapping information updated across each region.
 
+If a traffic-routing service is included in your solution, consider whether it acts as a [gateway](gateway-routing.yml) and could therefore perform [gateway offloading](gateway-offloading.yml) for the other services, such as token validation, throttling, and authorization.
+
+#### Example traffic routing architecture
+
+Consider the following example traffic routing architecture, which uses Azure Front Door, Azure API Management, and Azure Cosmos DB for global traffic routing, and then a series of region-specific stamps:
+
 ![Example traffic routing architecture](./_images/deployment-stamp/deployment-stamp-traffic-routing.png)
 
-If a traffic routing service is included in your solution, consider whether it acts as a [gateway](gateway-routing.yml) and could therefore perform [gateway offloading](gateway-offloading.yml) for services such as token validation, throttling, and authorization.
+Suppose a user normally resides in New York. Their data is stored in the stamp 3, in the East US region.
+
+If the user travels to California and then accesses the system, their connection will likely be routed through the West US 2 region because that's closest to where they are geographically when they make the request. However, the request has to ultimately be served by stamp 3, because that's where their data is stored. The traffic routing system ensures that the request is routed to the correct stamp.
 
 ## Issues and considerations
 

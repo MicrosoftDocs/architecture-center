@@ -1,10 +1,10 @@
 ---
 title: DevOps checklist
-titleSuffix: Azure Design Review Framework
+titleSuffix: Azure Architecture Center
 description: Use this checklist to assess your DevOps culture and process. DevOps integrates development, QA, and IT operations into a unified set of processes.
 author: EdPrice-MSFT
-ms.author: pnp
-ms.date: 01/12/2022
+ms.author: edprice
+ms.date: 04/14/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide

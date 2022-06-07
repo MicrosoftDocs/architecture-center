@@ -32,7 +32,7 @@ There are tradeoffs to each pattern. Request/response is a well-understood parad
 
 - **Reduced coupling**. The message sender does not need to know about the consumer.
 
-- **Multiple subscribers**. Using a pub/sub model, multiple consumers can subscribe to receive events. See [Event-driven architecture style](../../guide/architecture-styles/event-driven.md).
+- **Multiple subscribers**. Using a pub/sub model, multiple consumers can subscribe to receive events. See [Event-driven architecture style](../../guide/architecture-styles/event-driven.yml).
 
 - **Failure isolation**. If the consumer fails, the sender can still send messages. The messages will be picked up when the consumer recovers. This ability is especially useful in a microservices architecture, because each service has its own lifecycle. A service could become unavailable or be replaced with a newer version at any given time. Asynchronous messaging can handle intermittent downtime. Synchronous APIs, on the other hand, require the downstream service to be available or the operation fails.
 
@@ -52,7 +52,7 @@ However, there are also some challenges to using asynchronous messaging effectiv
 
 - **Complexity**. Handling asynchronous messaging is not a trivial task. For example, you must handle duplicated messages, either by de-duplicating or by making operations idempotent. It's also hard to implement request-response semantics using asynchronous messaging. To send a response, you need another queue, plus a way to correlate request and response messages.
 
-- **Throughput**. If messages require *queue semantics*, the queue can become a bottleneck in the system. Each message requires at least one queue operation and one dequeue operation. Moreover, queue semantics generally require some kind of locking inside the messaging infrastructure. If the queue is a managed service, there may be additional latency, because the queue is external to the cluster's virtual network. You can mitigate these issues by batching messages, but that complicates the code. If the messages don't require queue semantics, you might be able to use an event *stream* instead of a queue. For more information, see [Event-driven architectural style](../../guide/architecture-styles/event-driven.md).
+- **Throughput**. If messages require *queue semantics*, the queue can become a bottleneck in the system. Each message requires at least one queue operation and one dequeue operation. Moreover, queue semantics generally require some kind of locking inside the messaging infrastructure. If the queue is a managed service, there may be additional latency, because the queue is external to the cluster's virtual network. You can mitigate these issues by batching messages, but that complicates the code. If the messages don't require queue semantics, you might be able to use an event *stream* instead of a queue. For more information, see [Event-driven architectural style](../../guide/architecture-styles/event-driven.yml).
 
 ## Drone Delivery: Choosing the messaging patterns
 
@@ -81,7 +81,7 @@ Notice that delivery status events are derived from drone location events. For e
 A *service mesh* is a software layer that handles service-to-service communication. Service meshes are designed to address many of the concerns listed in the previous section, and to move responsibility for these concerns away from the microservices themselves and into a shared layer. The service mesh acts as a proxy that intercepts network communication between microservices in the cluster. Currently, the service mesh concept applies mainly to container orchestrators, rather than serverless architectures.
 
 > [!NOTE]
-> Service mesh is an example of the [Ambassador pattern](../../patterns/ambassador.md) &mdash; a helper service that sends network requests on behalf of the application.
+> Service mesh is an example of the [Ambassador pattern](../../patterns/ambassador.yml) &mdash; a helper service that sends network requests on behalf of the application.
 
 Right now, the main options for a service mesh in Kubernetes are [linkerd](https://linkerd.io/) and [Istio](https://istio.io/). Both of these technologies are evolving rapidly. However, some features that both linkerd and Istio have in common include:
 

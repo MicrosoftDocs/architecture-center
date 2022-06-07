@@ -90,11 +90,13 @@ Learn more about the component technologies:
 - [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
 - [What is VPN Gateway?](/azure/vpn-gateway/vpn-gateway-about-vpngateways)
 
+## Related resources
+
 Explore related architectures:
 
 - [Implement a secure hybrid network](../../reference-architectures/dmz/secure-vnet-dmz.yml)
 - [Hybrid connection](../../solution-ideas/articles/hybrid-connectivity.yml)
-- [Extend an on-premises network using VPN](../../reference-architectures/hybrid-networking/vpn.yml)
+- [Extend an on-premises network using VPN](/azure/expressroute/expressroute-howto-coexist-resource-manager)
 - [Choose between virtual network peering and VPN gateways](../../reference-architectures/hybrid-networking/vnet-peering.yml)
 - [Troubleshoot a hybrid VPN connection](../../reference-architectures/hybrid-networking/troubleshoot-vpn.yml)
 - [Hub-spoke network topology in Azure](../../reference-architectures/hybrid-networking/hub-spoke.yml)

@@ -6,7 +6,7 @@ It uses Azure IoT Central to receive data from IoT sensors and export it to Azur
 
 ## Potential use cases
 
-These other uses cases have similar design patterns:
+These other use cases have similar design patterns:
 
 - **Management and inventory:** Track vehicles and assets.
 - **Driver scoring:** Use metrics such as location, speed, out-of-route distance, and hard braking to monitor driver behavior.
@@ -49,7 +49,7 @@ These other uses cases have similar design patterns:
 ## Next steps
 
 - [What is Azure IoT Central?](/azure/iot-central/core/overview-iot-central)
-- [Export IoT data to cloud destinations using data export](/azure/iot-central/core/howto-export-data?tabs=javascript)
+- [Export IoT data to cloud destinations using data export](/azure/iot-central/core/howto-export-to-blob-storage)
 - [Azure Event Hubs — A big data streaming platform and event ingestion service](/azure/event-hubs/event-hubs-about)
 - [Welcome to Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction)
 - [Introduction to Azure Functions](/azure/azure-functions/functions-overview)

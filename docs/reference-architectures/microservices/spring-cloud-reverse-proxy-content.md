@@ -78,7 +78,7 @@ This configuration ensures that the service runtime subnet allows traffic only f
 
 ### Scenario 2: Using Azure Front Door and Application Gateway as the reverse proxy
 
-As previously noted, you can't place Azure Front Door directly in front of Azure Spring Cloud because it can't reach into your private virtual network. ([Azure Front Door Standard or Premium can connect to private endpoints in a virtual network](/azure/frontdoor/standard-premium/concept-private-link), but Azure Spring Cloud doesn't currently offer private endpoint support.) If you still want to use Azure Front Door, for example when you require global load balancing across multiple instances of Azure Spring Cloud in different Azure regions, you can expose them via Application Gateway first and then place Azure Front Door in front of Application Gateway.
+As previously noted, you can't place Azure Front Door directly in front of Azure Spring Cloud because it can't reach into your private virtual network. ([Azure Front Door Standard or Premium can connect to private endpoints in a virtual network](/azure/frontdoor/private-link), but Azure Spring Cloud doesn't currently offer private endpoint support.) If you still want to use Azure Front Door, for example when you require global load balancing across multiple instances of Azure Spring Cloud in different Azure regions, you can expose them via Application Gateway first and then place Azure Front Door in front of Application Gateway.
 
 ![Diagram that shows the use of Azure Front Door and Application Gateway with Azure Spring Cloud in a virtual network.](_images/azure-front-door-application-gateway-reverse-proxy.png)
 
@@ -222,4 +222,4 @@ predicates:
 
 - [Host name preservation](../../best-practices/host-name-preservation.yml)
 - [Load-balancing options](../../guide/technology-choices/load-balancing-overview.yml)
-- [Microservices architecture style](../../guide/architecture-styles/microservices.md)
+- [Microservices architecture style](../../guide/architecture-styles/microservices.yml)

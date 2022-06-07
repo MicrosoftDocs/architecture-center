@@ -85,5 +85,5 @@ Here are some options for implementing microservices container orchestration in 
 - [Build microservices on Azure](../index.yml)
 - [Design a microservices architecture](index.yml)
 - [Design patterns for microservices](patterns.yml)
-- [Microservices architectural style](../../guide/architecture-styles/microservices.md)
+- [Microservices architectural style](../../guide/architecture-styles/microservices.yml)
 - [Azure Kubernetes Service solution journey](../../reference-architectures/containers/aks-start-here.md)

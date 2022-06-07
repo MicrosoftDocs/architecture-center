@@ -10,6 +10,16 @@ New application features will be delivered in stages. These features will gradua
 
 The management team does not want to modernize unnecessarily. They also want to maintain control of scope and costs. To do this, they have decided to preserve their existing SOAP HTTP services. They also intend to minimize changes to the existing UI. [Azure API Management (APIM)][apim] can be used to address many of the project's requirements and constraints.
 
+## Potential use cases
+
+This scenario highlights modernizing legacy browser-based software stacks.
+
+You can use this scenario to:
+
+- See how your business can benefit from utilizing the Azure ecosystem.
+- Plan for migrating services to Azure.
+- Learn how a shift to Azure would affect existing APIs.
+
 ## Architecture
 
 ![Architecture diagram][architecture]
@@ -33,6 +43,11 @@ The new UI will be hosted as a platform as a service (PaaS) application on Azure
 5. The new browser-based web application will depend on the Azure API Management instance for **both** the existing HTTP API and the new API.
 
 The APIM instance will be configured to map the legacy HTTP services to a new API contract. By doing this, the new Web UI is unaware of the integration with a set of legacy services/APIs and new APIs. In the future, the project team will gradually port functionality to the new APIs and retire the original services. These changes will be handled within APIM configuration, leaving the front-end UI unaffected and avoiding redevelopment work.
+
+### Components
+
+- [Azure API Management](https://azure.microsoft.com/services/api-management)
+- [Azure App Service](https://azure.microsoft.com/services/app-service)
 
 ### Alternatives
 
@@ -71,9 +86,32 @@ Customers can scale API Management by adding and removing units. Each unit has c
 
 To view projected costs and customize to your deployment needs, you can modify the number of scale units and App Service instances in the [Azure Pricing Calculator][pricing-calculator].
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+* [Ben Gimblett](https://uk.linkedin.com/in/benjamin-gimblett-0414992) | Senior Customer Engineer
+
 ## Next steps
 
-Review the extensive Azure API Management [documentation and reference articles][apim].
+Product documention:
+
+- [Azure App Service overview](/azure/app-service/overview)
+- [About About API Management](/azure/api-management/api-management-key-concepts)
+
+Learn modules:
+
+- [Explore Azure App Service](/learn/modules/introduction-to-azure-app-service/)
+- [Deploy a website to Azure with Azure App Service](/learn/paths/deploy-a-website-with-azure-app-service/)
+- [Protect your APIs on Azure API Management](/learn/modules/protect-apis-on-api-management/)
+
+## Related resources
+
+- [Architect scalable e-commerce web app](../../solution-ideas/articles/scalable-ecommerce-web-app.yml)
+- [Design great API developer experiences using API Management and GitHub](../../example-scenario/web/design-api-developer-experiences-management-github.yml)
+- [DevTest and DevOps for PaaS solutions](../../solution-ideas/articles/dev-test-paas.yml)
 
 <!-- links -->
 

@@ -11,12 +11,12 @@ Use this solution to automate failure detection instead of relying solely on hum
 ![Architecture diagram: image classification with convolutional neural networks and Azure Machine Learning.](../media/image-classification-with-convolutional-neural-networks.png)
 *Download an [SVG](../media/image-classification-with-convolutional-neural-networks.svg) of this architecture.*
 
-### Components
+### Dataflow
 
-* [Azure Blob Storage](/azure/storage/blobs/): Data is ingested and stored in Azure Blob Storage.
-* [GPU based Azure Data Science Virtual Machine (DSVM)](/azure/machine-learning/data-science-virtual-machine/): The core development environment is the Azure Ubuntu-based GPU DSVM. The data is pulled from blob onto an Azure virtual hard disk (VHD) attached to the DSVM. On that VHD, the data is processed, the images are featurized using a deep neural network (DNN), and a boosted tree model is trained. DSVM IPython Notebook server is used for solution development.
+* [Azure Blob Storage](/azure/storage/blobs): Data is ingested and stored in Azure Blob Storage.
+* [GPU based Azure Data Science Virtual Machine (DSVM)](/azure/machine-learning/data-science-virtual-machine): The core development environment is the Azure Ubuntu-based GPU DSVM. The data is pulled from blob onto an Azure virtual hard disk (VHD) attached to the DSVM. On that VHD, the data is processed, the images are featurized using a deep neural network (DNN), and a boosted tree model is trained. DSVM IPython Notebook server is used for solution development.
   * As an alternative to DSVM-based training, for large datasets, you can use [ML Services in Azure HDInsight](/azure/hdinsight/r-server/r-server-overview) to build a highly scalable training solution.
-* [Azure Container Registry](/azure/container-registry/): The model and web application are packaged into a Docker image and written to Azure Container Registry.
+* [Azure Container Registry](/azure/container-registry): The model and web application are packaged into a Docker image and written to Azure Container Registry.
 * [Azure Machine Learning Model Management (MLOps)](/azure/machine-learning/concept-model-management-and-deployment): Azure Machine Learning uses a Machine Learning Operations (MLOps) approach to deploy and manage the final model on a VM, and to scale out using Azure Kubernetes Service to a Kubernetes managed Azure cluster. In the [implementation of this solution idea](https://github.com/azure/mmlspark), a predictive web service and a Java ETL (extract, transform, load) service are also written onto the VM, each in its own container.
 * [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service): Deployment for this solution uses Azure Kubernetes Service running a Kubernetes-managed cluster. The containers are deployed from images stored in Azure Container Registry.
 
@@ -33,4 +33,4 @@ The solution builds an image classification system using a convolutional neural 
 * [Learn more about Model Management (MLOps)](/azure/machine-learning/concept-model-management-and-deployment)
 * [Learn more about Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service)
 * [Browse an implementation of this solution idea on GitHub](https://github.com/azure/mmlspark)
-* Try the Microsoft Learn module [Train and evaluate deep learning models](/learn/modules/train-evaluate-deep-learn-models/), which includes a section on CNNs.
+* Try the Microsoft Learn module [Train and evaluate deep learning models](/learn/modules/train-evaluate-deep-learn-models), which includes a section on CNNs.

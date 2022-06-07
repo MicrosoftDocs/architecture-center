@@ -76,7 +76,7 @@ This interface defines methods for retrieving configuration settings held in the
 
 > By design, this simple illustration exposes all configuration settings as string values rather than typed values.
 
-An `ExternalConfigurationManager` class could then provide a wrapper around a `BlobSettingsStore` instance. An application can use this class to retrieve configuration information. This class might use something like [Microsoft Reactive Extensions](https://github.com/dotnet/reactive) to publish any changes made to the configuration while the system is running. It would also be responsible for implementing the [Cache-Aside pattern](./cache-aside.md) for settings to provide added resiliency and performance.
+An `ExternalConfigurationManager` class could then provide a wrapper around a `BlobSettingsStore` instance. An application can use this class to retrieve configuration information. This class might use something like [Microsoft Reactive Extensions](https://github.com/dotnet/reactive) to publish any changes made to the configuration while the system is running. It would also be responsible for implementing the [Cache-Aside pattern](./cache-aside.yml) for settings to provide added resiliency and performance.
 
 Usage might look something like the following.
 
