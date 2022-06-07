@@ -1,5 +1,3 @@
-
-
 This article describes how a cloud-based *Security Information and Event Management (SIEM)* solution like [Microsoft Sentinel](/azure/sentinel/overview) can use *threat indicators* to detect, provide context, and inform responses to existing or potential cyber threats.
 
 *Cyber threat intelligence (CTI)* can come from many sources, such as open-source data feeds, threat intelligence sharing communities, paid intelligence feeds, and security investigations within organizations. CTI can range from written reports on a threat actor's motivations, infrastructure, and techniques, to specific observations of IP addresses, domains, and file hashes. CTI provides essential context for unusual activity, so security personnel can act quickly to protect people and assets.
@@ -17,7 +15,8 @@ The most utilized CTI in SIEM solutions like Microsoft Sentinel is threat indica
 ![Microsoft Sentinel data flow](media/sentinel-threat-intelligence/sentinel-data-flow.png)
 
 You can use Microsoft Sentinel to:
-- Import threat indicators from [Structured Threat Information Expression (STIX) and Trusted Automated Exchange of Intelligence Information (TAXII)](https://oasis-open.github.io/cti-documentation/) servers, or from any *threat intelligence platform (TIP)* solution
+
+- Import threat indicators from [Structured Threat Information Expression (STIX) and Trusted Automated Exchange of Intelligence Information (TAXII)](https://oasis-open.github.io/cti-documentation) servers, or from any *threat intelligence platform (TIP)* solution
 - View and query threat indicator data
 - Create analytics rules to generate security alerts, incidents, and automated responses from CTI data
 - Visualize key CTI information in workbooks
@@ -28,7 +27,7 @@ Microsoft Sentinel imports threat indicators, just like all other event data, by
 
 #### Threat Intelligence – TAXII data connector
 
-The most widely adopted industry standard for CTI transmission is the [STIX data format and TAXII protocol](https://oasis-open.github.io/cti-documentation/). Organizations that get threat indicators from current STIX/TAXII version 2.x solutions can use the **Threat Intelligence – TAXII** data connector to import their threat indicators into Microsoft Sentinel. The built-in Microsoft Sentinel TAXII client imports threat intelligence from TAXII 2.x servers.
+The most widely adopted industry standard for CTI transmission is the [STIX data format and TAXII protocol](https://oasis-open.github.io/cti-documentation). Organizations that get threat indicators from current STIX/TAXII version 2.x solutions can use the **Threat Intelligence – TAXII** data connector to import their threat indicators into Microsoft Sentinel. The built-in Microsoft Sentinel TAXII client imports threat intelligence from TAXII 2.x servers.
 
 For detailed instructions for importing STIX/TAXII threat indicator data into Microsoft Sentinel, see [Import threat indicators with the TAXII data connector](#import-threat-indicators-with-the-taxii-data-connector).
 
@@ -84,7 +83,7 @@ For detailed instructions on viewing and editing the Microsoft Sentinel Threat I
 
 - Microsoft Sentinel uses *Azure role-based access control (Azure RBAC)* to assign built-in roles **Contributor**, **Reader**, and **Responder** to users, groups, and Azure services. These can interact with Azure roles (Owner, Contributor, Reader) and Log Analytics roles (Log Analytics reader, Log Analytics contributor). You can create custom roles, and use advanced Azure RBAC on the data you store in Microsoft Sentinel. For more information, see [Permissions in Microsoft Sentinel](/azure/sentinel/roles).
 
-- Microsoft Sentinel is free for the first 31 days on any Azure Monitor Log Analytics workspace. After that, you can use Pay-As-You-Go or Capacity Reservations models for the data you ingest and store. For details, see [Microsoft Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel/).
+- Microsoft Sentinel is free for the first 31 days on any Azure Monitor Log Analytics workspace. After that, you can use Pay-As-You-Go or Capacity Reservations models for the data you ingest and store. For details, see [Microsoft Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel).
 
 ## Alternatives
 
@@ -97,6 +96,7 @@ For detailed instructions on viewing and editing the Microsoft Sentinel Threat I
 ## Deployment
 
 The following sections provide detailed steps on how to:
+
 - Enable the [Threat Intelligence – TAXII](#import-threat-indicators-with-the-taxii-data-connector) and [Threat Intelligence Platforms](#import-threat-indicators-with-the-platforms-data-connector) data connectors.
 - Create an example Microsoft Sentinel [Analytics rule](#create-an-analytics-rule-from-a-template) to generate security alerts and incidents from CTI data.
 - View and edit the Microsoft Sentinel [Threat Intelligence Workbook](#view-and-edit-the-threat-intelligence-workbook).
@@ -124,7 +124,7 @@ If you don't have the API Root, you can usually get it from the threat intellige
    }
    ```
 
-1. To browse collections, enter the API Root you got from the previous step into your browser: [https://limo.anomali.com/api/v1/taxii2/feeds/collections/](https://limo.anomali.com/api/v1/taxii2/feeds/collections/). You see information like:
+1. To browse collections, enter the API Root you got from the previous step into your browser: [https://limo.anomali.com/api/v1/taxii2/feeds/collections/](https://limo.anomali.com/api/v1/taxii2/feeds/collections). You see information like:
 
    ```json
    {
@@ -249,6 +249,7 @@ Your rule activates immediately when created, and then triggers on the regular s
 To edit the workbook, select **Edit** in the toolbar at the top of the page. You can select **Edit** next to any chart to edit the query and settings for that chart.
 
 To add a new chart that shows threat indicators by threat type:
+
 1. Select **Edit** at the top of the page, scroll to the bottom of the page and select **Add**, and then select **Add query**.
 1. Under **Log Analytics workspace Logs Query**, enter the following query:
 
