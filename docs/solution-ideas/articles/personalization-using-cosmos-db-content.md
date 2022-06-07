@@ -4,7 +4,7 @@ Generate personalized recommendations for customers in real time, using low-late
 
 ## Potential use cases
 
-Organizations use customers shopping history to provide relevant product recommendations.
+Organizations use customers' shopping history to provide relevant product recommendations. This solution is ideal for the retail industry.
 
 ## Architecture
 
