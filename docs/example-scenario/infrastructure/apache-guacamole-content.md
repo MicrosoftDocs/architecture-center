@@ -52,7 +52,11 @@ The following considerations apply to this scenario.
 
 ### Reliability
 
-The reliability of the architecture depends on the Azure services that make up the solution. 
+The solution's resiliency depends on the failure modes of individual services like Virtual Machines, Azure Database for MySQL, and Azure Load Balancer Azure. For more information, see [Resiliency checklist](https://docs.microsoft.com/azure/architecture/checklist/resiliency-per-service) for specific Azure services.
+
+Consider the information [available here](https://docs.microsoft.com/azure/architecture/framework/resiliency/design-checklist) when designing for reliability, and also this guide about [Azure Resiliency](https://docs.microsoft.com/en-us/azure/availability-zones/overview).
+
+Levarage the business continuity and disaster recovery guidance [published here](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/design-area/management-business-continuity-disaster-recovery).
 
 For Azure Virtual Machines (Web Tier) the usage of [availability sets](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview#what-is-an-availability-set) ensures a logical grouping of VMs that allows Azure to understand how your application is built to provide for redundancy and availability. We recommended that two or more VMs are created within an availability set to provide for a highly available application and to meet the [99.95% Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines).
 
@@ -77,19 +81,17 @@ To better understand the cost of running this scenario on Azure, use the [pricin
 * [Load Balancer pricing](https://azure.microsoft.com/pricing/details/load-balancer/)
 * [Azure Reserved Virtual Machine Instances](https://azure.microsoft.com/pricing/reserved-vm-instances/)
 
-### Scalability
+### Operational excellence
 
-To allow auto-scale, please consider the usage of [Azure Virtual Machine Scale Sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview) which allows you to create and manage a group of load balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule
+Operational excellence applies reliability, predictability, and automated operations process to your architecture to keep an application running in production. Deployments must be reliable and predictable. Automated deployments reduce the chance of human error. 
 
-### Resiliency
+Leverage the benefits of provisioning resources with [Infrastructure as Code](https://docs.microsoft.com/devops/deliver/what-is-infrastructure-as-code), build, and release with [continuous integration](https://docs.microsoft.com/devops/develop/what-is-continuous-integration) and [continuous delivery](https://docs.microsoft.com/devops/deliver/what-is-continuous-delivery) (CI/CD) pipelines and use automated testing methods.
 
-The solution's resiliency depends on the failure modes of individual services like Virtual Machines, Azure Database for MySQL, and Azure Load Balancer Azure. For more information, see [Resiliency checklist](https://docs.microsoft.com/azure/architecture/checklist/resiliency-per-service) for specific Azure services.
+Read more about the operational excellence [design principles here](https://docs.microsoft.com/azure/architecture/framework/devops/principles).
 
-Consider the information [available here](https://docs.microsoft.com/azure/architecture/framework/resiliency/design-checklist) when designing for reliability, and also this guide about [Azure Resiliency](https://docs.microsoft.com/en-us/azure/availability-zones/overview).
+### Performance Efficiency
 
-Levarage the business continuity and disaster recovery guidance [published here](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/design-area/management-business-continuity-disaster-recovery).
-
-
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. To accomplish this, you should consider the usage of [Azure Virtual Machine Scale Sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview) which allows you to create and manage a group of load balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule.
 
 ## Deploy this scenario
 
