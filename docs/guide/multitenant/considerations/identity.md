@@ -79,7 +79,7 @@ It's common for multitenant solutions to allow a user or workload identity to ac
   - However, in some situations, it might be necessary for a user to have multiple distinct identities. For example, if somebody uses your system both for work and personal purposes, they might want to separate their user accounts. Or, if your tenants have strict regulatory or geographical data storage requirements, they might require a person to have multiple identities so they can comply with regulations or laws.
 - If you use per-tenant identities, avoid storing credentials multiple times. Users should have their credentials stored against a single identity, and you should use features like guest identities to refer to the same user credentials from multiple tenants' identity records.
 
-## Granting users access to tenant data
+## Grant users access to tenant data
 
 If your solution is designed so that a single user is only ever going to access the data for a single tenant, then consider the following decisions:
 
