@@ -31,7 +31,7 @@ Before defining a multitenant identity strategy, you should first consider the h
 
 - Will user or service identities be used to access a single application or multiple applications within a product family? For example, a retail product family might have both a point-of-sale application and an inventory management application that share the same identity solution.
 - Are you planning on implementing modern authentication and authorization such as OAuth2 and OpenID Connect?
-- Does your solution just provide authentication and authentication to your UI based applications or will you also provide API access to your tenants and 3rd parties?
+- Does your solution just provide authentication to your UI based applications or will you also provide API access to your tenants and 3rd parties?
 - Will tenants need to federate to their own identity provider and will multiple different identity providers need to be supported for each tenant? For example, you might have tenants with Azure AD, Auth0 and Active Directory Federation Services (ADFS) who wish to federate with your solution.
 - Are specific compliance requirements that they need to meet, such as [GDPR](/compliance/regulatory/gdpr)?
 - Do your tenants require their identity information to be located within a specific geographic region?
