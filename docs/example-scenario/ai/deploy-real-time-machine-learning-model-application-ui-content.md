@@ -1,4 +1,4 @@
-This article expands on [Citizen AI with the Power Platform](../ai/citizen-ai-power-platform.yml), which provides a high-level example of a low-code, end-to-end **lambda architecture** for real-time and batch data streaming. It covers how to deploy machine learning models for real-time and batch inference. The article also covers how to consume them by using an end-user application or analyzing results in Power BI.
+This article expands on [Citizen AI with the Power Platform](../ai/citizen-ai-power-platform.yml), which provides a high-level example of a low-code, end-to-end **lambda architecture** for real-time and batch data streaming. It covers how to deploy machine learning models for real-time and batch inference. The article also covers how to consume these models by using an end-user application or analyzing results in Power BI.
 
 This article guides you through a model-view-presenter (MVP) architecture by using semi-structured data stored in [Azure Data Lake Storage](/azure/machine-learning/concept-data). You use this data in [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) for machine learning model training. You deploy the model to a real-time endpoint deployed on an [Azure Container Instance](/azure/machine-learning/how-to-deploy-azure-container-instance) or [Azure Kubernetes Service (AKS)](/azure/machine-learning/how-to-deploy-azure-kubernetes-service?tabs=python) cluster. Finally, the model is consumed through a low-code custom business user app by using Power Apps.
 
@@ -37,7 +37,7 @@ This architecture extends the [Analytics end-to-end with Azure Synapse](../datap
 
 [Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) fulfills the role of a low-code GUI for machine learning development. It has automated machine learning and deploys to batch or real-time endpoints. [Microsoft Power Platform](https://powerplatform.microsoft.com), which includes [Microsoft Power Apps](https://powerapps.microsoft.com) and [Microsoft Power Automate](https://flow.microsoft.com), provides the tools to rapidly build a custom application and workflow that implements your machine learning algorithm. Now your end business users can build production grade machine learning applications to transform their legacy business processes.
 
-:::image type="content" source="media/deploy-real-time-machine-learning-model-application-ui.png" alt-text="Diagram that shows a machine learning model created in Machine Learning that obtains car data from Data Lake Storage and provides inferences to an endpoint. An app created with Power Platform accesses the endpoint and interacts with the user." lightbox="media/deploy-real-time-machine-learning-model-application-ui.png" :::
+:::image type="content" source="media/deploy-real-time-machine-learning-model-application-ui.png" alt-text="Diagram that shows a machine learning model created in Machine Learning that obtains car data from Data Lake Storage and provides inferences to an endpoint." lightbox="media/deploy-real-time-machine-learning-model-application-ui.png" :::
 
 *Download a [Visio file](https://arch-center.azureedge.net/deploy-real-time-machine-learning-model-application-ui.vsdx) of this architecture.*
 
@@ -104,11 +104,11 @@ See the following links for more Azure service pricing resources:
 
 Here's an example user interface for the app, which was created in Power Apps by using the low-code interface that Power Apps provides.
 
-:::image type="content" source="media/deploy-real-time-machine-learning-model-car-price-predictor.png" alt-text="Screenshot that shows the UI controls, like buttons and drop-down lists, for the user to enter car data." lightbox="media/deploy-real-time-machine-learning-model-car-price-predictor.png" :::
+:::image type="content" source="media/deploy-real-time-machine-learning-model-car-price-predictor.png" alt-text="Screenshot that shows the UI controls, like buttons, and drop-down lists for the user to enter car data." lightbox="media/deploy-real-time-machine-learning-model-car-price-predictor.png" :::
 
 You can use Power Automate to build a low-code workflow to parse the user's input, pass it to the Machine Learning endpoint, and retrieve the prediction. You can also use [Power BI to interact with the Machine Learning model](/power-bi/connect-data/service-aml-integrate) and create custom business reports and dashboards.
 
-:::image type="content" source="media/deploy-real-time-machine-learning-model-car-price-predictor-dashboard.png" alt-text="Diagram that shows the workflow." lightbox="media/deploy-real-time-machine-learning-model-car-price-predictor-dashboard.png" :::
+:::image type="content" source="media/deploy-real-time-machine-learning-model-car-price-predictor-dashboard.png" alt-text="Diagram that shows the dashboard workflow." lightbox="media/deploy-real-time-machine-learning-model-car-price-predictor-dashboard.png" :::
 
 To deploy this end-to-end example, follow the [step by step instructions by using this sample Power App](https://github.com/Azure/carprice-aml-powerapp).
 
