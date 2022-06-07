@@ -56,19 +56,21 @@ In a multitenant solution, you might also enable another form of single sign on.
 
 ### Sign-in risk evaluation
 
-Modern identity platforms support risk evaluation during the sign-in process. For example, if a user signs in from an unusual location or device, the authentication system might require additional identity checks, such as MFA, before allowing the sign-in request to proceed.
+Modern identity platforms support risk evaluation during the sign-in process. For example, if a user signs in from an unusual location or device, the authentication system might require additional identity checks, such as multifactor authentication (MFA), before allowing the sign-in request to proceed.
 
 Consider whether your tenants might have different risk policies that need to be applied during the authentication process. For example, if you have some tenants in a highly regulated industry, they might have different risk profiles and requirements to tenants who work in less regulated environments. Or, you might choose to allow tenants at higher pricing tiers to specify more restrictive sign-in policies than tenants who purchase a lower tier of your service.
 
 If you need to support different risk policies for each tenant, your authentication system needs to know which tenant the user is signing into so that the correct policies can be applied.
 
-Alternatively, if you federate to tenants' own identity providers, then their own risky sign-in mitigation policies can be applied, and they can control the policies and controls that should be enforced.
+Alternatively, if you federate to tenants' own identity providers, then their own risky sign-in mitigation policies can be applied, and they can control the policies and controls that should be enforced. However, it's important to avoid inadvertently adding unnecessary burden to the user, such as by requiring two MFA challenges - one from the user's home identity provider and one from your own. Ensure you understand how federation interacts with each of your tenants' identity providers and the policies they've applied.
 
 ### Impersonation
 
 Impersonation enables a user to assume the identity of another user without using that user's credentials.
 
 In general, impersonation is dangerous, and it can be difficult to implement and control. However, in some scenarios, impersonation is a requirement. For example, if you operate software as a service (SaaS), your helpdesk personnel might need to assume a user's identity so that they can sign in as the user and troubleshoot an issue.
+
+If you choose to implement impersonation, consider how you audit its use. Ensure that your logs include both the actual user who performed the action in addition to the identifier of the user they impersonated.
 
 Some identity platforms support impersonation, either as a built-in feature or through the use of custom code. For example, [Azure AD B2C provides a sample implementaton of an impersonation flow](https://github.com/azure-ad-b2c/samples/tree/master/policies/impersonation).
 
@@ -117,11 +119,11 @@ Many multitenant solutions are software as a service (SaaS). Your choice of whet
 
 ### Building or running your own identity system
 
-Building a modern identity platform is complex. There are a range of protocols and standards to support, and it's easy to incorrectly implement a protocol and expose a security vulnerability. Standards and protocols change, and you also need to continually update your identity system to mitigate attacks and support recent security features. It's also important to ensure that an identity system is resilient, because any downtime can have severe consequences for the rest of your solution. Additionally, in most situations, identity doesn't add benefit to the business and is simply a necessary part of implementing a multitenant service.
+Building a modern identity platform is complex. There are a range of protocols and standards to support, and it's easy to incorrectly implement a protocol and expose a security vulnerability. Standards and protocols change, and you also need to continually update your identity system to mitigate attacks and support recent security features. It's also important to ensure that an identity system is resilient, because any downtime can have severe consequences for the rest of your solution. Additionally, in most situations, implementing an identity provider doesn't add benefit to the business and is simply a necessary part of implementing a multitenant service. It's better to instead use a specialized identity system that's built, operated, and secured by experts.
 
-When you run your own identity system, you need to store passwords and other credentials. By storing credentials, you create a tempting target for attackers. Even hashing and salting passwords is often insufficient protection, because the computational power available to attackers can make it possible to compromise these forms of credentials.
+When you run your own identity system, you need to store password hashes or other forms of credentials, which creates a tempting target for attackers. Even hashing and salting passwords is often insufficient protection, because the computational power available to attackers can make it possible to compromise these forms of credentials.
 
-Running a modern identity system also means you are responsible for generating and distributing MFA or one-time password (OTP) codes, which in turn requires that you have a mechanism to distribute these codes by using SMS or email.
+Running a modern identity system also means you are responsible for generating and distributing MFA or one-time password (OTP) codes, which in turn requires that you have a mechanism to distribute these codes by using SMS or email. Furthermore, you are responsible for detecting both targeted and brute force attacks, throttling sign-in attempts, auditing, and so forth.
 
 Instead of building or running your own identity system, it's a good practice to use an off-the-shelf service or component. For example, consider using Azure Active Directory (Azure AD) or Azure AD B2C, which are managed identity platforms. Managed identity platform vendors take responsibility to operate the infrastructure for their platforms, and typically support the current identity and authentication standards.
 
