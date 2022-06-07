@@ -4,7 +4,7 @@ This solution enables a predictive model for the length of stay for in-hospital 
 
 ## Potential use cases
 
-This solution enables a predictive model for Length of Stay for in-hospital admissions.
+This solution enables a predictive model for length of stay for in-hospital admissions.
 
 ## Architecture
 
@@ -18,11 +18,11 @@ This solution enables a predictive model for Length of Stay for in-hospital admi
 
 ## Solution details
 
-Length of Stay (LOS) is defined in number of days from the initial admit date to the date that the patient is discharged from any given hospital facility. There can be significant variation of LOS across various facilities and across disease conditions and specialties even within the same healthcare system. Advanced LOS prediction at the time of admission can greatly enhance the quality of care as well as operational workload efficiency and help with accurate planning for discharges resulting in lowering of various other quality measures such as readmissions.
+Length of stay (LOS) is defined in number of days from the initial admit date to the date that the patient is discharged from any given hospital facility. There can be significant variation of LOS across various facilities and across disease conditions and specialties even within the same healthcare system. Advanced LOS prediction at the time of admission can greatly enhance the quality of care as well as operational workload efficiency and help with accurate planning for discharges resulting in lowering of various other quality measures such as readmissions.
 
 ### Business perspective
 
-There are two different business users in hospital management who can expect to benefit from more reliable predictions of the Length of Stay. These are:
+There are two different business users in hospital management who can expect to benefit from more reliable predictions of the length of stay. These are:
 
 * The Chiefs Medical Information Officer (CMIO), who straddles the divide between informatics/technology and healthcare professionals in a healthcare organization. Their duties typically include using analytics to determine if resources are being allocated appropriately in a hospital network. As part of this, the CMIO needs to be able to determine which facilities are being overtaxed and, specifically, what resources at those facilities may need to be bolstered to realign such resources with demand.
 * The Care Line Manager, who is directly involved with the care of patients. This role requires monitoring the status of individual patients as well as ensuring that staff is available to meet the specific care requirements of their patients. A Care Line Manager also needs to manage the discharge of their patients. The ability to predict LOS of a patient enables Care Line Managers to determine if staff resources will be adequate to handle the release of a patient.
