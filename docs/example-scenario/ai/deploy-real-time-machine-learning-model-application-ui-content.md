@@ -4,7 +4,7 @@ This article guides you through a model-view-presenter (MVP) architecture by usi
 
 The ability to rapidly prototype and validate an AI application in a real-world setting is important to a fail-fast approach.
 
-- **Machine Learning: a machine learning toolkit for all skill levels**:
+- **Machine Learning: a machine learning toolkit for all skill levels**
   - Supports no-code to fully coded machine learning development
   - Has a flexible, low-code GUI
   - Enables users to rapidly source and prep data
@@ -50,7 +50,7 @@ This architecture extends the [Analytics end-to-end with Azure Synapse](../datap
 
 2. **Store:** You can ingest data in a raw format and then transform it in [Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction).
 
-3. **Train and deploy model:** [Machine Learning](https://azure.microsoft.com/services/machine-learning) provides an enterprise-grade machine learning service to quickly build and deploy models. It provides users at all skill levels with a low-code designer, automated machine learning, and a hosted Jupyter notebook environment. You can deploy models as real-time endpoints on [AKS](/azure/machine-learning) or as a Machine Learning [managed online endpoint](/azure/machine-learning/how-to-deploy-managed-online-endpoints). For batch inferencing of machine learning models, you can use [Machine Learning pipelines](/azure/machine-learning/concept-ml-pipelines).
+3. **Train and deploy model:** Machine Learning provides an enterprise-grade machine learning service to quickly build and deploy models. It provides users at all skill levels with a low-code designer, automated machine learning, and a hosted Jupyter notebook environment. You can deploy models as real-time [endpoints](/azure/machine-learning/concept-endpoints) on AKS or as a Machine Learning [managed online endpoint](/azure/machine-learning/how-to-deploy-managed-online-endpoints). For batch inferencing of machine learning models, you can use [Machine Learning pipelines](/azure/machine-learning/concept-ml-pipelines).
 
 4. **Consume:** A real-time published model in Machine Learning can generate a REST endpoint that can be consumed in a [custom application built using the low-code Power Apps platform](/connectors/custom-connectors/use-custom-connector-powerapps). You can also call a [real-time Machine Learning endpoint from a Power BI report](/power-bi/connect-data/service-aml-integrate) to present predictions in business reports.
 
@@ -127,18 +127,18 @@ Other contributors:
 
 ## Next steps
 
-- [Build intelligent applications infused with world-class AI](https://mybuild.microsoft.com/sessions/2ba55238-d398-46f9-9ff2-eafcd9d69df3)
-- [Data Lake Storage](/azure/machine-learning/concept-data)
-- [Machine Learning managed endpoints](/azure/machine-learning/how-to-deploy-managed-online-endpoints)
-- [AKS](/azure/machine-learning/how-to-create-attach-kubernetes?tabs=python)
-- [Container Instances](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-azure-container-instance)
-- [Architecture and concepts](/azure/machine-learning/concept-azure-machine-learning-architecture)
+- [Build intelligent applications infused with world-class AI](https://docs.microsoft.com/events/build-may-2021/azure/breakouts/brk220/)
+- [Data in Azure Machine Learning](/azure/machine-learning/concept-data)
+- [Deploy and score a machine learning model by using an online endpoint](/azure/machine-learning/how-to-deploy-managed-online-endpoints)
+- [Create and attach an Azure Kubernetes Service cluster](/azure/machine-learning/how-to-create-attach-kubernetes?tabs=python)
+- [Deploy a model to Azure Container Instances with CLI (v1)](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-azure-container-instance)
+- [How Azure Machine Learning works: resources and assets (v2)](/azure/machine-learning/concept-azure-machine-learning-architecture)
 
 ## Related resources
 
-- [Artificial intelligence (AI)](/azure/architecture/data-guide/big-data/ai-overview)
+- [Artificial intelligence (AI) architecture design](/azure/architecture/data-guide/big-data/ai-overview)
 - [Compare the machine learning products and technologies from Microsoft](../../data-guide/technology-choices/data-science-and-machine-learning.md)
 - [Machine learning at scale](../../data-guide/big-data/machine-learning-at-scale.md)
 - [Machine learning operations (MLOps) framework to upscale machine learning lifecycle with Azure Machine Learning](../mlops/mlops-technical-paper.yml)
 - [Analytics end-to-end with Azure Synapse](../dataplate2e/data-platform-end-to-end.yml)
-- [End-to-end manufacturing using computer vision on the edge](../../reference-architectures/ai/end-to-end-smart-factory.yml)
+- [End-to-end computer vision at the edge for manufacturing](../../reference-architectures/ai/end-to-end-smart-factory.yml)
