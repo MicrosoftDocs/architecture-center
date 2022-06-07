@@ -21,4 +21,4 @@ name: Implementing your own open-source jump server solution on Azure
 summary: This article will show how to create a jump server on Azure using Apache Guacamole, an open-source tool that provides similar funcionalities from Azure Bastion.
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-architecture-guacamole.png
 content: |
-  [!include[](apache-guacamole.md)]
+  [!include[](apache-guacamole-content.md)]
