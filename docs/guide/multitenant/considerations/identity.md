@@ -166,6 +166,7 @@ As multitenant solutions grow, the number of users and sign-ins requests that ne
 - Will the authentication process handle the expected number of sign-ins and sign-ups?
 - Will there be spikes that the authentication system can't handle? For example, at 9am PST, everyone in the western United States region might start work and sign in to your solution, causing a spike in sign-in requests. These situations are sometimes called *login storms*.
 - Can high load in other parts of your solution impact the performance of the authentication process? For example, if your authentication process requires calling into an application tier API, will high numbers of authentication requests cause problems for the rest of your solution?
+- What will happen if your IdP becomes unavailable? Is there a backup authentication service that can take over to provide business continuity while the IdP is unavailable?
 
 ## Next steps
 
