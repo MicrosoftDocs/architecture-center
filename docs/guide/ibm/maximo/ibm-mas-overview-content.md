@@ -78,19 +78,17 @@ Some of the services may require other IBM tooling such as IBM Watson ML or AppC
 > Running Maximo Application Suite on top of Azure RedHat OpenShift is not supported.
 
 Before you install Openshift, you will need to determine which method you will be using:
-- **Installer Provisioned Infrastructure (IPI)** - This method uses an installer to deploy and configure the Openshift environment on Azure. This is the most common method for deploying on Azure and should be used unless you have strict security requirements.
-- **User Provisioned Infrastructure (UPI)** - This method allows fine grained control over the deployment which is typically used when you require a completely private (air gapped) installation. This method should be chosen when you have no outbound internet access for provisioning. This method will require additional steps and considerations to build the environment. 
-
+- **Installer Provisioned Infrastructure (IPI)**: this method uses an installer to deploy and configure the Openshift environment on Azure. This is the most common method for deploying on Azure and should be used unless you have strict security requirements.
+- **User Provisioned Infrastructure (UPI)**: this method allows fine grained control over the deployment which is typically used when you require a completely private (air gapped) installation. This method should be chosen when you have no outbound internet access for provisioning. This method will require additional steps and considerations to build the environment. 
 
 > [!NOTE]
 > Once OpenShift has been installed, the control plane owner will be responsible for maintaining and scaling the worker nodes on Azure. You increase the cluster size through the admin console using MachineSets, not the Azure portal.
-
 
 Considerations:
 
 - **Region Selection**: it is recommended to use a region with [availability zones](/azure/availability-zones/az-overview#azure-regions-with-availability-zones). During deployment, OpenShift will automatically attempt to provision nodes across zones based on the configuration found in your `install-config.yaml`. OpenShift itself will by default balance workloads across all available nodes across the availability zones. In the event of a zone outage, your solution can keep on functioning by having nodes in other zones that can take over the work. 
 - **Backup & Recovery**: although Azure RedHat OpenShift is not supported by Maximo, you can use [their instructions](/azure/openshift/howto-create-a-backup) for backup and recovery. 
-- **Failover** - Consider deploying OpenShift into 2 regions and use [RedHat's Advanced Cluster Management platform](https://www.redhat.com/en/technologies/management/advanced-cluster-management). If your solution has public endpoints, you can place Azure Traffic Manager in front of them to redirect traffic to the appropriate cluster in the event of an outage. In this situation, you would need to migrate your applications state and persistent volumes as well.
+- **Failover**: consider deploying OpenShift into 2 regions and use [RedHat's Advanced Cluster Management platform](https://www.redhat.com/en/technologies/management/advanced-cluster-management). If your solution has public endpoints, you can place Azure Traffic Manager in front of them to redirect traffic to the appropriate cluster in the event of an outage. In this situation, you would need to migrate your applications state and persistent volumes as well.
 
 #### Air gap installations
 
