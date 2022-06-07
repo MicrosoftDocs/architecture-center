@@ -54,7 +54,7 @@ Get a [code sample](https://github.com/microsoft/brainstorm-fluidframework-m365-
 
 Principal author:
 
-* [Dan Wahlin](https://www.linkedin.com/in/danwahlin) | Principle Cloud Developer
+* [Dan Wahlin](https://www.linkedin.com/in/danwahlin) | Principal Cloud Developer
 
 ## Next steps
 

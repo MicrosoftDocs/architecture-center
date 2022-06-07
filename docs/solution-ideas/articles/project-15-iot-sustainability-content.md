@@ -125,7 +125,7 @@ Various Azure services and configurations make up the Project 15 Open Platform:
 
 Principal author:
 
- * [Pamela Cortez](https://www.linkedin.com/in/pamelacortezhellotechie) | Azure IoT Principle PM
+ * [Pamela Cortez](https://www.linkedin.com/in/pamelacortezhellotechie) | Azure IoT Principal PM
 
 ## Next steps
 
