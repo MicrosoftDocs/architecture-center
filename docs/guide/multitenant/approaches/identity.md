@@ -72,7 +72,7 @@ Impersonation enables a user to assume the identity of another user without usin
 
 In general, impersonation is dangerous, and it can be difficult to implement and control. However, in some scenarios, impersonation is a requirement. For example, if you operate software as a service (SaaS), your helpdesk personnel might need to assume a user's identity so that they can sign in as the user and troubleshoot an issue.
 
-If you choose to implement impersonation, consider how you audit its use. Ensure that your logs include both the actual user who performed the action as well as the identifier of the user they impersonated.
+If you choose to implement impersonation, consider how you audit its use. Ensure that your logs include both the actual user who performed the action and the identifier of the user they impersonated.
 
 Some identity platforms support impersonation, either as a built-in feature or by using custom code. For example, [in Azure AD B2C you can add a custom claim](/azure/active-directory-b2c/add-api-connector-token-enrichment) for the impersonated user ID, or replace the subject identifier claim in the tokens that are issued.
 
