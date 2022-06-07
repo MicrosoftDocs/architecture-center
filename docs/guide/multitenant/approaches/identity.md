@@ -35,7 +35,7 @@ Authentication is the process by which a user's identity is established. When yo
 
 You might need to federate with other identity providers. Federation can be used to enable several scenarios, including:
 
-- Social login, such as by enabling users to use a Google or personal Microsoft account.
+- Social login, such as by enabling users to use their Google, Facebook, GitHub, or personal Microsoft account.
 - Tenant-specific directories, such as by enabling tenants to federate your application with their own identity providers so they don't need to manage accounts in multiple places.
 
 For general information about federation, see the [Federated Identity pattern](../../../patterns/federated-identity.yml).
