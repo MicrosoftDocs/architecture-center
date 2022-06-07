@@ -41,9 +41,7 @@ In this architecture, global resources are [Azure Front Door](/azure/frontdoor/)
 
 ### Global load balancer
 
-Azure Front Door is used as the only entry point for user traffic. If Front Door becomes unavailable, the entire system is at risk. Azure guarantees that Azure Front Door will deliver the requested content without error 99.99% of the time. 
-
-Check [Front Door service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-standard-and-premium-tier-service-limits)
+Azure Front Door is used as the only entry point for user traffic. If Front Door becomes unavailable, the entire system is at risk. Azure guarantees that Azure Front Door will deliver the requested content without error 99.99% of the time. For details, check [Front Door service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-standard-and-premium-tier-service-limits).
 
 The Front Door instance sends traffic to the configured backend services, such as the compute cluster and frontend. Backend misconfigurations can lead to outages. To avoid such situations, catch errors during testing.
 
@@ -120,6 +118,8 @@ A stamp can also be considered as a scale-unit. All components and services with
 - Evaluate capacity relations between all resources in a scale unit. For example, to handle 100 incoming requests, 5 ingress controller pods and 3 catalog service pods and 1000 RUs in Cosmos DB would be needed. So, when autoscaling the ingress pods, expect scaling of the catalog service and cosmos RUs given those ranges.
 
 - Load test the services to determine a range within which requests will be served. Based on the results configure minimum and maximum instances and target metrics. When the target is reached, you can choose to automate scaling of the entire unit.
+
+![Stamp resources](./images/mission-critical-unit.png)
 
   **Scalability requirements**
 
