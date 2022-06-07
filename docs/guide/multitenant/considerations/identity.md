@@ -81,13 +81,14 @@ It's common for multitenant solutions to allow a user or workload identity to ac
 
 ## Grant users access to tenant data
 
+Consider how users will be mapped to a tenant. For example, during the sign-up process, you might use a unique invitation code that they enter the first time they access a tenant. In some solutions, you might use the domain name of the user's sign-up email address as a way to identify the tenant that they belong to. Or, you might use another attribute of the user's identity record to map the user to a tenant. You should then store the mapping based on the underlying immutable unique identifiers for both the tenant and the user.
+
 If your solution is designed so that a single user is only ever going to access the data for a single tenant, then consider the following decisions:
 
-- How are users mapped to a tenant? For example, during the sign-up process, you might use a unique invitation code that they enter the first time they access a tenant. In some solutions, you might use the domain name of the user's sign-up email address as a way to identify the tenant that they belong to. Or, you might use another attribute of the user's identity record to map the user to a tenant. You should then store the mapping based on the underlying immutable unique identifiers for both the tenant and the user.
 - How does the IdP detect which tenant a user is accessing?
 - How does the IdP communicate the tenant identifier to the application? Commonly, a tenant identifier claim is added to the token. 
 
-If a single user needs to be granted access to multiple tenants, then you also need to consider the following decisions:
+If a single user needs to be granted access to multiple tenants, then you need to consider the following decisions:
 
 - How does your solution identify and grant permissions to a user who has access to multiple tenants? For example, could a user be an administrator in a training tenant, and have read-only access to a production tenant? Or, could you have separate tenants for different departments in an organization, but need to maintain consistent user identities across all of the tenants?
 - How does a user switch between tenants?
@@ -144,7 +145,7 @@ If your tenants expect to be able to enable workload identity access to your mul
 - Do you need to provide conditional access controls on workload identities for each tenant? For example, a tenant might want to limit a workload identity from being authenticated from outside a specific region.
 - What additional security controls will you provide to tenants to ensure workload identities are kept secure? For example, automated key rolling, key expiration, certificate expiration and sign-in risk monitoring are all methods of reducing the risk a workload identity is misused.
 
-## Federate with an identity provider for single-sign on (SSO)
+## Federate with an identity provider for single sign-on (SSO)
 
 Tenants who already have their own user directories might want your solution to use the identities in their directory, instead of managing another directory with distinct identities. This is called *federation*.
 
