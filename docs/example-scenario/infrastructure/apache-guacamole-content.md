@@ -1,13 +1,8 @@
-This example scenario discusses a [highly available](https://wikipedia.org/wiki/High_availability) solution for a jump server solution running on Azure using an open-source tool called Apache Guacamole, which similar functionalities from [Azure Bastion](https://docs.microsoft.com/en-us/azure/bastion/bastion-overview)
+This example scenario discusses a [highly available](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview) solution for a jump server solution running on Azure using an open-source tool called Apache Guacamole, which similar functionalities from [Azure Bastion](https://docs.microsoft.com/en-us/azure/bastion/bastion-overview)
 
 Apache Guacamole is a clientless remote desktop gateway that supports standard protocols like VNC, RDP, and SSH. Clientless means your clients don't need to install anything but just use a web browser to remotely access your fleet of VMs.
 
-The Guacamole comprises two main components:
-
-* Guacamole Server which provides guacd which is like a proxy server for the client to connect to the remote server.
-* Guacamole Client is a servelet container that users will log in via web browser.
-
-For more information about Guacamole, visit its [architecture page](https://guacamole.apache.org/doc/gug/guacamole-architecture.html).
+For more information about Guacamole and the internal components, visit its [architecture page](https://guacamole.apache.org/doc/gug/guacamole-architecture.html).
 
 To offer high availability, this solution:
 
@@ -55,17 +50,13 @@ Customers who doesn't need this high level of control using their own solution c
 
 The following considerations apply to this scenario.
 
-### Availability
+### Reliability
 
-The availability of the architecture depends on the Azure services that make up the solution. 
+The reliability of the architecture depends on the Azure services that make up the solution. 
 
 For Azure Virtual Machines (Web Tier) the usage of [availability sets](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview#what-is-an-availability-set) ensures a logical grouping of VMs that allows Azure to understand how your application is built to provide for redundancy and availability. We recommended that two or more VMs are created within an availability set to provide for a highly available application and to meet the [99.95% Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines).
 
 Regarding the Azure Database for MySQL (Data Tier), since it's a managed database as a service, its architecture is optimized for built-in high availability with [99.99% availability](https://docs.microsoft.com/en-us/azure/mysql/concepts-high-availability)
-
-### Scalability
-
-To allow auto-scale, please consider the usage of [Azure Virtual Machine Scale Sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview) which allows you to create and manage a group of load balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule
 
 ### Security
 
@@ -77,14 +68,6 @@ Additionally, consider the [Private Link for Azure Database for MySQL](https://d
 
 Follow [these security guidelines](https://docs.microsoft.com/azure/security/fundamentals/overview) when you implement this solution.
 
-### Resiliency
-
-The solution's resiliency depends on the failure modes of individual services like Virtual Machines, Azure Database for MySQL, and Azure Load Balancer Azure. For more information, see [Resiliency checklist](https://docs.microsoft.com/azure/architecture/checklist/resiliency-per-service) for specific Azure services.
-
-Consider the information [available here](https://docs.microsoft.com/azure/architecture/framework/resiliency/design-checklist) when designing for reliability, and also this guide about [Azure Resiliency](https://docs.microsoft.com/en-us/azure/availability-zones/overview).
-
-Levarage the business continuity and disaster recovery guidance [published here](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/design-area/management-business-continuity-disaster-recovery).
-
 ### Cost optimization
 
 To better understand the cost of running this scenario on Azure, use the [pricing calculator](https://azure.microsoft.com/pricing/calculator).
@@ -93,6 +76,20 @@ To better understand the cost of running this scenario on Azure, use the [pricin
 * [Azure Database for MySQL pricing](https://azure.microsoft.com/pricing/details/mysql/server/)
 * [Load Balancer pricing](https://azure.microsoft.com/pricing/details/load-balancer/)
 * [Azure Reserved Virtual Machine Instances](https://azure.microsoft.com/pricing/reserved-vm-instances/)
+
+### Scalability
+
+To allow auto-scale, please consider the usage of [Azure Virtual Machine Scale Sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview) which allows you to create and manage a group of load balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule
+
+### Resiliency
+
+The solution's resiliency depends on the failure modes of individual services like Virtual Machines, Azure Database for MySQL, and Azure Load Balancer Azure. For more information, see [Resiliency checklist](https://docs.microsoft.com/azure/architecture/checklist/resiliency-per-service) for specific Azure services.
+
+Consider the information [available here](https://docs.microsoft.com/azure/architecture/framework/resiliency/design-checklist) when designing for reliability, and also this guide about [Azure Resiliency](https://docs.microsoft.com/en-us/azure/availability-zones/overview).
+
+Levarage the business continuity and disaster recovery guidance [published here](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/design-area/management-business-continuity-disaster-recovery).
+
+
 
 ## Deploy this scenario
 
