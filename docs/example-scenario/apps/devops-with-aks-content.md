@@ -159,7 +159,7 @@ Microsoft Learn modules:
 - [Secure DevOps for AKS](../../solution-ideas/articles/secure-devops-for-kubernetes.yml)
 
 <!-- links -->
-[architecture]: ./media/architecture-devops-with-aks.png
+[architecture]: ./media/architecture-devops-with-aks-new.png
 [docs-aci]: /azure/container-instances/container-instances-overview
 [docs-acr]: /azure/container-registry/container-registry-intro
 [docs-aks]: /azure/aks/intro-kubernetes
