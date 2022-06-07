@@ -147,6 +147,22 @@ It's important that you select an appropriate authorization model for your solut
 
 Audit logs are an important tool for understanding your environment and how users are using your system. By auditing every identity-related event, you can often determine whether your identity system is under attack, and you can review how your system is being used. Ensure you write and store audit logs within your identity system. Consider whether your solution's identity audit logs should be made available to tenants to review.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+ - [John Downs](http://linkedin.com/in/john-downs) | Senior Customer Engineer, FastTrack for Azure
+ - [Daniel Scott-Raynsford](http://linkedin.com/in/dscottraynsford) | Partner Technology Strategist
+ - [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+ 
+Other contributors:
+
+ - [Jelle Druyts](http://linkedin.com/in/jelle-druyts-0b76823) | Principal Customer Engineer, FastTrack for Azure
+ - [Sander van den Hoven](http://linkedin.com/in/azurehero) | Senior Partner Technology Strategist
+ - [Nick Ward](http://linkedin.com/in/nickward13) | Senior Cloud Solution Architect
+
 ## Next steps
 
 Review [Architectural considerations for identity in a multitenant solution](../considerations/identity.md).

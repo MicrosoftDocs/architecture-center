@@ -77,7 +77,7 @@ It's common for multitenant solutions to allow a single user or workload identit
 - How does a user switch between tenants?
 - If you use workload identities, how does a workload identity specify the tenant it needs to access?
 - Is there tenant specific information stored in the user identity record that could leak information between tenants? For example, suppose a user signed up with a social identity and was then granted access to two tenants. Tenant A enriched the user's identity with additional information. Should tenant B have access to the enriched information?
-- How do users get mapped to a tenant? For example, you might use the domain name of the user's sign-up email address as a way to identify the tenant that they belong to. Or, you might use another attribute of the user's identity record to map the user to a tenant.
+- How do users get mapped to a tenant? For example, during the sign-up process, you might use the domain name of the user's sign-up email address as a way to identify the tenant that they belong to. Or, you might use another attribute of the user's identity record to map the user to a tenant. You should then store the mapping based on the underlying immutable unique identifiers for both the tenant and the user.
 
 ## User sign-up process for local identities or social identities
 
@@ -85,7 +85,7 @@ Some tenants might need to allow users to sign themselves up for an identity in 
 
 - Which identity sources are users allowed to sign up from? For example, can a user create a local identity as well as use a social identity provider?
 - If only local identities are allowed, will only specific email domains be allowed? For example, can a tenant specify that only users who have an @contoso.com email address are permitted to sign-up?
-- What is the user principal name (UPN) that should be used to uniquely identify each local identity? For example, email address, username, phone number and rewards card number are all common choices for UPNs, although it's usually best to use immutable, non-reusable identifiers where possible.
+- What is the user principal name (UPN) that should be used to uniquely identify each local identity during the sign-in process? For example, email address, username, phone number and rewards card number are all common choices for UPNs. However, UPNs can change over time, so when you refer to the identity in your application's authorization rules or audit logs, it's a good practice to use the underlying immutable unique identifier of the identity, such as the object ID (OID) in Azure AD.
 - Will a user be required to verify their UPN? For example, if the user's email address or phone number is used as a UPN, how will these be verified?
 - Do tenant administrators need to approve sign-ups?
 - Do tenants require a tenant specific sign-up experience or URL? For example, do your tenants require a branded sign-up experience when users sign up, or do they require the ability to intercept a sign-up request and perform additional validation before it proceeds?
@@ -117,7 +117,7 @@ When a user signs into a multitenant application, your identity system authentic
 
 ## Workload identities
 
-In most solutions, an identity often represents a user. Some multitenant systems also allow *workload identities* to be used by *services* and *applications* to gain access to your application resources. For example, your tenants might need to access an API provided by your solution so that they can automate some of their management tasks.
+In most solutions, an identity often represents a user. Some multitenant systems also allow [*workload identities*](/azure/active-directory/develop/workload-identities-overview) to be used by *services* and *applications* to gain access to your application resources. For example, your tenants might need to access an API provided by your solution so that they can automate some of their management tasks.
 
 Workload identities are similar to user identities, but usually require different authentication methods, such as keys or certificates. Workload identities don't use MFA. Instead, workload identities usually require additional security controls such as regular key-rolling and certificate expiration.
 
@@ -169,6 +169,22 @@ As multitenant solutions grow, the number of users and sign-ins requests that ne
 - Can high load in other parts of your solution impact the performance of the authentication process? For example, if your authentication process requires calling into an application tier API, will high numbers of authentication requests cause problems for the rest of your solution?
 - What will happen if your IdP becomes unavailable? Is there a backup authentication service that can take over to provide business continuity while the IdP is unavailable?
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+ - [John Downs](http://linkedin.com/in/john-downs) | Senior Customer Engineer, FastTrack for Azure
+ - [Daniel Scott-Raynsford](http://linkedin.com/in/dscottraynsford) | Partner Technology Strategist
+ - [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+ 
+Other contributors:
+
+ - [Jelle Druyts](http://linkedin.com/in/jelle-druyts-0b76823) | Principal Customer Engineer, FastTrack for Azure
+ - [Sander van den Hoven](http://linkedin.com/in/azurehero) | Senior Partner Technology Strategist
+ - [Nick Ward](http://linkedin.com/in/nickward13) | Senior Cloud Solution Architect
+ 
 ## Next steps
 
 Review [Architectural approaches for identity in multitenant solutions](../approaches/identity.md).
