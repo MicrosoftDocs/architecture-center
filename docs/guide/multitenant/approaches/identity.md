@@ -62,6 +62,8 @@ Consider whether your tenants might have different risk policies that need to be
 
 If you need to support different risk policies for each tenant, your authentication system needs to know which tenant the user is signing into so that the correct policies can be applied.
 
+If your identity provider (IdP) includes these capabilties it's usually best to use the IdP's native sign-in risk evaluation features because these features can be complex and error-prone to implement yourself.
+
 Alternatively, if you federate to tenants' own identity providers, then their own risky sign-in mitigation policies can be applied, and they can control the policies and controls that should be enforced. However, it's important to avoid inadvertently adding unnecessary burden to the user, such as by requiring two MFA challenges - one from the user's home identity provider and one from your own. Ensure you understand how federation interacts with each of your tenants' identity providers and the policies they've applied.
 
 ### Impersonation
@@ -72,24 +74,18 @@ In general, impersonation is dangerous, and it can be difficult to implement and
 
 If you choose to implement impersonation, consider how you audit its use. Ensure that your logs include both the actual user who performed the action in addition to the identifier of the user they impersonated.
 
-Some identity platforms support impersonation, either as a built-in feature or through the use of custom code. For example, [Azure AD B2C provides a sample implementaton of an impersonation flow](https://github.com/azure-ad-b2c/samples/tree/master/policies/impersonation).
-
-### Token enrichment and authentication flow customization
-
-In a multitenant solution, you might need to integrate your authentication processes with tenants' systems. Integration can happen for several purposes, including injecting custom claims into a login token (*token enrichment*), or triggering events in a tenant's own systems.
-
-Whenever you integrate with a tenant's system, it's a good practice to build a common integration approach instead of trying to build customized integration approaches for each tenant. For example, if your tenants need to enrich token claims, you might define an API that each tenant must implement, with a specific payload format. You can then agree to send a request to that tenant's API during each sign-in, and the tenant agrees to send a response with another specified payload format, which you then turn into a set of claims to add to the token.
+Some identity platforms support impersonation, either as a built-in feature or through the use of custom code. For example, [in Azure AD B2C you can add a custom claim](/azure/active-directory-b2c/add-api-connector-token-enrichment) for the impersonated user ID, or replace the subject identifier claim in the tokens that are issued.
 
 ## Authorization
 
 Authorization is the process of determining what a user is allowed to do.
 
-Authorization can be implemented in several places, including:
+Authorization data can be stored in several places, including:
 
-- **In your identity provider.** For example, if you use Azure AD as your identity provider, features like [app roles](/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) and [groups](/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal) can be used to enforce authorization rules.
-- **In your application.** You can build your own authorization logic, and store information about what each user can do in a database or similar storage system.
+- **In your identity provider.** For example, if you use Azure AD as your identity provider, features like [app roles](/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) and [groups](/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal) can be used to store authorization information that your application can then use to enforce your authorization rules.
+- **In your application.** You can build your own authorization logic, and store information about what each user can do in a database or similar storage system, and design fine-grained controls for role-based or resource-level authorization.
 
-In a multitenant solution, roles are generally assigned and managed by the tenant or customer, not by you as the vendor of the multitenant system.
+In a multitenant solution, role and permission assignments are generally managed by the tenant or customer, not by you as the vendor of the multitenant system.
 
 For more information, see [Application roles](../../../multitenant-identity/app-roles.md).
 
@@ -113,7 +109,7 @@ Many multitenant solutions are software as a service (SaaS). Your choice of whet
 
 - If your tenants or customers are organizations, they might already use Azure AD for services like Office 365, Microsoft Teams, or for their own Azure environments. You can create a [multitenant application](/azure/active-directory/develop/single-and-multi-tenant-apps) in your own Azure AD directory to make your solution available to other Azure AD directories. You can even list your solution in the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps) and make it easily accessible to organizations who use Azure AD.
 - If your tenants or customers don't use Azure AD, or if they are individuals rather than organizations, then consider using Azure AD B2C. Azure AD B2C provides a set of features to control how users sign up and sign in. For example, you can restrict access to your solution just to users that you have already invited, or you might allow for self-service sign-up. Use [custom policies](/azure/active-directory-b2c/active-directory-b2c-overview-custom) in Azure AD B2C to fully control how users interact with the identity platform. You can use [custom branding](/azure/active-directory-b2c/customize-ui-overview), and you can [federate Azure AD B2C with your own Azure AD tenant](/azure/active-directory-b2c/active-directory-b2c-setup-oidc-azure-active-directory) to enable your own staff to sign in. Azure AD B2C also enables [federation with other identity providers](/azure/active-directory-b2c/tutorial-add-identity-providers).
-- Some multitenant solutions are intended for both situations listed above - some tenants might have their own Azure AD tenants, and others might not. You can also use Azure AD B2C for this scenario, and use [custom policies to allow user sign-in from a tenant's Azure AD directory](/azure/active-directory-b2c/active-directory-b2c-setup-commonaad-custom). However, ensure you [consider the limits on the number of custom policies](/azure/active-directory-b2c/service-limits?pivots=b2c-custom-policy#azure-ad-b2c-configuration-limits) that can be used by a single Azure AD B2C directory.
+- Some multitenant solutions are intended for both situations listed above - some tenants might have their own Azure AD tenants, and others might not. You can also use Azure AD B2C for this scenario, and use [custom policies to allow user sign-in from a tenant's Azure AD directory](/azure/active-directory-b2c/active-directory-b2c-setup-commonaad-custom). However, if you use custom policies to establish federation between tenants, ensure that you [consider the limits on the number of custom policies](/azure/active-directory-b2c/service-limits?pivots=b2c-custom-policy#azure-ad-b2c-configuration-limits) that can be used by a single Azure AD B2C directory.
 
 ## Antipatterns to avoid
 
@@ -138,6 +134,8 @@ Ensure you understand your tenants' identity requirements before you finalize th
 It's important to clearly consider how your solution defines a user and a tenant. In many situations, the relationship can be complex. For example, a tenant might contain multiple users, and a single user might join multiple tenants.
 
 Ensure you have a clear process for tracking the tenant context within your application and requests. In some situations, this process might require that you include a tenant identifier in every access token, and that you validate the tenant identifier on each request. In other situations, you might need to store the tenant authorization information separately from the user identities and use a more complex authorization system to manage which users can perform which operations against which tenants.
+
+Tracking the tenant context of a user or token is applicable to any [tenancy model](../considerations/tenancy-models.yml), because a user identity always has a tenant context within a multitenant solution. It's even a good practice to track tenant context when you deploy independent stamps for a single tenant, because this helps you to ensure your codebase is future-proofed for other forms of multitenancy.
 
 ### Conflating role and resource authorization
 
