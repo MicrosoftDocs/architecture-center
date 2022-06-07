@@ -1,8 +1,8 @@
 Software as a Service (SaaS) is a complex topic with many points to consider. Independent software vendors (ISVs) who build their SaaS solutions on Azure need to solve problems and make decisions such as:
 
-1. Which [tenancy model](../../guide/multitenant/considerations/tenancy-models.yml) should I use?
-1. How do I set up an identity solution for use in a multitenant architecture?
-1. How do I handle onboarding new customers?
+- Which [tenancy model](../../guide/multitenant/considerations/tenancy-models.yml) should I use?
+- How do I set up an identity solution for use in a multitenant architecture?
+- How do I handle onboarding new customers?
 
 This architecture aims to answer some of these questions and provide a starting place into the world of SaaS. This architecture is adaptable to fit a wide range of scenarios.
 
