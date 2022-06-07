@@ -81,14 +81,16 @@ Before you install Openshift, you will need to determine which method you will b
 - **Installer Provisioned Infrastructure (IPI)**: this method uses an installer to deploy and configure the Openshift environment on Azure. This is the most common method for deploying on Azure and should be used unless you have strict security requirements.
 - **User Provisioned Infrastructure (UPI)**: this method allows fine grained control over the deployment which is typically used when you require a completely private (air gapped) installation. This method should be chosen when you have no outbound internet access for provisioning. This method will require additional steps and considerations to build the environment. 
 
+Our recommendation is to use the IPI installer whenever possible as it significantly reduces the amount of work that needs to be done to complete the installation.
+
 > [!NOTE]
-> Once OpenShift has been installed, the control plane owner will be responsible for maintaining and scaling the worker nodes on Azure. You increase the cluster size through the admin console using MachineSets, not the Azure portal.
+> Once OpenShift has been installed, the control plane owner will be responsible for maintaining and scaling the worker nodes on Azure. You increase the cluster size through the admin console using MachineSets, not through the Azure portal.
 
-Considerations:
+During the installation of OpenShift there are some considerations:
 
-- **Region Selection**: it is recommended to use a region with [availability zones](/azure/availability-zones/az-overview#azure-regions-with-availability-zones). During deployment, OpenShift will automatically attempt to provision nodes across zones based on the configuration found in your `install-config.yaml`. OpenShift itself will by default balance workloads across all available nodes across the availability zones. In the event of a zone outage, your solution can keep on functioning by having nodes in other zones that can take over the work. 
-- **Backup & Recovery**: although Azure RedHat OpenShift is not supported by Maximo, you can use [their instructions](/azure/openshift/howto-create-a-backup) for backup and recovery. 
-- **Failover**: consider deploying OpenShift into 2 regions and use [RedHat's Advanced Cluster Management platform](https://www.redhat.com/en/technologies/management/advanced-cluster-management). If your solution has public endpoints, you can place Azure Traffic Manager in front of them to redirect traffic to the appropriate cluster in the event of an outage. In this situation, you would need to migrate your applications state and persistent volumes as well.
+* **Region Selection**: it is recommended to use a region with [availability zones](/azure/availability-zones/az-overview#azure-regions-with-availability-zones). During deployment, OpenShift will automatically attempt to provision nodes across zones based on the configuration found in your `install-config.yaml`. OpenShift itself will by default balance workloads across all available nodes across the availability zones. In the event of a zone outage, your solution can keep on functioning by having nodes in other zones that can take over the work. 
+* **Backup & Recovery**: although Azure RedHat OpenShift is not supported by Maximo, you can use [their instructions](/azure/openshift/howto-create-a-backup) for backup and recovery. Note that you'll need to take care of database disaster recovery separately. 
+* **Failover**: consider deploying OpenShift into 2 regions and use [RedHat's Advanced Cluster Management platform](https://www.redhat.com/en/technologies/management/advanced-cluster-management). If your solution has public endpoints, you can place [Azure Traffic Manager](/azure/traffic-manager/) in front of them to redirect traffic to the appropriate cluster in the event of an outage. In this situation, you would need to migrate your applications state and persistent volumes as well.
 
 #### Air gap installations
 
@@ -137,8 +139,8 @@ If you are deploying IoT services, you will be required to provide a Kafka endpo
 
 Maximo comes packed with many databases inside of its pods and those databases retain state on the filesystem provisioned for Maximo. We recommend using a zone redundant storage mechanism to retain the state outside of your clusters and be able to absorb zone failures. Our recommended pattern is to use Azure File Storage with the following configurations:
 
-* **Standard**: Provision _SMB_ shares for lower throughput / rwo workloads. Great fit for parts of the application that are not chatty and only need a single persistent volume (e.g., IBM SLS)
-* **Premium**: Provision _NFS_ shares for higher throughput / rwx workloads. Used throughout the cluster for RWX workloads, such as the DB2WH in CP4D or Postgres in Manage.
+* **Standard**: provision _SMB_ shares for lower throughput / rwo workloads. Great fit for parts of the application that are not chatty and only need a single persistent volume (e.g., IBM SLS)
+* **Premium**: provision _NFS_ shares for higher throughput / rwx workloads. Used throughout the cluster for RWX workloads, such as the DB2WH in CP4D or Postgres in Manage.
 
 Make sure policies for enforcing secure transfer on the Azure Blob Storage are disabled or the accounts exempted. Azure Files Premium with NFS requires secure transfer to be set to off. Ensure that Private Endpoints are used to guarantee private connectivity to your shares.
 
@@ -148,10 +150,13 @@ Do not use Azure Blob with CSI drivers, it doesn't support required hardlinks wh
 
 ### Security and authentication
 
-MAS currently supports the use of SAML via Azure Active Directory (Azure AD). You can find more information at the following locations: [IBM configuration](https://www.ibm.com/docs/en/mas83/8.3.0?topic=administration-configuring-suite#saml) and [Azure configuration](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/add-application-portal-setup-sso). When managing IaaS resources, you can use Azure AD for authentication and authorization to the Azure portal.
+Maximo currently supports the use of SAML via Azure Active Directory (Azure AD). To make this work you'll need an enterprise application within Azure AD and permissions to modify the application or work with an Azure AD global administrator to do the work.
 
-<!-- TODO: Needs to be fleshed out more, considerations for the SAML etc -->
-<!-- TODO: add details around certificates and authentication patterns (SAML) -->
+A [tutorial on how to set up SAML with Maximo](https://github.com/Azure/maximo#enabling-saml-authentication-against-azure-ad) is available in our [deployment guide](https://github.com/Azure/maximo#enabling-saml-authentication-against-azure-ad). 
+
+Before you set this up, we recommend you go through the [IBM configuration](https://www.ibm.com/docs/en/mas83/8.3.0?topic=administration-configuring-suite#saml) and [Azure configuration](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/add-application-portal-setup-sso). 
+
+For managing the IaaS resources, you can use Azure AD for authentication and authorization to the Azure portal. It is also possible to set up OAuth With OpenShift itself, for that we refer to [the OpenShift documentation](https://docs.openshift.com/container-platform/4.8/authentication/index.html).
 
 ## Deployment Prerequisites
 
@@ -177,10 +182,9 @@ For a step-by-step guide for installing OpenShift and MAS on Azure, including ho
 
 It's best to deploy workloads using an infrastructure as code (IaC) process. Container based workloads can be sensitive to misconfigurations that often occur with manual deployments and reduce productivity.
 
-Before building out your environment, review the [QuickStart Guide: Maximo Application Suite on Azure](https://github.com/azure/maximo#getting-started) to develop and understanding of the design parameters. 
+Before building out your environment, review the [QuickStart Guide: Maximo Application Suite on Azure](https://github.com/azure/maximo#getting-started) to develop and understanding of the design parameters. The quickstart guide is not intended for a production deploy, but assets in there can be reused to get to a production grade deployment mechanism.
 
-<!-- TODO: dovetail with the work of Sean, we need to link to that -->
-<!-- Work with your MSFT partner/GSI to carry this forward? -->
+IBM offers specialist services to help you with the installation. Please reach out to your IBM team for support. 
 
 ## Security
 
@@ -193,20 +197,21 @@ Azure delivers Maximo by using an infrastructure as a service (IaaS) and Platfor
 - Physical host
 - Hypervisor
 
-Carefully evaluate the services and technologies that you select for the areas above the hypervisor, such as the latest patched version of OpenShift for a major release. Make sure to provide the proper security controls for your architecture.
+Carefully evaluate the services and technologies that you select for the areas above the hypervisor, such as the latest patched version of OpenShift for a major release. Make sure to provide the proper security controls for your architecture. You are responsible for patching and maintaining the security of the IaaS systems. Microsoft takes that role for the PaaS services used. 
 
 Use [network security groups](/azure/virtual-network/security-overview) to filter network traffic to and from resources in your [virtual network](/azure/virtual-network/virtual-networks-overview). With these groups, you can define rules that grant or deny access to your Maximo services. Examples include:
 
 - Allow SSH access into the OpenShift nodes for troubleshooting
-- Blocking access to parts of the cluster
+- Blocking access to all others parts of the cluster
+- Controlling from where you can access Maximo and OpenShift cluster
 
-[Server-side encryption (SSE) of Azure Disk Storage](/azure/virtual-machines/disk-encryption) protects your data. It also helps you meet organizational security and compliance commitments. With Azure managed disks, SSE encrypts the data at rest when persisting it to the cloud. This behavior applies by default to both OS and data disks.
+We recommend you control remote access to your VMs through [Azure Bastion](/azure/bastion/bastion-overview). Don't expose components like virtual machines to a network or internet without NSGs on them. 
+
+[Server-side encryption (SSE) of Azure Disk Storage](/azure/virtual-machines/disk-encryption) protects your data. It also helps you meet organizational security and compliance commitments. With Azure managed disks, SSE encrypts the data at rest when persisting it to the cloud. This behavior applies by default to both OS and data disks. OpenShift uses SSE by default.
 
 ### Protect your infrastructure
 
 Control access to the Azure resources that you deploy. Every Azure subscription has a [trust relationship](/azure/active-directory/active-directory-how-subscriptions-associated-directory) with an Azure AD tenant. Use [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) to grant users within your organization the correct permissions to Azure resources. Grant access by assigning Azure roles to users or groups at a certain scope. The scope can be a subscription, a resource group, or a single resource. Make sure to [audit all changes to infrastructure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-audit).
-
-Manage remote access to your VMs through [Azure Bastion](/azure/bastion/bastion-overview). Don't expose components like virtual machines without NSGs on them. 
 
 ## Contributors
 
@@ -233,9 +238,10 @@ _This article is being updated and maintained by Microsoft. It was originally wr
 
 For help getting started, see the following resources:
 
-- [Installing Openshift on Azure docs](https://docs.openshift.com/container-platform/4.6/installing/installing_azure/installing-azure-default.html)
-- [QuickStart Guide: Maximo Application Suite on Azure](https://github.com/azure/maximo)
+- [Installing OpenShift on Azure](https://docs.openshift.com/container-platform/4.8/installing/installing_azure/preparing-to-install-on-azure.html)
+- [QuickStart Guide: Maximo Application Suite on Azure](https://github.com/Azure/maximo)
 - [Openshift UPI Guide](https://github.com/openshift/installer/blob/master/docs/user/azure/install_upi.md)
+- [Requirements for Maximo](https://www.ibm.com/support/pages/node/6538166)
 
 ## Related resources
 
