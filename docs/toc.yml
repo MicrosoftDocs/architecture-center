@@ -345,6 +345,10 @@ items:
                 href: guide/multitenant/approaches/iot.md
               - name: AI and ML
                 href: guide/multitenant/approaches/ai-ml.md
+          - name: Architectures
+            items:
+              - name: SaaS Starter web app
+                href: example-scenario/apps/saas-starter-web-app.yml
           - name: Service-specific guidance
             items:
               - name: Overview
@@ -5654,6 +5658,8 @@ items:
                 href: reference-architectures/apis/protect-apis.yml
               - name: Real-time location sharing
                 href: example-scenario/signalr/index.yml
+              - name: SaaS Starter web app
+                href: example-scenario/apps/saas-starter-web-app.yml
               - name: Scalable and secure WordPress on Azure
                 href: example-scenario/infrastructure/wordpress.yml
               - name: Scalable cloud applications and SRE
