@@ -4,7 +4,7 @@ This serverless architecture enables you to build and run applications without h
 
 ## Potential use cases
 
-This scenario is for organizations that have customers.
+This scenario is for organizations that have customers, and it's ideal for the retail and media and entertainment industries. 
 
 - Service based subscriptions (streaming videos, applications such as Office 365 and Adobe, etc.)
 
@@ -26,7 +26,10 @@ This scenario is for organizations that have customers.
 
 ## Next Steps
 
-- [Decide which compute option to use for your apps](../../guide/technology-choices/compute-decision-tree.yml)
 - [Learn to build Serverless apps](/azure/azure-functions)
 - [Learn how you can use machine learning](/azure/machine-learning/how-to-enable-virtual-network)
 - [Infuse intelligence into your apps with Cognitive Services](/azure/cognitive-services)
+  
+## Related resources
+  
+- [Decide which compute option to use for your apps](../../guide/technology-choices/compute-decision-tree.yml)
