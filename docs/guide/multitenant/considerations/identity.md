@@ -72,22 +72,27 @@ Options for storing identity information include the following:
 
 ### Determine the number of identities for a user
 
-It's common for multitenant solutions to allow a single user or workload identity to access the application and data of multiple tenants. Consider whether this is required for your solution. If it is, then you should consider the following:
+It's common for multitenant solutions to allow a user or workload identity to access the application and data of multiple tenants. Consider whether this is required for your solution. If it is, then you should consider the following:
 
 - Should you create a single user identity for each person, or create separate identities for each tenant-user combination?
   - It's best to use a single identity for each person wherever possible. It becomes difficult to manage multiple user accounts, both for you as the solution vendor and also for your users. Additionally, many of the intelligent threat protections offered by a modern IdP rely on each person having a single user account.
   - However, in some situations, it might be necessary for a user to have multiple distinct identities. For example, if somebody uses your system both for work and personal purposes, they might want to separate their user accounts. Or, if your tenants have strict regulatory or geographical data storage requirements, they might require a person to have multiple identities so they can comply with regulations or laws.
 - If you use per-tenant identities, avoid storing credentials multiple times. Users should have their credentials stored against a single identity, and you should use features like guest identities to refer to the same user credentials from multiple tenants' identity records.
 
-## Granting users access to multiple tenants
+## Granting users access to tenant data
 
-If users need to be granted access to multiple tenants, then you also need to consider the following decisions:
+If your solution is designed so that a single user is only ever going to access the data for a single tenant, then consider the following decisions:
+
+- How are users mapped to a tenant? For example, during the sign-up process, you might use a unique invitation code that they enter the first time they access a tenant. In some solutions, you might use the domain name of the user's sign-up email address as a way to identify the tenant that they belong to. Or, you might use another attribute of the user's identity record to map the user to a tenant. You should then store the mapping based on the underlying immutable unique identifiers for both the tenant and the user.
+- How does the IdP detect which tenant a user is accessing?
+- How does the IdP communicate the tenant identifier to the application? Commonly, a tenant identifier claim is added to the token. 
+
+If a single user needs to be granted access to multiple tenants, then you also need to consider the following decisions:
 
 - How does your solution identify and grant permissions to a user who has access to multiple tenants? For example, could a user be an administrator in a training tenant, and have read-only access to a production tenant? Or, could you have separate tenants for different departments in an organization, but need to maintain consistent user identities across all of the tenants?
 - How does a user switch between tenants?
 - If you use workload identities, how does a workload identity specify the tenant it needs to access?
 - Is there tenant-specific information stored in the user's identity record that could leak information between tenants? For example, suppose a user signed up with a social identity and was then granted access to two tenants. Tenant A enriched the user's identity with additional information. Should tenant B have access to the enriched information?
-- How are users mapped to a tenant? For example, during the sign-up process, you might use the domain name of the user's sign-up email address as a way to identify the tenant that they belong to. Or, you might use another attribute of the user's identity record to map the user to a tenant. You should then store the mapping based on the underlying immutable unique identifiers for both the tenant and the user.
 
 ## User sign-up process for local identities or social identities
 
@@ -104,7 +109,7 @@ Some tenants might need to allow users to sign themselves up for an identity in 
 
 When users are allowed to sign themselves up for an identity, there usually needs to be a process for them to be granted access to a tenant. This might be part of the sign-up flow, or it could be automated based on the information about the user such as their email address. It's important to plan for this process and consider the following questions:
 
-- How will the sign-up flow determine that a user should be granted access to a specific tenant? For example, you might provide uses with a unique invitation code that they enter the first time they access a tenant, or you might require that a tenant's administrator approve the user's request to join the tenant.
+- How will the sign-up flow determine that a user should be granted access to a specific tenant?
 - If a user should no longer have access to a tenant, will your solution automatically revoke their access? For example, when a user leaves an organization there needs to be a manual or automated process that removes their access from the tenant.
 - Do you need to provide a way for tenants to audit the users who have access to their tenants and their permissions?
 
