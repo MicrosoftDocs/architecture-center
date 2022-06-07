@@ -151,6 +151,14 @@ To estimate the cost of this solution, use the [Azure pricing calculator][Azure 
   - Persistence
   - Active geo-replication
 
+## Contributors
+
+*This article is being updated and maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+* [Ajit Ananthram](https://www.linkedin.com/in/alex-hieng-8476352) | Cloud Solution Architect
+
 ## Next steps
 
 - [Apache Kafka developer guide for Azure Event Hubs][Apache Kafka developer guide for Azure Event Hubs]
@@ -162,17 +170,9 @@ To estimate the cost of this solution, use the [Azure pricing calculator][Azure 
 
 To learn about related solutions, see the following information:
 
-### Analytics overview
-
-[Analytics architecture design][Analytics architecture design]
-
-### Architecture guides
-
+- [Analytics architecture design][Analytics architecture design]
 - [Choose an analytical data store in Azure][Choose an analytical data store in Azure]
 - [Choose a data analytics technology in Azure][Choose a data analytics technology in Azure]
-
-### Reference architectures
-
 - [Azure Kubernetes in event stream processing][Azure Kubernetes in event stream processing]
 - [Data streaming with AKS][Data streaming with AKS]
 - [Build web and mobile applications][Build web and mobile applications]
