@@ -19,8 +19,9 @@ ms.custom:
 
 TODO
 
-- The best option is to use a managed IdP (Azure AD, AAD B2C, or another system like it) because it takes care of all of these concerns.
+- The best option is to use a managed IdP (Azure AD, AAD B2C, or another system like it) because it takes care of all of the concerns listed below.
 - You might also consider using a framework or off-the-shelf system that you run yourself. This avoids the implementation of protocols, but you still have the problem of keeping it secured, maintained, backed up, highly available, security reviewed/pen tested, so this isn't an ideal option either.
+- Avoid ever building your own identity system from scratch.
 
 ## Implement identity and federation protocols
 
@@ -40,15 +41,19 @@ The signals and intelligence that come from running a massive multi-tenanted sys
 
 When you run your own IdP, you end up with a database of credentials (usually hashed and salted, but still, credentials). This makes you an ideal target for attack - just look at the news. Holding credentials is a liability, not an asset. And just because you've hashed and salted credentials doesn't mean you're safe - it's not that hard for these protections to be circumvented with modern hardware and techniques.
 
-## Focus on your core value
-
-Building an IdP is almost certainly not what differentiates you from your competitors. Focus on building the components that actually add business value, and leave complex and fraught areas like identity to experts.
-
 ## Build a reliable and performant identity system
 
 Your identity system must be reliable. If your identity system goes down, your solution probably can't function. So it's important to use a service that has a high SLA and reliability.
 
 Your identity system must be performant. Depending on your application architecture, every session or every request is likely to flow through the IdP. Ensure you use a service that can scale to support load and your growth.
+
+## Test and re-test your security
+
+If you run an identity system, it's incumbent on you to keep it secured, to run penetration tests, and to have all changes tightly controlled and reviewed.
+
+## Focus on your core value
+
+Building an IdP is almost certainly not what differentiates you from your competitors. Focus on building the components that actually add business value, and leave complex and fraught areas like identity to experts.
 
 ## Next steps
 
