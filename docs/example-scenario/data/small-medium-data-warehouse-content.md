@@ -8,9 +8,9 @@ This example workload shows several ways that small businesses (SMBs) can modern
 
 Legacy SMB data warehouses might contain several types of data:
 
-   - Unstructured data, like documents and graphics
-   - Semi-structured data, such as logs, CSVs, JSON, and XML files
-   - Structured relational data, including databases that use stored procedures for extract-transform-load/extract-load-transform (ETL/ELT) activities
+- Unstructured data, like documents and graphics
+- Semi-structured data, such as logs, CSVs, JSON, and XML files
+- Structured relational data, including databases that use stored procedures for extract-transform-load/extract-load-transform (ETL/ELT) activities
 
 ### Dataflow
 
@@ -22,13 +22,13 @@ The following dataflow demonstrates the ingestion of your chosen data type:
 
    - The pipelines can also pass unstructured, semi-structured, and structured data into Azure Data Lake Storage for centralized storage and analysis with other sources. Use this approach when fusing data provides more business benefit than simply replatforming the data.
 
-2. Microsoft Dynamics data sources can be used to build centralized BI dashboards on augmented datasets using Synapse Serverless analysis tools. You can bring the fused, processed data back into Dynamics and Power BI for further analysis.
+1. Microsoft Dynamics data sources can be used to build centralized BI dashboards on augmented datasets using Synapse Serverless analysis tools. You can bring the fused, processed data back into Dynamics and Power BI for further analysis.
 
-3. Real-time data from streaming sources can also enter the system via Azure Event Hubs. For customers with real-time dashboard requirements, Azure Stream Analytics can analyze this data immediately.
+1. Real-time data from streaming sources can also enter the system via Azure Event Hubs. For customers with real-time dashboard requirements, Azure Stream Analytics can analyze this data immediately.
 
-4. The data can also enter the centralized Data Lake for further analysis, storage, and reporting.
+1. The data can also enter the centralized Data Lake for further analysis, storage, and reporting.
 
-5. Serverless analysis tools are available in the Azure Synapse Analytics workspace. These tools use serverless SQL pool or Apache Spark compute capabilities to process the data in Data Lake Storage. Serverless pools are available on demand, and don't require any provisioned resources.
+1. Serverless analysis tools are available in the Azure Synapse Analytics workspace. These tools use serverless SQL pool or Apache Spark compute capabilities to process the data in Data Lake Storage. Serverless pools are available on demand, and don't require any provisioned resources.
 
    Serverless pools are ideal for:
    - Ad hoc data science explorations in T-SQL format.
@@ -122,6 +122,14 @@ See a [pricing sample for a SMB data warehousing scenario](https://azure.com/e/c
 - [Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/) bills based on tier, throughput units provisioned, and ingress traffic received. The example assumes one throughput unit in Standard tier over one million events for a month.
 
 - [Stream Analytics](https://azure.microsoft.com/pricing/details/stream-analytics/) bases costs on the number of provisioned streaming units. The sample assumes one streaming unit used over the month.
+
+## Contributors
+
+*This article is being updated and maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+* [Galina Polyakova ](/) | Sr Cloud Solution Architect
 
 ## Next steps
 
