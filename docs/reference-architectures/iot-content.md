@@ -18,21 +18,19 @@ Azure IoT solutions involve:
 
 For example, a motor sends temperature data. You use this data to evaluate whether the motor is performing as expected. You use the insight about the motor's performance to prioritize its maintenance schedule.
 
-To see IoT architectures for industry-specific solutions, see [Industry specific IoT reference architectures](iot/industry-iot-hub-page.md).
-
 ### Devices
 
-Azure IoT supports a large range of devices, from microcontrollers running **Azure RTOS** and **Azure Sphere** to developer boards like [MX Chip](/samples/azure-samples/mxchip-iot-devkit-get-started/sample) and Raspberry Pi. Azure IoT also supports smart server gateways capable of running custom code. Devices might perform some local processing through a service such as **Azure IoT Edge**, or just connect directly to Azure so that they can send data to and receive data from the IoT solution.
+Azure IoT supports a large range of devices, from microcontrollers running [Azure RTOS](/azure/rtos) and [Azure Sphere](/azure-sphere/product-overview/what-is-azure-sphere) to developer boards like [MX Chip](/samples/azure-samples/mxchip-iot-devkit-get-started/sample) and Raspberry Pi. Azure IoT also supports smart server gateways capable of running custom code. Devices might perform some local processing through a service such as [Azure IoT Edge](/azure/iot-edge), or just connect directly to Azure so that they can send data to and receive data from the IoT solution.
 
-When devices are connected to the cloud, there are several services that assist with ingesting data. **Azure IoT Hub** is a cloud gateway service that can securely connect and manage devices. **IoT Hub Device Provisioning Service (DPS)** enables zero-touch, just-in-time provisioning that helps to register a large number of devices in a secure and scalable manner. **Azure Digital Twins** enables virtual models of real world systems.
+When devices are connected to the cloud, there are several services that assist with ingesting data. [Azure IoT Hub](/azure/iot-hub) is a cloud gateway service that can securely connect and manage devices. [Azure IoT Hub Device Provisioning Service (DPS)](/azure/iot-dps/about-iot-dps) enables zero-touch, just-in-time provisioning that helps to register a large number of devices in a secure and scalable manner. [Azure Digital Twins](/azure/digital-twins) enables virtual models of real world systems.
 
 ### Insights
 
 Once devices are connected to the cloud, you can process and explore their data to gain customized insights about their environment. At a high level, there are three ways to process data: hot path, warm path, and cold path. The paths differ in their requirements for latency and data access.
 
-- The **hot path** analyzes data in near-real-time as it arrives. Hot path telemetry must be processed with very low latency. The hot path typically uses a stream processing engine. Consider using services such as **Azure Stream Analytics** or **HDInsight**. The output might trigger an alert, or be written to a structured format that can be queried using analytical tools.
-- The **warm path** analyzes data that can accommodate longer delays for more detailed processing. Consider **Azure Data Explorer** for storing and analyzing large volumes of data.
-- The **cold path** performs batch processing at longer intervals, like hourly or daily. The cold path typically operates over large volumes of data, which can be stored in **Azure Data Lake**. Results don't need to be as timely as in the hot or warm paths. Consider using **Azure Machine Learning** or **Azure Databricks** to analyze cold data.
+- The **hot path** analyzes data in near-real-time as it arrives. Hot path telemetry must be processed with very low latency. The hot path typically uses a stream processing engine. Consider using services such as [Azure Stream Analytics](/azure/stream-analytics) or [Azure HDInsight](/azure/hdinsight). The output might trigger an alert, or be written to a structured format that can be queried using analytical tools.
+- The **warm path** analyzes data that can accommodate longer delays for more detailed processing. Consider [Azure Data Explorer](/azure/data-explorer) for storing and analyzing large volumes of data.
+- The **cold path** performs batch processing at longer intervals, like hourly or daily. The cold path typically operates over large volumes of data, which can be stored in [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction). Results don't need to be as timely as in the hot or warm paths. Consider using [Azure Machine Learning](/azure/machine-learning) or [Azure Databricks](/azure/databricks) to analyze cold data.
 
 ### Actions
 
@@ -45,21 +43,50 @@ You can use the insights you gather about your data to manage and control your e
 
 You can use the following services for management and business integration:
 
-- **Power BI** connects to, models, and visualizes your data. Power BI lets you collaborate on data and use artificial intelligence to make data-driven decisions.
-- **Azure Maps** creates location-aware web and mobile applications by using geospatial APIs, SDKs, and services like search, maps, routing, tracking, and traffic.
-- **Azure Cognitive Search** provides a search service over varied types of content. Cognitive Search includes indexing, AI enrichment, and querying capabilities.
-- **Azure API Management** provides a single place to manage all of your APIs.
-- **Azure Web Apps** deploys web applications that scale with your organization.
-- **Mobile Apps** builds cross platform and native apps for iOs, Android, Windows, or Mac.
-- **Dynamics 365** combines CRM and ERP in the cloud.
-- **Microsoft Flow** is a SaaS offering for automating workflows across applications and other SaaS services.
-- **Azure Logic Apps** creates and automates workflows that integrate your apps, data, services, and systems.
+- [Power BI](/power-bi/connect-data) connects to, models, and visualizes your data. Power BI lets you collaborate on data and use artificial intelligence to make data-driven decisions.
+- [Azure Maps](/azure/azure-maps) creates location-aware web and mobile applications by using geospatial APIs, SDKs, and services like search, maps, routing, tracking, and traffic.
+- [Azure Cognitive Search](/azure/search) provides a search service over varied types of content. Cognitive Search includes indexing, AI enrichment, and querying capabilities.
+- [Azure API Management](/azure/api-management) provides a single place to manage all of your APIs.
+- [Azure App Service](/azure/app-service) deploys web applications that scale with your organization.
+- [Azure Mobile Apps](/azure/developer/mobile-apps) builds cross platform and native apps for iOs, Android, Windows, or Mac.
+- [Dynamics 365](/dynamics365) combines CRM and ERP in the cloud.
+- [Microsoft Power Automate (Microsoft Flow)](/power-automate/getting-started) is a SaaS offering for automating workflows across applications and other SaaS services.
+- [Azure Logic Apps](/azure/logic-apps) creates and automates workflows that integrate your apps, data, services, and systems.
 
-Azure also provides several services to help you monitor your entire IoT solution and keep it secure. Diagnostic services include **Azure Monitor**. Security services such as **Azure Active Directory (Azure AD)** and **Microsoft Defender for IoT** help you control, view, and manage security settings and threat detection and response.
+Azure also provides several services to help you monitor your entire IoT solution and keep it secure. Diagnostic services include [Azure Monitor](/azure/azure-monitor). Security services such as [Azure Active Directory (Azure AD)](/azure/active-directory) and [Microsoft Defender for IoT](/azure/defender-for-iot) help you control, view, and manage security settings and threat detection and response.
+
+### Components
+
+- [Azure RTOS](https://azure.microsoft.com/services/rtos)
+- [Azure Sphere](https://azure.microsoft.com/services/sphere)
+- [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge)
+- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub)
+- [Azure IoT Hub Device Provisioning Service (DPS)](/azure/iot-dps)
+- [Azure Digital Twins](https://azure.microsoft.com/services/digital-twins)
+- [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs)
+- [Azure Functions](https://azure.microsoft.com/services/functions)
+- [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics)
+- [Azure HDInsight](https://azure.microsoft.com/services/hdinsight)
+- [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer)
+- [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake)
+- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning)
+- [Azure Databricks](https://azure.microsoft.com/services/databricks)
+- [Power BI](https://powerbi.microsoft.com/)
+- [Azure Maps](https://azure.microsoft.com/services/azure-maps)
+- [Azure Cognitive Search](https://azure.microsoft.com/services/search)
+- [API Management](https://azure.microsoft.com/services/api-management)
+- [Azure App Service](https://azure.microsoft.com/services/app-service)
+- [Azure Mobile Apps](https://azure.microsoft.com/services/app-service/mobile)
+- [Dynamics 365](https://dynamics.microsoft.com/)
+- [Microsoft Power Automate (Microsoft Flow)](https://powerautomate.microsoft.com)
+- [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps)
+- [Azure Monitor](https://azure.microsoft.com/services/monitor)
+- [Azure AD](https://azure.microsoft.com/services/active-directory)
+- [Microsoft Defender for IoT](https://azure.microsoft.com/services/iot-defender)
 
 ## Manageability considerations
 
-You can use **Azure Digital Twins** to control and monitor connected environments. A digital twin is a virtual model of a real-world environment that is driven with data from business systems and IoT devices. Businesses and organizations use digital twins to enable insights and actions. Developers and architects use digital twin solutions to help implement intelligent and connected environments such as:
+You can use Azure Digital Twins to control and monitor connected environments. A digital twin is a virtual model of a real-world environment that is driven with data from business systems and IoT devices. Businesses and organizations use digital twins to enable insights and actions. Developers and architects use digital twin solutions to help implement intelligent and connected environments such as:
 
 - Predictive maintenance in manufacturing.
 - Supply chain visibility.
@@ -85,7 +112,7 @@ IoT Hub automatically partitions device messages based on the device ID. All of 
 
 ### Azure Functions
 
-When **Azure Functions** reads from an **Azure Event Hubs** endpoint, there's a maximum number of function instances per event hub partition. The maximum processing rate is determined by how fast one function instance can process the events from a single partition. The function should process messages in batches.
+When [Azure Functions](/azure/azure-functions) reads from an [Azure Event Hubs](/azure/event-hubs) endpoint, there's a maximum number of function instances per event hub partition. The maximum processing rate is determined by how fast one function instance can process the events from a single partition. The function should process messages in batches.
 
 ### Stream Analytics
 
@@ -108,8 +135,6 @@ Basic security implementation includes explicitly verifying users, having visibi
 - Perform updates to keep devices healthy.
 - Monitor to detect and respond to emerging threats.
 
-Read the [Zero Trust Cybersecurity for the Internet of Things](https://azure.microsoft.com/en-us/resources/zero-trust-cybersecurity-for-the-internet-of-things/) whitepaper for full details.
-
 ### Trustworthy and secure communication
 
 All information received from and sent to a device must be trustworthy. Unless a device can support the following cryptographic capabilities, it should be constrained to local networks, and all inter-network communication should go through a field gateway:
@@ -131,8 +156,6 @@ For example:
 - Anchor secure boot loader and secure software loading in the TPM.
 - Use sensors to detect intrusion attempts and attempts to manipulate the device environment, with alerting and potential "digital self-destruction" of the device.
 
-For more security considerations, see [Internet of Things (IoT) security architecture](/azure/iot-fundamentals/iot-security-architecture).
-
 ## Availability considerations
 
 A key area of consideration for resilient IoT solutions is business continuity and disaster recovery. Designing for High Availability (HA) and Disaster Recovery (DR) can help you define and achieve required uptime goals for your solution.
@@ -143,9 +166,7 @@ Different Azure services offer different options for redundancy and failover to 
 - Implementation and maintenance complexity.
 - Cost of Goods Sold (COGS) impact.
 
-The article [Azure Business Continuity Technical Guidance](/azure/architecture/resiliency) describes a general framework to help you think about business continuity and disaster recovery. The [Disaster recovery and high availability for Azure applications](/azure/architecture/reliability/disaster-recovery) paper provides architecture design guidance on strategies for Azure applications to achieve HA/DR.
-
-You can also find service-specific performance information in the documentation for each Azure IoT service.
+You can find service-specific performance information in the documentation for each Azure IoT service.
 
 ## Cost considerations
 
@@ -153,40 +174,16 @@ In general, use the [Azure pricing calculator](https://azure.microsoft.com/prici
 
 ## Next steps
 
-For more information about the individual pieces of a solution architecture, see the following product documentation:
-
-- [Azure RTOS](/azure/rtos)
-- [Azure Sphere](/azure-sphere/product-overview/what-is-azure-sphere)
-- [Azure IoT Edge](/azure/iot-edge)
-- [Azure IoT Hub](/azure/iot-hub)
-- [Azure IoT Hub Device Provisioning Service (DPS)](/azure/iot-dps)
-- [Azure Digital Twins](/azure/digital-twins)
-- [Azure Event Hubs](/azure/event-hubs)
-- [Azure Functions](/azure/azure-functions)
-- [Azure Stream Analytics](/azure/stream-analytics)
-- [Azure HDInsight](/azure/hdinsight)
-- [Azure Data Explorer](/azure/data-explorer)
-- [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction)
-- [Azure Machine Learning](/azure/machine-learning)
-- [Azure Databricks](/azure/databricks)
-- [Power BI](/power-bi/connect-data)
-- [Azure Maps](/azure/azure-maps)
-- [Azure Cognitive Search](/azure/search)
-- [API Management](/azure/api-management)
-- [Azure App Service](/azure/app-service)
-- [Azure Mobile Apps](/azure/developer/mobile-apps)
-- [Dynamics 365](/dynamics365)
-- [Microsoft Power Automate (Microsoft Flow)](/power-automate/getting-started)
-- [Azure Logic Apps](/azure/logic-apps)
-- [Azure Monitor](/azure/azure-monitor)
-- [Azure AD](/azure/active-directory)
-- [Microsoft Defender for IoT](/azure/defender-for-iot)
+- [Microsoft Azure IoT Reference Architecture](https://azure.microsoft.com/resources/microsoft-azure-iot-reference-architecture)
+- [Internet of Things (IoT) security architecture](/azure/iot-fundamentals/iot-security-architecture)
+- [Zero Trust Cybersecurity for the Internet of Things](https://azure.microsoft.com/en-us/resources/zero-trust-cybersecurity-for-the-internet-of-things)
+- [Azure Business Continuity Technical Guidance](/azure/architecture/resiliency)
+- [Disaster recovery and high availability for Azure applications](/azure/architecture/reliability/disaster-recovery)
 
 ## Related resources
 
 - [IoT conceptual overview](../example-scenario/iot/introduction-to-solutions.yml)
 - [Choose an Internet of Things (IoT) solution in Azure](../example-scenario/iot/iot-central-iot-hub-cheat-sheet.yml)
-- [Internet of Things (IoT) security architecture](/azure/iot-fundamentals/iot-security-architecture)
 - [Azure industrial IoT analytics guidance](../guide/iiot-guidance/iiot-architecture.yml)
 - [Industry specific Azure IoT reference architectures](iot/industry-iot-hub-page.md)
 - [Create smart places by using Azure Digital Twins](../example-scenario/iot/smart-places.yml)
