@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes the considerations for managing identities in a multitenant solution.
 author: plagueho
 ms.author: dascottr
-ms.date: 05/08/2022
+ms.date: 06/07/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -25,7 +25,9 @@ ms.custom:
 Identity is an important aspect of any multitenant solution. The identity components of your application are responsible for verifying who a user is (*authentication*) and enforcing the permissions that are granted to the user within the scope of a tenant (*authorization*). Your customers might also wish to authorize external applications to access their data or integrate to your solution. A user's identity determines what information a user or service will get access to. It is important that you consider your identity requirements to isolate your application and data between tenants.
 
 > [!CAUTION]
-> Authentication and authorization services within multitenant and SaaS applications are usually provided by a 3rd party identity provider (IdP). An identity provider is usually an integral part of an Identity as a Service (IDaaS) platform. Building your own IdP is complex, expensive and difficult to build securely. Building your own identity provider is [an antipattern](../approaches/identity.md#building-or-running-your-own-identity-system). We don't recommend it.
+> Authentication and authorization services within multitenant and SaaS applications are usually provided by a third party identity provider (IdP). An identity provider is usually an integral part of an Identity as a Service (IDaaS) platform.
+>
+> Building your own IdP is complex, expensive and difficult to build securely. Building your own identity provider is [an antipattern](../approaches/identity.md#building-or-running-your-own-identity-system). We don't recommend it.
 
 Before defining a multitenant identity strategy, you should first consider the high-level identity requirements of your service, including:
 
