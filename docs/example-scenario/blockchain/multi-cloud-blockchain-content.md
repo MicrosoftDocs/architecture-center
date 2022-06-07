@@ -107,14 +107,14 @@ Principal authors:
 
 ## Next steps
 
-- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](../../reference-architectures/containers/aks/secure-baseline-aks.yml)
 - [Azure Arc Jumpstart](https://azurearcjumpstart.io)
-- [Blockchain workflow application](../../solution-ideas/articles/blockchain-workflow-application.yml)
-- [Azure Arc hybrid management and deployment for Kubernetes clusters](../../hybrid/arc-hybrid-kubernetes.yml)
 - [Deploy Hyperledger Fabric consortium on Azure Kubernetes Service](/azure/blockchain/templates/hyperledger-fabric-consortium-azure-kubernetes-service)
+- [CI/CD workflow using GitOps - Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/conceptual-gitops-ci-cd)
 
 ## Related resources
 
-- [CI/CD workflow using GitOps - Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/conceptual-gitops-ci-cd)
+- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](../../reference-architectures/containers/aks/secure-baseline-aks.yml)
+- [Blockchain workflow application](../../solution-ideas/articles/blockchain-workflow-application.yml)
+- [Azure Arc hybrid management and deployment for Kubernetes clusters](../../hybrid/arc-hybrid-kubernetes.yml)
 - [Containers and container orchestrators for AWS professionals](../../aws-professional/compute.md#containers-and-container-orchestrators)
 - [Containers and container orchestrators for GCP professionals](../../gcp-professional/services.md#containers-and-container-orchestrators)
