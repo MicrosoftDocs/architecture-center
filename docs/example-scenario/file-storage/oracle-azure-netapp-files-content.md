@@ -7,7 +7,7 @@ The solution provides shared file access with the network file system (NFS) prot
 
 ## Potential use cases
 
-This solution has many uses: 
+This solution has many uses:
 
 - Running new Oracle Database instances that require high availability (HA) and have high standards for performance.
 - Migrating highly performant, highly available Oracle Database instances from on-premises infrastructure to Azure Virtual Machines.
@@ -76,11 +76,11 @@ This image shows the benefits of using Azure NetApp Files with Oracle Database.
 
 *Download an [SVG][Key benefits diagram in .svg format] of this architecture.*
 
-#### Simple and reliable service
+### Simple and reliable service
 
 As a simple-to-consume Azure native service, Azure NetApp Files runs within the Azure datacenter environment. You can provision, consume, and scale Azure NetApp Files just like other Azure storage options. Azure NetApp Files uses reliability features that the NetApp data management software ONTAP provides. With this software, you can quickly and reliably provision enterprise-grade NFS volumes for Oracle Database and other enterprise application workloads.
 
-#### Highly performant systems
+### Highly performant systems
 
 [Azure NetApp Files][What is Azure NetApp Files] uses a bare-metal fleet of all-flash storage. Besides using shared and highly scalable storage, Azure NetApp Files provides latencies of less than 1 millisecond. These factors make this service well suited for using the NFS protocol to run Oracle Database workloads over networks.
 
@@ -88,7 +88,7 @@ Azure DCsv2-series VMs have built-in high-performance, all-flash ONTAP enterpris
 
 Azure NetApp Files offers on-demand scalability. You can enlarge or reduce deployments to optimize each workload's configuration.
 
-#### Enterprise-scale data management
+### Enterprise-scale data management
 
 This solution can handle workloads that require advanced data management features. ONTAP provides functionality in this area that's unmatched in the industry:
 
@@ -101,7 +101,7 @@ This solution can handle workloads that require advanced data management feature
   - They don't affect volume performance.
   - They provide scalability. You can create them frequently and store many simultaneously.
 
-#### Hybrid DR
+### Hybrid DR
 
 The combination of ODG and Azure NetApp Files provides DR for this architecture. Those DR solutions are appropriate for cloud and hybrid systems. Their plans work across multiple regions and with on-premises datacenters.
 
@@ -166,6 +166,14 @@ Using Azure NetApp Files instead of block storage can reduce costs:
   - The network-attached storage doesn't have an I/O cost component.
 
 These factors make Azure NetApp Files less costly than disk storage solutions.
+
+## Contributors
+
+*This article is being updated and maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+* [Deanna Garcia](https://www.linkedin.com/in/deanna-garcia-8540912) | Principal Program Manager
 
 ## Next steps
 
