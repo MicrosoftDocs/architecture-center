@@ -143,7 +143,7 @@ Other contributors:
 - [Deploy and score a machine learning model by using an online endpoint](/azure/machine-learning/how-to-deploy-managed-online-endpoints)
 - [How Azure Machine Learning works: resources and assets (v2)](/azure/machine-learning/concept-azure-machine-learning-architecture)
 - [Introduction to data for machine learning](/learn/modules/introduction-to-data-for-machine-learning)
-- [Introduction to machine learning operations (MLOps)](/paths/introduction-machine-learn-operations)
+- [Introduction to machine learning operations (MLOps)](/learn/paths/introduction-machine-learn-operations)
 
 ## Related resources
 
