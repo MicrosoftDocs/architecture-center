@@ -3,37 +3,37 @@ A key design area of any mission critical architecture is the application platfo
 
 -	Design in layers. Choose the right set of services, their configuration, and the application-specific dependencies. This layered approach helps in creating segmentation that's useful in defining roles and functions, and assigning appropriate privileges. This approach also makes the deployment more manageable. 
 
--	A mission-critical application must be highly reliable and resistant to datacenter and regional failures. Building _zonal and regional redundancy_ in an active-active configuration is the main strategy. As you choose Azure services, consider its Availability Zones support and using multiple Azure regions. Check [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-region) to determine support for services.
+-	A mission-critical application must be highly reliable and resistant to datacenter and regional failures. Building _zonal and regional redundancy_ in an active-active configuration is the main strategy. As you choose Azure services for your application's platform, consider their Availability Zones support and deployment & operational patterns to use multiple Azure regions.
 
 -	Use _scale units_ to handle increased load. Scale units allow you to logically group services and independently scale each unit within the architecture. Use your capacity model and expected performance to define the required scale of a unit. Factor in duplication of resources that are required for side-by-side deployments.
 
 In this architecture, the application platform consists of global, deployment stamp, and regional resources. The regional resources are provisioned as part of a deployment stamp. Each stamp equates to a scale unit and, in case it becomes unhealthy, can be entirely replaced.
 
-The resources in each set have distinct characteristics:
+The resources in each layer have distinct characteristics:
 
 |Characteristics|Considerations|
 |---|---|
-|Lifetime|What is the expected lifetime of resource? Should the resource share the lifetime with the entire system, region, or should it be temporary?|
-|State|Should the resource persist state? |
+|Lifetime|What is the expected lifetime of resource, relative to other resources in the solution? Should the resource outlive or share the lifetime with the entire system or region, or should it be temporary?|
+|State|What impact will persisted state at this layer have on reliability or manageability? |
 |Reach|Is the resource required to be globally distributed? Can the resource communicate with other resources, globally or in regions?|
 |Dependencies|What's the dependency on other resources, globally or in other regions?|
-|Scale limits|What is the expected throughput?|
+|Scale limits|What is the expected throughput for that resource at that layer? How much scale is provided by the resource to fit that demand? |
 |Availability/disaster recovery|Is the resource configured for high availability?|
 
 ## Global resources
 
-Certain resources in this architecture are shared by resources deployed in regions. In this architecture, they are used to distribute traffic across multiple regions, store permanent state, and cache static data. 
+Certain resources in this architecture are shared by resources deployed in regions. In this architecture, they are used to distribute traffic across multiple regions, store permanent state for the whole application, and cache global static data.
 
-|Characteristics|Considerations|
+|Characteristics|Layer Considerations|
 |---|---|
 |Lifetime|The resources are expected to be long living. Their lifetime spans the life of the system.|
-|State| Only the global resources in the entire system should store permanent state over the lifetime of the system.|
+|State| Because these resources exist for at least the lifetime of the system, this layer is often responsible for storing global, geo-replicated state.|
 |Reach|The resources should be globally distributed. It’s recommended that these resources communicate with regional or other resources with low latency and the desired consistency.|
 |Dependencies| The resources should avoid dependency on regional resources because their unavailability can be a cause of failure. For example, certificates or secrets shouldn’t be kept in a key store that’s deployed regionally. |
 |Scale limits|The resources should be scaled such that they can handle throughput of the system as a whole.|
-|Availability/disaster recovery|Because regional and stamp resources can consume global resources, it’s critical that global resources are configured with high availability and disaster recovery. |
+|Availability/disaster recovery|Because regional and stamp resources can consume global resources or are fronted by them, it's critical that global resources are configured with high availability and disaster recovery for the health of the whole system. |
 
-In this architecture, global resources are [Azure Front Door](/azure/frontdoor/), [Azure Cosmos DB](/azure/cosmos-db/), [Azure Container Registry](/azure/container-registry/), and [Azure Log Analytics](/azure/azure-monitor/) for storing logs and metrics from global resources.
+In this architecture, global layer resources are [Azure Front Door](/azure/frontdoor/), [Azure Cosmos DB](/azure/cosmos-db/), [Azure Container Registry](/azure/container-registry/), and [Azure Log Analytics](/azure/azure-monitor/) for storing logs and metrics from other global layer resources.
 
 ![Global resources](./images/global-resources.png)
 
@@ -45,7 +45,7 @@ The Front Door instance sends traffic to the configured backend services, such a
 
 Another common error is missing SSL certificate that can prevent users from using the front end. Mitigation might require manual intervention. For example, you might choose to roll back to the previous configuration and re-issue the certificate, if possible. Regardless, expect unavailability while changes take effect.
 
-Front Door offers many additional capabilities besides global traffic routing. A frequently used one is the Web Application Firewall (WAF), because Front Door is able to inspect traffic which is passing through. When configured in the _Prevention_ mode, it can block suspicious traffic before even reaching any of the backends.
+Front Door offers many additional capabilities besides global traffic routing. An important capability is the Web Application Firewall (WAF), because Front Door is able to inspect traffic which is passing through. When configured in the _Prevention_ mode, it will block suspicious traffic before even reaching any of the backends.
 
 For information about Front Door capabilities, see [Frequently asked questions for Azure Front Door](/azure/frontdoor/front-door-faq).
 
@@ -53,7 +53,7 @@ For other considerations about global distribution of traffic, see [Misson criti
 
 ### Container Registry
 
-Azure Container Registry is used to store Open Container Initiative (OCI) artifacts. It doesn't participate in the request flow and is only accessed periodically. So, a single resource instance can be considered. Container registry is required to exist before stamp resources are deployed and shouldn't have dependency on regional resources.
+Azure Container Registry is used to store Open Container Initiative (OCI) artifacts, specifically helm charts and container images. It doesn't participate in the request flow and is only accessed periodically. So, a single resource instance can be considered. Container registry is required to exist before stamp resources are deployed and shouldn't have dependency on regional layer resources.
 
 Enable zone redundancy and geo-replication of registries so that runtime access to images is fast and resilient to failures. In case of unavailability, the instance can then fail over to replica regions and requests are automatically re-routed to another region. Expect transient errors in pulling images until failover is complete.
 
