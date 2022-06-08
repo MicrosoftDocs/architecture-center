@@ -9,6 +9,8 @@ In this scenario, an organization has hosted multiple APIs using [Application Se
 
 ![Architecture diagram][architecture]
 
+*Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/architecture-publish-internal-apis-externally.vsdx) of this architecture.*
+
 The above scenario covers a complete lifecycle of internal APIs getting consumed by the external users.
 
 ### Dataflow
@@ -153,7 +155,7 @@ Check out the related scenario on [Migrating legacy web APIs to API Management][
 
 <!-- links -->
 
-[architecture]: ./media/architecture-publish-internal-apis-externally.png
+[architecture]: ./media/architecture-publish-internal-apis-externally-new.png
 [dns]: /azure/dns/private-dns-overview
 [ase]: /azure/app-service/environment/intro
 [apim]: /azure/api-management/api-management-key-concepts
