@@ -33,19 +33,19 @@ Azure Data Factory (ADF) orchestrates and Azure Data Lake Storage (ADLS) Gen2 st
 
 The solution uses these components:
 
-* [Azure Data Factory (ADF)](https://azure.microsoft.com/services/data-factory/)
+* [Azure Data Factory (ADF)](https://azure.microsoft.com/services/data-factory)
 
-* [Azure Databricks](https://azure.microsoft.com/services/databricks/)
+* [Azure Databricks](https://azure.microsoft.com/services/databricks)
 
 * [Azure Data Lake Storage (ADLS) Gen2](/azure/storage/blobs/data-lake-storage-introduction)
 
-* [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/)
+* [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics)
 
-* [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
+* [Azure Key Vault](https://azure.microsoft.com/services/key-vault)
 
-* [Azure DevOps](https://azure.microsoft.com/services/devops/)
+* [Azure DevOps](https://azure.microsoft.com/services/devops)
 
-* [Power BI](https://powerbi.microsoft.com/)
+* [Power BI](https://powerbi.microsoft.com)
 
 ## Scenario details
 
@@ -188,7 +188,7 @@ Azure Databricks
 Data Factory
 
 * [Monitor Azure Data Factory with Azure Monitor](/azure/data-factory/monitor-using-azure-monitor)
-* [Create alerts to proactively monitor your data factory pipelines](https://azure.microsoft.com/blog/create-alerts-to-proactively-monitor-your-data-factory-pipelines/)
+* [Create alerts to proactively monitor your data factory pipelines](https://azure.microsoft.com/blog/create-alerts-to-proactively-monitor-your-data-factory-pipelines)
 
 Synapse Analytics
 
@@ -220,7 +220,7 @@ Azure Storage
 * [Best practices for using Azure Data Lake Storage Gen2 – High availability and Disaster Recovery](/azure/storage/blobs/data-lake-storage-best-practices#high-availability-and-disaster-recovery)
 * [Azure Storage Redundancy](/azure/storage/common/storage-redundancy)
 
-### Videos
+## Next Steps
 
 For a detailed walk-through of the solution and key concepts, watch the following video recording: [DataDevOps for the Modern Data Warehouse on Microsoft Azure](https://www.youtube.com/watch?v=Xs1-OU5cmsw%22)
 
