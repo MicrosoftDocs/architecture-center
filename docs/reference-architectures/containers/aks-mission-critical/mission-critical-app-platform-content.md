@@ -1,11 +1,11 @@
 
 A key design area of any mission critical architecture is the application platform. Platform refers to the infrastructure components and Azure services that must be provisioned to support the application. Here are some overarching recommendations as you build the platform.
 
--	Design in layers. Choose the right set of services, their configuration, and the application-specific dependencies. This layered approach helps in creating segmentation that's useful in defining roles and functions, and assigning appropriate privileges. Also, deployment is more manageable. 
+-	Design in layers. Choose the right set of services, their configuration, and the application-specific dependencies. This layered approach helps in creating segmentation that's useful in defining roles and functions, and assigning appropriate privileges. This approach also makes the deployment more manageable. 
 
 -	A mission-critical application must be highly reliable and resistant to datacenter and regional failures. Building _zonal and regional redundancy_ in an active-active configuration is the main strategy. As you choose Azure services, consider its Availability Zones support and using multiple Azure regions. Check [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-region) to determine support for services.
 
--	Use _scale units_ to handle increased load. Scale units allow you to logically group services and a unit can be scaled independent of other units or services in the architecture. Use your capacity model and expected performance to define the required scale of a unit. Factor in duplication of resources that are required for side-by-side deployments.
+-	Use _scale units_ to handle increased load. Scale units allow you to logically group services and independently scale each unit within the architecture. Use your capacity model and expected performance to define the required scale of a unit. Factor in duplication of resources that are required for side-by-side deployments.
 
 In this architecture, the application platform consists of global, deployment stamp, and regional resources. The regional resources are provisioned as part of a deployment stamp. Each stamp equates to a scale unit and, in case it becomes unhealthy, can be entirely replaced.
 
@@ -39,17 +39,17 @@ In this architecture, global resources are [Azure Front Door](/azure/frontdoor/)
 
 ### Global load balancer
 
-Azure Front Door is used as the only entry point for user traffic. If Front Door becomes unavailable, the entire system is at risk. Azure guarantees that Azure Front Door will deliver the requested content without error 99.99% of the time. For details, check [Front Door service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-standard-and-premium-tier-service-limits).
+Azure Front Door is used as the only entry point for user traffic. If Front Door becomes unavailable, the entire system is at risk. Azure guarantees that Azure Front Door will deliver the requested content without error 99.99% of the time. For more details, see [Front Door service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-standard-and-premium-tier-service-limits).
 
-The Front Door instance sends traffic to the configured backend services, such as the compute cluster and frontend. Backend misconfigurations can lead to outages. To avoid such situations, catch errors during testing.
+The Front Door instance sends traffic to the configured backend services, such as the compute cluster and frontend. Backend misconfigurations can lead to outages. To avoid outages due to misconfigurations, you should extensively test your Front Door settings.
 
-Another common error is missing SSL certificate that can prevent users from using the front end. Mitigation might require manual intervention. You might choose to roll back to the previous configuration, re-issue the certificate, if possible. Regardless, expect unavailability while changes take effect.
+Another common error is missing SSL certificate that can prevent users from using the front end. Mitigation might require manual intervention. For example, you might choose to roll back to the previous configuration and re-issue the certificate, if possible. Regardless, expect unavailability while changes take effect.
 
 Front Door offers many additional capabilities besides global traffic routing. A frequently used one is the Web Application Firewall (WAF), because Front Door is able to inspect traffic which is passing through. When configured in the _Prevention_ mode, it can block suspicious traffic before even reaching any of the backends.
 
 For information about Front Door capabilities, see [Frequently asked questions for Azure Front Door](/azure/frontdoor/front-door-faq).
 
-> For other considerations about global distribution of traffic, see [Misson critical guidance in Well-architected Framework: Global routing](/azure/architecture/framework/mission-critical/mission-critical-networking-connectivity#global-traffic-routing).
+For other considerations about global distribution of traffic, see [Misson critical guidance in Well-architected Framework: Global routing](/azure/architecture/framework/mission-critical/mission-critical-networking-connectivity#global-traffic-routing).
 
 ### Container Registry
 
@@ -61,7 +61,7 @@ Failures can also occur if images are deleted inadvertently, new compute nodes w
 
 It’s recommended that you use the Premium SKU to enable geo replication. The zone redundancy feature ensures resiliency and high availability within a specific region. In case of a regional outage, replicas in other regions are still available for data plane operations. With this SKU you can restrict access to the registry through private endpoints. Not only does this feature restrict access to your application, but also ensures that all of the potential throughput is only reserved for that application.
 
-For more information, see [Best practices for Azure Container Registry](/azure/container-registry/container-registry-best-practices).
+For more details, see [Best practices for Azure Container Registry](/azure/container-registry/container-registry-best-practices).
 
 ### Database
 
