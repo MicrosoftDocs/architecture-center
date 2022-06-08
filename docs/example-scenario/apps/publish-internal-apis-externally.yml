@@ -17,7 +17,7 @@ metadata:
     - app-modernization
     - example-scenario
     - internal-intro
-  social_image_url: ./media/architecture-publish-internal-apis-externally.png
+  social_image_url: ./media/architecture-publish-internal-apis-externally-new.png
 name: Publish internal APIs to external users
 azureCategories:
   - integration
@@ -29,6 +29,6 @@ products:
   - azure-devops
   - azure-monitor
   - azure-virtual-network
-thumbnailUrl: /azure/architecture/browse/thumbs/architecture-publish-internal-apis-externally.png
+thumbnailUrl: /azure/architecture/browse/thumbs/architecture-publish-internal-apis-externally-thumbnail-new.png
 content: |
    [!include[](publish-internal-apis-externally-content.md)]
