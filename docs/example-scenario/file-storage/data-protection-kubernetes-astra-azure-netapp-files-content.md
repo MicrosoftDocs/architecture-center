@@ -147,7 +147,7 @@ To run detailed bandwidth and pricing calculations, use the [Azure NetApp Files 
 
 Principal authors:
 
- * [Arnt de Gier](https://nl.linkedin.com/in/arntdegier) | Azure Storage R&D
+ * [Arnt de Gier](https://nl.linkedin.com/in/arntdegier) | Technical Marketing Engineer
 
 ## Next steps
 
