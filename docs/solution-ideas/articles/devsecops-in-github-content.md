@@ -40,7 +40,7 @@ GitHub DevSecOps installations cover many security scenarios. Possibilities incl
 - [Azure AD][Azure AD] is a multi-tenant, cloud-based identity service that controls access to Azure and other cloud apps like [Microsoft 365][Microsoft 365] and GitHub.
 - [GitHub][GitHub] provides a code-hosting platform that developers can use for collaborating on both open-source and [inner-source][Inner source] projects.
 - [Codespaces][Codespaces] is an online development environment, hosted by GitHub and powered by [Visual Studio Code][Visual Studio Code]. This tool provides a complete development solution in the cloud.
-- [GitHub Security][GitHub Security] works to eliminate threats in many of ways. Agents and services identify vulnerabilities in repositories and in dependent packages. They also upgrade dependencies to up-to-date, secure versions.
+- [GitHub Security][GitHub Security] works to eliminate threats in many ways. Agents and services identify vulnerabilities in repositories and in dependent packages. They also upgrade dependencies to up-to-date, secure versions.
 - [GitHub Actions][GitHub Actions] are custom workflows that provide continuous integration (CI) and continuous deployment (CD) capabilities directly in repositories. Computers called *runners* host these CI/CD jobs.
 - [App Service][App Service] provides a framework for building, deploying, and scaling web apps. This platform offers built-in infrastructure maintenance, security patching, and scaling.
 - [Azure Policy][Azure Policy] helps teams manage and prevent IT issues through policy definitions that can enforce rules for cloud resources. For instance, if your project is about to deploy a virtual machine with an unrecognized SKU, Azure Policy alerts you to the problem and stops the deployment.
@@ -51,6 +51,7 @@ GitHub DevSecOps installations cover many security scenarios. Possibilities incl
 
 [GitHub Security][GitHub Security] provides multiple features for addressing security risks:
 
+- [Secret scanning][GitHub secret scanning] inspects repositories or commits for any tokens, keys, or secrets that appear in code. Teams can be notified that secrets have leaked into public view, and service providers can be notified that one of their secrets leaked. Service providers can optionally revoke or renew the secrets.
 - [Code scanning][GitHub code scanning] inspects code for known vulnerabilities and coding errors. As an example, if a developer leaves a database connection string exposed in code, this feature discovers the secret. GitHub starts the process of obtaining an uncompromised string after verifying its validity with the database. These checks use [CodeQL][CodeQL], a code analysis platform that improves upon traditional analyzers by treating code as data. Scans automatically run at scheduled times or after certain events occur, like commits or pushes.
 - [GitHub Dependabot][GitHub Dependabot] checks for outdated or vulnerable packages and applications. This automated agent updates software, replacing out-of-date or insecure dependencies with newer, secure versions. For instance, if your project uses an open-source library, Dependabot examines that library. Suppose the library doesn't encrypt sensitive cleartext that it stores in a database. In this case, Dependabot creates a PR to upgrade the library to a version that encrypts the data.
 - [Vulnerability management][GitHub vulnerability management] identifies and updates known vulnerabilities in code and in software packages that the code uses. It runs checks whenever the following events occur:
@@ -120,7 +121,7 @@ For long-running or complex Actions, host your own runners for CI/CD jobs. You c
 - Project managers on tight schedules may worry that adding security measures will delay development. Experience the opposite by saving time with these guidelines:
   - Shift testing left, closer to the source. Teams will have fewer mistakes as a result.
   - Address issues during programming, rather than months down the line in production. Then developers don't need to refresh their knowledge of the code.
-
+- GitHub Security features vary based on an organization's licensing, and whether a repository's visibility is public or private. See [Plans for all developers][GitHub pricing].
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
@@ -159,6 +160,7 @@ Principal author:
 [App Service]: https://azure.microsoft.com/services/app-service
 [Azure Policy]: /azure/governance/policy/overview
 [Azure Monitor]: /azure/azure-monitor/overview
+[GitHub secret scanning]: https://docs.github.com/en/free-pro-team@latest/github/administering-a-repository/about-secret-scanning
 [GitHub code scanning]: https://docs.github.com/en/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning
 [CodeQL]: https://securitylab.github.com/tools/codeql
 [GitHub Dependabot]: https://docs.github.com/en/free-pro-team@latest/github/administering-a-repository/about-dependabot-version-updates
@@ -177,6 +179,7 @@ Principal author:
 [GitHub Enterprise highly available failover configuration]: https://docs.github.com/en/enterprise/2.21/admin/enterprise-management/about-high-availability-configuration
 [Configure Dependabot security updates]: https://docs.github.com/en/github/managing-security-vulnerabilities/configuring-github-dependabot-security-updates
 [DevSecOps in Azure]: ./devsecops-in-azure.yml
+[GitHub pricing]: https://github.com/pricing
 [GitHub DevSecOps training materials]: https://github.com/devsecops/awesome-devsecops
 [GitHub DevSecOps getting started tips]: https://resources.github.com/whitepapers/Architects-guide-to-DevOps
 [SARIF]: https://docs.github.com/en/github/finding-security-vulnerabilities-and-errors-in-your-code/sarif-support-for-code-scanning
