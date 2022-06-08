@@ -60,15 +60,15 @@ This architecture extends [Analytics end-to-end with Azure Synapse](../dataplate
 
 ### Components
 
-- [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage): A Hadoop-compatible file system. It has an integrated hierarchical namespace and the scale and economy of Azure Blob Storage.
+- [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage): A Hadoop-compatible file system. It has an integrated hierarchical namespace and the scale and economy of Azure Blob Storage.
 
-- [Machine Learning](https://azure.microsoft.com/services/machine-learning): An enterprise-grade machine learning service used to quickly build and deploy models. It provides users at all skill levels with a low-code designer, automated machine learning, and a hosted Jupyter notebook environment to support your preferred integrated development environment.
+- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning): An enterprise-grade machine learning service used to quickly build and deploy models. It provides users at all skill levels with a low-code designer, automated machine learning, and a hosted Jupyter notebook environment to support your preferred integrated development environment.
 
-- [AKS](https://azure.microsoft.com/services/kubernetes-service): Machine Learning has varying support across different compute targets. Azure Kubernetes Service is one such target, and it's a great fit for high-scale production deployments. It provides a fast response time and autoscaling of the deployed service.
+- [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service): Machine Learning has varying support across different compute targets. Azure Kubernetes Service is one such target, and it's a great fit for high-scale production deployments. It provides a fast response time and autoscaling of the deployed service.
 
-- [Container Instances](https://azure.microsoft.com/services/container-instances): Container Instances is great fit for real-time inference, and it's recommended for development and test purposes only. If you don't need to manage a cluster, use it for low-scale CPU-based workloads that require less than 48 GB of RAM.
+- [Azure Container Instances](https://azure.microsoft.com/services/container-instances): Container Instances is great fit for real-time inference, and it's recommended for development and test purposes only. If you don't need to manage a cluster, use it for low-scale CPU-based workloads that require less than 48 GB of RAM.
 
-- [Power Platform](https://powerplatform.microsoft.com): A set of tools for analyzing data, building solutions, automating processes, and creating virtual agents. It includes Power App, Power Automate, Power BI, and Power Virtual Agents.
+- [Microsoft Power Platform](https://powerplatform.microsoft.com): A set of tools for analyzing data, building solutions, automating processes, and creating virtual agents. It includes Power App, Power Automate, Power BI, and Power Virtual Agents.
 
 - [Power Apps](https://powerapps.microsoft.com): A platform with a suite of apps, services, and connectors. It provides an environment for rapid application development to build custom apps for your business needs.
 
@@ -135,7 +135,7 @@ Other contributors:
 
 ## Next steps
 
-- [Build intelligent applications infused with world-class AI](https://docs.microsoft.com/events/build-may-2021/azure/breakouts/brk220/)
+- [Build intelligent applications infused with world-class AI](https://docs.microsoft.com/events/build-may-2021/azure/breakouts/brk220)
 - [Create and attach an Azure Kubernetes Service cluster](/azure/machine-learning/how-to-create-attach-kubernetes?tabs=python)
 - [Create machine learning models](/learn/paths/create-machine-learn-models)
 - [Data in Azure Machine Learning](/azure/machine-learning/concept-data)
