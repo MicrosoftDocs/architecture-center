@@ -129,7 +129,7 @@ See a [pricing sample for a SMB data warehousing scenario](https://azure.com/e/c
 
 Principal authors:
 
-* [Galina Polyakova ](/) | Sr Cloud Solution Architect
+* [Galina Polyakova ](https://www.linkedin.com/in/galinapolyakova) | Senior Cloud Solution Architect
 
 ## Next steps
 
