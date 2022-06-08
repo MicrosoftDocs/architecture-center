@@ -86,7 +86,6 @@ You can find the source code, deployment files, and instructions to test this sc
 - [Deploy an orchestrator logic app in Azure](https://github.com/mspnp/multi-stage-azure-pipeline-automation)
 - [Deploy a .NET Angular workload](https://github.com/mspnp/multi-stage-azure-pipeline-automation-app)
 
-
 ## Next steps
 
 - Besides .NET Angular workloads, there are several other types of workloads that can be deployed based on similar principles. Read how chatbots can be deployed using ARM templates and CI/CD pipelines. For more information, see [Build a CI/CD pipeline for chatbots with ARM templates](../apps/devops-cicd-chatbot.yml).
