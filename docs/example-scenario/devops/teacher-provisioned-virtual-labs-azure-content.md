@@ -84,6 +84,14 @@ Because Lab Services labs are designed to be easy for teachers to deploy, the [p
 - Lab Services helps contain compute costs via teacher-controlled schedules and quota hours. There are no VM storage costs despite the VM’s being persistent.
 - Pricing is covered in [Azure Lab Services pricing](https://azure.microsoft.com/pricing/details/lab-services), and sample cost estimates are provided for many of the [Class Type examples](/azure/lab-services/class-types) in the product docs, in the **Cost** section towards the end of each scenario. The [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator) provides a way to build scenario pricing also.
 
+## Contributors
+
+*This article is being updated and maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+* [Manuel Garriga](https://www.linkedin.com/in/manuelgarriga) | Principal Cloud Solution Architect
+
 ## Next steps
 
 - To get started with Azure Lab Services quickly, follow these tutorials:
