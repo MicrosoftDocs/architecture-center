@@ -43,7 +43,7 @@ The following components are required.
 
 **Gateway.** A gateway connects distinct networks, extending your on-premises network to the Azure VNet.
 [ExpressRoute](../../reference-architectures/hybrid-networking/expressroute.yml) is the recommended Azure service for creating private connections that do not go over the public internet, but a
-[site-to-site](../../reference-architectures/hybrid-networking/vpn.yml) connection can also be used. To reduce latency,
+[site-to-site](/azure/expressroute/expressroute-howto-coexist-resource-manager) connection can also be used. To reduce latency,
 [ExpressRoute Global Reach](/azure/expressroute/expressroute-global-reach) and [ExpressRoute FastPath](/azure/expressroute/about-fastpath) are connectivity options discussed later in this article.
 
 **Azure Storage.** To provide data persistence for a virtual machine in the form of virtual hard disk (VHD). [Azure Managed Disk](/azure/virtual-machines/windows/managed-disks-overview) is recommended.

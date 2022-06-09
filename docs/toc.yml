@@ -345,6 +345,10 @@ items:
                 href: guide/multitenant/approaches/iot.md
               - name: AI and ML
                 href: guide/multitenant/approaches/ai-ml.md
+          - name: Architectures
+            items:
+              - name: SaaS Starter web app
+                href: example-scenario/apps/saas-starter-web-app.yml
           - name: Service-specific guidance
             items:
               - name: Overview
@@ -413,6 +417,8 @@ items:
                  href: example-scenario/ai/extract-object-text.yml
                - name: Power Automate deployment at scale
                  href: example-scenario/power-automate/power-automate.yml
+               - name: Real-time ML with Power Platform
+                 href: example-scenario/ai/deploy-real-time-machine-learning-model-application-ui.yml  
           - name: Azure and Microsoft 365 scenarios
             items:
               - name: Overview
@@ -1787,6 +1793,8 @@ items:
                 href: example-scenario/data/realtime-analytics-vehicle-iot.yml
               - name: Real-time asset tracking for vehicles
                 href: solution-ideas/articles/real-time-asset-tracking-mgmt-iot-central.yml
+              - name: Real-time ML to estimate a car's value
+                href: example-scenario/ai/deploy-real-time-machine-learning-model-application-ui.yml  
               - name: Run CFD simulations
                 href: example-scenario/infrastructure/hpc-cfd.yml
           - name: Datasets
@@ -2378,6 +2386,8 @@ items:
                 href: example-scenario/ai/predict-hospital-readmissions-machine-learning.yml
               - name: Quality assurance
                 href: solution-ideas/articles/quality-assurance.yml
+              - name: Real-time machine learning on Azure
+                href: example-scenario/ai/deploy-real-time-machine-learning-model-application-ui.yml
               - name: Real-time recommendation API
                 href: reference-architectures/ai/real-time-recommendation.yml
               - name: Real-time scoring Python models
@@ -3941,8 +3951,6 @@ items:
                 href: example-scenario/hybrid/secure-hybrid-messaging-web.yml
               - name: Extend on-premises using ExpressRoute
                 href: reference-architectures/hybrid-networking/expressroute.yml
-              - name: Extend an on-premises network using VPN
-                href: reference-architectures/hybrid-networking/vpn.yml    
               - name: Hybrid availability and monitoring
                 href: hybrid/hybrid-perf-monitoring.yml
               - name: Hybrid file services
@@ -5257,6 +5265,8 @@ items:
               - name: Microsoft Cybersecurity Architectures
                 href: /security/cybersecurity-reference-architecture/mcra
                 maintainContext: true
+              - name: Use Azure monitoring to integrate security
+                href: guide/security/azure-monitor-integrate-security-components.yml
               - name: Virtual Network security options
                 href: example-scenario/gateway/firewall-application-gateway.yml
               - name: Zero-trust network for web applications
@@ -5335,6 +5345,18 @@ items:
                 href: example-scenario/integrated-multiservices/virtual-network-integration.yml
               - name: Web app private database connectivity
                 href: example-scenario/private-web-app/private-web-app.yml
+          - name: Solution ideas
+            items:
+              - name: Threat assessments
+                items: 
+                  - name: Map threats to your IT environment
+                    href: solution-ideas/articles/map-threats-it-environment.yml
+                  - name: "First layer of defense: Azure security"
+                    href: solution-ideas/articles/azure-security-build-first-layer-defense.yml
+                  - name: "Second layer of defense: M365 Defender"
+                    href: solution-ideas/articles/microsoft-365-defender-build-second-layer-defense.yml
+                  - name: Integrate Azure and M365 Defender security
+                    href: solution-ideas/articles/microsoft-365-defender-security-integrate-azure.yml
       - name: Storage
         items:
           - name: Get started
@@ -5530,6 +5552,8 @@ items:
               - name: Connect RDP Shortpath
                 href: /azure/virtual-desktop/shortpath
                 maintainContext: true
+              - name: Multiregion BCDR for Azure Virtual Desktop
+                href: example-scenario/wvd/azure-virtual-desktop-multi-region-bcdr.yml
               - name: FSLogix guidance
                 items:
                   - name: FSLogix for the enterprise
@@ -5640,6 +5664,8 @@ items:
                 href: reference-architectures/apis/protect-apis.yml
               - name: Real-time location sharing
                 href: example-scenario/signalr/index.yml
+              - name: SaaS Starter web app
+                href: example-scenario/apps/saas-starter-web-app.yml
               - name: Scalable and secure WordPress on Azure
                 href: example-scenario/infrastructure/wordpress.yml
               - name: Scalable cloud applications and SRE

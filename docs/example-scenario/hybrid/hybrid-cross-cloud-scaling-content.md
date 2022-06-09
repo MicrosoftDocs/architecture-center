@@ -73,5 +73,5 @@ The key benefit of cross-cloud scaling is the ability to deliver on-demand scali
 
 - [Hybrid architecture design](../../hybrid/hybrid-start-here.md)
 - [Run containers in a hybrid environment](../../hybrid/hybrid-containers.yml)
-- [Extend an on-premises network using VPN](../../reference-architectures/hybrid-networking/vpn.yml)
+- [Extend an on-premises network using VPN](/azure/expressroute/expressroute-howto-coexist-resource-manager)
 - [Hybrid availability and performance monitoring](../../hybrid/hybrid-containers.yml)

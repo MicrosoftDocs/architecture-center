@@ -398,9 +398,6 @@ conceptualContent:
         - text: Choose a hybrid network architecture
           itemType: architecture
           url: reference-architectures/hybrid-networking/index.yml
-        - text: VPN
-          itemType: architecture
-          url: reference-architectures/hybrid-networking/vpn.yml
         - text: ExpressRoute
           itemType: architecture
           url: reference-architectures/hybrid-networking/expressroute.yml

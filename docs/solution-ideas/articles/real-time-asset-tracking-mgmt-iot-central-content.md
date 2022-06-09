@@ -6,7 +6,7 @@ It uses Azure IoT Central to receive data from IoT sensors and export it to Azur
 
 ## Potential use cases
 
-These other uses cases have similar design patterns:
+This solution is ideal for the manufacturing and automotive industries. These other use cases have similar design patterns:
 
 - **Management and inventory:** Track vehicles and assets.
 - **Driver scoring:** Use metrics such as location, speed, out-of-route distance, and hard braking to monitor driver behavior.
@@ -19,6 +19,8 @@ These other uses cases have similar design patterns:
 :::image type="content" source="../media/real-time-asset-tracking-mgmt-iot-central-content.svg" lightbox="../media/real-time-asset-tracking-mgmt-iot-central-content.svg" alt-text="The solution diagram shows devices sending data to IoT Central, which exports it to Event Hubs for use by various alerting and reporting services.":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1839204-PR-3091-real-time-asset-tracking-mgmt-iot-central.vsdx) of this architecture.*
+
+### Workflow
 
 1. IoT sensors installed on vehicles and other assets send telemetry to cloud gateway devices.
 1. Gateway devices send telemetry and aggregated insights to Azure IoT Central.
