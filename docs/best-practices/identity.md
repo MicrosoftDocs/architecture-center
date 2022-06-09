@@ -42,7 +42,7 @@ Users expect an identity system to include a range of advanced features, which m
 - Passwordless authentication, where users can use secure approaches to sign in that don't require them to enter a credential.
 - Multifactor authentication (MFA), which prompts the user to authenticate themselves in multiple ways, such as by using a mobile app or a code that's sent by email or SMS.
 - Auditing, which tracks every event that happens in the identity platform including successful, failed, and aborted sign-in attempts.
-- Conditional access, which creates a risk profile around sign-in attempts based on a number of factors. The factors might include the user's identity, the location of the sign-in attempt, previous sign-in activity, application and data sensitivity, and other factors.
+- Conditional access, which creates a risk profile around sign-in attempts based on a various factors. The factors might include the user's identity, the location of the sign-in attempt, previous sign-in activity, and the sensitivity of the data or application.
 - Just-in-time access control, which temporarily allows users to sign in based on an approval process, and then removes the authorization automatically.
 
 If you're building an identity component as part of your solution, it's unlikely you'll be able to justify the work involved in implementing these features, and in maintaining them. Additionally, some of the features require extra work, such as integration with email and SMS messaging providers to send MFA codes.
@@ -57,7 +57,7 @@ If you build or run your own identity platform, you won't be able to take advant
 
 ## Avoid storing credentials
 
-When you run your own identity provider, you have to store a database of credentials. You should never store raw credentials, or even encrypted credentials. Instead, you should cryptographically hash and salt the credentials before storing them, which makes them more difficult to attack. However, even hashed and salted credentials are vulnerable to a variety of attack types.
+When you run your own identity provider, you have to store a database of credentials. You should never store raw credentials, or even encrypted credentials. Instead, you should cryptographically hash and salt the credentials before storing them, which makes them more difficult to attack. However, even hashed and salted credentials are vulnerable to several types of attack.
 
 Regardless of how you protect the individual credentials, maintaining a database of credentials makes you a target for attacks. Recent years have shown that both large and small organizations have had their credential databases targeted for attack. **Consider credential storage to be a liability, not an asset.**
 
@@ -71,7 +71,7 @@ Similarly, an identity system must be performant, and able to scale to the level
 
 If you run an identity system, it becomes your responsibility to keep it secured. Examples of the concerns you need to consider include:
 
-* Penetration testing needs to be performed regularly, and requires specalist expertise.
+* Penetration testing needs to be performed regularly, and requires specialized expertise.
 * Your employees, and anybody else with access to the system, might need to be vetted.
 * All changes to your solution must be tightly controlled and reviewed by experts.
 
