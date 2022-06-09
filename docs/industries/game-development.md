@@ -33,6 +33,8 @@ Build, scale, and operate your game on the global, reliable Azure cloud, and inc
 
 > [!VIDEO https://www.youtube.com/embed/mPJUsxRBF4o]
 
+For a video about building AI in gaming, see [Azure Cognitive Services for game development](https://youtu.be/dG57AYkWFB0).
+
 ## Architectures for game development
 
 The following articles provide detailed analysis of architectures created and recommended for the game development industry.
