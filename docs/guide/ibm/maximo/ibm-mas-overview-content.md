@@ -106,7 +106,7 @@ During the installation of OpenShift there are some considerations:
 
 #### Air gap installations
 
-> [!WARN]
+> [!NOTE]
 > Air gapped patterns have not been tested in full but would require using the [User Provided Infrastructure (UPI)](https://github.com/openshift/installer/blob/master/docs/user/azure/install_upi.md) as a starting point.
 
 In some cases you may requirean air gap installation of Maximo on Azure. Air gapped means you have no inbound/outbound internet access to retrieve the install dependancies at runtime for the installation of Maximo or OpenShift. By default we do not recommend you do an air gap install as it creates very significant complexity to the operations of your solution. Things such as mirroring containers, keeping the mirrors updated against security vulnerabilities, doing the install, firewall management, etc can become very time consuming.
@@ -121,7 +121,7 @@ Visual Inspection needs GPU nodes to perform its machine learing. The solution u
 
 For the GPU machines, we recommend starting with the smallest node and working your way up as your requirements increase. For all other machines, we recommend a highly available, cross availability zone set up:
 
-> [!WARN]
+> [!WARNING]
 > If you need GPU machines, you need OpenShift 4.8.22 as a minimum version to enable the GPUs through the Nvidia Operator.
 
 * Control nodes, you will want at a minimum 1 machine per availability zone within the selected region. The minimum recommended vCPU count is 4. Our reference uses 3x `Standard_D8s_v4` nodes
