@@ -37,19 +37,19 @@ It's also common to [federate IdPs together](../patterns/federated-identity.yml)
 
 ## Adopt modern identity features
 
-Users expect an identity system to include a range of advanced features, which might include any of the following features:
+Users expect an identity system to include a range of advanced features, which might include the following features:
 
 - Passwordless authentication, where users can use secure approaches to sign in that don't require them to enter a credential.
-- Multifactor authentication (MFA), which prompts the user to authenticate themselves in multiple ways, such as by using a mobile app or a code that's sent by email or SMS.
-- Auditing, which tracks every event that happens in the identity platform including successful, failed, and aborted sign-in attempts.
-- Conditional access, which creates a risk profile around sign-in attempts based on a various factors. The factors might include the user's identity, the location of the sign-in attempt, previous sign-in activity, and the sensitivity of the data or application.
+- Multifactor authentication (MFA), which prompts the user to authenticate themselves in multiple ways, such as by using a password as well as using a mobile app or a code that's sent by email or SMS.
+- Auditing, which tracks every event that happens in the identity platform including successful, failed, and aborted sign-in attempts. You might also need to log sufficient detail to forensically analyze the sign-in attempt later.
+- Conditional access, which creates a risk profile around a sign-in attempt based on various factors. The factors might include the user's identity, the location of the sign-in attempt, previous sign-in activity, and the sensitivity of the data or application.
 - Just-in-time access control, which temporarily allows users to sign in based on an approval process, and then removes the authorization automatically.
 
-If you're building an identity component as part of your solution, it's unlikely you'll be able to justify the work involved in implementing these features, and in maintaining them. Additionally, some of the features require extra work, such as integration with email and SMS messaging providers to send MFA codes.
+If you're building an identity component as part of your own business solution, it's unlikely you'll be able to justify the work involved in implementing these features, and in maintaining them. Some of these features also require extra work, such as integration with email and SMS messaging providers to send MFA codes, and storing and retaining audit logs for a sufficient time period.
 
-Managed identity platforms also can provide an improved set of security features based on the volume of sign-in requests they receive. For example, the following features work best when there's a large number of customers using a managed, multitenant identity platform:
+Managed identity platforms also can provide an improved set of security features based on the volume of sign-in requests they receive. For example, the following features work best when there's a large number of customers using a managed identity platform that's used by a large number of customers:
 
-- Risky sign-in detection, such as sign-in attempts from botnets and [impossible travel](/defender-cloud-apps/anomaly-detection-policy#impossible-travel), and using machine learning techniques to classify sign-in attempts as valid or invalid.
+- Risky sign-in detection, such as sign-in attempts from botnets, [impossible travel](/defender-cloud-apps/anomaly-detection-policy#impossible-travel), and the use of machine learning techniques to classify sign-in attempts as valid or invalid.
 - Common credential detection, such as insecure passwords that are frequently used by other users and therefore subject to a heightened risk of compromise.
 - Compromised credential monitoring, which monitors sources on the dark web for leaked credentials and prevents their use.
 
@@ -57,13 +57,15 @@ If you build or run your own identity platform, you won't be able to take advant
 
 ## Avoid storing credentials
 
-When you run your own identity provider, you have to store a database of credentials. You should never store raw credentials, or even encrypted credentials. Instead, you should cryptographically hash and salt the credentials before storing them, which makes them more difficult to attack. However, even hashed and salted credentials are vulnerable to several types of attack.
+When you run your own identity provider, you have to store a database of credentials. You should never store raw credentials, or even encrypted credentials.
 
-Regardless of how you protect the individual credentials, maintaining a database of credentials makes you a target for attacks. Recent years have shown that both large and small organizations have had their credential databases targeted for attack. **Consider credential storage to be a liability, not an asset.**
+Instead, you might consider cryptographically hashing and salting credentials before storing them, which makes them more difficult to attack. However, even hashed and salted credentials are vulnerable to several types of attack.
+
+Regardless of how you protect the individual credentials, maintaining a database of credentials makes you a target for attacks. Recent years have shown that both large and small organizations have had their credential databases targeted for attack. **Consider credential storage to be a liability, not an asset.** By using a managed identity provider, you outsource the problem of credential storage to them.
 
 ## Build a reliable and performant identity system
 
-Because identity systems are such a key part of modern cloud applications, they must be reliable. If your identity system is unavailable, the rest of your solution might well be impacted and either operate in a degraded fashion or fail to operate at all. By using a managed identity provider with a service level agreement, you can increase your confidence that your identity system will remain operational when you need it. For example, [Azure Active Directory offers a 99.99% uptime SLA for the Basic and Premium service tiers](https://azure.microsoft.com/support/legal/sla/active-directory/), which covers both the login and token issuing processes.
+Because identity systems are such a key part of modern cloud applications, they must be reliable. If your identity system is unavailable, the rest of your solution might well be impacted and either operate in a degraded fashion or fail to operate at all. By using a managed identity provider with a service level agreement, you can increase your confidence that your identity system will remain operational when you need it. For example, [Azure Active Directory offers a 99.99% uptime SLA for the Basic and Premium service tiers](https://azure.microsoft.com/support/legal/sla/active-directory/), which covers both the sign-in and token issuing processes.
 
 Similarly, an identity system must be performant, and able to scale to the level of growth that your system might experience. Depending on your application architecture, it's possible that every request might require interaction with your identity provider, and any performance issues will be apparent to your users. Managed identity providers are incentivized to scale to large user loads, and architect their solutions to absorb large volumes of traffic, including traffic generated by different forms of attacks.
 
