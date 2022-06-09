@@ -18,7 +18,7 @@ The resources in each layer have distinct characteristics:
 |Reach|Is the resource required to be globally distributed? Can the resource communicate with other resources, globally or in regions?|
 |Dependencies|What's the dependency on other resources, globally or in other regions?|
 |Scale limits|What is the expected throughput for that resource at that layer? How much scale is provided by the resource to fit that demand? |
-|Availability/disaster recovery|Is the resource configured for high availability?|
+|Availability/disaster recovery|What's the impact on availability or disaster at this layer? Would it cause a systemic outage or only localized capacity or availability issue?|
 
 ## Global resources
 
@@ -26,11 +26,11 @@ Certain resources in this architecture are shared by resources deployed in regio
 
 |Characteristics|Layer Considerations|
 |---|---|
-|Lifetime|The resources are expected to be long living. Their lifetime spans the life of the system.|
+|Lifetime|These resources are expected to be long living. Their lifetime spans the life of the system or longer. Often the resources are managed with in-place data and control plane updates, assuming they support zero-downtime update operations.|
 |State| Because these resources exist for at least the lifetime of the system, this layer is often responsible for storing global, geo-replicated state.|
 |Reach|The resources should be globally distributed. It’s recommended that these resources communicate with regional or other resources with low latency and the desired consistency.|
-|Dependencies| The resources should avoid dependency on regional resources because their unavailability can be a cause of failure. For example, certificates or secrets shouldn’t be kept in a key store that’s deployed regionally. |
-|Scale limits|The resources should be scaled such that they can handle throughput of the system as a whole.|
+|Dependencies|The resources should avoid dependencies on regional resources because their unavailability can be a cause of global failure. For example, certificates or secrets kept in a single vault could have global impact if there is regional failure where the vault is located.|
+|Scale limits|Often these resources are singleton instances in the system, and as such they should be able to scale such that they can handle throughput of the system as a whole.|
 |Availability/disaster recovery|Because regional and stamp resources can consume global resources or are fronted by them, it's critical that global resources are configured with high availability and disaster recovery for the health of the whole system. |
 
 In this architecture, global layer resources are [Azure Front Door](/azure/frontdoor/), [Azure Cosmos DB](/azure/cosmos-db/), [Azure Container Registry](/azure/container-registry/), and [Azure Log Analytics](/azure/azure-monitor/) for storing logs and metrics from other global layer resources.
@@ -65,7 +65,7 @@ For more details, see [Best practices for Azure Container Registry](/azure/conta
 
 ### Database
 
-It's recommended that all state is stored global in a database separated from regional stamps. Build redundancy by deploying the database across regions. For mission-critical workloads, data consistency should be the primary concern. Also, in case of a failure, write requests to the database should still be functional.
+It's recommended that all state is stored globally in a database separated from regional stamps. Build redundancy by deploying the database across regions. For mission-critical workloads, data consistency should be the primary concern. Also, in case of a failure, write requests to the database should still be functional.
 
 Data replication in an active-active configuration is strongly recommended. The application should be able to instantly connect with another region. All instances should be able to handle read _and_ write requests.
 
@@ -90,9 +90,9 @@ Taking hard dependency on foundational services is inevitable because many Azure
 - Azure Front Door uses Azure DNS to reach the backend and other global services.
 - Azure Container Registry uses Azure DNS to fail over requests to another region.
 
-In both cases, both Azure services will be impacted if Azure DNS is unavailable. Name resolution for user requests from Front Door will fail; Docker images won't be pulled from the registry. Using an external DNS service as backup will not mitigate the risk, because many Azure services don't allow such configuration and rely on internal DNS. Expect full outage.
+In both cases, both Azure services will be impacted if Azure DNS is unavailable. Name resolution for user requests from Front Door will fail; Docker images won't be pulled from the registry. Using an external DNS service as backup will not mitigate the risk because many Azure services don't allow such configuration and rely on internal DNS. Expect full outage.
 
-Similarly, Azure AD is used for control plane operations such as creating new AKS nodes, pulling images from Container Registry, or accessing Key Vault on pod startup. If Azure AD is unavailable, running components should not affected. But, new pods or AKS nodes won't be functional. Consider scaling in during this time and expect decreased user experience.
+Similarly, Azure AD is used for control plane operations such as creating new AKS nodes, pulling images from Container Registry, or accessing Key Vault on pod startup. If Azure AD is unavailable, existing components should not affected, but overall performance may be degraded. For example, new pods or AKS nodes added while Azure AD is unavailable won't be functional. Consider scaling in during this time and expect decreased user experience.
 
 ## Deployment stamp resources
 
@@ -175,11 +175,11 @@ Observability is critical in this architecture because stamps are ephemeral. Dia
 
 Azure Key Vault is used to store global secrets such as connection strings to the database and stamp secrets such as the Event Hubs connection string.
 
-This architecture uses a Secrets Store CSI driver in the compute cluster to get/set secrets from Key Vault. Secrets are needed when new pods are spawned. If Key Vault is unavailable, new pods might not get started. As a result there might be disruption; scale out operations can be impacted, updates can fail, new deployments can't be executed.
+This architecture uses a [Secrets Store CSI driver](/azure/aks/csi-secrets-store-driver) in the compute cluster to get/set secrets from Key Vault. Secrets are needed when new pods are spawned. If Key Vault is unavailable, new pods might not get started. As a result there might be disruption; scale out operations can be impacted, updates can fail, new deployments can't be executed.
 
 Key Vault has a limit on the number of operations. Due to the automatic update of secrets, the limit can be reached if there are many pods. You can choose to decrease the frequency of updates to avoid this situation.
 
-> For other considerations on secret management, see [Misson critical guidance in Well-architected Framework: Data integrity protection](/azure/architecture/framework/mission-critical/mission-critical-security#data-integrity-protection).
+For other considerations on secret management, see [Misson critical guidance in Well-architected Framework: Data integrity protection](/azure/architecture/framework/mission-critical/mission-critical-security#data-integrity-protection).
 
 ### Event Hubs
 
@@ -187,7 +187,7 @@ The only stateful service in the stamp is the message broker, Azure Event Hubs, 
 
 In this architecture, Standard SKU is used and zone redundancy is enabled for high availability.
 
-Event Hubs health is verified by the HealthService component running on the compute cluster. It performs periodic checks against various resources. This is useful in detecting unhealthy conditions. Suppose messages cannot be sent to the event hub. This condition will make the stamp unusable for any write operations. HealthService should automatically detect this and report unhealthy state to Front Door, which will take the stamp out of rotation.
+Event Hubs health is verified by the HealthService component running on the compute cluster. It performs periodic checks against various resources. This is useful in detecting unhealthy conditions. For example, if messages cannot be sent to the event hub, the stamp  would be unusable for any write operations. HealthService should automatically detect this condition and report unhealthy state to Front Door, which will take the stamp out of rotation.
 
 For scalability, enabling auto-inflate through a Terraform variable is recommended.
 
@@ -197,7 +197,7 @@ For scalability, enabling auto-inflate through a Terraform variable is recommend
 
 In this architecture two storage accounts are provisioned. Both accounts are deployed in zone-redundant mode (ZRS).
 
-One account is used Event Hub checkpointing. If this account is not responsive, the stamp won't be able to process messages from Event Hub and might even impact other services in the stamp. This condition is periodically checked by the HealthService, which is one the application components running in the compute cluster.
+One account is used Event Hubs checkpointing. If this account is not responsive, the stamp won't be able to process messages from Event Hubs and might even impact other services in the stamp. This condition is periodically checked by the HealthService, which is one of the application components running in the compute cluster.
 
 The other is used to host the UI single-page application. If serving of the static web site has any issues, Front Door will detect the issue and won't send traffic to this storage account. During this time, Front Door can use cached content.
 
