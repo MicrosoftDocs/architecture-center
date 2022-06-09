@@ -22,7 +22,7 @@ Almost every cloud application needs to work with user identities. Identity is t
 
 For most solutions, consider using a managed identity provider (IdP) instead of building or operating your own. In this article, we describe the challenges of building or running your own identity provider.
 
-> [!NOTE]
+> [!IMPORTANT]
 > Using a fully managed identity platform, like Azure Active Directory (Azure AD), Azure AD B2C, or another similar system is the best approach to follow.
 > 
 > Your solution requirements might lead you to use a framework or off-the-shelf identity solution that you host and run yourself. While this mitigates some of the issues described in this article, many of the problems we describe are still your responsibility even if you operate a pre-built identity product.
