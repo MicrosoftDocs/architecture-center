@@ -14,7 +14,7 @@ For more considerations, see [Choose a solution for integrating on-premises Acti
 
 ## Architecture
 
-This architecture extends the hybrid network architecture shown in [Connect an on-premises network to Azure using a VPN gateway](../hybrid-networking/vpn.yml). It has the following components.
+This architecture extends the hybrid network architecture shown in [Connect an on-premises network to Azure using a VPN gateway](/azure/expressroute/expressroute-howto-coexist-resource-manager). It has the following components.
 
 - **On-premises network**. The on-premises network includes local Active Directory servers that can perform authentication and authorization for components located on-premises.
 - **Active Directory servers**. These are domain controllers implementing directory services (AD DS) running as VMs in the cloud. These servers can provide authentication of components running in your Azure virtual network.
@@ -139,7 +139,7 @@ Azure Virtual Network is free. Every subscription is allowed to create up to 50 
 ## Related resources
 
 - [Choose a solution for integrating on-premises Active Directory with Azure][considerations]
-- [Connect an on-premises network to Azure using a VPN gateway](../hybrid-networking/vpn.yml)
+- [Connect an on-premises network to Azure using a VPN gateway](/azure/expressroute/expressroute-howto-coexist-resource-manager)
 - Learn the best practices for [creating an AD DS resource forest][adds-resource-forest] in Azure.
 - Learn the best practices for [creating an Active Directory Federation Services (AD FS) infrastructure][adfs] in Azure.
 

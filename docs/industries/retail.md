@@ -32,8 +32,6 @@ Retail is one of the fastest growing industries worldwide, generating some of th
 - creating innovative customer experiences using mixed reality, AI, and IoT, and
 - building a personalized and secure multi-channel retail experience for customers.
 
-Using Azure services, retailers can easily achieve these goals. For use cases and customer stories, visit [Azure for retail](https://azure.microsoft.com/industries/retailers/). Microsoft is also revolutionizing the retail industry, by providing a comprehensive retail package, [Microsoft Cloud for Retail](https://www.microsoft.com/industry/retail/microsoft-cloud-for-retail).
-
 <br>
 
 <!-- markdownlint-disable MD034 -->
@@ -46,6 +44,8 @@ Using Azure services, retailers can easily achieve these goals. For use cases an
 
 > [!NOTE]
 > Learn more about a retail company's journey to cloud adoption, in [Cloud adoption for the retail industry](/azure/cloud-adoption-framework/industry/retail).
+
+Using Azure services, retailers can easily achieve these goals. For use cases and customer stories, visit [Azure for retail](https://azure.microsoft.com/industries/retailers/). Microsoft is also revolutionizing the retail industry, by providing a comprehensive retail package, [Microsoft Cloud for Retail](https://www.microsoft.com/industry/retail/microsoft-cloud-for-retail).
 
 ## Architecture guides for retail
 
