@@ -172,7 +172,11 @@ For managing the IaaS resources, you can use Azure AD for authentication and aut
 
 ## Considerations
 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
 ### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 Maintaining access and visibility into yours assets maintenance lifecycle can be one of your organization's greatest opportunity to operate efficiently and maintain uptime. It's important to secure access to your Maximo deployment. To achieve this goal, use secure authentication (e.g., SAML) and keep your solutions up-to-date. Use encryption to protect all data moving in and out of your architecture.
 
@@ -202,6 +206,8 @@ Control access to the Azure resources that you deploy. Every Azure subscription 
 ### Cost optimization
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+
+<!-- TODO: Add more info to this section. Some ideas... How much will this cost to run? See if you can answer this without dollar amounts. Are there ways I could save cost? If it scales linearly, than we should break it down by cost/unit. If it does not, why? What are the components that make up the cost? How does scale affect the cost? Link to the pricing calculator (https://azure.microsoft.com/en-us/pricing/calculator) with all of the components in the architecture included, even if they're a $0 or $1 usage. If it makes sense, include small/medium/large configurations. Describe what needs to be changed as you move to larger sizes. -->
 
 ## Deploy this scenario
 
