@@ -32,7 +32,7 @@ You can implement the left side of the diagram (data ingestion) by using any ext
   - An [Azure Synapse workspace](/azure/synapse-analytics/quickstart-create-workspace) promotes collaboration among data engineers, data scientists, data analysts, and business intelligence (BI) professionals for EDA tasks.
   - [Azure Synapse serverless SQL pools](/azure/synapse-analytics/get-started-analyze-sql-on-demand) analyze unstructured and semi-structured data in Azure Data Lake Storage by using standard T-SQL.  
   - [Azure Synapse serverless Apache Spark pools](/azure/synapse-analytics/get-started-analyze-spark) do code-first explorations in Data Lake Storage by using Spark languages like Spark SQL, PySpark, and Scala.
-- [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) provides storage for data that is then analyzed by Azure Synapse severless SQL pools.
+- [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) provides storage for data that is then analyzed by Azure Synapse serverless SQL pools.
 - [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) provides data to Azure Synapse Spark.  
 - [Power BI](https://azure.microsoft.com/services/power-bi-embedded) is used in this solution to query data to accomplish EDA. 
 
