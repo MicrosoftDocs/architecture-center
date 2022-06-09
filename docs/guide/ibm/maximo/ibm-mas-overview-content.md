@@ -270,4 +270,4 @@ To learn more about the featured technologies, see the following information:
 
 ## Related resources
 
-<!-- TODO: Add links to related AAC articles. -->
+[Predictive maintenance for industrial IoT](/azure/architecture/solution-ideas/articles/iot-predictive-maintenance)
