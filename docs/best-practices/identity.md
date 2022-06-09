@@ -23,7 +23,7 @@ Almost every cloud application needs to work with user identities. Identity is t
 For most solutions, consider using a managed identity provider (IdP) instead of building or operating your own. In this article, we describe the challenges of building or running your own identity provider.
 
 > [!IMPORTANT]
-> Using a fully managed identity platform, like Azure Active Directory (Azure AD), Azure AD B2C, or another similar system is the best approach to follow.
+> Using a fully managed identity platform, like Azure Active Directory (Azure AD), Azure AD B2C, or another similar system, is the best approach to follow.
 > 
 > Your solution requirements might lead you to use a framework or off-the-shelf identity solution that you host and run yourself. While this mitigates some of the issues described in this article, many of the problems we describe are still your responsibility even if you operate a pre-built identity product.
 > 
@@ -40,7 +40,7 @@ It's also common to [federate IdPs together](../patterns/federated-identity.yml)
 Users expect an identity system to include a range of advanced features, which might include the following features:
 
 - Passwordless authentication, where users can use secure approaches to sign in that don't require them to enter a credential.
-- Multifactor authentication (MFA), which prompts the user to authenticate themselves in multiple ways, such as by using a password as well as using a mobile app or a code that's sent by email or SMS.
+- Multifactor authentication (MFA), which prompts the user to authenticate themselves in multiple ways. For example, a user might sign in by using a password and also a mobile app or a code that's sent by email or SMS.
 - Auditing, which tracks every event that happens in the identity platform including successful, failed, and aborted sign-in attempts. You might also need to log sufficient detail to forensically analyze the sign-in attempt later.
 - Conditional access, which creates a risk profile around a sign-in attempt based on various factors. The factors might include the user's identity, the location of the sign-in attempt, previous sign-in activity, and the sensitivity of the data or application.
 - Just-in-time access control, which temporarily allows users to sign in based on an approval process, and then removes the authorization automatically.
@@ -63,7 +63,7 @@ Instead, you might consider cryptographically hashing and salting credentials be
 
 Regardless of how you protect the individual credentials, maintaining a database of credentials makes you a target for attacks. Recent years have shown that both large and small organizations have had their credential databases targeted for attack.
 
-**Consider credential storage to be a liability, not an asset.** By using a managed identity provider, you outsource the problem of credential storage to experts who can invest the time and resources in securely mnaging credentials.
+**Consider credential storage to be a liability, not an asset.** By using a managed identity provider, you outsource the problem of credential storage to experts who can invest the time and resources in securely managing credentials.
 
 ## Build a reliable and performant identity system
 
