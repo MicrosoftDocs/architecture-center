@@ -13,7 +13,7 @@ Throughout the health and life sciences industry, organizations are adopting a *
 
 This solution uses the global footprint of Azure Front Door and edge security features of Azure Web Application Firewall (WAF) to authenticate the inbound data. The authenticated data is then routed by Azure API Management (APIM) to either the front-end interface for the users on the Azure App Service, or APIs hosted in Azure Functions.
 
-The primary backend data service used in this architecture is Azure Cosmos DB. The multi-model abilities of Cosmos DB, in addition to its scalability and security, allow flexibility for any type of consumer health portal. Any data that is not in a record format is stored in Azure Blob Storage as an object. This data could include medical images, photos taken by the consumer, uploaded documents, archived data, and so on. Blob storage provides an affordable storage for large volumes of unstructured data. Such type of data is not optimized for storage in CosmosDB, and can negatively impact its cost and performance.
+The primary backend data service used in this architecture is Azure Cosmos DB. The multi-model abilities of Cosmos DB, in addition to its scalability and security, allow flexibility for any type of consumer health portal. Any data that is not in a record format is stored in Azure Blob Storage as an object. This data could include medical images, photos taken by the consumer, uploaded documents, archived data, and so on. Blob storage provides an affordable storage for large volumes of unstructured data. Such type of data is not optimized for storage in Cosmos DB, and can negatively impact its cost and performance.
 
 ### Components
 
@@ -104,7 +104,7 @@ Make sure to also use a [role-based access control](/azure/storage/common/storag
 
 #### Azure Cosmos DB
 
-[Role-based access controls](/azure/cosmos-db/role-based-access-control) should be enabled for CosmosDB management. Access to the data in CosmosDB should be [appropriately secured](/azure/cosmos-db/secure-access-to-data). You can configure CosmosDB to [store diagnostic logs for control plane operations](/azure/cosmos-db/audit-control-plane-logs#enable-diagnostic-logs-for-control-plane-operations) and to [store resource logs](/azure/cosmos-db/cosmosdb-monitor-resource-logs). See further details at [Security practices for Azure Cosmos DB](/azure/cosmos-db/database-security).
+[Role-based access controls](/azure/cosmos-db/role-based-access-control) should be enabled for Cosmos DB management. Access to the data in Cosmos DB should be [appropriately secured](/azure/cosmos-db/secure-access-to-data). You can configure Cosmos DB to [store diagnostic logs for control plane operations](/azure/cosmos-db/audit-control-plane-logs#enable-diagnostic-logs-for-control-plane-operations) and to [store resource logs](/azure/cosmos-db/cosmosdb-monitor-resource-logs). See further details at [Security practices for Azure Cosmos DB](/azure/cosmos-db/database-security).
 
 #### Azure Key Vault
 

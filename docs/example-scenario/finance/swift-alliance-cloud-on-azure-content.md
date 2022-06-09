@@ -117,6 +117,14 @@ Consider using the latest implementation of SWIFT CSP controls in Azure. But fir
 
 To explore the cost of running this scenario, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator), which preconfigures all Azure services.
 
+## Contributors
+
+*This article is being updated and maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+* [Mahesh Kshirsagar](https://uk.linkedin.com/in/mahesh-kshirsagar-msft) | Senior Cloud Solution Architect
+
 ## Next steps
 
 * [SWIFT's Alliance Cloud](https://www.swift.com/our-solutions/interfaces-and-integration/alliance-cloud)

@@ -134,7 +134,6 @@ Because different SWIFT components connect to specific nodes, you can't use Azur
 
 To increase resilience beyond a single Azure region, we recommend that you deploy in multiple Azure regions by using [Azure Paired Regions](/azure/best-practices-availability-paired-regions). Each Azure region is paired with another region within the same geography, together making a regional pair. Azure serializes platform updates (planned maintenance) across region pairs so that only one paired region is updated at a time. If an outage affects multiple regions, at least one region in each pair will be prioritized for recovery.
 
-
 ## Contributors
 
 *This article is being updated and maintained by Microsoft. It was originally written by the following contributors.*
