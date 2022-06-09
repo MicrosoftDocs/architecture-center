@@ -225,7 +225,7 @@ For a step-by-step guide for installing OpenShift and MAS on Azure, including ho
 > [!NOTE]
 > Example of a install-config-yaml file can be found in the official [QuickStart Guide: Maximo Application Suite on Azure](https://github.com/Azure/maximo) under the path `/src/ocp/install-config.yaml`
 
-### Deploying
+### Deployment considerations
 
 It's best to deploy workloads using an infrastructure as code (IaC) process. Container based workloads can be sensitive to misconfigurations that often occur with manual deployments and reduce productivity.
 
