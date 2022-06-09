@@ -2,8 +2,8 @@
 metadata:
   title: IBM Maximo Application Suite (MAS) on Azure architecture
   description: Learn how to run IBM Maximo Application Suite on Azure. See guidance for designing and implementing cloud solutions with MAS 8.5 and up that use Azure.
-  author: <contributor's GitHub username. If no GitHub account, use EdPrice-MSFT>
-  ms.author: ranieuwe
+  author: ranieuwe
+  ms.author: ronieuwe
   ms.date: 06/09/2022
   ms.topic: conceptual
   ms.service: architecture-center
