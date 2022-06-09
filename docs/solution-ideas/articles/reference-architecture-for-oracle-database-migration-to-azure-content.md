@@ -6,7 +6,7 @@ This solution applies when migrating Oracle DB to Azure.
 
 ## Architecture
 
-![Architecture Diagram shows completing a database migration from Oracle to Azure.](../media/reference-architecture-for-oracle-database-migration-to-azure.png)
+![Architecture diagram shows completing a database migration from Oracle to Azure.](../media/reference-architecture-for-oracle-database-migration-to-azure.png)
 
 ### Dataflow
 
