@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Security is a prime concern for businesses that store any sort of customer or client data. Solutions for accessing and managing this data should be developed with security in mind. DevSecOps involves utilizing security best practices from the beginning of development, shifting the focus on security away from auditing at the end and towards development in the beginning using a shift-left strategy.
+Security is a prime concern for businesses that access or store any sort of customer or client data. The DevSecOps approach utilizes security best practices from the beginning of development, shifting the focus on security away from auditing at the end and towards development in the beginning using a shift-left strategy.
 
 ## Potential use cases
 
