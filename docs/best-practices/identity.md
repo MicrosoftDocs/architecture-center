@@ -1,8 +1,9 @@
 ---
-title: Identity considerations
-description: TODO
+title: Identity providers
+description: Learn why it's important to use a managed identity platform instead of building or running your own.
 author: johndowns
-ms.date: 06/01/2022
+ms.date: 06/08/2022
+ms.author: jodowns
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: best-practice
@@ -15,7 +16,7 @@ ms.custom:
   - guide
 ---
 
-# Identity considerations
+# Identity providers
 
 Almost every cloud application needs to work with user identities. Identity is the foundation of modern security practices, and application user identity is a critical part of your solution's architecture.
 
