@@ -14,7 +14,8 @@ There's a wide range of Edge AI applications that monitor and provide informatio
 
 ## Architecture
 
-![Architecture diagram: AI-enabled application running at the edge with Azure Stack Hub.](../media/ai-at-the-edge.svg)
+[![Architecture diagram showing an A I-enabled application that's running at the edge with Azure Stack Hub.](../media/ai-at-the-edge.svg)](../media/ai-at-the-edge.svg#lightbox)
+
 *Download an [SVG](../media/ai-at-the-edge.svg) of this architecture.*
 
 ### Dataflow
@@ -28,7 +29,7 @@ There's a wide range of Edge AI applications that monitor and provide informatio
 1. Insights and anomalies from scoring are placed into a queue.
 1. A function app gets triggered once scoring information is placed in the queue.
 1. A function sends compliant data and anomalies to Azure Storage.
-1. Globally relevant and compliant insights are available for consumption in Power Bi and a global app.
+1. Globally relevant and compliant insights are available for consumption in Power BI and a global app.
 1. Feedback loop: The model retraining can be triggered by a schedule. Data scientists work on the optimization. The improved model is deployed and containerized as an update to the container registry.
 
 ### Components
