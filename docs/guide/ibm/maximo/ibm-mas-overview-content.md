@@ -1,14 +1,12 @@
-## Introduction to IBM Maximo Application Suite
-
-Maximo Application Suite, also MAS or Maximo, is an Enterprise Asset Management platform focused on operational resiliency and reliability that leverages condition-based asset maintenance. The suite consists of a core application platform, Maximo Application Suite, and applications on top of the platform. Each of the application performs a specific benefit:
+Maximo Application Suite, also MAS or Maximo, is an Enterprise Asset Management platform that's focused on operational resiliency and reliability that leverages condition-based asset maintenance. The suite consists of a core application platform, Maximo Application Suite, and applications on top of the platform. Each application performs a specific benefit:
 
 - Manage: reduce downtime and costs through asset management to improve operational performance.
 - Monitor: advanced AI-powered remote asset monitoring at scale using IoT.
 - Health: manage asset health using IoT data from sensors, asset data and maintenance history.
-- Visual Inspection: train and use visual inspection machine learning models to do use visual analysis of emerging issues.
+- Visual inspection: train and use visual inspection machine learning models to do use visual analysis of emerging issues.
 - Predict: machine learning and data analytics focused on predicting future failures.
 
-Maximo Application Suite 8.x and the applications above have been tested and validated for use on Azure. This guidance provides a design for running Maximo 8.x on Azure. It assumes you will have support from IBM and a partner for installation. If you have product questions, please reach out to your IBM team. 
+Maximo Application Suite (MAS) 8.x and the applications above have been tested and validated for use on Azure. This guidance provides a design for running Maximo 8.x on Azure. It assumes you will have support from IBM and a partner for installation. If you have product questions, please reach out to your IBM team. 
 
 <!-- TODO: Add the layer cake -->
 
@@ -16,13 +14,9 @@ MAS 8.x runs on OpenShift and it is beneficial to familiarize yourself with Open
 
 <!-- TODO: Introduce the reference architecture that is found on GitHub -->
 
-## Architecture
+## Potential use cases
 
-:::image type="complex" source="./../images/ibm-azure-guide-architecture-diagram.png" alt-text="Architecture diagram showing how to deploy IBM Maximo Application Suite on Azure." border="false":::
-   The diagram contains a large rectangle with the label Azure Virtual Network. Inside it, another large rectangle.
-:::image-end:::
-
-The architecture provides you with the following:
+The architecture provides you with the following benefits:
 
 * Highly available workload across availability zones
 * A privatized deployment of worker and control nodes with integrated with storage
@@ -31,9 +25,27 @@ The architecture provides you with the following:
 * Azure DNS for DNS management of OpenShift
 * Azure Active Directory for Single Sign On into Maximo
 
+## Architecture
+
+:::image type="complex" source="./../images/ibm-azure-guide-architecture-diagram.png" alt-text="Architecture diagram showing how to deploy IBM Maximo Application Suite on Azure." border="false":::
+   The diagram contains a large rectangle with the label Azure Virtual Network. Inside it, another large rectangle.
+:::image-end:::
+
 The workload can be both deployed internally or externally facing, depending on your requirements. 
 
-## Design choices and Azure recommendations
+### Workflow
+
+<!-- TODO: Describe the workflow... what happens in each step in the diagram. Use a bulleted list. -->
+
+### Components
+
+<!-- TODO: List the services and technologies used. When they are Azure services, link to the Azure.com service pages. Use a bulleted list. -->
+
+### Alternatives
+
+<!-- TODO: Provide any alternative technologies that can be swapped out of the architecture. -->
+
+## Recommendations
 
 We recommend installing the latest stable version of IBM MAS as it will provide the best integration options with Azure. Pay close attention to the versions of Openshift supported as it will vary depending on the version of MAS. Currently the release cycle for Azure Redhat Openshift (ARO) is too frequent making this option unsupported by IBM.
 
@@ -158,7 +170,42 @@ Before you set this up, we recommend you go through the [IBM configuration](http
 
 For managing the IaaS resources, you can use Azure AD for authentication and authorization to the Azure portal. It is also possible to set up OAuth With OpenShift itself, for that we refer to [the OpenShift documentation](https://docs.openshift.com/container-platform/4.8/authentication/index.html).
 
-## Deployment Prerequisites
+## Considerations
+
+### Security
+
+Maintaining access and visibility into yours assets maintenance lifecycle can be one of your organization's greatest opportunity to operate efficiently and maintain uptime. It's important to secure access to your Maximo deployment. To achieve this goal, use secure authentication (e.g., SAML) and keep your solutions up-to-date. Use encryption to protect all data moving in and out of your architecture.
+
+Azure delivers Maximo by using an infrastructure as a service (IaaS) and Platform as a Service (PaaS) cloud model. Microsoft builds security protections into the service at the following levels:
+
+- Physical datacenter
+- Physical network
+- Physical host
+- Hypervisor
+
+Carefully evaluate the services and technologies that you select for the areas above the hypervisor, such as the latest patched version of OpenShift for a major release. Make sure to provide the proper security controls for your architecture. You are responsible for patching and maintaining the security of the IaaS systems. Microsoft takes that role for the PaaS services used. 
+
+Use [network security groups](/azure/virtual-network/security-overview) to filter network traffic to and from resources in your [virtual network](/azure/virtual-network/virtual-networks-overview). With these groups, you can define rules that grant or deny access to your Maximo services. Examples include:
+
+- Allow SSH access into the OpenShift nodes for troubleshooting
+- Blocking access to all others parts of the cluster
+- Controlling from where you can access Maximo and OpenShift cluster
+
+We recommend you control remote access to your VMs through [Azure Bastion](/azure/bastion/bastion-overview). Don't expose components like virtual machines to a network or internet without NSGs on them. 
+
+[Server-side encryption (SSE) of Azure Disk Storage](/azure/virtual-machines/disk-encryption) protects your data. It also helps you meet organizational security and compliance commitments. With Azure managed disks, SSE encrypts the data at rest when persisting it to the cloud. This behavior applies by default to both OS and data disks. OpenShift uses SSE by default.
+
+#### Protect your infrastructure
+
+Control access to the Azure resources that you deploy. Every Azure subscription has a [trust relationship](/azure/active-directory/active-directory-how-subscriptions-associated-directory) with an Azure AD tenant. Use [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) to grant users within your organization the correct permissions to Azure resources. Grant access by assigning Azure roles to users or groups at a certain scope. The scope can be a subscription, a resource group, or a single resource. Make sure to [audit all changes to infrastructure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-audit).
+
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+
+## Deploy this scenario
+
+### Deployment prerequisites
 
 Before you start, please review the [requirements of IBM for deploying Maximo](https://www.ibm.com/support/pages/node/6538166). Make sure you have the below resources available before starting the deployment:
 
@@ -186,50 +233,17 @@ Before building out your environment, review the [QuickStart Guide: Maximo Appli
 
 IBM offers specialist services to help you with the installation. Please reach out to your IBM team for support. 
 
-## Security
-
-Maintaining access and visibility into yours assets maintenance lifecycle can be one of your organization's greatest opportunity to operate efficiently and maintain uptime. It's important to secure access to your Maximo deployment. To achieve this goal, use secure authentication (e.g., SAML) and keep your solutions up-to-date. Use encryption to protect all data moving in and out of your architecture.
-
-Azure delivers Maximo by using an infrastructure as a service (IaaS) and Platform as a Service (PaaS) cloud model. Microsoft builds security protections into the service at the following levels:
-
-- Physical datacenter
-- Physical network
-- Physical host
-- Hypervisor
-
-Carefully evaluate the services and technologies that you select for the areas above the hypervisor, such as the latest patched version of OpenShift for a major release. Make sure to provide the proper security controls for your architecture. You are responsible for patching and maintaining the security of the IaaS systems. Microsoft takes that role for the PaaS services used. 
-
-Use [network security groups](/azure/virtual-network/security-overview) to filter network traffic to and from resources in your [virtual network](/azure/virtual-network/virtual-networks-overview). With these groups, you can define rules that grant or deny access to your Maximo services. Examples include:
-
-- Allow SSH access into the OpenShift nodes for troubleshooting
-- Blocking access to all others parts of the cluster
-- Controlling from where you can access Maximo and OpenShift cluster
-
-We recommend you control remote access to your VMs through [Azure Bastion](/azure/bastion/bastion-overview). Don't expose components like virtual machines to a network or internet without NSGs on them. 
-
-[Server-side encryption (SSE) of Azure Disk Storage](/azure/virtual-machines/disk-encryption) protects your data. It also helps you meet organizational security and compliance commitments. With Azure managed disks, SSE encrypts the data at rest when persisting it to the cloud. This behavior applies by default to both OS and data disks. OpenShift uses SSE by default.
-
-### Protect your infrastructure
-
-Control access to the Azure resources that you deploy. Every Azure subscription has a [trust relationship](/azure/active-directory/active-directory-how-subscriptions-associated-directory) with an Azure AD tenant. Use [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) to grant users within your organization the correct permissions to Azure resources. Grant access by assigning Azure roles to users or groups at a certain scope. The scope can be a subscription, a resource group, or a single resource. Make sure to [audit all changes to infrastructure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-audit).
-
 ## Contributors
 
-<!-- > (Expected, but this section is optional if the principal authors would prefer to not include it)
-
-> Start with the explanation text (same for every article), in italics. This makes it clear that Microsoft takes responsibility for the article (not the one contributor). Then include the "Pricipal authors" list and the "Additional contributors" list (if there are additional contributors). Link each contributor's name to the person's LinkedIn profile. After the name, place a pipe symbol ("|") with spaces, and then enter the person's title. We don't include the person's company, MVP status, or links to additional profiles (to minimize edits/updates). (The profiles can be linked to from the person's LinkedIn page, and we hope to automate that on the platform in the future). 
-> Implement this format: -->
-
 _This article is being updated and maintained by Microsoft. It was originally written by the following contributors._
-<!-- 
-**Principal authors:** > Only the primary authors. List them alphabetically, by last name. Use this format: Fname Lname. If the article gets rewritten, keep the original authors and add in the new one(s). -->
+
+Principal authors:
 
  * [David Baumgarten](https://www.linkedin.com/in/baumgarten-david/) | Senior Cloud Solution Architect
  * [Roeland Nieuwenhuis](https://www.linkedin.com/in/roelandnieuwenhuis/) | Principal Cloud Solution Architect
-<!-- * > Continue for each primary author (even if there are 10 of them). -->
 
 <!-- 
-**Additional contributors:** > Include contributing (but not primary) authors, major editors (not minor edits), and technical reviewers. List them alphabetically, by last name. Use this format: Fname Lname. It's okay to add in newer contributors.
+Other contributors:
 
  * [Contributor 1 Name](http://linkedin.com/ProfileURL) | [Title, such as "Cloud Solution Architect"]
  * [Contributor 2 Name](http://linkedin.com/ProfileURL) | [Title, such as "Cloud Solution Architect"] -->
@@ -243,7 +257,11 @@ For help getting started, see the following resources:
 - [Openshift UPI Guide](https://github.com/openshift/installer/blob/master/docs/user/azure/install_upi.md)
 - [Requirements for Maximo](https://www.ibm.com/support/pages/node/6538166)
 
-## Related resources
+To learn more about the featured technologies, see the following information:
 
 - [IBM Passport Advantage](https://www.ibm.com/software/passportadvantage/pao_customer.html)
 - [Red Hat Customer Portal](https://access.redhat.com/)
+
+## Related resources
+
+<!-- TODO: Add links to related AAC articles. -->
