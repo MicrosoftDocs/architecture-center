@@ -358,7 +358,7 @@ To support spaceborne data workloads on Azure Synapse, you need libraries like [
 
 #### Instructions
 
-1. The following libraries and packages are available in the [environment.yml](https://github.com/Azure/Azure-Orbital-Analytics-Samples/blob/main/deploy/environment.yml) file. We recommend using this file to install the libraries in the Spark pools. If you are copying the below content, please make sure there are no tabs as yaml only allows spaces as indentation.
+1. The following libraries and packages are available in the [environment.yml](https://github.com/Azure/Azure-Orbital-Analytics-Samples/blob/main/deploy/environment.yml) file. We recommend using this file to install the libraries in the Spark pools. If you copy the below content, make sure there are no tabs, as yaml only allows spaces as indentation.
 
 	```yaml
 	name: aoi-env
