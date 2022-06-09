@@ -78,13 +78,13 @@ You can replace the open-source-compatible products and services in this solutio
 
 Design and implement each service with best practices in mind. For guidelines on each service, see [Microsoft Docs][Microsoft Docs]. Also review the information in the following sections:
 
-### Performance considerations
+### Performance
 
 - Implement [connection pooling for Azure Database for PostgreSQL][Performance best practices for using Azure Database for PostgreSQL – Connection Pooling]. You can use a connection pooling library within the application. Or you can use a connection pooler such as [PgBouncer][PgBouncer] or [Pgpool][Pgpool Wiki]. Establishing a connection with PostgreSQL is an expensive operation. With connection pooling, you can avoid degrading application performance.
 
 - Configure Azure Cosmos DB Cassandra API for best performance by using an appropriate [partitioning strategy][Partitioning in Azure Cosmos DB Cassandra API]. Decide whether to use a single field primary key, a compound primary key, or a composite partition key when partitioning tables.
 
-### Scalability considerations
+### Scalability
 
 - Take your streaming requirements into account when choosing an [Event Hubs tier][Event Hubs pricing]:
 
@@ -93,15 +93,36 @@ Design and implement each service with best practices in mind. For guidelines on
 
 - Consider [autoscale-provisioned throughput][Create Azure Cosmos containers and databases with autoscale throughput] for Azure Cosmos DB if your workloads are unpredictable and spiky. You can configure Azure Cosmos DB to use manually provisioned throughput or autoscale-provisioned throughput. With autoscale, Azure automatically and instantly scales the request units per second according to your usage.
 
-### Security considerations
+### Security
 
 - Use [Azure Private Link][What is Azure Private Link?] to make Azure services part of your virtual network. When you use Private Link, traffic between the services and your network flows over the Azure backbone without traversing the public internet. The Azure services in this solution support Private Link for selected SKUs.
 
 - Check your organization's security policies. With Azure Cosmos DB Cassandra API, keys provide access to resources like key spaces and tables. The Azure Cosmos DB instance stores those keys. Your security policies might require you to [propagate those keys to a key management service][Secure Azure Cosmos keys using Azure Key Vault] such as [Azure Key Vault][About Azure Key Vault]. Also make sure to [rotate keys][Key rotation and regeneration] according to your organization's policies.
 
-### Resiliency considerations
+### Resiliency
 
 Consider using [Availability zones][Availability Zones] to protect business-critical applications from datacenter failures. This solution's services support availability zones for selected SKUs in [availability zone–enabled regions][Azure regions with Availability Zones]. For up-to-date information, review the [list of services that support availability zones][Azure Services that support Availability Zones].
+
+
+### Cost optimization
+
+To estimate the cost of this solution, use the [Azure pricing calculator][Azure pricing calculator]. Also keep these points in mind:
+
+- [Event Hubs][Event Hubs pricing] is available in Basic, Standard, Premium, and Dedicated tiers. The Premium or Dedicated tier is best for large-scale streaming workloads. You can scale throughput, so consider starting small and then scaling up as demand increases.
+- [Azure Cosmos DB][Azure Cosmos DB pricing] offers two models:
+
+  - A provisioned throughput model that's ideal for demanding workloads. This model is available in two capacity management options: standard and autoscale.
+  - A serverless model that's well suited for running small, spiky workloads.
+
+- An [AKS][Azure Kubernetes Service (AKS) pricing] cluster consists of a set of nodes, or virtual machines (VMs), that run in Azure. The cost of the compute, storage, and networking components make up a cluster's primary costs.
+
+- [Azure Database for PostgreSQL][Azure Database for PostgreSQL pricing] is available in Single Server, Flexible Server, and Hyperscale (Citus) tiers. Different tiers cater to different scenarios, such as predicable, burstable, and high-performance workloads. The costs mainly depend on the choice of compute nodes and storage capacity.
+
+- [Azure Cache for Redis][Azure Cache for Redis pricing] is available in multiple tiers. These tiers accommodate caches that range from 250 megabytes to several terabytes. Besides size, other requirements also affect the choice of tier:
+
+  - Clustering
+  - Persistence
+  - Active geo-replication
 
 ## Deploy this scenario
 
@@ -130,26 +151,6 @@ Keep these points in mind when you deploy this solution:
 - For information on writing data to Azure Database for PostgreSQL with a batch-oriented application, see [Quickstart: Use Java and JDBC with Azure Database for PostgreSQL][Quickstart: Use Java and JDBC with Azure Database for PostgreSQL]. This article also contains sample Java code for storing data.
 
 - For information on data storage and retrieval with Azure Cache for Redis, see [Quickstart: Use Azure Cache for Redis in Java][Quickstart: Use Azure Cache for Redis in Java]. This article also contains sample Java code for accessing a cache.
-
-## Pricing
-
-To estimate the cost of this solution, use the [Azure pricing calculator][Azure pricing calculator]. Also keep these points in mind:
-
-- [Event Hubs][Event Hubs pricing] is available in Basic, Standard, Premium, and Dedicated tiers. The Premium or Dedicated tier is best for large-scale streaming workloads. You can scale throughput, so consider starting small and then scaling up as demand increases.
-- [Azure Cosmos DB][Azure Cosmos DB pricing] offers two models:
-
-  - A provisioned throughput model that's ideal for demanding workloads. This model is available in two capacity management options: standard and autoscale.
-  - A serverless model that's well suited for running small, spiky workloads.
-
-- An [AKS][Azure Kubernetes Service (AKS) pricing] cluster consists of a set of nodes, or virtual machines (VMs), that run in Azure. The cost of the compute, storage, and networking components make up a cluster's primary costs.
-
-- [Azure Database for PostgreSQL][Azure Database for PostgreSQL pricing] is available in Single Server, Flexible Server, and Hyperscale (Citus) tiers. Different tiers cater to different scenarios, such as predicable, burstable, and high-performance workloads. The costs mainly depend on the choice of compute nodes and storage capacity.
-
-- [Azure Cache for Redis][Azure Cache for Redis pricing] is available in multiple tiers. These tiers accommodate caches that range from 250 megabytes to several terabytes. Besides size, other requirements also affect the choice of tier:
-
-  - Clustering
-  - Persistence
-  - Active geo-replication
 
 ## Contributors
 
