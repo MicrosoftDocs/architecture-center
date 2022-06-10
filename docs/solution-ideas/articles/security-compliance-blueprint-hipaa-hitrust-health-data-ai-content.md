@@ -4,11 +4,11 @@ Store, manage, and analyze HIPAA-compliant and HITRUST-compliant health data and
 
 ## Potential use cases
 
-
+This solution is ideal for the medical industry.
 
 ## Architecture
 
-![Architecture Diagram](../media/security-compliance-blueprint-hipaa-hitrust-health-data-ai.png)
+![Architecture diagram shows data sources ingested, stored, analyzed by machine learning, and displayed to user via Power B I.](../media/security-compliance-blueprint-hipaa-hitrust-health-data-ai.png)
 *Download an [SVG](../media/security-compliance-blueprint-hipaa-hitrust-health-data-ai.svg) of this architecture.*
 
 ### Dataflow
