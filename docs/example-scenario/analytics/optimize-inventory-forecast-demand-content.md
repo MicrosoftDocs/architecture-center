@@ -6,9 +6,9 @@ Various inventory types can exist in a company, depending on the industry and pr
 
 Often, the data needed to perform inventory forecasting is sparse and not centrally located, making it difficult to aggregate and analyze. Most companies rely on commercial software and routines. However, such systems hit scalability limits due to the ever-increasing amount of data and the complexity of data storage systems.
 
-Demand forecasting is the other critical component to be implemented. Forecasting methods range from on-point predictions, probabilistic Monte Carlo simulations, timeseries analysis, and data science methodologies. Some of these methods can take historical sales and seasonality effects into account, but the more complex the inventory and parameters, the more sophisticated methodologies are needed.
+Demand forecasting is the other critical component to be implemented. Forecasting methods range from on-point predictions, probabilistic Monte Carlo simulations, time series analysis, and data science methodologies. Some of these methods can take historical sales and seasonality effects into account, but the more complex the inventory and parameters, the more sophisticated methodologies are needed.
 
-This article focuses on showcasing a practical, scalable, and manageable solution for implementing inventory optimization architectures for the retail industry. The solution leverages the latest advancements in forecasting, optimization, and parallel computing and offers the following guidelines for transforming and scaling existing on-premises solutions to better work with large volume of supply chain data:
+This article focuses on showcasing a practical, scalable, and manageable solution for implementing inventory optimization architectures for the retail industry. The solution uses the latest advancements in forecasting, optimization, and parallel computing and offers the following guidelines for transforming and scaling existing on-premises solutions to better work with large volume of supply chain data:
 
 -   Provide a customer interface using Power BI and PowerApps that can be used to launch the simulations and determine the parameters of the simulation/data, access results, etc.
 
@@ -50,7 +50,7 @@ This solution is designed for the retail industry, but it also applies to the fo
 
 4.  Use Azure Machine Learning to train the model using data in the SQL server and deploy the model/service to Kubernetes.
 
-5.  Ray framework is installed on the same Kubernetes cluster to parallelize the execution of the scoring script during inferencing. Each execution runs the demand forecasting module for specified locations and products over a given forecast period. The forecasting results are read by the optimization module which calculates the optimal inventory levels. Finally, the results are stored in the Azure SQL Server.
+5.  Ray framework is installed on the same Kubernetes cluster to parallelize the execution of the scoring script during inferencing. Each execution runs the demand forecasting module for specified locations and products over a given forecast period. The forecasting results are read by the optimization module, which calculates the optimal inventory levels. Finally, the results are stored in the Azure SQL Server.
 
 6.  Power Apps is used to host a user interface for business users and analysts to collect parametric information such as service level, product, and location. Power Apps is also used to submit the collected parameters and launch executions of the deployed ML module hosted in Kubernetes clusters.
 
@@ -60,7 +60,7 @@ This solution is designed for the retail industry, but it also applies to the fo
 
 -   [Data Lake Storage](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) is a scalable and secure data lake for high-performance analytics workloads. Using ADLS you can manage petabytes of data with high throughput. ADLS can accommodate multiple, heterogeneous sources and data coming in structured, semi-structured, or unstructured formats.
 
--   [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) is a scalable and serverless service that provides a data integration and transformation layer that works with a variety of data stores.
+-   [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) is a scalable and serverless service that provides a data integration and transformation layer that works with various data stores.
 
 -   [Power BI](https://docs.microsoft.com/power-bi/fundamentals/power-bi-overview) is a collection of software services, apps, and connectors that work together to turn your unrelated sources of data into coherent, visually immersive, and interactive insights.
 
@@ -74,19 +74,19 @@ This solution is designed for the retail industry, but it also applies to the fo
 
 ### Alternatives
 
--   In this solution we have presented Azure Machine Learning as a platform to perform forecasting and inventory management analytics. However, you can utilize [Azure](https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-overview) Databricks or Synapse to perform the same type of analytics, when the amount of data you are handling is large.
+-   In this solution we have presented Azure Machine Learning as a platform to perform forecasting and inventory management analytics. However, you can utilize [Azure](https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-overview) Databricks or Synapse to perform the same type of analytics, when the amount of data you're handling is large.
 
 -   To curate and perform ETL after the data is landed in Azure Data Lake, as an alternative to Azure Data Factory Data Flows you can use Azure Databricks for code first approach.
 
--   Depending on the specific use case and the choice of end user's analytics platform, instead of storing the data in SQL Server you can utilize other relational or storage services such as Azure Synapse Analytics or Azure Data Lake Storage Gen2. For instance, if the data is accumulated for a long period of time and there is a need to run analytics queries against this data, Azure Synapse analytics is a good option as part of the architecture.
+-   Depending on the specific use case and the choice of end user's analytics platform, instead of storing the data in SQL Server you can utilize other relational or storage services such as Azure Synapse Analytics or Azure Data Lake Storage Gen2. For instance, if the data is accumulated for a long period of time and there's a need to run analytics queries against this data, Azure Synapse analytics is a good option as part of the architecture.
 
 -   Instead of running the Ray framework on Kubernetes, you can utilize Ray framework on Azure ML Compute to perform inferencing. You can use the [ray-on-ml](https://github.com/microsoft/ray-on-aml) package to easily incorporate ray framework on Azure ML Compute.
 
--   Alternatively, a custom Web App can be used instead or along with Power Apps to the user interface and Power Bi embedded reports for analysis.
+-   Alternatively, a custom Web App can be used instead or along with Power Apps to the user interface and Power BI embedded reports for analysis.
 
 ### Forecasting with Deep Learning
 
-The implemented reference solution leverages advanced machine learning and deep learning methods for time-series forecasting. Specifically, multivariate probabilistic forecasting is used to account for uncertainties common in supply chain. By using an ensemble modeling approach blending Deep AutoRegression RNN (DeepAR) or Transformer models with classical Monte Carlo Sampling method, the reference solution achieved 99.9% Mean Square Error (MSE) improvement over a customer's initial approach for high volume/high business impact products. For ensembling, XGBClassifier and XGBRegressor model architectures were explored.
+The implemented reference solution uses advanced machine learning and deep learning methods for time-series forecasting. Specifically, multivariate probabilistic forecasting is used to account for uncertainties common in supply chain. By using an ensemble modeling approach blending Deep AutoRegression RNN (DeepAR) or Transformer models with classical Monte Carlo Sampling method, the reference solution achieved 99.9% Mean Square Error (MSE) improvement over a customer's initial approach for high volume/high business impact products. For ensembling, XGBClassifier and XGBRegressor model architectures were explored.
 
 :::image type="content" alt-text="Diagram of the components that ingest sales history and produce demand predictions in this example workload." source="media/image-file-inline.png" lightbox="media/image-file-expanded.png":::
 
@@ -126,7 +126,7 @@ Consider implementing the following security features in this architecture:
 
 ### Performance efficiency
 
--   If the input data is large, consider using [Ray Dataset](https://docs.ray.io/en/latest/data/dataset.html) along with Ray framework. Ray datasets provide distributed data transformations on a variety of file formats and are easily integrated with other Ray libraries and applications.
+-   If the input data is large, consider using [Ray Dataset](https://docs.ray.io/en/latest/data/dataset.html) along with Ray framework. Ray datasets provide distributed data transformations on various file formats and are easily integrated with other Ray libraries and applications.
 
 -   If Azure Data Factory Mapping Data Flows is used for ETL, please follow performance and tuning guide for mapping Data Flows to optimize your data pipeline and ensure that your data flows meet your performance benchmarks.
 
