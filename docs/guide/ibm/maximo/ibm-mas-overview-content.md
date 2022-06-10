@@ -8,22 +8,18 @@ Maximo Application Suite, also MAS or Maximo, is an Enterprise Asset Management 
 
 Maximo Application Suite (MAS) 8.x and the applications above have been tested and validated for use on Azure. This guidance provides a design for running Maximo 8.x on Azure. It assumes you'll have support from IBM and a partner for installation. Reach out to your IBM team for Maximo product specific questions.
 
-<!-- TODO: Add the layer cake -->
-
 MAS 8.x runs on OpenShift and it's beneficial to familiarize yourself with OpenShift and the suggested patterns for [installation on Azure](https://docs.openshift.com/container-platform/4.8/installing/installing_azure/preparing-to-install-on-azure.html). 
-
-<!-- TODO: Introduce the reference architecture that is found on GitHub -->
 
 ## Potential use cases
 
-The architecture provides you with the following benefits:
+The solutions within the Maximo Application Suite can be used across industries like:
+ - Energy and utilities
+ - Oil & Gas
+ - Manufacturing
+ - Public Sector
+ - Travel & Transportation
 
-* Highly available workload across availability zones
-* A privatized deployment of worker and control nodes with integrated with storage
-* Azure Files Premium and Standard for storage (OpenShift Data Foundation not required)
-* Azure SQL running on a virtual machine or container based DB2WH
-* Azure DNS for DNS management of OpenShift
-* Azure Active Directory for Single Sign On into Maximo
+More information about use cases can be found on IBM's website for [Maximo](https://www.ibm.com/products/maximo).
 
 ## Architecture
 
@@ -33,17 +29,33 @@ The architecture provides you with the following benefits:
 
 The workload can be both deployed internally or externally facing, depending on your requirements. 
 
-### Workflow
+### Infrastructure
 
-<!-- TODO: Describe the workflow... what happens in each step in the diagram. Use a bulleted list. -->
+This architecture will provide you with the following from an infrastructure perspective:
+
+* Platform to deploy highly available workloads across availability zones
+* A privatized deployment of worker and control nodes with integrated with storage
+* Azure Files Premium and Standard for storage (OpenShift Data Foundation not required)
+* Azure SQL running on a virtual machine or container based DB2WH
+* Azure DNS for DNS management of OpenShift
+* Azure Active Directory for Single Sign On into Maximo
 
 ### Components
 
-<!-- TODO: List the services and technologies used. When they are Azure services, link to the Azure.com service pages. Use a bulleted list. -->
+ - [Azure Virtual Machines](/azure/virtual-machines/linux/overview)
+ - [Custom Virtual Machine Image for Openshift](https://docs.openshift.com/container-platform/4.8/architecture/architecture-rhcos.html)
+ - [Load Balancers](/azure/load-balancer/load-balancer-overview)
+ - [Virtual Network](/azure/virtual-network/virtual-networks-overview)
+ - [Azure Files](/azure/storage/files/storage-files-introduction)
+ - [Public and Private DNS Zone](/azure/dns/dns-overview)
+ - [Azure Bastion](/azure/bastion/bastion-overview)
+ - [Azure SQL on a Virtual Machine](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview?view=azuresql)
 
 ### Alternatives
 
-<!-- TODO: Provide any alternative technologies that can be swapped out of the architecture. -->
+While typically not necessary, you have the option to leverage the following other storage options:
+ - [Azure NetApp Files](https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-introduction)
+ - [Openshift Data Foundation](https://www.redhat.com/en/technologies/cloud-computing/openshift-data-foundation)
 
 ## Recommendations
 
@@ -207,7 +219,19 @@ Control access to the Azure resources that you deploy. Every Azure subscription 
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-<!-- TODO: Add more info to this section. Some ideas... How much will this cost to run? See if you can answer this without dollar amounts. Are there ways I could save cost? If it scales linearly, than we should break it down by cost/unit. If it does not, why? What are the components that make up the cost? How does scale affect the cost? Link to the pricing calculator (https://azure.microsoft.com/en-us/pricing/calculator) with all of the components in the architecture included, even if they're a $0 or $1 usage. If it makes sense, include small/medium/large configurations. Describe what needs to be changed as you move to larger sizes. -->
+A standard instance of MAS will consist of the following:
+ - 3 x Control VMs
+ - 6 x Worker VMs
+ - 3 x Worker VMs (DB2WH)
+   - This may be substituted with Azure SQL in some configurations
+- 2 x Azure Storage Accounts
+- 2 x DNS Zones
+- 2 x Load Balancers
+- Azure Bastion
+- 1 x Visual Inspection VM
+  - Not required unless you are planning to run Visual Inspection inside of MAS
+
+You can review an example estimate using our [cost calculator](https://azure.com/e/fae03e2386cf46149273a379966e95b1). Configurations will vary and should be verified with your IBM sizing team before finalizing your deployment.
 
 ## Deploy this scenario
 
