@@ -4,7 +4,7 @@ Rapidly build engaging, performant, and scalable cross-platform and native apps 
 
 ## Potential use cases
 
-This solution is for any organization that utilize both web and mobile applications.
+This solution is for any organization that utilizes both web and mobile applications.
 
 ## Architecture
 
