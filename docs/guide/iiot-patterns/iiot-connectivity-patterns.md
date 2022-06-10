@@ -52,7 +52,7 @@ Connect to manufacturing machines by using OPC UA standards and an IoT edge gate
 
 Connect to manufacturing machines over non-standard protocols by using an IoT Edge gateway.
 
-:::image type="content" source="images/edge-protocoltranslation.png" alt-text="Diagram that shows machines connected by using a custom protocol translation module and an IoT Edge gateway.":::
+:::image type="content" source="images/edge-protocoltranslation.png" alt-text="Diagram that shows machines connected by using a custom protocol translation module and an IoT Edge gateway." lightbox="images/edge-protocoltranslation.png":::
 
 - Dataflow
   1. Connect devices that don't support OPC UA via a custom protocol translation module to the edgeHub.
@@ -77,7 +77,7 @@ Connect to manufacturing machines over non-standard protocols by using an IoT Ed
 
 Connect to manufacturing machines using a cloud connector component available in industrial connectivity software.
 
-:::image type="content" source="images/historian-cloudconnector.png" alt-text="}Diagram that shows machines connected by using built-in cloud connectors from historian software.":::
+:::image type="content" source="images/historian-cloudconnector.png" alt-text="}Diagram that shows machines connected by using built-in cloud connectors from historian software." lightbox="images/historian-cloudconnector.png":::
 
 - Dataflow
   1. Connect the PLCs to industrial connectivity software or historian software by using a switch or internal network connectivity.
@@ -104,7 +104,7 @@ Connect to manufacturing machines using a cloud connector component available in
 
 Connect to manufacturing machines in layer 2 of a Purdue model by using multiple IoT edge gateways that are connected in a hierarchy.
 
-:::image type="content" source="images/nested-edge.png" alt-text="Diagram that shows machines connected in layer 2 of a Purdue model by using hierarchical edge gateways.":::
+:::image type="content" source="images/nested-edge.png" alt-text="Diagram that shows machines connected in layer 2 of a Purdue model by using hierarchical edge gateways." lightbox="images/nested-edge.png":::
 
 - Dataflow
   1. Connect PLCs to the layer 2 edge gateway, which is the lower layer edge gateway.
@@ -131,7 +131,7 @@ Connect to manufacturing machines in layer 2 of a Purdue model by using multiple
 
 Provide hardware resiliency for your IoT edge gateway virtual machines.
 
-:::image type="content" source="images/resilient-edge.png" alt-text="Diagram that shows how to use a pattern that makes edge gateways resilient to hardware failures by using Kubernetes.":::
+:::image type="content" source="images/resilient-edge.png" alt-text="Diagram that shows how to use a pattern that makes edge gateways resilient to hardware failures by using Kubernetes." lightbox="images/resilient-edge.png":::
 
 - Dataflow
   1. Connect PLCs to industrial connectivity software or historian software by using a switch or internal network connectivity.
@@ -158,7 +158,7 @@ Provide hardware resiliency for your IoT edge gateway virtual machines.
 
 Scale connectivity patterns to multiple factories and business units.
 
-:::image type="content" source="images/scale-factories.png" alt-text="Diagram that shows how to scale machine connectivity patterns to multiple factories.":::
+:::image type="content" source="images/scale-factories.png" alt-text="Diagram that shows how to scale machine connectivity patterns to multiple factories." lightbox="images/scale-factories.png":::
 
 - Dataflow
   1. Multiple factories send the data to IoT Hub or Azure IoT Central.
@@ -183,7 +183,7 @@ Scale connectivity patterns to multiple factories and business units.
 
 Connect low power and low compute devices to manufacturing machines as additional sensors.
 
-:::image type="content" source="images/direct-sdk.png" alt-text="Diagram that shows how to connect machines by using a cloud S D K and custom application.":::
+:::image type="content" source="images/direct-sdk.png" alt-text="Diagram that shows how to connect machines by using a cloud S D K and custom application." lightbox="images/direct-sdk.png":::
 
 - Dataflow
   1. Constrained devices or add-on sensors send data to a custom application. You can use embedded code inside the sensor itself as the custom application.
@@ -208,11 +208,15 @@ Connect low power and low compute devices to manufacturing machines as additiona
 
 Select a cloud gateway for connectivity.
 
-:::image type="content" source="images/cloudgw-iothub.png" alt-text="Diagram that shows how to connect to a cloud gateway by using IoT Hub.":::
+**IoT Hub**
+
+:::image type="content" source="images/cloudgw-iothub.png" alt-text="Diagram that shows how to connect to a cloud gateway by using IoT Hub." lightbox="images/cloudgw-iothub.png":::
 
 - Dataflow
   1. The edge gateway sends data to an IoT Hub by using AMQP or MQTT.
   2. Azure Data Explorer pulls the data from IoT Hub by using streaming ingestion.
+
+**Azure IoT Central**
 
 :::image type="content" source="images/cloudgw-iotcentral.png" alt-text="Diagram that shows how to connect to a cloud gateway by using Azure IoT Central.":::
 
@@ -220,20 +224,22 @@ Select a cloud gateway for connectivity.
   1. The edge gateway sends data to Azure IoT Central by using AMQP or MQTT.
   2. Azure IoT Central exports the data to Azure Data Explorer by using data export.
 
-:::image type="content" source="images/cloudgw-eventhub.png" alt-text="{Diagram that shows how to connect to a cloud gateway by using Azure Event Hubs.}":::
+**Azure Event Hubs**
+
+:::image type="content" source="images/cloudgw-eventhub.png" alt-text="{Diagram that shows how to connect to a cloud gateway by using Event Hubs.}":::
 
 - Dataflow
   1. A custom application sends event hub messages using a language specific SDK.
   2. Azure Data Explorer pulls the data from Event Hubs by using streaming ingestion.
 
 - Pattern use
-  - Use IoT Hub or IoT Central when you require device and edge management, two way communication, and messaging.
-  - Use IoT Central if you need a built-in dashboard and rules engine for alerts.
+  - Use IoT Hub or Azure IoT Central when you require device and edge management, two way communication, and messaging.
+  - Use Azure IoT Central if you need a built-in dashboard and rules engine for alerts.
   - Use Event Hubs when you have cost constraints and only require messaging.
 
 - Considerations
   - [IoT Hub vs. Event Hub](/azure/iot-hub/iot-hub-compare-event-hubs)
-  - [IoT Hub vs. IoT Central](/azure/iot-fundamentals/iot-solution-apaas-paas#comparing-approaches)
+  - [IoT Hub vs. Azure IoT Central](/azure/iot-fundamentals/iot-solution-apaas-paas#comparing-approaches)
   - [RPO and RTO options for IoT Hub](/azure/iot-hub/iot-hub-ha-dr#choose-the-right-hadr-option)
   - [HA/DR for IoT Central](/azure/iot-central/core/concepts-faq-scalability-availability) and [limitations](/azure/iot-central/core/concepts-faq-scalability-availability#limitations) around IoT Edge devices.
   - [Availability](/azure/event-hubs/event-hubs-availability-and-consistency?tabs=dotnet) and [Geo-disaster recovery](/azure/event-hubs/event-hubs-geo-dr?tabs=portal) for Event Hubs.
@@ -274,4 +280,3 @@ Other contributor:
 - [Solutions for the manufacturing industry](/azure/architecture/industries/manufacturing)
 
 - [IoT Well-Architected Framework](/azure/architecture/framework/iot/iot-overview)
-Synapse is a versatile data platform that supports various enterprise data scenarios. There are many technical choices to make when trying to configure the infrastructure securely. This article provides guidance for building a secure and cost-efficiencies data lakehouse platform on Synapse. It describes technologies used to create the data lakehouse solutions and introduces the design and implementation suggestions. They help to make these technologies work together seamlessly under security protections. Network and Asset Protection, Identity and Access control, and DevOps security are key focuses in this security design. The primary services used to implement the solution are synapse serverless SQL, Spark, Pipeline, Azure DataLake, and Power BI.

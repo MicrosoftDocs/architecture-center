@@ -4212,6 +4212,18 @@ items:
                     href: guide/iiot-guidance/iiot-data.yml
                   - name: Considerations
                     href: guide/iiot-guidance/iiot-considerations.md
+              - name: Industrial IoT patterns
+                items:
+                  - name: Overview
+                    href: guide/iiot-patterns/iiot-patterns-overview.yml
+                  - name: Connectivity patterns
+                    href: guide/iiot-patterns/iiot-connectivity-patterns.yml
+                  - name: Prediction patterns
+                    href: guide/iiot-patterns/iiot-prediction-patterns.yml
+                  - name: Transparency patterns
+                    href: guide/iiot-patterns/iiot-transparency-patterns.yml
+                  - name: Visibility patterns
+                    href: guide/iiot-patterns/iiot-visibility-patterns.yml
               - name: IoT patterns
                 items:
                   - name: Analyze and optimize loop
