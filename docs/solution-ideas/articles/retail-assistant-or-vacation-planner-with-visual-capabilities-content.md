@@ -14,7 +14,7 @@ This solution can be used broadly, but is ideal for the retail industry and the 
 
 1. The user uses the application, which is hosted on [Azure App Service](/azure/app-service), either via web browser or mobile device
 1. Azure App Service communicates with [Azure Bot Service](/azure/bot-service) in order to facilitate the user/application interaction
-1. Azure Bot Service utilizes [Azure Cognitive Services Language Understanding](/azure/cognitive-services/luis/what-is-luis) in order to understand the user natural by identifying user intents and entities
+1. Azure Bot Service utilizes [Azure Cognitive Services Language Understanding](/azure/cognitive-services/luis/what-is-luis) to understand the user natural by identifying user intents and entities
 1. Language Understanding (LUIS) returns back to the Azure Bot the identified user intent based on conversation made
 1. Azure Bot passes a kind of visual context input (e.g image) to the [Azure Bing Visual Search API](/azure/cognitive-services/bing-visual-search)
 1. Visual Search returns output back to Azure Bot Service
