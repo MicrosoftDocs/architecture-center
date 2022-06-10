@@ -20,6 +20,6 @@ products:
   - azure-cosmos-db
   - azure-data-explorer
   - azure-digital-twins
-thumbnailUrl: /azure/architecture/browse/thumbs/iot-azure-data-explorer.png
+thumbnailUrl: /azure/architecture/browse/thumbs/iot-azure-data-explorer-thumbnail-new.png
 content: |
    [!include[](iot-azure-data-explorer-content.md)]
