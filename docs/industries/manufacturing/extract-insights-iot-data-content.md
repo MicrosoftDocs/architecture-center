@@ -87,7 +87,7 @@ Choosing between the services below depends on the needs of the project, such as
 
 - [Azure IoT Hub](/azure/iot-hub/?WT.mc_id=iotinsightssoln-docs-ercenk) is a bi-directional communication hub between IoT applications and the devices. It's a scalable service that enables full-featured IoT solutions by providing secure communications, message routing, integration with other Azure services, and management features to control and configure the devices.
 
-- [Azure Event Hubs](/azure/event-hubs/event-hubs-about?WT.mc_id=iotinsightssoln-docs-ercenk) is a high-scale ingestion-only service for collecting telemetry data from concurrent sources at exceedingly high throughput rates.
+- [Azure Event Hubs](/azure/event-hubs/event-hubs-about?WT.mc_id=iotinsightssoln-docs-ercenk) is a high-scale ingestion-only service for collecting telemetry data from concurrent sources at exceedingly high throughput rates.  Event Hubs also provides an endpoint compatible with the Apache Kafka producer and consumer APIs. Most existing Apache Kafka client applications can use this endpoint, as an alternative to running your own Apache Kafka cluster.
 - [Apache Kafka on HDInsight](/azure/hdinsight/kafka/apache-kafka-introduction?WT.mc_id=iotinsightssoln-docs-ercenk) is a managed service that hosts [Apache Kafka](https://kafka.apache.org). Apache Kafka is an open-source distributed streaming platform that also provides message broker functionality. The hosted service has a Service Level Agreement (SLA) of 99.9% on Kafka uptime.
 
 ## Process and store the data
