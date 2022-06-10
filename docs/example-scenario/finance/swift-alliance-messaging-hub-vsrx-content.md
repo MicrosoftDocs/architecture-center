@@ -136,6 +136,14 @@ Consider these guidelines for best performance when you run SWIFT's AMH on Azure
 
 To estimate the cost of the Azure resources that you need to run a SWIFT AMH, see [a sample cost profile](https://azure.com/e/d2e12d232edb49db85cf330f70ffd636).
 
+## Contributors
+
+*This article is being updated and maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+* [Mahesh Kshirsagar](https://uk.linkedin.com/in/mahesh-kshirsagar-msft) | Senior Cloud Solution Architect
+
 ## Next steps
 
 - [Introduction to Azure managed disks](/azure/virtual-machines/managed-disks-overview)
