@@ -14,7 +14,7 @@ There's a wide range of Edge AI applications that monitor and provide informatio
 
 ## Architecture
 
-[![Architecture diagram showing an A I-enabled application that's running at the edge with Azure Stack Hub.](../media/ai-at-the-edge.png)](../media/ai-at-the-edge.svg#lightbox)
+[![Architecture diagram showing an A I -enabled application that's running at the edge with Azure Stack Hub.](../media/ai-at-the-edge.png)](../media/ai-at-the-edge.svg#lightbox)
 
 *Download an [SVG file](../media/ai-at-the-edge.svg) of this architecture.*
 
