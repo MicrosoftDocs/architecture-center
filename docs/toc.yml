@@ -673,6 +673,8 @@ items:
                 href: example-scenario/magento/magento-azure.yml
               - name: Movie recommendations on Azure
                 href: example-scenario/ai/movie-recommendations-with-machine-learning.yml
+              - name: Optimize inventory and forecast demand
+                href: example-scenario/analytics/optimize-inventory-forecast-demand.yml
               - name: Out of stock detection (retail)
                 href: /hybrid/app-solutions/pattern-out-of-stock-at-edge
                 maintainContext: true
