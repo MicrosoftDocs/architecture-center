@@ -112,7 +112,7 @@ Here are some additional resources:
 ## Related resources
 
 - [Azure mainframe and midrange architecture concepts and patterns](../../mainframe/mainframe-midrange-architecture.md)
-- [Mainframe migration overview](/azure/cloud-adoption-framework/infrastructure/mainframe-migration/?toc=https:%2f%2fdocs.microsoft.com%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fazure%2farchitecture%2fbread%2ftoc.json)
+- [Mainframe migration overview](/azure/cloud-adoption-framework/infrastructure/mainframe-migration/?toc=%2fazure%2farchitecture%2ftoc.json&bc=%2fazure%2farchitecture%2fbread%2ftoc.json)
 - [Mainframe rehosting on Azure virtual machines](/azure/virtual-machines/workloads/mainframe-rehosting/overview)
 - [Move mainframe compute to Azure Virtual Machines](/azure/virtual-machines/workloads/mainframe-rehosting/concepts/mainframe-compute-azure)
 - [General mainframe refactor to Azure](general-mainframe-refactor.yml)

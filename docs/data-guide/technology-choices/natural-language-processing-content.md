@@ -79,4 +79,4 @@ The following tables summarize the key differences in capabilities.
 - [Choose a Microsoft cognitive services technology](/azure/architecture/data-guide/technology-choices/cognitive-services)
 - [Compare the machine learning products and technologies from Microsoft](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
 - [Azure Machine Learning decision guide for optimal tool selection](/azure/architecture/example-scenario/mlops/aml-decision-tree)
-- [MLflow and Azure Machine Learning](/azure/machine-learning/concept-mlflow?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
+- [MLflow and Azure Machine Learning](/azure/machine-learning/concept-mlflow?toc=%2Fazure%2Farchitecture%2Ftoc.json&bc=%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
