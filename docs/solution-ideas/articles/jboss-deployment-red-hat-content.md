@@ -15,6 +15,8 @@ JBoss EAP is suitable for these uses:
 
 :::image type="content" source="../media/jboss-deployment-red-hat.png" alt-text="Architecture to implement the Red Hat JBoss Enterprise Application Platform (JBoss EAP) on Azure." lightbox="../media/jboss-deployment-red-hat.png":::
 
+*Download a [Visio file](https://arch-center.azureedge.net/jboss-deployment-red-hat.vsdx) of this architecture.*
+
 ### Dataflow
 
 - Development Flow
