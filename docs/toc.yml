@@ -273,7 +273,7 @@ items:
                 href: /azure/cloud-adoption-framework/innovate/best-practices/trusted-ai
                 maintainContext: true
               - name: Guidelines for human-AI interaction
-                href: /ai/guidelines-human-ai-interaction/?bc=https%3a%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2fbread%2ftoc.json&toc=https%3a%2f%2fdocs.microsoft.com%2fen-us%2fazure%2farchitecture%2ftoc.json
+                href: /ai/guidelines-human-ai-interaction/?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
               - name: Responsible AI with Cognitive Services
                 href: /azure/cognitive-services/responsible-use-of-ai-overview
                 maintainContext: true
