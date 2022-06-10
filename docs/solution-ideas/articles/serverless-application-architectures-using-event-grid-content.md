@@ -4,7 +4,7 @@ The core design concept uses Event Grid to connect data sources and event handle
 
 ## Potential use cases
 
-This solution idea publishes Azure Blob storage events using Azure Event Grid. Then Azure Functions receives the event with built-in Event Grid support and processes the data in Azure Blob storage.  By using this solution, developers only need to focus on implementing the business logic in Azure Functions. Event Grid provides a reliable near-real-time notifications system, for the event-driven integration between Blob storage and Azure Functions. For example, Event Grid instantly triggers a serverless function to run an image process (such as to shrink an image), whenever someone adds a new photo to a Blob storage container.
+This solution idea publishes Azure Blob storage events using Azure Event Grid. Then Azure Functions receives the event with built-in Event Grid support and processes the data in Azure Blob storage.  Developers only need to focus on implementing the business logic in Azure Functions using this solution. Event Grid provides a reliable near-real-time notifications system, for the event-driven integration between Blob storage and Azure Functions. For example, Event Grid instantly triggers a serverless function to run an image process (such as to shrink an image), whenever someone adds a new photo to a Blob storage container.
 
 ## Architecture
 
