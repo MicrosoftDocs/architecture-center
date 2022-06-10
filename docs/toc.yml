@@ -4376,8 +4376,6 @@ items:
                 href: solution-ideas/articles/collaboration-microsoft-365.yml
               - name: Hybrid identity
                 href: solution-ideas/articles/hybrid-identity.yml
-              - name: Microsoft Sentinel
-                href: solution-ideas/articles/microsoft-sentinel-automated-response.yml
       - name: Integration
         items:
           - name: Get started
@@ -5587,6 +5585,8 @@ items:
                     href: solution-ideas/articles/microsoft-365-defender-build-second-layer-defense.yml
                   - name: Integrate Azure and M365 Defender
                     href: solution-ideas/articles/microsoft-365-defender-security-integrate-azure.yml
+                  - name: Microsoft Sentinel automated responses
+                    href: solution-ideas/articles/microsoft-sentinel-automated-response.yml
       - name: Storage
         items:
           - name: Get started
