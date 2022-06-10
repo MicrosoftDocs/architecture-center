@@ -12,14 +12,14 @@ MAS 8.x runs on OpenShift and it's beneficial to familiarize yourself with OpenS
 
 ## Potential use cases
 
-The solutions within the Maximo Application Suite can be used across industries like:
- - Energy and utilities
- - Oil & Gas
- - Manufacturing
- - Public Sector
- - Travel & Transportation
+The solutions within the Maximo Application Suite is used in many industries such as:
+* Energy and utilities
+* Oil & Gas
+* Manufacturing
+* Public Sector
+* Travel & Transportation
 
-More information about use cases can be found on IBM's website for [Maximo](https://www.ibm.com/products/maximo).
+More information about use cases for Maximo can be found on [IBM's Maximo website](https://www.ibm.com/products/maximo).
 
 ## Architecture
 
@@ -33,29 +33,31 @@ The workload can be both deployed internally or externally facing, depending on 
 
 This architecture will provide you with the following from an infrastructure perspective:
 
-* Platform to deploy highly available workloads across availability zones
+* A container hosting platform to deploy highly available workloads across availability zones
 * A privatized deployment of worker and control nodes with integrated with storage
 * Azure Files Premium and Standard for storage (OpenShift Data Foundation not required)
 * Azure SQL running on a virtual machine or container based DB2WH
-* Azure DNS for DNS management of OpenShift
+* Azure DNS for DNS management of OpenShift and its containers
 * Azure Active Directory for Single Sign On into Maximo
 
 ### Components
 
- - [Azure Virtual Machines](/azure/virtual-machines/linux/overview)
- - [Custom Virtual Machine Image for Openshift](https://docs.openshift.com/container-platform/4.8/architecture/architecture-rhcos.html)
- - [Load Balancers](/azure/load-balancer/load-balancer-overview)
- - [Virtual Network](/azure/virtual-network/virtual-networks-overview)
- - [Azure Files](/azure/storage/files/storage-files-introduction)
- - [Public and Private DNS Zone](/azure/dns/dns-overview)
- - [Azure Bastion](/azure/bastion/bastion-overview)
- - [Azure SQL on a Virtual Machine](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview?view=azuresql)
+* [Azure Virtual Machines](/azure/virtual-machines/linux/overview) used to host the OpenShift platform and run the Maximo containers
+* [Custom Virtual Machine Image for Openshift](https://docs.openshift.com/container-platform/4.8/architecture/architecture-rhcos.html)
+* [Azure Load Balancers](/azure/load-balancer/load-balancer-overview) to provide connectivity into the cluster
+* [Virtual Network](/azure/virtual-network/virtual-networks-overview) for communication between nodes, Azure services and on-prem connectivity
+* [Azure Files](/azure/storage/files/storage-files-introduction) hosting the stateful data for the databases and systems inside the cluster 
+* [Public or Private DNS Zone](/azure/dns/dns-overview) managing the DNS resolution for the containers inside the solution
+* [Azure Bastion](/azure/bastion/bastion-overview) to securely access any of the worker nodes or installation machines
+* [Azure SQL on a Virtual Machine](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview?view=azuresql) providing data services to Maximo, this can also be another database like Oracle Exadata or DB2WH
+* [Twilio Send Grid](https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021) to send emails from Maximo to your consumers
 
 ### Alternatives
 
 While typically not necessary, you have the option to leverage the following other storage options:
- - [Azure NetApp Files](https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-introduction)
- - [Openshift Data Foundation](https://www.redhat.com/en/technologies/cloud-computing/openshift-data-foundation)
+* [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) as a replacement for Azure Files with more performance
+* [Oracle Database on Azure](/azure/virtual-machines/workloads/oracle/oracle-reference-architecture) if you want to use Oracle instead of SQL Server or DB2WH
+* [Openshift Data Foundation](https://www.redhat.com/en/technologies/cloud-computing/openshift-data-foundation) if you want to use DB2WH on ODF
 
 ## Recommendations
 
