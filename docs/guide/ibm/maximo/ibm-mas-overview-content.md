@@ -47,10 +47,11 @@ This architecture will provide you with the following from an infrastructure per
 * [Azure Load Balancers](/azure/load-balancer/load-balancer-overview) to provide connectivity into the cluster
 * [Virtual Network](/azure/virtual-network/virtual-networks-overview) for communication between nodes, Azure services and hybrid connectivity needs
 * [Azure Files](/azure/storage/files/storage-files-introduction) hosting the stateful data for the databases and systems inside the cluster 
-* [Public or Private DNS Zone](/azure/dns/dns-overview) managing the DNS resolution for the containers inside the solution
-* [Azure Bastion](/azure/bastion/bastion-overview) to securely access any of the worker nodes or installation machines
-* [Azure SQL on a Virtual Machine](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview?view=azuresql) providing data services to Maximo, the database can also be another, like Oracle Exadata or IBM DB2WH
-* [Twilio Send Grid](https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021) to send emails from Maximo to your consumers
+* [Public and Private DNS Zones](/azure/dns/dns-overview) managing the DNS resolution for the containers inside and outside of the solution
+* Optional [Azure Bastion](/azure/bastion/bastion-overview) and subnet to securely access any of the worker nodes or installation machines
+* Optional [Azure SQL on a Virtual Machine](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview?view=azuresql) providing data services to Maximo, the database can also be another, like Oracle Exadata or IBM DB2WH
+* Optional [Twilio Send Grid](https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021) to send emails from Maximo to your consumers
+* Optionally a [Linux jump box](/azure/virtual-machines/linux/overview) to do the OpenShift installation from
 
 ### Alternatives
 
