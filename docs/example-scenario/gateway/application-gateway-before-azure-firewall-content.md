@@ -175,6 +175,14 @@ The following diagram shows the packet flow when Route Server simplifies dynamic
 
 As with Virtual WAN, you might need to modify the routing when you use Route Server. If you advertise the 0.0.0.0/0 route, it might propagate to the Application Gateway subnet. But Application Gateway doesn't support that route. In this case, configure a route table for the Application Gateway subnet. Include a route for 0.0.0.0/0 and a next hop type of `Internet` in that table.
 
+## Contributors
+
+*This article is being updated and maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+* [Jose Moreno](https://de.linkedin.com/in/erjosito) | Principal Customer Engineer
+
 ## Next steps
 
 - [Secure networks with zero trust][Secure networks with Zero Trust]

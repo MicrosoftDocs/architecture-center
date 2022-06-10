@@ -89,6 +89,14 @@ These articles have pricing information for Azure components:
 - [Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network)
 - [Azure Firewall pricing](https://azure.microsoft.com/pricing/details/azure-firewall)
 
+## Contributors
+
+*This article is being updated and maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+* [Rudnei Oliveira](https://www.linkedin.com/in/rudnei-r-oliveira-69443523) | Senior Customer Engineer
+
 ## Next steps
 
 - [Quickstart: Create a virtual network using the Azure portal](/azure/virtual-network/quick-create-portal)

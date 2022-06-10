@@ -123,6 +123,14 @@ Additional considerations:
 - Guest access can be used with all Microsoft 365 Business Standard, Microsoft 365 Business Premium, and Microsoft 365 Education subscriptions. No additional Microsoft 365 license is necessary.
 - The billing model for Azure AD External Identities applies to guests in Microsoft 365. Only external users can be invited as guests.
 
+## Contributors
+
+*This article is being updated and maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+* [Martin Boam](https://uk.linkedin.com/in/martinboam) | Associate Architect
+
 ## Next steps
 
 - [Overview of teams and channels in Microsoft Teams](/microsoftteams/teams-channels-overview)
