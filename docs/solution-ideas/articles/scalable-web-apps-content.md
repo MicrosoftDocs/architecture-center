@@ -4,11 +4,15 @@ Quickly save, retrieve, and update web session data such as user cookies and out
 
 ## Potential use cases
 
+Organizations utilize scalable web apps to help:
 
+- Increase performance
+- Ensure availability
+- Provide fast data retrieval
 
 ## Architecture
 
-![Architecture diagram](../media/scalable-web-apps.svg)
+![Architecture diagram shows from browser to Azure Web App to Azure Cache for Redis.](../media/scalable-web-apps.svg)
 
 ### Components
 
