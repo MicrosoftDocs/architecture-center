@@ -6,7 +6,7 @@ Predict and prevent future incidents by combining IoT and intelligence to optimi
 
 ## Potential use cases
 
-
+This solution is ideal for the medical industry.
 
 ## Architecture
 
