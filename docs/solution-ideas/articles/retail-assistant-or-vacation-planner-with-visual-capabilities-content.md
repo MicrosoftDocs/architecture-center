@@ -4,7 +4,7 @@ The bot assistant with search integration can help your customers have interacti
 
 ## Potential use cases
 
-This solution can be used broadly but is ideal for the retail industry, as well as the travel and hospitality industries.
+This solution can be used broadly, but is ideal for the retail industry and the travel and hospitality industries.
 
 ## Architecture
 
