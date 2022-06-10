@@ -116,14 +116,14 @@ To deploy this scenario and similar solutions, see the following GitHub reposito
 
 ## Contributors
 
-*This article is maintained by Microsoft.*
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal author:
+Principal authors:
 
 - [Giulia Gallo](https://www.linkedin.com/in/giuliagallo) | Senior Cloud Solution Architect
 - [Jake Switzer](https://www.linkedin.com/in/jake-switzer-1629a983) | Sports Analytics Solution Architect
 
-Other contributors:
+Other contributor:
 
 - [Jason Martinez](https://www.linkedin.com/in/jason-martinez-502766123) | Technical Writer
 

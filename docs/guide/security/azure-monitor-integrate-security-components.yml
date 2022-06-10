@@ -1,0 +1,24 @@
+### YamlMime:Architecture
+metadata:
+  title: Use Azure monitoring to integrate security components
+  description: Integrate Azure monitoring services and Azure security services to provide defense in depth to your IT environment. This article introduces a series of articles.
+  author: rudneir2
+  ms.author: ruolivei
+  ms.custom: fcp
+  ms.date: 06/01/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - security
+  - integration
+products:
+  - azure
+  - azure-monitor
+  - office-365
+  - defender-office365
+name: Use Azure monitoring to integrate security components
+summary: Integrate Azure monitoring and security services to provide defense in depth to your IT environment. This article introduces a series of articles.
+thumbnailUrl: /azure/architecture/browse/thumbs/azure-monitor-integrate-security-components-thumbnail.png
+content: |
+  [!include[](azure-monitor-integrate-security-components-content.md)]

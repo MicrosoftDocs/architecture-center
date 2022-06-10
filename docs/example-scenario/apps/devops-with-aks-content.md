@@ -6,7 +6,7 @@ By using Azure services such as Azure Kubernetes Service, Container Registry, an
 
 ## Potential use cases
 
-Other relevant use cases include:
+Relevant use cases include:
 
 - Modernizing application development practices to a microservice, container-based approach.
 - Speeding up application development and deployment lifecycles.
@@ -15,6 +15,8 @@ Other relevant use cases include:
 ## Architecture
 
 ![Architecture overview of the Azure components involved in a DevOps scenario using Jenkins, Azure Container Registry, and Azure Kubernetes Service][architecture]
+
+*Download a [Visio file](https://arch-center.azureedge.net/architecture-devops-with-aks.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -157,7 +159,7 @@ Microsoft Learn modules:
 - [Secure DevOps for AKS](../../solution-ideas/articles/secure-devops-for-kubernetes.yml)
 
 <!-- links -->
-[architecture]: ./media/architecture-devops-with-aks.png
+[architecture]: ./media/architecture-devops-with-aks-new.png
 [docs-aci]: /azure/container-instances/container-instances-overview
 [docs-acr]: /azure/container-registry/container-registry-intro
 [docs-aks]: /azure/aks/intro-kubernetes

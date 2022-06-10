@@ -105,7 +105,7 @@ For more information about setting up the gateway, see the following reference a
 
 -   [Hybrid network using ExpressRoute](../reference-architectures/hybrid-networking/expressroute.yml)
 
--   [Hybrid network using a VPN Gateway](../reference-architectures/hybrid-networking/vpn.yml)
+-   [Hybrid network using a VPN Gateway](/azure/expressroute/expressroute-howto-coexist-resource-manager)
 
 For greater availability, you can use ExpressRoute plus a VPN for failover. See
 [Connect an on-premises network to Azure using ExpressRoute with VPN failover](../reference-architectures/hybrid-networking/expressroute-vpn-failover.yml).
@@ -180,7 +180,7 @@ Learn more:
 
 -   [Firewall and Application Gateway for virtual networks](../example-scenario/gateway/firewall-application-gateway.yml)
 
--   [Extend an on-premises network using VPN](../reference-architectures/hybrid-networking/vpn.yml)
+-   [Extend an on-premises network using VPN](/azure/expressroute/expressroute-howto-coexist-resource-manager)
 
 -   [Secure and govern workloads with network level segmentation](../reference-architectures/hybrid-networking/network-level-segmentation.yml)
 
