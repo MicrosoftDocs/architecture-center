@@ -87,4 +87,5 @@ It's expensive and complex to maintain a secure, reliable, and performant identi
 
 ## Next steps
 
-- TODO
+- [What is Azure Active Directory?](/azure/active-directory/fundamentals/active-directory-whatis)
+- [What is Azure Active Directory B2C?](/azure/active-directory-b2c/overview)
