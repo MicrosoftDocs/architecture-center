@@ -75,6 +75,14 @@ We have provided three sample cost profiles based on amount of traffic you expec
 - [Medium][medium-pricing]: process 100M events through five standard streaming units per month.
 - [Large][large-pricing]: process 999 million events through 20 standard streaming units per month.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+* [Alex Buck](https://www.linkedin.com/in/alex-buck-0161575) | Senior Content Developer
+
 ## Next steps
 
 More complex fraud detection scenarios can benefit from a machine learning model. For scenarios built using Machine Learning Server, see [Fraud detection using Machine Learning Server][r-server-fraud-detection]. For other solution templates using Machine Learning Server, see [Data science scenarios and solution templates][docs-r-server-sample-solutions].

@@ -23,13 +23,13 @@ Diagram showing how data flows between three parties in a healthcare setting. Th
 The diagram outlines the architecture. Throughout the system:
 
 - Network communication is TLS encrypted in transit.
-- [Azure Monitor](/azure/azure-monitor/) tracks component performance, and [Azure Container Registry](/azure/container-registry/) (ACR) manages the solution's containers.
+- [Azure Monitor](/azure/azure-monitor) tracks component performance, and [Azure Container Registry](/azure/container-registry) (ACR) manages the solution's containers.
 
 ### Workflow
 
 The solution involves the following steps:
 
-1. A clerk for a local hospital opens a web portal. The entire web app is an [Azure Blob Storage](/azure/storage/blobs/) static website.
+1. A clerk for a local hospital opens a web portal. The entire web app is an [Azure Blob Storage](/azure/storage/blobs) static website.
 1. The clerk enters data into the hospital's web portal, which connects to a Python Flask–based web API built by a popular medical platform vendor. A confidential node in the [SCONE](https://sconedocs.github.io/#scone-executive-summary) confidential computing software protects the patient data. SCONE works within an AKS cluster that has the Software Guard Extensions (SGX) enabled that help run the container in an enclave. The Web API will provide evidence that the sensitive data and app code is encrypted and isolated in a Trusted Execution Environment. This means that no humans, no processes, and no logs have access to the cleartext data or the application code.
 1. The hospital's web app client requests that an attestation service (Azure Attestation) validates this evidence, and receives a signed *attestation token* for other apps to verify.
 1. If the Web API requires additional components (like a Redis cache), it can pass along the attestation token to verify that the data and app code have so far remained in a safe enclave (see step 6 for verification).
@@ -43,13 +43,13 @@ The solution involves the following steps:
 
 - [Azure Attestation](/azure/attestation/) is a unified solution that remotely verifies the trustworthiness of a platform. Azure Attestation also remotely verifies the integrity of the binaries that run in the platform. Use Azure Attestation to establish trust with the confidential application.
 
-- [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) simplifies the process of deploying a Kubernetes cluster.
+- [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service) simplifies the process of deploying a Kubernetes cluster.
 
 - [Confidential computing nodes](/azure/confidential-computing/confidential-nodes-aks-overview) are hosted on a specific virtual machine series that can run sensitive workloads on AKS within a hardware-based trusted execution environment (TEE) by allowing user-level code to allocate private regions of memory, known as enclaves. Confidential computing nodes can support confidential containers or enclave-aware containers.
 
 - [SCONE platform](https://azuremarketplace.microsoft.com/marketplace/apps/scontainug1595751515785.scone?tab=Overview) is an Azure Partner independent software vendor (ISV) solution from Scontain.
 
-- [Redis](https://redis.io/) is an open-source, in-memory data structure store.
+- [Redis](https://redis.io) is an open-source, in-memory data structure store.
 
 - [Secure Container Environment (SCONE)](https://sconedocs.github.io/) supports the execution of confidential applications in containers that run inside a Kubernetes cluster.
 
@@ -75,7 +75,7 @@ Deploying this scenario involves the following high-level steps:
 
 - Deploy an SGX-enabled AKS cluster node pool.
 
-- Get access to [curated confidential applications called SconeApps](https://sconedocs.github.io/helm/). SconeApps are available on a private GitHub repository that's currently only available for commercial customers, through SCONE Standard Edition. Go to the [SCONE website](https://scontain.com/) and contact the company directly to get this service level.
+- Get access to [curated confidential applications called SconeApps](https://sconedocs.github.io/helm). SconeApps are available on a private GitHub repository that's currently only available for commercial customers, through SCONE Standard Edition. Go to the [SCONE website](https://scontain.com) and contact the company directly to get this service level.
 
 - Install and run SCONE services on your AKS cluster.
 

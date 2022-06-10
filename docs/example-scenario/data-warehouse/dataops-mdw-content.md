@@ -33,19 +33,19 @@ Azure Data Factory (ADF) orchestrates and Azure Data Lake Storage (ADLS) Gen2 st
 
 The solution uses these components:
 
-* [Azure Data Factory (ADF)](https://azure.microsoft.com/services/data-factory/)
+* [Azure Data Factory (ADF)](https://azure.microsoft.com/services/data-factory)
 
-* [Azure Databricks](https://azure.microsoft.com/services/databricks/)
+* [Azure Databricks](https://azure.microsoft.com/services/databricks)
 
 * [Azure Data Lake Storage (ADLS) Gen2](/azure/storage/blobs/data-lake-storage-introduction)
 
-* [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/)
+* [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics)
 
-* [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
+* [Azure Key Vault](https://azure.microsoft.com/services/key-vault)
 
-* [Azure DevOps](https://azure.microsoft.com/services/devops/)
+* [Azure DevOps](https://azure.microsoft.com/services/devops)
 
-* [Power BI](https://powerbi.microsoft.com/)
+* [Power BI](https://powerbi.microsoft.com)
 
 ## Scenario details
 
@@ -102,7 +102,7 @@ The following list contains the high-level steps required to set up the Parking 
 ### Setup and deployment
 
 1. **Initial setup**: Install any prerequisites, import the Azure Samples GitHub repository into your own repository, and set required environment variables.
-1. **Deploy Azure resources**: The solution comes with an automated deployment script. It deploys all necessary Azure resources and AAD service principals per environment. The script also deploys Azure DevOps pipelines, variable groups, and service connections.
+1. **Deploy Azure resources**: The solution comes with an automated deployment script. It deploys all necessary Azure resources and Microsoft Azure Active Directory service principals per environment. The script also deploys Azure pipelines, variable groups, and service connections.
 1. **Set up git integration in dev Data Factory**: Configure git integration to work with the imported GitHub repository.
 
 1. **Carry out an initial build and release**: Create a sample change in Data Factory, like enabling a schedule trigger, then watch the change automatically deploy across environments.
@@ -188,7 +188,7 @@ Azure Databricks
 Data Factory
 
 * [Monitor Azure Data Factory with Azure Monitor](/azure/data-factory/monitor-using-azure-monitor)
-* [Create alerts to proactively monitor your data factory pipelines](https://azure.microsoft.com/blog/create-alerts-to-proactively-monitor-your-data-factory-pipelines/)
+* [Create alerts to proactively monitor your data factory pipelines](https://azure.microsoft.com/blog/create-alerts-to-proactively-monitor-your-data-factory-pipelines)
 
 Synapse Analytics
 
@@ -220,7 +220,7 @@ Azure Storage
 * [Best practices for using Azure Data Lake Storage Gen2 – High availability and Disaster Recovery](/azure/storage/blobs/data-lake-storage-best-practices#high-availability-and-disaster-recovery)
 * [Azure Storage Redundancy](/azure/storage/common/storage-redundancy)
 
-### Videos
+## Next steps
 
 For a detailed walk-through of the solution and key concepts, watch the following video recording: [DataDevOps for the Modern Data Warehouse on Microsoft Azure](https://www.youtube.com/watch?v=Xs1-OU5cmsw%22)
 
