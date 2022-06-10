@@ -34,8 +34,6 @@ Microsoft's Azure and other offerings are committed to empower media and enterta
 - optimize and personalize content delivery,
 - modernize collaboration.
 
-To learn how Azure can provide an intelligent cloud backbone to content owners and creators, visit [Azure for media and entertainment](https://azure.microsoft.com/industries/media/). Microsoft offerings are transforming and empowering media businesses; see some case studies at [Intelligent Media and Entertainment](https://www.microsoft.com/industry/media-entertainment).
-
 <br>
 
 <!-- markdownlint-disable MD034 -->
@@ -45,6 +43,8 @@ To learn how Azure can provide an intelligent cloud backbone to content owners a
 <!-- markdownlint-enable MD034 -->
 
 <br>
+
+To learn how Azure can provide an intelligent cloud backbone to content owners and creators, visit [Azure for media and entertainment](https://azure.microsoft.com/industries/media/). Microsoft offerings are transforming and empowering media businesses; see some case studies at [Intelligent Media and Entertainment](https://www.microsoft.com/industry/media-entertainment).
 
 ## Architectures for media and entertainment
 

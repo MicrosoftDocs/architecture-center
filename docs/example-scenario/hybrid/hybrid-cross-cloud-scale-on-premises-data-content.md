@@ -124,6 +124,6 @@ Azure and Azure Stack Hub support the needs of globally distributed businesses.
 
 - [Hybrid architecture design](../../hybrid/hybrid-start-here.md)
 - [Connect an on-premises network to Azure](../../reference-architectures/hybrid-networking/index.yml)
-- [Extend an on-premises network using VPN](../../reference-architectures/hybrid-networking/vpn.yml)
+- [Extend an on-premises network using VPN](/azure/expressroute/expressroute-howto-coexist-resource-manager)
 - [Connect an on-premises network to Azure using ExpressRoute](../../reference-architectures/hybrid-networking/expressroute-vpn-failover.yml)
 - [DevOps with Azure Stack Hub](/azure/architecture/solution-ideas/articles/hybrid-continuous-integration)

@@ -64,8 +64,8 @@ Principal author:
 ### SAP
 
 - [SAP on Azure Architecture Guide](../../reference-architectures/sap/sap-overview.yml)
-- [SAP workloads on Azure: planning and deployment checklist](/azure/virtual-machines/workloads/sap/sap-deployment-checklist?toc=https://docs.microsoft.com/en-us/azure/architecture/toc.json&bc=https://docs.microsoft.com/en-us/azure/architecture/bread/toc.json)
-- [SAP workload configurations with Azure Availability Zones](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones?toc=https://docs.microsoft.com/en-us/azure/architecture/toc.json&bc=https://docs.microsoft.com/en-us/azure/architecture/bread/toc.json)
+- [SAP workloads on Azure: planning and deployment checklist](/azure/virtual-machines/workloads/sap/sap-deployment-checklist?toc=/azure/architecture/toc.json&bc=/azure/architecture/bread/toc.json)
+- [SAP workload configurations with Azure Availability Zones](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones?toc=/azure/architecture/toc.json&bc=/azure/architecture/bread/toc.json)
 - [SAP S/4HANA in Linux on Azure](../..//reference-architectures/sap/sap-s4hana.yml)
 - [SAP S/4 HANA for Large Instances](sap-s4-hana-on-hli-with-ha-and-dr.yml)
 - [Use Azure to host and run SAP workload scenarios](/azure/virtual-machines/workloads/sap/get-started)
@@ -83,9 +83,9 @@ Principal author:
 ### SUSE
 
 - [SUSE on Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=SUSE)
-- [Highly Available NFS Storage with DRBD and Pacemaker ](https://documentation.suse.com/sle-ha/15-SP1/html/SLE-HA-all/art-sleha-nfs-quick.html)
+- [Highly Available NFS Storage with DRBD and Pacemaker](https://documentation.suse.com/sle-ha/15-SP1/html/SLE-HA-all/art-sleha-nfs-quick.html)
 - [Run SAP](https://www.suse.com/solutions/run-sap-solutions)
-- [SUSE Linux Enterprise Server for SAP Applica­tions 15 SP3](https://documentation.suse.com/sles-sap/15-SP3)
+- [SUSE Linux Enterprise Server for SAP Applications 15 SP3](https://documentation.suse.com/sles-sap/15-SP3)
 - [SUSE Best Practices - all documents](https://documentation.suse.com/sbp/all)
 - [Getting Started with SAP HANA High Availability Cluster Automation Operating on Azure](https://documentation.suse.com/sbp/all/single-html/SBP-SAP-HANA-PerOpt-HA-Azure)
 - [Monitor SAP in SLES with Grafana and Prometheus](https://www.youtube.com/watch?v=a8Lz0_pHzm0) (video)
