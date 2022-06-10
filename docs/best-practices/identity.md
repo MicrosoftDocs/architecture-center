@@ -47,7 +47,7 @@ Users expect an identity system to include a range of advanced features, which m
 
 If you're building an identity component as part of your own business solution, it's unlikely you'll be able to justify the work involved in implementing these features, and in maintaining them. Some of these features also require extra work, such as integration with email and SMS messaging providers to send MFA codes, and storing and retaining audit logs for a sufficient time period.
 
-Managed identity platforms also can provide an improved set of security features based on the volume of sign-in requests they receive. For example, the following features work best when there's a large number of customers using a managed identity platform that's used by a large number of customers:
+Managed identity platforms also can provide an improved set of security features based on the volume of sign-in requests they receive. For example, the following features work best when there's a large number of customers using a managed identity platform:
 
 - Risky sign-in detection, such as sign-in attempts from botnets, [impossible travel](/defender-cloud-apps/anomaly-detection-policy#impossible-travel), and the use of machine learning techniques to classify sign-in attempts as valid or invalid.
 - Common credential detection, such as insecure passwords that are frequently used by other users and therefore subject to a heightened risk of compromise.
