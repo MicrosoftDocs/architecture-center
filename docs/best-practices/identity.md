@@ -18,7 +18,7 @@ ms.custom:
 
 # Identity providers
 
-Almost every cloud application needs to work with user identities. Identity is the foundation of modern security practices, and application user identity is a critical part of your solution's architecture.
+Almost every cloud application needs to work with user identities. Identity is the foundation of modern security practices like [zero trust](https://www.microsoft.com/security/business/zero-trust), and application user identity is a critical part of your solution's architecture.
 
 For most solutions, consider using a managed identity provider (IdP) instead of building or operating your own. In this article, we describe the challenges of building or running your own identity provider.
 
@@ -45,7 +45,7 @@ Users expect an identity system to include a range of advanced features, which m
 - Conditional access, which creates a risk profile around a sign-in attempt based on various factors. The factors might include the user's identity, the location of the sign-in attempt, previous sign-in activity, and the sensitivity of the data or application.
 - Just-in-time access control, which temporarily allows users to sign in based on an approval process, and then removes the authorization automatically.
 
-If you're building an identity component as part of your own business solution, it's unlikely you'll be able to justify the work involved in implementing these features, and in maintaining them. Some of these features also require extra work, such as integration with email and SMS messaging providers to send MFA codes, and storing and retaining audit logs for a sufficient time period.
+If you're building an identity component yourself as part of your business solution, it's unlikely you'll be able to justify the work involved in implementing these features, and in maintaining them. Some of these features also require extra work, such as integration with email and SMS messaging providers to send MFA codes, and storing and retaining audit logs for a sufficient time period.
 
 Managed identity platforms also can provide an improved set of security features based on the volume of sign-in requests they receive. For example, the following features work best when there's a large number of customers using a managed identity platform that's used by a large number of customers:
 
@@ -57,7 +57,7 @@ If you build or run your own identity platform, you won't be able to take advant
 
 ## Avoid storing credentials
 
-When you run your own identity provider, you have to store a database of credentials. You should never store raw credentials, or even encrypted credentials.
+When you run your own identity provider, you have to store a database of credentials. You should never store credentials in clear text, or even encrypted credentials.
 
 Instead, you might consider cryptographically hashing and salting credentials before storing them, which makes them more difficult to attack. However, even hashed and salted credentials are vulnerable to several types of attack.
 
@@ -65,7 +65,7 @@ Regardless of how you protect the individual credentials, maintaining a database
 
 **Consider credential storage to be a liability, not an asset.** By using a managed identity provider, you outsource the problem of credential storage to experts who can invest the time and resources in securely managing credentials.
 
-## Build a reliable and performant identity system
+## Use a reliable and performant identity system
 
 Because identity systems are such a key part of modern cloud applications, they must be reliable. If your identity system is unavailable, the rest of your solution might well be impacted and either operate in a degraded fashion or fail to operate at all. By using a managed identity provider with a service level agreement, you can increase your confidence that your identity system will remain operational when you need it. For example, [Azure Active Directory offers a 99.99% uptime SLA for the Basic and Premium service tiers](https://azure.microsoft.com/support/legal/sla/active-directory/), which covers both the sign-in and token issuing processes.
 
@@ -83,7 +83,17 @@ These controls are often expensive and difficult to implement.
 
 ## Focus on your core value
 
-It's expensive and complex to maintain a secure, reliable, and performant identity platform. In the most situations, an identity provider isn't the component that adds value to your solution, or that differentiates you from your competitors. By outsourcing your identity requirements to a specialized identity provider, you can focus on architecting and building the components of your solution that add value to your business and your customers.
+It's expensive and complex to maintain a secure, reliable, and performant identity platform. In the most situations, an identity provider isn't the component that adds value to your solution, or that differentiates you from your competitors. By outsourcing your identity requirements to a specialized identity provider, you can focus on architecting and building the components of your solution that add business value for your customers.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+ * [John Downs](http://linkedin.com/in/john-downs) | Senior Customer Engineer, FastTrack for Azure
+
+Other contributors:
+ * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 
 ## Next steps
 
