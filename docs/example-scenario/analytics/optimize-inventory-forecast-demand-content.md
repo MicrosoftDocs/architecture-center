@@ -36,7 +36,7 @@ This solution is designed for the retail industry, but it also applies to the fo
 
 ## Architecture
 
-:::image type="content" alt-text="Diagram of a solution that ingests data from multiple sources and uses machine learning to optimize inventory and forecast demand." source="./media/optimize-inventory-forecast-demand-architecture.png" lightbox="./media/optimize-inventory-forecast-demand-architecture.png":::
+:::image type="content" alt-text="Diagram of a solution that ingests data from multiple sources and uses machine learning to optimize inventory and forecast demand." source="./media/optimize-inventory-forecast-demand-architecture.svg" lightbox="./media/optimize-inventory-forecast-demand-architecture.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/optimize-inventory-forecast-demand-architecture.vsdx) of this architecture.*
 
@@ -88,7 +88,7 @@ This solution is designed for the retail industry, but it also applies to the fo
 
 The implemented reference solution uses advanced machine learning and deep learning methods for time-series forecasting. Specifically, multivariate probabilistic forecasting is used to account for uncertainties common in supply chain. By using an ensemble modeling approach blending Deep AutoRegression RNN (DeepAR) or Transformer models with classical Monte Carlo Sampling method, the reference solution achieved 99.9% Mean Square Error (MSE) improvement over a customer's initial approach for high volume/high business impact products. For ensembling, XGBClassifier and XGBRegressor model architectures were explored.
 
-:::image type="content" alt-text="Diagram of the components that ingest sales history and produce demand predictions in this example workload." source="media/image-file-inline.png" lightbox="media/image-file-expanded.png":::
+:::image type="content" alt-text="Diagram of the components that ingest sales history and produce demand predictions in this example workload." source="media/optimize-inventory-forecast-demand-dataflow.png":::
 
 ## Considerations
 
