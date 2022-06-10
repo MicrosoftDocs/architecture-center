@@ -15,6 +15,8 @@ Manufacturing processes use IoT computer vision in safety and quality assurance 
 
 [![Diagram showing the end-to-end approach to computer vision from the edge to the cloud and back.](_images/end-to-end-smart-factory-01.png)](_images/end-to-end-smart-factory-01.png#lightbox)
 
+*Download a [Visio file](https://arch-center.azureedge.net/end-to-end-smart-factory.vsdx) of this architecture.*
+
 ### Dataflow
 
 1. The IoT Edge custom module captures the live video stream, breaks it down into frames, and performs inference on the image data to determine if an incident has occurred.
