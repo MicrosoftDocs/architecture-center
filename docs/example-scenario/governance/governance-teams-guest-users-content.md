@@ -117,7 +117,7 @@ Additional considerations:
   - Two or more organizations are collaborating on a project, so multiple users from one organization need to be invited to access another organization's resources.
 - **Updating resources** - With Azure AD entitlement management, you can change the resources in an access package at any time. The users of the package have their resource access automatically adjusted to match the changed package.
 
-## Pricing
+### Cost optimizaiton
 
 - The use of Azure AD entitlement management requires an Azure AD Premium P2 license.
 - Guest access can be used with all Microsoft 365 Business Standard, Microsoft 365 Business Premium, and Microsoft 365 Education subscriptions. No additional Microsoft 365 license is necessary.
@@ -125,9 +125,9 @@ Additional considerations:
 
 ## Contributors
 
-*This article is being updated and maintained by Microsoft. It was originally written by the following contributors.*
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors:
+Principal author:
 
 * [Martin Boam](https://uk.linkedin.com/in/martinboam) | Associate Architect
 
