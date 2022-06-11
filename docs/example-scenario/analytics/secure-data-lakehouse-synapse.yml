@@ -19,9 +19,8 @@ products:
   - azure-data-lake-gen2
   - azure-virtual-network
   - power-bi
-name: Secure a data lakehouse on Synapse
+name: Secure a data lakehouse with Azure Synapse Analytics
 summary: Learn how to secure a data lakehouse that's implemented by using Azure Synapse Analytics. 
 thumbnailUrl: /azure/architecture/browse/thumbs/secure-data-lakehouse-architecture.png
 content: |
   [!include[](secure-data-lakehouse-synapse-content.md)]
-  
