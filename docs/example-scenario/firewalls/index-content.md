@@ -84,9 +84,9 @@ More information on using load balancers as *gateways* for all traffic can be fo
 
 ## Contributors
 
-*This article is being updated and maintained by Microsoft. It was originally written by the following contributors.*
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors:
+Principal author:
 
 * [Roelf Zomerman](https://ae.linkedin.com/in/rzomerman) | Senior Cloud Solution Architect
 
