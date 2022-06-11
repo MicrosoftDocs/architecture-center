@@ -38,6 +38,8 @@ This diagram shows how linking from Resource Manager and CI/CD to Azure Active D
 > [!NOTE]
 > To make the concept easier to understand, the diagram only illustrates the **"veggies"** domain. The "fruits" domain would look similar and use the same naming conventions.
 
+### Workflow
+
 The numbering reflects the order in which IT administrators and enterprise architects think about and configure their cloud resources.
 
 1. **Azure Active Directory**  
@@ -215,9 +217,9 @@ In Azure Active Directory, the type of group access management needed for this s
 
 ## Contributors
 
-*This article is being updated and maintained by Microsoft. It was originally written by the following contributors.*
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors:
+Principal author:
 
 * [Julie Ng](https://de.linkedin.com/in/julie-io) | Senior Service Engineer
 
@@ -225,10 +227,6 @@ Principal authors:
 
 - Visit the code repository for this scenario at [Governance on Azure Demo - from DevOps to ARM](https://github.com/azure/devops-governance).
 - Review the Cloud Adoption Framework's [Cloud governance guides](/azure/cloud-adoption-framework/govern/guides).
-
-## Related resources
-
-- [Design a CI/CD pipeline using Azure DevOps](../apps/devops-dotnet-webapp.yml)
 - [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview)
 - [Cloud Adoption Framework: Resource access management in Azure](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management)
 - [Azure Resource Manager roles](/azure/role-based-access-control/built-in-roles)
@@ -240,6 +238,10 @@ Principal authors:
   - [Project Administrators](/azure/devops/user-guide/roles?view=azure-devops#project-administrators)
   - [Contributor](/azure/devops/user-guide/roles?view=azure-devops#contributor-roles)
   - [Reader](/azure/role-based-access-control/built-in-roles#reader)
+
+## Related resources
+
+- [Design a CI/CD pipeline using Azure DevOps](../apps/devops-dotnet-webapp.yml)
 - [Computer forensics Chain of Custody in Azure](../forensics/index.yml)
 - [Azure Arc hybrid management and deployment for Kubernetes clusters](../../hybrid/arc-hybrid-kubernetes.yml)
 - [Azure Automation in a hybrid environment](../../hybrid/azure-automation-hybrid.yml)
