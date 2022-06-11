@@ -113,9 +113,9 @@ Azure and Azure Stack Hub support the needs of globally distributed businesses.
 
 ## Contributors
 
-*This article is being updated and maintained by Microsoft. It was originally written by the following contributors.*
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors:
+Principal author:
 
 * [Bryan Lamos](https://www.linkedin.com/in/bryanlamos) | Senior Content Developer
 
