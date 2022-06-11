@@ -4,7 +4,7 @@ High availability for your front-end and middle tier can be obtained by using Az
 
 ## Potential use cases
 
-This solution architecture illustrates a canonical architecture to achieve high availability for your Oracle Database Enterprise Edition in Azure.
+This solution idea illustrates a canonical architecture to achieve high availability for your Oracle Database Enterprise Edition in Azure.
 
 ## Architecture
 
