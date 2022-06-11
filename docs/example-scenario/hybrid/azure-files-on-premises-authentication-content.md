@@ -78,7 +78,7 @@ These articles have security information for Azure components:
 - [Azure security baseline for Virtual Network](/security/benchmark/azure/baselines/virtual-network-security-baseline)
 - [Azure security baseline for Azure Firewall](/security/benchmark/azure/baselines/firewall-security-baseline)
 
-## Pricing
+### Cost optimization
 
 To estimate the cost of Azure products and configurations, use the Azure [Pricing calculator](https://azure.microsoft.com/pricing/calculator).
 
@@ -91,9 +91,9 @@ These articles have pricing information for Azure components:
 
 ## Contributors
 
-*This article is being updated and maintained by Microsoft. It was originally written by the following contributors.*
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors:
+Principal author:
 
 * [Rudnei Oliveira](https://www.linkedin.com/in/rudnei-r-oliveira-69443523) | Senior Customer Engineer
 
