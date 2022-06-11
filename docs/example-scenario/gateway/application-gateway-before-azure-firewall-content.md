@@ -177,9 +177,9 @@ As with Virtual WAN, you might need to modify the routing when you use Route Ser
 
 ## Contributors
 
-*This article is being updated and maintained by Microsoft. It was originally written by the following contributors.*
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors:
+Principal author:
 
 * [Jose Moreno](https://de.linkedin.com/in/erjosito) | Principal Customer Engineer
 
