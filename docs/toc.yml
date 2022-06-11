@@ -1493,7 +1493,7 @@ items:
                       - name: Deploy the IIoT platform
                         href: /azure/industrial-iot/tutorial-deploy-industrial-iot-platform
                         maintainContext: true
-               - name: "Mixed reality: Prototyping"
+               - name: Mixed reality - Prototyping
                  href: /windows/mixed-reality/enthusiast-guide/prototyping-manufacturing
                  maintainContext: true
                - name: Manufacturing Windows engineering
