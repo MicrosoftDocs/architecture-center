@@ -11,7 +11,10 @@ Throughout the health and life sciences industry, organizations are adopting a *
 
 ![Consumer health portal architecture](./images/consumer_health_portal.png)
 
-This solution uses the global footprint of Azure Front Door and edge security features of Azure Web Application Firewall (WAF) to authenticate the inbound data. The authenticated data is then routed by Azure API Management (APIM) to either the front-end interface for the users on the Azure App Service, or APIs hosted in Azure Functions.
+### Workflow
+
+- This solution uses the global footprint of Azure Front Door and edge security features of Azure Web Application Firewall (WAF) to authenticate the inbound data. 
+- The authenticated data is then routed by Azure API Management (APIM) to either the front-end interface for the users on the Azure App Service, or APIs hosted in Azure Functions.
 
 The primary backend data service used in this architecture is Azure Cosmos DB. The multi-model abilities of Cosmos DB, in addition to its scalability and security, allow flexibility for any type of consumer health portal. Any data that is not in a record format is stored in Azure Blob Storage as an object. This data could include medical images, photos taken by the consumer, uploaded documents, archived data, and so on. Blob storage provides an affordable storage for large volumes of unstructured data. Such type of data is not optimized for storage in Cosmos DB, and can negatively impact its cost and performance.
 
@@ -62,7 +65,7 @@ The primary backend data service used in this architecture is Azure Cosmos DB. T
 
 ## Considerations
 
-### Availability considerations
+### Availability
 
 This solution is currently designed as a single-region deployment. If your scenario requires a multi-region deployment for high-availability, disaster recovery, or even proximity, you might need a [Paired Azure Region](/azure/best-practices-availability-paired-regions) with the following configurations.
 
@@ -76,7 +79,7 @@ This solution is currently designed as a single-region deployment. If your scena
 
 - Multiple layers of [availability and redundancy](/azure/key-vault/general/disaster-recovery-guidance) are built in to the Azure Key Vault service.
 
-### Security considerations
+### Security
 
 The following sections describe the security best practices for each of the services used in this solution.
 
@@ -124,7 +127,7 @@ Any [personal data](/azure/azure-monitor/platform/personal-data-mgmt) should be 
 
 Additionally, see the [Security practices for Azure Notification Hub](/azure/notification-hubs/notification-hubs-push-notification-security).
 
-## Pricing
+### Cost optimization
 
 Pricing for this architecture is largely variable based on the tiers of services you end up using, the capacity, throughput, types of queries being done on the data, number of users, as well as business continuity and disaster recovery. It can start from around $2,500/mo and scale from there.
 
@@ -135,9 +138,9 @@ Depending on the scale of your workload and requirements for enterprise function
 
 ## Contributors
 
-*This article is being updated and maintained by Microsoft. It was originally written by the following contributors.*
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors:
+Principal author:
 
 * [Mohana Rajpalke](https://dk.linkedin.com/in/mohana-k-rajpalke-9b103058) | Senior Researcher
 
