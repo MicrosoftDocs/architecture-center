@@ -347,7 +347,7 @@ items:
                 href: guide/multitenant/approaches/ai-ml.md
           - name: Architectures
             items:
-              - name: SaaS Starter web app
+              - name: SaaS starter web app
                 href: example-scenario/apps/saas-starter-web-app.yml
           - name: Service-specific guidance
             items:
@@ -391,11 +391,11 @@ items:
             items:
               - name: 1. Overview
                 href: guide/microsoft-cloud/overview.md
-              - name: 2. Create and deploy more applications in less time
+              - name: 2. Create and deploy apps in less time
                 href: guide/microsoft-cloud/create-deploy-more-applications-less-time.md
               - name: 3. Get the most value from technical talent
                 href: guide/microsoft-cloud/get-most-value-technical-talent.md
-              - name: 4. Integrate new applications with existing solutions
+              - name: 4. Integrate apps with existing solutions
                 href: guide/microsoft-cloud/integrate-new-applications-existing-solutions.md
               - name: 5. Create and run secure applications
                 href: guide/microsoft-cloud/create-run-secure-applications.md
@@ -489,12 +489,62 @@ items:
                     href: aws-professional/storage.md
               - name: Services comparison
                 href: aws-professional/services.md
+              - name: Guidance
+                items:
+                  - name: Identity management for AWS
+                    items:
+                      - name: Azure AD identity management for AWS
+                        href: reference-architectures/aws/aws-azure-ad-security.yml
+                      - name: Amazon Managed Grafana
+                        href: /azure/active-directory/saas-apps/amazon-managed-grafana-tutorial
+                        maintainContext: true
+                      - name: AWS single-account access
+                        href: /azure/active-directory/saas-apps/amazon-web-service-tutorial
+                        maintainContext: true
+                      - name: AWS multiple accounts
+                        href: /azure/active-directory/saas-apps/aws-multi-accounts-tutorial
+                        maintainContext: true
+                      - name: AWS ClientVPN
+                        href: /azure/active-directory/saas-apps/aws-clientvpn-tutorial
+                        maintainContext: true
+                      - name: AWS Single Sign-on
+                        href: /azure/active-directory/saas-apps/aws-single-sign-on-tutorial
+                        maintainContext: true
+                      - name: Azure AAD SSO with AWS SAA
+                        href: /azure/active-directory/saas-apps/amazon-web-service-tutorial
+                        maintainContext: true
+                      - name: Configure AWS Single Sign-On
+                        href: /azure/active-directory/saas-apps/aws-single-sign-on-provisioning-tutorial
+                        maintainContext: true
+                  - name: Security for AWS
+                    items:
+                      - name: Azure security for AWS
+                        href: reference-architectures/aws/aws-azure-ad-security.yml
+                      - name: Connect AWS to Microosft Sentinel
+                        href: /azure/sentinel/connect-aws
+                        maintainContext: true
+                      - name: Protect AWS with Microsoft Defender
+                        href: /defender-cloud-apps/protect-aws
+                        maintainContext: true
+                      - name: Connect AWS to Microsoft Defender
+                        href: /defender-cloud-apps/connect-aws
+                        maintainContext: true
           - name: Azure for Google Cloud professionals
             items:
               - name: Overview
                 href: gcp-professional/index.md
               - name: Services comparison
                 href: gcp-professional/services.md
+              - name: Guidance
+                items:
+                  - name: Security for Google Cloud
+                    items:
+                      - name: Protect Google Cloud with Microsoft Defender
+                        href: /defender-cloud-apps/protect-gcp
+                        maintainContext: true
+                      - name: Connect Google Cloud to Microsoft Defender
+                        href: /defender-cloud-apps/connect-google-gcp
+                        maintainContext: true
   - name: Design Patterns
     items:
       - name: Overview
