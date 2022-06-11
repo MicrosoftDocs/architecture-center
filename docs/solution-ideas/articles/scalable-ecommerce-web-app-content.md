@@ -4,7 +4,7 @@ Build scalable e-commerce web apps with Azure Functions and Web Apps, so you can
 
 ## Potential use cases
 
-This solution is ideal for retail organization, but can apply to others that sell goods and services.
+This solution is ideal for retail organizations, but it can apply to other industries that sell goods and services.
 
 ## Architecture
 
