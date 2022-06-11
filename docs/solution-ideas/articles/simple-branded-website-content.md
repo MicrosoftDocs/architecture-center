@@ -8,7 +8,7 @@ Start simple with the content management system that enables you to easily maint
 
 ## Architecture
 
-![Architecture Diagram](../media/simple-branded-website.png)
+![Architecture diagram shows browser to Web Apps then Application Insights and Redis Cache then pulling resources from Azure Content Delivery Network.](../media/simple-branded-website.png)
 *Download an [SVG](../media/simple-branded-website.svg) of this architecture.*
 
 ### Dataflow

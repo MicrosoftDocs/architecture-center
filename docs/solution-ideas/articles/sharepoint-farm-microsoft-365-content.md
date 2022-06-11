@@ -8,7 +8,7 @@ This solution addresses the need to deliver a highly available intranet capabili
 
 ## Architecture
 
-![Architecture diagram](../media/sharepoint-farm-microsoft-365.png)
+![Architecture diagram shows an intranet layout to users on and off premises.](../media/sharepoint-farm-microsoft-365.png)
 *Download an [SVG](../media/sharepoint-farm-microsoft-365.svg) of this architecture.*
 
 ### Dataflow

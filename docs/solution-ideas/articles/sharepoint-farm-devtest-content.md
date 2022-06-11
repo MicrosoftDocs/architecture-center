@@ -8,7 +8,7 @@ This solution address the capability to deliver agile development architecture t
 
 ## Architecture
 
-![Architecture diagram](../media/sharepoint-farm-devtest.png)
+![Architecture diagram shows resource groups of storage, network, and virtual machines to SharePoint, Load Balancer, V P N gateway and finally to users.](../media/sharepoint-farm-devtest.png)
 *Download an [SVG](../media/sharepoint-farm-devtest.svg) of this architecture.*
 
 ### Dataflow
