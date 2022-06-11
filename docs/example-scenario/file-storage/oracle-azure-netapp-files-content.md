@@ -109,7 +109,7 @@ The combination of ODG and Azure NetApp Files provides DR for this architecture.
 
 The following considerations apply to this solution:
 
-### Availability considerations
+### Availability
 
 For Azure NetApp Files:
 
@@ -129,26 +129,15 @@ When you use Oracle Database in Azure, implement a solution for HA and DR to avo
 
 *Download an [SVG][Data Guard architecture diagram in .svg format] of this architecture.*
 
-### Scalability considerations
+### Scalability
 
 As [Highly performant systems][Highly performant systems section of this article] discusses, Azure NetApp Files provides built-in scalability.
 
-### Security considerations
+### Security
 
 Azure NetApp Files secures data in many ways. For information about inherent protection, encryption, policy rules, role-based access control features, and activity logs, see [Security FAQs][FAQs About Azure NetApp Files - Security FAQs].
 
-## Deploy the solution
-
-- For resources on deploying Oracle Database on Azure VMs with Azure NetApp Files, see [Solution architectures using Azure NetApp Files][Solution architectures using Azure NetApp Files - Oracle].
-
-- For information on how to deploy and access Azure NetApp Files volumes, see [Azure NetApp Files documentation][Azure NetApp Files documentation].
-
-- Consider the database size:
-
-  - For small databases, you can deploy all components, such as data files, the redo log, the archive log, and control files, into a single volume. Such simplified configurations are easy to manage.
-  - For large databases, it's more efficient to configure multiple volumes. You can use [automatic or manual Quality of Service (QoS) volumes][Performance considerations for Azure NetApp Files]. These volume types provide more granular control over performance requirements.
-
-## Pricing
+## Cost optimization
 
 Using Azure NetApp Files instead of block storage can reduce costs:
 
@@ -167,11 +156,22 @@ Using Azure NetApp Files instead of block storage can reduce costs:
 
 These factors make Azure NetApp Files less costly than disk storage solutions.
 
+## Deploy this scenario
+
+- For resources on deploying Oracle Database on Azure VMs with Azure NetApp Files, see [Solution architectures using Azure NetApp Files][Solution architectures using Azure NetApp Files - Oracle].
+
+- For information on how to deploy and access Azure NetApp Files volumes, see [Azure NetApp Files documentation][Azure NetApp Files documentation].
+
+- Consider the database size:
+
+  - For small databases, you can deploy all components, such as data files, the redo log, the archive log, and control files, into a single volume. Such simplified configurations are easy to manage.
+  - For large databases, it's more efficient to configure multiple volumes. You can use [automatic or manual Quality of Service (QoS) volumes][Performance considerations for Azure NetApp Files]. These volume types provide more granular control over performance requirements.
+
 ## Contributors
 
-*This article is being updated and maintained by Microsoft. It was originally written by the following contributors.*
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors:
+Principal author:
 
 * [Deanna Garcia](https://www.linkedin.com/in/deanna-garcia-8540912) | Principal Program Manager
 
