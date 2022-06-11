@@ -280,11 +280,11 @@ For information about the operational excellence pillar of the Well-Architected 
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-**Principal authors:**
+Principal author:
 
 - [Herman Wu](https://www.linkedin.com/in/hermanwu01) | Senior Software Engineer
 
-**Other contributors:**
+Other contributors:
 
 - Ian Chen | PRINCIPAL SOFTWARE ENGINEER LEAD
 - [Jose Contreras](https://www.linkedin.com/in/josedanielcontreras) | PRINCIPAL SOFTWARE ENGINEERING
