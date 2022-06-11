@@ -4,7 +4,7 @@ Store, manage, and analyze HIPAA-compliant and HITRUST-compliant health data and
 
 ## Potential use cases
 
-This solution is ideal for the medical industry.
+This solution is ideal for the medical and healthcare industry.
 
 ## Architecture
 
