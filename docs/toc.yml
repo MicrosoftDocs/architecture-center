@@ -719,6 +719,8 @@ items:
                 href: example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml
               - name: E-commerce front end
                 href: example-scenario/apps/ecommerce-scenario.yml
+              - name: Interactive price analytics
+                href: solution-ideas/articles/interactive-price-analytics.yml
               - name: Intelligent search engine for e-commerce
                 href: example-scenario/apps/ecommerce-search.yml
               - name: Magento e-commerce platform in AKS
@@ -828,6 +830,8 @@ items:
             items:
               - name: All finance architectures
                 href: /azure/architecture/browse/?terms=finance
+              - name: Automate document processing
+                href: example-scenario/ai/automate-document-processing-azure-form-recognizer.yml
               - name: Banking system cloud transformation
                 href: example-scenario/banking/banking-system-cloud-transformation.yml
               - name: Data analysis for finance
@@ -1169,11 +1173,11 @@ items:
                   - name: HITRUST overview
                     href: /azure/compliance/offerings/offering-hitrust
                     maintainContext: true
-                  - name: Implement the healthcare blueprint for AI
+                  - name: Implement healthcare blueprint for AI
                     href: industries/healthcare/healthcare-ai-blueprint.yml
                   - name: HIPAA/HITRUST compliant health data
                     href: solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml
-                  - name: HIPAA HITRUST 9.2 regulatory compliance
+                  - name: HIPAA HITRUST 9.2 compliance
                     href: /azure/governance/policy/samples/hipaa-hitrust-9-2
                     maintainContext: true
               - name: MARS-E (US)
@@ -1328,6 +1332,9 @@ items:
               - name: CIS Azure Foundations
                 href: /azure/governance/policy/samples/gov-cis-azure-1-3-0
                 maintainContext: true
+              - name: CJIS
+                href: /azure/compliance/offerings/offering-cjis
+                maintainContext: true
               - name: DoD
                 items:
                   - name: DoD overview
@@ -1351,7 +1358,10 @@ items:
                   - name: DoD IL6
                     href: /azure/compliance/offerings/offering-dod-il6
                     maintainContext: true
-              - name: EAR overview
+              - name: DoE 10 CFR Part 810
+                href: /azure/compliance/offerings/offering-doe-10-cfr-part-810
+                maintainContext: true
+              - name: EAR
                 href: /azure/compliance/offerings/offering-ear
                 maintainContext: true
               - name: FedRAMP
@@ -1368,23 +1378,51 @@ items:
                   - name: Compliance with FedRAMP ATO
                     href: /azure/azure-government/compliance/documentation-accelerate-compliance
                     maintainContext: true
-              - name: IRS 1075 overview
-                href: /azure/compliance/offerings/offering-irs-1075
+              - name: IRS 1075
+                items:
+                  - name: IRS 1075 overview
+                    href: /azure/compliance/offerings/offering-irs-1075
+                    maintainContext: true
+                  - name: IRS 1075 regulatory compliance
+                    href: /azure/governance/policy/samples/gov-irs-1075-sept2016
+                    maintainContext: true
+              - name: "ISO 27001:2013"
+                href: /azure/governance/policy/samples/gov-iso-27001
                 maintainContext: true
-              - name: ITAR overview
+              - name: ITAR
                 href: /azure/compliance/offerings/offering-itar
                 maintainContext: true
-              - name: NDAA overview
+              - name: JSIG
+                href: /azure/compliance/offerings/offering-jsig
+                maintainContext: true
+              - name: NDAA
                 href: /azure/compliance/offerings/offering-ndaa-section-889
                 maintainContext: true
               - name: NIST
                 items:
-                  - name: NIST 800-63 overview
+                  - name: NIST SP 800-53 Rev. 4
+                    href: /azure/governance/policy/samples/nist-sp-800-53-r4
+                    maintainContext: true
+                  - name: NIST SP 800-53 Rev. 5
+                    href: /azure/governance/policy/samples/nist-sp-800-53-r5
+                    maintainContext: true
+                  - name: NIST 800-63
                     href: /azure/compliance/offerings/offering-nist-800-63
                     maintainContext: true
-                  - name: NIST CSF overview
+                  - name: NIST 800-171
+                    items:
+                      - name: Overview
+                        href: /azure/compliance/offerings/offering-nist-800-171
+                        maintainContext: true
+                      - name: Regulatory compliance
+                        href: /azure/governance/policy/samples/nist-sp-800-171-r2
+                        maintainContext: true
+                  - name: NIST CSF
                     href: /azure/compliance/offerings/offering-nist-csf
                     maintainContext: true
+              - name: StateRAMP
+                href: /azure/compliance/offerings/offering-stateramp
+                maintainContext: true
               - name: TIC solutions
                 href: /azure/azure-government/compliance/compliance-tic
                 maintainContext: true
@@ -1396,6 +1434,9 @@ items:
             items:
               - name: HPC for manufacturing
                 href: industries/manufacturing/compute-manufacturing-overview.yml
+              - name: Glossary of manufacturing terms
+                href: /dynamics-gp/distribution/glossary-manufacturing
+                maintainContext: true
               - name: AI and ML scenarios
                 items:
                   - name: Continuous manufacturing with Bonsai
@@ -1409,19 +1450,55 @@ items:
                     href: example-scenario/mlops/mlops-technical-paper.yml
               - name: IoT scenarios
                 items:
-                  - name: Connected logistics application
-                    href: /azure/iot-central/retail/tutorial-iot-central-connected-logistics
-                    maintainContext: true
-                  - name: Digital distribution center
-                    href: /azure/iot-central/retail/tutorial-iot-central-digital-distribution-center
-                    maintainContext: true
+                  - name: Azure Sphere scenarios
+                    items:
+                      - name: Cloud-configuration tasks
+                        href: /azure-sphere/hardware/cloud-configuration-tasks
+                        maintainContext: true
+                      - name: Factory-floor tasks
+                        href: /azure-sphere/hardware/factory-floor-tasks
+                        maintainContext: true
+                      - name: Guardian modules
+                        href: /azure-sphere/hardware/guardian-modules
+                        maintainContext: true
+                      - name: Manufacturing connected devices
+                        href: /azure-sphere/hardware/manufacturing-guide
+                        maintainContext: true
+                      - name: Manufacturing preparation
+                        href: /azure-sphere/hardware/manufacturing-preparation-tasks
+                        maintainContext: true
+                      - name: Radio Frequency tools
+                        href: /azure-sphere/hardware/rf-tools
+                        maintainContext: true
+                  - name: IoT Central scenarios
+                    items:
+                      - name: Connected logistics application
+                        href: /azure/iot-central/retail/tutorial-iot-central-connected-logistics
+                        maintainContext: true
+                      - name: Digital distribution center
+                        href: /azure/iot-central/retail/tutorial-iot-central-digital-distribution-center
+                        maintainContext: true
+                      - name: Micro-fulfillment center
+                        href: /azure/iot-central/retail/tutorial-micro-fulfillment-center
+                        maintainContext: true
                   - name: Extract actionable insights from IoT data
                     href: industries/manufacturing/extract-insights-iot-data.yml
-                  - name: Industrial IoT analytics
-                    href: guide/iiot-guidance/iiot-architecture.yml
-                  - name: Micro-fulfillment center
-                    href: /azure/iot-central/retail/tutorial-micro-fulfillment-center
-                    maintainContext: true
+                  - name: Industrial IoT
+                    items:
+                      - name: Overview
+                        href: /azure/industrial-iot/overview-what-is-industrial-iot
+                        maintainContext: true
+                      - name: Industrial IoT analytics
+                        href: guide/iiot-guidance/iiot-architecture.yml
+                      - name: Deploy the IIoT platform
+                        href: /azure/industrial-iot/tutorial-deploy-industrial-iot-platform
+                        maintainContext: true
+               - name: "Mixed reality: Prototyping"
+                 href: /windows/mixed-reality/enthusiast-guide/prototyping-manufacturing
+                 maintainContext: true
+               - name: Manufacturing Windows engineering
+                 href: /windows-hardware/manufacture/desktop/manufacturing-windows-engineering-guide
+                 maintainContext: true
           - name: Architectures
             items:
               - name: All manufacturing architectures
@@ -1456,6 +1533,20 @@ items:
                 href: solution-ideas/articles/supply-chain-track-and-trace.yml
               - name: Tiered data for manufacturing
                 href: /hybrid/app-solutions/pattern-tiered-data-analytics
+                maintainContext: true
+          - name: Compliance solutions
+            items:
+              - name: GDPR (EU)
+                href: /compliance/regulatory/gdpr
+                maintainContext: true
+              - name: GxP
+                href: /compliance/regulatory/offering-gxp
+                maintainContext: true
+              - name: ISO 27018
+                href: /azure/compliance/offerings/offering-iso-27018
+                maintainContext: true
+              - name: ITAR
+                href: /azure/compliance/offerings/offering-itar
                 maintainContext: true
       - name: Game Development
         items:
@@ -1652,14 +1743,49 @@ items:
             href: industries/media.md
           - name: Guides
             items:
+              - name: Media Services guidance
+                items:
+                  - name: Terminology and concepts
+                    href: /azure/media-services/latest/concepts-overview
+                    maintainContext: true
+                  - name: Media players for Media Services
+                    href: /azure/media-services/latest/player-media-players-concept
+                    maintainContext: true
+                  - name: Test Media Services v3 encoding
+                    href: reference-architectures/media-services/test-encoding.yml
               - name: Dynamics 365 media accelerator
-                href: /dynamics365/industry/accelerators/media
-                maintainContext: true
-              - name: Content Production solution
-                href: /dynamics365/industry/accelerators/content-production
-                maintainContext: true
-              - name: Configure the accelerator with Azure AD
-                href: /dynamics365/industry/accelerators/configure-media
+                items:
+                  - name: Overview
+                    href: /dynamics365/industry/accelerators/media
+                    maintainContext: true
+                  - name: Content Production solution
+                    href: /dynamics365/industry/accelerators/content-production
+                    maintainContext: true
+                  - name: Configure the accelerator with Azure AD
+                    href: /dynamics365/industry/accelerators/configure-media
+                    maintainContext: true
+              - name: Mixed reality scenarios
+                items:
+                  - name: Free-roam VR multiusers
+                    href: /windows/mixed-reality/enthusiast-guide/free-roam-vr-multiuser-experiences
+                    maintainContext: true
+                  - name: Immersive education
+                    href: /windows/mixed-reality/enthusiast-guide/immersive-education
+                    maintainContext: true
+                  - name: Theme parks and family entertainment
+                    href: /windows/mixed-reality/enthusiast-guide/theme-parks-family-entertainment
+                    maintainContext: true
+                  - name: Training and simulation
+                    href: /windows/mixed-reality/enthusiast-guide/training-simulation
+                    maintainContext: true
+                  - name: Virtual museums and exhibits
+                    href: /windows/mixed-reality/enthusiast-guide/virtual-museums
+                    maintainContext: true
+                  - name: Virtual reality arcades
+                    href: /windows/mixed-reality/enthusiast-guide/virtual-reality-arcades
+                    maintainContext: true
+              - name: Delivering a media experience
+                href: /windows-hardware/test/weg/delivering-a-great-media-experience
                 maintainContext: true
           - name: Architectures
             items:
@@ -1673,6 +1799,8 @@ items:
                 href: example-scenario/infrastructure/image-modeling.yml
               - name: Gridwich cloud media system
                 href: reference-architectures/media-services/gridwich-architecture.yml
+              - name: HPC media rendering
+                href: solution-ideas/articles/azure-batch-rendering.yml
               - name: Image classification on Azure
                 href: example-scenario/ai/intelligent-apps-image-processing.yml
               - name: Live streaming digital media
@@ -1692,6 +1820,13 @@ items:
               - name: CDSA
                 href: /azure/compliance/offerings/offering-cdsa
                 maintainContext: true
+              - name: Media Services compliance
+                  - name: Regulatory compliance
+                    href: /azure/media-services/latest/compliance-concept
+                    maintainContext: true
+                  - name: Privacy and security compliance
+                    href: /azure/media-services/latest/media-services-compliance
+                    maintainContext: true
               - name: MPA
                 href: /azure/compliance/offerings/offering-mpa
                 maintainContext: true
@@ -2029,6 +2164,17 @@ items:
                   - name: Design identity governance 
                     href: /microsoft-365/education/deploy/design-identity-governance
                     maintainContext: true
+              - name: Mixed reality scenarios
+                items:
+                  - name: Immersive education
+                    href: /windows/mixed-reality/enthusiast-guide/immersive-education
+                    maintainContext: true
+                  - name: Training and simulation
+                    href: /windows/mixed-reality/enthusiast-guide/training-simulation
+                    maintainContext: true
+                  - name: Virtual museums and exhibits
+                    href: /windows/mixed-reality/enthusiast-guide/virtual-museums
+                    maintainContext: true
           - name: Architectures
             items:
               - name: All education architectures
@@ -2131,6 +2277,9 @@ items:
                 href: solution-ideas/articles/low-latency-network.yml
       - name: Nonprofit
         items:
+          - name: Azure subscription for nonprofits
+            href: /azure/industry/training-services/microsoft-community-training/infrastructure-management/install-your-platform-instance/setup-platform-instance-on-azure-subscription-for-nonprofits
+            maintainContext: true
           - name: Microsoft Cloud for Nonprofit
             items:
               - name: Overview
@@ -2141,6 +2290,9 @@ items:
                 maintainContext: true
               - name: Donors and supporters
                 href: /industry/nonprofit/donors-supporters
+                maintainContext: true
+              - name: Renew an Azure nonprofit grant
+                href: /industry/nonprofit/renew
                 maintainContext: true
           - name: Fundraising and Engagement
             items:
@@ -2160,15 +2312,29 @@ items:
         items:
           - name: Guides
             items:
-              - name: Analyze Olympic sports with sensors and vision
+              - name: Analyze Olympic sports with vision AI
                 href: /archive/msdn-magazine/2018/november/machine-learning-analyzing-olympic-sports-combining-sensors-and-vision-ai
                 maintainContext: true
           - name: Architectures
             items: 
+                - name: All sports architectures
+                  href: /azure/architecture/browse/?terms=sports
                 - name: Baseball decision analysis with ML.NET
                   href: data-guide/big-data/baseball-ml-workload.yml
+                - name: Smart stadiums
+                  items:
+                    - name: Create smart stadiums with Digital Twins
+                      href: example-scenario/iot/smart-places.yml
+                    - name: IoT platform for COVID-19 detection
+                      href: solution-ideas/articles/iot-connected-platform.yml
                 - name: Sports analytics on Azure
-                  href: example-scenario/analytics/sports-analytics-architecture-azure.yml  
+                  href: example-scenario/analytics/sports-analytics-architecture-azure.yml
+                - name: Stream sporting events
+                  items:
+                    - name: Live stream sports
+                      href: solution-ideas/articles/digital-media-live-stream.yml
+                    - name: Video-on-demand digital media
+                      href: solution-ideas/articles/digital-media-video.yml
       - name: IoT-specific industry solutions
         href: reference-architectures/iot/industry-iot-hub-page.md
   - name: Azure categories
@@ -2634,6 +2800,8 @@ items:
                 href: example-scenario/precision-medicine/genomic-analysis-reporting.yml
               - name: Relationship mesh solution on Azure
                 href: example-scenario/analytics/relationship-mesh-solution-azure.yml
+              - name: Sports analytics on Azure
+                href: example-scenario/analytics/sports-analytics-architecture-azure.yml
               - name: Stream processing with Azure Databricks
                 href: reference-architectures/data/stream-processing-databricks.yml
               - name: Stream processing with Stream Analytics
@@ -4993,7 +5161,7 @@ items:
                     href: /security/benchmark/azure/baselines/ddos-protection-security-baseline
                     maintainContext: true
               - name: Application Gateway v2 framework review
-                href: /azure/architecture/framework/services/networking/azure-application-gateway#security
+                href: /azure/architecture/framework/services/networking/azure-application-gateway
                 maintainContext: true
               - name: Azure Firewall guidance
                 items:
@@ -5405,7 +5573,7 @@ items:
                     href: solution-ideas/articles/azure-security-build-first-layer-defense.yml
                   - name: "Second layer of defense: M365 Defender"
                     href: solution-ideas/articles/microsoft-365-defender-build-second-layer-defense.yml
-                  - name: Integrate Azure and M365 Defender security
+                  - name: Integrate Azure and M365 Defender
                     href: solution-ideas/articles/microsoft-365-defender-security-integrate-azure.yml
       - name: Storage
         items:
