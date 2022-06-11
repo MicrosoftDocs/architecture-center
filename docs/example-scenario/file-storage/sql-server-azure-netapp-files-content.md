@@ -185,7 +185,7 @@ Fully deployable architectures that use Azure NetApp Files:
 [Main architecture diagram in .svg format]: ./media/sql-server-azure-netapp-files-architecture.svg
 [Manual QoS volume quota and throughput]: /azure/azure-netapp-files/azure-netapp-files-performance-considerations#manual-qos-volume-quota-and-throughput
 [Migration overview: SQL Server to SQL Server on Azure VMs]: /azure/azure-sql/migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-migration-overview
-[Pricing section of this article]: #pricing
+[Pricing section of this article]: #cost-optimization
 [Quickstart: Create SQL Server 2017 on a Windows virtual machine in the Azure portal]: /azure/azure-sql/virtual-machines/windows/sql-vm-create-portal-quickstart
 [Real-time, high-level reference design]: https://docs.netapp.com/us-en/netapp-solutions/databases/sql-srv-anf_reference_design_real-time_high-level_design.html#backup-and-recovery
 [Run SAP BW/4HANA with Linux virtual machines on Azure]: ../../reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines.yml
