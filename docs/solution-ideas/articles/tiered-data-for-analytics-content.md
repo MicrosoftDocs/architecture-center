@@ -4,22 +4,27 @@ Easily tier data and applications on-premises and in Azure, with architecture th
 
 ## Potential use cases
 
+Organizations utilize tiered applications because they provide:
 
+- The ability to update the technology stack of one tier, without impacting other areas of the application.
+- Development teams work on their own areas of expertise.
+- Able to scale the application.
+- Adds reliability and more independence of the underlying servers or services.
 
 ## Architecture
 
-![Architecture diagram](../media/tiered-data-for-analytics.png)
+![Architecture diagram shows data to Azure function; to Web apps, Azure Queue and storage; to Azure function to storage to Web apps.](../media/tiered-data-for-analytics.png)
 *Download a [Visio file](https://arch-center.azureedge.net/tiered-data-for-analytics.vsdx) of this architecture.*
 
 ### Dataflow
 
 1. Data flows into a storage account.
 1. Function on Azure Stack analyzes the data for anomalies or compliance.
-1. Locally-relevant insights are displayed on the Azure Stack app.
+1. Locally relevant insights are displayed on the Azure Stack app.
 1. Insights and anomalies are placed into a queue.
 1. The bulk of the data is placed into an archive storage account.
 1. Function sends data from queue to Azure Storage.
-1. Globally-relevant and compliant insights are available in the global app.
+1. Globally relevant and compliant insights are available in the global app.
 
 ### Components
 

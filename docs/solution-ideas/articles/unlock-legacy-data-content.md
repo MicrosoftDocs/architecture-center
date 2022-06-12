@@ -1,14 +1,14 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Use Azure Stack to update and extend your legacy application data with the latest cloud technology such as Azure web services, containers, serverless computing, and microservices architectures. This is a solution to create new applications while integrating and preserving legacy data in mainframe and core business process applications.
+Use Azure Stack to update and extend your legacy application data with the latest cloud technology such as Azure web services, containers, serverless computing, and microservices architectures.
 
 ## Potential use cases
 
-
+This is a solution to create new applications while integrating and preserving legacy data in mainframe and core business process applications.
 
 ## Architecture
 
-![Architecture diagram](../media/unlock-legacy-data.png)
+![Architecture diagram shows user enters data to Web apps to Inter V NET data transfer to Kuberbetes to on-premises network.](../media/unlock-legacy-data.png)
 *Download an [SVG](../media/unlock-legacy-data.svg) of this architecture.*
 
 ### Dataflow

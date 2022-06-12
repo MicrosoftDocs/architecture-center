@@ -55,6 +55,14 @@ This model is especially useful in the following scenarios:
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs)
 - [Azure Cache for Redis](https://azure.microsoft.com/services/cache)
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Rick Weyenberg](https://www.linkedin.com/in/rickweyenberg) | Principal Cloud Solution Architect
+
 ## Next steps
 
 - [Azure Web PubSub service documentation](/azure/azure-web-pubsub)

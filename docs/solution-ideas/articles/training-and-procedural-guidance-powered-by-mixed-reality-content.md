@@ -4,11 +4,11 @@ Enable your team and employees to learn new processes and materials faster, with
 
 ## Potential use cases
 
-
+Organizations utilize this to enable employees (new and current) with learning new skills, material and process quicker than traditional training programs.
 
 ## Architecture
 
-![Architecture Diagram](../media/training-and-procedural-guidance-powered-by-mixed-reality.png)
+![Architecture diagram shows using Azure A D to authenticate with Microsoft Hololens.](../media/training-and-procedural-guidance-powered-by-mixed-reality.png)
 *Download an [SVG](../media/training-and-procedural-guidance-powered-by-mixed-reality.svg) of this architecture.*
 
 ### Dataflow
@@ -16,7 +16,7 @@ Enable your team and employees to learn new processes and materials faster, with
 1. The user creating the training session authenticates using their Azure Active Directory credentials from HoloLens.
 1. The client application connects to its own web service to create a training session. Metadata about that training session is stored in Azure Cosmos DB.
 1. The user scans the environment and places a first anchor where the first step of the procedure needs to happen. Azure Spatial Anchors validates that the user has sufficient permissions to create anchors via Azure AD, and then stores the anchor.
-1. The user records a video of the procedure on HoloLens and uploads it to Azure
+1. The user records a video of the procedure on HoloLens and uploads it to Azure.
 1. The video is encoded with Media Services and prepared for on-demand viewing, as well as processed with Video Indexer for better content search. Video Indexer stores the metadata on Azure Cosmos DB.
 1. The app saves against its web service the anchor ID for that first step, alongside a link to the video.
 1. The user, in the same session, then moves on to step 2, places an anchor there, and again records a video of the procedure and saves the resulting anchor ID and video link to its web service. That process is then repeated until all steps in the procedure are executed. As the user moves from step to step, previous anchors are still visible with their respective step number.
