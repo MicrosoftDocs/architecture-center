@@ -17,11 +17,11 @@ This architecture uses Custom Vision to classify images taken by a simulated dro
 
 #### Microsoft AirSim Drone simulator
 
-[Microsoft AirSim Drone simulator](https://github.com/microsoft/AirSim) is built on the [Unreal Engine](https://www.unrealengine.com/). The simulator is open-source, cross-platform, and developed to help AI research. In this architecture, it creates the dataset of images used to train the model.
+[Microsoft AirSim Drone simulator](https://github.com/microsoft/AirSim) is built on the [Unreal Engine](https://www.unrealengine.com). The simulator is open-source, cross-platform, and developed to help AI research. In this architecture, it creates the dataset of images used to train the model.
 
 #### Azure Custom Vision
 
-[Azure Custom Vision](https://www.customvision.ai) is part of [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/). In this architecture, it creates an image classifier model.
+[Azure Custom Vision](https://www.customvision.ai) is part of [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services). In this architecture, it creates an image classifier model.
 
 #### TensorFlow
 
@@ -29,7 +29,7 @@ This architecture uses Custom Vision to classify images taken by a simulated dro
 
 ## Scenario details
 
-Azure Cognitive Services offers many possibilities for Artificial Intelligence (AI) solutions. One of them is [Azure Custom Vision](/azure/cognitive-services/custom-vision-service/), which allows you to build, deploy, and improve your image classifiers. This architecture uses Custom Vision to classify images taken by a simulated drone. It provides a way to combine AI and the Internet of Things (IoT). Azure Custom Vision can also be used for object detection purpose.
+Azure Cognitive Services offers many possibilities for Artificial Intelligence (AI) solutions. One of them is [Azure Custom Vision](/azure/cognitive-services/custom-vision-service), which allows you to build, deploy, and improve your image classifiers. This architecture uses Custom Vision to classify images taken by a simulated drone. It provides a way to combine AI and the Internet of Things (IoT). Azure Custom Vision can also be used for object detection purpose.
 
 ### Potential use case
 
@@ -54,8 +54,8 @@ Principal authors:
 ## Next steps
 
 * [Learn more about Microsoft AirSim](https://github.com/microsoft/AirSim)
-* [Learn more about Azure Custom Vision Cognitive Service](/azure/cognitive-services/custom-vision-service/)
-* [Learn more about Azure Cognitive Services](/azure/cognitive-services/)
+* [Learn more about Azure Custom Vision Cognitive Service](/azure/cognitive-services/custom-vision-service)
+* [Learn more about Azure Cognitive Services](/azure/cognitive-services)
 
 ## Related resources
 
