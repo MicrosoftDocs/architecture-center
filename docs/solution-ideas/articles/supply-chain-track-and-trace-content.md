@@ -10,7 +10,7 @@ At any point, if the device takes a temperature or humidity measurement that is 
 
 ## Architecture
 
-![Architecture Diagram](../media/supply-chain-track-and-trace.png)
+![Architecture diagram shows I O T devices to hub; data from message broker to transaction builder then Blockchain to Event Grid for use by consumers.](../media/supply-chain-track-and-trace.png)
 *Download an [SVG](../media/supply-chain-track-and-trace.svg) of this architecture.*
 
 <div class="architecture-tooltip-content" id="architecture-tooltip-1">
