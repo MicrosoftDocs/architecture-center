@@ -1,6 +1,6 @@
 ---
 title: Identity platforms
-description: Learn why it's important to use a identity service instead of building or running your own.
+description: Learn why it's important to use a managed identity service instead of building or running your own.
 author: johndowns
 ms.date: 06/08/2022
 ms.author: jodowns
