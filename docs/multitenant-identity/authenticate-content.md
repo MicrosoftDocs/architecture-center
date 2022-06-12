@@ -3,7 +3,7 @@
 
 The Surveys application uses the OpenID Connect (OIDC) protocol to authenticate users with Azure Active Directory (Azure AD). The Surveys application uses ASP.NET Core, which has built-in middleware for OIDC. The following diagram shows what happens when the user signs in, at a high level.
 
-![Diagram that demonstrates the architectureof multitenant identity authentication.](./images/auth-flow-new.png)
+![Diagram that demonstrates the architecture of multitenant identity authentication.](./images/auth-flow-new.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/auth-flow.vsdx) of this architecture.*
 
