@@ -4,7 +4,7 @@ Visual assistant provides rich information based on content of the image with ca
 
 ## Potential use cases
 
-Organization utilize this solution in providing:
+Organizations utilize this solution in providing:
 
 - Appointment scheduling
 - Order and delivery tracking
