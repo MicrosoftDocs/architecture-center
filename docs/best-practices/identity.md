@@ -1,6 +1,6 @@
 ---
-title: Identity providers
-description: Learn why it's important to use a managed identity platform instead of building or running your own.
+title: Identity platforms
+description: Learn why it's important to use a identity service instead of building or running your own.
 author: johndowns
 ms.date: 06/08/2022
 ms.author: jodowns
@@ -16,16 +16,16 @@ ms.custom:
   - guide
 ---
 
-# Identity providers
+# Identity platforms
 
 Almost every cloud application needs to work with user identities. Identity is the foundation of modern security practices like [zero trust](https://www.microsoft.com/security/business/zero-trust), and application user identity is a critical part of your solution's architecture.
 
-For most solutions, consider using a managed identity provider (IdP) instead of building or operating your own. In this article, we describe the challenges of building or running your own identity provider.
+For most solutions, consider using an identity as a service (IDaaS) platform instead of building or operating your own. In this article, we describe the challenges of building or running your own identity system.
 
 > [!IMPORTANT]
-> Using a fully managed identity platform, like Azure Active Directory (Azure AD), Azure AD B2C, or another similar system, is the best approach to follow.
+> By using a fully managed identity platform or IDaaS, like Azure Active Directory (Azure AD), Azure AD B2C, or another similar system, you can mitigate many of the issues described in this article, and we recommend this approach wherever possible.
 > 
-> Your solution requirements might lead you to use a framework or off-the-shelf identity solution that you host and run yourself. While this mitigates some of the issues described in this article, many of the problems we describe are still your responsibility even if you operate a pre-built identity product.
+> Your solution requirements might lead you to use a framework or off-the-shelf identity solution that you host and run yourself. While using a prebuilt identity platform mitigates some of the issues described in this article, many of the problems we describe are still your responsibility.
 > 
 > You should avoid ever building your own identity system from scratch.
 
@@ -47,29 +47,29 @@ Users expect an identity system to include a range of advanced features, which m
 
 If you're building an identity component yourself as part of your business solution, it's unlikely you'll be able to justify the work involved in implementing these features, and in maintaining them. Some of these features also require extra work, such as integration with email and SMS messaging providers to send MFA codes, and storing and retaining audit logs for a sufficient time period.
 
-Managed identity platforms also can provide an improved set of security features based on the volume of sign-in requests they receive. For example, the following features work best when there's a large number of customers using a managed identity platform:
+IDaaS platforms also can provide an improved set of security features based on the volume of sign-in requests they receive. For example, the following features work best when there's a large number of customers using a single identity platform:
 
 - Risky sign-in detection, such as sign-in attempts from botnets, [impossible travel](/defender-cloud-apps/anomaly-detection-policy#impossible-travel), and the use of machine learning techniques to classify sign-in attempts as valid or invalid.
-- Common credential detection, such as insecure passwords that are frequently used by other users and therefore subject to a heightened risk of compromise.
+- Common credential detection, such as passwords that are frequently used by other users and therefore subject to a heightened risk of compromise.
 - Compromised credential monitoring, which monitors sources on the dark web for leaked credentials and prevents their use.
 
-If you build or run your own identity platform, you won't be able to take advantage of these features.
+If you build or run your own identity system, you won't be able to take advantage of these features.
 
 ## Avoid storing credentials
 
-When you run your own identity provider, you have to store a database of credentials. You should never store credentials in clear text, or even encrypted credentials.
+When you run your own identity system, you have to store a database of credentials. You should never store credentials in clear text, or even encrypted credentials.
 
 Instead, you might consider cryptographically hashing and salting credentials before storing them, which makes them more difficult to attack. However, even hashed and salted credentials are vulnerable to several types of attack.
 
 Regardless of how you protect the individual credentials, maintaining a database of credentials makes you a target for attacks. Recent years have shown that both large and small organizations have had their credential databases targeted for attack.
 
-**Consider credential storage to be a liability, not an asset.** By using a managed identity provider, you outsource the problem of credential storage to experts who can invest the time and resources in securely managing credentials.
+**Consider credential storage to be a liability, not an asset.** By using an IDaaS, you outsource the problem of credential storage to experts who can invest the time and resources in securely managing credentials.
 
 ## Use a reliable and performant identity system
 
-Because identity systems are such a key part of modern cloud applications, they must be reliable. If your identity system is unavailable, the rest of your solution might well be impacted and either operate in a degraded fashion or fail to operate at all. By using a managed identity provider with a service level agreement, you can increase your confidence that your identity system will remain operational when you need it. For example, [Azure Active Directory offers a 99.99% uptime SLA for the Basic and Premium service tiers](https://azure.microsoft.com/support/legal/sla/active-directory/), which covers both the sign-in and token issuing processes.
+Because identity systems are such a key part of modern cloud applications, they must be reliable. If your identity system is unavailable, the rest of your solution might well be impacted and either operate in a degraded fashion or fail to operate at all. By using an IDaaS with a service level agreement, you can increase your confidence that your identity system will remain operational when you need it. For example, [Azure Active Directory offers a 99.99% uptime SLA for the Basic and Premium service tiers](https://azure.microsoft.com/support/legal/sla/active-directory/), which covers both the sign-in and token issuing processes.
 
-Similarly, an identity system must be performant, and able to scale to the level of growth that your system might experience. Depending on your application architecture, it's possible that every request might require interaction with your identity provider, and any performance issues will be apparent to your users. Managed identity providers are incentivized to scale to large user loads, and architect their solutions to absorb large volumes of traffic, including traffic generated by different forms of attacks.
+Similarly, an identity system must be performant, and able to scale to the level of growth that your system might experience. Depending on your application architecture, it's possible that every request might require interaction with your identity system, and any performance issues will be apparent to your users. IDaaS systems are incentivized to scale to large user loads, and architect their solutions to absorb large volumes of traffic, including traffic generated by different forms of attacks.
 
 ## Test your security and apply tight controls
 
@@ -83,7 +83,7 @@ These controls are often expensive and difficult to implement.
 
 ## Focus on your core value
 
-It's expensive and complex to maintain a secure, reliable, and performant identity platform. In the most situations, an identity provider isn't the component that adds value to your solution, or that differentiates you from your competitors. By outsourcing your identity requirements to a specialized identity provider, you can focus on architecting and building the components of your solution that add business value for your customers.
+It's expensive and complex to maintain a secure, reliable, and performant identity platform. In the most situations, an identity system isn't a component that adds value to your solution, or that differentiates you from your competitors. By outsourcing your identity requirements to a system built by experts, you can focus on architecting and building the components of your solution that add business value for your customers.
 
 ## Contributors
 
