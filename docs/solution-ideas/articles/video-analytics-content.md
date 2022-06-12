@@ -38,16 +38,24 @@ This approach can also:
 
 This solution uses the following Azure components:
 
-- [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) is a portfolio of devices that bring compute, storage, and intelligence to the IoT Edge. Azure Stack Edge acts as a cloud storage gateway that enables data transfers to Azure, while retaining local access to files.
-- [Azure Video Analyzer](https://azure.microsoft.com/products/video-analyzer/) helps build intelligent video-based applications using your choice of AI.
-- [Web Apps in Microsoft Azure App Service](https://azure.microsoft.com/services/app-service/web/) creates and deploys mission-critical web applications that scale with your business.
-- [Azure IoT Hub](https://azure.microsoft.com/en-us/services/iot-hub/) is a cloud-based managed service for bidirectional communication between IoT devices and Azure.
-- [Media Services Storage](https://azure.microsoft.com/services/media-services/) uses Azure Storage to store large media files.
+- [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge) is a portfolio of devices that bring compute, storage, and intelligence to the IoT Edge. Azure Stack Edge acts as a cloud storage gateway that enables data transfers to Azure, while retaining local access to files.
+- [Azure Video Analyzer](https://azure.microsoft.com/products/video-analyzer) helps build intelligent video-based applications using your choice of AI.
+- [Web Apps in Microsoft Azure App Service](https://azure.microsoft.com/services/app-service/web) creates and deploys mission-critical web applications that scale with your business.
+- [Azure IoT Hub](https://azure.microsoft.com/en-us/services/iot-hub) is a cloud-based managed service for bidirectional communication between IoT devices and Azure.
+- [Media Services Storage](https://azure.microsoft.com/services/media-services) uses Azure Storage to store large media files.
 - [Azure Network Function Manager](https://azure.microsoft.com/products/azure-network-function-manager) enables the deployment of network functions to the IoT Edge using consistent Azure tools and interfaces.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Nikhil Ravi](https://www.linkedin.com/in/nikhilravi) | Product Management Leader
 
 ## Next steps
 
-- [What is the Radio Access Network?](https://www.sdxcentral.com/5g/ran/definitions/radio-access-network/)
+- [What is the Radio Access Network?](https://www.sdxcentral.com/5g/ran/definitions/radio-access-network)
 - [Live Video Analytics on IoT Edge](https://techcommunity.microsoft.com/t5/azure-video-analyzer/new-product-features-for-live-video-analytics-on-iot-edge/ba-p/2118497)
 - [Azure Network Function Manager simplifies 5G deployments (Video)](https://azure.microsoft.com/resources/videos/azure-network-function-manager-simplifies-5g-deployments)
 

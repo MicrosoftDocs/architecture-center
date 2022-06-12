@@ -4,11 +4,16 @@ Visual assistant provides rich information based on content of the image with ca
 
 ## Potential use cases
 
+Organization utilize this solution in providing:
 
+- Appointment scheduling
+- Order and delivery tracking
+- Payments
+- Subscription renewal
 
 ## Architecture
 
-![Architecture diagram](../media/visual-assistant.png)
+![Architecture diagram shows browser to Azure app service; Azure bot service to bing searches (visual, entity, web and custom).](../media/visual-assistant.png)
 *Download an [SVG](../media/visual-assistant.svg) of this architecture.*
 
 ### Dataflow
@@ -23,8 +28,8 @@ Visual assistant provides rich information based on content of the image with ca
 
 ### Components
 
-* [Azure App Service](/azure/app-service/): A fully managed HTTP-based service for hosting web apps, REST APIs, and mobile backends
-* [Azure Bot Service](/azure/bot-service/): Develop intelligent, enterprise-grade bots that enrich your customer experience, all while maintaining control of your data
+* [Azure App Service](/azure/app-service): A fully managed HTTP-based service for hosting web apps, REST APIs, and mobile backends
+* [Azure Bot Service](/azure/bot-service): Develop intelligent, enterprise-grade bots that enrich your customer experience, all while maintaining control of your data
 * [Bing Custom Search](/bing/search-apis/bing-custom-search/overview): Build customized search that fits your business needs with Bing's powerful ranking and global-scale search index
 * [Bing Entity Search](/bing/search-apis/bing-entity-search/overview): Infuse a deep knowledge search into your existing content by identifying the most relevant
 * [Bing Visual Search](/bing/search-apis/bing-visual-search/overview): Find visual insights from your images
@@ -36,11 +41,11 @@ Visual assistant provides rich information based on content of the image with ca
 * Let your app detect context that matters to you by training your own [Custom Vision model](/azure/cognitive-services/custom-vision-service/quickstarts/object-detection)
 * Explore the [Bing family of search APIs](/bing/search-apis/bing-web-search/bing-api-comparison)
 * [Build in LUIS into your Bot](/azure/bot-service/bot-builder-howto-v4-luis)
-* Explore how LUIS works in this [Learn Module](/learn/modules/create-language-model-with-language-understanding/)
-* Learn how to build with [Azure Bot Service](/learn/modules/build-faq-chatbot-qna-maker-azure-bot-service/)
-* Create a Bot that incorporates [both QnA Maker and Azure Bot Service](/learn/paths/create-bots-with-the-azure-bot-service/)
+* Explore how LUIS works in this [Learn Module](/learn/modules/create-language-model-with-language-understanding)
+* Learn how to build with [Azure Bot Service](/learn/modules/build-faq-chatbot-qna-maker-azure-bot-service)
+* Create a Bot that incorporates [both QnA Maker and Azure Bot Service](/learn/paths/create-bots-with-the-azure-bot-service)
 * Solidify your understanding of LUIS, Azure Bot Service, and Bing Visual Search with [Microsoft Certified: AI Fundamentals](/learn/certifications/exams/ai-900)
-* Use your knowledge in Azure Cognitive Services and [become a Microsoft Certified: Azure AI Engineer Associate](/learn/certifications/azure-ai-engineer/)
+* Use your knowledge in Azure Cognitive Services and [become a Microsoft Certified: Azure AI Engineer Associate](/learn/certifications/azure-ai-engineer)
 
 ## Related resources
 
