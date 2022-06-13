@@ -345,10 +345,6 @@ items:
                 href: guide/multitenant/approaches/iot.md
               - name: AI and ML
                 href: guide/multitenant/approaches/ai-ml.md
-          - name: Architectures
-            items:
-              - name: SaaS Starter web app
-                href: example-scenario/apps/saas-starter-web-app.yml
           - name: Service-specific guidance
             items:
               - name: Overview
@@ -2584,6 +2580,8 @@ items:
                 href: example-scenario/precision-medicine/genomic-analysis-reporting.yml
               - name: Relationship mesh solution on Azure
                 href: example-scenario/analytics/relationship-mesh-solution-azure.yml
+              - name: Secure a data lakehouse with Azure Synapse
+                href: example-scenario/analytics/secure-data-lakehouse-synapse.yml
               - name: Stream processing with Azure Databricks
                 href: reference-architectures/data/stream-processing-databricks.yml
               - name: Stream processing with Stream Analytics

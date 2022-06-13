@@ -33,7 +33,7 @@ For the Azure environment, the diagram shows the components that are listed in t
 | **VNET** | [What is Azure Virtual Network](https://azure.microsoft.com/services/virtual-network)? |
 | **LBS** | [What is Azure Load Balancer](/azure/load-balancer/load-balancer-overview)? |
 | **PIPS** | [Public IP addresses](/azure/virtual-network/ip-services/public-ip-addresses) |
-| **SERVERS** | [Virtual Machines](/services/virtual-machines) |
+| **SERVERS** | [Virtual Machines](https://azure.microsoft.com/services/virtual-machines) |
 | **K8S** | [Azure Kubernetes Service](/azure/aks/intro-kubernetes) |
 | **VDI** | [What is Azure Virtual Desktop?](/azure/virtual-desktop/overview) |
 | **WEB APPS** | [App Service overview](/azure/app-service/overview) |

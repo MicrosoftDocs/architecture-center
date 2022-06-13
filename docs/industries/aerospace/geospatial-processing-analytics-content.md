@@ -1,8 +1,8 @@
-Spaceborne data collection is increasingly common. For the application of artificial intelligence, stored archives of data are necessary for machine learning. The need to build a cloud-based solution for geospatial analysis has become more important to enable enterprises and governments to drive better-informed business and tactical decisions.
+Spaceborne data collection is increasingly common. For the application of artificial intelligence, stored archives of data are necessary for machine learning. The need to build a cloud-based solution for spaceborne data analysis has become more important to enable enterprises and governments to drive better-informed business and tactical decisions. 
 
 This architecture is designed to show an end-to-end implementation that involves extracting, loading, transforming, and analyzing spaceborne data by using geospatial libraries and AI models with [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is). This article also shows how to integrate geospatial-specific [Azure Cognitive Services](/azure/cognitive-services) models, AI models from partners, bring-your-own-data, and AI models that use Azure Synapse Analytics.
 
-The intended audience for this document is users with intermediate skill levels in the geospatial space.
+The intended audience for this document is users with intermediate skill levels in working with geospatial or spaceborne data.
 
 An implementation of this architecture is available on [GitHub](https://github.com/Azure/Azure-Orbital-Analytics-Samples).
 
@@ -121,7 +121,7 @@ If you want to run containerized AI models that you can call from Azure Synapse,
 
 [Spark in Azure HDInsight](https://azure.microsoft.com/services/hdinsight) provides an alternative for using geospatial libraries in the Apache Spark environment.
 
-Here are some alternative libraries and frameworks that you can use for geospatial processing:
+Here are some alternative libraries and frameworks that you can use for spaceborne data processing:
 
 - [Apache Sedona](https://sedona.apache.org), formerly named GeoSpark, is a cluster computing system for processing large-scale spatial data. Sedona extends Spark and Spark SQL with out-of-the-box Spatial Resilient Distributed Datasets and SpatialSQL that efficiently load, process, and analyze large-scale spatial data across machines.
 - [Dask for Python](https://tutorial.dask.org/00_overview.html) is a parallel computing library that scales the existing Python ecosystem.
@@ -351,7 +351,7 @@ This diagram shows the steps in the sample solution:
 
 You need to install the packages in an Azure Synapse Spark pool by using the package management feature. For more information, see [Azure Synapse package management](/azure/synapse-analytics/spark/apache-spark-azure-portal-add-libraries).
 
-To support geospatial workloads on Azure Synapse, you need libraries like [GDAL](https://gdal.org), [Rasterio](https://rasterio.readthedocs.io/en/latest/intro.html), and [GeoPandas](https://geopandas.org/en/stable). You can install these libraries on a serverless Apache Spark pool by using a YAML file. [Anaconda](https://docs.continuum.io/anaconda) libraries are pre-installed on the Spark pool.
+To support spaceborne data workloads on Azure Synapse, you need libraries like [GDAL](https://gdal.org), [Rasterio](https://rasterio.readthedocs.io/en/latest/intro.html), and [GeoPandas](https://geopandas.org/en/stable). You can install these libraries on a serverless Apache Spark pool by using a YAML file. [Anaconda](https://docs.continuum.io/anaconda) libraries are pre-installed on the Spark pool.
 
 #### Prerequisites
 
@@ -360,7 +360,7 @@ To support geospatial workloads on Azure Synapse, you need libraries like [GDAL]
 
 #### Instructions
 
-1. The following libraries and packages are available in the [environment.yml](https://github.com/Azure/Azure-Orbital-Analytics-Samples/blob/main/deploy/environment.yml) file. You can use this file to install the libraries in the Spark pools.
+1. The following libraries and packages are available in the [environment.yml](https://github.com/Azure/Azure-Orbital-Analytics-Samples/blob/main/deploy/environment.yml) file. We recommend using this file to install the libraries in the Spark pools. If you copy the below content, make sure there are no tabs, as YAML only allows spaces as indentation.
 
 	```yaml
 	name: aoi-env
@@ -413,14 +413,15 @@ Principal authors:
 
 Additional contributors:
 
-* [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
-* [Taylor Corbett](https://www.linkedin.com/in/gtcorbett) | Senior Data Scientist
-* [Tushar Dhadiwal](https://www.linkedin.com/in/tushar-dhadiwal) | Senior Software Engineer
-* [Mandar Inamdar](https://www.linkedin.com/in/mandarinamdar) | Principal Engineering Manager
-* [Sushil Kumar](https://www.linkedin.com/in/sushil-kumar-01692310) | Senior Software Engineer
-* [Nikhil Manchanda](https://www.linkedin.com/in/nikman) | Principal Engineering Manager
-* [Safiyah Sadiq](https://www.linkedin.com/in/safiyah-s-2768632a) | Software Engineer II
-* [Xiaoyuan Yang](https://www.linkedin.com/in/xiaoyuan-yang-970bab8) | Principal Data Science Manager
+ * [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
+ * [Taylor Corbett](https://www.linkedin.com/in/gtcorbett) | Senior Data Scientist
+ * [Tushar Dhadiwal](https://www.linkedin.com/in/tushar-dhadiwal) | Senior Software Engineer
+ * [Mandar Inamdar](https://www.linkedin.com/in/mandarinamdar) | Principal Engineering Manager
+ * [Sushil Kumar](https://www.linkedin.com/in/sushil-kumar-01692310) | Senior Software Engineer
+ * [Nikhil Manchanda](https://www.linkedin.com/in/nikman) | Principal Engineering Manager
+ * [Safiyah Sadiq](https://www.linkedin.com/in/safiyah-s-2768632a) | Software Engineer II
+ * [Xiaoyuan Yang](https://www.linkedin.com/in/xiaoyuan-yang-970bab8) | Principal Data Science Manager
+ * [Tai Yee](https://www.linkedin.com/in/taiyee/) | Senior Program Manager
 
 ## Next steps
 

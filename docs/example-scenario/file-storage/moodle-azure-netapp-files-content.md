@@ -56,19 +56,19 @@ You can also use two regions to implement this solution. With two regions, the s
 
 - [Moodle][Moodle] is a free, open-source learning management system.
 
-- [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/) is a fully managed relational database service that's based on the community edition of the open-source MySQL database engine.
+- [Azure Database for MySQL](https://azure.microsoft.com/services/mysql) is a fully managed relational database service that's based on the community edition of the open-source MySQL database engine.
 
 - [Azure Cache for Redis](https://azure.microsoft.com/services/cache) is a fully managed, in-memory data store that's based on the open-source software Redis.
 
-- [Azure Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/) provides a way to manage a group of load-balanced virtual machines (VMs). The number of VMs in a set automatically increases or decreases in response to demand or a defined schedule.
+- [Azure Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets) provides a way to manage a group of load-balanced virtual machines (VMs). The number of VMs in a set automatically increases or decreases in response to demand or a defined schedule.
 
-- [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) makes it easy to migrate and run file-based applications with no code changes. This shared file-storage service is a joint development from Microsoft and NetApp, a Microsoft partner.
+- [Azure NetApp Files](https://azure.microsoft.com/services/netapp) makes it easy to migrate and run file-based applications with no code changes. This shared file-storage service is a joint development from Microsoft and NetApp, a Microsoft partner.
 
 - [Cross-region replication][Cross-region replication of Azure NetApp Files volumes] provides a way to replicate data asynchronously from an Azure NetApp Files volume in one region to another Azure NetApp Files volume in another region. This capability provides data protection during region-wide outages or disasters.
 
 - [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway) is a load balancer that manages traffic to web applications.
 
-- [Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) is a load balancer that distributes traffic to applications across global Azure regions. Traffic Manager also provides public endpoints with high availability and quick responsiveness.
+- [Traffic Manager](https://azure.microsoft.com/services/traffic-manager) is a load balancer that distributes traffic to applications across global Azure regions. Traffic Manager also provides public endpoints with high availability and quick responsiveness.
 
 ### Alternatives
 
