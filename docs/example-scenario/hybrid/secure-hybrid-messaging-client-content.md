@@ -3,6 +3,7 @@ Enterprise messaging infrastructure (EMI) is a key service for organizations. Mo
 This article describes four architectures to enhance your security in an Outlook desktop-client access scenario by using Azure AD Multi-Factor Authentication.
 
 These four scenarios are described in this article:
+
 - Outlook client access when the user's mailbox is in Exchange Online
 - Outlook client access when the user's mailbox is in Exchange Online, AD FS
 - Outlook client access when the user's mailbox is in Exchange on-premises
@@ -11,13 +12,16 @@ These four scenarios are described in this article:
 All four architectures cover both Outlook for Windows and Outlook for Mac.
 
 For information about applying multi-factor authentication in other hybrid messaging scenarios, see these articles:
+
 - [Enhanced-security hybrid messaging infrastructure in a web access scenario](secure-hybrid-messaging-web.yml)
 - [Enhanced-security hybrid messaging infrastructure in a mobile access scenario](secure-hybrid-messaging-mobile.yml)
 
 This article doesn't discuss other protocols, like IMAP or POP. Typically, these scenarios don't use these protocols. 
 
 ## Potential use cases
+
 This architecture is relevant for the following scenarios:
+
 - Enhance EMI security.
 - Adopt a [Zero Trust](https://www.microsoft.com/security/business/zero-trust) security strategy.
 - Apply your standard high level of protection for your on-premises messaging service during transition to or coexistence with Exchange Online.
@@ -41,12 +45,12 @@ This architecture is relevant for the following scenarios:
 
 In this scenario, users need to use the version of Outlook client that supports modern authentication. For more information, see [How modern authentication works for Office 2013, Office 2016, and Office 2019 client apps](/microsoft-365/enterprise/modern-auth-for-office-2013-and-2016?view=o365-worldwide). This architecture covers both Outlook for Windows and Outlook for Mac.
 
-1. The user tries to access Exchange Online via Outlook. 
+1. The user tries to access Exchange Online via Outlook.
 1. Exchange Online provides the URL of an Azure AD endpoint for retrieving the access token to get access to the mailbox.
 1. Outlook connects to Azure AD by using that URL.
 1. As soon as the domain is federated, Azure AD redirects the request to on-premises AD FS.
 1. The user enters credentials on an AD FS sign-in page.
-1. AD FS redirects the session back to Azure AD. 
+1. AD FS redirects the session back to Azure AD.
 1. Azure AD applies an Azure Conditional Access policy with a multi-factor authentication requirement for mobile apps and desktop clients. See the [deployment section](#set-up-a-conditional-access-policy)  of this article for information about setting up that policy.
 1. The Conditional Access policy calls Azure AD Multi-Factor Authentication. The user gets a request to complete multi-factor authentication.
 1. The user completes multi-factor authentication.
@@ -291,27 +295,38 @@ Here are the high-level steps:
 2.	Block all legacy authentication attempts at the [Azure AD level](/azure/active-directory/conditional-access/block-legacy-authentication). Block legacy authentication attempts on a messaging-services level by using [authentication policy](/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online). 
 
 ### Set up a Conditional Access policy 
+
 To set up an Azure AD Conditional Access policy that enforces multi-factor authentication, as described in some of the architectures in this article:
 
  1. In the **Clients apps** window, select **Mobile apps and desktop clients**:
-    
+
     :::image type="content" source="./media/client-apps-desktop.png" alt-text="Screenshot that shows the Client apps window.":::
 
-1. Apply the multi-factor authentication requirement in the **Grant** window:
-       
+ 1. Apply the multi-factor authentication requirement in the **Grant** window:
+
     :::image type="content" source="./media/grant-control-desktop.png" alt-text="Screenshot that shows the Grant window.":::
 
 ## Pricing
+
 The cost of your implementation depends on your Azure AD and Microsoft 365 license costs. Total cost also includes costs for software and hardware for on-premises components, IT operations, training and education, and project implementation.
 
 These solutions require at least Azure AD Premium P1. For pricing details, see [Azure AD pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 For information about AD FS and Web Application Proxy, see [Pricing and licensing for Windows Server 2022](https://www.microsoft.com/windows-server/pricing).
 
-For more pricing information, see these resources: 
+For more pricing information, see these resources:
+
 - [Microsoft Intune pricing](/mem/intune/fundamentals/licenses)
 - [Exchange Online plans](https://www.microsoft.com/microsoft-365/exchange/compare-microsoft-exchange-online-plans)
 - [Exchange server pricing](https://www.microsoft.com/microsoft-365/exchange/microsoft-exchange-licensing-faq-email-for-business)
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+* [Pavel Kondrashov](/) | Senior Customer Engineer
 
 ## Next steps
 
@@ -325,5 +340,6 @@ For more pricing information, see these resources:
 - [Account setup with modern authentication in Exchange Online](/exchange/clients-and-mobile-in-exchange-online/outlook-for-ios-and-android/setup-with-modern-authentication)
 
 ## Related resources
+
 - [Enhanced-security hybrid messaging infrastructure in a web access scenario](secure-hybrid-messaging-web.yml)
 - [Enhanced-security hybrid messaging infrastructure in a mobile access scenario](secure-hybrid-messaging-mobile.yml)
