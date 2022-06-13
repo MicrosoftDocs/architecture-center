@@ -2,6 +2,8 @@
 
 Red Hat and Microsoft partnered to create a comprehensive and secure infrastructure on Azure. It's an open source project that Red Hat continually enhances to support versatile and seamless team workflows, on-premises and in the cloud. It can be fully managed or self-managed.
 
+_The Red Hat logos are trademarks of Red Hat, Inc. No endorsement is implied by the use of these marks._
+
 ## Potential use cases
 
 JBoss EAP is suitable for these uses:
