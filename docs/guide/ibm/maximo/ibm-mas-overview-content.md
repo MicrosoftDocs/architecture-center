@@ -176,7 +176,11 @@ By default DB2WH wants to deploy on top of OpenShift Data Foundation (previously
 
 Don't use Azure Blob with CSI drivers, it doesn't support required hardlinks, which will prevent pods from running. 
 
-### Security and authentication
+## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
+### Authentication
 
 Maximo currently supports the use of SAML via Azure Active Directory (Azure AD). To make this work, you'll need an enterprise application within Azure AD and permissions to modify the application or work with an Azure AD global administrator to do the work.
 
@@ -184,11 +188,7 @@ A [tutorial on how to set up SAML with Maximo](https://github.com/Azure/maximo#e
 
 Before you set up the authentication, we recommend you go through the [IBM configuration](https://www.ibm.com/docs/en/mas83/8.3.0?topic=administration-configuring-suite#saml) and [Azure configuration](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/add-application-portal-setup-sso). 
 
-For managing the IaaS resources, you can use Azure AD for authentication and authorization to the Azure portal. It's also possible to set up OAuth With OpenShift itself, for that we refer to [the OpenShift documentation](https://docs.openshift.com/container-platform/4.8/authentication/index.html).
-
-## Considerations
-
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+You should also configure OAuth for OpenShift as well. Please see these docs for more information: [the OpenShift documentation](https://docs.openshift.com/container-platform/4.8/authentication/index.html).
 
 ### Security
 
