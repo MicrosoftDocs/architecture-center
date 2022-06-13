@@ -4,7 +4,7 @@ The world is cautiously reopening in a physical business environment where COVID
 
 The solution monitors critical insights so you can act and respond to risks. It also builds confidence that you're focused on making sure people are safe. The measurements the solution reacts to are: human body temperature, effective physical distancing, hand sanitization compliance, and air quality tracking.
 
-Using [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) and other Azure services, the **Cognizant Safe Buildings** solution brings together people, regulations, analytics, and technology to transform smart buildings into safe buildings. Through the use of different devices, the solution collects biometric and environmental data. When the system detects any deviation to health and safety protocol in a building, the solution activates. **Safe Buildings** layers safety controls to protect, monitor, and respond with real-time alerts.
+By using [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) and other Azure services, the **Cognizant Safe Buildings** solution brings together people, regulations, analytics, and technology to transform smart buildings into safe buildings. The solution collects biometric and environmental data from different devices. When the system detects any deviation to health and safety protocol in a building, the solution activates. **Safe Buildings** layers safety controls to protect, monitor, and respond with real-time alerts.
 
 ## Potential use cases
 
@@ -13,6 +13,8 @@ Using [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) and other Az
 ## Architecture
 
 ![Diagram that shows an overview of the organization of a Safe Building as described in this article.](../media/safe-building-arch-design.svg)
+
+### Dataflow
 
 1. Different devices collect data: thermal imaging cameras, LIDAR sensors, occupancy sensors, smart watches with hygiene apps, IR sensors, and air quality and temperature sensors. That data flows into the building's IoT Edge server.
 
@@ -32,7 +34,7 @@ Using [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) and other Az
 
     * Reference Data - Azure Cache for Redis
 
-6. From there, different services and APIs consume the data:
+1. From there, different services and APIs consume the data:
 
     * Data Service - These services consume the data, process it, and pass it on to downstream services that notify users of any abnormalities that **Safe Buildings** detected.
 
@@ -70,7 +72,7 @@ Using [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) and other Az
 
 * [Power BI](https://powerbi.microsoft.com) enables team members to discover insights hidden in your data.
 
-* [Azure Functions](https://azure.microsoft.com/services/functions) lets you build and debug locally without additional setup, deploy and operate at scale in the cloud, and integrate services using triggers and bindings.
+* [Azure Functions](https://azure.microsoft.com/services/functions) lets you build and debug locally without another setup, deploy and operate at scale in the cloud, and integrate services using triggers and bindings.
 
 * In addition, **Safe Buildings** has access to these other Azure services: [Azure Active Directory](https://azure.microsoft.com/services/active-directory), [Azure API Management](https://azure.microsoft.com/services/api-management), [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs), [Azure Container Registry](https://azure.microsoft.com/services/container-registry), [Azure Data Factory](https://azure.microsoft.com/services/data-factory), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs), [Azure Key Vault](https://azure.microsoft.com/services/key-vault), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps), [Azure Notification Hubs](https://azure.microsoft.com/services/notification-hubs), [Azure VMs](https://azure.microsoft.com/services/virtual-machines), and [Azure Web Apps](https://azure.microsoft.com/services/app-service/web).
 

@@ -184,7 +184,7 @@ At the database layer, this architecture runs SAP HANA S/4 applications on Azure
 
 ## Availability considerations
 
-Resource redundancy is the general theme in highly available infrastructure solutions. For enterprises that have a less stringent SLA, single-instance Azure virtual machines with premium disks offer an [uptime SLA](https://buildazure.com/2016/11/24/single-instance-vms-now-with-99-9-sla/). When redundant resources are deployed in an availability set or across Availability Zones, the service availability is elevated.
+Resource redundancy is the general theme in highly available infrastructure solutions. For enterprises that have a less stringent SLA, single-instance Azure virtual machines with premium disks offer an [uptime SLA](https://build5nines.com/single-instance-vms-now-with-99-9-sla/). When redundant resources are deployed in an availability set or across Availability Zones, the service availability is elevated.
 
 In this distributed installation of the SAP application, the base installation is replicated to achieve high availability. For each layer of the architecture, the high availability design varies.
 
