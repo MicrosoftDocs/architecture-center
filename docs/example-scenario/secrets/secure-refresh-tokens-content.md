@@ -9,6 +9,8 @@ When developing web services, you may need to get tokens using the [OAuth 2.0 On
 >
 > If necessary, you can [revoke refresh tokens](/azure/active-directory/develop/access-tokens#token-revocation) if they become compromised.
 
+## Potential use cases
+
 This solution uses Azure Key Vault, Azure Functions, and Azure DevOps to securely update and store OBO refresh tokens.
 
 ## Architecture
@@ -128,6 +130,14 @@ Microsoft Identity Platform offers the ability to revoke refresh tokens in case 
 To remove a user from Azure AD, just remove the user's record. To remove application access per user, remove the `refreshToken` part of the user data.
 
 To remove access for a group of users, such as all users in a target tenant, you can use Azure Pipelines to delete the group's secret based on `secretId()`.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+
 
 ## Next steps
 

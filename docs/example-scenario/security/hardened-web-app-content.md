@@ -26,8 +26,6 @@ These use cases have similar design patterns:
 9. A private endpoint for Azure SQL is created in a virtual network subnet (*subnet-privatelink* in the example). A corresponding DNS record is created on the matching private DNS zone.
 10. The web app can now be accessed only through Azure Front Door and Azure Firewall. It can also establish a connection to the Azure SQL instance through private endpoint, securing the communication over private IP only.
 
-
-
 ### Components
 
 - [Azure Front Door](https://azure.microsoft.com/services/frontdoor) provides Azure Web Application Firewall features and terminates SSL connections from clients.
@@ -35,7 +33,6 @@ These use cases have similar design patterns:
 - [Azure App Service](https://azure.microsoft.com/services/app-service) allows you to create web apps and deploy them in a cloud infrastructure. 
 - [Azure Private Link private endpoints](/azure/private-link/private-endpoint-overview) allow you to connect privately and with improved security to Azure services.
 - [Azure SQL](https://azure.microsoft.com/products/azure-sql) connects to the web app via a private endpoint. 
-
 
 ### Alternatives
 

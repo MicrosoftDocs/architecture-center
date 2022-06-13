@@ -5,7 +5,7 @@ metadata:
   description: Architecture for integrating a WAF-enabled web app into a hardened network environment that forces all inbound and outbound flows through a firewall appliance.
   author: damaccar
   ms.author: damaccar
-  ms.date: 12/02/2021
+  ms.date: 06/14/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario

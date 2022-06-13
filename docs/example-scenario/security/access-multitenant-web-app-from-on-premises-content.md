@@ -7,10 +7,10 @@ This article shows how to set up improved-security private connectivity to a mul
    - Another web app
    - Azure SQL Database
    - Azure Storage
-   - Azure Key Vault 
+   - Azure Key Vault
    - Any other service that supports Azure private endpoints for inbound connectivity 
 
-## Architecture 
+## Architecture
 
 ![Diagram that shows the reference architecture for secure access to multitenant web apps from an on-premises network.](./media/multitenant-web-apps.png)
 

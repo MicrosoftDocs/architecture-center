@@ -146,6 +146,14 @@ The Azure Data Explorer cluster cost is primarily based on the computing power t
 
 To explore the cost of running this solution in your environment, use the [Azure pricing calculator][Azure pricing calculator].
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+
+
 ## Next steps
 
 - [Integrate Azure Data Explorer for long-term log retention][Integrate Azure Data Explorer for long-term log retention]

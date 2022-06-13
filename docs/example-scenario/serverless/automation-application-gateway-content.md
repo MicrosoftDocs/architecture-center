@@ -109,6 +109,14 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 See [this example](https://azure.com/e/437a828a735f44c6b942c72ef67ade58) of the preceding implementation.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+
+
 ## Next steps
 
 - [Architect modern applications in Azure](/learn/paths/architect-modern-apps)

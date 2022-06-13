@@ -195,6 +195,14 @@ Unless you use a third-party service such as Ansible or Terraform, this approach
   - The cost of storing replicas.
   - Network egress charges for replicating images.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+
+
 ## Next steps
 
 - [Azure landing zone][Azure landing zone]

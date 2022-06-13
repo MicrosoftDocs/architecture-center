@@ -2,6 +2,23 @@ This example scenario demonstrates how to deploy microservice containers, withou
 
 You can find a code sample in the [Container Apps Example Scenario](https://github.com/mspnp/container-apps-fabrikam-dronedelivery) repository.
 
+## Potential use cases
+
+This drone delivery solution applies to the aerospace, aircraft, and robotics industries. In this example solution, the use cases are:
+
+- Deploy a brownfield microservice-based application into a platform as a service (PaaS) offering to avoid the operational complexity of managing a container orchestrator.
+- Optimize operations and management by migrating containerized services to a platform that supports native scale-to-zero.
+  - Execute a long-running background process, such as the workflow service in single revision mode.
+  
+Other common uses of Container Apps include:
+
+- Running containerized workloads on a serverless, consumption-based platform.
+- Autoscaling applications based on HTTP/HTTPS traffic and/or Event-driven triggers supported by KEDA
+- Minimizing maintenance overhead for containerized applications
+- Deploying API endpoints
+- Hosting background processing applications
+- Handling event-driven processing
+
 ## Architecture
 
 ![Diagram showing microservices deployed with Azure Container Apps.](./media/microservices-with-container-apps-deployment.png)
@@ -22,7 +39,7 @@ The workflow service container app is running in single revision mode.  A contai
 
 This diagram illustrates the runtime architecture for the solution.  
 
-### Workflow
+### Dataflow
 
 1. **Ingestion service:** Receives client requests, buffers them and sends them via Azure Service Bus to the workflow service.
 1. **Workflow service:**  Consumes messages from Azure Service Bus and dispatches them to underlying services.
@@ -90,23 +107,6 @@ Because the Fabrikam team wasn't making use of many of advanced AKS configuratio
 
 You can find a code sample in the [Container Apps Example Scenario](https://github.com/mspnp/container-apps-fabrikam-dronedelivery) repository.
 
-### Potential use cases
-
-This drone delivery solution applies to the aerospace, aircraft, and robotics industries. In this example solution, the use cases are:
-
-- Deploy a brownfield microservice-based application into a platform as a service (PaaS) offering to avoid the operational complexity of managing a container orchestrator.
-- Optimize operations and management by migrating containerized services to a platform that supports native scale-to-zero.
-  - Execute a long-running background process, such as the workflow service in single revision mode.
-  
-Other common uses of Container Apps include:
-
-- Running containerized workloads on a serverless, consumption-based platform.
-- Autoscaling applications based on HTTP/HTTPS traffic and/or Event-driven triggers supported by KEDA
-- Minimizing maintenance overhead for containerized applications
-- Deploying API endpoints
-- Hosting background processing applications
-- Handling event-driven processing
-
 ## Considerations
 
 ### Availability
@@ -171,6 +171,14 @@ Performance monitoring through Log Analytics and Azure Monitor allows you to eva
 ## Deploy this scenario 
 
 Follow the steps in the README.md in the [sample repository](https://github.com/mspnp/container-apps-fabrikam-dronedelivery) to deploy this scenario.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+
 
 ## Next steps
 
