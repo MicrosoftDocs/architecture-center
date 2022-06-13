@@ -132,9 +132,17 @@ Consider these guidelines for best performance when you run SWIFT's AMH on Azure
 - Use an Azure Resource Manager template (ARM template) to provision Azure infrastructure components.
 - Use Virtual Machines extensions to configure any other solution components on top of Azure infrastructure.
 
-## Pricing
+### Cost optimization
 
 To estimate the cost of the Azure resources that you need to run a SWIFT AMH, see [a sample cost profile](https://azure.com/e/d2e12d232edb49db85cf330f70ffd636).
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+* [Mahesh Kshirsagar](https://uk.linkedin.com/in/mahesh-kshirsagar-msft) | Senior Cloud Solution Architect
 
 ## Next steps
 
