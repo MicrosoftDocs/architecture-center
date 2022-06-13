@@ -52,7 +52,7 @@ When Azure Spring Apps is deployed in a virtual network, it uses [two subnets](/
 Each app that you want to expose through your reverse proxy should have an endpoint assigned to it so that the reverse proxy can reach it in the virtual network. For each app, you should also [map the custom domains](/azure/spring-cloud/tutorial-custom-domain#map-your-custom-domain-to-azure-spring-cloud-app) it uses so that you can avoid overriding the HTTP `Host` header in the reverse proxy and keep the original host name intact. Doing so avoids problems like broken cookies or redirect URLs that don't work properly. For more information, see [Host name preservation](../../best-practices/host-name-preservation.yml).
 
 > [!NOTE]
-> Alternatively (or, for defense in depth, maybe in addition to the NSG) you can follow the guidance for when you have [Azure Spring Apps deployed outside your virtual network](#azure-spring-cloud-deployed-outside-your-virtual-network). As is explained in that section, access restrictions are then typically achieved via Spring Cloud Gateway (which also affects the back-end apps because they no longer need an assigned endpoint or custom domain).
+> Alternatively (or, for defense in depth, maybe in addition to the NSG) you can follow the guidance for when you have [Azure Spring Apps deployed outside your virtual network](#azure-spring-apps-deployed-outside-your-virtual-network). As is explained in that section, access restrictions are then typically achieved via Spring Cloud Gateway (which also affects the back-end apps because they no longer need an assigned endpoint or custom domain).
 
 ### Scenario 1: Using Application Gateway as the reverse proxy
 
