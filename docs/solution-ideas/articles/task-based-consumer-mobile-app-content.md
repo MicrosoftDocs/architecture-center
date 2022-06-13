@@ -19,8 +19,8 @@ Organizations utilize this solution to simplify user authentication.
 
 ## Architecture
 
-![Architecture diagram shows Engineer creates app in Visual Studio to App Services and finally Application Insights.](../media/task-based-consumer-mobile-app.png)
-*Download an [SVG](../media/task-based-consumer-mobile-app.svg) of this architecture.*
+![Architecture diagram shows an engineer create an app in Visual Studio to deploy with App Services and to analyze with Application Insights.](../media/task-based-consumer-mobile-app.png)
+*Download an [SVG file](../media/task-based-consumer-mobile-app.svg) of this architecture.*
 
 ### Dataflow
 
