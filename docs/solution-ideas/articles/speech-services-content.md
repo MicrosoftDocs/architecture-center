@@ -6,7 +6,7 @@ For more information, read how [batch transcription](/azure/cognitive-services/s
 
 ## Potential use cases
 
-This solution can be for organizations that record conversations (for training or quality assurance) that also want a written transcript.
+This solution can be for organizations that record conversations (for training or quality assurance) that also want a written transcript. It's ideal for the education, retail, and nonprofit industries.
 
 ## Architecture
 
