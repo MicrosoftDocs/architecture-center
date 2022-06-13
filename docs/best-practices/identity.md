@@ -40,6 +40,7 @@ It's also common to [federate IdPs together](../patterns/federated-identity.yml)
 Users expect an identity system to include a range of advanced features, which might include the following features:
 
 - Passwordless authentication, where users can use secure approaches to sign in that don't require them to enter a credential.
+- Single sign-on, where users can sign in by using an identity from their employer, school, or another organization.
 - Multifactor authentication (MFA), which prompts the user to authenticate themselves in multiple ways. For example, a user might sign in by using a password and also an authenticator app on their mobile device, or a code that's sent by email.
 - Auditing, which tracks every event that happens in the identity platform including successful, failed, and aborted sign-in attempts. You might also need to log sufficient detail to forensically analyze the sign-in attempt later.
 - Conditional access, which creates a risk profile around a sign-in attempt based on various factors. The factors might include the user's identity, the location of the sign-in attempt, previous sign-in activity, and the sensitivity of the data or application.
