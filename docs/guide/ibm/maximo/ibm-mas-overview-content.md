@@ -8,16 +8,17 @@ Maximo Application Suite, also MAS or Maximo, is an Enterprise Asset Management 
 
 Maximo Application Suite (MAS) 8.x and the applications above have been tested and validated for use on Azure. This guidance provides a design for running Maximo 8.x on Azure. It assumes you'll have support from IBM and a partner for installation. Reach out to your IBM team for Maximo product specific questions.
 
-MAS 8.x runs on OpenShift and it's beneficial to familiarize yourself with OpenShift and the suggested patterns for [installation on Azure](https://docs.openshift.com/container-platform/4.8/installing/installing_azure/preparing-to-install-on-azure.html). 
+MAS 8.x runs on OpenShift and it's beneficial to familiarize yourself with OpenShift and the suggested patterns for [installation on Azure](https://docs.openshift.com/container-platform/4.8/installing/installing_azure/preparing-to-install-on-azure.html). This architecture illustrates an Openshift cluster. It doesn't go into detail on building the Maximo application. To learn more about that process, see [How to deploy and run IBM Maximo Asset Management on Red Hat OpenShift](https://www.ibm.com/support/pages/sites/default/files/inline-files/$FILE/deploy-run-maximo-on-openshift_0.pdf).
 
 ## Potential use cases
 
 The solutions within the Maximo Application Suite are used in many industries such as:
+
 * Energy and utilities
-* Oil & Gas
+* Oil and gas
 * Manufacturing
-* Public Sector
-* Travel & Transportation
+* Public sector
+* Travel, automotive, and transportation
 
 More information about use cases for Maximo can be found on [IBM's Maximo website](https://www.ibm.com/products/maximo).
 
@@ -29,7 +30,7 @@ More information about use cases for Maximo can be found on [IBM's Maximo websit
 
 The workload can be both deployed internally or externally facing, depending on your requirements. 
 
-### Infrastructure
+### Workflow
 
 This architecture will provide you with the following from an infrastructure perspective:
 
