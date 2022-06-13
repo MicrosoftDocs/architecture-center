@@ -7,9 +7,11 @@ Visual assistant provides rich information based on content of the image with ca
 Organizations utilize this solution in providing:
 
 - Appointment scheduling
-- Order and delivery tracking
-- Payments
-- Subscription renewal
+- Order and delivery tracking (manufacturing, automotive, and transportation)
+- Barcode purchases (retail)
+- Payments (finance and retail)
+- Subscription renewal (retail)
+- Recognizing popular people, places, objects, art, and monuments (education, media, and entertainment)
 
 ## Architecture
 
