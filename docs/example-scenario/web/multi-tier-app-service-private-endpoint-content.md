@@ -1,8 +1,8 @@
 A front-end application that makes calls to one or more API applications behind it is known as a *multi-tier web application*. This type of architecture usually gets complicated when you want to secure the API applications by making them unavailable from the internet. 
 
-You can provide security for your API applications in several ways that make them accessible only from your front-end applications. This involves securing your API application's inbound traffic. 
+You can provide security for your API applications in several ways that make them accessible only from your front-end applications. This involves securing your API application's inbound traffic.
 
-A network interface that uses Azure Private Link to connect you privately, in a highly secure way, to your web app is known as a *private endpoint*. It uses a private IP address from the virtual network, effectively bringing the web app into that network. This feature is applicable only for inbound flows to your web app. 
+A network interface that uses Azure Private Link to connect you privately, in a highly secure way, to your web app is known as a *private endpoint*. It uses a private IP address from the virtual network, effectively bringing the web app into that network. This feature is applicable only for inbound flows to your web app.
 
 [Private endpoints](/azure/private-link/private-endpoint-overview) help to protect against data exfiltration because the only thing you can access across the private endpoint is the app with which it's configured.
 
@@ -48,17 +48,17 @@ These are some alternative ways to provide security for your web apps:
 - App-assigned addresses
 - Azure service endpoints
 - Access restrictions
- 
+
 For more information, see [App Service networking features](/azure/app-service/networking-features).
 
 ## Benefits
 
 These are some benefits of using a private endpoint for your web app:
-- It eliminates public exposure and makes the app more secure.
-- It enables you to create high-security connections from on-premises networks that connect to the virtual network by using a virtual private network (VPN) or Azure ExpressRoute private peering.
-- It helps prevent data exfiltration.
+- Eliminates public exposure and makes the app more secure.
+- Enables you to create high-security connections from on-premises networks that connect to the virtual network by using a virtual private network (VPN) or Azure ExpressRoute private peering.
+- Helps prevent data exfiltration.
 
-If you only need a secure connection between the virtual network and the web app, you should use a [service endpoint](../../reference-architectures/app-service-web-app/multi-tier-app-service-service-endpoint.yml). However, if you need to access the web app from on-premises through an Azure gateway, a regionally peered virtual network, or a globally peered virtual network, use a private endpoint. 
+If you only need a secure connection between the virtual network and the web app, you should use a [service endpoint](../../reference-architectures/app-service-web-app/multi-tier-app-service-service-endpoint.yml). However, if you need to access the web app from on-premises through an Azure gateway, a regionally peered virtual network, or a globally peered virtual network, use a private endpoint.
 
 ## Considerations
 
@@ -68,11 +68,11 @@ If you only need a secure connection between the virtual network and the web app
 
 ### DNS configuration
 
-When you use a private endpoint, the requested URL must match the name of your web app. By default, the app name is mywebappname.azurewebsites.net. When you deploy the private endpoint, you need to update the DNS entry to the canonical name mywebappname.privatelink.azurewebsites.net. 
+When you use a private endpoint, the requested URL must match the name of your web app. By default, the app name is mywebappname.azurewebsites.net. When you deploy the private endpoint, you need to update the DNS entry to the canonical name mywebappname.privatelink.azurewebsites.net.
 
 You need to set up a private DNS server or an Azure DNS private zone. Create the DNS zone privatelink.azurewebsites.net.
 
-After this configuration, you'll be able to reach your web app privately by using the default name mywebappname.azurewebsites.net. For more information, see [DNS](/azure/app-service/networking/private-endpoint#dns). 
+After this configuration, you'll be able to reach your web app privately by using the default name mywebappname.azurewebsites.net. For more information, see [DNS](/azure/app-service/networking/private-endpoint#dns).
 
 ### Availability
 
@@ -85,7 +85,7 @@ After this configuration, you'll be able to reach your web app privately by usin
 - For information about scaling a basic web app, see [Scaling the App Service app](../../reference-architectures/app-service-web-app/basic-web-app.yml#scaling-the-app-service-app). 
 - For an Azure Well-Architected Framework checklist, see [Performance efficiency](/azure/architecture/framework/scalability/performance-efficiency).
 
-## Pricing 
+## Pricing
 
 Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs.
 

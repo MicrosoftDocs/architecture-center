@@ -1,6 +1,5 @@
 The success and adoption of any API platform is largely dependent on how highly it's regarded in the marketplace. Beyond the digital assets offered by the platform, the ease of finding APIs and the ease of using them has a large effect on whether customers use a platform. Customers must be able to find documentation and receive support for issues. The platform should also facilitate community contribution to help your customers shape your APIs to their needs. As the publisher of APIs, you need a website that effectively markets your APIs and helps customers to differentiate between offerings. When they've selected APIs, you need to be able to give access only to authenticated users, manage consumption, and deliver accurate invoices for use. This example scenario shows how you can use Azure service and GitHub to create a platform that does all of this and more.
 
-
 ## Potential use cases
 
 You can use this solution to make it easy for API developers to:
@@ -9,7 +8,6 @@ You can use this solution to make it easy for API developers to:
 - Subscribe and integrate with your various applications and channels.
 - Get help, troubleshoot problems, and remediate issues.
 - Promote community contribution and exchange ideas and knowledge.
-
 
 ## Architecture
 
@@ -33,33 +31,33 @@ The solution primarily consists of the following building blocks:
 
 The processing sequence in this solution flows as follows:
 
-1.  The API publisher imports the API specifications by using the Azure portal, groups them by product, and publishes them.
+1. The API publisher imports the API specifications by using the Azure portal, groups them by product, and publishes them.
 
-2.  The API publisher updates the product-related marketing information in the corresponding GitHub repository.
+1. The API publisher updates the product-related marketing information in the corresponding GitHub repository.
 
-3.  The API consumer accesses the marketplace portal, browses the various products, and selects a specific API service.
+1. The API consumer accesses the marketplace portal, browses the various products, and selects a specific API service.
 
-4.  When the consumer attempts to view more information about the API service, the consumer portal redirects the consumer to the enhanced developer portal, which is hosted on GitHub and uses GitHub Pages.
+1. When the consumer attempts to view more information about the API service, the consumer portal redirects the consumer to the enhanced developer portal, which is hosted on GitHub and uses GitHub Pages.
 
-5.  The consumer can browse different API specifications, developer-related information, and even try invoking an endpoint by using a sample payload.
+1. The consumer can browse different API specifications, developer-related information, and even try invoking an endpoint by using a sample payload.
 
-6.  The consumer registers with the platform and then activates a subscription for the particular API service that they're interested in using.
+1. The consumer registers with the platform and then activates a subscription for the particular API service that they're interested in using.
 
-7.  The consumer makes use of the API service in their apps or devices.
+1. The consumer makes use of the API service in their apps or devices.
 
-8.  The invocation of the API generates metrics about its use and consumption, which are stored by Azure in tracking databases.
+1. The invocation of the API generates metrics about its use and consumption, which are stored by Azure in tracking databases.
 
-9.  The consumption data is periodically exported and saved to a custom database, typically a data lake, for further analysis.
+1. The consumption data is periodically exported and saved to a custom database, typically a data lake, for further analysis.
 
-10. A back-end job calculates charges from the consumption data and the various subscriptions.
+1. A back-end job calculates charges from the consumption data and the various subscriptions.
 
-11. The invoice and payment-related information is stored within the accounting database. This information is used to calculate the revenue for the service.
+1. The invoice and payment-related information is stored within the accounting database. This information is used to calculate the revenue for the service.
 
 ### Components
 
 The solution is composed of the following software as a service (SaaS) offerings:
 
-- [Azure API Management](https://azure.microsoft.com/services/api-management) is a managed platform as a service that allows organizations to publish APIs to both internal and external consumers. With API Management, you can publish APIs that may be hosted anywhere. Basically, API Management allows for decoupling of API hosting from the published gateway that acts as the single-entry point for the full landscape of APIs that your enterprise publishes. For more information, see [Gateway Routing pattern](../../patterns/gateway-routing.yml). 
+- [Azure API Management](https://azure.microsoft.com/services/api-management) is a managed platform as a service that allows organizations to publish APIs to both internal and external consumers. With API Management, you can publish APIs that may be hosted anywhere. Basically, API Management allows for decoupling of API hosting from the published gateway that acts as the single-entry point for the full landscape of APIs that your enterprise publishes. For more information, see [Gateway Routing pattern](../../patterns/gateway-routing.yml).
 
   API Management also provides a governance layer on top of all published APIs. By using API Management policies, various other capabilities, such as [rate limits and quotas](/azure/api-management/api-management-sample-flexible-throttling), you can throttle API requests based on a key or subscription. API Management includes a [developer portal](/azure/api-management/api-management-howto-developer-portal) that provides a fully customizable website to serve as the documentation of the APIs that you publish through it.
 
@@ -73,13 +71,11 @@ The solution is composed of the following software as a service (SaaS) offerings
 
 - [Azure Active Directory B2C (Azure AD B2C)](https://azure.microsoft.com/services/active-directory/external-identities/b2c) is an extension of Azure Active Directory (Azure AD) that your application can use to manage external customer or partner identities for access and authorization. You can make use of the [Microsoft identify platform](/azure/active-directory/develop/v2-overview) to easily integrate identity and authorization in your custom applications.
 
-
 ## API value chain
 
 :::image type="content" alt-text="Diagram that describes the A P I value chain." source="media/design-api-developer-experiences-management-github-value-chain.png":::
 
 At the top of the value chain is the API service provider. Next are the API consumers or integrators, who design and build the experiences for the eventual target consumers. End users and customers are the final beneficiaries in the value chain.
-
 
 ## API developer experience
 
@@ -94,7 +90,6 @@ The API developer experience features three portals:
 - **Developer portal**. The developer portal provides third-party developers with documentation about the various API services and how to use them in their applications.
 
 - **Account portal**. Registered users manage their subscriptions and perform other account-related activities by using the account portal.
-
 
 ## Functional requirements
 
@@ -146,8 +141,8 @@ The adoption of the API platform is heavily dependent on how easily consumers ca
 
 - Discover the APIs that they need.
 - Review the specification and technical content by browsing through the developer portal.
-- Register to subscribe. 
-- Pay for the API products that they selected. 
+- Register to subscribe.
+- Pay for the API products that they selected.
 - Start using the APIs in their applications.
 
 A consumer experience is typically delivered through a web portal, a mobile app, or both. You can use [Azure AD B2C](/azure/active-directory-b2c) to facilitate user registration and identity management. Azure AD B2C includes support for OpenID identity providers, such as Microsoft and Google.
@@ -159,7 +154,6 @@ Consumer experiences comprise the following components:
 - **Account and subscription management**. Establish procedures for registering and signing in based on the types of users whom you expect to use your API. Support user preferences, such as the use of existing social identity providers. Allow for self-service subscription management, activation and deactivation services, and payment of charges as invoiced.
 
 - **User interface (UI) / User experience (UX)**. Identify and define the experiences for the channels that you support for end-user experiences. Include multi-device, multi-form-factor capabilities, along with modern UI design. Enrich the experience through usability studies.
-
 
 ## Considerations
 
@@ -182,6 +176,13 @@ For API Management, you can use the _Standard_ or the _Premium_ tiers. To better
 
 For Azure App Service, refer to the pricing options that are available for [Windows](https://azure.microsoft.com/pricing/details/app-service/windows) and [Linux](https://azure.microsoft.com/pricing/details/app-service/linux) environments for hosting your applications.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Subhajit Chatterjee](https://www.linkedin.com/in/subhajit-chatterjee-b9b53b44) | Principal Software Engineer, Industry Clouds
 
 ## Next steps
 
