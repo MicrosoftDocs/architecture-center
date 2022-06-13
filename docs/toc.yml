@@ -7,6 +7,16 @@ items:
     href: icons/index.md
   - name: What's new
     href: changelog.md
+  - name: Platform architecture fundamentals
+    items:
+      - name: Bicep Azure landing zone reference architecture
+        items:
+          - name: Introduction
+            href: reference-architectures/landing-zones/bicep/landing-zone-bicep-intro.yml
+          - name: Management groups 
+            href: reference-architectures/landing-zones/bicep/landing-zone-bicep-management-groups.yml
+          - name: Custom policy definitions 
+            href: reference-architectures/landing-zones/bicep/landing-zone-bicep-custom-policy-definitions.yml
   - name: Application architecture fundamentals
     items:
       - name: Introduction
