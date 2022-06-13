@@ -118,7 +118,7 @@ Explore these strategies for minimizing Logic Apps costs:
 - [On-premises data gateway documentation][On-premises data gateways documentation]
 - Similar architectures:
 
-  - [On-premises data gateway for Azure Logic Apps][On-premises data gateway for Azure Logic Apps]: A logic app triggered by Azure Spring Cloud that connects to an on-premises SQL Server instance.
+  - [On-premises data gateway for Azure Logic Apps][On-premises data gateway for Azure Logic Apps]: A logic app triggered by Azure Spring Apps that connects to an on-premises SQL Server instance.
   - [Enterprise integration using queues and events][Enterprise integration using queues and events]: Logic apps that respond to API calls by integrating backend systems.
   - [Serverless web application][Serverless web application]: A serverless web app that uses Azure Functions to read database data.
 

@@ -3483,7 +3483,7 @@ items:
                         href: microservices/design/index.yml
                       - name: Choose a compute option
                         href: microservices/design/compute-options.md
-                      - name: Spring Cloud via reverse proxy
+                      - name: Spring Apps via reverse proxy
                         href: reference-architectures/microservices/spring-cloud-reverse-proxy.yml
                       - name: Interservice communication
                         href: microservices/design/interservice-communication.yml
@@ -3535,7 +3535,7 @@ items:
                      href: example-scenario/blue-green-spring/blue-green-spring.yml
                    - name: Microservices on Azure Service Fabric
                      href: reference-architectures/microservices/service-fabric.yml
-                   - name: Microservices with Azure Spring Cloud
+                   - name: Microservices with Azure Spring Apps
                      href: /azure/spring-cloud/reference-architecture
                      maintainContext: true
                    - name: Microservices with Container Apps
