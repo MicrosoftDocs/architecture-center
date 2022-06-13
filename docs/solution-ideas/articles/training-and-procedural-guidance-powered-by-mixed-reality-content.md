@@ -4,12 +4,12 @@ Enable your team and employees to learn new processes and materials faster, with
 
 ## Potential use cases
 
-Organizations utilize this to enable employees (new and current) with learning new skills, material and process quicker than traditional training programs.
+Organizations utilize this to enable employees (new and current) with learning new skills, material and process quicker than traditional training programs. This solution is ideal for the education industry.
 
 ## Architecture
 
 ![Architecture diagram shows using Azure A D to authenticate with Microsoft Hololens.](../media/training-and-procedural-guidance-powered-by-mixed-reality.png)
-*Download an [SVG](../media/training-and-procedural-guidance-powered-by-mixed-reality.svg) of this architecture.*
+*Download an [SVG file](../media/training-and-procedural-guidance-powered-by-mixed-reality.svg) of this architecture.*
 
 ### Dataflow
 
