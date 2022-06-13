@@ -4,6 +4,10 @@ A business in the [expand](../../guide/startups/startup-architecture.md#expand) 
 
 For a core startup stack, a simple monolithic design is best. This design limits the time spent managing infrastructure, while providing ample ability to scale as the startup wins more customers. This article presents an example of a simple core startup stack, and discusses its components.
 
+## Potential use cases
+
+
+
 ## Architecture
 
 A startup, Contoso, has built an application prototype with a [Ruby on Rails](https://rubyonrails.org) back end and a [React](https://reactjs.org) front end written in [TypeScript](https://www.typescriptlang.org). The Contoso team has been running demos on their laptops. Now they want to deploy their app for their first customer sales meetings.

@@ -23,7 +23,7 @@ A dotted line surrounds most components, including an Azure Load Balancer, two v
 
 *Download a [Visio file][Visio version of architecture diagram] of this architecture.*
 
-### Workflow
+### Dataflow
 
 - As part of a virtual network, an [Azure Load Balancer][Azure Load Balancer] redirects clients by associating a routable, private IP address with the cluster.
 
@@ -281,6 +281,14 @@ Follow these steps to assign a routable, private IP address to the SQL cluster:
 * [PowerShell script to deploy VMs on Azure][PowerShell script to deploy VMs on Azure]
 * [ARM Template to create a shared disk][ARM Template to create a shared disk]
 * [PowerShell script to deploy an Azure internal load balancer][PowerShell script to deploy an Azure internal load balancer]
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+
 
 ## Next steps
 

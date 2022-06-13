@@ -166,6 +166,14 @@ For proactive monitoring and management, consider using [Azure Monitor](https://
   - Using Azure App Service for the presentation tier instead of setting up multiple VMs.
   - Segmenting workloads with Azure virtual networks instead of using hardware-based firewalls.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+
+
 ## Next steps
 
 - [Migrating AIX Workloads to Azure: Approaches and Best Practices](https://techcommunity.microsoft.com/t5/azure-global/migrating-aix-workloads-to-azure-approaches-and-best-practices/ba-p/1085983).

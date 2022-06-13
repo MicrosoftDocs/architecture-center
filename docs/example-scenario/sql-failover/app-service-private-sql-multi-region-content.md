@@ -28,7 +28,7 @@ With private connectivity to a SQL database and high availability, this solution
 
 In the general case, the traffic flow and basic configuration look like the [single-region version][Web app private connectivity to Azure SQL database].
 
-#### Workflow
+#### Dataflow
 
 1. Azure Front Door routes requests from the internet to a web app.
 1. By using Azure App Service regional VNet Integration, the web app connects to a delegated subnet named **AppSvcSubnet** in Azure Virtual Network.
@@ -199,6 +199,14 @@ At this point:
 
 - The apps in both regions should connect to both databases over their private endpoints.
 - Both apps should continue to function even if the database fails over to the other region.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+
 
 ## Next steps
 

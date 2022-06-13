@@ -7,6 +7,10 @@ Bots can be developed using a variety of languages, such as C\#, JavaScript, and
 
 InfoSec policy commonly requires that all incoming traffic to web apps go through a corporate firewall. This means that all traffic going to a bot, and responses from the bot, must route through a corporate firewall, as with any other web app.
 
+## Potential use cases
+
+
+
 ## Architecture
 
 ![Teams to Azure Firewall flowchart](media/securing-bot-image-001.png)

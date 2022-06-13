@@ -2,6 +2,10 @@ This example scenario restricts communications between two Azure backend service
 
 Interservice communications restrictions are only one part of an overall security strategy based on careful planning, [threat-modeling][threatmodeling], and the [Security Development Lifecycle][sdlc]. Overall security planning should incorporate business, compliance, regulatory, and other non-functional requirements. For example, while the current scenario focuses on network restrictions, many organizations now embrace a [zero trust security model][zerotrust] that assumes a breach, so the networking layer is of secondary importance.
 
+## Potential use cases
+
+
+
 ## Architecture
 
 :::image type="complex" source="./media/service-to-service-architecture.svg" alt-text="Diagram showing both network layer and application layer communications restrictions between two Azure App Service backend services." border="false":::
