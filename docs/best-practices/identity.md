@@ -33,7 +33,7 @@ For most solutions, we strongly recommend using an identity as a service (IDaaS)
 
 Modern identity protocols are complex. [OAuth 2, OpenID Connect, and other protocols](/azure/active-directory/develop/active-directory-v2-protocols) have been designed by industry experts to ensure that they mitigate real-world attacks and vulnerabilities. The protocols also evolve over time to adapt to changes in technologies, attack strategies, and user expectations. Identity specialists, with expertise in the protocols and how they're used, are in the best position to implement and validate systems that follow these protocols.
 
-It's also common to [federate IdPs together](../patterns/federated-identity.yml). Identity federation protocols are complex to establish, manage, and maintain, and again requires specialist knowledge and experience.
+It's also common to [federate identity systems together](../patterns/federated-identity.yml). Identity federation protocols are complex to establish, manage, and maintain, and again requires specialist knowledge and experience.
 
 ## Adopt modern identity features
 
