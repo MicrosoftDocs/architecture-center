@@ -9,9 +9,9 @@ When you design a solution for secure data storage, processing, and analysis, yo
 - Maintenance
 - Storage warehousing
 
-Azure, together with Azure Stack Hub, addresses data concerns and provides low-cost solutions. 
+Azure, together with Azure Stack Hub, addresses data concerns and provides low-cost solutions.
 
-The architecture described here is best exemplified by a distributed manufacturing or logistics company. Using both on-premises and public cloud environments meets the demands of multi-facility enterprises. Azure Stack Hub offers a rapid, secure, and flexible solution for collecting, processing, storing, and distributing local and remote data. 
+The architecture described here is best exemplified by a distributed manufacturing or logistics company. Using both on-premises and public cloud environments meets the demands of multi-facility enterprises. Azure Stack Hub offers a rapid, secure, and flexible solution for collecting, processing, storing, and distributing local and remote data.
 
 This solution is especially useful when security, confidentiality, corporate policy, and regulatory requirements differ among locations and users.
 
@@ -84,6 +84,14 @@ Azure functions and storage solutions scale to meet data volume and processing d
 ## Deploy this scenario
 
 When you're ready to deploy this solution, use the [Deploy a Staged Data Analytics Solution](https://aka.ms/tiereddatadeploy) repo, on Azure Samples. It provides step-by-step instructions for deploying and testing the solution's components.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+* [Bryan Lamos](https://www.linkedin.com/in/bryanlamos) | Senior Content Developer
 
 ## Next steps
 
