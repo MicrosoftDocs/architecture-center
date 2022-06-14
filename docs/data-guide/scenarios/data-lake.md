@@ -3,7 +3,7 @@ title: Data lakes
 description: Learn about data lake storage repositories, which can hold terabytes and petabytes of data in native, raw format.
 author: PRASADA1207
 ms.author: prasada
-ms.date: 06/08/2022
+ms.date: 06/14/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -20,7 +20,7 @@ ms.custom:
 
 A data lake is a storage repository that holds a large amount of data in its native, raw format. Data lake stores are optimized for scaling to terabytes and petabytes of data. The data typically comes from multiple heterogeneous sources, and may be structured, semi-structured, or unstructured. The idea with a data lake is to store everything in its original, untransformed state. This approach differs from a traditional [data warehouse](../relational-data/data-warehousing.yml), which transforms and processes the data at the time of ingestion.
 
-![A diagram that shows the different data lake use cases.](https://user-images.githubusercontent.com/76814154/172106259-8c57e192-ec37-4ad9-8443-9efde679d6fa.png)
+![A diagram that shows the different data lake use cases.](./images/data-lake-use-cases.png)
 
 The following are key data lake use cases:
 - Cloud and IoT data movement
@@ -64,7 +64,7 @@ The following table compares data lakes and data warehouses:
 
 Build data lake solutions using the following services offered by Azure:
 
-![A diagram that shows the key data lake services.](https://user-images.githubusercontent.com/76814154/171924203-3cc54c6f-0f45-4485-8167-2de6adf97a5b.png)
+![A diagram that shows the key data lake services.](./images/data-lake-solution.png)
 
 - [Azure HD Insight](/azure/hdinsight/hdinsight-overview) is a managed, full-spectrum, open-source analytics service in the cloud for enterprises. 
 - [Azure Data Lake Store](/azure/data-lake-store) is a hyperscale, Hadoop-compatible repository.
