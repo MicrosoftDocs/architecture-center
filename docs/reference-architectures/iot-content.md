@@ -6,7 +6,7 @@ To help decide between IoT Central and a PaaS-based IoT approach, based on your 
 
 ## Architecture
 
-:::image type="content" source="./iot/images/iot-refarch.svg" alt-text="Diagram showing architecture for I O T applications using Azure P a a S components." lightbox="./iot/images/iot-refarch.svg#lightbox":::
+:::image type="content" source="./iot/images/iot-refarch.svg" alt-text="Diagram showing architecture for I O T applications using Azure P a a S components." border="false" lightbox="./iot/images/iot-refarch.svg#lightbox":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-iot-reference-architecture.vsdx) of this architecture.*
 
@@ -20,13 +20,13 @@ Azure IoT solutions involve:
 
 For example, a motor sends temperature data. You use this data to evaluate whether the motor is performing as expected. You use the insight about the motor's performance to prioritize its maintenance schedule.
 
-### Devices
+#### Devices
 
 Azure IoT supports a large range of devices, from microcontrollers running [Azure RTOS](/azure/rtos) and [Azure Sphere](/azure-sphere/product-overview/what-is-azure-sphere) to developer boards like [MX Chip](/samples/azure-samples/mxchip-iot-devkit-get-started/sample) and Raspberry Pi. Azure IoT also supports smart server gateways capable of running custom code. Devices might perform some local processing through a service such as [Azure IoT Edge](/azure/iot-edge), or just connect directly to Azure so that they can send data to and receive data from the IoT solution.
 
 When devices are connected to the cloud, there are several services that assist with ingesting data. [Azure IoT Hub](/azure/iot-hub) is a cloud gateway service that can securely connect and manage devices. [Azure IoT Hub Device Provisioning Service (DPS)](/azure/iot-dps/about-iot-dps) enables zero-touch, just-in-time provisioning that helps to register a large number of devices in a secure and scalable manner. [Azure Digital Twins](/azure/digital-twins) enables virtual models of real world systems.
 
-### Insights
+#### Insights
 
 Once devices are connected to the cloud, you can process and explore their data to gain customized insights about their environment. At a high level, there are three ways to process data: hot path, warm path, and cold path. The paths differ in their requirements for latency and data access.
 
@@ -34,7 +34,7 @@ Once devices are connected to the cloud, you can process and explore their data 
 - The **warm path** analyzes data that can accommodate longer delays for more detailed processing. Consider [Azure Data Explorer](/azure/data-explorer) for storing and analyzing large volumes of data.
 - The **cold path** performs batch processing at longer intervals, like hourly or daily. The cold path typically operates over large volumes of data, which can be stored in [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction). Results don't need to be as timely as in the hot or warm paths. Consider using [Azure Machine Learning](/azure/machine-learning) or [Azure Databricks](/azure/databricks) to analyze cold data.
 
-### Actions
+#### Actions
 
 You can use the insights you gather about your data to manage and control your environment. Business integration actions might include:
 
@@ -90,7 +90,7 @@ Azure also provides several services to help you monitor your entire IoT solutio
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
-### Manageability considerations
+### Manageability
 
 You can use Azure Digital Twins to control and monitor connected environments. A digital twin is a virtual model of a real-world environment that is driven with data from business systems and IoT devices. Businesses and organizations use digital twins to enable insights and actions. Developers and architects use digital twin solutions to help implement intelligent and connected environments such as:
 
@@ -98,31 +98,6 @@ You can use Azure Digital Twins to control and monitor connected environments. A
 - Supply chain visibility.
 - Smart shelves for real-time inventory.
 - Connected homes and smart buildings.
-
-### Scalability considerations
-
-Build your solution to deploy at global scale. For optimal scalability, build your IoT application with discrete services that can scale independently. This section describes scalability considerations for several Azure services.
-
-#### IoT Hub
-
-Each IoT hub is provisioned with a certain number of units in a specific pricing and scale tier. The tier and number of units determine the maximum daily quota of messages that devices can send to the hub. For more information, see [IoT Hub quotas and throttling](/azure/iot-hub/iot-hub-devguide-quotas-throttling). You can scale up a hub without interrupting existing operations.
-
-For IoT Hub, consider the following scale factors:
-
-- The maximum [daily quota](/azure/iot-hub/iot-hub-devguide-quotas-throttling) of messages into IoT Hub.
-- The quota of connected devices in an IoT Hub instance.
-- Ingestion throughput: How quickly IoT Hub can ingest messages.
-- Processing throughput: How quickly the incoming messages are processed.
-
-IoT Hub automatically partitions device messages based on the device ID. All of the messages from a particular device will always arrive on the same partition, but a single partition will have messages from multiple devices. Therefore, the unit of parallelization is the partition ID.
-
-#### Azure Functions
-
-When [Azure Functions](/azure/azure-functions) reads from an [Azure Event Hubs](/azure/event-hubs) endpoint, there's a maximum number of function instances per event hub partition. The maximum processing rate is determined by how fast one function instance can process the events from a single partition. The function should process messages in batches.
-
-#### Stream Analytics
-
-Stream Analytics jobs scale best if they're parallel at all points in the Stream Analytics pipeline, from input to query to output. A fully parallel job allows Stream Analytics to split the work across multiple compute nodes. For more information, see [Leverage query parallelization in Azure Stream Analytics](/azure/stream-analytics/stream-analytics-parallelization).
 
 ### Reliability
 
@@ -180,6 +155,33 @@ For example:
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 In general, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs. Other considerations are described in the Cost section in [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/cost/overview).
+
+### Performance efficiency
+
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+
+Build your solution to deploy at global scale. For optimal scalability, build your IoT application with discrete services that can scale independently. This section describes scalability considerations for several Azure services.
+
+#### IoT Hub
+
+Each IoT hub is provisioned with a certain number of units in a specific pricing and scale tier. The tier and number of units determine the maximum daily quota of messages that devices can send to the hub. For more information, see [IoT Hub quotas and throttling](/azure/iot-hub/iot-hub-devguide-quotas-throttling). You can scale up a hub without interrupting existing operations.
+
+For IoT Hub, consider the following scale factors:
+
+- The maximum [daily quota](/azure/iot-hub/iot-hub-devguide-quotas-throttling) of messages into IoT Hub.
+- The quota of connected devices in an IoT Hub instance.
+- Ingestion throughput: How quickly IoT Hub can ingest messages.
+- Processing throughput: How quickly the incoming messages are processed.
+
+IoT Hub automatically partitions device messages based on the device ID. All of the messages from a particular device will always arrive on the same partition, but a single partition will have messages from multiple devices. Therefore, the unit of parallelization is the partition ID.
+
+#### Azure Functions
+
+When [Azure Functions](/azure/azure-functions) reads from an [Azure Event Hubs](/azure/event-hubs) endpoint, there's a maximum number of function instances per event hub partition. The maximum processing rate is determined by how fast one function instance can process the events from a single partition. The function should process messages in batches.
+
+#### Stream Analytics
+
+Stream Analytics jobs scale best if they're parallel at all points in the Stream Analytics pipeline, from input to query to output. A fully parallel job allows Stream Analytics to split the work across multiple compute nodes. For more information, see [Leverage query parallelization in Azure Stream Analytics](/azure/stream-analytics/stream-analytics-parallelization).
 
 ## Contributors
 
