@@ -20,7 +20,7 @@ ms.custom:
 
 A data lake is a storage repository that holds a large amount of data in its native, raw format. Data lake stores are optimized for scaling to terabytes and petabytes of data. The data typically comes from multiple heterogeneous sources, and may be structured, semi-structured, or unstructured. The idea with a data lake is to store everything in its original, untransformed state. This approach differs from a traditional [data warehouse](../relational-data/data-warehousing.yml), which transforms and processes the data at the time of ingestion.
 
-![A diagram that shows the different data lake use cases.](./images/data-lake-use-cases.png)
+![A diagram that shows the different data lake use cases.](./images/data-lake-use-cases.jpg)
 
 The following are key data lake use cases:
 - Cloud and IoT data movement
