@@ -38,7 +38,7 @@ Advantages of a data lake:
 
 A complete data lake solution consists of both storage and processing. Data lake storage is designed for fault-tolerance, infinite scalability, and high-throughput ingestion of data with varying shapes and sizes. Data lake processing involves one or more processing engines built with these goals in mind, and can operate on data stored in a data lake at scale.
 
-## When to use a data lake ?
+## When to use a data lake
 
 Typical uses for a data lake include [data exploration](./interactive-data-exploration.md), data analytics, and machine learning.
 
@@ -48,7 +48,7 @@ Data lake stores are often used in event streaming or IoT scenarios, because the
 
 The following table compares data lakes and data warehouses:
 
-![image](https://user-images.githubusercontent.com/76814154/173514093-3a0e035e-c21b-4764-8829-8508e1cfadb3.png)
+![A table that compares data lake features with data warehouse features.](https://user-images.githubusercontent.com/76814154/173514093-3a0e035e-c21b-4764-8829-8508e1cfadb3.png)
 
 
 ## Challenges
