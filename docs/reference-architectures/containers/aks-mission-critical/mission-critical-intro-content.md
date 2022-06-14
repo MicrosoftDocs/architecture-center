@@ -21,7 +21,7 @@ Several factors can affect an application's reliability. The application's abili
 
 - **Redundancy**: This strategy is applied in these levels:
     - Deploys to multiple regions in an active-active model. The application is distributed across two or more Azure regions that handle active user traffic. 
-    - Utilizes Availability Zones (AZs) for all considered services to maximize availability within a single Azure region, distributing components across physically separate data centres inside a region.
+    - Utilizes Availability Zones (AZs) for all considered services to maximize availability within a single Azure region, distributing components across physically separate data centers inside a region.
     - Chooses resources that support global distribution.
 
 - **Deployment stamp scale-units**: Regional stamps that can be deployed as a _scale unit_ where a logical set of resources can be independently deployed to keep up with the changes in demand. Each stamp also applies multiple nested scale units, such as the Frontend APIs and Background processors which can scale in and out independently.
@@ -36,7 +36,7 @@ Several factors can affect an application's reliability. The application's abili
 
 - **Zero downtime blue/green deployment pipelines**: Build and release pipelines must be consistent and transparent to end-users. The pipelines must be fully automated to deploy stamps as a single operational unit, using blue/green deployments with continuous validation applied.
 
-- **Infrastructure as code (IaC)**: Uses Terraform to apply the principle of IaC, providing version control and a standardised operational approach for infrastructure components.
+- **Infrastructure as code (IaC)**: Uses Terraform to apply the principle of IaC, providing version control and a standardized operational approach for infrastructure components.
 
 - **Environment consistency**: Consistency is applied across all considered environments, with the same deployment pipeline code used across production and pre-production environments. This eliminates risks associated with deployment and process variations across environments.
 
@@ -61,7 +61,7 @@ The global resources are long living and share the lifetime of the system. They 
 
 A global load balancer is critical to reliably route traffic to the regional deployments with some level of guarantee based on the availability of backend services in a region. Also, this component should have the capability of inspecting ingress traffic, for example through web application firewall. 
 
-**Azure Front Door** is used as the global entry point for all incoming client HTTP(S) traffic, with **Web Application Firewall (WAF)** capabilities applied to secure Layer 7 ingress traffic. It uses TCP Anycast to optimize routing using the Microsoft backbone network and allows for transparent failover in the event of degraded regional health. Routing is dependant on custom health probes that check the composite heath of key regional resources. Azure Front Door also provides a built-in content delivery network (CDN) to cache static assets for the website component. 
+**Azure Front Door** is used as the global entry point for all incoming client HTTP(S) traffic, with **Web Application Firewall (WAF)** capabilities applied to secure Layer 7 ingress traffic. It uses TCP Anycast to optimize routing using the Microsoft backbone network and allows for transparent failover in the event of degraded regional health. Routing is dependent on custom health probes that check the composite heath of key regional resources. Azure Front Door also provides a built-in content delivery network (CDN) to cache static assets for the website component. 
 
 Another option is Traffic Manager. It uses DNS to route traffic at Layer 4. However in this architecture, the capability to route HTTP(S) traffic is required.
 
@@ -70,7 +70,7 @@ Another option is Traffic Manager. It uses DNS to route traffic at Layer 4. Howe
 
 #### Database
 
-All state related to the workload is stored in an external database, **Azure Cosmos DB with SQL API**. The SQL API was chosen because it has the feature set needed for performance and reliability tunning, both the client-side and server-side. It's highly recommended that the account has multi-master write enabled.
+All state related to the workload is stored in an external database, **Azure Cosmos DB with SQL API**. The SQL API was chosen because it has the feature set needed for performance and reliability tuning, both the client-side and server-side. It's highly recommended that the account has multi-master write enabled.
 
 > [!NOTE]
 > While a multi-region-write configuration represents the gold stadard for reliability, there is a significant tradeoff on cost.
@@ -102,7 +102,7 @@ This architecture uses a single page app (SPA) that send requests to backend ser
 
 Another choice is Azure Static Web Apps. As with any PaaS offering, there's reduced complexity but restrictions in flexibility. There are additional considerations, such as how the certificates are exposed, connectivity to global load balancer, and other factors.
 
-Static content is typically cached in a store closer to the client, using a content delivery network (CDN), so that the data can be served quickly without reaching the backend servers. It's a cost-effective way to increase reliability and reduce network latency. In this architecture, **built-in CDN capabilities of Azure Front Door** are used to cache static website content at the Microsoft edge network.
+Static content is typically cached in a store closer to the client, using a content delivery network (CDN), so that the data can be served quickly without reaching the backend servers. It's a cost-effective way to increase reliability and reduce network latency. In this architecture, **built-in CDN capabilities of Azure Front Door** are used to cache static website content at the edge network.
 
 #### Compute cluster
 
@@ -121,10 +121,10 @@ A message broker brings high responsiveness even during peak load, the design us
 
 The entire stamp is stateless except for certain points, such as the message broker. Data is queued in the broker for a short period. The queue is drained after the message is processed and stored in a global database.
 
-In this design, **Azure Event Hubs** is used because it guarantees at least once delivery. This means even if Event Hubs becomes unavailable, messages will be in the queue after the service is restored. However, it's the consumers responsibility to determine whether the message still needs processing. An additional Azure Storage account is provisioned for for checkpointing. 
+In this design, **Azure Event Hubs** is used because it guarantees at least once delivery. This means even if Event Hubs becomes unavailable, messages will be in the queue after the service is restored. However, it's the consumers responsibility to determine whether the message still needs processing. An additional Azure Storage account is provisioned for checkpointing. 
 
     
-For use cases that require additional message guarantees, Azure Service Bus is recommended. It allows for two phase commits with a client side cursor, and features such as a built-in dead letter queue and dedupe capabilities.
+For use cases that require additional message guarantees, Azure Service Bus is recommended. It allows for two-phase commits with a client side cursor, and features such as a built-in dead letter queue and dedupe capabilities.
 
 > Refer to [Well-architected mission critical workloads: Loosely coupled event-driven architecture](/azure/architecture/framework/mission-critical/mission-critical-application-design#loosely-coupled-event-driven-architecture).
 
@@ -172,7 +172,7 @@ In this architecture, data from shared services such as, Azure Front Door, Cosmo
 Similarly, monitoring resources per stamp must be independent. If you tear down a stamp, you still want to preserve observability. Each regional stamp has its own dedicated Application Insights and Log Analytics Workspace. The resources are provisioned per region but they outlive the stamps. 
 
 #### Data archiving and analytics
-Operational data that is not required for active operations is exported from Log Analytics to Azure Storage Accounts for both data retention purposes and to provide an anytical source for AIOps, which can be appied to optimise the application health model and operational procedures.
+Operational data that is not required for active operations is exported from Log Analytics to Azure Storage Accounts for both data retention purposes and to provide an analytical source for AIOps, which can be applied to optimize the application health model and operational procedures.
 
 > Refer to [Well-architected mission critical workloads: Predictive action and AI operations](/azure/architecture/reference-architectures/containers/aks-mission-critical/azure/architecture/framework/mission-critical/mission-critical-health-modeling#predictive-action-and-ai-operations-aiops).
 
@@ -238,7 +238,7 @@ For product documentation on the Azure services used in this architecture, see t
 
 ## Deploy this architecture
 
-Deploy the reference implementation to get a full understanding of reources and their configuration. 
+Deploy the reference implementation to get a full understanding of resources and their configuration. 
 
 > [!div class="nextstepaction"]
 > [Implementation: Mission-Critical Online](https://github.com/Azure/Mission-Critical-Online)
