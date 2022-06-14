@@ -38,7 +38,7 @@ _Download a [Visio file](https://arch-center.azureedge.net/hybrid-tiered-data-an
 
 1. Data saved to Queue Storage triggers functions that are used to sterilize data. Automatically and manually triggered functions can process, clean up, and archive data. Examples include nightly scrubs of customer lists and monthly report processing.
 
-1. An Azure Storage account provides a anonymized data consumption endpoint in the cloud. For example, the anonymized data is used to generate reports.
+1. An Azure Storage account provides an anonymized data consumption endpoint in the cloud. For example, the anonymized data is used to generate reports.
 
 ### Components
 
