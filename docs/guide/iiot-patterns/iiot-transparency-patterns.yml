@@ -4,7 +4,7 @@ metadata:
   description: Learn about a common transparency pattern to build, deploy, and manage Industrial IoT (IIoT) solutions.
   author: jomit
   ms.author: jovagh
-  ms.date: 04/28/2022
+  ms.date: 06/16/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
@@ -18,4 +18,4 @@ name: Industrial IoT transparency patterns
 summary: Learn about a common transparency pattern to build, deploy, and manage Industrial IoT (IIoT) solutions.
 thumbnailUrl: //azure/architecture/guide/iiot-patterns/images/oee.png
 content: |
-  [!include[](iiot-transparency-patterns.md)]
+  [!include[](iiot-transparency-patterns-content.md)]
