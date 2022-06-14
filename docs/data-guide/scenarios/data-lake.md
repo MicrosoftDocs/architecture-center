@@ -75,7 +75,7 @@ Build data lake solutions using the following services offered by Azure:
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Other contributor:
+Principal author:
 
  - [Avijit Prasad](https://www.linkedin.com/in/avijit-prasad%F0%9F%8C%90-96768a42) | Cloud Consultant
 
