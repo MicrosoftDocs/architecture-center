@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Highly reliable mission critical workload on AKS
+  title: Architecture of a highly reliable mission critical workload
   description: Reference architecture for a workload that is accessed over a public endpoint without additional dependencies to other company resources.
   author: calcof
   ms.author: pnp
@@ -13,7 +13,7 @@ metadata:
     - networking
     - security
     - devops
-name: Highly reliable mission critical workload on AKS
+name: Architecture of a highly reliable mission critical workload
 azureCategories:
   - containers
   - networking
