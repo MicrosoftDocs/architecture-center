@@ -48,32 +48,32 @@ When you've established your high-level requirements, you can start to plan more
 
 ## Identity directory
 
-For a multitenant solution to authenticate and authorize a user or service, it needs a place to store identity information. A *directory* can include authoritative records for each identity, or it might contain references to external identities stored in another identity provider's directory.
+For a multitenant solution to authenticate and authorize a user or service, it needs a place to store identity information. A *directory* can include authoritative records for each identity, or it might contain references to external identities that are stored in another identity provider's directory.
 
 When you design an identity system for your multitenant solution, you need to consider which of the following types of IdP that your tenants and customers might need:
 
-- **Local identity provider.** A local identity provider allows a user to sign themselves up to the service. Users provide a username, email address or an identifier such as a rewards card number. They also provide a credential like a password. The IdP stores both the user identifier and credentials.
-- **Social identity provider.** A social identity provider allows users to use an identity they have on a social network or other public identity provider, such as Facebook, Google, or a personal Microsoft account.
-- **Use the tenant's Azure AD or Microsoft 365 directory.** A tenant might already have their own Azure AD or Microsoft 365 directory, and want your solution to use their directory as the IdP for accessing your solution. This approach is possible when your solution is built as [a multitenant Azure AD application](/azure/active-directory/develop/howto-convert-app-to-be-multi-tenant).
-- **Federation with a tenant's identity provider.** A tenant might have their own IdP other than Azure AD or Microsoft 365, and want your solution to federate with it. Federation enables single sign-on (SSO) experiences, and enables tenants to manage the lifecycle and security policies of their users independently of your solution.
+- **Local identity provider.** A local identity provider allows users to sign themselves up to the service. Users provide a username, an email address, or an identifier, such as a rewards card number. They also provide a credential, like a password. The IdP stores both the user identifier and the credentials.
+- **Social identity provider.** A social identity provider allows users to use an identity that they have on a social network or other public identity provider, such as Facebook, Google, or a personal Microsoft account.
+- **Use the tenant's Azure AD or Microsoft 365 directory.** Tenants might already have their own Azure AD or Microsoft 365 directory, and they might want your solution to use their directory as the IdP for accessing your solution. This approach is possible when your solution is built as [a multitenant Azure AD application](/azure/active-directory/develop/howto-convert-app-to-be-multi-tenant).
+- **Federation with a tenant's identity provider.** Tenants might have their own IdP, other than Azure AD or Microsoft 365, and they might want your solution to federate with it. Federation enables single sign-on (SSO) experiences, and it enables tenants to manage the lifecycle and security policies of their users, independently of your solution.
 
-You should consider if your tenants need to support multiple identity providers. For example, you might need to support local identities, social identities, and federated identities all within a single tenant. This requirement is common when companies use a solution both for their own employees and for contractors. They might use federation for their own employees' access to the solution, while also allowing contractors or guest users who don't have an account in the federated IdP.
+You should consider if your tenants need to support multiple identity providers. For example, you might need to support local identities, social identities, and federated identities, all within a single tenant. This requirement is common when companies use a solution that's both for their own employees and for contractors. They might use federation for their own employees' access to the solution, while also allowing access to contractors or to guest users, who don't have an account in the federated IdP.
 
 ### Store authentication and tenant authorization information
 
-In a multitenant solution, you need to consider where to store several types of identity information, including:
+In a multitenant solution, you need to consider where to store several types of identity information, including the following types:
 
-- Details about user and service accounts, including their names and other information required by your tenants.
-- Information required to securely authenticate your users, including information required to provide multi-factor authentication (MFA).
+- Details about user and service accounts, including their names and other information that's required by your tenants.
+- Information that's required to securely authenticate your users, including information that's required to provide multi-factor authentication (MFA).
 - Tenant-specific information, such as tenant roles and permissions. This information is used for authorization.
 
 > [!CAUTION]
-> We don't recommend building authentication processes yourself. Modern IdPs provide these authentication services to your application, and also include other important features like MFA and conditional access. [Building your own identity provider is an antipattern](../approaches/identity.md#building-or-running-your-own-identity-system). We don't recommend it.
+> We don't recommend building authentication processes yourself. Modern IdPs provide these authentication services to your application, and they also include other important features, such as MFA and conditional access. [Building your own identity provider is an antipattern](../approaches/identity.md#building-or-running-your-own-identity-system). We don't recommend it.
 
 Consider the following options for storing identity information:
 
 - Store all identity and authorization information in the IdP directory, and share it between multiple tenants.
-- Store the user credentials in the IdP directory, and store the authorization information in the application tier alongside the tenant information.
+- Store the user credentials in the IdP directory, and store the authorization information in the application tier, alongside the tenant information.
 
 ### Determine the number of identities for a user
 
