@@ -23,6 +23,8 @@ The connected factory signal processing pipeline can help manufacturing organiza
 
 [ ![Diagram showing the connected factory signal pipeline architecture.](./media/connected-factory-signal-pipeline-01.png) ](./media/connected-factory-signal-pipeline-01.png#lightbox)
 
+*Download a [Visio file](https://arch-center.azureedge.net/connected-factory-signal-pipeline.vsdx) of this architecture.*
+
 ### Workflow
 
 This architecture uses a pipeline configuration that tracks the details of machines, leaf devices, and signals.
@@ -75,6 +77,8 @@ This architecture uses a pipeline configuration that tracks the details of machi
 Using KEPServerEX as the OPC-UA gateway lets brownfield devices connect with the signal pipeline. Supported device types can be configured to automatically connect to the gateway. Removing the need to manage any configuration directly in the gateway's user interface simplifies and standardizes the device setup process.
 
 [ ![Diagram showing the KEPServer gateway configuration.](./media/connected-factory-signal-pipeline-server.png) ](./media/connected-factory-signal-pipeline-server.png#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/connected-factory-signal-pipeline-server.vsdx) of this architecture.*
 
 The KEPServerEX automation is the first implementation of the generic gateway configuration solution built into the solution's Asset Registry API. This extensible gateway configuration solution has the following parts:
 
