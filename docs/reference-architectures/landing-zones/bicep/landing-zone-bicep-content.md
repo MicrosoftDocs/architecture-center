@@ -4,20 +4,20 @@ This article provides a reference architecture for a modularized Bicep solution 
 
 ## Architecture
 
-:::image type="content" border="true" source="images/bicep-architecture.png" alt-text="Diagram showing the 9 bicep modules for deploying Azure landing zones." lightbox="images/bicep-architecture.png":::
+:::image type="content" border="true" source="images/bicep-architecture.png" alt-text="Diagram showing the nine bicep modules for deploying Azure landing zones." lightbox="images/bicep-architecture.png":::
 
-The architecture takes advantage of the modular nature of Azure Bicep and is comprised of 9 modules. Each module encapsulates a core capability of the Cloud Adoption Framework Azure Landing Zones conceptual architecture. The modules can be deployed individually, but there are dependencies.
+The architecture takes advantage of the modular nature of Azure Bicep and is composed of nine modules. Each module encapsulates a core capability of the Cloud Adoption Framework Azure Landing Zones conceptual architecture. The modules can be deployed individually, but there are dependencies.
 
-The architecture proposes the inclusion of orchestrator modules when limitations of Bicep & ARM are addressed. The orchestrator modules could be used to automate the deployment of the modules as well as to encapsulate differing deployment topologies.
+The architecture proposes the inclusion of orchestrator modules when limitations of Bicep & the Azure Resource manager are addressed. The orchestrator modules could be used to automate the deployment of the modules and to encapsulate differing deployment topologies.
 
 ## Modules
 
 ### Management Groups
 
-This module deploys the management group hierarchy. Management groups are the highest level resources in an Azure tenant. Management groups allow you more easily manage your resources. You can apply policy at the management group level and lower level resources will inherit that policy. Specifically, you can apply the following at the management group level that will be inherited by subscriptions under the management group:
+This module deploys the management group hierarchy. Management groups are the highest level resources in an Azure tenant. Management groups allow you to more easily manage your resources. You can apply policy at the management group level and lower level resources will inherit that policy. Specifically, you can apply the following items at the management group level that will be inherited by subscriptions under the management group:
 
 - Azure Policies
-- Azure RBAC role assignments
+- Azure Role Based Access Controls (RBAC) role assignments
 - Cost controls
 
 Useful links:
