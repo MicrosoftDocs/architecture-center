@@ -8,6 +8,7 @@
         <figure class="image diagram has-height-175 has-overflow-hidden level">
             <a href="/azure/architecture/solution-ideas/articles/iot-using-cosmos-db"><img src="/azure/architecture/browse/thumbs/iot-using-cosmos-db-new.png" class="diagram" alt="Thumbnail of IoT using Cosmos DB Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
+        <p>*Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/iot-using-cosmos-db.vsdx) of this architecture.*</p>
     </div>
     <div class="card-content">
         <a class="card-content-title has-margin-top-none" href="/azure/architecture/solution-ideas/articles/iot-using-cosmos-db">
