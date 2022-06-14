@@ -82,6 +82,14 @@ In short, the way you treat firewalls in your on-premises (physical/VLAN-based) 
 
 More information on using load balancers as *gateways* for all traffic can be found on [High availability ports overview](/azure/load-balancer/load-balancer-ha-ports-overview).
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+* [Roelf Zomerman](https://ae.linkedin.com/in/rzomerman) | Senior Cloud Solution Architect
+
 ## Next steps
 
 Learn more about the component technologies:
