@@ -299,6 +299,10 @@ items:
             href: example-scenario/startups/core-startup-stack.yml
           - name: SaaS digital business journey on Azure
             href: guide/saas/saas-digital-business-journey-azure.md
+      - name: Mission critical applications
+        items:
+            - name: Mission critical workload on Azure
+              href: reference-architectures/containers/aks-mission-critical/mission-critical-intro.yml     
       - name: Multitenant applications
         items:
           - name: Overview
@@ -2894,9 +2898,7 @@ items:
               - name: Magento e-commerce in AKS
                 href: example-scenario/magento/magento-azure.yml
               - name: Microservices architecture on AKS
-                href: reference-architectures/containers/aks-microservices/aks-microservices.yml
-              - name: Mission critical workload on AKS
-                href: reference-architectures/containers/aks-mission-critical/mission-critical-intro.yml                    
+                href: reference-architectures/containers/aks-microservices/aks-microservices.ym              
               - name: Microservices with Container Apps
                 href: example-scenario/serverless/microservices-with-container-apps.yml
               - name: Microservices with Container Apps and Dapr
