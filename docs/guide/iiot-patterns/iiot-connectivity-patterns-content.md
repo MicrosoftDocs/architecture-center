@@ -269,13 +269,13 @@ Other contributor:
 
 ## Related resources
 
-- [Industrial IoT patterns overview](./iiot-patterns-overview.md)
+- [Industrial IoT patterns overview](./iiot-patterns-overview.yml)
 
-- [Industrial IoT visibility patterns](./iiot-visibility-patterns.md)
+- [Industrial IoT visibility patterns](./iiot-visibility-patterns.yml)
 
-- [Industrial IoT transparency patterns](./iiot-transparency-patterns.md)
+- [Industrial IoT transparency patterns](./iiot-transparency-patterns.yml)
 
-- [Industrial IoT prediction patterns](./iiot-prediction-patterns.md)
+- [Industrial IoT prediction patterns](./iiot-prediction-patterns.yml)
 
 - [Solutions for the manufacturing industry](/azure/architecture/industries/manufacturing)
 

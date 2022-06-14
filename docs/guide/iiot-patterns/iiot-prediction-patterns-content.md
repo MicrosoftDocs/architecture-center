@@ -120,13 +120,13 @@ Automate a quality inspection in manufacturing by using custom vision.
 
 ## Related resources
 
-- [Industrial IoT patterns overview](./iiot-patterns-overview.md)
+- [Industrial IoT patterns overview](./iiot-patterns-overview.yml)
 
-- [Industrial IoT connectivity patterns](./iiot-connectivity-patterns.md)
+- [Industrial IoT connectivity patterns](./iiot-connectivity-patterns.yml)
 
-- [Industrial IoT visibility patterns](./iiot-visibility-patterns.md)
+- [Industrial IoT visibility patterns](./iiot-visibility-patterns.yml)
 
-- [Industrial IoT transparency patterns](./iiot-transparency-patterns.md)
+- [Industrial IoT transparency patterns](./iiot-transparency-patterns.yml)
 
 - [Solutions for the manufacturing industry](/azure/architecture/industries/manufacturing)
 

@@ -36,13 +36,13 @@ Calculate business metrics using IoT telemetry and other business systems data.
 
 ## Next steps
 
-- [Industrial IoT patterns overview](./iiot-patterns-overview.md)
+- [Industrial IoT patterns overview](./iiot-patterns-overview.yml)
 
-- [Industrial IoT connectivity patterns](./iiot-connectivity-patterns.md)
+- [Industrial IoT connectivity patterns](./iiot-connectivity-patterns.yml)
 
-- [Industrial IoT visibility patterns](./iiot-visibility-patterns.md)
+- [Industrial IoT visibility patterns](./iiot-visibility-patterns.yml)
 
-- [Industrial IoT prediction patterns](./iiot-prediction-patterns.md)
+- [Industrial IoT prediction patterns](./iiot-prediction-patterns.yml)
 
 - [Solutions for the manufacturing industry](/azure/architecture/industries/manufacturing)
 

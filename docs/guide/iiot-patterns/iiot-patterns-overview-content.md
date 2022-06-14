@@ -10,35 +10,35 @@ There are multiple stages in each of the three key phases shown above. Each stag
 
 | Pattern | Summary |
 |-------------|-------------|
-| [OPC UA server and edge gateway](./iiot-connectivity-patterns.md#opc-ua-server-and-edge-gateway) | Connect to manufacturing machines by using OPC UA standards and an Azure IoT Edge gateway. |
-| [Protocol translation and edge gateway](./iiot-connectivity-patterns.md#protocol-translation-and-edge-gateway) | Connect to manufacturing machines over non-standard protocols by using an IoT Edge gateway. |
-| [Cloud connector from industrial connectivity software or historian](./iiot-connectivity-patterns.md#cloud-connector-from-industrial-connectivity-software-or-historian)  | Connect to manufacturing machines by using cloud connector components available in industrial connectivity software. |
-| [Connect to layer 2 and IoT Edge gateways](./iiot-connectivity-patterns.md#connecting-to-layer-2-and-iot-edge-gateways)  | Connect to manufacturing machines in layer 2 of a Purdue model by using multiple IoT Edge gateways connected in a hierarchy. |
-| [Resilient edge gateway](./iiot-connectivity-patterns.md#resilient-edge-gateway)  | Provide hardware resiliency for IoT Edge gateway virtual machines. |
-| [Cloud gateway options](./iiot-connectivity-patterns.md#cloud-gateway-options)  | Select a cloud gateway for connectivity.|
-| [Scale to multiple factories and business units](./iiot-connectivity-patterns.md#scale-to-multiple-factories-and-business-units)  | Scale connectivity patterns to multiple factories and business units. |
-| [Constrained devices and add-on sensors](./iiot-connectivity-patterns.md#constrained-devices-and-add-on-sensors)  | Connect low power and low compute devices to manufacturing machines as extra sensors. |
+| [OPC UA server and edge gateway](./iiot-connectivity-patterns.yml#opc-ua-server-and-edge-gateway) | Connect to manufacturing machines by using OPC UA standards and an Azure IoT Edge gateway. |
+| [Protocol translation and edge gateway](./iiot-connectivity-patterns.yml#protocol-translation-and-edge-gateway) | Connect to manufacturing machines over non-standard protocols by using an IoT Edge gateway. |
+| [Cloud connector from industrial connectivity software or historian](./iiot-connectivity-patterns.yml#cloud-connector-from-industrial-connectivity-software-or-historian)  | Connect to manufacturing machines by using cloud connector components available in industrial connectivity software. |
+| [Connect to layer 2 and IoT Edge gateways](./iiot-connectivity-patterns.yml#connecting-to-layer-2-and-iot-edge-gateways)  | Connect to manufacturing machines in layer 2 of a Purdue model by using multiple IoT Edge gateways connected in a hierarchy. |
+| [Resilient edge gateway](./iiot-connectivity-patterns.yml#resilient-edge-gateway)  | Provide hardware resiliency for IoT Edge gateway virtual machines. |
+| [Cloud gateway options](./iiot-connectivity-patterns.yml#cloud-gateway-options)  | Select a cloud gateway for connectivity.|
+| [Scale to multiple factories and business units](./iiot-connectivity-patterns.yml#scale-to-multiple-factories-and-business-units)  | Scale connectivity patterns to multiple factories and business units. |
+| [Constrained devices and add-on sensors](./iiot-connectivity-patterns.yml#constrained-devices-and-add-on-sensors)  | Connect low power and low compute devices to manufacturing machines as extra sensors. |
 
 ## Visibility
 
 | Pattern | Summary |
 |-------------|-------------|
-| [Time series analysis](./iiot-visibility-patterns.md#time-series-analysis)  | Analyze IoT telemetry data by using time series techniques.|
-| [Anomaly detection and root cause analysis](./iiot-visibility-patterns.md#anomaly-detection-and-root-cause-analysis) | Detect anomalies and identify a root cause analysis for anomaly incidents. |
+| [Time series analysis](./iiot-visibility-patterns.yml#time-series-analysis)  | Analyze IoT telemetry data by using time series techniques.|
+| [Anomaly detection and root cause analysis](./iiot-visibility-patterns.yml#anomaly-detection-and-root-cause-analysis) | Detect anomalies and identify a root cause analysis for anomaly incidents. |
 
 ## Transparency
 
 | Pattern | Summary |
 |-------------|-------------|
-| [Business KPI calculation engine](./iiot-transparency-patterns.md#business-kpi-calculation-engine) | Calculate business metrics by using IoT telemetry and other business systems data. |
+| [Business KPI calculation engine](./iiot-transparency-patterns.yml#business-kpi-calculation-engine) | Calculate business metrics by using IoT telemetry and other business systems data. |
 
 ## Predictions
 
 | Pattern | Summary |
 |-------------|-------------|
-| [Predict process and equipment by using machine learning (Batch)](./iiot-prediction-patterns.md#predict-process-and-equipment-failures-using-machine-learning-batch) | Predict process and equipment failures by using a batch process. |
-| [Predict process and equipment failures by using machine learning (near real-time)](./iiot-prediction-patterns.md#predict-process-and-equipment-failures-using-machine-learning-near-real-time) | Predict process and equipment failures by using an API. |
-| [Augment manual quality inspection by using deep learning based image recognition](./iiot-prediction-patterns.md#augment-manual-quality-inspection-using-deep-learing-based-image-recognition) | Automate quality inspections in manufacturing by using a custom vision. |
+| [Predict process and equipment failures by using batch process machine learning](./iiot-prediction-patterns.yml#predict-process-and-equipment-failures-by-using-batch-process-machine-learning) | Predict process and equipment failures by using a batch process. |
+| [Predict process and equipment failures by using near real-time machine learning](./iiot-prediction-patterns.yml#predict-process-and-equipment-failures-by-using-near-real-time-machine-learning) | Predict process and equipment failures by using an API. |
+| [Augment a manual quality inspection by using deep learning based image recognition](./iiot-prediction-patterns.yml#augment-a-manual-quality-inspection-by-using-deep-learning-based-image-recognition) | Automate quality inspections in manufacturing by using a custom vision. |
 
 ## Next steps
 
