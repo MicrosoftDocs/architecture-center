@@ -211,6 +211,21 @@ The description of this flow is in the following sections.
 9. The background processors subscribe to a topic in Service Bus and receives messages to process. The background processors use the client SDK to perform reads. The client can be configured for retries.
 10. The background processors perform the appropriate write operations on the global Azure Cosmos DB instance. The background processors use the client SDK configured with retry to connect to Azure Cosmos DB. The client's preferred region list could be configured with multiple regions. In that case, if a write fails, the retry will be done on the next preferred region.
 
+## Design areas
+
+We suggest that you explore these areas for recommendations on design choices for the architecture components.
+
+|Design area|Description|
+|---|---|
+|[Application design](/azure/architecture/framework/mission-critical/mission-critical-application-design)|Design patterns that allow for scaling, and error handling.|
+|[Application platform](/azure/architecture/framework/mission-critical/mission-critical-application-platform)|Infrastructure choices and mitigations for potential failure cases.|
+|[Data platform](/azure/architecture/framework/mission-critical/mission-critical-data-platform)|Choices in data store technologies, informed by evaluating required volume, velocity, variety, and veracity characteristics.|
+|[Networking and connectivity](/azure/architecture/framework/mission-critical/mission-critical-networking-connectivity)|Network considerations for routing incoming traffic to stamps.|
+|[Health modeling](/azure/architecture/framework/mission-critical/mission-critical-health-modeling)|Observability considerations through customer impact analysis correlated monitoring to determine overall application health.|
+|[Deployment and testing](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing)|Strategies for CI/CD pipelines and automation considerations, with incorporated testing scenarios, such as synchronized load testing and failure injection (chaos) testing.|
+|[Security](/azure/architecture/framework/mission-critical/mission-critical-security)|Mitigation of attack vectors through Microsoft Zero Trust model.|
+|[Operational procedures](/azure/architecture/framework/mission-critical/mission-critical-operational-procedures)|Processes related to deployment, key management, patching and updates.|
+
 ## Related resources
 
 For product documentation on the Azure services used in this architecture, see these articles. 
