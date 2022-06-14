@@ -1,16 +1,16 @@
 An end-to-end connectivity solution helps securely connect people, assets, workflow, and business processes, which make your organization more resilient. The key aspects around connectivity include:
 
 - Devices
-  - PLCs, sensors, equipments, and assembly lines.
+  - PLCs, sensors, equipment, and assembly lines
 - Systems
-  - Historians, SCADA, MES, and ICS/DCS
+  - Process historian, supervisory control and data acquisition (SCADA), manufacturing execution systems (MES), and industrial control systems/distributed control systems (ICS/DCS)
 - Standards and Data Models
   - ISA 95, ISA 99, OPC Data Access (DA), OPC Unified Architecture (UA), and Modbus
 - Network and Security
-  - Purdue model, firewalls, proxies, network inspection, 5G, and LoRaWAN
+  - Purdue model, firewalls, proxies, network inspection, 5G, and long range WAN (LoRaWAN)
     - X.509 certificates and access policies
 - Edge Gateways
-  - Software only or a hardware + software solution
+  - Software only or a hardware and software solution
   - Modular design, cloud based management plane, and offline support
   - Layered edge processing, analytics, and machine learning
 - Cloud Gateways
@@ -23,7 +23,7 @@ The following sections include common connectivity patterns for industrial solut
 
 ## OPC UA server and edge gateway
 
-Connect to manufacturing machines by using OPC UA standards and an IoT edge gateway.
+Connect to manufacturing machines by using OPC UA standards and an Azure IoT Edge gateway.
 
 :::image type="content" source="images/edge-opcua.png" alt-text="Diagram that shows how to connect machines by using an OPC UA server and an IoT Edge gateway." lightbox="images/edge-opcua.png":::
 
@@ -45,7 +45,7 @@ Connect to manufacturing machines by using OPC UA standards and an IoT edge gate
   - To learn when to use IoT Hub instead of Azure IoT Central, see the [Cloud Gateway options](#cloud-gateway-options).
 
 - Deployment samples
-  - [Connectivity with industrial assets by using OPC UA and Azure IoT Edge for Linux on Windows (EFLOW)](https://github.com/Azure-Samples/industrial-iot-patterns/tree/main/1_Connectivity)
+  - [Connectivity with industrial assets by using OPC UA and IoT Edge for Linux on Windows (EFLOW)](https://github.com/Azure-Samples/industrial-iot-patterns/tree/main/1_Connectivity)
   - [Connect OPC UA devices to Azure IoT Central by using custom modules](https://github.com/iot-for-all/iotc-opcua-iotedge-gateway)
 
 ## Protocol translation and edge gateway
@@ -66,8 +66,8 @@ Connect to manufacturing machines over non-standard protocols by using an IoT Ed
 - Considerations
   - [IoT Edge production checklist](/azure/iot-edge/production-checklist?view=iotedge-2018-06)
   - [Security baseline for IoT Hub](/security/benchmark/azure/baselines/iot-hub-security-baseline?toc=/azure/iot-hub/TOC.json)
-  - You can install IoT edge runtime on a Linux or Windows VM and dedicated hardware like [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/#overview)
-  - See the [Azure IoT Edge module marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules) for partner solutions.
+  - You can install IoT Edge runtime on a Linux or Windows VM and dedicated hardware like [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/#overview).
+  - See the [IoT Edge module marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules) for partner solutions.
   - To learn when to use IoT Hub instead of Azure IoT Central, see the [Cloud Gateway options](#cloud-gateway-options).
 
 - Deployment sample
@@ -90,7 +90,7 @@ Connect to manufacturing machines using a cloud connector component available in
   - The connector can provide the data with same granularity as an edge gateway.
 
 - Considerations
-  - Additional cost for cloud connectors along with licensing and tag based costing model for historians.
+  - Another cost for cloud connectors along with licensing and tag based costing model for historians.
   - [Security baseline for IoT Hub](/security/benchmark/azure/baselines/iot-hub-security-baseline?toc=/azure/iot-hub/TOC.json)
   - To learn when to use IoT Hub instead of Azure IoT Central, see the [Cloud Gateway options](#cloud-gateway-options).
 
@@ -100,9 +100,9 @@ Connect to manufacturing machines using a cloud connector component available in
 - Resources
   - [Bring Industrial data into your Azure IoT solution with CloudRail](/shows/internet-of-things-show/bring-industrial-data-into-your-azure-iot-solution-with-cloudrail)
 
-## Connecting to layer 2 and IoT edge gateways
+## Connecting to layer 2 and IoT Edge gateways
 
-Connect to manufacturing machines in layer 2 of a Purdue model by using multiple IoT edge gateways that are connected in a hierarchy.
+Connect to manufacturing machines in layer 2 of a Purdue model by using multiple IoT Edge gateways that are connected in a hierarchy.
 
 :::image type="content" source="images/nested-edge.png" alt-text="Diagram that shows machines connected in layer 2 of a Purdue model by using hierarchical edge gateways." lightbox="images/nested-edge.png":::
 
@@ -129,7 +129,7 @@ Connect to manufacturing machines in layer 2 of a Purdue model by using multiple
 
 ## Resilient edge gateway
 
-Provide hardware resiliency for your IoT edge gateway virtual machines.
+Provide hardware resiliency for your IoT Edge gateway virtual machines.
 
 :::image type="content" source="images/resilient-edge.png" alt-text="Diagram that shows how to use a pattern that makes edge gateways resilient to hardware failures by using Kubernetes." lightbox="images/resilient-edge.png":::
 
@@ -181,7 +181,7 @@ Scale connectivity patterns to multiple factories and business units.
 
 ## Constrained devices and add-on sensors
 
-Connect low power and low compute devices to manufacturing machines as additional sensors.
+Connect low power and low compute devices to manufacturing machines as extra sensors.
 
 :::image type="content" source="images/direct-sdk.png" alt-text="Diagram that shows how to connect machines by using a cloud S D K and custom application." lightbox="images/direct-sdk.png":::
 
@@ -196,7 +196,7 @@ Connect low power and low compute devices to manufacturing machines as additiona
   - You can allow data egress to go outside of the Purdue model.
 
 - Considerations
-  - This pattern requires additional deployment and management of the custom application for sensor data collection.
+  - This pattern requires more deployment and management of the custom application for sensor data collection.
   - There's no support for offline or edge analytics scenarios.
   - [Security baseline for IoT Hub](/security/benchmark/azure/baselines/iot-hub-security-baseline?toc=/azure/iot-hub/TOC.json)
   - To learn when to use IoT Hub instead of Azure IoT Central, see the [Cloud Gateway options](#cloud-gateway-options).
@@ -238,7 +238,7 @@ Select a cloud gateway for connectivity.
   - Use Event Hubs when you have cost constraints and only require messaging.
 
 - Considerations
-  - [IoT Hub vs. Event Hub](/azure/iot-hub/iot-hub-compare-event-hubs)
+  - [IoT Hub vs. Event Hubs](/azure/iot-hub/iot-hub-compare-event-hubs)
   - [IoT Hub vs. Azure IoT Central](/azure/iot-fundamentals/iot-solution-apaas-paas#comparing-approaches)
   - [RPO and RTO options for IoT Hub](/azure/iot-hub/iot-hub-ha-dr#choose-the-right-hadr-option)
   - [HA/DR for IoT Central](/azure/iot-central/core/concepts-faq-scalability-availability) and [limitations](/azure/iot-central/core/concepts-faq-scalability-availability#limitations) around IoT Edge devices.
@@ -255,7 +255,7 @@ Select a cloud gateway for connectivity.
 
 Principal author:
 
-- [Jomit Vaghela](https://www.linkedin.com/in/jomit) | Principal Cloud Solution Architect
+- [Jomit Vaghela](https://www.linkedin.com/in/jomit) | Principal Program Manager
 
 Other contributor:
 

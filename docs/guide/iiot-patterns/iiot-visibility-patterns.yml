@@ -1,10 +1,10 @@
 ### YamlMime:Architecture
 metadata:
-  title: Industrial IoT Visibility Patterns
-  description: Common visibility patterns to build, deploy and manage Industrial IoT solutions.
+  title: Industrial IoT visibility patterns
+  description: Learn about common visibility patterns to build, deploy, and manage Industrial IoT (IIoT) solutions.
   author: jomit
   ms.author: jovagh
-  ms.date: 04/28/2022
+  ms.date: 06/16/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
@@ -15,8 +15,8 @@ products:
   - azure-iot-hub
   - azure-data-explorer
   - azure-cognitive-services
-name: Industrial IoT Visibility Patterns
-summary: Common visibility patterns to build, deploy and manage Industrial IoT solutions.
+name: Industrial IoT visibility patterns
+summary: Learn about common visibility patterns to build, deploy, and manage Industrial IoT (IIoT) solutions.
 thumbnailUrl: /azure/architecture/guide/iiot-patterns/images/anomaly-detection.png
 content: |
   [!include[](iiot-visibility-patterns.md)]

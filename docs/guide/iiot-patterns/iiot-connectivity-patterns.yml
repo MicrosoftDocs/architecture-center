@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: Industrial IoT connectivity patterns
-  description: Learn about several common connectivity patterns to build, deploy, and manage Industrial IoT solutions.
+  description: Learn about several common connectivity patterns to build, deploy, and manage Industrial IoT (IIoT) solutions.
   author: jomit
   ms.author: jovagh
   ms.date: 06/15/2022
@@ -15,7 +15,7 @@ products:
   - azure-iot-hub
   - azure-data-explorer
 name: Industrial IoT connectivity patterns
-summary: Common connectivity patterns to build, deploy and manage Industrial IoT solutions.
+summary: Learn about several common connectivity patterns to build, deploy, and manage Industrial IoT (IIoT) solutions.
 thumbnailUrl: /azure/architecture/guide/iiot-patterns/images/scale-factories.png
 content: |
   [!include[](iiot-connectivity-patterns.md)]

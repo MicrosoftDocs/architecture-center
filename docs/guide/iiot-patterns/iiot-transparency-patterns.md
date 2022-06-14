@@ -1,49 +1,48 @@
-Transparency builds on top of [visibility patterns](./iiot-patterns-visibility-patterns.yml) and enables contextual data processing. It helps build the data hierarchy for enabling digital twins and also enables consistent business KPI calculation flow.
+Transparency builds on top of [visibility patterns](./iiot-visibility-patterns.yml) and enables contextual data processing. It helps build the data hierarchy for enabling digital twins and also enables consistent business KPI calculation flow.
 
-Following section includes common transparency patterns for industrial solutions. 
+This article contains a common transparency pattern for industrial solutions.
 
-## Business KPI Calculation Engine
+## Business KPI calculation engine
 
-Calculate business metrics using IoT telemetry and other business system(s) data
+Calculate business metrics using IoT telemetry and other business systems data.
 
-![Calculate Overall Equipment Effectiveness using Synapse and Data Explorer](images/oee.png)
+:::image type="content" source="images/oee.png" alt-text="Diagram that shows how to calculate overall equipment effectiveness using Azure Synapse and Azure Data Explorer.":::
 
 - Dataflow
-    1. EdgeHub sends the machine availability data to IoT Hub/ Central using AMQP or MQTT. IoT Hub / Central sends module updates to the edge and provides edge management control plan.
-    1. Data from IoT Hub / Central goes to Data Explorer using Data Connection in IoT Hub or Data Export in IoT Central.
-    1. Data Explorer dashboards use kql query langauge to fetch the data from the cluster and build near real-time dashboard around machine availability.
-    1. Data from IoT Hub / Central is pushed to a Data Lake using message routing in IoT Hub and Data Export in IoT Central, for long term storage and processing.
-    1. Synapse pipeline fetches the production quality data (after every shift) from on-premises system.
-    1. Synapse pipeline stores the data in the Data Lake for calculation.
-    1. Synapse pipeline executes pyspark code, which contains the Overall equipment effectiveness (OEE) calculation business logic.
-    1. The pyspark code fetches the machine availability data from Data Explorer, and calculates Availabiltiy
-    1. The pyspark code fetches the production quality data from Data Lake, and calculates Quality, Performance and OEE per shift.
-    1. The pyspark code stores the OEE data in a SQL Database.
-    1. PowerBI is connected with SQL Database for reporting and visualization.
+    1. edgeHub sends the machine availability data to Azure IoT Hub or Azure IoT Central using AMQP or MQTT. IoT Hub or Azure IoT Central sends module updates to the edge and provides an edge management control plan.
+    2. IoT Hub or Azure IoT Central uses data connection or data export to send data to Azure Data Explorer.
+    3. Azure Data Explorer dashboards use KQL query language to fetch the data from the cluster and build a near real-time dashboard around machine availability.
+    4. Data from IoT Hub or Azure IoT Central is pushed to an Azure Data Lake Storage data lake by using message routing in IoT Hub or data export in Azure IoT Central for long term storage and processing.
+    5. An Azure Synapse Analytics pipeline fetches the production quality data—after every shift—from on-premises system.
+    6. The Azure Synapse pipeline stores the data in the data lake for calculation.
+    7. The Azure Synapse pipeline executes PySpark code, which contains the overall equipment effectiveness (OEE) calculation business logic.
+    8. The PySpark code fetches the machine availability data from Azure Data Explorer, and then calculates the availability.
+    9. The PySpark code fetches the production quality data from Data Lake Storage, and then calculates quality, performance, and OEE per shift.
+    10. The PySpark code stores the OEE data in Azure SQL Database.
+    11. Power BI connects with SQL Database for reporting and visualization.
 
 - Use this pattern when:
-    - Using Synapse Analytics for data fabric aspects like data lake, data pipeline management, serverless data processing, data warehousing, data governace. 
-    - Need to combine both real-time and batch data pipelines and perform business KPI calculations.
-    - Standardize KPI calculations across factories and business units.
-    
-- Considerations
-    - [Data flows in Synapse Analytics](/azure/synapse-analytics/concepts-data-flow-overview)
-    - [Data Explorer (Kusto) Spark connector](/azure/synapse-analytics/quickstart-connect-azure-data-explorer)
-    - For less compute intentive and serverless calculation engine, consider using Functions instead of Synapse spark pool 
-    
-- Deployment Sample
-    - [Overall Equipment Effectiveness (OEE) and KPI Calculation Engine](https://github.com/Azure-Samples/industrial-iot-patterns/tree/main/3_OEECalculationEngine)
+  - You're using Azure Synapse for data fabric aspects like data lake, data pipeline management, serverless data processing, data warehousing, and data governance.
+  - You need to combine both real-time and batch data pipelines and perform business KPI calculations.
+  - You need to standardize KPI calculations across factories and business units.
 
+- Considerations
+  - [Data flows in Azure Synapse](/azure/synapse-analytics/concepts-data-flow-overview)
+  - [Azure Data Explorer (Kusto) spark connector](/azure/synapse-analytics/quickstart-connect-azure-data-explorer)
+  - For less compute intensive and serverless calculation engine, consider using Azure Functions instead of Azure Synapse spark pool.
+
+- Deployment Sample
+  - [Overall equipment effectiveness (OEE) and KPI calculation engine](https://github.com/Azure-Samples/industrial-iot-patterns/tree/main/3_OEECalculationEngine)
 
 ## Next steps
 
-- [Industrial IoT Patterns Overview](./iiot-patterns-overview.md)
+- [Industrial IoT patterns overview](./iiot-patterns-overview.md)
 
-- [Industrial IoT Connectivity Patterns](./iiot-connectivity-patterns.md)
+- [Industrial IoT connectivity patterns](./iiot-connectivity-patterns.md)
 
-- [Industrial IoT Visibiilty Patterns](./iiot-visibility-patterns.md)
+- [Industrial IoT visibility patterns](./iiot-visibility-patterns.md)
 
-- [Industrial IoT Prediction Patterns](./iiot-prediction-patterns.md)
+- [Industrial IoT prediction patterns](./iiot-prediction-patterns.md)
 
 - [Solutions for the manufacturing industry](/azure/architecture/industries/manufacturing)
 
