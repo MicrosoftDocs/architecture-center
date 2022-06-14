@@ -1,4 +1,4 @@
-Maximo Application Suite, also MAS or Maximo, is an Enterprise Asset Management platform that's focused on operational resiliency and reliability that uses condition-based asset maintenance. The suite consists of a core application platform, Maximo Application Suite, and applications on top of the platform. Each application performs a specific benefit:
+IBM's Maximo Application Suite, also MAS or Maximo, is an Enterprise Asset Management platform that's focused on operational resiliency and reliability that uses condition-based asset maintenance. The suite consists of a core application platform, Maximo Application Suite, and applications on top of the platform. Each application performs a specific benefit:
 
 - Manage: reduce downtime and costs through asset management to improve operational performance.
 - Monitor: advanced AI-powered remote asset monitoring at scale using IoT.
@@ -6,7 +6,7 @@ Maximo Application Suite, also MAS or Maximo, is an Enterprise Asset Management 
 - Visual inspection: train and use visual inspection machine learning models to do use visual analysis of emerging issues.
 - Predict: machine learning and data analytics focused on predicting future failures.
 
-Maximo Application Suite (MAS) 8.x and the applications above have been tested and validated for use on Azure. This guidance provides a design for running Maximo 8.x on Azure. It assumes you'll have support from IBM and a partner for installation. Reach out to your IBM team for Maximo product specific questions.
+IBM's Maximo Application Suite (MAS) 8.x and the applications above have been tested for use on Azure. Microsoft and the IBM Maximo team have partnered together to ensure this solution is configured to run optimally on Azure. This guidance provides a design for running Maximo 8.x on Azure. It also assumes you'll have support from IBM and a partner for installation. Reach out to your IBM team for Maximo product specific questions.
 
 MAS 8.x runs on OpenShift and it's beneficial to familiarize yourself with OpenShift and the suggested patterns for [installation on Azure](https://docs.openshift.com/container-platform/4.8/installing/installing_azure/preparing-to-install-on-azure.html). This architecture illustrates an Openshift cluster. It doesn't go into detail on building the Maximo application. To learn more about that process, see [How to deploy and run IBM Maximo Asset Management on Red Hat OpenShift](https://www.ibm.com/support/pages/sites/default/files/inline-files/$FILE/deploy-run-maximo-on-openshift_0.pdf).
 
@@ -49,10 +49,10 @@ This architecture will provide you with the following from an infrastructure per
 * [Virtual Network](/azure/virtual-network/virtual-networks-overview) for communication between nodes, Azure services and hybrid connectivity needs
 * [Azure Files](/azure/storage/files/storage-files-introduction) hosting the stateful data for the databases and systems inside the cluster 
 * [Public and Private DNS Zones](/azure/dns/dns-overview) managing the DNS resolution for the containers inside and outside of the solution
-* Optional [Azure Bastion](/azure/bastion/bastion-overview) and subnet to securely access any of the worker nodes or installation machines
+* Optional [Azure Bastion](/azure/bastion/bastion-overview) and subnet to securely access any of the worker nodes or optional JumpBox machines
 * Optional [Azure SQL on a Virtual Machine](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview?view=azuresql) providing data services to Maximo, the database can also be another, like Oracle Exadata or IBM DB2WH
 * Optional [Twilio Send Grid](https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021) to send emails from Maximo to your consumers
-* Optionally a [Linux jump box](/azure/virtual-machines/linux/overview) to do the OpenShift installation from
+* Optional [Linux jump box](/azure/virtual-machines/linux/overview) to do the OpenShift installation from. This machine can also be used to connect and manage the OpenShift cluster long term as it contain the kubeconf file after install. If you have network connectivity into your Azure environment, then the install can be done from an existing machine.
 
 ### Alternatives
 
@@ -63,7 +63,7 @@ While typically not necessary, you have other storage options available:
 
 ## Recommendations
 
-We recommend installing the latest stable version of IBM MAS as it will provide the best integration options with Azure. Pay close attention to the versions of OpenShift supported as it will vary depending on the version of MAS. Currently the release cycle for Azure Redhat OpenShift (ARO) is too frequent making this option unsupported by IBM.
+We recommend installing the latest stable version of IBM MAS as it will provide the best integration options with Azure. Pay close attention to the versions of OpenShift supported as it will vary depending on the version of MAS. Currently the sliding window release cycle for Azure Redhat OpenShift (ARO) is too frequent making the usage of ARO currently unsupported by IBM Maximo.
 
 Usage of earlier or later major versions of OpenShift, like 4.6 or 4.9, can cause you to falling out of official support for IBM MAS. Before building out your own deployment, we strongly recommend deploying our [QuickStart Guide](https://github.com/Azure/maximo) so that you have a good understanding of how the deployment and configuration works. Your understanding gained will speed up the process of creating the design requirements for your implementation.
 
@@ -84,7 +84,7 @@ Microsoft has tested Maximo Application Suite 8.5+ on Azure. Our recommendation 
 
 Review what applications you need to complete your business scenario and then review the [requirements for each of the applications](https://www.ibm.com/support/pages/node/6538166). Each of the applications may need separate databases. We have tested and support the following databases on Azure:
 
-* [SQL Server](https://azure.microsoft.com/en-us/services/virtual-machines/sql-server/#overview) on Azure 2019 on Windows or Linux
+* [SQL Server 2019](https://azure.microsoft.com/en-us/services/virtual-machines/sql-server/#overview) on Azure using Windows or Linux
 * IBM [DB2Wh on Cloud Pak for Data 3.5](https://www.ibm.com/docs/en/cloud-paks/cp-data/3.5.0?topic=services-db2-warehouse)
 
 You may also choose to run Oracle Exadata on a VM or on Oracle Cloud Infrastructure using the [OCI Interconnect](https://docs.oracle.com/en/solutions/learn-azure-oci-interconnect/index.html), but we haven't tested this configuration. Currently not supported are Azure SQL DB and Azure Cosmos DB. These databases may be supported in future releases of Maximo.
@@ -147,7 +147,7 @@ Maximo Application Suite core requires 23 vCPUs for a standard sized base instal
 
 Try to keep VM types similar to provide proximity with each of the availability zones between worker and control nodes. That is, if you use a v4 for your control nodes, use a v4 for your worker nodes.
 
-If you need a jump box to do `oc` work or install Maximo, then we recommend deploying a `Standard_B2ms` running RHEL 8.4. It has been sufficient in our tests.
+If you need a jump box to do `oc` work or install Maximo, then we recommend deploying a virtual machine running RHEL 8.4.
 
 ### Network
 
