@@ -3,7 +3,7 @@ Time series data is a set of values organized by time. Temporal ordering is a ke
 
 Time series data typically arrives in chronological order, usually inserts into a data store, and rarely if ever updates. In contrast, standard online transaction processing (OLTP) data pipelines accept data in any order, and can be updated at any time.
 
-Time series data shows how an asset or process changes over time. Choose a time series solution for data whose strategic value centers around changes over a time period. You can use time series data to look backward and measure change, or look forward and predict future change.
+Time series data shows how an asset or process changes over time. Choose a time series solution for data whose strategic value centers around changes over a time period. You can use time series data to look backward and measure change, or to look forward and predict future change.
 
 Time series data has a timestamp, and time is a meaningful axis for viewing or analyzing the data. Time series data is best visualized with a scatter or line chart.
 
@@ -15,12 +15,12 @@ Time series data has a timestamp, and time is a meaningful axis for viewing or a
 
 - Time-series architecture is also well-suited to predictive modeling and results forecasting. You can apply the historical record of changes over time to many forecasting models.
 
-- [Internet of things (IoT)](../big-data/index.yml#internet-of-things-iot) data is a natural fit for time series storage and analysis. Incoming IoT data is inserted, and rarely if ever updated. The data is timestamped, inserted in the order received, and typically displays in chronological order. You can look backward to spot anomalies and discover trends, or forward to use the information for predictive analysis.
+- [Internet of things (IoT)](../big-data/index.yml#internet-of-things-iot) data is a natural fit for time series storage and analysis. Incoming IoT data is inserted, and rarely if ever updated. The data is timestamped, inserted in the order received, and typically displays in chronological order. You can look backward to spot anomalies and discover trends, or look forward to use the data for predictive analysis.
 
-Other examples of time series data include:
+Specific examples of time series data include:
 
 - Stock prices captured over time to detect trends.
-- Server performance, such as CPU usage, I/O load, memory usage, and network bandwidth consumption, over time.
+- Server performance, such as CPU usage, I/O load, memory usage, and network bandwidth consumption over time.
 - Telemetry from industrial equipment sensors, which can indicate pending equipment failure and trigger alert notifications.
 - Real-time auto data like speed, braking, and acceleration collected over a time period, to produce an aggregate risk score for the driver.
 
