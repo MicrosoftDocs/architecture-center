@@ -143,7 +143,7 @@ For the GPU machines, we recommend starting with the smallest node and scaling u
 * Control nodes, you want at a minimum one machine per availability zone within the selected region. The minimum recommended vCPU count is 4. Our reference uses 3x `Standard_D8s_v4` nodes
 * Worker nodes, you want a minimum of two machines per availability zone within the selected region. The minimum recommended vCPU count is 8. Our reference uses 6x `Standard_D8s_v4` nodes.
 
-Maximo Application Suite core requires 23 vCPUs for a standard sized base install. Sizing for the worker nodes will vary based on which Maximo applications are deployed and the expected load on your environment. For example, manage for 10 users needs another 13 vCPUs.
+Maximo Application Suite core requires 23 vCPUs for a standard sized base install. Sizing for the worker nodes will vary based on which Maximo applications are deployed and the expected load on your environment. For example, Maximo Manage for 10 users needs another 13 vCPUs.
 
 Try to keep VM types similar to provide proximity with each of the availability zones between worker and control nodes. That is, if you use a v4 for your control nodes, use a v4 for your worker nodes.
 
