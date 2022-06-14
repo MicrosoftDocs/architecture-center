@@ -23,7 +23,9 @@ Other relevant use cases include:
 
 ## Architecture
 
-![Architecture for IoT and data analytics in the construction industry][architecture]
+:::image type="content" border="false" source="./media/architecture-big-data-with-iot.svg" alt-text="Architecture for IoT and data analytics in the construction industry" lightbox="./media/architecture-big-data-with-iot.svg":::
+
+*Download a [Visio file][visio-download] of this architecture.*
 
 The data flows through the solution as follows:
 
@@ -103,3 +105,4 @@ IoT architecture guides:
 
 [product-category]: https://azure.microsoft.com/product-categories/analytics
 [architecture]: ./media/architecture-big-data-with-iot.svg
+[visio-download]: https://arch-center.azureedge.net/architecture-big-data-with-iot.vsdx
