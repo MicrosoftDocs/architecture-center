@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes the considerations for managing identities in a multitenant solution.
 author: plagueho
 ms.author: dascottr
-ms.date: 06/07/2022
+ms.date: 06/15/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -22,27 +22,27 @@ ms.custom:
 
 # Architectural considerations for identity in a multitenant solution
 
-Identity is an important aspect of any multitenant solution. The identity components of your application are responsible for both:
+Identity is an important aspect of any multitenant solution. The identity components of your application are responsible for both of the following:
 
-- Verifying who a user is (*authentication*), and
+- Verifying who a user is (*authentication*).
 - Enforcing the user's permissions within the scope of a tenant (*authorization*).
 
-Your customers might also wish to authorize external applications to access their data or integrate to your solution. A user's identity determines what information a user or service will get access to. It's important that you consider your identity requirements to isolate your application and data between tenants.
+Your customers might also wish to authorize external applications to access their data or to integrate to your solution. A user's identity determines what information a user or service will get access to. It's important that you consider your identity requirements, in order to isolate your application and data between tenants.
 
 > [!CAUTION]
-> Authentication and authorization services within multitenant and SaaS applications are usually provided by a third party identity provider (IdP). An identity provider is usually an integral part of an Identity as a Service (IDaaS) platform.
+> Authentication and authorization services, within multitenant and SaaS applications, are usually provided by a third-party identity provider (IdP). An identity provider is usually an integral part of an identity as a service (IDaaS) platform.
 >
-> Building your own IdP is complex, expensive and difficult to build securely. Building your own identity provider is [an antipattern](../approaches/identity.md#building-or-running-your-own-identity-system). We don't recommend it.
+> Building your own IdP is complex, expensive, and difficult to build securely. Building your own identity provider is [an antipattern](../approaches/identity.md#building-or-running-your-own-identity-system). We don't recommend it.
 
-Before defining a multitenant identity strategy, you should first consider the high-level identity requirements of your service, including:
+Before defining a multitenant identity strategy, you should first consider the high-level identity requirements of your service, including the following requirements:
 
-- Will user or [workload identities](#workload-identities) be used to access a single application or multiple applications within a product family? For example, a retail product family might have both a point-of-sale application and an inventory management application that share the same identity solution.
-- Are you planning on implementing modern authentication and authorization such as OAuth2 and OpenID Connect?
+- Will a user or [workload identities](#workload-identities) be used to access a single application or multiple applications within a product family? For example, a retail product family might have both, a point-of-sale application and an inventory management application, which share the same identity solution.
+- Are you planning on implementing modern authentication and authorization, such as OAuth2 and OpenID Connect?
 - Does your solution only provide authentication to your UI-based applications? Or, do you also provide API access to your tenants and third parties?
-- Will tenants need to federate to their own IdP, and will multiple different identity providers need to be supported for each tenant? For example, you might have tenants with Azure AD, Auth0 and Active Directory Federation Services (ADFS) who each wishes to federate with your solution. You also need to understand which federation protocols of your tenants' IdPs you'll support, because the protocols influence the requirements for your own IdP.
+- Will tenants need to federate to their own IdP, and will multiple different identity providers need to be supported for each tenant? For example, you might have tenants with Azure AD, Auth0, and Active Directory Federation Services (ADFS), where each wishes to federate with your solution. You also need to understand which federation protocols of your tenants' IdPs you'll support, because the protocols influence the requirements for your own IdP.
 - Are there specific compliance requirements that they need to meet, such as [GDPR](/compliance/regulatory/gdpr)?
 - Do your tenants require their identity information to be located within a specific geographic region?
-- Do users of your solution require access to data from one tenant or multiple tenants within your application? Do they need to the ability to quickly switch between tenants or view consolidated information from multiple tenants? For example, a user who has signed into the Azure portal can easily switch between different Azure Active Directories and subscriptions that they have access to.
+- Do users of your solution require access to data from one tenant or from multiple tenants within your application? Do they need the ability to quickly switch between tenants or to view consolidated information from multiple tenants? For example, users who have signed into the Azure portal can easily switch between different Azure Active Directories and subscriptions that they have access to.
 
 When you've established your high-level requirements, you can start to plan more specific details and requirements, such as user directory sources and sign-up/sign-in flows.
 
