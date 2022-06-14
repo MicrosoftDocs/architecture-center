@@ -1,10 +1,6 @@
 This reference architecture provides guidance for designing a mission critical workload on Azure. The architecture design focuses on maximum reliability and operational effectiveness. 
 
-## Path to production
-
-The architecture guidance references an [example implementation](https://github.com/Azure/Mission-Critical-Online) only for illustrative purposes. It shows a simplified architecture that is still reliable and can be considered as your first step toward production. 
-
-It provides a foundation for building a cloud-native application, where the workload is accessed over a public endpoint and doesn't require private network connectivity to other resources of an organization. The example workload contains a microservices application that can be accessed over a public endpoint. It's hosted in an Azure Kubernetes Service (AKS) cluster and uses other Azure-native platform capabilities.
+The architecture guidance references an [example implementation](https://github.com/Azure/Mission-Critical-Online) only for illustrative purposes. It shows a simplified architecture that is still reliable and can be considered as your first step toward production. The architecture provides a foundation for building a cloud-native application, where the workload is accessed over a public endpoint and doesn't require private network connectivity to other resources of an organization. The example workload contains a microservices application that can be accessed over a public endpoint. It's hosted in an Azure Kubernetes Service (AKS) cluster and uses other Azure-native platform capabilities.
 
 > ![GitHub logo](../../../_images/github.svg) [Mission-Critical open source project](http://github.com/azure/mission-critical)
 
