@@ -22,17 +22,28 @@ Several factors can affect an application's reliability. The application's abili
     - Deploy to _multiple regions in an active-active model_. The application is distributed across two or more Azure regions that handle active user traffic. 
     - Utilize _Availability Zones (AZs)_ for all considered services to maximize availability within a single Azure region, distributing components across physically separate data centers inside a region.
     - Choose resources that support _global distribution_.
+
+    > Refer to [Well-architected mission critical workloads: Global distribution](/azure/architecture/framework/mission-critical/mission-critical-application-design#global-distribution).
+
 - **Deployment stamps**
-    - Deploy a regional stamp as a _scale unit_ where a logical set of resources can be independently deployed to keep up with the changes in demand. Each stamp also applies multiple nested scale units, such as the Frontend APIs and Background processors which can scale in and out independently.
-        > Refer to [Well-architected mission critical workloads: Scale unit architecture](/azure/architecture/framework/mission-critical-application-design#scale-unit-architecture).
+    
+    Deploy a regional stamp as a _scale unit_ where a logical set of resources can be independently deployed to keep up with the changes in demand. Each stamp also applies multiple nested scale units, such as the Frontend APIs and Background processors which can scale in and out independently.
+
+    > Refer to [Well-architected mission critical workloads: Scale unit architecture](/azure/architecture/framework/mission-critical-application-design#scale-unit-architecture).
+
 - **Reliable and repeatable deployments**        
     - Use Terraform to apply the _principle of Infrastructure as code (IaC)_, providing version control and a standardized operational approach for infrastructure components.
     - Implement _zero downtime blue/green deployment pipelines_. Build and release pipelines must be fully automated to deploy stamps as a single operational unit, using blue/green deployments with continuous validation applied.
     - Apply _environment consistency_ across all considered environments, with the same deployment pipeline code across production and pre-production environments. This eliminates risks associated with deployment and process variations across environments.
     - Have continuous validation by integrating automated testing as part of DevOps processes, including synchronized load and chaos testing, to fully validate the health of both the application code and underlying infrastructure.
+
+    > Refer to [Well-architected mission critical workloads: Operational procedures](/azure/architecture/framework/mission-critical/mission-critical-operational-procedures).
+
 - **Operational insights**
     - Have _federated workspaces for observability data_. Monitoring data for global resources and regional resources are stored independently. A centralized observability store isn't recommended to avoid a single point of failure. Cross-workspace querying is used to achieve a unified data sink and single pane of glass for operations. 
     - Construct a _layered health model_ that maps application health to a traffic light model for contextualizing. Health scores are calculated for each individual component and then aggregated at a user flow level and combined with key non-functional requirements, such as performance, as coefficients to quantify application health.
+
+    > Refer to [Well-architected mission critical workloads: Health modeling](/azure/architecture/framework/mission-critical/mission-critical-health-modeling).    
 
 ## Architecture
 
