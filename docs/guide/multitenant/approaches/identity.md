@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes the approaches for managing identities in a multitenant solution.
 author: johndowns
 ms.author: jodowns
-ms.date: 06/15/2022
+ms.date: 06/16/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
