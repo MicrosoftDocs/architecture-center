@@ -72,7 +72,7 @@ For a globally distributed application that has workloads distributed across mul
 
 After the workloads in Azure public MEC are back up, Traffic Manager probes detect that it can take requests and automatically reroute traffic back to Azure public MEC.
 
-## Pricing
+### Cost optimization
 
 Azure public MEC is primarily used for low latency and real-time computation scenarios. Data is processed by the compute instances that run in Azure public MEC. This architecture uses active/standby with a hot standby. That is, workloads in the secondary region aren't used unless there's a failover.
 
