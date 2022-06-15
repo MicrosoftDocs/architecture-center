@@ -123,7 +123,6 @@ The entire stamp is stateless except for certain points, such as the message bro
 
 In this design, **Azure Event Hubs** is used because it guarantees at least once delivery. This means even if Event Hubs becomes unavailable, messages will be in the queue after the service is restored. However, it's the consumers responsibility to determine whether the message still needs processing. An additional Azure Storage account is provisioned for checkpointing. 
 
-    
 For use cases that require additional message guarantees, Azure Service Bus is recommended. It allows for two-phase commits with a client side cursor, and features such as a built-in dead letter queue and dedupe capabilities.
 
 > Refer to [Well-architected mission critical workloads: Loosely coupled event-driven architecture](/azure/architecture/framework/mission-critical/mission-critical-application-design#loosely-coupled-event-driven-architecture).
@@ -200,11 +199,11 @@ The description of this flow is in the following sections.
 5. The WAF Rules are evaluated like in step 2.
 6. Azure Front Door matches the request to the API routing rule by the "/api/*" pattern. The API routing rule routes the request to a backend pool that contains the public IP addresses for NGINX Ingress Controllers that know how to route requests to the correct service in Azure Kubernetes Service (AKS). Like before, Azure Front Door uses the Priority and Weight assigned to the backends to select the correct NGINX Ingress Controller backend.
 7. For GET requests, the frontend API performs read operations on a database. For this reference implementation, the database is a global Azure Cosmos DB instance. Azure Cosmos DB has several features that makes it a good choice for a mission critical workload including the ability to easily configure multi-write regions, allowing for automatic failover for reads and writes to secondary regions. The API uses the client SDK configured with retry logic to communicate with Cosmos DB. The SDK determines the optimal order of available Cosmos DB regions to communicate with based on the ApplicationRegion parameter.
-8. For POST or PUT requests, the Frontend API performs writes to a message broker. For this reference architecture, the message broker is Microsoft Azure Service Bus. Service Bus is a good choice for mission critical workloads where every message must be processed because of features like ensuring every message is processed at least once and dead lettering. A handler will later read messages from Service Bus and perform any required writes to Cosmos DB. The API uses the client SDK to perform writes. The client can be configured for retries.
+8. For POST or PUT requests, the Frontend API performs writes to a message broker. In the reference implementation, the message broker is Azure Event Hubs. You can choose Service Bus alternatively. A handler will later read messages from the message broker and perform any required writes to Cosmos DB. The API uses the client SDK to perform writes. The client can be configured for retries.
 
 ## Background processor flow
 
-9. The background processors subscribe to a topic in Service Bus and receives messages to process. The background processors use the client SDK to perform reads. The client can be configured for retries.
+9. The background processors process messages from the message broker. The background processors use the client SDK to perform reads. The client can be configured for retries.
 10. The background processors perform the appropriate write operations on the global Azure Cosmos DB instance. The background processors use the client SDK configured with retry to connect to Azure Cosmos DB. The client's preferred region list could be configured with multiple regions. In that case, if a write fails, the retry will be done on the next preferred region.
 
 ## Design areas
