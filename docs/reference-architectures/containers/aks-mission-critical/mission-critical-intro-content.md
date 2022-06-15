@@ -1,13 +1,13 @@
 This reference architecture provides guidance for designing a mission critical workload on Azure. The architecture design focuses on maximum reliability and operational effectiveness. 
 
-The guidance uses an [example implementation](https://github.com/Azure/Mission-Critical-Online) for illustrative purposes. It shows a simplified architecture that is reliable and can be considered as your first step toward production. The architecture provides a foundation for building a cloud-native application, where the workload is accessed over a public endpoint and doesn't require private network connectivity to other resources of an organization. The example workload contains an eCommerce application in a microservices pattern and is hosted in an Azure Kubernetes Service (AKS) cluster and uses other Azure-native platform capabilities.
+The guidance uses an [example implementation](https://github.com/Azure/Mission-Critical-Online) for illustrative purposes. It shows a simplified architecture that is reliable and can be considered as your first step toward production. The architecture provides a foundation for building a cloud-native application, where the workload is accessed over a public endpoint and doesn't require private network connectivity to other resources of an organization. The example workload contains a simple microservices application that is hosted in an Azure Kubernetes Service (AKS) cluster and uses other Azure-native platform capabilities.
 
 > ![GitHub logo](../../../_images/github.svg) [Mission-Critical open source project](http://github.com/azure/mission-critical) contains reference implementations and deployment guides 
 
 
 ## Reliability tier
 
-All design decisions depend on the business requirements and the Service Level Agreement (SLA) and Service Level Objective (SLO). Both are percentage figures represents the amount of time in a month when the application is available. This architecture targets availability of 99.95%, which corresponds to a permitted annual downtime of 52 minutes and 35 seconds. All design decisions are intended to reflect this target SLO.
+All design decisions depend on the business requirements and the Service Level Agreement (SLA) and Service Level Objective (SLO). Both are percentage figures represents the amount of time in a month when the application is available. This architecture targets availability of 99.95%, which corresponds to a permitted annual downtime of x minutes and x seconds. All design decisions are intended to reflect this target SLO.
 
 > [!TIP]
 > To define a realistic SLO, it's important to understand the SLA numbers of the individual Azure components. Combine those numbers, factor in deployment and application outages, and then define a composite SLO percentage.
@@ -16,26 +16,23 @@ All design decisions depend on the business requirements and the Service Level A
 
 ## Key design strategies
 
-Several factors can affect an application's reliability. The application's ability to recover from performance bottlenecks, regional availability, deployment efficacy, and security are common areas that should be analyzed holistically. This reference architecture overcomes those issues through adoption of these strategies.
+Several factors can affect an application's reliability. The application's ability to recover from performance bottlenecks, regional availability, deployment efficacy, and security are common areas that should be analyzed holistically. This reference architecture overcomes those issues through the adoption of these strategies.
 
 - **Redundancy in layers**
     - Deploy to _multiple regions in an active-active model_. The application is distributed across two or more Azure regions that handle active user traffic. 
     - Utilize _Availability Zones (AZs)_ for all considered services to maximize availability within a single Azure region, distributing components across physically separate data centers inside a region.
     - Choose resources that support _global distribution_.
-- **Reliable and repeatable deployments**
+- **Deployment stamps**
     - Deploy a regional stamp as a _scale unit_ where a logical set of resources can be independently deployed to keep up with the changes in demand. Each stamp also applies multiple nested scale units, such as the Frontend APIs and Background processors which can scale in and out independently.
         > Refer to [Well-architected mission critical workloads: Scale unit architecture](/azure/architecture/framework/mission-critical-application-design#scale-unit-architecture).
+- **Reliable and repeatable deployments**        
     - Use Terraform to apply the _principle of Infrastructure as code (IaC)_, providing version control and a standardized operational approach for infrastructure components.
-    - Implement _zero downtime blue/green deployment pipelines_. Build and release pipelines must be consistent and transparent to end-users. The pipelines must be fully automated to deploy stamps as a single operational unit, using blue/green deployments with continuous validation applied.
-
-        Use compute resources with a lifecycle tied to a single application release in order to remove patching and maintenance burdens as well as driving operational validity.
-    - Apply _environment consistency_ across all considered environments, with the same deployment pipeline code used across production and pre-production environments. This eliminates risks associated with deployment and process variations across environments.
-    - Have continuous validation by integrating automated testing as part of DevOps, including synchronized load and chaos testing, to fully validate the health of both the application code and underlying infrastructure.
+    - Implement _zero downtime blue/green deployment pipelines_. Build and release pipelines must be fully automated to deploy stamps as a single operational unit, using blue/green deployments with continuous validation applied.
+    - Apply _environment consistency_ across all considered environments, with the same deployment pipeline code across production and pre-production environments. This eliminates risks associated with deployment and process variations across environments.
+    - Have continuous validation by integrating automated testing as part of DevOps processes, including synchronized load and chaos testing, to fully validate the health of both the application code and underlying infrastructure.
 - **Operational insights**
     - Have _federated workspaces for observability data_. Monitoring data for global resources and regional resources are stored independently. A centralized observability store isn't recommended to avoid a single point of failure. Cross-workspace querying is used to achieve a unified data sink and single pane of glass for operations. 
-    - Construct _layered health model_ that maps application health to a traffic light model for contextualizing. Health scores are calculated for each individual component and then aggregated at a user flow level and combined with key non-functional requirements, such as performance, as coefficients to quantify application health.
-- **Workload elasticity**: Containerize workloads to consistently and reliably scale application components and use container images as the primary model for application deployment packages. 
-- **Event-driven asynchronous processing**: Achieve load leveling during peak load by using a message broker. This component can also coordinate the processing of a single business operation between loosely-coupled backend services.
+    - Construct a _layered health model_ that maps application health to a traffic light model for contextualizing. Health scores are calculated for each individual component and then aggregated at a user flow level and combined with key non-functional requirements, such as performance, as coefficients to quantify application health.
 
 ## Architecture
 
@@ -61,7 +58,7 @@ Another option is Traffic Manager. It uses DNS to route traffic at Layer 4. Howe
 
 #### Database
 
-All state related to the workload is stored in an external database, **Azure Cosmos DB with SQL API**. The SQL API was chosen because it has the feature set needed for performance and reliability tuning, both the client-side and server-side. It's highly recommended that the account has multi-master write enabled.
+All state related to the workload is stored in an external database, **Azure Cosmos DB with SQL API**. This option was chosen because it has the feature set needed for performance and reliability tuning, both in client and server sides. It's highly recommended that the account has multi-master write enabled.
 
 > [!NOTE]
 > While a multi-region-write configuration represents the gold stadard for reliability, there is a significant tradeoff on cost.
@@ -97,7 +94,7 @@ Static content is typically cached in a store closer to the client, using a cont
 
 #### Compute cluster
 
-The backend compute runs an application composed of three microservices and is stateless. So, containerization is an appropriate strategy to host the application. **Azure Kubernetes Service (AKS)** was chosen because it meets most business requirements and Kubernetes is widely adopted across many industries. AKS supports advanced scalability and deployment topologies. The AKS Uptime SLA tier is highly recommended for hosting mission critical applications because it provides availability guarantees for the Kubernetes control plane. 
+The backend compute runs an application composed of three microservices and is stateless. So, containerization is an appropriate strategy to host the application. **Azure Kubernetes Service (AKS)** was chosen because it meets most business requirements and Kubernetes is widely adopted across many industries. AKS supports advanced scalability and deployment topologies. The AKS [Uptime SLA tier](/azure/aks/uptime-sla) is highly recommended for hosting mission critical applications because it provides availability guarantees for the Kubernetes control plane. 
 
 Azure offers other compute services such as Azure Functions, Azure App Services. However, those options are suitable for workloads where offloading compute management to Azure is preferred. 
 
@@ -108,11 +105,11 @@ Azure offers other compute services such as Azure Functions, Azure App Services.
 
 #### Regional message broker
 
-A message broker brings high responsiveness even during peak load, the design uses asynchronous messaging for intensive system flows. As a request is quickly acknowledged back to the frontend APIs, the request is also queued in a message broker. The messages are consumed by a backend service that, for instance, handles write to a database. 
+A message broker brings high responsiveness even during peak load. It's required for asynchronous messaging to handle intensive system flows. As a request is quickly acknowledged back to the frontend APIs, the request is also queued in a message broker. The messages are consumed by a backend service that, for instance, handles write to a database. 
 
-The entire stamp is stateless except for certain points, such as the message broker. Data is queued in the broker for a short period. The queue is drained after the message is processed and stored in a global database.
+The entire stamp is stateless except for at certain points, such as the message broker. Data is queued in the broker for a short period. The message broker must guarantee at least once delivery. This means even if the broker becomes unavailable, messages will be in the queue after the service is restored. However, it's the consumer's responsibility to determine whether those messages still need processing. The queue is drained after the message is processed and stored in a global database.
 
-In this design, **Azure Event Hubs** is used because it guarantees at least once delivery. This means even if Event Hubs becomes unavailable, messages will be in the queue after the service is restored. However, it's the consumer's responsibility to determine whether the message still needs processing. An additional Azure Storage account is provisioned for checkpointing. Event Hubs is the recommended choice for use cases that require high throughput, such as event streaming.
+In this design, **Azure Event Hubs** is used. An additional Azure Storage account is provisioned for checkpointing. Event Hubs is the recommended choice for use cases that require high throughput, such as event streaming.
 
 For other scenarios that need additional message guarantees, Azure Service Bus is recommended. It allows for two-phase commits with a client side cursor, and features such as a built-in dead letter queue and dedupe capabilities.
 
@@ -130,7 +127,7 @@ Build and release pipelines for a mission critical application must be fully aut
 
 #### Source code repository
 
-**GitHub** is used for source control, providing a highly available git based platform for collaborating on application code and infrastructure code.
+**GitHub** is used for source control, providing a highly available git-based platform for collaboration on application code and infrastructure code.
 
 #### Continuous Integration/Continuous Delivery (CI/CD) pipelines
 
@@ -142,7 +139,7 @@ Another choice is GitHub Actions as the CI pipeline. The added benefit is that s
 
 #### Build Agents
 
-**Microsoft-hosted build agents** are used by this implementation to reduce complexity and management overhead. Self-hosted agents can be used for scenarios requiring a hardened security posture.  
+**Microsoft-hosted build agents** are used by this implementation to reduce complexity and management overhead. Self-hosted agents can be used for scenarios that require a hardened security posture.  
 
 ### Observability resources
 
@@ -151,11 +148,11 @@ Operational data from application and infrastructure must be available to allow 
 #### Unified data sink 
 
 - **Azure Log Analytics** is used as a unified sink to store logs and metrics for all application and infrastructure components. 
-- **Azure Application Insights** is used as an Application Performance Management (APM) to collect all application monitoring data and store it directly within Log Analytics.
+- **Azure Application Insights** is used as an Application Performance Management (APM) tool to collect all application monitoring data and store it directly within Log Analytics.
 
 ![Monitoring resources](./images/mission-critical-monitoring-resources.svg)
 
-Monitoring data for global resources and regional resources should be stored independently. A single, centralized observability store isn't recommended to avoid a single point of failure. Cross-workspace querying is used to still achieve a single pane of glass.
+Monitoring data for global resources and regional resources should be stored independently. A single, centralized observability store isn't recommended to avoid a single point of failure. Cross-workspace querying is used to achieve a single pane of glass.
 
 In this architecture, data from shared services such as, Azure Front Door, Cosmos DB, Container Registry are stored in dedicated instance of Log Analytics Workspace.
 
@@ -241,6 +238,6 @@ Deploy the reference implementation to get a full understanding of resources and
 
 ## Next
 
-As the next step, refer to the [Mission-Critical Connected](https://github.com/Azure/Mission-Critical-Connected) that adds security measures. That implementation isn't referenced in this architecture. 
+If you want to extend this implementation with added security measures, refer to the [Mission-Critical Connected](https://github.com/Azure/Mission-Critical-Connected). That implementation isn't referenced in this architecture. 
 
 For solution guidance, see [Connected Reference Implementation - Solution Guide](https://github.com/Azure/Mission-Critical-Connected/blob/main/docs/reference-implementation/README.md).
