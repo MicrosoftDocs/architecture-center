@@ -1,11 +1,11 @@
 <!-- cSpell:ignore downsample TSDB -->
 Time series data is a set of values organized by time. Temporal ordering is a key characteristic of time series data. Natural temporal ordering organizes events in the order in which they occur and arrive for processing. 
 
-Time series data typically arrives in chronological order, usually inserts into a data store, and rarely if ever updates. In contrast, standard online transaction processing (OLTP) data pipelines accept data in any order, and can be updated at any time.
-
 Time series data shows how an asset or process changes over time. Choose a time series solution for data whose strategic value centers around changes over a time period. You can use time series data to look backward and measure change, or to look forward and predict future change.
 
-Time series data has a timestamp, and time is a meaningful axis for viewing or analyzing the data. Time series data is best visualized with a scatter or line chart.
+Time series data typically arrives in chronological order, usually inserts into a data store, and rarely if ever updates. In contrast, standard online transaction processing (OLTP) data pipelines accept data in any order, and can be updated at any time.
+
+Time series data has timestamps, and time is a meaningful axis for viewing or analyzing the data. Time series data is best visualized with a scatter or line chart.
 
 ![Screenshot showing time series data visualized in a line chart.](./images/time-series-chart.png)
 
@@ -38,7 +38,7 @@ Many scenarios that involve time series data, such as IoT, capture data in real 
 
 1. The stream processing layer processes the data, and can hand off the processed data to a machine learning service for predictive analytics.
 
-1. An analytical data store like [Azure Data Explorer](/azure/data-explorer/time-series-analysis), [HBase](/azure/hdinsight/hbase/apache-hbase-overview), [Azure Cosmos DB](/azure/cosmos-db), or [Azure Data Lake](https://azure.microsoft.com/services/storage/data-lake-storage) stores the processed data.
+1. An analytical data store like [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer), [HBase](/azure/hdinsight/hbase/apache-hbase-overview), [Azure Cosmos DB](/azure/cosmos-db), or [Azure Data Lake](https://azure.microsoft.com/services/storage/data-lake-storage) stores the processed data.
 
 1. An analytics and reporting application or service like [Power BI](https://powerbi.microsoft.com) or OpenTSDB for HBase can display the time series data for analysis.
 
@@ -53,7 +53,7 @@ For more information about the components of a time series architecture, see the
 
 ### Alternatives
 
-You can use [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer) to develop a complete time series service. Azure Data Explorer includes native support for creating, manipulating, and analyzing multiple time series with near real-time monitoring.
+You can use [Azure Data Explorer](/azure/data-explorer/time-series-analysis) to develop a complete time series service. Azure Data Explorer includes native support for creating, manipulating, and analyzing multiple time series with near real-time monitoring.
 
 Azure Data Explorer can ingest data from [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs), [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics), [Power Automate](https://powerautomate.microsoft.com), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps), Kafka, Apache Spark, and many other services and platforms. Ingestion is scalable, and there are no limits. Supported Azure Data Explorer ingestion formats include JSON, CSV, Avro, Parquet, ORC, TXT, and other formats. For more information, see [Data formats supported by Azure Data Explorer for ingestion](/azure/data-explorer/ingestion-supported-formats).
 
