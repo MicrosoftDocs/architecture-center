@@ -23,7 +23,7 @@ Other relevant use cases include:
 
 ## Architecture
 
-:::image type="content" border="false" source="./media/architecture-big-data-with-iot.svg" alt-text="Architecture for IoT and data analytics in the construction industry" lightbox="./media/architecture-big-data-with-iot.svg":::
+:::image type="content" border="false" source="./media/architecture-big-data-with-iot.svg" alt-text="Diagram shows the architecture for IoT and data analytics in the construction industry." lightbox="./media/architecture-big-data-with-iot.svg":::
 
 *Download a [Visio file][visio-download] of this architecture.*
 
@@ -64,7 +64,7 @@ The broad availability of Azure regions is an important factor for this scenario
 
 Azure support for open-source technologies allowed the customer to take advantage of their existing workforce skills. The customer can also accelerate the adoption of new technologies with lower costs and operating workloads compared to an on-premises solution.
 
-## Pricing
+### Cost optimization
 
 The following considerations will drive a substantial portion of the costs for this solution.
 
