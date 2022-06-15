@@ -1,15 +1,4 @@
-This example scenario walks you through an implementation of an e-commerce front end using Azure platform as a service (PaaS) tools. Many e-commerce websites face seasonality and traffic variability over time. When demand for your products or services takes off, whether predictably or unpredictably, using PaaS tools will allow you to handle more customers and more transactions automatically. Additionally, this scenario takes advantage of cloud economics by paying only for the capacity you use.
-
-This document will help you will learn about various Azure PaaS components and considerations used to bring together to deploy a sample e-commerce application, *Relecloud Concerts*, an online concert-ticketing platform.
-
-## Potential use cases
-
-This solution is optimized for the retail industry.
-
-Other relevant use cases include:
-
-- Building an application that needs elastic scale to handle bursts of users at different times.
-- Building an application that is designed to operate at high availability in different Azure regions around the world.
+This example scenario walks you through an implementation of an e-commerce front end using Azure platform as a service (PaaS) tools. 
 
 ## Architecture
 
@@ -60,6 +49,19 @@ Other options for the web tier and functions include:
 Other options for the data tier include:
 
 - [Cosmos DB](/azure/cosmos-db/introduction): Microsoft's globally distributed, multi-model database. This service provides a platform to run other data models such as Mongo DB, Cassandra, Graph data, or simple table storage.
+
+## Scenario details
+
+Many e-commerce websites face seasonality and traffic variability over time. When demand for your products or services takes off, whether predictably or unpredictably, using PaaS tools will allow you to handle more customers and more transactions automatically. Additionally, this scenario takes advantage of cloud economics by paying only for the capacity you use.
+
+This document will help you will learn about various Azure PaaS components and considerations used to bring together to deploy a sample e-commerce application, *Relecloud Concerts*, an online concert-ticketing platform.
+
+### Potential use cases
+
+This solution is optimized for the retail industry. Other relevant use cases include:
+
+- Building an application that needs elastic scale to handle bursts of users at different times.
+- Building an application that is designed to operate at high availability in different Azure regions around the world.
 
 ## Considerations
 
