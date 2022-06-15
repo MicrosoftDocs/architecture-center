@@ -135,7 +135,7 @@ Other contributors:
 
 ## Next steps
 
-- [Build intelligent applications infused with world-class AI](https://docs.microsoft.com/events/build-may-2021/azure/breakouts/brk220)
+- [Build intelligent applications infused with world-class AI](/events/build-may-2021/azure/breakouts/brk220)
 - [Create and attach an Azure Kubernetes Service cluster](/azure/machine-learning/how-to-create-attach-kubernetes?tabs=python)
 - [Create machine learning models](/learn/paths/create-machine-learn-models)
 - [Data in Azure Machine Learning](/azure/machine-learning/concept-data)
