@@ -2,7 +2,7 @@ This reference architecture provides guidance for designing a mission critical w
 
 The guidance uses an [example implementation](https://github.com/Azure/Mission-Critical-Online) for illustrative purposes. It shows a simplified architecture that is reliable and can be considered as your first step toward production. The architecture provides a foundation for building a cloud-native application, where the workload is accessed over a public endpoint and doesn't require private network connectivity to other resources of an organization. The example workload contains a simple microservices application that is hosted in an Azure Kubernetes Service (AKS) cluster and uses other Azure-native platform capabilities.
 
-> ![GitHub logo](../../../_images/github.svg) [Mission-Critical open source project](http://github.com/azure/mission-critical) contains reference implementations and deployment guides 
+> ![GitHub logo](../../../_images/github.svg) [Mission-Critical open source project](http://github.com/azure/mission-critical) contains reference implementations and deployment guides intended to provide a solution-oriented basis to showcase mission-critical application development on Microsoft Azure. 
 
 
 ## Reliability tier
