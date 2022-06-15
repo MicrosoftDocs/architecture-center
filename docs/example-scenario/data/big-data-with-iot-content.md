@@ -23,7 +23,7 @@ Other relevant use cases include:
 
 ## Architecture
 
-:::image type="content" border="false" source="./media/architecture-big-data-with-iot.svg" alt-text="Diagram shows the architecture for IoT and data analytics in the construction industry." lightbox="./media/architecture-big-data-with-iot.svg":::
+:::image type="content" border="false" source="./media/architecture-big-data-with-iot.svg" alt-text="Diagram shows the architecture for I o T and data analytics in the construction industry." lightbox="./media/architecture-big-data-with-iot.svg":::
 
 *Download a [Visio file][visio-download] of this architecture.*
 
