@@ -39,7 +39,7 @@ The Microsoft Cloud, shown once more in Figure 10, provides a broad set of usefu
 
   Use Azure Sentinel for security information and event management (SIEM), and for security orchestration, automation, and response (SOAR).
 
-To learn more about building your applications on the Microsoft Cloud, visit our [Microsoft Cloud resources collection](https://aka.ms/microsoft-cloud-collection). It provides design guides, solutions, learning resources, and product documentation to help get you started.
+To learn more about building your applications on the Microsoft Cloud, visit our [Microsoft Cloud resources collection](/users/danwahlin-6308/collections/zndga71jkjrojp?WT.mc_id=m365-63607-cxa). It provides design guides, solutions, learning resources, and product documentation to help get you started.
 
 ## Contributors
 
