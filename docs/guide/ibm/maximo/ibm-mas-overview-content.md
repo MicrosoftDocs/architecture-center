@@ -180,16 +180,6 @@ Don't use Azure Blob with CSI drivers, it doesn't support required hardlinks, wh
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
-### Authentication
-
-Maximo currently supports the use of SAML via Azure Active Directory (Azure AD). To make this work, you'll need an enterprise application within Azure AD and permissions to modify the application or work with an Azure AD global administrator to do the work.
-
-A [tutorial on how to set up SAML with Maximo](https://github.com/Azure/maximo#enabling-saml-authentication-against-azure-ad) is available in our [deployment guide](https://github.com/Azure/maximo#enabling-saml-authentication-against-azure-ad). 
-
-Before you set up the authentication, we recommend you go through the [IBM configuration](https://www.ibm.com/docs/en/mas83/8.3.0?topic=administration-configuring-suite#saml) and [Azure configuration](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/add-application-portal-setup-sso). 
-
-You should also configure OAuth for OpenShift as well. See these docs for more information: [the OpenShift documentation](https://docs.openshift.com/container-platform/4.8/authentication/index.html).
-
 ### Security
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
@@ -215,6 +205,16 @@ If you need access to your VMs for some reason, you can connect through your hyb
 
 [Server-side encryption (SSE) of Azure Disk Storage](/azure/virtual-machines/disk-encryption) protects your data. It also helps you meet organizational security and compliance commitments. With Azure managed disks, SSE encrypts the data at rest when persisting it to the cloud. This behavior applies by default to both OS and data disks. OpenShift uses SSE by default.
 
+### Authentication
+
+Maximo currently supports the use of SAML via Azure Active Directory (Azure AD). To make this work, you'll need an enterprise application within Azure AD and permissions to modify the application or work with an Azure AD global administrator to do the work.
+
+A [tutorial on how to set up SAML with Maximo](https://github.com/Azure/maximo#enabling-saml-authentication-against-azure-ad) is available in our [deployment guide](https://github.com/Azure/maximo#enabling-saml-authentication-against-azure-ad). 
+
+Before you set up the authentication, we recommend you go through the [IBM configuration](https://www.ibm.com/docs/en/mas83/8.3.0?topic=administration-configuring-suite#saml) and [Azure configuration](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/add-application-portal-setup-sso). 
+
+You should also configure OAuth for OpenShift as well. See these docs for more information: [the OpenShift documentation](https://docs.openshift.com/container-platform/4.8/authentication/index.html).
+
 #### Protect your infrastructure
 
 Control access to the Azure resources that you deploy. Every Azure subscription has a [trust relationship](/azure/active-directory/active-directory-how-subscriptions-associated-directory) with an Azure AD tenant. Use [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) to grant users within your organization the correct permissions to Azure resources. Grant access by assigning Azure roles to users or groups at a certain scope. The scope can be a subscription, a resource group, or a single resource. Make sure to [audit all changes to infrastructure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-audit).
@@ -236,6 +236,14 @@ A standard deployment of Maximo Application Suite will consist of the following 
   - Not required unless you're planning to run Visual Inspection inside of MAS
 
 You can review an example estimate using our [cost calculator](https://azure.com/e/fae03e2386cf46149273a379966e95b1). Configurations will vary and should be verified with your IBM sizing team before finalizing your deployment.
+
+### Reliability
+
+OpenShift has built in self healing, scaling and resilience capabilities to make sure OpenShift and Maximo work successfully. OpenShift and Maximo have been designed for parts failing and recovering. A key requirement for self healing to work is that you have enough worker nodes. To recover from a zone failure within an Azure region, you need to make sure your control and worker nodes are balanced across availability zones. 
+
+Maximo and OpenShift uses storage to persist state outside of the Kubernetes cluster. For these storage depedencies to keep working during a failure, you should use ZRS deployments whenever possible. This way storage will still be available when a zone fails.
+
+One of the common failure points is human error due to configuration changes. Deployments of Maximo should be automated as much as possible to reduce these kind of problems. In our quickstart guide, we provide some sample scripts on how to set up full end-to-end automation.
 
 ## Deploy this scenario
 
