@@ -8,7 +8,7 @@ IBM's Maximo Application Suite, also MAS or Maximo, is an Enterprise Asset Manag
 
 IBM's Maximo Application Suite (MAS) 8.x and the applications above have been tested for use on Azure. Microsoft and the IBM Maximo team have partnered together to ensure this solution is configured to run optimally on Azure. This guidance provides a design for running Maximo 8.x on Azure. It also assumes you'll have support from IBM and a partner for installation. Reach out to your IBM team for Maximo product specific questions.
 
-MAS 8.x runs on OpenShift and it's beneficial to familiarize yourself with OpenShift and the suggested patterns for [installation on Azure](https://docs.openshift.com/container-platform/4.8/installing/installing_azure/preparing-to-install-on-azure.html). This architecture illustrates an Openshift cluster. It doesn't go into detail on building the Maximo application. To learn more about that process, see [How to deploy and run IBM Maximo Asset Management on Red Hat OpenShift](https://www.ibm.com/support/pages/sites/default/files/inline-files/$FILE/deploy-run-maximo-on-openshift_0.pdf).
+MAS 8.x runs on OpenShift and it's beneficial to familiarize yourself with OpenShift and the suggested patterns for [installation on Azure](https://docs.openshift.com/container-platform/4.8/installing/installing_azure/preparing-to-install-on-azure.html). This architecture illustrates an OpenShift cluster. It doesn't go into detail on building the Maximo application. To learn more about that process, see [How to deploy and run IBM Maximo Asset Management on Red Hat OpenShift](https://www.ibm.com/support/pages/sites/default/files/inline-files/$FILE/deploy-run-maximo-on-openshift_0.pdf).
 
 ## Potential use cases
 
@@ -52,7 +52,7 @@ This architecture will provide you with the following from an infrastructure per
 * Optional [Azure Bastion](/azure/bastion/bastion-overview) and subnet to securely access any of the worker nodes or optional JumpBox machines
 * Optional [Azure SQL on a Virtual Machine](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview?view=azuresql) providing data services to Maximo, the database can also be another, like Oracle Exadata or IBM DB2WH
 * Optional [Twilio Send Grid](https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021) to send emails from Maximo to your consumers
-* Optional [Linux jump box](/azure/virtual-machines/linux/overview) to do the OpenShift installation from. This machine can also be used to connect and manage the OpenShift cluster long term as it contain the kubeconf file after install. If you have network connectivity into your Azure environment, then the install can be done from an existing machine.
+* Optional [Linux jump box](/azure/virtual-machines/linux/overview) to do the OpenShift installation from. This machine can also be used to connect and manage the OpenShift cluster long term as it contains the kubeconf file after install. If you have network connectivity into your Azure environment, then the install can be done from an existing machine.
 
 ### Alternatives
 
@@ -188,7 +188,7 @@ A [tutorial on how to set up SAML with Maximo](https://github.com/Azure/maximo#e
 
 Before you set up the authentication, we recommend you go through the [IBM configuration](https://www.ibm.com/docs/en/mas83/8.3.0?topic=administration-configuring-suite#saml) and [Azure configuration](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/add-application-portal-setup-sso). 
 
-You should also configure OAuth for OpenShift as well. Please see these docs for more information: [the OpenShift documentation](https://docs.openshift.com/container-platform/4.8/authentication/index.html).
+You should also configure OAuth for OpenShift as well. See these docs for more information: [the OpenShift documentation](https://docs.openshift.com/container-platform/4.8/authentication/index.html).
 
 ### Security
 
