@@ -211,7 +211,7 @@ Use [network security groups](/azure/virtual-network/security-overview) to filte
 - Blocking access to all others parts of the cluster
 - Controlling from where you can access Maximo and OpenShift cluster
 
-We recommend you control remote access to your VMs through [Azure Bastion](/azure/bastion/bastion-overview). Don't expose components like virtual machines to a network or internet without NSGs on them. 
+If you need access to your VMs for some reason, you can connect through your hybrid connectivity or the OpenShift admin console. If you have an online deployment or don't want to rely on connectivity, you also have the option to access your VMs through [Azure Bastion](/azure/bastion/bastion-overview). For security reasons  don't expose VMs to a network or internet without [Network Security Groups](/azure/virtual-network/network-security-groups-overview) on them. 
 
 [Server-side encryption (SSE) of Azure Disk Storage](/azure/virtual-machines/disk-encryption) protects your data. It also helps you meet organizational security and compliance commitments. With Azure managed disks, SSE encrypts the data at rest when persisting it to the cloud. This behavior applies by default to both OS and data disks. OpenShift uses SSE by default.
 
