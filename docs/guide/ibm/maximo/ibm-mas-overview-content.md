@@ -155,7 +155,7 @@ With OpenShift, we use the default [OpenShift SDN CNI provider](https://docs.ope
 
 For a standard Maximo production install, we recommend a VNet with a /24 of address space. The VNet has two or three subnets. One is a /25 for the worker nodes and another is a /27 subnet for the control nodes. A third /27 may be needed for private endpoints and your database servers if desired.
 
-If you're short on IP addresses, the minimum highly available set-up can use is a /27.
+If you're short on IP addresses, the minimum highly available set-up can use is a /27 for the control node and worker node subnet, each.
 
 If you want to use a different CNI, size your networks accordingly. Maximo with some standard applications deploys many Pods (800+), you're likely going to need a /21 or larger. 
 
