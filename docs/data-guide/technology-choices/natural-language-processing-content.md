@@ -5,12 +5,14 @@ Specifically, you can use NLP to:
 - Classify documents. For instance, you can label documents as sensitive or spam.
 - Do subsequent processing or searches. You can use NLP output for these purposes.
 - Summarize text by identifying the entities that are present in the document.
-- Tag documents with keywords. For the keywords, you can use the entities that NLP identifies.
-- Do content-based search and retrieval. The tagging keywords make this functionality possible.
-- Summarize a document's important topics. NLP can combine the entities that it identifies into topics.
-- Categorize documents for navigation. The topics that NLP detects are used for this purpose.
-- Enumerate related documents based on a selected topic. The topics that NLP detects are used for this purpose.
+- Tag documents with keywords. For the keywords, NLP can use identified entities.
+- Do content-based search and retrieval. Tagging keywords make this functionality possible.
+- Summarize a document's important topics. NLP can combine identified entities into topics.
+- Categorize documents for navigation. For this purpose, NLP uses detected topics.
+- Enumerate related documents based on a selected topic. For this purpose, NLP uses detected topics.
 - Score text for sentiment. By using this functionality, you can assess the positive or negative tone of a document.
+
+*Apache®, [Apache Spark](https://spark.apache.org), and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
 ## Potential use cases
 
@@ -23,19 +25,19 @@ Business scenarios that can benefit from custom NLP include:
 
 ## Apache Spark as a customized NLP framework
 
-Apache Spark is a parallel processing framework that supports in-memory processing to boost the performance of big-data analytic applications. [Azure Synapse Analytics](https://docs.microsoft.com/en-us/azure/synapse-analytics/), [Azure HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/spark/apache-spark-overview), and [Azure Databricks](https://docs.microsoft.com/en-us/azure/databricks/scenarios/what-is-azure-databricks) offer access to Spark and take advantage of its processing power.
+Apache Spark is a parallel processing framework that supports in-memory processing to boost the performance of big-data analytic applications. [Azure Synapse Analytics](/azure/synapse-analytics), [Azure HDInsight](/azure/hdinsight/spark/apache-spark-overview), and [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) offer access to Spark and take advantage of its processing power.
 
-For customized NLP workloads, Spark NLP serves as an efficient framework for processing a large amount of text. This open-source NLP library provides Python, Java, and Scala libraries that offer the full functionality of traditional NLP libraries such as spaCy, NLTK, Stanford CoreNLP, and Open NLP. Spark NLP also adds functionality such as spell checking, sentiment analysis, and document classification. It improves on previous versions by providing state-of-the-art accuracy, speed, and scalability.
+For customized NLP workloads, Spark NLP serves as an efficient framework for processing a large amount of text. This open-source NLP library provides Python, Java, and Scala libraries that offer the full functionality of traditional NLP libraries such as spaCy, NLTK, Stanford CoreNLP, and Open NLP. Spark NLP also adds functionality such as spell checking, sentiment analysis, and document classification. The current version improves on previous ones by providing state-of-the-art accuracy, speed, and scalability.
 
-:::image type="content" source="./images/natural-language-processing-functionality.png" alt-text="." border="false":::
+:::image type="content" source="../images/natural-language-processing-functionality.png" alt-text="Diagram that shows areas of N L P functionality like entity recognition. Various boxes list N L P annotators, models, and supported languages." border="false":::
 
-Recent public benchmarks show Spark NLP as 38 and 80 times faster than spaCy, with comparable accuracy for training custom models. Spark NLP is the only open-source library that can use a distributed Spark cluster. Spark NLP is a native extension of Spark ML that operates directly on data frames. As a result, speedups on a cluster result in another order of magnitude of performance gain. Because every Spark NLP pipeline is a Spark ML pipeline, Spark NLP is particularly well-suited for building unified NLP and machine learning pipelines such as document classification, risk prediction, and recommender pipelines.
+Recent public benchmarks show Spark NLP as 38 and 80 times faster than spaCy, with comparable accuracy for training custom models. Spark NLP is the only open-source library that can use a distributed Spark cluster. Spark NLP is a native extension of Spark ML that operates directly on data frames. As a result, speedups on a cluster result in another order of magnitude of performance gain. Because every Spark NLP pipeline is a Spark ML pipeline, Spark NLP is well-suited for building unified NLP and machine learning pipelines such as document classification, risk prediction, and recommender pipelines.
 
 Besides excellent performance, Spark NLP also delivers state-of-the-art accuracy for a growing number of NLP tasks. The Spark NLP team regularly reads the latest relevant academic papers and implements state-of-the-art models. In the past two to three years, the best performing models have used deep learning. The library comes with prebuilt deep learning models for named entity recognition, document classification, sentiment and emotion detection, and sentence detection. The library also includes dozens of pre-trained language models that include support for word, chunk, sentence, and document embeddings.
 
 The library has optimized builds for CPUs, GPUS, and the latest Intel Xeon chips. You can scale training and inference processes to take advantage of Spark clusters and run in production in all popular analytics platforms.
 
-The NLP Server is available in the Azure Marketplace. To explore large-scale custom NLP in Azure, see [NLP Server](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/johnsnowlabsinc1646051154808.nlp_server?ocid=GTMRewards_WhatsNewBlog_nlp_server_040622).
+The NLP Server is available in Azure Marketplace. To explore large-scale custom NLP in Azure, see [NLP Server](https://azuremarketplace.microsoft.com/marketplace/apps/johnsnowlabsinc1646051154808.nlp_server?ocid=GTMRewards_WhatsNewBlog_nlp_server_040622).
 
 ## Challenges
 
@@ -44,15 +46,15 @@ The NLP Server is available in the Azure Marketplace. To explore large-scale cus
 
 ## Key selection criteria
 
-To narrow the choices, start by answering these questions:
+In Azure, Spark services like Azure Databricks, Azure Synapse Analytics, and Azure HDInsight provide NLP functionality when you use them with Spark NLP. Azure Cognitive Services is another option for NLP functionality. To decide which service to use, consider these questions:
 
-- Do you want to use prebuilt or pretrained models? If yes, consider using the APIs that Microsoft Cognitive Services offers. Or download your model of choice through Spark NLP.
+- Do you want to use prebuilt or pretrained models? If yes, consider using the APIs that Azure Cognitive Services offers. Or download your model of choice through Spark NLP.
 
-- Do you need to train custom models against a large corpus of text data? If yes, consider using Azure Databricks, Azure Synapse Analytics or Azure HDInsight with Spark NLP.
+- Do you need to train custom models against a large corpus of text data? If yes, consider using Azure Databricks, Azure Synapse Analytics, or Azure HDInsight with Spark NLP.
 
-- Do you need low-level NLP capabilities like tokenization, stemming, lemmatization, and term frequency/inverse document frequency (TF/IDF)? If yes, consider using Azure Databricks, Azure Synapse Analytics or Azure HDInsight with Spark NLP or an open-source software library in your processing tool of choice.
+- Do you need low-level NLP capabilities like tokenization, stemming, lemmatization, and term frequency/inverse document frequency (TF/IDF)? If yes, consider using Azure Databricks, Azure Synapse Analytics, or Azure HDInsight with Spark NLP. Or use an open-source software library in your processing tool of choice.
 
-- Do you need simple, high-level NLP capabilities like entity and intent identification, topic detection, spell check, or sentiment analysis? If yes, consider using the APIs that Microsoft Cognitive Services offers. Or download your model of choice through Spark NLP.
+- Do you need simple, high-level NLP capabilities like entity and intent identification, topic detection, spell check, or sentiment analysis? If yes, consider using the APIs that Cognitive Services offers. Or download your model of choice through Spark NLP.
 
 ## Capability matrix
 
@@ -60,16 +62,16 @@ The following tables summarize the key differences in the capabilities of NLP se
 
 ### General capabilities
 
-| Capability | Spark service (Azure Databricks, Azure Synapse Analytics, Azure HDInsight) with Spark NLP | Microsoft Cognitive Services |
+| Capability | Spark service (Azure Databricks, Azure Synapse Analytics, Azure HDInsight) with Spark NLP | Azure Cognitive Services |
 | --- | --- | --- |
 | Provides pretrained models as a service | Yes | Yes |
 | REST API | Yes | Yes |
-| Programmability | Python, Scala | For supported languages, see [Additional Resources](https://docs.microsoft.com/en-us/azure/cognitive-services/#additional-resources) |
-| Support processing of big data sets and large documents | Yes | No |
+| Programmability | Python, Scala | For supported languages, see [Additional Resources](/azure/cognitive-services/#additional-resources) |
+| Supports processing of big data sets and large documents | Yes | No |
 
-### Low-level natural language processing capabilities
+### Low-level NLP capabilities
 
-| Capability of annotators | Spark service (Azure Databricks, Azure Synapse Analytics, Azure HDInsight) with Spark NLP | Microsoft Cognitive Services |
+| Capability of annotators | Spark service (Azure Databricks, Azure Synapse Analytics, Azure HDInsight) with Spark NLP | Azure Cognitive Services |
 | --- | --- | --- |
 | Sentence detector | Yes | No |
 | Deep sentence detector | Yes | Yes |
@@ -90,21 +92,22 @@ The following tables summarize the key differences in the capabilities of NLP se
 | Date matcher | Yes | Possible in LUIS and CLU through DateTime recognizers |
 | Chunker | Yes | No |
 
-### High-level natural language processing capabilities
+### High-level NLP capabilities
 
-| Capability | Spark service (Azure Databricks, Azure Synapse Analytics, Azure HDInsight) with Spark NLP | Microsoft Cognitive Services |
+| Capability | Spark service (Azure Databricks, Azure Synapse Analytics, Azure HDInsight) with Spark NLP | Azure Cognitive Services |
 | --- | --- | --- |
 | Spell checking | Yes | No |
 | Summarization | Yes | Yes |
 | Question answering | Yes | Yes |
-| Sentiment and emotion detection | Yes | Yes/No (Also includes opinion mining) Supports sentiment detection and opinion mining |
-| Token classification | Yes | Yes/No (Also includes opinion mining) |
-| Text classification | Yes | Yes/No (Also includes opinion mining) |
+| Sentiment detection | Yes | Yes |
+| Emotion detection | Yes | Supports opinion mining |
+| Token classification | Yes | Yes, through custom models |
+| Text classification | Yes | Yes, through custom models |
 | Text representation | Yes | No |
-| NER | Yes | Yes, text analytics provides a set of NER, and custom models are in entity recognition |
-| Entity Recognition | Yes | Yes, through custom models |
+| NER | Yes | Yes&mdash;text analytics provides a set of NER, and custom models are in entity recognition |
+| Entity recognition | Yes | Yes, through custom models |
 | Language detection | Yes | Yes |
-| Supports multiple languages besides English | Yes, supports over 200 languages | Yes, supports over 97 languages |
+| Supports languages besides English | Yes, supports over 200 languages | Yes, supports over 97 languages |
 
 ## Set up Spark NLP in Azure
 
@@ -132,51 +135,63 @@ spark-shell --jars spark-nlp-assembly-3 <version>.jar
 
 ## Develop NLP pipelines
 
-For the execution order of an NLP pipeline, Spark NLP follows the same development concept as SparkMML classical machine learning models. But Spark NLP applies NLP techniques. The core components of a Spark NLP pipeline are:
+For the execution order of an NLP pipeline, Spark NLP follows the same development concept as traditional Spark ML machine learning models. But Spark NLP applies NLP techniques.
 
-:::image type="content" source="./images/spark-natural-language-processing-pipeline.png" alt-text="." border="false":::
+:::image type="content" source="../images/spark-natural-language-processing-pipeline.png" alt-text="Diagram that shows N L P pipeline stages, such as document assembly, sentence detection, tokenization, normalization, and word embedding." border="false":::
 
-- **DocumentAssembler**: A transformer that prepares data by changing it into a format that Spark NLP can process. This step is the entry point for every Spark NLP pipeline. The DocumentAssembler can read either a `String` column or an `Array[String]`. You can use `setCleanupMode` to preprocess the text. By default, this mode is turned off.
+The core components of a Spark NLP pipeline are:
+
+- **DocumentAssembler**: A transformer that prepares data by changing it into a format that Spark NLP can process. This stage is the entry point for every Spark NLP pipeline. DocumentAssembler can read either a `String` column or an `Array[String]`. You can use `setCleanupMode` to preprocess the text. By default, this mode is turned off.
 
 - **SentenceDetector**: An annotator that detects sentence boundaries by using the approach that it's given. This annotator can return each extracted sentence in an `Array`. It can also return each sentence in a different row, if you set `explodeSentences` to true.
 
-- **Tokenizer**: Tokenizes raw text in document type columns into TokenizedSentence. This class represents a non-fitted tokenizer. Fitting it will cause the internal RuleFactory to construct the rules for tokenizing from the input configuration. The Tokenizer identifies tokens with tokenization open standards. A few rules will help customizing it if defaults do not fit user needs.
+- **Tokenizer**: An annotator that separates raw text into tokens, or units like words, numbers, and symbols, and returns the tokens in a `TokenizedSentence` structure. This class is non-fitted. If you fit a tokenizer, the internal `RuleFactory` uses the input configuration to set up tokenizing rules. Tokenizer uses open standards to identify tokens. If the default settings don't meet your needs, you can add rules to customize Tokenizer.
 
-- **Normalizer**: Annotator that cleans out tokens. It requires stems, hence tokens and removes all dirty characters from text following a regex pattern and transforms words based on a provided dictionary
+- **Normalizer**: An annotator that cleans tokens. Normalizer requires stems. Normalizer uses regular expressions and a dictionary to transform text and remove dirty characters.
 
-- **WordEmbeddings**: Word Embeddings are lookup annotators that map tokens to vectors. A custom token lookup dictionary for embeddings can be set with setStoragePath. Each line of the provided file needs to have a token, followed by their vector representation, delimited by spaces. If a token is not found in the dictionary, then the result will be a zero vector of the same dimension.
+- **WordEmbeddings**: Look-up annotators that map tokens to vectors. You can use `setStoragePath` to specify a custom token look-up dictionary for embeddings. Each line of your dictionary needs to contain a token and its vector representation, separated by spaces. If a token isn't found in the dictionary, the result is a zero vector of the same dimension.
 
-For more information about your NLP pipeline see: [NLP Pipeline](https://nlp.johnsnowlabs.com/docs/en/pipelines).
+Spark NLP uses Spark MLlib pipelines, which MLflow natively supports. [MLflow](https://mlflow.org) is an open-source platform for the machine learning lifecycle. Its components include:
 
-See here for available [Annotators](https://nlp.johnsnowlabs.com/docs/en/annotators#available-annotators).
+- Mlflow Tracking: Records experiments and provides a way to query results.
+- MLflow Projects: Makes it possible to run data science code on any platform.
+- MLflow Models: Deploys models to diverse environments.
+- Model Registry: Manages models that you store in a central repository.
 
-See here for available [Transformers](https://nlp.johnsnowlabs.com/docs/en/annotators#available-transformers).
+MLflow is integrated in Azure Databricks. You can install MLflow in any other Spark-based environment to track and manage your experiments. You can also use MLflow Model Registry to make models available for production purposes.
 
-For solutioning capabilities please see Large Scale Custom Natural Language Processing in Azure in the Azure Architecture Center.
+## Contributors
 
-Spark NLP uses Spark MLlib Pipelines, what are natively supported by MLFlow. MLFlow is, as stated in their [official webpage](https://mlflow.org/), an open source platform for the machine learning lifecycle, that includes:
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-- Mlflow Tracking: Record and query experiments: code, data, config, and results
-- MLflow Projects: Package data science code in a format to reproduce runs on any platform
-- MLflow Models: Deploy machine learning models in diverse serving environments
-- Model Registry: Store, annotate, discover, and manage models in a central repository
+Principal authors:
 
-MLFlow is also integrated in Databricks or can be installed on any other Spark-based environment to track your experiments accordingly and even use MLFLow Model Registry to serve models for production purposes.
+- [Moritz Steller](https://www.linkedin.com/in/moritz-steller-mcse-mpp-426430116) | Senior Cloud Solution Architect
+- [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) |  CEO and Architect
 
 ## Next steps
 
-- [Azure Synapse Analytics](https://docs.microsoft.com/en-us/azure/synapse-analytics/)
-- [Azure HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/spark/apache-spark-overview)
-- [Azure Databricks](https://docs.microsoft.com/en-us/azure/databricks/scenarios/what-is-azure-databricks)
-- [Cognitive Services](https://docs.microsoft.com/en-us/azure/cognitive-services/what-are-cognitive-services)
-- [Microsoft Azure AI Fundamentals: Explore natural language processing](https://docs.microsoft.com/en-us/learn/paths/explore-natural-language-processing/)
-- [Create a Language Understanding solution](https://docs.microsoft.com/en-us/learn/paths/create-language-understanding-solution/)
-- Spark NLP resources:
+- Spark NLP documentation:
 
-  - [Spark NLP](https://nlp.johnsnowlabs.com/)
-  - [Spark NLP Documentation](https://nlp.johnsnowlabs.com/docs/en/quickstart)
-  - [Spark NLP Github](https://github.com/JohnSnowLabs/spark-nlp)
-  - [Spark NLP Demo](https://github.com/JohnSnowLabs/spark-nlp-workshop)
+  - [Spark NLP](https://nlp.johnsnowlabs.com)
+  - [Spark NLP general documentation](https://nlp.johnsnowlabs.com/docs/en/quickstart)
+  - [Spark NLP GitHub](https://github.com/JohnSnowLabs/spark-nlp)
+  - [Spark NLP demo](https://github.com/JohnSnowLabs/spark-nlp-workshop)
+  - [Spark NLP pipelines](https://nlp.johnsnowlabs.com/docs/en/pipelines)
+  - [Spark NLP annotators](https://nlp.johnsnowlabs.com/docs/en/annotators#available-annotators)
+  - [Spark NLP transformers](https://nlp.johnsnowlabs.com/docs/en/annotators#available-transformers)
+
+- Azure components:
+
+  - [Azure Synapse Analytics](/azure/synapse-analytics)
+  - [Azure HDInsight](/azure/hdinsight/spark/apache-spark-overview)
+  - [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks)
+  - [Cognitive Services](/azure/cognitive-services/what-are-cognitive-services)
+
+- Learn resources:
+
+  - [Microsoft Azure AI Fundamentals: Explore natural language processing](/learn/paths/explore-natural-language-processing)
+  - [Create a Language Understanding solution](/learn/paths/create-language-understanding-solution)
 
 ## Related resources
 
@@ -187,3 +202,4 @@ MLFlow is also integrated in Databricks or can be installed on any other Spark-b
 - [AI enrichment with image and natural language processing in Azure Cognitive Search](../../solution-ideas/articles/cognitive-search-with-skillsets.yml)
 - [Analyze news feeds with near real-time analytics using image and natural language processing](../../example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis.yml)
 - [Suggest content tags with NLP using deep learning](../../solution-ideas/articles/website-content-tag-suggestion-with-deep-learning-and-nlp.yml)
+- [Large-scale custom natural language processing in Azure](../../solution-ideas/articles/large-scale-custom-natural-language-processing.yml)
