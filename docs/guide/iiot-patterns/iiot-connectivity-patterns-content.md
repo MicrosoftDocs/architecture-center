@@ -214,7 +214,7 @@ Select a cloud gateway for connectivity.
 
 **IoT Hub**
 
-:::image type="content" source="images/cloud-gateway-iot-hub.png" alt-text="Diagram that shows how to connect to a cloud gateway by using IoT Hub." lightbox="images/images/cloud-gateway-iot-hub.png.png":::
+:::image type="content" source="images/cloud-gateway-iot-hub.png" alt-text="Diagram that shows how to connect to a cloud gateway by using IoT Hub." lightbox="images/cloud-gateway-iot-hub.png":::
 
 - Dataflow
   1. The edge gateway sends data to an IoT Hub by using AMQP or MQTT.
