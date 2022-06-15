@@ -1,50 +1,44 @@
 This reference architecture provides guidance for designing a mission critical workload on Azure. The architecture design focuses on maximum reliability and operational effectiveness. 
 
-The architecture guidance references an [example implementation](https://github.com/Azure/Mission-Critical-Online) only for illustrative purposes. It shows a simplified architecture that is still reliable and can be considered as your first step toward production. The architecture provides a foundation for building a cloud-native application, where the workload is accessed over a public endpoint and doesn't require private network connectivity to other resources of an organization. The example workload contains a microservices application that can be accessed over a public endpoint. It's hosted in an Azure Kubernetes Service (AKS) cluster and uses other Azure-native platform capabilities.
+The guidance uses an [example implementation](https://github.com/Azure/Mission-Critical-Online) for illustrative purposes. It shows a simplified architecture that is still reliable and can be considered as your first step toward production. The architecture provides a foundation for building a cloud-native application, where the workload is accessed over a public endpoint and doesn't require private network connectivity to other resources of an organization. The example workload contains a microservices application that is hosted in an Azure Kubernetes Service (AKS) cluster and uses other Azure-native platform capabilities.
 
 > ![GitHub logo](../../../_images/github.svg) [Mission-Critical open source project](http://github.com/azure/mission-critical)
 
-As the next step, refer to the [Mission-Critical Connected](https://github.com/Azure/Mission-Critical-Connected) reference implementation that extends the implementation with added security measures. This implementation isn't referenced in this architecture. For solution guidance, see [Reference Implementation - Solution Guide](https://github.com/Azure/Mission-Critical-Connected/blob/main/docs/reference-implementation/README.md).
 
 ## Reliability tier
 
-Ultimately all design decisions depend on the business requirements and the Service Level Agreement (SLA) and Service Level Objective (SLO). Both are percentage figures represents the amount of time in a month when the application is available. This architecture targets availability of 99.95%, which corresponds to a permitted annual downtime of 52 minutes and 35 seconds. All design decisions are intended to reflect this target SLO.
+All design decisions depend on the business requirements and the Service Level Agreement (SLA) and Service Level Objective (SLO). Both are percentage figures represents the amount of time in a month when the application is available. This architecture targets availability of 99.95%, which corresponds to a permitted annual downtime of 52 minutes and 35 seconds. All design decisions are intended to reflect this target SLO.
 
 > [!TIP]
-> To define a realistic SLO, it's important to understand the SLA numbers of the individual Azure components. Combine those numbers and then, factor in deployment and application outages to define a composite SLO percentage.
+> To define a realistic SLO, it's important to understand the SLA numbers of the individual Azure components. Combine those numbers, factor in deployment and application outages, and then define a composite SLO percentage.
 
 > Refer to [Well-architected mission critical workloads: Design for business requirements](/azure/architecture/framework/mission-critical/mission-critical-design-methodology#1design-for-business-requirements).
 
 ## Key design strategies
 
-Several factors can affect an application's reliability. The application's ability to recover from performance bottlenecks, regional availability, deployment efficacy, and security are common areas that should be analyzed holistically. This reference architecture focuses on these strategies.
+Several factors can affect an application's reliability. The application's ability to recover from performance bottlenecks, regional availability, deployment efficacy, and security are common areas that should be analyzed holistically. This reference architecture overcomes those issues through adoption of these strategies.
 
-- **Redundancy**: This strategy is applied in these levels:
-    - Deploys to multiple regions in an active-active model. The application is distributed across two or more Azure regions that handle active user traffic. 
-    - Utilizes Availability Zones (AZs) for all considered services to maximize availability within a single Azure region, distributing components across physically separate data centers inside a region.
-    - Chooses resources that support global distribution.
+- **Redundancy in layers**
+    - Deploy to _multiple regions in an active-active model_. The application is distributed across two or more Azure regions that handle active user traffic. 
+    - Utilize _Availability Zones (AZs)_ for all considered services to maximize availability within a single Azure region, distributing components across physically separate data centers inside a region.
+    - Choose resources that support _global distribution_.
+- **Reliable and repeatable deployments**
+    - Deploy a regional stamp as a _scale unit_ where a logical set of resources can be independently deployed to keep up with the changes in demand. Each stamp also applies multiple nested scale units, such as the Frontend APIs and Background processors which can scale in and out independently.
 
-- **Deployment stamp scale-units**: Regional stamps that can be deployed as a _scale unit_ where a logical set of resources can be independently deployed to keep up with the changes in demand. Each stamp also applies multiple nested scale units, such as the Frontend APIs and Background processors which can scale in and out independently.
+        > Refer to [Well-architected mission critical workloads: Scale unit architecture](/azure/architecture/framework/mission-critical-application-design#scale-unit-architecture).
+    - Use Terraform to apply the _principle of Infrastructure as code (IaC)_, providing version control and a standardized operational approach for infrastructure components.
+    - Implement _zero downtime blue/green deployment pipelines_. Build and release pipelines must be consistent and transparent to end-users. The pipelines must be fully automated to deploy stamps as a single operational unit, using blue/green deployments with continuous validation applied.
 
-    > Refer to [Well-architected mission critical workloads: Scale unit architecture](/azure/architecture/framework/mission-critical-application-design#scale-unit-architecture).
+        Use compute resources with a lifecycle tied to a single application release in order to remove patching and maintenance burdens as well as driving operational validity.
+    - Apply _environment consistency_ across all considered environments, with the same deployment pipeline code used across production and pre-production environments. This eliminates risks associated with deployment and process variations across environments.
+    - Have continuous validation by integrating automated testing as part of DevOps, including synchronized load and chaos testing, to fully validate the health of both the application code and underlying infrastructure.
+- **Operational insights**
+    - Have _federated workspaces for observability data_. Monitoring data for global resources and regional resources are stored independently. A centralized observability store isn't recommended to avoid a single point of failure. Cross-workspace querying is used to achieve a unified data sink and single pane of glass for operations. 
+    - Construct _layered health model_ that maps application health to a traffic light model for contextualizing. Health scores are calculated for each individual component and then aggregated at a user flow level and combined with key non-functional requirements, such as performance, as coefficients to quantify application health.
 
-- **Containerized microservices**: The workload is composed of microservices that are containerized to consistently and reliably build application components, using container images as the primary model for application deployment packages. 
+- **Workload elasticity**: Containerize workloads to consistently and reliably scale application components and use container images as the primary model for application deployment packages. 
 
-- **Event-driven asynchronous processing**: To achieve high responsiveness for intensive operations, this architecture uses a message broke to coordinate a business transaction between loosely coupled event-driven microservices.
-
-- **Ephemeral compute**: Regional deployment stamps are ephemeral with a lifecycle tied to a single application release in order to remove patching and maintenance burdens as well as driving operational validity.
-
-- **Zero downtime blue/green deployment pipelines**: Build and release pipelines must be consistent and transparent to end-users. The pipelines must be fully automated to deploy stamps as a single operational unit, using blue/green deployments with continuous validation applied.
-
-- **Infrastructure as code (IaC)**: Uses Terraform to apply the principle of IaC, providing version control and a standardized operational approach for infrastructure components.
-
-- **Environment consistency**: Consistency is applied across all considered environments, with the same deployment pipeline code used across production and pre-production environments. This eliminates risks associated with deployment and process variations across environments.
-
-- **Continuous validation**: Automated testing as part of DevOps, including synchronized load and chaos testing, to fully validate the health of both the application code and underlying infrastructure.
-
-- **Federated workspaces for observability data**: Monitoring data for global resources and regional resources are stored independently. A centralized observability store isn't recommended to avoid a single point of failure. Cross-workspace querying is used to achieve a unified data sink and single pane of glass for operations. 
-
-- **Layered health model**: Constructs a layered representation of application health mapped to a traffic light model for contextualizing. Health scores are calculated for each individual component and then aggregated at a user flow level and combined with key non-functional requirements, such as performance, as coefficients to quantify application health.
+- **Event-driven asynchronous processing**: To achieve high responsiveness for intensive operations, this architecture uses a message broker to coordinate a business transaction between loosely coupled event-driven microservices.
 
 ## Architecture
 
@@ -59,7 +53,7 @@ The global resources are long living and share the lifetime of the system. They 
 
 #### Global load balancer
 
-A global load balancer is critical to reliably route traffic to the regional deployments with some level of guarantee based on the availability of backend services in a region. Also, this component should have the capability of inspecting ingress traffic, for example through web application firewall. 
+A global load balancer is critical for reliably routing traffic to the regional deployments with some level of guarantee based on the availability of backend services in a region. Also, this component should have the capability of inspecting ingress traffic, for example through web application firewall. 
 
 **Azure Front Door** is used as the global entry point for all incoming client HTTP(S) traffic, with **Web Application Firewall (WAF)** capabilities applied to secure Layer 7 ingress traffic. It uses TCP Anycast to optimize routing using the Microsoft backbone network and allows for transparent failover in the event of degraded regional health. Routing is dependent on custom health probes that check the composite heath of key regional resources. Azure Front Door also provides a built-in content delivery network (CDN) to cache static assets for the website component. 
 
@@ -121,10 +115,9 @@ A message broker brings high responsiveness even during peak load, the design us
 
 The entire stamp is stateless except for certain points, such as the message broker. Data is queued in the broker for a short period. The queue is drained after the message is processed and stored in a global database.
 
-In this design, **Azure Event Hubs** is used because it guarantees at least once delivery. This means even if Event Hubs becomes unavailable, messages will be in the queue after the service is restored. However, it's the consumers responsibility to determine whether the message still needs processing. An additional Azure Storage account is provisioned for checkpointing. 
+In this design, **Azure Event Hubs** is used because it guarantees at least once delivery. This means even if Event Hubs becomes unavailable, messages will be in the queue after the service is restored. However, it's the consumers responsibility to determine whether the message still needs processing. An additional Azure Storage account is provisioned for checkpointing. Event Hubs is the recommended choice for use cases that require high throughput, such as streaming.
 
-    
-For use cases that require additional message guarantees, Azure Service Bus is recommended. It allows for two-phase commits with a client side cursor, and features such as a built-in dead letter queue and dedupe capabilities.
+For other scenarios that need additional message guarantees, Azure Service Bus is recommended. It allows for two-phase commits with a client side cursor, and features such as a built-in dead letter queue and dedupe capabilities.
 
 > Refer to [Well-architected mission critical workloads: Loosely coupled event-driven architecture](/azure/architecture/framework/mission-critical/mission-critical-application-design#loosely-coupled-event-driven-architecture).
 
@@ -242,3 +235,7 @@ Deploy the reference implementation to get a full understanding of resources and
 
 > [!div class="nextstepaction"]
 > [Implementation: Mission-Critical Online](https://github.com/Azure/Mission-Critical-Online)
+
+## Next
+
+As the next step, refer to the [Mission-Critical Connected](https://github.com/Azure/Mission-Critical-Connected) reference implementation that extends the implementation with added security measures. This implementation isn't referenced in this architecture. For solution guidance, see [Reference Implementation - Solution Guide](https://github.com/Azure/Mission-Critical-Connected/blob/main/docs/reference-implementation/README.md).
