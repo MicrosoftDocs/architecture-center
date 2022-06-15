@@ -38,7 +38,7 @@ Useful links:
 
 DeployIfNotExists (DINE) or Modify policies help ensure the subscriptions and resources that make up landing zones are compliant. The policies also ease the burden of management of landing zones.
 
-This module deploys custom policy definitions to management groups. 
+This module deploys custom policy definitions to management groups. Not all customers are able to use DINE or Modify policies. If that is the case for you, [CAF guidance on custom policies](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-management-groups) provides guidance.  
 
 Useful links:
 
