@@ -7,7 +7,9 @@ The guidance uses an [example implementation](https://github.com/Azure/Mission-C
 
 ## Reliability tier
 
+
 All design decisions depend on the business requirements and the Service Level Agreement (SLA) and Service Level Objective (SLO). Both are percentage figures represents the amount of time in a month when the application is available. This reference architecture considers a target Service Level Objective (SLO) of 99.99%, which corresponds to a permitted annual downtime of 52 minutes and 35 seconds. All encompassed design decisions are intended to reflect this target SLO.
+
 
 > [!TIP]
 > To define a realistic SLO, it's important to understand the SLA numbers of the individual Azure components. Combine those numbers, factor in deployment and application outages, and then define a composite SLO percentage.
