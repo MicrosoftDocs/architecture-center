@@ -205,7 +205,7 @@ If you need access to your VMs for some reason, you can connect through your hyb
 
 [Server-side encryption (SSE) of Azure Disk Storage](/azure/virtual-machines/disk-encryption) protects your data. It also helps you meet organizational security and compliance commitments. With Azure managed disks, SSE encrypts the data at rest when persisting it to the cloud. This behavior applies by default to both OS and data disks. OpenShift uses SSE by default.
 
-### Authentication
+#### Authentication
 
 Maximo currently supports the use of SAML via Azure Active Directory (Azure AD). To make this work, you'll need an enterprise application within Azure AD and permissions to modify the application or work with an Azure AD global administrator to do the work.
 
