@@ -33,7 +33,7 @@ If you're not familiar with the Azure service selected in the previous step, rea
 
 ## Understand the hosting models
 
-Cloud services, including Azure services, generally fall into three categories: IaaS, PaaS, or FaaS. (x also SaaS, software-as-a-service, which is out of scope for this article.) It's useful to understand the differences.
+Cloud services, including Azure services, generally fall into three categories: IaaS, PaaS, or FaaS. (There is also SaaS, software-as-a-service, which is out of scope for this article.) It's useful to understand the differences.
 
 **Infrastructure-as-a-Service** (IaaS) lets you provision individual VMs along with the associated networking and storage components. Then you deploy whatever software and applications you want onto those VMs. This model is the closest to a traditional on-premises environment, except that Microsoft manages the infrastructure. You still manage the individual VMs.
 
