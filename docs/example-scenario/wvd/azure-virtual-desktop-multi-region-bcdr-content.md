@@ -199,9 +199,6 @@ The following example shows a Cloud Cache configuration and related registry key
   - Registry Key path = **HKEY_LOCAL_MACHINE > SOFTWARE > FSLogix > Profiles**
   - *CCDLocations* value = **type=smb,connectionString=\\northeustg1\profiles;type=smb,connectionString=\\westeustg1\profiles**
 
-> [!NOTE]
-> If you previously downloaded the **FSLogix Templates**, you can accomplish the same configurations through the Active Directory Group Policy Management Console. For more details on how to set up the Group Policy Object for FSLogix refer to this guide [Use FSLogix Group Policy Template Files](https://docs.microsoft.com/en-us/fslogix/use-group-policy-templates-ht)
-
     :::image type="content" source="images/fslogix-cloud-cache-registry-keys-hires.png" alt-text="Screenshot that shows the Cloud Cache registry keys." lightbox="images/fslogix-cloud-cache-registry-keys-hires.png":::
 
 - Office container storage account URI = **\\northeustg2\odcf**
@@ -373,7 +370,6 @@ Principal authors:
 
 Other contributor:
 
-- [Nelson Del Villar](https://www.linkedin.com/in/nelsondelvillar) | Senior Customer Engineer
 - [Jason Martinez](https://www.linkedin.com/in/jason-martinez-502766123) | Technical Writer
 
 ## Next steps
