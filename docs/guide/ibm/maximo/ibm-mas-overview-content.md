@@ -153,7 +153,7 @@ If you need a jump box to do `oc` work or install Maximo, then we recommend depl
 
 With OpenShift, we use the default [OpenShift SDN CNI provider](https://docs.openshift.com/container-platform/4.8/networking/cluster-network-operator.html). You need to size your network for the number of OpenShift control and worker nodes you need, as well as any requirements like databases, and storage accounts.
 
-For a standard Maximo production install, we recommend a VNet with a /24 of address space. The VNet has two or three subnets. One is a /25 for the worker nodes and another is a /27 subnet for the control nodes. A third /27 may be needed for private endpoints and your database servers if desired.
+For a standard Maximo production install, we recommend a VNet with a /24 of address space. The VNet has three or four (for Bastion) subnets. For OpenShift there is a /25 for the worker nodes and a /27 subnet for the control nodes. An additional /27 should be used endpoints and your optional external database servers. If you are deploying the optional Azure Bastion, you'll need a [/26 for Azure Bastion called AzureBastionSubnet](https://docs.microsoft.com/en-us/azure/bastion/bastion-overview#architecture).
 
 If you're short on IP addresses, the minimum highly available set-up can use is a /27 for the control node and worker node subnet, each.
 
