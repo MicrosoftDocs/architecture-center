@@ -1,15 +1,4 @@
-This example scenario walks you through an implementation of an e-commerce front end using Azure platform as a service (PaaS) tools. Many e-commerce websites face seasonality and traffic variability over time. When demand for your products or services takes off, whether predictably or unpredictably, using PaaS tools will allow you to handle more customers and more transactions automatically. Additionally, this scenario takes advantage of cloud economics by paying only for the capacity you use.
-
-This document will help you will learn about various Azure PaaS components and considerations used to bring together to deploy a sample e-commerce application, *Relecloud Concerts*, an online concert-ticketing platform.
-
-## Potential use cases
-
-This solution is optimized for the retail industry.
-
-Other relevant use cases include:
-
-- Building an application that needs elastic scale to handle bursts of users at different times.
-- Building an application that is designed to operate at high availability in different Azure regions around the world.
+This example scenario walks you through an implementation of an e-commerce front end using Azure platform as a service (PaaS) tools. 
 
 ## Architecture
 
@@ -61,6 +50,19 @@ Other options for the data tier include:
 
 - [Cosmos DB](/azure/cosmos-db/introduction): Microsoft's globally distributed, multi-model database. This service provides a platform to run other data models such as Mongo DB, Cassandra, Graph data, or simple table storage.
 
+## Scenario details
+
+Many e-commerce websites face seasonality and traffic variability over time. When demand for your products or services takes off, whether predictably or unpredictably, using PaaS tools will allow you to handle more customers and more transactions automatically. Additionally, this scenario takes advantage of cloud economics by paying only for the capacity you use.
+
+This document will help you will learn about various Azure PaaS components and considerations used to bring together to deploy a sample e-commerce application, *Relecloud Concerts*, an online concert-ticketing platform.
+
+### Potential use cases
+
+This solution is optimized for the retail industry. Other relevant use cases include:
+
+- Building an application that needs elastic scale to handle bursts of users at different times.
+- Building an application that is designed to operate at high availability in different Azure regions around the world.
+
 ## Considerations
 
 ### Availability
@@ -90,11 +92,7 @@ Other options for the data tier include:
 - Consider using active [geo-replication][sql-geo-replication] for the data tier and [geo-redundant][storage-geo-redundancy] storage for images and queues.
 - For a deeper discussion on [resiliency][resiliency], see the relevant article in the Azure Architecture Center.
 
-## Deploy this scenario
-
-To deploy this scenario, you can follow this [step-by-step tutorial][end-to-end-walkthrough] demonstrating how to manually deploy each component. This tutorial also provides a .NET sample application that runs a simple ticket purchasing application. Additionally, there is a Resource Manager template to automate the deployment of most of the Azure resources.
-
-## Pricing
+### Cost optimization
 
 Explore the cost of running this scenario, all of the services are pre-configured in the cost calculator. To see how the pricing would change for your particular use case change the appropriate variables to match your expected traffic.
 
@@ -103,6 +101,10 @@ We have provided three sample cost profiles based on amount of traffic you expec
 - [Small][small-pricing]: This pricing example represents the components necessary to build the out for a minimum production level instance. Here we are assuming a small number of users, numbering only in a few thousand per month. The app is using a single instance of a standard web app that will be enough to enable autoscaling. The other components are each scaled to a basic tier that will allow for a minimum amount of cost but still ensure that there is SLA support and enough capacity to handle a production level workload.
 - [Medium][medium-pricing]: This pricing example represents the components indicative of a moderate size deployment. Here we estimate approximately 100,000 users using the system over the course of a month. The expected traffic is handled in a single app service instance with a moderate standard tier. Additionally, moderate tiers of cognitive and search services are added to the calculator.
 - [Large][large-pricing]: This pricing example represents an application meant for high scale, at the order of millions of users per month, moving terabytes of data. At this level of usage high performance, premium tier web apps deployed in multiple regions fronted by traffic manager is required. Data consists of the following: storage, databases, and CDN, are configured for terabytes of data.
+
+## Deploy this scenario
+
+To deploy this scenario, you can follow this [step-by-step tutorial][end-to-end-walkthrough] demonstrating how to manually deploy each component. This tutorial also provides a .NET sample application that runs a simple ticket purchasing application. Additionally, there is a Resource Manager template to automate the deployment of most of the Azure resources.
 
 ## Contributors
 
