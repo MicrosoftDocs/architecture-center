@@ -4,22 +4,26 @@ An end-to-end connectivity solution helps securely connect people, assets, workf
   - PLCs, sensors, equipment, and assembly lines
 - Systems
   - Process historian, supervisory control and data acquisition (SCADA), manufacturing execution systems (MES), and industrial control systems/distributed control systems (ICS/DCS)
-- Standards and Data Models
+- Standards and data models
   - ISA 95, ISA 99, OPC Data Access (DA), OPC Unified Architecture (UA), and Modbus
 - Network and Security
-  - Purdue model, firewalls, proxies, network inspection, 5G, and long range WAN (LoRaWAN)
+  - Purdue model, firewalls, proxies, network inspection, 5G, and long-range WAN (LoRaWAN®)
     - X.509 certificates and access policies
-- Edge Gateways
+- Edge gateways
   - Software only or a hardware and software solution
   - Modular design, cloud based management plane, and offline support
   - Layered edge processing, analytics, and machine learning
-- Cloud Gateways
+- Cloud gateways
   - Cloud connectivity, transport protocols, and device management and scale
 
 The following sections include common connectivity patterns for industrial solutions.
 
 > [!NOTE]
 > These patterns are for telemetry egress only. No control commands are sent back to the industrial systems or devices. These patterns are also focused on [Connected operations](/azure/architecture/framework/iot/iot-overview#connected-operations) scenarios. [Connected products](/azure/architecture/framework/iot/iot-overview#connected-products) scenarios will be added later.
+
+*Download a [PowerPoint file](https://arch-center.azureedge.net/[filename].vsdx) for the following patterns.*
+
+*LoRaWAN® is a registered trademark of the LoRa Alliance® in the United States and/or other countries. No endorsement by [LoRa Alliance®](https://lora-alliance.org) is implied by the use of these marks.*
 
 ## OPC UA server and edge gateway
 
@@ -52,7 +56,7 @@ Connect to manufacturing machines by using OPC UA standards and an Azure IoT Edg
 
 Connect to manufacturing machines over non-standard protocols by using an IoT Edge gateway.
 
-:::image type="content" source="images/edge-protocoltranslation.png" alt-text="Diagram that shows machines connected by using a custom protocol translation module and an IoT Edge gateway." lightbox="images/edge-protocoltranslation.png":::
+:::image type="content" source="images/edge-protocol-translation.png" alt-text="Diagram that shows machines connected by using a custom protocol translation module and an IoT Edge gateway." lightbox="images/edge-protocol-translation.png":::
 
 - Dataflow
   1. Connect devices that don't support OPC UA via a custom protocol translation module to the edgeHub.
@@ -77,7 +81,7 @@ Connect to manufacturing machines over non-standard protocols by using an IoT Ed
 
 Connect to manufacturing machines using a cloud connector component available in industrial connectivity software.
 
-:::image type="content" source="images/historian-cloudconnector.png" alt-text="}Diagram that shows machines connected by using built-in cloud connectors from historian software." lightbox="images/historian-cloudconnector.png":::
+:::image type="content" source="images/historian-cloud-connector.png" alt-text="}Diagram that shows machines connected by using built-in cloud connectors from historian software." lightbox="images/historian-cloud-connector.png":::
 
 - Dataflow
   1. Connect the PLCs to industrial connectivity software or historian software by using a switch or internal network connectivity.
@@ -198,7 +202,7 @@ Connect low power and low compute devices to manufacturing machines as extra sen
 - Considerations
   - This pattern requires more deployment and management of the custom application for sensor data collection.
   - There's no support for offline or edge analytics scenarios.
-  - [Security baseline for IoT Hub](/security/benchmark/azure/baselines/iot-hub-security-baseline?toc=/azure/iot-hub/TOC.json)
+  - [Security baseline for IoT Hub](/security/benchmark/azure/baselines/iot-hub-security-baseline?toc=/azure/iot-hub/TOC.json).
   - To learn when to use IoT Hub instead of Azure IoT Central, see the [Cloud Gateway options](#cloud-gateway-options).
 
 - Resources
@@ -210,7 +214,7 @@ Select a cloud gateway for connectivity.
 
 **IoT Hub**
 
-:::image type="content" source="images/cloudgw-iothub.png" alt-text="Diagram that shows how to connect to a cloud gateway by using IoT Hub." lightbox="images/cloudgw-iothub.png":::
+:::image type="content" source="images/cloud-gateway-iot-hub.png" alt-text="Diagram that shows how to connect to a cloud gateway by using IoT Hub." lightbox="images/images/cloud-gateway-iot-hub.png.png":::
 
 - Dataflow
   1. The edge gateway sends data to an IoT Hub by using AMQP or MQTT.
@@ -218,7 +222,7 @@ Select a cloud gateway for connectivity.
 
 **Azure IoT Central**
 
-:::image type="content" source="images/cloudgw-iotcentral.png" alt-text="Diagram that shows how to connect to a cloud gateway by using Azure IoT Central.":::
+:::image type="content" source="images/cloud-gateway-azure-iot-central.png" alt-text="Diagram that shows how to connect to a cloud gateway by using Azure IoT Central." lightbox="images/cloud-gateway-azure-iot-central.png":::
 
 - Dataflow
   1. The edge gateway sends data to Azure IoT Central by using AMQP or MQTT.
@@ -226,10 +230,10 @@ Select a cloud gateway for connectivity.
 
 **Azure Event Hubs**
 
-:::image type="content" source="images/cloudgw-eventhub.png" alt-text="{Diagram that shows how to connect to a cloud gateway by using Event Hubs.}":::
+:::image type="content" source="images/cloud-gateway-event-hub.png" alt-text="Diagram that shows how to connect to a cloud gateway by using Event Hubs." lightbox="images/cloud-gateway-event-hub.png":::
 
 - Dataflow
-  1. A custom application sends event hub messages using a language specific SDK.
+  1. A custom application sends event hub messages using a language-specific SDK.
   2. Azure Data Explorer pulls the data from Event Hubs by using streaming ingestion.
 
 - Pattern use
