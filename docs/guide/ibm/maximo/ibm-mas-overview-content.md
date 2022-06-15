@@ -85,12 +85,12 @@ Microsoft has tested Maximo Application Suite 8.5+ on Azure. Our recommendation 
 Review what applications you need to complete your business scenario and then review the [requirements for each of the applications](https://www.ibm.com/support/pages/node/6538166). Each of the applications may need separate databases. We have tested and support the following databases on Azure:
 
 * [SQL Server 2019](https://azure.microsoft.com/en-us/services/virtual-machines/sql-server/#overview) on Azure using Windows or Linux
-* IBM [DB2Wh on Cloud Pak for Data 3.5](https://www.ibm.com/docs/en/cloud-paks/cp-data/3.5.0?topic=services-db2-warehouse)
+* IBM [DB2 Warehouse on Cloud Pak for Data 3.5](https://www.ibm.com/docs/en/cloud-paks/cp-data/3.5.0?topic=services-db2-warehouse)
 
 You may also choose to run Oracle Exadata on a VM or on Oracle Cloud Infrastructure using the [OCI Interconnect](https://docs.oracle.com/en/solutions/learn-azure-oci-interconnect/index.html), but we haven't tested this configuration. Currently not supported are Azure SQL DB and Azure Cosmos DB. These databases may be supported in future releases of Maximo.
 
 > [!NOTE] 
-> Some databases can not be mixed because you need different features. For example, you can't use the database for health + manage in combination with monitor. You can mix databases, i.e. use SQL Server and DB2WH in conjunction.
+> In some cases you can't reuse a database for multiple Maximo applications because of conflicting database settings. For example, you can't use the same IBM DB2 Warehouse for health + manage in combination with monitor. You can mix different database products, such as using Microsoft SQL Server for one application and IBM DB2 Warehouse for another.
 
 Maximo and some of its applications have dependencies on MongoDB and/or Kafka. How you deploy these solutions should be a performance and operations consideration. The defaults are to deploy MongoDB Community Edition and Strimzi Kafka inside the clusters. Maximo also uses Crunchy PostgreSQL inside OpenShift, a dependency that can't be externalized.
 
