@@ -153,7 +153,7 @@ If you need a jump box to do `oc` work or install Maximo, then we recommend depl
 
 With OpenShift, we use the default [OpenShift SDN CNI provider](https://docs.openshift.com/container-platform/4.8/networking/cluster-network-operator.html). You need to size your network for the number of OpenShift control and worker nodes you need, as well as any requirements like databases, and storage accounts.
 
-For a standard Maximo production install, we recommend a VNet with a /24 of address space. The VNet has three or four (for Bastion) subnets. For OpenShift there is a /25 for the worker nodes and a /27 subnet for the control nodes. An additional /27 should be used endpoints and your optional external database servers. If you are deploying the optional Azure Bastion, you'll need a [/26 for Azure Bastion called AzureBastionSubnet](https://docs.microsoft.com/en-us/azure/bastion/bastion-overview#architecture).
+For a standard Maximo production install, we recommend a VNet with a /24 of address space. The VNet has three or four (for Bastion) subnets. For OpenShift, there's a /25 for the worker nodes and a /27 subnet for the control nodes. Another /27 should be used endpoints and your optional external database servers. If you're deploying the optional Azure Bastion, you'll need a [/26 for Azure Bastion called AzureBastionSubnet](https://docs.microsoft.com/en-us/azure/bastion/bastion-overview#architecture).
 
 If you're short on IP addresses, the minimum highly available set-up can use is a /27 for the control node and worker node subnet, each.
 
@@ -201,7 +201,7 @@ Use [network security groups](/azure/virtual-network/security-overview) to filte
 - Blocking access to all others parts of the cluster
 - Controlling from where you can access Maximo and OpenShift cluster
 
-If you need access to your VMs for some reason, you can connect through your hybrid connectivity or the OpenShift admin console. If you have an online deployment or don't want to rely on connectivity, you also have the option to access your VMs through [Azure Bastion](/azure/bastion/bastion-overview). For security reasons  don't expose VMs to a network or internet without [Network Security Groups](/azure/virtual-network/network-security-groups-overview) on them. 
+If you need access to your VMs for some reason, you can connect through your hybrid connectivity or the OpenShift admin console. If you have an online deployment or don't want to rely on connectivity, you can also access your VMs through the optional [Azure Bastion](/azure/bastion/bastion-overview). For security reasons you shouldn't expose VMs to a network or internet without [Network Security Groups](/azure/virtual-network/network-security-groups-overview) on them. 
 
 [Server-side encryption (SSE) of Azure Disk Storage](/azure/virtual-machines/disk-encryption) protects your data. It also helps you meet organizational security and compliance commitments. With Azure managed disks, SSE encrypts the data at rest when persisting it to the cloud. This behavior applies by default to both OS and data disks. OpenShift uses SSE by default.
 
@@ -213,7 +213,7 @@ A [tutorial on how to set up SAML with Maximo](https://github.com/Azure/maximo#e
 
 Before you set up the authentication, we recommend you go through the [IBM configuration](https://www.ibm.com/docs/en/mas83/8.3.0?topic=administration-configuring-suite#saml) and [Azure configuration](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/add-application-portal-setup-sso). 
 
-You should also configure OAuth for OpenShift as well. See these docs for more information: [the OpenShift documentation](https://docs.openshift.com/container-platform/4.8/authentication/index.html).
+You should also configure OAuth for OpenShift as well. Look at the [OpenShift documentation](https://docs.openshift.com/container-platform/4.8/authentication/index.html) for more information.
 
 #### Protect your infrastructure
 
@@ -241,9 +241,9 @@ You can review an example estimate using our [cost calculator](https://azure.com
 
 OpenShift has built in self healing, scaling and resilience capabilities to make sure OpenShift and Maximo work successfully. OpenShift and Maximo have been designed for parts failing and recovering. A key requirement for self healing to work is that you have enough worker nodes. To recover from a zone failure within an Azure region, you need to make sure your control and worker nodes are balanced across availability zones. 
 
-Maximo and OpenShift uses storage to persist state outside of the Kubernetes cluster. For these storage depedencies to keep working during a failure, you should use ZRS deployments whenever possible. This way storage will still be available when a zone fails.
+Maximo and OpenShift use storage to persist state outside of the Kubernetes cluster. For the storage dependencies to keep working during a failure, you should use ZRS deployments whenever possible. This way storage will still be available when a zone fails.
 
-One of the common failure points is human error due to configuration changes. Deployments of Maximo should be automated as much as possible to reduce these kind of problems. In our quickstart guide, we provide some sample scripts on how to set up full end-to-end automation.
+One of the common failure points is human error due to configuration changes. Deployments of Maximo should be automated as much as possible to reduce this kind of problem. In our quickstart guide, we provide some sample scripts on how to set up full end-to-end automation.
 
 ## Deploy this scenario
 
