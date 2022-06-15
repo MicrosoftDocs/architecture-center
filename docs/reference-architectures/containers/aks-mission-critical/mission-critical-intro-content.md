@@ -1,8 +1,8 @@
 This reference architecture provides guidance for designing a mission critical workload on Azure. The architecture design focuses on maximum reliability and operational effectiveness. 
 
-The guidance uses an [example implementation](https://github.com/Azure/Mission-Critical-Online) for illustrative purposes. It shows a simplified architecture that is still reliable and can be considered as your first step toward production. The architecture provides a foundation for building a cloud-native application, where the workload is accessed over a public endpoint and doesn't require private network connectivity to other resources of an organization. The example workload contains a microservices application that is hosted in an Azure Kubernetes Service (AKS) cluster and uses other Azure-native platform capabilities.
+The guidance uses an [example implementation](https://github.com/Azure/Mission-Critical-Online) for illustrative purposes. It shows a simplified architecture that is reliable and can be considered as your first step toward production. The architecture provides a foundation for building a cloud-native application, where the workload is accessed over a public endpoint and doesn't require private network connectivity to other resources of an organization. The example workload contains an eCommerce application in a microservices pattern and is hosted in an Azure Kubernetes Service (AKS) cluster and uses other Azure-native platform capabilities.
 
-> ![GitHub logo](../../../_images/github.svg) [Mission-Critical open source project](http://github.com/azure/mission-critical)
+> ![GitHub logo](../../../_images/github.svg) [Mission-Critical open source project](http://github.com/azure/mission-critical) contains reference implementations and deployment guides 
 
 
 ## Reliability tier
@@ -35,7 +35,7 @@ Several factors can affect an application's reliability. The application's abili
     - Have _federated workspaces for observability data_. Monitoring data for global resources and regional resources are stored independently. A centralized observability store isn't recommended to avoid a single point of failure. Cross-workspace querying is used to achieve a unified data sink and single pane of glass for operations. 
     - Construct _layered health model_ that maps application health to a traffic light model for contextualizing. Health scores are calculated for each individual component and then aggregated at a user flow level and combined with key non-functional requirements, such as performance, as coefficients to quantify application health.
 - **Workload elasticity**: Containerize workloads to consistently and reliably scale application components and use container images as the primary model for application deployment packages. 
-- **Event-driven asynchronous processing**: To achieve high responsiveness for intensive operations, this architecture uses a message broker to coordinate a business transaction between loosely coupled event-driven microservices.
+- **Event-driven asynchronous processing**: Achieve load leveling during peak load by using a message broker. This component can also coordinate the processing of a single business operation between loosely-coupled backend services.
 
 ## Architecture
 
@@ -112,7 +112,7 @@ A message broker brings high responsiveness even during peak load, the design us
 
 The entire stamp is stateless except for certain points, such as the message broker. Data is queued in the broker for a short period. The queue is drained after the message is processed and stored in a global database.
 
-In this design, **Azure Event Hubs** is used because it guarantees at least once delivery. This means even if Event Hubs becomes unavailable, messages will be in the queue after the service is restored. However, it's the consumers responsibility to determine whether the message still needs processing. An additional Azure Storage account is provisioned for checkpointing. Event Hubs is the recommended choice for use cases that require high throughput, such as streaming.
+In this design, **Azure Event Hubs** is used because it guarantees at least once delivery. This means even if Event Hubs becomes unavailable, messages will be in the queue after the service is restored. However, it's the consumer's responsibility to determine whether the message still needs processing. An additional Azure Storage account is provisioned for checkpointing. Event Hubs is the recommended choice for use cases that require high throughput, such as event streaming.
 
 For other scenarios that need additional message guarantees, Azure Service Bus is recommended. It allows for two-phase commits with a client side cursor, and features such as a built-in dead letter queue and dedupe capabilities.
 
@@ -241,4 +241,6 @@ Deploy the reference implementation to get a full understanding of resources and
 
 ## Next
 
-As the next step, refer to the [Mission-Critical Connected](https://github.com/Azure/Mission-Critical-Connected) reference implementation that extends the implementation with added security measures. This implementation isn't referenced in this architecture. For solution guidance, see [Reference Implementation - Solution Guide](https://github.com/Azure/Mission-Critical-Connected/blob/main/docs/reference-implementation/README.md).
+As the next step, refer to the [Mission-Critical Connected](https://github.com/Azure/Mission-Critical-Connected) that adds security measures. That implementation isn't referenced in this architecture. 
+
+For solution guidance, see [Connected Reference Implementation - Solution Guide](https://github.com/Azure/Mission-Critical-Connected/blob/main/docs/reference-implementation/README.md).
