@@ -125,9 +125,9 @@ During the installation of OpenShift, there are some considerations:
 > [!NOTE]
 > Air gapped patterns have not been tested in full but would require using the [User Provided Infrastructure (UPI)](https://github.com/openshift/installer/blob/master/docs/user/azure/install_upi.md) as a starting point.
 
-In some cases, for example regulatory, you may require an air gap installation of Maximo on Azure. Air gapped means you have no inbound/outbound internet access to retrieve the install dependencies at runtime for the installation of Maximo or OpenShift. By default we don't recommend you do an air gap install as it creates significant complexity to the operations of your solution. Things such as mirroring containers, keeping the mirrors updated against security vulnerabilities, doing the install, firewall management, etc. can become very time consuming.
+In some cases, for example regulatory, you may require an air gap installation of Maximo on Azure. Air gapped means you have no inbound/outbound internet access to retrieve the install dependencies at runtime for the installation of Maximo or OpenShift. By default we don't recommend you do an air gap install as it creates significant complexity to the operations of your solution. Things such as mirroring containers, keeping your mirror updated to protect against security vulnerabilities, doing the installation, firewall management, etc. can become very time consuming.
 
-For air gap installations, we refer you to the OpenShift documentation for image mirroring and install details. Once OpenShift is up, refer to the IBM Maximo documentation for similar guidance.
+For air gap installations, we refer you to the [OpenShift documentation for image mirroring](https://docs.openshift.com/container-platform/4.8/installing/installing-mirroring-installation-images.html), [install details](https://docs.openshift.com/container-platform/4.8/installing/installing_azure/installing-azure-private.html) and [tutorials](https://examples.openshift.pub/cluster-installation/air-gapped/). Once OpenShift is up, refer to the IBM Maximo documentation for similar guidance.
 
 ### Sizing your environment
 
