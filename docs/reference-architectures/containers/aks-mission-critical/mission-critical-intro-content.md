@@ -24,7 +24,6 @@ Several factors can affect an application's reliability. The application's abili
     - Choose resources that support _global distribution_.
 - **Reliable and repeatable deployments**
     - Deploy a regional stamp as a _scale unit_ where a logical set of resources can be independently deployed to keep up with the changes in demand. Each stamp also applies multiple nested scale units, such as the Frontend APIs and Background processors which can scale in and out independently.
-
         > Refer to [Well-architected mission critical workloads: Scale unit architecture](/azure/architecture/framework/mission-critical-application-design#scale-unit-architecture).
     - Use Terraform to apply the _principle of Infrastructure as code (IaC)_, providing version control and a standardized operational approach for infrastructure components.
     - Implement _zero downtime blue/green deployment pipelines_. Build and release pipelines must be consistent and transparent to end-users. The pipelines must be fully automated to deploy stamps as a single operational unit, using blue/green deployments with continuous validation applied.
@@ -35,9 +34,7 @@ Several factors can affect an application's reliability. The application's abili
 - **Operational insights**
     - Have _federated workspaces for observability data_. Monitoring data for global resources and regional resources are stored independently. A centralized observability store isn't recommended to avoid a single point of failure. Cross-workspace querying is used to achieve a unified data sink and single pane of glass for operations. 
     - Construct _layered health model_ that maps application health to a traffic light model for contextualizing. Health scores are calculated for each individual component and then aggregated at a user flow level and combined with key non-functional requirements, such as performance, as coefficients to quantify application health.
-
 - **Workload elasticity**: Containerize workloads to consistently and reliably scale application components and use container images as the primary model for application deployment packages. 
-
 - **Event-driven asynchronous processing**: To achieve high responsiveness for intensive operations, this architecture uses a message broker to coordinate a business transaction between loosely coupled event-driven microservices.
 
 ## Architecture
