@@ -25,7 +25,7 @@ The following sections include common connectivity patterns for industrial solut
 
 *LoRaWAN® is a registered trademark of the LoRa Alliance® in the United States and/or other countries. No endorsement by [LoRa Alliance®](https://lora-alliance.org) is implied by the use of these marks.*
 
-## OPC UA server and edge gateway
+## OPC UA server and an IoT Edge gateway
 
 Connect to manufacturing machines by using OPC UA standards and an Azure IoT Edge gateway.
 
@@ -42,17 +42,17 @@ Connect to manufacturing machines by using OPC UA standards and an Azure IoT Edg
   - You can install IoT Edge at layer 3 and connect to the PLC via an OPC UA server.
 
 - Considerations
-  - [IoT Edge production checklist](/azure/iot-edge/production-checklist?view=iotedge-2018-06)
-  - [OPC Publisher module configuration guide](https://github.com/Azure/Industrial-IoT/blob/main/docs/modules/publisher.md)
-  - [Security baseline for IoT Hub](/security/benchmark/azure/baselines/iot-hub-security-baseline?toc=/azure/iot-hub/TOC.json)
+  - [Prepare to deploy your IoT Edge solution in production](/azure/iot-edge/production-checklist?view=iotedge-2018-06)
+  - [OPC publisher module configuration guide](https://github.com/Azure/Industrial-IoT/blob/main/docs/modules/publisher.md)
+  - [Azure security baseline for IoT Hub](/security/benchmark/azure/baselines/iot-hub-security-baseline?toc=/azure/iot-hub/TOC.json)
   - You can install an IoT Edge runtime on a Linux or Windows virtual machine (VM) and dedicated hardware like [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/#overview).
-  - To learn when to use IoT Hub instead of Azure IoT Central, see the [Cloud Gateway options](#cloud-gateway-options).
+  - To learn when to use IoT Hub instead of Azure IoT Central, see the [Cloud gateway options](#cloud-gateway-options).
 
 - Deployment samples
   - [Connectivity with industrial assets by using OPC UA and IoT Edge for Linux on Windows (EFLOW)](https://github.com/Azure-Samples/industrial-iot-patterns/tree/main/1_Connectivity)
   - [Connect OPC UA devices to Azure IoT Central by using custom modules](https://github.com/iot-for-all/iotc-opcua-iotedge-gateway)
 
-## Protocol translation and edge gateway
+## Protocol translation and an IoT Edge gateway
 
 Connect to manufacturing machines over non-standard protocols by using an IoT Edge gateway.
 
@@ -68,20 +68,20 @@ Connect to manufacturing machines over non-standard protocols by using an IoT Ed
   - You can install IoT Edge at layer 3 and connect to your devices.
 
 - Considerations
-  - [IoT Edge production checklist](/azure/iot-edge/production-checklist?view=iotedge-2018-06)
-  - [Security baseline for IoT Hub](/security/benchmark/azure/baselines/iot-hub-security-baseline?toc=/azure/iot-hub/TOC.json)
+  - [Prepare to deploy your IoT Edge solution in production](/azure/iot-edge/production-checklist?view=iotedge-2018-06)
+  - [Azure security baseline for IoT Hub](/security/benchmark/azure/baselines/iot-hub-security-baseline?toc=/azure/iot-hub/TOC.json)
   - You can install IoT Edge runtime on a Linux or Windows VM and dedicated hardware like [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/#overview).
   - See the [IoT Edge module marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules) for partner solutions.
-  - To learn when to use IoT Hub instead of Azure IoT Central, see the [Cloud Gateway options](#cloud-gateway-options).
+  - To learn when to use IoT Hub instead of Azure IoT Central, see the [Cloud gateway options](#cloud-gateway-options).
 
 - Deployment sample
-  - [Connect modbus devices with an IoT Central application via an IoT Edge Gateway device](https://github.com/iot-for-all/iotc-modbus-iotedge-gateway)
+  - [Connect modbus devices with an Azure IoT Central application via an IoT Edge gateway device](https://github.com/iot-for-all/iotc-modbus-iotedge-gateway)
 
-## Cloud connector from industrial connectivity software or historian
+## Cloud connector from industrial connectivity software or a historian
 
 Connect to manufacturing machines using a cloud connector component available in industrial connectivity software.
 
-:::image type="content" source="images/historian-cloud-connector.png" alt-text="}Diagram that shows machines connected by using built-in cloud connectors from historian software." lightbox="images/historian-cloud-connector.png":::
+:::image type="content" source="images/historian-cloud-connector.png" alt-text="Diagram that shows machines connected by using built-in cloud connectors from historian software." lightbox="images/historian-cloud-connector.png":::
 
 - Dataflow
   1. Connect the PLCs to industrial connectivity software or historian software by using a switch or internal network connectivity.
@@ -95,14 +95,14 @@ Connect to manufacturing machines using a cloud connector component available in
 
 - Considerations
   - Another cost for cloud connectors along with licensing and tag based costing model for historians.
-  - [Security baseline for IoT Hub](/security/benchmark/azure/baselines/iot-hub-security-baseline?toc=/azure/iot-hub/TOC.json)
-  - To learn when to use IoT Hub instead of Azure IoT Central, see the [Cloud Gateway options](#cloud-gateway-options).
+  - [Azure security baseline for IoT Hub](/security/benchmark/azure/baselines/iot-hub-security-baseline?toc=/azure/iot-hub/TOC.json)
+  - To learn when to use IoT Hub instead of Azure IoT Central, see the [Cloud gateway options](#cloud-gateway-options).
 
 - Deployment Sample
-  - [Connect PTC/Kepware's KEPServerEX to IoT Hub and IoT Edge](/samples/azure-samples/iot-hub-how-to-kepware-edge/azure-iot-edge-connect-ptc/)
+  - [How to connect Kepware KEPServerEX to IoT Edge](/samples/azure-samples/iot-hub-how-to-kepware-edge/azure-iot-edge-connect-ptc)
 
 - Resources
-  - [Bring Industrial data into your Azure IoT solution with CloudRail](/shows/internet-of-things-show/bring-industrial-data-into-your-azure-iot-solution-with-cloudrail)
+  - [Bring Industrial data into your Azure IoT solution with CloudRail](https://docs.microsoft.com/shows/internet-of-things-show/bring-industrial-data-into-your-azure-iot-solution-with-cloudrail)
 
 ## Connecting to layer 2 and IoT Edge gateways
 
@@ -123,13 +123,13 @@ Connect to manufacturing machines in layer 2 of a Purdue model by using multiple
 
 - Considerations
   - This configuration creates a complex deployment model and certificate configuration for security.
-  - [Deploying hierarchy of IoT Edge Devices](/azure/iot-edge/tutorial-nested-iot-edge?view=iotedge-2020-11)
-  - [IoT Edge production checklist](/azure/iot-edge/production-checklist?view=iotedge-2018-06)
-  - [Security baseline for IoT Hub](/security/benchmark/azure/baselines/iot-hub-security-baseline?toc=/azure/iot-hub/TOC.json)
-  - To learn when to use IoT Hub instead of Azure IoT Central, see the [Cloud Gateway options](#cloud-gateway-options).
+  - [Tutorial: Create a hierarchy of IoT Edge devices](/azure/iot-edge/tutorial-nested-iot-edge?view=iotedge-2020-11)
+  - [Prepare to deploy your IoT Edge solution in production](/azure/iot-edge/production-checklist?view=iotedge-2018-06)
+  - [Azure security baseline for IoT Hub](/security/benchmark/azure/baselines/iot-hub-security-baseline?toc=/azure/iot-hub/TOC.json)
+  - To learn when to use IoT Hub instead of Azure IoT Central, see the [Cloud gateway options](#cloud-gateway-options).
 
 - Deployment Sample
-  - [Nested Edge Devices and Offline Dashboards Sample](https://github.com/Azure-Samples/iot-edge-for-iiot)
+  - [Nested edge devices and offline dashboards sample](https://github.com/Azure-Samples/iot-edge-for-iiot)
 
 ## Resilient edge gateway
 
@@ -146,17 +146,20 @@ Provide hardware resiliency for your IoT Edge gateway virtual machines.
 - Use this pattern when:
   - A Kubernetes infrastructure and skill set is already available.
   - Horizontal scaling and hardware failure resiliency is critical.
-  - IoT Edge VM snapshots aren't enough to meet the recovery time objective (RTO) and recovery point objective (RPO) needs. *RTO is the maximum time an application is unavailable after an incident, and RPO is the maximum duration of data loss during a disaster.*
+  - IoT Edge VM snapshots aren't enough to meet the recovery time objective (RTO) and recovery point objective (RPO) needs.
+
+    > [!NOTE]
+    > RTO is the maximum time an application is unavailable after an incident, and RPO is the maximum duration of data loss during a disaster.
 
 - Considerations
   - This pattern is for hardware resiliency and is agnostic of data models, protocols, and industrial connectivity software.
-  - [Kubernetes at the edge compute options](/azure/architecture/operator-guides/aks/choose-kubernetes-edge-compute-option)
-  - [IoT Edge production checklist](/azure/iot-edge/production-checklist?view=iotedge-2018-06)
-  - [Security baseline for IoT Hub](/security/benchmark/azure/baselines/iot-hub-security-baseline?toc=/azure/iot-hub/TOC.json)
-  - To learn when to use IoT Hub instead of Azure IoT Central, see the [Cloud Gateway options](#cloud-gateway-options).
+  - [Choose a Kubernetes at the edge compute option](/azure/architecture/operator-guides/aks/choose-kubernetes-edge-compute-option)
+  - [Prepare to deploy your IoT Edge solution in production](/azure/iot-edge/production-checklist?view=iotedge-2018-06)
+  - [Azure security baseline for IoT Hub](/security/benchmark/azure/baselines/iot-hub-security-baseline?toc=/azure/iot-hub/TOC.json)
+  - To learn when to use IoT Hub instead of Azure IoT Central, see the [Cloud gateway options](#cloud-gateway-options).
 
 - Deployment Sample
-  - [IoT Edge on Kubernetes with KubeVirt](https://github.com/Azure-Samples/IoT-Edge-K8s-KubeVirt-Deployment/)
+  - [IoT Edge on Kubernetes with KubeVirt](https://github.com/Azure-Samples/IoT-Edge-K8s-KubeVirt-Deployment)
 
 ## Scale to multiple factories and business units
 
@@ -171,7 +174,7 @@ Scale connectivity patterns to multiple factories and business units.
 - Use this pattern when:
   - You need to scale industrial IoT solution patterns across multiple factories.
   - Multiple business units and projects need access to Industrial Internet of Things (IIoT) data.
-  - You enable [landing zones](/azure/cloud-adoption-framework/ready/landing-zone/design-principles) cloud connectivity.
+  - You enable [landing zone](/azure/cloud-adoption-framework/ready/landing-zone/design-principles) cloud connectivity.
   - You need granular access control between operational technology (OT) and IT.
 
 - Considerations
@@ -202,11 +205,11 @@ Connect low power and low compute devices to manufacturing machines as extra sen
 - Considerations
   - This pattern requires more deployment and management of the custom application for sensor data collection.
   - There's no support for offline or edge analytics scenarios.
-  - [Security baseline for IoT Hub](/security/benchmark/azure/baselines/iot-hub-security-baseline?toc=/azure/iot-hub/TOC.json).
-  - To learn when to use IoT Hub instead of Azure IoT Central, see the [Cloud Gateway options](#cloud-gateway-options).
+  - [Azure security baseline for IoT Hub](/security/benchmark/azure/baselines/iot-hub-security-baseline?toc=/azure/iot-hub/TOC.json).
+  - To learn when to use IoT Hub instead of Azure IoT Central, see the [Cloud gateway options](#cloud-gateway-options).
 
 - Resources
-  - [IoT Hub SDKs and Samples](/azure/iot-hub/iot-hub-devguide-sdks)
+  - [IoT Hub SDKs and samples](/azure/iot-hub/iot-hub-devguide-sdks)
 
 ## Cloud gateway options
 
@@ -242,16 +245,16 @@ Select a cloud gateway for connectivity.
   - Use Event Hubs when you have cost constraints and only require messaging.
 
 - Considerations
-  - [IoT Hub vs. Event Hubs](/azure/iot-hub/iot-hub-compare-event-hubs)
+  - [Connecting IoT Devices to Azure: IoT Hub and Event Hubs](/azure/iot-hub/iot-hub-compare-event-hubs)
   - [IoT Hub vs. Azure IoT Central](/azure/iot-fundamentals/iot-solution-apaas-paas#comparing-approaches)
   - [RPO and RTO options for IoT Hub](/azure/iot-hub/iot-hub-ha-dr#choose-the-right-hadr-option)
-  - [HA/DR for IoT Central](/azure/iot-central/core/concepts-faq-scalability-availability) and [limitations](/azure/iot-central/core/concepts-faq-scalability-availability#limitations) around IoT Edge devices.
-  - [Availability](/azure/event-hubs/event-hubs-availability-and-consistency?tabs=dotnet) and [Geo-disaster recovery](/azure/event-hubs/event-hubs-geo-dr?tabs=portal) for Event Hubs.
+  - Learn about [HA/DR for Azure IoT Central](/azure/iot-central/core/concepts-faq-scalability-availability) and [limitations](/azure/iot-central/core/concepts-faq-scalability-availability#limitations) around IoT Edge devices.
+  - Learn about [availability](/azure/event-hubs/event-hubs-availability-and-consistency?tabs=dotnet) and [Geo-disaster recovery](/azure/event-hubs/event-hubs-geo-dr?tabs=portal) for Event Hubs.
 
 - Deployment Samples
-  - [Connect OPC UA devices with IoT Central](https://github.com/iot-for-all/iotc-opcua-iotedge-gateway)
-  - [Industrial IoT patterns with IoT Central](/azure/iot-central/core/concepts-iiot-architecture)
-  - [Streaming at Scale with Event Hubs and Data Explorer](https://github.com/Azure-Samples/streaming-at-scale/tree/main/eventhubs-dataexplorer)
+  - [Connect OPC UA devices with Azure IoT Central](https://github.com/iot-for-all/iotc-opcua-iotedge-gateway)
+  - [Industrial IoT (IIoT) architecture patterns with Azure IoT Central](/azure/iot-central/core/concepts-iiot-architecture)
+  - [Streaming at scale with Event Hubs and Azure Data Explorer](https://github.com/Azure-Samples/streaming-at-scale/tree/main/eventhubs-dataexplorer)
 
 ## Contributors
 
