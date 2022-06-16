@@ -102,7 +102,7 @@ In this architecture, a unified deployment pipeline deploys a stamp with these r
 
 #### Frontend
 
-This architecture uses a single page application (SPA) that send requests to backend services. An advantage is that the compute needed for the website experience is offloaded to the client instead of your servers. If there's a transient error, SPA can reduce the impact by using service to buffer requests. This reduces a failure point on the backend servers. The SPA is hosted as a **static website in an Azure Storage Account**.
+This architecture uses a single page application (SPA) that send requests to backend services. An advantage is that the compute needed for the website experience is offloaded to the client instead of your servers. The SPA is hosted as a **static website in an Azure Storage Account**.
 
 Another choice is Azure Static Web Apps, which introduces additional considerations, such as how the certificates are exposed, connectivity to global load balancer, and other factors.
 
