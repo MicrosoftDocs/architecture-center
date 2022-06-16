@@ -142,6 +142,6 @@ Other contributor:
 
 - [Industrial IoT transparency patterns](./iiot-transparency-patterns.yml)
 
-- [Solutions for the manufacturing industry](/azure/architecture/industries/manufacturing)
+- [Solutions for the manufacturing industry](../../industries/manufacturing.md)
 
 - [IoT Well-Architected Framework](/azure/architecture/framework/iot/iot-overview)
