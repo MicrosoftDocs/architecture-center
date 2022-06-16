@@ -26,9 +26,9 @@ The following diagram shows the flow of data in this solution:
 - The boxes that contain multiple icons represent categories of services. Within each category, services work independently or together to provide functionality.
 - Arrows between boxes represent communication between the corresponding areas.
 
-:::image type="content" source="./media/smart-places-diagram.svg" alt-text="Diagram that illustrates the recommended architecture for a smart space solution." border="false" lightbox="./media/smart-places-diagram.svg":::
+:::image type="content" source="./media/smart-places-diagram-new.png" alt-text="Diagram that illustrates the recommended architecture for a smart space solution." border="false" lightbox="./media/smart-places-diagram-new.png":::
 
-Download an [SVG][SVG version of architecture diagram] of this architecture.
+*Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/smart-places-diagram.vsdx) of this architecture.*
 
 1. The environment can use these and other communication protocols:
 
