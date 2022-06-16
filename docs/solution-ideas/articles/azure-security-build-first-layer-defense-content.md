@@ -149,7 +149,7 @@ Microsoft has more documentation that can help you secure your IT environment, a
 - [Security in the Microsoft Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/secure). The Cloud Adoption Framework provides security guidance for your cloud journey by clarifying the processes, best practices, models, and experience.
 - [Microsoft Azure Well-Architected Framework](/azure/architecture/framework). The Azure Well-Architected Framework is a set of guiding tenets that you can use to improve the quality of a workload. The framework is based on five pillars: reliability, security, cost optimization, operational excellence, and performance efficiency.
 - [Microsoft Security Best Practices](/security/compass/compass). Microsoft Security Best Practices (formerly known as the *Azure Security Compass* or *Microsoft Security Compass*) is a collection of best practices that provide clear, actionable guidance for security-related decisions.
-- [Microsoft Cybersecurity Reference Architectures](https://aka.ms/mcra) (MCRA). MCRA is a compilation of various Microsoft security reference architectures. 
+- [Microsoft Cybersecurity Reference Architectures](/security/cybersecurity-reference-architecture/mcra) (MCRA). MCRA is a compilation of various Microsoft security reference architectures. 
 
 In the following resources, you can find more information about the services, technologies, and terminologies that are mentioned in this article:
 

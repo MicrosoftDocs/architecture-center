@@ -1,16 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution describes how retailers like grocery stores can monitor storefront events and take immediate actions to improve customer experience. In this solution, 5G-enabled internet protocol (IP) cameras capture real-time video of shelf inventory, curbside pickup, and cashier queues. On-premises IoT Edge devices analyze the video data in real time to detect the number of people in checkout queues, empty shelf space, or cars in the parking lot.
-
-Metrics analysis can trigger anomaly events to alert the store manager or stock supervisors to take corrective actions. The solution stores summary video clips or events in the cloud for long-term trend analysis.
-
-## Potential use cases
-
-This approach can also:
-
-- Monitor and maintain occupancy limits in an establishment.
-- Stop unauthorized users from tailgating others into an office building.
-- Prevent fraud at grocery store self-checkout stations.
+This solution describes how retailers like grocery stores can monitor storefront events and take immediate actions to improve customer experience. In this solution, 5G-enabled internet protocol (IP) cameras capture real-time video of shelf inventory, curbside pickup, and cashier queues.
 
 ## Architecture
 
@@ -44,6 +34,20 @@ This solution uses the following Azure components:
 - [Azure IoT Hub](https://azure.microsoft.com/en-us/services/iot-hub) is a cloud-based managed service for bidirectional communication between IoT devices and Azure.
 - [Media Services Storage](https://azure.microsoft.com/services/media-services) uses Azure Storage to store large media files.
 - [Azure Network Function Manager](https://azure.microsoft.com/products/azure-network-function-manager) enables the deployment of network functions to the IoT Edge using consistent Azure tools and interfaces.
+
+## Scenario details
+
+This solution describes how retailers like grocery stores can monitor storefront events and take immediate actions to improve customer experience. In this solution, 5G-enabled internet protocol (IP) cameras capture real-time video of shelf inventory, curbside pickup, and cashier queues. On-premises IoT Edge devices analyze the video data in real time to detect the number of people in checkout queues, empty shelf space, or cars in the parking lot.
+
+Metrics analysis can trigger anomaly events to alert the store manager or stock supervisors to take corrective actions. The solution stores summary video clips or events in the cloud for long-term trend analysis.
+
+### Potential use cases
+
+This solution is ideal for the retail, automotive, and facilities/real-estate industries. This approach includes the following scenarios:
+
+- Monitor and maintain occupancy limits in an establishment.
+- Stop unauthorized users from tailgating others into an office building.
+- Prevent fraud at grocery store self-checkout stations.
 
 ## Contributors
 
