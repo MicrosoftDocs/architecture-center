@@ -22,7 +22,10 @@ ms.custom:
 
 # Multitenancy and Azure App Configuration
 
-In a multitenant solution, it's common to have some application configuration settings that are shared among multiple tenants, such as global settings or settings that apply to all tenants within a deployment stamp. You likely also have some other settings that are tenant-specific. For example, you might need to store each tenant's database name or internal identifiers. Or, you might want to specify different log levels for each tenant, such as when you diagnose a problem reported by specific tenant and need to collect additional diagnostics from that one tenant.
+In a multitenant solution, it's common to have some two types of application configuration settings:
+
+- Settings that you share among multiple tenants, such as global settings or settings that apply to all tenants within a deployment stamp.
+- Tenant-specific settings. For example, you might need to store each tenant's database name or internal identifiers. Or, you might want to specify different log levels for each tenant, such as when you diagnose a problem reported by specific tenant and need to collect diagnostic logs from that one tenant.
 
 [Azure App Configuration](/azure/azure-app-configuration/overview) enables you to store configuration settings for your application. By using Azure App Configuration, you can easily implement the [External Configuration Store pattern](../../../patterns/external-configuration-store.yml). In this article, we describe some of the features of Azure App Configuration that are useful when working with multitenanted systems, and we link to guidance and examples for how to use Azure App Configuration in a multitenant solution.
 
@@ -38,26 +41,26 @@ If you follow this approach, ensure you understand the [resource quotas and limi
 
 ### Stores per tenant
 
-You might instead choose to deploy an Azure App Configuration store for each tenant. Azure App Configuration enables you to deploy an unlimited number of stores in your subscription. However, this approach is often more complex to manage, because you have to deploy and configure more resources. There is also [a charge for each store resource that you deploy](https://azure.microsoft.com/pricing/details/app-configuration/#pricing).
+You might instead choose to deploy an Azure App Configuration store for each tenant. Azure App Configuration enables you to deploy an unlimited number of stores in your subscription. However, this approach is often more complex to manage, because you have to deploy and configure more resources. There's also [a charge for each store resource that you deploy](https://azure.microsoft.com/pricing/details/app-configuration/#pricing).
 
 Consider tenant-specific stores if you have one of the following situations:
 
 - You need to store a large amount of data, or will scale to a large number of tenants, and you'll be at risk of exceeding [any of the resource limits for a single store](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-app-configuration).
-- You need to use [customer-managed encryption keys](/azure/azure-app-configuration/concept-customer-managed-keys), where the keys are separare for each tenant.
+- You need to use [customer-managed encryption keys](/azure/azure-app-configuration/concept-customer-managed-keys), where the keys are separate for each tenant.
 
 ## Features of Azure App Configuration that support multitenancy
 
-When you use Azure App Configuration in a multitenant appliction, there are several features that you can use to store and retrieve tenant-specific settings.
+When you use Azure App Configuration in a multitenant application, there are several features that you can use to store and retrieve tenant-specific settings.
 
 ### Key prefixes
 
-In Azure App Configuration, the central element you store and manage is a key-value pair. The key represents the name of the configuration setting. You can use a hierarchical naming structure for your keys, and use a tenant identifier as the prefix for your leus.
+In Azure App Configuration, the central element you store and manage is a key-value pair. The key represents the name of the configuration setting. You can use a hierarchical naming structure for your keys, and use a tenant identifier as the prefix for your keys.
 
 For example, suppose you need to store a setting to indicate the logging level for your application. In a single-tenant solution, you might name this setting `LogLevel`. In a multitenant solution, you might choose to use a hierarchical key name, such as `tenant1/LogLevel` for tenant 1, `tenant2/LogLevel` for tenant 2, and so forth.
 
 Azure App Configuration enables you to specify long key names, supporting multiple levels in a hierarchy. If you choose to use long key names, ensure you understand the [size limits for keys and values](/azure/azure-app-configuration/concept-key-value#keys).
 
-When you load a single tenant's configuration into your application, you can specify a [key prefix filter](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.azureappconfigurationoptions.select#parameters) to only load that tenant's keys. You can also configure the .NET SDK for Azure App Configuration to [trim the key prefix](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.azureappconfigurationoptions.trimkeyprefix#microsoft-extensions-configuration-azureappconfiguration-azureappconfigurationoptions-trimkeyprefix(system-string)) from the keys before it makes them available to your application. By trimming the key prefix, your application sees a consistent key name, with tenant-specific values.
+When you load a single tenant's configuration into your application, you can specify a [key prefix filter](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.azureappconfigurationoptions.select#parameters) to only load that tenant's keys. You can also configure the .NET SDK for Azure App Configuration to [trim the key prefix](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.azureappconfigurationoptions.trimkeyprefix#microsoft-extensions-configuration-azureappconfiguration-azureappconfigurationoptions-trimkeyprefix(system-string)) from the keys before it makes them available to your application. When you trim the key prefix, your application sees a consistent key name, with tenant-specific values.
 
 ### Labels
 
@@ -75,7 +78,7 @@ You also need to decide whether your application loads the settings for a single
 
 As your tenant base grows, the amount of time and the memory resources required to load settings for all tenants together is likely to increase. So, in most situations, it's a good practice to load the settings for each tenant separately when your application needs them.
 
-If you load each tenant's configuration settings separately, your application needs to cache each set of settings separately to any others. In .NET applications, consider using an [in-memory cache](/aspnet/core/performance/caching/memory) to cache the tenant's IConfiguration object and use the the tenant identifier as the cache key. By using an in-memory cache, you don't need to reload configuration upon every request, but the cache can remove unused instances if your application is under memory pressure. You can also configure expiration times for each tenant's configuration settings.
+If you load each tenant's configuration settings separately, your application needs to cache each set of settings separately to any others. In .NET applications, consider using an [in-memory cache](/aspnet/core/performance/caching/memory) to cache the tenant's IConfiguration object and use the tenant identifier as the cache key. By using an in-memory cache, you don't need to reload configuration upon every request, but the cache can remove unused instances if your application is under memory pressure. You can also configure expiration times for each tenant's configuration settings.
 
 ## Next steps
 
