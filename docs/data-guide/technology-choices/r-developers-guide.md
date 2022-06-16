@@ -77,7 +77,7 @@ This is an enterprise-grade solution that allows you to scale your R code across
 
 This ability to scale makes ML Services on HDInsight a great option for R developers with massive data sets.  It provides a flexible and scalable platform for running your R scripts in the cloud.
 
-For a walk-through on creating an ML Services cluster, see [Get started with ML Services on Azure HDInsight](https://azure.microsoft.com/en-in/services/hdinsight/r-server/#getting-started).
+For a walk-through on creating an ML Services cluster, see [Get started with ML Services on Azure HDInsight](https://azure.microsoft.com/services/hdinsight/r-server/#getting-started).
 
 ## Azure Databricks
 
