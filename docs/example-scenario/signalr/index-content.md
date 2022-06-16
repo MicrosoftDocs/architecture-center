@@ -146,8 +146,8 @@ You can deploy the code to Azure Functions right from Visual Studio. [Follow thi
 
 ## Related resources
 
-- [High-volume batch transaction processing](example-scenario/mainframe/process-batch-transactions.yml)
-- [Transit hub dynamic pub-sub messaging system](solution-ideas/articles/transit-hub.yml)
-- [Serverless event processing](reference-architectures/serverless/event-processing.yml)
-- [Blockchain workflow application](solution-ideas/articles/blockchain-workflow-application.yml)
-- [Event-based cloud automation](reference-architectures/serverless/cloud-automation.yml)
+- [High-volume batch transaction processing](/azure/architecture-center/example-scenario/mainframe/process-batch-transactions)
+- [Transit hub dynamic pub-sub messaging system](/azure/architecture-center/solution-ideas/articles/transit-hub)
+- [Serverless event processing](/azure/architecture-center/reference-architectures/serverless/event-processing)
+- [Blockchain workflow application](/azure/architecture-center/solution-ideas/articles/blockchain-workflow-application)
+- [Event-based cloud automation](/azure/architecture-center/reference-architectures/serverless/cloud-automation)
