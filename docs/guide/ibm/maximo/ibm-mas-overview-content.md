@@ -1,14 +1,17 @@
-IBM's Maximo Application Suite, also MAS or Maximo, is an Enterprise Asset Management platform that's focused on operational resiliency and reliability that uses condition-based asset maintenance. The suite consists of a core application platform, Maximo Application Suite, and applications on top of the platform. Each application performs a specific benefit:
+IBM's Maximo Application Suite, also MAS or Maximo, is an Enterprise Asset Management platform that's focused on operational resiliency and reliability using AI-based asset maintenance. The suite consists of a core application platform, Maximo Application Suite, and applications and industry solutions on top of the platform. Each application performs a specific benefit:
 
 - Manage: reduce downtime and costs through asset management to improve operational performance.
 - Monitor: advanced AI-powered remote asset monitoring at scale using IoT.
 - Health: manage asset health using IoT data from sensors, asset data and maintenance history.
 - Visual inspection: train and use visual inspection machine learning models to do use visual analysis of emerging issues.
 - Predict: machine learning and data analytics focused on predicting future failures.
+- Assist: provides technicians with AI-powered guidance through a knowledge base of equipment maintenance data and gives them remote access to experts for assistance.
+- Safety: collects and analyzes data from sensors, provides contextual data, and derives meaningful analytics.
+- Civil: integrates inspection, defect tracking, and maintenance activities to help organizations improve asset life, keep critical systems up and running, and lower total cost of ownership of civil infrastructure.
 
-IBM's Maximo Application Suite (MAS) 8.x and the applications above have been tested for use on Azure. Microsoft and the IBM Maximo team have partnered together to ensure this solution is configured to run optimally on Azure. This guidance provides a design for running Maximo 8.x on Azure. It also assumes you'll have support from IBM and a partner for installation. Reach out to your IBM team for Maximo product specific questions.
+IBM's Maximo Application Suite (MAS) 8.x and the applications above have been tested for use on Azure. Microsoft and the IBM Maximo team have partnered together to ensure this solution is configured to run optimally on Azure. This guidance provides a design for running Maximo 8.x on Azure. It also assumes you'll have support from IBM and a partner for installation. Reach out to your IBM team for Maximo product specific questions. An alternative installation for Maximo is [available through the Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/ibm-usa-ny-armonk-hq-6275750-ibmcloud-asperia.ibm-maximo-application-suite-byol?tab=Overview) with BYOL.
 
-MAS 8.x runs on OpenShift and it's beneficial to familiarize yourself with OpenShift and the suggested patterns for [installation on Azure](https://docs.openshift.com/container-platform/4.8/installing/installing_azure/preparing-to-install-on-azure.html). This architecture illustrates an OpenShift cluster. It doesn't go into detail on building the Maximo application. To learn more about that process, see [How to deploy and run IBM Maximo Asset Management on Red Hat OpenShift](https://www.ibm.com/support/pages/sites/default/files/inline-files/$FILE/deploy-run-maximo-on-openshift_0.pdf).
+MAS 8.x runs on OpenShift and it's beneficial to familiarize yourself with OpenShift and the suggested patterns for [installation on Azure](https://docs.openshift.com/container-platform/4.8/installing/installing_azure/preparing-to-install-on-azure.html). This architecture illustrates an OpenShift cluster, it doesn't go into detail on how to install the Maximo Application Suite. To learn more about the installing process, see [Installing Maximo Application Suite from OperatorHub](https://www.ibm.com/docs/en/mas87/8.7.0?topic=installing-maximo-application-suite-from-operatorhub)
 
 ## Potential use cases
 
@@ -28,7 +31,7 @@ More information about use cases for Maximo can be found on [IBM's Maximo websit
    The diagram contains a large rectangle with the label Azure Virtual Network. Inside it, another large rectangle.
 :::image-end:::
 
-The workload can be both deployed internally or externally facing, depending on your requirements. 
+The workload can be both deployed internally or externally facing, depending on your requirements.
 
 ### Workflow
 
@@ -90,9 +93,9 @@ Review what applications you need to complete your business scenario and then re
 You may also choose to run Oracle Exadata on a VM or on Oracle Cloud Infrastructure using the [OCI Interconnect](https://docs.oracle.com/en/solutions/learn-azure-oci-interconnect/index.html), but we haven't tested this configuration. Currently not supported are Azure SQL DB and Azure Cosmos DB. These databases may be supported in future releases of Maximo.
 
 > [!NOTE] 
-> In some cases you can't reuse a database for multiple Maximo applications because of conflicting database settings. For example, you can't use the same IBM DB2 Warehouse for health + manage in combination with monitor. You can mix different database products, such as using Microsoft SQL Server for one application and IBM DB2 Warehouse for another.
+> In some cases you can't reuse a database for multiple Maximo applications because of conflicting database settings. For example, [you can't use the same IBM DB2 Warehouse for health + manage in combination with monitor](https://www.ibm.com/docs/en/mas83/8.3.0?topic=dependencies-configure-database-health). You can mix different database products, such as using Microsoft SQL Server for one application and IBM DB2 Warehouse for another.
 
-Maximo and some of its applications have dependencies on MongoDB and/or Kafka. How you deploy these solutions should be a performance and operations consideration. The defaults are to deploy MongoDB Community Edition and Strimzi Kafka inside the clusters. Maximo also uses Crunchy PostgreSQL inside OpenShift, a dependency that can't be externalized.
+Maximo and some of its applications have dependencies on MongoDB and/or Kafka. How you deploy these solutions should be a performance and operations consideration. The defaults are to deploy MongoDB Community Edition and Strimzi Kafka inside the clusters. Some of the prerequisites of Maximo, for example BAS, use databases that can't be externalized but that require persistent storage to be provided to the OpenShift cluster.
 
 For state based services running inside of the OpenShift cluster, it's necessary to frequently perform backups and move them into another region. Plan and decide accordingly, especially when running Kafka or MongoDB inside of OpenShift.
 
@@ -107,9 +110,9 @@ Some of the services may require other IBM tooling and services like IBM Watson 
 
 Before you install OpenShift, you'll need to determine which method you'll be using:
 - **Installer Provisioned Infrastructure (IPI)**: this method uses an installer to deploy and configure the OpenShift environment on Azure. The IPI method is the most common method for deploying on Azure and should be used unless you have strict security requirements.
-- **User Provisioned Infrastructure (UPI)**: this method allows fine grained control over the deployment, which is typically used when you require a private (air gapped) installation. This method should be chosen when you have no outbound internet access during the build of the environment. This method will require more steps and considerations to build your environment. 
+- **User Provisioned Infrastructure (UPI)**: this method allows fine grained control over your deployment in case the standard installer doesn't meet your needs. This method will require more steps and considerations to build your environment. 
 
-Our recommendation is to use the IPI installer whenever possible as it significantly reduces the amount of work that needs to be done to complete the installation.
+Our recommendation is to use the IPI method whenever possible as it significantly reduces the amount of work that needs to be done to complete the installation. A common use case for UPI method is the requirement of a private (air gapped) installation. This method should be chosen when you have no outbound internet access during the build of the environment. 
 
 > [!NOTE]
 > Once OpenShift has been installed, the control plane owner will be responsible for maintaining and scaling the worker nodes on Azure. You increase the cluster size through the admin console using MachineSets, not through the Azure portal.
@@ -143,7 +146,7 @@ For the GPU machines, we recommend starting with the smallest node and scaling u
 * Control nodes, you want at a minimum one machine per availability zone within the selected region. The minimum recommended vCPU count is 4. Our reference uses 3x `Standard_D8s_v4` nodes
 * Worker nodes, you want a minimum of two machines per availability zone within the selected region. The minimum recommended vCPU count is 8. Our reference uses 6x `Standard_D8s_v4` nodes.
 
-Maximo Application Suite core requires 23 vCPUs for a standard sized base install. Sizing for the worker nodes will vary based on which Maximo applications are deployed and the expected load on your environment. For example, Maximo Manage for 10 users needs another 13 vCPUs.
+Maximo Application Suite core requires 23 vCPUs for a standard sized base install. Sizing for the worker nodes will vary based on which Maximo applications are deployed and the expected load on your environment. For example, Maximo Manage for 10 users needs another 2 vCPUs.
 
 Try to keep VM types similar to provide proximity with each of the availability zones between worker and control nodes. That is, if you use a v4 for your control nodes, use a v4 for your worker nodes.
 
@@ -201,7 +204,7 @@ Use [network security groups](/azure/virtual-network/security-overview) to filte
 - Blocking access to all others parts of the cluster
 - Controlling from where you can access Maximo and OpenShift cluster
 
-If you need access to your VMs for some reason, you can connect through your hybrid connectivity or the OpenShift admin console. If you have an online deployment or don't want to rely on connectivity, you can also access your VMs through the optional [Azure Bastion](/azure/bastion/bastion-overview). For security reasons you shouldn't expose VMs to a network or internet without [Network Security Groups](/azure/virtual-network/network-security-groups-overview) on them. 
+If you need access to your VMs for some reason, you can connect through your hybrid connectivity or the OpenShift admin console. If you have an online deployment or don't want to rely on connectivity, you can also access your VMs through the optional [Azure Bastion](/azure/bastion/bastion-overview). For security reasons, you shouldn't expose VMs to a network or internet without [Network Security Groups](/azure/virtual-network/network-security-groups-overview) on them. 
 
 [Server-side encryption (SSE) of Azure Disk Storage](/azure/virtual-machines/disk-encryption) protects your data. It also helps you meet organizational security and compliance commitments. With Azure managed disks, SSE encrypts the data at rest when persisting it to the cloud. This behavior applies by default to both OS and data disks. OpenShift uses SSE by default.
 
@@ -298,6 +301,7 @@ For help with getting started, see the following resources:
 - [QuickStart Guide: Maximo Application Suite on Azure](https://github.com/Azure/maximo)
 - [OpenShift UPI Guide](https://github.com/openshift/installer/blob/master/docs/user/azure/install_upi.md)
 - [Requirements for Maximo](https://www.ibm.com/support/pages/node/6538166)
+- [IBM Maximo Application Suite (BYOL)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/ibm-usa-ny-armonk-hq-6275750-ibmcloud-asperia.ibm-maximo-application-suite-byol?tab=Overview)
 
 To learn more about the featured technologies, see the following information:
 
@@ -307,3 +311,5 @@ To learn more about the featured technologies, see the following information:
 ## Related resources
 
 [Predictive maintenance for industrial IoT](/azure/architecture/solution-ideas/articles/iot-predictive-maintenance)
+
+
