@@ -24,7 +24,7 @@ ms.custom:
 
 In a multitenant solution, it's common to have some application configuration settings that are shared among multiple tenants, such as global settings or settings that apply to all tenants within a deployment stamp. You likely also have some other settings that are tenant-specific. For example, you might need to store each tenant's database name or internal identifiers. Or, you might want to specify different log levels for each tenant, such as when you diagnose a problem reported by specific tenant and need to collect additional diagnostics from that one tenant.
 
-[Azure App Configuration](https://docs.microsoft.com/azure/azure-app-configuration/overview) enables you to store configuration settings for your application. By using Azure App Configuration, you can easily implement the [External Configuration Store pattern](https://docs.microsoft.com/azure/architecture/patterns/external-configuration-store). In this article, we describe some of the features of Azure App Configuration that are useful when working with multitenanted systems, and we link to guidance and examples for how to use Azure App Configuration in a multitenant solution.
+[Azure App Configuration](/azure/azure-app-configuration/overview) enables you to store configuration settings for your application. By using Azure App Configuration, you can easily implement the [External Configuration Store pattern](../../../patterns/external-configuration-store.yml). In this article, we describe some of the features of Azure App Configuration that are useful when working with multitenanted systems, and we link to guidance and examples for how to use Azure App Configuration in a multitenant solution.
 
 ## Isolation models
 
@@ -57,7 +57,7 @@ For example, suppose you need to store a setting to indicate the logging level f
 
 Azure App Configuration enables you to specify long key names, supporting multiple levels in a hierarchy. If you choose to use long key names, ensure you understand the [size limits for keys and values](/azure/azure-app-configuration/concept-key-value#keys).
 
-When you load a single tenant's configuration into your application, you can specify a [key prefix filter](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.azureappconfigurationoptions.select?view=azure-dotnet#parameters) to only load that tenant's keys. You can also configure the .NET SDK for Azure App Configuration to [trim the key prefix](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.azureappconfigurationoptions.trimkeyprefix?view=azure-dotnet#microsoft-extensions-configuration-azureappconfiguration-azureappconfigurationoptions-trimkeyprefix(system-string)) from the keys before it makes them available to your application. By trimming the key prefix, your application sees a consistent key name, with tenant-specific values.
+When you load a single tenant's configuration into your application, you can specify a [key prefix filter](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.azureappconfigurationoptions.select#parameters) to only load that tenant's keys. You can also configure the .NET SDK for Azure App Configuration to [trim the key prefix](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.azureappconfigurationoptions.trimkeyprefix#microsoft-extensions-configuration-azureappconfiguration-azureappconfigurationoptions-trimkeyprefix(system-string)) from the keys before it makes them available to your application. By trimming the key prefix, your application sees a consistent key name, with tenant-specific values.
 
 ### Labels
 
@@ -65,7 +65,7 @@ Azure App Configuration also supports [labels](/azure/azure-app-configuration/co
 
 You might consider using tenant identifiers as labels. However, labels are often used for versioning or for other purposes in your solution. While you can use tenant identifiers as labels, you won't be able to use labels for anything else. So, it's often a good practice to use [key prefixes](#key-prefixes) instead of labels when you work with multiple tenants.
 
-If you do decide to use labels for each tenant, your application can load just the settings for a specific label by using a [label filter](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.azureappconfigurationoptions.select?view=azure-dotnet#parameters). This approach can be helpful if you have separate application deployments for each tenant.
+If you do decide to use labels for each tenant, your application can load just the settings for a specific label by using a [label filter](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.azureappconfigurationoptions.select#parameters). This approach can be helpful if you have separate application deployments for each tenant.
 
 ### Application-side caching
 
