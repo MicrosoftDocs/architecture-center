@@ -149,7 +149,7 @@ Provide hardware resiliency for your IoT Edge gateway VMs.
 
 - Considerations
   - This pattern is for hardware resiliency and is agnostic of data models, protocols, and industrial connectivity software.
-  - For Kubernetes information, see [Choose a Kubernetes at the edge compute option](../../operator-guides/aks/choose-kubernetes-edge-compute-option).
+  - For Kubernetes information, see [Choose a Kubernetes at the edge compute option](../../operator-guides/aks/choose-kubernetes-edge-compute-option.md).
   - To deploy an IoT Edge solution, see [Prepare to deploy your IoT Edge solution in production](/azure/iot-edge/production-checklist?view=iotedge-2018-06).
   - For security considerations, see [Azure security baseline for IoT Hub](/security/benchmark/azure/baselines/iot-hub-security-baseline?toc=/azure/iot-hub/TOC.json).
   - To learn when to use IoT Hub instead of Azure IoT Central, see the [Cloud gateway options](#cloud-gateway-options).
