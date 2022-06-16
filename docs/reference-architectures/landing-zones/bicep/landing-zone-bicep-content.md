@@ -12,6 +12,12 @@ The architecture proposes the inclusion of orchestrator modules when limitations
 
 ## Modules
 
+A core concept in Bicep is the use of modules. Modules enable you to organize deployments into logical groupings. With modules, you improve the readability of your Bicep files by encapsulating complex details of your deployment. You can also easily reuse modules for different deployments.
+
+This ability to re-use offers a real benefit when defining and deploying landing zones. It enables repeatable, consistent environments in code while reducing the effort required to deploy at scale.
+
+As part of the Bicep landing zone implementation, the following modules have been created and can be found in the GitHub repository.
+
 ### Management Groups
 
 Management groups are the highest level resources in an Azure tenant. Management groups allow you to more easily manage your resources. You can apply policy at the management group level and lower level resources will inherit that policy. Specifically, you can apply the following items at the management group level that will be inherited by subscriptions under the management group:
@@ -59,3 +65,19 @@ Useful links:
 ### Built-In and Custom Policy Assignments
 
 ### Spoke Networking
+
+## Layers and staging
+
+In addition to modules, the Bicep landing zone implementation is structured using a concept of layers. Layers are groups of Bicep modules that are intended to be deployed together. Those groups form logical stages of the implementation.
+
+:::image type="content" border="true" source="images/high-level-deployment-flow.png" alt-text="Diagram showing the deployment layers." lightbox="images/high-level-deployment-flow.png":::
+
+A benefit of this layered approach is the ability to add to your environment incrementally over time. For example, you can start with a small number of the layers. You can add the remaining layers at a subsequent stage when you’re ready.
+
+## Customizing the Bicep implementation
+
+The landing zone implementations provided as part of the Cloud Adoption Framework suit a wide variety of requirements and use cases. However, there are often scenarios where customization is required to meet specific business needs.
+
+This Bicep landing zone implementation can be used as the basis of your customized deployment. It provides you a way to accelerate your implementation by removing the need to start from scratch because of a specific required change that rules a ready-made option out.
+
+To customize a Bicep landing zone...
