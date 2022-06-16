@@ -60,32 +60,32 @@ Methods of forecasting demand range from on-point predictions, probabilistic Mon
 
 ### Components
 
--   [Data Lake Storage](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) is a scalable and secure data lake for high-performance analytics workloads. Using ADLS you can manage petabytes of data with high throughput. Data Lake Storage can accommodate multiple, heterogeneous sources and data coming in structured, semi-structured, or unstructured formats.
+-   [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/) is a scalable and secure data lake for high-performance analytics workloads. Using ADLS you can manage petabytes of data with high throughput. Data Lake Storage can accommodate multiple, heterogeneous sources and data coming in structured, semi-structured, or unstructured formats.
 
 -   [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) is a scalable and serverless service that provides a data-integration and transformation layer that works with various data stores.
 
--   [Power BI](https://docs.microsoft.com/power-bi/fundamentals/power-bi-overview) is a collection of software services, apps, and connectors that work together to turn your unrelated sources of data into coherent, visually immersive, and interactive insights.
+-   [Power BI](https://azure.microsoft.com/services/developer-tools/power-bi/) is a collection of software services, apps, and connectors that work together to turn your unrelated sources of data into coherent, visually immersive, and interactive insights.
 
--   [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/overview-what-is-azure-machine-learning) is a cloud service for accelerating and managing the lifecycle of a machine-learning project. Machine learning professionals, data scientists, and engineers can use Azure Machine Learning in their day-to-day workflows: Train and deploy models and manage Machine Learning Operations (MLOps).
+-   [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) is a cloud service for accelerating and managing the lifecycle of a machine-learning project. Machine learning professionals, data scientists, and engineers can use Azure Machine Learning in their day-to-day workflows: Train and deploy models and manage Machine Learning Operations (MLOps).
 
--   [Azure SQL Database](https://docs.microsoft.com/azure/azure-sql/database/sql-database-paas-overview): Azure SQL Database is a fully managed platform as a service (PaaS) that handles most of the database management functions, such as upgrading, patching, backups, and monitoring without user involvement.
+-   [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database/): Azure SQL Database is a fully managed platform as a service (PaaS) that handles most of the database management functions, such as upgrading, patching, backups, and monitoring without user involvement.
 
--   [Azure Kubernetes](https://docs.microsoft.com/azure/aks/intro-kubernetes): Azure Kubernetes Service (AKS) simplifies deploying a managed Kubernetes cluster in Azure by offloading the operational overhead to Azure. As a hosted Kubernetes service, Azure handles critical tasks, like health monitoring and maintenance.
+-   [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/): AKS simplifies deploying a managed Kubernetes cluster in Azure by offloading the operational overhead to Azure. As a hosted Kubernetes service, Azure handles critical tasks, like health monitoring and maintenance.
 
--   [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics/overview-what-is): Azure Synapse Analytics is an enterprise analytics service that accelerates time to insight across data warehouses and big data systems. It brings together the best of SQL technologies used in enterprise data warehousing, Spark technologies used for big data, Data Explorer for log and time series analytics, Pipelines for data integration and ETL/ELT, and deep integration with other Azure services, such as Power BI, Cosmos DB, and Azure Machine Learning.
+-   [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/): Azure Synapse Analytics is an enterprise analytics service that accelerates time to insight across data warehouses and big data systems. It brings together the best of SQL technologies used in enterprise data warehousing, Spark technologies used for big data, Data Explorer for log and time series analytics, Pipelines for data integration and ETL/ELT, and deep integration with other Azure services, such as Power BI, Cosmos DB, and Azure Machine Learning.
 
 
 ### Alternatives
 
--   In this solution, Azure Machine Learning performs forecasting and inventory management analytics. However, you can utilize Azure Databricks or Azure Synapse Analytics to perform the same type of analytics, when the amount of data is large. For more information, see [Apache Spark in Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-overview).
+In this solution, Azure Machine Learning performs forecasting and inventory management analytics. However, you can use Azure Databricks or Azure Synapse Analytics to perform the same type of analytics, when the amount of data is large. For more information, see [Apache Spark in Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-overview).
 
--   To curate and perform ETL data in Azure Data Lake, as an alternative to Azure Data Factory Data Flows, you can use Azure Databricks for a code-first approach.
+To curate and perform ETL data in Azure Data Lake, as an alternative to [Mapping Data Flows](/azure/data-factory/concepts-data-flow-overview) in Azure Data Factory, you can use Azure Databricks for a code-first approach.
 
--   Depending on the specific use case and the choice of analytics platform for end users, instead of storing the data in SQL Server you can utilize other relational or storage services such as Azure Synapse Analytics or Azure Data Lake Storage Gen2. For instance, if the data is accumulated for a long period of time and there's a need to run analytics queries against this data, Azure Synapse analytics is a good option as part of the architecture.
+Depending on your specific use case and your choice of analytics platform for end users, you can use other relational or storage services, such as Azure Synapse Analytics or [Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction), instead of storing your data in Azure SQL Server. For example, if the data has accumulated for a long period of time and there's a need to run analytics queries against this data, Azure Synapse analytics is a good option as part of the architecture.
 
--   Instead of running the Ray framework on Kubernetes, you can utilize Ray framework on Azure ML Compute to perform inferencing. To incorporate the Ray framework on Azure ML Compute, you may find [ray-on-ml](https://github.com/microsoft/ray-on-aml), a package on GitHub.
+Instead of running the Ray framework on Kubernetes, you can use Ray framework on a compute instance in Azure Machine Learning to perform inferencing. To incorporate the Ray framework on Azure Machine Learning, you may find [ray-on-ml](https://github.com/microsoft/ray-on-aml), a package on GitHub, helpful.
 
--   Alternatively, a custom Web App can be used instead or along with Power Apps to the user interface and Power BI embedded reports for analysis.
+You could use [Web Apps](https://azure.microsoft.com/services/app-service/web/) instead of or along with Power Apps to create the user interface for access to the Power BI embedded reports.
 
 
 ### Forecasting with Deep Learning
@@ -111,28 +111,25 @@ Follow the best practices for Databricks security and data governance. For more 
 Consider implementing the following additional security features in this architecture:
 
 -   [Store credentials in Azure Key Vault](/azure/data-factory/store-credentials-in-key-vault)
-
 -   [Deploy dedicated Azure services into virtual networks](/azure/virtual-network/virtual-network-for-azure-services)
 
 
 ### Cost optimization
 
--   To estimate the cost of implementing this solution, please utilize [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) for the services mentioned above.
+To estimate the cost of implementing this solution, please utilize [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) for the services mentioned in this article. It's also valuable to see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
--   Power BI comes with different licensing offerings. For more information, see [Power BI pricing](https://powerbi.microsoft.com/pricing/) for further information.
+Power BI comes with different licensing offerings. For more information, see [Power BI pricing](https://powerbi.microsoft.com/pricing/).
 
--   Depending on the volume of data and complexity of your geospatial analysis you may need to scale your Databricks cluster configurations that would affect your cost. Please refer to Databricks' [cluster sizing](/azure/databricks/clusters/cluster-config-best-practices#--cluster-sizing-examples) examples for best practices on cluster configuration.
-
--   It's also valuable to see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Depending on the volume of data and complexity of your geospatial analysis you may need to scale your Databricks cluster configurations that would affect your cost. Please refer to Databricks' [cluster sizing](/azure/databricks/clusters/cluster-config-best-practices#--cluster-sizing-examples) examples for best practices on cluster configuration.
 
 
 ### Performance efficiency
 
--   If the input data is large, consider using [Ray Dataset](https://docs.ray.io/en/latest/data/dataset.html) along with Ray framework. Ray datasets provide distributed data transformations on various file formats and are easily integrated with other Ray libraries and applications.
+If the input data is large, consider using [Ray Dataset](https://docs.ray.io/en/latest/data/dataset.html) along with Ray framework. Ray datasets provide distributed data transformations on various file formats and are easily integrated with other Ray libraries and applications.
 
--   If Azure Data Factory Mapping Data Flows is used for ETL, please follow performance and tuning guide for mapping Data Flows to optimize your data pipeline and ensure that your data flows meet your performance benchmarks.
+If you use Mapping Data Flows in Azure Data Factory for ETL, follow [the performance and tuning guide](/azure/data-factory/concepts-data-flow-performance) to optimize your data pipeline and ensure that your data flows meet your performance benchmarks.
 
--   Often, for optimization and Operations Research problems, compute intensive calculations are run once the inferencing is invoked. If Ray framework is utilized for distributed compute as suggested in this article, make sure to utilize [Ray Dashboard](https://docs.ray.io/en/latest/ray-core/ray-dashboard.html) to monitor the execution metrics and increase the node counts in Kubernetes cluster.
+Often, for optimization and Operations Research problems, compute-intensive calculations run after the inferencing is invoked. If you use the Ray framework for distributed computing, as suggested in this article, make sure to utilize [Ray Dashboard](https://docs.ray.io/en/latest/ray-core/ray-dashboard.html) to monitor the execution metrics and increase the node counts in Kubernetes cluster.
 
 
 ## Contributors
