@@ -22,9 +22,9 @@ ms.custom:
 
 # Multitenancy and Azure App Configuration
 
-In a multitenant solution, it's common to have some two types of application configuration settings:
+In a multitenant solution, it's common to have two types of application configuration settings:
 
-- Settings that you share among multiple tenants, such as global settings or settings that apply to all tenants within a deployment stamp.
+- Settings that you share among multiple tenants, such as global settings or settings that apply to all tenants within a [deployment stamp](../approaches/overview.yml#deployment-stamps-pattern).
 - Tenant-specific settings. For example, you might need to store each tenant's database name or internal identifiers. Or, you might want to specify different log levels for each tenant, such as when you diagnose a problem reported by specific tenant and need to collect diagnostic logs from that one tenant.
 
 [Azure App Configuration](/azure/azure-app-configuration/overview) enables you to store configuration settings for your application. By using Azure App Configuration, you can easily implement the [External Configuration Store pattern](../../../patterns/external-configuration-store.yml). In this article, we describe some of the features of Azure App Configuration that are useful when working with multitenanted systems, and we link to guidance and examples for how to use Azure App Configuration in a multitenant solution.
@@ -41,7 +41,7 @@ If you follow this approach, ensure you understand the [resource quotas and limi
 
 ### Stores per tenant
 
-You might instead choose to deploy an Azure App Configuration store for each tenant. Azure App Configuration enables you to deploy an unlimited number of stores in your subscription. However, this approach is often more complex to manage, because you have to deploy and configure more resources. There's also [a charge for each store resource that you deploy](https://azure.microsoft.com/pricing/details/app-configuration/#pricing).
+You might instead choose to deploy an Azure App Configuration store for each tenant. Azure App Configuration [standard tier](/azure/azure-app-configuration/faq#which-app-configuration-tier-should-i-use) enables you to deploy an unlimited number of stores in your subscription. However, this approach is often more complex to manage, because you have to deploy and configure more resources. There's also [a charge for each store resource that you deploy](https://azure.microsoft.com/pricing/details/app-configuration/#pricing).
 
 Consider tenant-specific stores if you have one of the following situations:
 
@@ -68,15 +68,15 @@ Azure App Configuration also supports [labels](/azure/azure-app-configuration/co
 
 Labels are often used for versioning, working with multiple deployment environments, or for other purposes in your solution. While you can use tenant identifiers as labels, you won't be able to use labels for anything else. So, it's often a good practice to use [key prefixes](#key-prefixes) instead of labels when you work with a multitenant solution.
 
-If you do decide to use labels for each tenant, your application can load just the settings for a specific label by using a [label filter](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.azureappconfigurationoptions.select#parameters). This approach can be helpful if you have separate application deployments for each tenant.
+If you do decide to use labels for each tenant, your application can load just the settings for a specific tenant by using a [label filter](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.azureappconfigurationoptions.select#parameters). This approach can be helpful if you have separate application deployments for each tenant.
 
 ### Application-side caching
 
-When you work with Azure App Configuration, it's important to cache the settings within your application instead of loading them every time you use them. The Azure App Configuration SDKs cache settings and refresh them automatically.
+When you work with Azure App Configuration, it's important to cache the settings within your application instead of loading them every time you use them. The [Azure App Configuration client libraries](/azure/azure-app-configuration/overview#use-app-configuration) cache settings and refresh them automatically.
 
 You also need to decide whether your application loads the settings for a single tenant or for all tenants.
 
-As your tenant base grows, the amount of time and the memory resources required to load settings for all tenants together is likely to increase. So, in most situations, it's a good practice to load the settings for each tenant separately when your application needs them.
+As your tenant base grows, the amount of time and the memory required to load settings for all tenants together is likely to increase. So, in most situations, it's a good practice to load the settings for each tenant separately when your application needs them.
 
 If you load each tenant's configuration settings separately, your application needs to cache each set of settings separately to any others. In .NET applications, consider using an [in-memory cache](/aspnet/core/performance/caching/memory) to cache the tenant's IConfiguration object and use the tenant identifier as the cache key. By using an in-memory cache, you don't need to reload configuration upon every request, but the cache can remove unused instances if your application is under memory pressure. You can also configure expiration times for each tenant's configuration settings.
 
