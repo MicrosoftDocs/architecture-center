@@ -1,27 +1,23 @@
-An end-to-end connectivity solution helps securely connect people, assets, workflow, and business processes, which make your organization more resilient. The key aspects around connectivity include:
+An end-to-end connectivity solution makes your organization more resilient by helping to securely connect people, assets, workflow, and business processes. The key aspects around connectivity include:
 
-- Devices
-  - PLCs, sensors, equipment, and assembly lines
-- Systems
-  - Process historian, supervisory control and data acquisition (SCADA), manufacturing execution systems (MES), and industrial control systems/distributed control systems (ICS/DCS)
-- Standards and data models
-  - ISA 95, ISA 99, OPC Data Access (DA), OPC Unified Architecture (UA), and Modbus
-- Network and Security
-  - Purdue model, firewalls, proxies, network inspection, 5G, and long-range WAN (LoRaWAN®)
-    - X.509 certificates and access policies
-- Edge gateways
-  - Software only or a hardware and software solution
-  - Modular design, cloud based management plane, and offline support
-  - Layered edge processing, analytics, and machine learning
-- Cloud gateways
-  - Cloud connectivity, transport protocols, and device management and scale
+- Devices like PLCs, sensors, equipment, and assembly lines.
+- Systems like process historian, supervisory control and data acquisition (SCADA), manufacturing execution systems (MES), and industrial control systems/distributed control systems (ICS/DCS).
+- Standards and data models like ISA 95, ISA 99, OPC Data Access (DA), OPC Unified Architecture (UA), and Modbus.
+- Network and security like:
+  - Purdue model, firewalls, proxies, network inspection, 5G, and long-range WAN (LoRaWAN®).
+  - X.509 certificates and access policies.
+- Edge gateways like:
+  - Software only or a hardware and software solution.
+  - Modular design, cloud based management plane, and offline support.
+  - Layered edge processing, analytics, and machine learning.
+- Cloud gateways like cloud connectivity, transport protocols, and device management and scale.
 
 The following sections include common connectivity patterns for industrial solutions.
 
 > [!NOTE]
 > These patterns are for telemetry egress only. No control commands are sent back to the industrial systems or devices. These patterns are also focused on [Connected operations](/azure/architecture/framework/iot/iot-overview#connected-operations) scenarios. [Connected products](/azure/architecture/framework/iot/iot-overview#connected-products) scenarios will be added later.
 
-*Download a [PowerPoint file](https://arch-center.azureedge.net/[filename].vsdx) for the following patterns.*
+*Download a [PowerPoint file](https://arch-center.azureedge.net/iiot-connectivity-patterns.pptx) for the following patterns.*
 
 *LoRaWAN® is a registered trademark of the LoRa Alliance® in the United States and/or other countries. No endorsement by [LoRa Alliance®](https://lora-alliance.org) is implied by the use of these marks.*
 
@@ -32,9 +28,9 @@ Connect to manufacturing machines by using OPC UA standards and an Azure IoT Edg
 :::image type="content" source="images/edge-opcua.png" alt-text="Diagram that shows how to connect machines by using an OPC UA server and an IoT Edge gateway." lightbox="images/edge-opcua.png":::
 
 - Dataflow
-  1. Programmable logic controllers (PLCs) connect to industrial connectivity software or historian software using a switch or internal network connectivity.
-  2. The OPC UA module connects to the OPC UA endpoint provided by the industrial connectivity software and sends the data to edgeHub.
-  3. The edgeHub sends the data to Azure IoT Hub or Azure IoT Central by using advanced message queuing protocol (AMQP) or MQTT.
+  1. Programmable logic controllers (PLCs) are connected to industrial connectivity software or historian software by using a switch or internal network connectivity.
+  2. The OPC UA module connects to the OPC UA endpoint that's provided by the industrial connectivity software and sends the data to the edgeHub module.
+  3. The edgeHub module sends the data to Azure IoT Hub or Azure IoT Central by using advanced message queuing protocol (AMQP) or MQTT.
   4. IoT Hub or Azure IoT Central uses data connection or data export to send data to Azure Data Explorer.
 
 - Use this pattern when:
@@ -42,9 +38,9 @@ Connect to manufacturing machines by using OPC UA standards and an Azure IoT Edg
   - You can install IoT Edge at layer 3 and connect to the PLC via an OPC UA server.
 
 - Considerations
-  - [Prepare to deploy your IoT Edge solution in production](/azure/iot-edge/production-checklist?view=iotedge-2018-06)
-  - [OPC publisher module configuration guide](https://github.com/Azure/Industrial-IoT/blob/main/docs/modules/publisher.md)
-  - [Azure security baseline for IoT Hub](/security/benchmark/azure/baselines/iot-hub-security-baseline?toc=/azure/iot-hub/TOC.json)
+  - To deploy an IoT Edge solution, see [Prepare to deploy your IoT Edge solution in production](/azure/iot-edge/production-checklist?view=iotedge-2018-06).
+  - To configure your OPC publisher, see the [OPC publisher module configuration guide](https://github.com/Azure/Industrial-IoT/blob/main/docs/modules/publisher.md).
+  - For security considerations, see [Azure security baseline for IoT Hub](/security/benchmark/azure/baselines/iot-hub-security-baseline?toc=/azure/iot-hub/TOC.json).
   - You can install an IoT Edge runtime on a Linux or Windows virtual machine (VM) and dedicated hardware like [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/#overview).
   - To learn when to use IoT Hub instead of Azure IoT Central, see the [Cloud gateway options](#cloud-gateway-options).
 
@@ -59,8 +55,8 @@ Connect to manufacturing machines over non-standard protocols by using an IoT Ed
 :::image type="content" source="images/edge-protocol-translation.png" alt-text="Diagram that shows machines connected by using a custom protocol translation module and an IoT Edge gateway." lightbox="images/edge-protocol-translation.png":::
 
 - Dataflow
-  1. Connect devices that don't support OPC UA via a custom protocol translation module to the edgeHub.
-  2. The edgeHub sends the data to IoT Hub or Azure IoT Central by using AMQP or MQTT.
+  1. Devices that don't support OPC UA are connected via a custom protocol translation module to the edgeHub module.
+  2. The edgeHub module sends the data to IoT Hub or Azure IoT Central by using AMQP or MQTT.
   3. IoT Hub or Azure IoT Central uses data connection or data export to send data to Azure Data Explorer.
 
 - Use this pattern when:
@@ -68,10 +64,10 @@ Connect to manufacturing machines over non-standard protocols by using an IoT Ed
   - You can install IoT Edge at layer 3 and connect to your devices.
 
 - Considerations
-  - [Prepare to deploy your IoT Edge solution in production](/azure/iot-edge/production-checklist?view=iotedge-2018-06)
-  - [Azure security baseline for IoT Hub](/security/benchmark/azure/baselines/iot-hub-security-baseline?toc=/azure/iot-hub/TOC.json)
+  - To deploy an IoT Edge solution, see [Prepare to deploy your IoT Edge solution in production](/azure/iot-edge/production-checklist?view=iotedge-2018-06).
+  - For security considerations, see [Azure security baseline for IoT Hub](/security/benchmark/azure/baselines/iot-hub-security-baseline?toc=/azure/iot-hub/TOC.json).
   - You can install IoT Edge runtime on a Linux or Windows VM and dedicated hardware like [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/#overview).
-  - See the [IoT Edge module marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules) for partner solutions.
+  - For partner solutions, eee the [IoT Edge module marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules).
   - To learn when to use IoT Hub instead of Azure IoT Central, see the [Cloud gateway options](#cloud-gateway-options).
 
 - Deployment sample
@@ -79,23 +75,23 @@ Connect to manufacturing machines over non-standard protocols by using an IoT Ed
 
 ## Cloud connector from industrial connectivity software or a historian
 
-Connect to manufacturing machines using a cloud connector component available in industrial connectivity software.
+Connect to manufacturing machines by using a cloud connector component that's available in industrial connectivity software.
 
 :::image type="content" source="images/historian-cloud-connector.png" alt-text="Diagram that shows machines connected by using built-in cloud connectors from historian software." lightbox="images/historian-cloud-connector.png":::
 
 - Dataflow
-  1. Connect the PLCs to industrial connectivity software or historian software by using a switch or internal network connectivity.
+  1. PLCs are connected to industrial connectivity software or historian software by using a switch or internal network connectivity.
   2. The industrial connectivity software uses AMQP or MQTT to send the data over a built-in cloud connector to IoT Hub or Azure IoT Central.
   3. IoT Hub or Azure IoT Central uses data connection or data export to send data to Azure Data Explorer.
 
 - Use this pattern when:
   - Industrial connectivity software or historian software is available and has a built-in cloud connector.
   - You don't require management, processing, and analytics functionality for the use case.
-  - The connector can provide the data with same granularity as an edge gateway.
+  - The connector can provide the data with the same granularity as an edge gateway.
 
 - Considerations
-  - Another cost for cloud connectors along with licensing and tag based costing model for historians.
-  - [Azure security baseline for IoT Hub](/security/benchmark/azure/baselines/iot-hub-security-baseline?toc=/azure/iot-hub/TOC.json)
+  - This method adds another cost for cloud connectors along with licensing and tag-based costing model for historians.
+  - For security considerations, see [Azure security baseline for IoT Hub](/security/benchmark/azure/baselines/iot-hub-security-baseline?toc=/azure/iot-hub/TOC.json).
   - To learn when to use IoT Hub instead of Azure IoT Central, see the [Cloud gateway options](#cloud-gateway-options).
 
 - Deployment Sample
@@ -104,28 +100,28 @@ Connect to manufacturing machines using a cloud connector component available in
 - Resources
   - [Bring Industrial data into your Azure IoT solution with CloudRail](https://docs.microsoft.com/shows/internet-of-things-show/bring-industrial-data-into-your-azure-iot-solution-with-cloudrail)
 
-## Connecting to layer 2 and IoT Edge gateways
+## Connect to layer 2 and IoT Edge gateways
 
 Connect to manufacturing machines in layer 2 of a Purdue model by using multiple IoT Edge gateways that are connected in a hierarchy.
 
 :::image type="content" source="images/nested-edge.png" alt-text="Diagram that shows machines connected in layer 2 of a Purdue model by using hierarchical edge gateways." lightbox="images/nested-edge.png":::
 
 - Dataflow
-  1. Connect PLCs to the layer 2 edge gateway, which is the lower layer edge gateway.
+  1. PLCs are connected to the layer 2 edge gateway, which is the lower layer edge gateway.
   2. The layer 2 edge gateway sends the data to the layer 3 gateway, which is the parent device. The layer 3 gateway also has a local Docker registry and an API proxy module to support module deployment for the lower layer edge gateways.
-  3. The layer 3 edgeHub sends the data to IoT Hub or Azure IoT Central using AMQP or MQTT.
+  3. The layer 3 edgeHub module sends the data to IoT Hub or Azure IoT Central by using AMQP or MQTT.
   4. IoT Hub or Azure IoT Central uses data connection or data export to send data to Azure Data Explorer.
 
 - Use this pattern when:
 
-  - Layer 0~1 can only connect with the adjacent layer 2, as per the ISA95 and Purdue models.
+  - Layer 0~1 can only connect with the adjacent layer 2, in accordance with the ISA95 and Purdue models.
   - You can install IoT Edge at layer 2 and connect to layer 0~1.
 
 - Considerations
   - This configuration creates a complex deployment model and certificate configuration for security.
-  - [Tutorial: Create a hierarchy of IoT Edge devices](/azure/iot-edge/tutorial-nested-iot-edge?view=iotedge-2020-11)
-  - [Prepare to deploy your IoT Edge solution in production](/azure/iot-edge/production-checklist?view=iotedge-2018-06)
-  - [Azure security baseline for IoT Hub](/security/benchmark/azure/baselines/iot-hub-security-baseline?toc=/azure/iot-hub/TOC.json)
+  - To create an IoT Edge device hierarchy, see [Tutorial: Create a hierarchy of IoT Edge devices](/azure/iot-edge/tutorial-nested-iot-edge?view=iotedge-2020-11).
+  - To deploy an IoT Edge solution, see [Prepare to deploy your IoT Edge solution in production](/azure/iot-edge/production-checklist?view=iotedge-2018-06).
+  - For security considerations, see [Azure security baseline for IoT Hub](/security/benchmark/azure/baselines/iot-hub-security-baseline?toc=/azure/iot-hub/TOC.json).
   - To learn when to use IoT Hub instead of Azure IoT Central, see the [Cloud gateway options](#cloud-gateway-options).
 
 - Deployment Sample
@@ -133,14 +129,14 @@ Connect to manufacturing machines in layer 2 of a Purdue model by using multiple
 
 ## Resilient edge gateway
 
-Provide hardware resiliency for your IoT Edge gateway virtual machines.
+Provide hardware resiliency for your IoT Edge gateway VMs.
 
 :::image type="content" source="images/resilient-edge.png" alt-text="Diagram that shows how to use a pattern that makes edge gateways resilient to hardware failures by using Kubernetes." lightbox="images/resilient-edge.png":::
 
 - Dataflow
-  1. Connect PLCs to industrial connectivity software or historian software by using a switch or internal network connectivity.
-  2. The industrial connectivity software provides an OPC UA endpoint that you connect to the OPC UA module to the OPC UA endpoint. Then, the OPC UA module sends the data to the edgeHub. The edge runtime runs on a VM that runs inside a kubernetes cluster.
-  3. The edgeHub sends the data to IoT Hub or Azure IoT Central using AMQP or MQTT.
+  1. PLCs are connected to industrial connectivity software or historian software by using a switch or internal network connectivity.
+  2. The industrial connectivity software provides an OPC UA endpoint that you connect to the OPC UA module and the OPC UA endpoint. Then, the OPC UA module sends the data to the edgeHub module. The edge runtime runs on a VM that runs inside a Kubernetes cluster.
+  3. The edgeHub module sends the data to IoT Hub or Azure IoT Central by using AMQP or MQTT.
   4. IoT Hub or Azure IoT Central uses data connection or data export to send data to Azure Data Explorer.
 
 - Use this pattern when:
@@ -153,9 +149,9 @@ Provide hardware resiliency for your IoT Edge gateway virtual machines.
 
 - Considerations
   - This pattern is for hardware resiliency and is agnostic of data models, protocols, and industrial connectivity software.
-  - [Choose a Kubernetes at the edge compute option](/azure/architecture/operator-guides/aks/choose-kubernetes-edge-compute-option)
-  - [Prepare to deploy your IoT Edge solution in production](/azure/iot-edge/production-checklist?view=iotedge-2018-06)
-  - [Azure security baseline for IoT Hub](/security/benchmark/azure/baselines/iot-hub-security-baseline?toc=/azure/iot-hub/TOC.json)
+  - For Kubernetes information, see [Choose a Kubernetes at the edge compute option](../../operator-guides/aks/choose-kubernetes-edge-compute-option).
+  - To deploy an IoT Edge solution, see [Prepare to deploy your IoT Edge solution in production](/azure/iot-edge/production-checklist?view=iotedge-2018-06).
+  - For security considerations, see [Azure security baseline for IoT Hub](/security/benchmark/azure/baselines/iot-hub-security-baseline?toc=/azure/iot-hub/TOC.json).
   - To learn when to use IoT Hub instead of Azure IoT Central, see the [Cloud gateway options](#cloud-gateway-options).
 
 - Deployment Sample
@@ -180,30 +176,30 @@ Scale connectivity patterns to multiple factories and business units.
 - Considerations
   - This pattern is for scaling cloud gateways and services, and for connecting multiple factories. It's agnostic of data models, protocols, and industrial connectivity software.
   - A dedicated subscription for a cloud gateway enables OT and networking teams to better manage cloud egress and connectivity.
-  - A device provisioning service can help scale across multiple IoT Hubs and Azure IoT Central. Both of these services can use the device provisioning service underneath to provide an auto-scaling experience.
+  - A device provisioning service can help scale across multiple IoT Hubs and Azure IoT Central. Both of these services can use the underlying device provisioning service to provide an auto-scaling experience.
   - For scenarios where a hierarchy of edge gateways is needed, use IoT Hub directly.
-  - You can push IIoT data to each business unit or project specific subscription via routes and consumer groups.
+  - You can push IIoT data to each business unit or project-specific subscription via routes and consumer groups.
   - IIoT solutions are one of many enterprise solutions, and must integrate well with the overall [cloud operating model](/azure/cloud-adoption-framework/operating-model/compare) and [landing zone design principles](/azure/cloud-adoption-framework/ready/landing-zone/design-principles) of your enterprise.
   - [IoT Hub high availability and disaster recovery](/azure/iot-hub/iot-hub-ha-dr)
 
 ## Constrained devices and add-on sensors
 
-Connect low power and low compute devices to manufacturing machines as extra sensors.
+Connect low-power and low-compute devices to manufacturing machines as extra sensors.
 
 :::image type="content" source="images/direct-sdk.png" alt-text="Diagram that shows how to connect machines by using a cloud S D K and custom application." lightbox="images/direct-sdk.png":::
 
 - Dataflow
   1. Constrained devices or add-on sensors send data to a custom application. You can use embedded code inside the sensor itself as the custom application.
-  2. The custom application sends the data to IoT Hub or Azure IoT Central using AMQP, MQTT, or HTTPS.
+  2. The custom application sends the data to IoT Hub or Azure IoT Central by using AMQP, MQTT, or HTTPS.
   3. IoT Hub or Azure IoT Central uses data connection or data export to send data to Azure Data Explorer.
 
 - Use this pattern when:
-  - Working with constrained devices or add-on sensors in remote and off-site locations.
+  - You work with constrained devices or add-on sensors in remote and off-site locations.
   - You don't require management, processing, and analytics functionality of an edge gateway for the use case.
   - You can allow data egress to go outside of the Purdue model.
 
 - Considerations
-  - This pattern requires more deployment and management of the custom application for sensor data collection.
+  - This pattern requires significant deployment and management of the custom application for sensor data collection.
   - There's no support for offline or edge analytics scenarios.
   - [Azure security baseline for IoT Hub](/security/benchmark/azure/baselines/iot-hub-security-baseline?toc=/azure/iot-hub/TOC.json).
   - To learn when to use IoT Hub instead of Azure IoT Central, see the [Cloud gateway options](#cloud-gateway-options).
@@ -236,7 +232,7 @@ Select a cloud gateway for connectivity.
 :::image type="content" source="images/cloud-gateway-event-hub.png" alt-text="Diagram that shows how to connect to a cloud gateway by using Event Hubs." lightbox="images/cloud-gateway-event-hub.png":::
 
 - Dataflow
-  1. A custom application sends event hub messages using a language-specific SDK.
+  1. A custom application sends event hub messages by using a language-specific SDK.
   2. Azure Data Explorer pulls the data from Event Hubs by using streaming ingestion.
 
 - Pattern use

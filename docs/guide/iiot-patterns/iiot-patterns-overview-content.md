@@ -10,9 +10,9 @@ There are multiple stages in each of the three key phases shown above. Each stag
 
 | Pattern | Summary |
 |-------------|-------------|
-| [OPC UA server and edge gateway](./iiot-connectivity-patterns.yml#opc-ua-server-and-edge-gateway) | Connect to manufacturing machines by using OPC UA standards and an Azure IoT Edge gateway. |
-| [Protocol translation and edge gateway](./iiot-connectivity-patterns.yml#protocol-translation-and-edge-gateway) | Connect to manufacturing machines over non-standard protocols by using an IoT Edge gateway. |
-| [Cloud connector from industrial connectivity software or historian](./iiot-connectivity-patterns.yml#cloud-connector-from-industrial-connectivity-software-or-historian)  | Connect to manufacturing machines by using cloud connector components available in industrial connectivity software. |
+| [OPC UA server and edge gateway](./iiot-connectivity-patterns.yml#opc-ua-server-and-an-iot-edge-gateway) | Connect to manufacturing machines by using OPC UA standards and an Azure IoT Edge gateway. |
+| [Protocol translation and edge gateway](./iiot-connectivity-patterns.yml#protocol-translation-and-an-iot-edge-gateway) | Connect to manufacturing machines over non-standard protocols by using an IoT Edge gateway. |
+| [Cloud connector from industrial connectivity software or historian](./iiot-connectivity-patterns.yml#cloud-connector-from-industrial-connectivity-software-or-a-historian)  | Connect to manufacturing machines by using cloud connector components available in industrial connectivity software. |
 | [Connect to layer 2 and IoT Edge gateways](./iiot-connectivity-patterns.yml#connecting-to-layer-2-and-iot-edge-gateways)  | Connect to manufacturing machines in layer 2 of a Purdue model by using multiple IoT Edge gateways connected in a hierarchy. |
 | [Resilient edge gateway](./iiot-connectivity-patterns.yml#resilient-edge-gateway)  | Provide hardware resiliency for IoT Edge gateway virtual machines. |
 | [Cloud gateway options](./iiot-connectivity-patterns.yml#cloud-gateway-options)  | Select a cloud gateway for connectivity.|
@@ -40,8 +40,20 @@ There are multiple stages in each of the three key phases shown above. Each stag
 | [Predict process and equipment failures by using near real-time machine learning](./iiot-prediction-patterns.yml#predict-process-and-equipment-failures-by-using-near-real-time-machine-learning) | Predict process and equipment failures by using an API. |
 | [Augment a manual quality inspection by using deep learning based image recognition](./iiot-prediction-patterns.yml#augment-a-manual-quality-inspection-by-using-deep-learning-based-image-recognition) | Automate quality inspections in manufacturing by using a custom vision. |
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+- [Jomit Vaghela](https://www.linkedin.com/in/jomit) | Principal Program Manager
+
+Other contributor:
+
+- [Jason Martinez](https://www.linkedin.com/in/jason-martinez-502766123) | Technical Writer
+
 ## Next steps
 
-- [Solutions for the manufacturing industry](/azure/architecture/industries/manufacturing)
+- [Solutions for the manufacturing industry](../../industries/manufacturing.md)
 
 - [IoT Well-Architected Framework](/azure/architecture/framework/iot/iot-overview)
