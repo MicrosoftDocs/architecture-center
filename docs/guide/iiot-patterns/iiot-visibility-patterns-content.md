@@ -10,7 +10,7 @@ Following section includes common visibility patterns for industrial solutions.
 
 Analyze IoT telemetry data by using time series techniques.
 
-:::image type="content" source="images/time-series-analysis.png" alt-text="Diagram that shows how to analyze time series data by using Azure Data Explorer" lightbox="images/time-series-analysis.png":::
+:::image type="content" source="images/time-series-analysis.png" alt-text="Diagram that shows how to analyze time series data by using Azure Data Explorer." lightbox="images/time-series-analysis.png":::
 
 - Dataflow
     1. The edgeHub module sends the data to IoT Hub or Azure IoT Central by using advanced message queuing protocol (AMQP) or MQTT.
@@ -54,10 +54,10 @@ Detect anomalies and identify a root cause analysis for anomaly incidents.
   - Perform root cause analysis and correlation mapping.
 
 - Considerations
-  - [Onboard metric data to Metrics Advisor](/azure/applied-ai-services/metrics-advisor/how-tos/onboard-your-data)
-  - [Data feed management for Metrics Advisor](/azure/applied-ai-services/metrics-advisor/how-tos/manage-data-feeds)
+  - [How-to: Onboard your metric data to Metrics Advisor](/azure/applied-ai-services/metrics-advisor/how-tos/onboard-your-data)
+  - [How to: Manage your data feeds](/azure/applied-ai-services/metrics-advisor/how-tos/manage-data-feeds)
   - [Data requirements for Metrics Advisor anomaly detection](/azure/applied-ai-services/metrics-advisor/faq#how-much-data-is-needed-for-metrics-advisor-to-start-anomaly-detection-)
-  - [Cost management for Metrics Advisor](/azure/applied-ai-services/metrics-advisor/cost-management#key-points-about-cost-management-and-pricing)
+  - [Key points about cost management and pricing for Metrics Advisor](/azure/applied-ai-services/metrics-advisor/cost-management#key-points-about-cost-management-and-pricing)
 
 - Deployment Sample
   - [Operational visibility with anomaly detection and root cause analysis](https://github.com/Azure-Samples/industrial-iot-patterns/tree/main/2_OperationalVisibility)
