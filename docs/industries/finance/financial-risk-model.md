@@ -550,4 +550,4 @@ models.
     RevoScaleR](/machine-learning-server/r/tutorial-revoscaler-data-model-analysis?WT.mc_id=fsiriskmodelr-docs-scseely)
 
 - [Introduction to ML services and open-source R capabilities on
-    HDInsight](/azure/hdinsight/r-server/r-server-overview?WT.mc_id=fsiriskmodelr-docs-scseely)
+    HDInsight](https://azure.microsoft.com/services/hdinsight/r-server/#overview)
