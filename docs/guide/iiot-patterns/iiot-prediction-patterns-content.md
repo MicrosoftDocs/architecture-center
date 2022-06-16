@@ -2,6 +2,8 @@ Prediction extends operational visibility by using machine learning and AI to op
 
 The following section includes common prediction patterns for industrial solutions.
 
+*Download a [PowerPoint file](https://arch-center.azureedge.net/iiot-prediction-patterns.pptx) for the following patterns.*
+
 ## Predict process and equipment failures by using batch process machine learning
 
 Predict process and equipment failures by using a batch process.
@@ -70,7 +72,7 @@ Predict process and equipment failures by using an API.
   - For information about Machine Learning pipelines, see[Understand and build Machine Learning pipelines](/azure/machine-learning/concept-train-machine-learning-model#machine-learning-pipeline).
   - For information about security, see [Azure security baseline for Azure Machine Learning](/security/benchmark/azure/baselines/machine-learning-security-baseline?context=/azure/machine-learning/context/ml-context).
   - For information about costs, see [Manage and optimize Machine Learning costs](/azure/machine-learning/how-to-manage-optimize-cost).
-  - For information about real-time web application services, see[How do I choose between Azure SignalR Service and Azure Web PubSub service?](/azure/azure-web-pubsub/resource-faq#how-do-i-choose-between-azure-signalr-service-and-azure-web-pubsub-service).
+  - For information about real-time web application services, see [How do I choose between Azure SignalR Service and Azure Web PubSub service?](/azure/azure-web-pubsub/resource-faq#how-do-i-choose-between-azure-signalr-service-and-azure-web-pubsub-service).
   - For information about selecting a compute target, see [Choosing a compute target for deploying machine learning models](/azure/machine-learning/how-to-deploy-and-where?tabs=azcli#choose-a-compute-target).
   - The near real-time inference is only in the cloud. Consider deploying the model to IoT Edge to support offline and edge scenarios.
 

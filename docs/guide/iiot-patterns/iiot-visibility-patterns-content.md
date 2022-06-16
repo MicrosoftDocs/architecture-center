@@ -2,7 +2,7 @@ Visibility helps manufacturers gain insight and drive decision-making to improve
 
 Following section includes common visibility patterns for industrial solutions.
 
-## Time Series Analysis
+## Time series analysis
 
 Analyze IoT telemetry data using time series techniques.
 
