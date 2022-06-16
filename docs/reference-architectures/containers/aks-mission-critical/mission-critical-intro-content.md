@@ -1,9 +1,8 @@
 This reference architecture provides guidance for designing a mission critical workload on Azure. It uses cloud-native capabilities to maximize reliability and operational effectiveness. It applies the design methodology for [Well-Architected mission-critical workloads](https://aka.ms/mission-critical) to an internet-facing application, where the workload is accessed over a public endpoint and does not require private network connectivity to other company resources.
 
-The guidance uses a production-grade [example implementation](https://github.com/Azure/Mission-Critical-Online). This implementation can be used as a basis for further solution development in your first step towards production.
-
-
+> [!IMPORTANT]
 > ![GitHub logo](../../../_images/github.svg) [Mission-Critical open source project](http://github.com/azure/mission-critical) contains reference implementations and deployment guides intended to illustrate a solution-oriented approach for mission-critical application development on Azure. 
+> The guidance is backed by a production-grade [example implementation](https://github.com/Azure/Mission-Critical-Online) which showcases mission critical application development on Azure. This implementation can be used as a basis for further solution development in your first step towards production.
 
 ## Reliability tier
 
@@ -42,7 +41,7 @@ Many factors can affect the reliability of an application, such as the ability t
 
     - Have _continuous validation_ by integrating automated testing as part of DevOps processes, including synchronized load and chaos testing, to fully validate the health of both the application code and underlying infrastructure.
 
-    > Refer to [Well-architected mission critical workloads: Operational procedures](/azure/architecture/framework/mission-critical/mission-critical-operational-procedures).
+    > Refer to [Well-architected mission critical workloads: Operational procedures](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing).
 - **Operational insights**
     - Have _federated workspaces for observability data_. Monitoring data for global resources and regional resources are stored independently. A centralized observability store isn't recommended to avoid a single point of failure. Cross-workspace querying is used to achieve a unified data sink and single pane of glass for operations. 
 
@@ -258,6 +257,5 @@ Deploy the reference implementation to get a complete understanding of considere
 
 ## Next
 
-If you want to extend this implementation with added security measures, refer to [Mission-Critical Connected](https://github.com/Azure/Mission-Critical-Connected). That implementation isn't referenced in this architecture. 
+If you want to extend this implementation with added security measures, refer to [Mission-Critical Connected](https://github.com/Azure/Mission-Critical-Connected). 
 
-For solution guidance, see [Connected Reference Implementation - Solution Guide](https://github.com/Azure/Mission-Critical-Connected/blob/main/docs/reference-implementation/README.md).
