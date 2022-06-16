@@ -1,38 +1,39 @@
-Retail competition amongst companies is intense, and retailers are required to bring computational intelligence and smart insights into their commercial, marketing and manufactory processes. Whilst increasing and retaining their customers is paramount for the success of a company, retailers also must align their inventory levels to customer demand to maximize operational efficiency and reduce waste and costs.
+Retail competition amongst companies is intense, and retailers are required to bring computational intelligence and smart insights into their commercial, marketing, and manufactory processes. While increasing and retaining customers is paramount for the success of a company, retailers also must align their inventory levels to customer demand to maximize operational efficiency and reduce waste and costs.
 
-Inventory Optimization is the process of providing the right inventory, in the right quantities, at the right locations to meet the customer demand. The objective is to lessen the carrying, storing, and maintenance costs, while meeting customers' needs and maintaining a high customer satisfaction level. Demand forecasting is one of the most widely used inventory optimization techniques. It refers to making predictions about future customer demand using various historical or third-party data. These predictions help business leaders make informed decisions to meet customer needs and achieve desired business outcomes.
+*Inventory optimization* is the process of providing the right inventory, in the right quantities, at the right locations to meet the customer demand. The objective of optimization is to lessen the carrying, storing, and maintenance costs, while meeting customers' needs and maintaining a high level of customer satisfaction. *Demand forecasting* is making predictions about customer demand in the future by using various historical and third-party data. Demand forecasting helps business leaders to make informed decisions and is one of the most widely used techniques of inventory optimization. 
 
-Various inventory types can exist in a company, depending on the industry and products sold. These inventory types can range from raw materials, a work-in-progress inventory, finished goods ready to be shipped and sold in stores, and maintenance and repair products or parts. Additionally, these inventory types may be present only in specific locations and/or handled by a certain subset of factories. Therefore, for inventory management, the location of each inventory at any given time needs to be taken into consideration, as well as its forecasted demand, service level agreements, and other metrics associated with that inventory. Generally, a successful inventory management strategy requires the ability to perform accurate demand forecasting simulations, utilization of distributed computing resources, and forecasting methodologies that can handle and predict for different time granularities, product types and locations.
+This article showcases a practical, scalable, and manageable solution for implementing inventory optimization architectures for the retail industry. Its solution uses the latest advancements in forecasting, optimization, and parallel computing. To better work with a large volume of supply chain data, it offers the following guidelines for transforming and scaling existing on-premises solutions:
 
-Often, the data needed to perform inventory forecasting is sparse and not centrally located, making it difficult to aggregate and analyze. Most companies rely on commercial software and routines. However, such systems hit scalability limits due to the ever-increasing amount of data and the complexity of data storage systems.
+-   Provide a customer interface by using Power BI and PowerApps from which users can launch simulations and determine the parameters of the simulation and data, access results, and so on.
 
-Demand forecasting is the other critical component to be implemented. Forecasting methods range from on-point predictions, probabilistic Monte Carlo simulations, time series analysis, and data science methodologies. Some of these methods can take historical sales and seasonality effects into account, but the more complex the inventory and parameters, the more sophisticated methodologies are needed.
+-   Process, validate, and analyze data by using Azure Machine Learning.
 
-This article focuses on showcasing a practical, scalable, and manageable solution for implementing inventory optimization architectures for the retail industry. The solution uses the latest advancements in forecasting, optimization, and parallel computing and offers the following guidelines for transforming and scaling existing on-premises solutions to better work with large volume of supply chain data:
+-   Generate probabilistic forecasts of inventory supply levels by using advanced machine learning methods, such as DeepAR.
 
--   Provide a customer interface using Power BI and PowerApps that can be used to launch the simulations and determine the parameters of the simulation/data, access results, etc.
+-   Run parallel simulations for generating and forecasting inventory by using Azure Kubernetes and Ray.
 
--   Process, validate, and analyze data using Azure Machine Learning.
 
--   Generate probabilistic forecasts of inventory supply levels using advanced machine learning methods such as DeepAR.
-
--   Run parallel simulations for inventory generation and forecasting using Azure Kubernetes and Ray.
-
-*Ray®, or Ray.io is® either registered trademark or trademarks of the Anyscale, Inc. in the United States and/or other countries. No endorsement by Anyscale, Inc. is implied by the use of these marks.*
+*Ray® or Ray.io® is either a registered trademark or trademarks of the Anyscale, Inc. in the United States and/or other countries. No endorsement by Anyscale, Inc. is implied by the use of these marks.*
 
 ## Potential use cases
 
-This solution is designed for the retail industry, but it also applies to the following scenarios:
+This solution is designed for the retail industry, but it also applies to the manufacturing industry and the following scenarios:
 
 -   Analyze product information across locations to assess demand levels and decrease inventory costs.
 
--   Analyze stock variability and sales, by location and/or sales channel, by using historical demand data to forecast demand in future periods, across customers—such as a shipping/delivery company that needs to predict the quantities of products at different locations and at future times, or an insurer that wants to know the number of products that will be returned because of failures.
+-   Analyze stock variability and sales, by location and sales channel, by using historical demand data to forecast demand in future periods, across customers—such as a shipping/delivery company that needs to predict the quantities of products at different locations and at future times, or an insurer that wants to know the number of products that will be returned because of failures.
 
 -   Identify the ideal amount of inventory to have in stock or as a backup plan.
 
 -   Predict how seasonal changes or regional/global events may affect sales and restocking options.
 
--   Forecast the prices of commodities across locations and sales channels, using historical transaction data in a retail context.
+-   Forecast the prices of commodities across locations and sales channels by using historical transaction data in a retail context.
+
+Companies can have a wide variety of inventory types, and specific types might be present only in specific locations or handled by a subset of factories. Companies must also meet service level agreements and other relevant metrics, so forecasts must account for the time at which a specific unit is available at a specific location, in addition to forecasting demand, service level agreements, and other relevant metrics. Successful inventory management requires accurate simulations for forecasting demand, utilization of distributed computing resources, and methodologies that can predict for multiple time granularities, product types, and locations.
+
+Often, the data that's required to optimize inventory is sparse and not centrally located, which makes aggregating and analyzing it difficult. Most companies rely on commercial software and routines. However, such systems hit scalability limits due to the ever-increasing amount of data and the complexity of data storage systems.
+
+Methods of forecasting demand range from on-point predictions, probabilistic Monte Carlo simulations, time-series analysis, and data science methodologies. Some of these methods can take historical sales and seasonality effects into account, but more complex parameters require sophisticated methodologies for high-quality forecasts.
 
 ## Architecture
 
@@ -42,43 +43,43 @@ This solution is designed for the retail industry, but it also applies to the fo
 
 ### Dataflow
 
-1.  Azure Data Factory ingests related data into Azure Data Lake Storage. The source of this data can be ERP systems, SAP, Azure SQL, and potentially external sources such as weather and economic data.
+1.  Azure Data Factory ingests related data into Azure Data Lake Storage. The sources of this data can be enterprise resource planning (ERP) systems, SAP, and Azure SQL. Additional sources might include weather and economic data.
 
-2.  Raw data is stored in Data Lake Storage for further processing.
+2.  Data Lake Storage stores raw data further processing.
 
-3.  Data is curated using Azure Data Factory Data Flows and stored in a relational format in an Azure SQL database. Additionally, in this use case SQL database is used to store intermediate results and other run information and simulation metrics. Alternatively, Azure Machine Learning can read the data directly from Azure Data Lake service.
+3.  Mapping data flows in Azure Data Factory curates data and stores it in a relational format in an Azure SQL database. Additionally, in this use case, the SQL database stores intermediate results, other run information, and simulation metrics. Alternatively, Azure Machine Learning can read the data directly from the Data Lake service.
 
-4.  Use Azure Machine Learning to train the model using data in the SQL server and deploy the model/service to Kubernetes.
+4.  Use Azure Machine Learning to train the model by using data in Azure SQL Database, and deploy the model and service to Kubernetes.
 
-5.  Ray framework is installed on the same Kubernetes cluster to parallelize the execution of the scoring script during inferencing. Each execution runs the demand forecasting module for specified locations and products over a given forecast period. The forecasting results are read by the optimization module, which calculates the optimal inventory levels. Finally, the results are stored in the Azure SQL Server.
+5.  Install the Ray framework on the same Kubernetes cluster to parallelize the execution of the scoring script during inferencing. Each execution runs the demand-forecasting module for specified locations and products over a given forecast period. The forecasting results are read by the optimization module, which calculates the optimal inventory levels. Finally, the results are stored in Azure SQL Database.
 
-6.  Power Apps is used to host a user interface for business users and analysts to collect parametric information such as service level, product, and location. Power Apps is also used to submit the collected parameters and launch executions of the deployed ML module hosted in Kubernetes clusters.
+6.  Power Apps hosts a user interface for business users and analysts to collect parametric information, such as service level, product, and location. Users also use Power Apps to submit the collected parameters and to launch executions of the deployed machine-learning module that is hosted in Kubernetes clusters.
 
-7.  Power BI ingests SQL Server data and allows users to analyze results and perform sensitive analysis. All Power BI dashboards are integrated into Power Apps to have a unified UI for calling the API, reading results, and performing downstream analysis.
+7.  Power BI ingests data from Azure SQL Database and allows users to analyze results and perform sensitive analysis. All Power BI dashboards are integrated into Power Apps to have a unified UI for calling the API, reading results, and performing downstream analysis.
 
 ### Components
 
--   [Data Lake Storage](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) is a scalable and secure data lake for high-performance analytics workloads. Using ADLS you can manage petabytes of data with high throughput. ADLS can accommodate multiple, heterogeneous sources and data coming in structured, semi-structured, or unstructured formats.
+-   [Data Lake Storage](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) is a scalable and secure data lake for high-performance analytics workloads. Using ADLS you can manage petabytes of data with high throughput. Data Lake Storage can accommodate multiple, heterogeneous sources and data coming in structured, semi-structured, or unstructured formats.
 
--   [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) is a scalable and serverless service that provides a data integration and transformation layer that works with various data stores.
+-   [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) is a scalable and serverless service that provides a data-integration and transformation layer that works with various data stores.
 
 -   [Power BI](https://docs.microsoft.com/power-bi/fundamentals/power-bi-overview) is a collection of software services, apps, and connectors that work together to turn your unrelated sources of data into coherent, visually immersive, and interactive insights.
 
--   [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/overview-what-is-azure-machine-learning) is a cloud service for accelerating and managing the machine learning project lifecycle. Machine learning professionals, data scientists, and engineers can use it in their day-to-day workflows: Train and deploy models and manage MLOps.
+-   [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/overview-what-is-azure-machine-learning) is a cloud service for accelerating and managing the lifecycle of a machine-learning project. Machine learning professionals, data scientists, and engineers can use Azure Machine Learning in their day-to-day workflows: Train and deploy models and manage MLOps.
 
--   [Azure SQL Database](https://docs.microsoft.com/azure/azure-sql/database/sql-database-paas-overview): Azure SQL Database is a fully managed platform as a service (PaaS) database engine that handles most of the database management functions such as upgrading, patching, backups, and monitoring without user involvement.
+-   [Azure SQL Database](https://docs.microsoft.com/azure/azure-sql/database/sql-database-paas-overview): Azure SQL Database is a fully managed platform as a service (PaaS) that handles most of the database management functions, such as upgrading, patching, backups, and monitoring without user involvement.
 
 -   [Azure Kubernetes](https://docs.microsoft.com/azure/aks/intro-kubernetes): Azure Kubernetes Service (AKS) simplifies deploying a managed Kubernetes cluster in Azure by offloading the operational overhead to Azure. As a hosted Kubernetes service, Azure handles critical tasks, like health monitoring and maintenance.
 
--   [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics/overview-what-is): Azure Synapse Analytics is an enterprise analytics service that accelerates time to insight across data warehouses and big data systems. It brings together the best of SQL technologies used in enterprise data warehousing, Spark technologies used for big data, Data Explorer for log and time series analytics, Pipelines for data integration and ETL/ELT, and deep integration with other Azure services such as Power BI, CosmosDB, and AzureML.
+-   [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics/overview-what-is): Azure Synapse Analytics is an enterprise analytics service that accelerates time to insight across data warehouses and big data systems. It brings together the best of SQL technologies used in enterprise data warehousing, Spark technologies used for big data, Data Explorer for log and time series analytics, Pipelines for data integration and ETL/ELT, and deep integration with other Azure services, such as Power BI, Cosmos DB, and Azure Machine Learning.
 
 ### Alternatives
 
--   In this solution we have presented Azure Machine Learning as a platform to perform forecasting and inventory management analytics. However, you can utilize [Azure](https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-overview) Databricks or Synapse to perform the same type of analytics, when the amount of data you're handling is large.
+-   In this solution, Azure Machine Learning performs forecasting and inventory management analytics. However, you can utilize Azure Databricks or Azure Synapse Analytics to perform the same type of analytics, when the amount of data is large. For more information, see [Apache Spark in Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-overview).
 
--   To curate and perform ETL after the data is landed in Azure Data Lake, as an alternative to Azure Data Factory Data Flows you can use Azure Databricks for code first approach.
+-   To curate and perform ETL data in Azure Data Lake, as an alternative to Azure Data Factory Data Flows, you can use Azure Databricks for a code-first approach.
 
--   Depending on the specific use case and the choice of end user's analytics platform, instead of storing the data in SQL Server you can utilize other relational or storage services such as Azure Synapse Analytics or Azure Data Lake Storage Gen2. For instance, if the data is accumulated for a long period of time and there's a need to run analytics queries against this data, Azure Synapse analytics is a good option as part of the architecture.
+-   Depending on the specific use case and the choice of analytics platform for end users, instead of storing the data in SQL Server you can utilize other relational or storage services such as Azure Synapse Analytics or Azure Data Lake Storage Gen2. For instance, if the data is accumulated for a long period of time and there's a need to run analytics queries against this data, Azure Synapse analytics is a good option as part of the architecture.
 
 -   Instead of running the Ray framework on Kubernetes, you can utilize Ray framework on Azure ML Compute to perform inferencing. You can use the [ray-on-ml](https://github.com/microsoft/ray-on-aml) package to easily incorporate ray framework on Azure ML Compute.
 
@@ -150,14 +151,15 @@ Other contributors:
 
 ## Next steps
 
--   [Copy and ingest data using Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-tutorials#copy-and-ingest-data)
--   [Deploy Machine Learning Models using Azure Machine Learning Service](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where?tabs=azcli)
--   [Install Ray on Kubernetes cluster](https://docs.ray.io/latest/cluster/kubernetes.html)
+-   [Copy and ingest data using Azure Data Factory](/azure/data-factory/data-factory-tutorials#copy-and-ingest-data)
+-   [Deploy machine learning models to Azure](/azure/machine-learning/how-to-deploy-and-where?tabs=azcli)
+-   [Install Ray on Kubernetes cluster](https://docs.ray.io/en/latest/cluster/kubernetes.html)
+-   [Ray.io framework documentation](https://docs.ray.io/en/latest/index.html)
+-   [Ray installation on Kubernetes](https://docs.ray.io/en/latest/cluster/kubernetes.html)
+-   [Ray on Databricks](https://databricks.com/blog/2021/11/19/ray-on-databricks.html)
+-   [Security baseline for Azure Machine Learning service](https://docs.microsoft.com/security/benchmark/azure/baselines/machine-learning-security-baseline?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
 
 
 ## Related resources
 
--   [Ray.io framework documentation](https://docs.ray.io/en/latest/index.html)
--   [Ray installation on Kubernetes](https://docs.ray.io/en/latest/cluster/kubernetes.html)
--   [Ray on Databricks](https://databricks.com/blog/2021/11/19/ray-on-databricks.html)
--   [Security baseline for Azure Machine Learning service](https://docs.microsoft.com/en-us/security/benchmark/azure/baselines/machine-learning-security-baseline?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
+
