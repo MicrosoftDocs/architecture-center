@@ -5,7 +5,7 @@ metadata:
   description: This example scenario implements an e-commerce front end using Azure platform as a service tools, which allow you to handle increases in transactions.
   author: chrismason
   ms.author: chmason
-  ms.date: 06/01/2022
+  ms.date: 06/16/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
@@ -27,7 +27,6 @@ products:
   - azure-cognitive-services
   - azure-traffic-manager
   - azure-web-apps
-
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-ecommerce-scenario.png
 content: |
    [!include[](ecommerce-scenario-content.md)]

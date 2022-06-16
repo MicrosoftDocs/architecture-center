@@ -69,6 +69,8 @@ availability and disaster recovery can solve these issues.
 
 :::image type="content" source="./media/automated-guided-vehicles-fleet-control-01.png" alt-text="Screenshot of an instance of the back end, consisting of the following components, is deployed to two Azure regions: Azure IoT Hub, Ingestion, RabbitMQ, Mission State, Vehicle State, Job Manager, and Geo DB." border="false":::
 
+*Download a [Visio file](https://arch-center.azureedge.net/automated-guided-vehicles-fleet-control-01-georedundancy.vsdx) of this architecture.*
+
 #### Workflow
 
 -   An instance of the back end, consisting of the following components, is
@@ -90,6 +92,8 @@ availability and disaster recovery can solve these issues.
 
 [ ![Screenshot of Kubernetes and RabbitMQ deployed on an Azure IoT Edge device.](./media/automated-guided-vehicles-fleet-control-02.png) ](./media/automated-guided-vehicles-fleet-control-02.png#lightbox)
 
+*Download a [Visio file](https://arch-center.azureedge.net/automated-guided-vehicles-fleet-control-02-onpremises.vsdx) of this architecture.*
+
 In scenarios where the internet connection between a production plant and Azure
 is a limiting factor, our AGV control software can also be deployed to
 on-premises compute nodes. By using Kubernetes and RabbitMQ as platform-agnostic
@@ -99,6 +103,8 @@ deployed on an Azure IoT Edge device.
 ### Implementation of the VDA 5050 specification for AGV-vendor-agnostic communication
 
 [ ![Screenshot of the back-end AGV fleet control solution in Azure.](./media/automated-guided-vehicles-fleet-control-03.png) ](./media/automated-guided-vehicles-fleet-control-03.png#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/automated-guided-vehicles-fleet-control-03-vda5050spec.vsdx) of this architecture.*
 
 Thanks to compliance with the [VDA 5050 vehicle connector specification](https://en.vda.de/en/services/Publications/vda-5050-v-1.1.-agv-communication-interface.html), our AGV control software can communicate with all types of AGVs from different vendors that also comply with VDA 5050.
 
