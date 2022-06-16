@@ -21,7 +21,7 @@ This solution is designed for the retail industry, but it also applies to the ma
 
 -   Analyze product information across locations to assess demand levels and decrease inventory costs.
 
--   Analyze stock variability and sales, by location and sales channel, by using historical demand data to forecast demand in future periods, across customers—such as a shipping/delivery company that needs to predict the quantities of products at different locations and at future times, or an insurer that wants to know the number of products that will be returned because of failures.
+-   Analyze stock variability and sales, by location and sales channel, by using historical demand data to forecast demand in future periods, across customers. For example, a shipping & delivery company needs to predict the quantities of products at different locations and at future times, and an insurer might want to know the number of products that will be returned because of failures.
 
 -   Identify the ideal amount of inventory to have in stock or as a backup plan.
 
@@ -33,7 +33,8 @@ Companies can have a wide variety of inventory types, and specific types might b
 
 Often, the data that's required to optimize inventory is sparse and not centrally located, which makes aggregating and analyzing it difficult. Most companies rely on commercial software and routines. However, such systems hit scalability limits due to the ever-increasing amount of data and the complexity of data storage systems.
 
-Methods of forecasting demand range from on-point predictions, probabilistic Monte Carlo simulations, time-series analysis, and data science methodologies. Some of these methods can take historical sales and seasonality effects into account, but more complex parameters require sophisticated methodologies for high-quality forecasts.
+Methods of forecasting demand include on-point predictions, probabilistic Monte Carlo simulations, time-series analysis, and data science methodologies. Some of these methods can take historical sales and seasonality effects into account, but more complex parameters require sophisticated methodologies for high-quality forecasts.
+
 
 ## Architecture
 
@@ -77,9 +78,9 @@ Methods of forecasting demand range from on-point predictions, probabilistic Mon
 
 ### Alternatives
 
-In this solution, Azure Machine Learning performs forecasting and inventory management analytics. However, you can use Azure Databricks or Azure Synapse Analytics to perform the same type of analytics, when the amount of data is large. For more information, see [Apache Spark in Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-overview).
+In this solution, Azure Machine Learning performs forecasting and inventory management analytics. However, you can use [Azure Databricks](https://azure.microsoft.com/services/databricks/) or Azure Synapse Analytics to perform the same type of analytics, when the amount of data is large. For more information about using Azure Synapse Analytics, see [Apache Spark in Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-overview).
 
-To curate and perform ETL data in Azure Data Lake, as an alternative to [Mapping Data Flows](/azure/data-factory/concepts-data-flow-overview) in Azure Data Factory, you can use Azure Databricks for a code-first approach.
+As an alternative to [mapping data flows](/azure/data-factory/concepts-data-flow-overview) in Azure Data Factory to curate and perform ETL on data in [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/), you can use Azure Databricks for a code-first approach.
 
 Depending on your specific use case and your choice of analytics platform for end users, you can use other relational or storage services, such as Azure Synapse Analytics or [Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction), instead of storing your data in Azure SQL Server. For example, if the data has accumulated for a long period of time and there's a need to run analytics queries against this data, Azure Synapse analytics is a good option as part of the architecture.
 
@@ -90,7 +91,7 @@ You could use [Web Apps](https://azure.microsoft.com/services/app-service/web/) 
 
 ### Forecasting with Deep Learning
 
-The implemented reference solution uses advanced machine learning and deep learning methods for time-series forecasting. Specifically, multivariate probabilistic forecasting is used to account for uncertainties common in supply chain. By using an ensemble modeling approach blending Deep AutoRegression RNN (DeepAR) or Transformer models with classical Monte Carlo Sampling method, the reference solution achieved 99.9% Mean Square Error (MSE) improvement over a customer's initial approach for high volume/high business impact products. For ensembling, XGBClassifier and XGBRegressor model architectures were explored.
+The implemented reference solution uses advanced machine learning and deep learning methods for time-series forecasting. Specifically, this solution uses multivariate probabilistic forecasting to account for uncertainties that are common in supply chains. By using an ensemble modeling approach that blends Deep AutoRegression RNN (DeepAR) or Transformer models with classical Monte Carlo Sampling method, the reference solution achieved 99.9% Mean Square Error (MSE) improvement over a customer's initial approach for high-volume/high-impact business products. For ensembling, this solution explored XGBClassifier and XGBRegressor model architectures.
 
 :::image type="content" alt-text="Diagram of the components that ingest sales history and produce demand predictions in this example workload." source="media/optimize-inventory-forecast-demand-dataflow.svg":::
 
@@ -99,12 +100,12 @@ The implemented reference solution uses advanced machine learning and deep learn
 
 Consider following the Microsoft Azure Well-Architected Framework (WAF) when deploying the solution to production. WAF provides technical guidance across five pillars of workload: reliability, security, cost optimization, operational excellence, and performance efficiency. For more information, see [Well-Architected](https://www.microsoft.com/azure/partners/well-architected#well-architected-assets).
 
-Follow MLOps guidelines to standardize and manage end-to-end Machine Learning lifecycle scalable across multi workspaces. Before going into production, ensure the implemented solution supports ongoing inference with retraining cycles and automated redeployments of models. For more information about implementing MLOps in Azure, see [Machine learning DevOps guide](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-mlops) and [Azure MLOps (v2) solution accelerator](https://github.com/Azure/mlops-v2), a project on GitHub.
+Follow MLOps guidelines to standardize and manage end to end a scalable Machine Learning lifecycle across multiple workspaces. Before going into production, ensure that the implemented solution supports ongoing inference with retraining cycles and automated redeployments of models. For more information about implementing MLOps in Azure, see [Machine learning DevOps guide](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-mlops) and [Azure MLOps (v2) solution accelerator](https://github.com/Azure/mlops-v2), a project on GitHub.
 
 
 ### Security
 
-Consider using Azure Databricks Premium for additional security features. For more information, see [Azure Databricks Pricing](https://azure.microsoft.com/en-us/pricing/details/databricks/).
+Consider using Azure Databricks Premium for additional security features. For more information, see [Azure Databricks Pricing](https://azure.microsoft.com/pricing/details/databricks/).
 
 Follow the best practices for Databricks security and data governance. For more information, see [Secure cluster connectivity (No Public IP / NPIP)](/azure/databricks/security/secure-cluster-connectivity).
 
@@ -127,7 +128,7 @@ Depending on the volume of data and complexity of your geospatial analysis you m
 
 If the input data is large, consider using [Ray Dataset](https://docs.ray.io/en/latest/data/dataset.html) along with Ray framework. Ray datasets provide distributed data transformations on various file formats and are easily integrated with other Ray libraries and applications.
 
-If you use Mapping Data Flows in Azure Data Factory for ETL, follow [the performance and tuning guide](/azure/data-factory/concepts-data-flow-performance) to optimize your data pipeline and ensure that your data flows meet your performance benchmarks.
+If you use mapping data flows in Azure Data Factory for ETL, follow [the performance and tuning guide](/azure/data-factory/concepts-data-flow-performance) to optimize your data pipeline and ensure that your data flows meet your performance benchmarks.
 
 Often, for optimization and Operations Research problems, compute-intensive calculations run after the inferencing is invoked. If you use the Ray framework for distributed computing, as suggested in this article, make sure to utilize [Ray Dashboard](https://docs.ray.io/en/latest/ray-core/ray-dashboard.html) to monitor the execution metrics and increase the node counts in Kubernetes cluster.
 
