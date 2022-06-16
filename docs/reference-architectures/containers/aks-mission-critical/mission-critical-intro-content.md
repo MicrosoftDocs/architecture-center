@@ -1,9 +1,7 @@
 This reference architecture provides guidance for designing a mission critical workload on Azure. It uses cloud-native capabilities to maximize reliability and operational effectiveness. It applies the design methodology for [Well-Architected mission-critical workloads](https://aka.ms/mission-critical) to an internet-facing application, where the workload is accessed over a public endpoint and does not require private network connectivity to other company resources.
 
 > [!IMPORTANT]
-> ![GitHub logo](../../../_images/github.svg) [Mission-Critical open source project](http://github.com/azure/mission-critical) contains reference implementations and deployment guides intended to illustrate a solution-oriented approach for mission-critical application development on Azure.
->  
-> The guidance is backed by a production-grade [example implementation](https://github.com/Azure/Mission-Critical-Online) which showcases mission critical application development on Azure. This implementation can be used as a basis for further solution development in your first step towards production.
+> ![GitHub logo](../../../_images/github.svg) The guidance is backed by a production-grade [example implementation](https://github.com/Azure/Mission-Critical-Online) which showcases mission critical application development on Azure. This implementation can be used as a basis for further solution development in your first step towards production.
 
 ## Reliability tier
 
@@ -256,7 +254,7 @@ Deploy the reference implementation to get a complete understanding of considere
 > [!div class="nextstepaction"]
 > [Implementation: Mission-Critical Online](https://github.com/Azure/Mission-Critical-Online)
 
-## Next
+## Next steps
 
-If you want to extend this implementation with added security measures, refer to [Mission-Critical Connected](https://github.com/Azure/Mission-Critical-Connected). 
+If you want to extend this implementation with added security measures, refer to [Mission-Critical Connected](https://github.com/Azure/Mission-Critical-Connected). It contains a security-focused reference implementation and deployment guide intended to illustrate a solution-oriented approach for mission-critical application development on Azure.
 
