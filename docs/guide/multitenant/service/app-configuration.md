@@ -54,25 +54,25 @@ When you use Azure App Configuration in a multitenant application, there are sev
 
 ### Key prefixes
 
-In Azure App Configuration, the central element you store and manage is a key-value pair. The key represents the name of the configuration setting. You can use a hierarchical naming structure for your keys, and use a tenant identifier as the prefix for your keys.
+In Azure App Configuration, you work with key-value pairs representing application settings. The key represents the name of the configuration setting. You can use a hierarchical naming structure for your keys. In a multitenant solution, consider using a tenant identifier as the prefix for your keys.
 
 For example, suppose you need to store a setting to indicate the logging level for your application. In a single-tenant solution, you might name this setting `LogLevel`. In a multitenant solution, you might choose to use a hierarchical key name, such as `tenant1/LogLevel` for tenant 1, `tenant2/LogLevel` for tenant 2, and so forth.
 
 Azure App Configuration enables you to specify long key names, supporting multiple levels in a hierarchy. If you choose to use long key names, ensure you understand the [size limits for keys and values](/azure/azure-app-configuration/concept-key-value#keys).
 
-When you load a single tenant's configuration into your application, you can specify a [key prefix filter](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.azureappconfigurationoptions.select#parameters) to only load that tenant's keys. You can also configure the .NET SDK for Azure App Configuration to [trim the key prefix](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.azureappconfigurationoptions.trimkeyprefix#microsoft-extensions-configuration-azureappconfiguration-azureappconfigurationoptions-trimkeyprefix(system-string)) from the keys before it makes them available to your application. When you trim the key prefix, your application sees a consistent key name, with tenant-specific values.
+When you load a single tenant's configuration into your application, you can specify a [key prefix filter](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.azureappconfigurationoptions.select#parameters) to only load that tenant's keys. You can also configure the .NET SDK for Azure App Configuration to [trim the key prefix](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.azureappconfigurationoptions.trimkeyprefix#microsoft-extensions-configuration-azureappconfiguration-azureappconfigurationoptions-trimkeyprefix(system-string)) from the keys before it makes them available to your application. When you trim the key prefix, your application sees a consistent key name, with that tenant's values loaded into the application.
 
 ### Labels
 
 Azure App Configuration also supports [labels](/azure/azure-app-configuration/concept-key-value#label-keys), which enable you to have separate values with the same key.
 
-You might consider using tenant identifiers as labels. However, labels are often used for versioning or for other purposes in your solution. While you can use tenant identifiers as labels, you won't be able to use labels for anything else. So, it's often a good practice to use [key prefixes](#key-prefixes) instead of labels when you work with multiple tenants.
+Labels are often used for versioning, working with multiple deployment environments, or for other purposes in your solution. While you can use tenant identifiers as labels, you won't be able to use labels for anything else. So, it's often a good practice to use [key prefixes](#key-prefixes) instead of labels when you work with a multitenant solution.
 
 If you do decide to use labels for each tenant, your application can load just the settings for a specific label by using a [label filter](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.azureappconfigurationoptions.select#parameters). This approach can be helpful if you have separate application deployments for each tenant.
 
 ### Application-side caching
 
-When you work with Azure App Configuration, it's important to cache the settings within your application instead of loading them every time you use them. The Azure App Configuration SDKs automatically cache settings for you, and refresh them automatically as well.
+When you work with Azure App Configuration, it's important to cache the settings within your application instead of loading them every time you use them. The Azure App Configuration SDKs cache settings and refresh them automatically.
 
 You also need to decide whether your application loads the settings for a single tenant or for all tenants.
 
