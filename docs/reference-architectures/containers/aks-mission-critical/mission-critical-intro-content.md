@@ -96,7 +96,7 @@ The regional resources are provisioned as part of a _deployment stamp_ to a sing
 
 In this architecture, a unified deployment pipeline deploys a stamp with these resources. 
 
-![Regional resources](./images/mission-critical-stamp.png)
+![Diagram that shows the regional resources](./images/mission-critical-stamp.png)
 
 #### Frontend
 
@@ -167,7 +167,7 @@ Operational data from application and infrastructure must be available to allow 
 - **Azure Log Analytics** is used as a unified sink to store logs and metrics for all application and infrastructure components. 
 - **Azure Application Insights** is used as an Application Performance Management (APM) tool to collect all application monitoring data and store it directly within Log Analytics.
 
-![Monitoring resources](./images/mission-critical-monitoring-resources.svg)
+![Diagram that shows the monitoring resources](./images/mission-critical-monitoring-resources.svg)
 
 Monitoring data for global resources and regional resources should be stored independently. A single, centralized observability store isn't recommended to avoid a single point of failure. Cross-workspace querying is used to achieve a single pane of glass.
 
@@ -196,8 +196,8 @@ The description of this flow is in the following sections.
 
 3. Azure Front Door uses routing rules to determine which backend pool to forward a request to. [How requests are matched to a routing rule](/azure/frontdoor/front-door-route-matching). In this reference implementation, the routing rules allow Azure Front Door to route UI and frontend API requests to different backend resources. In this case, the pattern "/*" matches the UI routing rule. This rule routes the request to a backend pool that contains storage accounts with static websites that host the Single Page Application (SPA). Azure Front Door uses the Priority and Weight assigned to the backends in the pool to select the backend to route the request. [Traffic routing methods to origin](/azure/frontdoor/routing-methods). Azure Front Door uses health probes to ensure that requests aren't routed to backends that aren't healthy. The SPA is served from the selected storage account with static website.
 
-> [!NOTE]
-> The terms **backend pools** and **backends** in Azure Front Door Classic are called **origin groups** and **origins** in Azure Front Door Standard or Premium Tiers.  
+    > [!NOTE]
+    > The terms **backend pools** and **backends** in Azure Front Door Classic are called **origin groups** and **origins** in Azure Front Door Standard or Premium Tiers.  
 
 4. The SPA makes an API call to the Azure Front Door frontend host. The pattern of the API request URL is "/api/*".
 
