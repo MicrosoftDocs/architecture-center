@@ -139,13 +139,13 @@ Often, for optimization and Operations Research problems, compute-intensive calc
 
 Principal authors:
 
-[Giulia Gallo](https://www.linkedin.com/in/giuliagallo) | Senior Cloud Solution Architect
+- [Giulia Gallo](https://www.linkedin.com/in/giuliagallo) | Senior Cloud Solution Architect
 
 Other contributors:
 
-[Chu Lahlou](https://www.linkedin.com/in/chulahlou) | Senior Cloud Solution Architect
-[Gary Moore](https://www.linkedin.com/in/gwmoore) | Programmer/Writer
-[Arash Mosharraf](https://www.linkedin.com/in/arashaga) | Senior Cloud Solution Architect
+- [Chu Lahlou](https://www.linkedin.com/in/chulahlou) | Senior Cloud Solution Architect
+- [Gary Moore](https://www.linkedin.com/in/gwmoore) | Programmer/Writer
+- [Arash Mosharraf](https://www.linkedin.com/in/arashaga) | Senior Cloud Solution Architect
 
 
 ## Next steps
