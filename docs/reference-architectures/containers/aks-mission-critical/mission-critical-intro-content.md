@@ -11,7 +11,7 @@ This reference architecture targets an SLO of 99.99%, which corresponds to a per
 
 > [!TIP]
 > To define a realistic SLO, it's important to understand the SLA of all Azure components within the architecture. These individual numbers should be aggregated to determine a [composite SLA](/azure/architecture/framework/resiliency/business-metrics#composite-slas) which should align with workload targets.
-
+>
 > Refer to [Well-architected mission critical workloads: Design for business requirements](/azure/architecture/framework/mission-critical/mission-critical-design-methodology#1design-for-business-requirements).
 
 ## Key design strategies
@@ -96,7 +96,7 @@ The regional resources are provisioned as part of a _deployment stamp_ to a sing
 
 In this architecture, a unified deployment pipeline deploys a stamp with these resources. 
 
-![Diagram that shows the regional resources](./images/mission-critical-stamp.png)
+![Diagram that shows the regional resources.](./images/mission-critical-stamp.png)
 
 #### Frontend
 
@@ -167,7 +167,7 @@ Operational data from application and infrastructure must be available to allow 
 - **Azure Log Analytics** is used as a unified sink to store logs and metrics for all application and infrastructure components. 
 - **Azure Application Insights** is used as an Application Performance Management (APM) tool to collect all application monitoring data and store it directly within Log Analytics.
 
-![Diagram that shows the monitoring resources](./images/mission-critical-monitoring-resources.svg)
+![Diagram that shows the monitoring resources.](./images/mission-critical-monitoring-resources.svg)
 
 Monitoring data for global resources and regional resources should be stored independently. A single, centralized observability store isn't recommended to avoid a single point of failure. Cross-workspace querying is used to achieve a single pane of glass.
 
