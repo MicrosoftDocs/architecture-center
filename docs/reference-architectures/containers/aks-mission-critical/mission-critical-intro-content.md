@@ -102,7 +102,7 @@ In this architecture, a unified deployment pipeline deploys a stamp with these r
 
 #### Frontend
 
-This architecture uses a single page app (SPA) that send requests to backend services. An advantage is that the compute needed for the website experience is offloaded to the client instead of your servers. If there's a transient error, SPA can reduce the impact by using service to buffer requests. This reduces a failure point on the backend servers. The SPA is hosted as a **static website in an Azure Storage Account**.
+This architecture uses a single page application (SPA) that send requests to backend services. An advantage is that the compute needed for the website experience is offloaded to the client instead of your servers. If there's a transient error, SPA can reduce the impact by using service to buffer requests. This reduces a failure point on the backend servers. The SPA is hosted as a **static website in an Azure Storage Account**.
 
 Another choice is Azure Static Web Apps, which introduces additional considerations, such as how the certificates are exposed, connectivity to global load balancer, and other factors.
 
@@ -127,7 +127,7 @@ The entire stamp is stateless except for at certain points, such as this message
 
 In this design, **Azure Event Hubs** is used. An additional Azure Storage account is provisioned for checkpointing. Event Hubs is the recommended choice for use cases that require high throughput, such as event streaming.
 
-For use cases that require additional message guarantees, Azure Service Bus is recommended. It allows for two-phase commits with a client side cursor, as well as features such as a built-in dead letter queue and dedupe capabilities.
+For use cases that require additional message guarantees, Azure Service Bus is recommended. It allows for two-phase commits with a client side cursor, as well as features such as a built-in dead letter queue and deduplication capabilities.
 
 > Refer to [Well-architected mission critical workloads: Loosely coupled event-driven architecture](/azure/architecture/framework/mission-critical/mission-critical-application-design#loosely-coupled-event-driven-architecture).
 
@@ -201,7 +201,7 @@ The description of this flow is in the following sections.
 > [!NOTE]
 > The terms **backend pools** and **backends** in Azure Front Door Classic are called **origin groups** and **origins** in Azure Front Door Standard or Premium Tiers.  
 
-4. The SPA Makes an API call to the Azure Front Door frontend host. The pattern of the API request URL is "/api/*".
+4. The SPA makes an API call to the Azure Front Door frontend host. The pattern of the API request URL is "/api/*".
 
 ### Frontend API request flow
 
