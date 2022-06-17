@@ -14,7 +14,7 @@ This architecture consists of the following components.
 
 #### Storage
 
-**[Azure Blob storage][blob-storage]** is used to store all images (input images, style images, and output images). Azure Machine Learning integrates with Blob storage so that users don't have to manually move data across compute platforms and blob storages. Blob storage is also cost-effective for the performance that this workload requires.
+**[Azure Blob Storage][blob-storage]** is used to store all images (input images, style images, and output images). Azure Machine Learning integrates with Blob Storage so that users don't have to manually move data across compute platforms and blob storages. Blob Storage is also cost-effective for the performance that this workload requires.
 
 #### Trigger
 
@@ -34,7 +34,7 @@ This reference architecture uses video footage of an orangutan in a tree.
 
 - [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning)
 - [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps)
-- [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs)
+- [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs)
 - [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps)
 
 ## Solution details
@@ -43,10 +43,10 @@ This reference architecture is designed for workloads that are triggered by the 
 
 Processing involves the following steps:
 
-1. Upload a video file to Azure Blob storage.
+1. Upload a video file to Azure Blob Storage.
 1. The video file triggers Azure Logic Apps to send a request to the Azure Machine Learning pipeline published endpoint.
 1. The pipeline processes the video, applies style transfer with MPI, and postprocesses the video.
-1. The output is saved back to blob storage once the pipeline is completed.
+1. The output is saved back to Blob Storage once the pipeline is completed.
 
 ### Potential use cases
 
@@ -70,7 +70,7 @@ GPUs aren't enabled by default in all regions. Make sure to select a region with
 
 When you run a style transfer process as a batch job, the jobs that run primarily on GPUs need to be parallelized across VMs. Two approaches are possible: You can create a larger cluster using VMs that have a single GPU, or create a smaller cluster using VMs with many GPUs.
 
-For this workload, these two options have comparable performance. Using fewer VMs with more GPUs per VM can help to reduce data movement. However, the data volume per job for this workload isn't large, so you won't observe much throttling by blob storage.
+For this workload, these two options have comparable performance. Using fewer VMs with more GPUs per VM can help to reduce data movement. However, the data volume per job for this workload isn't large, so you won't observe much throttling by Blob Storage.
 
 #### MPI step
 
@@ -80,9 +80,9 @@ When creating the [Azure Machine Learning pipeline][aml-pipeline], one of the st
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview). This section contains considerations for building secure solutions.
 
-#### Restricting access to Azure Blob storage
+#### Restricting access to Azure Blob Storage
 
-In this reference architecture, Azure Blob storage is the main storage component that needs to be protected. The baseline deployment shown in the GitHub repo uses storage account keys to access the blob storage. For further control and protection, consider using a [shared access signature (SAS)][storage-sas-overview] instead. This grants limited access to objects in storage, without needing to hard code the account keys or save them in plaintext. This approach is especially useful because account keys are visible in plaintext inside of Logic App's designer interface. Using an SAS also helps to ensure that the storage account has proper governance, and that access is granted only to the people intended to have it.
+In this reference architecture, Azure Blob Storage is the main storage component that needs to be protected. The baseline deployment shown in the GitHub repo uses storage account keys to access the blob storage. For further control and protection, consider using a [shared access signature (SAS)][storage-sas-overview] instead. This grants limited access to objects in storage, without needing to hard code the account keys or save them in plaintext. This approach is especially useful because account keys are visible in plaintext inside of Logic App's designer interface. Using an SAS also helps to ensure that the storage account has proper governance, and that access is granted only to the people intended to have it.
 
 For scenarios with more sensitive data, make sure that all of your storage keys are protected, because these keys grant full access to all input and output data from the workload.
 
@@ -102,21 +102,7 @@ In scenarios where there are multiple users, make sure that sensitive data is pr
 - Provision two separate storage accounts. Store input and output data in the first account. External users can be given access to this account. Store executable scripts and output log files in the other account. External users should not have access to this account. This separation ensures that external users can't modify any executable files (to inject malicious code), and don't have access to log files, which could hold sensitive information.
 - Malicious users can perform a [DDoS attack][ddos] on the job queue or inject malformed poison messages in the job queue, causing the system to lock up or causing dequeuing errors.
 
-## Monitoring and logging
-
-### Monitoring batch jobs
-
-While running your job, it's important to monitor the progress and make sure that the job is working as expected. However, it can be a challenge to monitor across a cluster of active nodes.
-
-To check the overall state of the cluster, go to the Machine Learning service in the Azure portal to check the state of the nodes in the cluster. If a node is inactive or a job has failed, the error logs are saved to blob storage, and are also accessible in the Azure portal.
-
-Monitoring can be further enriched by connecting logs to Application Insights or by running separate processes to poll for the state of the cluster and its jobs.
-
-### Logging with Azure Machine Learning
-
-Azure Machine Learning will automatically log all stdout/stderr to the associated blob storage account. Unless otherwise specified, your Azure Machine Learning workspace will automatically provision a storage account and dump your logs into it. You can also use a storage navigation tool such as [Azure Storage Explorer][storage-explorer], which is an easier way to navigate log files.
-
-## Cost optimization
+### Cost optimization
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
@@ -129,6 +115,18 @@ For work that doesn't require immediate processing, configure autoscale so the d
 Autoscaling may not be appropriate for batch jobs that happen too close to each other. The time that it takes for a cluster to spin up and spin down also incur a cost, so if a batch workload begins only a few minutes after the previous job ends, it might be more cost effective to keep the cluster running between jobs.
 
 Azure Machine Learning Compute also supports low-priority virtual machines, which allows you to run your computation on discounted virtual machines, with the caveat that they may be preempted at any time. Low-priority virtual machines are ideal for non-critical batch scoring workloads.
+
+### Monitor batch jobs
+
+While running your job, it's important to monitor the progress and make sure that the job is working as expected. However, it can be a challenge to monitor across a cluster of active nodes.
+
+To check the overall state of the cluster, go to the Machine Learning service in the Azure portal to check the state of the nodes in the cluster. If a node is inactive or a job has failed, the error logs are saved to Blob Storage, and are also accessible in the Azure portal.
+
+Monitoring can be further enriched by connecting logs to Application Insights or by running separate processes to poll for the state of the cluster and its jobs.
+
+### Log with Azure Machine Learning
+
+Azure Machine Learning will automatically log all stdout/stderr to the associated Blob Storage account. Unless otherwise specified, your Azure Machine Learning workspace will automatically provision a storage account and dump your logs into it. You can also use a storage navigation tool such as [Azure Storage Explorer][storage-explorer], which is an easier way to navigate log files.
 
 ## Deploy the solution
 
@@ -145,6 +143,8 @@ You can also deploy a batch scoring architecture for deep learning models by usi
 ## Related resources
 
 - [Artificial intelligence architecture](/azure/architecture/data-guide/big-data/ai-overview)
+- [What is Azure Machine Learning?](/azure/machine-learning/overview-what-is-azure-machine-learning)
+- [Azure Machine Learning pipelines](/azure/machine-learning/concept-ml-pipelines)
 
 <!-- links -->
 
