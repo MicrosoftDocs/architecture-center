@@ -25,6 +25,6 @@ products:
   - azure-application-insights
   - azure-log-analytics
   - azure-monitor
-thumbnailUrl: /azure/architecture/browse/thumbs/architecture-diagram-app-monitoring.png
+thumbnailUrl: /azure/architecture/browse/thumbs/architecture-diagram-app-monitoring-thumbnail.png
 content: |
    [!include[](app-monitoring-content.md)]
