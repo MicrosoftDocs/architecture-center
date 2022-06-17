@@ -10,6 +10,7 @@ metadata:
   ms.custom: fcp
   ms.service: architecture-center
   ms.subservice: solution-idea
+  robots: noindex
 azureCategories:
   - ai-machine-learning
   - analytics
@@ -24,4 +25,3 @@ summary: Create a modern analytics architecture with Azure Databricks, Data Lake
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-databricks-modern-analytics-architecture-diagram-thumbnail.png
 content: |
   [!include[](azure-databricks-modern-analytics-architecture-experiment-content.md)]
-robots: noindex
