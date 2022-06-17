@@ -299,6 +299,10 @@ items:
             href: example-scenario/startups/core-startup-stack.yml
           - name: SaaS digital business journey on Azure
             href: guide/saas/saas-digital-business-journey-azure.md
+      - name: Mission critical applications
+        items:
+            - name: Mission critical workload on Azure
+              href: reference-architectures/containers/aks-mission-critical/mission-critical-intro.yml     
       - name: Multitenant applications
         items:
           - name: Overview
@@ -319,6 +323,8 @@ items:
                 href: guide/multitenant/considerations/updates.md
               - name: Map requests to tenants
                 href: guide/multitenant/considerations/map-requests.yml
+              - name: Identity
+                href: guide/multitenant/considerations/identity.md
               - name: Domain names
                 href: guide/multitenant/considerations/domain-names.yml
           - name: Approaches
@@ -341,6 +347,8 @@ items:
                 href: guide/multitenant/approaches/storage-data.yml
               - name: Messaging
                 href: guide/multitenant/approaches/messaging.md
+              - name: Identity
+                href: guide/multitenant/approaches/identity.md
               - name: IoT
                 href: guide/multitenant/approaches/iot.md
               - name: AI and ML
@@ -3124,7 +3132,7 @@ items:
               - name: Magento e-commerce in AKS
                 href: example-scenario/magento/magento-azure.yml
               - name: Microservices architecture on AKS
-                href: reference-architectures/containers/aks-microservices/aks-microservices.yml
+                href: reference-architectures/containers/aks-microservices/aks-microservices.yml              
               - name: Microservices with Container Apps
                 href: example-scenario/serverless/microservices-with-container-apps.yml
               - name: Microservices with Container Apps and Dapr
@@ -3701,7 +3709,7 @@ items:
                         href: microservices/design/index.yml
                       - name: Choose a compute option
                         href: microservices/design/compute-options.md
-                      - name: Spring Cloud via reverse proxy
+                      - name: Spring Apps via reverse proxy
                         href: reference-architectures/microservices/spring-cloud-reverse-proxy.yml
                       - name: Interservice communication
                         href: microservices/design/interservice-communication.yml
@@ -3753,7 +3761,7 @@ items:
                      href: example-scenario/blue-green-spring/blue-green-spring.yml
                    - name: Microservices on Azure Service Fabric
                      href: reference-architectures/microservices/service-fabric.yml
-                   - name: Microservices with Azure Spring Cloud
+                   - name: Microservices with Azure Spring Apps
                      href: /azure/spring-cloud/reference-architecture
                      maintainContext: true
                    - name: Microservices with Container Apps
