@@ -12,7 +12,9 @@ Other relevant use cases include:
 
 ## Architecture
 
-!["Architecture Diagram"](./images/architecture-diagram-app-monitoring.svg)
+!["Architecture Diagram"](./images/architecture-diagram-app-monitoring-new.png)
+
+*Download a [Visio file](https://arch-center.azureedge.net/architecture-diagram-app-monitoring.vsdx) of this architecture.*
 
 ### Dataflow
 
