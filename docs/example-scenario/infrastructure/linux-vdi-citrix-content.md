@@ -1,5 +1,3 @@
-
-
 This example scenario is applicable to any industry that needs a Virtual Desktop Infrastructure (VDI) for Linux Desktops. VDI refers to the process of running a user desktop inside a virtual machine that lives on a server in the datacenter. The customer in this scenario chose to use a Citrix-based solution for their VDI needs.
 
 Organizations often have heterogeneous environments with multiple devices and operating systems being used by employees. It can be challenging to provide consistent access to applications while maintaining a secure environment. A VDI solution for Linux desktops will allow your organization to provide access irrespective of the device or OS used by the end user.
@@ -11,7 +9,7 @@ Some benefits of this scenario include the following:
 - Users can access Linux applications from any device (including non-Linux devices).
 - Sensitive data can be secured in the Azure datacenter for all distributed employees.
 
-## Relevant use cases
+## Potential use cases
 
 Consider this scenario for the following use case:
 
@@ -91,7 +89,20 @@ For deployment information, see the official [Citrix documentation](https://docs
 - Using reserved instances will greatly reduce the compute cost for the solution.
 - The ExpressRoute cost is not included.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+* [Miguel Angelo Pereira Dos Santos](/) | Partner CCO HC Portugal
+
 ## Next steps
 
 - Check Citrix documentation for planning and deployment [here](https://docs.citrix.com/en-us/citrix-virtual-apps-desktops/install-configure).
 - To deploy Citrix ADC (NetScaler) in Azure, review the Resource Manager templates provided by Citrix [here](https://github.com/citrix/netscaler-azure-templates).
+
+## Related resources
+
+- [High-performance computing (HPC) for manufacturing](https://docs.microsoft.com/azure/architecture/industries/manufacturing/compute-manufacturing-overview)
+- [Conditional Access framework and policies](https://docs.microsoft.com/azure/architecture/guide/security/conditional-access-framework)

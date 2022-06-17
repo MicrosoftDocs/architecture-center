@@ -28,13 +28,13 @@ This diagram offers a high-level overview of the architecture used in the exampl
 
 1. Users sign in to the head node via SSH to prepare their models for the compute resources.
 
-2. PBS Pro 19.1 runs on the head node and schedules the jobs on the compute nodes.
+1. PBS Pro 19.1 runs on the head node and schedules the jobs on the compute nodes.
 
-3. OPM Flow runs on the compute nodes. The compute VMs are deployed as a [virtual machine scale set][vmss], a group of identical VMs that scale to meet the demands of the compute tasks.
+1. OPM Flow runs on the compute nodes. The compute VMs are deployed as a [virtual machine scale set][vmss], a group of identical VMs that scale to meet the demands of the compute tasks.
 
-4. OPM Flow sends calculated results to a file share on the head node. A [premium disk][disk] is connected to the head node and set up as an NFS server for the compute nodes and the visualization VM.
+1. OPM Flow sends calculated results to a file share on the head node. A [premium disk][disk] is connected to the head node and set up as an NFS server for the compute nodes and the visualization VM.
 
-5. OPM ResInsight running on a Standard-NV6 Windows VM displays 3D visualizations of results. Users can access the visualization VM through RDP.
+1. OPM ResInsight running on a Standard-NV6 Windows VM displays 3D visualizations of results. Users can access the visualization VM through RDP.
 
 ### Components
 

@@ -1,5 +1,3 @@
-
-
 In this example scenario, we walk through an approach using [Service Fabric](/azure/service-fabric/service-fabric-overview) as a platform for decomposing an unwieldy monolithic application. Here we consider an iterative approach to decomposing an IIS/ASP.NET web site into an application composed of multiple, manageable microservices.
 
 Moving from a monolithic architecture to a microservice architecture provides the following benefits:
@@ -12,7 +10,7 @@ Moving from a monolithic architecture to a microservice architecture provides th
 
 A large IIS application on a server farm is used in this example, but the concepts of iterative decomposition and hosting can be used for any type of large application. While this solution uses Windows, Service Fabric can also run on Linux. It can be run on-premises, in Azure, or on VM nodes in the cloud provider of your choice.
 
-## Relevant use cases
+## Potential use cases
 
 This scenario is relevant to organizations with large monolithic Web applications that are experiencing:
 
@@ -70,6 +68,14 @@ For a Service Fabric cluster hosted in Azure, the largest part of the cost is th
 Other less costly components of cost are the storage charges for each node's virtual disks and network I/O egress charges from Azure (for example network traffic out of Azure to a user's browser).
 
 To get an idea of cost, we have created an example using some default values for cluster size, networking, and storage: Take a look at the [pricing calculator](https://azure.com/e/52dea096e5844d5495a7b22a9b2ccdde). Feel free to update the values in this default calculator to those relevant to your situation.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+* [Tim Omta](https://www.linkedin.com/in/tim-omta-b317056) | Senior Cloud Solution Architect
 
 ## Next steps
 

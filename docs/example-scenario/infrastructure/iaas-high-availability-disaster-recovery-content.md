@@ -112,7 +112,7 @@ There's no additional cost for VMs deployed in AZs. There might be additional in
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors:
+Principal author:
 
 * [Shaun Croucher](https://uk.linkedin.com/in/shaun-croucher-64b251185) | Senior Consultant
 
