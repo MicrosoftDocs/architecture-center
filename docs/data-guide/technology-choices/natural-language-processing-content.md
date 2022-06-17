@@ -27,7 +27,7 @@ Business scenarios that can benefit from custom NLP include:
 
 Apache Spark is a parallel processing framework that supports in-memory processing to boost the performance of big-data analytic applications. [Azure Synapse Analytics](/azure/synapse-analytics), [Azure HDInsight](/azure/hdinsight/spark/apache-spark-overview), and [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) offer access to Spark and take advantage of its processing power.
 
-For customized NLP workloads, Spark NLP serves as an efficient framework for processing a large amount of text. This open-source NLP library provides Python, Java, and Scala libraries that offer the full functionality of traditional NLP libraries such as spaCy, NLTK, Stanford CoreNLP, and Open NLP. Spark NLP also adds functionality such as spell checking, sentiment analysis, and document classification. Spark NLP improves on previous efforts by providing state-of-the-art accuracy, speed, and scalability.
+For customized NLP workloads, Spark NLP serves as an efficient framework for processing a large amount of text. This open-source NLP library provides Python, Java, and Scala libraries that offer the full functionality of traditional NLP libraries such as spaCy, NLTK, Stanford CoreNLP, and Open NLP. Spark NLP also offers functionality such as spell checking, sentiment analysis, and document classification. Spark NLP improves on previous efforts by providing state-of-the-art accuracy, speed, and scalability.
 
 :::image type="content" source="../images/natural-language-processing-functionality.png" alt-text="Diagram that shows areas of N L P functionality like entity recognition. Various boxes list N L P annotators, models, and supported languages." border="false":::
 
