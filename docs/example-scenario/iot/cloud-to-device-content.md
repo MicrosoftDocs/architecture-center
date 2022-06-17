@@ -1,5 +1,3 @@
-
-
 Applications use two primary mechanisms to send commands to IoT devices, *cloud-to-device messaging* and *direct methods*.
 
 - Applications send [cloud-to-device messages](/azure/iot-hub/iot-hub-csharp-csharp-c2d) to device-specific message queues on the IoT platform for devices to read when they're connected. The devices decide when to read the messages.
@@ -10,7 +8,7 @@ This article discusses characteristics of cloud-to-device messaging and direct m
 
 ## Cloud-to-device messaging
 
-Applications send cloud-to-device command messages for specific devices to [Azure IoT Hub](/azure/iot-hub/), which stores the messages in device-specific queues. IoT Hub delivers the messages to the device-specific queues regardless of whether the devices are connected.
+Applications send cloud-to-device command messages for specific devices to [Azure IoT Hub](/azure/iot-hub), which stores the messages in device-specific queues. IoT Hub delivers the messages to the device-specific queues regardless of whether the devices are connected.
 
 ![A diagram showing how the IoT Hub stores messages on an internal message queue for each device, and the devices polling for these messages.](media/cloud-to-device-message.png)
 
@@ -95,7 +93,19 @@ To simply check connectivity, use an empty method with a connection timeout of z
 var method = new CloudToDeviceMethod("Ping", 0, 0);
 ```
 
-## See also
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+- [Jason Wadsworth](https://www.linkedin.com/in/jason-wadsworth-23549b158) | Principal Software Engineer
+
+## Next steps
+
 - [Cloud-to-device communications guidance](/azure/iot-hub/iot-hub-devguide-c2d-guidance) provides scenario-based guidance about when to use cloud-to-device messages or direct methods.
+
+## Related resources
+
 - [IoT devices, platform, and applications](devices-platform-application.yml)
 - [Scale IoT solutions with application stamps](application-stamps.yml)

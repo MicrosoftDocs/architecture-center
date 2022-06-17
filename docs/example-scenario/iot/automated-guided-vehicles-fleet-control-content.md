@@ -265,44 +265,52 @@ and use the [AKS calculator](https://azure.microsoft.com/pricing/calculator/?ser
 to estimate the costs for running AKS in Azure. To learn about other
 considerations, see the "Cost optimization" section in [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/).
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+* [Gürcan Güleşir](https://de.linkedin.com/in/g%C3%BCrcan-g%C3%BCle%C5%9Fir-08792a7) | Senior Program Manager
+
 ## Next steps
 
 Product documentation:
 
--   [Application Insights](/azure/azure-monitor/app/app-insights-overview)
--   [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis)
--   [Azure App Service](/azure/app-service/overview)
--   [Azure Container Instances](/azure/container-instances/container-instances-overview)
--   [Azure Container Registry](/azure/container-registry/container-registry-intro)
--   [Azure IoT Hub](/azure/iot-hub/iot-concepts-and-iot-hub)
--   [Azure Kubernetes Service](/azure/aks/intro-kubernetes)
--   [Azure Key Vault](/azure/key-vault/general/basic-concepts)
--   [Azure Monitor](/azure/azure-monitor/overview)
--   [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview)
--   [Azure Virtual Machines](/azure/virtual-machines/linux/overview)
--   [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview)
--   [GitHub](https://docs.github.com/en/get-started)
+- [Application Insights](/azure/azure-monitor/app/app-insights-overview)
+- [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis)
+- [Azure App Service](/azure/app-service/overview)
+- [Azure Container Instances](/azure/container-instances/container-instances-overview)
+- [Azure Container Registry](/azure/container-registry/container-registry-intro)
+- [Azure IoT Hub](/azure/iot-hub/iot-concepts-and-iot-hub)
+- [Azure Kubernetes Service](/azure/aks/intro-kubernetes)
+- [Azure Key Vault](/azure/key-vault/general/basic-concepts)
+- [Azure Monitor](/azure/azure-monitor/overview)
+- [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview)
+- [Azure Virtual Machines](/azure/virtual-machines/linux/overview)
+- [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview)
+- [GitHub](https://docs.github.com/en/get-started)
 
 Microsoft Learn learning paths:
 
--   [Introduction to Azure IoT](/learn/paths/introduction-to-azure-iot/)
--   [Introduction to Kubernetes on Azure](/learn/paths/intro-to-kubernetes-on-azure/)
--   [Administer containers in Azure](/learn/paths/administer-containers-in-azure/)
--   [Create microservices with .NET and ASP.NET Core](/learn/paths/create-microservices-with-dotnet/)
--   [Manage identities and governance for Azure administrators](/learn/paths/azure-administrator-manage-identities-governance/)
+- [Introduction to Azure IoT](/learn/paths/introduction-to-azure-iot/)
+- [Introduction to Kubernetes on Azure](/learn/paths/intro-to-kubernetes-on-azure/)
+- [Administer containers in Azure](/learn/paths/administer-containers-in-azure/)
+- [Create microservices with .NET and ASP.NET Core](/learn/paths/create-microservices-with-dotnet/)
+- [Manage identities and governance for Azure administrators](/learn/paths/azure-administrator-manage-identities-governance/)
 
 ## Related resources
 
 Azure Architecture Center overview articles:
 
--   [Microservices architecture style](/azure/architecture/guide/architecture-styles/microservices)
--   [Choosing an Azure compute option for microservices](/azure/architecture/microservices/design/compute-options)
--   [Highly available multi-region web application](/azure/architecture/reference-architectures/app-service-web-app/multi-region)
--   [Advanced Azure Kubernetes Service (AKS) microservices architecture](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced)
--   [Microservices with Azure Kubernetes Service (AKS)](/azure/architecture/solution-ideas/articles/microservices-with-aks)
+- [Microservices architecture style](/azure/architecture/guide/architecture-styles/microservices)
+- [Choosing an Azure compute option for microservices](/azure/architecture/microservices/design/compute-options)
+- [Highly available multi-region web application](/azure/architecture/reference-architectures/app-service-web-app/multi-region)
+- [Advanced Azure Kubernetes Service (AKS) microservices architecture](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced)
+- [Microservices with Azure Kubernetes Service (AKS)](/azure/architecture/solution-ideas/articles/microservices-with-aks)
 
 Related architectures:
 
--   [Building blocks for autonomous-driving simulation environments](/azure/architecture/industries/automotive/building-blocks-autonomous-driving-simulation-environments)
--   [Running CFD simulations](/azure/architecture/example-scenario/infrastructure/hpc-cfd)
--   [Industrial services on Azure Kubernetes](https://github.com/Azure/Industrial-IoT/tree/master/docs/services)
+- [Building blocks for autonomous-driving simulation environments](/azure/architecture/industries/automotive/building-blocks-autonomous-driving-simulation-environments)
+- [Running CFD simulations](/azure/architecture/example-scenario/infrastructure/hpc-cfd)
+- [Industrial services on Azure Kubernetes](https://github.com/Azure/Industrial-IoT/tree/master/docs/services)
