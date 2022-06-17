@@ -18,7 +18,9 @@ This solution benefits any organization that wants the advantages of deploying a
 
 ## Architecture
 
-![Diagram of GitOps for AKS, with GitHub source control, Flux GitOps controller, Syncier Security Tower GitOps control kit, and Gatekeeper admission controller.](media/gitops-blueprint-aks.svg)
+![Diagram of GitOps for AKS, with GitHub source control, Flux GitOps controller, Syncier Security Tower GitOps control kit, and Gatekeeper admission controller.](media/gitops-blueprint-aks-new.png)
+
+*Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/gitops-blueprint-aks-new.vsdx) of this architecture.*
 
 This solution follows a strong GitOps approach.
 
