@@ -6,7 +6,7 @@ The architecture in this example supports OPM Flow, a popular open-source oil an
 
 Users connect to a Linux head node VM to submit models to the HPC resources through PBS Pro 19.1 job-scheduling software. The HPC resources run OPM Flow and send calculated results to a file share. In this example, the file share is a 4-terabyte (TB) network file system (NFS) space on the head node VM. Depending on your model and your input and output (I/O) requirements, you can use other [storage](#storage) options.
 
-A Windows Azure VM running OPM ResInsight, an open-source visualization tool, accesses the file share to [model and visualize][model] the calculated results. Users can connect to the VM via remote desktop protocol (RDP) to view the visualizations.
+A Microsoft Azure VM running OPM ResInsight, an open-source visualization tool, accesses the file share to [model and visualize][model] the calculated results. Users can connect to the VM via remote desktop protocol (RDP) to view the visualizations.
 
 Using an Azure VM spares the expense of a high-end visualization workstation. The OPM applications benefit from HPC hardware and a shared storage location for the input and output files.
 
