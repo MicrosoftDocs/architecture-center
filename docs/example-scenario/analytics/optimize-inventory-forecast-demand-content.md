@@ -29,7 +29,7 @@ This solution is designed for the retail industry, but it also applies to the ma
 
 -   Forecast the prices of commodities across locations and sales channels by using historical transaction data in a retail context.
 
-Companies can have a wide variety of inventory types, and specific types might be present only in specific locations or handled by a subset of factories. Companies must also meet service level agreements and other relevant metrics, so forecasts must account for the time at which a specific unit is available at a specific location, in addition to forecasting demand, service level agreements, and other relevant metrics. Successful inventory management requires accurate simulations for forecasting demand, utilization of distributed computing resources, and methodologies that can predict for multiple time granularities, product types, and locations.
+Companies can have a wide variety of inventory types, and specific types might be present only in specific locations or handled by a subset of factories. Companies must also meet service level agreements and other relevant metrics. So, forecasts must account for the time at which a specific unit is available at a specific location, in addition to forecasting demand, service level agreements, and other relevant metrics. Successful inventory management requires accurate simulations for forecasting demand, utilization of distributed computing resources, and methodologies that can predict for multiple time granularities, product types, and locations.
 
 Often, the data that's required to optimize inventory is sparse and not centrally located, which makes aggregating and analyzing it difficult. Most companies rely on commercial software and routines. However, such systems hit scalability limits due to the ever-increasing amount of data and the complexity of data storage systems.
 
@@ -73,7 +73,7 @@ Methods of forecasting demand include on-point predictions, probabilistic Monte 
 
 -   [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/): AKS simplifies deploying a managed Kubernetes cluster in Azure by offloading the operational overhead to Azure. As a hosted Kubernetes service, Azure handles critical tasks, like health monitoring and maintenance.
 
--   [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/): Azure Synapse Analytics is an enterprise analytics service that accelerates time to insight across data warehouses and big data systems. It brings together the best of SQL technologies used in enterprise data warehousing, Spark technologies used for big data, Data Explorer for log and time series analytics, Pipelines for data integration and ETL/ELT, and deep integration with other Azure services, such as Power BI, Cosmos DB, and Azure Machine Learning.
+-   [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/): Azure Synapse Analytics is an enterprise analytics service that accelerates time to insight across data warehouses and big data systems. It brings together the best of the SQL technologies used in enterprise data warehousing, Spark technologies used for big data, Data Explorer for log and time-series analytics, Pipelines for data integration and ETL/ELT, and deep integration with other Azure services (such as Power BI, Cosmos DB, and Azure Machine Learning).
 
 
 ### Alternatives
@@ -105,7 +105,7 @@ Follow MLOps guidelines to standardize and manage end to end a scalable Machine 
 
 ### Security
 
-Consider using Azure Databricks Premium for additional security features. For more information, see [Azure Databricks Pricing](https://azure.microsoft.com/pricing/details/databricks/).
+Consider using Azure Databricks Premium for more security features. For more information, see [Azure Databricks Pricing](https://azure.microsoft.com/pricing/details/databricks/).
 
 Follow the best practices for Databricks security and data governance. For more information, see [Secure cluster connectivity (No Public IP / NPIP)](/azure/databricks/security/secure-cluster-connectivity).
 
@@ -117,11 +117,11 @@ Consider implementing the following additional security features in this archite
 
 ### Cost optimization
 
-To estimate the cost of implementing this solution, please utilize [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) for the services mentioned in this article. It's also valuable to see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+To estimate the cost of implementing this solution, use [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) for the services mentioned in this article. It's also valuable to see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 Power BI comes with different licensing offerings. For more information, see [Power BI pricing](https://powerbi.microsoft.com/pricing/).
 
-Depending on the volume of data and complexity of your geospatial analysis you may need to scale your Databricks cluster configurations that would affect your cost. Please refer to Databricks' [cluster sizing](/azure/databricks/clusters/cluster-config-best-practices#--cluster-sizing-examples) examples for best practices on cluster configuration.
+Depending on the volume of data and complexity of your geospatial analysis, you may need to scale your Databricks cluster configurations that would affect your cost. Please refer to Databricks' [cluster sizing](/azure/databricks/clusters/cluster-config-best-practices#--cluster-sizing-examples) examples for best practices on cluster configuration.
 
 
 ### Performance efficiency
