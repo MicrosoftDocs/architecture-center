@@ -19,6 +19,7 @@ metadata:
     - application-development
     - example-scenario
   social_image_url: /azure/architecture/example-scenario/infrastructure/media/architecture-disaster-recovery-multi-tier-app.png
+  robots: noindex
 name: Multi-tier web application built for HA/DR
 azureCategories:
   - web
@@ -32,4 +33,3 @@ products:
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-disaster-recovery-multi-tier-app.png
 content: |
    [!include[](multi-tier-app-disaster-recovery-experiment-content.md)]
-robots: noindex

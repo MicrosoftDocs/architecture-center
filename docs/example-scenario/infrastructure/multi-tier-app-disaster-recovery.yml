@@ -19,6 +19,10 @@ metadata:
     - application-development
     - example-scenario
   social_image_url: /azure/architecture/example-scenario/infrastructure/media/architecture-disaster-recovery-multi-tier-app.png
+  adobe-target: true
+  adobe-target-activity: DocsExp-450939-A/B-Docs/Architecture-ArchDiagrams-FY22Q4
+  adobe-target-experience: Experience B
+  adobe-target-content: ./multi-tier-app-disaster-recovery-experiment.yml
 name: Multi-tier web application built for HA/DR
 azureCategories:
   - web
@@ -32,7 +36,3 @@ products:
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-disaster-recovery-multi-tier-app.png
 content: |
    [!include[](multi-tier-app-disaster-recovery-content.md)]
-adobe-target: true
-  adobe-target-activity: DocsExp–450939–A/B–Docs/Architecture–ArchDiagrams–FY22Q4
-  adobe-target-experience: Experience B
-  adobe-target-content: ./multi-tier-app-disaster-recovery-experiment.yml
