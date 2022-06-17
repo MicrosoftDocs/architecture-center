@@ -11,6 +11,7 @@ metadata:
   ms.subservice: reference-architecture
   ms.custom:
     - fcp
+  robots: noindex
 azureCategories:
   - databases
   - management-and-governance
@@ -23,4 +24,3 @@ summary: Use the CluedIn eventual connectivity data integration technique to sea
 thumbnailUrl: /azure/architecture/browse/thumbs/cluedin-architecture-small.png
 content: |
   [!include[](cluedin-experiment-content.md)]
-robots: noindex
