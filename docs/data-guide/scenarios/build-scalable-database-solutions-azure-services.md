@@ -4,7 +4,7 @@ description: Use Azure services to build scalable, resilient, affordable, highly
 author: nabilshams
 ms.author: nasiddi
 categories: azure
-ms.date: 06/20/2022
+ms.date: 06/21/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -29,11 +29,11 @@ Your data storage system is fundamental to your applications' success, and there
 
 A well-architected data storage system is:
 
-- Fast and easy to implement
-- Readily scalable to handle data growth
-- Responsive and performant
-- Highly available and resilient to failure
-- Affordable
+- Fast and easy to implement.
+- Readily scalable to handle data growth.
+- Responsive and performant.
+- Highly available and resilient to failure.
+- Affordable.
 
 A crucial consideration is how well a design scales as data grows. Consider an application that generates 6 terabytes (TB) of data its first month, with data increasing at a 10 percent yearly rate. Here's a graph that shows how data accumulates over time:
 
@@ -78,4 +78,5 @@ These examples can help you design a data storage system that accommodates your 
 - [Choose a big data storage technology in Azure](../technology-choices/data-storage.md)
 - [Select an Azure data store for your application](../../guide/technology-choices/data-store-decision-tree.md)
 - [Criteria for choosing a data store](../../guide/technology-choices/data-store-considerations.md)
+- [Time series data](time-series.yml)
 

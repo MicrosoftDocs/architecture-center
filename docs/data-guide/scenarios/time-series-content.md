@@ -10,7 +10,7 @@ Time series data has timestamps, and time is a meaningful axis for viewing or an
 
 ## Use cases
 
-- Analyze time series information to compare current to historical data. You can detect anomalies and generate real-time alerts, or visualize historical trends.
+- You can analyze time series information to compare current to historical data. Detect anomalies and generate real-time alerts, or visualize historical trends.
 
 - Time-series analysis is also well-suited to predictive modeling and results forecasting. You can apply historical records of changes to many forecasting models.
 
