@@ -14,7 +14,7 @@ Time series data has timestamps, and time is a meaningful axis for viewing or an
 
 - Time-series analysis is also well-suited to predictive modeling and results forecasting. You can apply historical records of changes to many forecasting models.
 
-- [Internet of things (IoT)](../big-data/index.yml#internet-of-things-iot) data is a natural fit for time series storage and analysis. Incoming IoT data is inserted, and rarely if ever updated. The data is timestamped, inserted in the order received, and typically displays in chronological order. You can look backward to spot anomalies and discover trends, or look forward to use the data for predictive analysis.
+- [Internet of things (IoT)](../big-data/index.yml#internet-of-things-iot) data is a natural fit for time series storage and analysis. Incoming IoT data is inserted, and rarely if ever updated. The data is timestamped, inserted in the order received, and typically displays in chronological order. You can look backward to spot anomalies and discover trends, or look forward and use the data for predictive analysis.
 
 Specific examples of time series data include:
 

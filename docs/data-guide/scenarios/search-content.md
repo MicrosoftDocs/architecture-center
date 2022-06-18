@@ -14,7 +14,7 @@ An exception is using full text search within SQL Server or Azure SQL Database. 
 
 ## Technology choices
 
-Options for creating a search index include [Azure Cognitive Search](https://azure.microsoft.com/services/search), [Elasticsearch](https://www.elastic.co), and [Azure HDInsight](https://azure.microsoft.com/services/hdinsight) with [Apache Solr](https://solr.apache.org). Each of these technologies can populate a search index from a collection of documents.
+Options for creating an external search index include [Azure Cognitive Search](https://azure.microsoft.com/services/search), [Elasticsearch](https://www.elastic.co), and [Azure HDInsight](https://azure.microsoft.com/services/hdinsight) with [Apache Solr](https://solr.apache.org). Each of these technologies can populate a search index from a collection of documents.
 
 - Cognitive Search provides indexers that can automatically populate the index for documents ranging from plain text to Excel and PDF formats. You can also attach machine learning models to an indexer to analyze images and unstructured text for searchable content.
 
@@ -35,4 +35,4 @@ If you store your text data in [SQL Server](https://www.microsoft.com/sql-server
 ## Related resources
 
 - [Choose a search data store in Azure](../technology-choices/search-options.md)
-- [Natural language processing technology](../technology-choices/natural-language-processing.md)
+- [Natural language processing technology](../technology-choices/natural-language-processing.yml)

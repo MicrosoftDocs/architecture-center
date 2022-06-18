@@ -1,6 +1,6 @@
 ---
 title: Choose an Azure data storage system
-description: Use Azure services to build scalable, resilient, affordable, highly-available systems that can handle massive amounts of data.
+description: Use Azure services to build scalable, resilient, affordable, highly available systems that can handle massive amounts of data.
 author: nabilshams
 ms.author: nasiddi
 categories: azure
@@ -37,13 +37,13 @@ A well-architected data storage system is:
 
 A crucial consideration is how well a design scales as data grows. Consider an application that generates 6 terabytes (TB) of data its first month, with data increasing at a 10 percent yearly rate. Here's a graph that shows how data accumulates over time:
 
-:::image type="content" source="../images/build-scalable-database-solutions-azure-services-data-growth.svg" alt-text="A line graph showing terabytes created over time, from 6 T B after one month to 249 after 3 years. The 10 percent growth rate steepens the slope over time.":::
+:::image type="content" source="../images/build-scalable-database-solutions-azure-services-data-growth.svg" alt-text="A line graph showing terabytes created over time, from 6 T B after one month to 249 after three years. The 10 percent growth rate steepens the slope over time.":::
 
 After three years, there's 249 TB of data. The 10 percent growth rate steepens the slope over time.
 
 This example isn't atypical. Data grows both as you add customers, and as your customers add data. Data can also grow because of application enhancements. A well architected system handles such data growth gracefully, remaining responsive, resilient, and affordable.
 
-To design a data storage system on Azure, learn about how to use the many Azure services for various applications and objectives. Meeting data storage needs might require a mix of products. For example, you could keep rarely-accessed data in low-cost services, and frequently-accessed data in higher-cost services with better access times.
+To design a data storage system on Azure, learn about how to use the many Azure services for various applications and objectives. Meeting data storage needs might require a mix of products. For example, you could keep rarely accessed data in low-cost services, and frequently accessed data in higher-cost services with better access times.
 
 The following articles outline seven system architectures for web applications. These systems can handle massive amounts of data and are resilient to system failures. These architectures use [Azure Table storage](https://azure.microsoft.com/services/storage/tables), [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db), [Azure Data Factory](https://azure.microsoft.com/services/data-factory), and [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage).
 
@@ -73,6 +73,7 @@ These examples can help you design a data storage system that accommodates your 
 ## Related resources
 
 - [Understand data store models](../../guide/technology-choices/data-store-overview.md)
+- [Choose a big data storage technology in Azure](../technology-choices/data-storage.md)
 - [Select an Azure data store for your application](../../guide/technology-choices/data-store-decision-tree.md)
 - [Criteria for choosing a data store](../../guide/technology-choices/data-store-considerations.md)
 
