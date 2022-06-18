@@ -30,7 +30,7 @@ Your data storage system is fundamental to your applications' success, and there
 A well-architected data storage system is:
 
 - Fast and easy to implement
-- Readily scalable to meet capacity
+- Readily scalable to handle data growth
 - Responsive and performant
 - Highly available and resilient to failure
 - Affordable
@@ -42,6 +42,8 @@ A crucial consideration is how well a design scales as data grows. Consider an a
 After three years, there's 249 TB of data. The 10 percent growth rate steepens the slope over time.
 
 This example isn't atypical. Data grows both as you add customers, and as your customers add data. Data can also grow because of application enhancements. A well architected system handles such data growth gracefully, remaining responsive, resilient, and affordable.
+
+## Design a data storage system
 
 To design a data storage system on Azure, learn about how to use the many Azure services for various applications and objectives. Meeting data storage needs might require a mix of products. For example, you could keep rarely accessed data in low-cost services, and frequently accessed data in higher-cost services with better access times.
 
