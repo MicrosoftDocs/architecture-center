@@ -1,8 +1,7 @@
 <!-- cSpell:ignore downsample TSDB -->
-Time series data is a set of values organized by time. Temporal ordering is a key characteristic of time series data. Natural temporal ordering organizes events in the order in which they occur and arrive for processing. 
+Time series data is a set of values organized by time. Temporal ordering, a key characteristic of time series data, organizes events in the order in which they occur and arrive for processing.
 
-Time series data shows how an asset or process changes over time. Choose a time series solution for data whose strategic value centers around changes over a time period. You can use time series data to look backward and measure change, or to look forward and predict future change.
-
+Choose a time series solution for data whose strategic value centers around changes in an asset or process over time. You can use time series data to look backward and measure change, or to look forward and predict future change.
 Time series data typically arrives in chronological order, usually inserts into a data store, and rarely if ever updates. In contrast, standard online transaction processing (OLTP) data pipelines accept data in any order, and can be updated at any time.
 
 Time series data has timestamps, and time is a meaningful axis for viewing or analyzing the data. Time series data is best visualized with a scatter or line chart.
@@ -11,9 +10,9 @@ Time series data has timestamps, and time is a meaningful axis for viewing or an
 
 ## Use cases
 
-- Analyze time series information to compare current to historical data. You can use this information to detect anomalies and generate real-time alerts, or to visualize historical trends.
+- Analyze time series information to compare current to historical data. You can detect anomalies and generate real-time alerts, or visualize historical trends.
 
-- Time-series architecture is also well-suited to predictive modeling and results forecasting. You can apply the historical record of changes over time to many forecasting models.
+- Time-series analysis is also well-suited to predictive modeling and results forecasting. You can apply historical records of changes to many forecasting models.
 
 - [Internet of things (IoT)](../big-data/index.yml#internet-of-things-iot) data is a natural fit for time series storage and analysis. Incoming IoT data is inserted, and rarely if ever updated. The data is timestamped, inserted in the order received, and typically displays in chronological order. You can look backward to spot anomalies and discover trends, or look forward to use the data for predictive analysis.
 
