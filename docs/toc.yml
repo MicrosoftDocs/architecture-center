@@ -4224,7 +4224,7 @@ items:
               - name: Cross-platform chat
                 href: solution-ideas/articles/cross-platform-chat.yml
       - name: Identity
-        items:
+        items:    
           - name: Get started
             href: identity/identity-start-here.yml
           - name: Guides
@@ -5585,6 +5585,8 @@ items:
                     href: solution-ideas/articles/microsoft-365-defender-build-second-layer-defense.yml
                   - name: Integrate Azure and M365 Defender
                     href: solution-ideas/articles/microsoft-365-defender-security-integrate-azure.yml
+                  - name: Microsoft Sentinel automated responses
+                    href: solution-ideas/articles/microsoft-sentinel-automated-response.yml
       - name: Storage
         items:
           - name: Get started
