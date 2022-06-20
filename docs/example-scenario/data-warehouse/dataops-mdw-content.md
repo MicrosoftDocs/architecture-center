@@ -224,7 +224,7 @@ Azure Storage
 * [Best practices for using Azure Data Lake Storage Gen2 – High availability and Disaster Recovery](/azure/storage/blobs/data-lake-storage-best-practices#high-availability-and-disaster-recovery)
 * [Azure Storage Redundancy](/azure/storage/common/storage-redundancy)
 
-## Next steps
+### Detailed walkthrough
 
 For a detailed walk-through of the solution and key concepts, watch the following video recording: [DataDevOps for the Modern Data Warehouse on Microsoft Azure](https://www.youtube.com/watch?v=Xs1-OU5cmsw%22)
 
