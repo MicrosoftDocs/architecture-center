@@ -36,9 +36,9 @@ There are multiple stages in each of the three key phases shown in the preceding
 
 | Pattern | Summary |
 |-------------|-------------|
-| [Predict process and equipment failures by using batch process machine learning](./iiot-prediction-patterns.yml#predict-process-and-equipment-failures-by-using-batch-process-machine-learning) | Predict process and equipment failures by using a batch process. |
+| [Predict process and equipment failures by using near real-time machine learning](./iiot-prediction-patterns.yml#predict-process-and-equipment-failures-by-using-near-real-time-machine-learning) | Predict process and equipment failures by using a batch process. |
 | [Predict process and equipment failures by using near real-time machine learning](./iiot-prediction-patterns.yml#predict-process-and-equipment-failures-by-using-near-real-time-machine-learning) | Predict process and equipment failures by using an API. |
-| [Augment a manual quality inspection by using image recognition based on deep learning](./iiot-prediction-patterns.yml#augment-a-manual-quality-inspection-by-using-deep-learning-based-image-recognition) | Automate quality inspections in manufacturing by using a custom vision. |
+| [Augment a manual quality inspection by using image recognition based on deep learning](./iiot-prediction-patterns.yml#augment-a-manual-quality-inspection-by-using-image-recognition-based-on-deep-learning) | Automate quality inspections in manufacturing by using a custom vision. |
 
 ## Contributors
 

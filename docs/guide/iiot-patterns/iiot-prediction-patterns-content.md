@@ -127,10 +127,10 @@ Other contributor:
 
 ## Next steps
 
-- [Machine Learning overview](/azure/machine-learning/overview-what-is-azure-machine-learning)
-- [Introduction to machine learning](/learn/modules/introduction-to-machine-learning)
 - [Create machine learning models](/learn/paths/create-machine-learn-models)
 - [Deploy batch inference pipelines with Azure Machine Learning](/learn/modules/deploy-batch-inference-pipelines-with-azure-machine-learning)
+- [Introduction to machine learning](/learn/modules/introduction-to-machine-learning)
+- [Machine Learning overview](/azure/machine-learning/overview-what-is-azure-machine-learning)
 
 ## Related resources
 
