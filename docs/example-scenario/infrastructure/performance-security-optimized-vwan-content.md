@@ -133,7 +133,7 @@ With NVAs, you can use features like IDPS with Virtual WAN.
 
 For information about resiliency, see [Availability](#availability), earlier in this article.
 
-## Pricing
+### Cost optimization
 
 Pricing for this architecture depends heavily on the NVAs that you deploy. For a 2-Gbps ER connection and a Virtual WAN hub that processes 10 TB per month, see this [pricing estimate](https://azure.com/e/0bf78de2bf3b45aa961e0dc2f57eb2fe).
 
