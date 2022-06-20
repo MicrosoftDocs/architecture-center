@@ -3,17 +3,19 @@ title: AKS Day-2 - Patch and upgrade guidance
 titleSuffix: Azure Architecture Center
 description: Learn about day-2 patching and upgrading practices for Azure Kubernetes Service (AKS) worker nodes and Kubernetes (K8S) versions.
 author: rishabhsaha
-ms.date: 01/11/2021
+ms.date: 04/11/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: reference-architecture
+azureCategories: compute
+categories: compute
 products:
   - azure-kubernetes-service
 ms.custom:
   - e2e-aks
 ---
 
-# Patching and upgrade guidance
+# Patch and upgrade AKS worker nodes
 
 This section of the Azure Kubernetes Service (AKS) day-2 operations guide describes patching and upgrading practices for AKS worker nodes and Kubernetes (K8S) versions.
 
@@ -21,7 +23,7 @@ This section of the Azure Kubernetes Service (AKS) day-2 operations guide descri
 
 Microsoft provides patches and new images for image nodes weekly, but doesn't automatically patch them by default. Because AKS isn't a platform-as-a-service (PaaS), components like agent nodes have shared responsibility, and users must help maintain the AKS cluster. For example, applying an agent node operating system (OS) security patch requires user input.
 
-AKS supports upgrading node images by using [az aks nodepool upgrade](/cli/azure/ext/aks-preview/aks/nodepool#ext_aks_preview_az_aks_nodepool_upgrade), so you can keep up with the newest OS and runtime updates. To keep your agent node OS and runtime components patched, consider checking and applying node image upgrades bi-weekly, or automating the node image upgrade process. For more information about automating node image upgrades, see [Node upgrade GitHub Actions](/azure/aks/node-upgrade-github-actions).
+AKS supports upgrading node images by using [az aks nodepool upgrade](/cli/azure/aks/nodepool#az-aks-nodepool-upgrade), so you can keep up with the newest OS and runtime updates. To keep your agent node OS and runtime components patched, consider checking and applying node image upgrades bi-weekly, or automating the node image upgrade process. For more information about automating node image upgrades, see [Node upgrade GitHub Actions](/azure/aks/node-upgrade-github-actions).
 
 An updated node image contains up-to-date OS security patches, kernel updates, Kubernetes security updates, newer versions of binaries like `kubelet`, and component version updates listed in the [release notes](https://github.com/Azure/AKS/releases). Node image updates have all relevant and validated security updates and feature updates. Using the node image upgrade method ensures you get only tested kernels and components that are compatible with those kernels.
 
@@ -49,7 +51,7 @@ System Info:
   Kube-Proxy Version:         v1.17.9
 ```
 
-Use the Azure CLI [az aks nodepool list](/cli/azure/ext/aks-preview/aks/nodepool#ext_aks_preview_az_aks_nodepool_list) command to check the current node image versions of the nodes in a cluster:
+Use the Azure CLI [az aks nodepool list](/cli/azure/aks/nodepool#az-aks-nodepool-list) command to check the current node image versions of the nodes in a cluster:
 
 ```azurecli
 az aks nodepool list \
@@ -67,7 +69,7 @@ usernodepool  AKSUbuntu-1604-2020.09.30
 usernp179     AKSUbuntu-1604-2020.10.28
 ```
 
-Use [az aks nodepool get-upgrades](/cli/azure/ext/aks-preview/aks/nodepool#ext_aks_preview_az_aks_nodepool_get_upgrades) to find out the latest available node image version:
+Use [az aks nodepool get-upgrades](/cli/azure/aks/nodepool#az-aks-nodepool-get-upgrades) to find out the latest available node image version:
 
 ```azurecli
 az aks nodepool get-upgrades \
@@ -103,7 +105,7 @@ To minimize disruption to existing workloads during an upgrade:
 - [Plan your tolerance for disruption](/azure/aks/operator-best-practices-scheduler#plan-for-availability-using-pod-disruption-budgets).
 - [Use surge upgrades to control node pool upgrades](/azure/aks/upgrade-cluster#customize-node-surge-upgrade).
 
-To check when your cluster requires an upgrade, use [az aks get-upgrades](/cli/azure/ext/aks-preview/aks#ext_aks_preview_az_aks_get_upgrades) to get a list of available target upgrade versions for your AKS control plane. Determine the target version for your control plane from the results.
+To check when your cluster requires an upgrade, use [az aks get-upgrades](/cli/azure/aks#az-aks-get-upgrades) to get a list of available target upgrade versions for your AKS control plane. Determine the target version for your control plane from the results.
 
 ```azurecli
 az aks get-upgrades \
@@ -138,7 +140,7 @@ usernp179     1.17.9
 
 You can upgrade the control plane first, and then upgrade the individual node pools.
 
-1. Run the [az aks upgrade](/cli/azure/ext/aks-preview/aks#ext_aks_preview_az_aks_upgrade) command with the `--control-plane-only` flag to upgrade only the cluster control plane, and not any of the associated node pools:
+1. Run the [az aks upgrade](/cli/azure/aks#az-aks-upgrade) command with the `--control-plane-only` flag to upgrade only the cluster control plane, and not any of the associated node pools:
 
    ```azurecli
    az aks upgrade \
@@ -147,7 +149,7 @@ You can upgrade the control plane first, and then upgrade the individual node po
       --kubernetes-version <KubernetesVersion>
    ```
 
-1. Run [az aks nodepool upgrade](/cli/azure/ext/aks-preview/aks/nodepool#ext_aks_preview_az_aks_nodepool_upgrade) to upgrade node pools to the target version:
+1. Run [az aks nodepool upgrade](/cli/azure/aks/nodepool#az-aks-nodepool-upgrade) to upgrade node pools to the target version:
 
    ```azurecli
    az aks nodepool upgrade \

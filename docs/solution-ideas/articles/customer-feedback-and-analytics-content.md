@@ -1,10 +1,10 @@
-<!-- cSpell:ignore pracjain keyphrase -->
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-For many companies, customer support is costly and doesn't always operate efficiently. [Knowledge mining](https://azure.microsoft.com/solutions/knowledge-mining/) can help customer support teams quickly find the best answers to customer questions or assess customer sentiment at scale.
+For many companies, customer support is costly and doesn't always operate efficiently. [Knowledge mining](https://azure.microsoft.com/solutions/knowledge-mining) can help customer support teams quickly find the best answers to customer questions or assess customer sentiment at scale.
 
 ## Potential use cases
+
+This solution is optimized for the retail industry.
 
 [Azure Cognitive Search](/azure/search/search-what-is-azure-search) is a key part of knowledge mining solutions. Cognitive Search creates a search index over aggregated and analyzed content.
 
@@ -16,11 +16,11 @@ There are three steps in knowledge mining: ingest, enrich, and explore.
 
 ![Architecture diagram: knowledge mining for customer feedback and analytics with 3 steps: ingest, enrich, explore.](../media/knowledge-mining-customer-feedback-and-analytics.png)
 
-### Data flow
+### Dataflow
 
 - **Ingest**
 
-The ingest step aggregates content from a range of sources, including structured and unstructured data. For customer support and feedback analysis, you can ingest different types of content like customer support tickets, chat logs, call transcriptions, customer emails, customer payment history, product reviews, social media feeds, online comments, feedback forms, and surveys.
+The ingest step aggregates content from a range of sources, including structured and unstructured data. For customer support and feedback analysis, you can ingest different types of content. This content includes customer support tickets, chat logs, call transcriptions, customer emails, customer payment history, product reviews, social media feeds, online comments, feedback forms, and surveys.
 
 - **Enrich**
 
@@ -34,7 +34,7 @@ The explore step is explorer data via search, existing business applications, or
 
 Key technologies used to implement tools for technical content review and research
 
-- [Azure Cognitive Search](/azure/search/)
+- [Azure Cognitive Search](/azure/search)
 - [Microsoft Text Analytics API](https://azure.microsoft.com/services/cognitive-services/text-analytics)
 - [Microsoft Translator Text API](https://azure.microsoft.com/services/cognitive-services/translator-text-api)
 - [Web API custom skill interface](/azure/search/cognitive-search-custom-skill-interface)

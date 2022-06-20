@@ -3,11 +3,12 @@ title: Dashboards to visualize Azure Databricks metrics
 description: Learn how to set up a Grafana dashboard to monitor performance of Azure Databricks jobs. Azure Databricks is an Apache Spark-based analytics service.
 author: EdPrice-MSFT
 ms.author: pnp
+categories: azure
 ms.date: 12/17/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
-ms.category:
+azureCategories:
   - databases
   - management-and-governance
 products:
@@ -43,7 +44,7 @@ To deploy the Azure Log Analytics workspace, follow these steps:
     - **dataRetention** (optional): The number of days the log data is retained in the Log Analytics workspace. The default value is 30 days. If the pricing tier is `Free`, the data retention must be seven days.
     - **workspaceName** (optional): A name for the workspace. If not specified, the template generates a name.
 
-    ```bash
+    ```azurecli
     az deployment group create --resource-group <resource-group-name> --template-file logAnalyticsDeploy.json --parameters location='East US' serviceTier='Standalone'
     ```
 
@@ -55,14 +56,14 @@ Grafana is an open source project you can deploy to visualize the time series me
 
 1. Use the Azure CLI to accept the Azure Marketplace image terms for Grafana.
 
-    ```bash
+    ```azurecli
     az vm image terms accept --publisher bitnami --offer grafana --plan default
     ```
 
 1. Navigate to the `/spark-monitoring/perftools/deployment/grafana` directory in your local copy of the GitHub repo.
 1. Deploy the **grafanaDeploy.json** Resource Manager template as follows:
 
-    ```bash
+    ```azurecli
     export DATA_SOURCE="https://raw.githubusercontent.com/mspnp/spark-monitoring/master/perftools/deployment/grafana/AzureDataSource.sh"
     az deployment group create \
         --resource-group <resource-group-name> \
@@ -99,8 +100,10 @@ Next, change the Grafana administrator password by following these steps:
 
 1. Create a service principal that allows Grafana to manage access to your Log Analytics workspace. For more information, see [Create an Azure service principal with Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli)
 
-    ```bash
-    az ad sp create-for-rbac --name http://<service principal name> --role "Log Analytics Reader"
+    ```azurecli
+    az ad sp create-for-rbac --name http://<service principal name> \
+                    --role "Log Analytics Reader" \
+                    --scopes /subscriptions/mySubscriptionID
     ```
 
 1. Note the values for appId, password, and tenant in the output from this command:

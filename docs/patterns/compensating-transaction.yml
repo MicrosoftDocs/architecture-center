@@ -1,0 +1,19 @@
+### YamlMime:Architecture
+metadata:
+  title: Compensating Transaction pattern
+  description: Undo the work performed by a series of steps, which together define an eventually consistent operation.
+  author: EdPrice-MSFT
+  ms.author: pnp
+  ms.date: 06/23/2017
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - networking
+products:
+  - azure
+name: Compensating Transaction pattern
+summary: Undo the work performed by a series of steps, which together define an eventually consistent operation.
+thumbnailUrl: /azure/architecture/browse/thumbs/compensating-transaction-diagram.png
+content: |
+  [!include[](compensating-transaction-content.md)]

@@ -43,7 +43,7 @@ The loosely coupled approach is preferred in these cases:
 1. The API gateway monitors job execution by polling job status from the quantum provider.
 1. When the job finishes, the compute results are stored in Azure Storage. The client application gets the results by using an API that's implemented via the Azure function.
 
-This workflow implements the [Asynchronous Request-Reply pattern](../../patterns/async-request-reply.md) and the steps defined for the [Azure Quantum job lifecycle](/azure/quantum/how-to-work-with-jobs#job-lifecycle).
+This workflow implements the [Asynchronous Request-Reply pattern](../../patterns/async-request-reply.yml) and the steps defined for the [Azure Quantum job lifecycle](/azure/quantum/how-to-work-with-jobs#job-lifecycle).
 
 ### Components
 
@@ -118,5 +118,5 @@ For the Azure Quantum service, consider these points:
 ## Related resources
 
 * [Operational excellence principles](/azure/architecture/framework/devops/principles)
-* [Asynchronous Request-Reply pattern](../../patterns/async-request-reply.md)
+* [Asynchronous Request-Reply pattern](../../patterns/async-request-reply.yml)
 * [Tightly coupled quantum computing](tightly-coupled-quantum-computing-job.yml)

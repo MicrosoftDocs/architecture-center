@@ -20,6 +20,7 @@ keywords:
   - "API design"
   - "RESTful web services"
   - "API standards"
+categories: featured
 ---
 
 <!-- cSpell:ignore HATEOAS -->
@@ -58,7 +59,7 @@ Here are some of the main design principles of RESTful APIs using HTTP:
 
 - REST APIs use a uniform interface, which helps to decouple the client and service implementations. For REST APIs built on HTTP, the uniform interface includes using standard HTTP verbs to perform operations on resources. The most common operations are GET, POST, PUT, PATCH, and DELETE.
 
-- REST APIs use a stateless request model. HTTP requests should be independent and may occur in any order, so keeping transient state information between requests is not feasible. The only place where information is stored is in the resources themselves, and each request should be an atomic operation. This constraint enables web services to be highly scalable, because there is no need to retain any affinity between clients and specific servers. Any server can handle any request from any client. That said, other factors can limit scalability. For example, many web services write to a backend data store, which may be hard to scale out. For more information about strategies to scale out a data store, see [Horizontal, vertical, and functional data partitioning](./data-partitioning.md).
+- REST APIs use a stateless request model. HTTP requests should be independent and may occur in any order, so keeping transient state information between requests is not feasible. The only place where information is stored is in the resources themselves, and each request should be an atomic operation. This constraint enables web services to be highly scalable, because there is no need to retain any affinity between clients and specific servers. Any server can handle any request from any client. That said, other factors can limit scalability. For example, many web services write to a backend data store, which may be hard to scale out. For more information about strategies to scale out a data store, see [Horizontal, vertical, and functional data partitioning](./data-partitioning.yml).
 
 - REST APIs are driven by hypermedia links that are contained in the representation. For example, the following shows a JSON representation of an order. It contains links to get or update the customer associated with the order.
 
@@ -182,6 +183,8 @@ If the server cannot match any of the media type(s) listed, it should return HTT
 
 A successful GET method typically returns HTTP status code 200 (OK). If the resource cannot be found, the method should return 404 (Not Found).
 
+If the request was fulfilled but there is no respose body included in the HTTP response, then it should return HTTP status code 204 (No Content); for example, a search operation yielding no matches might be implemented with this behavior.
+
 ### POST methods
 
 If a POST method creates a new resource, it returns HTTP status code 201 (Created). The URI of the new resource is included in the Location header of the response. The response body contains a representation of the resource.
@@ -271,7 +274,7 @@ HTTP/1.1 303 See Other
 Location: /api/orders/12345
 ```
 
-For more information, see [Asynchronous Request-Reply pattern](../patterns/async-request-reply.md).
+For more information, see [Asynchronous Request-Reply pattern](../patterns/async-request-reply.yml).
 
 ## Filter and paginate data
 

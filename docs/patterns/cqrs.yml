@@ -1,0 +1,19 @@
+### YamlMime:Architecture
+metadata:
+  title: CQRS pattern
+  description: Learn how to segregate operations that read data from those that update data, using the CQRS (Command and Query Responsibility Segregation) pattern.
+  author: EdPrice-MSFT
+  ms.author: pnp
+  ms.date: 02/11/2020
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - storage
+products:
+  - azure-storage
+name: CQRS pattern
+summary: Learn how to segregate operations that read data from those that update data, using the CQRS (Command and Query Responsibility Segregation) pattern.
+thumbnailUrl: /azure/architecture/browse/thumbs/command-query-responsibility-segregation-separate-stores.png
+content: |
+  [!include[](cqrs-content.md)]

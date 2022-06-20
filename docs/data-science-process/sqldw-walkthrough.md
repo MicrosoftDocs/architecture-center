@@ -1,14 +1,14 @@
 ---
 title: Build and deploy a model using Azure Synapse Analytics
 description: Build and deploy a machine learning model using Azure Synapse Analytics with a publicly available dataset.
-services: machine-learning
 author: marktab
 manager: marktab
 editor: marktab
-ms.service: machine-learning
-ms.subservice: team-data-science-process
+services: architecture-center
+ms.service: architecture-center
+ms.subservice: azure-guide
 ms.topic: article
-ms.date: 12/21/2021
+ms.date: 01/22/2022
 ms.author: tdsp
 ms.custom:
   - devx-track-python
@@ -618,7 +618,7 @@ SELECT pickup_latitude, pickup_longitude, dropoff_latitude, dropoff_longitude, d
 
 ### Prepare data for model building
 
-The following query joins the **nyctaxi\_trip** and **nyctaxi\_fare** tables, generates a binary classification label **tipped**, a multi-class classification label **tip\_class**, and extracts a sample from the full joined dataset. The sampling is done by retrieving a subset of the trips based on pickup time.  This query can be copied then pasted directly in the [Azure Machine Learning Studio (classic)](https://studio.azureml.net) [Import Data][import-data] module for direct data ingestion from the SQL Database instance in Azure. The query excludes records with incorrect (0, 0) coordinates.
+The following query joins the **nyctaxi\_trip** and **nyctaxi\_fare** tables, generates a binary classification label **tipped**, a multi-class classification label **tip\_class**, and extracts a sample from the full joined dataset. The sampling is done by retrieving a subset of the trips based on pickup time.  This SQL query may be copied then pasted for direct data ingestion from the SQL Database instance in Azure. The query excludes records with incorrect (0, 0) coordinates.
 
 ```sql
 SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount,     f.total_amount, f.tip_amount,

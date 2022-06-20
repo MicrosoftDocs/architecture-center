@@ -1,0 +1,19 @@
+### YamlMime:Architecture
+metadata:
+  title: Event Sourcing pattern
+  description: Use an append-only store to record the full series of events that describe actions taken on data in a domain.
+  author: EdPrice-MSFT
+  ms.author: pnp
+  ms.date: 06/23/2017
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - web
+products:
+  - office-bookings
+name: Event Sourcing pattern
+summary: Use an append-only store to record the full series of events that describe actions taken on data in a domain.
+thumbnailUrl: /azure/architecture/browse/thumbs/event-sourcing-overview.png
+content: |
+  [!include[](event-sourcing-content.md)]

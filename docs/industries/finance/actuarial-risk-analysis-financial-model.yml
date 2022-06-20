@@ -1,0 +1,23 @@
+### YamlMime:Architecture
+metadata:
+  title: Actuarial risk analysis and financial modeling
+  description: How an actuarial developer can move an existing solution plus supporting infrastructure to Azure.
+  author: EdPrice-MSFT
+  ms.author: edprice
+  ms.date: 04/12/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - databases
+products:
+  - azure-blob-storage
+  - azure-data-factory
+  - azure-cosmos-db
+  - azure-hdinsight
+  - azure-databricks
+name: Actuarial risk analysis and financial modeling
+summary: How an actuarial developer can move an existing solution plus supporting infrastructure to Azure.
+thumbnailUrl: /azure/architecture/browse/thumbs/process-files.png
+content: |
+  [!include[](actuarial-risk-analysis-financial-model-content.md)]

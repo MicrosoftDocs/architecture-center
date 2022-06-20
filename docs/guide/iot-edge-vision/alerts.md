@@ -1,52 +1,49 @@
 ---
-title: Alerts in IoT Edge Vision
+title: Alerts in IoT Edge vision AI
 titleSuffix: Azure Architecture Center
-description: Learn about the persistence of alerts in an Azure IoT Edge Vision solution. An alert is a response to an event that's triggered by the AI model.
+description: Learn about alerts and alert persistence in an Azure IoT Edge vision solution. An alert is a response to an event that's triggered by the AI model.
 author: MSKeith
 ms.author: keith
-ms.date: 10/22/2020
+ms.date: 02/16/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
-ms.category:
-  - fcp
+categories: iot
 products:
   - azure-iot-edge
 ms.custom:
   - guide
+  - fcp
 ---
 
-# Alert persistence in Azure IoT Edge Vision
+# Alerts in Azure IoT Edge vision AI
 
-In the context of vision on edge, an alert is a response to an event triggered by the AI model. In other words, it is the inferencing results. The type of event is determined by the training imparted to the model. These events are separate from operational events raised by the processing pipeline and any event related to the health of the runtime.
+In an artificial intelligence (AI) context, alerts are responses to triggering events from the AI model. The events are inferencing results based on the AI model's training.
 
-## Types of alerts
+Alerts must be monitored, because they drive certain actions. Alerts are time sensitive for processing, and must be logged for audit and further analysis. Alert events are different from operational or health events that the processing pipeline or runtime raise.
 
-Some of the common alerts types are:
+In vision AI, alerting typically occurs for triggering events related to:
 
-* Image classification
-* Movement detection
-* Direction of movement
-* Object detection
-* Count of objects
-* Total count of objects over period of time
-* Average count of objects over period of time
+- Image classification
+- Movement detection or direction
+- Object detection or count
+- Average or total object count over time
 
-Alerts are required to be monitored as they drive certain actions. They are critical to operations, being time sensitive in terms of processing, and are required to be logged for audit and further analysis.
+## Alert persistence
 
-## Persistence of alerts
+Vision AI alerts should persist locally where they're raised, and pass on to the cloud for further processing and storage. Alert persistence enables quick local response, and prevents losing critical alerts due to transient network issues.
 
-The alerts need to persist locally on the edge where they are raised and then passed on to the cloud for further processing and storage. This ensures a quick local response and avoids losing critical alerts due to any transient failures.
+Options to achieve alert persistence and cloud syncing include:
 
-Some options to achieve this persistence and cloud syncing are:
+- Use the built-in store and forward capability of the IoT Edge runtime, which automatically syncs with Azure IoT Hub after any lost connectivity.
+- Persist alerts on the host file system as log files, and periodically sync the logs to blob storage in the cloud.
+- Use an [Azure IoT Edge blob storage module](/azure/iot-edge/how-to-store-data-blob) to sync the data to Azure Blob Storage in the cloud, based on configurable policies.
+- Use a local database such as [Azure SQL Edge](/azure/azure-sql-edge/overview) for storing data on IoT Edge, and sync with Azure SQL Database by using SQL Data Sync. Another lightweight database option is [SQLite](https://www.sqlite.org/index.html).
 
-* Utilize built-in store and forward capability of IoT Edge runtime, which automatically gets synced with Azure IoT Hub after a lost connectivity.
-* Persist alerts on host file system as log files, which can be synced periodically to a blob storage in the cloud.
-* Utilize Azure Blob Edge module, which will sync this data to Azure Blob in cloud based on policies that can be configured.
-* Use local database on IoT Edge, such as SQL Edge for storing data, and sync with Azure SQL DB using SQL Data Sync. Another lightweight database option is the SQLite.
+For alerts, the best option is the built-in store and forward capability of the IoT Edge runtime. This option is the most suitable because of its time sensitivity, typically small messages size, and ease of use. For more information, see [Understand extended offline capabilities for IoT Edge devices, modules, and child devices](/azure/iot-edge/offline-capabilities).
 
-The preferred option is to use the built-in store and forward capability of IoT Edge runtime. This is more suitable for the alerts due to its time sensitivity, typically small messages sizes, and ease of use.
+## Next step
 
-## Next steps
+> [!div class="nextstepaction"]
+> [Image storage and management in Azure IoT Edge Vision](./image-storage.md)
 
-Now you can proceed to work on the [User interface in Azure IoT Edge Vision](./user-interface.md) for your vision workload.

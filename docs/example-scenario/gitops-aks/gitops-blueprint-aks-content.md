@@ -179,5 +179,6 @@ You've now successfully provisioned a running GitOps setup. From here, you can:
 - [Get this architecture running with our step-by-step guide](https://securitytower.syncier.com/docs/guide/step-by-step-guide)
 
 ## Related resources
+
 - [Azure Kubernetes Service solution journey](../../reference-architectures/containers/aks-start-here.md)
 - [Secure DevOps for AKS](../../solution-ideas/articles/secure-devops-for-kubernetes.yml)

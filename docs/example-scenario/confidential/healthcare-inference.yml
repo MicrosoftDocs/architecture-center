@@ -2,10 +2,10 @@
 metadata:
   title: Healthcare platform confidential computing
   titleSuffix: Azure Example Scenarios
-  description: Use confidential computing and containers to support a provider-hosted application. Securely collaborate with a hospital and a diagnostic provider.
+  description: Use confidential computing and containers to support a provider-hosted application. Securely collaborate with hospitals and diagnostic providers.
   author: agowdamsft
   ms.author: amgowda
-  ms.date: 12/11/2020
+  ms.date: 06/03/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
@@ -20,7 +20,7 @@ products:
   - azure-attestation
   - azure-kubernetes-service
 name: Confidential computing on a healthcare platform
-summary: Use confidential computing and containers to support a provider-hosted application. Securely collaborate with a hospital and a diagnostic provider.
+summary: Use confidential computing and containers to support a provider-hosted application. Securely collaborate with hospitals and diagnostic providers.
 thumbnailUrl: /azure/architecture/browse/thumbs/healthcare-demo-architecture-thumbnail.png
 content: |
   [!include[](healthcare-inference-content.md)]

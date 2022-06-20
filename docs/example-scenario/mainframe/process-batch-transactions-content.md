@@ -115,7 +115,7 @@ Here are pricing considerations for specific components:
 ## Next steps
 
 - To learn more about AKS, read: [Azure Kubernetes Service solution journey](../../reference-architectures/containers/aks-start-here.md).
-- To learn more about Service Bus, read: [Service Bus queues, topics, and subscriptions]( https://docs.microsoft.com/azure/service-bus-messaging/service-bus-queues-topics-subscriptions).
+- To learn more about Service Bus, read: [Service Bus queues, topics, and subscriptions](/azure/service-bus-messaging/service-bus-queues-topics-subscriptions).
 
 ## Related resources
 

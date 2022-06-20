@@ -11,14 +11,17 @@ There are two types of edge gateways, *field* or [IoT Edge](/azure/iot-edge/iot-
 
 - *Protocol* or *cloud gateways* enable connecting existing and diverse device populations to IoT solutions by hosting device instances and enabling communication between devices and the IoT platform. Cloud gateways can do protocol and identity translation to and from the IoT platform, and can execute additional logic on behalf of devices.
 
-## See also
+## Next steps
 - For detailed documentation on using IoT Edge as a Field Gateway, refer to the following links:
     - [Using IoT Edge As a Field Gateway](/azure/iot-edge/iot-edge-as-gateway?view=iotedge-2018-06)
     - How to configure an [IoT Edge Gateway](/azure/iot-edge/how-to-create-transparent-gateway?view=iotedge-2018-06)
 - For detailed documentation using Azure IoT Hub as a Cloud Gateway, refer to the following links:
-	- What is [Azure's Cloud Gateway](../../guide/iiot-guidance/iiot-architecture.md#cloud-gateway)?
+	- What is [Azure's Cloud Gateway](../../guide/iiot-guidance/iiot-architecture.yml#cloud-gateway)?
 	- What is [Azure IoT Hub](/azure/iot-hub/about-iot-hub)?
 	- How do I add [additional protocol support](/azure/iot-hub/iot-hub-protocol-gateway) for Azure IoT Hub?
+
+## Related resources
+
 - For overall guidance, refer to the following links:
     - [IoT Solutions Conceptual Overview](./introduction-to-solutions.yml)
     - [IoT Reference Architecture](../../reference-architectures/iot.yml)
