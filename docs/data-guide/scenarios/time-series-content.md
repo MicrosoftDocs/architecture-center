@@ -73,6 +73,14 @@ Here are some of the challenges for time series solutions:
   - You can reduce data by processing sliding time windows like several seconds, to allow the processing layer time to perform calculations.
   - You can also downsample and aggregate data when displaying longer time periods, such as zooming to display data captured over several months.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+- [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect
+
 ## Next steps
 
 - [Microsoft Time Series Algorithm](/analysis-services/data-mining/microsoft-time-series-algorithm)
