@@ -65,7 +65,8 @@ These examples can help you design a data storage system that accommodates your 
 
 *This article is maintained by Microsoft. It was originally written by the following contributor.*
 
-Principal author: 
+Principal author:
+
 - [Nabil Siddiqui](https://www.linkedin.com/in/nabilshams) | Cloud Solution Architect - Digital and Application Innovation
 
 ## Next steps
