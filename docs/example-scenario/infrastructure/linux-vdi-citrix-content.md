@@ -78,16 +78,16 @@ For this scenario, the following SKUs are used:
 - For a production deployment management solution should be implemented such as [backup](/azure/backup/backup-introduction-to-azure-backup), [monitoring](/azure/monitoring-and-diagnostics/monitoring-overview) and [update management](/azure/automation/update-management/overview).
 - This example should work for about 250 concurrent (about 50-60 per VDA server) users with a mixed usage. But that will greatly depended on the type of applications being used. For production use, rigorous load testing should be performed.
 
-## Deployment
-
-For deployment information, see the official [Citrix documentation](https://docs.citrix.com/en-us/citrix-virtual-apps-desktops/install-configure.html).
-
-## Pricing
+### Cost optimization
 
 - The Citrix XenDesktop licenses are not included in Azure service charges.
 - The Citrix NetScaler license is included in a pay-as-you-go model.
 - Using reserved instances will greatly reduce the compute cost for the solution.
 - The ExpressRoute cost is not included.
+
+## Deploy this scenario
+
+For deployment information, see the official [Citrix documentation](https://docs.citrix.com/en-us/citrix-virtual-apps-desktops/install-configure.html).
 
 ## Contributors
 
@@ -95,7 +95,7 @@ For deployment information, see the official [Citrix documentation](https://docs
 
 Principal author:
 
-* [Miguel Angelo Pereira Dos Santos](/) | Partner CCO HC Portugal
+* Miguel Angelo Pereira Dos Santos | Partner CCO HC Portugal
 
 ## Next steps
 
