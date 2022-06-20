@@ -1,3 +1,5 @@
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
+
 Microsoft Sentinel is a scalable cloud solution for security information and event management (SIEM), and for security orchestration, automation, and response (SOAR). It delivers intelligent security analytics for enterprises of all sizes, and provides the following capabilities:
 
 - Business attack detection
@@ -47,6 +49,20 @@ This workflow shows the steps to deploy the playbook. Make sure that the [Prereq
 1. Azure AD Identity Protection detects that the user used a ToR browser to log in anonymously. This type of login is suspicious activity that puts the user at risk. Identity Protection sends an alert to Microsoft Sentinel.
 1. Configure Microsoft Sentinel to create an incident from the alert. See [Automatically create incidents from Microsoft security alerts](/azure/sentinel/create-incidents-from-alerts) for information on doing this. The Microsoft security analytics rule template to use is **Create incidents based on Azure Active Directory Identity Protection alerts**.
 1. When Microsoft Sentinel triggers an incident, the playbook responds with actions that block the user.
+
+### Components
+
+- [Microsoft Sentinel](https://azure.microsoft.com/services/microsoft-sentinel) is a cloud-native SIEM and SOAR solution. It uses advanced artificial intelligence (AI) and security analytics to detect and respond to threats across the enterprise. There are many playbooks available on Microsoft Sentinel to automate your responses and protect your system.
+- [Azure AD](https://azure.microsoft.com/services/active-directory) is a multi-tenant, cloud-based directory and identity management service that combines core directory services, application access management, and identity protection into a single solution. It can synchronize with on-premises directories. The identity service provides single sign-on, multifactor authentication, and conditional access to guard against cybersecurity attacks. The solution shown in this article uses Azure AD Identity Protect to detect suspicious activity by a user.
+- [Logic Apps](https://azure.microsoft.com/services/logic-apps) is a serverless cloud service for creating and running automated workflows that integrate apps, data, services, and systems. Developers can use a visual designer to schedule and orchestrate common task workflows.  Logic Apps has [connectors](/connectors) for many popular cloud services, on-premises products, and other software as a service applications. In this solution, Logic Apps runs the threat response playbook.
+
+## Considerations
+
+- The Azure Well-Architected Framework is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+- Microsoft Sentinel offers more than 50 playbooks that are ready for use. You can find them on the **Playbook templates** tab of the **Microsoft Sentinel|Automation** page for your workspace.
+- [GitHub](https://github.com/azure/Azure-Sentinel/tree/master/Playbooks) has a variety of Microsoft Sentinel playbooks that are built by the community.
+
+## Deploy this scenario
 
 ### Prerequisites
 
@@ -98,27 +114,15 @@ To deploy a Microsoft Sentinel playbook, proceed as follows:
 
 For more information on building logic apps, see [What is Azure Logic Apps](/azure/logic-apps/logic-apps-overview) and [Quickstart: Create and manage logic app workflow definitions](/azure/logic-apps/quickstart-create-logic-apps-visual-studio-code).
 
-### Components
-
-- [Microsoft Sentinel](https://azure.microsoft.com/services/microsoft-sentinel) is a cloud-native SIEM and SOAR solution. It uses advanced artificial intelligence (AI) and security analytics to detect and respond to threats across the enterprise. There are many playbooks available on Microsoft Sentinel to automate your responses and protect your system.
-- [Azure AD](https://azure.microsoft.com/services/active-directory) is a multi-tenant, cloud-based directory and identity management service that combines core directory services, application access management, and identity protection into a single solution. It can synchronize with on-premises directories. The identity service provides single sign-on, multifactor authentication, and conditional access to guard against cybersecurity attacks. The solution shown in this article uses Azure AD Identity Protect to detect suspicious activity by a user.
-- [Logic Apps](https://azure.microsoft.com/services/logic-apps) is a serverless cloud service for creating and running automated workflows that integrate apps, data, services, and systems. Developers can use a visual designer to schedule and orchestrate common task workflows.  Logic Apps has [connectors](/connectors) for many popular cloud services, on-premises products, and other software as a service applications. In this solution, Logic Apps runs the threat response playbook.
-
-## Considerations
-
-- The Azure Well-Architected Framework is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
-- Microsoft Sentinel offers more than 50 playbooks that are ready for use. You can find them on the **Playbook templates** tab of the **Microsoft Sentinel|Automation** page for your workspace.
-- [GitHub](https://github.com/azure/Azure-Sentinel/tree/master/Playbooks) has a variety of Microsoft Sentinel playbooks that are built by the community.
-
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-**Principal authors:**
+Principal author:
 
 - [Rudnei Oliveira](https://www.linkedin.com/in/rudnei-r-oliveira-69443523) | Senior Customer Engineer
 
-**Other contributors:**
+Other contributors:
 
 - [Andrew Nathan](https://www.linkedin.com/in/andrew-nathan) | Senior Customer Engineering Manager
 - [Lavanya Kasturi](https://www.linkedin.com/in/lakshmilavanyakasturi) | Technical Writer
