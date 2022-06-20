@@ -18,7 +18,7 @@ Alternatives exist to address this scenario, including [Pusher](https://pusher.c
 
 There's also [PubNub](https://pubnub.com/). PubNub makes it easy for you to add real-time capabilities to your apps, without worrying about the infrastructure. Build apps that allow your users to engage in real time across mobile, browser, desktop, and server.
 
-No doubt that Pusher and PubNub are the widely adopted platforms for real-time messaging but for this scenario, we do everything in Azure. SignalR was simply the go to for me as it allows bi-directional communication between server and client. It is also an open-source tool with 7.9 K GitHub stars and 2.2 K GitHub forks.
+No doubt that Pusher and PubNub are the widely adopted platforms for real-time messaging but for this scenario, we do everything in Azure. SignalR was simply the go to for me as it allows bi-directional communication between server and client. It's also an open-source tool, with 7.9K GitHub stars and 2.2K GitHub forks.
 
 [Here's](https://github.com/SignalR/SignalR) a link to SignalR's open-source repository on GitHub.
 
@@ -39,23 +39,23 @@ These other uses cases have similar design patterns:
 
 ## Considerations
 
-Here are some of the considerations taken to develop this scenario, including how to configure parameters in the Azure Service Bus connection string in the ServiceBusTrigger as well as:
+In addition to how to configure parameters in the Azure Service Bus connection string in the ServiceBusTrigger, the following considerations are used to develop this scenario:
 
 **Hubs:** Hubs can be compared to a video streaming service. You can subscribe to the Hub to send/receive messages from/to the Hub.
 
-**Targets:** Targets are like radio channels. Everyone who is listening to the Target channel and is notified when there is a new message on it.
+**Targets:** Targets are like radio channels. Everyone who is listening to the Target channel and is notified when there's a new message on it.
 
-If you can remember the above two features of SignalR platform, it will be a easy to get up and running quickly.
+If you can remember the above two features of the SignalR platform, it will be easy to get up and running quickly.
 
 ### Availability, scalability, and security
 
-You can achieve high availability of this solution by performing the following steps:
+You can achieve high availability with this solution by performing the following steps:
 
 #### Regional pairing
 
 Each Azure region is paired with another region within the same geography. In general, choose regions from the same regional pair (for example, East US 2 and Central US). Benefits of doing so include:
 
-- If there is a broad outage, recovery of at least one region out of every pair is prioritized.
+- If there's a broad outage, recovery of at least one region out of every pair is prioritized.
 - Planned Azure system updates are rolled out to paired regions sequentially to minimize possible downtime.
 - In most cases, regional pairs reside within the same geography to meet data residency requirements.
 - However, make sure that both regions support all of the Azure services needed for your application. See [Services by region](https://azure.microsoft.com/regions/#services). For more information about regional pairs, see [Business continuity and disaster recovery (BCDR): Azure Paired Regions](/azure/best-practices-availability-paired-regions).
@@ -64,13 +64,13 @@ Each Azure region is paired with another region within the same geography. In ge
 
 ![Architectural diagram showing how Azure Front Page works to provide high availability for a mobile app.](./haarchitecture.jpg)
 
-Azure Front Door is a scalable and secure entry point for fast delivery of your global applications. Using *priority routing*, it automatically fails over if the primary region becomes unavailable. A multi-region architecture can provide higher availability than deploying to a single region. If a regional outage affects the primary region, you can use Front Door to fail over to the secondary region. This architecture can also help if an individual subsystem of the solution fails. Stop network and application layer attacks at the edge with Web Application Firewall and DDoS Protection. Harden your service using Microsoft-managed rule sets and author your own rules for custom protection of your app.
+Azure Front Door is a scalable and secure entry point for fast delivery of your global applications. Using *priority routing*, Front Door automatically fails over if the primary region becomes unavailable. A multi-region architecture can provide higher availability than deploying to a single region. If a regional outage affects the primary region, you can use Front Door to fail over to the secondary region. This architecture can also help if an individual subsystem of the solution fails. Stop network and application layer attacks at the edge with Web Application Firewall and DDoS Protection. Harden your service using Microsoft-managed rule sets and author your own rules for custom protection of your app.
 
-Front Door is a possible failure point in the system. If the service fails, clients cannot access your application during the downtime. Review the [Front Door service level agreement (SLA)](https://azure.microsoft.com/support/legal/sla/frontdoor) and determine whether using Front Door alone meets your business requirements for high availability. If not, consider adding another traffic management solution as a fallback. If the Front Door service fails, change your canonical name (CNAME) records in DNS to point to the other traffic management service. This step must be performed manually, and your application will be unavailable until the DNS changes are propagated.
+Front Door is a possible failure point in the system. If the service fails, clients can't access your application during the downtime. Review the [Front Door service level agreement (SLA)](https://azure.microsoft.com/support/legal/sla/frontdoor) and determine whether using Front Door alone meets your business requirements for high availability. If not, consider adding another traffic management solution as a fallback. If the Front Door service fails, change your canonical name (CNAME) records in DNS to point to the other traffic management service. This step must be performed manually, and your application will be unavailable until the DNS changes are propagated.
 
 ### Cost optimization
 
-Assume your business has 1000 orders in a day and needs to share location data with all of them concurrently, your estimated Azure usage for deploying this scenario will be close to $192 per month based on pricing at the time of writing.
+Assume your business has 1000 orders in a day and needs to share location data with all of them concurrently. Your estimated Azure usage for deploying this scenario will be close to $192 per month, based on pricing at the time of writing.
 
 | Service type          | Estimated Monthly Cost |
 |-----------------------|----------------|
@@ -90,11 +90,11 @@ A serverless real-time application built with Azure Functions and Azure SignalR 
 
 ### SignalRFunctionApp
 
-This is a function app that creates an Azure Function with Service Bus trigger with SignalR.
+SignalRFunctionApp is a function app that creates an Azure Functions instance, with a Service Bus trigger with SignalR.
 
 #### Negotiate.cs
 
-This function is triggered by an HTTP request. It is used by client applications to get a token from the SignalR service which clients can use to subscribe to a hub. This should be named "negotiate." For more information [read this guide](/azure/azure-signalr/signalr-concept-serverless-development-config)
+This function is triggered by an HTTP request. It's used by client applications to get a token from the SignalR service which clients can use to subscribe to a hub. The function should be named "negotiate." For more information [read this guide](/azure/azure-signalr/signalr-concept-serverless-development-config).
 
 #### Message.cs
 
@@ -112,7 +112,7 @@ Now, let's configure the client application to test. First, grab the example sou
 
 ### SignalR client
 
-This a simple .NET Core web application to subscribe to the hub created by SignalRFunctionApp and display messages received on the Service Bus Queue in real time. Although you can use SignalRFunctionApp to work with a mobile client but for the purpose of this repository, we'll stick to the web client.
+This simple .NET Core web application subscribes to the hub that's created by SignalRFunctionApp. It then displays messages that are received in the Service Bus Queue, in real time. You can use SignalRFunctionApp to work with a mobile client, but in this repository, we'll stick to the web client.
 
 <!-- markdownlint-disable MD024 -->
 
@@ -126,7 +126,7 @@ This a simple .NET Core web application to subscribe to the hub created by Signa
 
 ### SendToQueue.js
 
-This is a node js script to push a message to the Service Bus so that you can test the deployment you did above.
+This node.js script pushes a message to the Service Bus, so that you can test the deployment that you did above.
 
 #### Instructions
 
