@@ -61,8 +61,6 @@ The application platform used with the individual stamps in the infrastructure, 
 
 The architecture as defined uses Azure Key Vault to store tokens to securely communicate over the internet to Azure PaaS services. There are possible risks to exposing the application platform over the internet for this communication. Tokens can be compromised and increased security and monitoring of the public endpoints is recommended.
 
-Azure Network Security groups are used to ensure outbound communication is limited to necessary external service communication. Egress communication is limited to Azure PaaS services only.
-
 :::image type="content" source="./images/network-diagram-vnet-paasdependencies-standard.png" alt-text="Diagram of the application platform communication dependencies.":::
 
 ## Alternative considerations
