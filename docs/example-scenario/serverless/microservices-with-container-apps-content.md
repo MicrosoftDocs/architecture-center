@@ -115,7 +115,6 @@ Integration with Azure Monitor allows you to track container app execution. You 
 
 You can enable autoscaling rules to meet demand as workloads increase. When the application scales, more replicas spawn to ensure availability.  Performance is optimized by the dynamic load balancing features of Container Apps (not currently used in this example workload).
 
-
 ### Operational excellence
 
 To achieve operational excellence, the Container Apps service offers these features:
@@ -149,13 +148,9 @@ Performance monitoring through Log Analytics and Azure Monitor allows you to eva
 
 - Network security:  Backend services in the drone delivery app aren't exposed via external ingress. All requests are passed from the **Ingestion service** through the Azure Service Bus.
 
-- Container Apps supports Managed Identities allowing your app to easily authenticate other Azure AD-protected resources such as Azure Key Vault, without managing credentials in your container app.  For services that don't support AD authentication, you can store secrets in Azure Key Vault and use the managed identity to access Key Vault to access the secrets. 
+- Container Apps supports Managed Identities allowing your app to easily authenticate other Azure AD-protected resources such as Azure Key Vault, without managing credentials in your container app.  For services that don't support AD authentication, you can store secrets in Azure Key Vault and use the managed identity to access Key Vault to access the secrets.
 
-## Deploy this scenario 
-
-Follow the steps in the README.md in the [sample repository](https://github.com/mspnp/container-apps-fabrikam-dronedelivery) to deploy this scenario.
-
-## Pricing
+### Cost optimization
 
 - The [Cost section in the Microsoft Azure Well-Architected Framework](/azure/architecture/framework/cost/overview) describes cost considerations. Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for your specific scenario.
 <!--
@@ -166,6 +161,10 @@ Follow the steps in the README.md in the [sample repository](https://github.com/
 - In this scenario, the Azure Cosmos DB and Azure Cache for Redis services generate most of the costs.  
 - To avoid accruing charges, don't leave this example running.
 
+## Deploy this scenario 
+
+Follow the steps in the README.md in the [sample repository](https://github.com/mspnp/container-apps-fabrikam-dronedelivery) to deploy this scenario.
+
 ## Next steps
 
 - [Azure Container Apps Documentation](/azure/container-apps/?branch=release-ignite-container-apps)
@@ -173,8 +172,8 @@ Follow the steps in the README.md in the [sample repository](https://github.com/
 
 ## Related resources
 
-- [Build microservices on Azure](/azure/architecture/microservices/)
-- [Design a microservices architecture](/azure/architecture/microservices/design/)
+- [Build microservices on Azure](/azure/architecture/microservices)
+- [Design a microservices architecture](/azure/architecture/microservices/design)
 - [Microservices with AKS](/azure/architecture/solution-ideas/articles/microservices-with-aks)
 - [Advanced Azure Kubernetes Service (AKS) microservices architecture](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced)
 - [Microservices architecture on Azure Kubernetes Service](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices)
