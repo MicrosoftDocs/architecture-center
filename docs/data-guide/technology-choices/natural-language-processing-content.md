@@ -6,7 +6,7 @@ Specifically, you can use NLP to:
 - Do subsequent processing or searches. You can use NLP output for these purposes.
 - Summarize text by identifying the entities that are present in the document.
 - Tag documents with keywords. For the keywords, NLP can use identified entities.
-- Do content-based search and retrieval. Tagging keywords make this functionality possible.
+- Do content-based search and retrieval. Tagging makes this functionality possible.
 - Summarize a document's important topics. NLP can combine identified entities into topics.
 - Categorize documents for navigation. For this purpose, NLP uses detected topics.
 - Enumerate related documents based on a selected topic. For this purpose, NLP uses detected topics.
@@ -35,7 +35,7 @@ Recent public benchmarks show Spark NLP as [38 and 80 times faster than spaCy](h
 
 Besides excellent performance, Spark NLP also delivers state-of-the-art accuracy for a growing number of NLP tasks. The Spark NLP team regularly reads the latest relevant academic papers and implements state-of-the-art models. In the past two to three years, the best performing models have used deep learning. The library comes with prebuilt deep learning models for named entity recognition, document classification, sentiment and emotion detection, and sentence detection. The library also includes dozens of pre-trained language models that include support for word, chunk, sentence, and document embeddings.
 
-The library has optimized builds for CPUs, GPUS, and the latest Intel Xeon chips. You can scale training and inference processes to take advantage of Spark clusters and run in production in all popular analytics platforms.
+The library has optimized builds for CPUs, GPUS, and the latest Intel Xeon chips. You can scale training and inference processes to take advantage of Spark clusters. These processes can run in production in all popular analytics platforms.
 
 The NLP Server is available in Azure Marketplace. To explore large-scale custom NLP in Azure, see [NLP Server](https://azuremarketplace.microsoft.com/marketplace/apps/johnsnowlabsinc1646051154808.nlp_server?ocid=GTMRewards_WhatsNewBlog_nlp_server_040622).
 

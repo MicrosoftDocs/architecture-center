@@ -15,17 +15,17 @@ For customized NLP workloads, the open-source library Spark NLP serves as an eff
   - Text preprocessing and sentence embedding in spark NLP and machine learning algorithms and models such as the Universal Sentence Encoder
   - Text preprocessing and classification in Spark NLP that uses the ClassifierDL annotator and is based on TensorFlow
 
-- **Name entity extraction (NER)**: In Spark NLP, with a few lines of code, you can train a NER model that uses BERT, and you can achieve state-of-the-art accuracy. NER is a subtask of information extraction. NER locates named entities in unstructured text and classifies them into predefined categories such as person names, organizations, locations, medical codes, time expressions, quantities, monetary values, and percentages. Spark NLP uses a state-of-the-art NER model with BERT. The model is inspired by a former state-of-the art-model for NER, bidirectional LSTM-CNN. That former model uses a novel neural network architecture that automatically detects word-level and character-level features. For this purpose, the model uses a hybrid bidirectional LSTM and CNN architecture, so it eliminates the need for most feature engineering.
+- **Name entity extraction (NER)**: In Spark NLP, with a few lines of code, you can train a NER model that uses BERT, and you can achieve state-of-the-art accuracy. NER is a subtask of information extraction. NER locates named entities in unstructured text and classifies them into predefined categories such as person names, organizations, locations, medical codes, time expressions, quantities, monetary values, and percentages. Spark NLP uses a state-of-the-art NER model with BERT. The model is inspired by a former NER model, bidirectional LSTM-CNN. That former model uses a novel neural network architecture that automatically detects word-level and character-level features. For this purpose, the model uses a hybrid bidirectional LSTM and CNN architecture, so it eliminates the need for most feature engineering.
 
 - **Sentiment and emotion detection**: Spark NLP can automatically detect positive, negative, and neutral aspects of language.
 
-- **Part-of-speech (POS)**: This functionality assigns a grammatical label to each token in input text.
+- **Part of speech (POS)**: This functionality assigns a grammatical label to each token in input text.
 
 - **Sentence detection (SD)**: SD is based on a general-purpose neural network model for sentence boundary detection that identifies sentences within text. Many NLP tasks take a sentence as an input unit. Examples of these tasks include POS tagging, dependency parsing, named entity recognition, and machine translation.
 
 ## Architecture
 
-:::image type="content" source="../media/large-scale-custom-natural-language-processing-architecture.png" alt-text="Diagram that shows the flow of data through an N L P pipeline. Stages include ingesting, storing, processing, and serving." border="false":::
+:::image type="content" source="../media/large-scale-custom-natural-language-processing-architecture.png" alt-text="Diagram that shows the flow of data through an N L P pipeline. Stages include ingesting, storing, processing, and serving." border="false" lightbox="../media/large-scale-custom-natural-language-processing-architecture.png":::
 
 *Download a [Visio file][Visio version of architecture diagram] of this architecture.*
 
