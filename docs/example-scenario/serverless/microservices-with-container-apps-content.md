@@ -12,12 +12,12 @@ The services sharing the same environment benefit from:
 
 - Internal ingress and service discovery
 - A single Log Analytics workspace for runtime logging
-<!--  Add when MI feature is complete and integrated
 - Secure management of secrets and certificates
--->
 
 The workflow service container app is running in single revision mode.  A container app running in single revision mode will have a single revision that is backed by zero-many replicas. A replica is composed of the application container and any required sidecar containers. This example isn't making use of sidecar containers, therefore each container app replica represents a single container.  Since this example doesn't employ scaling, there will be only one replica running for each container app.
 
+The workflow uses a hybrid approach to managing secrets.  Managed identities are used in the services where such implementation required no code changes.  The Drone Scheduler and Delivery services use managed identities to authenticate with Azure Key Vault in order to access the secrets stored there.  The remaining services store secrets via Container Apps service at the application level.
+ 
 ![Diagram showing the runtime architecture for the solution.](./media/microservices-with-container-apps-runtime-diagram.png)
 
 This diagram illustrates the runtime architecture for the solution.  
@@ -65,6 +65,8 @@ Many of the complexities of the previous AKS architecture are replaced by these 
 **[Application Insights](/azure/azure-monitor/app/app-insights-overview)** provides extensible application performance management (APM) and monitoring for the services.  each service is instrumented with the Application Insights SDK to monitor the app and direct the telemetry data to Azure Monitor.
 
 **[Azure Resource Manager (ARM) Templates](/azure/azure-resource-manager/templates/overview)** to configure and deploy the applications.
+
+**[Azure Key Vault](/azure/key-vault)** provide centralized storage and access control to secrets.
 
 ### Alternatives
 
@@ -119,7 +121,6 @@ Integration with Azure Monitor allows you to track container app execution. You 
 
 You can enable autoscaling rules to meet demand as workloads increase. When the application scales, more replicas spawn to ensure availability.  Performance is optimized by the dynamic load balancing features of Container Apps (not currently used in this example workload).
 
-
 ### Operational excellence
 
 To achieve operational excellence, the Container Apps service offers these features:
@@ -153,9 +154,7 @@ Performance monitoring through Log Analytics and Azure Monitor allows you to eva
 
 - Network security:  Backend services in the drone delivery app aren't exposed via external ingress. All requests are passed from the **Ingestion service** through the Azure Service Bus.
 
-<!--  Add when MI feature is complete and integrated
-- Container Apps supports Managed Identities allowing your app to easily authenticate other Azure AD-protected resources such as Azure Key Vault, without managing credentials in your container app.  For services that don't support AD authentication, you can store secrets in Azure Key Vault and use the managed identity to access Key Vault to access the secrets. 
--->
+- Container Apps supports Managed Identities allowing your app to easily authenticate other Azure AD-protected resources such as Azure Key Vault, without managing credentials in your container app.  For services that don't support AD authentication, you can store secrets in Azure Key Vault and use the managed identity to access Key Vault to access the secrets.
 
 ### Cost optimization
 
@@ -179,8 +178,8 @@ Follow the steps in the README.md in the [sample repository](https://github.com/
 
 ## Related resources
 
-- [Build microservices on Azure](/azure/architecture/microservices/)
-- [Design a microservices architecture](/azure/architecture/microservices/design/)
+- [Build microservices on Azure](/azure/architecture/microservices)
+- [Design a microservices architecture](/azure/architecture/microservices/design)
 - [Microservices with AKS](/azure/architecture/solution-ideas/articles/microservices-with-aks)
 - [Advanced Azure Kubernetes Service (AKS) microservices architecture](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced)
 - [Microservices architecture on Azure Kubernetes Service](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices)
