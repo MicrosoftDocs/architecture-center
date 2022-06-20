@@ -24,7 +24,7 @@ Azure Firewall can be integrated with AKS and can limit outbound traffic from th
 
 AKS clusters require some public internet access to reach the managed control plane. Limit outbound traffic to the internet using Azure Firewall and NSGs on the cluster subnet. For information, see [Control egress traffic for cluster nodes in Azure Kubernetes Service (AKS)](/azure/aks/limit-egress-traffic).
 
-AKS optionally supports the defining of a [HTTP Proxy](/azure/aks/http-proxy) which can be utilized for additional outbound traffic monitoring and security options for the cluster. The cluster nodes will use the specified HTTP Proxy configuration for routing outbound traffic. There is also a MutatingWebhook that will be registered to inject the proxy information into the pods at creation time so workloads can inherit the same proxy information. Pods can override proxy information so using a HTTP proxy would be in addition to having an Azure Firewall.
+AKS optionally supports the ability to define an [HTTP proxy](/azure/aks/http-proxy), which can be utilized for additional outbound traffic monitoring and security options for the cluster. The cluster nodes use the specified HTTP proxy configuration for routing outbound traffic. Also, a MutatingWebhook is registered to inject the proxy information into the pods at creation time, so that workloads can inherit the same proxy information. Pods can override proxy information, so using a HTTP proxy is in addition to having an Azure Firewall.
 
 AKS clusters should be created with the NetworkPolicy plugin. In AKS, you have the option between Azure or Calico, as your Network Policy plugin. With Calico Network Policy, you could either use Kubenet or Azure CNI. For the Azure Network Policy, you can only use Azure CNI (not Kubenet). Network Policies for Windows nodes are supported with Calico only. Both Azure and [Calico](https://www.tigera.io/project-calico/) Network Policy plugins are open source. For further information about Project Calico, see the [comprehensive PCI solution whitepaper](https://www.tigera.io/lp/kubernetes-pci-compliance/?utm_campaign=calicocloud&utm_medium=digital&utm_source=microsoft_aks_pciwhitepaper), which addresses many of the firewall requirements below.
 
@@ -210,11 +210,11 @@ By design, Azure Virtual Network cannot be directly reached by the public intern
 
    For more information, see [Use Azure Firewall to protect Azure Kubernetes Service (AKS) Deployments](/azure/firewall/protect-azure-kubernetes-service).
 
-- Optionally it is possible to use a HTTP Proxy for monitoring and securing outbound (egress) traffic from the cluster to external resources.
+- Optionally, it's possible to use an HTTP proxy for monitoring and securing outbound (egress) traffic, from the cluster to external resources.
 
-   In addition to a firewall, some organizations might want to use a HTTP Proxy to have additional controls on egress. It is recommended to still have the user-defined routes go to the firewall and limit egress traffic to just go to the HTTP Proxy. With this setup, if a pod tries to override the proxy then the firewall can still block egress traffic. 
+   In addition to a firewall, some organizations might want to use an HTTP proxy to have additional controls on egress. We recommend you to still have the user-defined routes go to the firewall and to limit egress traffic to just go to the HTTP proxy. With this setup, if a pod tries to override the proxy, then the firewall can still block egress traffic. 
    
-   For more information see [HTTP proxy support in Azure Kubernetes Service](https://docs.microsoft.com/en-us/azure/aks/http-proxy).
+   For more information, see [HTTP proxy support in Azure Kubernetes Service](https://docs.microsoft.com/en-us/azure/aks/http-proxy).
 
 The cluster will need to access other services over the public internet. If you use a third-party antimalware software, it will need to get the virus definitions from a server over the public internet.
 
@@ -306,7 +306,7 @@ Here are ways in which you can block unauthorized outbound traffic:
 - Use Kubernetes `NetworkPolicies` to restrict egress traffic from the pods.
 - Use a service mesh to handle additional policies. For example, if you only allow TLS-encrypted traffic between pods, the service mesh proxy can handle the TLS verification. That example is demonstrated in this implementation. Envoy is deployed as the proxy.
 - Prevent addition of public IP addresses to the networks within the CDE unless by subnets explicitly authorized, such as the Firewall subnets.
-- Use a HTTP Proxy in addition to Firewall to limit outbound (egress) traffic from the AKS cluster to the Internet.
+- Use an HTTP proxy, in addition to Azure Firewall, to limit outbound (egress) traffic from the AKS cluster to the internet.
 
 > [!NOTE]
 >
