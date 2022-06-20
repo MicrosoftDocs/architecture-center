@@ -8,7 +8,7 @@ Free-form text processing can produce useful, actionable data from large amounts
 
 In most scenarios, you load the source text documents into object storage, such as [Azure Storage](https://azure.microsoft.com/product-categories/storage) or [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage), and then index them using an external search service. The source text documents are physically distinct from the search index hosted on the search service.
 
-An exception is using full text search within SQL Server or Azure SQL Database. In this case, the document data exists internally in tables the database manages. Once stored, the documents are batch processed to create the index.
+An exception is using full text search within [SQL Server](https://www.microsoft.com/sql-server/sql-server-downloads) or [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database). In this case, the document data exists internally in tables the database manages. Once stored, the documents are batch processed to create the index.
 
 ![Diagram of a search pipeline.](./images/search-pipeline.png)
 
@@ -20,7 +20,7 @@ Options for creating an external search index include [Azure Cognitive Search](h
 
 - On HDInsight, Solr can index binary files of many types, including plain text, Word, and PDF. Once the index is constructed, clients can access the search interface with a REST API.
 
-If you store your text data in [SQL Server](https://www.microsoft.com/sql-server/sql-server-downloads) or [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database), you can use the full-text search that's built into the database. The database populates the index from text, binary, or XML data stored within the same database. Clients search by using T-SQL queries.
+If you store your text data in SQL Server or Azure SQL Database, you can use the full-text search that's built into the database. The database populates the index from text, binary, or XML data stored within the same database. Clients search by using T-SQL queries.
 
 ## Considerations
 

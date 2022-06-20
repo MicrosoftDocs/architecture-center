@@ -35,7 +35,7 @@ A well-architected data storage system is:
 - Highly available and resilient to failure.
 - Affordable.
 
-A crucial consideration is how well a design scales as data grows. Consider an application that generates 6 terabytes (TB) of data its first month, with data increasing at a 10 percent yearly rate. Here's a graph that shows how data accumulates over time:
+A crucial consideration is how well a design scales as data grows. Consider an application that generates 6 terabytes (TB) of data its first month, with data increasing at a 10 percent yearly rate. The following graph shows how that data accumulates over time:
 
 :::image type="content" source="../images/build-scalable-database-solutions-azure-services-data-growth.svg" alt-text="A line graph showing terabytes created over time, from 6 T B after one month to 249 after three years. The 10 percent growth rate steepens the slope over time.":::
 
@@ -45,9 +45,9 @@ This example isn't atypical. Data grows both as you add customers, and as your c
 
 ## Design a data storage system
 
-To design a data storage system on Azure, learn about how to use the many Azure services for various applications and objectives. Meeting data storage needs might require a mix of products. For example, you could keep rarely accessed data in low-cost services, and frequently accessed data in higher-cost services with better access times.
+To design a data storage system on Azure, learn about how to use the many Azure services for various applications and objectives. Meeting data storage needs might require a mix of products. For example, you could keep rarely accessed data in low-cost services, and frequently accessed data in higher-cost services with faster access times.
 
-The following articles outline seven system architectures for web applications. These systems can handle massive amounts of data and are resilient to system failures. These architectures use [Azure Table storage](https://azure.microsoft.com/services/storage/tables), [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db), [Azure Data Factory](https://azure.microsoft.com/services/data-factory), and [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage).
+The articles in the following table outline seven system architectures for web applications. These systems can handle massive amounts of data and are resilient to system failures. These architectures use [Azure Table storage](https://azure.microsoft.com/services/storage/tables), [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db), [Azure Data Factory](https://azure.microsoft.com/services/data-factory), and [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage).
 
 These examples can help you design a data storage system that accommodates your applications. The following capability matrix provides links to the articles, and summarizes the benefits and drawbacks of each architecture:
 
