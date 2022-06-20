@@ -12,7 +12,7 @@ Other relevant use cases include:
 
 ## Architecture
 
-!["Architecture Diagram"](./images/architecture-diagram-app-monitoring-new.png)
+!["Diagram demonstrating the architecture of using Azure's PaaS services to monitor your application."](./images/architecture-diagram-app-monitoring-new.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/architecture-diagram-app-monitoring.vsdx) of this architecture.*
 
