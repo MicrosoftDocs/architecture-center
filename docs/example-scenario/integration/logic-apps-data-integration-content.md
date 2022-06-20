@@ -105,6 +105,14 @@ Explore these strategies for minimizing Logic Apps costs:
 - [Specify precise trigger conditions][Trigger conditions] for workflows.
 - [Turn off logic apps][Disable or enable logic apps] that don't have to run constantly.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+* [Shan Singh](https://uk.linkedin.com/in/shantnus) | Software Engineer
+
 ## Next steps
 
 - [Import a Logic App as an API][Import a Logic App as an API]
