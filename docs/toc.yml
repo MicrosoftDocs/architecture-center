@@ -2678,6 +2678,8 @@ items:
                 href: solution-ideas/articles/interactive-voice-response-bot.yml
               - name: Keyword digital text processing
                 href: solution-ideas/articles/digital-media-speech-text.yml
+              - name: Large-scale custom NLP
+                href: solution-ideas/articles/large-scale-custom-natural-language-processing.yml
               - name: Marketing optimization
                 href: solution-ideas/articles/optimize-marketing-with-machine-learning.yml
               - name: Model deployment to AKS
