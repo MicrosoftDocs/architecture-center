@@ -1,5 +1,3 @@
-
-
 This reference architecture provides strategies for the [partitioning model][Partitions] that event ingestion services use. Because event ingestion services provide solutions for high-scale event streaming, they need to process events in parallel and be able to maintain event order. They also need to balance loads and offer scalability. Partitioning models meet all of these requirements.
 
 Specifically, this document discusses the following strategies:
@@ -23,6 +21,8 @@ Besides offering partitioning strategies, this document also points out differen
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/event-processing-service.vsdx) of this architecture.*
+
+### Dataflow
 
 - *Producers* publish data to the ingestion service, or *pipeline*. Event Hubs pipelines consist of *namespaces*. The Kafka equivalents are *clusters*.
 
@@ -125,7 +125,7 @@ Besides the default round robin strategy, Kafka offers two other strategies for 
 
 Keep these points in mind when using a partitioning model.
 
-### Scalability considerations
+### Scalability
 
 Using a large number of partitions can limit scalability:
 
@@ -135,7 +135,7 @@ Using a large number of partitions can limit scalability:
 
 - Each producer for Kafka and Event Hubs stores events in a buffer until a sizeable batch is available or until a specific amount of time passes. Then the producer sends the events to the ingestion pipeline. The producer maintains a buffer for each partition. When the number of partitions increases, the memory requirement of the client also expands. If consumers receive events in batches, they may also face the same issue. When consumers subscribe to a large number of partitions but have limited memory available for buffering, problems can arise.
 
-### Availability considerations
+### Availability
 
 A significant number of partitions can also adversely affect availability:
 
@@ -145,11 +145,11 @@ A significant number of partitions can also adversely affect availability:
 
 - With more partitions, the load-balancing process has to work with more moving parts and more stress. *Transient exceptions* can result. These errors can occur when there are temporary disturbances, such as network issues or intermittent internet service. They can appear during an upgrade or load balancing, when Event Hubs sometimes moves partitions to different nodes. Handle transient behavior by incorporating retries to minimize failures. Use the [EventProcessorClient in the .NET][Azure Event Hubs Event Processor client library for .NET] and [Java SDKs][Azure Event Hubs client library for Java] or the [EventHubConsumerClient in the Python][Azure Event Hubs client library for Python] and [JavaScript SDKs][Azure Event Hubs client library for Javascript] to simplify this process.
 
-### Performance considerations
+### Performance
 
 In Kafka, events are *committed* after the pipeline has replicated them across all in-sync replicas. This approach ensures a high availability of events. Since consumers only receive committed events, the replication process adds to the *latency*. In ingestion pipelines, this term refers to the time between when a producer publishes an event and a consumer reads it. According to [experiments that Confluent ran][How to choose the number of topics/partitions in a Kafka cluster?], replicating 1,000 partitions from one broker to another can take about 20 milliseconds. The end-to-end latency is then at least 20 milliseconds. When the number of partitions increases further, the latency also grows. This drawback doesn't apply to Event Hubs.
 
-### Security considerations
+### Security
 
 In Event Hubs, publishers use a [Shared Access Signature (SAS)][Shared Access Signatures] token to identify themselves. Consumers connect via an [AMQP 1.0 session][AMQP 1.0]. This state-aware bidirectional communication channel provides a secure way to transfer messages. Kafka also offers encryption, authorization, and authentication features, but you have to implement them yourself.
 
@@ -320,15 +320,21 @@ As these results show, the producer only used two unique keys. The messages then
 - [Apache Kafka developer guide for Azure Event Hubs][Apache Kafka developer guide for Azure Event Hubs]
 - [Quickstart: Data streaming with Event Hubs using the Kafka protocol][Quickstart: Data streaming with Event Hubs using the Kafka protocol]
 - [Send events to and receive events from Azure Event Hubs - .NET (Azure.Messaging.EventHubs)][Send events to and receive events from Azure Event Hubs - .NET]
-
-## Related resources
-
 - [Balance partition load across multiple instances of your application][Balance partition load across multiple instances of your application]
 - [Dynamically add partitions to an event hub (Apache Kafka topic) in Azure Event Hubs][Dynamically add partitions to an event hub in Azure Event Hubs]
 - [Availability and consistency in Event Hubs][Availability and consistency in Event Hubs]
 - [Azure Event Hubs Event Processor client library for .NET][Azure Event Hubs Event Processor client library for .NET]
 - [Effective strategies for Kafka topic partitioning][Effective strategies for Kafka topic partitioning]
 - [Confluent blog post: How to choose the number of topics/partitions in a Kafka cluster?][How to choose the number of topics/partitions in a Kafka cluster?]
+
+## Related resources
+
+- [Integrate Event Hubs with serverless functions on Azure](/azure/architecture/serverless/event-hubs-functions/event-hubs-functions)
+- [Performance and scale for Event Hubs and Azure Functions](/azure/architecture/serverless/event-hubs-functions/performance-scale)
+- [Event-driven architecture style](/azure/architecture/guide/architecture-styles/event-driven)
+- [Stream processing with fully managed open-source data engines](/azure/architecture/example-scenario/data/open-source-data-engine-stream-processing)
+- [Publisher-Subscriber pattern](/azure/architecture/patterns/publisher-subscriber)
+- [Apache open-source scenarios on Azure - Apache Kafka](/azure/architecture/guide/apache-scenarios#apache-kafka)
 
 [AMQP 1.0]: /azure/service-bus-messaging/service-bus-amqp-protocol-guide
 [Apache Kafka]: https://www.confluent.io/what-is-apache-kafka/
