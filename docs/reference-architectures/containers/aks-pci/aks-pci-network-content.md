@@ -306,7 +306,7 @@ Here are ways in which you can block unauthorized outbound traffic:
 - Use Kubernetes `NetworkPolicies` to restrict egress traffic from the pods.
 - Use a service mesh to handle additional policies. For example, if you only allow TLS-encrypted traffic between pods, the service mesh proxy can handle the TLS verification. That example is demonstrated in this implementation. Envoy is deployed as the proxy.
 - Prevent addition of public IP addresses to the networks within the CDE unless by subnets explicitly authorized, such as the Firewall subnets.
-- Use a HTTP Proxy to limit outbound (egress) traffic from the AKS cluster to the Internet.
+- Use a HTTP Proxy in addition to Firewall to limit outbound (egress) traffic from the AKS cluster to the Internet.
 
 > [!NOTE]
 >
