@@ -4,10 +4,10 @@ description: Learn the basics of Microsoft Azure accounts, platform, and service
 author: EdPrice-MSFT
 categories: azure
 ms.author: pnp
-ms.date: 03/15/2020
-ms.topic: reference
+ms.date: 06/20/2022
+ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: cloud-fundamentals
+ms.subservice: azure-guide
 azureCategories: 
   - analytics 
   - compute
@@ -16,8 +16,9 @@ azureCategories:
   - networking
   - web
 products:
+  - azure-cloud-services
   - azure-devops
-  - azare-dev-tool-integrations
+  - azure-dev-tool-integrations
   - azure-managed-applications
 ms.custom:
   - fcp
@@ -27,38 +28,34 @@ ms.custom:
 
 # Azure for AWS professionals
 
-This article helps Amazon Web Services (AWS) experts understand the basics of Microsoft Azure accounts, platform, and services. It also covers key similarities and differences between the AWS and Azure platforms.
+This series of articles helps Amazon Web Services (AWS) experts understand the basics of Microsoft Azure accounts, platform, and services. These articles also covers key similarities and differences between the AWS and Azure platforms.
 
-You'll learn:
+In this series, you learn:
 
-- How accounts and resources are organized in Azure.
-- How available solutions are structured in Azure.
+- How Azure organizes accounts and resources.
+- How Azure structures available solutions.
 - How the major Azure services differ from AWS services.
 
-Azure and AWS built their capabilities independently over time, so that each has important implementation and design differences.
+## Similarities and differences
 
-## Azure for AWS overview
+Like AWS, Microsoft Azure is built around a core set of compute, storage, database, and networking services. In many cases, both platforms offer basically equivalent products and services. Both AWS and Azure can use Linux distributions and open-source software (OSS) technologies. Both platforms support building highly available solutions on Windows or Linux hosts.
 
-Like AWS, Microsoft Azure is built around a core set of compute, storage, database, and networking services. In many cases, both platforms offer a basic equivalence between the products and services they offer. Both AWS and Azure allow you to build highly available solutions based on Windows or Linux hosts. So, if your preference for development is using Linux distributions and OSS technologies, both platforms are capable of doing the job.
+While the capabilities of both platforms are similar, the resources that provide those capabilities are often organized differently. Azure and AWS built their capabilities independently over time, so the platforms have important implementation and design differences. Exact one-to-one correspondences between the services you need to build a solution aren't always clear.
 
-While the capabilities of both platforms are similar, the resources that provide those capabilities are often organized differently. Exact one-to-one relationships between the services required to build a solution are not always clear. In other cases, a particular service might be offered on one platform, but not the other. See [charts of comparable Azure and AWS services](./services.md).
+Sometimes, only one of the platforms might offer a particular service. For a listing and charts of how services map between the platforms, see [AWS to Azure services comparison](./services.md).
 
-## Services
+Not all Azure products and services are available in all regions. See [Products available by region](https://azure.microsoft.com/global-infrastructure/services) for details. For Azure product and service uptime guarantees and downtime credit policies, see [Service-level agreements](https://azure.microsoft.com/support/legal/sla).
 
-For a listing of how services map between the platforms, see [AWS to Azure services comparison](./services.md).
+## Compare Azure and AWS components
 
-Not all Azure products and services are available in all regions. Consult the [Products by Region](https://azure.microsoft.com/global-infrastructure/services) page for more details. You can find the uptime guarantees and downtime credit policies for each Azure product or service on the [Service Level Agreements](https://azure.microsoft.com/support/legal/sla) page.
+Many Azure and AWS core components have similar functionality. The following articles compare the platforms' core components:
 
-## Components
-
-A number of core components on Azure and AWS have similar functionality.  To review the differences, visit the component page for the topic you're interested in:
-
-- [Accounts](./accounts.md)
-- [Compute](./compute.md)
-- [Databases](./databases.md)
-- [Messaging](./messaging.md)
-- [Networking](./networking.md)
-- [Regions and Zones](./regions-zones.md)
-- [Resources](./resources.md)
-- [Security & Identity](./security-identity.md)
-- [Storage](./storage.md)
+- [Azure and AWS accounts and subscriptions](./accounts.md)
+- [Compute services on Azure and AWS](./compute.md)
+- [Relational database technologies on Azure and AWS](./databases.md)
+- [Messaging services on Azure and AWS](./messaging.md)
+- [Networking on Azure and AWS](./networking.md)
+- [Regions and zones on Azure and AWS](./regions-zones.md)
+- [Resource management on Azure and AWS](./resources.md)
+- [Multi-cloud security and identity with Azure and AWS](./security-identity.md)
+- [Compare storage on Azure and AWS](./storage.md)
