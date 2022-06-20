@@ -119,7 +119,7 @@ For a detailed list of all resources, see the [Deployed Resources](https://githu
 
 The diagram below demonstrates the CI/CD process and sequence for the build and release pipelines.
 
-[![Figure Process and Sequence for Build and Release](./media/ci-cd-process-diagram-new.png)](./media/ci-cd-process-diagram-new.png#lightbox)
+[![Figure Process and Sequence for Build and Release.](./media/ci-cd-process-diagram-new.png)](./media/ci-cd-process-diagram-new.png#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/ci-cd-process-diagram.vsdx) of this architecture.*
 
