@@ -45,6 +45,8 @@ items:
             href: guide/design-principles/design-for-operations.md
           - name: Use managed services
             href: guide/design-principles/managed-services.md
+          - name: Use an identity service
+            href: guide/design-principles/identity.md
           - name: Use the best data store
             href: /azure/architecture/guide/design-principles/use-best-data-store
           - name: Design for evolution
@@ -205,8 +207,6 @@ items:
             href: best-practices/data-partitioning-strategies.yml
           - name: Host name preservation
             href: best-practices/host-name-preservation.yml
-          - name: Identity
-            href: best-practices/identity.md
           - name: Message encoding considerations
             href: best-practices/message-encode.md
           - name: Monitoring and diagnostics
