@@ -28,7 +28,16 @@ If you store your text data in SQL Server or Azure SQL Database, you can use the
 
 - To search free-form text effectively, the search index should support fuzzy search for terms that have a similar construction. For example, search indexes built with *lemmatization* and *linguistic stemming* can match documents that contain "ran" and "running" with queries for "run".
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+- [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect
+
 ## Next steps
+
 - [What is Azure Cognitive Search?](/azure/search/search-what-is-azure-search)
 - [Full-Text Search in SQL Server and Azure SQL Database](/sql/relational-databases/search/full-text-search)
 
