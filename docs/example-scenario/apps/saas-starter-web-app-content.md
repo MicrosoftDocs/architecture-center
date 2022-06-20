@@ -220,6 +220,11 @@ Other contributors:
  - [Gary Moore](https://www.linkedin.com/in/gwmoore) | Programmer/Writer
  - [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv) | Principal Customer Engineer
  - [Jason Young](https://www.linkedin.com/in/jasony) | Principal SVC Engineering Manager
+ - [Nick Pinheiro](https://www.linkedin.com/in/nickpinheiro/) | Senior Consultant
+ - [LaBrina Loving](https://www.linkedin.com/in/chixcancode/) | Principal SVC Engineering Manager
+ - [Chris Ayers](https://www.linkedin.com/in/chris-l-ayers/) | Senior Customer Engineer
+ - [Ali Sanjabi](https://www.linkedin.com/in/alisanjabi/) | Senior Customer Engineer
+ - [William Salazar](https://www.linkedin.com/in/whsalazar/) | Senior Customer Engineer
 
 
 ## Next steps
