@@ -1,14 +1,8 @@
 This article presents a decision tree and examples of high-availability (HA) and disaster recovery (DR) options when deploying multitier infrastructure-as-a-service (IaaS) apps to Azure.
 
-## Potential use cases
-
-- Public sector applications
-- Banking
-- Healthcare
-
 ## Architecture
 
-![HA decision tree](./media/ha-decision-tree.png)
+![This diagram illustrates the high availability decision tree.](./media/ha-decision-tree.png)
 
 ### Workflow
 
@@ -49,6 +43,12 @@ If the service-level agreement (SLA) for an IaaS app requires > 99% availability
 - Migrate an n-tier app from on-premises to the cloud.
 - Deploy an n-tier app both on-premises and to the cloud.
 - Configure high availability and disaster recovery for an IaaS app.
+
+This solution can be used for any industry, including the following scenarios:
+
+- Public sector applications
+- Banking (finance industry)
+- Healthcare
 
 ## Considerations
 
