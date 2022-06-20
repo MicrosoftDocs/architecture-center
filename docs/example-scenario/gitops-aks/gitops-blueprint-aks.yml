@@ -19,6 +19,6 @@ products:
   - github
 name: GitOps for Azure Kubernetes Service
 summary: See a GitOps solution for an Azure Kubernetes Services (AKS) cluster. This solution provides full audit capabilities, policy enforcement, and early feedback.
-thumbnailUrl: /azure/architecture/browse/thumbs/gitops-blueprint-aks.png
+thumbnailUrl: /azure/architecture/browse/thumbs/gitops-blueprint-aks-thumbnail-new.png
 content: |
   [!include[](gitops-blueprint-aks-content.md)]

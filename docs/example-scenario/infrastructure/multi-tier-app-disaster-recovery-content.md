@@ -95,6 +95,14 @@ Configuring disaster recovery for Azure VMs using Azure Site Recovery will incur
 
 We have provided a [sample cost calculator][calculator] for configuring disaster recovery for a three-tier application using six virtual machines. All of the services are pre-configured in the cost calculator. To see how the pricing would change for your particular use case, change the appropriate variables to estimate the cost.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+* [Sujay Talasila](https://in.linkedin.com/in/sujay-talasila-7b20247) | Principal Product Lead
+
 ## Next steps
 
 - [Deploy Traffic Manager in Azure][Deploy-Traffic-Manager-in-Azure]
