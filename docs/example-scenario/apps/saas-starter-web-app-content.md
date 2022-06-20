@@ -226,7 +226,6 @@ Other contributors:
  - [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv) | Principal Customer Engineer
  - [Jason Young](https://www.linkedin.com/in/jasony) | Principal SVC Engineering Manager
 
-
 ## Next steps
 
 Here are some additional recommended resources for building a SaaS application on Azure:
