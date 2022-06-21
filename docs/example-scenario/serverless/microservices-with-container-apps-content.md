@@ -103,6 +103,43 @@ Many of the complexities of the previous AKS architecture are replaced by these 
 
 An alternative scenario of this example is the Fabrikam Drone Delivery application using Kubernetes, which is available on GitHub in the [Azure Kubernetes Service (AKS) Fabrikam Drone Delivery](https://github.com/mspnp/aks-fabrikam-dronedelivery) repository.
 
+## Scenario details
+
+Your business can simplify the deployment and management of microservice containers by using Azure Container Apps Preview. Container Apps provides a fully managed serverless environment for building and deploying modern applications.
+
+This example scenario demonstrates how to deploy microservice containers without needing to manage complex infrastructure and container orchestration.  
+
+Fabrikam, Inc. (a fictional company) has implemented a drone delivery service where users can request a drone to pick up goods for delivery. When a customer schedules a pickup, a backend system assigns a drone and notifies the user with an estimated delivery time. While the delivery is in progress, the customer can track the location of the drone, with a continuously updated ETA. The application is composed of containerized microservices and was originally deployed to Azure Kubernetes Service.
+
+With Azure Container Apps, Fabrikam can run their containerized applications on a flexible, serverless platform purpose-built to support microservices. Azure Container Apps runs on Azure Kubernetes Service, and includes several open-source projects: Kubernetes Event Driven Autoscaling (KEDA), Distributed Application Runtime (Dapr), and Envoy. This open-source foundation enables teams to build and run portable applications powered by Kubernetes and open standards. By using built-in platform capabilities, teams can avoid the management complexity of working with the Kubernetes platform and APIs directly.
+
+Because the Fabrikam team wasn't making use of many of advanced AKS configuration settings, they were able to migrate their application to Azure Container Apps without much overhead. By porting their solution to Azure Container Apps, Fabrikam took advantage of:
+
+1. Migrating the application as-is: No code changes were required when moving their application from AKS to Azure Container Apps.
+1. Deploying with Bicep templates: No Kubernetes YAML manifests were needed to deploy their application containers.
+1. Exposing apps through managed ingress: Built-in support for external, https-based ingress to expose the Ingestion Service removed the need for configuring their own ingress.
+1. Pulling container images from ACR: Azure Container Apps doesn't require a specific base image or registry.
+1. Managing application lifecycle: The revision feature supports running multiple revisions of a particular container app and traffic-splitting across them for A/B testing or Blue/Green deployment scenarios.
+
+You can find a code sample in the [Container Apps Example Scenario](https://github.com/mspnp/container-apps-fabrikam-dronedelivery) repository.
+
+### Potential use cases
+
+This drone delivery solution applies to the aerospace, aircraft, and robotics industries. In this example solution, the use cases are:
+
+- Deploy a brownfield microservice-based application into a platform as a service (PaaS) offering to avoid the operational complexity of managing a container orchestrator.
+- Optimize operations and management by migrating containerized services to a platform that supports native scale-to-zero.
+  - Execute a long-running background process, such as the workflow service in single revision mode.
+  
+Other common uses of Container Apps include:
+
+- Running containerized workloads on a serverless, consumption-based platform.
+- Autoscaling applications based on HTTP/HTTPS traffic and/or Event-driven triggers supported by KEDA
+- Minimizing maintenance overhead for containerized applications
+- Deploying API endpoints
+- Hosting background processing applications
+- Handling event-driven processing
+
 ## Considerations
 
 ### Availability
@@ -114,7 +151,6 @@ Container Apps allows you to more easily deploy, manage, maintain and monitor th
 - When an app unexpectedly terminates, the Container Apps service automatically restarts it.  
 - You can enable autoscaling rules to meet demand as traffic and workloads increase. 
 - Performance is optimized by the dynamic load balancing features of Container Apps (not currently used in this example workload).
-
 
 ### Operational excellence
 
@@ -151,11 +187,7 @@ Performance monitoring through Log Analytics and Azure Monitor allows you to eva
 
 - Container Apps supports Managed Identities allowing your app to easily authenticate other Azure AD-protected resources such as Azure Key Vault, without managing credentials in your container app.  For services that don't support AD authentication, you can store secrets in Azure Key Vault and use a managed identity to access Key Vault to access the secrets. 
 
-## Deploy this scenario 
-
-Follow the steps in the README.md in the [sample repository](https://github.com/mspnp/container-apps-fabrikam-dronedelivery) to deploy this scenario.
-
-## Pricing
+### Cost optimization
 
 - The [Cost section in the Microsoft Azure Well-Architected Framework](/azure/architecture/framework/cost/overview) describes cost considerations. Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for your specific scenario.
 <!--
@@ -166,6 +198,10 @@ Follow the steps in the README.md in the [sample repository](https://github.com/
 - In this scenario, the Azure Cosmos DB and Azure Cache for Redis services generate most of the costs.  
 - To avoid accruing charges, don't leave this example running.
 
+## Deploy this scenario 
+
+Follow the steps in the README.md in the [sample repository](https://github.com/mspnp/container-apps-fabrikam-dronedelivery) to deploy this scenario.
+
 ## Next steps
 
 - [Azure Container Apps Documentation](/azure/container-apps/?branch=release-ignite-container-apps)
@@ -173,8 +209,8 @@ Follow the steps in the README.md in the [sample repository](https://github.com/
 
 ## Related resources
 
-- [Build microservices on Azure](/azure/architecture/microservices/)
-- [Design a microservices architecture](/azure/architecture/microservices/design/)
+- [Build microservices on Azure](/azure/architecture/microservices)
+- [Design a microservices architecture](/azure/architecture/microservices/design)
 - [Microservices with AKS](/azure/architecture/solution-ideas/articles/microservices-with-aks)
 - [Advanced Azure Kubernetes Service (AKS) microservices architecture](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced)
 - [Microservices architecture on Azure Kubernetes Service](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices)

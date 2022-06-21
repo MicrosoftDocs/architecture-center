@@ -3,10 +3,15 @@ title: Monolithic Persistence antipattern
 titleSuffix: Azure Architecture Center
 description: Understand the Monolithic Persistence antipattern, which can hurt performance by putting all of an application&apos;s data into a single data store.
 author: EdPrice-MSFT
+categories: azure
 ms.date: 06/05/2017
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: anti-pattern
+azureCategories: 
+  - analytics 
+  - storage
+  - web
 products:
   - aspnet
   - azure-cache-redis
@@ -150,7 +155,7 @@ Similarly, the maximum DTU utilization of the log database only reaches about 70
 [cosmos-db]: https://azure.microsoft.com/services/cosmos-db
 [azure-cache]: /azure/azure-cache-for-redis/cache-overview
 [Data-Access-Guide]: /previous-versions/msp-n-p/dn271399(v=pandp.10)
-[DataPartitioningGuidance]: ../../best-practices/data-partitioning.md
+[DataPartitioningGuidance]: ../../best-practices/data-partitioning.yml
 [data-store-overview]: ../../guide/technology-choices/data-store-overview.md
 [data-store-comparison]: ../../guide/technology-choices/data-store-considerations.md
 

@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Architecture Center
   description: Learn how subject matter expertise and deep reinforcement learning are is used in machine teaching to turn automated control systems into autonomous systems.
   author: jocontr
-  ms.author: pnp
+  ms.author: jocontr
   ms.date: 07/05/2020
   ms.topic: conceptual
   ms.service: architecture-center

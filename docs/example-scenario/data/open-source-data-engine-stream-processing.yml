@@ -5,7 +5,7 @@ metadata:
   description: Stream events by using fully managed Azure data services. Use open-source technologies like Kafka, Kubernetes, Cassandra, PostgreSQL, and Redis components.
   author: ajananth
   ms.author: ajananth
-  ms.date: 10/06/2021
+  ms.date: 06/06/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario

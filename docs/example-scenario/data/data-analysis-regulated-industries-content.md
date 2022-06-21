@@ -1,12 +1,12 @@
 In recent years, the demand for business users to be able to consume, transform, model, and visualize large amounts of complex data from multiple heterogeneous sources has increased dramatically. To meet this demand in a cost-effective, scalable way, many large companies have benefitted from moving to cloud-based data platforms. This move allows companies to take advantage of the economy of scale the cloud provides to achieve lower total cost of ownership and faster time to value from data. Regulated industries are no exception to this. These companies need to store and process vast amounts of highly sensitive data (for example, protected health information) every day. However, because of the sensitive nature of this data, there are many regulations (like HIPAA) in place that constrain the methods for storing, transporting, and processing the data. As a result of this, regulated industries are hesitant to adopt cloud-based data platforms because of the large financial penalties for regulatory violations and the perceived loss of control that comes from moving to a cloud-based platform.
 
-The worldwide COVID-19 pandemic changed all of this as the on-premises data platforms of many regulated industries were largely unable to cope with the increased workload resulting from the pandemic. These companies are now embracing cloud-based data platforms, but they're typically doing so in two extreme ways. Either with highly complex and detailed security requirements or with limited knowledge of cloud security capabilities and practices. This makes rapid deployment of services and solutions challenging because many security options can be disabled, overlooked, or simply ignored, leaving these companies open to regulatory action (like financial penalties) if left unchecked. 
+The worldwide COVID-19 pandemic changed all of this as the on-premises data platforms of many regulated industries were largely unable to cope with the increased workload resulting from the pandemic. These companies are now embracing cloud-based data platforms, but they're typically doing so in two extreme ways. Either with highly complex and detailed security requirements or with limited knowledge of cloud security capabilities and practices. This makes rapid deployment of services and solutions challenging because many security options can be disabled, overlooked, or simply ignored, leaving these companies open to regulatory action (like financial penalties) if left unchecked.
 
 The Infrastructure Accelerator pattern is designed to resolve this issue by tackling data analysis workloads in regulated industries. This pattern is designed to help ensure that the detailed security and privacy requirements of different regulated industries are met. It uses configurable, template-based service-deployment automation. And it's all built on Azure managed services to reduce management overhead. Specifically, the pattern focuses on high-quality security standards, auditing, monitoring key protection, encryption capabilities, and tight integration with security perimeters (when applicable). You can consider this guidance an enterprise-ready, pluggable infrastructure building block for data analytics workloads. It incorporates Microsoft best practices for landing zones.
 
 In using this pattern, you can choose which data processing services (Azure Data Factory, Azure Databricks, Azure Synapse Analytics) you want to use. You'll know that the services will be deployed using Microsoft best practices for landing zones and any company-specific policy requirements. In short, we believe that all customers from regulated industries can benefit from this pattern and from infrastructure deployment accelerator tools.
 
-The goal of this pattern isn't to automatically implement a regulated solution. It's to give the infrastructure and security teams an easily configurable set of tools for implementing a repeatable baseline for regulated enterprise systems. That's because most regulations are written in a way that requires interpretation when it comes to building a system that meets them. 
+The goal of this pattern isn't to automatically implement a regulated solution. It's to give the infrastructure and security teams an easily configurable set of tools for implementing a repeatable baseline for regulated enterprise systems. That's because most regulations are written in a way that requires interpretation when it comes to building a system that meets them.
 
 For example, one of the requirements of a HIPAA-compliant system is that all data at rest and in motion needs to be encrypted. This is easy to interpret for data being transmitted or data on disk. But what about data that's sitting in memory as part of an in-memory database? It could be considered to be at rest if the database is a long-running database. But encrypting memory adds significant overhead, so it's not feasible for many use cases.
 
@@ -32,12 +32,14 @@ Some of the key benefits of this pattern are:
 ## Potential use cases
 
 This architecture can benefit organizations that require a solution that has these qualities:
+
 - A platform as a service (PaaS) solution for data and AI workloads 
 - Visualization (ETL/ELT and Power BI)
 - Integration with a network perimeter 
 - A focus on high security, highly protected data, auditing, and monitoring
 
 Here are some example industries:
+
 - Regulated industries generally
 - Financial sector
 - Healthcare clinical trials
@@ -47,7 +49,7 @@ Here are some example industries:
 
 ## Architecture
 
-The following diagram shows a high-level overview of the architecture for the Infrastructure Accelerator for data analysis workloads in regulated industries. This pattern is targeted for use in highly regulated industries, so the primary focus is to provide a high degree of security at all levels, from storage to transport to use. 
+The following diagram shows a high-level overview of the architecture for the Infrastructure Accelerator for data analysis workloads in regulated industries. This pattern is targeted for use in highly regulated industries, so the primary focus is to provide a high degree of security at all levels, from storage to transport to use.
 
 [![Diagram that shows an example of an Infrastructure Accelerator architecture.](media/data-analysis-architecture-01.png)](media/data-analysis-architecture-01.png#lightbox)
 
@@ -78,7 +80,6 @@ Implementation of this pattern requires these skills:
 - Usage and data analysis capabilities:
   - Data administrators and data developers develop ETL/ELT pipelines and semantic models for self-service BI. This step covers the complete data preparation lifecycle: ingest, store, transform, serve.
   - Business users can start to consume and present data through business-focused semantic models prepared by data developers. This consumption is typically done through front-end applications like Power BI or custom applications, but you can use third-party applications as well.
-
 
 ### Components
 
@@ -142,14 +143,15 @@ After the data, along with any snapshots, is available in cost-effective object 
 
 This architecture supports transformation of data primarily via Data Factory, Azure Databricks, and Azure Synapse Analytics. Each service is scalable and provides a rich transformational environment with adapters.
 
-This solution is designed to read data from Data Lake Storage through a private endpoint in the perimeter and perform these actions on data, at scale: 
-- Clean and normalize 
-- Transform 
-- Aggregate, merge, and combine 
+This solution is designed to read data from Data Lake Storage through a private endpoint in the perimeter and perform these actions on data, at scale:
+
+- Clean and normalize
+- Transform
+- Aggregate, merge, and combine
 
 It completes these actions with cost control. That is, fast transformations can be done with more compute power at a higher cost, but slower transformations can be done with less compute power at a lower cost. Finally, storage of the cleaned, transformed, aggregated, domain-optimized data is done via a highly structured database with indexed data and a business- or domain-specific vocabulary, like SQL Database.
 
-You should use the Premium SKU of Azure Databricks to enable advanced security features like RBAC for clusters, jobs, and notebooks and Azure Active Directory (Azure AD) Pass-through. Also, the Azure Databricks virtual network needs to be integrated with the data sources, the perimeter, and the firewall. 
+You should use the Premium SKU of Azure Databricks to enable advanced security features like RBAC for clusters, jobs, and notebooks and Azure Active Directory (Azure AD) Pass-through. Also, the Azure Databricks virtual network needs to be integrated with the data sources, the perimeter, and the firewall.
 
 Users can access Data Factory and the Azure Databricks workspace (but not the data) through a public endpoint via Azure AD authentication if conditional access is enabled.
 
@@ -157,7 +159,7 @@ Users can access Data Factory and the Azure Databricks workspace (but not the da
 
 _**Mask data and secure or hide data that shouldn't be seen by users from other geographic regions or departments.**_
 
-Data stored in the business domain database (the SQL database) probably contains sensitive data. It's important to allow users to access only a subset of data based on the user's role. And data typically crosses regions from different units in different geographic locations. 
+Data stored in the business domain database (the SQL database) probably contains sensitive data. It's important to allow users to access only a subset of data based on the user's role. And data typically crosses regions from different units in different geographic locations.
 
 Manually filtering in code is error prone. Filtering in reports can also be problematic. Instead, you should filter based on security context, at the database level. This method forces all consuming tools, including reporting tools, to receive data that's already filtered. For this model to work, accessing tools need to pass the identity of the viewing user instead of service accounts. This configuration allows the system to stay compliant with auditing and traceability requirements.
 
@@ -189,8 +191,9 @@ Here's a typical list of operations teams for this pattern:
 This architecture pattern is based on managed Azure services that have built-in, flexible performance options. These options allow you to find the right balance between speed and cost.
 
 You might encounter performance challenges related to:
-- Azure VMs used by Azure Databricks. Be sure to use appropriate SKU sizes. 
-- Network throughput. 
+
+- Azure VMs used by Azure Databricks. Be sure to use appropriate SKU sizes.
+- Network throughput.
 - Bandwidth.
 - Latency.
 - Limits of the host of the Data Factory self-hosted integration runtime.
@@ -226,7 +229,7 @@ This pattern uses Azure PaaS services that are hosted in one region. You might w
 
 To implement this pattern, start at the project page: [Azure/ADAW](https://github.com/Azure/ADAW). That page includes deployment scripts to help you deploy the workspace for data analysis based on Azure services.
 
-You can automatically deploy the Data Analytical Workspace by using the provided cloud-native scripts. This deployment provides a consistent experience and a focus on high-quality security standards. 
+You can automatically deploy the Data Analytical Workspace by using the provided cloud-native scripts. This deployment provides a consistent experience and a focus on high-quality security standards.
 
 ## Pricing
 
@@ -249,15 +252,24 @@ Consider Azure reservations options for compute and storage to optimize the cost
 
 The Power BI cost is separate from the Azure cost. Power BI Premium has a different pricing model and is also separate from the Azure costs.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+* [Jiri Binko](https://cz.linkedin.com/in/jiribinko) | Senior Cloud Solution Architect
+
 ## Next steps
 
 To implement this pattern, start at the project page: [Azure/ADAW](https://github.com/Azure/ADAW).
 That page includes deployment scripts to help you deploy the workspace for data analysis based on Azure services.
 
 Here are some additional resources:
-  - [Enterprise data warehouse architecture](/azure/architecture/solution-ideas/articles/enterprise-data-warehouse)
-  - [Modern data warehouse for small and medium business](/azure/architecture/example-scenario/data/small-medium-data-warehouse)
-  - [Data warehousing and analytics](/azure/architecture/example-scenario/data/data-warehouse)
+
+- [Enterprise data warehouse architecture](/azure/architecture/solution-ideas/articles/enterprise-data-warehouse)
+- [Modern data warehouse for small and medium business](/azure/architecture/example-scenario/data/small-medium-data-warehouse)
+- [Data warehousing and analytics](/azure/architecture/example-scenario/data/data-warehouse)
 
 ## Related resources
 

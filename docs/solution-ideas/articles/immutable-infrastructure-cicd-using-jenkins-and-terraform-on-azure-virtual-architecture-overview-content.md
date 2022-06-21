@@ -2,12 +2,22 @@
 
 Azure is a world-class cloud for hosting virtual machines running Windows or Linux. Whether you use Java, Node.js, Go, or PHP to develop your applications, you'll need a continuous integration and continuous deployment (CI/CD) pipeline to push changes to these virtual machines automatically.
 
+## Potential use cases
+
+Organizations utilize this solution for some of the benefits that include:
+
+- Changes in the application start with a software push to the Git code repository instead of logging into the server via SSH.
+- Simplified and reliable deployments.
+- Fault tolerance.
+- Resolve issues faster.
+- It takes the most advantage of the cloud, hence its legitimate DevOps functions.
+
 ## Architecture
 
 ![Architecture diagram](../media/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview.png)
 *Download an [SVG](../media/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
 1. Change application source code.
 1. Commit code to GitHub.
@@ -33,4 +43,4 @@ Azure is a world-class cloud for hosting virtual machines running Windows or Lin
 * [Use Terraform to create a Virtual Machine Scale Set from a Packer customer VM image](/azure/terraform/terraform-create-vm-scaleset-network-disks-using-packer-hcl)
 * [Use Terraform to plan and create a Virtual Machine Scale Set with Managed Disk](/azure/terraform/terraform-create-vm-scaleset-network-disks-hcl)
 * [Use Log Analytics to collect data from Linux computers](/azure/log-analytics/log-analytics-quick-collect-linux-computer)
-* [Get the Azure Extensions Pack for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-azureextensionpack)
+* [Get the Azure Extensions Pack for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)

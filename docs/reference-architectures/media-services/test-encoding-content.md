@@ -162,3 +162,26 @@ To set up your local environment, see [Gridwich local development environment](s
    Check that the encoded files are in the Azure Storage Account output container.
 
    ![Screenshot showing the Storage Account Output Container.](media/output-container.png)
+
+## Next steps
+
+Product documentation:
+
+- [Gridwich cloud media system](gridwich-architecture.yml)
+- [Azure Media Services v3 overview](/azure/media-services/latest/media-services-overview)
+- [Introduction to Azure Functions](/azure/azure-functions/functions-overview)
+- [What is Azure Blob storage?](/azure/storage/blobs/storage-blobs-overview)
+- [What is Azure Event Grid?](/azure/event-grid/overview)
+
+Microsoft Learn modules:
+
+- [Explore Azure Event Grid](/learn/modules/azure-event-grid)
+- [Explore Azure Functions](/learn/modules/explore-azure-functions)
+- [Explore Azure Storage services](/learn/modules/azure-storage-fundamentals)
+
+## Related resources
+
+- [Gridwich content protection and DRM](gridwich-content-protection-drm.yml)
+- [Gridwich Media Services setup and scaling](media-services-setup-scale.yml)
+- [Gridwich operations for Azure Storage](gridwich-storage-service.yml)
+- [How to create a Gridwich environment](create-delete-cloud-environment.yml)

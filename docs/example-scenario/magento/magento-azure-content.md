@@ -1,23 +1,41 @@
-
-
 Magento is an open-source e-commerce platform written in PHP. This example scenario shows Magento deployed to Azure Kubernetes Service (AKS), and describes common best practices for hosting Magento on Azure.
+
+## Potential use cases
+
+This solution is optimized for the retail industry.
 
 ## Architecture
 
 ![Diagram showing Magento deployed in Azure Kubernetes Service with other Azure components.](media/magento-architecture.png)
 
-- [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) deploys the Kubernetes cluster of Varnish, Magento, Redis, and [Elasticsearch](https://www.elastic.co/elasticsearch/) in different pods.
-- AKS creates a [virtual network](https://azure.microsoft.com/services/virtual-network/) to deploy the agent nodes. Create the virtual network in advance to set up subnet configuration, private link, and egress restriction.
-- [Varnish](https://varnish-cache.org/intro/index.html#intro) installs in front of the HTTP servers to act as a full-page cache.
-- [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/) stores transaction data like orders and catalogs. Version 8.0 is recommended.
-- [Azure Files Premium](https://azure.microsoft.com/services/storage/files/) or an equivalent *network-attached storage (NAS)* system stores media files like product images. Magento needs a Kubernetes-compatible file system that can mount a volume in *ReadWriteMany* mode, like Azure Files Premium or [Azure NetApp Files](https://azure.microsoft.com/services/netapp/).
-- A [content delivery network (CDN)](https://azure.microsoft.com/services/cdn/) serves static content like CSS, JavaScript, and images. Serving content through a CDN minimizes network latency between users and the datacenter. A CDN can remove significant load from NAS by caching and serving static content.
-- [Redis](https://redis.io/) stores session data. Hosting Redis on containers is recommended for performance reasons.
-- AKS uses an [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) identity to create and manage other Azure resources like Azure load balancers, user authentication, role-based access control, and managed identity.
-- [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) stores the private [Docker](https://www.docker.com/) images that are deployed to the AKS cluster. You can use other container registries like Docker Hub. Note that the default Magento install writes some secrets to the image.
-- [Azure Monitor](https://azure.microsoft.com/services/monitor/) collects and stores metrics and logs, including Azure service platform metrics and application telemetry. Azure Monitor integrates with AKS to collect controller, node, and container metrics, and container and master node logs.
+### Workflow
 
-## Security considerations
+- [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) deploys the Kubernetes cluster of Varnish, Magento, Redis, and [Elasticsearch](https://www.elastic.co/elasticsearch/) in different pods.
+- AKS creates a [virtual network](https://azure.microsoft.com/services/virtual-network) to deploy the agent nodes. Create the virtual network in advance to set up subnet configuration, private link, and egress restriction.
+- [Varnish](https://varnish-cache.org/intro/index.html#intro) installs in front of the HTTP servers to act as a full-page cache.
+- [Azure Database for MySQL](https://azure.microsoft.com/services/mysql) stores transaction data like orders and catalogs. Version 8.0 is recommended.
+- [Azure Files Premium](https://azure.microsoft.com/services/storage/files) or an equivalent *network-attached storage (NAS)* system stores media files like product images. Magento needs a Kubernetes-compatible file system that can mount a volume in *ReadWriteMany* mode, like Azure Files Premium or [Azure NetApp Files](https://azure.microsoft.com/services/netapp).
+- A [content delivery network (CDN)](https://azure.microsoft.com/services/cdn) serves static content like CSS, JavaScript, and images. Serving content through a CDN minimizes network latency between users and the datacenter. A CDN can remove significant load from NAS by caching and serving static content.
+- [Redis](https://redis.io/) stores session data. Hosting Redis on containers is recommended for performance reasons.
+- AKS uses an [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory) identity to create and manage other Azure resources like Azure load balancers, user authentication, role-based access control, and managed identity.
+- [Azure Container Registry](https://azure.microsoft.com/services/container-registry) stores the private [Docker](https://www.docker.com/) images that are deployed to the AKS cluster. You can use other container registries like Docker Hub. Note that the default Magento install writes some secrets to the image.
+- [Azure Monitor](https://azure.microsoft.com/services/monitor) collects and stores metrics and logs, including Azure service platform metrics and application telemetry. Azure Monitor integrates with AKS to collect controller, node, and container metrics, and container and master node logs.
+
+### Components
+
+- [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service)
+- AKS creates a [virtual network](https://azure.microsoft.com/services/virtual-network)
+- [Azure Database for MySQL](https://azure.microsoft.com/services/mysql)
+- [Azure Files Premium](https://azure.microsoft.com/services/storage/files)
+- [Azure NetApp Files](https://azure.microsoft.com/services/netapp).
+- [CDN](https://azure.microsoft.com/services/cdn)
+- [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory)
+- [Azure Container Registry](https://azure.microsoft.com/services/container-registry)
+- [Azure Monitor](https://azure.microsoft.com/services/monitor)
+
+## Considerations
+
+### Security
 
 Here are some security considerations for this scenario:
 
@@ -25,7 +43,7 @@ Here are some security considerations for this scenario:
 
 - You could add [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) ingress to support secure socket layer (SSL) termination.
 
-### Role-based access control (RBAC)
+#### Role-based access control (RBAC)
 
 Kubernetes and Azure both have mechanisms for *role-based access control (RBAC)*.
 
@@ -47,17 +65,17 @@ When you create the AKS cluster, you can configure it to use Azure AD for user a
 
 - For more information about controlling access to cluster resources using Kubernetes RBAC and Azure AD identities, see [Use Kubernetes RBAC with Azure AD](/azure/aks/azure-ad-rbac).
 
-## Scalability considerations
+### Scalability
 
 There are several ways to optimize scalability for this scenario:
 
-### Media and static files
+#### Media and static files
 
 - Adequately provision Azure Files or another NAS system. Magento can store thousands of media files such as product images. Be sure to provision Azure Files or other NAS products with sufficient *input/output operations per second (IOPS)* to handle demand.
 
 - Minimize the size of static content such as HTML, CSS, and JavaScript. [Minification](https://devdocs.magento.com/cloud/deploy/static-content-deployment.html#minify-content) can reduce bandwidth costs and provide a more responsive experience for users.
 
-### Database connection
+#### Database connection
 
 - Turn on *persistent connection* to the MySQL database, so Magento keeps reusing the existing connection instead of creating a new one for every request. To turn on persistent connection, add the following line to the `db` section of the Magento *env.php* file:
 
@@ -67,7 +85,7 @@ There are several ways to optimize scalability for this scenario:
 
   `magento config:set -vvv catalog/layered_navigation/display_product_count 0`
 
-### Caching
+#### Caching
 
 - Configure [OPcache](https://www.php.net/manual/book.opcache.php) for PHP code caching and optimization.
 
@@ -81,7 +99,7 @@ There are several ways to optimize scalability for this scenario:
 
 - Load balance the [Varnish cache](https://devdocs.magento.com/guides/v2.4/config-guide/varnish/config-varnish.html) by running multiple instances on pods so that it can scale.
 
-### Logging
+#### Logging
 
 Limit access logging, to avoid performance issues and prevent exposing sensitive data like client IP addresses.
 
@@ -95,11 +113,11 @@ Limit access logging, to avoid performance issues and prevent exposing sensitive
 
 - Turn off PHP-FPM access logs by commenting out the `access.log` setting in all PHP-FPM configurations.
 
-## Availability considerations
+### Availability
 
 Consider these ways to optimize availability for this scenario:
 
-### Health probes
+#### Health probes
 
 Kubernetes defines two types of health probe:
 - The *readiness probe* tells Kubernetes whether the pod is ready to accept requests.
@@ -107,27 +125,19 @@ Kubernetes defines two types of health probe:
 
 Customize the Kubernetes health probes and use them to tell if a pod is in good health.
 
-### Availability Zones
+#### Availability Zones
 
 Availability Zones are unique physical locations within Azure regions that help protect applications and data from datacenter failures. Each zone is made up of one or more datacenters. Applications in zones can remain available even if there's a physical failure in a single datacenter.
 
 AKS clusters can be deployed across multiple Availability Zones, to provide a higher availability level and protect against hardware failures or planned maintenance events. Defining cluster node pools to span multiple zones lets nodes continue operating even if a single zone goes down. For more information about deploying AKS to Availability Zones, see [Create an AKS cluster that uses availability zones](/azure/aks/availability-zones).
 
-### Resource constraints
+#### Resource constraints
 
 - Resource contention can affect service availability. Define container resource constraints so that no single container can overwhelm the cluster memory and CPU resources. You can use AKS diagnostics to identify any issues in the cluster.
 
 - Use resource limit to restrict the total resources allowed for a container, so one particular container can't starve others.
 
-## Cost considerations
-
-- Do capacity planning based on performance testing.
-
-- Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs.
-
-- See other cost considerations in [Principles of cost optimization](/azure/architecture/framework/cost/overview) in the Microsoft Azure Well-Architected Framework.
-
-## DevOps considerations
+### DevOps considerations
 
 Here are some operational considerations for this scenario:
 
@@ -135,7 +145,7 @@ Here are some operational considerations for this scenario:
 
 - Use Azure Container Registry or another container registry like Docker Hub to store the private Docker images that are deployed to the cluster. AKS can authenticate with Azure Container Registry by using its Azure AD identity.
 
-### Monitoring
+#### Monitoring
 
 Azure Monitor provides key metrics for all Azure services, including container metrics from AKS. Create a dashboard to show all metrics in one place.
 
@@ -145,10 +155,19 @@ Another monitoring option is to use [Grafana](https://grafana.com/) dashboard:
 
 ![Screenshot of a Grafana dashboard.](media/grafana.png)
 
-### Performance testing
+#### Performance testing
 
 Use [Magento Performance Toolkit](https://github.com/magento/magento2/tree/2.4/setup/performance-toolkit) for performance testing. The toolkit uses [Apache JMeter](https://jmeter.apache.org/) to simulate customer behaviors like signing in, browsing products, and checking out.
 
-## Related resources
+## Pricing
+
+- Do capacity planning based on performance testing.
+
+- Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs.
+
+- See other cost considerations in [Principles of cost optimization](/azure/architecture/framework/cost/overview) in the Microsoft Azure Well-Architected Framework.
+
+## Next steps
+
 - [Magento 2 GitHub code repo](https://github.com/magento/magento2)
 - [Magento Developer Documentation](https://devdocs.magento.com/)

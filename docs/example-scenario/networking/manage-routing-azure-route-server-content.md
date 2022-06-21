@@ -167,7 +167,7 @@ NVAs are charged based on the appliance that you use. You're also charged for th
 [Azure Route Server FAQ]: /azure/route-server/route-server-faq
 [Azure Route Server pricing]: https://azure.microsoft.com/pricing/details/route-server
 [Azure security baseline for Virtual Network]: /security/benchmark/azure/baselines/virtual-network-security-baseline
-[Build solutions for high availability using availability zones]: ../../high-availability/building-solutions-for-high-availability.md
+[Build solutions for high availability using availability zones]: ../../high-availability/building-solutions-for-high-availability.yml
 [Choose between virtual network peering and VPN gateways]: ../../reference-architectures/hybrid-networking/vnet-peering.yml
 [Configure ExpressRoute and Site-to-Site coexisting connections using PowerShell - Limits and limitations]: /azure/expressroute/expressroute-howto-coexist-resource-manager#limits-and-limitations
 [Deploy highly available NVAs]: ../../reference-architectures/dmz/nva-ha.yml
