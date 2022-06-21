@@ -4,7 +4,7 @@ This example scenario demonstrates how to deploy microservice containers without
 
 Fabrikam, Inc. (a fictional company) has implemented a drone delivery service where users can request a drone to pick up goods for delivery. When a customer schedules a pickup, a backend system assigns a drone and notifies the user with an estimated delivery time. While the delivery is in progress, the customer can track the location of the drone, with a continuously updated ETA. The application is composed of containerized microservices and was originally deployed to Azure Kubernetes Service.
 
-With Azure Container Apps, Fabrikam can run their containerized applications on a flexible, serverless platform purpose-built to support microservices. Azure Container Apps runs on Azure Kubernetes Service, and includes several open-source projects: Kubernetes Event Driven Autoscaling (KEDA), Distributed Application Runtime (Dapr), and Envoy. This open-source foundation enables teams to build and run portable applications powered by Kubernetes and open standards. By using built-in platform capabilities, teams can avoid the management complexity of working with the Kubernetes platform and APIs directly.
+With Azure Container Apps, Fabrikam can run their containerized applications on a flexible, serverless platform purpose-built to support microservices. Azure Container Apps runs on Azure Kubernetes Service, and includes several open-source projects: Kubernetes Event Driven Autoscaling (KEDA), Distributed Application Runtime (Dapr), and Envoy. This open-source foundation enables teams to build and run portable applications powered by Kubernetes and open standards. With these built-in platform capabilities, teams can avoid the management complexity of working with the Kubernetes platform and APIs directly.
 
 Because the Fabrikam team wasn't making use of many of advanced AKS configuration settings, they were able to migrate their application to Azure Container Apps without much overhead. By porting their solution to Azure Container Apps, Fabrikam took advantage of:
 
@@ -22,16 +22,18 @@ In this example solution, the use cases are:
 
 - Deploy a brownfield microservice-based application into a platform as a service (PaaS) offering to avoid the operational complexity of managing a container orchestrator.
 - Optimize operations and management by migrating containerized services to a platform that supports native scale-to-zero.
-  - Execute a long-running background process, such as the workflow service in single revision mode.
+- Execute a long-running background process, such as the workflow service in single revision mode.
   
 Other common uses of Container Apps include:
 
+- Deploying stateful and stateless containerized applications and microservices.
 - Running containerized workloads on a serverless, consumption-based platform.
 - Autoscaling applications based on HTTP/HTTPS traffic and/or Event-driven triggers supported by KEDA
 - Minimizing maintenance overhead for containerized applications
 - Deploying API endpoints
 - Hosting background processing applications
 - Handling event-driven processing
+
 
 ## Architecture
 
@@ -47,7 +49,7 @@ The services sharing the same environment benefit from:
 
 The workflow service container app is running in single revision mode.  A container app running in single revision mode will have a single revision that is backed by zero-many replicas. A replica is composed of the application container and any required sidecar containers. This example isn't making use of sidecar containers, therefore each container app replica represents a single container.  Since this example doesn't employ scaling, there will be only one replica running for each container app.
 
-The workflow uses a hybrid approach to managing secrets.  Managed identities are used in the services where such implementation required no code changes.  The Drone Scheduler and Delivery services use managed identities to authenticate with Azure Key Vault in order to access the secrets stored there.  The remaining services store secrets via Container Apps service at the application level.
+The workflow uses a hybrid approach to managing secrets.  Managed identities are used in the services where such implementation required no code changes.  The Drone Scheduler and Delivery services use user-assigned managed identities to authenticate with Azure Key Vault to access the secrets stored there.  The remaining services store secrets via Container Apps service at the application level.
  
 ![Diagram showing the runtime architecture for the solution.](./media/microservices-with-container-apps-runtime-diagram.png)
 
@@ -79,9 +81,8 @@ Many of the complexities of the previous AKS architecture are replaced by these 
 - Application upgrades and versioning
 
 #### External storage and other components
-<!--  Add when MI feature is complete and integrated
+
 **[Azure Key Vault](https://azure.microsoft.com/services/key-vault)** service for securely storing and accessing secrets, such as API keys, passwords, and certificates.
--->
 
 **[Azure Container Registry](https://azure.microsoft.com/services/container-registry)** stores private container images. You can also use other container registries like Docker Hub.
 
@@ -93,11 +94,10 @@ Many of the complexities of the previous AKS architecture are replaced by these 
 
 **[Azure Monitor](/azure/azure-monitor)** collects and stores metrics and logs. Use this data to monitor the application, set up alerts and dashboards, and do root cause analysis of failures.  This scenario uses a Log Analytics workspace for comprehensive monitoring of the application.
 
-**[Application Insights](/azure/azure-monitor/app/app-insights-overview)** provides extensible application performance management (APM) and monitoring for the services.  each service is instrumented with the Application Insights SDK to monitor the app and direct the telemetry data to Azure Monitor.
+**[Application Insights](/azure/azure-monitor/app/app-insights-overview)** provides extensible application performance management (APM) and monitoring for the services.  Each service is instrumented with the Application Insights SDK to monitor the app and direct the data to Azure Monitor.
 
 **[Azure Resource Manager (ARM) Templates](/azure/azure-resource-manager/templates/overview)** to configure and deploy the applications.
 
-**[Azure Key Vault](/azure/key-vault)** provide centralized storage and access control to secrets.
 
 ### Alternatives
 
@@ -107,13 +107,13 @@ An alternative scenario of this example is the Fabrikam Drone Delivery applicati
 
 ### Availability
 
-Container Apps allows you to more easily deploy, manage, maintain and monitor the applications.
+Container Apps allows you to more easily deploy, manage, maintain and monitor the applications.  Availability can be ensured by these key features:
 
-Container updates automatically trigger revisions for zero downtime between application updates.  These revisions can be managed and traffic split between the revisions to support blue/green deployments and A/B testing (not currently used in this example workload).
-
-Integration with Azure Monitor allows you to track container app execution. You can set alerts on these metrics to monitor problems that arise.  When an app unexpectedly terminates, the Container Apps service automatically restarts it.  
-
-You can enable autoscaling rules to meet demand as workloads increase. When the application scales, more replicas spawn to ensure availability.  Performance is optimized by the dynamic load balancing features of Container Apps (not currently used in this example workload).
+- Revisions help you deploy application updates with zero downtime. You can use revisions to manage the deployment of application updates and split traffic between the revisions to support blue/green deployments and A/B testing (not currently used in this example workload).
+- With Container Apps end-to-end observability features, you have a holistic view of your running applications.  Container Apps is integrated with Azure Monitor and Log Analytics, which allows you to track container app execution, and set alerts based on metrics and events.  
+- When an app unexpectedly terminates, the Container Apps service automatically restarts it.  
+- You can enable autoscaling rules to meet demand as traffic and workloads increase. 
+- Performance is optimized by the dynamic load balancing features of Container Apps (not currently used in this example workload).
 
 
 ### Operational excellence
@@ -137,9 +137,9 @@ Performance considerations in this solution:
 
 ### Reliability
 
-Container Apps will attempt to restart failing containers and abstracts away hardware from users. Transient failures and high-availability of backing compute is handled by Microsoft.
+Container Apps will attempt to restart failing containers and abstracts away hardware from users. Transient failures and high-availability of backing compute resources are handled by Microsoft.
 
-Performance monitoring through Log Analytics and Azure Monitor allows you to evaluate the application under load.  These metrics give you the data needed to diagnose issues and perform root-cause analysis of failures.
+Performance monitoring through Log Analytics and Azure Monitor allows you to evaluate the application under load.  Metrics and logging information give you the data needed to recognize trends to prevent failures and perform root-cause analysis of failures when they occur.
 
 ### Security
 
@@ -149,7 +149,7 @@ Performance monitoring through Log Analytics and Azure Monitor allows you to eva
 
 - Network security:  Backend services in the drone delivery app aren't exposed via external ingress. All requests are passed from the **Ingestion service** through the Azure Service Bus.
 
-- Container Apps supports Managed Identities allowing your app to easily authenticate other Azure AD-protected resources such as Azure Key Vault, without managing credentials in your container app.  For services that don't support AD authentication, you can store secrets in Azure Key Vault and use the managed identity to access Key Vault to access the secrets. 
+- Container Apps supports Managed Identities allowing your app to easily authenticate other Azure AD-protected resources such as Azure Key Vault, without managing credentials in your container app.  For services that don't support AD authentication, you can store secrets in Azure Key Vault and use a managed identity to access Key Vault to access the secrets. 
 
 ## Deploy this scenario 
 
