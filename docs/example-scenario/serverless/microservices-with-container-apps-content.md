@@ -1,4 +1,4 @@
-Your business can simplify the deployment and management of microservice containers by using Azure Container Apps Preview. Container Apps provides a fully managed serverless environment for building and deploying modern applications.
+Your business can simplify the deployment and management of microservice containers by using Azure Container Apps. Container Apps provides a fully managed serverless environment for building and deploying modern applications.
 
 This example scenario demonstrates how to deploy microservice containers without needing to manage complex infrastructure and container orchestration.  
 
@@ -104,7 +104,7 @@ An alternative scenario of this example is the Fabrikam Drone Delivery applicati
 
 ## Scenario details
 
-Your business can simplify the deployment and management of microservice containers by using Azure Container Apps Preview. Container Apps provides a fully managed serverless environment for building and deploying modern applications.
+Your business can simplify the deployment and management of microservice containers by using Azure Container Apps. Container Apps provides a fully managed serverless environment for building and deploying modern applications.
 
 This example scenario demonstrates how to deploy microservice containers without needing to manage complex infrastructure and container orchestration.  
 
