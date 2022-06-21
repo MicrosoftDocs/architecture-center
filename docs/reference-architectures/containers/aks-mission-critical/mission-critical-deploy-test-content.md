@@ -10,13 +10,40 @@ Proactive testing of the infrastructure discovers weaknesses and how the deploye
 
 ## Deployment
 
+The deployment of the infrastructure in the reference architecture is dependent upon the following components:
 
+* DevOps - The source code and pipelines for the infrastructure.
+
+* Zero downtime updates - Updates and upgrades are deployed to the environment with zero downtime to the deployed application.
+
+* Environments - Short-lived and permanent environments used for the architecture.
+
+* Shared and dedicated resources - Azure resources that are dedicated and shared to the stamps and overall infrastructure.
 
 ### DevOps
 
+The DevOps components provide the source code repository and CI/CD pipelines for deployment of the infrastructure and updates. Github and Azure Pipelines were chosen as the components.
+
+* Github - Contains the source code repositories for the application and infrastructure.
+
+* Azure Pipelines - The pipelines in the Azure DevOps service are used by the architecture for all build, test and release tasks.
+
+An additional component in the design used for the deployment are build agents. Microsoft Hosted build agents are used as part of Azure Pipelines to deploy the infrastructure and updates. The use of Microsoft Hosted build agents removes the management burden for developers to maintain and update the build agent.
+
+For more information about Azure Pipelines and Azure DevOps, see [What is Azure DevOps?](/azure/devops/user-guide/what-is-azure-devops).
+
 ### Zero downtime updates
 
+The zero downtime and update strategy in the reference architecture is central to the over all mission critical application. The methodology of replace instead of upgrade of the stamps allows parallel environments for testing and deployment.
+
+There are two main components of the reference architecture:
+
+* Infrastructure - Azure services and resources. Deployed with Terraform and it's associated configuration.
+
+* Application - The hosted service or application that serves users. Based on Docker containers and npm built artifacts in HTML and JavaScript for the UI.
+
 ### Environments
+
 
 ### Shared and dedicated resources
 
