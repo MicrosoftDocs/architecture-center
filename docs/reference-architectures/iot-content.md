@@ -4,7 +4,7 @@ Alternatively, you can create custom IoT solutions by assembling Azure PaaS (pla
 
 To help decide between IoT Central and a PaaS-based IoT approach, based on your solution's needs, see [Choose an Internet of Things (IoT) solution in Azure](../example-scenario/iot/iot-central-iot-hub-cheat-sheet.yml).
 
-[ ![Diagram showing architecture for I O T applications using Azure PaaS components.](./iot/images/iot-refarch.svg) ](./iot/images/iot-refarch.svg#lightbox)
+[![Diagram showing architecture for I O T applications using Azure PaaS components.](./iot/images/iot-refarch.svg)](./iot/images/iot-refarch.svg#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-iot-reference-architecture.vsdx) of this architecture.*
 
@@ -188,4 +188,3 @@ In general, use the [Azure pricing calculator](https://azure.microsoft.com/prici
 - [Industry specific Azure IoT reference architectures](iot/industry-iot-hub-page.md)
 - [Create smart places by using Azure Digital Twins](../example-scenario/iot/smart-places.yml)
 - [IoT and data analytics](../example-scenario/data/big-data-with-iot.yml)
-

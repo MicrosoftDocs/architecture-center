@@ -110,7 +110,7 @@ Deploying Windows Admin Center on a local Windows 10 client is great for quick-s
 
 ## Manageability considerations
 
-- Access to the Windows Admin Center management tool set depends on the installation type. For example, in a local client scenario, you would open the Windows Admin Center from the **Start** menu and connect to it from a client web browser by accessing ``https://localhost:6516``. In other scenarios where you deploy the Windows Admin Center gateway to a Window Server, you can connect to the Windows Admin Center gateway from a client web browser by accessing the server name URL, such as ``https://servername.contoso.com``, or the URL of the cluster name.
+- Access to the Windows Admin Center management tool set depends on the installation type. For example, in a local client scenario, you would open the Windows Admin Center from the **Start** menu and connect to it from a client web browser by accessing `https://localhost:6516`. In other scenarios where you deploy the Windows Admin Center gateway to a Window Server, you can connect to the Windows Admin Center gateway from a client web browser by accessing the server name URL, such as `https://servername.contoso.com`, or the URL of the cluster name.
 - When deployed on Windows Server, Windows Admin Center provides a centralized point of management for your server environment. Windows Admin Center provides management tools for many common scenarios and tools, including:
   - Certificate management
   - Event Viewer
@@ -194,8 +194,6 @@ More about Azure Automation:
 [wac-deploy-ha]: /windows-server/manage/windows-admin-center/deploy/high-availability
 [azure-vm-availability]: /azure/virtual-machines/windows/availability
 [iaas-ha-dr]: ../example-scenario/infrastructure/iaas-high-availability-disaster-recovery.yml
-[https://localhost:6516]: https://localhost:6516
-[https://servername.contoso.com]: https://servername.contoso.com
 [wac-manage-servers]: /windows-server/manage/windows-admin-center/use/manage-servers
 [wac-manage-hyper-converged]: /windows-server/manage/windows-admin-center/use/manage-hyper-converged
 [azure-hybrid-services-tool]: ./images/hybrid-server-os-mgmt-wac-azure-hybrid-services-tool.png

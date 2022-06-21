@@ -55,7 +55,7 @@ Azure Active Directory (Azure AD) is a comprehensive identity and access managem
 
 ### Retry mechanism
 
-There is a built-in retry mechanism for Azure Active Directory in the [Microsoft Authentication Library (MSAL) ](/azure/active-directory/develop/msal-overview). To avoid unexpected lockouts, we recommend that third-party libraries and application code do **not** retry failed connections, but allow MSAL to handle retries.
+There is a built-in retry mechanism for Azure Active Directory in the [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview). To avoid unexpected lockouts, we recommend that third-party libraries and application code do **not** retry failed connections, but allow MSAL to handle retries.
 
 ### Retry usage guidance
 
@@ -69,7 +69,7 @@ Consider the following guidelines when using Azure Active Directory:
 
 ### More information
 
-- [Microsoft Authentication Library (MSAL) ](/azure/active-directory/develop/msal-overview)
+- [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview)
 
 ## Cosmos DB
 

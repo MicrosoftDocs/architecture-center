@@ -188,7 +188,7 @@ GitHub can use GitHub-hosted runners or self-hosted runners for activities that 
 
 **GitHub-hosted runners**
 
-This option is the fastest way to work with GitHub workflows, since it's a shared infrastructure for an entire organization. For more information on GitHub hosted runners, see [About GitHub-hosted runners](https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners). GitHub-hosted agents work in hybrid-networking environments, according to certain network requirements. For more information on the network requirements, see [Supported runners and hardware resources](https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners#ip-addresses).
+This option is the fastest way to work with GitHub workflows, since it's a shared infrastructure for an entire organization. For more information, see [About GitHub-hosted runners](https://docs.github.com/actions/using-github-hosted-runners/about-github-hosted-runners). GitHub-hosted agents work in hybrid-networking environments, according to certain network requirements. For more information on the network requirements, see [Supported runners and hardware resources](https://docs.github.com/actions/using-github-hosted-runners/about-github-hosted-runners#ip-addresses).
   
 **Self-hosted runners**
 
@@ -204,7 +204,7 @@ When choosing options for the agents and runners in your Microsoft Sentinel solu
 
 ### Orchestration and automation of release processes
 
-You can set up the deployment process with Azure DevOps or GitHub. Azure DevOps supports using a YAML pipeline or a release pipeline. For more information on using a YAML pipeline in Azure DevOps, see [Use Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-get-started?view=azure-devops). For more information on using a release pipeline in Azure DevOps, see [Release pipelines](/azure/devops/pipelines/release/?view=azure-devops). For more information on using GitHub with GitHub Actions, see [Understanding GitHub Actions](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions).
+You can set up the deployment process with Azure DevOps or GitHub. Azure DevOps supports using a YAML pipeline or a release pipeline. For more information on using a YAML pipeline in Azure DevOps, see [Use Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-get-started?view=azure-devops). For more information on using a release pipeline in Azure DevOps, see [Release pipelines](/azure/devops/pipelines/release/?view=azure-devops). For more information on using GitHub with GitHub Actions, see [Understanding GitHub Actions](https://docs.github.com/actions/learn-github-actions/understanding-github-actions).
 
 #### Azure DevOps
 
@@ -262,7 +262,7 @@ You can adapt the branching and merging strategy to the deployment strategy for 
 
 For more information on ARM templates, see [Using linked and nested templates when deploying Azure resources](/azure/azure-resource-manager/templates/linked-templates?tabs=azure-powershell#linked-template).
 
-For more information on setting up Bicep environments, see [Install Bicep tools](/azure/azure-resource-manager/bicep/install). For more information on GitHub, see [GitHub flow](https://docs.github.com/en/get-started/quickstart/github-flow).
+For more information on setting up Bicep environments, see [Install Bicep tools](/azure/azure-resource-manager/bicep/install). For more information on GitHub, see [GitHub flow](https://docs.github.com/get-started/quickstart/github-flow).
 
 Logical definitions define a company's environments. The Git repository gathers the different definitions for a company.
 
@@ -547,7 +547,7 @@ If you're working with Azure DevOps, you can create a component feed to host the
 
 ![Screenshot of how to create a component feed to host the NuGet packages.](./media/create-new-feed-to-host-nuget-package.png)
 
-If your team chooses a GitHub registry, you can connect it as a NuGet repository, because it's compatible with the feed protocol. For more information, see [Introduction to GitHub packages](https://docs.github.com/en/packages/learn-github-packages/introduction-to-github-packages).
+If your team chooses a GitHub registry, you can connect it as a NuGet repository, because it's compatible with the feed protocol. For more information, see [Introduction to GitHub packages](https://docs.github.com/packages/learn-github-packages/introduction-to-github-packages).
 
 When you have an available NuGet repository, the pipeline contains a service connection for NuGet. These screenshots show the configuration for the new service connection that's named Microsoft Sentinel NuGet Framework Connection.
 

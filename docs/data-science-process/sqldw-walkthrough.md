@@ -994,11 +994,8 @@ This sample walkthrough and its accompanying scripts and notebook(s) are shared 
 [2]: ./media/sqldw-walkthrough/sql-walkthrough-28-1.png
 [3]: ./media/sqldw-walkthrough/sql-walkthrough-35-1.png
 [4]: ./media/sqldw-walkthrough/sql-walkthrough-36-1.png
-[5]: ./media/sqldw-walkthrough/sql-walkthrough-39-1.png
 [6]: ./media/sqldw-walkthrough/sql-walkthrough-42-1.png
-[7]: ./media/sqldw-walkthrough/sql-walkthrough-44-1.png
 [8]: ./media/sqldw-walkthrough/sql-walkthrough-46-1.png
-[9]: ./media/sqldw-walkthrough/sql-walkthrough-71-1.png
 [10]: ./media/sqldw-walkthrough/azure-ml-train.png
 [11]: ./media/sqldw-walkthrough/azure-ml-publish.png
 [12]: ./media/sqldw-walkthrough/ssms-connect.png

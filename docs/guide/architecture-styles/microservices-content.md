@@ -23,8 +23,3 @@
 ## Next steps
 
 For detailed guidance about building a microservices architecture on Azure, see [Designing, building, and operating microservices on Azure](../../microservices/index.yml).
-
-<!-- links -->
-
-[resiliency-overview]: /azure/architecture/framework/resiliency/principles
-[resiliency-patterns]: /azure/architecture/framework/resiliency/reliability-patterns

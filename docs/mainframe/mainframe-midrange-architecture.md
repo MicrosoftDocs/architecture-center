@@ -239,7 +239,7 @@ The white papers, blogs, webinars, and other resources are available to help you
 - [Carahsoft - Monolithic Mainframe to Azure Gov Cloud The USAF Journey](https://www.carahsoft.com/learn/event/27813-Monolithic-Mainframe-to-Azure-Gov-Cloud--The-USAF-Journey)
 - [Carahsoft - Topics in Government Mainframe Transformation to Azure Gov Cloud](https://www.carahsoft.com/learn/event/27405-Topics-in-Government-Mainframe-Transformation-to-Azure-Gov-Cloud)
 - [Skytap on Azure Webinar](https://info.microsoft.com/ww-ondemand-migrate-traditional-workloads-with-skytap-on-azure.html)
-- [Bridge to Application Modernization: Virtualized SPARC/PA-RISK/DEC to Azure ](https://whitepapers.theregister.com/paper/view/11086/legacy-server-emulation-on-azure)
+- [Bridge to Application Modernization: Virtualized SPARC/PA-RISK/DEC to Azure](https://whitepapers.theregister.com/paper/view/11086/legacy-server-emulation-on-azure)
 
 ### Blog posts
 

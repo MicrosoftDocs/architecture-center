@@ -5,11 +5,13 @@ This article describes how to use MSIX to enable continuous integration and cont
 ## Potential use cases
 
 MSIX is a powerful packaging technology for deploying Windows applications. You can use it to distribute desktop applications that:
+
 - Are easy to install, maintain, and automatically keep up to date.
 - Are respectful of the operating system because they provide a clean install and uninstall.
 - Consume fewer resources because they incorporate built-in network and disk space optimizations.
 
 You can distribute applications that are packaged with MSIX in many ways:
+
 - Via Microsoft Store.
 - By using a website or an internal network share.
 - By using enterprise tools like Microsoft Endpoint Manager.
@@ -29,7 +31,7 @@ Because it supports features like automatic updates, MSIX, together with Azure D
 1. Continuous integration is triggered by a pipeline that runs tests, and it builds the solution. The pipeline can be hosted on Azure Pipelines or GitHub Actions.
 1. The pipeline generates an unsigned MSIX package.
 1. Continuous deployment is triggered by another stage of the pipeline. The MSIX package deploys on your distribution platform.
-1. The MSIX package is signed with a trusted certificate, and the certificate is stored in Azure Key Vault. An MSIX package must be signed with a trusted certificate, otherwise Windows won't be able to install the application. Signing should be done during package deployment. Key Vault protects your code-signing certificate by helping to ensure malicious developers can't steal it and use it to sign other applications. 
+1. The MSIX package is signed with a trusted certificate, and the certificate is stored in Azure Key Vault. An MSIX package must be signed with a trusted certificate, otherwise Windows won't be able to install the application. Signing should be done during package deployment. Key Vault protects your code-signing certificate by helping to ensure malicious developers can't steal it and use it to sign other applications.
 1. The signed MSIX package is deployed to a static website, hosted on Azure Storage, together with an App Installer file. This file describes the application and the update options.
 1. Every time a developer commits new updates to the repository, a new MSIX package is generated and pushed to the same Azure Storage location. The App Installer technology ensures that this new deployment triggers the automatic update process, so your customers always have the latest version of your application.
 
@@ -52,18 +54,18 @@ Because it supports features like automatic updates, MSIX, together with Azure D
 
 Principal author:
 
-* [Matteo Pagani](https://it.linkedin.com/in/matteopagani) | Windows App Consult Tech Lead
+- [Matteo Pagani](https://www.linkedin.com/in/matteopagani) | Windows App Consult Tech Lead
 
 ## Next steps
 
-* [MSIX and CI/CD pipeline overview](/windows/msix/desktop/cicd-overview)
-* [MSIX Packaging Extension](/windows/msix/desktop/msix-packaging-extension?tabs=yaml)
-* [Continuous integration and deployment for desktop apps with GitHub Actions](https://devblogs.microsoft.com/dotnet/continuous-integration-and-deployment-for-desktop-apps-with-github-actions)
-* [Configure a CI/CD pipeline with YAML](/windows/msix/desktop/azure-dev-ops)
-* [CI/CD Pipeline signing with Azure Key Vault](/windows/msix/desktop/cicd-keyvault)
+- [MSIX and CI/CD pipeline overview](/windows/msix/desktop/cicd-overview)
+- [MSIX Packaging Extension](/windows/msix/desktop/msix-packaging-extension?tabs=yaml)
+- [Continuous integration and deployment for desktop apps with GitHub Actions](https://devblogs.microsoft.com/dotnet/continuous-integration-and-deployment-for-desktop-apps-with-github-actions)
+- [Configure a CI/CD pipeline with YAML](/windows/msix/desktop/azure-dev-ops)
+- [CI/CD Pipeline signing with Azure Key Vault](/windows/msix/desktop/cicd-keyvault)
 
 ## Related resources
 
-* [Design a CI/CD pipeline by using Azure DevOps](/azure/architecture/example-scenario/apps/devops-dotnet-webapp)
-* [DevOps checklist](/azure/architecture/checklist/dev-ops)
-* [Advanced Azure Resource Manager template functionality](/azure/architecture/guide/azure-resource-manager/advanced-templates)
+- [Design a CI/CD pipeline by using Azure DevOps](/azure/architecture/example-scenario/apps/devops-dotnet-webapp)
+- [DevOps checklist](/azure/architecture/checklist/dev-ops)
+- [Advanced Azure Resource Manager template functionality](/azure/architecture/guide/azure-resource-manager/advanced-templates)
