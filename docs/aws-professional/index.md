@@ -4,7 +4,7 @@ description: Learn the basics of Microsoft Azure accounts, platform, and service
 author: EdPrice-MSFT
 categories: azure
 ms.author: pnp
-ms.date: 06/20/2022
+ms.date: 06/22/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide

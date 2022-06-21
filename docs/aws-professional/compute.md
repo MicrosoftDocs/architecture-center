@@ -4,7 +4,7 @@ description: Compare the compute services in Azure and AWS. Explore the differen
 author: kobile70
 categories: azure
 ms.author: kobilevi
-ms.date: 06/20/2022
+ms.date: 06/22/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -21,7 +21,7 @@ products:
 
 # Compute services on Azure and AWS
 
-This article compares the compute services that Microsoft Azure and Amazon Web Services (AWS) offer.
+This article compares the core compute services that Microsoft Azure and Amazon Web Services (AWS) offer. For an overview and links to other articles comparing AWS and Azure core services, see [Azure for AWS professionals](index.md). For a complete listing and charts of how services map between the platforms, see [AWS to Azure services comparison](services.md).
 
 ## Compare AWS and Azure compute services
 
@@ -29,10 +29,12 @@ The following tables describe and compare the core compute services on Amazon We
 
 [!INCLUDE [Compute Services](../../includes/aws/compute.md)]
 
-## Compare other AWS and Azure services
+## Contributors
 
-For an overview and links to other articles comparing AWS and Azure core services, see [Azure for AWS professionals](index.md).
-For a comparison of all AWS and Azure core services, see [AWS to Azure services comparison](services.md).
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+* [Kobi Levi](https://www.linkedin.com/in/kobi-levi) | Cloud Solution Architect
 
 ## Next steps
 
