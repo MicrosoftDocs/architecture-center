@@ -33,7 +33,6 @@ This reference architecture uses video footage of an orangutan in a tree.
 ### Components
 
 - [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning)
-- [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps)
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs)
 - [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps)
 
