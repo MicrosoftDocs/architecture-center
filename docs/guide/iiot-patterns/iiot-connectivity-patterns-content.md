@@ -229,7 +229,7 @@ Select a cloud gateway for connectivity.
 
 **Azure Event Hubs**
 
-:::image type="content" source="images/cloud-gateway-event-hub.png" alt-text="Diagram that shows how to connect to a cloud gateway by using Event Hubs." lightbox="images/cloud-gateway-event-hub.png":::
+:::image type="content" source="images/cloud-gateway-azure-event-hubs.png" alt-text="Diagram that shows how to connect to a cloud gateway by using Event Hubs." lightbox="images/cloud-gateway-azure-event-hubs.png":::
 
 - Dataflow:
   1. A custom application sends event hub messages by using a language-specific SDK.
