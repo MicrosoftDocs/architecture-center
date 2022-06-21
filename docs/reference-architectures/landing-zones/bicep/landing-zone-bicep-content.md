@@ -54,6 +54,23 @@ Useful links:
 
 ### Custom Role Definitions
 
+Role-based access control (RBAC) simplifies the management of user rights within a system. Instead of managing the rights of individuals, you determine the rights required for different roles in your system. Azure RBAC has several [built-in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles). Custom role definitions allow you to create custom roles for your environment.  
+
+This module deploys custom role definitions. The module should follow [CAF guidance on Azure role-based access control](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/considerations/roles). The guidance includes:
+
+- Follow a least-privileged access model. Limit the permissions to what is required to perform work.
+- Avoid resource-specific permissions. They become difficult to manage as your system grows.
+- Consider following a common pattern for dividing IT responsibilities that includes high-level roles such as:
+  - SecOps - Security oversight
+  - NetOps - Manages network
+  - SysOps - Manages compute and storage infrastructure
+  - Dev - Manages build and deploy operations
+
+Useful links:
+
+- [Azure role-based access control - CAF documentation](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/considerations/roles)
+- [Custom role definitions deployed in reference implementation](https://github.com/Azure/ALZ-Bicep/tree/main/infra-as-code/bicep/modules/customRoleDefinitions)
+
 ### Logging & Sentinel
 
 ### Hub Networking
