@@ -64,7 +64,7 @@ There are two broad categories of machine learning:
 Relevant Azure services:
 
 - [Azure Machine Learning](/azure/machine-learning/)
-- [Machine Learning Server (R Server) on HDInsight](/azure/hdinsight/r-server/r-server-overview)
+- [Machine Learning Server (R Server) on HDInsight](<!-- BROKEN LINK HttpLinkNotFound: /azure/hdinsight/r-server/r-server-overview -->)
 
 ## Deep learning
 
@@ -89,7 +89,7 @@ Relevant Azure services:
 
 - [Azure Machine Learning](/azure/machine-learning/)
 
-- [Machine Learning Server (R Server) on HDInsight](/azure/hdinsight/r-server/r-server-overview)
+- [Machine Learning Server (R Server) on HDInsight](<!-- BROKEN LINK HttpLinkNotFound: /azure/hdinsight/r-server/r-server-overview -->)
 
 ## See also
 
