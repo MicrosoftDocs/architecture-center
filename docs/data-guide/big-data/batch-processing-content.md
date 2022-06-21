@@ -77,3 +77,11 @@ For more information, see [Analytics and reporting](../technology-choices/analys
 - **Oozie** and **Sqoop**. Oozie is a job automation engine for the Apache Hadoop ecosystem and can be used to initiate data copy operations as well as Hive, Pig, and MapReduce jobs to process data and Sqoop jobs to copy data between HDFS and SQL databases.
 
 For more information, see [Pipeline orchestration](../technology-choices/pipeline-orchestration-data-movement.md)
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+- [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect

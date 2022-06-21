@@ -30,7 +30,7 @@ Using managed Azure services such as Cosmos DB and HDInsight can help reduce cos
 Other relevant use cases include:
 
 - E-commerce or retail point-of-sale back-end systems.
-- Inventory management systems.
+- Inventory management systems, for the retail or manufacturing industries.
 - Order fulfillment systems.
 - Other integration scenarios relevant to an order processing pipeline.
 
@@ -64,7 +64,7 @@ For general guidance on designing secure solutions, see the [Azure Security Docu
 
 The event sourcing architecture and associated technologies in this example scenario make this scenario highly resilient when failures occur. For general guidance on designing resilient solutions, see [Designing resilient applications for Azure](/azure/architecture/framework/resiliency/reliability-patterns).
 
-## Pricing
+### Cost optimization
 
 To examine the cost of running this scenario, all of the services are pre-configured in the cost calculator. To see how pricing would change for your particular scenario, change the appropriate variables to match your expected data volume. For this scenario, the example pricing includes only Cosmos DB and a Kafka cluster for processing events raised from the Cosmos DB Change Feed. Event processors and microservices for originating systems and other downstream systems are not included, and their cost is highly dependent on the quantity and scale of these services as well as the technologies chosen for implementing them.
 

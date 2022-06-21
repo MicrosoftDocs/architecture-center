@@ -8,9 +8,12 @@ For combining FSLogix with Azure Virtual Desktop as a desktop virtualization sol
 
 It's common to copy a profile to and from the network, when a user signs in and out of a remote environment. Because user profiles can often be large, sign in and sign out times often became unacceptable. FSLogix Containers redirect user profiles to a network location. Profiles are placed in VHDx files and mounted at run time. Mounting and using a profile on the network eliminates delays often associated with solutions that copy files.
 
-The conceptual architecture diagram below shows how FSLogix works within the operating system. The Windows Service agent needs to be installed in the VDI image. Once the installation is completed, two filter drivers are injected into the operating system. Thereafter, you can set appropriate registry (or [ADMX](/microsoft-edge/deploy/managing-group-policy-admx-files)) entries, to place a VHDx container on a file system or [SMB](https://en.wikipedia.org/wiki/Server_Message_Block) share location (Azure Storage as shown in the diagram below).
+![Diagram showing the FSLogix conceptual architecture.](./images/fslogix-concept.png)
 
-![FSLogix conceptual architecture](./images/fslogix-concept.png)
+The conceptual architecture diagram above shows how FSLogix works within the operating system:
+* The Windows Service agent needs to be installed in the VDI image.
+* Once the installation is completed, two filter drivers are injected into the operating system.
+* You can then set the appropriate registry (or [ADMX](/microsoft-edge/deploy/managing-group-policy-admx-files)) entries, to place a VHDx container on a file system or [SMB](https://en.wikipedia.org/wiki/Server_Message_Block) share location (Azure Storage, as shown in the diagram above).
 
 ## Profile Container and Office Container
 

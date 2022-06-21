@@ -6,7 +6,7 @@ metadata:
   author: rudneir2
   ms.author: ruolivei
   ms.custom: fcp
-  ms.date: 06/01/2022
+  ms.date: 06/20/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
@@ -18,6 +18,7 @@ products:
   - azure-monitor
   - defender-for-cloud
   - azure-log-analytics
+  - azure-network-watcher
 name: Integrate Azure and Microsoft 365 Defender security services
 summary: Integrate security solutions from Azure and Microsoft 365 to create robust security for your hybrid and cloud IT environments. This article is part of a series.
 thumbnailUrl: /azure/architecture/browse/thumbs/microsoft-365-defender-security-integrate-azure-thumbnail.png
