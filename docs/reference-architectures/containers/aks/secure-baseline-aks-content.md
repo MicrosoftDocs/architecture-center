@@ -115,7 +115,9 @@ For additional information, [Private Link deployment options](../../../guide/net
 
 ## Plan the IP addresses
 
-![Network topology of the AKS cluster](images/baseline-network-topology.png)
+![Diagram showing network topology of the AKS cluster](images/baseline-network-topology.png)
+
+*Download a [Visio file](https://arch-center.azureedge.net/secure-baseline-aks_network_topology.vsdx) of this architecture.*
 
 The address space of the virtual network should be large enough to hold all subnets. Account for all entities that will receive traffic. IP addresses for those entities will be allocated from the subnet address space. Consider these points.
 
