@@ -1,6 +1,6 @@
 ---
 title: Compare AWS and Azure compute services
-description: Compare the compute services in Azure and AWS. Explore the differences in virtual servers, containers and container orchestrators, and serverless architectures.
+description: Compare the compute services in Azure and AWS. Explore the differences in virtual machines, containers, and serverless technologies.
 author: kobile70
 categories: azure
 ms.author: kobilevi
@@ -21,7 +21,11 @@ products:
 
 # Compute services on Azure and AWS
 
-This article compares the core compute services that Microsoft Azure and Amazon Web Services (AWS) offer. For an overview and links to other articles comparing AWS and Azure core services, see [Azure for AWS professionals](index.md). For a complete listing and charts of how services map between the platforms, see [AWS to Azure services comparison](services.md).
+This article compares the core compute services that Microsoft Azure and Amazon Web Services (AWS) offer.
+
+- For links to articles that compare other AWS and Azure services, see [Azure for AWS professionals](index.md).
+- For a complete listing and charts showing service mapping between AWS and Azure, see [AWS to Azure services comparison](services.md).
+- [Browse all compute category Azure architectures.](../browse?azure_categories=compute).
 
 ## Compare AWS and Azure compute services
 
