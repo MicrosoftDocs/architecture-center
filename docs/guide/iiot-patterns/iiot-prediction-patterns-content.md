@@ -41,7 +41,7 @@ Predict process and equipment failures by using batch-process machine learning.
 
 Predict process and equipment failures by using an API.
 
-:::image type="content" source="images/machine-learning-realtime.png" alt-text="Predict equipment failures in near real-time by using machine learning pipelines and deployment endpoints." lightbox="images/machine-learning-realtime.png":::
+:::image type="content" source="images/machine-learning-realtime.png" alt-text="Diagram that shows how to predict equipment failures in near real-time by using machine learning pipelines and deployment endpoints." lightbox="images/machine-learning-realtime.png":::
 
 - Dataflow:
     1. The edgeHub module sends data about the current process and equipment conditions to IoT Hub or Azure IoT Central by using AMQP or MQTT. Then, IoT Hub or Azure IoT Central sends module updates to the edge and provides a control plan for edge management.
