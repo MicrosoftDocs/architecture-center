@@ -98,7 +98,6 @@ Many of the complexities of the previous AKS architecture are replaced by these 
 
 **[Azure Resource Manager (ARM) Templates](/azure/azure-resource-manager/templates/overview)** to configure and deploy the applications.
 
-
 ### Alternatives
 
 An alternative scenario of this example is the Fabrikam Drone Delivery application using Kubernetes, which is available on GitHub in the [Azure Kubernetes Service (AKS) Fabrikam Drone Delivery](https://github.com/mspnp/aks-fabrikam-dronedelivery) repository.
@@ -185,7 +184,7 @@ Performance monitoring through Log Analytics and Azure Monitor allows you to eva
 
 - Network security:  Backend services in the drone delivery app aren't exposed via external ingress. All requests are passed from the **Ingestion service** through the Azure Service Bus.
 
-- Container Apps supports Managed Identities allowing your app to easily authenticate other Azure AD-protected resources such as Azure Key Vault, without managing credentials in your container app.  For services that don't support AD authentication, you can store secrets in Azure Key Vault and use a managed identity to access Key Vault to access the secrets. 
+- Container Apps supports Azure Active Directory (AD) managed identities allowing your app to easily authenticate other Azure AD-protected resources such as Azure Key Vault, without managing credentials in your container app.  For services that don't support AD authentication, you can store secrets in Azure Key Vault and use a managed identity to access Key Vault to access the secrets. 
 
 ### Cost optimization
 
