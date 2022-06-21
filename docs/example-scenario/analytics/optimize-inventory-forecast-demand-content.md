@@ -126,7 +126,7 @@ To estimate the cost of implementing this solution, use the [Azure Pricing Calcu
 
 Power BI comes with different licensing offerings. For more information, see [Power BI pricing](https://powerbi.microsoft.com/pricing/).
 
-Depending on the volume of data and complexity of your geospatial analysis, you might need to scale your Databricks cluster configurations that would affect your cost. Please refer to the Databricks [cluster sizing](/azure/databricks/clusters/cluster-config-best-practices#--cluster-sizing-examples) examples for best practices on cluster configuration.
+Depending on the volume of data and complexity of your geospatial analysis, you might need to scale your Databricks cluster configurations that would affect your cost. For best practices on cluster configuration, see the Databricks [cluster sizing](/azure/databricks/clusters/cluster-config-best-practices#--cluster-sizing-examples) examples.
 
 
 ### Performance efficiency
