@@ -4,9 +4,9 @@ The Azure Cognitive Services Anomaly Detector API enables you to monitor and det
 
 Some areas that anomaly detection helps monitor:
 
-* Bank fraud
-* Structural defects
-* Medical problems
+* Bank fraud (finance industry)
+* Structural defects (manufacturing industry)
+* Medical problems (healthcare industry)
 
 ## Architecture
 
