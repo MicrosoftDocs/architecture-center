@@ -28,7 +28,7 @@ ms.custom:
 
 # Azure for AWS professionals
 
-This series of articles helps Amazon Web Services (AWS) experts understand the basics of Microsoft Azure accounts, platform, and services. These articles also covers key similarities and differences between the AWS and Azure platforms.
+This series of articles helps Amazon Web Services (AWS) experts understand the basics of Microsoft Azure accounts, platform, and services. These articles also cover key similarities and differences between the AWS and Azure platforms.
 
 In this series, you learn:
 
@@ -38,11 +38,11 @@ In this series, you learn:
 
 ## Similarities and differences
 
-Like AWS, Microsoft Azure is built around a core set of compute, storage, database, and networking services. In many cases, both platforms offer basically equivalent products and services. Both AWS and Azure can use Linux distributions and open-source software (OSS) technologies. Both platforms support building highly available solutions on Windows or Linux hosts.
+Like AWS, Microsoft Azure is built around a core set of compute, storage, database, and networking services. In many cases, both platforms offer similar products and services. Both AWS and Azure can use Linux distributions and open-source software (OSS) technologies. Both platforms support building highly available solutions on Windows or Linux hosts.
 
 While the capabilities of both platforms are similar, the resources that provide those capabilities are often organized differently. Azure and AWS built their capabilities independently over time, so the platforms have important implementation and design differences. Exact one-to-one correspondences between the services you need to build a solution aren't always clear.
 
-Sometimes, only one of the platforms might offer a particular service. For a listing and charts of how services map between the platforms, see [AWS to Azure services comparison](./services.md).
+Sometimes, only one of the platforms offers a particular service. For a complete listing and charts of how services map between the platforms, see [AWS to Azure services comparison](./services.md).
 
 Not all Azure products and services are available in all regions. See [Products available by region](https://azure.microsoft.com/global-infrastructure/services) for details. For Azure product and service uptime guarantees and downtime credit policies, see [Service-level agreements](https://azure.microsoft.com/support/legal/sla).
 

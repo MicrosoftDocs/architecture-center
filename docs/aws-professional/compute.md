@@ -21,13 +21,18 @@ products:
 
 # Compute services on Azure and AWS
 
-This article compares the core compute services on Microsoft Azure and Amazon Web Services (AWS).
+This article compares the compute services that Microsoft Azure and Amazon Web Services (AWS) offer.
 
 ## Compare AWS and Azure compute services
 
-The following tables compare the core compute services on Amazon Web Services (AWS) and Azure.
+The following tables describe and compare the core compute services on Amazon Web Services (AWS) and Azure.
 
 [!INCLUDE [Compute Services](../../includes/aws/compute.md)]
+
+## Compare other AWS and Azure services
+
+For an overview and links to other articles comparing AWS and Azure core services, see [Azure for AWS professionals](index.md).
+For a comparison of all AWS and Azure core services, see [AWS to Azure services comparison](services.md).
 
 ## Next steps
 
@@ -41,7 +46,7 @@ The following tables compare the core compute services on Amazon Web Services (A
 - [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](../reference-architectures/containers/aks/secure-baseline-aks.yml)
 - [Microservices architecture on Azure Kubernetes Service](../reference-architectures/containers/aks-microservices/aks-microservices.yml)
 - [CI/CD pipeline for container-based workloads](../example-scenario/apps/devops-with-aks.yml)
-- [Cross-cloud scaling with Azure Functions](solution-ideas/articles/cross-cloud-scaling.yml)
+- [Cross-cloud scaling with Azure Functions](../solution-ideas/articles/cross-cloud-scaling.yml)
 - [Run a Linux VM on Azure](../reference-architectures/n-tier/linux-vm.yml)
 - [Basic web application](../reference-architectures/app-service-web-app/basic-web-app.yml)
 - [Social app for mobile and web with authentication](../solution-ideas/articles/social-mobile-and-web-app-with-authentication.yml)
