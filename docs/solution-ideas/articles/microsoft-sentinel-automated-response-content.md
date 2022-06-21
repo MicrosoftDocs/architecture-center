@@ -6,7 +6,7 @@ Microsoft Sentinel is a scalable cloud solution for security information and eve
 - Proactive hunting
 - Threat response
 
-Threat response is provided by Microsoft Sentinel playbooks. When a playbook is triggered by a Microsoft Sentinel alert or incident, the playbook executes a series of actions to counter the threat. The playbooks are built by using Azure Logic Apps.
+Threat response is provided by Microsoft Sentinel playbooks. When a playbook is triggered by a Microsoft Sentinel alert or incident, the playbook runs a series of actions to counter the threat. The playbooks are built by using Azure Logic Apps.
 
 Microsoft Sentinel includes many ready-to-use playbooks, including playbooks for these uses:
 
@@ -40,11 +40,11 @@ This workflow shows the steps to deploy the playbook. Make sure that the [Prereq
 
    > [!NOTE]
    >
-   > We don't use the audit logs in this exercise, but you can use them to investigate what happens when the user is blocked.
+   > This solution doesn't use the audit logs, but you can use them to investigate what happens when the user is blocked.
 
-1. Azure AD Identity Protection generates the alerts that trigger execution of the threat response playbook. To have Microsoft Sentinel collect the alerts, navigate to your Microsoft Sentinel instance and select **Data Connectors**. Search for **Azure Active Directory Identity Protection** and enable the collecting of alerts. For more information about Identity Protection, see [What is Identity Protection?](/azure/active-directory/identity-protection/overview-identity-protection).
-1. [Install the ToR browser](/azure/active-directory/identity-protection/howto-identity-protection-simulate-risk#anonymous-ip-address) onto a computer or virtual machine that you can use without putting your IT security at risk.
-1. Use the Tor Browser to log in anonymously to My apps as the user that you selected for this exercise. See [Anonymous IP address](/azure/active-directory/identity-protection/howto-identity-protection-simulate-risk#anonymous-ip-address) for instructions on using the Tor Browser to simulate anonymous IP addresses.
+1. Azure AD Identity Protection generates the alerts that trigger the threat response playbook to run. To have Microsoft Sentinel collect the alerts, navigate to your Microsoft Sentinel instance and select **Data Connectors**. Search for **Azure Active Directory Identity Protection** and enable the collecting of alerts. For more information about Identity Protection, see [What is Identity Protection?](/azure/active-directory/identity-protection/overview-identity-protection).
+1. [Install the ToR browser](/azure/active-directory/identity-protection/howto-identity-protection-simulate-risk#anonymous-ip-address) onto a computer or virtual machine (VM) that you can use without putting your IT security at risk.
+1. Use the Tor Browser to log in anonymously to My apps as the user that you selected for this solution. See [Anonymous IP address](/azure/active-directory/identity-protection/howto-identity-protection-simulate-risk#anonymous-ip-address) for instructions on using the Tor Browser to simulate anonymous IP addresses.
 1. Azure AD authenticates the user.
 1. Azure AD Identity Protection detects that the user used a ToR browser to log in anonymously. This type of login is suspicious activity that puts the user at risk. Identity Protection sends an alert to Microsoft Sentinel.
 1. Configure Microsoft Sentinel to create an incident from the alert. See [Automatically create incidents from Microsoft security alerts](/azure/sentinel/create-incidents-from-alerts) for information on doing this. The Microsoft security analytics rule template to use is **Create incidents based on Azure Active Directory Identity Protection alerts**.
@@ -52,7 +52,7 @@ This workflow shows the steps to deploy the playbook. Make sure that the [Prereq
 
 ### Components
 
-- [Microsoft Sentinel](https://azure.microsoft.com/services/microsoft-sentinel) is a cloud-native SIEM and SOAR solution. It uses advanced artificial intelligence (AI) and security analytics to detect and respond to threats across the enterprise. There are many playbooks available on Microsoft Sentinel to automate your responses and protect your system.
+- [Microsoft Sentinel](https://azure.microsoft.com/services/microsoft-sentinel) is a cloud-native SIEM and SOAR solution. It uses advanced AI and security analytics to detect and respond to threats across the enterprise. There are many playbooks on Microsoft Sentinel that you can use to automate your responses and protect your system.
 - [Azure AD](https://azure.microsoft.com/services/active-directory) is a multi-tenant, cloud-based directory and identity management service that combines core directory services, application access management, and identity protection into a single solution. It can synchronize with on-premises directories. The identity service provides single sign-on, multifactor authentication, and conditional access to guard against cybersecurity attacks. The solution shown in this article uses Azure AD Identity Protect to detect suspicious activity by a user.
 - [Logic Apps](https://azure.microsoft.com/services/logic-apps) is a serverless cloud service for creating and running automated workflows that integrate apps, data, services, and systems. Developers can use a visual designer to schedule and orchestrate common task workflows.  Logic Apps has [connectors](/connectors) for many popular cloud services, on-premises products, and other software as a service applications. In this solution, Logic Apps runs the threat response playbook.
 
@@ -64,9 +64,9 @@ This workflow shows the steps to deploy the playbook. Make sure that the [Prereq
 
 ## Deploy this scenario
 
-### Prerequisites
+You can deploy this scenario by following the steps in [Workflow](#workflow) after making sure that the [Prerequisites](#prerequisites) are satisfied.
 
-Before you follow the steps in [Workflow](#workflow), do the prerequisites in these two subsections:
+### Prerequisites
 
 - [Prepare the software and choose a test user](#prepare-the-software-and-choose-a-test-user)
 - [Deploy the playbook](#deploy-the-playbook)
@@ -76,8 +76,8 @@ Before you follow the steps in [Workflow](#workflow), do the prerequisites in th
 To implement and test the playbook, you'll need Azure and Microsoft Sentinel along with the following:
 
 - An Azure AD Identity Protection license (Premium P2, E3, or E5).
-- An Azure AD user. You can use either an existing user or [create a new user](/azure/active-directory/manage-apps/add-application-portal-assign-users). If you do create a new user, you can delete it when you finish the exercise.
-- A computer or virtual machine that can run a ToR browser. You'll use the browser to log in to the My Apps portal as your Azure AD user.
+- An Azure AD user. You can use either an existing user or [create a new user](/azure/active-directory/manage-apps/add-application-portal-assign-users). If you do create a new user, you can delete it when you're done using it.
+- A computer or VM that can run a ToR browser. You'll use the browser to log in to the My Apps portal as your Azure AD user.
 
 #### Deploy the playbook
 
@@ -85,8 +85,8 @@ To deploy a Microsoft Sentinel playbook, proceed as follows:
 
 - If you don't have a Log Analytics workspace to use for this exercise, create a new one as follows:
   - Go to the [Microsoft Sentinel](https://ms.portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/microsoft.securityinsightsarg%2Fsentinel) main page, and select **+ Create** to get to the **Add Microsoft Sentinel to a workspace** page.
-  - Select **Create a new workspace**. Follow the instructions to create the new workspace. After a short time the workspace is created.
-- At this point you have a workspace, perhaps one that you just created. Use the following steps to see whether Microsoft Sentinel has been added to it, and to add it if not:
+  - Select **Create a new workspace**. Follow the instructions to create the new workspace. After a short time, the workspace is created.
+- At this point, you have a workspace, perhaps one that you just created. Use the following steps to see whether Microsoft Sentinel has been added to it, and to add it if not:
   - Go to the [Microsoft Sentinel](https://ms.portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/microsoft.securityinsightsarg%2Fsentinel) main page.
   - If Microsoft Sentinel has already been added to your workspace, the workspace appears in the displayed list. If it hasn't been added yet, add it as follows.
     - Select **+ Create** to get to the **Add Microsoft Sentinel to a workspace** page.
@@ -97,22 +97,22 @@ To deploy a Microsoft Sentinel playbook, proceed as follows:
   - In the search field, enter **Block AAD user - Incident**.
   - In the list of playbooks, select **Block AAD user - Incident** and then select **Create playbook** in the bottom right corner to get to the **Create playback** page.
   - On the **Create playbook** page, do the following:
-    - Select values for **Subscription**, **Resource group**, and **Region** from the dropdown lists.
+    - Select values for **Subscription**, **Resource group**, and **Region** from the lists.
     - Enter a value for **Playbook name** if you don't want to use the default name that appears.
-    - If you want, you can select the **Enable diagnostics logs in Log Analytics** checkbox to enable logs.
+    - If you want, select **Enable diagnostics logs in Log Analytics** to enable logs.
     - Leave the **Associate with integration service environment** checkbox unchecked.
     - Leave **Integration service environment** empty.
-  - Select the **Next: Connections >** button to go to the **Connections** tab of **Create playbook**.
+  - Select **Next: Connections >** to go to the **Connections** tab of **Create playbook**.
   - Choose how you will authenticate within the playbook’s components. Authentication is required for:
     - Azure AD
     - Microsoft Sentinel
     - Office 365 Outlook
     > [!NOTE]
-    > You can authenticate the above resources during playbook customization under the logic app resource if you wish to enable later. To authenticate the above resources at this point, you need permissions to update a user on Azure AD, and the user must have access to an email mailbox and must be able to send emails.
+    > You can authenticate the resources during playbook customization under the logic app resource if you wish to enable later. To authenticate the above resources at this point, you need permissions to update a user on Azure AD, and the user must have access to an email mailbox and must be able to send emails.
   - Select **Next: Review and create >** to get to the **Review and create** tab of **Create playbook**.
   - Select **Create and continue to designer** to create the playbook and access the **Logic app designer** page.
 
-For more information on building logic apps, see [What is Azure Logic Apps](/azure/logic-apps/logic-apps-overview) and [Quickstart: Create and manage logic app workflow definitions](/azure/logic-apps/quickstart-create-logic-apps-visual-studio-code).
+For more information about building logic apps, see [What is Azure Logic Apps](/azure/logic-apps/logic-apps-overview) and [Quickstart: Create and manage logic app workflow definitions](/azure/logic-apps/quickstart-create-logic-apps-visual-studio-code).
 
 ## Contributors
 
