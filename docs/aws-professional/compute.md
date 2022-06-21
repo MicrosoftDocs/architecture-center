@@ -4,7 +4,7 @@ description: Compare the compute services in Azure and AWS. Explore the differen
 author: kobile70
 categories: azure
 ms.author: kobilevi
-ms.date: 06/22/2022
+ms.date: 06/23/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -25,7 +25,7 @@ This article compares the core compute services that Microsoft Azure and Amazon 
 
 - For links to articles that compare other AWS and Azure services, see [Azure for AWS professionals](index.md).
 - For a complete listing and charts showing service mapping between AWS and Azure, see [AWS to Azure services comparison](services.md).
-- [Browse all compute category Azure architectures.](../browse?azure_categories=compute).
+- [Browse Azure compute architectures](/azure/architecture/browse/?azure_categories=compute).
 
 ## Compare AWS and Azure compute services
 
@@ -45,7 +45,7 @@ Principal authors:
 - [Quickstart: Create a Linux virtual machine in the Azure portal](/azure/virtual-machines/linux/quick-create-portal)
 - [Create a Node.js web app in Azure](/azure/app-service/app-service-web-get-started-nodejs)
 - [Getting started with Azure Functions](/azure/azure-functions/functions-create-first-azure-function)
-- [AKS solution journey](/azure/architecture/reference-architectures/containers/aks-start-here)
+- [Azure Kubernetes Service (AKS) architecture design](/azure/architecture/reference-architectures/containers/aks-start-here)
 
 ## Related resources
 

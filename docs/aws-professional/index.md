@@ -4,7 +4,7 @@ description: Learn the basics of Microsoft Azure accounts, platform, and service
 author: EdPrice-MSFT
 categories: azure
 ms.author: pnp
-ms.date: 06/22/2022
+ms.date: 06/23/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -48,7 +48,7 @@ Not all Azure products and services are available in all regions. For details, s
 
 ## Compare Azure and AWS core components
 
-Many Azure and AWS core components have similar functionality. These articles compare the platforms' capabilities for the following core components:
+Many Azure and AWS core components have similar functionality. The following articles compare the platforms' capabilities in the following core areas:
 
 - [Azure and AWS accounts and subscriptions](./accounts.md)
 - [Compute services on Azure and AWS](./compute.md)

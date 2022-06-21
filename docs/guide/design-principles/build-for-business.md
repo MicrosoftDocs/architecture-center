@@ -4,7 +4,7 @@ titleSuffix: Azure Application Architecture Guide
 description: Use these recommendations to design and build cloud applications that meet functional and nonfunctional business requirements for performance, availability, scalability, growth, and cost management.
 author: EdPrice-MSFT
 ms.author: pnp
-ms.date: 06/22/2022
+ms.date: 06/23/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -19,7 +19,7 @@ ms.custom:
 
 # Build for business needs
 
-A business requirement must justify every design decision. This design principle might seem obvious, but is crucial to keep in mind when designing Azure applications.
+Every design decision must be justified by a business requirement. This design principle might seem obvious, but is crucial to keep in mind when designing Azure applications.
 
 Must your application support millions of users, or a few thousand? Are there large traffic bursts, or a steady workload? What level of application outage is acceptable? Ultimately, business requirements drive these design considerations.
 
