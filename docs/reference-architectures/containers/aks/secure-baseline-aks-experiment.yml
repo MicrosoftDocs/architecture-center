@@ -31,4 +31,4 @@ products:
   - azure-rbac
 thumbnailUrl: /azure/architecture/browse/thumbs/secure-baseline-architecture.png
 content: |
-   [!include[](secure-baseline-aks-content.md)]
+   [!include[](secure-baseline-aks-content-experiment.md)]
