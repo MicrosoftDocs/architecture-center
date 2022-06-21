@@ -24,4 +24,4 @@ products:
   - azure-virtual-network
 thumbnailUrl: /azure/architecture/browse/thumbs/avnm-connectivity-options.png
 content: |
-   [!include[](spoke-to-spoke-networking.md)]
+   [!include[](spoke-to-spoke-networking-content.md)]
