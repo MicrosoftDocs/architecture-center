@@ -48,7 +48,7 @@ Not all Azure products and services are available in all regions. For details, s
 
 ## Compare Azure and AWS core components
 
-Many Azure and AWS core components have similar functionality. The following articles compare the platforms' capabilities in the following core areas:
+Many Azure and AWS core components have similar functionality. The following articles compare the platforms' capabilities in these core areas:
 
 - [Azure and AWS accounts and subscriptions](./accounts.md)
 - [Compute services on Azure and AWS](./compute.md)
