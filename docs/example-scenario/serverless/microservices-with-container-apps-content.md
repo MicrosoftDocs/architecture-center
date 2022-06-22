@@ -16,25 +16,6 @@ Because the Fabrikam team wasn't making use of many of advanced AKS configuratio
 
 You can find a code sample in the [Container Apps Example Scenario](https://github.com/mspnp/container-apps-fabrikam-dronedelivery) repository.
 
-## Potential use cases
-
-In this example solution, the use cases are:
-
-- Deploy a brownfield microservice-based application into a platform as a service (PaaS) offering to avoid the operational complexity of managing a container orchestrator.
-- Optimize operations and management by migrating containerized services to a platform that supports native scale-to-zero.
-- Execute a long-running background process, such as the workflow service in single revision mode.
-  
-Other common uses of Container Apps include:
-
-- Deploying stateful and stateless containerized applications and microservices.
-- Running containerized workloads on a serverless, consumption-based platform.
-- Autoscaling applications based on HTTP/HTTPS traffic and/or Event-driven triggers supported by KEDA
-- Minimizing maintenance overhead for containerized applications
-- Deploying API endpoints
-- Hosting background processing applications
-- Handling event-driven processing
-
-
 ## Architecture
 
 ![Diagram showing microservices deployed with Azure Container Apps.](./media/microservices-with-container-apps-deployment.png)
@@ -92,7 +73,7 @@ Many of the complexities of the previous AKS architecture are replaced by these 
 
 **[Azure Cache for Redis](https://azure.microsoft.com/services/cache)** adds a caching layer to the application architecture to improve speed and performance for heavy traffic loads.
 
-**[Azure Monitor](/azure/azure-monitor)** collects and stores metrics and logs. Use this data to monitor the application, set up alerts and dashboards, and do root cause analysis of failures.  This scenario uses a Log Analytics workspace for comprehensive monitoring of the application.
+**[Azure Monitor](/azure/azure-monitor)** collects and stores metrics and logs at the application level. Use this data to monitor the application, set up alerts and dashboards, and do root cause analysis of failures.  This scenario uses a Log Analytics workspace for comprehensive monitoring of the application.
 
 **[Application Insights](/azure/azure-monitor/app/app-insights-overview)** provides extensible application performance management (APM) and monitoring for the services.  Each service is instrumented with the Application Insights SDK to monitor the app and direct the data to Azure Monitor.
 
@@ -128,10 +109,11 @@ This drone delivery solution applies to the aerospace, aircraft, and robotics in
 
 - Deploy a brownfield microservice-based application into a platform as a service (PaaS) offering to avoid the operational complexity of managing a container orchestrator.
 - Optimize operations and management by migrating containerized services to a platform that supports native scale-to-zero.
-  - Execute a long-running background process, such as the workflow service in single revision mode.
+- Execute a long-running background process, such as the workflow service in single revision mode.
   
 Other common uses of Container Apps include:
 
+- Deploying stateful and stateless containerized applications and microservices.
 - Running containerized workloads on a serverless, consumption-based platform.
 - Autoscaling applications based on HTTP/HTTPS traffic and/or Event-driven triggers supported by KEDA
 - Minimizing maintenance overhead for containerized applications
