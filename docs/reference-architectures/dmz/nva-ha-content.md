@@ -134,8 +134,8 @@ One benefit of this design is that no Source Network Address Translation (SNAT) 
 
 <!-- images -->
 
-[alb_internet]: ./images/nva-ha/nvaha-alb-internet.png "Internet traffic with ALB integration"
-[alb_onprem]: ./images/nva-ha/nvaha-alb-on-premises.png "On-premises traffic with ALB integration"
-[ars_internet]: ./images/nva-ha/nvaha-ars-internet.png "Internet traffic with ARS integration"
-[gwlb_internet]: ./images/nva-ha/nvaha-gwlb-internet.png "Internet traffic with GWLB integration"
+[alb_internet]: ./images/nva-ha/nvaha-loadbalancer-internet.png "Internet traffic with Azure Load Balancer integration"
+[alb_onprem]: ./images/nva-ha/nvaha-loadbalancer-on-premises.png "On-premises traffic with Azure Load Balancer integration"
+[ars_internet]: ./images/nva-ha/nvaha-route-server-internet.png "Internet traffic with Azure Route Server integration"
+[gwlb_internet]: ./images/nva-ha/nvaha-gateway-loadbalancer-internet.png "Internet traffic with Gateway Load Balancer integration"
 [pipudr_internet]: ./images/nva-ha/nvaha-pipudr-internet.png "Internet traffic with moving PIP/UDR"
