@@ -115,7 +115,7 @@ For additional information, [Private Link deployment options](../../../guide/net
 
 ## Plan the IP addresses
 
-![Diagram showing network topology of the AKS cluster](images/baseline-network-topology.svg)
+![Diagram showing network topology of the AKS cluster.](images/baseline-network-topology.svg)
 
 *Download a [Visio file](https://arch-center.azureedge.net/secure-baseline-aks_network_topology.vsdx) of this architecture.*
 
@@ -731,11 +731,11 @@ For other cost-related information, see [AKS pricing](https://azure.microsoft.co
 
 ## Next Steps
 
+- The see the AKS product roadmap, see [Azure Kubernetes Service Roadmap on GitHub](https://github.com/Azure/AKS/projects/1).
+- If you need a refresher in Kubernetes, complete the [Intro to Kubernetes](/learn/paths/intro-to-kubernetes-on-azure/) and [Develop and deploy applications on Kubernetes](/learn/paths/develop-deploy-applications-kubernetes/) learning paths on Microsoft Learn.
+
+## Related resources
+
 - To learn about hosting Microservices on the AKS baseline, see [Advanced Azure Kubernetes Service (AKS) microservices architecture](../aks-microservices/aks-microservices-advanced.yml).
 - For deploying the AKS baseline across multiple regions, see [AKS baseline for multiregion clusters](../aks-multi-region/aks-multi-cluster.yml).
 - For deploying the AKS baseline into a PCI-DSS 3.2.1 environment, see [AKS regulated cluster for PCI-DSS 3.2.1](../aks-pci/aks-pci-intro.yml).
-- The see the AKS product roadmap, see [Azure Kubernetes Service Roadmap on GitHub](https://github.com/Azure/AKS/projects/1).
-
-## Related articles
-
-If you need a refresher in Kubernetes, complete the [Intro to Kubernetes](/learn/paths/intro-to-kubernetes-on-azure/) and [Develop and deploy applications on Kubernetes](/learn/paths/develop-deploy-applications-kubernetes/) learning paths on Microsoft Learn.
