@@ -43,7 +43,7 @@ This pattern is not recommended for:
 
 ## Next steps
 
-[Azure IoT Hub message routing](/azure/iot-hub/iot-hub-devguide-messages-d2c)
+- [Azure IoT Hub message routing](/azure/iot-hub/iot-hub-devguide-messages-d2c)
 
 ## Related resources
 
