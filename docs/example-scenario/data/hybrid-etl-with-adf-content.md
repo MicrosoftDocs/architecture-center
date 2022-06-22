@@ -79,7 +79,7 @@ Principal authors:
 
 <!-- links -->
 
-[architecture-diagram]: ./media/architecture-diagram-hybrid-etl-with-adf.png
+[architecture-diagram]: ./media/architecture-diagram-hybrid-etl-with-adf-new.png
 [docs-blob-storage]: /azure/storage/blobs/storage-blobs-overview
 [docs-data-factory]: /azure/data-factory/introduction
 [docs-ssis]: /sql/integration-services/sql-server-integration-services
