@@ -48,7 +48,7 @@ Users expect an identity system to include a range of advanced features, which m
 - Single Sign-On (SSO), where users can sign in by using an identity from their employer, school, or another organization.
 - Multifactor authentication (MFA), which prompts the user to authenticate themselves in multiple ways. For example, a user might sign in by using a password and also an authenticator app on their mobile device, or a code that's sent by email.
 - Auditing, which tracks every event that happens in the identity platform including successful, failed, and aborted sign-in attempts. You might also need to log sufficient detail to forensically analyze the sign-in attempt later.
-- Conditional access, which creates a risk profile around a sign-in attempt based on various factors. The factors might include the user's identity, the location of the sign-in attempt, previous sign-in activity, and the sensitivity of the data or application.
+- Conditional access, which creates a risk profile around a sign-in attempt based on various factors. The factors might include: the user's identity; the location of the sign-in attempt; previous sign-in activity; and the sensitivity of the data or application.
 - Just-in-time access control, which temporarily allows users to sign in based on an approval process, and then removes the authorization automatically.
 
 If you're building an identity component yourself as part of your business solution, it's unlikely you'll be able to justify the work involved in implementing these features, and in maintaining them. Some of these features also require extra work, such as integration with messaging providers to send MFA codes, and storing and retaining audit logs for a sufficient time period.
@@ -96,7 +96,7 @@ If you choose to use a separate identity platform, you need to consider how your
 
 ### Focus on your core value
 
-It's expensive and complex to maintain a secure, reliable, and performant identity platform. In the most situations, an identity system isn't a component that adds value to your solution, or that differentiates you from your competitors. It's good to outsource your identity requirements to a system built by experts. That way, you can focus on architecting and building the components of your solution that add business value for your customers.
+It's expensive and complex to maintain a secure, reliable, and performant identity platform. In most situations, an identity system isn't a component that adds value to your solution, or that differentiates you from your competitors. It's good to outsource your identity requirements to a system built by experts. That way, you can focus on architecting and building the components of your solution that add business value for your customers.
 
 ## Contributors
 
