@@ -21,6 +21,8 @@ Several potential on-premises use cases are listed below:
 
 ![Digaram displaying an architecture overview of a hybrid ETL process that uses Azure Data Factory.][architecture-diagram]
 
+*Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/architecture-diagram-hybrid-etl-with-adf.vsdx) of this architecture.*
+
 ### Dataflow
 
 1. Data is sourced from Blob storage into Data Factory.
