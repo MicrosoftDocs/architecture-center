@@ -18,6 +18,7 @@ Other relevant use cases include:
 
 ![Architecture overview of the Azure components of a real-time fraud detection scenario][architecture]
 
+*Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/architecture-fraud-detection.vsdx) of this architecture.*
 ### Dataflow
 
 This scenario covers the back-end components of a real-time analytics pipeline. Data flows through the scenario as follows:
@@ -99,7 +100,7 @@ More complex fraud detection scenarios can benefit from a machine learning model
 [small-pricing]: https://azure.com/e/74149ec312c049ccba79bfb3cfa67606
 [medium-pricing]: https://azure.com/e/4fc94f7376de484d8ae67a6958cae60a
 [large-pricing]: https://azure.com/e/7da8804396f9428a984578700003ba42
-[architecture]: ./media/architecture-fraud-detection.png
+[architecture]: ./media/architecture-fraud-detection-new.png
 [docs-event-hubs]: /azure/event-hubs/event-hubs-what-is-event-hubs
 [docs-event-hubs-security-model]: /azure/event-hubs/event-hubs-authentication-and-security-model-overview
 [docs-stream-analytics]: /azure/stream-analytics/stream-analytics-introduction
