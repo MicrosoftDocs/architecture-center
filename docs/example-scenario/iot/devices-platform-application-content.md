@@ -34,4 +34,5 @@ Principal author:
 - [Jason Wadsworth](https://www.linkedin.com/in/jason-wadsworth-23549b158) | Principal Software Engineer
 
 ## Related Resources
+
 - [IoT application-to-device commands](cloud-to-device.yml)
