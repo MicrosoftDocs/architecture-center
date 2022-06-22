@@ -1,7 +1,7 @@
 ---
 title: Use an identity service
 titleSuffix: Azure Architecture Center
-description: Learn why it's important to use a managed identity service instead of building or running your own.
+description: Learn why it's important to use an identity as a service (IDaaS) platform instead of building or running your own.
 author: johndowns
 ms.date: 06/21/2022
 ms.author: jodowns
@@ -51,7 +51,7 @@ Users expect an identity system to include a range of advanced features, which m
 - Conditional access, which creates a risk profile around a sign-in attempt based on various factors. The factors might include the user's identity, the location of the sign-in attempt, previous sign-in activity, and the sensitivity of the data or application.
 - Just-in-time access control, which temporarily allows users to sign in based on an approval process, and then removes the authorization automatically.
 
-If you're building an identity component yourself as part of your business solution, it's unlikely you'll be able to justify the work involved in implementing these features, and in maintaining them. Some of these features also require extra work, such as integration with email messaging providers to send MFA codes, and storing and retaining audit logs for a sufficient time period.
+If you're building an identity component yourself as part of your business solution, it's unlikely you'll be able to justify the work involved in implementing these features, and in maintaining them. Some of these features also require extra work, such as integration with messaging providers to send MFA codes, and storing and retaining audit logs for a sufficient time period.
 
 IDaaS platforms also can provide an improved set of security features based on the volume of sign-in requests they receive. For example, the following features work best when there's a large number of customers using a single identity platform:
 
