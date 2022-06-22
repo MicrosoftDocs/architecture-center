@@ -82,9 +82,32 @@ The reference architecture uses two types of environments for the infrastructure
 
     * **Integration (int)** - The **`int`** version is deployed nightly from the **`main`** branch with the same process as **`prod`**. The switchover of traffic is faster than the previous release unit. Instead of gradually switching traffic over multiple days, as in **`prod`**, the process for **`int`** completes within a few minutes or hours. This faster switchover ensures the updated environment is ready by the next morning. Old stamps are automatically deleted if all tests in the pipeline are successful.
 
-    * **Production (prod)** - The **`prod`** version is only deployed from **`release/*`** branches. The traffic switchover uses more granular steps. A manual approval gate is between each step. Each release creates new regional stamps and deploys the new application version to the stamps. Existing stamps aren't touched in the process. The most important consideration for **`prod`** is that it should be **"always on"**. No planned or unplanned downtime should ever occur. The only exception is the database
+    * **Production (prod)** - The **`prod`** version is only deployed from **`release/*`** branches. The traffic switchover uses more granular steps. A manual approval gate is between each step. Each release creates new regional stamps and deploys the new application version to the stamps. Existing stamps aren't touched in the process. The most important consideration for **`prod`** is that it should be **"always on"**. No planned or unplanned downtime should ever occur. The only exception is foundational changes to the database layer.  A planned maintenance window maybe needed.
 
 ### Shared and dedicated resources
+
+The permanent environments (**`int`** and **`prod`**) within the reference architecture have different types of resources depending on if they are shared with the entire infrastructure or dedicated to an individual stamp. Resources can be dedicated to a particular release and exist only until the next release unit has taken over.
+
+#### Globally shared resources
+
+All resources shared between release units are defined in an independent Terraform template. These resources are Front Door, Cosmos DB, Container registry (ACR), and the Log Analytics workspace. These resources are deployed before the first regional stamp of a release unit is deployed. The resources are referenced in the Terraform templates for the stamps.
+
+##### Front Door
+
+While Front Door is a globally shared resource across release units, it's configuration is slightly different than the other global resources for two reasons:
+
+1. To deploy Front Door, at least one backend for each backend pool must already exist. This is only after at least one release unit has been deployed.
+
+2. Front Door must be reconfigured when a release unit is deployed. Front Door must be reconfigured to gradually switch over traffic to the new stamps.
+
+The backend configuration of Front Door can't be directly defined in the Terraform template. The configuration is inserted with Terraform variables. The variable values are constructed before the Terraform deployment is started.
+#### Release units
+
+A release unit is several regional stamps per specific release version. Stamps contain all the resources which aren't shared with the other stamps. These resources are virtual networks, Azure Kubernetes Service cluster, Event Hub, and Azure Key Vault. Cosmos DB and ACR are configured with Terraform data sources.
+
+
+
+
 
 ## Failure injection testing
 
