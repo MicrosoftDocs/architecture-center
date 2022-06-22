@@ -6,11 +6,11 @@ This reference architecture shows how to perform batch scoring with R models usi
 
 This architecture consists of the following components.
 
-[Azure Batch][batch] is used to run forecast generation jobs in parallel on a cluster of virtual machines. Predictions are made using pre-trained machine learning models implemented in R. Azure Batch can automatically scale the number of VMs based on the number of jobs submitted to the cluster. On each node, an R script runs within a Docker container to score data and generate forecasts.
+[Azure Batch][batch] runs forecast generation jobs in parallel on a cluster of virtual machines. Predictions are made using pre-trained machine learning models implemented in R. Azure Batch can automatically scale the number of VMs based on the number of jobs submitted to the cluster. On each node, an R script runs within a Docker container to score data and generate forecasts.
 
-[Azure Blob Storage][blob] is used to store the input data, the pre-trained machine learning models, and the forecast results. It delivers cost-effective storage for the performance that this workload requires.
+[Azure Blob Storage][blob] stores the input data, the pre-trained machine learning models, and the forecast results. It delivers cost-effective storage for the performance that this workload requires.
 
-[Azure Container Instances][aci] provide serverless compute on demand. In this case, a container instance is deployed on a schedule to trigger the Batch jobs that generate the forecasts. The Batch jobs are triggered from an R script using the [doAzureParallel][doAzureParallel] package. The container instance automatically shuts down once the jobs have finished.
+[Azure Container Instances][aci] provides serverless compute on demand. In this case, a container instance is deployed on a schedule to trigger the Batch jobs that generate the forecasts. The Batch jobs are triggered from an R script using the [doAzureParallel][doAzureParallel] package. The container instance automatically shuts down once the jobs have finished.
 
 [Azure Logic Apps][logic-apps] triggers the entire workflow by deploying the container instances on a schedule. An Azure Container Instances connector in Logic Apps allows an instance to be deployed upon a range of trigger events.
 
@@ -63,7 +63,7 @@ Azure Container Instances provides a serverless environment to run the scheduler
 
 Each node of the Batch cluster runs the worker container, which executes the scoring script.
 
-#### Parallelizing the workload
+#### Parallelize the workload
 
 When batch scoring data with R models, consider how to parallelize the workload. The input data must be partitioned so that the scoring operation can be distributed across the cluster nodes. Try different approaches to discover the best choice for distributing your workload. On a case-by-case basis, consider:
 

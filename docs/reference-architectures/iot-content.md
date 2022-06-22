@@ -6,7 +6,7 @@ To help decide between IoT Central and a PaaS-based IoT approach, based on your 
 
 ## Architecture
 
-:::image type="content" source="./iot/images/iot-refarch.svg" alt-text="Diagram showing architecture for I O T applications using Azure P a a S components." border="false" lightbox="./iot/images/iot-refarch.svg#lightbox":::
+:::image type="content" source="./iot/images/iot-refarch.svg" alt-text="Diagram showing architecture for IOT applications using Azure Paas components." border="false" lightbox="./iot/images/iot-refarch.svg#lightbox":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-iot-reference-architecture.vsdx) of this architecture.*
 

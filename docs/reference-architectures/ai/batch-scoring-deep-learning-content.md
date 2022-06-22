@@ -1,4 +1,4 @@
-This reference architecture shows how to apply neural-style transfer to a video, using Azure Machine Learning. *Style transfer* is a deep learning technique that composes an existing image in the style of another image. This architecture can be generalized for any scenario that uses batch scoring with deep learning. [**Deploy this solution**](#deploy-the-solution).
+This reference architecture shows how to apply neural-style transfer to a video, using Azure Machine Learning. *Style transfer* is a deep learning technique that composes an existing image in the style of another image. You can generalize this architecture for any scenario that uses batch scoring with deep learning.
 
 ## Architecture
 
@@ -14,21 +14,21 @@ This architecture consists of the following components.
 
 #### Storage
 
-**[Azure Blob Storage][blob-storage]** is used to store all images (input images, style images, and output images). Azure Machine Learning integrates with Blob Storage so that users don't have to manually move data across compute platforms and blob storages. Blob Storage is also cost-effective for the performance that this workload requires.
+**[Azure Blob Storage][blob-storage]** stores all the images (input images, style images, and output images). Azure Machine Learning integrates with Blob Storage so that users don't have to manually move data across compute platforms and blob storages. Blob Storage is also cost-effective for the performance that this workload requires.
 
 #### Trigger
 
-**[Azure Logic Apps][logic-apps]** is used to trigger the workflow. When the Logic App detects that a blob has been added to the container, it triggers the Azure Machine Learning pipeline. Logic Apps is a good fit for this reference architecture because it's an easy way to detect changes to blob storage, with an easy process for changing the trigger.
+**[Azure Logic Apps][logic-apps]** triggers the workflow. When the Logic App detects that a blob has been added to the container, it triggers the Azure Machine Learning pipeline. Logic Apps is a good fit for this reference architecture because it's an easy way to detect changes to blob storage, with an easy process for changing the trigger.
 
-#### Preprocessing and postprocessing our data
+#### Preprocess and postprocess the data
 
 This reference architecture uses video footage of an orangutan in a tree.
 
 1. Use [FFmpeg][ffmpeg] to extract the audio file from the video footage, so that the audio file can be stitched back into the output video later.
-1. Use FFmpeg to break the video into individual frames. The frames will be processed independently, in parallel.
-1. At this point, we can apply neural style transfer to each individual frame in parallel.
-1. One each frame has been processed, we need to use FFmpeg to restitch the frames back together.
-1. Finally we reattach the audio file to the restitched footage.
+1. Use FFmpeg to break the video into individual frames. The frames are processed independently, in parallel.
+1. At this point, you can apply neural style transfer to each individual frame in parallel.
+1. After each frame has been processed, use FFmpeg to restitch the frames back together.
+1. Finally, reattach the audio file to the restitched footage.
 
 ### Components
 
@@ -65,7 +65,7 @@ For deep learning workloads, GPUs generally out-perform CPUs by a considerable a
 
 GPUs aren't enabled by default in all regions. Make sure to select a region with GPUs enabled. In addition, subscriptions have a default quota of zero cores for GPU-optimized VMs. You can raise this quota by opening a support request. Make sure that your subscription has enough quota to run your workload.
 
-#### Parallelizing across VMs versus cores
+#### Parallelize across VMs versus cores
 
 When you run a style transfer process as a batch job, the jobs that run primarily on GPUs need to be parallelized across VMs. Two approaches are possible: You can create a larger cluster using VMs that have a single GPU, or create a smaller cluster using VMs with many GPUs.
 
@@ -79,7 +79,7 @@ When creating the [Azure Machine Learning pipeline][aml-pipeline], one of the st
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview). This section contains considerations for building secure solutions.
 
-#### Restricting access to Azure Blob Storage
+#### Restrict access to Azure Blob Storage
 
 In this reference architecture, Azure Blob Storage is the main storage component that needs to be protected. The baseline deployment shown in the GitHub repo uses storage account keys to access the blob storage. For further control and protection, consider using a [shared access signature (SAS)][storage-sas-overview] instead. This grants limited access to objects in storage, without needing to hard code the account keys or save them in plaintext. This approach is especially useful because account keys are visible in plaintext inside of Logic App's designer interface. Using an SAS also helps to ensure that the storage account has proper governance, and that access is granted only to the people intended to have it.
 
@@ -89,11 +89,11 @@ For scenarios with more sensitive data, make sure that all of your storage keys 
 
 This reference architecture uses style transfer as an example of a batch scoring process. For more data-sensitive scenarios, the data in storage should be encrypted at rest. Each time data is moved from one location to the next, use Transport Layer Security (TSL) to secure the data transfer. For more information, see [Azure Storage security guide][storage-security].
 
-#### Securing your computation in a virtual network
+#### Secure your computation in a virtual network
 
 When deploying your Machine Learning compute cluster, you can configure your cluster to be provisioned inside a subnet of a [virtual network][virtual-network]. This subnet allows the compute nodes in the cluster to communicate securely with other virtual machines.
 
-#### Protecting against malicious activity
+#### Protect against malicious activity
 
 In scenarios where there are multiple users, make sure that sensitive data is protected against malicious activity. If other users are given access to this deployment to customize the input data, note the following precautions and considerations:
 

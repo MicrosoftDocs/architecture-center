@@ -53,7 +53,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 For standard Python models, it's generally accepted that CPUs are sufficient to handle the workload. This architecture uses CPUs. However, for [deep learning workloads][deep], GPUs generally outperform CPUs by a considerable amount; a sizeable cluster of CPUs is usually needed to get comparable performance.
 
-#### Parallelizing across VMs versus cores
+#### Parallelize across VMs versus cores
 
 When you run scoring processes of many models in batch mode, the jobs need to be parallelized across VMs. Two approaches are possible:
 
