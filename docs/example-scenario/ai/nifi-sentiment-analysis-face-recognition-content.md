@@ -2,7 +2,7 @@ Branding is important for industries globally. Sometimes a company's value is ba
 
 This article presents a solution for gauging public opinion in tweets. The goal is to create a transformation pipeline that outputs clusters of comments and trending subjects. The pipeline delivers value by seamlessly integrating open-source solutions like Apache NiFi and Azure HDInsight with Azure sentiment analysis and face recognition services. The solution applies to a broad range of industries—monitoring social networks isn't limited to one industry vertical.
 
-*Apache®, [Apache NiFi](https://spark.apache.org), [Apache Hadoop](https://hadoop.apache.org), [Apache Hive](https://hive.apache.org), and [Apache Airflow](https://airflow.apache.org) are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
+*Apache®, [Apache NiFi](https://nifi.apache.org), [Apache Hadoop](https://hadoop.apache.org), [Apache Hive](https://hive.apache.org), and [Apache Airflow](https://airflow.apache.org) are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
 ## Potential use cases
 
@@ -58,8 +58,8 @@ The following components store data:
 
 Power BI dashboards display data from the following sources:
 
-- Azure Synapse Analytics (5)
-- Hive (6)
+- Hive (5)
+- Azure Synapse Analytics (6)
 - Azure Cosmos DB (8)
 
 ### Dataflow
