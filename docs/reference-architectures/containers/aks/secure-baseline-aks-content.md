@@ -744,11 +744,9 @@ Learn more about AKS:
 
 ## Related resources
 
-See the following related architecture guides:
+See the following related guide:
 
 - [Azure Kubernetes Services (AKS) day-2 operations guide](/azure/architecture/operator-guides/aks/day-2-operations-guide)
-- [Choose a Kubernetes at the edge compute option](/azure/architecture/operator-guides/aks/choose-kubernetes-edge-compute-option)
-- [Choose a bare-metal Kubernetes at the edge platform option](/azure/architecture/operator-guides/aks/choose-bare-metal-kubernetes)
 
 See the following related architectures:
 
