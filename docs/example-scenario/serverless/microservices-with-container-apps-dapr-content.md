@@ -52,7 +52,7 @@ The following list describes each microservice and the Container Apps configurat
 This solution uses the following components:
 
 - [Azure resource groups](/azure/azure-resource-manager/management/manage-resource-groups-portal) are logical containers for Azure resources. You use a single resource group to structure everything related to this solution in the Azure portal.
-- [Container Apps](https://azure.microsoft.com/services/container-apps) is a fully managed, serverless container service used to build and deploy modern apps at scale. In this solution, you're hosting all 10 microservices on Container Apps and deploying them into a single Container App environment. This environment acts as a secure boundary around the system.
+- [Azure Container Apps](https://azure.microsoft.com/services/container-apps) is a fully managed, serverless container service used to build and deploy modern apps at scale. In this solution, you're hosting all 10 microservices on Container Apps and deploying them into a single Container App environment. This environment acts as a secure boundary around the system.
 - [Azure Service Bus](https://azure.microsoft.com/services/service-bus) is a fully managed enterprise message broker complete with queues and publish-subscribe topics. In this solution, use it for the Dapr pub/sub component implementation. Multiple services use this component. The order service publishes messages on the bus, and the Makeline, accounting, loyalty, and receipt services subscribe to these messages.
 - [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) is a NoSQL, multi-model managed database service. Use it as a Dapr state store component for the loyalty service to store customer's loyalty data.
 - [Azure Cache for Redis](https://azure.microsoft.com/services/cache) is a distributed, in-memory, scalable managed Redis cache. It's used as a Dapr state store component for the Makeline Service to store data on the orders that are being processed.
@@ -79,7 +79,7 @@ Container Apps also provides a managed version of [Kubernetes Event-driven Autos
 
 You can also enable HTTPS ingress in Container Apps without creating more Azure networking resources. You can use [Envoy proxy](https://www.envoyproxy.io/), which also allows traffic splitting scenarios.
 
-To explore how Container Apps compares to other container hosting platforms in Azure, see [Comparing Container Apps with other Azure container options](/azure/container-apps/compare-options). 
+To explore how Container Apps compares to other container hosting platforms in Azure, see [Comparing Container Apps with other Azure container options](/azure/container-apps/compare-options).
 
 This article describes a solution for running an order management system with 10 microservices on Container Apps. The solution also uses microservices best practices through Dapr and event-driven scaling with KEDA.
 

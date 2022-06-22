@@ -6,7 +6,7 @@ To help decide between IoT Central and a PaaS-based IoT approach, based on your 
 
 ## Architecture
 
-:::image type="content" source="./iot/images/iot-refarch.svg" alt-text="Diagram showing architecture for I O T applications using Azure P a a S components." border="false" lightbox="./iot/images/iot-refarch.svg#lightbox":::
+:::image type="content" source="./iot/images/iot-refarch.svg" alt-text="Diagram showing architecture for IoT applications using Azure PaaS components." border="false" lightbox="./iot/images/iot-refarch.svg#lightbox":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-iot-reference-architecture.vsdx) of this architecture.*
 
@@ -196,8 +196,8 @@ Principal authors:
 - [Microsoft Azure IoT Reference Architecture](https://azure.microsoft.com/resources/microsoft-azure-iot-reference-architecture)
 - [Internet of Things (IoT) security architecture](/azure/iot-fundamentals/iot-security-architecture)
 - [Zero Trust Cybersecurity for the Internet of Things](https://azure.microsoft.com/resources/zero-trust-cybersecurity-for-the-internet-of-things)
-- [Azure Business Continuity Technical Guidance](/azure/architecture/resiliency)
-- [Disaster recovery and high availability for Azure applications](/azure/architecture/reliability/disaster-recovery)
+- [Azure Business Continuity Technical Guidance](/azure/architecture/framework/resiliency/overview)
+- [Disaster recovery and high availability for Azure applications](/azure/architecture/framework/resiliency/backup-and-recovery)
 
 ## Related resources
 

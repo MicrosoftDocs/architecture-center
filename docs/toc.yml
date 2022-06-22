@@ -353,10 +353,6 @@ items:
                 href: guide/multitenant/approaches/iot.md
               - name: AI and ML
                 href: guide/multitenant/approaches/ai-ml.md
-          - name: Architectures
-            items:
-              - name: SaaS starter web app
-                href: example-scenario/apps/saas-starter-web-app.yml
           - name: Service-specific guidance
             items:
               - name: Overview
@@ -734,6 +730,8 @@ items:
                 href: example-scenario/magento/magento-azure.yml
               - name: Movie recommendations on Azure
                 href: example-scenario/ai/movie-recommendations-with-machine-learning.yml
+              - name: Optimize inventory and forecast demand
+                href: example-scenario/analytics/optimize-inventory-forecast-demand.yml
               - name: Out of stock detection (retail)
                 href: /hybrid/app-solutions/pattern-out-of-stock-at-edge
                 maintainContext: true
@@ -4479,6 +4477,18 @@ items:
                     href: guide/iiot-guidance/iiot-data.yml
                   - name: Considerations
                     href: guide/iiot-guidance/iiot-considerations.md
+              - name: Industrial IoT patterns
+                items:
+                  - name: Overview
+                    href: guide/iiot-patterns/iiot-patterns-overview.yml
+                  - name: Connectivity patterns
+                    href: guide/iiot-patterns/iiot-connectivity-patterns.yml
+                  - name: Visibility patterns
+                    href: guide/iiot-patterns/iiot-visibility-patterns.yml
+                  - name: Transparency patterns
+                    href: guide/iiot-patterns/iiot-transparency-patterns.yml    
+                  - name: Prediction patterns
+                    href: guide/iiot-patterns/iiot-prediction-patterns.yml
               - name: IoT patterns
                 items:
                   - name: Analyze and optimize loop
