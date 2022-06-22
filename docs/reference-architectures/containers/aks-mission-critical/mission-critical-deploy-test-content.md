@@ -126,6 +126,16 @@ A release unit is several regional stamps per specific release version. Stamps c
 
 ### Deployment process
 
+A blue/green deployment is the goal of the deployment process. A new release from a **`release/*`** branch is deployed into the **`prod`** environment. User traffic is gradually shifted to the new release.
+
+As a first step in the deployment process of a new version, the infrastructure for the new release unit is deployed with Terraform. Execution of the infrastructure deployment pipeline deploys the new infrastructure from a selected release branch. In parallel to the infrastructure provisioning, the container images are built and pushed to the globally shared container registry (ACR). When the previous processes are completed, the application is deployed to the stamps. From the implementation viewpoint, it's one pipeline with multiple dependent stages. The same pipeline can be re-executed for hotfix deployments.
+
+After the new release unit is deployed and validated, it's added to Front Door to receive user traffic.
+
+A switch/parameter that distinguishes between releases that do and don't introduce a new API version. Based on if the release introduces a new API version, a new backend pool with the API backends must be created. Alternatively, new API backends can be added to an existing backend pool. New UI storage accounts are added to the corresponding existing backend pool. Weights for new backends should be set according to the desired traffic split.
+
+
+
 
 
 ## Failure injection testing
