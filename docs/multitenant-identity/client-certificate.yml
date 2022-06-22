@@ -16,6 +16,6 @@ products:
   - azure-app-service-web
 name: Use client certificate to get access tokens from Azure AD
 summary: Learn how to use client certificate to prove the token request is genuine, to the Tailspin Surveys sample application.
-thumbnailUrl: /azure/architecture/browse/thumbs/client-secret.png
+thumbnailUrl: /azure/architecture/browse/thumbs/client-secret-new-thumbnail.png
 content: |
   [!include[](client-certificate-content.md)]
