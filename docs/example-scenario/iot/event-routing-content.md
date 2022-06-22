@@ -2,10 +2,12 @@ In an Internet of Things (IoT) solution, IoT devices send [events](./introductio
 
 ## Potential use cases
 
-A retail outlet is monitoring the fridges for their frozen food section.
+A retail outlet is monitoring the fridges for their frozen food section:
 
 - An alert is sent when the temperature of the fridges goes past a pre-determined threshold. A routing rule can be created with the threshold rule to send these specific events to an alert system.
 - The data science team is building an anomaly detection model to identify issues with the fridges before any of them breaks down. A message routing rule can send all the raw telemetry data to a storage account specifically for the data science team to use for training and modeling.
+
+This scenario applies to the retail, energy, and environment industries.
 
 ## Architecture
 
