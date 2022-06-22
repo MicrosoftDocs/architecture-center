@@ -26,7 +26,7 @@ This example architecture is divided into three operational areas:
 
 ## Potential use cases
 
-This solution is ideal for the manufacturing, automotive, and transporation industries. It applies to the following scenarios:
+This solution is ideal for the manufacturing, automotive, and transportation industries. It applies to the following scenarios:
 
 -   The customer is currently using AGVs in its manufacturing process.
 -   The customer experiences low availability with the AGVs, which impacts their
