@@ -3,7 +3,7 @@ In this reference architecture, we'll build a baseline infrastructure that deplo
 ![GitHub logo](../../../_images/github.png) An implementation of this architecture is available on [GitHub: Azure Kubernetes Service (AKS) Secure Baseline Reference Implementation](https://github.com/mspnp/aks-secure-baseline). You can use it as a starting point and configure it as per your needs.
 
 > [!NOTE]
-> This reference architecture requires knowledge of Kubernetes and its concepts. If you need a refresher, see the [**Next steps**](#next-steps) section for resources.
+> This reference architecture requires knowledge of Kubernetes and its concepts. If you need a refresher, see the [**Learn more about AKS**](#learn-more-about-AKS) section for resources.
 
 :::row:::
     :::column:::
@@ -737,7 +737,7 @@ Continue learning about the AKS baseline architecture:
 - For deploying the AKS baseline across multiple regions, see [AKS baseline for multiregion clusters](../aks-multi-region/aks-multi-cluster.yml).
 - For deploying the AKS baseline into a PCI-DSS 3.2.1 environment, see [AKS regulated cluster for PCI-DSS 3.2.1](../aks-pci/aks-pci-intro.yml).
 
-Learn more about AKS:
+### Learn more about AKS
 
 - The see the AKS product roadmap, see [Azure Kubernetes Service Roadmap on GitHub](https://github.com/Azure/AKS/projects/1).
 - If you need a refresher in Kubernetes, complete the [Intro to Kubernetes](/learn/paths/intro-to-kubernetes-on-azure/) and [Develop and deploy applications on Kubernetes](/learn/paths/develop-deploy-applications-kubernetes/) learning paths on Microsoft Learn.
