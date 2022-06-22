@@ -132,10 +132,45 @@ As a first step in the deployment process of a new version, the infrastructure f
 
 After the new release unit is deployed and validated, it's added to Front Door to receive user traffic.
 
-A switch/parameter that distinguishes between releases that do and don't introduce a new API version. Based on if the release introduces a new API version, a new backend pool with the API backends must be created. Alternatively, new API backends can be added to an existing backend pool. New UI storage accounts are added to the corresponding existing backend pool. Weights for new backends should be set according to the desired traffic split.
+A switch/parameter that distinguishes between releases that do and don't introduce a new API version. Based on if the release introduces a new API version, a new backend pool with the API backends must be created. Alternatively, new API backends can be added to an existing backend pool. New UI storage accounts are added to the corresponding existing backend pool. Weights for new backends should be set according to the desired traffic split. A new routing rule as described above must be created that corresponds to the appropriate backend pool.
 
+As a part of the addition of the new release unit, the weights of the new backends should be set to the desired minium user traffic. If no issues are detected, the amount of user traffic should be increased to the new backend pool over a period of time. To adjust the weight parameters, the same deployment steps should be executed again with the desired values.
 
+#### Release unit teardown
 
+As part of the deployment pipeline for the a release unit, there is a destroy stage which removes all stamps once a release unit is no longer needed. Usually after all traffic has been moved to a new release version. This stage includes the removal of release unit references from Front Door. This is critical to enable the release of a new version at a later date. Front Door must point to a single release unit.
+
+#### Checklists
+
+As part of the release cadence, a pre and post release checklist should be used. 
+
+    * **Pre-release checklist** - Before starting a release, check the following:
+
+            * Ensure the latest state of the **`main`** branch was successfully deployed to and tested in the **`int`** environment.
+
+            * Update the changelog file through a PR against the **`main`** branch.
+
+            * Create a **`release/`** branch from the **`main`** branch.
+
+    * **Post-release checklist** - Before old stamps are destroyed and their references are removed from Front Door, check that:
+
+            * Clusters are no longer receiving incoming traffic.
+
+            * Event Hubs don't contain any unprocessed messages.
+
+### Limitations and risks of the update strategy
+
+The update strategy described in this reference architecture has a some limitations and risks that should be mentioned:
+
+    * Higher cost - When releasing updates, many of the infrastructure components will active twice for the release period.
+
+    * Front Door complexity - The update process in Front Door is complex to implement and maintain. The ability to execute effective blue/green deployments with zero downtime is dependent on it working properly.
+
+    * Small changes time consuming - The update process results in a longer release process for small changes. This can be partially mitigated with the hotfix process described in the previous section.
+
+### Application data forward compatibility considerations
+
+The update strategy can support multiple version of an API and work components executing concurrently. Because Cosmos DB is shared between two or more versions, there is a possibility that data elements changed by one version might not always match the version of the API or working consuming it. The API layers and workers must implement forward compatibility design. Earlier versions of the API or worker components processes data that was inserted by a later API or worker component version. It ignores parts it doesn't understand.
 
 
 ## Failure injection testing
