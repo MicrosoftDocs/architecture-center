@@ -104,15 +104,15 @@ To deploy this reference architecture, follow the steps described in the [GitHub
 
 ## Next steps
 
-- [Batch scoring of Spark models on Azure Databricks](batch-scoring-databricks.yml)
-- [Batch scoring of Python models on Azure](batch-scoring-python.yml)
-- [Batch scoring for deep learning models](batch-scoring-deep-learning.yml)
+- [What is Azure Machine Learning?](/azure/machine-learning/overview-what-is-azure-machine-learning)
+- [Azure Machine Learning pipelines](/azure/machine-learning/concept-ml-pipelines)
 
 ## Related resources
 
 - [Artificial intelligence architecture](/azure/architecture/data-guide/big-data/ai-overview)
-- [What is Azure Machine Learning?](/azure/machine-learning/overview-what-is-azure-machine-learning)
-- [Azure Machine Learning pipelines](/azure/machine-learning/concept-ml-pipelines)
+- [Batch scoring of Spark models on Azure Databricks](batch-scoring-databricks.yml)
+- [Batch scoring of Python models on Azure](batch-scoring-python.yml)
+- [Batch scoring for deep learning models](batch-scoring-deep-learning.yml)
 
 <!-- links -->
 
