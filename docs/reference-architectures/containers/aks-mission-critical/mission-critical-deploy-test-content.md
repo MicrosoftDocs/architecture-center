@@ -101,11 +101,30 @@ While Front Door is a globally shared resource across release units, it's config
 2. Front Door must be reconfigured when a release unit is deployed. Front Door must be reconfigured to gradually switch over traffic to the new stamps.
 
 The backend configuration of Front Door can't be directly defined in the Terraform template. The configuration is inserted with Terraform variables. The variable values are constructed before the Terraform deployment is started.
+
+The individual component configuration for the Front Door deployment is defined as:
+
+* Frontend - Session affinity is configured to ensure users don't switch between different UI versions during a single session.
+
+* Backends - Front Door is configured with two types of backend pools:
+
+    1. A pool for the static storage that serves the UI. The pool contains the storage accounts from all currently active release units. Different weights can be assigned to the backends from different release units to gradually move traffic to a newer unit. Each backend from a release unit should have the same weights assigned.
+
+    2. A pool for the API. If there are release units with different API versions, then an API backend pool exists for each release unit. If all release units offer the same compatible API, all backends are added to the same backend pool and assigned different weights.
+
+* Routing rules - There are two types of routing rules:
+
+    1. A routing rule for the UI that is linked to the UI storage backend pool.
+
+    2. A routing rule for each API currently supported by the backends. For example: **`/api/1.0/*`** and **`/api/2.0/*`**.
+
+    If a release introduces a new version of the backend APIs, the changes will reflect in the UI that is deployed as part of the release. A specific release of the UI will always call a specific version of the API URL. Users served by a UI version will automatically use the respective backend API. Specific routing rules are needed for different instances of the API version. These rules are linked to the corresponding backend pools. In the event that a new API wasn't introduced, all API related routing rules link to the single backend pool. In this case, it doesn't matter if a user is served the UI from a different release than the API.
+
 #### Release units
 
 A release unit is several regional stamps per specific release version. Stamps contain all the resources which aren't shared with the other stamps. These resources are virtual networks, Azure Kubernetes Service cluster, Event Hub, and Azure Key Vault. Cosmos DB and ACR are configured with Terraform data sources.
 
-
+### Deployment process
 
 
 
