@@ -2808,6 +2808,8 @@ items:
                 href: example-scenario/analytics/relationship-mesh-solution-azure.yml
               - name: Secure a data lakehouse with Azure Synapse
                 href: example-scenario/analytics/secure-data-lakehouse-synapse.yml
+              - name: Sentiment analysis and face recognition
+                href: example-scenario/ai/nifi-sentiment-analysis-face-recognition.yml
               - name: Sports analytics on Azure
                 href: example-scenario/analytics/sports-analytics-architecture-azure.yml
               - name: Stream processing with Azure Databricks
