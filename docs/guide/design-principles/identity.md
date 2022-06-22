@@ -3,7 +3,7 @@ title: Use an identity service
 titleSuffix: Azure Architecture Center
 description: Learn why it's important to use a managed identity service instead of building or running your own.
 author: johndowns
-ms.date: 06/20/2022
+ms.date: 06/21/2022
 ms.author: jodowns
 ms.topic: conceptual
 ms.service: architecture-center
@@ -87,6 +87,12 @@ If you run an identity system, it becomes your responsibility to keep it secured
 * All changes to your solution must be tightly controlled and reviewed by experts.
 
 These controls are often expensive and difficult to implement.
+
+### Use cloud-native security controls
+
+When you use Azure AD as your solution's identity provider, you can take advantages of cloud-native security features like [managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview).
+
+If you choose to use a separate identity platform, you need to consider how your application can take advantage of managed identities and other Azure AD features while simultaneously integrating with your own identity platform.
 
 ### Focus on your core value
 
