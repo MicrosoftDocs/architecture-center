@@ -39,7 +39,7 @@ IoT applications that use [protocol gateways](/azure/iot-hub/iot-hub-protocol-ga
 
 1. The application invokes the direct method on behalf of the device in the protocol gateway.
 2. For the method implementation, the gateway translates the method into a device-specific protocol and sends the message to the device. The device is unaware of any changes to cloud implementation.
-3. When the device completes the message and responds, the gateway translate the device-specific status to the method response.
+3. When the device completes the message and responds, the gateway translates the device-specific status to the method response.
 4. The IoT Hub completes the direct method by populating a method result for the caller.
 
 The [Azure Protocol Gateway](/azure/iot-hub/iot-hub-protocol-gateway) open-source project translates direct methods to MQTT protocol messages natively, is easily extensible, and demonstrates this programming model for other protocol adapters.
