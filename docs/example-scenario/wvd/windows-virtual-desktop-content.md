@@ -123,7 +123,7 @@ Azure Virtual Desktop much like Azure has a number of service limitations that y
 |-----------------------------------------------------|-------------------------------------------------|--------------------------------------------------|
 | Workspace                                           | Azure Active Directory Tenant                   | 1300 |
 | HostPool                                            | Workspace                                       | 400 |
-| Application group                                   | HostPool                                        | 500<sup>1</sup> |
+| Application group                                   | Azure AD Tenant                                 | 500<sup>1</sup> |
 | RemoteApp                                           | Application group                               | 500 |
 | Role Assignment                                     | Any AVD Object                                  | 200 |
 | Session Host                                        | HostPool                                        | 10,000 |
