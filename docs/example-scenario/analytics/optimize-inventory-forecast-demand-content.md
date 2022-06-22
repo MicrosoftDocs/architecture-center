@@ -14,7 +14,6 @@ This article showcases a practical, scalable, and manageable solution for implem
 
 *Ray® or Ray.io® is either a registered trademark or trademarks of the Anyscale, Inc. in the United States and/or other countries. No endorsement by Anyscale, Inc. is implied by the use of these marks.*
 
-
 ## Potential use cases
 
 This solution is designed for the retail industry, but it also applies to the manufacturing industry and to the following scenarios:
@@ -34,7 +33,6 @@ Companies can have a wide variety of inventory types, and specific types might b
 Often, the data that's required to optimize inventory is sparse and not centrally located, which makes aggregating and analyzing it difficult. Most companies rely on commercial software. However, such systems hit scalability limits due to the ever-increasing amount of data and the complexity of data storage systems.
 
 Methods of forecasting demand include on-point predictions, probabilistic Monte Carlo simulations, time-series analysis, and data science methodologies. Some of these methods can take historical sales and seasonality effects into account, but more complex parameters require sophisticated methodologies for high-quality forecasts.
-
 
 ## Architecture
 
@@ -58,7 +56,6 @@ Methods of forecasting demand include on-point predictions, probabilistic Monte 
 
 7.  Power BI ingests data from Azure SQL Database and allows users to analyze results and perform sensitive analysis. All Power BI dashboards are integrated into Power Apps to have a unified UI for calling the API, reading results, and performing downstream analysis.
 
-
 ### Components
 
 -   [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/) is a scalable and secure data lake for high-performance analytics workloads. By using Data Lake Storage, you can manage petabytes of data with high throughput. Data Lake Storage can accommodate multiple, heterogeneous sources and data coming in structured, semi-structured, or unstructured formats.
@@ -80,7 +77,6 @@ Methods of forecasting demand include on-point predictions, probabilistic Monte 
     - Pipelines for data integration and ETL/ELT
     - Deep integration with other Azure services, such as Power BI, Cosmos DB, and Machine Learning
 
-
 ### Alternatives
 
 In this solution, Machine Learning performs forecasting and inventory management analytics. However, you can use [Azure Databricks](https://azure.microsoft.com/services/databricks/) or Azure Synapse Analytics to perform the same type of analytics when the amount of data is large. For more information about using Azure Synapse Analytics, see [Apache Spark in Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-overview).
@@ -93,20 +89,17 @@ Instead of running the Ray framework on Kubernetes, you can use the Ray framewor
 
 You could use [Web Apps](https://azure.microsoft.com/services/app-service/web/) instead of, or along with, Power Apps to create the user interface for access to the Power BI embedded reports.
 
-
 ### Forecasting with Deep Learning
 
 The implemented reference solution uses advanced machine learning and deep learning methods for time-series forecasting. Specifically, this solution uses multivariate probabilistic forecasting to account for uncertainties that are common in supply chains. By using an ensemble modeling approach that blends Deep AutoRegression RNN (DeepAR) or Transformer models that use the classical Monte Carlo Sampling method, the reference solution achieved 99.9% mean square error (MSE) improvement over a customer's initial approach for high-volume/high-impact business products. For ensembling, this solution explored XGBClassifier and XGBRegressor model architectures.
 
 :::image type="content" alt-text="Diagram of the components that ingest sales history and produce demand predictions in this example workload." source="media/optimize-inventory-forecast-demand-dataflow.svg":::
 
-
 ## Considerations
 
 Consider following the Microsoft Azure Well-Architected Framework when deploying the solution to production. The Well-Architected Framework provides technical guidance across five pillars of workload: reliability, security, cost optimization, operational excellence, and performance efficiency. For more information, see [Azure Well-Architected](/overview/cloud-enablement/well-architected).
 
 Follow MLOps guidelines to standardize and manage end to end a scalable Machine Learning lifecycle across multiple workspaces. Before going into production, ensure that the implemented solution supports ongoing inference with retraining cycles and automated redeployments of models. For more information about implementing MLOps in Azure, see [Machine learning DevOps guide](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-mlops) and [Azure MLOps (v2) solution accelerator](https://github.com/Azure/mlops-v2), a project on GitHub.
-
 
 ### Security
 
@@ -119,7 +112,6 @@ Consider implementing the following additional security features in this archite
 -   [Store credentials in Azure Key Vault](/azure/data-factory/store-credentials-in-key-vault)
 -   [Deploy dedicated Azure services into virtual networks](/azure/virtual-network/virtual-network-for-azure-services)
 
-
 ### Cost optimization
 
 To estimate the cost of implementing this solution, use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) for the services mentioned in this article. You might also find [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview) to be helpful in planning your strategy to efficiently scale out your architecture and implementation. 
@@ -128,7 +120,6 @@ Power BI comes with different licensing offerings. For more information, see [Po
 
 Depending on the volume of data and complexity of your geospatial analysis, you might need to scale your Databricks cluster configurations that would affect your cost. For best practices on cluster configuration, see the Databricks [cluster sizing](/azure/databricks/clusters/cluster-config-best-practices#--cluster-sizing-examples) examples.
 
-
 ### Performance efficiency
 
 If the amount of input data is large, consider using [Ray Dataset](https://docs.ray.io/en/latest/data/dataset.html) along with Ray framework. Ray datasets provide distributed data transformations on various file formats and are easily integrated with other Ray libraries and applications.
@@ -136,7 +127,6 @@ If the amount of input data is large, consider using [Ray Dataset](https://docs.
 If you use mapping data flows in Azure Data Factory for ETL, follow [the performance and tuning guide](/azure/data-factory/concepts-data-flow-performance) to optimize your data pipeline and ensure that your dataflows meet your performance benchmarks.
 
 Often, for optimization and Operations Research problems, compute-intensive calculations run after the inferencing is invoked. If you use the Ray framework for distributed computing, as suggested in this article, make sure to utilize [Ray Dashboard](https://docs.ray.io/en/latest/ray-core/ray-dashboard.html) to monitor the execution metrics and increase the node counts in Kubernetes cluster.
-
 
 ## Contributors
 
@@ -152,7 +142,6 @@ Other contributors:
 - [Gary Moore](https://www.linkedin.com/in/gwmoore) | Programmer/Writer
 - [Arash Mosharraf](https://www.linkedin.com/in/arashaga) | Senior Cloud Solution Architect
 
-
 ## Next steps
 
 -   [Copy and ingest data using Azure Data Factory](/azure/data-factory/data-factory-tutorials#copy-and-ingest-data)
@@ -162,7 +151,6 @@ Other contributors:
 -   [Ray installation on Kubernetes](https://docs.ray.io/en/latest/cluster/kubernetes.html)
 -   [Ray on Databricks](https://databricks.com/blog/2021/11/19/ray-on-databricks.html)
 -   [Security baseline for Azure Machine Learning service](https://docs.microsoft.com/security/benchmark/azure/baselines/machine-learning-security-baseline?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
-
 
 ## Related resources
 
