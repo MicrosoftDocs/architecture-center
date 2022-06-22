@@ -59,9 +59,6 @@ Principal author:
 
 ## Next steps
 
-- [Azure DevOps integration](https://azure.microsoft.com/product-categories/devops/)
-
-## Related resources
-
+- [Azure DevOps integration](https://azure.microsoft.com/product-categories/devops)
 - [Overview of device management with IoT Hub](/azure/iot-hub/iot-hub-device-management-overview)
-- [Streamlined IoT device certification with Azure IoT certification service](https://azure.microsoft.com/blog/streamlined-iot-device-certification-with-azure-iot-certification-service/)
+- [Streamlined IoT device certification with Azure IoT certification service](https://azure.microsoft.com/blog/streamlined-iot-device-certification-with-azure-iot-certification-service)
