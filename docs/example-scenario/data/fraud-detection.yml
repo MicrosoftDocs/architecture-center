@@ -15,7 +15,7 @@ metadata:
   ms.custom:
     - ai-ml
     - example-scenario
-  social_image_url: /azure/architecture/example-scenario/data/media/architecture-fraud-detection.png
+  social_image_url: /azure/architecture/example-scenario/data/media/architecture-fraud-detection-new.png
 name: Real-time fraud detection
 azureCategories:
   - security
@@ -25,6 +25,6 @@ products:
   - azure-blob-storage
   - azure-event-hubs
   - azure-stream-analytics
-thumbnailUrl: /azure/architecture/browse/thumbs/architecture-fraud-detection.png
+thumbnailUrl: /azure/architecture/browse/thumbs/architecture-fraud-detection-thumbnail-new.png
 content: |
    [!include[](fraud-detection-content.md)]
