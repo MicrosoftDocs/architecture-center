@@ -28,7 +28,7 @@ This architecture makes use of the following components:
 - [Azure Databricks] is a managed Apache Spark cluster for model training and evaluation. The scenario also uses [MMLSpark], a Spark-based framework designed for large-scale machine learning.
 - [Azure Container Registry] is used to package the scoring script as a container image, which is used to serve the model in production.
 - [Azure Kubernetes Service] is used to deploy the trained model to web or app services.
-- [Machine Learning] is used in this scenario to register the machine learning model and to deploy AKS.
+- [Azure Machine Learning] is used in this scenario to register the machine learning model and to deploy AKS.
 - [Microsoft Recommenders] is an open-source repository that contains utility code and samples. By using this repository, users can start to build, evaluate, and operationalize a recommender system.
 
 ## Scenario details
@@ -73,7 +73,7 @@ To better understand the cost of running this scenario on Azure, use the [Azure 
 - Training needs to happen daily to update the serving model.
 - Training will occur on [Azure Databricks] by using a cluster provisioned with 12 VMs using **L8s** instances.
 - Training will take an hour, including feature processing and model training plus validation.
-- [Machine Learning] will be used to deploy the model to AKS with a small three-node cluster using **D3** instances.
+- [Azure Machine Learning] will be used to deploy the model to AKS with a small three-node cluster using **D3** instances.
 - AKS cluster will autoscale as needed, resulting in two nodes per month being active on average.
 
 To see how pricing differs for your use case, change the variables to match your expected data size and serving load requirements. For larger or smaller training data sizes, the size of the Azure Databricks cluster can be increased or reduced, respectively. To handle larger numbers of concurrent users during model serving, the AKS cluster should be increased. For more information on scaling AKS to support latency and load requirements, review the [operationalization notebook](https://github.com/microsoft/recommenders/blob/master/examples/05_operationalize/lightgbm_criteo_o16n.ipynb).
@@ -114,7 +114,7 @@ Principal author:
 ## Next steps
 
 - To see more examples, tutorials, and tools to help you build your own recommendation system, visit the [Microsoft Recommenders] GitHub repository.
-- See the blog post, [Building recommender systems with Azure Machine Learning service](https://azure.microsoft.com/blog/building-recommender-systems-with-azure-machine-learning-service/).
+- See the blog post, [Building recommender systems with Azure Machine Learning service](https://azure.microsoft.com/blog/building-recommender-systems-with-azure-machine-learning-service).
 
 ## Related resources
 
@@ -134,7 +134,7 @@ Principal author:
 [Azure Databricks]: https://azure.microsoft.com/services/databricks
 [Azure Container Registry]: https://azure.microsoft.com/services/container-registry
 [Azure Kubernetes Service]: https://azure.microsoft.com/services/kubernetes-service
-[Machine Learning]: https://azure.microsoft.com/services/machine-learning-service
+[Azure Machine Learning]: https://azure.microsoft.com/services/machine-learning-service
 [Microsoft Recommenders]: https://github.com/Microsoft/Recommenders
 [MMLSpark]: https://aka.ms/spark
 [MML Spark Serving]: https://mmlspark.blob.core.windows.net/website/index.html
