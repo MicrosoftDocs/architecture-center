@@ -94,7 +94,7 @@ The solution notebooks can run on any Spark-based platform with minimal edits to
 - [SQL Server R services][sql-r]
 - [PySpark on an Azure Data Science Virtual Machine][py-dvsm]
 
-## Deploy the solution
+## Deploy this scenario
 
 To deploy this reference architecture, follow the steps described in the [GitHub][github] repository to build a scalable solution for scoring Spark models in batch on Azure Databricks.
 
