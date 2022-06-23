@@ -37,7 +37,8 @@ The following tables describe and compare the core compute services on Amazon We
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors:
+Principal author:
+
 * [Kobi Levi](https://www.linkedin.com/in/kobi-levi) | Cloud Solution Architect
 
 ## Next steps
