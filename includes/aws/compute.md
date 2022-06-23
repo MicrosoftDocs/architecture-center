@@ -1,6 +1,6 @@
 ---
-author: doodlemania2
-ms.author: adboegli
+author: EdPrice-MSFT
+ms.author: edprice
 ms.topic: include
 ms.service: architecture-center
 ---
@@ -14,6 +14,7 @@ Virtual machines (VMs) and servers allow users to deploy, manage, and maintain O
 | [Amazon EC2 Instance Types](https://aws.amazon.com/ec2/instance-types) | [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) | AWS and Azure on-demand VMs bill per seconds used. Although AWS instance types and Azure VM sizes have similar categories, the exact RAM, CPU, and storage capabilities differ. For information about Azure VM sizes, see [Azure VM sizes](/azure/virtual-machines/sizes).|
 | [VMware Cloud on AWS](https://aws.amazon.com/vmware) | [Azure VMware Solution](https://azure.microsoft.com/services/azure-vmware) | AWS and Azure solutions let you move VMware vSphere-based workloads and environments to the cloud. Azure VMware Solution is a VMware-verified Microsoft service that runs on Azure infrastructure. You can manage existing environments with VMware solution tools, while modernizing applications with cloud native services. |
 | [AWS Parallel Cluster](https://aws.amazon.com/hpc/parallelcluster) | [Azure CycleCloud](https://azure.microsoft.com/features/azure-cyclecloud) | Create, manage, operate, and optimize HPC and large compute clusters of any scale. |
+
 ### Autoscaling
 
 Autoscaling lets you automatically change the number of VM instances. You set defined metrics and thresholds that determine when to add or remove instances.
@@ -43,14 +44,6 @@ Several services provide different types of data storage for VM disks.
 
 ### Containers and container orchestrators
 
-<ul class="grid">
-
-[!INCLUDE [Azure Kubernetes Service (AKS) Baseline Cluster](../../includes/cards/aks-baseline.md)]
-[!INCLUDE [Microservices architecture on Azure Kubernetes Service (AKS)](../../includes/cards/aks.md)]
-[!INCLUDE [CI/CD pipeline for container-based workloads](../../includes/cards/devops-with-aks.md)]
-
-</ul>
-
 Several AWS and Azure services provide containerized application deployment and orchestration.
 
 | AWS service | Azure service | Description |
@@ -60,7 +53,25 @@ Several AWS and Azure services provide containerized application deployment and 
 | [Amazon Elastic Kubernetes Service (EKS)](https://aws.amazon.com/eks) | [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) | EKS and AKS let you orchestrate Docker containerized application deployments with Kubernetes. AKS simplifies monitoring and cluster management through auto upgrades and a built-in operations console. See [Container runtime configuration](/azure/aks/cluster-configuration#container-runtime-configuration) for specifics on the hosting environment.|
 | [AWS App Mesh](https://aws.amazon.com/app-mesh) | [Azure Service Fabric](/azure/service-fabric/service-fabric-overview)| Distributed systems platforms help you develop, deploy, and host scalable [microservices-based](/azure/service-fabric/service-fabric-overview-microservices) solutions without managing VMs, storage, or networking.
 
+#### Example container architectures
+
+<ul class="grid">
+
+[!INCLUDE [Azure Kubernetes Service (AKS) Baseline Cluster](../../includes/cards/aks-baseline.md)]
+[!INCLUDE [Microservices architecture on Azure Kubernetes Service (AKS)](../../includes/cards/aks.md)]
+[!INCLUDE [CI/CD pipeline for container-based workloads](../../includes/cards/devops-with-aks.md)]
+
+</ul>
+
 ### Serverless computing
+
+Serverless computing lets you integrate systems and run backend processes without provisioning or managing servers.
+
+| AWS service | Azure service | Description |
+| ----------- | ------------- | ----------- |
+| [AWS Lambda](https://aws.amazon.com/lambda) | [Azure Functions](https://azure.microsoft.com/services/functions), [WebJobs](/azure/app-service/web-sites-create-web-jobs) in Azure App Service| Azure Functions is the primary equivalent of AWS Lambda in providing serverless, on-demand code. AWS Lambda functionality also overlaps with Azure WebJobs, which let you schedule or continuously run background tasks.|
+
+#### Example serverless architectures
 
 <ul class="grid">
 
@@ -68,9 +79,4 @@ Several AWS and Azure services provide containerized application deployment and 
 [!INCLUDE [HIPAA and HITRUST compliant health data AI](../../includes/cards/security-compliance-blueprint-hipaa-hitrust-health-data-ai.md)]
 [!INCLUDE [Cross Cloud Scaling Architecture](../../includes/cards/cross-cloud-scaling.md)]
 
-</ul>Serverless computing lets you integrate systems and run backend processes without provisioning or managing servers.
-
-| AWS service | Azure service | Description |
-| ----------- | ------------- | ----------- |
-| [AWS Lambda](https://aws.amazon.com/lambda) | [Azure Functions](https://azure.microsoft.com/services/functions), [WebJobs](/azure/app-service/web-sites-create-web-jobs) in Azure App Service| Azure Functions is the primary equivalent of AWS Lambda in providing serverless, on-demand code. AWS Lambda functionality also overlaps with Azure WebJobs, which let you schedule or continuously run background tasks.|
-
+</ul>
