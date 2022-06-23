@@ -1,18 +1,6 @@
 <!-- cSpell:ignore fabraga -->
 
-This example scenario demonstrates how to use Azure Synapse Analytics with the extensive family of Azure Data Services to build a modern data platform that's capable of handling the most common data challenges in an organization.
-
 The solution described in this article combines a range of Azure services that will ingest, store, process, enrich, and serve data and insights from different sources (structured, semi-structured, unstructured, and streaming).
-
-## Potential use cases
-
-This approach can also be used to:
-
-- Establish a [data product](/azure/cloud-adoption-framework/scenarios/data-management/architectures/data-landing-zone-data-products) architecture, which consists of a data warehouse for structured data and a data lake for semi-structured and unstructured data. You can choose to deploy a single data product for centralized environments or multiple data products for distributed environments such as Data Mesh. See more information about [Data Management and Data Landing Zones](/azure/cloud-adoption-framework/scenarios/data-management/enterprise-scale-landing-zone).
-- Integrate relational data sources with other unstructured datasets, with the use of big data processing technologies.
-- Use semantic modeling and powerful visualization tools for simpler data analysis.
-- Share datasets within the organization or with trusted external partners.
-- Implement knowledge mining solutions to extract valuable business information hidden in images, PDFs, documents, and so on.
 
 ## Architecture
 
@@ -232,15 +220,15 @@ In order to improve the quality of your Azure solutions, follow the recommendati
 
 Following these recommendations, the services below should be considered as part of the design:
 
-1. [Azure Active Directory](https://azure.microsoft.com/services/active-directory): identity services, single sign-on and multi-factor authentication across Azure workloads.
+1. [Azure Active Directory](https://azure.microsoft.com/services/active-directory): identity services, Single Sign-On and multi-factor authentication across Azure workloads.
 1. [Azure Cost Management](https://azure.microsoft.com/services/cost-management): financial governance over your Azure workloads.
 1. [Azure Key Vault](https://azure.microsoft.com/services/key-vault): secure credential and certificate management. For example, [Azure Synapse Pipelines](/azure/data-factory/how-to-use-azure-key-vault-secrets-pipeline-activities), [Azure Synapse Spark Pools](/azure/synapse-analytics/spark/apache-spark-secure-credentials-with-tokenlibrary) and [Azure ML](/azure/machine-learning/how-to-use-secrets-in-runs) can retrieve credentials and certificates from Azure Key Vault used to securely access data stores.
 1. [Azure Monitor](https://azure.microsoft.com/services/monitor): collect, analyze, and act on telemetry information of your Azure resources to proactively identify problems and maximize performance and reliability.
 1. [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center): strengthen and monitor the security posture of your Azure workloads.
-1. [Azure DevOps](https://azure.microsoft.com/solutions/devops) & [GitHub](https://azure.microsoft.com/products/github): implement DevOps practices to enforce automation and compliance to your workload development and deployment pipelines for Azure Synapse and Azure ML.
+1. [Azure DevOps](https://azure.microsoft.com/solutions/devops) & [GitHub](https://azure.microsoft.com/products/github): implement DevOps practices to enforce automation and compliance with your workload development and deployment pipelines for Azure Synapse and Azure ML.
 1. [Azure Policy](/azure/governance/policy): implement organizational standards and governance for resource consistency, regulatory compliance, security, cost, and management.
 
-## Components
+### Components
 
 The following Azure services have been used in the architecture:
 
@@ -284,6 +272,20 @@ The following Azure services have been used in the architecture:
   - [Choosing a data analytics technology in Azure](../../data-guide/technology-choices/analysis-visualizations-reporting.md)
   - [Choosing a stream processing technology in Azure](../../data-guide/technology-choices/stream-processing.md)
 
+## Scenario details
+
+This example scenario demonstrates how to use Azure Synapse Analytics with the extensive family of Azure Data Services to build a modern data platform that's capable of handling the most common data challenges in an organization.
+
+## Potential use cases
+
+This approach can also be used to:
+
+- Establish a [data product](/azure/cloud-adoption-framework/scenarios/data-management/architectures/data-landing-zone-data-products) architecture, which consists of a data warehouse for structured data and a data lake for semi-structured and unstructured data. You can choose to deploy a single data product for centralized environments or multiple data products for distributed environments such as Data Mesh. See more information about [Data Management and Data Landing Zones](/azure/cloud-adoption-framework/scenarios/data-management/enterprise-scale-landing-zone).
+- Integrate relational data sources with other unstructured datasets, with the use of big data processing technologies.
+- Use semantic modeling and powerful visualization tools for simpler data analysis.
+- Share datasets within the organization or with trusted external partners.
+- Implement knowledge mining solutions to extract valuable business information hidden in images, PDFs, documents, and so on. This scenario applies to most industries, but it's ideal for the media, entertainment, finance, and healthcare industries.
+
 ## Considerations
 
 The technologies in this architecture were chosen because each of them provides the necessary functionality to handle the most common data challenges in an organization. These services meet the requirements for scalability and availability, while helping them control costs. The services covered by this architecture are only a subset of a much larger family of Azure services. Similar outcomes can be achieved by using other services or features not covered by this design.
@@ -292,7 +294,7 @@ Specific business requirements for your analytics use cases may also ask for the
 
 Similar architecture can also be implemented for pre-production environments where you can develop and test your workloads. Consider the specific requirements for your workloads and the capabilities of each service for a cost-effective pre-production environment.
 
-## Pricing
+### Cost optimization
 
 In general, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs. The ideal individual pricing tier and the total overall cost of each service included in the architecture is dependent on the amount of data to be processed and stored and the acceptable performance level expected. Use the guide below to learn more about how each service is priced:
 
@@ -318,7 +320,7 @@ In general, use the [Azure pricing calculator](https://azure.microsoft.com/prici
 
 *This article is being updated and maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors:
+Principal author:
 
 * [Fabio Braga](https://au.linkedin.com/in/fabiohemylio) | Principal MTC Technical Architect
 
