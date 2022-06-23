@@ -5,11 +5,7 @@ metadata:
   description: Learn to build virtual desktop infrastructure solutions at enterprise scale using Microsoft FSLogix.
   author: christiaanbrinkhoff
   ms.author: chbrinkh
-<<<<<<< HEAD
-  ms.date: 06/14/2022
-=======
-  ms.date: 06/21/2022
->>>>>>> 1d74ce1e8871e9fa459a9e88b0b70070cf7b2613
+  ms.date: 06/24/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
