@@ -62,7 +62,7 @@ For details about SAP support for Azure virtual machine types and throughput met
 
 ### SAP Web Dispatcher
 
-The Web Dispatcher component is used as a load balancer for SAP traffic among the SAP application servers. To achieve [high availability of the SAP Web Dispatcher](https://help.sap.com/doc/saphelp_nw73ehp1/7.31.19/en-US/48/9a9a6b48c673e8e10000000a42189b/frameset.htm), Azure Load Balancer implements either the failover cluster or the parallel Web Dispatcher setup. For internet facing communications a stand-alone solution in DMZ would be the recommended architecture to satisfy security concerns. [Embedded Web Dispatcher on ASCS](https://help.sap.com/viewer/00b4e4853ef3494da20ebcaceb181d5e/LATEST/en-US/2e708e2d42134b4baabdfeae953b24c5.html) is a special option, proper sizing due to additional workload on ASCS should be taken into account.
+The Web Dispatcher component is used as a load balancer for SAP traffic among the SAP application servers. To achieve [high availability of the SAP Web Dispatcher](https://help.sap.com/viewer/683d6a1797a34730a6e005d1e8de6f22/201909.002/en-US/489a9a6b48c673e8e10000000a42189b.html), Azure Load Balancer implements either the failover cluster or the parallel Web Dispatcher setup. For internet facing communications a stand-alone solution in DMZ would be the recommended architecture to satisfy security concerns. [Embedded Web Dispatcher on ASCS](https://help.sap.com/viewer/00b4e4853ef3494da20ebcaceb181d5e/LATEST/en-US/2e708e2d42134b4baabdfeae953b24c5.html) is a special option, proper sizing due to additional workload on ASCS should be taken into account.
 
 ### Fiori Front-end Server (FES)
 
@@ -95,7 +95,7 @@ Availability sets distribute servers to different physical infrastructure and up
 
 All virtual machines in a set must perform the same role. Do not mix servers of different roles in the same availability set. For example, don't place an ASCS node in the same availability set with application servers.
 
-You can deploy Azure availability sets within [Azure Availability Zones](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones) when you use a [proximity placement group](/azure/virtual-machines/linux/co-location).
+You can deploy Azure availability sets within [Azure availability zones](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones) when you use a [proximity placement group](/azure/virtual-machines/linux/co-location).
 
 ### Networking
 
@@ -167,7 +167,7 @@ Some SAP applications require frequent communication with the database. Network 
 We advise against the placement of any network virtual appliance (NVA) in between the application and the database layers for any SAP application stack, because this practice introduces significant data packets processing time and unacceptably slows application performance.
 
 We also recommend you consider performance when deploying resources with
-[Availability Zones](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones), which can enhance service availability as described later in this article. Consider creating a clear network latency profile between all zones of a target region. This helps you decide on the resource placement for minimum latency between zones. To create this profile, run a test by deploying small virtual machines in each zone. Recommended tools for the test include
+[availability zones](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones), which can enhance service availability as described later in this article. Consider creating a clear network latency profile between all zones of a target region. This helps you decide on the resource placement for minimum latency between zones. To create this profile, run a test by deploying small virtual machines in each zone. Recommended tools for the test include
 [PsPing](/sysinternals/downloads/psping) and
 [Iperf](https://sourceforge.net/projects/iperf/). After testing, remove these virtual machines. The [public domain network latency test tool](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/master/AvZone-Latency-Test) is also available for your convenience.
 
@@ -182,7 +182,7 @@ At the database layer, this architecture runs SAP HANA S/4 applications on Azure
 
 ## Availability considerations
 
-Resource redundancy is the general theme in highly available infrastructure solutions. For single instance VM availability SLA associates with the storage types selection, please see [SLA for Virtual Machines](/support/legal/sla/virtual-machines/v1_9/). When redundant resources are deployed in an availability set or across Availability Zones, the service availability is elevated.
+Resource redundancy is the general theme in highly available infrastructure solutions. For single instance VM availability, the SLA is associated with the storage types selection. See [SLA for Virtual Machines](/support/legal/sla/virtual-machines/v1_9/). When redundant resources are deployed in an availability set or across availability zones, the service availability is elevated.
 
 In this distributed installation of the SAP application, the base installation is replicated to achieve high availability. For each layer of the architecture, the high availability design varies.
 
@@ -223,13 +223,13 @@ This reference architecture depicts a highly available SAP HANA database system 
 
 - Much like the application servers layer, the commonly deployed HANA high availability solution for SLES is Pacemaker and SIOS LifeKeeper for RHEL.
 
-### Deploy virtual machines across Availability Zones
+### Deploy virtual machines across availability zones
 
-[Availability Zones](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones) can help enhance service availability. Zones refer to physically separated locations within a specific Azure region. They improve workload availability and protect application services and virtual machines against datacenter outages. Virtual machines in a single zone are treated as if they were in a single update or fault domain. When zonal deployment is selected, virtual machines in the same zone are distributed to fault and upgrade domains on a best-effort basis.
+[Availability zones](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones) can help enhance service availability. Zones refer to physically separated locations within a specific Azure region. They improve workload availability and protect application services and virtual machines against datacenter outages. Virtual machines in a single zone are treated as if they were in a single update or fault domain. When zonal deployment is selected, virtual machines in the same zone are distributed to fault and upgrade domains on a best-effort basis.
 
 In [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/) that support this feature, at least three zones are available. However, the maximum distance between datacenters in these zones is not guaranteed. To deploy a multi-tier SAP system across zones, you must know the network latency within a zone and across targeted zones, and how sensitive your deployed applications are to network latency.
 
-Several [considerations](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones) apply when deciding to deploy resources across Availability Zones, including:
+Several [considerations](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones) apply when deciding to deploy resources across availability zones, including:
 
 - Latency between virtual machines within one zone.
 
@@ -238,7 +238,7 @@ Several [considerations](/azure/virtual-machines/workloads/sap/sap-ha-availabili
 - Availability of the same Azure services (virtual machine types) in the chosen zones.
 
 > [!NOTE]
-> Availability Zones support high availability but are not an effective disaster recovery (DR) strategy. The distance between zones is too close. Typical DR regions should be at least 100 miles away from the primary region.
+> Availability zones support high availability but are not an effective disaster recovery (DR) strategy. The distance between zones is too close. Typical DR regions should be at least 100 miles away from the primary region.
 
 **Active/passive deployment example**
 

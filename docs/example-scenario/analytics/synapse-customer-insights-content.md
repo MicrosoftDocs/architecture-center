@@ -3,15 +3,17 @@ Managing customer data from multiple sources and building a unified Customer 360
 *Apache®, Apache Ignite, Ignite, and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
 ## Potential use cases
+
 This solution was created for a property management organization. It can also be applied in industries like retail, financial services, manufacturing, and health care. It can be used by any organization that needs to bring data together across systems to build a Customer 360 profile and improve the customer experience.
 
-You can use this solution to: 
+You can use this solution to:
 - Gain better insights from your customer data. 
 - Target sources of customer churn or dissatisfaction.
 - Direct account and customer service activities.
 - Run targeted promotions that are aimed at customer retention or upselling.
 
 ## Architecture
+
 :::image type="content" border="false" source="./media/customer-360.png" alt-text="Diagram that shows an architecture for a Customer 360 solution that uses Azure Synapse Analytics and Dynamics 365 Customer Insights." lightbox="./media/customer-360.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/customer-360-architecture.vsdx) of this architecture.*
@@ -28,6 +30,7 @@ You can use this solution to:
 8.	Power BI ingests the Customer 360 data from Customer Insights to visualize the profiles and metrics.
 
 ### Components
+
 - [Dynamics 365 Customer Insights](https://dynamics.microsoft.com/ai/customer-insights/audience-insights-capability) can help you provide unmatched customer experiences by using world-class AI and analytics. Here, it's used to unify, segment, and enrich customer data.
 - [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) is an analytics service that brings together data integration, enterprise data warehousing, and big data analytics. It's used here for data ingestion, storage, and processing.
 - [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) provides a massively scalable and secure data lake for your high-performance analytics workloads.  
@@ -36,6 +39,7 @@ You can use this solution to:
 
 ## Considerations
 ### Security 
+
 This solution uses Azure Active Directory (Azure AD) to authenticate users to the Azure solutions in the architecture. You can manage permissions via Azure AD authentication or role-based access control. 
 
 Follow these security guidelines when you implement this solution:
@@ -44,14 +48,17 @@ Follow these security guidelines when you implement this solution:
 - [User permissions for Customer Insights](/dynamics365/customer-insights/audience-insights/permissions)
 
 ### Scalability
+
 This solution uses Azure Synapse Spark clusters, which can be automatically scaled up and down based on the activity needs of your workload. For more information, see [Azure Synapse Spark cluster autoscaling](/azure/synapse-analytics/spark/apache-spark-pool-configurations#autoscale).  
 
 Azure Machine Learning training pipelines can be scaled up and down based on data size and other configuration parameters. The compute clusters support autoscaling and automatic shutdown to optimize for performance and cost. 
 
 ## Deploy this scenario
+
 To deploy this solution, follow the steps in the [Getting Started guide](https://github.com/microsoft/Azure-Synapse-Customer-Insights-Customer360-Solution-Accelerator#getting-started) and the step-by-step [Deployment Guide](https://github.com/microsoft/Azure-Synapse-Customer-Insights-Customer360-Solution-Accelerator/blob/main/Deployment/AzureSetup.md). You can find them in the [GitHub repository](https://github.com/microsoft/Azure-Synapse-Customer-Insights-Customer360-Solution-Accelerator#about-this-repository) for the solution.
 
 ## Pricing
+
 [Dynamics 365 Customer Insights](https://dynamics.microsoft.com/ai/customer-insights/pricing) license pricing options are based on the number of customer profiles needed.
 
 [Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/synapse-analytics) has various pricing options to help you optimize costs. You can perform big data processing tasks like data engineering, data preparation, and machine learning directly in Azure Synapse by using memory-optimized or hardware-accelerated Apache Spark pools. Billing for usage of Spark pools is rounded up to the nearest minute.
@@ -68,6 +75,14 @@ You can deploy this solution with the following options.
    - Compute cluster of type Standard_D2_v2
 
 Azure services like Azure Storage accounts, Key Vault, Container Registry, Application Insights, and so on, that are deployed with Azure Synapse Analytics and Azure Machine Learning incur other costs.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+* [Nalini Chandhi](https://www.linkedin.com/in/nalinichandhi) | Sr. Technical Specialist
 
 ## Next steps
 - [Unlock customer intent with Dynamics 365 Customer Insights](/learn/paths/build-customer-insights)

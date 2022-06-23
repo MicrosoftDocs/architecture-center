@@ -101,7 +101,7 @@ Each of the saga participants must retain the operation context, but may impleme
 
 - Short-running synchronous operations retain the operation context.
 - Azure Storage provides an opaque string property called `ClientRequestId` for most operations.
-- Azure Media Services V3 has a `Job.CorrelationData` property, or Azure Media Services V2 allows the `Task.Name` to be any string.
+- Azure Media Services v3 has a `Job.CorrelationData` property.
 - Other cloud APIs offer similar concepts to an opaque operation context that they can return when signaling progress, completion, or failure.
 
 For more information about sagas and saga participants, see [Saga orchestration](gridwich-saga-orchestration.yml).
@@ -209,7 +209,6 @@ The Gridwich media processing solution uses Azure Event Grid, Azure Functions, A
 - [Terraform starter project for Azure Pipelines](https://github.com/microsoft/terraform-azure-devops-starter)
 - [Azure Function with Event Grid and Terraform Sandwich sample](https://github.com/Azure-Samples/azure-functions-event-grid-terraform). Subscribe an Azure Function to Event Grid Events via Terraform, using a Terraform Sandwich.
 - [MediaInfoLib with Azure Storage](https://github.com/Azure-Samples/functions-dotnet-core-mediainfo). Azure Functions and console samples that use cross-platform .NET Core to retrieve a report on a media file stored in Azure Storage.
-- [AMS V2 REST API samples](https://github.com/Azure-Samples/media-services-v2-dotnet-core-restsharp-sample). A variety of Azure Media Services V2 REST API samples using RestSharp in .NET Core 3.1.
 - [Event Grid Viewer Blazor](https://github.com/Azure-Samples/eventgrid-viewer-blazor). An EventGrid Viewer application, using Blazor and SignalR, with Azure Active Directory authorization support.
 - [Azure Function with Managed Service Identity for Azure Storage](https://github.com/Azure-Samples/functions-storage-managed-identity). Use Managed Service Identity between Azure Functions and Azure Storage.
 - [Handling serverless Key Vault rotation](https://github.com/Azure-Samples/serverless-keyvault-secret-rotation-handling). Use Event Grid and Logic Apps to handle Azure Key Vault secret rotation changes that an Azure Function uses.

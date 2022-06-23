@@ -81,7 +81,7 @@ Azure public MEC supports AKS and [Azure Virtual Machine Scale Sets](https://azu
 
 ### Load balancing options
 
-AKS internally supports multiple options to load balance incoming traffic. The [NGINX Ingress Controller](https://docs.nginx.com/nginx-ingress-controller) is shown in the architecture diagram, but there are other load balancers that you can use with AKS. For more information, see [Use an internal load balancer with Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/internal-lb).
+AKS internally supports multiple options to load balance incoming traffic. The [NGINX Ingress Controller](https://docs.nginx.com/nginx-ingress-controller) is shown in the architecture diagram, but there are other load balancers that you can use with AKS. For more information, see [Use an internal load balancer with Azure Kubernetes Service (AKS)](/azure/aks/internal-lb).
 
 ### Performance
 
@@ -96,12 +96,20 @@ Azure public MEC doesn’t support Azure Storage accounts, so the blob Storage c
 - See [Azure pricing](https://azure.microsoft.com/pricing) for pricing information.
 - Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the cost of implementing this solution.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+* [Adhip Gupta](https://www.linkedin.com/in/adhip-gupta-40890516) | Senior Program Manager
+
 ## Next steps
 
 - [Azure public multi-access edge compute (MEC)](https://azure.microsoft.com/solutions/public-multi-access-edge-compute-mec)
-- [Azure Kubernetes Service (AKS) documentation](https://docs.microsoft.com/azure/aks)
-- [Azure Machine Learning documentation](https://docs.microsoft.com/azure/machine-learning)
-- [Azure CDN documentation](https://docs.microsoft.com/azure/cdn)
+- [Azure Kubernetes Service (AKS) documentation](/azure/aks)
+- [Azure Machine Learning documentation](/azure/machine-learning)
+- [Azure CDN documentation](/azure/cdn)
 
 ## Related resources
 

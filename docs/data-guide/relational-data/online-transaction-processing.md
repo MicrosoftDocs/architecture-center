@@ -2,8 +2,8 @@
 title: Online transaction processing (OLTP)
 description: Learn about atomicity, consistency, and other features of online transaction processing (OLTP), which manages transactional data while supporting querying.
 author: EdPrice-MSFT
-ms.author: pnp
-ms.date: 07/27/2019
+ms.author: edprice
+ms.date: 06/21/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -27,7 +27,7 @@ Transactions typically need to be *atomic* and *consistent*. Atomicity means tha
 
 Transactional databases can support strong consistency for transactions using various locking strategies, such as pessimistic locking, to ensure that all data is strongly consistent within the context of the enterprise, for all users and processes.
 
-The most common deployment architecture that uses transactional data is the data store tier in a 3-tier architecture. A 3-tier architecture typically consists of a presentation tier, business logic tier, and data store tier. A related deployment architecture is the [N-tier](../../guide/architecture-styles/n-tier.md) architecture, which may have multiple middle-tiers handling business logic.
+The most common deployment architecture that uses transactional data is the data store tier in a 3-tier architecture. A 3-tier architecture typically consists of a presentation tier, business logic tier, and data store tier. A related deployment architecture is the [N-tier](../../guide/architecture-styles/n-tier.yml) architecture, which may have multiple middle-tiers handling business logic.
 
 ## Typical traits of transactional data
 
@@ -151,3 +151,11 @@ The following tables summarize the key differences in capabilities.
 |                                         Multi-factor authentication                                         |        Yes         |                  No                    |            Yes           |              Yes              |
 | Supports [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) |        Yes         |                  Yes                   |            No            |              No               |
 |                                                 Private IP                                                  |         No         |                  Yes                   |            No            |              No               |
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+- [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect

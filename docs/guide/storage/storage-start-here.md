@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Get an overview of Azure Storage technologies, guidance offerings, solution ideas, and reference architectures.  
 author: EdPrice-MSFT
 ms.author: edprice 
-ms.date: 02/18/2022
+ms.date: 04/01/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -40,23 +40,23 @@ If you're new to storage on Azure, the best way to learn more is with [Microsoft
 [Store data in Azure](/learn/paths/store-data-in-azure) learning path. 
 
 ## Path to production
-- Choose the storage approach that best meets your needs and then create an account. For more information, see [Storage account overview](/azure/storage/common/storage-account-overview?toc=https:%2f%2fdocs.microsoft.com/azure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com/azure%2farchitecture%2fbread%2ftoc.json). 
+- Choose the storage approach that best meets your needs and then create an account. For more information, see [Storage account overview](/azure/storage/common/storage-account-overview?toc=/azure%2farchitecture%2ftoc.json&bc=/azure%2farchitecture%2fbread%2ftoc.json). 
 
 - Be sure you understand security and reliability. See these articles: 
-  - [Azure Storage encryption for data at rest](/azure/storage/common/storage-service-encryption?toc=https:%2f%2fdocs.microsoft.com/azure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com/azure%2farchitecture%2fbread%2ftoc.json)
-  - [Use private endpoints - Azure Storage](/azure/storage/common/storage-private-endpoints?toc=https:%2f%2fdocs.microsoft.com/azure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com/azure%2farchitecture%2fbread%2ftoc.json)
-  - [Data redundancy - Azure Storage](/azure/storage/common/storage-redundancy?toc=https:%2f%2fdocs.microsoft.com/azure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com/azure%2farchitecture%2fbread%2ftoc.json) 
-  - [Disaster recovery and storage account failover - Azure Storage](/azure/storage/common/storage-disaster-recovery-guidance?toc=https:%2f%2fdocs.microsoft.com/azure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com/azure%2farchitecture%2fbread%2ftoc.json)
+  - [Azure Storage encryption for data at rest](/azure/storage/common/storage-service-encryption?toc=/azure%2farchitecture%2ftoc.json&bc=/azure%2farchitecture%2fbread%2ftoc.json)
+  - [Use private endpoints - Azure Storage](/azure/storage/common/storage-private-endpoints?toc=/azure%2farchitecture%2ftoc.json&bc=/azure%2farchitecture%2fbread%2ftoc.json)
+  - [Data redundancy - Azure Storage](/azure/storage/common/storage-redundancy?toc=/azure%2farchitecture%2ftoc.json&bc=/azure%2farchitecture%2fbread%2ftoc.json) 
+  - [Disaster recovery and storage account failover - Azure Storage](/azure/storage/common/storage-disaster-recovery-guidance?toc=/azure%2farchitecture%2ftoc.json&bc=/azure%2farchitecture%2fbread%2ftoc.json)
 
-- For information about migrating existing data, see the [Azure Storage migration guide](/azure/storage/common/storage-migration-overview?toc=https:%2f%2fdocs.microsoft.com/azure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com/azure%2farchitecture%2fbread%2ftoc.json). 
+- For information about migrating existing data, see the [Azure Storage migration guide](/azure/storage/common/storage-migration-overview?toc=/azure%2farchitecture%2ftoc.json&bc=/azure%2farchitecture%2fbread%2ftoc.json). 
 
 ## Best practices
 Depending on the storage technology you use, see the following best practices resources:
-- [Performance and scalability checklist for Blob Storage](/azure/storage/blobs/storage-performance-checklist?toc=https:%2f%2fdocs.microsoft.com/azure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com/azure%2farchitecture%2fbread%2ftoc.json) 
-- [Best practices for using Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-best-practices?toc=https:%2f%2fdocs.microsoft.com/azure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com/azure%2farchitecture%2fbread%2ftoc.json) 
-- [Planning for an Azure Files deployment](/azure/storage/files/storage-files-planning?toc=https:%2f%2fdocs.microsoft.com/azure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com/azure%2farchitecture%2fbread%2ftoc.json)
-- [Performance and scalability checklist for Queue Storage](/azure/storage/queues/storage-performance-checklist?toc=https:%2f%2fdocs.microsoft.com/azure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com/azure%2farchitecture%2fbread%2ftoc.json)  
-- [Azure Storage table design patterns](/azure/storage/tables/table-storage-design-patterns?toc=https:%2f%2fdocs.microsoft.com/azure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com/azure%2farchitecture%2fbread%2ftoc.json) 
+- [Performance and scalability checklist for Blob Storage](/azure/storage/blobs/storage-performance-checklist?toc=/azure%2farchitecture%2ftoc.json&bc=/azure%2farchitecture%2fbread%2ftoc.json) 
+- [Best practices for using Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-best-practices?toc=/azure%2farchitecture%2ftoc.json&bc=/azure%2farchitecture%2fbread%2ftoc.json) 
+- [Planning for an Azure Files deployment](/azure/storage/files/storage-files-planning?toc=/azure%2farchitecture%2ftoc.json&bc=/azure%2farchitecture%2fbread%2ftoc.json)
+- [Performance and scalability checklist for Queue Storage](/azure/storage/queues/storage-performance-checklist?toc=/azure%2farchitecture%2ftoc.json&bc=/azure%2farchitecture%2fbread%2ftoc.json)  
+- [Azure Storage table design patterns](/azure/storage/tables/table-storage-design-patterns?toc=/azure%2farchitecture%2ftoc.json&bc=/azure%2farchitecture%2fbread%2ftoc.json) 
 
 ## Blob Storage
 See the following guides for information about Blob Storage:
@@ -110,7 +110,7 @@ Here are a few sample implementations of storage on Azure:
 - [Medical data storage solutions](/azure/architecture/solution-ideas/articles/medical-data-storage)
 - [HPC media rendering](/azure/architecture/solution-ideas/articles/azure-batch-rendering)
 
-[See more storage examples in the Azure Architecture Center.](/azure/architecture/browse/?azure_categories=analytics%2Cstorage)
+[See more storage examples in the Azure Architecture Center.](/azure/architecture/browse/?azure_categories=storage)
 
 ### AWS or Google Cloud professionals
 

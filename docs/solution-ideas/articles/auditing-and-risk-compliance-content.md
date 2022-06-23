@@ -3,9 +3,18 @@
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This architecture demonstrates how to use [knowledge mining](https://azure.microsoft.com/solutions/knowledge-mining/) in auditing, risk, and compliance management.
+This architecture demonstrates how to use [knowledge mining](https://azure.microsoft.com/solutions/knowledge-mining) in auditing, risk, and compliance management.
 
-In the ever-changing world of regulations, organizations face the challenge of staying on top of audits and compliance. Mistakes in contracts and record-keeping can have serious financial ramifications. At the enterprise level, teams of lawyers might not be enough to catch everything when faced with thousands of pages of documentation. Knowledge mining can help organizations looking to stay compliant by enabling attorneys quickly find information from documents and flag important ideas.
+In the ever-changing world of regulations, organizations face the challenge of staying on top of audits and compliance. Mistakes in contracts and record-keeping can have serious financial ramifications. At the enterprise level, teams of lawyers might not be enough to catch everything when faced with thousands of pages of documentation. Knowledge mining can help organizations looking to stay compliant by enabling attorneys to quickly find information from documents and flag important ideas.
+
+## Potential use cases
+
+Organizations can utilize knowledge mining in order to:
+
+* Discover the root causes faster.
+* Forecast auditing times.
+* Assess and enforce compliance levels and risks.
+* Automate compliance reporting.
 
 ## Architecture
 
@@ -13,7 +22,7 @@ There are three steps in knowledge mining: ingest, enrich, and explore.
 
 ![Architecture Diagram: knowledge mining in auditing, risk, and compliance management.](../media/knowledge-mining-auditing-and-risk-compliance.png)
 
-### Data flow
+### Dataflow
 
 There are three steps:
 
@@ -31,17 +40,17 @@ There are three steps:
 
 ### Components
 
-Key technologies used to implement tools for technical content review and research
+Key technologies used to implement tools for technical content review and research:
 
-- [Azure Cognitive Search](/azure/search/)
-- [Microsoft Text Analytics API](https://azure.microsoft.com/services/cognitive-services/text-analytics/)
-- [Microsoft Translator Text API](https://azure.microsoft.com/services/cognitive-services/translator-text-api/)
-- [Web API custom skill interface](/azure/search/cognitive-search-custom-skill-interface)
+* [Azure Cognitive Search](/azure/search)
+* [Microsoft Text Analytics API](https://azure.microsoft.com/services/cognitive-services/text-analytics)
+* [Microsoft Translator Text API](https://azure.microsoft.com/services/cognitive-services/translator-text-api)
+* [Web API custom skill interface](/azure/search/cognitive-search-custom-skill-interface)
 
 ## Next steps
 
-- Use the [knowledge mining solution accelerator](/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining/) to build an initial knowledge mining prototype with Azure Cognitive Search.
+* Use the [knowledge mining solution accelerator](/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining) to build an initial knowledge mining prototype with Azure Cognitive Search.
 
-- Build an Azure Cognitive Search [custom skill](/azure/search/cognitive-search-custom-skill-interface).
+* Build an Azure Cognitive Search [custom skill](/azure/search/cognitive-search-custom-skill-interface).
 
-- Explore the Microsoft Learning Path [knowledge mining with Azure Cognitive Search](/learn/paths/implement-knowledge-mining-azure-cognitive-search/).
+* Explore the Microsoft Learning Path [knowledge mining with Azure Cognitive Search](/learn/paths/implement-knowledge-mining-azure-cognitive-search).

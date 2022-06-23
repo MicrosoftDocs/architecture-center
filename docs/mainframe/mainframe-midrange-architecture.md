@@ -2,8 +2,8 @@
 title: Azure mainframe and midrange architecture concepts and patterns
 titleSuffix: Azure Architecture Center
 description: An overview of Microsoft's Azure mainframe and midrange architectural concepts and guidance offerings.
-author: jjfrost
-ms.author: jfrost
+author: bhbandam
+ms.author: bhbandam
 ms.date: 12/13/2021
 ms.topic: conceptual
 ms.service: architecture-center
@@ -52,7 +52,7 @@ Part of demystifying mainframes involves decoding various overlapping terms. For
 
 #### MIPS
 
-The measurement of millions of instructions per second (MIPS) provides a constant value of the number of cycles per second, for a given machine. MIPS are used to measure the overall compute power of a mainframe. Mainframe vendors charge customers, based on MIPS usage. Customers can increase mainframe capacity to meet specific requirements. IBM maintains a [processor capacity index](https://www-01.ibm.com/servers/resourcelink/lib03060.nsf/pages/lsprITRzOSv2r1?OpenDocument), which shows the relative capacity across different mainframes.
+The measurement of millions of instructions per second (MIPS) provides a constant value of the number of cycles per second, for a given machine. MIPS are used to measure the overall compute power of a mainframe. Mainframe vendors charge customers, based on MIPS usage. Customers can increase mainframe capacity to meet specific requirements. IBM maintains a [processor capacity index](https://www.ibm.com/docs/en/cma/2.1.1?topic=211-capacity-management-analytics-terminology), which shows the relative capacity across different mainframes.
 
 The table below shows typical MIPS thresholds across small, medium, and large enterprise organizations (SORGs, MORGs, and LORGs).
 

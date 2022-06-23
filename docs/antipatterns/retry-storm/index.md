@@ -54,7 +54,7 @@ Client applications should follow some best practices to avoid causing a retry s
 
 Services should also protect themselves against retry storms.
 
-- Add a gateway layer so you can shut off connections during an incident. This is an example of the [Bulkhead pattern](../../patterns/bulkhead.md). Azure provides many different gateway services for different types of solutions including [Front Door](https://azure.microsoft.com/services/frontdoor/), [Application Gateway](https://azure.microsoft.com/services/application-gateway/), and [API Management](https://azure.microsoft.com/services/api-management/).
+- Add a gateway layer so you can shut off connections during an incident. This is an example of the [Bulkhead pattern](../../patterns/bulkhead.yml). Azure provides many different gateway services for different types of solutions including [Front Door](https://azure.microsoft.com/services/frontdoor/), [Application Gateway](https://azure.microsoft.com/services/application-gateway/), and [API Management](https://azure.microsoft.com/services/api-management/).
 - Throttle requests at your gateway, which ensures you won't accept so many requests that your back-end components can't continue to operate.
 - If you're throttling, send back a `retry-after` header to help clients understand when to reattempt their connections.
 

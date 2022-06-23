@@ -3,7 +3,7 @@ In this reference architecture, we'll build a baseline infrastructure that deplo
 ![GitHub logo](../../../_images/github.png) An implementation of this architecture is available on [GitHub: Azure Kubernetes Service (AKS) Secure Baseline Reference Implementation](https://github.com/mspnp/aks-secure-baseline). You can use it as a starting point and configure it as per your needs.
 
 > [!NOTE]
-> This reference architecture requires knowledge of Kubernetes and its concepts. If you need a refresher, see the [**Related articles**](#related-articles) section for resources.
+> This reference architecture requires knowledge of Kubernetes and its concepts. If you need a refresher, see the [**Learn more about AKS**](#learn-more-about-aks) section for resources.
 
 :::row:::
     :::column:::
@@ -71,6 +71,8 @@ This architecture uses a hub-spoke network topology. The hub and spoke(s) are de
 
 ![Hub-spoke network topology](images/secure-baseline-architecture.svg)
 
+*Download a [Visio file](https://arch-center.azureedge.net/secure-baseline-architecture.vsdx) of this architecture.*
+
 ### Hub
 
 The hub virtual network is the central point of connectivity and observability. Within the network, three subnets are deployed.
@@ -89,7 +91,7 @@ This subnet is a placeholder for [Azure Bastion](/azure/bastion/bastion-overview
 
 ### Spoke
 
-The spoke virtual network will contain the AKS cluster and other related resources. The spoke has three subnets:
+The spoke virtual network will contain the AKS cluster and other related resources. The spoke has four subnets:
 
 #### Subnet to host Azure Application Gateway
 
@@ -113,7 +115,9 @@ For additional information, [Private Link deployment options](../../../guide/net
 
 ## Plan the IP addresses
 
-![Network topology of the AKS cluster](images/baseline-network-topology.png)
+![Diagram showing network topology of the AKS cluster.](images/baseline-network-topology.svg)
+
+*Download a [Visio file](https://arch-center.azureedge.net/secure-baseline-aks_network_topology.vsdx) of this architecture.*
 
 The address space of the virtual network should be large enough to hold all subnets. Account for all entities that will receive traffic. IP addresses for those entities will be allocated from the subnet address space. Consider these points.
 
@@ -217,7 +221,7 @@ Be sure your Azure AD groups used for cluster and namespace access are included 
 
 #### Use Azure RBAC for Kubernetes Authorization
 
-Instead of using Kubernetes native RBAC ([ClusterRoleBindings and RoleBindings](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding)) for authorization with integrated AAD authentication, another option is to use Azure RBAC and Azure role assignments to enforce authorization checks on the cluster. These role assignments can even be added at the subscription or resource group scopes so that all clusters under the scope inherit a consistent set of role assignments with respect to who has permissions to access the objects on the Kubernetes cluster.
+Instead of using Kubernetes native RBAC ([ClusterRoleBindings and RoleBindings](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding)) for authorization with integrated Azure AD authentication, another option is to use Azure RBAC and Azure role assignments to enforce authorization checks on the cluster. These role assignments can even be added at the subscription or resource group scopes so that all clusters under the scope inherit a consistent set of role assignments with respect to who has permissions to access the objects on the Kubernetes cluster.
 
 For more information, see [Azure RBAC for Kubernetes Authorization](/azure/aks/manage-azure-rbac).
 
@@ -273,7 +277,7 @@ Here's an example from this architecture:
 Traefik uses the Kubernetes provider to configure routes. The `annotations`, `tls`, and `entrypoints` indicate that routes will be served over HTTPS. The `middlewares` specifies that only traffic from the Azure Application Gateway subnet is allowed. The responses will use gzip encoding if the client accepts. Because Traefik does TLS termination, communication with the backend services is over HTTP.
 
 ```yaml
-apiVersion:networking.k8s.io/v1beta1
+apiVersion:networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: aspnetapp-ingress
@@ -295,8 +299,10 @@ spec:
       paths:
       - path: /
         backend:
-          serviceName: aspnetapp-service
-          servicePort: http
+          service:
+            name: aspnetapp-service
+            port: 
+              name: http
 ```
 
 ## Secure the network flow
@@ -313,6 +319,8 @@ Network flow, in this context, can be categorized as:
 
 ![Cluster traffic flow](images/traffic-flow.png)
 
+*Download a [Visio file](https://arch-center.azureedge.net/secure-baseline-aks-traffic-flow.vsdx) of this architecture.*
+
 This architecture has several layers of security to secure all types of traffic.
 
 ### Ingress traffic flow
@@ -320,6 +328,8 @@ This architecture has several layers of security to secure all types of traffic.
 The architecture only accepts TLS encrypted requests from the client. TLS v1.2 is the minimum allowed version with a restricted set of cyphers. Server Name Indication (SNI) strict is enabled. End-to-end TLS is set up through Application Gateway by using two different TLS certificates, as shown in this image.
 
 ![TLS termination](images/tls-termination.png)
+
+*Download a [Visio file](https://arch-center.azureedge.net/secure-baseline-aks-tls-termination.vsdx) of this architecture.*
 
 1. The client sends an HTTPS request to the domain name: bicycle.contoso.com. That name is associated with through a DNS A record to the public IP address of Azure Application Gateway. This traffic is encrypted to make sure that the traffic between the client browser and gateway cannot be inspected or changed.
 
@@ -387,9 +397,9 @@ An effective way to manage an AKS cluster is by enforcing governance through pol
 
 When setting policies, apply them based on the requirements of the workload. Consider these factors:
 
-- Do you want to set a collection of policies (called initiatives) or choose individual policies. Azure Policy provides two built-in initiatives: basic and restricted. Each initiative is a collection of built-in policies applicable to an AKS cluster. It's recommended that you select an initiative *and* pick and choose additional policies for the cluster and the resources (ACR, Application Gateway, Key Vault, and others) that interact with the cluster, as per the requirements of your organization.
+- Do you want to set a collection of policies (called initiatives) or choose individual policies? Azure Policy provides two built-in initiatives: basic and restricted. Each initiative is a collection of built-in policies applicable to an AKS cluster. It's recommended that you select an initiative *and* pick and choose additional policies for the cluster and the resources (ACR, Application Gateway, Key Vault, and others) that interact with the cluster, as per the requirements of your organization.
 
-- Do you want to **Audit** or **Deny** the action. In **Audit** mode, the action is allowed but it's flagged as **Non-Compliant**. Have processes to check non-compliant states at a regular cadence and take necessary action. In **Deny** mode, the action is blocked because it violates the policy. Be careful in choosing this mode because it can be too restrictive for the workload to function.
+- Do you want to **Audit** or **Deny** the action? In **Audit** mode, the action is allowed but it's flagged as **Non-Compliant**. Have processes to check non-compliant states at a regular cadence and take necessary action. In **Deny** mode, the action is blocked because it violates the policy. Be careful in choosing this mode because it can be too restrictive for the workload to function.
 
 - Do you have areas in your workload that shouldn't be compliant by design? Azure Policy has the capability to specify Kubernetes namespaces which are exempt from policy enforcement. It's recommended that still apply policies in **Audit** mode so that you are aware of those instances.
 
@@ -535,11 +545,14 @@ Most workloads hosted in pods emit Prometheus metrics. Azure Monitor is capable 
 
 There are some third-party utilities integrated with Kubernetes. Take advantage of log and metrics platforms such as Grafana or Datadog, if your organization already uses them.
 
-With AKS, Azure manages some core Kubernetes services. Logs from those services should only be enabled per request from customer support. However, it is recommended that you enable these log sources as they can help you troubleshoot cluster issues:
+With AKS, Azure manages some core Kubernetes services and log capture from those services is configured in the Azure Diagnostics settings for the cluster. It is recommended that most clusters have the following enabled at all times as they can help you troubleshoot cluster issues and have a relatively low log density:
 
-- Logging on the ClusterAutoscaler to gain observability into the scaling operations. For more information, see [Retrieve cluster autoscaler logs and status](/azure/aks/cluster-autoscaler#retrieve-cluster-autoscaler-logs-and-status).
-- KubeControllerManager to have observability into pod scheduler.
-- KubeAuditAdmin to have observability into activities that modify your cluster.
+- Logging on the **ClusterAutoscaler** to gain observability into the scaling operations. For more information, see [Retrieve cluster autoscaler logs and status](/azure/aks/cluster-autoscaler#retrieve-cluster-autoscaler-logs-and-status).
+- **KubeControllerManager** to have observability into the interaction between Kubernetes and the Azure control plane.
+- **KubeAuditAdmin** to have observability into activities that modify your cluster.  There is no reason to have both **KubeAudit** and **KubeAuditAdmin** both enabled, as **KubeAudit** is a superset of **KubeAuditAdmin** that includes non-modify (read) operations as well.
+- **Guard** captures Azure Active Directory and Azure RBAC audits.
+
+Other log categories, such as **KubeScheduler** or **KubeAudit**, may be very helpful to enable during early cluster or workload lifecycle development, where added cluster autoscaling, pod placement & scheduling, and similar data could help troubleshoot cluster or workload operations concerns. Keeping the extended troubleshooting logs on full time, once the troubleshooting needs are over, may be considered an unnecessary cost to ingest and store in Azure Monitor.
 
 ### Enable self-healing
 
@@ -564,14 +577,15 @@ AKS provides new node images that have the latest OS and runtime updates. These 
 
 Between image upgrades, AKS nodes download and install OS and runtime patches, individually. An installation might require the node VMs to be rebooted. AKS will not reboot nodes due to pending updates. Have a process that monitors nodes for the applied updates that require a reboot and performs the reboot of those nodes in a controlled manner. An open-source option is [Kured](https://github.com/weaveworks/kured) (Kubernetes reboot daemon).
 
-Keeping your node images in sync with the latest weekly release will minimize these occasional reboot requests while maintaining an enhanced security posture. Relying just on node image upgrades will ensure AKS compatibility and weekly security patching. Whereas, applying daily updates will fix security issues faster, they haven't necessarily been tested in AKS. Where possible, use node image upgrade as your primary weekly security patching strategy.
+Keeping your node images in sync with the latest weekly release will minimize these occasional reboot requests while maintaining an enhanced security posture. Relying just on node image upgrades will ensure AKS compatibility and weekly security patching. Whereas applying daily updates will fix security issues faster, they haven't necessarily been tested in AKS. Where possible, use node image upgrade as your primary weekly security patching strategy.
 
 ### Security monitoring
 
 Monitor your container infrastructure for both active threats and potential security risks:
 
-- Enable [Microsoft Defender for Kubernetes](/azure/security-center/defender-for-kubernetes-introduction) for threat detection on your Kubernetes clusters.
-- Use [Microsoft Defender for Cloud](/azure/security-center/security-center-intro) (Defender for Cloud) to monitor Kubernetes security posture.
+- [Enable Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-enable) to [identify and remediate Defender for Cloud recommendations](/azure/defender-for-cloud/defender-for-containers-introduction#hardening) for your Container images.
+- Microsoft Defender for Containers regularly [scans your container images for vulnerabilities](/azure/defender-for-cloud/defender-for-containers-introduction#vulnerability-assessment).
+- Microsoft Defender for Containers also generates [real-time security alerts for suspicious activities](/azure/defender-for-cloud/defender-for-containers-introduction#run-time-protection-for-kubernetes-nodes-and-clusters).
 - For information about security hardening applied to AKS virtual machine hosts, see [Security Hardening in host OS](/azure/aks/security-hardened-vm-host-image).
 
 ## Cluster and workload operations (DevOps)
@@ -628,7 +642,7 @@ In this architecture, we've chosen [GitHub Actions](https://github.com/marketpla
 
 Instead of using an imperative approach like kubectl, use tools that automatically synchronize cluster and repository changes. To manage the workflow, such as release of a new version and validation of that version before deploying to production, consider a GitOps flow.
 
-An essential part of the CI/CD flow is the bootstrapping of a newly-provisioned cluster. A GitOps approach is useful towards this end, allowing operators to declaratively define the bootstrapping process as part of the IaC strategy and see the configuration reflected in the cluster automatically.
+An essential part of the CI/CD flow is the bootstrapping of a newly provisioned cluster. A GitOps approach is useful towards this end, allowing operators to declaratively define the bootstrapping process as part of the IaC strategy and see the configuration reflected in the cluster automatically.
 
 When using GitOps, an agent is deployed in the cluster to make sure that the state of the cluster is coordinated with configuration stored in your private Git repo. One such agent is [flux](https://docs.fluxcd.io/en/1.19.0/introduction/), which uses one or more operators in the cluster to trigger deployments inside Kubernetes. Flux does these tasks:
 
@@ -651,7 +665,7 @@ Here's an example that shows how to automate cluster configuration with GitOps a
 
 4.  Developers do not have direct access to the Kubernetes API through kubectl. Have branch policies on your git server. That way, multiple developers can approve a change before it's applied to production.
 
-While GitOps and flux can be configured manually, the [GitOps with Flux v2 cluster extension](/azure/azure-arc/kubernetes/tutorial-use-gitops-flux2) makes this process easy and comes with a offers a number of additional advantages, most notably a significant reduction in the gap between a provisioned cluster and a bootstrapped cluster. Its uniformity and ease of maintenance at scale make this the recommended method for teams responsible for a large number of clusters, referred to as a fleet.
+While GitOps and flux can be configured manually, the [GitOps with Flux v2 cluster extension](/azure/azure-arc/kubernetes/tutorial-use-gitops-flux2) makes this process easy and offers a number of additional advantages, most notably a significant reduction in the gap between a provisioned cluster and a bootstrapped cluster. Its uniformity and ease of maintenance at scale make this the recommended method for teams responsible for a large number of clusters, referred to as a fleet.
 
 ### Workload and cluster deployment strategies
 
@@ -691,7 +705,7 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 ### Monitor
 
-In order to monitor cost of the entire cluster, along with compute cost also gather cost information about storage, bandwidth, firewall, and logs. Azure provides various dashboards to monitor and analyze cost:
+In order to monitor cost of the entire cluster, along with compute cost, also gather cost information about storage, bandwidth, firewall, and logs. Azure provides various dashboards to monitor and analyze cost:
 
 -   [Azure Advisor](/azure/advisor/advisor-get-started)
 
@@ -717,11 +731,26 @@ For other cost-related information, see [AKS pricing](https://azure.microsoft.co
 
 ## Next Steps
 
+Continue learning about the AKS baseline architecture:
+
 - To learn about hosting Microservices on the AKS baseline, see [Advanced Azure Kubernetes Service (AKS) microservices architecture](../aks-microservices/aks-microservices-advanced.yml).
 - For deploying the AKS baseline across multiple regions, see [AKS baseline for multiregion clusters](../aks-multi-region/aks-multi-cluster.yml).
 - For deploying the AKS baseline into a PCI-DSS 3.2.1 environment, see [AKS regulated cluster for PCI-DSS 3.2.1](../aks-pci/aks-pci-intro.yml).
+
+### Learn more about AKS
+
 - The see the AKS product roadmap, see [Azure Kubernetes Service Roadmap on GitHub](https://github.com/Azure/AKS/projects/1).
+- If you need a refresher in Kubernetes, complete the [Intro to Kubernetes](/learn/paths/intro-to-kubernetes-on-azure/) and [Develop and deploy applications on Kubernetes](/learn/paths/develop-deploy-applications-kubernetes/) learning paths on Microsoft Learn.
 
-## Related articles
+## Related resources
 
-If you need a refresher in Kubernetes, complete the [Intro to Kubernetes](/learn/paths/intro-to-kubernetes-on-azure/) and [Develop and deploy applications on Kubernetes](/learn/paths/develop-deploy-applications-kubernetes/) learning paths on Microsoft Learn.
+See the following related guide:
+
+- [Azure Kubernetes Services (AKS) day-2 operations guide](/azure/architecture/operator-guides/aks/day-2-operations-guide)
+
+See the following related architectures:
+
+- [Microservices architecture on Azure Kubernetes Service](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices)
+- [Use Azure Firewall to help protect an Azure Kubernetes Service (AKS) cluster](/azure/architecture/example-scenario/aks-firewall/aks-firewall)
+- [GitOps for Azure Kubernetes Service](/azure/architecture/example-scenario/gitops-aks/gitops-blueprint-aks)
+- [Data streaming with AKS](/azure/architecture/solution-ideas/articles/data-streaming-scenario)

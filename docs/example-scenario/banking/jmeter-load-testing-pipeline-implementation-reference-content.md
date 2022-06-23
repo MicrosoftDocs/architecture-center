@@ -2,17 +2,17 @@
 
 This article provides an overview of an implementation for a scalable cloud load testing pipeline. The testing pipeline does a lot to carry out stress testing:
 
-* Creates infrastructure on-demand
+* Creates infrastructure on-demand.
 
-* Deploys the infrastructure
+* Deploys the infrastructure.
 
-* Executes testing
+* Executes testing.
 
-* Reports results
+* Reports results.
 
-* Destroys infrastructure on-demand
+* Destroys infrastructure on-demand.
 
-The implementation uses [Apache JMeter](https://jmeter.apache.org/) and [Terraform](https://www.terraform.io/) to provision and destroy the required infrastructure from Azure. It also enables observation and viewing of test results. The commercial software engineer (CSE) team used it to help a customer create a [banking system cloud transformation solution](banking-system-cloud-transformation.yml).
+The implementation uses [Apache JMeter](https://jmeter.apache.org) and [Terraform](https://www.terraform.io) to provision and destroy the required infrastructure from Azure. It also enables observation and viewing of test results. The commercial software engineer (CSE) team used it to help a customer create a [banking system cloud transformation solution](banking-system-cloud-transformation.yml).
 
 This implementation enables the following capabilities:
 
@@ -54,6 +54,8 @@ This solution is ideal for any scenario in which there's a need to evaluate the 
 
 :::image type="content" source="./images/load-testing-pipeline-jmeter.png" alt-text="Diagram of a load testing pipeline with JMeter, ACI, and Terraform.":::
 
+### Workflow
+
 The CSE team structured the load testing implementation into two Azure Pipelines:
 
 1. One pipeline builds a custom JMeter Docker container and pushes the image to Azure Container Registry (ACR). This structure provides flexibility for adding any JMeter plugin.
@@ -92,25 +94,25 @@ To integrate with Azure test results, the solution uses a Python script to conve
 
 * Azure
 
-  * [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
+  * [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines)
 
-  * [Azure Container Registry (ACR)](https://azure.microsoft.com/services/container-registry/)
+  * [Azure Container Registry (ACR)](https://azure.microsoft.com/services/container-registry)
 
-  * [Azure Container Instances (ACI)](https://azure.microsoft.com/services/container-instances/)
+  * [Azure Container Instances (ACI)](https://azure.microsoft.com/services/container-instances)
 
 * Open-source
 
-  * [Apache JMeter](https://jmeter.apache.org/)
+  * [Apache JMeter](https://jmeter.apache.org)
 
-  * [Terraform](https://www.terraform.io/)
+  * [Terraform](https://www.terraform.io)
 
 ## Next steps
 
 * Visit the project page on GitHub, at [Load testing pipeline with JMeter, ACI, and Terraform](https://github.com/Azure-Samples/jmeter-aci-terraform).
-* [Azure Container Instances (ACI)](/azure/container-instances/) – additional documentation and resources on ACI
+* [Azure Container Instances (ACI)](/azure/container-instances) – additional documentation and resources on ACI.
 * [An introduction to load testing basics and practices](https://apica-kb.atlassian.net/wiki/spaces/ALTTUTS/pages/5538048/LoadTesting+101) – Guide from [Apica](https://www.apica.io)
-* [Multilayered Cloud Applications Autoscaling Performance Estimation](https://www.researchgate.net/publication/323791761_Multilayered_Cloud_Applications_Autoscaling_Performance_Estimation) – Conference paper available from ResearchGate
+* [Multilayered Cloud Applications Autoscaling Performance Estimation](https://www.researchgate.net/publication/323791761_Multilayered_Cloud_Applications_Autoscaling_Performance_Estimation) – Conference paper available from ResearchGate.
 
 ## Related resources
 
-* [Banking system cloud transformation on Azure](banking-system-cloud-transformation.yml)  – describes the use of this load testing pipeline in the Financial Services Industry (FSI)
+* [Banking system cloud transformation on Azure](banking-system-cloud-transformation.yml)  – describes the use of this load testing pipeline in the Financial Services Industry (FSI).

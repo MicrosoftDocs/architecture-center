@@ -161,3 +161,11 @@ The following compares the requirements for each of the non-relational data stor
 | Wide (lots of columns/attributes) |  No | Yes | Yes |
 | Datum size | Small (KBs) | Large (GBs) to Very Large (TBs) | Small (KBs) |
 | Overall Maximum Scale | Large (low TBs)  | Very Large (PBs) | Large (low TBs) |
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+- [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect

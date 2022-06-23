@@ -1,6 +1,6 @@
 
 
-This reference architecture shows how to deploy virtual machines (VMs) and a virtual network configured for an [N-tier](../../guide/architecture-styles/n-tier.md) application, using Apache Cassandra on Linux for the data tier. [**Deploy this solution**](#deploy-the-solution).
+This reference architecture shows how to deploy virtual machines (VMs) and a virtual network configured for an [N-tier](../../guide/architecture-styles/n-tier.yml) application, using Apache Cassandra on Linux for the data tier. [**Deploy this solution**](#deploy-the-solution).
 
 [![N-tier architecture using Microsoft Azure](./images/n-tier-cassandra.png)](./images/n-tier-cassandra.png)
 

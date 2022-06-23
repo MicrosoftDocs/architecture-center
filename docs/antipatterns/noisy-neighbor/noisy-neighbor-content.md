@@ -58,5 +58,5 @@ From a service's perspective, the noisy neighbor issue may appear in several way
 
 ## Related resources
 
- * [Architectural considerations for a multitenant solution](../../guide/multitenant/considerations/overview.md)
+ * [Architectural considerations for a multitenant solution](../../guide/multitenant/considerations/overview.yml)
  * [Transient fault handling best practices](../../best-practices/transient-faults.md)

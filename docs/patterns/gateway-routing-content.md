@@ -60,6 +60,6 @@ On Azure, multiple services can be set up behind an [Application Gateway instanc
 
 ## Related guidance
 
-- [Backends for Frontends pattern](./backends-for-frontends.md)
+- [Backends for Frontends pattern](./backends-for-frontends.yml)
 - [Gateway Aggregation pattern](./gateway-aggregation.yml)
 - [Gateway Offloading pattern](./gateway-offloading.yml)

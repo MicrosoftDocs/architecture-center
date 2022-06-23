@@ -20,6 +20,7 @@ keywords:
   - "API design"
   - "RESTful web services"
   - "API standards"
+categories: featured
 ---
 
 <!-- cSpell:ignore HATEOAS -->
@@ -273,7 +274,7 @@ HTTP/1.1 303 See Other
 Location: /api/orders/12345
 ```
 
-For more information, see [Asynchronous Request-Reply pattern](../patterns/async-request-reply.md).
+For more information, see [Asynchronous Request-Reply pattern](../patterns/async-request-reply.yml).
 
 ## Filter and paginate data
 

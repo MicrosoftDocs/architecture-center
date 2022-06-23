@@ -46,7 +46,7 @@ Get up and running quickly.
 
 Create a plan to reduce risk, whether you're developing an app or migrating one.
 
-- Deploy the [enterprise-scale landing zone for small enterprise](https://github.com/Azure/Enterprise-Scale/blob/main/docs/reference/wingtip/README.md).
+- Review [Independent software vendor (ISV) considerations for Azure landing zones](/azure/cloud-adoption-framework/ready/landing-zone/isv-landing-zone).
 - [Implement source control](https://docs.github.com/en/get-started/quickstart/create-a-repo), [manage code changes](https://docs.github.com/en/get-started/quickstart/github-flow), and [set up continuous integration/continuous delivery (CI/CD) pipelines](https://docs.github.com/en/actions).
 - Complete your architecture in detail.
 - Do a [Well Architected Framework Review](/assessments/?mode=pre-assessment&session=local).

@@ -160,7 +160,7 @@ When you're designing encryption for data at rest, consider storage disks, AKS a
 
 By default, Azure Storage disks are encrypted at rest with Microsoft-managed keys. If you use non-ephemeral operating system disks, or add data disks, we recommend that you use customer-managed keys for control over the encryption keys. Encrypt outside of the storage layer and only write encrypted data into the storage medium. Also, make sure that the keys are never adjacent to the storage layer.
 
-For more information, see [Bing your own keys (BYOK) with Azure disks](/azure/aks/azure-disk-customer-managed-keys).
+For more information, see [Bring your own keys (BYOK) with Azure disks](/azure/aks/azure-disk-customer-managed-keys).
 
 Consider using BYOK for any other disks that might interact with the cluster, such as your Azure Bastion-fronted jump boxes. If you choose BYOK, the SKU choice for VMs and regional availability will be limited because this feature is not supported on all SKUs or regions.
 
@@ -214,13 +214,13 @@ The in-cluster `omsagent` pods running in `kube-system` are the Log Analytics co
 
 ### Security monitoring
 
-Use Microsoft Defender for Cloud to view and remediate security recommendations. Also view security alerts on your resources. Enable Microsoft Defender plans as they apply to various components of the cardholder data environment.
+Use [Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction) in Microsoft Defender for Cloud to view and remediate security recommendations and to view security alerts on your container resources. Enable Microsoft Defender plans as they apply to various components of the cardholder data environment.
 
 Integrate logs so that you're able to review, analyze, and query data efficiently. Azure provides several technology options. You can use Azure Monitor to write logs into a Log Analytics workspace. Another option is to integrate data into security information and event management (SIEM) solutions, such as Microsoft Sentinel.
 
 As required by the standard, all Log Analytics workspaces are set to a 90-day retention period. Consider setting up continuous export for longer-term storage. Don't store sensitive information in log data. Make sure access to archived log data is subject to the same levels of access controls as recent log data.
 
-For a complete perspective, see [Microsoft Defender for Cloud Enterprise Onboarding Guide](https://aka.ms/ASCOnboarding). This guide addresses enrollment, data exports to your SIEM solutions, responding to alerts, and building workflow automation.
+For a complete perspective, see [Microsoft Defender for Cloud Enterprise Onboarding Guide](https://aka.ms/MDfCOnboarding). This guide addresses enrollment, data exports to your SIEM solutions, responding to alerts, and building workflow automation.
 
 ## Related Azure services
 

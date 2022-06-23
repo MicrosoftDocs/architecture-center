@@ -112,7 +112,7 @@ The Saga pattern is less suitable for:
 
 The following patterns might also be useful when implementing this pattern:
 
-- [Choreography](../../patterns/choreography.md) has each component of the system participate in the decision-making process about the workflow of a business transaction, instead of relying on a central point of control.
+- [Choreography](../../patterns/choreography.yml) has each component of the system participate in the decision-making process about the workflow of a business transaction, instead of relying on a central point of control.
 - [Compensating transactions](../../patterns/compensating-transaction.yml) undo work performed by a series of steps, and eventually define a consistent operation if one or more steps fail. Cloud-hosted applications that implement complex business processes and workflows often follow this *eventual consistency model*.
 - [Retry](../../patterns/retry.yml) lets an application handle transient failures when it tries to connect to a service or network resource, by transparently retrying the failed operation. Retry can improve the stability of the application.
 - [Circuit breaker](../../patterns/circuit-breaker.yml) handles faults that take a variable amount of time to recover from, when connecting to a remote service or resource. Circuit breaker can improve the stability and resiliency of an application.

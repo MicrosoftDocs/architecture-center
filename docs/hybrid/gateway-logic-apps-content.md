@@ -1,6 +1,6 @@
-This reference architecture illustrates a logic app that's running in Microsoft Azure, which is triggered by Azure Spring Cloud. It then connects to on-premises resources such as Microsoft SQL Server and Microsoft SharePoint Server.
+This reference architecture illustrates a logic app that's running in Microsoft Azure, which is triggered by Azure Spring Apps. It then connects to on-premises resources such as Microsoft SQL Server and Microsoft SharePoint Server.
 
-![The diagram illustrates an Azure Spring Cloud resource triggering a Logic App that advances through a workflow that connects to on-premises SQL Server and SharePoint Server resources by using a data gateway.][architectural-diagram]
+![The diagram illustrates an Azure Spring Apps resource triggering a Logic App that advances through a workflow that connects to on-premises SQL Server and SharePoint Server resources by using a data gateway.][architectural-diagram]
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
@@ -13,7 +13,7 @@ Typical uses for this architecture include:
 
 The architecture consists of the following components:
 
-- **[Azure Spring Cloud][azure-spring-cloud]**. Spring Cloud provides a managed service that's designed and optimized specifically for [Spring][spring] microservices that are written in [Java][java].
+- **[Azure Spring Apps][azure-spring-cloud]**. Spring Apps provides a managed service that's designed and optimized specifically for [Spring][spring] microservices that are written in [Java][java].
 - **[Azure Logic Apps][azure-logic-app]**. Logic apps are automated workflows that are provided as a scalable cloud service for common enterprise orchestration tasks. Logic apps include [connectors][azure-logic-app-connectors] for many popular cloud services, on-premises products, or other software as a service applications. The Logic Apps workflow includes the following features:
   - **[Trigger][azure-logic-app-connectors-queue]** that fires whenever a new [Azure Queue storage][azure-storage-queues] message is received.
   - **[Action][azure-logic-app-actions-parse]** to parse the JavaScript Object Notation (JSON) body of the queue message.
@@ -78,7 +78,7 @@ An on-premises data gateway can be used with more than just Logic Apps. It's pos
 
 * [Connect an on-premises network to Azure](../reference-architectures/hybrid-networking/index.yml)
 * [Extend an on-premises network using ExpressRoute](../reference-architectures/hybrid-networking/expressroute.yml)
-* [Extend an on-premises network using VPN](../reference-architectures/hybrid-networking/vpn.yml)
+* [Extend an on-premises network using VPN](/azure/expressroute/expressroute-howto-coexist-resource-manager)
 
 [architectural-diagram]: ./images/gateway-logic-apps.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/gateway-logic-apps.vsdx

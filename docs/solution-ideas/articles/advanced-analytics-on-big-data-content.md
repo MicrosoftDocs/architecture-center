@@ -1,14 +1,20 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Transform your data into actionable insights using the best-in-class machine learning tools. 
+Transform your data into actionable insights using the best-in-class machine learning tools. This solution allows you to combine any data at any scale, and to build and deploy custom machine learning models at scale.
 
 ## Potential use cases
 
-This solution allows you to combine any data at any scale, and to build and deploy custom machine learning models at scale.
+Organizations have the ability to access more data than ever before. Advanced analytics help take advantage of data insights. Areas include:
+
+* Customer service.
+* Predictive maintenance.
+* Recommending products or services.
+* System optimization of everything from supply chains to data center operations.
+* Product and services development.
 
 ## Architecture
 
-:::image type="content" source="../media/advanced-analytics-on-big-data.png" alt-text="Diagram of a an advanced analytics architecture using Azure Synapse Analytics with Azure Data Lake Storage Gen2, Azure Analysis Services, Azure Cosmos DB, and Power BI." border="false":::
+:::image type="content" source="../media/advanced-analytics-on-big-data.png" alt-text="Diagram of an advanced analytics architecture using Azure Synapse Analytics with Azure Data Lake Storage Gen2, Azure Analysis Services, Azure Cosmos DB, and Power BI." border="false":::
 
 *Download an [SVG file](../media/advanced-analytics-on-big-data.svg) of this architecture.*
 
@@ -21,7 +27,7 @@ This solution allows you to combine any data at any scale, and to build and depl
 1. Query and report on data in [Power BI](/azure/analysis-services/analysis-services-connect-pbi).
 1. Take the insights from Apache Spark pools to Cosmos DB to make them accessible through web and mobile apps.
 
-### Components
+### Workflow
 
 * [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) is the fast, flexible, and trusted cloud data warehouse that lets you scale, compute, and store elastically and independently, with a massively parallel processing architecture.
 * [Synapse Pipelines Documentation](/azure/data-factory/concepts-pipelines-activities) allows you to create, schedule, and orchestrate your ETL/ELT workflows.

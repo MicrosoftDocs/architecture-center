@@ -28,6 +28,14 @@ The Copy-VmDigitalEvidence runbook:
 1. Copies the SHA-256 hash values, as well as the VM's BEK, KEK if applicable, and disk identification tags, to the SOC key vault
 1. Deletes all copies of the snapshots except the one in immutable Blob storage
 
+### Components
+
+- [Azure Key Vault](https://azure.microsoft.com/services/key-vault)
+- [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs)
+- [Hybrid Runbook Worker](/azure/automation/automation-hybrid-runbook-worker)
+- [Azure Automation](https://azure.microsoft.com/services/automation)
+- [Azure Active Directory](https://azure.microsoft.com/services/active-directory)(Azure AD)
+
 ### Alternatives
 
 If necessary, you can grant time-limited read-only SOC Storage account access to IP addresses from outside, on-premises networks, for investigators to download the digital evidence.
@@ -71,7 +79,7 @@ An Azure [Log Analytics workspace](/azure/azure-monitor/platform/resource-logs-c
 
 ## Regulatory Compliance
 
-One of the requirements when validating a CoC solution is compliance with security standards and regulations. All the components included in the above architecture are Azure standard services built upon a foundation of trust, security and [compliance](https://azure.microsoft.com/overview/trusted-cloud/compliance/).
+One of the requirements when validating a CoC solution is compliance with security standards and regulations. All the components included in the above architecture are Azure standard services built upon a foundation of trust, security and [compliance](https://azure.microsoft.com/overview/trusted-cloud/compliance).
 
 Azure has a wide range of compliance certifications, including certifications specific for global regions and countries and for key industries like healthcare, government, finance and education.
 
@@ -127,7 +135,7 @@ Azure provides services to all customers to monitor and alert on anomalies invol
 
 For compliance, some standards or regulations require evidence and all support infrastructure to be maintained in the same Azure region.
 
-## Implementation
+## Deploy this scenario
 
 The following PowerShell code samples of the Copy-VmDigitalEvidence runbook are available in GitHub:
 
@@ -243,6 +251,14 @@ To unlock an Azure data disk and mount it under the directory `datadisk`:
 
 After the script execution, you will be prompted for the encryption passphrase. Copy it from the script output to unlock and access the content of the Azure data disk.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+* [Simone Savi](https://www.linkedin.com/in/simone-savi-3b50aa7) | Senior Consultant
+
 ## Next steps
 
 For more information about Azure data-protection features, see:
@@ -259,5 +275,11 @@ For more information about Azure logging and auditing features, see:
 
 For more information about Microsoft Azure Compliance, see:
 
-- [Azure Compliance](https://azure.microsoft.com/overview/trusted-cloud/compliance/)
-- [Microsoft Azure Compliance Offerings](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/)
+- [Azure Compliance](https://azure.microsoft.com/overview/trusted-cloud/compliance)
+- [Microsoft Azure Compliance Offerings](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings)
+
+## Related resources
+
+- [Security architecture design](../../guide/security/security-start-here.yml)
+- [Azure Active Directory IDaaS in security operations](../aadsec/azure-ad-security.yml)
+- [Security considerations for highly sensitive IaaS apps in Azure](../../reference-architectures/n-tier/high-security-iaas.yml)

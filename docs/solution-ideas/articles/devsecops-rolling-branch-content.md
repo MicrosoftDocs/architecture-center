@@ -46,7 +46,7 @@ A developer’s day:
 * [GitHub Actions](https://github.com/features/actions). The engine that enables your CI/CD to work, like Jenkins or Azure DevOps.
   * [Workflows Triggers](https://docs.github.com/actions/learn-github-actions/events-that-trigger-workflows): You can configure your workflows to run when a specific activity on GitHub happens, at a scheduled time, or when an event outside of GitHub occurs.
   * [Deployment reviewers](https://docs.github.com/actions/managing-workflow-runs/reviewing-deployments): Jobs that reference an environment configured with required reviewers will wait for an approval before starting.
-* [GitHub Advanced Security](https://docs.github.com/get-started/learning-about-github/about-github-advanced-security). Advanced Security provides features to improve and maintain the quality of your code in three major areas. It requires an additional license.
+* [GitHub Advanced Security](https://docs.github.com/get-started/learning-about-github/about-github-advanced-security). Advanced Security provides features to improve and maintain the quality of your code in three major areas. It requires an extra license.
   * **Code scanning**: Search for potential security vulnerabilities and coding errors in your code.
   * **Secret scanning**: Detect secrets (for example, keys and tokens) that have been checked into the repository.
   * **Dependency review**: Show the full impact of changes to dependencies and see details of any vulnerable versions before you merge a PR.
@@ -54,10 +54,18 @@ A developer’s day:
 * [SonarCloud](https://sonarcloud.io/code-quality). Sonar Cloud’s static analysis detects bugs and code issues in your repositories and provides the feedback you need to write better code.
 * [Branching strategy](/azure/devops/repos/git/git-branching-guidance). Define the naming conventions, ownership, PRs, and reviewers of branches for a Git project at an organization level.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Francesco De Liva](https://www.linkedin.com/in/francescodeliva) | App Innovation / Cloud Solution Architect
+
 ## Next steps
 
 * [Secure DevOps](https://www.microsoft.com/securityengineering/devsecops)
-* [Security strategy essentials](https://lab.github.com/githubtraining/security-strategy-essentials)
+* [Security strategy essentials](https://github.com/githubtraining/security-strategy-essentials)
 * [CodeQL U-Boot Challenge (C/C++)](https://lab.github.com/githubtraining/codeql-u-boot-challenge-(cc++))
 * [Learn GitHub Actions](https://docs.github.com/actions/learn-github-actions)
 * [Azure Boards documentation](/azure/devops/boards)

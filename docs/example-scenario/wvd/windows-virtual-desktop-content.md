@@ -123,7 +123,7 @@ Azure Virtual Desktop much like Azure has a number of service limitations that y
 |-----------------------------------------------------|-------------------------------------------------|--------------------------------------------------|
 | Workspace                                           | Azure Active Directory Tenant                   | 1300 |
 | HostPool                                            | Workspace                                       | 400 |
-| Application group                                   | HostPool                                        | 500<sup>1</sup> |
+| Application group                                   | Azure AD Tenant                                 | 500<sup>1</sup> |
 | RemoteApp                                           | Application group                               | 500 |
 | Role Assignment                                     | Any AVD Object                                  | 200 |
 | Session Host                                        | HostPool                                        | 10,000 |
@@ -162,7 +162,7 @@ Architect your Azure Virtual Desktop solution to realize cost savings. Here are 
 ## Next steps
 
 - [Azure Virtual Desktop partner integrations](/azure/virtual-desktop/partners) lists approved Azure Virtual Desktop partner providers and independent software vendors.
-- Use the resources at [Windows_10_VDI_Optimize](https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool) to help optimize performance in a Windows 10 Enterprise VDI environment.
+- Use the resources at [Virtual Desktop Optimization Tool](https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool) to help optimize performance in a Windows 10 Enterprise VDI environment.
 - [Deploy Azure AD-joined virtual machines in Azure Virtual Desktop](/azure/virtual-desktop/deploy-azure-ad-joined-vm)
 - [Active Directory Domain Services](/windows-server/identity/ad-ds/active-directory-domain-services)
 - [What is Azure AD Connect?](/azure/active-directory/hybrid/whatis-azure-ad-connect)
