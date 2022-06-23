@@ -16,7 +16,7 @@ This approach can also be used to:
 
 ## Architecture
 
-[![Architecture for a modern data platform using Azure data services](./media/azure-analytics-end-to-end.png)](./media/azure-analytics-end-to-end.png#lightbox)
+[![Architecture for a modern data platform using Azure data services.](./media/azure-analytics-end-to-end.png)](./media/azure-analytics-end-to-end.png#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/analytics-with-azuresynapse-updated.vsdx) of this architecture*.
 
@@ -33,7 +33,7 @@ This deployment accelerator gives you the option to implement the entire referen
 
 Use the following button to deploy the reference using the Azure portal.
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#blade/Microsoft_Azure_CreateUIDef/CustomDeploymentBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-synapse-analytics-end2end%2Fmain%2FDeploy%2FAzureAnalyticsE2E.json/uiFormDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-synapse-analytics-end2end%2Fmain%2FDeploy%2FcreateUiDefinition.json)
+[![Deploy to Azure.](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#blade/Microsoft_Azure_CreateUIDef/CustomDeploymentBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-synapse-analytics-end2end%2Fmain%2FDeploy%2FAzureAnalyticsE2E.json/uiFormDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-synapse-analytics-end2end%2Fmain%2FDeploy%2FcreateUiDefinition.json)
 
 ### [Azure CLI](#tab/cli)
 
