@@ -61,6 +61,16 @@ Scale the AKS cluster to meet your performance and throughput requirements. Take
 
 To manage Azure Cosmos DB performance, estimate the number of reads required per second, and provision the number of [RUs per second][ru] (throughput) needed. Use best practices for [partitioning and horizontal scaling][partition-data].
 
+### Cost optimization
+
+The main drivers of cost in this scenario are:
+
+- The Azure Databricks cluster size required for training.
+- The AKS cluster size required to meet your performance requirements.
+- Azure Cosmos DB RUs provisioned to meet your performance requirements.
+
+Manage the Azure Databricks costs by retraining less frequently and turning off the Spark cluster when not in use. The AKS and Azure Cosmos DB costs are tied to the throughput and performance required by your site and will scale up and down depending on the volume of traffic to your site.
+
 ## Deploy this scenario
 
 To deploy this architecture, follow the **Azure Databricks** instructions in the [setup document][setup]. Briefly, the instructions require you to:
@@ -87,16 +97,6 @@ To deploy this architecture, follow the **Azure Databricks** instructions in the
    1. Click **Import**.
 1. Open the notebook within Azure Databricks and attach the configured cluster.
 1. Run the notebook to create the Azure resources required to create a recommendation API that provides the top-10 movie recommendations for a given user.
-
-## Pricing
-
-The main drivers of cost in this scenario are:
-
-- The Azure Databricks cluster size required for training.
-- The AKS cluster size required to meet your performance requirements.
-- Azure Cosmos DB RUs provisioned to meet your performance requirements.
-
-Manage the Azure Databricks costs by retraining less frequently and turning off the Spark cluster when not in use. The AKS and Azure Cosmos DB costs are tied to the throughput and performance required by your site and will scale up and down depending on the volume of traffic to your site.
 
 ## Next steps
 
