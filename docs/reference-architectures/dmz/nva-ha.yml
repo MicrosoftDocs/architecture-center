@@ -25,6 +25,6 @@ products:
   - azure-functions
   - azure-traffic-manager
   - azure-virtual-machines
-thumbnailUrl: /azure/architecture/browse/thumbs/nvaha-loadbalancer-internet-thumb.png
+thumbnailUrl: /azure/architecture/browse/thumbs/nvaha-load-balancer-internet-thumb.png
 content: |
    [!include[](nva-ha-content.md)]
