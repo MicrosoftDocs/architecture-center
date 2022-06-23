@@ -15,6 +15,8 @@ Virtual machines (VMs) and servers allow users to deploy, manage, and maintain O
 | [VMware Cloud on AWS](https://aws.amazon.com/vmware) | [Azure VMware Solution](https://azure.microsoft.com/services/azure-vmware) | AWS and Azure solutions let you move VMware vSphere-based workloads and environments to the cloud. Azure VMware Solution is a VMware-verified Microsoft service that runs on Azure infrastructure. You can manage existing environments with VMware solution tools, while modernizing applications with cloud native services. |
 | [AWS Parallel Cluster](https://aws.amazon.com/hpc/parallelcluster) | [Azure CycleCloud](https://azure.microsoft.com/features/azure-cyclecloud) | Create, manage, operate, and optimize HPC and large compute clusters of any scale. |
 
+[View all the virtual machines architectures](/azure/architecture/browse/?expanded=azure&products=azure-virtual-machines)
+
 ### Autoscaling
 
 Autoscaling lets you automatically change the number of VM instances. You set defined metrics and thresholds that determine when to add or remove instances.
@@ -23,6 +25,8 @@ Autoscaling lets you automatically change the number of VM instances. You set de
 | ----------- | ------------- | ----------- |
 | [AWS Auto Scaling](https://aws.amazon.com/autoscaling) | [Virtual machine scale sets](/azure/virtual-machine-scale-sets/overview), [App Service autoscale](/azure/app-service/web-sites-scale)| In Azure, virtual machine scale sets let you deploy and manage identical sets of VMs. The number of sets can autoscale. App Service autoscale lets you autoscale Azure App Service applications.|
 
+[View all the autoscaling architectures](/azure/architecture/browse/?expanded=azure&products=azure-vm-scalesets)
+
 ### Batch processing
 
 Batch processing runs large-scale parallel and high-performance computing applications efficiently in the cloud.
@@ -30,6 +34,8 @@ Batch processing runs large-scale parallel and high-performance computing applic
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
 | [AWS Batch](https://aws.amazon.com/batch) | [Azure Batch](https://azure.microsoft.com/services/batch) | [Azure Batch](/azure/batch/batch-technical-overview) helps you manage compute-intensive work across a scalable collection of VMs.|
+
+[View all the batch processing architectures](/azure/architecture/browse/?expanded=azure&products=azure-batch)
 
 ### Storage
 
@@ -41,6 +47,8 @@ Several services provide different types of data storage for VM disks.
 |[Amazon EC2 instance store](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html)|[Azure temporary storage](/archive/blogs/mast/understanding-the-temporary-drive-on-windows-azure-virtual-machines)|Azure temporary storage provides VMs with similar low-latency temporary read-write storage to EC2 instance storage, also called ephemeral storage.|
 |[Amazon EBS Provisioned IOPS Volume](https://aws.amazon.com/ebs/provisioned-iops)|[Azure premium storage](/azure/virtual-machines/premium-storage-performance)|Azure supports higher performance disk I/O with premium storage. This storage is similar to AWS Provisioned IOPS storage options.|
 |[Amazon Elastic File System (EFS)](https://aws.amazon.com/efs)|[Azure Files](/azure/storage/files/storage-files-introduction)|Azure Files provides VMs with similar functionality to Amazon EFS.|
+
+[View all the storage architectures](/azure/architecture/browse/?expanded=azure&azure_categories=storage)
 
 ### Containers and container orchestrators
 
@@ -63,6 +71,8 @@ Several AWS and Azure services provide containerized application deployment and 
 
 </ul>
 
+[View all the container architectures](/azure/architecture/browse/?azure_categories=containers)
+
 ### Serverless computing
 
 Serverless computing lets you integrate systems and run backend processes without provisioning or managing servers.
@@ -80,3 +90,5 @@ Serverless computing lets you integrate systems and run backend processes withou
 [!INCLUDE [Cross Cloud Scaling Architecture](../../includes/cards/cross-cloud-scaling.md)]
 
 </ul>
+
+[View all the serverless architectures](/azure/architecture/browse/?expanded=azure&products=azure-functions)
