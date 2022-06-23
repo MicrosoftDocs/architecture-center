@@ -36,6 +36,8 @@ These articles describe:
 - How Azure structures available solutions.
 - How the major Azure services differ from AWS services.
 
+To quickly find the comparable services across the different technology categories, see [AWS to Azure services comparison](./services.md).
+
 ## Similarities and differences
 
 Like AWS, Microsoft Azure builds on a core set of compute, storage, database, and networking services. In many cases, the platforms offer similar products and services. For example, both AWS and Azure can use Linux distributions and open-source software (OSS) technologies. Both platforms support building highly available solutions on Windows or Linux hosts.
