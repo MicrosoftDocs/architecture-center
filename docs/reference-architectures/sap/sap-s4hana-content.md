@@ -62,7 +62,7 @@ For details about SAP support for Azure virtual machine types and throughput met
 
 ### SAP Web Dispatcher
 
-The Web Dispatcher component is used as a load balancer for SAP traffic among the SAP application servers. To achieve [high availability of the SAP Web Dispatcher](https://help.sap.com/viewer/683d6a1797a34730a6e005d1e8de6f22/201909.002/en-US/489a9a6b48c673e8e10000000a42189b.html), Azure Load Balancer implements either the failover cluster or the parallel Web Dispatcher setup. For internet facing communications a stand-alone solution in DMZ would be the recommended architecture to satisfy security concerns. [Embedded Web Dispatcher on ASCS](https://help.sap.com/viewer/00b4e4853ef3494da20ebcaceb181d5e/LATEST/en-US/2e708e2d42134b4baabdfeae953b24c5.html) is a special option, proper sizing due to additional workload on ASCS should be taken into account.
+The Web Dispatcher component is used as a load balancer for SAP traffic among the SAP application servers. To achieve [high availability of the SAP Web Dispatcher](https://help.sap.com/doc/saphelp_nw73ehp1/7.31.19/en-US/48/9a9a6b48c673e8e10000000a42189b/frameset.htm), Azure Load Balancer implements either the failover cluster or the parallel Web Dispatcher setup. For internet facing communications a stand-alone solution in DMZ would be the recommended architecture to satisfy security concerns. [Embedded Web Dispatcher on ASCS](https://help.sap.com/viewer/00b4e4853ef3494da20ebcaceb181d5e/LATEST/en-US/2e708e2d42134b4baabdfeae953b24c5.html) is a special option, proper sizing due to additional workload on ASCS should be taken into account.
 
 ### Fiori Front-end Server (FES)
 
@@ -95,7 +95,7 @@ Availability sets distribute servers to different physical infrastructure and up
 
 All virtual machines in a set must perform the same role. Do not mix servers of different roles in the same availability set. For example, don't place an ASCS node in the same availability set with application servers.
 
-You can deploy Azure availability sets within [Azure availability zones](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones) when you use a [proximity placement group](/azure/virtual-machines/linux/co-location).
+You can deploy Azure availability sets within [Azure Availability Zones](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones) when you use a [proximity placement group](/azure/virtual-machines/linux/co-location).
 
 ### Networking
 
@@ -167,7 +167,7 @@ Some SAP applications require frequent communication with the database. Network 
 We advise against the placement of any network virtual appliance (NVA) in between the application and the database layers for any SAP application stack, because this practice introduces significant data packets processing time and unacceptably slows application performance.
 
 We also recommend you consider performance when deploying resources with
-[availability zones](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones), which can enhance service availability as described later in this article. Consider creating a clear network latency profile between all zones of a target region. This helps you decide on the resource placement for minimum latency between zones. To create this profile, run a test by deploying small virtual machines in each zone. Recommended tools for the test include
+[Availability Zones](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones), which can enhance service availability as described later in this article. Consider creating a clear network latency profile between all zones of a target region. This helps you decide on the resource placement for minimum latency between zones. To create this profile, run a test by deploying small virtual machines in each zone. Recommended tools for the test include
 [PsPing](/sysinternals/downloads/psping) and
 [Iperf](https://sourceforge.net/projects/iperf/). After testing, remove these virtual machines. The [public domain network latency test tool](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/master/AvZone-Latency-Test) is also available for your convenience.
 
@@ -182,7 +182,7 @@ At the database layer, this architecture runs SAP HANA S/4 applications on Azure
 
 ## Availability considerations
 
-Resource redundancy is the general theme in highly available infrastructure solutions. For single instance VM availability, the SLA is associated with the storage types selection. See [SLA for Virtual Machines](/support/legal/sla/virtual-machines/v1_9/). When redundant resources are deployed in an availability set or across availability zones, the service availability is elevated.
+Resource redundancy is the general theme in highly available infrastructure solutions. For single instance VM availability SLA associates with the storage types selection, please see [SLA for Virtual Machines](/support/legal/sla/virtual-machines/v1_9/). When redundant resources are deployed in an availability set or across Availability Zones, the service availability is elevated.
 
 In this distributed installation of the SAP application, the base installation is replicated to achieve high availability. For each layer of the architecture, the high availability design varies.
 
@@ -223,13 +223,13 @@ This reference architecture depicts a highly available SAP HANA database system 
 
 - Much like the application servers layer, the commonly deployed HANA high availability solution for SLES is Pacemaker and SIOS LifeKeeper for RHEL.
 
-### Deploy virtual machines across availability zones
+### Deploy virtual machines across Availability Zones
 
-[Availability zones](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones) can help enhance service availability. Zones refer to physically separated locations within a specific Azure region. They improve workload availability and protect application services and virtual machines against datacenter outages. Virtual machines in a single zone are treated as if they were in a single update or fault domain. When zonal deployment is selected, virtual machines in the same zone are distributed to fault and upgrade domains on a best-effort basis.
+[Availability Zones](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones) can help enhance service availability. Zones refer to physically separated locations within a specific Azure region. They improve workload availability and protect application services and virtual machines against datacenter outages. Virtual machines in a single zone are treated as if they were in a single update or fault domain. When zonal deployment is selected, virtual machines in the same zone are distributed to fault and upgrade domains on a best-effort basis.
 
 In [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/) that support this feature, at least three zones are available. However, the maximum distance between datacenters in these zones is not guaranteed. To deploy a multi-tier SAP system across zones, you must know the network latency within a zone and across targeted zones, and how sensitive your deployed applications are to network latency.
 
-Several [considerations](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones) apply when deciding to deploy resources across availability zones, including:
+Several [considerations](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones) apply when deciding to deploy resources across Availability Zones, including:
 
 - Latency between virtual machines within one zone.
 
@@ -238,7 +238,7 @@ Several [considerations](/azure/virtual-machines/workloads/sap/sap-ha-availabili
 - Availability of the same Azure services (virtual machine types) in the chosen zones.
 
 > [!NOTE]
-> Availability zones support high availability but are not an effective disaster recovery (DR) strategy. The distance between zones is too close. Typical DR regions should be at least 100 miles away from the primary region.
+> Availability Zones support high availability but are not an effective disaster recovery (DR) strategy. The distance between zones is too close. Typical DR regions should be at least 100 miles away from the primary region.
 
 **Active/passive deployment example**
 
@@ -259,6 +259,7 @@ If zone 1 goes offline, the ASCS and database services will fail over to zone 2.
 ## Disaster recovery considerations
 
 Every tier in the SAP application stack uses a different approach to provide DR protection.
+
 ### Application servers tier
 
 SAP application servers do not contain business data. On Azure, a simple DR strategy is to create SAP application servers in the secondary region, then shut them down. Upon any configuration changes or kernel updates on the primary application server, the same changes must be applied to the virtual machines in the secondary region. For example, copy the SAP kernel executables to the DR virtual machines.
@@ -281,7 +282,7 @@ For step-by-step guidance, see [Building a Disaster Recovery Solution for SAP us
 
 Use HSR for HANA-supported replication. In addition to a local, two-node high availability setup, HSR supports multi-tier replication where a third node in a separate Azure region acts as a foreign entity, not part of the cluster, and registers to the secondary replica of the clustered HSR pair as its replication target. This forms a replication daisy chain.
 
-The failover to the DR node is a manual process. Since HANA 2.0 SPS 03, it is possible to configure [multitarget system replication](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.03/en-US/ba457510958241889a459e606bbcf3d3.html), which supports additional replicas by replicating the primary node in the DR region asynchronously. In addition, if using Azure NetApp Files for either the Central Services or the HANA database layer, use rsync or the content replication tool of choice.
+The failover to the DR node is a manual process. Since HANA 2.0 SPS 03, it is possible to configure [multi-target system replication](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.03/en-US/ba457510958241889a459e606bbcf3d3.html), which supports additional replicas by replicating the primary node in the DR region asynchronously. In addition, if using Azure NetApp Files for either the Central Services or the HANA database layer, use rsync or the content replication tool of choice.
 
 ### DR for shared services
 
@@ -311,7 +312,7 @@ For workloads with no predictable time of completion or resource consumption, co
 
 Consider using [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) if you can commit to using a virtual machine over a one-year or three-year term. VM reservations can reduce costs up to 72% compared to pay-as-you-go prices.
 
-Use [Azure Spot VMs][az-spot-vms] to run workloads that can be interrupted and do not require completion within a predetermined timeframe or an SLA. Azure deploys Spot VMs if there is available capacity and evicts when it needs the capacity back. Costs associated with Spot virtual machines are significantly lower. Consider Spot VMs for these workloads:
+Use [Azure Spot VMs][az-spot-vms] to run workloads that can be interrupted and do not require completion within a predetermined time-frame or an SLA. Azure deploys Spot VMs if there is available capacity and evicts when it needs the capacity back. Costs associated with Spot virtual machines are significantly lower. Consider Spot VMs for these workloads:
 
 - High-performance computing scenarios, batch processing jobs, or visual rendering applications.
 - Test environments, including continuous integration and continuous delivery workloads.
@@ -339,7 +340,7 @@ All inbound data transfer is free. All outbound data transfer is charged based o
 
 ### Backup
 
-SAP HANA data can be backed up in many ways. After migrating to Azure, continue to use any existing backup solutions you already have. Azure provides two native approaches to backup. You can back up [SAP HANA on virtual machines, or use Azure Backup on the file level]((/azure/virtual-machines/workloads/sap/sap-hana-backup-guide)). Azure Backup is [BackInt certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions?id=s:e062231e-9fb7-4ea8-b7d2-e6fe448c592d) by SAP.  See also the [Azure Backup FAQ](/azure/backup/backup-azure-backup-faq).
+SAP HANA data can be backed up in many ways. After migrating to Azure, continue to use any existing backup solutions you already have. Azure provides two native approaches to backup. You can back up [SAP HANA on virtual machines, or use Azure Backup on the file level](/azure/virtual-machines/workloads/sap/sap-hana-backup-guide). Azure Backup is [BackInt certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions?id=s:e062231e-9fb7-4ea8-b7d2-e6fe448c592d) by SAP.  See also the [Azure Backup FAQ](/azure/backup/backup-azure-backup-faq).
 
 > [!NOTE]
 > As of this writing, only HANA single container deployments support Azure storage snapshot.
@@ -372,10 +373,8 @@ To encrypt Linux virtual machine disks, you have various choices, as described i
 
 For SAP HANA data-at-rest encryption, we recommend using the SAP HANA native encryption technology.
 
-For threat monitoring with your SAP landscape, consider using [Microsoft Sentinel](/Azure/sentinel/sap/deployment-overview).
-
 > [!NOTE]
-> Do not use the HANA data-at-rest encryption with Azure Disk Encryption or host-based encryption on the same storage volume. For HANA, use only HANA data encryption. Also, the usage of customer managed keys might have an impact on the I/O throughput.
+> Do not use the HANA data-at-rest encryption with Azure Disk Encryption on the same storage volume. For HANA, use only HANA data encryption. Also, the usage of customer managed keys might have an impact on the I/O throughput.
 
 ## Communities
 
