@@ -11,9 +11,9 @@ This solution is ideal for any area that monitors branding on social networks, i
 - Marketing
 - Communications
 - Politics
-- Entertainment
-- Real estate
-- Food service
+- Media and entertainment
+- Real estate and facilities
+- Food service (travel and hospitality)
 - Fashion
 - Retail
 
@@ -128,11 +128,15 @@ This example uses as many services as possible. Through this approach, you can c
 
 ### Reliability
 
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+
 In production environments, evaluate your recovery time objective (RTO) and recovery point objective (RPO). All disaster recovery decisions and scenarios depend on those evaluations.
 
 In most cases, you need a high availability service for each tool. For effective disaster recovery, it's important to reduce your RTO. But if you have high availability, you can avoid disaster scenarios. For instance, you might create services in another region.
 
 ### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 Aim for a strong security posture by using an identity-based system and native Azure tools. For external components, use external authentication tools like Kerberos to ensure a robust and secure workload.
 
@@ -142,9 +146,13 @@ For information about creating a cost-effective workload, review [Overview of th
 
 ### Operational excellence
 
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+
 Centralize the monitoring logs from all services. The solution uses external tools and tools that are native to Azure. To achieve a holistic view of all systems, integrate monitoring data from all tools.
 
 ### Performance efficiency
+
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
 Because the solution uses multiple sources, consider compression as part of the process. Also consider the file formats that you use. Configure Azure Cosmos DB to achieve a tradeoff between latency and consistency levels. But monitor and evaluate Azure Cosmos DB performance throughout the process to prevent that component from becoming a bottleneck. To decrease latency, consider partitioning data by location or moving data sources close to where you use them.
 
