@@ -47,7 +47,7 @@ In this reference architecture, we'll build a baseline infrastructure that deplo
       #### Operations
       [Cluster and workload CI/CD pipelines](#cluster-and-workload-operations-devops)\
       [Cluster health and metrics](#monitor-and-collect-metrics)\
-      [Cost management and reporting](#cost-management)
+      [Cost optimization](#cost-optimization)
     :::column-end:::
 :::row-end:::
 
@@ -673,7 +673,7 @@ Run tests/validations at each stage before moving on to the next to make sure yo
 
 Advanced deployment techniques such as [Blue-green deployment](https://martinfowler.com/bliki/BlueGreenDeployment.html), A/B testing, and [Canary releases](https://martinfowler.com/bliki/CanaryRelease.html), will require additional process and potentially tooling. [Flagger](https://github.com/weaveworks/flagger) is a popular open-source solution to help solve for your advanced deployment scenarios.
 
-## Cost management
+## Cost optimization
 
 Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for the services used in the architecture. Other best practices are described in the [Cost Optimization](/azure/architecture/framework/cost/overview) section in [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/cost/overview).
 
