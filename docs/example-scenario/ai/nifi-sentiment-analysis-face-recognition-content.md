@@ -19,7 +19,7 @@ This solution is ideal for any area that monitors branding on social networks, i
 
 ## Architecture
 
-:::image type="content" source="./media/nifi-sentiment-analysis-face-recognition-pipeline.png" alt-text="Architecture diagram of a pipeline. Components include services for ingestion, data transformation, storage, analytics, A I, and data presentation." lightbox="./media/nifi-sentiment-analysis-face-recognition-pipeline.png" border="false":::
+:::image type="content" source="./media/nifi-sentiment-analysis-face-recognition-pipeline.png" alt-text="Architecture diagram of a pipeline. Components include services for ingestion, data transformation, storage, analytics, AI, and data presentation." lightbox="./media/nifi-sentiment-analysis-face-recognition-pipeline.png" border="false":::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/US-1951768-nifi-sentiment-analysis-face-recognition-diagrams.pptx) of this diagram.*
 
