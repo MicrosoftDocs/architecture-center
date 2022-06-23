@@ -2,7 +2,7 @@
 
 This reference architecture shows a set of proven practices for running S/4HANA and Suite on HANA in a high availability environment that supports disaster recovery on Azure. The Fiori information applies only to S/4HANA applications.
 
-![Reference architecture for SAP S/4HANA for Linux virtual machines on Azure Avset](./images/sap-s4hana-avset.png)
+![Reference architecture for SAP S/4HANA for Linux virtual machines on Azure Avset](./images/s4-avset-afs-ppg.png)
 
 *Download a [Visio file][visio-download] of this architecture.*
 
