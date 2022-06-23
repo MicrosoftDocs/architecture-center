@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: alexhart11
-ms.date: 06/06/2022
+ms.date: 06/13/2022
 ms.topic: article
 ms.service: architecture-center
 categories: 
@@ -26,6 +26,10 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
+- [Secure a data lakehouse on Synapse](./example-scenario/analytics/secure-data-lakehouse-synapse.yml)
+- [Real-time machine learning architecture on Azure](./example-scenario/ai/deploy-real-time-machine-learning-model-application-ui.yml)
+- [Starter web app for SaaS development](./example-scenario/apps/saas-starter-web-app.yml)
+- [Multiregion BCDR for Azure Virtual Desktop](./example-scenario/wvd/azure-virtual-desktop-multi-region-bcdr.yml)
 - [Use Azure monitoring to integrate security components](./guide/security/azure-monitor-integrate-security-components.yml)
 - [Building the first layer of defense with Azure security services](./solution-ideas/articles/azure-security-build-first-layer-defense.yml)
 - [Map threats to your IT environment](./solution-ideas/articles/map-threats-it-environment.yml)
@@ -34,6 +38,69 @@ The following new and updated articles have recently been published in the Azure
 
 ### Updated articles
 
+- [Azure IoT reference architecture](./reference-architectures/iot.yml)  ([#ef29bfa6f](https://github.com/MicrosoftDocs/architecture-center/commit/ef29bfa6f))
+- [Condition monitoring for industrial IoT](./solution-ideas/articles/condition-monitoring.yml)  ([#ef29bfa6f](https://github.com/MicrosoftDocs/architecture-center/commit/ef29bfa6f))
+- [Retail and e-commerce using Cosmos DB](./solution-ideas/articles/retail-and-e-commerce-using-cosmos-db.yml)  ([#d679faa96](https://github.com/MicrosoftDocs/architecture-center/commit/d679faa96))
+- [Retail and e-commerce using Azure MySQL](./solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-mysql.yml)  ([#d679faa96](https://github.com/MicrosoftDocs/architecture-center/commit/d679faa96))
+- [Retail and e-commerce using Azure PostgreSQL](./solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-postgresql.yml)  ([#d679faa96](https://github.com/MicrosoftDocs/architecture-center/commit/d679faa96))
+- [SAP workload automation using SUSE on Azure](./solution-ideas/articles/sap-workload-automation-suse.yml)  ([#ce69ffbf1](https://github.com/MicrosoftDocs/architecture-center/commit/ce69ffbf1))
+- [Secure DevOps for AKS](./solution-ideas/articles/secure-devops-for-kubernetes.yml)  ([#86d673b01](https://github.com/MicrosoftDocs/architecture-center/commit/86d673b01))
+- [Serverless application architectures using Event Grid](./solution-ideas/articles/serverless-application-architectures-using-event-grid.yml)  ([#86d673b01](https://github.com/MicrosoftDocs/architecture-center/commit/86d673b01))
+- [Azure Kubernetes in event stream processing](./solution-ideas/articles/serverless-event-processing-aks.yml)  ([#86d673b01](https://github.com/MicrosoftDocs/architecture-center/commit/86d673b01))
+- [Architect scalable e-commerce web app](./solution-ideas/articles/scalable-ecommerce-web-app.yml)  ([#29aecd0e9](https://github.com/MicrosoftDocs/architecture-center/commit/29aecd0e9))
+- [Scalable apps using Azure DB for MySQL](./solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-mysql.yml)  ([#29aecd0e9](https://github.com/MicrosoftDocs/architecture-center/commit/29aecd0e9))
+- [Scalable apps using Azure DB for PostgreSQL](./solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-postgresql.yml)  ([#29aecd0e9](https://github.com/MicrosoftDocs/architecture-center/commit/29aecd0e9))
+- [Scalable web apps with Azure Redis Cache](./solution-ideas/articles/scalable-web-apps.yml)  ([#29aecd0e9](https://github.com/MicrosoftDocs/architecture-center/commit/29aecd0e9))
+- [Bursting from AKS with ACI](./solution-ideas/articles/scale-using-aks-with-aci.yml)  ([#29aecd0e9](https://github.com/MicrosoftDocs/architecture-center/commit/29aecd0e9))
+- [Teacher-provisioned virtual labs in Azure](./example-scenario/devops/teacher-provisioned-virtual-labs-azure.yml)  ([#0f57d54ce](https://github.com/MicrosoftDocs/architecture-center/commit/0f57d54ce))
+- [Consumer health portal on Azure](./example-scenario/digital-health/health-portal.yml)  ([#0f57d54ce](https://github.com/MicrosoftDocs/architecture-center/commit/0f57d54ce))
+- [Application data protection for AKS workloads on Azure NetApp Files](./example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files.yml)  ([#0f57d54ce](https://github.com/MicrosoftDocs/architecture-center/commit/0f57d54ce))
+- [Enterprise file shares with disaster recovery](./example-scenario/file-storage/enterprise-file-shares-disaster-recovery.yml)  ([#0f57d54ce](https://github.com/MicrosoftDocs/architecture-center/commit/0f57d54ce))
+- [Oracle Database with Azure NetApp Files](./example-scenario/file-storage/oracle-azure-netapp-files.yml)  ([#0f57d54ce](https://github.com/MicrosoftDocs/architecture-center/commit/0f57d54ce))
+- [SQL Server on Azure Virtual Machines with Azure NetApp Files](./example-scenario/file-storage/sql-server-azure-netapp-files.yml)  ([#0f57d54ce](https://github.com/MicrosoftDocs/architecture-center/commit/0f57d54ce))
+- [SWIFT&#x27;s Alliance Access in Azure](./example-scenario/finance/swift-alliance-access-on-azure.yml)  ([#0f57d54ce](https://github.com/MicrosoftDocs/architecture-center/commit/0f57d54ce))
+- [SWIFT&#x27;s Alliance Access with Alliance Connect Virtual in Azure](./example-scenario/finance/swift-alliance-access-vsrx-on-azure.yml)  ([#0f57d54ce](https://github.com/MicrosoftDocs/architecture-center/commit/0f57d54ce))
+- [SWIFT Alliance Cloud in Azure](./example-scenario/finance/swift-alliance-cloud-on-azure.yml)  ([#0f57d54ce](https://github.com/MicrosoftDocs/architecture-center/commit/0f57d54ce))
+- [SWIFT Alliance Lite2 on Azure](./example-scenario/finance/swift-alliance-lite2-on-azure.yml)  ([#0f57d54ce](https://github.com/MicrosoftDocs/architecture-center/commit/0f57d54ce))
+- [AI at the edge with Azure Stack Hub](./solution-ideas/articles/ai-at-the-edge.yml)  ([#f08ee6874](https://github.com/MicrosoftDocs/architecture-center/commit/f08ee6874))
+- [Hybrid ETL with Azure Data Factory](./example-scenario/data/hybrid-etl-with-adf.yml)  ([#0ddf9054f](https://github.com/MicrosoftDocs/architecture-center/commit/0ddf9054f))
+- [Process real-time vehicle data using IoT](./example-scenario/data/realtime-analytics-vehicle-iot.yml)  ([#0ddf9054f](https://github.com/MicrosoftDocs/architecture-center/commit/0ddf9054f))
+- [Cyber threat intelligence in Microsoft Sentinel](./example-scenario/data/sentinel-threat-intelligence.yml)  ([#0ddf9054f](https://github.com/MicrosoftDocs/architecture-center/commit/0ddf9054f))
+- [Modern data warehouse for small and medium business](./example-scenario/data/small-medium-data-warehouse.yml)  ([#0ddf9054f](https://github.com/MicrosoftDocs/architecture-center/commit/0ddf9054f))
+- [SQL Managed Instance with CMK](./example-scenario/data/sql-managed-instance-cmk.yml)  ([#0ddf9054f](https://github.com/MicrosoftDocs/architecture-center/commit/0ddf9054f))
+- [High throughput stream ingestion to Azure Synapse](./example-scenario/data/stream-ingestion-synapse.yml)  ([#0ddf9054f](https://github.com/MicrosoftDocs/architecture-center/commit/0ddf9054f))
+- [Exploratory data analysis with Azure Synapse serverless and a lakehouse](./example-scenario/data/synapse-exploratory-data-analytics.yml)  ([#0ddf9054f](https://github.com/MicrosoftDocs/architecture-center/commit/0ddf9054f))
+- [Analytics end-to-end with Azure Synapse](./example-scenario/dataplate2e/data-platform-end-to-end.yml)  ([#0ddf9054f](https://github.com/MicrosoftDocs/architecture-center/commit/0ddf9054f))
+- [Automate Sentinel integration with Azure DevOps](./example-scenario/devops/automate-sentinel-integration.yml)  ([#0ddf9054f](https://github.com/MicrosoftDocs/architecture-center/commit/0ddf9054f))
+- [Automated API deployments using APIOps](./example-scenario/devops/automated-api-deployments-apiops.yml)  ([#0ddf9054f](https://github.com/MicrosoftDocs/architecture-center/commit/0ddf9054f))
+- [Manage Microsoft 365 tenant configuration with Azure DevOps](./example-scenario/devops/manage-microsoft-365-tenant-configuration-microsoft365dsc-devops.yml)  ([#0ddf9054f](https://github.com/MicrosoftDocs/architecture-center/commit/0ddf9054f))
+- [Defender for Cloud Apps and Microsoft Sentinel for AWS](./reference-architectures/aws/aws-azure-security-solutions.yml)  ([#ff26238fd](https://github.com/MicrosoftDocs/architecture-center/commit/ff26238fd))
+- [Real-time analytics on big data architecture](./solution-ideas/articles/real-time-analytics.yml)  ([#c034d4d23](https://github.com/MicrosoftDocs/architecture-center/commit/c034d4d23))
+- [Real-time asset tracking and management using IoT Central](./solution-ideas/articles/real-time-asset-tracking-mgmt-iot-central.yml)  ([#c034d4d23](https://github.com/MicrosoftDocs/architecture-center/commit/c034d4d23))
+- [Multi-cloud blockchain distributed ledger technology (DLT)](./example-scenario/blockchain/multi-cloud-blockchain.yml)  ([#723018fd8](https://github.com/MicrosoftDocs/architecture-center/commit/723018fd8))
+- [Blue/green app deployments](./example-scenario/blue-green-spring/blue-green-spring.yml)  ([#723018fd8](https://github.com/MicrosoftDocs/architecture-center/commit/723018fd8))
+- [Automating diagnostic Jupyter Notebook execution](./example-scenario/data/automating-diagnostic-jupyter-notebook.yml)  ([#723018fd8](https://github.com/MicrosoftDocs/architecture-center/commit/723018fd8))
+- [Apache NiFi on Azure](./example-scenario/data/azure-nifi.yml)  ([#723018fd8](https://github.com/MicrosoftDocs/architecture-center/commit/723018fd8))
+- [Cost savings through HTAP with Azure SQL](./example-scenario/data/azure-sql-htap.yml)  ([#723018fd8](https://github.com/MicrosoftDocs/architecture-center/commit/723018fd8))
+- [IoT and data analytics](./example-scenario/data/big-data-with-iot.yml)  ([#723018fd8](https://github.com/MicrosoftDocs/architecture-center/commit/723018fd8))
+- [Data analysis for regulated industries](./example-scenario/data/data-analysis-regulated-industries.yml)  ([#723018fd8](https://github.com/MicrosoftDocs/architecture-center/commit/723018fd8))
+- [Data warehousing and analytics](./example-scenario/data/data-warehouse.yml)  ([#723018fd8](https://github.com/MicrosoftDocs/architecture-center/commit/723018fd8))
+- [Scalable order processing](./example-scenario/data/ecommerce-order-processing.yml)  ([#723018fd8](https://github.com/MicrosoftDocs/architecture-center/commit/723018fd8))
+- [Real-time fraud detection](./example-scenario/data/fraud-detection.yml)  ([#723018fd8](https://github.com/MicrosoftDocs/architecture-center/commit/723018fd8))
+- [Geospatial analysis for telecom](./example-scenario/data/geospatial-analysis-telecommunications-industry.yml)  ([#723018fd8](https://github.com/MicrosoftDocs/architecture-center/commit/723018fd8))
+- [Multi-region web application with custom Storage Table replication](./solution-ideas/articles/multi-region-web-app-multi-writes-azure-table.yml)  ([#80c9cc9d8](https://github.com/MicrosoftDocs/architecture-center/commit/80c9cc9d8))
+- [Modernize .NET applications](./solution-ideas/articles/net-app-modernization.yml)  ([#80c9cc9d8](https://github.com/MicrosoftDocs/architecture-center/commit/80c9cc9d8))
+- [Serverless computing solution for LOB apps](./solution-ideas/articles/onboarding-customers-with-a-cloud-native-serverless-architecture.yml)  ([#80c9cc9d8](https://github.com/MicrosoftDocs/architecture-center/commit/80c9cc9d8))
+- [Optimize marketing with machine learning](./solution-ideas/articles/optimize-marketing-with-machine-learning.yml)  ([#00a4c8985](https://github.com/MicrosoftDocs/architecture-center/commit/00a4c8985))
+- [Optimized storage with logical data classification](./solution-ideas/articles/optimized-storage-logical-data-classification.yml)  ([#00a4c8985](https://github.com/MicrosoftDocs/architecture-center/commit/00a4c8985))
+- [Optimized storage – time based with Data Lake](./solution-ideas/articles/optimized-storage-time-based-data-lake.yml)  ([#00a4c8985](https://github.com/MicrosoftDocs/architecture-center/commit/00a4c8985))
+- [Optimized storage – time based - multi writes](./solution-ideas/articles/optimized-storage-time-based-multi-writes.yml)  ([#00a4c8985](https://github.com/MicrosoftDocs/architecture-center/commit/00a4c8985))
+- [Real-time presence with Microsoft 365, Azure, and Power Platform](./solution-ideas/articles/presence-microsoft-365-power-platform.yml)  ([#edb053fa9](https://github.com/MicrosoftDocs/architecture-center/commit/edb053fa9))
+- [Project 15 Open Platform IoT sustainability](./solution-ideas/articles/project-15-iot-sustainability.yml)  ([#edb053fa9](https://github.com/MicrosoftDocs/architecture-center/commit/edb053fa9))
+- [Enterprise-scale disaster recovery](./solution-ideas/articles/disaster-recovery-enterprise-scale-dr.yml)  ([#e1af450bd](https://github.com/MicrosoftDocs/architecture-center/commit/e1af450bd))
+- [SMB disaster recovery with Azure Site Recovery](./solution-ideas/articles/disaster-recovery-smb-azure-site-recovery.yml)  ([#e1af450bd](https://github.com/MicrosoftDocs/architecture-center/commit/e1af450bd))
+- [Serverless batch processing with Durable Functions in Azure Container Instances](./solution-ideas/articles/durable-functions-containers.yml)  ([#e1af450bd](https://github.com/MicrosoftDocs/architecture-center/commit/e1af450bd))
+- [E-commerce website running in secured App Service Environment](./solution-ideas/articles/ecommerce-website-running-in-secured-ase.yml)  ([#e1af450bd](https://github.com/MicrosoftDocs/architecture-center/commit/e1af450bd))
 - [Migrate a web app using Azure APIM](./example-scenario/apps/apim-api-scenario.yml)  ([#e3cdcbf47](https://github.com/MicrosoftDocs/architecture-center/commit/e3cdcbf47))
 - [Build CNCF projects by using Azure Kubernetes Service](./example-scenario/apps/build-cncf-incubated-graduated-projects-aks.yml)  ([#e3cdcbf47](https://github.com/MicrosoftDocs/architecture-center/commit/e3cdcbf47))
 - [CI/CD pipeline for chatbots with ARM templates](./example-scenario/apps/devops-cicd-chatbot.yml)  ([#e3cdcbf47](https://github.com/MicrosoftDocs/architecture-center/commit/e3cdcbf47))
@@ -115,7 +182,7 @@ The following new and updated articles have recently been published in the Azure
 - [DevTest Image Factory](./solution-ideas/articles/dev-test-image-factory.yml)  ([#c2416af1b](https://github.com/MicrosoftDocs/architecture-center/commit/c2416af1b))
 - [DevTest and DevOps for microservice solutions](./solution-ideas/articles/dev-test-microservice.yml)  ([#c2416af1b](https://github.com/MicrosoftDocs/architecture-center/commit/c2416af1b))
 - [DevTest and DevOps for PaaS solutions](./solution-ideas/articles/dev-test-paas.yml)  ([#c2416af1b](https://github.com/MicrosoftDocs/architecture-center/commit/c2416af1b))
-- [DevSecOps in GitHub](./solution-ideas/articles/devsecops-in-github.yml)  ([#c2416af1b](https://github.com/MicrosoftDocs/architecture-center/commit/c2416af1b))
+- [DevSecOps with GitHub Security](./solution-ideas/articles/devsecops-in-github.yml)  ([#c2416af1b](https://github.com/MicrosoftDocs/architecture-center/commit/c2416af1b))
 - [DevSecOps with a rolling main branching strategy](./solution-ideas/articles/devsecops-rolling-branch.yml)  ([#e5ea50e0f](https://github.com/MicrosoftDocs/architecture-center/commit/e5ea50e0f))
 - [Simple digital marketing website](./solution-ideas/articles/digital-marketing-smb.yml)  ([#e5ea50e0f](https://github.com/MicrosoftDocs/architecture-center/commit/e5ea50e0f))
 - [Elastic Workplace Search on Azure](./solution-ideas/articles/elastic-workplace-search.yml)  ([#881d5ff29](https://github.com/MicrosoftDocs/architecture-center/commit/881d5ff29))
@@ -328,7 +395,7 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
-- [Geospatial analysis with Azure Synapse Analytics](./industries/aerospace/geospatial-processing-analytics.yml)
+- [Spaceborne data analysis with Azure Synapse Analytics](./industries/aerospace/geospatial-processing-analytics.yml)
 - [Rehost mainframe applications by using NTT DATA UniKix](./example-scenario/mainframe/rehost-mainframe-ntt-data-unikix.yml)
 - [Refactor mainframe applications with Astadia](./example-scenario/mainframe/refactor-mainframe-applications-astadia.yml)
 - [Batch integration with Azure Data Factory for Azure Digital Twins](./example-scenario/iot/batch-integration-azure-data-factory-digital-twins.yml)

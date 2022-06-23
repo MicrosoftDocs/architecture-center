@@ -1,21 +1,5 @@
 This example scenario shows how using a dedicated search service can dramatically increase the relevance of search results for your e-commerce customers.
 
-Search is the primary mechanism through which customers find and ultimately purchase products, making it essential that search results are relevant to the _intent_ of the search query, and that the end-to-end search experience matches that of search giants by providing near-instant results, linguistic analysis, geo-location matching, filtering, faceting, autocomplete, hit highlighting, and so on.
-
-Imagine a typical e-commerce web application with product data stored in a relational database like SQL Server or Azure SQL Database. Search queries are often handled inside the database using `LIKE` queries or [Full-Text Search][docs-sql-fts] features. By using [Azure Cognitive Search][docs-search] instead, you free up your operational database from the query processing and you can easily start taking advantage of those hard-to-implement features that provide your customers with the best possible search experience. Also, because Cognitive Search is a platform as a service (PaaS) component, you don't have to worry about managing infrastructure or becoming a search expert.
-
-## Potential use cases
-
-This solution is optimized for the retail industry.
-
-Other relevant use cases include:
-
-- Finding real estate listings or stores near the user's physical location.
-- Searching for articles in a news site or looking for sports results, with a higher preference for more _recent_ information.
-- Searching through large repositories for _document-centric_ organizations like policy makers and notaries.
-
-Ultimately, _any_ application that has some form of search functionality can benefit from a dedicated search service.
-
 ## Architecture
 
 ![Diagram showing an architecture overview of the Azure components involved in an intelligent product search engine for e-commerce.][architecture]
@@ -48,6 +32,24 @@ This scenario covers an e-commerce solution where customers can search through a
 Other options for the data tier include:
 
 - [Cosmos DB](/azure/cosmos-db/introduction) - Microsoft's globally distributed, multi-model database. Cosmos DB provides a platform to run other data models such as Mongo DB, Cassandra, Graph data, or simple table storage. Cognitive Search also supports indexing the data from Cosmos DB directly.
+
+## Scenario details
+
+Search is the primary mechanism through which customers find and ultimately purchase products, making it essential that search results are relevant to the _intent_ of the search query, and that the end-to-end search experience matches that of search giants by providing near-instant results, linguistic analysis, geo-location matching, filtering, faceting, autocomplete, hit highlighting, and so on.
+
+Imagine a typical e-commerce web application with product data stored in a relational database like SQL Server or Azure SQL Database. Search queries are often handled inside the database using `LIKE` queries or [Full-Text Search][docs-sql-fts] features. By using [Azure Cognitive Search][docs-search] instead, you free up your operational database from the query processing and you can easily start taking advantage of those hard-to-implement features that provide your customers with the best possible search experience. Also, because Cognitive Search is a platform as a service (PaaS) component, you don't have to worry about managing infrastructure or becoming a search expert.
+
+### Potential use cases
+
+This solution is optimized for the retail industry.
+
+Other relevant use cases include:
+
+- Finding real estate listings or stores near the user's physical location (for the facilities and real-estate industry).
+- Searching for articles in a news site or looking for sports results, with a higher preference for more _recent_ information (for the sports, media, and entertainment industries).
+- Searching through large repositories for _document-centric_ organizations, like policy makers and notaries.
+
+Ultimately, _any_ application that has some form of search functionality can benefit from a dedicated search service.
 
 ## Considerations
 

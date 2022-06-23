@@ -18,13 +18,13 @@ Here are some use cases for this architecture:
 - Exposing your app on a private IP in a virtual network.
 - Connecting from a web app to Azure Storage, Azure Event Grid, Azure Cognitive Search, Azure Cosmos DB, or any other service that supports a [private endpoint](/azure/private-link/private-endpoint-overview#private-link-resource) for inbound connectivity.
 
-## Architecture 
+## Architecture
 
 ![Diagram that shows an architecture that uses private endpoints to provide communications between app services in a multi-tier environment.](./media/multi-tier-app-service-private-endpoint.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/Multi-tier-App-Service-with-Private-Endpoint.vsdx) of this architecture.* 
 
-### Workflow 
+### Dataflow
 
 Here's the traffic flow and basic configuration of the architecture:
 1. A front-end web app connects to Azure through the AppserviceSubnet subnet in an Azure virtual network by using Azure App Service [regional VNet Integration](/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration).

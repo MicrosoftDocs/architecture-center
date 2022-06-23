@@ -79,7 +79,7 @@ An Azure [Log Analytics workspace](/azure/azure-monitor/platform/resource-logs-c
 
 ## Regulatory Compliance
 
-One of the requirements when validating a CoC solution is compliance with security standards and regulations. All the components included in the above architecture are Azure standard services built upon a foundation of trust, security and [compliance](https://azure.microsoft.com/overview/trusted-cloud/compliance/).
+One of the requirements when validating a CoC solution is compliance with security standards and regulations. All the components included in the above architecture are Azure standard services built upon a foundation of trust, security and [compliance](https://azure.microsoft.com/overview/trusted-cloud/compliance).
 
 Azure has a wide range of compliance certifications, including certifications specific for global regions and countries and for key industries like healthcare, government, finance and education.
 

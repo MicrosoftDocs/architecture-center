@@ -35,7 +35,9 @@ This solution is ideal for the transportation, telecommunications, and manufactu
 - Transit systems that need to provide timely schedule notifications and alerts.
 
 ## Architecture
-[ ![Solution architecture diagram showing the IoT Edge modules in the trackside bungalows. The Edge modules use machine learning to identify failure risks. The alert handler module uploads image data to Azure Blob Storage. Azure Edge Hub uploads associated metadata and messages through Azure IoT Hub to Azure Cosmos DB storage.](./media/iot-predictive-maintenance.svg) ](./media/iot-predictive-maintenance.svg#lightbox)
+[ ![Solution architecture diagram showing the IoT Edge modules in the trackside bungalows. The Edge modules use machine learning to identify failure risks. The alert handler module uploads image data to Azure Blob Storage. Azure Edge Hub uploads associated metadata and messages through Azure IoT Hub to Azure Cosmos DB storage.](./media/iot-predictive-maintenance.png) ](./media/iot-predictive-maintenance.png#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/iot-predictive-maintenance.vsdx) of this architecture.*
 
 ### Dataflow
 
