@@ -4,7 +4,7 @@ This article describes how to add client certificate to the [Tailspin Surveys][S
 
 When using authorization code flow or hybrid flow in OpenID Connect, the client exchanges an authorization code for an access token. During this step, the client has to authenticate itself to the server.
 
-![Client secret](./images/client-secret-new-thumbnail.png)
+![Client secret](./images/client-secret-new.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/client-secret.vsdx)* of this architecture.
 
