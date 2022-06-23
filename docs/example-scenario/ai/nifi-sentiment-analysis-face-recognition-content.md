@@ -1,6 +1,6 @@
-Branding is important for industries globally. Sometimes a company's value is based on the image that the market has of the company. As your company moves to make predictive data-driven decisions, as opposed to reactive choices, you need to monitor and understand what's happening in real time. To gain a competitive advantage, you need to use social media analysis to identify and understand public opinion. Along with identifying sentiment in tweets, you might also choose to recognize faces and images.
+Branding is important to companies, because a company's value depends on the market's image of that company. As your company moves to make predictive, data-driven decisions, rather than reactive decisions, you need to monitor and understand what's happening in real time. To gain a competitive advantage, you need to use social media analysis to identify and understand public opinion. Along with identifying sentiment in tweets, you might also choose to recognize faces and images.
 
-This article presents a solution for gauging public opinion in tweets. The goal is to create a transformation pipeline that outputs clusters of comments and trending subjects. The pipeline delivers value by seamlessly integrating open-source solutions like Apache NiFi and Azure HDInsight with Azure sentiment analysis and face recognition services. The solution applies to a broad range of industries—monitoring social networks isn't limited to one industry vertical.
+This article presents a solution for gauging public opinion in tweets. The goal is to create a transformation pipeline that outputs clusters of comments and trending subjects. The pipeline delivers value by seamlessly integrating open-source solutions like Apache NiFi and Azure HDInsight with Azure sentiment analysis and face recognition services. The solution applies to a broad range of industries—monitoring social networks isn't limited to one sector.
 
 *Apache®, [Apache NiFi](https://nifi.apache.org), [Apache Hadoop](https://hadoop.apache.org), [Apache Hive](https://hive.apache.org), and [Apache Airflow](https://airflow.apache.org) are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
@@ -21,7 +21,7 @@ This solution is ideal for any area that monitors branding on social networks, i
 
 :::image type="content" source="./media/nifi-sentiment-analysis-face-recognition-pipeline.png" alt-text="Architecture diagram of a pipeline. Components include services for ingestion, data transformation, storage, analytics, A I, and data presentation." lightbox="./media/nifi-sentiment-analysis-face-recognition-pipeline.png" border="false":::
 
-*Download a [PowerPoint file](https://arch-center.azureedge.net/US-1951768-nifi-sentiment-analysis-face-recognition-diagrams.pptx).*
+*Download a [PowerPoint file](https://arch-center.azureedge.net/US-1951768-nifi-sentiment-analysis-face-recognition-diagrams.pptx) of this diagram.*
 
 ### Ingestion pipeline
 
@@ -66,7 +66,7 @@ Power BI dashboards display data from the following sources:
 
 :::image type="content" source="./media/nifi-sentiment-analysis-face-recognition-dataflow.png" alt-text="Architecture diagram that shows the flow of data from Twitter, through image processing and sentiment analysis, and into storage." lightbox="./media/nifi-sentiment-analysis-face-recognition-dataflow.png" border="false":::
 
-*Download a [PowerPoint file](https://arch-center.azureedge.net/US-1951768-nifi-sentiment-analysis-face-recognition-diagrams.pptx).*
+*Download a [PowerPoint file](https://arch-center.azureedge.net/US-1951768-nifi-sentiment-analysis-face-recognition-diagrams.pptx) of this diagram.*
 
 The solution's dataflow contains three main parts.
 
@@ -86,11 +86,11 @@ A Natural Language Toolkit (NLTK) algorithm runs on the ingested messages. Senti
 
 :::image type="content" source="./media/nifi-sentiment-analysis-face-recognition-components.png" alt-text="Architecture diagram that shows the components in the ingestion, storage, and processing layers of the solution." lightbox="./media/nifi-sentiment-analysis-face-recognition-components.png" border="false":::
 
-*Download a [PowerPoint file](https://arch-center.azureedge.net/US-1951768-nifi-sentiment-analysis-face-recognition-diagrams.pptx).*
+*Download a [PowerPoint file](https://arch-center.azureedge.net/US-1951768-nifi-sentiment-analysis-face-recognition-diagrams.pptx) of this diagram.*
 
-- [Data Factory](https://azure.microsoft.com/services/data-factory) provides batch transformation services for various sources and sinks. As a key component of big data processing, Data Factory helps to simplify extract-tranform-load (ETL) workloads. Data Factory also handles the complexities and scale challenges of big data integration.
+- [Data Factory](https://azure.microsoft.com/services/data-factory) provides batch transformation services for various sources and sinks. As a key component of big data processing, Data Factory helps to simplify extract-transform-load (ETL) workloads. Data Factory also handles the complexities and scale challenges of big data integration.
 
-- [Nifi](https://nifi.apache.org) automates the flow of data between software systems. NiFi offers security features, an extensible architecture, and a flexible scaling model. It handles multiple sources and multiple sinks with different types of processors. NiFi functionality includes:
+- [Nifi](https://nifi.apache.org) automates the flow of data among software systems. NiFi offers security features, an extensible architecture, and a flexible scaling model. It handles multiple sources and multiple sinks with different types of processors. NiFi functionality includes:
 
   - Running streaming transformations.
   - Connecting decoupled systems in the cloud.
@@ -100,7 +100,7 @@ A Natural Language Toolkit (NLTK) algorithm runs on the ingested messages. Senti
 
 - [HDInsight](https://azure.microsoft.com/services/hdinsight) is a Hadoop platform for data and analytics for on-premises environments. HDInsight can securely ingest, store, and process data in real time and in batches. HDInsight is built on Hortonworks Data Platform (HDP), an open-source framework for distributed storage and processing of large data sets that come from multiple sources.
 
-- [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) is an analytics service for data warehouses and big data systems. This service centralizes data in the cloud for easy access.
+- [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) is an analytics service for data warehouses and big data systems. It centralizes data in the cloud for easy access.
 
 - [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) is a fully managed NoSQL database for modern app development. By providing single-digit millisecond response times and automatic and instant scalability, Azure Cosmos DB guarantees speed at any scale. Its SLA-backed availability and enterprise-grade security provide business continuity.
 
@@ -161,7 +161,7 @@ Principal authors:
 
 - [What is Azure Data Factory?](/azure/data-factory/introduction)
 - [What is Azure HDInsight?](/azure/hdinsight/hdinsight-overview)
-- [Blob Storage](/azure/storage/common/storage-introduction#blob-storage)
+- [Introduction to Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction)
 - [What is dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics?](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is)
 - [Welcome to Azure Cosmos DB](/azure/cosmos-db/introduction)
 - [What are Azure Cognitive Services?](/azure/cognitive-services/what-are-cognitive-services)
@@ -172,6 +172,6 @@ Principal authors:
 
 ## Related resources
 
-- [ETL using HDInsight](../../solution-ideas/articles/extract-transform-and-load-using-hdinsight.yml)
+- [Extract, transform, and load (ETL) using HDInsight](../../solution-ideas/articles/extract-transform-and-load-using-hdinsight.yml)
 - [Knowledge mining for customer feedback](../../solution-ideas/articles/customer-feedback-and-analytics.yml)
 - [Apache NiFi on Azure](../data/azure-nifi.yml)
