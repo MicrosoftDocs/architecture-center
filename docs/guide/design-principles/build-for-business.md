@@ -4,7 +4,7 @@ titleSuffix: Azure Application Architecture Guide
 description: Use these recommendations to design and build cloud applications that meet functional and nonfunctional business requirements for performance, availability, scalability, growth, and cost management.
 author: EdPrice-MSFT
 ms.author: pnp
-ms.date: 06/23/2022
+ms.date: 06/24/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide

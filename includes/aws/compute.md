@@ -43,6 +43,14 @@ Several services provide different types of data storage for VM disks.
 
 ### Containers and container orchestrators
 
+<ul class="grid">
+
+[!INCLUDE [Azure Kubernetes Service (AKS) Baseline Cluster](../../includes/cards/aks-baseline.md)]
+[!INCLUDE [Microservices architecture on Azure Kubernetes Service (AKS)](../../includes/cards/aks.md)]
+[!INCLUDE [CI/CD pipeline for container-based workloads](../../includes/cards/devops-with-aks.md)]
+
+</ul>
+
 Several AWS and Azure services provide containerized application deployment and orchestration.
 
 | AWS service | Azure service | Description |
@@ -54,7 +62,13 @@ Several AWS and Azure services provide containerized application deployment and 
 
 ### Serverless computing
 
-Serverless computing lets you integrate systems and run backend processes without provisioning or managing servers.
+<ul class="grid">
+
+[!INCLUDE [Social App for Mobile and Web with Authentication](../../includes/cards/social-mobile-and-web-app-with-authentication.md)]
+[!INCLUDE [HIPAA and HITRUST compliant health data AI](../../includes/cards/security-compliance-blueprint-hipaa-hitrust-health-data-ai.md)]
+[!INCLUDE [Cross Cloud Scaling Architecture](../../includes/cards/cross-cloud-scaling.md)]
+
+</ul>Serverless computing lets you integrate systems and run backend processes without provisioning or managing servers.
 
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |

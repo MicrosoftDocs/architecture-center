@@ -4,7 +4,7 @@ description: Compare the compute services in Azure and AWS. Explore the differen
 author: kobile70
 categories: azure
 ms.author: kobilevi
-ms.date: 06/23/2022
+ms.date: 06/24/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
