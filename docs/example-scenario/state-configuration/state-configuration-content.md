@@ -167,4 +167,4 @@ For more information, see [Automation pricing](https://azure.microsoft.com/prici
 
 - [Browse additional solutions](/azure/architecture/browse)
 - [Azure Automation update management](/azure/architecture/hybrid/azure-update-mgmt)
-- [Azure Automation State Configuration documentaton](/azure/automation/automation-dsc-overview)
+- [Azure Automation State Configuration documentation](/azure/automation/automation-dsc-overview)
