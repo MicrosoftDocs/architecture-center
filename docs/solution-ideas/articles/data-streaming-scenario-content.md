@@ -44,9 +44,9 @@ Key technologies used to implement this architecture:
 
 Product documentation:
 
-- [About Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview)
-- [About API Management](/azure/api-management/api-management-key-concepts)
-- [App Service overview](/azure/app-service/overview)
+- [About Azure Cache for Redis](https://docs.microsoft.com/en-us/azure/azure-cache-for-redis/cache-overview)
+- [About API Management](https://docs.microsoft.com/en-us/azure/api-management/api-management-key-concepts)
+- [App Service overview](https://docs.microsoft.com/en-us/azure/app-service/overview)
 - [Azure Kubernetes Service](/azure/aks/intro-kubernetes)
 - [Introduction to private Docker container registries in Azure](/azure/container-registry/container-registry-intro)
 - [Welcome to Azure Cosmos DB](/azure/cosmos-db/introduction)
