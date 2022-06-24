@@ -24,6 +24,6 @@ products:
   - azure-event-hubs
 name: Geospatial data processing and analytics
 summary: Collect, process, and store geospatial data by using managed Azure services. Make the data available through web apps. Visualize, explore, and analyze the data.
-thumbnailUrl: /azure/architecture/browse/thumbs/geospatial-data-processing-analytics-azure-architecture-thumbnail.png
+thumbnailUrl: /azure/architecture/browse/thumbs/geospatial-data-processing-analytics-azure-architecture-thumbnail-new.png
 content: |
   [!include[](geospatial-data-processing-analytics-azure-content.md)]
