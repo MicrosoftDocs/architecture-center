@@ -1,4 +1,4 @@
-This example scenario discusses a [highly available][High availability] solution for a web app with private connectivity to a SQL database. A single-region architecture already exists for a web app with private database connectivity. This solution extends that base architecture by making it highly available.
+This example scenario discusses a [highly available][High availability] solution for a web app with private connectivity to an SQL database. A single-region architecture already exists for a web app with private database connectivity. This solution extends that base architecture by making it highly available.
 
 See [Web app private connectivity to Azure SQL Database][Web app private connectivity to Azure SQL database] for information on the base architecture.
 
@@ -14,7 +14,7 @@ You can achieve high availability with a [complete region failover][Complete reg
 
 ## Potential use cases
 
-With private connectivity to a SQL database and high availability, this solution has applications in many areas. Examples include the financial, healthcare, and defense industries.
+With private connectivity to an SQL database and high availability, this solution has applications in many areas. Examples include the financial, healthcare, and defense industries.
 
 ## Architecture
 
