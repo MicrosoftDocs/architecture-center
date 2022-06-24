@@ -40,7 +40,7 @@ Although DTL alone doesn't have built-in limits, other Azure resources used in t
    1. Configure a private Github/ADO repository in the lab for artifacts and environment templates. The repository can be used to store application codebase as well.
 1. **The Application Team** can spin up the Lab resources (VMs and PaaS environments) manually or they can set up Azure Pipelines to deploy resources using DTL tasks.
 
-##### Resource topology
+### Resource topology
 
 Within the DevTest subscription, streamlining the resource group organization for Labs improves the maintainability of the resources. Traditionally in an enterprise, the network-related resources are controlled by network administrators and are isolated from the application resources using separate resource groups.
 
@@ -65,7 +65,7 @@ On provisioning a DTL, the following infra resources get created automatically:
 - [Azure DevTest Labs (DTL)](/azure/devtest-labs/devtest-lab-overview) is a fully managed service that developers and testers use to quickly provision development and test environments. DTL lets users create virtual machines and PaaS resources. While VM creation is supported natively, creation of PaaS resources can be achieved using environment templates.
 - [DTL policies](/azure/devtest-labs/devtest-lab-set-lab-policy) let you control costs and minimize waste in your labs by managing policies (settings) for each lab. Using DTL policy, you can minimize lab waste by specifying which VM sizes are allowed in the lab. If this policy is active, only VM sizes from the list can be used to create VMs.
 - [Hub and spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) configurations provide benefits that include cost savings, overcoming subscription limits, and workload isolation. The hub virtual network acts as a central point of connectivity to many spoke virtual networks and to on-premises networks. The spoke virtual networks peer with the hub and can be used to isolate workloads. DTL can be placed in the spoke network so that Enterprises can have a central control over security features, such as a firewall in the hub as a DMZ, Express Route/VPN connectivity, and segregated management for the workload. Traditionally, the VNets, including the spoke VNet, is provided by the platform administrator. The app team can provision the DTL in the specified subnet. More details are provided in [Networking Topology](#networking-topology).
-- [Azure Bastion](https://azure.microsoft.com/services/azure-bastion/) is a fully managed service that provides more secure and seamless Remote Desktop Protocol (RDP) and Secure Shell Protocol (SSH) access to VMs without any exposure through public IP addresses. DTL can use the Bastion host to securely RDP/SSH to VMs without exposing them directly over the Internet as discussed in [Networking Topology](#networking-topology). By default, DTL allows connectivity to VM through Public IP or [Shared Public IP](/azure/devtest-labs/devtest-lab-shared-ip).
+- [Azure Bastion](https://azure.microsoft.com/services/azure-bastion) is a fully managed service that provides more secure and seamless Remote Desktop Protocol (RDP) and Secure Shell Protocol (SSH) access to VMs without any exposure through public IP addresses. DTL can use the Bastion host to securely RDP/SSH to VMs without exposing them directly over the Internet as discussed in [Networking Topology](#networking-topology). By default, DTL allows connectivity to VM through Public IP or [Shared Public IP](/azure/devtest-labs/devtest-lab-shared-ip).
 - [DTL artifacts](/azure/devtest-labs/add-artifact-vm) let you specify actions that are performed when the VM is provisioned, such as running Windows PowerShell scripts, running Bash commands, and installing software. Artifact parameters let you customize the artifact for your scenario. The public artifact repository, maintained by DevTest Labs, provides many common tools for both Windows and Linux. A link to this repository is automatically added to your lab.
 - A [formula](/azure/devtest-labs/devtest-lab-manage-formulas) in Azure DevTest Labs is a list of default property values used to create a virtual machine.
 - [DTL environments](/azure/devtest-labs/devtest-lab-create-environment-from-arm) let users deploy complex infrastructures in a consistent way within the confines of the lab. You can use Azure Resource Manager templates to create environments with sets of resources in DevTest Labs. These environments can contain any Azure resources that Resource Manager templates can create.
@@ -80,7 +80,7 @@ The primary advantage of using DevTest Labs is its out-of-the-box integrated fea
 
 ### Management group and subscription topology
 
-A well-designed topology for [Management Groups](/azure/cloud-adoption-framework/ready/enterprise-scale/management-group-and-subscription-organization) & [Subscriptions](/azure/cloud-adoption-framework/decision-guides/subscriptions/), along with organizational structure and compliance requirements, ensures proper isolation and maximum flexibility for future growth. The management group and subscription setup are the responsibility of the Platform owner who provides the required access to the Application administrator or Lab Owner to provision the lab.
+A well-designed topology for [Management Groups](/azure/cloud-adoption-framework/ready/enterprise-scale/management-group-and-subscription-organization) & [Subscriptions](/azure/cloud-adoption-framework/decision-guides/subscriptions), along with organizational structure and compliance requirements, ensures proper isolation and maximum flexibility for future growth. The management group and subscription setup are the responsibility of the Platform owner who provides the required access to the Application administrator or Lab Owner to provision the lab.
 
 As shown in the architecture diagram above, application teams can deploy DTL in a subscription under a landing zone management group or sandbox management group, based on these few decision points:
 
@@ -89,7 +89,7 @@ As shown in the architecture diagram above, application teams can deploy DTL in 
 
 ### Enterprise Agreement for DevTest
 
-Enterprise Agreement customers have a great way to run their development and testing workloads on Azure by signing up for lower rates on dev/test workloads as described at [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/). Enabling the DevTest subscription within the Azure Enterprise portal lets an organization:
+Enterprise Agreement customers have a great way to run their development and testing workloads on Azure by signing up for lower rates on dev/test workloads as described at [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p). Enabling the DevTest subscription within the Azure Enterprise portal lets an organization:
 
 - Run client operating systems that aren't typically available in an Azure enterprise subscription
 - Use enterprise software in which they pay only for the compute
@@ -141,12 +141,20 @@ Integration of DTL with Azure DevOps for development and operations is described
 
 ## Pricing
 
-- The Azure DevTest Labs service by itself is free. However, costs are attributed to other Azure resources that are created in the lab, such as Storage, Key Vault, and VMs. Pricing details are provided at [Azure DevTest Labs pricing](https://azure.microsoft.com/pricing/details/devtest-lab/). You can also use the Azure [cost calculator](https://azure.microsoft.com/pricing/calculator/) to estimate your cost.
+- The Azure DevTest Labs service by itself is free. However, costs are attributed to other Azure resources that are created in the lab, such as Storage, Key Vault, and VMs. Pricing details are provided at [Azure DevTest Labs pricing](https://azure.microsoft.com/pricing/details/devtest-lab). You can also use the Azure [cost calculator](https://azure.microsoft.com/pricing/calculator) to estimate your cost.
 - The link provides information on how the built-in features of DevTest Labs help you optimize, track, and control cost.
   - [Use policies to optimize cost](/azure/devtest-labs/devtest-lab-set-lab-policy)
   - [Track and control cost](/azure/devtest-labs/devtest-lab-configure-cost-management)
   - Further optimize cost with [DevTest Benefits](/azure/devtest-labs/devtest-lab-guidance-governance-cost-ownership#optimize-for-cost)
   - Azure [Well-architected framework](/azure/devtest-labs/devtest-lab-guidance-governance-cost-ownership#optimize-for-cost) provided guidance on managing costs to maximize the value delivered
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+* [Vidya Narasimhan](https://in.linkedin.com/in/vidya-narasimhan-124ba393) | Senior Cloud Solution Architect
 
 ## Next steps
 

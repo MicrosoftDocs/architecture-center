@@ -12,8 +12,8 @@ This solution enables you to do the following:
 
 ## Architecture
 
-![Architecture Diagram](../media/aks-api-first.png)
-*Download an [SVG](../media/aks-api-first.svg)*
+![Diagram that shows the API-first architecture.](../media/aks-api-first.png)
+*Download an [SVG file](../media/aks-api-first.svg) of this architecture.*
 
 ### Dataflow
 
