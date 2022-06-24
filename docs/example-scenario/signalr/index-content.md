@@ -2,11 +2,33 @@
 
 This scenario describes how to architect a solution that processes changes to underlying data within a web view without the need for a page refresh using real-time services. Examples that use this scenario include real-time tracking of products and goods, and social media solutions.
 
+## Architecture
+
+![Architectural diagram showing Service Bus Queue, Azure Functions, and SignalR sharing live location data.](./archdiagram.jpg)
+
+### Components
+
+- [Azure Service Bus](https://azure.microsoft.com/services/service-bus) is a highly reliable cloud messaging service between applications and services, even when one or more is offline.
+- [SignalR](https://azure.microsoft.com/services/signalr-service) makes it easy to add real-time communications to your web application.
+- [Azure Functions](https://azure.microsoft.com/services/functions) is an event-driven serverless compute platform that can also solve complex orchestration problems.
+
+### Alternatives
+
+Alternatives exist to address this scenario, including [Pusher](https://pusher.com/). It's the category leader in robust APIs for app developers building scalable real time communication features.
+
+There's also [PubNub](https://pubnub.com/). PubNub makes it easy for you to add real-time capabilities to your apps, without worrying about the infrastructure. Build apps that allow your users to engage in real time across mobile, browser, desktop, and server.
+
+No doubt that Pusher and PubNub are the widely adopted platforms for real-time messaging but for this scenario, we do everything in Azure. SignalR was simply the go to for me as it allows bi-directional communication between server and client. It's also an open-source tool, with 7.9K GitHub stars and 2.2K GitHub forks.
+
+[Here's](https://github.com/SignalR/SignalR) a link to SignalR's open-source repository on GitHub.
+
+## Scenario details
+
 In this scenario, we look at how to set up a real-time messaging service to share live location of a food delivery service transaction. This example can also be useful for users trying to build a real-time location sharing platform for their web or mobile applications.
 
 We'll use a SignalR service configured in server-less mode to integrate with an Azure Functions app triggered by a Service Bus; all of it using .NET Core.
 
-## Potential use cases
+### Potential use cases
 
 These other uses cases have similar design patterns:
 
@@ -14,16 +36,6 @@ These other uses cases have similar design patterns:
 - Pushing notifications to users.
 - Updating timelines.
 - Create chat rooms.
-
-## Architecture
-
-![Architectural diagram showing Service Bus Queue, Azure Functions, and SignalR sharing live location data.](./archdiagram.jpg)
-
-### Components
-
-- [Service Bus](https://azure.microsoft.com/services/service-bus), a highly reliable cloud messaging service between applications and services, even when one or more is offline.
-- [SignalR](https://azure.microsoft.com/services/signalr-service) makes it easy to add real-time communications to your web application.
-- [Azure Functions](https://azure.microsoft.com/services/functions), an event-driven serverless compute platform that can also solve complex orchestration problems.
 
 ## Considerations
 
@@ -37,7 +49,7 @@ If you can remember the above two features of SignalR platform, it will be easy 
 
 ### Availability, scalability, and security
 
-You can achieve high availability of this solution by performing the following steps:
+You can achieve high availability with this solution by performing the following steps:
 
 #### Regional pairing
 
@@ -56,9 +68,9 @@ Azure Front Door is a scalable and secure entry point for fast delivery of your 
 
 Front Door is a possible failure point in the system. If the service fails, clients can't access your application during the downtime. Review the [Front Door service level agreement (SLA)](https://azure.microsoft.com/support/legal/sla/frontdoor) and determine whether using Front Door alone meets your business requirements for high availability. If not, consider adding another traffic management solution as a fallback. If the Front Door service fails, change your canonical name (CNAME) records in DNS to point to the other traffic management service. This step must be performed manually, and your application will be unavailable until the DNS changes are propagated.
 
-### Pricing this scenario
+### Cost optimization
 
-Assume your business has 1000 orders in a day and needs to share location data with all of them concurrently, your estimated Azure usage for deploying this scenario will be close to $192 per month based on pricing at the time of writing.
+Assume your business has 1000 orders in a day and needs to share location data with all of them concurrently. Your estimated Azure usage for deploying this scenario will be close to $192 per month, based on pricing at the time of writing.
 
 | Service type          | Estimated Monthly Cost |
 |-----------------------|----------------|
@@ -78,7 +90,7 @@ A serverless real-time application built with Azure Functions and Azure SignalR 
 
 ### SignalRFunctionApp
 
-This is a function app that creates an Azure Function with Service Bus trigger with SignalR.
+SignalRFunctionApp is a function app that creates an Azure Functions instance, with a Service Bus trigger with SignalR.
 
 #### Negotiate.cs
 
@@ -114,7 +126,7 @@ This is a simple .NET Core web application to subscribe to the hub created by Si
 
 ### SendToQueue.js
 
-This is a node js script to push a message to the Service Bus so that you can test the deployment you did above.
+This node.js script pushes a message to the Service Bus, so that you can test the deployment that you did above.
 
 #### Instructions
 
@@ -140,6 +152,8 @@ No doubt that Pusher and PubNub are the widely adopted platforms for real-time m
 
 ## Related resources
 
-[This article explains](/azure/azure-functions/functions-bindings-service-bus) how to work with Azure Service Bus bindings in Azure Functions. Azure Functions supports trigger and output bindings for Service Bus queues and topics.
-
-[This article explains](/azure/azure-functions/functions-bindings-signalr-service) how to authenticate and send real-time messages to clients connected to Azure SignalR Service by using SignalR Service bindings in Azure Functions. Azure Functions supports input and output bindings for SignalR Service.
+- [High-volume batch transaction processing](/azure/architecture-center/example-scenario/mainframe/process-batch-transactions)
+- [Transit hub dynamic pub-sub messaging system](/azure/architecture-center/solution-ideas/articles/transit-hub)
+- [Serverless event processing](/azure/architecture-center/reference-architectures/serverless/event-processing)
+- [Blockchain workflow application](/azure/architecture-center/solution-ideas/articles/blockchain-workflow-application)
+- [Event-based cloud automation](/azure/architecture-center/reference-architectures/serverless/cloud-automation)

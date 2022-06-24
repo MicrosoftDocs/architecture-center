@@ -87,6 +87,14 @@ We have provided a pre-configured [cost profile][pricing] based on the architect
 - How much new data are you going to be writing to your website? New data written to your website correlates with how much data is mirrored across the regions.
 - How much of your content is dynamic? How much is static? The variance around dynamic and static content influences how much data has to be retrieved from the database tier versus how much will be cached in the CDN.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+* [David Stanford](https://www.linkedin.com/in/das0) | Principal Program Manager
+
 ## Next steps
 
 Product documentation:

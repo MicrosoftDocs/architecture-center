@@ -166,6 +166,8 @@ The following tables summarize the key differences in capabilities.
 
 [3] Supported when [used within an Azure Virtual Network](/azure/hdinsight/hdinsight-extend-hadoop-virtual-network).
 
+## Next steps
+
 Read more about securing your data warehouse:
 
 - [Securing your SQL Database](/azure/sql-database/sql-database-security-overview#network-security)
@@ -175,3 +177,11 @@ Read more about securing your data warehouse:
 - [Extend Azure HDInsight using an Azure Virtual Network](/azure/hdinsight/hdinsight-extend-hadoop-virtual-network)
 
 - [Enterprise-level Hadoop security with domain-joined HDInsight clusters](/azure/hdinsight/domain-joined/apache-domain-joined-introduction)
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+- [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect

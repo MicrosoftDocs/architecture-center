@@ -1,42 +1,6 @@
-Azure Synapse Analytics is a versatile data platform that supports enterprise data warehousing, real-time data analytics, pipelines, time-series data processing, machine learning, and data governance. To support these capabilities it integrates several different technologies, such as:
-
-- Enterprise data warehousing
-- Serverless SQL pools
-- Apache Spark
-- Pipelines
-- Data Explorer
-- Machine learning capabilities
-- Purview unified data governance
-
-:::image type="content" source="media/secure-data-lakehouse-overview.png" alt-text="Diagram that shows Azure Synapse Analytics and its components, capabilities, and applications." border="false" :::
-
-These capabilities open up many possibilities, but there are many technical choices to make to securely configure the infrastructure for safe use.
-
-This article describes the design process, principles, and technology choices for using Azure Synapse to build a secure data lakehouse solution. We focus on the security considerations and key technical decisions. The solution uses these Azure services:
-
-- [Azure Synapse](/azure/synapse-analytics/overview-what-is)
-- [Azure Synapse serverless SQL pools](/azure/synapse-analytics/sql/on-demand-workspace-overview)
-- [Apache Spark in Azure Synapse Analytics](/azure/synapse-analytics/spark/apache-spark-overview)
-- [Azure Synapse pipelines](/azure/data-factory/concepts-pipelines-activities)
-- [Azure Data Lake](/azure/storage/blobs/data-lake-storage-introduction)
-- [Azure DevOps](https://azure.microsoft.com/services/devops).
-
-The goal is to provide guidance on building a secure and cost-effective data lakehouse platform for enterprise use and on making the technologies work together seamlessly and securely.
+This article describes the design process, principles, and technology choices for using Azure Synapse to build a secure data lakehouse solution. We focus on the security considerations and key technical decisions.
 
 *Apache®, [Apache Spark®](https://spark.apache.org), and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
-
-## Potential use cases
-
- A data lakehouse is a modern data management architecture that combines the cost-efficiency, scale, and flexibility features of a data lake with the data and transaction management capabilities of a data warehouse. A data lakehouse can handle a vast amount of data and support business intelligence and machine learning scenarios. It can also process data from diverse data structures and data sources. For more information, see [What is the Databricks Lakehouse?](/azure/databricks/lakehouse).
-
- Some common use cases for the solution that's described here are:
-
-- Analysis of Internet of Things (IoT) telemetry
-- Automation of smart factories
-- Tracking consumer activities and behavior
-- Managing security incidents and events
-- Monitoring application logs and application behavior
-- Processing and business analysis of semi-structured data
 
 ## Architecture
 
@@ -88,6 +52,48 @@ The following are the key components in this data lakehouse solution:
 - If you need real-time data processing you can, instead of storing individual files on the data landing zone, use Apache Structured Streaming to receive the data stream from Event Hubs and process it.
 - If the data has a complex structure and requires complex SQL queries, consider storing it in a dedicated SQL pool instead of a serverless SQL pool.
 - If the data contains many hierarchical data structures—for example, it has a large JSON structure—you might want to store it in Azure Synapse Data Explorer.
+
+## Scenario details
+
+Azure Synapse Analytics is a versatile data platform that supports enterprise data warehousing, real-time data analytics, pipelines, time-series data processing, machine learning, and data governance. To support these capabilities it integrates several different technologies, such as:
+
+- Enterprise data warehousing
+- Serverless SQL pools
+- Apache Spark
+- Pipelines
+- Data Explorer
+- Machine learning capabilities
+- Purview unified data governance
+
+:::image type="content" source="media/secure-data-lakehouse-overview.png" alt-text="Diagram that shows Azure Synapse Analytics and its components, capabilities, and applications." border="false" :::
+
+These capabilities open up many possibilities, but there are many technical choices to make to securely configure the infrastructure for safe use.
+
+This article describes the design process, principles, and technology choices for using Azure Synapse to build a secure data lakehouse solution. We focus on the security considerations and key technical decisions. The solution uses these Azure services:
+
+- [Azure Synapse](/azure/synapse-analytics/overview-what-is)
+- [Azure Synapse serverless SQL pools](/azure/synapse-analytics/sql/on-demand-workspace-overview)
+- [Apache Spark in Azure Synapse Analytics](/azure/synapse-analytics/spark/apache-spark-overview)
+- [Azure Synapse pipelines](/azure/data-factory/concepts-pipelines-activities)
+- [Azure Data Lake](/azure/storage/blobs/data-lake-storage-introduction)
+- [Azure DevOps](https://azure.microsoft.com/services/devops).
+
+The goal is to provide guidance on building a secure and cost-effective data lakehouse platform for enterprise use and on making the technologies work together seamlessly and securely.
+
+*Apache®, [Apache Spark®](https://spark.apache.org), and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
+
+### Potential use cases
+
+ A data lakehouse is a modern data management architecture that combines the cost-efficiency, scale, and flexibility features of a data lake with the data and transaction management capabilities of a data warehouse. A data lakehouse can handle a vast amount of data and support business intelligence and machine learning scenarios. It can also process data from diverse data structures and data sources. For more information, see [What is the Databricks Lakehouse?](/azure/databricks/lakehouse).
+
+ Some common use cases for the solution that's described here are:
+
+- Analysis of Internet of Things (IoT) telemetry
+- Automation of smart factories (for manufacturing)
+- Tracking consumer activities and behavior (for retail)
+- Managing security incidents and events
+- Monitoring application logs and application behavior
+- Processing and business analysis of semi-structured data
 
 ## High-level design
 
@@ -263,7 +269,7 @@ For information about the operational excellence pillar of the Well-Architected 
 
 #### Use a virtual network enabled self-hosted pipeline agent for CI/CD services
 
-  The default Azure DevOps pipeline agent doesn't support virtual network communication because it uses a very wide IP address range. This solution implements an Azure DevOps [self-hosted agent](https://docs.microsoft.com/azure/devops/pipelines/agents/v2-linux?view=azure-devops) in the virtual network so that the DevOps processes can smoothly communicate with the other services in the solution. The connection strings and secrets for running the CI/CD services are stored in an independent key vault. During the deployment process, the self-hosted agent accesses the key vault in the core data zone to update resource configurations and secrets. For more information, see the [Use separate key vaults](https://docs.microsoft.com/azure/key-vault/general/best-practices#use-separate-key-vaults) document. This solution also uses [VM scale sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview) to ensure that the DevOps engine can automatically scale up and down based on the workload.
+  The default Azure DevOps pipeline agent doesn't support virtual network communication because it uses a very wide IP address range. This solution implements an Azure DevOps [self-hosted agent](/azure/devops/pipelines/agents/v2-linux?view=azure-devops) in the virtual network so that the DevOps processes can smoothly communicate with the other services in the solution. The connection strings and secrets for running the CI/CD services are stored in an independent key vault. During the deployment process, the self-hosted agent accesses the key vault in the core data zone to update resource configurations and secrets. For more information, see the [Use separate key vaults](/azure/key-vault/general/best-practices#use-separate-key-vaults) document. This solution also uses [VM scale sets](/azure/virtual-machine-scale-sets/overview) to ensure that the DevOps engine can automatically scale up and down based on the workload.
 
 :::image type="content" source="media/secure-data-lakehouse-pipeline.png" alt-text="Diagram that shows Azure Synapse and its capabilities." border="false" lightbox="media/secure-data-lakehouse-pipeline.png" :::
 
