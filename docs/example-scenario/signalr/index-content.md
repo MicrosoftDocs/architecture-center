@@ -140,16 +140,6 @@ You can take this scenario into your production environment, however, make sure 
 
 You can deploy the code to Azure Functions right from Visual Studio. [Follow this guide](https://tutorials.visualstudio.com/first-azure-function/publish) to learn how to publish your code to Azure Functions from Visual Studio.
 
-## Alternatives
-
-Alternatives exist to address this scenario including [Pusher](https://pusher.com). It's the category leader in robust APIs for app developers building scalable real time communication features.
-
-There's also [PubNub](https://pubnub.com). PubNub makes it easy for you to add real-time capabilities to your apps, without worrying about the infrastructure. Build apps that allow your users to engage in real time across mobile, browser, desktop, and server.
-
-No doubt that Pusher and PubNub are the widely adopted platforms for real-time messaging but for this scenario, we do everything in Azure. SignalR was simply the go to for me as it allows bi-directional communication between server and client. It's also an open-source tool with 7.9K GitHub stars and 2.2K GitHub forks.
-
-[Here's](https://github.com/SignalR/SignalR) a link to SignalR's open-source repository on GitHub.
-
 ## Related resources
 
 - [High-volume batch transaction processing](/azure/architecture-center/example-scenario/mainframe/process-batch-transactions)
