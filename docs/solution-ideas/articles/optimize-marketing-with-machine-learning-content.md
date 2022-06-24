@@ -2,7 +2,7 @@
 
 Marketing campaigns are about more than the message being delivered; when and how that message is delivered is just as important. Without a data-driven, analytical approach, campaigns can easily miss opportunities or struggle to gain traction.
 
-Nowadays, marketing campaings are often based on social media analysis, which has become increasingly important for companies and organizations around the world.  It is a powerful tool that can be leveraged to receive instant feedback on products and services, improve interactions with customers to increase customer satisfaction, keep up with the competition, and more.  Companies often lack efficient, viable ways to monitor these conversations and as a result miss countless opportunities to use these insights to inform their strategies and plans.
+Nowadays, marketing campaings are often based on social media analysis, which has become increasingly important for companies and organizations around the world.  It is a powerful tool that can be leveraged to receive instant feedback on products and services, improve interactions with customers to increase customer satisfaction, keep up with the competition, and more. Companies often lack efficient, viable ways to monitor these conversations and as a result miss countless opportunities to use these insights to inform their strategies and plans.
 
 ## Potential use cases
 Organizations nowadays are capitalizing in various ways to extract knowledge and information about their customers in order to enhance the customer experience, increase customer satisfaction, gain new leads as well as prevent customer churn. There are three areas where customers are focing their investments in regards to social media analytics, some examples of use cases that this architecture and the solution accelerator could be used, are:
@@ -43,6 +43,7 @@ Principal author:
 
 
  *[Nicholas Moore](https://www.linkedin.com/in/nicholas-moore) | Cloud Architecture / Data / Artificial Intelligence
+
  *[Christina Skarpathiotaki](https://www.linkedin.com/in/christinaskarpathiotaki/) | AI Cloud Solution Architect
 
 ## Next steps
