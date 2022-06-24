@@ -1,0 +1,24 @@
+### YamlMime:Architecture
+metadata:
+  title: IBM Maximo Application Suite (MAS) on Azure architecture
+  description: Learn how to run IBM Maximo Application Suite on Azure. See guidance for designing and implementing cloud solutions with MAS 8.5 and up that use Azure.
+  author: ranieuwe
+  ms.author: ronieuwe,dbaumgarten
+  ms.date: 06/09/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - compute
+  - containers
+  - storage
+  - analytics
+  - iot
+products:
+  - azure-virtual-machines
+  - azure-virtual-network
+name: IBM Maximo Application Suite (MAS) on Azure architecture
+summary: Learn how to run IBM Maximo Application Suite on Azure. See guidance for designing and implementing cloud solutions with Maximo 8.5 and up that use Azure.
+thumbnailUrl: /azure/architecture/browse/thumbs/ibm-azure-guide-architecture-diagram-thumbnail.png
+content: |
+  [!include[](ibm-mas-overview-content.md)]
