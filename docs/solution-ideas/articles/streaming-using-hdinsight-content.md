@@ -38,7 +38,7 @@ Key technologies used to implement this architecture:
 - [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service)
 - [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines)
 
-- ## Contributors - NOTE - Need to add the author along with linkedin
+- ## Contributors - NOTE - Need to add the author along with LinkedIn
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
