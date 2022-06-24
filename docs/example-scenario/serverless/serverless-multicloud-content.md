@@ -67,7 +67,7 @@ The following diagram illustrates this concept:
 
 ### CI/CD with GitOps
 
-A primary job of the Serverless Framework is too abstract away all the infrastructure concerns of deploying an app to the cloud. By using a manifest-based approach, the Serverless Framework can deal with all deployment issues, allowing deployment to be automated as needed to support GitOps.
+A primary job of the Serverless Framework is to abstract away all the infrastructure concerns of deploying an app to the cloud. By using a manifest-based approach, the Serverless Framework can deal with all deployment issues, allowing deployment to be automated as needed to support GitOps.
 
 Although this initial project used manual deployments, it's realistic to implement manifest-driven serverless builds, tests, and deployments within or across clouds. This process can use a GitOps developer workflow: building from Git, using quality gates for test and evaluation, and pushing serverless solutions onto both cloud providers. Performing all deployments using the Serverless Framework from the beginning of the project is the most efficient way to proceed.
 
