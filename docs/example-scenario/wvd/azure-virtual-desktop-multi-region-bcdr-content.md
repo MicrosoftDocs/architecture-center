@@ -365,8 +365,8 @@ FSLogix permits this configuration and the usage of separate storage accounts. O
 
 Principal authors:
 
- * [Igor Pagliai](https://www.linkedin.com/in/igorpag) | FastTrack for Azure (FTA) Principal Engineer
  * [Ben Martin Baur](https://www.linkedin.com/in/ben-martin-baur) | Cloud Solution Architect
+ * [Igor Pagliai](https://www.linkedin.com/in/igorpag) | FastTrack for Azure (FTA) Principal Engineer
 
 Other contributor:
 
