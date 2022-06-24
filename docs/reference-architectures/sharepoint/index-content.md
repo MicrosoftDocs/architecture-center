@@ -191,7 +191,7 @@ For more information about the individual pieces of the solution architecture, s
 - [Overview of MinRole Server Roles in SharePoint Servers 2016 and 2019](/sharepoint/install/overview-of-minrole-server-roles-in-sharepoint-server)
 - [Always On availability groups](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server)
 - [Best practices for SQL Server in a SharePoint Server farm](/sharepoint/administration/best-practices-for-sql-server-in-a-sharepoint-server-farm)
-- [SharePoint Server 2016 in Microsoft Azure](/sharepoint/administration/sharepoint-server-2016-in-microsoft-azure)
+- [SharePoint Server 2016 in Microsoft Azure](/sharepoint/administration/sharepoint-server-in-microsoft-azure)
 
 ## Related resources
 
