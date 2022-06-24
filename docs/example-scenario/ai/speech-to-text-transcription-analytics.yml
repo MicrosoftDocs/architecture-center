@@ -23,4 +23,4 @@ name: Build a speech-to-text transcription pipeline to analyze recorded conversa
 summary: Build a pipeline to transcribe and analyze audio conversations using Azure Cognitive Services speech and language APIs. Display results in Power BI.
 thumbnailUrl: media-thumbnail/speech-to-text-analytics-nlp-pipeline-thumb.png
 content: |
-  [speech-to-text-transcription-analytics-content.md]
+  [!include[](speech-to-text-transcription-analytics-content.md)]
