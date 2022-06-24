@@ -21,7 +21,7 @@ This solution applies to many areas:
 
 ## Architecture
 
-![Architecture diagram showing how geospatial data flows through an Azure system. Various components receive, process, store, analyze, and publish the data.](./data/geospatial-data-processing-analytics-azure-architecture-new.png)
+![Architecture diagram showing how geospatial data flows through an Azure system. Various components receive, process, store, analyze, and publish the data.](./media/geospatial-data-processing-analytics-azure-architecture-new.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/geospatial-data-processing-analytics-azure-architecture.vsdx)* of this architecture.
 
