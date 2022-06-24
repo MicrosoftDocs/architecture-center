@@ -122,14 +122,6 @@ This is a node js script to push a message to the Service Bus so that you can te
 1. Enter your connection strings and queue name in the script.
 1. Run the script.
 
-## Contributors
-
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
-
-Principal author:
-
-
-
 ## Next steps
 
 You can take this scenario into your production environment, however, make sure your Azure services are set to scale. For instance, your Azure Service Bus should be set to a standard or premium plan.

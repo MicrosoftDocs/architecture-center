@@ -12,12 +12,14 @@ Interservice communications restrictions are only one part of an overall securit
 In the network layer step 1, Service A uses client credentials to request and receive an OAuth 2.0 token for Service B from Azure Active Directory. In step 2, Service A injects the token into a communications request toward Service B. In step 3, Service B evaluates the access token's aud claim and validates the token. In the application layer, Service A is in an integration subnet in a virtual network. In step 1, Service A uses App Service Regional VNet Integration to communicate only from a private IP address in its integration subnet. In step 2, Service B uses service endpoints to accept communications only from IP addresses in the Service A integration subnet.
 :::image-end:::
 
+### Dataflow
+
 The diagram shows restricted communications from Service A to Service B. Token-based authorization restricts access on the application layer, and service endpoints restrict access on the network layer.
 
 - Both services [register with Azure Active Directory (Azure AD)][appreg], and use OAuth 2.0 token-based authorization in the [client credentials flow][clientcredsflow].
 - Service A communicates by using [Regional VNet Integration][regionalvnet] from a private IP address in its virtual network integration subnet. Service B [service endpoints][svcep] accept inbound communications only from the Service A integration subnet.
 
-### Token-based authorization
+#### Token-based authorization
 
 An OpenID Connect (OIDC)-compatible library like the [Microsoft Authentication Library (MSAL)][msal] supports this token-based client credentials flow. For more information, see [Scenario: Daemon application that calls web APIs][daemoncallswebapi] and the [sample application for the daemon scenario][daemonsample].
 
@@ -42,7 +44,7 @@ Service B uses one of the following methods to ensure that only specifically all
       1. On the **Request API permissions** screen, select [Application permissions][aadpermissiontypes], because this backend application runs without a signed-in user. Select the exposed Service B role, and then select **Add permissions**.
    1. [Grant admin consent][consent] to the Service A application permissions request. Only a Service B owner or admin can consent to the Service A permissions request.
 
-### Service endpoints
+#### Service endpoints
 
 The lower half of the architectural diagram shows how to restrict interservice communications on the network layer:
 
@@ -100,6 +102,14 @@ This scenario uses service endpoints rather than [private endpoints][privateend]
 Pricing for this scenario depends on your specific infrastructure and requirements. Azure AD has Free up to Premium tiers, depending on needs. Costs for Azure App Service or other hosts vary with your specific scale and security requirements, as described in [Alternatives](#alternatives) and [Considerations](#considerations).
 
 To calculate costs for your scenario, see the [Azure pricing calculator][pricing].
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Christof Claessens](https://www.linkedin.com/in/christofclaessens) | FastTrack for Azure Engineer
 
 ## Next steps
 

@@ -206,7 +206,7 @@ At this point:
 
 Principal author:
 
-
+ * [Jelle Druyts](https://www.linkedin.com/in/jelle-druyts-0b76823) | FastTrack for Azure Engineer
 
 ## Next steps
 
@@ -224,7 +224,7 @@ Principal author:
 
 [Alternatives to the single-region version]: ../private-web-app/private-web-app.yml#alternatives
 [App Service networking features]: /azure/app-service/networking-features
-[Azure App Service]: /azure/app-service/
+[Azure App Service]: /azure/app-service
 [Azure DNS Private Zones]: /azure/app-service/web-sites-integrate-with-vnet#azure-dns-private-zones
 [Azure Web Apps]: /azure/app-service/overview
 [Bandwidth Pricing Details]: https://azure.microsoft.com/pricing/details/bandwidth/
