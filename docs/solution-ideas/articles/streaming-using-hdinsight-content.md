@@ -44,9 +44,9 @@ To learn more about these services, see the following articles:
 
 - [What is Azure HDInsight?](/azure/hdinsight/hdinsight-overview)
 - [What is streaming in HDInsight?](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-streaming-at-scale-overview)
-- [Create Apache Hadoop cluster in HDInsight](./hadoop/apache-hadoop-linux-create-cluster-get-started-portal.md)
-- [Create Apache Spark cluster - Portal](./spark/apache-spark-jupyter-spark-sql-use-portal.md)
-- [Enterprise security in Azure HDInsight](./domain-joined/hdinsight-security-overview.md)
+- [Create Apache Hadoop cluster in HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/hadoop/apache-hadoop-linux-create-cluster-get-started-portal)
+- [Create Apache Spark cluster - Portal](https://docs.microsoft.com/en-us/azure/hdinsight/spark/apache-spark-jupyter-spark-sql-use-portal)
+- [Enterprise security in Azure HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/domain-joined/hdinsight-security-overview)
 
 ## Related resources - NOTE - I might be missing some or there might be better ones
 
