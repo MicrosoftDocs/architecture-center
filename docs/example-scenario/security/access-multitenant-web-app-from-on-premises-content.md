@@ -133,7 +133,7 @@ Azure Private Link is integrated with [Azure Monitor](/azure/azure-monitor/overv
 
 You can also use the connection troubleshoot service in Azure [Network Watcher](/azure/private-link/troubleshoot-private-endpoint-connectivity) to trace the connectivity from a VM in a virtual network to the FQDN of the Private Endpoint resource.
 
-## Pricing
+### Cost optimization
 
 There's no added cost for App Service regional VNet Integration in a supported pricing tier of Standard or higher. But Private Endpoints for Web Apps is supported only on Elastic Premium, Premium V2, and Premium V3 plans.
 
