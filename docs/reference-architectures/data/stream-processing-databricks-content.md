@@ -12,7 +12,9 @@ This solution is optimized for the retail industry.
 
 ## Architecture
 
-![Diagram showing a reference architecture for stream processing with Azure Databricks.](./images/stream-processing-databricks.png)
+![Diagram showing a reference architecture for stream processing with Azure Databricks.](./images/stream-processing-databricks-new.png)
+
+*Download a [Visio file](https://arch-center.azureedge.net/stream-processing-databricks.vsdx)* of this architecture.
 
 ### Workflow
 
