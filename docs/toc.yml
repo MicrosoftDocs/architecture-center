@@ -299,6 +299,10 @@ items:
             href: example-scenario/startups/core-startup-stack.yml
           - name: SaaS digital business journey on Azure
             href: guide/saas/saas-digital-business-journey-azure.md
+      - name: Mission critical applications
+        items:
+            - name: Mission critical workload on Azure
+              href: reference-architectures/containers/aks-mission-critical/mission-critical-intro.yml     
       - name: Multitenant applications
         items:
           - name: Overview
@@ -319,6 +323,8 @@ items:
                 href: guide/multitenant/considerations/updates.md
               - name: Map requests to tenants
                 href: guide/multitenant/considerations/map-requests.yml
+              - name: Identity
+                href: guide/multitenant/considerations/identity.md
               - name: Domain names
                 href: guide/multitenant/considerations/domain-names.yml
           - name: Approaches
@@ -341,14 +347,12 @@ items:
                 href: guide/multitenant/approaches/storage-data.yml
               - name: Messaging
                 href: guide/multitenant/approaches/messaging.md
+              - name: Identity
+                href: guide/multitenant/approaches/identity.md
               - name: IoT
                 href: guide/multitenant/approaches/iot.md
               - name: AI and ML
                 href: guide/multitenant/approaches/ai-ml.md
-          - name: Architectures
-            items:
-              - name: SaaS starter web app
-                href: example-scenario/apps/saas-starter-web-app.yml
           - name: Service-specific guidance
             items:
               - name: Overview
@@ -726,6 +730,8 @@ items:
                 href: example-scenario/magento/magento-azure.yml
               - name: Movie recommendations on Azure
                 href: example-scenario/ai/movie-recommendations-with-machine-learning.yml
+              - name: Optimize inventory and forecast demand
+                href: example-scenario/analytics/optimize-inventory-forecast-demand.yml
               - name: Out of stock detection (retail)
                 href: /hybrid/app-solutions/pattern-out-of-stock-at-edge
                 maintainContext: true
@@ -2670,6 +2676,8 @@ items:
                 href: solution-ideas/articles/interactive-voice-response-bot.yml
               - name: Keyword digital text processing
                 href: solution-ideas/articles/digital-media-speech-text.yml
+              - name: Large-scale custom NLP
+                href: solution-ideas/articles/large-scale-custom-natural-language-processing.yml
               - name: Marketing optimization
                 href: solution-ideas/articles/optimize-marketing-with-machine-learning.yml
               - name: Model deployment to AKS
@@ -2802,6 +2810,8 @@ items:
                 href: example-scenario/analytics/relationship-mesh-solution-azure.yml
               - name: Secure a data lakehouse with Azure Synapse
                 href: example-scenario/analytics/secure-data-lakehouse-synapse.yml
+              - name: Sentiment analysis and face recognition
+                href: example-scenario/ai/nifi-sentiment-analysis-face-recognition.yml
               - name: Sports analytics on Azure
                 href: example-scenario/analytics/sports-analytics-architecture-azure.yml
               - name: Stream processing with Azure Databricks
@@ -3124,7 +3134,7 @@ items:
               - name: Magento e-commerce in AKS
                 href: example-scenario/magento/magento-azure.yml
               - name: Microservices architecture on AKS
-                href: reference-architectures/containers/aks-microservices/aks-microservices.yml
+                href: reference-architectures/containers/aks-microservices/aks-microservices.yml              
               - name: Microservices with Container Apps
                 href: example-scenario/serverless/microservices-with-container-apps.yml
               - name: Microservices with Container Apps and Dapr
@@ -4216,7 +4226,7 @@ items:
               - name: Cross-platform chat
                 href: solution-ideas/articles/cross-platform-chat.yml
       - name: Identity
-        items:
+        items:    
           - name: Get started
             href: identity/identity-start-here.yml
           - name: Guides
@@ -4469,6 +4479,18 @@ items:
                     href: guide/iiot-guidance/iiot-data.yml
                   - name: Considerations
                     href: guide/iiot-guidance/iiot-considerations.md
+              - name: Industrial IoT patterns
+                items:
+                  - name: Overview
+                    href: guide/iiot-patterns/iiot-patterns-overview.yml
+                  - name: Connectivity patterns
+                    href: guide/iiot-patterns/iiot-connectivity-patterns.yml
+                  - name: Visibility patterns
+                    href: guide/iiot-patterns/iiot-visibility-patterns.yml
+                  - name: Transparency patterns
+                    href: guide/iiot-patterns/iiot-transparency-patterns.yml    
+                  - name: Prediction patterns
+                    href: guide/iiot-patterns/iiot-prediction-patterns.yml
               - name: IoT patterns
                 items:
                   - name: Analyze and optimize loop
@@ -5577,6 +5599,8 @@ items:
                     href: solution-ideas/articles/microsoft-365-defender-build-second-layer-defense.yml
                   - name: Integrate Azure and M365 Defender
                     href: solution-ideas/articles/microsoft-365-defender-security-integrate-azure.yml
+                  - name: Microsoft Sentinel automated responses
+                    href: solution-ideas/articles/microsoft-sentinel-automated-response.yml
       - name: Storage
         items:
           - name: Get started

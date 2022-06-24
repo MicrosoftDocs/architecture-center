@@ -116,7 +116,7 @@ Consider the following information when deploying and managing hub and spoke net
 
 Use Azure Network Watcher to monitor and troubleshoot the network components. Tools like Traffic Analytics will show you the systems in your virtual networks that generate the most traffic. Then you can visually identify bottlenecks before they degenerate into problems. Network Performance Manager is the right tool to monitor information about Microsoft ExpressRoute circuits. VPN diagnostics is another tool that can help troubleshoot site-to-site VPN connections connecting your applications to users on-premises.
 
-For more information, see [Azure Network Watcher](/azure/network-watcher/network-watcher-monitoring-overview) in the Azure Well-Architected Framework.
+For more information, see [Azure Network Watcher](/azure/network-watcher/network-watcher-monitoring-overview).
 
 ### Cost optimization
 

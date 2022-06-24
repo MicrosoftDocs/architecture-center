@@ -1,7 +1,5 @@
 You can enhance the security posture of your organization’s IT environment by using the security features of both Microsoft 365 and Azure. This article, the fifth in a series of five, describes how you can integrate the security features of these services by using Microsoft 365 Defender and Azure monitoring services. 
 
-Monitoring solutions on Azure might seem confusing at first, because Azure offers multiple monitoring services. However, each Azure monitoring service is important in the security and monitoring strategy that's described in this series. The articles in this series describe the various services and how to plan effective security for your IT environment. 
-
 This article builds on the previous articles in the series:
 
 1. [Use Azure monitoring to integrate security components](../../guide/security/azure-monitor-integrate-security-components.yml) provides an overall view of how you can integrate the security services of Azure and Microsoft 365 Defender.
@@ -11,12 +9,6 @@ This article builds on the previous articles in the series:
 3. [Build the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml) maps an example of some Azure security services that create the first layer of defense to protect your Azure environment according to Azure Security Benchmark version 3.
 
 4. [Build the second layer of defense with Microsoft 365 Defender Security services](./microsoft-365-defender-build-second-layer-defense.yml) describes an example of a series of attacks against your IT environment and how to add another layer of protection by using Microsoft 365 Defender.
-
-## Potential use cases
-
-This reference architecture can help you understand the whole picture of Microsoft Cloud security services and to how to integrate them for the best security posture.
-
-You don't need to implement all the security services that are presented in this architecture. However, this example and the threat map that's represented in the architecture diagram can help you to understand how to create your own map and then plan accordingly for your security strategy. Select the right Azure security services and the Microsoft 365 Defender services that you want to integrate through Azure so that your IT environment has the security that it needs.
 
 ## Architecture
 
@@ -28,7 +20,7 @@ You don't need to implement all the security services that are presented in this
 
 This diagram shows a complete architecture reference. It includes an example of an IT environment, a set of example threats that are described according to their tactics (in blue), and their techniques (in the text box) according to the MITRE ATT&CK matrix. The MITRE ATT&CK matrix is covered in [Map threats to your IT environment](./map-threats-it-environment.yml). 
 
-There are important services that are presented in the diagram. Some of those services, such as Network watcher and Application Insights, are focused on capturing information from specific services. Some of them, like Log Analytics (also known as Azure Monitor Logs) and Microsoft Sentinel, are core services because they can collect, store, and analyze information from various services, regardless of whether they're network, compute, or applications services.
+There are important services that are presented in the diagram. Some of those services, such as Network Watcher and Application Insights, are focused on capturing information from specific services. Some of them, like Log Analytics (also known as Azure Monitor Logs) and Microsoft Sentinel, are core services because they can collect, store, and analyze information from various services, regardless of whether they're network, compute, or applications services.
 
 The central part of the diagram has two layers of security services. There's also one layer with specific Azure monitoring services that are integrated through Azure Monitor (on the left side of the diagram). The key component of this integration is Microsoft Sentinel.
 
@@ -123,7 +115,21 @@ The example architecture in this article uses the following Azure components:
 
 - [Azure SQL database](https://azure.microsoft.com/products/azure-sql/database) is a fully managed PaaS database engine that handles most of the database management functions such as upgrading, patching, backups, and monitoring. It provides these functions without user involvement. SQL Database provides a range of built-in security and compliance features to help your application meet security and compliance requirements.
 
-## Pricing
+## Solution details
+
+Monitoring solutions on Azure might seem confusing at first, because Azure offers multiple monitoring services. However, each Azure monitoring service is important in the security and monitoring strategy that's described in this series. The articles in this series describe the various services and how to plan effective security for your IT environment.
+1. [Use Azure monitoring to integrate security components](../../guide/security/azure-monitor-integrate-security-components.yml)
+2. [Map threats to your IT environment](./map-threats-it-environment.yml)
+3. [Build the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml)
+4. [Build the second layer of defense with Microsoft 365 Defender Security services](./microsoft-365-defender-build-second-layer-defense.yml)
+
+### Potential use cases
+
+This reference architecture can help you understand the whole picture of Microsoft Cloud security services and to how to integrate them for the best security posture.
+
+You don't need to implement all the security services that are presented in this architecture. However, this example and the threat map that's represented in the architecture diagram can help you to understand how to create your own map and then plan accordingly for your security strategy. Select the right Azure security services and the Microsoft 365 Defender services that you want to integrate through Azure so that your IT environment has the security that it needs.
+
+## Cost optimization
 
 Pricing for the Azure services that are presented in this series of articles is calculated in various ways. Some services are free of charge, some have a charge for each use, and some have a charge that is based on licensing. The best way to estimate the pricing for any of the Azure security services is to use the [Pricing calculator](https://azure.microsoft.com/pricing/calculator). In the calculator, search for a service that you're interested in, and then select it to get all the variables that determine the price for the service.
 
@@ -164,4 +170,3 @@ For related architectures on Azure Architecture Center, see the following articl
 
 - [Implement a secure hybrid network](../../reference-architectures/dmz/secure-vnet-dmz.yml)
 - [Monitor hybrid security using Microsoft Defender for Cloud and Microsoft Sentinel](../../hybrid/hybrid-security-monitoring.yml)
-
