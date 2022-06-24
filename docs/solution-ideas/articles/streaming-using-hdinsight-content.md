@@ -1,4 +1,3 @@
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Ingest and process millions of streaming events per second with Apache Kafka, Apache Storm, and Apache Spark Streaming.
@@ -10,25 +9,33 @@ Insurance companies use this solution to retrieve (or ingest) data from multiple
 - Individual and/or enterprise history
 - Market conditions
 - Competitor analysis
-- Previous claims
-- Local demographics
-- Weather conditions
+- Previous claims (finance industry)
+- Local demographics (retail and government industries)
+- Weather conditions (agriculture industry)
 
 ## Architecture
 
 ![Architecture Diagram shows the flow of data through the different processes.](../media/streaming-using-hdinsight.png)
 *Download an [SVG](../media/streaming-using-hdinsight.svg) of this architecture.*
 
-### Dataflow - NOTE - This section needs some work. I did what I could with the diagram above
+### Dataflow
 
-1. Streaming Data is ingested by Apache Kafka.
+1. Streaming data is ingested by Apache Kafka.
 1. The data is sent to Apache Spark Streaming and Apache Storm for processing.
+1. The data is stored in Apache HBase, which acts as a NoSQL database.
+1. The data is consumed by the user in the related apps.
+1. The data is visualized in Power BI.
+1. The data is sent to and back from Azure HDInsight and Azure Data Lake Storage to securely autoscale processing in the cloud and to perform further analysis.
 
-### Components - NOTE - I might be missing some or there might be better ones
+### Components
 
 Key technologies used to implement this architecture:
 
 - [Azure HDInsight](https://azure.microsoft.com/services/hdinsight)
+- [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage)
+- [Power BI](https://powerbi.microsoft.com)
+
+/ Note to Chad - I think we should get rid of these other services that were added in, right? These ones:
 - [API Management](https://azure.microsoft.com/services/api-management)
 - [App Service](https://azure.microsoft.com/services/app-service)
 - [Azure Cache for Redis](https://azure.microsoft.com/services/cache)
@@ -38,24 +45,23 @@ Key technologies used to implement this architecture:
 - [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service)
 - [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines)
 
-- ## Contributors - NOTE - Need to add the author along with LinkedIn
-
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
-
-Principal author:
-
-## Next steps - NOTE - I might be missing some or there might be better ones
+## Next steps
 
 To learn more about these services, see the following articles:
 
 - [What is Azure HDInsight?](/azure/hdinsight/hdinsight-overview)
-- [What is streaming in HDInsight?](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-streaming-at-scale-overview)
-- [Create Apache Hadoop cluster in HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/hadoop/apache-hadoop-linux-create-cluster-get-started-portal)
-- [Create Apache Spark cluster - Portal](https://docs.microsoft.com/en-us/azure/hdinsight/spark/apache-spark-jupyter-spark-sql-use-portal)
-- [Enterprise security in Azure HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/domain-joined/hdinsight-security-overview)
+- [What is streaming in HDInsight?](/azure/hdinsight/hdinsight-streaming-at-scale-overview)
+- [Create Apache Hadoop cluster in HDInsight](/azure/hdinsight/hadoop/apache-hadoop-linux-create-cluster-get-started-portal)
+- [Introduction to Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)
+- [Create Apache Spark cluster - Portal](/azure/hdinsight/spark/apache-spark-jupyter-spark-sql-use-portal)
+- [Enterprise security in Azure HDInsight](/azure/hdinsight/domain-joined/hdinsight-security-overview)
 
-## Related resources - NOTE - I might be missing some or there might be better ones
+## Related resources
 
-- [Azure Kubernetes Service (AKS) architecture design](../../reference-architectures/containers/aks-start-here.md)
+- [Extend your on-premises big data investments with HDInsight](/azure/architecture/solution-ideas/articles/extend-your-on-premises-big-data-investments-with-hdinsight)
+- [Extract, transform, and load (ETL) using HDInsight](/azure/architecture/solution-ideas/articles/extract-transform-and-load-using-hdinsight)
+- [Campaign optimization with Azure HDInsight Spark clusters](/azure/architecture/solution-ideas/articles/campaign-optimization-with-azure-hdinsight-spark-clusters)
+- [Loan charge-off prediction with Azure HDInsight Spark clusters](/azure/architecture/solution-ideas/articles/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters)
+- [Interactive querying with HDInsight](/azure/architecture/solution-ideas/articles/interactive-querying-with-hdinsight)
 - [Azure Kubernetes in event stream processing](serverless-event-processing-aks.yml)
 - [Instant IoT data streaming with AKS](aks-iot-data-streaming.yml)
