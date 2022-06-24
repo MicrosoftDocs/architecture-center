@@ -2,13 +2,21 @@
 
 Marketing campaigns are about more than the message being delivered; when and how that message is delivered is just as important. Without a data-driven, analytical approach, campaigns can easily miss opportunities or struggle to gain traction.
 
-In this solution, a model will be created and registered to an Azure Machine Learning workspace. The model will be consumed from the Azure Machine Learning model registry for deployment in Azure Synapse SQL pools and launch predictions to enrich the data. Power BI will be used to connect to the Azure Synapse Analytics instance to visualize the data.
+Nowadays, marketing campaings are often based on social media analysis, which has become increasingly important for companies and organizations around the world.  It is a powerful tool that can be leveraged to receive instant feedback on products and services, improve interactions with customers to increase customer satisfaction, keep up with the competition, and more.  Companies often lack efficient, viable ways to monitor these conversations and as a result miss countless opportunities to use these insights to inform their strategies and plans.
 
 ## Potential use cases
+Organizations nowadays are capitalizing in various ways to extract knowledge and information about their customers in order to enhance the customer experience, increase customer satisfaction, gain new leads as well as prevent customer churn. There are three areas where customers are focing their investments in regards to social media analytics, some examples of use cases that this architecture and the solution accelerator could be used, are:
 
-Through machine learning informed by historical campaign data, this solution helps predict customer responses. The solution recommends an optimized plan for connecting with your leads, including the best channel to use (by email, SMS, a cold call, and so on), the best day of the week, and the best time of the day.
+- **Measure Brand Health:** 
+    - Capture customer reactions and feedback for new products on social media.
+    - Analyse Sentiment on social media interactions for a newly introduced product.
 
-Optimizing your campaigns with machine learning helps to improve both sales leads and revenue generation and can provide strong ROI for your marketing investment. This solution is ideal for the retail industry.
+- **Build & maintain customer relationships:**
+    - Identify quickly all customer concerns
+    - Listen to untagged brand mentions
+
+- **Optimize marketing spends:**
+    - Extract insights from social media for campaign analysis.
 
 ## Architecture
 
@@ -17,9 +25,15 @@ Optimizing your campaigns with machine learning helps to improve both sales lead
 
 ### Dataflow
 
-* [Azure Machine Learning (AML)][aml-overview] is a cloud-based environment you can use to train, deploy, automate, manage, and track machine learning models. In this solution, it's used to develop a machine learning model and register the model in the AML model registry.
-* [Azure Synapse Analytics][synapse-overview] is an integrated analytics service that accelerates time to insight across data warehouses and big data systems. In this solution, Azure Synapse Analytics will enrich data in dedicated SQL pools with the model registered in AML via a stored procedure.
-* [Power BI][pbi-overview] provides an interactive dashboard with visualizations that use data stored in Azure Synapse Analytics to drive decisions on the predictions.
+1. [Azure Synapse Analytics][synapse-overview] is an integrated analytics service that accelerates time to insight across data warehouses and big data systems. In this solution, Azure Synapse Analytics will enrich data in dedicated SQL pools with the model registered in AML via a stored procedure.
+2. [Cognitive Services](https://azure.microsoft.com/en-gb/services/cognitive-services/#api) and [Azure Machine Learning (AML)][aml-overview].
+    - **Cognitive Services** brings AI within reach of every developer and data scientist. With leading models, a variety of use cases can be unlocked. All it takes is an API call to embed the ability to see, hear, speak, search, understand, and accelerate advanced decision-making into your apps. Enable developers and data scientists of all skill levels to easily add AI capabilities to their apps.
+
+    - **Azure Machine Learning Service (AML)** is a cloud-based environment you can use to train, deploy, automate, manage, and track machine learning models. In this solution, it's used to develop a machine learning model and register the model in the AML model registry.
+3. [Azure Data Lake Storage (ADLS)](https://azure.microsoft.com/en-us/services/storage/data-lake-storage/#overview) is a massively scalable and secure data lake for your high-performance analytics workloads.
+4. [Power BI][pbi-overview] and [Azure Web App](https://azure.microsoft.com/en-us/services/app-service/web/) 
+    - **Azure Web App** is used to create and deploy scalable mission-critical web applications.
+    - **Power BI** provides an interactive dashboard with visualizations that use data stored in Azure Synapse Analytics to drive decisions on the predictions.
 
 ## Contributors
 
@@ -27,7 +41,9 @@ Optimizing your campaigns with machine learning helps to improve both sales lead
 
 Principal author:
 
+
  *[Nicholas Moore](https://www.linkedin.com/in/nicholas-moore) | Cloud Architecture / Data / Artificial Intelligence
+ *[Christina Skarpathiotaki](https://www.linkedin.com/in/christinaskarpathiotaki/) | AI Cloud Solution Architect
 
 ## Next steps
 
