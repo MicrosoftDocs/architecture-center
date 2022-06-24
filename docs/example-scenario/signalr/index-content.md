@@ -140,6 +140,10 @@ You can take this scenario into your production environment, however, make sure 
 
 You can deploy the code to Azure Functions right from Visual Studio. [Follow this guide](https://tutorials.visualstudio.com/first-azure-function/publish) to learn how to publish your code to Azure Functions from Visual Studio.
 
+See [how to work with Azure Service Bus bindings in Azure Functions](/azure/azure-functions/functions-bindings-service-bus). Azure Functions supports trigger and output bindings for Service Bus queues and topics.
+
+See [how to authenticate and send real-time messages](/azure/azure-functions/functions-bindings-signalr-service) to clients that are connected to Azure SignalR Service, by using SignalR Service bindings in Azure Functions. Azure Functions supports input and output bindings for SignalR Service.
+
 ## Related resources
 
 - [High-volume batch transaction processing](/azure/architecture-center/example-scenario/mainframe/process-batch-transactions)
