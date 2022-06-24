@@ -25,6 +25,10 @@ This solution applies to many areas:
    The diagram contains several gray boxes, each with a different label. From left to right, the labels are Ingest, Prepare, Load, Serve, and Visualize and explore. A final box underneath the others has the label Monitor and secure. Each box contains icons that represent various Azure services. Numbered arrows connect the boxes in the way that the steps describe in the diagram explanation.
 :::image-end:::
 
+![Architecture diagram showing how geospatial data flows through an Azure system. Various components receive, process, store, analyze, and publish the data.](./images/geospatial-data-processing-analytics-azure-architecture-new.png)
+
+*Download a [Visio file](https://arch-center.azureedge.net/geospatial-data-processing-analytics-azure-architecture.vsdx)* of this architecture.
+
 ### Workflow
 
 1. IoT data enters the system:
