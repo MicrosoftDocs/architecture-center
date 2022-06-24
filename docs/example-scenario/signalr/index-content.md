@@ -20,7 +20,7 @@ There's also [PubNub](https://pubnub.com/). PubNub makes it easy for you to add 
 
 No doubt that Pusher and PubNub are the widely adopted platforms for real-time messaging but for this scenario, we do everything in Azure. SignalR was simply the go to for me as it allows bi-directional communication between server and client. It's also an open-source tool, with 7.9K GitHub stars and 2.2K GitHub forks.
 
-[Here's](https://github.com/SignalR/SignalR) a link to SignalR's open-source repository on GitHub.
+See [SignalR's open-source repository on GitHub](https://github.com/SignalR/SignalR).
 
 ## Scenario details
 
@@ -45,7 +45,7 @@ Here are some of the considerations taken to develop this scenario, including ho
 
 **Targets:** Targets are like radio channels. Everyone who is listening to the Target channel and is notified when there's a new message on it.
 
-If you can remember the above two features of SignalR platform, it will be easy to get up and running quickly.
+If you can remember the above two features of the SignalR platform, it will be easy to get up and running quickly.
 
 ### Availability, scalability, and security
 
