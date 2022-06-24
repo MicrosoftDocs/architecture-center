@@ -2,7 +2,13 @@ This article describes a solution for running an order management system with 10
 
 ## Potential use cases
 
+This solution applies to any organization that uses stateless and stateful microservices for distributed systems. The solution is best for consumer packaged goods and manufacturing industries that have an ordering and fulfillment system.
 
+These other solutions have similar designs:
+
+- Microservices architecture on Azure Kubernetes Service (AKS)
+- Microservices architecture on Azure Functions
+- Event-driven architectures
 
 ## Architecture
 
@@ -89,16 +95,6 @@ This article describes a solution for running an order management system with 10
 
 *Dapr and Traefik are trademarks of their respective companies. No endorsement is implied by the use of these marks.*
 
-### Potential use cases
-
-This solution applies to any organization that uses stateless and stateful microservices for distributed systems. The solution is best for consumer packaged goods and manufacturing industries that have an ordering and fulfillment system.
-
-These other solutions have similar designs:
-
-- Microservices architecture on Azure Kubernetes Service (AKS)
-- Microservices architecture on Azure Functions
-- Event-driven architectures
-
 ## Considerations
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
@@ -153,12 +149,12 @@ For deployment instructions, see the [Red Dog Demo: Azure Container Apps Deploym
 
 Principal author:
 
-- [Alice Gibbons](https://www.linkedin.com/in/alicejgibbons) | Specialist (GBB)
+- [Alice Gibbons](https://www.linkedin.com/in/alicejgibbons) | Cloud Native Global Black Belt
 
 Other contributors:
 
-- [Kendall Roden](https://www.linkedin.com/in/kendallroden) | Senior program manager
-- [Lynn Orrell](https://www.linkedin.com/in/lynn-orrell) | Principal solution specialist (GBB)
+- [Kendall Roden](https://www.linkedin.com/in/kendallroden) | Senior Program Manager
+- [Lynn Orrell](https://www.linkedin.com/in/lynn-orrell) | Principal Solution Specialist (GBB)
 
 ## Next steps
 

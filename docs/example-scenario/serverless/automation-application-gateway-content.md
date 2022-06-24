@@ -9,6 +9,7 @@ This article explores enhancements to address these common problems through the 
 ## Potential use cases
 
 This architecture works best for:
+
 - Serverless deployment.
 - Minimal operation for a cloud-native workload with automation.
 - A simple container workload that doesn't require advanced container orchestration.
@@ -21,14 +22,18 @@ This architecture works best for:
 
 *Download a [Visio file](https://arch-center.azureedge.net/Architecture.vsdx) of this architecture.*
 
-### Part 1: Typical web application traffic flow
+### Dataflow
+
+#### Part 1: Typical web application traffic flow
+
 1a. Application Gateway has web application firewall capability, which is ideal for fronting public-facing traffic before it hits the backend workload. Application Gateway exposes the public IP address, so Azure DDoS Protection provides another layer of protection.
 
 1b. The backend pool of Application Gateway is configured with the private IP address of the Azure container instance in a container group. Azure container instances in container groups don't come with fully qualified domain names (FQDN), so the IP address has to be used.
 
 1c. Containers in Azure Container Instances can consume private resources, like Azure Cosmos DB, via private links.
 
-### Part 2: Enhancements with automation
+#### Part 2: Enhancements with automation
+
 2a. Application Gateway includes a **healthy host count** metric that you can use as a liveness probe for Azure container instances, given that container groups in Container Instances don't support liveness or readiness probes.
 
 2b. Application Insights is used in containers to collect additional metrics, including heart beats, which can be sent to Application Insights for monitoring via a custom thread.
@@ -63,7 +68,7 @@ This architecture works best for:
 
 ### Alternatives
 
-The preceding scenario updates a backend pool for Application Gateway. As an alternative, you could use an Azure private DNS zone as a target backend for Application Gateway and use Azure functions to update a record instead of making changes on Application Gateway. This alternative would reduce deployment time. On the other hand, Application Gateway metrics wouldn't be able to identify the host count because it would be abstracted by DNS. So this automation would need to be triggered through an application monitoring solution like Application Insights or Azure Monitor directly. 
+The preceding scenario updates a backend pool for Application Gateway. As an alternative, you could use an Azure private DNS zone as a target backend for Application Gateway and use Azure functions to update a record instead of making changes on Application Gateway. This alternative would reduce deployment time. On the other hand, Application Gateway metrics wouldn't be able to identify the host count because it would be abstracted by DNS. So this automation would need to be triggered through an application monitoring solution like Application Insights or Azure Monitor directly.
 
 Azure provides multiple options to host container-based workloads, like [Azure Kubernetes Service](/azure/aks/intro-kubernetes) and [Azure App Service](/azure/app-service/quickstart-custom-container).
 
@@ -115,7 +120,7 @@ See [this example](https://azure.com/e/437a828a735f44c6b942c72ef67ade58) of the 
 
 Principal author:
 
-
+ * [Marcus Tee](https://www.linkedin.com/in/teeguangyingmarcus) | Technical Strategy & Roadmap
 
 ## Next steps
 

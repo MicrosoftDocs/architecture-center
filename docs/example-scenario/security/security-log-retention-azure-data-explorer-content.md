@@ -25,6 +25,8 @@ A customer testifies to the usefulness of the solution: "We deployed an Azure Da
 
 :::image type="content" source="./media/security-log-retention-azure-data-explorer-architecture-diagram.png" alt-text="Architecture diagram showing the flow of security log data. Key components include Sentinel for short-term data and Azure Data Explorer for long-term storage." border="false":::
 
+### Dataflow
+
 1. For SIEM and SOAR, an enterprise uses Sentinel and Defender for Endpoint.
 1. Defender for Endpoint uses native functionality to export data to Azure Event Hubs and Azure Data Lake. Sentinel ingests Defender for Endpoint data to monitor devices.
 1. Sentinel uses Log Analytics as a data platform for exporting data to Event Hubs and Azure Data Lake.
@@ -152,7 +154,7 @@ To explore the cost of running this solution in your environment, use the [Azure
 
 Principal author:
 
-
+ * [Deepak Agrawal](https://www.linkedin.com/in/connectwithdeepakagrawal) | Product Manager
 
 ## Next steps
 

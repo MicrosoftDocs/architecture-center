@@ -37,6 +37,8 @@ Other potential benefits of using the Serverless Framework include:
 
 ![Multicloud serverless architecture](./media/multi-cloud-serverless-architecture.png)
 
+### Dataflow
+
 - The user app can come from any source capable of logging into the cloud. In this implementation, the user logs into a gateway app that load balances requests 50-50 between the Azure and AWS clouds.
 - Any response also routes through the API Manager gateway, which then sends it to the requestor app.
 

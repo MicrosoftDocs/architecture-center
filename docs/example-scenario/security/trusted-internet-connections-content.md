@@ -219,7 +219,7 @@ The cost of each solution scales down as resources increase. The pricing in [Azu
 
 Principal author:
 
-
+ * [Paul Lizer](https://www.linkedin.com/in/paullizer) | Senior Cloud Solution Architect
 
 ## Next steps
 

@@ -119,7 +119,6 @@ Integration with Azure Monitor allows you to track container app execution. You 
 
 You can enable autoscaling rules to meet demand as workloads increase. When the application scales, more replicas spawn to ensure availability.  Performance is optimized by the dynamic load balancing features of Container Apps (not currently used in this example workload).
 
-
 ### Operational excellence
 
 To achieve operational excellence, the Container Apps service offers these features:
@@ -168,7 +167,7 @@ Performance monitoring through Log Analytics and Azure Monitor allows you to eva
 - In this scenario, the Azure Cosmos DB and Azure Cache for Redis services generate most of the costs.  
 - To avoid accruing charges, don't leave this example running.
 
-## Deploy this scenario 
+## Deploy this scenario
 
 Follow the steps in the README.md in the [sample repository](https://github.com/mspnp/container-apps-fabrikam-dronedelivery) to deploy this scenario.
 
@@ -178,7 +177,7 @@ Follow the steps in the README.md in the [sample repository](https://github.com/
 
 Principal author:
 
-
+ * [Catherine Bundy](https://www.linkedin.com/in/catherine-bundy) | Technical Writer
 
 ## Next steps
 

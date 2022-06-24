@@ -17,12 +17,14 @@ This solution uses Azure Key Vault, Azure Functions, and Azure DevOps to securel
 
 ![Diagram showing the key and token refresh processes.](./media/refresh-diagram.png)
 
-- Azure [Key Vault](https://azure.microsoft.com/services/key-vault/) holds secret encryption keys for each [Azure AD](https://azure.microsoft.com/services/active-directory/) tenant.
-- An [Azure Functions](https://azure.microsoft.com/services/functions/) timer-triggered function gets the latest secret key from Key Vault. Another Azure Functions function retrieves the refresh token from the Microsoft identity platform and saves it with the latest secret key version.
-- A database stores the latest encrypted key and opaque data.
-- An [Azure DevOps](https://azure.microsoft.com/services/devops/) continuous delivery pipeline manages and syncs the secret rotation and token refresh processes.
+### Dataflow
 
-[Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) is a convenient place to add your key rotation strategy, if you're already using Pipelines for infrastructure-as-code (IaC) or continuous integration and delivery (CI/CD). You don't have to use Azure Pipelines, as long as you limit the paths for setting and retrieving secrets.
+- Azure [Key Vault](https://azure.microsoft.com/services/key-vault) holds secret encryption keys for each [Azure AD](https://azure.microsoft.com/services/active-directory) tenant.
+- An [Azure Functions](https://azure.microsoft.com/services/functions) timer-triggered function gets the latest secret key from Key Vault. Another Azure Functions function retrieves the refresh token from the Microsoft identity platform and saves it with the latest secret key version.
+- A database stores the latest encrypted key and opaque data.
+- An [Azure DevOps](https://azure.microsoft.com/services/devops) continuous delivery pipeline manages and syncs the secret rotation and token refresh processes.
+
+[Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) is a convenient place to add your key rotation strategy, if you're already using Pipelines for infrastructure-as-code (IaC) or continuous integration and delivery (CI/CD). You don't have to use Azure Pipelines, as long as you limit the paths for setting and retrieving secrets.
 
 Apply the following policy to allow the Service Principal for your Azure DevOps service connection to set secrets in Key Vault. Replace the `<Key Vault Name>` and `<Service Connection Principal>` variables with the correct values for your environment.
 
@@ -53,7 +55,7 @@ az keyvault set-policy --name $<Key Vault Name> --spn $<Managed Identity Princip
 
 ### ARM template
 
-The following [ARM template](/azure/azure-resource-manager/templates/) gives Azure Functions access to Azure Key Vault. Replace the `***` variables with the correct values for your environment.
+The following [ARM template](/azure/azure-resource-manager/templates) gives Azure Functions access to Azure Key Vault. Replace the `***` variables with the correct values for your environment.
 
 ```json
 {
@@ -111,7 +113,7 @@ Using the key is straightforward. The following sequence queries the key based o
 
 ![Diagram that shows the stored token usage sequence.](./media/use-stored-token-sequence.png)
 
-The token refresh is orthogonal to the `DoWork` function, so Azure Functions can perform `DoWork` and token refresh asynchronously by using [Durable Functions](/azure/azure-functions/durable/). For more information about HTTP-triggered functions with Durable Functions, see [HTTP features](/azure/azure-functions/durable/durable-functions-http-features?tabs=csharp).
+The token refresh is orthogonal to the `DoWork` function, so Azure Functions can perform `DoWork` and token refresh asynchronously by using [Durable Functions](/azure/azure-functions/durable). For more information about HTTP-triggered functions with Durable Functions, see [HTTP features](/azure/azure-functions/durable/durable-functions-http-features?tabs=csharp).
 
 It's not recommended to use Azure Key Vault in the HTTP request pipeline, so cache responses whenever reasonable. In the example, Key Vault's response to the `getSecret(secretId, secretVersion)` call is cacheable.
 
@@ -137,7 +139,7 @@ To remove access for a group of users, such as all users in a target tenant, you
 
 Principal author:
 
-
+ * [Jason Mostella](https://www.linkedin.com/in/jasonmostella) | Senior Software Engineer
 
 ## Next steps
 

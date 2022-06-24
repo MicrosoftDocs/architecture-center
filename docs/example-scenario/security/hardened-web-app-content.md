@@ -15,16 +15,18 @@ These use cases have similar design patterns:
 
 *Download a [Visio file](https://arch-center.azureedge.net/hardened-webapp-architecture.vsdx) of this architecture.*
 
+### Dataflow
+
 1. An Azure Front Door instance provides [Azure Web Application Firewall](/azure/web-application-firewall/afds/afds-overview) features and terminates SSL connections from clients.
-2. A custom fully qualified domain name (FQDN) is chosen to represent the back-end web app and is mapped through CNAME or A DNS records to the public IP address of an Azure firewall or third-party network virtual appliance.
-3. A private endpoint for the web app is created in a virtual network subnet (*subnet-privatelink* in the example).
-3. The Azure firewall or third-party network virtual appliance is deployed in a virtual network (*Hub Virtual Network* in the example) and configured to perform destination NAT (DNAT) of incoming requests to the private IP address of the private endpoint associated with the web app.
-4. The wep app is assigned the custom FQDN through the [domain verification ID property of the web app](/Azure/app-service/manage-custom-dns-migrate-domain#bind-the-domain-name-preemptively). This allows the custom FQDN already mapped to the public IP of the Azure firewall or third-party network virtual appliance to be reused with the web app without altering Domain Name System (DNS) name resolution and network flows.
-5. The web app connects to a virtual network subnet (*subnet-webapp* in the example) through regional VNet integration. The **Route All** flag is enabled, which forces all outbound traffic from the web app into the virtual network and allows the web app to inherit the virtual network's DNS resolution configuration, including custom DNS servers and integration with [private DNS zones](/azure/dns) used for private endpoint name resolution.
-7. A custom [route table](/azure/virtual-network/virtual-networks-udr-overview#custom-routes) that's attached to the web app subnet (*subnet-webapp* in the example) forces all outbound traffic that comes from the web app to go to the Azure firewall or third-party network virtual appliance.
-8. One or more private DNS zones link to the virtual network that contains the web app (*Spoke Virtual Network* in the example) to allow DNS resolution of PaaS resources deployed with private endpoints.
-9. A private endpoint for Azure SQL is created in a virtual network subnet (*subnet-privatelink* in the example). A corresponding DNS record is created on the matching private DNS zone.
-10. The web app can now be accessed only through Azure Front Door and Azure Firewall. It can also establish a connection to the Azure SQL instance through private endpoint, securing the communication over private IP only.
+1. A custom fully qualified domain name (FQDN) is chosen to represent the back-end web app and is mapped through CNAME or A DNS records to the public IP address of an Azure firewall or third-party network virtual appliance.
+1. A private endpoint for the web app is created in a virtual network subnet (*subnet-privatelink* in the example).
+1. The Azure firewall or third-party network virtual appliance is deployed in a virtual network (*Hub Virtual Network* in the example) and configured to perform destination NAT (DNAT) of incoming requests to the private IP address of the private endpoint associated with the web app.
+1. The wep app is assigned the custom FQDN through the [domain verification ID property of the web app](/Azure/app-service/manage-custom-dns-migrate-domain#bind-the-domain-name-preemptively). This allows the custom FQDN already mapped to the public IP of the Azure firewall or third-party network virtual appliance to be reused with the web app without altering Domain Name System (DNS) name resolution and network flows.
+1. The web app connects to a virtual network subnet (*subnet-webapp* in the example) through regional VNet integration. The **Route All** flag is enabled, which forces all outbound traffic from the web app into the virtual network and allows the web app to inherit the virtual network's DNS resolution configuration, including custom DNS servers and integration with [private DNS zones](/azure/dns) used for private endpoint name resolution.
+1. A custom [route table](/azure/virtual-network/virtual-networks-udr-overview#custom-routes) that's attached to the web app subnet (*subnet-webapp* in the example) forces all outbound traffic that comes from the web app to go to the Azure firewall or third-party network virtual appliance.
+1. One or more private DNS zones link to the virtual network that contains the web app (*Spoke Virtual Network* in the example) to allow DNS resolution of PaaS resources deployed with private endpoints.
+1. A private endpoint for Azure SQL is created in a virtual network subnet (*subnet-privatelink* in the example). A corresponding DNS record is created on the matching private DNS zone.
+1. The web app can now be accessed only through Azure Front Door and Azure Firewall. It can also establish a connection to the Azure SQL instance through private endpoint, securing the communication over private IP only.
 
 ### Components
 
@@ -47,9 +49,9 @@ The solution deploys an Azure Front Door instance, which terminates SSL connecti
 - Configuring your network virtual appliance to integrate with [Azure service tags](/azure/virtual-network/service-tags-overview).
 - Configuring your application to accept traffic only from your Azure Front Door instance by validating request headers.
 
-For more information, see [How do I lock down the access to my backend to only Azure Front Door?](/azure/frontdoor/front-door-faq#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door-?). 
+For more information, see [How do I lock down the access to my backend to only Azure Front Door?](/azure/frontdoor/front-door-faq#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door-?).
 
-The solution also uses an Azure SQL server that accepts traffic only through a private endpoint, locking down traffic that comes from external sources. The web app used in the solution is configured to ensure proper DNS resolution of private endpoints and allow secure communication with the SQL Server instance. 
+The solution also uses an Azure SQL server that accepts traffic only through a private endpoint, locking down traffic that comes from external sources. The web app used in the solution is configured to ensure proper DNS resolution of private endpoints and allow secure communication with the SQL Server instance.
 
 When you deploy resources that use private endpoints in your environments, it's important to configure your DNS infrastructure properly. For more information, see [Azure private endpoint DNS configuration](/azure/private-link/private-endpoint-dns).
 
@@ -85,7 +87,7 @@ All components of the solution either provide transparent built-in scalability o
 
 ### Walkthrough
 
-The solution is made up of several [Bicep](/azure/azure-resource-manager/bicep) files that deploy the required infrastructure. You can download the files from [GitHub](https://github.com/Azure/hardened-webapp/tree/main/deploy). 
+The solution is made up of several [Bicep](/azure/azure-resource-manager/bicep) files that deploy the required infrastructure. You can download the files from [GitHub](https://github.com/Azure/hardened-webapp/tree/main/deploy).
 
 The `main.bicep` file deploys the base infrastructure by using Bicep modules from these files:
 - `network.bicep`
@@ -105,19 +107,19 @@ The `main.bicep` file deploys the base infrastructure by using Bicep modules fro
 
    You'll be asked to provide the `customBackendFqdn` and `sqladministratorLoginPassword` parameters upon deployment.
 
-2. Copy and save the public IP address that's assigned to the Azure firewall after deployment. You'll need it in a later step. The IP is also provided as output of the deployment of `main.bicep`.
+1. Copy and save the public IP address that's assigned to the Azure firewall after deployment. You'll need it in a later step. The IP is also provided as output of the deployment of `main.bicep`.
    
    :::image type="content" source="./media/public-ip.png" alt-text="Screenshot that shows the public IP address." lightbox="./media/public-ip.png":::
 
-3. Copy and save the custom domain verification ID of the web app that you just created. The custom domain verification ID is also provided as output of the deployment of `main.bicep`.
+1. Copy and save the custom domain verification ID of the web app that you just created. The custom domain verification ID is also provided as output of the deployment of `main.bicep`.
 
     :::image type="content" source="./media/domain-id.png" alt-text="Screenshot that shows the custom domain verification ID." lightbox="./media/domain-id.png":::
 
-4. Copy and save the name of the Azure SQL Server instance you just created. The FQDN of the server name is also provided as output of the deployment of `main.bicep`.
+1. Copy and save the name of the Azure SQL Server instance you just created. The FQDN of the server name is also provided as output of the deployment of `main.bicep`.
 
     :::image type="content" source="./media/sql.png" alt-text="Screenshot that shows the name of the Azure SQL Server instance." lightbox="./media/sql.png":::
 
-5. Sign in to the website of your domain provider.
+1. Sign in to the website of your domain provider.
 
    > [!NOTE]
    > Every domain provider has its own DNS records interface, so consult the provider's documentation. Look for areas of the site labeled *Domain Name*, *DNS*, or *Name Server Management*.
@@ -125,7 +127,7 @@ The `main.bicep` file deploys the base infrastructure by using Bicep modules fro
    > You can often find the DNS records page by viewing your account information and then looking for a link such as *My domains*. Go to that page and look for a link that's named something like *Zone file*, *DNS records*, or *Advanced configuration*.
 
 
-6. Create an A record with the public IP that you just obtained.
+1. Create an A record with the public IP that you just obtained.
 
    Here's an example of a DNS records page after the A record is created:
    
@@ -134,7 +136,7 @@ The `main.bicep` file deploys the base infrastructure by using Bicep modules fro
    > [!NOTE]
    > If you want, you can use Azure DNS to manage DNS records for your domain and configure a custom DNS name for App Service. For more information, see [Tutorial: Host your domain in Azure DNS](/azure/dns/dns-delegate-domain-azure-dns).
 
-7. Create a TXT record with the custom domain verification ID of the web app you just deployed. Doing so allows you to reuse the custom FQDN record for which you just created an A record and add it to the web app in the following steps.
+1. Create a TXT record with the custom domain verification ID of the web app you just deployed. Doing so allows you to reuse the custom FQDN record for which you just created an A record and add it to the web app in the following steps.
 
    Create the TXT record in the format `asuid.<subdomain>`. For example, if your custom FQDN is `backend.contoso.com`, you'd create this record:
 
@@ -146,9 +148,9 @@ The `main.bicep` file deploys the base infrastructure by using Bicep modules fro
    
    :::image type="content" source="./media/dns-records-2.png" alt-text="Screenshot that shows the DNS records page after the TXT record is created." lightbox="./media/dns-records-2.png":::
 
-8. Map the custom domain to the web app that you just created. For more information, see [Tutorial: Map an existing custom DNS name to Azure App Service - Get a domain verification ID](/Azure/app-service/app-service-web-tutorial-custom-domain?tabs=cname#3-get-a-domain-verification-id).
+1. Map the custom domain to the web app that you just created. For more information, see [Tutorial: Map an existing custom DNS name to Azure App Service - Get a domain verification ID](/Azure/app-service/app-service-web-tutorial-custom-domain?tabs=cname#3-get-a-domain-verification-id).
 
-9. Upload an SSL certificate that matches your custom FQDN to your web app. For more information, see [Tutorial: Secure a custom DNS name with a TLS/SSL binding in Azure App Service](/Azure/app-service/configure-ssl-bindings).
+1. Upload an SSL certificate that matches your custom FQDN to your web app. For more information, see [Tutorial: Secure a custom DNS name with a TLS/SSL binding in Azure App Service](/Azure/app-service/configure-ssl-bindings).
 
    You should now be able to access your web app by using the public FQDN of the Azure Front Door instance.
 
@@ -167,7 +169,7 @@ If you want, you can also [bind a custom FQDN domain to Azure Front Door](/azure
 
     :::image type="content" source="./media/kudu.png" alt-text="Screenshot that shows DNS resolution in the Kudu console." lightbox="./media/kudu.png":::
 
-13. You can also verify that outbound traffic from the web app goes through the Azure firewall. Enter this command in the Kudu console:
+1. You can also verify that outbound traffic from the web app goes through the Azure firewall. Enter this command in the Kudu console:
     - `curl -s ifconfig.co`
 
     The output should match the public IP address of the Azure firewall that you obtained in step 2.
@@ -187,6 +189,14 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 - [Infrastructure, including Azure Firewall](https://azure.com/e/e836a805a5b04fd3a750f04c4bfef120)  
 - [Infrastructure, excluding Azure Firewall](https://azure.com/e/200979762ace4d8096851edb92c13756)
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Davide Maccarrone](https://www.linkedin.com/in/dmaccarrone) | Senior Consultant
+
 ## Next steps
 - [Azure Web Apps deployment best practices](/azure/app-service/deploy-best-practices)
 - [Azure private endpoint DNS configuration](/azure/private-link/private-endpoint-dns)
@@ -194,5 +204,5 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 ## Related resources
 - [Azure Architecture Center](../../browse/index.yml) 
-- [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index) 
+- [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index)
 - [Azure Firewall architecture overview](/azure/architecture/example-scenario/firewalls)
