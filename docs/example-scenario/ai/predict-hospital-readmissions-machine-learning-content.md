@@ -122,9 +122,10 @@ You can estimate costs by using the [Azure pricing calculator](https://azure.mic
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal author:
+Principal authors:
 
 - [Matt Hansen](https://www.linkedin.com/in/matthansen0) | Senior Cloud Solution Architect
+- [Sandy Su](https://www.linkedin.com/in/sandylsu/) | Cloud Solution Architect
 
 ## Next steps
 

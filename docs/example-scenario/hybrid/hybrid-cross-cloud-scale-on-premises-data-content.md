@@ -111,6 +111,15 @@ Azure and Azure Stack Hub support the needs of globally distributed businesses.
 - **Cross-cloud scaling with Azure Stack Hub.** The key advantage to cloud bursting is that it saves you money. You pay for additional resources only when there's a demand for them. You don't need to spend money on unnecessary extra capacity or try to predict demand peaks and fluctuations.
 - **Processing in the cloud.** You can use cross-cloud scaling to reduce processing burdens. Moving basic apps to the public cloud distributes loads, freeing up local resources for business-critical apps. You can deploy an app to the private cloud and burst it to the public cloud as needed to meet demand.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+* [Bryan Lamos](https://www.linkedin.com/in/bryanlamos) | Senior Content Developer
+
+
 ## Next steps
 
 - Watch [Dynamically scale apps between datacenters and public cloud](https://www.youtube.com/watch?v=2lw8zOpJTn0) for an overview of a similar architecture.

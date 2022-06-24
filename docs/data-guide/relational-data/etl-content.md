@@ -7,9 +7,9 @@ Various tools, services, and processes have been developed over the years to hel
 
 Extract, transform, and load (ETL) is a data pipeline used to collect data from various sources. It then transforms the data according to business rules, and it loads the data into a destination data store. The transformation work in ETL takes place in a specialized engine, and it often involves using staging tables to temporarily hold data as it is being transformed and ultimately loaded to its destination.
 
-The data transformation that takes place usually involves various operations, such as filtering, sorting, aggregating, joining data, cleaning data, deduplicating, and validating data.
-
 ![Diagram of the extract-transform-load (ETL) process.](../images/etl.png)
+
+The data transformation that takes place usually involves various operations, such as filtering, sorting, aggregating, joining data, cleaning data, deduplicating, and validating data.
 
 Often, the three ETL phases are run in parallel to save time. For example, while data is being extracted, a transformation process could be working on data already received and prepare it for loading, and a loading process can begin working on the prepared data, rather than waiting for the entire extraction process to complete.
 
@@ -72,7 +72,16 @@ Other tools:
 - [Data warehouses](./data-warehousing.yml)
 - [Pipeline orchestration](../technology-choices/pipeline-orchestration-data-movement.md)
 
-## Next steps
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+- [Raunak Jhawar](https://www.linkedin.com/in/raunakjhawar) | Senior Cloud Architect
+- [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect
+
+## Related resources
 
 The following reference architectures show end-to-end ELT pipelines on Azure:
 

@@ -4,7 +4,9 @@ This article describes how a fictional city planning office could use this solut
 
 The following diagram shows the overall architecture of the solution.
 
-[![Architecture diagram demonstrating DataOps for the modern data warehouse.](./media/architecture-diagram.png)](./media/architecture-diagram.png#lightbox)
+[![Architecture diagram demonstrating DataOps for the modern data warehouse.](./media/architecture-diagram-new.png)](./media/architecture-diagram-new.png#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/architecture-diagram.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -117,7 +119,9 @@ For a detailed list of all resources, see the [Deployed Resources](https://githu
 
 The diagram below demonstrates the CI/CD process and sequence for the build and release pipelines.
 
-[![Figure Process and Sequence for Build and Release](./media/ci-cd-process-diagram.png)](./media/ci-cd-process-diagram.png#lightbox)
+[![Figure Process and Sequence for Build and Release.](./media/ci-cd-process-diagram-new.png)](./media/ci-cd-process-diagram-new.png#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/ci-cd-process-diagram.vsdx) of this architecture.*
 
 1. Developers develop in their own sandbox environments within the dev resource group and commit changes into their own short-lived git branches. For example, `<developer_name>/<branch_name>`.
 
@@ -220,7 +224,7 @@ Azure Storage
 * [Best practices for using Azure Data Lake Storage Gen2 – High availability and Disaster Recovery](/azure/storage/blobs/data-lake-storage-best-practices#high-availability-and-disaster-recovery)
 * [Azure Storage Redundancy](/azure/storage/common/storage-redundancy)
 
-## Next steps
+### Detailed walkthrough
 
 For a detailed walk-through of the solution and key concepts, watch the following video recording: [DataDevOps for the Modern Data Warehouse on Microsoft Azure](https://www.youtube.com/watch?v=Xs1-OU5cmsw%22)
 

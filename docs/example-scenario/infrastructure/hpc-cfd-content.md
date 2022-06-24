@@ -1,4 +1,4 @@
-Computational fluid dynamics (CFD) simulations require significant compute time along with specialized hardware. As cluster usage increases, simulation times and overall grid use grow, leading to issues with spare capacity and long queue times. Adding physical hardware can be expensive, and may not align to the usage peaks and valleys that a business goes through. By taking advantage of Azure, many of these challenges can be overcome with no capital expenditure.
+Computational fluid dynamics (CFD) simulations require significant compute time along with specialized hardware. As cluster usage increases, simulation times and overall grid use grow, leading to issues with spare capacity and long queue times. Adding physical hardware can be expensive, and might not align to the usage peaks and valleys that a business goes through. By taking advantage of Azure, many of these challenges can be overcome with no capital expenditure.
 
 Azure provides the hardware you need to run your CFD jobs on both GPU and CPU virtual machines. RDMA (Remote Direct Memory Access) enabled VM sizes have FDR InfiniBand-based networking, which allows for low latency MPI (Message Passing Interface) communication. When you combine these solutions with the Avere vFXT, which provides an enterprise-scale clustered file system, customers can ensure maximum throughput for read operations in Azure.
 
@@ -33,7 +33,7 @@ This diagram shows a high-level overview of a typical hybrid design providing jo
 
 ### Components
 
-- [Azure CycleCloud](https://azure.microsoft.com/features/azure-cyclecloud/) a tool for creating, managing, operating, and optimizing HPC and Big Compute clusters in Azure.
+- [Azure CycleCloud](https://azure.microsoft.com/features/azure-cyclecloud) a tool for creating, managing, operating, and optimizing HPC and Big Compute clusters in Azure.
 - [Avere vFXT on Azure][avere] is used to provide an enterprise-scale clustered file system built for the cloud.
 - [Azure Virtual Machines (VMs)](https://azure.microsoft.com/free/virtual-machines) is used to create a static set of compute instances.
 - [Virtual machine scale sets][vmss] provide a group of identical VMs capable of being scaled up or down by Azure CycleCloud.
@@ -105,7 +105,7 @@ Principal authors:
 
 Product documentation:
 
-- [What is Azure CycleCloud?](/azure/cyclecloud/overview) 
+- [What is Azure CycleCloud?](/azure/cyclecloud/overview)
 - [Azure Virtual Machines (VMs)](/azure/virtual-machines/windows/overview)
 - [Introduction to Azure Storage](/azure/storage/common/storage-introduction)
 - [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
@@ -119,7 +119,6 @@ See the following virtual machine articles:
 
 - [Run reservoir simulation software on Azure](./reservoir-simulation.yml)
 - [Oil and gas tank level forecasting](../../solution-ideas/articles/oil-and-gas-tank-level-forecasting.yml)
-
 
 <!-- links -->
 [architecture]: ./media/architecture-hpc-cfd.png

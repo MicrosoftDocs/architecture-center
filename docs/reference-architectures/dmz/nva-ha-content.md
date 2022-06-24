@@ -45,6 +45,8 @@ The following diagram describes the sequence of hops that packets from the Inter
 
 ![ALB Internet][alb_internet]
 
+*Download a [Visio file][visio-download] of this architecture.*
+
 The mechanism to send traffic from spokes to the public Internet through the NVAs is a User-Defined Route for `0.0.0.0/0` with next-hop the internal Load Balancer's IP address.
 
 For traffic between Azure and the public Internet, each direction of the traffic flow will cross a different Azure Load Balancer (the ingress packet through the public ALB, and the egress packet through the internal ALB). As a consequence, if traffic symmetry is required, Source Network Address Translation (SNAT) needs to be performed by the NVA instances to attract the return traffic and avoid traffic asymmetry.
@@ -128,11 +130,12 @@ One benefit of this design is that no Source Network Address Translation (SNAT) 
 [caf_hns]: /azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology
 [secure_hybrid]: /azure/architecture/reference-architectures/dmz/secure-vnet-dmz
 [azfw_appgw]: /azure/architecture/example-scenario/gateway/firewall-application-gateway
+[visio-download]: https://arch-center.azureedge.net/deploy-highly-available-nva-diagrams.vsdx
 
 <!-- images -->
 
-[alb_internet]: ./images/nva-ha/nvaha-alb-internet.png "Internet traffic with ALB integration"
-[alb_onprem]: ./images/nva-ha/nvaha-alb-on-premises.png "On-premises traffic with ALB integration"
-[ars_internet]: ./images/nva-ha/nvaha-ars-internet.png "Internet traffic with ARS integration"
-[gwlb_internet]: ./images/nva-ha/nvaha-gwlb-internet.png "Internet traffic with GWLB integration"
+[alb_internet]: ./images/nva-ha/nvaha-load-balancer-internet.png "Internet traffic with Azure Load Balancer integration"
+[alb_onprem]: ./images/nva-ha/nvaha-load-balancer-on-premises.png "On-premises traffic with Azure Load Balancer integration"
+[ars_internet]: ./images/nva-ha/nvaha-route-server-internet.png "Internet traffic with Azure Route Server integration"
+[gwlb_internet]: ./images/nva-ha/nvaha-gateway-load-balancer-internet.png "Internet traffic with Gateway Load Balancer integration"
 [pipudr_internet]: ./images/nva-ha/nvaha-pipudr-internet.png "Internet traffic with moving PIP/UDR"
