@@ -64,7 +64,7 @@ The target fully qualified domain names (FQDNs) are:
 
 For private connectivity, an alternative approach is to use [App Service Environment](/azure/app-service/environment/intro) to host the web application in an isolated environment. For the database, you can natively deploy [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview) in a virtual network, so you don't need VNet Integration or private endpoints. These offerings are typically more expensive because they provide single-tenant isolated deployment and other features.
 
-If you have an App Service Environment but aren't using SQL Managed Instance, you can still use a private endpoint for private connectivity to a SQL database. If you already have SQL Managed Instance but are using multitenant App Service, you can still use regional VNet Integration to connect to the SQL Managed Instance private address.
+If you have an App Service Environment but aren't using SQL Managed Instance, you can still use a private endpoint for private connectivity to an SQL database. If you already have SQL Managed Instance but are using multitenant App Service, you can still use regional VNet Integration to connect to the SQL Managed Instance private address.
 
 For some other Azure services, like Key Vault or Storage, there's no alternative to using private endpoints for highly secure and private connections from Web Apps.
 
@@ -113,7 +113,7 @@ When you create a private endpoint, *VNet Integration Subnet* can access the ser
 
 Azure Private Link support for App Service is available in all public regions. For Azure SQL Database, Azure Storage, and Azure Key Vault, the Private Link service is available in all public and government regions.
 
-Private Link introduces an additional component and availability consideration into the architecture. The Private Link service has a [high-availability SLA](https://azure.microsoft.com/support/legal/sla/private-link). You need to take this SLA into account when you calculate the composite SLA of the entire solution.
+Private Link introduces another component and availability consideration into the architecture. The Private Link service has a [high-availability SLA](https://azure.microsoft.com/support/legal/sla/private-link). You need to take this SLA into account when you calculate the composite SLA of the entire solution.
 
 ### Scalability
 

@@ -2,7 +2,7 @@ Containerization is a common approach to app modernization. You might consider u
 
 We'll start with a common scenario. To secure Azure container instances, you can use container groups in Azure Container Instances. By using container groups, you can deploy Azure container instances in a virtual network so that the containers can access other private resources or other Azure services via an Azure private endpoint. For customers hosting web applications, it's a common practice to use a web application firewall like Azure Application Gateway to front incoming traffic while using Azure Container Instances as a backend pool. This article is a great starting point: [Expose a static IP address for a container group](/azure/container-instances/container-instances-application-gateway).
 
-One potential challenge with this approach is using a non-static private IP address as a backend pool. The private IP might be rotated during maintenance, requiring the cloud admin to manually reconfigure the backend pool. If new containers are added for scaling, the admin would also need to do reconfiguration to ensure traffic is routed to the right backend pool. And liveness probes and readiness probes aren't supported in container groups, which makes it harder to identify workload downtime.
+One potential challenge with this approach is using a non-static private IP address as a backend pool. The private IP might be rotated during maintenance, requiring the cloud admin to manually reconfigure the backend pool. If new containers are added for scaling, the admin would also need to do reconfiguration to ensure traffic is routed to the right backend pool. And liveness probes and readiness probes aren't supported in container groups, which make it harder to identify workload downtime.
 
 This article explores enhancements to address these common problems through the adoption of Application Insights and Azure Monitor for monitoring and using Azure Functions to perform automatic rotation of private IPs. This approach improves the redundancy of the workload.
 
@@ -36,7 +36,7 @@ This architecture works best for:
 
 2a. Application Gateway includes a **healthy host count** metric that you can use as a liveness probe for Azure container instances, given that container groups in Container Instances don't support liveness or readiness probes.
 
-2b. Application Insights is used in containers to collect additional metrics, including heart beats, which can be sent to Application Insights for monitoring via a custom thread.
+2b. Application Insights is used in containers to collect other metrics, including heart beats, which can be sent to Application Insights for monitoring via a custom thread.
 
 2c. You can configure alerts based on threshold levels defined in steps 2a and 2b. For example, assume your system has three container instances running as a backend pool. You could configure an alert to fire when **healthy host count** is less than 3. In an action group of alert rules, you can use an Azure function as the action type to trigger the custom action.
 
@@ -62,7 +62,7 @@ This architecture works best for:
 
 #### Application
 
-- [Azure Container Instances](https://azure.microsoft.com/services/container-instances): Azure Container Instances runs container images seamlessly without requiring you to set up additional infrastructure. You should consider [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) for advanced container orchestration.
+- [Azure Container Instances](https://azure.microsoft.com/services/container-instances): Azure Container Instances runs container images seamlessly without requiring you to set up another infrastructure. You should consider [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) for advanced container orchestration.
 - [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db): Azure Cosmos DB is a fully managed NoSQL database that supports multiple platforms, like SQL, Cassandra, and MongoDB.
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault): As a security best practice, developers don't store connection strings as clear text in application source code. Azure Key Vault serves as a central location to store secrets with improved security. Applications can retrieve necessary keys with improved security.
 
