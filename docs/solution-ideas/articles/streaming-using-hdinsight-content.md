@@ -35,16 +35,6 @@ Key technologies used to implement this architecture:
 - [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage)
 - [Power BI](https://powerbi.microsoft.com)
 
-/ Note to Chad - I think we should get rid of these other services that were added in, right? These ones:
-- [API Management](https://azure.microsoft.com/services/api-management)
-- [App Service](https://azure.microsoft.com/services/app-service)
-- [Azure Cache for Redis](https://azure.microsoft.com/services/cache)
-- [Azure Container Registry](https://azure.microsoft.com/services/container-registry)
-- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db)
-- [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql)
-- [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service)
-- [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines)
-
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
