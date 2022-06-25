@@ -2,7 +2,7 @@ The healthcare industry has traditionally struggled to effectively use the vast 
 
 ## Potential use cases
 
-This solution demonstrates the following capabilities, which are applicable to many industries:
+This solution is ideal for the healthcare industry. The scenario also demonstrates the following capabilities, which are applicable to many industries:
 
 - Gather structured and unstructured data from multiple sources, and visualize trends and insights using Power BI.
 - Set up automated operational tasks based on these insights.
