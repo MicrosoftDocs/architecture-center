@@ -109,9 +109,10 @@ Explore these strategies for minimizing Logic Apps costs:
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal author:
+Principal authors:
 
-* [Shan Singh](https://uk.linkedin.com/in/shantnus) | Software Engineer
+- [Shan Singh](https://uk.linkedin.com/in/shantnus) | Software Engineer
+- [Beatriz Matsui](https://br.linkedin.com/in/beatrizmatsui) | Consultant – Azure Cloud & AI
 
 ## Next steps
 
