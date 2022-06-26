@@ -100,7 +100,7 @@ Pricing considerations for this architecture are similar to those in [Virtual he
 
 To deploy this solution, do steps one through four of [Virtual health on Microsoft Cloud for Healthcare](virtual-health-mch.yml#deploy-the-solution).
 
-The following are the additional components that are created specifically for this solution. You can choose to create similar applications, or to use tools provided by the your current EHR system.
+The following are the additional components that are created specifically for this solution. You can choose to create similar applications, or to use tools provided by your current EHR system.
 
 1. Patient monitoring queue
 1. ED queue
