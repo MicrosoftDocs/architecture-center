@@ -149,6 +149,10 @@ This architecture follows the multi region deployment recommendation, described 
 
 This architecture builds on the one shown in [Improve scalability in a web application][guidance-web-apps-scalability], see [DevOps considerations section][guidance-web-apps-scalability-devops].
 
+### Security
+
+This architecture builds on the one shown in [Improve scalability in a web application][guidance-web-apps-scalability], see [Security considerations section][guidance-web-apps-scalability-security].
+
 ## Pricing
 
 Use the [pricing calculator][pricing-calculator] to estimate costs. These recommendations in this section may help you to reduce cost.
@@ -193,6 +197,7 @@ For more information, see the cost section in [Microsoft Azure Well-Architected 
 [cosmosdb-geo]: /azure/cosmos-db/distribute-data-globally
 [guidance-web-apps-scalability]: ./scalable-web-app.yml
 [guidance-web-apps-scalability-devops]: ./scalable-web-app.yml#devops
+[guidance-web-apps-scalability-security]: ./scalable-web-app.yml#security
 [pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [ra-grs]: /azure/storage/common/storage-designing-ha-apps-with-ragrs
 [regional-pairs]: /azure/best-practices-availability-paired-regions
