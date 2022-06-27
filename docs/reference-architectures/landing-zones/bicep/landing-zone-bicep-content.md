@@ -1,6 +1,8 @@
 This article provides a reference architecture for a modularized Bicep solution you can use to deploy and manage the core platform capabilities of the [Cloud Adoption Framework (CAF) Azure landing zone conceptual architecture](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-conceptual-architecture).
 
-Bicep is just one technology you can use to build solutions to deploy Azure landing zones. Other choices include Azure Resource Manager (ARM) templates and Terraform. Regardless of your deployment technology choice, the resulting implementation should align to [Cloud Adoption Framework (CAF) Azure landing zone conceptual architecture](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-conceptual-architecture). The choice of deployment technology should not influence the resulting Azure landing zones deployment.
+Bicep is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources. It has concise syntax, reliable type safety, and support for code reuse.
+
+Bicep is just one technology you can use to build solutions to deploy Azure landing zones. Other choices include Azure Resource Manager (ARM) templates and Terraform. Regardless of your deployment technology choice, the resulting implementation should align to the [Cloud Adoption Framework (CAF) Azure landing zone conceptual architecture](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-conceptual-architecture). The choice of deployment technology should not influence the resulting Azure landing zones deployment.
 
 ![GitHub logo](../../../_images/github.png) An implementation of this architecture is available on [GitHub: Azure Landing Zones (ALZ) - Bicep Implementation](https://github.com/Azure/ALZ-Bicep). You can use it as a starting point and configure it as per your needs.
 
@@ -13,15 +15,15 @@ Bicep is just one technology you can use to build solutions to deploy Azure land
 
 The architecture takes advantage of the modular nature of Azure Bicep and is composed of nine modules. Each module encapsulates a core capability of the Cloud Adoption Framework Azure Landing Zones conceptual architecture. The modules can be deployed individually, but there are dependencies.
 
-The architecture proposes the inclusion of orchestrator modules when limitations of Bicep & the Azure Resource manager are addressed. The orchestrator modules could be used to automate the deployment of the modules and to encapsulate differing deployment topologies.
+The architecture proposes the inclusion of orchestrator modules to simplify the deployment experience. The orchestrator modules could be used to automate the deployment of the modules and to encapsulate differing deployment topologies.
 
 ## Modules
 
 A core concept in Bicep is the use of modules. Modules enable you to organize deployments into logical groupings. With modules, you improve the readability of your Bicep files by encapsulating complex details of your deployment. You can also easily reuse modules for different deployments.
 
-This ability to re-use offers a real benefit when defining and deploying landing zones. It enables repeatable, consistent environments in code while reducing the effort required to deploy at scale.
+This ability to re-use modules offers a real benefit when defining and deploying landing zones. It enables repeatable, consistent environments in code while reducing the effort required to deploy at scale.
 
-As part of the Bicep landing zone implementation, the following modules have been created and can be found in the GitHub repository.
+This section provides a high-level overview of the core modules in this architecture.
 
 ### Management Groups
 
@@ -30,6 +32,8 @@ Management groups are the highest level resources in an Azure tenant. Management
 - Azure Policies
 - Azure Role Based Access Controls (RBAC) role assignments
 - Cost controls
+
+This module deploys the management group hierarchy.
 
 Useful links:
 
@@ -90,7 +94,7 @@ Network topology is a key consideration in Azure landing zone deployments. [CAF 
 - Topologies based on Azure Virtual WAN
 - Traditional topologies
 
-These modules will allow you to deploy either core network approach.
+These modules deploy the network topology that you choose.
 
 Useful links:
 
@@ -120,15 +124,21 @@ This module moves subscriptions under the appropriate management group.
 
 Useful links:
 
-- [Module: Subscription Placement](https://github.com/Azure/ALZ-Bicep/tree/main/infra-as-code/bicep/modules/subscriptionPlacement)
 - [Management groups - Cloud Adoption Framework (CAF) documentation](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-management-groups)
+- [Module: Subscription Placement](https://github.com/Azure/ALZ-Bicep/tree/main/infra-as-code/bicep/modules/subscriptionPlacement)
 
 ### Built-In and Custom Policy Assignments
 
+This module deploys the default Azure landing zone Azure Policy assignments to management groups. It also creates role assignments for system-assigned Managed Identities created by policies.
+
+Useful links:
+
+- [Adopt policy-driven guardrails - CAF documentation](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/enterprise-scale/dine-guidance)
+- [Module: ALZ Default Policy Assignments](https://github.com/Azure/ALZ-Bicep/tree/main/infra-as-code/bicep/modules/policy/assignments/alzDefaults)
 
 ## Layers and staging
 
-In addition to modules, the Bicep landing zone implementation is structured using a concept of layers. Layers are groups of Bicep modules that are intended to be deployed together. Those groups form logical stages of the implementation.
+In addition to modules, the Bicep landing zone architecture is structured using a concept of layers. Layers are groups of Bicep modules that are intended to be deployed together. Those groups form logical stages of the implementation.
 
 :::image type="content" border="true" source="images/high-level-deployment-flow.png" alt-text="Diagram showing the deployment layers." lightbox="images/high-level-deployment-flow.png":::
 
@@ -139,5 +149,3 @@ A benefit of this layered approach is the ability to add to your environment inc
 The landing zone implementations provided as part of the Cloud Adoption Framework suit a wide variety of requirements and use cases. However, there are often scenarios where customization is required to meet specific business needs.
 
 This Bicep landing zone implementation can be used as the basis of your customized deployment. It provides you a way to accelerate your implementation by removing the need to start from scratch because of a specific required change that rules a ready-made option out.
-
-To customize a Bicep landing zone...
