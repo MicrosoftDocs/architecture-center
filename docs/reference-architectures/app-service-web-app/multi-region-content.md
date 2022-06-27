@@ -10,7 +10,7 @@ There are several general approaches to achieve high availability across regions
 
 - Active/Active: both regions are active, and requests are load balanced between them. If one region becomes unavailable, it is taken out of rotation.
 
-This reference focuses on active/passive with hot standby. It extends the single region design for a scalable web application. See [Improve scalability in a web application][guidance-web-apps-scalability] for information on the base architecture.
+This reference focuses on active/passive with hot standby. It extends the single region design for a scalable web application. See [Scalable web application][guidance-web-apps-scalability] for information on the base architecture.
 
 ### Potential use cases
 
@@ -30,7 +30,7 @@ These use cases can benefit from a multi-region deployment:
 
 ### Workflow
 
-This architecture builds on the one shown in [Improve scalability in a web application][guidance-web-apps-scalability]. The main differences are:
+This architecture builds on the one shown in [Scalable web application][guidance-web-apps-scalability]. The main differences are:
 
 - **Primary and secondary regions**. This architecture uses two regions to achieve higher availability. The application is deployed to each region. During normal operations, network traffic is routed to the primary region. If the primary region becomes unavailable, traffic is routed to the secondary region.
 - **Front Door**. [Front Door](/azure/frontdoor) routes incoming requests to the primary region. If the application running that region becomes unavailable, Front Door fails over to the secondary region.
@@ -147,11 +147,11 @@ If the primary database fails, perform a manual failover to the secondary databa
 
 This architecture follows the multi region deployment recommendation, described in the [DevOps section of the Azure Well Architected Framework][AAF-devops-deployment-multi-region].
 
-This architecture builds on the one shown in [Improve scalability in a web application][guidance-web-apps-scalability], see [DevOps considerations section][guidance-web-apps-scalability-devops].
+This architecture builds on the one shown in [Scalable web application][guidance-web-apps-scalability], see [DevOps considerations section][guidance-web-apps-scalability-devops].
 
 ### Security
 
-This architecture builds on the one shown in [Improve scalability in a web application][guidance-web-apps-scalability], see [Security considerations section][guidance-web-apps-scalability-security].
+This architecture builds on the one shown in [Scalable web application][guidance-web-apps-scalability], see [Security considerations section][guidance-web-apps-scalability-security].
 
 ## Pricing
 
