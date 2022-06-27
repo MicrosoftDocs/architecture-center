@@ -21,7 +21,7 @@ The architecture proposes the inclusion of orchestrator modules to simplify the 
 
 A core concept in Bicep is the use of modules. Modules enable you to organize deployments into logical groupings. With modules, you improve the readability of your Bicep files by encapsulating complex details of your deployment. You can also easily reuse modules for different deployments.
 
-This ability to re-use modules offers a real benefit when defining and deploying landing zones. It enables repeatable, consistent environments in code while reducing the effort required to deploy at scale.
+The ability to re-use modules offers a real benefit when defining and deploying landing zones. It enables repeatable, consistent environments in code while reducing the effort required to deploy at scale.
 
 This section provides a high-level overview of the core modules in this architecture.
 
@@ -146,6 +146,6 @@ A benefit of this layered approach is the ability to add to your environment inc
 
 ## Customizing the Bicep implementation
 
-The landing zone implementations provided as part of the Cloud Adoption Framework suit a wide variety of requirements and use cases. However, there are often scenarios where customization is required to meet specific business needs.
+The [landing zone implementations](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/implementation-options) provided as part of the Cloud Adoption Framework suit a wide variety of requirements and use cases. However, there are often scenarios where customization is required to meet specific business needs.
 
-This Bicep landing zone implementation can be used as the basis of your customized deployment. It provides you a way to accelerate your implementation by removing the need to start from scratch because of a specific required change that rules a ready-made option out.
+The [Bicep landing zone implementation](https://github.com/Azure/ALZ-Bicep) can be used as the basis of your customized deployment. It provides you a way to accelerate your implementation by removing the need to start from scratch because of a specific required change that rules a ready-made option out.
