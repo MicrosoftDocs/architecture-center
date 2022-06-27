@@ -26,6 +26,8 @@ Typical uses for this architecture include cases in which:
 
 ![Hub-spoke reference architecture infographic](media/hub-spoke-vwan-architecture-001.png)
 
+*Download a [Visio file](https://arch-center.azureedge.net/hub-spoke-vwan-architecture-001.vsdx) of this architecture.* 
+
 The architecture consists of:
 
 -   **On-premises network**. A private local area network (LAN) running within an organization.
@@ -60,6 +62,8 @@ A hub-spoke architecture can be achieved two ways: a customer-managed hub infras
 ## Advantages
 
 ![Hub-spoke reference architecture infographic](media/hub-spoke-vwan-architecture-002.png)
+
+*Download a [Visio file](https://arch-center.azureedge.net/hub-spoke-vwan-architecture-002.vsdx) of this architecture.* 
 
 This diagram illustrates a few of the advantages that this architecture can provide:
 * A full meshed hubs among Azure Virtual Networks
