@@ -54,8 +54,8 @@ Learn more with the following learning paths:
 * [Create machine learning models][ms-learn-create-ml]
 * [Build AI solutions with Azure Machine Learning][ms-learn-build-ai-solutions]
 * [Data integration at scale with Azure Data Factory or Azure Synapse Pipeline][ms-learn-synapse-data-integration]
-* [Sentiment Analysis with Cognitive Services in Azure Synapse Analytics](https://docs.microsoft.com/en-us/azure/synapse-analytics/machine-learning/tutorial-cognitive-services-sentiment)
-* [Text Analytics with Cognitive Services in Azure Synapse Analytics](https://docs.microsoft.com/en-us/azure/synapse-analytics/machine-learning/tutorial-text-analytics-use-mmlspark)
+* [Sentiment Analysis with Cognitive Services in Azure Synapse Analytics](/azure/synapse-analytics/machine-learning/tutorial-cognitive-services-sentiment)
+* [Text Analytics with Cognitive Services in Azure Synapse Analytics](/azure/synapse-analytics/machine-learning/tutorial-text-analytics-use-mmlspark)
 
 
 ## Related resources
