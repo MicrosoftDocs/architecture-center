@@ -8,15 +8,15 @@ Nowadays, marketing campaings are often based on social media analysis, which ha
 Organizations nowadays are capitalizing in various ways to extract knowledge and information about their customers in order to enhance the customer experience, increase customer satisfaction, gain new leads as well as prevent customer churn. There are three areas where customers are focing their investments in regards to social media analytics, some examples of use cases that this architecture and the solution accelerator could be used, are:
 
 - **Measure Brand Health:** 
-    - Capture customer reactions and feedback for new products on social media.
-    - Analyse Sentiment on social media interactions for a newly introduced product.
+    * Capture customer reactions and feedback for new products on social media.
+    * Analyse Sentiment on social media interactions for a newly introduced product.
 
 - **Build & maintain customer relationships:**
-    - Identify quickly all customer concerns
-    - Listen to untagged brand mentions
+    * Identify quickly all customer concerns
+    * Listen to untagged brand mentions
 
 - **Optimize marketing spends:**
-    - Extract insights from social media for campaign analysis.
+    * Extract insights from social media for campaign analysis.
 
 ## Architecture
 
@@ -41,10 +41,11 @@ Organizations nowadays are capitalizing in various ways to extract knowledge and
 
 Principal author:
 
+ * [Christina Skarpathiotaki](https://www.linkedin.com/in/christinaskarpathiotaki/) | AI Cloud Solution Architect
 
- *[Nicholas Moore](https://www.linkedin.com/in/nicholas-moore) | Cloud Architecture / Data / Artificial Intelligence
+Other contributors:
 
- *[Christina Skarpathiotaki](https://www.linkedin.com/in/christinaskarpathiotaki/) | AI Cloud Solution Architect
+ * [Nicholas Moore](https://www.linkedin.com/in/nicholas-moore) | Cloud Architecture / Data / Artificial Intelligence
 
 ## Next steps
 
@@ -53,14 +54,22 @@ Learn more with the following learning paths:
 * [Create machine learning models][ms-learn-create-ml]
 * [Build AI solutions with Azure Machine Learning][ms-learn-build-ai-solutions]
 * [Data integration at scale with Azure Data Factory or Azure Synapse Pipeline][ms-learn-synapse-data-integration]
+* [Sentiment Analysis with Cognitive Services in Azure Synapse Analytics](https://docs.microsoft.com/en-us/azure/synapse-analytics/machine-learning/tutorial-cognitive-services-sentiment)
+* [Text Analytics with Cognitive Services in Azure Synapse Analytics](https://docs.microsoft.com/en-us/azure/synapse-analytics/machine-learning/tutorial-text-analytics-use-mmlspark)
+
 
 ## Related resources
 
 * [Azure Machine Learning documentation][aml-docs]
 * [Azure Synapse Analytics documentation][synapse-docs]
+* [Cognitive Services](https://azure.microsoft.com/en-us/services/cognitive-services/)
+* [Cognititve Services Documentation](https://docs.microsoft.com/en-us/azure/cognitive-services/)
 * [Power BI documentation][pbi-docs]
+* [Azure Web App Service](https://azure.microsoft.com/en-us/services/app-service/web/)
+* [Azure Web App Service Documentation](https://docs.microsoft.com/en-us/azure/app-service/overview)
 * [Train machine learning models in Azure Synapse Analytics][apache-spark-machine-learning-training]
 * [Machine learning model scoring for dedicated SQL pools in Azure Synapse Analytics][tutorial-sql-pool-model-scoring-wizard]
+* [Machine learning with Apache Spark in Azure Synapse Analytics](https://docs.microsoft.com/en-us/azure/synapse-analytics/spark/apache-spark-machine-learning-concept)
 
 <!-- links -->
 [architecture-png]: ../media/optimize-marketing-with-machine-learning.png
