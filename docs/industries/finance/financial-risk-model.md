@@ -6,7 +6,7 @@ categories: azure
 ms.author: damocelj
 ms.service: industry
 ms.topic: overview
-ms.date: 04/12/2022
+ms.date: 06/28/2022
 azureCategories:
   - management-and-governance
 products:
