@@ -1268,13 +1268,13 @@ items:
                   - name: DoD IL4
                     href: /azure/compliance/offerings/offering-dod-il4
                     maintainContext: true
-                  - name: DoD IL4 Rgulatory Compliance built-in
+                  - name: DoD IL4 Regulatory Compliance built-in
                     href: /azure/governance/policy/samples/gov-dod-impact-level-4
                     maintainContext: true
                   - name: DoD IL5
                     href: /azure/compliance/offerings/offering-dod-il5
                     maintainContext: true
-                  - name: DoD IL5 Rgulatory Compliance built-in
+                  - name: DoD IL5 Regulatory Compliance built-in
                     href: /azure/governance/policy/samples/gov-dod-impact-level-5
                     maintainContext: true
                   - name: DoD IL6
@@ -1811,7 +1811,7 @@ items:
                     href: /azure/architecture/operator-guides/aks/choose-kubernetes-edge-compute-option
                   - name: Choose a bare-metal Kubernetes option
                     href: /azure/architecture/operator-guides/aks/choose-bare-metal-kubernetes
-              - name: D365 telecommunications accelerator
+              - name: Dynamics 365 telecommunications accelerator
                 items:
                   - name: Overview
                     href: /dynamics365/industry/accelerators/telecommunications-overview
@@ -2517,7 +2517,7 @@ items:
                 href: reference-architectures/data/enterprise-bi-adf.yml
               - name: Big data analytics on confidential computing
                 href: example-scenario/confidential/data-analytics-containers-spark-kubernetes-azure-sql.yml
-              - name: Customer 360 with Azure Synapse and D365
+              - name: Customer 360 with Azure Synapse and Dynamics 365
                 href: example-scenario/analytics/synapse-customer-insights.yml      
               - name: Data analysis for regulated industries
                 href: example-scenario/data/data-analysis-regulated-industries.yml
@@ -3689,7 +3689,7 @@ items:
                 maintainContext: true
           - name: Architectures
             items:
-              - name: Automate multistage Azure pipelines
+              - name: Automate multistage Azure Pipelines
                 href: example-scenario/devops/automate-azure-pipelines.yml
               - name: Automate API deployments with APIOps
                 href: example-scenario/devops/automated-api-deployments-apiops.yml
@@ -5240,7 +5240,7 @@ items:
                   - name: Connect AWS to Sentinel
                     href: /azure/sentinel/connect-aws
                     maintainContext: true
-                  - name: Connect AAD to Sentinel
+                  - name: Connect Azure AD to Sentinel
                     href: /azure/sentinel/connect-azure-active-directory
                     maintainContext: true
                   - name: Connect Defender for Cloud
