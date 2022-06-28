@@ -1,5 +1,13 @@
 Azure Automation State Configuration is an Azure configuration management service that allows you to configure and enforce state on virtual and physical machines in any cloud or on-premises datacenter. In addition to enforcing configuration, you can also use Azure Automation State Configuration in a report-only mode where compliance data is generated based on a virtual or physical machine's compliance with a configuration.
 
+## Potential use cases
+
+Use Azure Automation state configuration to host and manage PowerShell Desired State configurations centrally. These configurations can be applied to Windows and Linux systems to enforce state configuration. Example configurations could include:
+
+- Configuring applications and web services.
+- Enforcing compliance and security controls.
+- Configure and enforce other operating system controls.
+
 ## Architecture
 
 This example scenario demonstrates using Azure Automation State Configuration to install a web server on both Windows and Linux-based Azure Virtual Machines. Azure Monitor is used to raise an alert for any non-compliant systems.
@@ -69,7 +77,7 @@ You can also browse to the public IP address of any virtual machine to verify th
 For detailed information and additional deployment options, see the ARM Templates used to deploy this solution.
 
 > [!div class="nextstepaction"]
-> [Azure Automation State Configuration ARM Templates](/samples/mspnp/samples/azure-automation-state-configuration/)
+> [Azure Automation State Configuration ARM Templates](/samples/mspnp/samples/azure-automation-state-configuration)
 
 ## Components
 
@@ -82,14 +90,6 @@ The following services and components are used in this solution.
 - **Azure Monitor:** Azure Monitor collects and stores metrics and logs, application telemetry, and platform metrics for the Azure services. Use this data to monitor the application, set up alerts, dashboards, and perform root cause analysis of failures.
 
 - **Azure Virtual Machines:** Azure IaaS solution for running virtual machines.
-
-## Potential use cases
-
-Use Azure Automation state configuration to host and manage PowerShell Desired State configurations centrally. These configurations can be applied to Windows and Linux systems to enforce state configuration. Example configurations could include:
-
-- Configuring applications and web services.
-- Enforcing compliance and security controls.
-- Configure and enforce other operating system controls.
 
 ## Considerations
 
@@ -161,10 +161,10 @@ Configuration management includes the configuration pull service and change trac
 
 Charges for configuration management start when a node is registered with the service and stops when the node is unregistered. A node is any machine whose configuration is managed by configuration management. This could be an Azure virtual machine (VM), on-premises VM, physical host, or a VM in another public cloud. Billing for nodes is pro-rated hourly.
 
-For more information, see [Automation pricing](https://azure.microsoft.com/pricing/details/automation/).
+For more information, see [Automation pricing](https://azure.microsoft.com/pricing/details/automation).
 
 ## Next steps
 
-- [Browse additional solutions](/azure/architecture/browse/)
+- [Browse additional solutions](/azure/architecture/browse)
 - [Azure Automation update management](/azure/architecture/hybrid/azure-update-mgmt)
-- [Azure Automation State Configuration documentaton](/azure/automation/automation-dsc-overview)
+- [Azure Automation State Configuration documentation](/azure/automation/automation-dsc-overview)

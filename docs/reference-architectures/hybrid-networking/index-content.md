@@ -20,7 +20,7 @@ This architecture is suitable for hybrid applications where the traffic between 
 
 ### Reference architecture
 
-- [Hybrid network with VPN gateway](./vpn.yml)
+- [Hybrid network with VPN gateway](/azure/expressroute/expressroute-howto-coexist-resource-manager)
 
 <!-- markdownlint-disable MD024 -->
 
