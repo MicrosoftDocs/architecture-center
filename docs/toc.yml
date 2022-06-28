@@ -3021,6 +3021,8 @@ items:
             href: reference-architectures/containers/aks-start-here.md
           - name: Guides
             items:
+              - name: Access an AKS API server
+                href: guide/security/access-azure-kubernetes-service-cluster-api-server.yml
               - name: AKS cluster best practices
                 href: /azure/aks/best-practices
                 maintainContext: true
