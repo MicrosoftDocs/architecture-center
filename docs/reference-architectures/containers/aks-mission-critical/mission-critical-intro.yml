@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Highly reliable mission critical workload on Azure
+  title: Highly reliable mission-critical workload on Azure
   description: Reference architecture for a highly reliable workload that is accessed over a public endpoint and does not require private network connectivity to other company resources.
   author: calcof
   ms.author: pnp
@@ -13,7 +13,7 @@ metadata:
     - networking
     - security
     - devops
-name: Mission critical workload architecture on Azure
+name: Mission-critical workload architecture on Azure
 azureCategories:
   - containers
   - networking
