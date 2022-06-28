@@ -3,9 +3,9 @@
 
 The regional distribution of resources in the reference architecture requires a robust network infrastructure. A mission-critical design requires an always on, active-active implementation.
 
-A globally distributed design with Azure services come together to provide a regionally distributed, highly available mission-critical application. Azure Front Door combined with regional stamps provide an active-active application failover and redundancy.
+A globally distributed design with Azure services come together to provide a regionally distributed, highly available mission-critical application. Azure Front Door combined with regional stamps provide an active-active application with failover and redundancy.
 
-The regional stamps provide scalability and availability as a deployable unit in the architecture. The stamps follow an isolated [virtual network design](/azure/architecture/framework/mission-critical/mission-critical-networking-connectivity#isolated-virtual-networks). Cross-stamp traffic isn't required or recommended. Virtual network peerings or VPN connections to other stamps aren't required.
+The regional stamps are the deployable unit in the architecture. The ability to quickly deploy a new stamp provide scalability and supports high availability. The stamps follow an isolated [virtual network design](/azure/architecture/framework/mission-critical/mission-critical-networking-connectivity#isolated-virtual-networks). Cross-stamp traffic isn't required or recommended. Virtual network peerings or VPN connections to other stamps aren't required.
 
 The architecture is intentional in defining the regional stamps as short-lived. The global state of the infrastructure is stored in the regional resources.
 
@@ -23,11 +23,11 @@ The application defined in the architecture is internet facing and has several r
 
 * Health monitoring of the stamps to provide fail-over in the event of an application or networking issue.
 
-* Prevention of malicious attacks from the edge.
+* Prevention of malicious attacks at the edge.
 
-The entry point for all traffic in the design is through Azure Front Door. Front Door is a global load balancer that routes HTTPS traffic to registered backends/origins. Front door uses health probes that issues requests to a URI in each backend/origin. In the reference implementation, the URI called is a health service. The health service advertises the health of the stamp. Front Door uses the response to determine the health of an individual stamp and route traffic to healthy stamps capable of servicing application requests.
+The entry point for all traffic in the design is through Azure Front Door. Front Door is a global load balancer that routes HTTP(S) traffic to registered backends/origins. Front door uses health probes that issue requests to a URI in each backend/origin. In the reference implementation, the URI called is a health service. The health service advertises the health of the stamp. Front Door uses the response to determine the health of an individual stamp and route traffic to healthy stamps capable of servicing application requests.
 
-Azure Front Door integration with Azure Monitor provides near real-time monitoring of security, success, failure metrics and alerting.
+Azure Front Door integration with Azure Monitor provides near real-time monitoring of security, success and failure metrics, and alerting.
 
 Azure Web Application Firewall, integrated with Azure Front Door, is used to prevent attacks at the edge before they enter the network.
 
@@ -35,15 +35,13 @@ Azure Web Application Firewall, integrated with Azure Front Door, is used to pre
 
 ## Isolated virtual network - API
 
-The API in the architecture uses Azure Virtual Networks as the traffic isolation boundary. Subnets within the virtual networks can be used to segment traffic. Components in one virtual network can't communicate directly with components in another virtual network.
+The API in the architecture uses Azure Virtual Networks as the traffic isolation boundary. Components in one virtual network can't communicate directly with components in another virtual network.
 
 When configuring IP address spaces and subnets within the virtual networks, allocation of sufficient IP addresses must be considered for the components within the infrastructure. Steps must be taken to ensure there enough IP address spaces for normal run operation and for failover. If a region becomes unavailable, consider the impact of the failover on IP address space in the other regions.
 
-Network security groups can be used control the traffic that is allowed in and out of each subnet.
+Requests to the compute platform are distributed with a standard SKU external Azure Load Balancer. All traffic that reaches the load balancer will have been inspected by Azure WAF. There is a check to ensure that traffic reaching the load balancer was routed via Azure Front Door. This check ensures that all traffic was inspected by the Azure WAF.
 
-Requests to the compute platform are distributed with a standard SKU external Azure Load Balancer. All traffic that reaches the load balancer is inspected by Azure WAF. There is a check to ensure that traffic reaching the load balancer was routed via Azure Front Door. This check ensures that all traffic was inspected by the Azure WAF.
-
-Agents used for the operations and deployment of the architecture must be able to reach into the isolated network for their functionality. The isolated network can be opened up to allow for the agents to communicate. Alternatively, self-hosted agents can be deployed that are in the virtual network. Opening up the network for the agents has an administrative overhead because of the wide IP range for Microsoft hosted agents. Consider using self-hosted agents instead of opening up the network for the Microsoft hosted agents.
+Agents used for the operations and deployment of the architecture must be able to reach into the isolated network. The isolated network can be opened up to allow the agents to communicate. Alternatively, self-hosted agents can be deployed in the virtual network. Opening up the network for the agents increases the attack vector. Consider using self-hosted agents instead of opening up the network for the Microsoft hosted agents.
 
 Monitoring of the network throughput, performance of the individual components, and health of the application is required.
 
@@ -65,6 +63,10 @@ The architecture as defined uses Azure Key Vault to store tokens to securely com
 
 This section discusses the pros and cons of alternative approaches to the network design. The use of Azure Private endpoints is the focus of the alternatives in the following sections.
 
+### Networking
+
+Subnets within the virtual networks can be used to segment traffic. Network security groups can be used control the traffic that is allowed in and out of each subnet.
+
 ### Private endpoints - Ingress
 
 The premium SKU of Front Door supports the use of Azure Private Endpoints. Private endpoints expose an Azure service to a private IP address in a virtual network. Connections are made securely and privately between services without the need to route the traffic to public endpoints.
@@ -75,7 +77,7 @@ Reliability of the design is increased with the use of private endpoints. Public
 
 Front Door premium has an increased cost over the SKU used in the main architecture. The increased security and reliability must be weighed versus the increased cost and complexity. Fully private compute clusters for the application complicate the deployment.
 
-Self-hosted Azure DevOps agents must be used for the stamp deployment, however the management of these agents comes with a maintenance cost.
+Self-hosted Azure DevOps agents must be used for the stamp deployment. The management of these agents comes with a maintenance cost.
 
 :::image type="content" source="./images/network-diagram-ingress.png" alt-text="Diagram of network ingress for reference architecture with private endpoints.":::
 
