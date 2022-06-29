@@ -8,14 +8,6 @@ This reference architecture outlines an implementation plan for replicating and 
   - Preparation: Transforming and manipulating data by using mapping rules that meet target database requirements.
 - Loading: Inserting data into a target database.
 
-## Potential use cases
-
-Data replication and sync scenarios that can benefit from this solution include:
-
-- Command Query Responsibility Segregation (CQRS) architectures that use Azure to service all inquire channels.
-- Environments that test on-premises applications and rehosted or re-engineered applications in parallel.
-- On-premises systems with tightly coupled applications that require phased remediation or modernization.
-
 ## Architecture
 
 :::image type="complex" source="./images/sync-mainframe-data-with-azure.png" alt-text="Architecture diagram showing how to sync on-premises and Azure databases during mainframe modernization." border="false":::
@@ -131,6 +123,14 @@ The solution uses the following components:
 
 - An [IR][Integration runtime in Azure Data Factory] is the compute infrastructure that Data Factory uses to integrate data across different network environments. Data Factory uses [self-hosted IRs][Self-hosted integration runtime] to copy data between cloud data stores and data stores in on-premises networks.
 
+## Potential use cases
+
+Data replication and sync scenarios that can benefit from this solution include:
+
+- Command Query Responsibility Segregation (CQRS) architectures that use Azure to service all inquire channels.
+- Environments that test on-premises applications and rehosted or re-engineered applications in parallel.
+- On-premises systems with tightly coupled applications that require phased remediation or modernization.
+
 ## Recommendations
 
 When you use Data Factory to extract data, take steps to [tune the performance of the copy activity][Performance tuning steps].
@@ -139,7 +139,9 @@ When you use Data Factory to extract data, take steps to [tune the performance o
 
 Keep these points in mind when considering this architecture.
 
-### Availability considerations
+### Reliability
+
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
 - Infrastructure management, including [availability][Types of Databases on Azure], is automated in Azure databases.
 
@@ -147,7 +149,19 @@ Keep these points in mind when considering this architecture.
 
 - You can cluster the on-premises data gateway and IR to provide higher availability guarantees.
 
-### Manageability considerations
+### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
+- The on-premises data gateway provides data protection during transfers from on-premises to Azure systems.
+
+- See [Network transports and transactions] to learn about the types of client connections that Microsoft Service for DRDA supports.
+
+- Ensure that the security level of the Azure environment that has access to the on-premises data gateway meets the security requirements of the on-premises network.
+
+### Performance efficiency
+
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
 - When you use an on-premises application gateway, be aware of [limits on read and write operations][Gateway considerations].
 
@@ -155,7 +169,9 @@ Keep these points in mind when considering this architecture.
 
 - The [self-hosted IR can only run on a Windows operating system][Self-hosted IR compute resource and scaling].
 
-### Scalability considerations
+### Operational excellence
+
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
 - Infrastructure management, including [scalability][Types of Databases on Azure], is automated in Azure databases.
 
@@ -165,17 +181,13 @@ Keep these points in mind when considering this architecture.
 
 - Consider [Azure ExpressRoute][Azure ExpressRoute] as a high-scale option if your implementation uses significant bandwidth for initial replication or ongoing changed data replication.
 
-### Security considerations
+### Cost optimization
 
-- The on-premises data gateway provides data protection during transfers from on-premises to Azure systems.
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-- See [Network transports and transactions] to learn about the types of client connections that Microsoft Service for DRDA supports.
+- Pricing models vary between component services. Review the pricing models of the available component services to ensure the pricing models fit your budget.
 
-- Ensure that the security level of the Azure environment that has access to the on-premises data gateway meets the security requirements of the on-premises network.
-
-## Pricing
-
-Use the [Azure pricing calculator][Azure pricing calculator] to estimate the cost of implementing this solution.
+- Use the [Azure pricing calculator][Azure pricing calculator] to estimate the cost of implementing this solution.
 
 ## Next steps
 
