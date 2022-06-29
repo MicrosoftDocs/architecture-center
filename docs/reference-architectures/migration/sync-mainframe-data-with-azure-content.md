@@ -159,15 +159,13 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 - Ensure that the security level of the Azure environment that has access to the on-premises data gateway meets the security requirements of the on-premises network.
 
-### Performance efficiency
+### Cost optimization
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-- When you use an on-premises application gateway, be aware of [limits on read and write operations][Gateway considerations].
+- Pricing models vary between component services. Review the pricing models of the available component services to ensure the pricing models fit your budget.
 
-- To use SSMA for Db2, install the client program on a computer that can access the source Db2 database and the target instance of SQL Server. That computer should meet the requirements listed in [Installing SSMA for Db2 client][Installing SSMA for DB2 client (DB2ToSQL) Prerequisites].
-
-- The [self-hosted IR can only run on a Windows operating system][Self-hosted IR compute resource and scaling].
+- Use the [Azure pricing calculator][Azure pricing calculator] to estimate the cost of implementing this solution.
 
 ### Operational excellence
 
@@ -181,13 +179,15 @@ Operational excellence covers the operations processes that deploy an applicatio
 
 - Consider [Azure ExpressRoute][Azure ExpressRoute] as a high-scale option if your implementation uses significant bandwidth for initial replication or ongoing changed data replication.
 
-### Cost optimization
+### Performance efficiency
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
-- Pricing models vary between component services. Review the pricing models of the available component services to ensure the pricing models fit your budget.
+- When you use an on-premises application gateway, be aware of [limits on read and write operations][Gateway considerations].
 
-- Use the [Azure pricing calculator][Azure pricing calculator] to estimate the cost of implementing this solution.
+- To use SSMA for Db2, install the client program on a computer that can access the source Db2 database and the target instance of SQL Server. That computer should meet the requirements listed in [Installing SSMA for Db2 client][Installing SSMA for DB2 client (DB2ToSQL) Prerequisites].
+
+- The [self-hosted IR can only run on a Windows operating system][Self-hosted IR compute resource and scaling].
 
 ## Next steps
 
