@@ -29,17 +29,18 @@ Azure Cache for Redis is commonly used to increase the performance of your solut
 
 - Cache instance per tenant
   - Cost - there's a minimum size and cost for each instance, so with many tenants it can be expensive
-  - No limit to the number of instances in a subscription (TODO checking with PG)
+  - No limit to the number of instances in a subscription.
 - Database per tenant
   - Provides logical isolation
   - Doesn't work with clustered instances, and only applies to basic/standard/premium
+  - There's a limit of how many databases can be on a cache instance (see https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-cache-for-redis-limits)
   - Could be useful for migration scenarios, where you're taking a single-tenant application (which is not aware of multitenancy) and using a single shared cache, but without being able to update the application's logic to use tenant key prefixes or tenant-specific data structures.
   - But:
     - Authorization applies to the whole cache
-    - Share compute resources, so subject to [Noisy Neighbor problem]
+    - Share compute resources, so subject to [Noisy Neighbor problem](https://docs.microsoft.com/azure/architecture/antipatterns/noisy-neighbor/noisy-neighbor)
     - Migration to another cache requires manual intervention
 - Single cache instance and database shared among all tenants
-  - Can use either key prefixes or data structures like [Redis Sets] for each tenant's data
+  - Can use either key prefixes or data structures like [Sets](https://redis.io/docs/manual/data-types/#sets) or [Hashes](https://redis.io/docs/manual/data-types/#hashes) for each tenant's data. Redis Sets support large numbers of keys.
   - Authorization applies to the whole cache, not per tenant
   - All tenants will share compute resources, so subject to [Noisy Neighbor problem]
     - So follow [Redis best practices] to make most efficient use of your cache resources
@@ -49,10 +50,23 @@ Azure Cache for Redis is commonly used to increase the performance of your solut
 
 ### Active geo-replication
 
+- Many multitenant solutions need to be geo-distributed. You might share an globally distributed application tier and the applications need to access a local cache for high performance.
 - [Multiple caches can be linked together in active-active configuration](https://techcommunity.microsoft.com/t5/azure-developer-community-blog/how-to-utilize-active-geo-replication-in-azure-cache-for-redis/ba-p/3074404) ([docs](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-high-availability#active-geo-replication))
-- Enterprise tier only
-- Useful in globally distributed solutions where you share an globally distributed application tier and the applications need to access a local cache for high performance
+- Enterprise tier only.
 
 ## Next steps
 
 Review [deployment and configuration approaches for multitenancy](../approaches/deployment-configuration.yml).
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+ * [Will Velida](http://linkedin.com/in/willvelida) | Customer Engineer 2, FastTrack for Azure
+
+Other contributors:
+
+ * [John Downs](http://linkedin.com/in/john-downs) | Senior Customer Engineer, FastTrack for Azure
+ * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
