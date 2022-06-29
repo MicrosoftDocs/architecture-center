@@ -49,7 +49,7 @@ When Azure Spring Apps is deployed in a virtual network, it uses [two subnets](/
 > [!IMPORTANT]
 > Restricting subnet access to only the reverse proxy might cause failures in features that depend on a direct connection from a client device to the app, like [log streaming](/azure/spring-cloud/how-to-log-streaming). Consider adding NSG rules specifically for those client devices, and for only when that direct access is required.
 
-Each app that you want to expose through your reverse proxy should have an endpoint assigned to it so that the reverse proxy can reach it in the virtual network. For each app, you should also [map the custom domains](/azure/spring-cloud/tutorial-custom-domain#map-your-custom-domain-to-azure-spring-cloud-app) it uses so that you can avoid overriding the HTTP `Host` header in the reverse proxy and keep the original host name intact. Doing so avoids problems like broken cookies or redirect URLs that don't work properly. For more information, see [Host name preservation](../../best-practices/host-name-preservation.yml).
+Each app that you want to expose through your reverse proxy should have an endpoint assigned to it so that the reverse proxy can reach it in the virtual network. For each app, you should also [map the custom domains](/azure/spring-cloud/tutorial-custom-domain#map-your-custom-domain-to-azure-spring-apps-app) it uses so that you can avoid overriding the HTTP `Host` header in the reverse proxy and keep the original host name intact. Doing so avoids problems like broken cookies or redirect URLs that don't work properly. For more information, see [Host name preservation](../../best-practices/host-name-preservation.yml).
 
 > [!NOTE]
 > Alternatively (or, for defense in depth, maybe in addition to the NSG) you can follow the guidance for when you have [Azure Spring Apps deployed outside your virtual network](#azure-spring-apps-deployed-outside-your-virtual-network). As is explained in that section, access restrictions are then typically achieved via Spring Cloud Gateway (which also affects the back-end apps because they no longer need an assigned endpoint or custom domain).
@@ -100,7 +100,7 @@ When you deploy Azure Spring Apps outside of a virtual network, you can't use na
 To remove this responsibility from the developers of individual applications, you can instead apply these cross-cutting restrictions by using [Spring Cloud Gateway](https://spring.io/projects/spring-cloud-gateway). Spring Cloud Gateway is a commonly used Spring project that you can deploy into Azure Spring Apps just like any other app. By using Spring Cloud Gateway, you can keep your own applications private within the Azure Spring Apps instance and ensure that they can be accessed only through the shared Spring Cloud Gateway app. You then configure this app with the necessary access restrictions via [route predicates](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/#gateway-request-predicates-factories), which are a built-in feature of Spring Cloud Gateway. These route predicates can use different attributes of the incoming HTTP request (like the client IP address, request method or path, or HTTP headers) to determine whether to route the request to the back-end application or reject it.
 
 > [!IMPORTANT]
-> When you place Spring Cloud Gateway in front of your back-end apps in this way, you have to [map all your custom domains to the Spring Cloud Gateway app](/azure/spring-cloud/tutorial-custom-domain#map-your-custom-domain-to-azure-spring-cloud-app) rather than to the back-end apps. Otherwise, Azure Spring Apps won't route incoming traffic to your Spring Cloud Gateway first when a request comes in for any of those custom domains.
+> When you place Spring Cloud Gateway in front of your back-end apps in this way, you have to [map all your custom domains to the Spring Cloud Gateway app](/azure/spring-cloud/tutorial-custom-domain#map-your-custom-domain-to-azure-spring-apps-app) rather than to the back-end apps. Otherwise, Azure Spring Apps won't route incoming traffic to your Spring Cloud Gateway first when a request comes in for any of those custom domains.
 >
 > This assumes that your reverse proxy doesn't override the HTTP `Host` header but keeps the original host name intact. For more information, see [Host name preservation ](../../best-practices/host-name-preservation.yml).
 
@@ -216,7 +216,7 @@ predicates:
 ## Next steps
 
 - [Azure Spring Apps reference architecture](/azure/spring-cloud/reference-architecture)
-- [Customer responsibilities for running Azure Spring Apps in VNET](/azure/spring-cloud/vnet-customer-responsibilities#azure-spring-cloud-resource-requirements)
+- [Customer responsibilities for running Azure Spring Apps in VNET](/azure/spring-cloud/vnet-customer-responsibilities#azure-spring-apps-resource-requirements)
 
 ## Related resources
 
