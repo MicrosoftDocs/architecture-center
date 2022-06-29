@@ -39,7 +39,7 @@ There are many ways to connect to an AKS private cluster. Planning how to access
 > [!NOTE]
 > SSH, Remote Desktop Protocol (RDP), and Remote Desktop Services (RDS) are alternative protocols that you can use to remotely control jump boxes.
 
-### Azure Bastion
+### Use Azure Bastion
 
 Azure Bastion is a platform as a service (PaaS) offering that you deploy within your virtual network to connect to a VM in that network, such as a jump box. To connect, you use RDP or SSH from a browser within the Azure portal. The Transport Layer Security (TLS) protocol protects the connection. Usually there's a public IP address that's associated with the VM's network interface card (NIC). That address provides a way to connect to the VM. When you use Azure Bastion, you no longer need to associate a public IP address with your jump box.
 
@@ -98,7 +98,7 @@ The JIT access feature of Microsoft Defender for Cloud reduces the threat landsc
 
 PAWs are hardened physical devices that provide the highest possible security configuration for operators. To adopt a good privileged-access strategy, use a PAW to connect to your jump box and AKS cluster. It's difficult to compromise PAWs, because they block many common attack vectors such as email and web browsing. For more information about PAWs, see [Securing devices as part of the privileged access story](/security/compass/privileged-access-devices).
 
-### VPN
+### Use a VPN
 
 A VPN connection provides hybrid connectivity from your on-premises environment to Azure. You need connectivity to your internal virtual network infrastructure to access an AKS private cluster. The private cluster's API server isn't reachable from outside your virtual networks.
 
@@ -118,7 +118,7 @@ A VPN makes it possible for you to reach your private AKS cluster. When you use 
 1. To reach the private AKS cluster, the traffic enters the Azure backbone. A private endpoint establishes a private, isolated connection to the private AKS cluster.
 1. The traffic reaches the API server of the private AKS cluster. The user can then manage pods, nodes, and applications.
 
-### ExpressRoute
+### Use ExpressRoute
 
 ExpressRoute is another option that you can use to establish connectivity to your AKS private cluster from an on-premises environment. ExpressRoute uses Border Gateway Protocol (BGP) to exchange routes between your on-premises network, your instances in Azure, and Microsoft public addresses. This exchange gives infrastructure as a service (IaaS) resources in Azure and on-premises workstations a path to each other. ExpressRoute provides a dedicated and isolated connection while maintaining consistent bandwidth and latency for enterprise environments.
 
@@ -139,7 +139,7 @@ ExpressRoute is another option that you can use to establish connectivity to you
 > [!NOTE]
 > ExpressRoute requires a third-party connectivity provider to provide a peering connection to the MSEE routers. ExpressRoute traffic isn't encrypted. For more information, see [What is Azure ExpressRoute?](/azure/expressroute/expressroute-introduction).
 
-### The aks command invoke command
+### Run aks command invoke
 
 With an AKS private cluster, you have to connect to the private cluster from a VM that has access to the cluster's API server. You can use the Azure CLI command `aks command invoke` to remotely run commands such as `kubectl` or `helm` on your AKS private cluster through the Azure API. When you use `aks command invoke`, a transient pod is created in a specific namespace within the cluster. The pod only exists for the life of the command. From within the transient pod, you can run commands on your private cluster.
 
@@ -151,7 +151,7 @@ For more information, see [Use command invoke to access a private Azure Kubernet
 
 When you deploy Cloud Shell into a virtual network that you control, you can interact with resources inside that virtual network. A Cloud Shell instance is usually deployed into a container that's within a virtual network that Microsoft manages. That container can't interact with resources in other virtual networks. But if you deploy an AKS private cluster, you can connect Cloud Shell to a subnet that you manage that has connectivity to the cluster's API server. Then you can connect to the private cluster. For more information, see [Deploy Cloud Shell into an Azure virtual network](/azure/cloud-shell/private-vnet).
 
-### SSH and Visual Studio Code for testing
+### Use SSH and Visual Studio Code for testing
 
 SSH is a protocol that provides a way to securely manage and access files on a remote host. As part of the authentication process, SSH uses public-private key pairs.
 
@@ -182,7 +182,7 @@ If you can't connect to your VM over SSH to manage your private cluster:
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors. Note that you must be signed in to LinkedIn to see non-public LinkedIn profiles.*
+*This article is maintained by Microsoft. It was originally written by the following contributors. To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 Principal authors:
 
