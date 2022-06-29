@@ -30,7 +30,7 @@ Many factors can affect the reliability of an application, such as the ability t
     
     Deploy a regional stamp as a _scale unit_ where a logical set of resources can be independently provisioned to keep up with the changes in demand. Each stamp also applies multiple nested scale units, such as the Frontend APIs and Background processors which can scale in and out independently.
 
-    > Refer to [Well-architected mission critical workloads: Scale unit architecture](/azure/architecture/framework/mission-critical-application-design#scale-unit-architecture).
+    > Refer to [Well-architected mission critical workloads: Scale unit architecture](/azure/architecture/framework/mission-critical/mission-critical-application-design#scale-unit-architecture).
 - **Reliable and repeatable deployments**        
     - Use Terraform to apply the _principle of Infrastructure as code (IaC)_, providing version control and a standardized operational approach for infrastructure components.
 
@@ -178,7 +178,7 @@ Similarly, data from shared services such as, Azure Front Door, Cosmos DB, and C
 #### Data archiving and analytics
 Operational data that isn't required for active operations is exported from Log Analytics to Azure Storage Accounts for both data retention purposes and to provide an analytical source for AIOps, which can be applied to optimize the application health model and operational procedures.
 
-> Refer to [Well-architected mission critical workloads: Predictive action and AI operations](/azure/architecture/reference-architectures/containers/aks-mission-critical/azure/architecture/framework/mission-critical/mission-critical-health-modeling#predictive-action-and-ai-operations-aiops).
+> Refer to [Well-architected mission critical workloads: Predictive action and AI operations](/azure/architecture/framework/mission-critical/mission-critical-health-modeling#predictive-action-and-ai-operations-aiops).
 
 ## Request and processor flows
 

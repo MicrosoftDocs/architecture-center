@@ -3,7 +3,7 @@ title: Azure AD join for Azure Virtual Desktop
 description: Learn how to configure Azure AD domain join for Azure Virtual Desktop host VMs without using Active Directory Domain Services domain controllers.
 author: TomHickling
 ms.author: thhickli
-ms.date: 5/27/2022
+ms.date: 6/14/2022
 ms.topic: how-to
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -168,9 +168,17 @@ If you're using other Azure Virtual Desktop clients, such as Mac, iOS, Android, 
 
 Now you have an Azure Virtual Desktop host pool where session hosts are joined only to Azure AD. You're a step closer to modern management for your Azure Virtual Desktop estate.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Tom Hickling](https://www.linkedin.com/in/tomhickling) | Senior Product Manager, Azure Virtual Desktop Engineering
+
 ## Next steps
 
-- [Azure Virtual Desktop documentation](/azure/virtual-desktop/)
+- [Azure Virtual Desktop documentation](/azure/virtual-desktop)
 - [Deploy Azure AD-joined virtual machines in Azure Virtual Desktop](/azure/virtual-desktop/deploy-azure-ad-joined-vm)
 
 ## Related resources

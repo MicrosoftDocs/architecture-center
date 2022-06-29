@@ -845,6 +845,8 @@ items:
                 href: example-scenario/apps/decentralized-trust.yml
               - name: Finance management using PostgreSQL
                 href: solution-ideas/articles/finance-management-apps-using-azure-database-for-postgresql.yml
+              - name: Host a Murex MX.3 workload on Azure
+                href: example-scenario/finance/murex-mx3-azure.yml  
               - name: Modernize mainframe & midrange data
                 href: reference-architectures/migration/modernize-mainframe-data-to-azure.yml
               - name: Patterns and implementations in banking
@@ -2025,7 +2027,7 @@ items:
                     href: /azure/architecture/operator-guides/aks/choose-kubernetes-edge-compute-option
                   - name: Choose a bare-metal Kubernetes option
                     href: /azure/architecture/operator-guides/aks/choose-bare-metal-kubernetes
-              - name: D365 telecommunications accelerator
+              - name: Dynamics 365 telecommunications accelerator
                 items:
                   - name: Overview
                     href: /dynamics365/industry/accelerators/telecommunications-overview
@@ -2772,7 +2774,7 @@ items:
                 href: reference-architectures/data/enterprise-bi-adf.yml
               - name: Big data analytics on confidential computing
                 href: example-scenario/confidential/data-analytics-containers-spark-kubernetes-azure-sql.yml
-              - name: Customer 360 with Azure Synapse and D365
+              - name: Customer 360 with Azure Synapse and Dynamics 365
                 href: example-scenario/analytics/synapse-customer-insights.yml      
               - name: Data analysis for regulated industries
                 href: example-scenario/data/data-analysis-regulated-industries.yml
@@ -2810,6 +2812,8 @@ items:
                 href: example-scenario/analytics/relationship-mesh-solution-azure.yml
               - name: Secure a data lakehouse with Azure Synapse
                 href: example-scenario/analytics/secure-data-lakehouse-synapse.yml
+              - name: Sentiment analysis and face recognition
+                href: example-scenario/ai/nifi-sentiment-analysis-face-recognition.yml
               - name: Sports analytics on Azure
                 href: example-scenario/analytics/sports-analytics-architecture-azure.yml
               - name: Stream processing with Azure Databricks
@@ -3952,7 +3956,7 @@ items:
                 maintainContext: true
           - name: Architectures
             items:
-              - name: Automate multistage Azure pipelines
+              - name: Automate multistage Azure Pipelines
                 href: example-scenario/devops/automate-azure-pipelines.yml
               - name: Automate API deployments with APIOps
                 href: example-scenario/devops/automated-api-deployments-apiops.yml
@@ -5519,7 +5523,7 @@ items:
                   - name: Connect AWS to Sentinel
                     href: /azure/sentinel/connect-aws
                     maintainContext: true
-                  - name: Connect AAD to Sentinel
+                  - name: Connect Azure AD to Sentinel
                     href: /azure/sentinel/connect-azure-active-directory
                     maintainContext: true
                   - name: Connect Defender for Cloud
