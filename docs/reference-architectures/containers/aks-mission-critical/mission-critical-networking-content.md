@@ -1,5 +1,24 @@
-
-## Introduction
+title: Networking and connectivity for mission-critical workloads on Azure
+description: Reference architecture for a workload that is accessed over a public endpoint without additional dependencies to other company resources.
+author: calcof
+ms.author: pnp
+ms.date: 06/28/2022
+ms.topic: conceptual
+ms.service: architecture-center
+ms.subservice: reference-architecture
+ms.category:
+    - management-and-governance
+    - networking
+name: Networking and connectivity for mission-critical workloads on Azure
+azureCategories:
+  - management-and-governance  
+summary: Reference architecture for a workload that is accessed over a public endpoint without additional dependencies to other company resources.
+products:
+  - azure-monitor
+  - azure-front-door
+thumbnailUrl: /azure/architecture/browse/thumbs/mission-critical-online.png
+content: |
+   [!include[](mission-critical-networking-content.md)]
 
 The regional distribution of resources in the reference architecture requires a robust network infrastructure. A mission-critical design requires an always on, active-active implementation.
 
@@ -59,11 +78,11 @@ The architecture as defined uses Azure Key Vault to store tokens to securely com
 
 :::image type="content" source="./images/network-diagram-vnet-paasdependencies-standard.png" alt-text="Diagram of the application platform communication dependencies.":::
 
-## Alternative considerations
+## Enhanced networking
 
 This section discusses the pros and cons of alternative approaches to the network design. Alternative networking considerations and the use of Azure Private endpoints is the focus in the following sections.
 
-### Networking
+### Subnets and NSG
 
 Subnets within the virtual networks can be used to segment traffic within the design. Subnet isolation separates resources for different functions.
 
