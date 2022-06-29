@@ -86,6 +86,17 @@ You can use [Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) to
 
 All components of the solution either provide transparent built-in scalability or expose a rich set of features, like [Azure web app autoscale](/azure/azure-monitor/autoscale/autoscale-best-practices#manual-scaling-is-reset-by-autoscale-min-and-max), for scaling the number of available instances.
 
+### Cost optimization
+
+The example scenario features a deployment within a hardened network environment. So an Azure Firewall or third-party NVA most likely already exists in the target infrastructure.
+
+The main consideration for the remaining infrastructure is the stock keeping unit (SKU) of the App Service plan that hosts the web app. Private endpoints for web apps are [available only in the Premium App Service plan SKUs](/azure/app-service/networking/private-endpoint).
+
+Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate your costs. Here are two possible pricing estimates:
+
+- [Infrastructure, including Azure Firewall](https://azure.com/e/e836a805a5b04fd3a750f04c4bfef120)
+- [Infrastructure, excluding Azure Firewall](https://azure.com/e/200979762ace4d8096851edb92c13756)
+
 ## Deploy this scenario
 
 ### Prerequisites
@@ -193,20 +204,11 @@ If you want, you can also [bind a custom FQDN domain to Azure Front Door](/azure
 
     :::image type="content" source="./media/outbound.png" alt-text="Screenshot that shows the IP address in the Kudu console." lightbox="./media/outbound.png":::
 
-## Pricing
-
-The example scenario features a deployment within a hardened network environment. So an Azure Firewall or third-party NVA most likely already exists in the target infrastructure.
-
-The main consideration for the remaining infrastructure is the stock keeping unit (SKU) of the App Service plan that hosts the web app. Private endpoints for web apps are [available only in the Premium App Service plan SKUs](/azure/app-service/networking/private-endpoint).
-
-Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate your costs. Here are two possible pricing estimates:
-
-- [Infrastructure, including Azure Firewall](https://azure.com/e/e836a805a5b04fd3a750f04c4bfef120)
-- [Infrastructure, excluding Azure Firewall](https://azure.com/e/200979762ace4d8096851edb92c13756)
-
 ## Contributors
 
-*This article is maintained by Microsoft. It was written by the following contributors:*
+*This article is maintained by Microsoft. It was originally written by the following contributors:*
+
+Principal authors:
 
 - [Davide Maccarrone](https://www.linkedin.com/in/dmaccarrone) | Senior Consultant
 - [Tim Warner](https://www.linkedin.com/in/timothywarner) | Senior Content Developer
