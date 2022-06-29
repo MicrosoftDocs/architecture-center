@@ -243,6 +243,6 @@ Principal authors:
 ## Related resources
 
 - [Azure Architecture Center](../../browse/index.yml)
-- [Azure Well-Architected Framework](/azure/architecture/framework/index)d
+- [Azure Well-Architected Framework](/azure/architecture/framework/index)
 - [Azure Cloud Adoption Framework](/azure/cloud-adoption-framework/get-started/)
 - [Azure Firewall architecture overview](/azure/architecture/example-scenario/firewalls)
