@@ -72,7 +72,7 @@ Principal author:
 
 - [Azure Digital Twins Documentation](/azure/digital-twins)
 - [Autodesk Forge](https://forge.autodesk.com/developer/documentation)
-- [Trimble BIM automatically ingested in Azure Digital Twins](https://www.trimble.com/news/release.aspx?id=102721a)
+- [Trimble BIM automatically ingested in Azure Digital Twins](https://www.trimble.com/en/our-company/events/dimensions/overview)
 - [Digital Twins Definition Language (GitHub)](https://github.com/azure/opendigitaltwins-dtdl)
 - [RealEstateCore, a smart building ontology for digital twins (video)](/shows/internet-of-things-show/realestatecore-a-smart-building-ontology-for-digital-twins)
 - [RealEstateCore ontology](https://github.com/Azure/opendigitaltwins-building)
