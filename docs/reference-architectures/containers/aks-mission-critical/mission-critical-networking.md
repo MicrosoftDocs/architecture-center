@@ -1,7 +1,8 @@
+---
 title: Networking and connectivity for mission-critical workloads on Azure
 description: Reference architecture for a workload that is accessed over a public endpoint without additional dependencies to other company resources.
-author: calcof
-ms.author: pnp
+author: asudbring
+ms.author: allensu
 ms.date: 06/28/2022
 ms.topic: conceptual
 ms.service: architecture-center
@@ -18,7 +19,10 @@ products:
   - azure-front-door
 thumbnailUrl: /azure/architecture/browse/thumbs/mission-critical-online.png
 content: |
-   [!include[](mission-critical-networking-content.md)]
+   [!include[](mission-critical-networking.md)]
+---
+
+# Networking and connectivity for mission-critical workloads
 
 The regional distribution of resources in the reference architecture requires a robust network infrastructure. A mission-critical design requires an always on, active-active implementation.
 
