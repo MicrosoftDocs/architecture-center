@@ -13,8 +13,8 @@ Typical uses for this architecture include:
 
 The architecture consists of the following components:
 
-- **[Azure Spring Apps][azure-spring-cloud]**. Spring Apps provides a managed service that's designed and optimized specifically for [Spring][spring] microservices that are written in [Java][java].
-- **[Azure Logic Apps][azure-logic-app]**. Logic apps are automated workflows that are provided as a scalable cloud service for common enterprise orchestration tasks. Logic apps include [connectors][azure-logic-app-connectors] for many popular cloud services, on-premises products, or other software as a service applications. The Logic Apps workflow includes the following features:
+- **[Azure Spring Apps][azure-spring-apps]**. Spring Apps provides a managed service that's designed and optimized specifically for [Spring][spring] microservices that are written in [Java][java].
+- **[Azure Logic Apps][azure-logic-app]**. Logic apps are automated workflows that are provided as a scalable cloud service for common enterprise orchestration tasks. Logic apps include [connectors][azure-logic-app-connectors] for many popular cloud services, on-premises products, or other Software-as-a-Service applications. The Logic Apps workflow includes the following features:
   - **[Trigger][azure-logic-app-connectors-queue]** that fires whenever a new [Azure Queue storage][azure-storage-queues] message is received.
   - **[Action][azure-logic-app-actions-parse]** to parse the JavaScript Object Notation (JSON) body of the queue message.
   - **[Action][azure-logic-app-connectors-sql]** to query SQL Server for relevant data.
@@ -101,7 +101,7 @@ An on-premises data gateway can be used with more than just Logic Apps. It's pos
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/
 [azure-relay]: /azure/azure-relay/
 [azure-storage-queues]: /azure/storage/queues/
-[azure-spring-cloud]: /azure/spring-cloud/
+[azure-spring-apps]: /azure/spring-cloud/
 [integration-data-gateway]: /data-integration/gateway/service-gateway-onprem
 [integration-data-gateway-architecture]: /data-integration/gateway/service-gateway-onprem-indepth
 [integration-data-gateway-installation]: /data-integration/gateway/service-gateway-install
