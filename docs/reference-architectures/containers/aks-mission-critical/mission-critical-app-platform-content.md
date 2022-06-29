@@ -18,7 +18,7 @@ ms.category:
 categories: featured
 ---
 
-A key design area of any mission critical architecture is the application platform. Platform refers to the infrastructure components and Azure services that must be provisioned to support the application. Here are some overarching recommendations as you build the platform.
+A key design area of any mission critical architecture is the application platform. Platform refers to the infrastructure components and Azure services that must be provisioned to support the application. Here are some overarching recommendations.
 
 -	Design in layers. Choose the right set of services, their configuration, and the application-specific dependencies. This layered approach helps in creating segmentation that's useful in defining roles and functions, and assigning appropriate privileges. This approach also makes the deployment more manageable. 
 
