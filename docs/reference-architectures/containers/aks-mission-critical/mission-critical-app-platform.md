@@ -22,11 +22,11 @@ categories: featured
 
 A key design area of any mission critical architecture is the application platform. Platform refers to the infrastructure components and Azure services that must be provisioned to support the application. Here are some overarching recommendations.
 
--	Design in layers. Choose the right set of services, their configuration, and the application-specific dependencies. This layered approach helps in creating segmentation that's useful in defining roles and functions, and assigning appropriate privileges. This approach also makes the deployment more manageable. 
+-	Design in layers. Choose the right set of services, their configuration, and the application-specific dependencies. This layered approach helps in creating logical and physical segmentation. It's useful in defining roles and functions, and assigning appropriate privileges, deployment strategies, which ultimately increases the reliability of the system. 
 
 -	A mission-critical application must be highly reliable and resistant to datacenter and regional failures. Building _zonal and regional redundancy_ in an active-active configuration is the main strategy. As you choose Azure services for your application's platform, consider their Availability Zones support and deployment & operational patterns to use multiple Azure regions.
 
--	Use _scale units_ to handle increased load. Scale units allow you to logically group services and independently scale each unit within the architecture. Use your capacity model and expected performance to define the required scale of a unit. Factor in duplication of resources that are required for side-by-side deployments.
+-	Use a _scale units_-based architecture to handle increased load. Scale units allow you to logically group and a unit can be scaled independent of other units or services in the architecture. Use your capacity model and expected performance to define the boundaries of, number of, and the baseline scale of each unit. 
 
 In this architecture, the application platform consists of global, deployment stamp, and regional resources. The regional resources are provisioned as part of a deployment stamp. Each stamp equates to a scale unit and, in case it becomes unhealthy, can be entirely replaced.
 
@@ -56,15 +56,17 @@ Certain resources in this architecture are shared by resources deployed in regio
 
 In this architecture, global layer resources are [Azure Front Door](/azure/frontdoor/), [Azure Cosmos DB](/azure/cosmos-db/), [Azure Container Registry](/azure/container-registry/), and [Azure Log Analytics](/azure/azure-monitor/) for storing logs and metrics from other global layer resources.
 
+There are other foundational resources in this design, such as Azure Active Directory (AD) and Azure DNS. They have been omitted in this image for brevity.
+
 ![Global resources](./images/global-resources.png)
 
 ### Global load balancer
 
-Azure Front Door is used as the only entry point for user traffic. If Front Door becomes unavailable, the entire system is at risk. Azure guarantees that Azure Front Door will deliver the requested content without error 99.99% of the time. For more details, see [Front Door service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-standard-and-premium-tier-service-limits).
+Azure Front Door is used as the only entry point for user traffic. If Front Door becomes unavailable, the end user will see the system as being down. Azure guarantees that Azure Front Door will deliver the requested content without error 99.99% of the time. For more details, see [Front Door service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-standard-and-premium-tier-service-limits).
 
-The Front Door instance sends traffic to the configured backend services, such as the compute cluster and frontend. Backend misconfigurations can lead to outages. To avoid outages due to misconfigurations, you should extensively test your Front Door settings.
+The Front Door instance sends traffic to the configured backend services, such as the compute cluster that hosts the API and the origin frontend SPA. Backend misconfigurations in Front Door can lead to outages. To avoid outages due to misconfigurations, you should extensively test your Front Door settings.
 
-Another common error is missing SSL certificate that can prevent users from using the front end. Mitigation might require manual intervention. For example, you might choose to roll back to the previous configuration and re-issue the certificate, if possible. Regardless, expect unavailability while changes take effect.
+Another common configuration error can come from missing or missing TLS certificates, which can prevent users from using the front end or Front Door communicating to the backend. Mitigation might require manual intervention. For example, you might choose to roll back to the previous configuration and re-issue the certificate, if possible. Regardless, expect unavailability while changes take effect.
 
 Front Door offers many additional capabilities besides global traffic routing. An important capability is the Web Application Firewall (WAF), because Front Door is able to inspect traffic which is passing through. When configured in the _Prevention_ mode, it will block suspicious traffic before even reaching any of the backends.
 
@@ -164,7 +166,7 @@ A stamp can also be considered as a scale unit (SU). All components and services
 
   Each scale unit is deployed into an Azure region and is therefore primarily handling traffic from that given area (although it can take over traffic from other regions when needed). This geographic spread will likely result in load patterns and business hours that might vary from region to region and as such, every SU is designed to scale-in/-down when idle.
 
-- The Azure subscription scale limits and quotas must support the capacity and cost model set by the business requirements. Also check the limits of individual services in consideration. For more information, see [Azure service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits).
+- The Azure subscription scale limits and quotas must support the capacity and cost model set by the business requirements. Also check the limits of individual services in consideration. Because units are typically deployed together, factor in the subscription resource limits that are required for canary deployments. For more information, see [Azure service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
 - Choose services that support availability zones to build redundancy. This might limit your technology choices. See [Availability Zones](/azure/availability-zones/az-region) for details.
 
