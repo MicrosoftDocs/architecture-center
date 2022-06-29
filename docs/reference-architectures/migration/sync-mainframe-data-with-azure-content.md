@@ -155,7 +155,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 - The on-premises data gateway provides data protection during transfers from on-premises to Azure systems.
 
-- See [Network transports and transactions] to learn about the types of client connections that Microsoft Service for DRDA supports.
+- See [Planning and Architecting Solutions Using Microsoft Service for DRDA](/host-integration-server/core/planning-and-architecting-solutions-using-microsoft-service-for-drda) to learn about the types of client connections that Microsoft Service for DRDA supports.
 
 - Ensure that the security level of the Azure environment that has access to the on-premises data gateway meets the security requirements of the on-premises network.
 
