@@ -230,7 +230,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 [Migration guide]: https://datamigration.microsoft.com/
 [Modernize mainframe & midrange data]: ./modernize-mainframe-data-to-azure.yml
 [MySQL Community Edition]: https://www.mysql.com/products/community/
-[Network transports and transactions]: /host-integration-server/core/planning-and-architecting-solutions-using-microsoft-service-for-drda#network-transports-and-transactions
+[Network transports and transactions]: https://docs.microsoft.com/host-integration-server/core/planning-and-architecting-solutions-using-microsoft-service-for-drda#network-transports-and-transactions
 [Performance tuning steps]: /azure/data-factory/copy-activity-performance#performance-tuning-steps
 [Pooling and failover]: /host-integration-server/core/planning-and-architecting-solutions-using-microsoft-service-for-drda#pooling-and-failover
 [PostgreSQL]: https://www.postgresql.org/
