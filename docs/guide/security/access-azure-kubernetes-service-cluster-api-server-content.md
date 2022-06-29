@@ -43,7 +43,9 @@ There are many ways to connect to an AKS private cluster. Planning how to access
 
 Azure Bastion is a platform as a service (PaaS) offering that you deploy within your virtual network to connect to a VM in that network, such as a jump box. To connect, you use RDP or SSH from a browser within the Azure portal. The Transport Layer Security (TLS) protocol protects the connection. Usually there's a public IP address that's associated with the VM's network interface card (NIC). That address provides a way to connect to the VM. When you use Azure Bastion, you no longer need to associate a public IP address with your jump box.
 
-When you connect to your AKS cluster's API server, it's best to use a trusted connection. One option is using Azure Bastion to connect to a jump box that's inside your Azure environment. In this scenario, the jump box resides in the hub virtual network. The private AKS cluster resides in a spoke virtual network. A virtual network peering connects the hub and spoke networks. The jump box can resolve the API server's FQDN by using Azure Private Endpoint, a private DNS zone, and a DNS A record inside the private DNS zone. By using the AKS private cluster and the private endpoint, you ensure that the API server FQDN can only be resolved from within your virtual network. Private clusters require that the browser runs on a machine that has access to the AKS private cluster's virtual network. For more information, see [Subnet to host Azure Bastion](../../reference-architectures/containers/aks/secure-baseline-aks.yml#subnet-to-host-azure-bastion).
+When you connect to your AKS cluster's API server, it's best to use a trusted connection. One option is using Azure Bastion to connect to a jump box that's inside your Azure environment. In this scenario, the jump box resides in the hub virtual network. The private AKS cluster resides in a spoke virtual network. A virtual network peering connects the hub and spoke networks.
+
+The jump box can resolve the API server's FQDN by using Azure Private Endpoint, a private DNS zone, and a DNS A record inside the private DNS zone. By using the AKS private cluster and the private endpoint, you ensure that the API server FQDN can only be resolved from within your virtual network. Private clusters require that the browser runs on a machine that has access to the AKS private cluster's virtual network. For more information, see [Subnet to host Azure Bastion](../../reference-architectures/containers/aks/secure-baseline-aks.yml#subnet-to-host-azure-bastion).
 
 > [!NOTE]
 > The availability and redundancy of your jump box is critical. You should always be able to reach your jump box. Likewise, you should always be able to reach your private AKS cluster. To achieve availability and redundancy for your jump boxes, put them in availability sets and use Virtual Machine Scale Sets with a small number of VM instances. For more information, see these resources:
@@ -111,7 +113,7 @@ A VPN makes it possible for you to reach your private AKS cluster. When you use 
 1. A user initiates RDP or SSH traffic to the jump box from an on-premises workstation.
 1. Jump box traffic leaves the customer edge routers and VPN appliance. The traffic uses an encrypted IPsec tunnel to traverse the internet.
 1. Jump box traffic reaches the virtual network gateway in Azure, which is the ingress and egress point of the Azure virtual network infrastructure.
-1. After traffic passes the virtual network gateway, it reaches the jump box. The attempt to connect to the AKS private cluster is made from the jump box. The hub virtual network has a virtual network link to the AKS private DNS zone to resolve the FQDN of the private cluster.
+1. After traffic moves past the virtual network gateway, it reaches the jump box. The attempt to connect to the AKS private cluster is made from the jump box. The hub virtual network has a virtual network link to the AKS private DNS zone to resolve the FQDN of the private cluster.
 1. The hub virtual network and the spoke virtual network communicate with each other by using a virtual network peering.
 1. To reach the private AKS cluster, the traffic enters the Azure backbone. A private endpoint establishes a private, isolated connection to the private AKS cluster.
 1. The traffic reaches the API server of the private AKS cluster. The user can then manage pods, nodes, and applications.
@@ -141,7 +143,7 @@ ExpressRoute is another option that you can use to establish connectivity to you
 
 With an AKS private cluster, you have to connect to the private cluster from a VM that has access to the cluster's API server. You can use the Azure CLI command `aks command invoke` to remotely run commands such as `kubectl` or `helm` on your AKS private cluster through the Azure API. When you use `aks command invoke`, a transient pod is created in a specific namespace within the cluster. The pod only exists for the life of the command. From within the transient pod, you can run commands on your private cluster.
 
-You can use `aks command invoke` as an alternative to connect to your private cluster if you don't have a VPN, ExpressRoute, an external connectivity solution, or a virtual network that's peered directly to the cluster's virtual network. Before you use `aks command invoke`, check the resources that are available to your cluster and node pool. Insufficient resources can prevent the transient pod from being created
+You can use `aks command invoke` as an alternate way of connecting to your private cluster if you don't have a VPN, ExpressRoute, an external connectivity solution, or a virtual network that's peered directly to the cluster's virtual network. Before you use `aks command invoke`, check the resources that are available to your cluster and node pool. Insufficient resources can prevent the transient pod from being created.
 
 For more information, see [Use command invoke to access a private Azure Kubernetes Service (AKS) cluster](/azure/aks/command-invoke#limitations).
 
@@ -159,7 +161,7 @@ To learn how to connect to your jump box via SSH, see [Remote development over S
 
 If you can't connect to your VM over SSH to manage your private cluster:
 
-- Check the inbound network security group rule for the VM's subnet. When you connect to your VM in Azure over SSH, the network security group that's attached to the VM's subnet or NIC has a default rule. That rule blocks all inbound internet traffic that originates outside Azure. Create an inbound network security group rule to allow SSH traffic that originates from your local machine's public IP address.
+- Check the inbound network security group rule for the VM's subnet. When you connect to your VM in Azure over SSH, the network security group that's attached to the VM's subnet or NIC has a default rule. That rule blocks all inbound internet traffic that originates outside Azure. To overcome this obstacle, create a new inbound network security group rule. Configure the new rule to allow SSH traffic that originates from your local machine's public IP address.
 - Check the certificate location. When you use SSH, check for correct placement of the certificates. The private key should be in the `C:\Users\User\.ssh\id_rsa` directory on your local machine. The public key should be placed in the `~/.ssh/id_rsa.pub` file on the VM in Azure.
 
 > [!NOTE]
@@ -180,7 +182,7 @@ If you can't connect to your VM over SSH to manage your private cluster:
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
+*This article is maintained by Microsoft. It was originally written by the following contributors. Note that you must be signed in to LinkedIn to see non-public LinkedIn profiles.*
 
 Principal authors:
 
