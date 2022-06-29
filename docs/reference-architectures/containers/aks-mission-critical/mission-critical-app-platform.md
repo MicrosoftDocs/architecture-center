@@ -6,7 +6,7 @@ ms.author: msimecek
 ms.date: 07/01/2022
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: design-guide
+ms.subservice: guide
 products:
 - azure-kubernetes-service
 - azure-front-door
@@ -17,6 +17,8 @@ ms.category:
 - monitoring
 categories: featured
 ---
+
+# Application platform considerations for mission-critical workloads
 
 A key design area of any mission critical architecture is the application platform. Platform refers to the infrastructure components and Azure services that must be provisioned to support the application. Here are some overarching recommendations.
 
@@ -128,7 +130,7 @@ In this architecture, the deployment stamp deploys the workload and provisions r
 
 In this architecture, stamp resources are [Azure Kubernetes Service](/azure/aks/), [Azure Event Hubs](/azure/event-hubs/), [Azure Key Vault](/azure/key-vault/), and [Azure Blob Storage](/azure/storage/blobs/).
 
-![Stamp resources](./images/stamp-resources.png)
+![Stamp resources for the Online architecture](./images/stamp-resources.png)
 
 ### Scale unit
 
@@ -138,7 +140,7 @@ A stamp can also be considered as a scale unit (SU). All components and services
 
 - Load test the services to determine a range within which requests will be served. Based on the results configure minimum and maximum instances and target metrics. When the target is reached, you can choose to automate scaling of the entire unit.
 
-![Stamp resources](./images/mission-critical-unit.png)
+![Stamp resources in a scale unit](./images/mission-critical-unit.png)
 
   **Scalability requirements**
 
@@ -164,9 +166,9 @@ A stamp can also be considered as a scale unit (SU). All components and services
 
 - The Azure subscription scale limits and quotas must support the capacity and cost model set by the business requirements. Also check the limits of individual services in consideration. For more information, see [Azure service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
-- Choose services that support availability zones to build redundancy. This might limit your technology choices. See [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-region) for details.
+- Choose services that support availability zones to build redundancy. This might limit your technology choices. See [Availability Zones](/azure/availability-zones/az-region) for details.
 
-> For other considerations about the size of a unit, and combination of resources, see [Misson critical guidance in Well-architected Framework: Scale-unit architecture](https://docs.microsoft.com/azure/architecture/framework/mission-critical/mission-critical-application-design#scale-unit-architecture).
+> For other considerations about the size of a unit, and combination of resources, see [Misson critical guidance in Well-architected Framework: Scale-unit architecture](/azure/architecture/framework/mission-critical/mission-critical-application-design#scale-unit-architecture).
 
 ### Compute cluster
 
@@ -174,7 +176,7 @@ To containerize the workload, each stamp needs to run a compute cluster. In this
 
 The lifetime of the AKS cluster is bound to the ephemeral nature of the stamp. The cluster is stateless and doesn't have persistent volumes. It uses ephemeral OS disks instead of managed disks because they aren't expected to receive application or system-level maintenance.
 
-To increase reliability, the cluster is configured to use all three availability zones in a given region. This makes it possible for the cluster to use [AKS Uptime SLA](https://docs.microsoft.com/azure/aks/uptime-sla) that guarantees 99.95% SLA availability of the AKS control plane.
+To increase reliability, the cluster is configured to use all three availability zones in a given region. This makes it possible for the cluster to use [AKS Uptime SLA](/azure/aks/uptime-sla) that guarantees 99.95% SLA availability of the AKS control plane.
 
 Other factors such as scale limits, compute capacity, subscription quota can also impact reliability. If there isn't enough capacity or limits are reached, scale out and scale up operations will fail but existing compute is expected to function.
 
