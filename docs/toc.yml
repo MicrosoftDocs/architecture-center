@@ -2906,7 +2906,7 @@ items:
                   - name: Data platform
                     href: reference-architectures/containers/aks-mission-critical/mission-critical-data-platform.yml
                   - name: Networking and connectivity platform
-                    href: reference-architectures/containers/aks-mission-critical/mission-critical-networking-content.md                    
+                    href: reference-architectures/containers/aks-mission-critical/mission-critical-networking.md                    
                   - name: Health modeling
                     href: reference-architectures/containers/aks-mission-critical/mission-critical-health-modeling.yml
                   - name: Deployment and testing
