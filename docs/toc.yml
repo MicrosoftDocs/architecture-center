@@ -303,11 +303,10 @@ items:
         items:
             - name: Mission critical architecture on Azure
               href: reference-architectures/containers/aks-mission-critical/mission-critical-intro.yml
-              items: 
-              - name: Design areas
-                items:
-                - name: Application platform
-                  href: reference-architectures/containers/aks-mission-critical/mission-critical-app-platform.md
+            - name: Design areas
+              items:
+              - name: Application platform
+                href: reference-architectures/containers/aks-mission-critical/mission-critical-app-platform.md
       - name: Multitenant applications
         items:
           - name: Overview
