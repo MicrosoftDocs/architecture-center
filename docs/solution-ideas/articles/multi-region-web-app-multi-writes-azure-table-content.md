@@ -25,11 +25,11 @@ The possible difficulty of implementing custom replication and the time required
 
 The architecture may be appropriate for any application that uses massive amounts of data that must always be available. Examples include apps that:
 
-- Track customer spending habits and shopping behavior.
-- Forecast weather.
-- Offer smart traffic systems or implement smart traffic systems or use smart technology to monitor traffic.
+- Track customer spending habits and shopping behavior (retail industry).
+- Forecast weather (agriculture, environment, and media/news industries).
+- Offer smart traffic systems or implement smart traffic systems or use smart technology to monitor traffic (automotive and transportation industries).
 - Analyze manufacturing Internet of Things (IoT) data.
-- Display smart meter data or use smart technology to monitor meter data.
+- Display smart meter data or use smart technology to monitor meter data (energy industry).
 
 ## Architecture
 
@@ -92,12 +92,12 @@ The architecture may be appropriate for any application that uses massive amount
 
 ## Next steps
 
-- [Web-Queue-Worker architecture style](../../guide/architecture-styles/web-queue-worker.yml)
 - [Guidelines for table design](/azure/storage/tables/table-storage-design-guidelines)
 - [Use geo-redundancy to design highly available applications](/azure/storage/common/geo-redundant-design?toc=%2Fazure%2Fstorage%2Ftables%2Ftoc.json&tabs=current)
-- [Data partitioning strategies](../../best-practices/data-partitioning-strategies.yml)
 
 ## Related resources
 
+- [Web-Queue-Worker architecture style](../../guide/architecture-styles/web-queue-worker.yml)
+- [Data partitioning strategies](../../best-practices/data-partitioning-strategies.yml)
 - [Build scalable database solutions with Azure services](../../data-guide/scenarios/build-scalable-database-solutions-azure-services.md)
 - [RESTful web API design](../../best-practices/api-design.md)

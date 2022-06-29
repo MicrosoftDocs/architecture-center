@@ -23,7 +23,7 @@ A dotted line surrounds most components, including an Azure Load Balancer, two v
 
 *Download a [Visio file][Visio version of architecture diagram] of this architecture.*
 
-### Workflow
+### Dataflow
 
 - As part of a virtual network, an [Azure Load Balancer][Azure Load Balancer] redirects clients by associating a routable, private IP address with the cluster.
 
@@ -105,7 +105,7 @@ Follow these steps to set up the cluster.
      > [!NOTE]
      > Don't use the [SQL Server 2008 R2 SP3 on Windows Server 2008 R2][SQL Server 2008 R2 SP3 on Windows Server 2008 R2] image that is available in [Azure Marketplace][Azure Marketplace]. This image pre-configures SQL Server as a standalone instance. However, the solution architecture requires a cluster configuration, making the Azure Marketplace image unsuitable.
 
-2. Configure an [availability set][Configure multiple virtual machines in an availability set for redundancy] to guarantee VM redundancy and availability.
+1. Configure an [availability set][Configure multiple virtual machines in an availability set for redundancy] to guarantee VM redundancy and availability.
 
 #### Configure the VMs
 
@@ -307,7 +307,7 @@ To transfer data from your on-premises database to the newly created cluster, co
 [Azure shared disks]: /azure/virtual-machines/windows/disks-shared
 [Azure shared disk limits disk types]: /azure/virtual-machines/windows/disks-shared#limitations
 [Azure shared disk limits disk size]: /azure/virtual-machines/windows/disks-shared#disk-sizes
-[Azure virtual machines]: https://azure.microsoft.com/overview/what-is-a-virtual-machine/
+[Azure virtual machines]: https://azure.microsoft.com/overview/what-is-a-virtual-machine
 [Cluster Name Object]: /windows-server/failover-clustering/configure-ad-accounts#overview-of-active-directory-accounts-needed-by-a-failover-cluster
 [Configure multiple virtual machines in an availability set for redundancy]: /azure/virtual-machines/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy
 [Configure the Windows Firewall to Allow SQL Server Access]: /sql/sql-server/install/configure-the-windows-firewall-to-allow-sql-server-access
