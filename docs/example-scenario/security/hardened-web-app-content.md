@@ -27,8 +27,8 @@ Cross-reference the following 10 steps with the annotated architecture diagram s
 6. The web app connects to a virtual network subnet (*subnet-webapp* in the example) through regional VNet integration. The **Route All** flag is enabled, which forces all outbound traffic from the web app into the virtual network and allows the web app to inherit the virtual network's DNS resolution configuration, including custom DNS servers and integration with [Azure Private DNS zones](/azure/dns) used for private endpoint name resolution.
 7. A custom [route table](/azure/virtual-network/virtual-networks-udr-overview#custom-routes) that's attached to the web app subnet (*subnet-webapp* in the example) forces all outbound traffic that comes from the web app to go to the Azure Firewall or third-party NVA.
 
-> [!NOTE]
-> Azure Route Server(/azure/route-server/overview) is an alternative to manually maintained custom route tables that uses Border Gateway Protocol (BGP) to automate route propagation to your Azure virtual network subnets.
+   > [!NOTE]
+   > Azure Route Server(/azure/route-server/overview) is an alternative to manually maintained custom route tables that uses Border Gateway Protocol (BGP) to automate route propagation to your Azure virtual network subnets.
 
 8. One or more private DNS zones link to the virtual network that contains the web app (*Spoke Virtual Network 1* in the example) to allow DNS resolution of PaaS resources deployed with private endpoints.
 9.  A private endpoint for an Azure SQL Database virtual server is created in a virtual network subnet (*subnet-privatelink-2* in the example). A corresponding DNS record is created on the matching Azure Private DNS zone.
@@ -49,7 +49,15 @@ Cross-reference the following 10 steps with the annotated architecture diagram s
 
 ## Considerations
 
-The solution deploys an Azure Front Door instance, which terminates TLS/SSL connections from clients and provides a rich set of WAF configurations. We recommend that you further lock down your applications to accept traffic coming only from your Azure Front Door instance. You can do this in several ways, depending on the NVA you're using and your application configuration. Some options include:
+These considerations implement the pillars of the Azure Well-Architected Framework, a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
+### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
+Specifically, this solution deploys an Azure Front Door instance, which terminates TLS/SSL connections from clients and provides a rich set of WAF configurations. We recommend that you further lock down your applications to accept traffic coming only from your Azure Front Door instance. You can do this in several ways, depending on the NVA you're using and your application configuration.
+
+Some security options to consider integrating into your solution include:
 
 - Configuring your Azure Firewall or NVA to accept traffic only from the **AzureFrontDoor.Backend** [Azure IP ranges](https://www.microsoft.com/download/details.aspx?id=56519).
 - Configuring your NVA to integrate with [Azure service tags](/azure/virtual-network/service-tags-overview).
@@ -64,7 +72,9 @@ The solution also uses an Azure SQL Database virtual server that accepts traffic
 
 When you deploy resources that use private endpoints in your environments, it's important to configure your DNS infrastructure properly. For more information, see [Azure private endpoint DNS configuration](/azure/private-link/private-endpoint-dns).
 
-### Availability
+### Reliability
+
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
 Azure Front Door is a global service with built-in availability and redundancy and a high service level agreement [(SLA)](https://azure.microsoft.com/support/legal/sla/frontdoor/v1_0).
 
@@ -79,14 +89,21 @@ See these reference architectures to learn about deploying highly available web 
 - [Highly available multi-region web application](/azure/architecture/reference-architectures/app-service-web-app/multi-region)
 - [Multi-region web app with private connectivity to a database](/azure/architecture/example-scenario/sql-failover/app-service-private-sql-multi-region)
 
-You can use [Azure Monitor](/azure/azure-monitor) to monitor all components of this solution.
-You can use [Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) to monitor logs related to the WAF and network inspection rules of Azure Front Door and Azure Firewall. You can use [Application Insights](/azure/azure-monitor/azure-monitor-app-hub) to monitor performance and availability and gain insights into your use of web applications.
+### Operational excellence
 
-### Scalability
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+
+You can use [Azure Monitor](/azure/azure-monitor) to monitor all components of this solution. You can use [Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) to monitor logs related to the WAF and network inspection rules of Azure Front Door and Azure Firewall. You can use [Application Insights](/azure/azure-monitor/azure-monitor-app-hub) to monitor performance and availability and gain insights into your use of web applications.
+
+### Performance efficiency
+
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
 All components of the solution either provide transparent built-in scalability or expose a rich set of features, like [Azure web app autoscale](/azure/azure-monitor/autoscale/autoscale-best-practices#manual-scaling-is-reset-by-autoscale-min-and-max), for scaling the number of available instances.
 
 ### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 The example scenario features a deployment within a hardened network environment. So an Azure Firewall or third-party NVA most likely already exists in the target infrastructure.
 
@@ -212,6 +229,7 @@ Principal authors:
 
 - [Davide Maccarrone](https://www.linkedin.com/in/dmaccarrone) | Senior Consultant
 - [Tim Warner](https://www.linkedin.com/in/timothywarner) | Senior Content Developer
+- [Mikey Lombardi](https://www.linkedin.com/in/michaeltlombardi) | Senior Content Developer
 
 ## Next steps
 
