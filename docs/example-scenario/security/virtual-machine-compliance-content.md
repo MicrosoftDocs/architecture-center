@@ -28,6 +28,8 @@ The solution consists of two processes:
 
 *Download a [Visio file][Visio version of golden image publishing process architecture diagram] of this architecture.*
 
+### Dataflow
+
 The golden image publishing process runs monthly and contains these steps:
 
 1. The process captures a base image from Azure Marketplace.
@@ -194,6 +196,14 @@ Unless you use a third-party service such as Ansible or Terraform, this approach
 
   - The cost of storing replicas.
   - Network egress charges for replicating images.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Yunus Emre Alpozen](https://www.linkedin.com/in/yemre) | Program Architect
 
 ## Next steps
 

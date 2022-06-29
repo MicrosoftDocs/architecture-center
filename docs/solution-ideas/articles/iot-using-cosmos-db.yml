@@ -25,6 +25,6 @@ products:
   - azure-functions
   - azure-iot-hub
   - power-bi
-thumbnailUrl: /azure/architecture/browse/thumbs/iot-using-cosmos-db.png
+thumbnailUrl: /azure/architecture/browse/thumbs/iot-using-cosmos-db-thumbnail-new.png
 content: |
    [!include[](iot-using-cosmos-db-content.md)]

@@ -29,7 +29,7 @@ The following steps show how the data flows in this architecture in the form of 
 > [!NOTE]
 >
 > 1. For Group Policy requirements in Azure AD DS, you can [install Group Policy Management tools](/azure/active-directory-domain-services/manage-group-policy#before-you-begin) on a Windows Server virtual machine that is joined to Azure AD DS.
-> 2. To extend GPO infrastructure for AVD from the on-premises domain controllers, manual export and import to Azure AD DS is required.
+> 1. To extend GPO infrastructure for AVD from the on-premises domain controllers, manual export and import to Azure AD DS is required.
 
 ### Components
 
@@ -41,6 +41,14 @@ Key technologies used to implement this architecture:
 - [Azure Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop)
 - [Virtual Network](https://azure.microsoft.com/services/virtual-network)
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Tom Maher](https://www.linkedin.com/in/tommaherlink) | Senior Security and Identity Engineer
+
 ## Next steps
 
 For more information, see these articles:
@@ -49,7 +57,7 @@ For more information, see these articles:
 - [Azure Virtual Desktop for enterprises](./windows-virtual-desktop.yml)
 - [Azure AD Connect Topology](/azure/active-directory/hybrid/plan-connect-topologies)
 - [Compare different Identity options](/azure/active-directory-domain-services/compare-identity-solutions)
-- [Azure Virtual Desktop Documentation](/azure/virtual-desktop/)
+- [Azure Virtual Desktop Documentation](/azure/virtual-desktop)
 
 ## Related resources
 

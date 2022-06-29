@@ -2,24 +2,6 @@
 
 This solution uses internet of things (IoT) technology to help reduce curbside pickup wait times in retail buy online, pick up in store (BOPIS) scenarios.
 
-Contoso, a European retailer with over 1,000 mid-sized supermarkets in cities and suburbs, saw increased BOPIS usage by their customers. Increased BOPIS usage meant longer pickup wait times, which decreased customer satisfaction and caused some customers to choose other retailers. The company wanted to improve their BOPIS efficiency to decrease wait times and increase customer satisfaction.
-
-To ensure that customers got the freshest produce, Contoso had previously started packing temperature-controlled items only after customers arrived for pickup. This practice contributed to long pickup wait times. Contoso developed a solution that alerts store associates and triggers work orders to start packing fresh produce when customers get near the store. By decreasing customer wait time, the solution improves a key aspect of the curbside pickup experience.
-
-This solution had the following requirements:
-
-- The system must gather information about how far away customers are, and when they arrive at the parking lot.
-- Per regulatory requirements, the system must protect customers' personal privacy when storing and accessing data about their movements.
-- If a vehicle's license plate details aren't present or don't match the database, the system should use GPS to help identify customer locations.
-- Since the application is available throughout Europe, its database must provide multi-master read and write capabilities to ensure data consistency.
-- Database reads and writes must be low latency, for a seamless user experience.
-
-## Potential use cases
-
-- Use video analytics and geofencing to get license plate details when vehicles are nearby.
-- Cross-reference license plate details with customer order data, and trigger alerts and work orders.
-- Notify customers about order progress.
-
 ## Architecture
 
 ![Architecture diagram showing the data flow for the buy-online-pick-up-in-store IoT solution.](media/bopis.png)
@@ -69,6 +51,29 @@ This solution had the following requirements:
 - [Azure Notification Hubs](https://azure.microsoft.com/services/notification-hubs) is a massively scalable mobile push notification engine for quickly sending millions of notifications to iOS, Android, and Windows devices. The company uses this service to easily broadcast notifications to their customers.
 
 To understand and explore the various implementation choices available, see the [IoT reference architecture](../../reference-architectures/iot.yml).
+
+## Scenario details
+
+
+Contoso, a European retailer with over 1,000 mid-sized supermarkets in cities and suburbs, saw increased BOPIS usage by their customers. Increased BOPIS usage meant longer pickup wait times, which decreased customer satisfaction and caused some customers to choose other retailers. The company wanted to improve their BOPIS efficiency to decrease wait times and increase customer satisfaction.
+
+To ensure that customers got the freshest produce, Contoso had previously started packing temperature-controlled items only after customers arrived for pickup. This practice contributed to long pickup wait times. Contoso developed a solution that alerts store associates and triggers work orders to start packing fresh produce when customers get near the store. By decreasing customer wait time, the solution improves a key aspect of the curbside pickup experience.
+
+This solution had the following requirements:
+
+- The system must gather information about how far away customers are, and when they arrive at the parking lot.
+- Per regulatory requirements, the system must protect customers' personal privacy when storing and accessing data about their movements.
+- If a vehicle's license plate details aren't present or don't match the database, the system should use GPS to help identify customer locations.
+- Since the application is available throughout Europe, its database must provide multi-master read and write capabilities to ensure data consistency.
+- Database reads and writes must be low latency, for a seamless user experience.
+
+### Potential use cases
+
+This solution is ideal for the retail and automotive industries. It's related to the following scenarios:
+
+- Use video analytics and geofencing to get license plate details when vehicles are nearby.
+- Cross-reference license plate details with customer order data, and trigger alerts and work orders.
+- Notify customers about order progress.
 
 ## Next steps
 
