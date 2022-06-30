@@ -189,7 +189,7 @@ Principal author:
 [PHP Security Advisories Database]: https://github.com/FriendsOfPHP/security-advisories
 [Vulnerability management in GitHub svg]: ../media/devsecops-in-github-vulnerability-management-data-flow.svg
 [Azure Well-Architected Framework]: /azure/architecture/framework/index
-[About billing for GitHub actions]: https://docs.github.com/en/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions
+[About billing for GitHub actions]: https://docs.github.com/billing/managing-billing-for-github-actions/about-billing-for-github-actions
 [About self-hosted runners]: https://docs.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners
 [GitHub Enterprise Server]: https://azuremarketplace.microsoft.com/marketplace/apps/github.githubenterprise
 [GitHub Enterprise highly available failover configuration]: https://docs.github.com/en/enterprise-server@3.5/admin/enterprise-management/configuring-high-availability
