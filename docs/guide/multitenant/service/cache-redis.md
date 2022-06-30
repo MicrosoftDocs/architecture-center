@@ -37,7 +37,7 @@ To isolate tenant-specific data within each cache, consider using key prefixes t
 
 When you use a single cache instance, the application needs to be authorized to access the entire cache. Azure Cache for Redis doesn't provide granular access control within a cache.
 
-When you use this approach, consider that all of your tenants will share the same underlying compute resources for the cache. So, this approach can be vulnerable to the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml). Ensure that you follow the best practices for Azure Cache for Redis for [scaling](/azure/azure-cache-for-redis/cache-best-practices-scale), [memory management](/azure/azure-cache-for-redis/cache-best-practices-memory-management) and [server load](/azure/azure-cache-for-redis/cache-best-practices-server-load) to make the most efficient use of your cache's resources and mitigate any noisy neighbor effects.
+When you use this approach, consider that all of your tenants will share the same underlying compute resources for the cache. So, this approach can be vulnerable to the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml). Ensure that you follow the best practices for Azure Cache for Redis for [scaling](/azure/azure-cache-for-redis/cache-best-practices-scale), [memory management](/azure/azure-cache-for-redis/cache-best-practices-memory-management), and [server load](/azure/azure-cache-for-redis/cache-best-practices-server-load) to make the most efficient use of your cache's resources and mitigate any noisy neighbor effects.
 
 Additionally, consider monitoring your cache's resources such as CPU and memory, and if you observe resource pressure, consider mitigations such as:
 
