@@ -1,6 +1,10 @@
 This example scenario restricts communications between two Azure backend services on both the application and network layers. Communications can flow only between services that explicitly allow it, adhering to the [principle of least privilege][leastpriv]. This example uses Azure App Service to host the services, but you can use similar techniques for Azure Functions Apps.
 
-Interservice communications restrictions are only one part of an overall security strategy based on careful planning, [threat-modeling][threatmodeling], and the [Security Development Lifecycle][sdlc]. Overall security planning should incorporate business, compliance, regulatory, and other non-functional requirements. For example, while the current scenario focuses on network restrictions, many organizations now embrace a [zero trust security model][zerotrust] that assumes a breach, so the networking layer is of secondary importance.
+Interservice communications restrictions are only one part of an overall security strategy based on careful planning, [threat-modeling][threatmodeling], and the [Security Development Lifecycle][sdlc]. Overall security planning should incorporate business, compliance, regulatory, and other non-functional requirements.
+
+## Potential use cases
+
+While the current scenario focuses on network restrictions, many organizations now embrace a [zero trust security model][zerotrust] that assumes a breach, so the networking layer is of secondary importance.
 
 ## Architecture
 
@@ -8,12 +12,14 @@ Interservice communications restrictions are only one part of an overall securit
 In the network layer step 1, Service A uses client credentials to request and receive an OAuth 2.0 token for Service B from Azure Active Directory. In step 2, Service A injects the token into a communications request toward Service B. In step 3, Service B evaluates the access token's aud claim and validates the token. In the application layer, Service A is in an integration subnet in a virtual network. In step 1, Service A uses App Service Regional VNet Integration to communicate only from a private IP address in its integration subnet. In step 2, Service B uses service endpoints to accept communications only from IP addresses in the Service A integration subnet.
 :::image-end:::
 
+### Dataflow
+
 The diagram shows restricted communications from Service A to Service B. Token-based authorization restricts access on the application layer, and service endpoints restrict access on the network layer.
 
 - Both services [register with Azure Active Directory (Azure AD)][appreg], and use OAuth 2.0 token-based authorization in the [client credentials flow][clientcredsflow].
 - Service A communicates by using [Regional VNet Integration][regionalvnet] from a private IP address in its virtual network integration subnet. Service B [service endpoints][svcep] accept inbound communications only from the Service A integration subnet.
 
-### Token-based authorization
+#### Token-based authorization
 
 An OpenID Connect (OIDC)-compatible library like the [Microsoft Authentication Library (MSAL)][msal] supports this token-based client credentials flow. For more information, see [Scenario: Daemon application that calls web APIs][daemoncallswebapi] and the [sample application for the daemon scenario][daemonsample].
 
@@ -26,7 +32,7 @@ An OpenID Connect (OIDC)-compatible library like the [Microsoft Authentication L
 Service B uses one of the following methods to ensure that only specifically allowed clients, Service A in this case, can get access:
 
 - **Validate the token appid claim**. Service B can validate the token [appid][accesstokenclaims] claim, which identifies which Azure AD-registered application requested the token. Service B explicitly checks the claim against a known access control caller list.
-- **Check for roles in the token**. Similarly, Service B can check for a certain [roles][accesstokenclaims] claim in the incoming token, to ensure that Service A has explicit access permissions.
+- **Check for roles in the token**. Similarly, Service B can check for certain [roles][accesstokenclaims] claimed in the incoming token, to ensure that Service A has explicit access permissions.
 - **Require user assignment**. Alternatively, the Service B owner or admin can configure Azure AD to require *user assignment*, so only applications that have explicit permissions to the Service B application can get a token toward Service B. Service B then doesn't need to check for specific roles, unless business logic requires it.
 
    To set up a user assignment requirement to access Service B:
@@ -38,7 +44,7 @@ Service B uses one of the following methods to ensure that only specifically all
       1. On the **Request API permissions** screen, select [Application permissions][aadpermissiontypes], because this backend application runs without a signed-in user. Select the exposed Service B role, and then select **Add permissions**.
    1. [Grant admin consent][consent] to the Service A application permissions request. Only a Service B owner or admin can consent to the Service A permissions request.
 
-### Service endpoints
+#### Service endpoints
 
 The lower half of the architectural diagram shows how to restrict interservice communications on the network layer:
 
@@ -96,6 +102,14 @@ This scenario uses service endpoints rather than [private endpoints][privateend]
 Pricing for this scenario depends on your specific infrastructure and requirements. Azure AD has Free up to Premium tiers, depending on needs. Costs for Azure App Service or other hosts vary with your specific scale and security requirements, as described in [Alternatives](#alternatives) and [Considerations](#considerations).
 
 To calculate costs for your scenario, see the [Azure pricing calculator][pricing].
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Christof Claessens](https://www.linkedin.com/in/christofclaessens) | FastTrack for Azure Engineer
 
 ## Next steps
 

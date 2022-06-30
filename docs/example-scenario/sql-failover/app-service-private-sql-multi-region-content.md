@@ -1,4 +1,4 @@
-This example scenario discusses a [highly available][High availability] solution for a web app with private connectivity to a SQL database. A single-region architecture already exists for a web app with private database connectivity. This solution extends that base architecture by making it highly available.
+This example scenario discusses a [highly available][High availability] solution for a web app with private connectivity to an SQL database. A single-region architecture already exists for a web app with private database connectivity. This solution extends that base architecture by making it highly available.
 
 See [Web app private connectivity to Azure SQL Database][Web app private connectivity to Azure SQL database] for information on the base architecture.
 
@@ -14,7 +14,7 @@ You can achieve high availability with a [complete region failover][Complete reg
 
 ## Potential use cases
 
-With private connectivity to a SQL database and high availability, this solution has applications in many areas. Examples include the financial, healthcare, and defense industries.
+With private connectivity to an SQL database and high availability, this solution has applications in many areas. Examples include the financial, healthcare, and defense industries.
 
 ## Architecture
 
@@ -28,7 +28,7 @@ With private connectivity to a SQL database and high availability, this solution
 
 In the general case, the traffic flow and basic configuration look like the [single-region version][Web app private connectivity to Azure SQL database].
 
-#### Workflow
+#### Dataflow
 
 1. Azure Front Door routes requests from the internet to a web app.
 1. By using Azure App Service regional VNet Integration, the web app connects to a delegated subnet named **AppSvcSubnet** in Azure Virtual Network.
@@ -200,6 +200,14 @@ At this point:
 - The apps in both regions should connect to both databases over their private endpoints.
 - Both apps should continue to function even if the database fails over to the other region.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Jelle Druyts](https://www.linkedin.com/in/jelle-druyts-0b76823) | FastTrack for Azure Engineer
+
 ## Next steps
 
 - [Basic web application][Basic web application]
@@ -216,7 +224,7 @@ At this point:
 
 [Alternatives to the single-region version]: ../private-web-app/private-web-app.yml#alternatives
 [App Service networking features]: /azure/app-service/networking-features
-[Azure App Service]: /azure/app-service/
+[Azure App Service]: /azure/app-service
 [Azure DNS Private Zones]: /azure/app-service/web-sites-integrate-with-vnet#azure-dns-private-zones
 [Azure Web Apps]: /azure/app-service/overview
 [Bandwidth Pricing Details]: https://azure.microsoft.com/pricing/details/bandwidth/
