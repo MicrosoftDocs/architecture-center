@@ -26,7 +26,7 @@ A key design area of any mission critical architecture is the application platfo
 
 -	A mission-critical application must be highly reliable and resistant to datacenter and regional failures. Building _zonal and regional redundancy_ in an active-active configuration is the main strategy. As you choose Azure services for your application's platform, consider their Availability Zones support and deployment & operational patterns to use multiple Azure regions.
 
--	Use a _scale units_-based architecture to handle increased load. Scale units allow you to logically group and a unit can be scaled independent of other units or services in the architecture. Use your capacity model and expected performance to define the boundaries of, number of, and the baseline scale of each unit. 
+-	Use a _scale units_-based architecture to handle increased load. Scale units allow you to logically group resources and a unit can be scaled independent of other units or services in the architecture. Use your capacity model and expected performance to define the boundaries of, number of, and the baseline scale of each unit. 
 
 In this architecture, the application platform consists of global, deployment stamp, and regional resources. The regional resources are provisioned as part of a deployment stamp. Each stamp equates to a scale unit and, in case it becomes unhealthy, can be entirely replaced.
 
@@ -115,7 +115,7 @@ Taking hard dependency on foundational services is inevitable because many Azure
 
 In both cases, both Azure services will be impacted if Azure DNS is unavailable. Name resolution for user requests from Front Door will fail; Docker images won't be pulled from the registry. Using an external DNS service as backup will not mitigate the risk because many Azure services don't allow such configuration and rely on internal DNS. Expect full outage.
 
-Similarly, Azure AD is used for control plane operations such as creating new AKS nodes, pulling images from Container Registry, or accessing Key Vault on pod startup. If Azure AD is unavailable, existing components should not affected, but overall performance may be degraded. For example, new pods or AKS nodes added while Azure AD is unavailable won't be functional. Consider scaling in during this time and expect decreased user experience.
+Similarly, Azure AD is used for control plane operations such as creating new AKS nodes, pulling images from Container Registry, or accessing Key Vault on pod startup. If Azure AD is unavailable, existing components should not be affected, but overall performance may be degraded. For example, new pods or AKS nodes added while Azure AD is unavailable won't be functional. Consider scaling in during this time and expect decreased user experience.
 
 ## Deployment stamp resources
 
@@ -220,7 +220,7 @@ For scalability, enabling auto-inflate through a Terraform variable is recommend
 
 In this architecture two storage accounts are provisioned. Both accounts are deployed in zone-redundant mode (ZRS).
 
-One account is used Event Hubs checkpointing. If this account is not responsive, the stamp won't be able to process messages from Event Hubs and might even impact other services in the stamp. This condition is periodically checked by the HealthService, which is one of the application components running in the compute cluster.
+One account is used for Event Hubs checkpointing. If this account is not responsive, the stamp won't be able to process messages from Event Hubs and might even impact other services in the stamp. This condition is periodically checked by the HealthService, which is one of the application components running in the compute cluster.
 
 The other is used to host the UI single-page application. If serving of the static web site has any issues, Front Door will detect the issue and won't send traffic to this storage account. During this time, Front Door can use cached content.
 
