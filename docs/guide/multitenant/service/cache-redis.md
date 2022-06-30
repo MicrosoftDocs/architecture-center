@@ -42,13 +42,13 @@ When you use this approach, consider that all of your tenants will share the sam
 Additionally, consider monitoring your cache's resources such as CPU and memory, and if you observe resource pressure, consider mitigations such as:
 
 - Scaling up to a cache SKU or tier with higher levels of resources.
-- Scaling out to multiple caches by sharding your cached data. You can either shard vertically, where some tenants use cache A and some use cache B, or you can shard horizontally, where one part of your solution caches data for all tenants to cache A, and another part of your solution caches onto cache B.
+- Scaling out to multiple caches by sharding your cached data. You can either shard by tenant, where some tenants use cache A and some use cache B, or you can shard by subsystem, where one part of your solution caches data for all tenants to cache A, and another part of your solution caches onto cache B.
 
 ### Shared cache instance with a database per tenant
 
 Another approach you might consider is to deploy a single cache instance, and deploy tenant-specific Redis databases within the instance. This approach provides some degree of logical isolation of each tenant's data, but it doesn't provide any performance isolation or protection against noisy neighbors.
 
-This approach might be useful for migration scenarios. For example, suppose you're modernizing a single-tenant application that isn't designed to work with multiple tenants and converting it gradually to be multitenancy-aware. You can gain some cost efficiencies by using a single shared cache, and you won't need to update the application's logic to use tenant key prefixes or tenant-specific data structures.
+This approach might be useful for migration scenarios. For example, suppose you're modernizing a single-tenant application that isn't designed to work with multiple tenants and gradually converting it to be multitenancy-aware by including the tenant context in all requests. You can gain some cost efficiencies by using a single shared cache, and you won't need to update the application's logic to use tenant key prefixes or tenant-specific data structures.
 
 Azure Cache for Redis imposes [limits on the number of databases that can be created on a single cache](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-cache-for-redis-limits). Ensure that you understand the number of tenants you'll grow to before implementing this approach.
 
