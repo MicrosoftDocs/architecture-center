@@ -123,7 +123,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 - Scan your code using the CodeQL analysis engine to discover potential vulnerabilities and coding errors. CodeQL can run both on a schedule and when events occur, such as a commit or a PR creation, making it easy for users to identify security issues from within their PRs. See [About code scanning][GitHub code scanning].
 - [Configure Dependabot security updates][Configure Dependabot security updates], which can remove known threats from projects.
 - Configure GitHub Enterprise Server to include [GitHub Advanced Security][GitHub Advanced Security], which is available for enterprise accounts on GitHub Enterprise Cloud and GitHub Enterprise Server 3.0 or higher. This provides extra features that help users find and fix security problems in their code. GitHub Enterprise can integrate automatic security and dependency scanning through GitHub Advanced Security and GitHub Open Source Security.
-- You can augment the code-scanning capabilities of GitHub by adding [third-party code-scanning tools][Third party code scanning] that produce [Static Analysis Results Interchange Format (SARIF)][SARIF] files. GitHub then creates alerts when those tools identify potential security issues.
+- Augment the code-scanning capabilities of GitHub by adding [third-party code-scanning tools][Third party code scanning] that produce [Static Analysis Results Interchange Format (SARIF)][SARIF] files. GitHub then creates alerts when those tools identify potential security issues.
 
 ### Cost optimization
 
