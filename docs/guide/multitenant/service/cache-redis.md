@@ -23,7 +23,7 @@ ms.custom:
 
 # Multitenancy and Azure Cache for Redis
 
-Azure Cache for Redis is commonly used to increase the performance of your solution, to reduce the load on your database or other data tier components, and to reduce the amount of state stored on compute nodes. On this page, we describe some of the features of Azure Cache for Redis that are useful for multitenant solutions, and then we provide links to the guidance that can help you, when you're planning how you're going to use Azure Cache for Redis.
+Azure Cache for Redis is commonly used to increase the performance of your solution, to reduce the load on your database or other data tier components, and to reduce the amount of state that's stored on compute nodes. On this page, we describe some of the features of Azure Cache for Redis that are useful for multitenant solutions, and then we provide links to the guidance that can help you, when you're planning how you're going to use Azure Cache for Redis.
 
 ## Isolation models
 
@@ -31,13 +31,13 @@ When working with a multitenant system using Azure Cache for Redis, you need to 
 
 ### Shared cache instance and shared database
 
-You might consider deploying a single cache, with a single Redis database, and using it to store cached data for all of your tenants. This is the most common approach, especially when you have a single application tier that all of your tenants share.
+You might consider deploying a single cache, with a single Redis database, and using it to store cached data for all of your tenants. This approach is commonly used when you have a single application tier that all of your tenants share.
 
 To isolate tenant-specific data within each cache, consider using key prefixes to prepend the tenant ID. Your application can then access specific data for a specific tenant. Alternatively, you can consider using Redis data structures like [sets](https://redis.io/docs/manual/data-types/#sets) or [hashes](https://redis.io/docs/manual/data-types/#hashes) for each tenant's data. Both sets and hashes support large numbers of keys, so this approach can scale to large numbers of tenants.
 
 When you use a single cache instance, the application needs to be authorized to access the entire cache. Azure Cache for Redis doesn't provide granular access control within a cache.
 
-When you use this approach, consider that all of your tenants will share the same underlying compute resources for the cache. So, this approach can be vulnerable to the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml). Ensure that you follow the best practices for Azure Cache for Redis for [scaling]](/azure/azure-cache-for-redis/cache-best-practices-scale), [memory management](/azure/azure-cache-for-redis/cache-best-practices-memory-management) and [server load](/azure/azure-cache-for-redis/cache-best-practices-server-load) to make the most efficient use of your cache's resources and mitigate any noisy neighbor effects.
+When you use this approach, consider that all of your tenants will share the same underlying compute resources for the cache. So, this approach can be vulnerable to the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml). Ensure that you follow the best practices for Azure Cache for Redis for [scaling](/azure/azure-cache-for-redis/cache-best-practices-scale), [memory management](/azure/azure-cache-for-redis/cache-best-practices-memory-management) and [server load](/azure/azure-cache-for-redis/cache-best-practices-server-load) to make the most efficient use of your cache's resources and mitigate any noisy neighbor effects.
 
 Additionally, consider monitoring your cache's resources such as CPU and memory, and if you observe resource pressure, consider mitigations such as:
 
@@ -48,11 +48,11 @@ Additionally, consider monitoring your cache's resources such as CPU and memory,
 
 Another approach you might consider is to deploy a single cache instance, and deploy tenant-specific Redis databases within the instance. This approach provides some degree of logical isolation of each tenant's data, but it doesn't provide any performance isolation or protection against noisy neighbors.
 
-This approach might be useful for migration scenarios, where you're taking a single-tenant application which is not aware of multitenancy and converting it gradually to be multitenant-aware. You can gain some cost efficiencies by using a single shared cache, and you won't need to update the application's logic to use tenant key prefixes or tenant-specific data structures.
+This approach might be useful for migration scenarios. For example, suppose you're modernizing a single-tenant application that isn't designed to work with multiple tenants and converting it gradually to be multitenancy-aware. You can gain some cost efficiencies by using a single shared cache, and you won't need to update the application's logic to use tenant key prefixes or tenant-specific data structures.
 
-Azure Cache for Redis imposes [limits on the number of databases that can be created on a single cache](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-cache-for-redis-limits), so ensure that you understand the number of tenants you will grow to before starting to implement this approach.
+Azure Cache for Redis imposes [limits on the number of databases that can be created on a single cache](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-cache-for-redis-limits). Ensure that you understand the number of tenants you'll grow to before implementing this approach.
 
-Additionally, this approach does not provide any benefits for security isolation of data. In Azure Cache for Redis, authentication and authorization is performed at the cache level.
+Additionally, this approach doesn't provide any benefits for security isolation of data. In Azure Cache for Redis, authentication and authorization is performed at the cache level.
 
 > [!NOTE]
 > Azure Cache for Redis supports multiple databases on specific tiers, and doesn't support multiple databases when you use clustered instances.
@@ -61,7 +61,7 @@ Additionally, this approach does not provide any benefits for security isolation
 
 You might consider deploying a separate instance of Azure Cache for Redis for each tenant. There's no limit to the number of caches you can deploy within a single Azure subscription. This approach provides the strongest level of data and performance isolation.
 
-However, each cache is billed as a separate Azure resource, so as you grow to large numbers of tenants, you might incur additional costs. Furthermore, this approach often doesn't make efficient use of each cache's resources, since each Azure Cache for Redis instance generally supports large volumes of requests. It's best to only consider this isolation approach if you have strict data or performance isolation requirements.
+However, each cache is billed as a separate Azure resource, so as you grow to large numbers of tenants, you might incur more cost. Furthermore, this approach often doesn't make efficient use of each cache's resources, since each Azure Cache for Redis instance generally supports large volumes of requests. It's best to only consider this isolation approach if you have strict data or performance isolation requirements.
 
 ## Features of Azure Cache for Redis that support multitenancy
 
