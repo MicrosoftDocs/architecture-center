@@ -14,7 +14,7 @@ azureCategories:
   - networking
   - security
 products:
-  - azure-spring-cloud
+  - azure-spring-apps
   - azure-application-gateway
   - azure-front-door
 name: Expose Azure Spring Apps through a reverse proxy

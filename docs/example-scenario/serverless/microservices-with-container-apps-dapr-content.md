@@ -1,5 +1,15 @@
 This article describes a solution for running an order management system with 10 microservices on Azure Container Apps. The solution also uses microservices best practices through Dapr and event-driven scaling with KEDA.
 
+## Potential use cases
+
+This solution applies to any organization that uses stateless and stateful microservices for distributed systems. The solution is best for consumer packaged goods and manufacturing industries that have an ordering and fulfillment system.
+
+These other solutions have similar designs:
+
+- Microservices architecture on Azure Kubernetes Service (AKS)
+- Microservices architecture on Azure Functions
+- Event-driven architectures
+
 ## Architecture
 
 :::image type="content" source="./media/microservices-with-container-apps-dapr.png" alt-text="Diagram that shows an order management system with microservices on Container Apps." lightbox="./media/microservices-with-container-apps-dapr.png":::
@@ -14,23 +24,23 @@ The following list describes each microservice and the Azure Container Apps conf
 
 1. **Traefik:** The basic proxy for routing user requests from the UI to the accounting and Makeline services for the interactive dashboard.
 
-2. **UI:** A dashboard that shows real-time order and aggregated sales data for the Reddog order management system.
+1. **UI:** A dashboard that shows real-time order and aggregated sales data for the Reddog order management system.
 
-3. **Virtual customer:** A customer simulation program that simulates customers placing orders via the order service.
+1. **Virtual customer:** A customer simulation program that simulates customers placing orders via the order service.
 
-4. **Order service:** A CRUD API to place and manage orders.
+1. **Order service:** A CRUD API to place and manage orders.
 
-5. **Accounting service:** A service that processes, stores, and aggregates order data. It transforms customer orders into meaningful sales metrics that are showcased by the UI.
+1. **Accounting service:** A service that processes, stores, and aggregates order data. It transforms customer orders into meaningful sales metrics that are showcased by the UI.
 
-6. **Receipt service:** An archival program that generates and stores order receipts for auditing and historical purposes.
+1. **Receipt service:** An archival program that generates and stores order receipts for auditing and historical purposes.
 
-7. **Loyalty service:** A service that manages the loyalty program by tracking customer reward points based on order spend.
+1. **Loyalty service:** A service that manages the loyalty program by tracking customer reward points based on order spend.
 
-8. **Makeline service:** A service that's responsible for managing a queue of current orders awaiting fulfillment. It tracks the processing and completion of the orders by the virtual worker service.
+1. **Makeline service:** A service that's responsible for managing a queue of current orders awaiting fulfillment. It tracks the processing and completion of the orders by the virtual worker service.
 
-9. **Virtual worker:** A *worker simulation* program that simulates the completion of customer orders.
+1. **Virtual worker:** A *worker simulation* program that simulates the completion of customer orders.
 
-10. **Bootstrapper (not shown):** A service that uses Entity Framework Core to initialize the tables within Azure SQL Database for use with the accounting service.
+1. **Bootstrapper (not shown):** A service that uses Entity Framework Core to initialize the tables within Azure SQL Database for use with the accounting service.
 
 | Service          | Ingress |  Dapr components | KEDA scale rules |
 |------------------|---------|--------------------|--------------------|
@@ -85,16 +95,6 @@ This article describes a solution for running an order management system with 10
 
 *Dapr and Traefik are trademarks of their respective companies. No endorsement is implied by the use of these marks.*
 
-### Potential use cases
-
-This solution applies to any organization that uses stateless and stateful microservices for distributed systems. The solution is best for consumer packaged goods and manufacturing industries that have an ordering and fulfillment system.
-
-These other solutions have similar designs:
-
-- Microservices architecture on Azure Kubernetes Service (AKS)
-- Microservices architecture on Azure Functions
-- Event-driven architectures
-
 ## Considerations
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
@@ -130,7 +130,7 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 Performance efficiency is the ability of your workload to scale to meet the demands you place on it in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
-This solution relies heavily on the KEDA implementation in Azure Container Apps for event-driven scaling. When you deploy the virtual customer service, it will continuously place orders, which causes the order service to scale up via the HTTP KEDA scaler. As the order service publishes the orders on the service bus, the service bus KEDA scalers cause the accounting, receipt, Makeline, and loyalty services to scale up. The UI and Traefik container apps also configure HTTP KEDA scalers so that the apps scale as more users access the dashboard.
+This solution relies heavily on the KEDA implementation in Azure Container Apps for event-driven scaling. When you deploy the virtual customer service, it will continuously place orders, which cause the order service to scale up via the HTTP KEDA scaler. As the order service publishes the orders on the service bus, the service bus KEDA scalers cause the accounting, receipt, Makeline, and loyalty services to scale up. The UI and Traefik container apps also configure HTTP KEDA scalers so that the apps scale as more users access the dashboard.
 
 When the virtual customer isn't running, all microservices in this solution scale to zero except for virtual worker and Makeline services. Virtual worker doesn't scale down since it's constantly checking for order fulfillment. For more information on scaling in container apps, see [Set scaling rules in Azure Container Apps](/azure/container-apps/scale-app). For more information on KEDA Scalers, read the [KEDA documentation on Scalers](https://keda.sh/docs/latest/scalers).
 
@@ -144,12 +144,12 @@ For deployment instructions, see the [Red Dog Demo: Azure Container Apps Deploym
 
 Principal author:
 
-- [Alice Gibbons](https://www.linkedin.com/in/alicejgibbons) | Specialist (GBB)
+- [Alice Gibbons](https://www.linkedin.com/in/alicejgibbons) | Cloud Native Global Black Belt
 
 Other contributors:
 
-- [Kendall Roden](https://www.linkedin.com/in/kendallroden) | Senior program manager
-- [Lynn Orrell](https://www.linkedin.com/in/lynn-orrell) | Principal solution specialist (GBB)
+- [Kendall Roden](https://www.linkedin.com/in/kendallroden) | Senior Program Manager
+- [Lynn Orrell](https://www.linkedin.com/in/lynn-orrell) | Principal Solution Specialist (GBB)
 
 ## Next steps
 
