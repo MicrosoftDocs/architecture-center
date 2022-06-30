@@ -47,7 +47,7 @@ GitHub DevSecOps installations cover many security scenarios. Possibilities incl
 - [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) provides unified security management and advanced threat protection across hybrid cloud workloads.
 - [Azure Monitor][Azure Monitor] collects and analyzes app telemetry, such as performance metrics and activity logs. When this service identifies irregular conditions, it alerts apps and personnel.
 
-#### Security
+#### GitHub Security
 
 [GitHub Security][GitHub Security] provides multiple features for addressing security risks:
 
