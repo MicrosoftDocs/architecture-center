@@ -71,7 +71,7 @@ Many multitenant solutions need to be geo-distributed. You might share a globall
 
 ## Next steps
 
-Review [deployment and configuration approaches for multitenancy](../approaches/deployment-configuration.yml).
+Review [storage and data approaches for multitenancy](../approaches/storage-data.yml).
 
 ## Contributors
 
