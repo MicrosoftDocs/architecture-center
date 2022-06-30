@@ -119,8 +119,6 @@ The solution uses the following components:
 
 - An [on-premises data gateway][What is an on-premises data gateway?] acts as a bridge that connects on-premises data with cloud services. Typically, you [install the gateway on a dedicated on-premises VM][Install an on-premises data gateway]. Cloud services can then securely use on-premises data.
 
-- [Azure VMs][Azure virtual machines] are on-demand, scalable computing resources that are available with Azure. An Azure VM provides the flexibility of virtualization. But it eliminates the maintenance demands of physical hardware. Azure VMs offer a choice of operating systems, including Windows and Linux.
-
 - An [IR][Integration runtime in Azure Data Factory] is the compute infrastructure that Data Factory uses to integrate data across different network environments. Data Factory uses [self-hosted IRs][Self-hosted integration runtime] to copy data between cloud data stores and data stores in on-premises networks.
 
 ## Potential use cases
@@ -153,11 +151,9 @@ Reliability ensures your application can meet the commitments you make to your c
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-- The on-premises data gateway provides data protection during transfers from on-premises to Azure systems.
 
-- See [Planning and Architecting Solutions Using Microsoft Service for DRDA](/host-integration-server/core/planning-and-architecting-solutions-using-microsoft-service-for-drda) to learn about the types of client connections that Microsoft Service for DRDA supports.
 
-- Ensure that the security level of the Azure environment that has access to the on-premises data gateway meets the security requirements of the on-premises network.
+- See [Planning and Architecting Solutions Using Microsoft Service for DRDA](/host-integration-server/core/planning-and-architecting-solutions-using-microsoft-service-for-drda) to learn about the types of client connections that Microsoft Service for DRDA supports. Client connections affect the nature of transactions, pooling, failover, authentication, and encryption on your network.
 
 ### Cost optimization
 
@@ -230,7 +226,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 [Migration guide]: https://datamigration.microsoft.com/
 [Modernize mainframe & midrange data]: ./modernize-mainframe-data-to-azure.yml
 [MySQL Community Edition]: https://www.mysql.com/products/community/
-[Network transports and transactions]: https://docs.microsoft.com/host-integration-server/core/planning-and-architecting-solutions-using-microsoft-service-for-drda#network-transports-and-transactions
+[Network transports and transactions]: /host-integration-server/core/planning-and-architecting-solutions-using-microsoft-service-for-drda#network-transports-and-transactions
 [Performance tuning steps]: /azure/data-factory/copy-activity-performance#performance-tuning-steps
 [Pooling and failover]: /host-integration-server/core/planning-and-architecting-solutions-using-microsoft-service-for-drda#pooling-and-failover
 [PostgreSQL]: https://www.postgresql.org/
