@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes the features of Azure Key Vault that are useful when you work with multitenanted systems, and it provides links to guidance for how to use Azure Key Vault in a multitenant solution.
 author: johndowns
 ms.author: jodowns
-ms.date: 06/20/2022
+ms.date: 06/29/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -64,7 +64,7 @@ If your tenants configure network access controls on their vaults, ensure that y
 
 ### Tags
 
-Key Vault supports tagging secrets, certificates, and keys with custom metadata, so you can use a tag to track the tenant ID for each tenant-specific secret. However, Key Vault doesn't support querying by tags, so this feature is more useful for management purposes than for use within your application logic.
+Key Vault supports tagging secrets, certificates, and keys with custom metadata, so you can use a tag to track the tenant ID for each tenant-specific secret. However, Key Vault doesn't support querying by tags, so this feature is best suited for management purposes, rather than for use within your application logic.
 
 More information:
 - [Secret tags](/azure/key-vault/secrets/about-secrets#secret-tags)
@@ -73,7 +73,7 @@ More information:
 
 ### Azure Policy support
 
-- If you decide to deploy large numbers of vaults, consider using Azure Policy to verify the vaults have been configured according to your requirements, such as using the correct network access settings, logging, etc.
+If you decide to deploy large numbers of vaults, it's important to ensure that they follow a consistent standard for network access configuration, logging, and access control. Consider using Azure Policy to verify the vaults have been configured according to your requirements.
 
 More information:
 - [Integrate Azure Key Vault with Azure Policy](/azure/key-vault/general/azure-policy?tabs=certificates)
@@ -81,8 +81,7 @@ More information:
 
 ### Managed HSM and Dedicated HSM
 
-- If you need to do a large number of operations per second and this could cause you problems with limits, consider [Managed HSM](/azure/key-vault/managed-hsm/overview) or [Dedicated HSM](/azure/dedicated-hsm/overview).
-- Both products provide a reserved capacity model, but are generally more costly than Key Vault. Additionally, be aware of the limits on the number of instances that you can deploy into each region.
+If you need to perform a large number of operations per second, and the Key Vault operation limits are insufficient, consider using either [Managed HSM](/azure/key-vault/managed-hsm/overview) or [Dedicated HSM](/azure/dedicated-hsm/overview). Both products provide you with a reserved amount of capacity, but they're generally more costly than Key Vault. Additionally, be aware of the limits on the number of instances of these services that you can deploy into each region.
 
 More information:
 - [How do I decide whether to use Azure Key Vault or Azure Dedicated HSM?](/azure/dedicated-hsm/faq#how-do-i-decide-whether-to-use-azure-key-vault-or-azure-dedicated-hsm-)
