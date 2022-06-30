@@ -52,7 +52,7 @@ This approach might be useful for migration scenarios. For example, suppose you'
 
 Azure Cache for Redis imposes [limits on the number of databases that can be created on a single cache](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-cache-for-redis-limits). Ensure that you understand the number of tenants you'll grow to before implementing this approach.
 
-Additionally, this approach doesn't provide any benefits for security isolation of data. In Azure Cache for Redis, authentication and authorization is performed at the cache level.
+Additionally, this approach doesn't provide any benefits for security isolation of data. In Azure Cache for Redis, authentication and authorization are performed at the cache instance level.
 
 > [!NOTE]
 > Azure Cache for Redis supports multiple databases on specific tiers, and doesn't support multiple databases when you use clustered instances.
