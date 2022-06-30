@@ -83,9 +83,11 @@ When GitHub identifies a vulnerability, it takes the steps illustrated in the fo
 
 ## Considerations
 
-To keep GitHub DevSecOps solutions aligned with the tenets of the [Azure Well-Architected Framework][Azure Well-Architected Framework], consider the following points when deciding how to implement this pattern.
+To keep GitHub DevSecOps solutions aligned with the tenets of the [Azure Well-Architected Framework][Azure Well-Architected Framework], consider the following points when deciding how to implement this architecture.
 
 ### Operational excellence
+
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
 - Run automated tests and maintenance in environments that use vulnerability management capabilities, since these capabilities change code and its dependencies on your behalf. Automated testing identifies any issues that result from these changes.
 - Take advantage of Azure Policy features. Besides denying deployments and logging compliance issues, these policies can also modify resources, making them compliant, even if they aren't deployed that way. For example, if you try to deploy a storage account in Azure that uses HTTP, Azure Policy detects the situation. Policies can then automatically change the deployment and force the storage account to use HTTPS.
@@ -102,14 +104,20 @@ To keep GitHub DevSecOps solutions aligned with the tenets of the [Azure Well-Ar
 
 ### Performance efficiency
 
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+
 For long-running or complex Actions, host your own runners for CI/CD jobs. You can then choose computers with powerful processing capabilities and ample memory. See [About self-hosted runners][About self-hosted runners].
 
 ### Reliability
+
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
 - If you work with the on-premises deployment of GitHub.com that [GitHub Enterprise Server][GitHub Enterprise Server] provides, use a [highly available failover configuration][GitHub Enterprise highly available failover configuration] for increased resiliency.
 - If you opt for self-hosted Actions runners, consider distributing them geographically.
 
 ### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 - Using self-hosted Actions runners for public repositories isn't advised. A malicious user could join your repo and create a PR that runs unsafe code on computers in your network. GitHub-hosted runners remove this risk.
 - Scan your code using the CodeQL analysis engine to discover potential vulnerabilities and coding errors. CodeQL can run both on a schedule and when events occur, such as a commit or a PR creation, making it easy for users to identify security issues from within their PRs. See [About code scanning][GitHub code scanning].
@@ -119,11 +127,14 @@ For long-running or complex Actions, host your own runners for CI/CD jobs. You c
 
 ### Cost optimization
 
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+
 - GitHub bills customers for GitHub Actions by the minute. In addition, the choice of operating system that hosts Actions jobs affects the per-minute consumption rate and per-minute cost. Wherever possible, choose Linux to host Actions. See [About billing for GitHub actions][About billing for GitHub actions].
 - Project managers on tight schedules may worry that adding security measures will delay development. Experience the opposite by saving time with these guidelines:
   - Shift testing left, closer to the source. Teams will have fewer mistakes as a result.
   - Address issues during programming, rather than months down the line in production. Then developers don't need to refresh their knowledge of the code.
 - GitHub Security features vary based on an organization's licensing, and whether a repository's visibility is public or private. See [Plans for all developers][GitHub pricing].
+
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
