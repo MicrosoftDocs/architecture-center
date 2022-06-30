@@ -379,6 +379,10 @@ items:
                     href: guide/multitenant/service/cosmos-db.md
                   - name: Azure Database for PostgreSQL
                     href: guide/multitenant/service/postgresql.md
+              - name: Security
+                items:
+                  - name: Azure Key Vault
+                    href: guide/multitenant/service/key-vault.md
               - name: AI and ML
                 items:
                   - name: Azure Cognitive Search
