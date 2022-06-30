@@ -194,7 +194,7 @@ Principal author:
 [GitHub Enterprise Server]: https://azuremarketplace.microsoft.com/marketplace/apps/github.githubenterprise
 [GitHub Enterprise highly available failover configuration]: https://docs.github.com/enterprise-server@3.5/admin/enterprise-management/configuring-high-availability
 [GitHub Advanced Security]: https://docs.github.com/enterprise-server@3.5/admin/code-security/managing-github-advanced-security-for-your-enterprise/enabling-github-advanced-security-for-your-enterprise
-[Configure Dependabot security updates]: https://docs.github.com/en/github/managing-security-vulnerabilities/configuring-github-dependabot-security-updates
+[Configure Dependabot security updates]: https://docs.github.com/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates
 [DevSecOps in Azure]: ./devsecops-in-azure.yml
 [GitHub pricing]: https://github.com/pricing
 [GitHub DevSecOps training materials]: https://github.com/devsecops/awesome-devsecops
