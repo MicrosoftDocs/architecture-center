@@ -179,7 +179,7 @@ Principal author:
 [CodeQL]: https://codeql.github.com/
 [Try CodeQL]: https://lgtm.com/query/rule:1823453799/lang:java/
 [GitHub Dependabot]: https://docs.github.com/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates
-[GitHub vulnerability management]: https://docs.github.com/en/github/managing-security-vulnerabilities
+[Securing your software supply chain]: https://docs.github.com/code-security/supply-chain-security
 [Mend]: https://www.mend.io
 [GitHub Advisory Database]: https://github.com/advisories
 [National Vulnerability Database]: https://nvd.nist.gov
