@@ -2,7 +2,9 @@ This reference architecture details how to run multiple instances of an Azure Ku
 
 This architecture builds on the [AKS Baseline architecture](../aks/secure-baseline-aks.yml), Microsoft's recommended starting point for AKS infrastructure. The AKS baseline details infrastructural features like Azure Active Directory (Azure AD) pod identity, ingress and egress restrictions, resource limits, and other secure AKS infrastructure configurations. These infrastructural details are not covered in this document. It is recommended that you become familiar with the AKS baseline before proceeding with the multi-region content.
 
-[![Mutli-region deployment](./images/aks-multi-cluster.png)](./images/aks-multi-cluster-large.png#lightbox)
+[![Diagram showing mutli-region deployment.](./images/aks-multi-cluster.png)](./images/aks-multi-cluster-large.png#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/aks-multi-cluster.vsdx) of this architecture.*
 
 ![GitHub logo](../../../_images/github.png) A reference implementation of this architecture is available on [GitHub](https://github.com/mspnp/aks-baseline-multi-region).
 
@@ -54,7 +56,7 @@ The cost of developing and maintaining infrastructure as code assets can be cost
 
 #### Cluster deployment
 
-Once the cluster stamp definition has been defined, you have many options for deploying individual or multiple stamp instances. Our recommendation is to use modern continuous integration technology such as GitHub Actions or Azure Pipelines. The benefit of continuous integration-based deployment solutions include:
+Once the cluster stamp definition has been defined, you have many options for deploying individual or multiple stamp instances. Our recommendation is to use modern continuous integration technology such as GitHub Actions or Azure Pipelines. The benefits of continuous integration-based deployment solutions include:
 
 - Code-based deployments that allow for stamps to be added and removed using code
 - Integrated testing capabilities
@@ -153,7 +155,9 @@ Similar to the AKS Baseline Reference Architecture, this architecture uses a hub
 
 With the AKS Baseline Reference Architecture, workload traffic is routed directly to an Azure Application Gateway instance, then forwarded onto the backend load balancer / AKS ingress resources. When working with multiple clusters, client requests are routed through an Azure Front Door instance, which routes to the Azure Application Gateway instance.
 
-![Mutli-region deployment](images/aks-ingress-flow.svg)
+![Diagram showing workload traffic in mutli-region deployment.](images/aks-ingress-flow.svg)
+
+*Download a [Visio file](https://arch-center.azureedge.net/aks-multi-cluster-aks-ingress-flow.vsdx) of this diagram.*
 
 1. The user sends a request to a domain name (e.g. https://contoso-web.azurefd.net), which is resolved to the Azure Front Door instance. This request is encrypted with a wildcard certificate (*.azurefd.net) issued for all subdomains of Azure Front Door. The Azure Front Door instance validates the request against WAF policies, selects the fastest backend (based on health and latency), and uses public DNS to resolve the backend IP address (Azure Application Gateway instance).
 

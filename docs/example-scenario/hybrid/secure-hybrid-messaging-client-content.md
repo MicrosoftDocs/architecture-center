@@ -3,6 +3,7 @@ Enterprise messaging infrastructure (EMI) is a key service for organizations. Mo
 This article describes four architectures to enhance your security in an Outlook desktop-client access scenario by using Azure AD Multi-Factor Authentication.
 
 These four scenarios are described in this article:
+
 - Outlook client access when the user's mailbox is in Exchange Online
 - Outlook client access when the user's mailbox is in Exchange Online, AD FS
 - Outlook client access when the user's mailbox is in Exchange on-premises
@@ -11,13 +12,16 @@ These four scenarios are described in this article:
 All four architectures cover both Outlook for Windows and Outlook for Mac.
 
 For information about applying multi-factor authentication in other hybrid messaging scenarios, see these articles:
+
 - [Enhanced-security hybrid messaging infrastructure in a web access scenario](secure-hybrid-messaging-web.yml)
 - [Enhanced-security hybrid messaging infrastructure in a mobile access scenario](secure-hybrid-messaging-mobile.yml)
 
-This article doesn't discuss other protocols, like IMAP or POP. Typically, these scenarios don't use these protocols. 
+This article doesn't discuss other protocols, like IMAP or POP. Typically, these scenarios don't use these protocols.
 
 ## Potential use cases
+
 This architecture is relevant for the following scenarios:
+
 - Enhance EMI security.
 - Adopt a [Zero Trust](https://www.microsoft.com/security/business/zero-trust) security strategy.
 - Apply your standard high level of protection for your on-premises messaging service during transition to or coexistence with Exchange Online.
@@ -31,7 +35,7 @@ This architecture is relevant for the following scenarios:
 
 - In the diagrams, black dashed lines show basic interactions between local Active Directory, Azure AD Connect, Azure AD, AD FS, and Web Application Proxy components. You can learn about these interactions in [Hybrid identity required ports and protocols](/azure/active-directory/hybrid/reference-connect-ports).
 
-- By *Exchange on-premises*, we mean Exchange 2019 with the latest updates and a Mailbox role. 
+- By *Exchange on-premises*, we mean Exchange 2019 with the latest updates and a Mailbox role.
 
 - In a real environment, you won't have just one server. You'll have a load-balanced array of Exchange servers for high availability. The scenarios described here are suited for that configuration.
 
@@ -41,12 +45,12 @@ This architecture is relevant for the following scenarios:
 
 In this scenario, users need to use the version of Outlook client that supports modern authentication. For more information, see [How modern authentication works for Office 2013, Office 2016, and Office 2019 client apps](/microsoft-365/enterprise/modern-auth-for-office-2013-and-2016?view=o365-worldwide). This architecture covers both Outlook for Windows and Outlook for Mac.
 
-1. The user tries to access Exchange Online via Outlook. 
+1. The user tries to access Exchange Online via Outlook.
 1. Exchange Online provides the URL of an Azure AD endpoint for retrieving the access token to get access to the mailbox.
 1. Outlook connects to Azure AD by using that URL.
 1. As soon as the domain is federated, Azure AD redirects the request to on-premises AD FS.
 1. The user enters credentials on an AD FS sign-in page.
-1. AD FS redirects the session back to Azure AD. 
+1. AD FS redirects the session back to Azure AD.
 1. Azure AD applies an Azure Conditional Access policy with a multi-factor authentication requirement for mobile apps and desktop clients. See the [deployment section](#set-up-a-conditional-access-policy)  of this article for information about setting up that policy.
 1. The Conditional Access policy calls Azure AD Multi-Factor Authentication. The user gets a request to complete multi-factor authentication.
 1. The user completes multi-factor authentication.
@@ -63,7 +67,7 @@ AllowBasicAuthRpc                  : False
 ```
 Remote procedure call (RPC) protocol is [no longer supported](/exchange/troubleshoot/administration/rpc-over-http-end-of-support) for Office 365, so the last parameter shouldn't affect clients.
 
-Here's an example of a command for creating this authentication policy: 
+Here's an example of a command for creating this authentication policy:
 ```powershell
 New-AuthenticationPolicy -Name BlockLegacyOutlookAuth -AllowBasicAuthRpc:$false -AllowBasicAuthMapi:$false -AllowBasicAuthAutodiscover:$false
 -AllowBasicAuthWebServices:$false -AllowBasicAuthOfflineAddressBook:$false
@@ -80,15 +84,15 @@ After you create the authentication policy, you can first assign it to a pilot g
 
 :::image type="content" border="false" source="./media/desktop-online-option-2.png" alt-text="Diagram that shows an alternative architecture for enhanced security in an Outlook client access scenario." lightbox="./media/desktop-online-option-2.png":::
 
-This scenario is the same as the previous one, except that it uses a different trigger for multi-factor authentication. In the previous scenario, we used local AD FS for authentication. We then redirected information about successful authentication to Azure AD, where a Conditional Access policy enforced multi-factor authentication. In this scenario, instead of using Conditional Access to enforce multi-factor authentication, we create an access control policy on the AD FS level and enforce multi-factor authentication there. The rest of the architecture is the same as the previous one. 
+This scenario is the same as the previous one, except that it uses a different trigger for multi-factor authentication. In the previous scenario, we used local AD FS for authentication. We then redirected information about successful authentication to Azure AD, where a Conditional Access policy enforced multi-factor authentication. In this scenario, instead of using Conditional Access to enforce multi-factor authentication, we create an access control policy on the AD FS level and enforce multi-factor authentication there. The rest of the architecture is the same as the previous one.
 
 > [!NOTE]
 > 
-> We recommend this scenario only if you're unable to use the previous one. 
+> We recommend this scenario only if you're unable to use the previous one.
 
 In this scenario, users need to use the version of Outlook client that supports modern authentication. For more information, see [How modern authentication works for Office 2013, Office 2016, and Office 2019 client apps](/microsoft-365/enterprise/modern-auth-for-office-2013-and-2016?view=o365-worldwide). This architecture covers both Outlook for Windows and Outlook for Mac.
 
-1. The user tries to access Exchange Online via Outlook. 
+1. The user tries to access Exchange Online via Outlook.
 2. Exchange Online provides the URL of an Azure AD endpoint for retrieving the access token to get access to the mailbox. 
 3. Outlook connects to Azure AD by using that URL.
 4. If the domain is federated, Azure AD redirects the request to on-premises AD FS.
@@ -98,10 +102,10 @@ In this scenario, users need to use the version of Outlook client that supports 
     :::image type="content" source="./media/access-control-policy.png" alt-text="Screenshot that shows an example of an AD FS access control policy.":::
  
     The user gets a request to complete multi-factor authentication.
-7. The user completes multi-factor authentication. 
-8. AD FS redirects the session back to Azure AD. 
+7. The user completes multi-factor authentication.
+8. AD FS redirects the session back to Azure AD.
 9. Azure AD issues access and refresh tokens and returns them to the client.
-10.	By using the access token, the client connects to Exchange Online and retrieves the content.
+10. By using the access token, the client connects to Exchange Online and retrieves the content.
 
 > [!NOTE]
 >
@@ -118,7 +122,7 @@ AllowBasicAuthRpc                  : False
 ```
 (RPC protocol is [no longer supported](/exchange/troubleshoot/administration/rpc-over-http-end-of-support) for Office 365, so the last parameter shouldn't affect clients.)
 
-Here's an example of a command for creating this authentication policy: 
+Here's an example of a command for creating this authentication policy:
 ```powershell
 New-AuthenticationPolicy -Name BlockLegacyOutlookAuth -AllowBasicAuthRpc:$false -AllowBasicAuthMapi:$false -AllowBasicAuthAutodiscover:$false
 -AllowBasicAuthWebServices:$false -AllowBasicAuthOfflineAddressBook:$false
@@ -142,7 +146,7 @@ This architecture covers both Outlook for Windows and Outlook for Mac.
 10.	Azure AD issues access and refresh tokens and returns them to the client.
 11.	The user presents the access token to Exchange Server, and Exchange authorizes access to the mailbox.
 
-To block attempts to access Exchange on-premises via legacy authentication (the red dashed line in the diagram), you need to create an [authentication policy](/powershell/module/exchange/new-authenticationpolicy?view=exchange-ps) that disables legacy authentication for protocols that the Outlook service uses. These are the specific protocols that you need to disable: Autodiscover, MAPI, Offline Address Books, EWS, and RPC. Here's the corresponding configuration:    
+To block attempts to access Exchange on-premises via legacy authentication (the red dashed line in the diagram), you need to create an [authentication policy](/powershell/module/exchange/new-authenticationpolicy?view=exchange-ps) that disables legacy authentication for protocols that the Outlook service uses. These are the specific protocols that you need to disable: Autodiscover, MAPI, Offline Address Books, EWS, and RPC. Here's the corresponding configuration:
 ```
 BlockLegacyAuthAutodiscover       : True
 BlockLegacyAuthMapi               : True
@@ -173,20 +177,20 @@ This scenario is similar to the previous one. However, in this scenario, multi-f
 > We recommend this scenario only if you are unable to use the previous one. 
 
 1. The user starts the Outlook client. The client connects to Exchange Server and specifies that it has modern authentication capabilities.
-2. Exchange Server sends a response to the client requesting that it get a token from Azure AD. Exchange Server provides the client with a URL to Azure AD. 
-3. The client uses the URL to access Azure AD. 
+2. Exchange Server sends a response to the client requesting that it get a token from Azure AD. Exchange Server provides the client with a URL to Azure AD.
+3. The client uses the URL to access Azure AD.
 4. In this scenario, the domain is federated. Azure AD redirects the client to AD FS via Web Application Proxy.
 5. The user enters credentials on an AD FS sign-in page.
 6. AD FS triggers multi-factor authentication. Here's an example of that type of AD FS access control policy:
 
-    :::image type="content" source="./media/access-control-policy.png" alt-text="Screenshot that shows an AD FS access control policy."::: 
+    :::image type="content" source="./media/access-control-policy.png" alt-text="Screenshot that shows an AD FS access control policy.":::
 
     The user gets a request to complete multi-factor authentication.
 
-7. The user completes multi-factor authentication. 
+7. The user completes multi-factor authentication.
 8. AD FS redirects the session back to Azure AD.
-9. Azure AD issues access and refresh tokens to the user. 
-10.	The client presents the access token to the Exchange on-premises server. Exchange authorizes access to the user's mailbox.
+9. Azure AD issues access and refresh tokens to the user.
+10. The client presents the access token to the Exchange on-premises server. Exchange authorizes access to the user's mailbox.
 
 > [!NOTE]
 >
@@ -229,7 +233,7 @@ After you create the authentication policy, you can first assign it to a pilot g
 
 - [Active Directory services](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview). Active Directory services stores information about members of a domain, including devices and users. In these architectures, user accounts belong to Active Directory services and are synchronized to Azure AD.
 
-- [Outlook for business](https://www.microsoft.com/microsoft-365/outlook/outlook-for-business). Outlook is a client application that supports modern authentication. 
+- [Outlook for business](https://www.microsoft.com/microsoft-365/outlook/outlook-for-business). Outlook is a client application that supports modern authentication.
 
 ## Considerations
 
@@ -243,20 +247,22 @@ Overall availability depends on the availability of the components that are invo
 Availability of on-premises solution components depends on the implemented design, hardware availability, and your internal operations and maintenance routines. For availability information about some of these components, see the following resources: 
 - [Setting up an AD FS deployment with Always On availability groups](/windows-server/identity/ad-fs/operations/ad-fs-always-on)
 - [Deploying high availability and site resilience in Exchange Server](/exchange/high-availability/deploy-ha?view=exchserver-2019)
-- [Web Application Proxy in Windows Server](/windows-server/remote/remote-access/web-application-proxy/web-application-proxy-in-windows-server) 
+- [Web Application Proxy in Windows Server](/windows-server/remote/remote-access/web-application-proxy/web-application-proxy-in-windows-server)
 
 To use hybrid modern authentication, you need to ensure that all clients on your network can access Azure AD. You also need to consistently maintain Office 365 firewall ports and IP-range openings.
 
-For protocol and port requirements for Exchange Server, see "Exchange client and protocol requirements" in [Hybrid modern authentication overview for use with on-premises Skype for Business and Exchange servers](/microsoft-365/enterprise/hybrid-modern-auth-overview?view=o365-worldwide#do-you-meet-modern-authentication-prerequisites). 
+For protocol and port requirements for Exchange Server, see "Exchange client and protocol requirements" in [Hybrid modern authentication overview for use with on-premises Skype for Business and Exchange servers](/microsoft-365/enterprise/hybrid-modern-auth-overview?view=o365-worldwide#do-you-meet-modern-authentication-prerequisites).
 
-For Office 365 IP ranges and ports, see [Office 365 URLs and IP address ranges](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide). 
+For Office 365 IP ranges and ports, see [Office 365 URLs and IP address ranges](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide).
 
 For information about hybrid modern authentication and mobile devices, read about AutoDetect endpoint in [Other endpoints not included in the Office 365 IP Address and URL Web service](/microsoft-365/enterprise/additional-office365-ip-addresses-and-urls?view=o365-worldwide).
 
 ### Performance
+
 Performance depends on the performance of the components that are involved and your company's network performance. For more information, see [Office 365 performance tuning using baselines and performance history](/microsoft-365/enterprise/performance-tuning-using-baselines-and-history?view=o365-worldwide).
 
 For information about on-premises factors that influence performance for scenarios that include AD FS services, see these resources:
+
 - [Configure performance monitoring](/windows-server/identity/ad-fs/deployment/configure-performance-monitoring)
 - [Fine tuning SQL and addressing latency issues with AD FS](/windows-server/identity/ad-fs/operations/adfs-sql-latency)
 
@@ -275,43 +281,58 @@ For closed organizations that have traditional strong perimeter protection, ther
 For information about Azure AD, see [Azure AD security operations guide](/azure/active-directory/fundamentals/security-operations-introduction).
 
 For information about scenarios that use AD FS security, see these articles:
+
 - [Best practices for securing AD FS and Web Application Proxy](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs)
 - [Configure AD FS Extranet Smart Lockout](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection)
 
 ### Resiliency
 
 For information about the resiliency of the components in this architecture, see the following resources.
+
 - For Azure AD: [Advancing Azure AD availability](https://azure.microsoft.com/blog/advancing-azure-active-directory-availability)
 - For scenarios that use AD FS: [High availability cross-geographic AD FS deployment in Azure with Azure Traffic Manager](/windows-server/identity/ad-fs/deployment/active-directory-adfs-in-azure-with-azure-traffic-manager)
 - For the Exchange on-premises solution: [Exchange high availability](/exchange/high-availability/deploy-ha?view=exchserver-2019)
 
 ## Deploy this scenario
-Here are the high-level steps:
-1.	Protect Outlook desktop access by [configuring Exchange Hybrid configuration and enabling hybrid modern authentication](/microsoft-365/enterprise/hybrid-modern-auth-overview?view=o365-worldwide).
-2.	Block all legacy authentication attempts at the [Azure AD level](/azure/active-directory/conditional-access/block-legacy-authentication). Block legacy authentication attempts on a messaging-services level by using [authentication policy](/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online). 
 
-### Set up a Conditional Access policy 
+Here are the high-level steps:
+
+1. Protect Outlook desktop access by [configuring Exchange Hybrid configuration and enabling hybrid modern authentication](/microsoft-365/enterprise/hybrid-modern-auth-overview?view=o365-worldwide).
+1. Block all legacy authentication attempts at the [Azure AD level](/azure/active-directory/conditional-access/block-legacy-authentication). Block legacy authentication attempts on a messaging-services level by using [authentication policy](/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online). 
+
+### Set up a Conditional Access policy
+
 To set up an Azure AD Conditional Access policy that enforces multi-factor authentication, as described in some of the architectures in this article:
 
  1. In the **Clients apps** window, select **Mobile apps and desktop clients**:
-    
+
     :::image type="content" source="./media/client-apps-desktop.png" alt-text="Screenshot that shows the Client apps window.":::
 
-1. Apply the multi-factor authentication requirement in the **Grant** window:
-       
+ 1. Apply the multi-factor authentication requirement in the **Grant** window:
+
     :::image type="content" source="./media/grant-control-desktop.png" alt-text="Screenshot that shows the Grant window.":::
 
 ## Pricing
+
 The cost of your implementation depends on your Azure AD and Microsoft 365 license costs. Total cost also includes costs for software and hardware for on-premises components, IT operations, training and education, and project implementation.
 
 These solutions require at least Azure AD Premium P1. For pricing details, see [Azure AD pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 For information about AD FS and Web Application Proxy, see [Pricing and licensing for Windows Server 2022](https://www.microsoft.com/windows-server/pricing).
 
-For more pricing information, see these resources: 
+For more pricing information, see these resources:
+
 - [Microsoft Intune pricing](/mem/intune/fundamentals/licenses)
 - [Exchange Online plans](https://www.microsoft.com/microsoft-365/exchange/compare-microsoft-exchange-online-plans)
 - [Exchange server pricing](https://www.microsoft.com/microsoft-365/exchange/microsoft-exchange-licensing-faq-email-for-business)
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+* [Pavel Kondrashov](/) | Senior Customer Engineer
 
 ## Next steps
 
@@ -325,5 +346,6 @@ For more pricing information, see these resources:
 - [Account setup with modern authentication in Exchange Online](/exchange/clients-and-mobile-in-exchange-online/outlook-for-ios-and-android/setup-with-modern-authentication)
 
 ## Related resources
+
 - [Enhanced-security hybrid messaging infrastructure in a web access scenario](secure-hybrid-messaging-web.yml)
 - [Enhanced-security hybrid messaging infrastructure in a mobile access scenario](secure-hybrid-messaging-mobile.yml)

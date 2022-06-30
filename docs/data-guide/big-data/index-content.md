@@ -111,11 +111,21 @@ The boxes that are shaded gray show components of an IoT system that are not dir
 
 - Some IoT solutions allow **command and control messages** to be sent to devices.
 
-Relevant Azure services:
+## Contributors
 
-- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)
-- [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)
-- [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)
-- [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/)
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+- [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect
+
+## Next steps
+
+See the following relevant Azure services:
+
+- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub)
+- [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs)
+- [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics)
+- [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer)
 
 Learn more about IoT on Azure by reading the [Azure IoT reference architecture](https://azure.microsoft.com/updates/microsoft-azure-iot-reference-architecture-available/).
