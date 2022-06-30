@@ -119,7 +119,7 @@ The solution uses the following components:
 
 - An [on-premises data gateway][What is an on-premises data gateway?] acts as a bridge that connects on-premises data with cloud services. Typically, you [install the gateway on a dedicated on-premises VM][Install an on-premises data gateway]. Cloud services can then securely use on-premises data.
 
-- An [IR][Integration runtime in Azure Data Factory] is the compute infrastructure that Data Factory uses to integrate data across different network environments. Data Factory uses [self-hosted IRs][Self-hosted integration runtime] to copy data between cloud data stores and data stores in on-premises networks.
+- An [IR][Integration runtime in Azure Data Factory] is the compute infrastructure that Data Factory uses to integrate data across different network environments. Data Factory uses [self-hosted IRs][Self-hosted integration runtime] to copy data between cloud data stores and data stores in on-premises networks. You can also use [Azure Synapse Pipelines](/azure/synapse-analytics/get-started-pipelines).
 
 ## Potential use cases
 
@@ -151,7 +151,13 @@ Reliability ensures your application can meet the commitments you make to your c
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
+- Make use of [network security groups](/azure/virtual-network/manage-network-security-group) to limit access of services to only what they need to function.
 
+- Use [private endpoints](/azure/private-link/private-endpoint-overview) for your PaaS (Platform as a Service) services. Use service firewalls to supplement security for your services that are both reachable and unreachable through the Internet.
+
+- Be aware of the differences between on-premises client identities and client identities in Azure. You will need to compensate for any differences.
+
+- Use managed identities for component-to-component data flows.
 
 - See [Planning and Architecting Solutions Using Microsoft Service for DRDA](/host-integration-server/core/planning-and-architecting-solutions-using-microsoft-service-for-drda) to learn about the types of client connections that Microsoft Service for DRDA supports. Client connections affect the nature of transactions, pooling, failover, authentication, and encryption on your network.
 
@@ -173,15 +179,13 @@ Operational excellence covers the operations processes that deploy an applicatio
 
 - You can cluster the on-premises data gateway and IR for scalability.
 
-- Consider [Azure ExpressRoute][Azure ExpressRoute] as a high-scale option if your implementation uses significant bandwidth for initial replication or ongoing changed data replication.
-
 ### Performance efficiency
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
 - When you use an on-premises application gateway, be aware of [limits on read and write operations][Gateway considerations].
 
-- To use SSMA for Db2, install the client program on a computer that can access the source Db2 database and the target instance of SQL Server. That computer should meet the requirements listed in [Installing SSMA for Db2 client][Installing SSMA for DB2 client (DB2ToSQL) Prerequisites].
+- Consider [Azure ExpressRoute][Azure ExpressRoute] as a high-scale option if your implementation uses significant bandwidth for initial replication or ongoing changed data replication.
 
 - The [self-hosted IR can only run on a Windows operating system][Self-hosted IR compute resource and scaling].
 
