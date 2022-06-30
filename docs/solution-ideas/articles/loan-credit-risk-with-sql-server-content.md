@@ -13,7 +13,7 @@ Start a Windows or Linux version of the Azure Data Science Virtual Machine. Conn
 
 ### Components
 
-* [SQL Server Machine Learning Services](/sql/machine-learning/sql-server-machine-learning-services?view=sql-server-ver15): SQL Server stores the lender and borrower data. R-based analytics provide training and predicted models, as well as predicted results for consumption.
+* [SQL Server Machine Learning Services](/sql/machine-learning/sql-server-machine-learning-services?view=sql-server-ver15): SQL Server stores the lender and borrower data. R-based analytics provide training and predicted models, and predicted results for consumption.
 * [Data Science Virtual Machine](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines) provides an interactive dashboard with visualization that uses data stored in SQL Server to drive decisions on the predictions.
 * [Power BI](https://powerbi.microsoft.com) provides an interactive dashboard with visualization that uses data stored in SQL Server to drive decisions on the predictions.
 
@@ -23,7 +23,7 @@ If we had a crystal ball, we would only loan money to someone we knew would pay 
 
 ### Business perspective
 
-The business user uses the predicted scores to help determine whether or not to grant a loan. He fine tunes his prediction by using the Power BI Dashboard to see the number of loans and the total dollar amount saved under different scenarios. The dashboard includes a filter based on percentiles of the predicted scores. When all the values are selected, he views all the loans in the testing sample, and can inspect information about how many of them defaulted. Then by checking just the top percentile (100), he drills down to information about loans with a predicted score in the top 1%. Checking multiple continuous boxes allows him to find a cutoff point he is comfortable with to use as a future loan acceptance criteria.
+The business user uses the predicted scores to help determine whether or not to grant a loan. He fine tunes his prediction by using the Power BI Dashboard to see the number of loans and the total dollar amount saved under different scenarios. The dashboard includes a filter based on percentiles of the predicted scores. When all the values are selected, he views all the loans in the testing sample and can inspect information about how many of them defaulted. Then by checking just the top percentile (100), he drills down to information about loans with a predicted score in the top 1%. Checking multiple continuous boxes allows him to find a cutoff point he is comfortable with to use as a future loan acceptance criteria.
 
 ### Data scientist perspective
 
