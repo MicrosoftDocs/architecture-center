@@ -2,7 +2,7 @@ This reference architecture shows a secure hybrid network that extends an on-pre
 
 ## Architecture
 
-[![Secure hybrid network architecture](./images/dmz-private.png)](./images/dmz-private.png#lightbox)
+[![Diagram that shows the secure hybrid network architecture.](./images/dmz-private.png)](./images/dmz-private.png#lightbox)
 
 *Download a [Visio file][visio-download] of this architecture.*
 
@@ -175,7 +175,7 @@ Basic load balancing between virtual machines that reside in the same virtual ne
 
 In this architecture, internal load balancers are used to load balance traffic inside a virtual network.
 
-## Deploy the solution
+## Deploy this scenario
 
 This deployment creates two resource groups; the first holds a mock on-premises network, the second a set of hub and spoke networks. The mock on-premises network and the hub network are connected using Azure Virtual Network gateways to form a site-to-site connection. This configuration is very similar to how you would connect your on-premises datacenter to Azure.
 
