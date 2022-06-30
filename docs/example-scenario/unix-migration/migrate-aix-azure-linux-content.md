@@ -46,6 +46,8 @@ The following diagram shows the Azure RHEL post-migration system architecture:
 
 *Download a [Visio file](https://arch-center.azureedge.net/UNIX-AIX-Azure-RHEL-migration.vsdx) of this architecture.*
 
+### Dataflow
+
 1. Traffic into the Azure system routes through Azure ExpressRoute and Azure Traffic Manager:
 
    - ExpressRoute provides a secure, reliable private connection to Azure virtual networks. ExpressRoute connects to Azure with low latency, high reliability and speed, and bandwidths up to 100 Gbps.
@@ -165,6 +167,14 @@ For proactive monitoring and management, consider using [Azure Monitor](https://
 
   - Using Azure App Service for the presentation tier instead of setting up multiple VMs.
   - Segmenting workloads with Azure virtual networks instead of using hardware-based firewalls.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Jonathon Frost](https://www.linkedin.com/in/jjfrost) | Principal Program Manager
 
 ## Next steps
 

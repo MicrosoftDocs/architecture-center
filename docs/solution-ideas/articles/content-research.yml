@@ -1,11 +1,11 @@
 ### YamlMime:Architecture
 metadata:
   title: Knowledge mining for content research
-  titleSuffix: Azure Solution Ideas
+  titleSuffix: Azure Architecture Center
   description: Knowledge mining with a search index makes it easy for customers and employees to locate what they're looking for faster.
   author: EdPrice-MSFT
   ms.author: edprice
-  ms.date: 05/23/2022
+  ms.date: 06/17/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea

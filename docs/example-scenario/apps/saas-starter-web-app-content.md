@@ -216,11 +216,15 @@ Principal author:
 
 Other contributors: 
 
+ - [Chris Ayers](https://www.linkedin.com/in/chris-l-ayers/) | Senior Customer Engineer
  - [John Downs](https://www.linkedin.com/in/john-downs) | Senior Customer Engineer
+ - [LaBrina Loving](https://www.linkedin.com/in/chixcancode/) | Principal SVC Engineering Manager
  - [Gary Moore](https://www.linkedin.com/in/gwmoore) | Programmer/Writer
+ - [Nick Pinheiro](https://www.linkedin.com/in/nickpinheiro/) | Senior Consultant
+ - [William Salazar](https://www.linkedin.com/in/whsalazar/) | Senior Customer Engineer
+ - [Ali Sanjabi](https://www.linkedin.com/in/alisanjabi/) | Senior Customer Engineer
  - [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv) | Principal Customer Engineer
  - [Jason Young](https://www.linkedin.com/in/jasony) | Principal SVC Engineering Manager
-
 
 ## Next steps
 

@@ -24,7 +24,7 @@ products:
   - azure-expressroute
   - azure-logic-apps
   - azure-resource-manager
-  - azure-spring-cloud
+  - azure-spring-apps
 thumbnailUrl: /azure/architecture/browse/thumbs/gateway-logic-apps.png
 content: |
    [!include[](gateway-logic-apps-content.md)]
