@@ -173,7 +173,7 @@ Principal author:
 [App Service]: https://azure.microsoft.com/services/app-service
 [Azure Policy]: /azure/governance/policy/overview
 [Azure Monitor]: /azure/azure-monitor/overview
-[GitHub secret scanning]: https://docs.github.com/en/free-pro-team@latest/github/administering-a-repository/about-secret-scanning
+[GitHub secret scanning]: https://docs.github.com/code-security/secret-scanning/about-secret-scanning
 [GitHub code scanning]: https://docs.github.com/en/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning
 [Third party code scanning]: https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning#about-tools-for-code-scanning
 [CodeQL]: https://codeql.github.com/
