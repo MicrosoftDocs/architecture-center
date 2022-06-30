@@ -166,7 +166,7 @@ Principal author:
 [Microsoft 365]: https://www.microsoft.com/microsoft-365/what-is-microsoft-365
 [GitHub]: https://docs.github.com
 [Inner source]: https://resources.github.com/whitepapers/introduction-to-innersource
-[Codespaces]: https://docs.github.com/en/github/developing-online-with-codespaces/about-codespaces
+[Codespaces]: https://docs.github.com/codespaces/overview
 [Visual Studio Code]: https://code.visualstudio.com
 [GitHub Security]: https://github.com/features/security
 [GitHub Actions]: https://docs.github.com/en/actions/getting-started-with-github-actions/about-github-actions
