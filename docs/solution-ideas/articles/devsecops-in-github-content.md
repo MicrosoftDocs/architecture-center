@@ -183,7 +183,7 @@ Principal author:
 [Mend]: https://www.mend.io
 [GitHub Advisory Database]: https://github.com/advisories
 [National Vulnerability Database]: https://nvd.nist.gov
-[GitHub tracking]: https://docs.github.com/en/github/managing-security-vulnerabilities/browsing-security-vulnerabilities-in-the-github-advisory-database#about-the-github-advisory-database
+[GitHub tracking]: https://docs.github.com/code-security/dependabot/dependabot-alerts/browsing-security-advisories-in-the-github-advisory-database#about-the-github-advisory-database
 [GitHub security advisories]: https://docs.github.com/en/github/managing-security-vulnerabilities/about-github-security-advisories
 [Repository security advisories]: https://docs.github.com/en/code-security/repository-security-advisories
 [PHP Security Advisories Database]: https://github.com/FriendsOfPHP/security-advisories
