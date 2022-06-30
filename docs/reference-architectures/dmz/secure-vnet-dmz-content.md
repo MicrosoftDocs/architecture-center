@@ -215,7 +215,7 @@ Once the deployment has been completed, verify site-to-site connectivity by look
 
 ![Screenshot showing the status of connections.](./images/portal-connections.png)
 
-The IIS instance found in the spoke network can be accessed from the virtual machine located in the mock on-prem network. Create a connection to the virtual machine using the included Azure Bastion host, open a web browser, and navigate to the address of the application's network load balancer.
+The IIS instance found in the spoke network can be accessed from the virtual machine located in the mock on-premises network. Create a connection to the virtual machine using the included Azure Bastion host, open a web browser, and navigate to the address of the application's network load balancer.
 
 For detailed information and additional deployment options, see the Azure Resource Manager templates (ARM templates) used to deploy this solution: [Secure Hybrid Network](/samples/mspnp/samples/secure-hybrid-network/).
 
