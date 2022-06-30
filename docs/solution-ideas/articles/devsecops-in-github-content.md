@@ -24,7 +24,7 @@ GitHub DevSecOps installations cover many security scenarios. Possibilities incl
 :::image type="complex" source="../media/devsecops-in-github-data-flow.png" alt-text="Architecture diagram highlighting the security checks that run in various GitHub and Azure components in a GitHub DevSecOps environment." border="false":::
    Architecture diagram highlighting security checks that run in a GitHub DevSecOps environment. After Azure Active Directory (Azure AD) authenticates developers, Codespaces runs security scans. GitHub Actions then test security and encrypt sensitive data. In production, Azure Policy, Microsoft Defender for Cloud, and Azure Monitor evaluate deployed software for risks.
 :::image-end:::
-*Download an [.svg][DevSecOps in GitHub svg] of this architecture.*
+*Download an [SVG file][DevSecOps in GitHub svg] of this architecture.*
 
 1. When developers access GitHub resources, GitHub redirects them to Azure AD for SAML authentication. In a single sign-on (SSO) procedure, the [Microsoft Authenticator app][Microsoft Authenticator] then uses FIDO2 strong authentication. The passwordless [FIDO2 security keys][FIDO2 security keys] align with the latest [Fast Identity Online (FIDO) Alliance][FIDO Alliance] specifications.
 1. Developers begin working on tasks in Codespaces. These pre-built development environments organized into containers provide correctly configured IDEs that are equipped with required security scanning extensions.
@@ -117,7 +117,7 @@ For long-running or complex Actions, host your own runners for CI/CD jobs. You c
 - You can configure GitHub Enterprise Server to include [GitHub Advanced Security][GitHub Advanced Security], which is available for enterprise accounts on GitHub Enterprise Cloud and GitHub Enterprise Server 3.0 or higher. This provides extra features that help users find and fix security problems in their code. GitHub Enterprise can integrate automatic security and dependency scanning through GitHub Advanced Security and GitHub Open Source Security.
 - You can augment the code-scanning capabilities of GitHub by adding [third-party code-scanning tools][Third party code scanning] that produce [Static Analysis Results Interchange Format (SARIF)][SARIF] files. GitHub then creates alerts when those tools identify potential security issues.
 
-## Pricing
+### Cost optimization
 
 - GitHub bills customers for GitHub Actions by the minute. In addition, the choice of operating system that hosts Actions jobs affects the per-minute consumption rate and per-minute cost. Wherever possible, choose Linux to host Actions. See [About billing for GitHub actions][About billing for GitHub actions].
 - Project managers on tight schedules may worry that adding security measures will delay development. Experience the opposite by saving time with these guidelines:
