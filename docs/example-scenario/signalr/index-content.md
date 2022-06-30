@@ -146,8 +146,8 @@ See [how to authenticate and send real-time messages](/azure/azure-functions/fun
 
 ## Related resources
 
-- [High-volume batch transaction processing](/azure/architecture-center/example-scenario/mainframe/process-batch-transactions)
-- [Transit hub dynamic pub-sub messaging system](/azure/architecture-center/solution-ideas/articles/transit-hub)
-- [Serverless event processing](/azure/architecture-center/reference-architectures/serverless/event-processing)
-- [Blockchain workflow application](/azure/architecture-center/solution-ideas/articles/blockchain-workflow-application)
-- [Event-based cloud automation](/azure/architecture-center/reference-architectures/serverless/cloud-automation)
+- [High-volume batch transaction processing](/azure/architecture/example-scenario/mainframe/process-batch-transactions)
+- [Transit hub dynamic pub-sub messaging system](/azure/architecture/solution-ideas/articles/transit-hub)
+- [Serverless event processing](/azure/architecture/reference-architectures/serverless/event-processing)
+- [Blockchain workflow application](/azure/architecture/solution-ideas/articles/blockchain-workflow-application)
+- [Event-based cloud automation](/azure/architecture/reference-architectures/serverless/cloud-automation)
