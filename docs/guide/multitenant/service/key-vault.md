@@ -31,13 +31,13 @@ When working with a multitenant system using Key Vault, you need to make a decis
 
 ### Shared vault
 
-You might choose to share tenants' secrets within a single vault. The vault is deployed in your (the solution provider's) Azure subscription, and you are responsible for managing it. The shared vault approach is the most commonly used isolation for Key Vault, and is the best choice for many solutions.
+You might choose to share tenants' secrets within a single vault. The vault is deployed in your (the solution provider's) Azure subscription, and you're responsible for managing it. The shared vault approach is the most commonly used isolation for Key Vault, and is the best choice for many solutions.
 
 You might choose to deploy multiple shared vaults. For example, if you follow the [Deployment Stamps pattern](../approaches/overview.yml#deployment-stamps-pattern), it's likely you'll deploy a shared vault within each stamp. Similarly, if you deploy a multi-region solution, you should deploy vaults into each region to avoid cross-region traffic latency when working with the data in your vault.
 
-When you work with a shared vault, it's important to consider the number of operations you perform against the vault, such as reading secrets or performing encryption or decryption operations. [Key Vault imposes limits on the number of requests](/azure/azure-resource-manager/management/azure-subscription-service-limits#key-vault-limits) that can be made against a single vault, and across all of the vaults within an Azure subscription. Ensure that you follow the [throttling guidance](/azure/key-vault/general/overview-throttling). It's important to follow the recommended practices including caching the secrets that you retrieve, and using [envelope encryption](/azure/security/fundamentals/encryption-atrest#envelope-encryption-with-a-key-hierarchy) to avoid sending every encryption operation to Key Vault. When you follow these best practices, you can run high-scale solutions against a single vault.
+When you work with a shared vault, it's important to consider the number of operations you perform against the vault. Operations include reading secrets, and performing encryption or decryption operations. [Key Vault imposes limits on the number of requests](/azure/azure-resource-manager/management/azure-subscription-service-limits#key-vault-limits) that can be made against a single vault, and across all of the vaults within an Azure subscription. Ensure that you follow the [throttling guidance](/azure/key-vault/general/overview-throttling). It's important to follow the recommended practices including caching the secrets that you retrieve, and using [envelope encryption](/azure/security/fundamentals/encryption-atrest#envelope-encryption-with-a-key-hierarchy) to avoid sending every encryption operation to Key Vault. When you follow these best practices, you can run high-scale solutions against a single vault.
 
-If you need to store tenant-specific secrets, keys, or certificates, consider using a naming convetion like a naming prefix. For example, you might prepend the tenant ID to the name of each secret. Then, your application code can easily load the value of a specific secret for a specific tenant.
+If you need to store tenant-specific secrets, keys, or certificates, consider using a naming convention like a naming prefix. For example, you might prepend the tenant ID to the name of each secret. Then, your application code can easily load the value of a specific secret for a specific tenant.
 
 ### Vault per tenant, in provider's subscription
 
@@ -48,7 +48,7 @@ This approach makes sense when you have separate application deployments for eac
 There's no limit to the number of vaults you can deploy into an Azure subscription. However, two limits you should consider are:
 
 - [There are subscription-wide limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#key-vault-limits) on the number of requests in a time period. These limits regardless of the number of vaults in the subscription. So, it's important to follow [throttling guidance](/azure/key-vault/general/overview-throttling) even when you have tenant-specific vaults.
-- There is a [limit to the number of Azure role assignments that you can create within a subscription](/azure/role-based-access-control/troubleshooting#azure-role-assignments-limit). When you deploy and configure large numbers of vaults in a subscription, you might approach these limits.
+- There's a [limit to the number of Azure role assignments that you can create within a subscription](/azure/role-based-access-control/troubleshooting#azure-role-assignments-limit). When you deploy and configure large numbers of vaults in a subscription, you might approach these limits.
 
 ### Vault per tenant, in the tenant's subscription
 
@@ -81,7 +81,7 @@ More information:
 
 ### Managed HSM and Dedicated HSM
 
-If you need to perform a large number of operations per second, and the Key Vault operation limits are insufficient, consider using either [Managed HSM](/azure/key-vault/managed-hsm/overview) or [Dedicated HSM](/azure/dedicated-hsm/overview). Both products provide you with a reserved amount of capacity, but they're generally more costly than Key Vault. Additionally, be aware of the limits on the number of instances of these services that you can deploy into each region.
+If you need to perform a large number of operations per second, and the Key Vault operation limits are insufficient, consider using either [Managed HSM](/azure/key-vault/managed-hsm/overview) or [Dedicated HSM](/azure/dedicated-hsm/overview). Both products provide you with a reserved amount of capacity, but they're usually more costly than Key Vault. Additionally, be aware of the limits on the number of instances of these services that you can deploy into each region.
 
 More information:
 - [How do I decide whether to use Azure Key Vault or Azure Dedicated HSM?](/azure/dedicated-hsm/faq#how-do-i-decide-whether-to-use-azure-key-vault-or-azure-dedicated-hsm-)
