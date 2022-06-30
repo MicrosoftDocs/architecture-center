@@ -33,11 +33,11 @@ Azure Cache for Redis is commonly used to increase the performance of your solut
 - Database per tenant
   - Provides logical isolation
   - Doesn't work with clustered instances, and only applies to basic/standard/premium
-  - There's a limit of how many databases can be on a cache instance (see https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-cache-for-redis-limits)
+  - There's a limit of how many databases can be on a cache instance (see /azure/azure-resource-manager/management/azure-subscription-service-limits#azure-cache-for-redis-limits)
   - Could be useful for migration scenarios, where you're taking a single-tenant application (which is not aware of multitenancy) and using a single shared cache, but without being able to update the application's logic to use tenant key prefixes or tenant-specific data structures.
   - But:
     - Authorization applies to the whole cache
-    - Share compute resources, so subject to [Noisy Neighbor problem](https://docs.microsoft.com/azure/architecture/antipatterns/noisy-neighbor/noisy-neighbor)
+    - Share compute resources, so subject to [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml)
     - Migration to another cache requires manual intervention
 - Single cache instance and database shared among all tenants
   - Can use either key prefixes or data structures like [Sets](https://redis.io/docs/manual/data-types/#sets) or [Hashes](https://redis.io/docs/manual/data-types/#hashes) for each tenant's data. Redis Sets support large numbers of keys.
@@ -51,7 +51,7 @@ Azure Cache for Redis is commonly used to increase the performance of your solut
 ### Active geo-replication
 
 - Many multitenant solutions need to be geo-distributed. You might share an globally distributed application tier and the applications need to access a local cache for high performance.
-- [Multiple caches can be linked together in active-active configuration](https://techcommunity.microsoft.com/t5/azure-developer-community-blog/how-to-utilize-active-geo-replication-in-azure-cache-for-redis/ba-p/3074404) ([docs](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-high-availability#active-geo-replication))
+- [Multiple caches can be linked together in active-active configuration](https://techcommunity.microsoft.com/t5/azure-developer-community-blog/how-to-utilize-active-geo-replication-in-azure-cache-for-redis/ba-p/3074404) ([docs](/azure/azure-cache-for-redis/cache-high-availability#active-geo-replication))
 - Enterprise tier only.
 
 ## Next steps
