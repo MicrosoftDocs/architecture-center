@@ -136,11 +136,13 @@ In this architecture, stamp resources are [Azure Kubernetes Service](/azure/aks/
 
 ### Scale unit
 
-A stamp can also be considered as a scale unit (SU). All components and services within a given stamp are configured and tested to serve requests in a given range. 
+A stamp can also be considered as a scale unit (SU). All components and services within a given stamp are configured and tested to serve requests in a given range. Here's an example of a scale unit used in the implementation.
 
 ![Stamp resources in a scale unit](./images/mission-critical-unit.png)
 
 Each scale unit is deployed into an Azure region and is therefore primarily handling traffic from that given area (although it can take over traffic from other regions when needed). This geographic spread will likely result in load patterns and business hours that might vary from region to region and as such, every SU is designed to scale-in/-down when idle.
+
+You can deploy a new stamp to scale. Inside a stamp, individual resources can also be [units of scale](/azure/architecture/framework/mission-critical/mission-critical-application-design#scale-unit-architecture).
 
 Here are some scaling and availability considerations when choosing Azure services in a unit:
 
@@ -172,7 +174,7 @@ The cluster is also configured for **automatic node image upgrades** and to scal
 
 Some components such as cert-manager and ingress-nginx require container images from external container registries. If those repositories or images are unavailable, new instances on new nodes (where the image is not cached) might not be able to start. This risk could be mitigated by importing these images to own Azure Container Registry.
 
-**Observability is critica**l in this architecture because stamps are ephemeral. Diagnostic settings are configured to store all log and metric data in a regional Log Analytics workspace. Also, AKS Container Insights is enabled through an in-cluster OMS Agent. This agent allows the cluster to send monitoring data to the Log Analytics workspace.
+**Observability is critical** in this architecture because stamps are ephemeral. Diagnostic settings are configured to store all log and metric data in a regional Log Analytics workspace. Also, AKS Container Insights is enabled through an in-cluster OMS Agent. This agent allows the cluster to send monitoring data to the Log Analytics workspace.
 
 > For other considerations about the compute cluster, see [Misson critical guidance in Well-architected Framework: Container Orchestration and Kubernetes](/azure/architecture/framework/mission-critical/mission-critical-application-platform#container-orchestration-and-kubernetes).
 
