@@ -127,7 +127,7 @@ All components of the solution either provide transparent built-in scalability o
 
 ### Walkthrough
 
-The solution is made up of several [Bicep](/azure/azure-resource-manager/bicep) files that deploy the required infrastructure. You can deploy the solution by following the instructions in the [Hardened Web App GitHub repository](/Azure/hardened-webapp).
+The solution is made up of several [Bicep](/azure/azure-resource-manager/bicep) files that deploy the required infrastructure. You can deploy the solution by following the instructions in the [Hardened Web App GitHub repository](https://github.com/Azure/hardened-webapp).
 
 ## Contributors
 
