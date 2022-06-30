@@ -64,8 +64,7 @@ If your tenants configure network access controls on their vaults, ensure that y
 
 ### Tags
 
-- Key Vault supports tagging secrets, certificates, and keys. So you could use them to attach the tenant ID or other metadata.
-- However, you can't query by tags, so this is more for management purposes than for application logic.
+Key Vault supports tagging secrets, certificates, and keys with custom metadata, so you can use a tag to track the tenant ID for each tenant-specific secret. However, Key Vault doesn't support querying by tags, so this feature is more useful for management purposes than for use within your application logic.
 
 More information:
 - [Secret tags](/azure/key-vault/secrets/about-secrets#secret-tags)
