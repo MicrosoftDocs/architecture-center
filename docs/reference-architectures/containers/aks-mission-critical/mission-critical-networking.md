@@ -34,15 +34,12 @@ The regional stamps are the deployable unit in the architecture. The ability to 
 The architecture is intentional in defining the regional stamps as short-lived. The global state of the infrastructure is stored in the regional resources.
 
 A global load balancer is required to route traffic to healthy stamps and provide security services. It must have certain capabilities.
+
 - Health probing is highly recommended so that the load balancer can check the health of the origin before routing traffic.
+
 - Distribute weighted traffic.
 
 Optionally, it should be able to perform caching at edge. Also, provide some security assurance for ingress through the use of web application firewall (WAF).
-
-
-
-
-
 
 :::image type="content" source="./images/network-diagram-all-standard.png" alt-text="Diagram of network for reference architecture.":::
 
@@ -50,12 +47,13 @@ Optionally, it should be able to perform caching at edge. Also, provide some sec
 
 The application defined in the architecture is internet facing and has several requirements:
 
-* A routing solution that is global and can route between independent regional stamps.
+- A routing solution that is global and can route between independent regional stamps.
 
-* Low-latency in health checking and the ability to stop sending traffic to unhealthy stamps.
+- Low-latency in health checking and the ability to stop sending traffic to unhealthy stamps.
 
+- Prevention of malicious attacks at the edge.
 
-* Prevention of malicious attacks at the edge.
+- Provide caching abilities at the edge.
 
 The entry point for all traffic in the design is through Azure Front Door. Front Door is a global load balancer that routes HTTP(S) traffic to registered backends/origins. Front door uses health probes that issue requests to a URI in each backend/origin. In the reference implementation, the URI called is a health service. The health service advertises the health of the stamp. Front Door uses the response to determine the health of an individual stamp and route traffic to healthy stamps capable of servicing application requests.
 
@@ -69,21 +67,19 @@ Azure Web Application Firewall, integrated with Azure Front Door, is used to pre
 
 The API in the architecture uses Azure Virtual Networks as the traffic isolation boundary. Components in one virtual network can't communicate directly with components in another virtual network.
 
-
 Requests to the application platform are distributed with a standard SKU external Azure Load Balancer. There is a check to ensure that traffic reaching the load balancer was routed via Azure Front Door. This check also ensures that all traffic was inspected by the Azure WAF.
 
 Build agents used for the operations and deployment of the architecture must be able to reach into the isolated network. The isolated network can be opened up to allow the agents to communicate. Alternatively, self-hosted agents can be deployed in the virtual network. 
 
 Monitoring of the network throughput, performance of the individual components, and health of the application is required.
 
-
 ## Application platform communication dependency
 
 The application platform used with the individual stamps in the infrastructure, has the following communication requirements:
 
-* The application platform must be able to communicate securely with Microsoft PaaS services.
+- The application platform must be able to communicate securely with Microsoft PaaS services.
 
-* The application platform must be able to communicate securely with other services when needed.
+- The application platform must be able to communicate securely with other services when needed.
 
 The architecture as defined uses Azure Key Vault to store secrets, such as connection strings and API keys, to securely communicate over the internet to Azure PaaS services. There are possible risks to exposing the application platform over the internet for this communication. Secrets can be compromised and increased security and monitoring of the public endpoints is recommended.
 
