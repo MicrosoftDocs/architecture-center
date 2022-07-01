@@ -26,11 +26,11 @@ A globally distributed design is recommended where Azure services come together 
 
 The regional stamps are the deployable unit in the architecture. The ability to quickly deploy a new stamp provide scalability and supports high availability. The stamps follow an isolated [virtual network design](/azure/architecture/framework/mission-critical/mission-critical-networking-connectivity#isolated-virtual-networks). Cross-stamp traffic isn't recommended. Virtual network peerings or VPN connections to other stamps aren't required.
 
-The architecture is intentional in defining the regional stamps as short-lived. The global state of the infrastructure is stored in the regional resources.
+The architecture is intentional in defining the regional stamps as short-lived. The global state of the infrastructure is stored in the global resources.
 
 A global load balancer is required to route traffic to healthy stamps and provide security services. It must have certain capabilities.
 
-- Health probing is highly recommended so that the load balancer can check the health of the origin before routing traffic.
+- Health probing is required so that the load balancer can check the health of the origin before routing traffic.
 
 - Distribute weighted traffic.
 
@@ -41,8 +41,6 @@ Optionally, it should be able to perform caching at edge. Also, provide some sec
 ## Traffic ingress
 
 The application defined in the architecture is internet facing and has several requirements:
-
-- A routing solution that is global and can route between independent regional stamps.
 
 - Low-latency in health checking and the ability to stop sending traffic to unhealthy stamps.
 
@@ -62,7 +60,7 @@ Azure Web Application Firewall, integrated with Azure Front Door, is used to pre
 
 The API in the architecture uses Azure Virtual Networks as the traffic isolation boundary. Components in one virtual network can't communicate directly with components in another virtual network.
 
-Requests to the application platform are distributed with a standard SKU external Azure Load Balancer. There is a check to ensure that traffic reaching the load balancer was routed via Azure Front Door. This check also ensures that all traffic was inspected by the Azure WAF.
+Requests to the application platform are distributed with a standard SKU external Azure Load Balancer. There is a check to ensure that traffic reaching the load balancer was routed via Azure Front Door. This check ensures that all traffic was inspected by the Azure WAF.
 
 Build agents used for the operations and deployment of the architecture must be able to reach into the isolated network. The isolated network can be opened up to allow the agents to communicate. Alternatively, self-hosted agents can be deployed in the virtual network. 
 
