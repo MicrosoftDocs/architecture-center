@@ -1,6 +1,6 @@
 
 
-This reference architecture shows how to deploy virtual machines (VMs) and a virtual network configured for an [N-tier](../../guide/architecture-styles/n-tier.yml) application, using SQL Server on Windows for the data tier. [**Deploy this solution**](#deploy-the-solution).
+This reference architecture shows how to deploy virtual machines (VMs) and a virtual network configured for an [N-tier](../../guide/architecture-styles/n-tier.yml) application, using SQL Server on Windows for the data tier.
 
 [![N-tier architecture using Microsoft Azure](./images/n-tier-sql-server.png)](./images/n-tier-sql-server.png)
 
@@ -232,50 +232,6 @@ In order to test the Azure environment where the applications are running, it sh
 
 For more information, see the Operational Excellence section in [Azure Well-Architected Framework][WAF-devops].
 
-## Deploy the solution
-
-A deployment for this reference architecture is available on [GitHub][github-folder]. The entire deployment can take up to an hour, which includes running the scripts to configure AD DS, the Windows Server failover cluster, and the SQL Server availability group.
-
-If you specify a region that supports availability zones, the VMs are deployed into availability zones. Otherwise, the VMs are deployed into availability sets. For a list of regions that support availability zones, see [Services support by region](/azure/availability-zones/az-overview#services-support-by-region).
-
-### Prerequisites
-
-[!INCLUDE [ref-arch-prerequisites.md](../../../includes/ref-arch-prerequisites.md)]
-
-### Deployment steps
-
-1. Navigate to the `virtual-machines\n-tier-windows` folder of the reference architectures GitHub repository.
-
-1. Open the `n-tier-windows.json` file.
-
-1. In the `n-tier-windows.json` file, search for all instances of `[replace-with-password]` and `[replace-with-safe-mode-password]` and replace them with a strong password. Save the file.
-
-    > [!NOTE]
-    > If you change the administrator user name, you must also update the `extensions` blocks in the JSON file.
-
-1. Run the following command to deploy the architecture.
-
-    ```azurecli
-    azbb -s <your subscription_id> -g <resource_group_name> -l <location> -p n-tier-windows.json --deploy
-    ```
-
-1. When the deployment is complete, open the Azure portal and navigate to the resource group. Find the storage account that begins with 'sqlcw'. This is the storage account that will be used for the cluster's cloud witness. Navigate into the storage account, select **Access Keys**, and copy the value of `key1`. Also copy the name of the storage account.
-
-1. Open the `n-tier-windows-sqlao.json` file.
-
-1. In the `n-tier-windows-sqlao.json` file, search for all instances of `[replace-with-password]` and `[replace-with-sql-password]` and replace them with a strong password.
-
-    > [!NOTE]
-    > If you change the administrator user name, you must also update the `extensions` blocks in the JSON file.
-
-1. In the `n-tier-windows-sqlao.json` file, search for all instances of `[replace-with-storageaccountname]` and `[replace-with-storagekey]` and replace them with the values from step 5. Save the file.
-
-1. Run the following command to configure SQL Server Always On.
-
-    ```azurecli
-    azbb -s <your subscription_id> -g <resource_group_name> -l <location> -p n-tier-windows-sqlao.json --deploy
-    ```
-
 ## Next steps
 
 - [Microsoft Learn module: Tour the N-tier architecture style](/learn/modules/n-tier-architecture/)
@@ -294,7 +250,6 @@ If you specify a region that supports availability zones, the VMs are deployed i
 [ddos-best-practices]: /azure/security/fundamentals/ddos-best-practices
 [ddos]: /azure/virtual-network/ddos-protection-overview
 [dmz]: ../dmz/secure-vnet-dmz.yml
-[github-folder]: https://github.com/mspnp/reference-architectures/tree/master/virtual-machines/n-tier-windows
 [load-balancer-hashing]: /azure/load-balancer/components#load-balancing-rules
 [load-balancer]: /azure/load-balancer/load-balancer-standard-overview
 [multi-dc]: ./multi-region-sql-server.yml
