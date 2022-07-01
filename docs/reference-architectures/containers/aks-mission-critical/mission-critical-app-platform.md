@@ -62,11 +62,11 @@ There are other foundational resources in this design, such as Azure Active Dire
 
 ### Global load balancer
 
-Azure Front Door is used as the _only entry point_ for user traffic. If Front Door becomes unavailable, the end user will see the system as being down. Azure guarantees that Azure Front Door will deliver the requested content without error 99.99% of the time. For more details, see [Front Door service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-standard-and-premium-tier-service-limits).
+Azure Front Door is used as the _only entry point_ for user traffic. Azure guarantees that Azure Front Door will deliver the requested content without error 99.99% of the time. For more details, see [Front Door service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-standard-and-premium-tier-service-limits). If Front Door becomes unavailable, the end user will see the system as being down. 
 
-The Front Door instance sends traffic to the configured backend services, such as the compute cluster that hosts the API and the origin frontend SPA. **Backend misconfigurations in Front Door can lead to outages**. To avoid outages due to misconfigurations, you should extensively test your Front Door settings.
+The Front Door instance sends traffic to the configured backend services, such as the compute cluster that hosts the API and the frontend SPA. **Backend misconfigurations in Front Door can lead to outages**. To avoid outages due to misconfigurations, you should extensively test your Front Door settings.
 
-Another common error can come from **misconfigured or missing TLS certificates**, which can prevent users from using the front end or Front Door communicating to the backend. Mitigation might require manual intervention. For example, you might choose to roll back to the previous configuration and re-issue the certificate, if possible. Regardless, expect unavailability while changes take effect.
+Another common error can come from **misconfigured or missing TLS certificates**, which can prevent users from using the front end or Front Door communicating to the backend. Mitigation might require manual intervention. For example, you might choose to roll back to the previous configuration and re-issue the certificate, if possible. Regardless, expect unavailability while changes take effect. Using managed certificates offered by Front door is recommended to reduce the operational overhead, such as handling expiration.
 
 Front Door offers many additional capabilities besides global traffic routing. An important capability is the Web Application Firewall (WAF), because Front Door is able to inspect traffic which is passing through. When configured in the _Prevention_ mode, it will block suspicious traffic before even reaching any of the backends.
 
@@ -76,7 +76,7 @@ For information about Front Door capabilities, see [Frequently asked questions f
 
 ### Container Registry
 
-Azure Container Registry is used to store Open Container Initiative (OCI) artifacts, specifically helm charts and container images. It doesn't participate in the request flow and is only accessed periodically. So, a single resource instance can be considered. Container registry is required to exist before stamp resources are deployed and shouldn't have dependency on regional layer resources.
+Azure Container Registry is used to store Open Container Initiative (OCI) artifacts, specifically helm charts and container images. It doesn't participate in the request flow and is only accessed periodically. Container registry is required to exist before stamp resources are deployed and shouldn't have dependency on regional layer resources.
 
 Enable zone redundancy and geo-replication of registries so that runtime access to images is fast and resilient to failures. In case of unavailability, the instance can then fail over to replica regions and requests are automatically re-routed to another region. Expect transient errors in pulling images until failover is complete.
 
@@ -88,7 +88,7 @@ For more details, see [Best practices for Azure Container Registry](/azure/conta
 
 ### Database
 
-It's recommended that all state is stored globally in a database separated from regional stamps. Build redundancy by deploying the database across regions. For mission-critical workloads, **data consistency should be the primary concern**. Also, in case of a failure, write requests to the database should still be functional.
+It's recommended that all state is stored globally in a database separated from regional stamps. Build redundancy by deploying the database across regions. For mission-critical workloads, **synchronizing data across regions should be the primary concern**. Also, in case of a failure, write requests to the database should still be functional.
 
 Data replication in an active-active configuration is strongly recommended. The application should be able to instantly connect with another region. All instances should be able to handle read _and_ write requests.
 
@@ -106,7 +106,7 @@ Azure Log Analytics is used to store diagnostic logs from all global resources. 
 
 ### Considerations for foundational services
 
-The system is likely to use other critical platform services that can cause the entire system to be at risk, such as Azure DNS and Azure Active Directory (AD). Unavailability of those services is unlikely. Azure DNS guarantees 100% availability SLA for valid DNS requests. Azure Active Directory guarantees at least 99.9% uptime. Still, you should be aware of the impact in the event of a failure.
+The system is likely to use other critical platform services that can cause the entire system to be at risk, such as Azure DNS and Azure Active Directory (AD). Azure DNS guarantees 100% availability SLA for valid DNS requests. Azure Active Directory guarantees at least 99.99% uptime. Still, you should be aware of the impact in the event of a failure.
 
 Taking hard dependency on foundational services is inevitable because many Azure services depend on them. Expect disruption in the system if they are unavailable. For instance:
 
@@ -115,7 +115,7 @@ Taking hard dependency on foundational services is inevitable because many Azure
 
 In both cases, both Azure services will be impacted if Azure DNS is unavailable. Name resolution for user requests from Front Door will fail; Docker images won't be pulled from the registry. Using an external DNS service as backup won't mitigate the risk because many Azure services don't allow such configuration and rely on internal DNS. Expect full outage.
 
-Similarly, Azure AD is used for control plane operations such as creating new AKS nodes, pulling images from Container Registry, or accessing Key Vault on pod startup. If Azure AD is unavailable, existing components shouldn't be affected, but overall performance may be degraded. For example, new pods or AKS nodes added while Azure AD is unavailable won't be functional. Consider scaling in during this time and expect decreased user experience.
+Similarly, Azure AD is used for control plane operations such as creating new AKS nodes, pulling images from Container Registry, or accessing Key Vault on pod startup. If Azure AD is unavailable, existing components shouldn't be affected, but overall performance may be degraded. New pods or AKS nodes won't be functional. So, in case scale out operations are required during this time, expect decreased user experience.
 
 ## Deployment stamp resources
 
@@ -146,7 +146,7 @@ You can deploy a new stamp to scale. Inside a stamp, individual resources can al
 
 Here are some scaling and availability considerations when choosing Azure services in a unit:
 
-- **Evaluate capacity relations** between all resources in a scale unit. For example, to handle 100 incoming requests, 5 ingress controller pods and 3 catalog service pods and 1000 RUs in Cosmos DB would be needed. So, when autoscaling the ingress pods, expect scaling of the catalog service and cosmos RUs given those ranges.
+- **Evaluate capacity relations** between all resources in a scale unit. For example, to handle 100 incoming requests, 5 ingress controller pods and 3 catalog service pods and 1000 RUs in Cosmos DB would be needed. So, when autoscaling the ingress pods, expect scaling of the catalog service and Cosmos DB RUs given those ranges.
 
 - **Load test the services** to determine a range within which requests will be served. Based on the results configure minimum and maximum instances and target metrics. When the target is reached, you can choose to automate scaling of the entire unit.
 
@@ -166,13 +166,13 @@ To increase reliability, the cluster is configured to **use all three availabili
 
 Other factors such as scale limits, compute capacity, subscription quota can also impact reliability. If there isn't enough capacity or limits are reached, scale out and scale up operations will fail but existing compute is expected to function.
 
-The cluster only uses the default node pool to run the simple workload, but autoscaling is enabled to let the node pool **automatically scale out if needed**, which improves reliability. For complex workloads, multiple node pools are necessary, allowing the system resources and applications to run in separate node pools. When using multiple node pools, all node pools should be autoscaled.  
+The cluster has autoscaling enabled to let node pools **automatically scale out if needed**, which improves reliability. When using multiple node pools, all node pools should be autoscaled.  
 
 At the pod level, the Horizontal Pod Autoscaler (HPA) scales pods based on configured CPU, memory, or custom metrics. Load test the components of the workload to establish a baseline for the autoscaler and HPA values.
 
 The cluster is also configured for **automatic node image upgrades** and to scale appropriately during those upgrades. This scaling allows for zero downtime while upgrades are being performed. If the cluster in one stamp fails during an upgrade, other clusters in other stamps shouldn't be affected, but upgrades across stamps should occur at different times to maintain availability. Also, cluster upgrades are automatically rolled across the nodes so that they aren't unavailable at the same time.
 
-Some components such as cert-manager and ingress-nginx require container images from external container registries. If those repositories or images are unavailable, new instances on new nodes (where the image isn't cached) might not be able to start. This risk could be mitigated by importing these images to own Azure Container Registry.
+Some components such as cert-manager and ingress-nginx require container images from external container registries. If those repositories or images are unavailable, new instances on new nodes (where the image isn't cached) might not be able to start. This risk could be mitigated by importing these images to the environment's Azure Container Registry.
 
 **Observability is critical** in this architecture because stamps are ephemeral. Diagnostic settings are configured to store all log and metric data in a regional Log Analytics workspace. Also, AKS Container Insights is enabled through an in-cluster OMS Agent. This agent allows the cluster to send monitoring data to the Log Analytics workspace.
 
@@ -182,7 +182,7 @@ Some components such as cert-manager and ingress-nginx require container images 
 
 Azure Key Vault is used to store global secrets such as connection strings to the database and stamp secrets such as the Event Hubs connection string.
 
-This architecture uses a [Secrets Store CSI driver](/azure/aks/csi-secrets-store-driver) in the compute cluster to get/set secrets from Key Vault. Secrets are needed when new pods are spawned. If Key Vault is unavailable, new pods might not get started. As a result there might be disruption; scale out operations can be impacted, updates can fail, new deployments can't be executed.
+This architecture uses a [Secrets Store CSI driver](/azure/aks/csi-secrets-store-driver) in the compute cluster to get secrets from Key Vault. Secrets are needed when new pods are spawned. If Key Vault is unavailable, new pods might not get started. As a result, there might be disruption; scale out operations can be impacted, updates can fail, new deployments can't be executed.
 
 Key Vault has a limit on the number of operations. Due to the automatic update of secrets, the limit can be reached if there are many pods. You can **choose to decrease the frequency of updates** to avoid this situation.
 
@@ -196,7 +196,7 @@ In this architecture, Standard SKU is used and zone redundancy is enabled for hi
 
 Event Hubs health is verified by the HealthService component running on the compute cluster. It performs periodic checks against various resources. This is useful in detecting unhealthy conditions. For example, if messages can't be sent to the event hub, the stamp  would be unusable for any write operations. HealthService should automatically detect this condition and report unhealthy state to Front Door, which will take the stamp out of rotation.
 
-For scalability, enabling auto-inflate through a Terraform variable is recommended.
+For scalability, enabling auto-inflate is recommended.
 
 > For other considerations about messaging, see [Misson-critical guidance in Well-architected Framework: Asynchronous messaging](/azure/architecture/framework/mission-critical/mission-critical-application-platform#asynchronous-messaging).
 
