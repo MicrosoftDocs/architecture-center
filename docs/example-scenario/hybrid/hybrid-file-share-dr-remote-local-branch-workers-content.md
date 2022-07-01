@@ -82,7 +82,7 @@ Azure Files supports Azure Backup, and its use is highly recommended. This workl
 
 ### DevOps
 
-Azure Files has a fully-integrated API that can be deployed through Bicep, Terraform, and Powershell, and therefore can be managed through Azure Devops and Azure Pipelines.
+Azure Files has a fully-integrated API that can be deployed through Bicep, Terraform, and PowerShell, and therefore can be managed through Azure Devops and Azure Pipelines.
 
 ### Cost optimization
 
