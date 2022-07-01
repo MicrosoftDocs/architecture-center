@@ -42,7 +42,7 @@ The following recommendations apply to most scenarios. Follow these recommendati
 
 ### Resource groups
 
-The sample solution included in this document uses a single Azure resource group. In practice, the hub and each spoke can be implemented in different resource groups and even different subscriptions. When you peer virtual networks in different subscriptions, both subscriptions can be associated with the same or different Azure Active Directory tenant. This flexibility allows for decentralized management of each workload while sharing services maintained in the hub.
+The sample solution included in this document uses a single Azure resource group. In practice, the hub and each spoke can be implemented in different resource groups and even different subscriptions. When you peer virtual networks in different subscriptions, both subscriptions can be associated with the same or different Azure Active Directory tenant. This flexibility allows for decentralized management of each workload while sharing services maintained in the hub. See [Create a virtual network peering - Resource Manager, different subscriptions and Azure Active Directory tenants](/azure/virtual-network/create-peering-different-subscriptions).
 
 ### Virtual network and GatewaySubnet
 
@@ -221,6 +221,7 @@ Explore the following related architectures:
 - [Firewall and Application Gateway for virtual networks](../../example-scenario/gateway/firewall-application-gateway.yml)
 - [Extend an on-premises network using VPN](/azure/expressroute/expressroute-howto-coexist-resource-manager)
 - [Troubleshoot a hybrid VPN connection](./troubleshoot-vpn.yml)
+- [Define an Azure network topology](/azure/cloud-adoption-framework/ready/azure-best-practices/define-an-azure-network-topology)
 - [Hybrid connection](../../solution-ideas/articles/hybrid-connectivity.yml)
 - [Connect standalone servers by using Azure Network Adapter](../../hybrid/azure-network-adapter.yml)
 - [Secure and govern workloads with network level segmentation](./network-level-segmentation.yml)
