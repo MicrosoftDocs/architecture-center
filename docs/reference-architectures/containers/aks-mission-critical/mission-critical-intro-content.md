@@ -233,6 +233,7 @@ We suggest that you explore these design areas for recommendations and best prac
 |[Operational procedures](/azure/architecture/framework/mission-critical/mission-critical-operational-procedures)|Processes related to deployment, key management, patching and updates.|
 
 ** Indicates design area considerations that are specific to this reference architecture.
+
 ## Related resources
 
 For product documentation on the Azure services used in this architecture, see these articles. 
