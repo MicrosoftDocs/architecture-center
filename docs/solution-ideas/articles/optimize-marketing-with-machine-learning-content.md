@@ -21,7 +21,7 @@ Organizations nowadays are capitalizing in various ways to extract knowledge and
 ## Architecture
 
 ![Diagram of this marketing optimization architecture.][architecture-png]
-*Download an [SVG file][architecture-svg] of this architecture.*
+*Download a [SVG file][architecture-svg] of this architecture.*
 
 ### Dataflow
 
