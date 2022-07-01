@@ -32,7 +32,7 @@ A global load balancer is required to route traffic to healthy stamps and provid
 
 - Health probing is highly recommended so that the load balancer can check the health of the origin before routing traffic.
 
-- Distribute weighted traffic.
+- Weighted traffic distribution.
 
 Optionally, it should be able to perform caching at edge. Also, provide some security assurance for ingress through the use of web application firewall (WAF).
 
