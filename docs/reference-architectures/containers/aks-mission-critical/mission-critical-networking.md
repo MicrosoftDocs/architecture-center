@@ -78,7 +78,7 @@ The application platform used with the individual stamps in the infrastructure, 
 
 The architecture as defined uses Azure Key Vault to store secrets, such as connection strings and API keys, to securely communicate over the internet to Azure PaaS services. There are possible risks to exposing the application platform over the internet for this communication. Secrets can be compromised and increased security and monitoring of the public endpoints is recommended.
 
-:::image type="content" source="./images/network-diagram-vnet-paasdependencies-standard.png" alt-text="Diagram of the application platform communication dependencies.":::
+:::image type="content" source="./images/network-diagram-vnet-paas-dependencies-standard.png" alt-text="Diagram of the application platform communication dependencies.":::
 
 ## Extended networking considerations
 
@@ -112,7 +112,7 @@ The public endpoints of the individual Azure PaaS services can be configured to 
 
 Self-hosted build agents must be used for the stamp deployment the same as above. The management of these agents comes with a maintenance overhead.
 
-:::image type="content" source="./images/network-diagram-vnet-paasdependencies.png" alt-text="Diagram of the application platform communication dependencies with private endpoints.":::
+:::image type="content" source="./images/network-diagram-vnet-paas-dependencies.png" alt-text="Diagram of the application platform communication dependencies with private endpoints.":::
 
 ## Next steps
 
