@@ -117,7 +117,7 @@ Self-hosted build agents must be used for the stamp deployment the same as above
 
 ## Next steps
 
-Deploy the reference implementation to get a full understanding of reources and their configuration.
+Deploy the reference implementation to get a full understanding of the resources and their configuration used in this architecture.
 
 > [!div class="nextstepaction"]
 > [Implementation: Mission-Critical Online](https://github.com/Azure/Mission-Critical-Online)
