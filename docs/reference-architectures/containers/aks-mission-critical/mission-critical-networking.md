@@ -54,7 +54,6 @@ The application defined in the architecture is internet facing and has several r
 
 * Low-latency in health checking and the ability to stop sending traffic to unhealthy stamps.
 
-* Health monitoring of the stamps to provide fail-over in the event of an application or networking issue.
 
 * Prevention of malicious attacks at the edge.
 
