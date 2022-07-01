@@ -29,7 +29,7 @@ The regional distribution of resources in the reference architecture requires a 
 
 A globally distributed design is recommended where Azure services come together to provide a highly available application. The load balancer combined with regional stamps provides that guarantee through reliable connectivity.
 
-The regional stamps are the deployable unit in the architecture. The ability to quickly deploy a new stamp provide scalability and supports high availability. The stamps follow an isolated [virtual network design](/azure/architecture/framework/mission-critical/mission-critical-networking-connectivity#isolated-virtual-networks). Cross-stamp traffic isn't required or recommended. Virtual network peerings or VPN connections to other stamps aren't required.
+The regional stamps are the deployable unit in the architecture. The ability to quickly deploy a new stamp provide scalability and supports high availability. The stamps follow an isolated [virtual network design](/azure/architecture/framework/mission-critical/mission-critical-networking-connectivity#isolated-virtual-networks). Cross-stamp traffic isn't recommended. Virtual network peerings or VPN connections to other stamps aren't required.
 
 The architecture is intentional in defining the regional stamps as short-lived. The global state of the infrastructure is stored in the regional resources.
 
