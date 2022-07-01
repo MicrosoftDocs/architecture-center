@@ -38,7 +38,7 @@ An Internet-of-Things (IoT) *monitor and manage loop* is a supervisory system th
 
 ### Potential use cases
 
-This solution is ideal for the energy, environment, manufacturing, education, facilites, and real-estate industries. Some example scenarios for monitor and manage loops include:
+This solution is ideal for the energy, environment, manufacturing, education, facilities, and real-estate industries. Some example scenarios for monitor and manage loops include:
 
 - Smart garbage collection: Direct the truck to the route that has the most need for garbage collection.
 - Smart campus: Issue campus evacuation alert upon fire detection in multiple buildings.
