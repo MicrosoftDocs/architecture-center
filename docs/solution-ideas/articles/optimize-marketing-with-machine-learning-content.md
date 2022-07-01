@@ -62,14 +62,14 @@ Learn more with the following learning paths:
 
 * [Azure Machine Learning documentation][aml-docs]
 * [Azure Synapse Analytics documentation][synapse-docs]
-* [Cognitive Services](https://azure.microsoft.com/en-us/services/cognitive-services/)
-* [Cognititve Services Documentation](https://docs.microsoft.com/en-us/azure/cognitive-services/)
+* [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)
+* [Cognititve Services Documentation](https://docs.microsoft.com/azure/cognitive-services/)
 * [Power BI documentation][pbi-docs]
-* [Azure Web App Service](https://azure.microsoft.com/en-us/services/app-service/web/)
-* [Azure Web App Service Documentation](https://docs.microsoft.com/en-us/azure/app-service/overview)
+* [Azure Web App Service](https://azure.microsoft.com/services/app-service/web/)
+* [Azure Web App Service Documentation](/azure/app-service/overview)
 * [Train machine learning models in Azure Synapse Analytics][apache-spark-machine-learning-training]
 * [Machine learning model scoring for dedicated SQL pools in Azure Synapse Analytics][tutorial-sql-pool-model-scoring-wizard]
-* [Machine learning with Apache Spark in Azure Synapse Analytics](https://docs.microsoft.com/en-us/azure/synapse-analytics/spark/apache-spark-machine-learning-concept)
+* [Machine learning with Apache Spark in Azure Synapse Analytics](/azure/synapse-analytics/spark/apache-spark-machine-learning-concept)
 
 <!-- links -->
 [architecture-png]: ../media/optimize-marketing-with-machine-learning.png

@@ -32,7 +32,6 @@ products:
   - azure-machine-learning
   - azure-data-lake
   - power-bi
-  - azure-app-service-web
 thumbnailUrl: /azure/architecture/browse/thumbs/optimize-marketing-with-machine-learning.png
 content: |
   [!include[](optimize-marketing-with-machine-learning-content.md)]
