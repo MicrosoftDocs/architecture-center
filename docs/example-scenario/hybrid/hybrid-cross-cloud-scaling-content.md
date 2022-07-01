@@ -1,6 +1,7 @@
 This solution shows how to use Azure Traffic Manager to extend an app that's located in a local cloud by connecting it to public cloud resources. A change in routing is triggered by an increase or decrease in demand, and resources are added or removed in the cloud. These resources provide redundancy, rapid availability, and geo-compliant routing.
 
 ## Potential use cases
+
 Global enterprises need their apps to be secure, reliable, and available. They need to meet increases in demand and use the right infrastructure to support that demand. It can be difficult to balance costs and maintenance with business-data security, storage, and real-time availability.
 
 When an app can't increase capacity to meet unexpected increases in demand, it can service only a fixed number of users. This lack of scalability can result in users not reaching the app during peak usage times.
@@ -67,11 +68,11 @@ The key benefit of cross-cloud scaling is the ability to deliver on-demand scali
 - See the [Azure Traffic Manager documentation](/azure/traffic-manager/traffic-manager-overview) to learn more about how this DNS-based traffic load balancer works.
 - See [Hybrid application design considerations](/hybrid/app-solutions/overview-app-design-considerations) to learn more about best practices.
 - Learn about the [Azure Stack portfolio of products and solutions](/azure-stack).
-- When you're ready to deploy this solution, use the [Cross-cloud scaling solution deployment guide](/azure/architecture/hybrid/deployments/solution-deployment-guide-cross-cloud-scaling). It provides step-by-step instructions for deploying and testing the solution's components. 
+- When you're ready to deploy this solution, use the [Cross-cloud scaling solution deployment guide](/azure/architecture/hybrid/deployments/solution-deployment-guide-cross-cloud-scaling). It provides step-by-step instructions for deploying and testing the solution's components.
 
 ## Related resources
 
 - [Hybrid architecture design](../../hybrid/hybrid-start-here.md)
 - [Run containers in a hybrid environment](../../hybrid/hybrid-containers.yml)
-- [Extend an on-premises network using VPN](../../reference-architectures/hybrid-networking/vpn.yml)
+- [Extend an on-premises network using VPN](/azure/expressroute/expressroute-howto-coexist-resource-manager)
 - [Hybrid availability and performance monitoring](../../hybrid/hybrid-containers.yml)

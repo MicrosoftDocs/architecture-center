@@ -37,6 +37,8 @@ This scenario demonstrates provisioning a single SAP system database and SAP app
 
 ## Considerations
 
+Keep the following points in mind when establishing a development and test environment for SAP NetWeaver.
+
 ### Availability
 
 Microsoft offers a service level agreement (SLA) for single VM instances. For more information on Microsoft Azure Service Level Agreement for Virtual Machines [SLA For Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines)

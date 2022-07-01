@@ -2,15 +2,18 @@ This article provides insights on designing, sizing, and implementing a Microsof
 
 [FSLogix](/fslogix/) is a set of solutions that enhance, enable, and simplify non-persistent Windows computing environments. FSLogix solutions are appropriate for virtual environments in both public and private clouds. These solutions may also be used to create more portable computing sessions when using physical devices.
 
-For combining FSLogix with Azure Virtual Desktop as a desktop virtualization solution on Azure, store your profiles on either [Azure Files](/azure/storage/files/storage-files-introduction) or [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) as described in [Storage options for FSLogix profile containers in Azure Virtual Desktop](/azure/virtual-desktop/store-fslogix-profile). This way you can leverage another Azure platform service that requires zero infrastructure, and simplify management of your storage environment.
+For combining FSLogix with Azure Virtual Desktop as a desktop virtualization solution on Azure, store your profiles on either [Azure Files](/azure/storage/files/storage-files-introduction) or [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) as described in [Storage options for FSLogix profile containers in Azure Virtual Desktop](/azure/virtual-desktop/store-fslogix-profile). This way you can utilize another Azure platform service that requires zero infrastructure, and simplify management of your storage environment.
 
 ## FSLogix filter driver architecture
 
 It's common to copy a profile to and from the network, when a user signs in and out of a remote environment. Because user profiles can often be large, sign in and sign out times often became unacceptable. FSLogix Containers redirect user profiles to a network location. Profiles are placed in VHDx files and mounted at run time. Mounting and using a profile on the network eliminates delays often associated with solutions that copy files.
 
-The conceptual architecture diagram below shows how FSLogix works within the operating system. The Windows Service agent needs to be installed in the VDI image. Once the installation is completed, two filter drivers are injected into the operating system. Thereafter, you can set appropriate registry (or [ADMX](/microsoft-edge/deploy/managing-group-policy-admx-files)) entries, to place a VHDx container on a file system or [SMB](https://en.wikipedia.org/wiki/Server_Message_Block) share location (Azure Storage as shown in the diagram below).
+![Diagram showing the FSLogix conceptual architecture.](./images/fslogix-concept.png)
 
-![FSLogix conceptual architecture](./images/fslogix-concept.png)
+The conceptual architecture diagram above shows how FSLogix works within the operating system:
+* The Windows Service agent needs to be installed in the VDI image.
+* Once the installation is completed, two filter drivers are injected into the operating system.
+* You can then set the appropriate registry (or [ADMX](/microsoft-edge/deploy/managing-group-policy-admx-files)) entries, to place a VHDx container on a file system or [SMB](https://en.wikipedia.org/wiki/Server_Message_Block) share location (Azure Storage, as shown in the diagram above).
 
 ## Profile Container and Office Container
 
@@ -255,6 +258,14 @@ The following settings are commonly used by our customers in their desktop virtu
 To manage these registry settings at scale, group policy templates are included with the FSlogix installation package.  Guidance for using these templates can be found in the article [Use FSLogix Group Policy Templates](/fslogix/use-group-policy-templates-ht).
 
 Note: 'FlipFlopProfileDirectoryName' is managed by the 'swap directory name components' setting if using the GPO template.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Christiaan Brinkhoff](https://www.linkedin.com/in/christiaanbrinkhoff) | Principal PM and Community Lead, Windows 365
 
 ## Next steps
 

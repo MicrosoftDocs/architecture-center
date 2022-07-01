@@ -1,0 +1,34 @@
+### YamlMime:Architecture
+metadata:
+  title: Sentiment analysis and face recognition
+  titleSuffix: Azure Example Scenarios
+  description: Use Azure sentiment analysis and face recognition services with open-source solutions like Apache NiFi and Azure HDInsight to gauge public opinion in tweets.
+  author: jmendezde
+  ms.author: josemendez, katienovotny 
+  ms.date: 06/23/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.category:
+    - dataops
+  ms.custom:
+    - fcp
+    - acom-architecture
+    - data
+    - NiFi
+    - HDInsight
+    - CognitiveServices
+name: Face recognition and sentiment analysis
+azureCategories:
+  - analytics
+  - ai-machine-learning
+summary: Use Azure sentiment analysis and face recognition services with open-source solutions like Apache NiFi and Azure HDInsight to gauge public opinion in tweets.
+products:
+  - azure-cognitive-services
+  - azure-cosmos-db
+  - azure-cosmos-db
+  - azure-hdinsight
+  - azure-synapse-analytics
+thumbnailUrl: /azure/architecture/browse/thumbs/nifi-sentiment-analysis-face-recognition-thumbnail.png
+content: |
+   [!include[](nifi-sentiment-analysis-face-recognition-content.md)]

@@ -322,6 +322,14 @@ Microsoft products aren't the only choice to implement web application firewall 
 - Azure-managed NVAs (like Application Gateway and Azure Firewall) reduce complexity, compared to NVAs where users need to handle scalability and resiliency across many appliances.
 - When using NVAs in Azure, use *active-active* and *autoscaling* setups, so these appliances aren't a bottleneck for applications running in the virtual network.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+* [Jose Moreno](https://de.linkedin.com/in/erjosito) | Principal Customer Engineer
+
 ## Next steps
 
 Learn more about the component technologies:
