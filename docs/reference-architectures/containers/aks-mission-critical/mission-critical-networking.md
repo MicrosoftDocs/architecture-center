@@ -101,7 +101,7 @@ The premium SKU of Front Door supports the use of Azure Private Endpoints. Priva
 
 Azure Front Door premium and Azure Private Endpoints enable fully private compute clusters in the individual stamps. Traffic is fully locked down for all Azure PaaS services.
 
-Reliability of the design is increased with the use of private endpoints. Public endpoints exposed in the application stamps are no longer needed and can no longer be accessed and exposed to a possible DDoS attack.
+Using private endpoints increases the security of the design. However, it introduces another point of failure. Public endpoints exposed in the application stamps are no longer needed and can no longer be accessed and exposed to a possible DDoS attack.
 
 Front Door premium has an increased cost over the SKU used in the main architecture. The increased security and reliability must be weighed versus the increased cost and complexity. Fully private compute clusters for the application complicate the deployment.
 
