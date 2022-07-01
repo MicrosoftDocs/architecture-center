@@ -85,7 +85,7 @@ The application platform used with the individual stamps in the infrastructure, 
 
 * The application platform must be able to communicate securely with other services when needed.
 
-The architecture as defined uses Azure Key Vault to store tokens to securely communicate over the internet to Azure PaaS services. There are possible risks to exposing the application platform over the internet for this communication. Tokens can be compromised and increased security and monitoring of the public endpoints is recommended.
+The architecture as defined uses Azure Key Vault to store secrets, such as connection strings and API keys, to securely communicate over the internet to Azure PaaS services. There are possible risks to exposing the application platform over the internet for this communication. Secrets can be compromised and increased security and monitoring of the public endpoints is recommended.
 
 :::image type="content" source="./images/network-diagram-vnet-paasdependencies-standard.png" alt-text="Diagram of the application platform communication dependencies.":::
 
