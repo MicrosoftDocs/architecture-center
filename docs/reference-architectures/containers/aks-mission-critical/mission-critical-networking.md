@@ -85,7 +85,7 @@ The architecture as defined uses Azure Key Vault to store secrets, such as conne
 
 :::image type="content" source="./images/network-diagram-vnet-paasdependencies-standard.png" alt-text="Diagram of the application platform communication dependencies.":::
 
-## Enhanced networking
+## Extended networking considerations
 
 This section discusses the pros and cons of alternative approaches to the network design. Alternative networking considerations and the use of Azure Private endpoints is the focus in the following sections.
 
