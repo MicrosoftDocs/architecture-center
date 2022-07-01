@@ -124,9 +124,11 @@ For internet-facing communications, we recommend a stand-alone solution in the p
 
 For  SAP application part, see the details in architecture guide [Run SAP NetWeaver in Windows on Azure](/azure/architecture/reference-architectures/sap/sap-netweaver).
 
-## Disaster recovery considerations
+## Considerations
 
-[![Architecture of a production SAP system on Oracle in Azure](./media/sap-oracle-avzone-disaster-recovery.png)](./media/sap-oracle-avzone-disaster-recovery.png#lightbox)
+### Disaster recovery
+
+[![Diagram that shows an architecture of a production SAP system on Oracle in Azure.](./media/sap-oracle-avzone-disaster-recovery.png)](./media/sap-oracle-avzone-disaster-recovery.png#lightbox)
 *Figure - Architecture of a production SAP system on Oracle in Azure with AvZone and DR*
 
 Download a [Visio file](https://arch-center.azureedge.net/sap-oracle-architecture-avset.vsdx) of this architecture.
@@ -152,23 +154,14 @@ Oracle Data Guard in asynchronous mode is the recommended way to replicate Oracl
 
 The target database VM in the DR region can be of reduced size as it does not require additional CPU power and memory to provide a fast SAP response time, the only load being the application of changes from the database replication. In any recovery plan or process, such VM re-size activity needs to be planned for or outright automated.
 
-## Backup
+### Backup
 
-Backup for Oracle in Azure can be achieved through several means
+Backup for Oracle in Azure can be achieved through several means:
 - **Azure Backup** [Azure provided and maintained scripts](/azure/backup/backup-azure-linux-database-consistent-enhanced-pre-post) for Oracle Databases, to facilitate Oracle actions pre- and post backup execution. 
 - **Azure Storage** Leveraging file based database backups, for example scheduled with SAP's BR tools, to be stored and versioned as files/directories on Azure Blob NFS, Azure Blob or Azure Files storage services. See [documented details](/azure/virtual-machines/workloads/oracle/oracle-database-backup-strategies) how to achieve both Oracle data and log backups.
 - **3rd party backup solutions** See architecture of your backup storage provider, supporting Oracle in Azure.
 
 For non-database VMs, [Azure Backup for VM](/azure/backup/backup-azure-vms-introduction) is recommended to protect SAP application VMs and surround infrastructure like SAP Web Dispatcher.
-
-## Communities
-
-Communities can answer questions and help you set up a successful deployment. Consider these resources:
-
-- [Running SAP Applications on the Microsoft Platform blog](https://techcommunity.microsoft.com/t5/sap-on-microsoft/ct-p/SAPonMicrosoft)
-- [Azure Community Support](https://azure.microsoft.com/support/forums)
-- [SAP Community](https://www.sap.com/community.html)
-- [Stack Overflow for SAP](http://stackoverflow.com/tags/sap/info)
 
 ## Contributors
 
@@ -180,14 +173,23 @@ Principal author:
 
 ## Next steps
 
-- [SAP NetWeaver on SQL Server](/azure/architecture/solution-ideas/articles/sap-netweaver-on-sql-server)
 - [High availability for SAP NetWeaver on Azure VMs](/azure/virtual-machines/workloads/sap/high-availability-guide)
+- [Azure Virtual Machines planning and implementation for SAP NetWeaver](/azure/virtual-machines/workloads/sap/planning-guide)
+- [Use Azure to host and run SAP workload scenarios](/azure/virtual-machines/workloads/sap/get-started)
+
+### Communities
+
+Communities can answer questions and help you set up a successful deployment. Consider these resources:
+
+- [Running SAP Applications on the Microsoft Platform blog](https://techcommunity.microsoft.com/t5/sap-on-microsoft/ct-p/SAPonMicrosoft)
+- [Azure Community Support](https://azure.microsoft.com/support/forums)
+- [SAP Community](https://www.sap.com/community.html)
+- [Stack Overflow for SAP](http://stackoverflow.com/tags/sap/info)
 
 ## Related resources
 
 See these articles for more information and for examples of SAP workloads that use some of the same technologies:
 
-- [Azure Virtual Machines planning and implementation for SAP NetWeaver](/azure/virtual-machines/workloads/sap/planning-guide)
-- [Use Azure to host and run SAP workload scenarios](/azure/virtual-machines/workloads/sap/get-started)
+- [SAP NetWeaver on SQL Server](/azure/architecture/solution-ideas/articles/sap-netweaver-on-sql-server)
 - [Run SAP NetWeaver in Windows on Azure](/azure/architecture/reference-architectures/sap/sap-netweaver)
 - [Dev/test environments for SAP workloads on Azure](../../example-scenario/apps/sap-dev-test.yml)
