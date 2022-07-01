@@ -9,18 +9,13 @@ ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: reference-architecture
 ms.category:
-    - management-and-governance
-    - networking
-name: Networking and connectivity for mission-critical workloads on Azure
+  - networking
 azureCategories:
-  - management-and-governance  
+  - networking  
 summary: Reference architecture for a workload that is accessed over a public endpoint without additional dependencies to other company resources.
 products:
   - azure-monitor
   - azure-front-door
-thumbnailUrl: /azure/architecture/browse/thumbs/mission-critical-online.png
-content: |
-   [!include[](mission-critical-networking.md)]
 ---
 
 # Networking and connectivity for mission-critical workloads
@@ -118,3 +113,11 @@ The public endpoints of the individual Azure PaaS services can be configured to 
 Self-hosted build agents must be used for the stamp deployment the same as above. The management of these agents comes with a maintenance overhead.
 
 :::image type="content" source="./images/network-diagram-vnet-paasdependencies.png" alt-text="Diagram of the application platform communication dependencies with private endpoints.":::
+
+
+## Next steps
+
+Deploy the reference implementation to get a full understanding of reources and their configuration.
+
+> [!div class="nextstepaction"]
+> [Implementation: Mission-Critical Online](https://github.com/Azure/Mission-Critical-Online)
