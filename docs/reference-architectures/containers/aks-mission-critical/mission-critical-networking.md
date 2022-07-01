@@ -34,7 +34,7 @@ A global load balancer is required to route traffic to healthy stamps and provid
 
 - Weighted traffic distribution.
 
-Optionally, it should be able to perform caching at edge. Also, provide some security assurance for ingress through the use of web application firewall (WAF).
+Optionally, it should be able to perform caching at the edge. Also, provide some security assurance for ingress through the use of web application firewall (WAF).
 
 :::image type="content" source="./images/network-diagram-all-standard.png" alt-text="Diagram of network for reference architecture.":::
 
