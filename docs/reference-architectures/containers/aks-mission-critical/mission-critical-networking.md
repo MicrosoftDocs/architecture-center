@@ -27,7 +27,7 @@ content: |
 
 The regional distribution of resources in the reference architecture requires a robust network infrastructure. 
 
-A globally distributed design with Azure services come together to provide a regionally distributed, highly available mission-critical application. Azure Front Door combined with regional stamps provide an active-active application with failover and redundancy.
+A globally distributed design is recommended where Azure services come together to provide a highly available application. The load balancer combined with regional stamps provides that guarantee through reliable connectivity.
 
 The regional stamps are the deployable unit in the architecture. The ability to quickly deploy a new stamp provide scalability and supports high availability. The stamps follow an isolated [virtual network design](/azure/architecture/framework/mission-critical/mission-critical-networking-connectivity#isolated-virtual-networks). Cross-stamp traffic isn't required or recommended. Virtual network peerings or VPN connections to other stamps aren't required.
 
