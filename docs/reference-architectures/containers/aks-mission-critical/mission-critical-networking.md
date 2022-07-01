@@ -103,7 +103,7 @@ Azure Front Door premium and Azure Private Endpoints enable fully private comput
 
 Using private endpoints increases the security of the design. However, it introduces another point of failure. Public endpoints exposed in the application stamps are no longer needed and can no longer be accessed and exposed to a possible DDoS attack.
 
-Front Door premium has an increased cost over the SKU used in the main architecture. The increased security and reliability must be weighed versus the increased cost and complexity. Fully private compute clusters for the application complicate the deployment.
+The increased security must be weighed versus the increased reliability effort, cost, and complexity. 
 
 Self-hosted Azure DevOps agents must be used for the stamp deployment. The management of these agents comes with a maintenance cost.
 
