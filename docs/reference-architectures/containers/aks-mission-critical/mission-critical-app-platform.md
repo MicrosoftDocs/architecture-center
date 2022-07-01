@@ -221,7 +221,7 @@ A system can have resources that are deployed in region but outlive the stamp re
 |Reach|The resources don't need to be globally distributed. Direct communication with other regions should be avoided at all cost. |
 |Dependencies| The resources can have dependencies on global resources, but not on stamp resources because stamps are meant to be short lived. |
 |Scale limits|Determine the scale limit of regional resources by combining all stamps within the region.|
-|Availability/disaster recovery|Coming Soon! |
+
 
 ### Monitoring data for stamp resources
 
