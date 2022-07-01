@@ -115,7 +115,6 @@ Private endpoints are supported for all Azure PaaS services used in this design.
 
 The public endpoints of the individual Azure PaaS services can be configured to disallow public access. This would isolate the resources from public attacks that could cause downtime and throttling which affect reliability and availability.
 
-Managed identities could be used instead of tokens to access the Azure PaaS services. Managed identities improve security over the use of tokens for access.
 
 For more information about Managed identities, see [What are managed identities for Azure resources?](/azure/active-directory/managed-identities-azure-resources/overview).
 
