@@ -33,7 +33,16 @@ The regional stamps are the deployable unit in the architecture. The ability to 
 
 The architecture is intentional in defining the regional stamps as short-lived. The global state of the infrastructure is stored in the regional resources.
 
-A global load balancer is required to route traffic to healthy stamps and provide security services.
+A global load balancer is required to route traffic to healthy stamps and provide security services. It must have certain capabilities.
+- Health probing is highly recommended so that the load balancer can check the health of the origin before routing traffic.
+- Distribute weighted traffic.
+
+Optionally, it should be able to perform caching at edge. Also, provide some security assurance for ingress through the use of web application firewall (WAF).
+
+
+
+
+
 
 :::image type="content" source="./images/network-diagram-all-standard.png" alt-text="Diagram of network for reference architecture.":::
 
