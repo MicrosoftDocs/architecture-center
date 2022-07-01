@@ -22,9 +22,9 @@ products:
 
 The regional distribution of resources in the [mission-critical reference architecture](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro) requires a robust network infrastructure. 
 
-A globally distributed design is recommended where Azure services come together to provide a highly available application. The load balancer combined with regional stamps provides that guarantee through reliable connectivity.
+A globally distributed design is recommended where Azure services come together to provide a highly available application. The global load balancer combined with regional stamps provides that guarantee through reliable connectivity.
 
-The regional stamps are the deployable unit in the architecture. The ability to quickly deploy a new stamp provide scalability and supports high availability. The stamps follow an isolated [virtual network design](/azure/architecture/framework/mission-critical/mission-critical-networking-connectivity#isolated-virtual-networks). Cross-stamp traffic isn't recommended. Virtual network peerings or VPN connections to other stamps aren't required.
+The regional stamps are the deployable unit in the architecture. The ability to quickly deploy a new stamp provides scalability and supports high availability. The stamps follow an isolated [virtual network design](/azure/architecture/framework/mission-critical/mission-critical-networking-connectivity#isolated-virtual-networks). Cross-stamp traffic isn't recommended. Virtual network peerings or VPN connections to other stamps aren't required.
 
 The architecture is intentional in defining the regional stamps as short-lived. The global state of the infrastructure is stored in the global resources.
 
@@ -32,9 +32,9 @@ A global load balancer is required to route traffic to healthy stamps and provid
 
 - Health probing is required so that the load balancer can check the health of the origin before routing traffic.
 
-- Distribute weighted traffic.
+- Weighted traffic distribution.
 
-Optionally, it should be able to perform caching at edge. Also, provide some security assurance for ingress through the use of web application firewall (WAF).
+Optionally, it should be able to perform caching at the edge. Also, provide some security assurance for ingress through the use of web application firewall (WAF).
 
 :::image type="content" source="./images/network-diagram-all-standard.png" alt-text="Diagram of network for reference architecture.":::
 
@@ -42,13 +42,15 @@ Optionally, it should be able to perform caching at edge. Also, provide some sec
 
 The application defined in the architecture is internet facing and has several requirements:
 
+- A routing solution that is global and can distribute traffic between independent regional stamps.
+
 - Low-latency in health checking and the ability to stop sending traffic to unhealthy stamps.
 
 - Prevention of malicious attacks at the edge.
 
 - Provide caching abilities at the edge.
 
-The entry point for all traffic in the design is through Azure Front Door. Front Door is a global load balancer that routes HTTP(S) traffic to registered backends/origins. Front door uses health probes that issue requests to a URI in each backend/origin. In the reference implementation, the URI called is a health service. The health service advertises the health of the stamp. Front Door uses the response to determine the health of an individual stamp and route traffic to healthy stamps capable of servicing application requests.
+The entry point for all traffic in the design is through Azure Front Door. Front Door is a global load balancer that routes HTTP(S) traffic to registered backends/origins. Front Door uses health probes that issue requests to a URI in each backend/origin. In the reference implementation, the URI called is a health service. The health service advertises the health of the stamp. Front Door uses the response to determine the health of an individual stamp and route traffic to healthy stamps capable of servicing application requests.
 
 Azure Front Door integration with Azure Monitor provides near real-time monitoring of traffic, security, success and failure metrics, and alerting.
 
