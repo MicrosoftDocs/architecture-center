@@ -42,7 +42,7 @@ Optionally, it should be able to perform caching at the edge. Also, provide some
 
 The application defined in the architecture is internet facing and has several requirements:
 
-- A routing solution that is global and can route between independent regional stamps.
+- A routing solution that is global and can distribute traffic between independent regional stamps.
 
 - Low-latency in health checking and the ability to stop sending traffic to unhealthy stamps.
 
