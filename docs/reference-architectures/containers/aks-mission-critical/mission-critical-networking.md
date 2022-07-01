@@ -1,7 +1,7 @@
 ---
 title: Networking and connectivity for mission-critical workloads on Azure
 description: Reference architecture for a workload that is accessed over a public endpoint without additional dependencies to other company resources.
-author: asudbring
+author: sebader
 categories: networking
 ms.author: allensu
 ms.date: 06/28/2022
