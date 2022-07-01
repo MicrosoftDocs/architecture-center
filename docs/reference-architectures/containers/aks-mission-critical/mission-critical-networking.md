@@ -76,7 +76,6 @@ Agents used for the operations and deployment of the architecture must be able t
 
 Monitoring of the network throughput, performance of the individual components, and health of the application is required.
 
-:::image type="content" source="./images/network-diagram-vnet.png" alt-text="Diagram of virtual network for the API and architecture.":::
 
 ## Application platform communication dependency
 
