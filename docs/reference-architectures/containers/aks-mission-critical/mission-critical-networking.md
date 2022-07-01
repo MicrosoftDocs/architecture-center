@@ -70,7 +70,7 @@ Azure Web Application Firewall, integrated with Azure Front Door, is used to pre
 The API in the architecture uses Azure Virtual Networks as the traffic isolation boundary. Components in one virtual network can't communicate directly with components in another virtual network.
 
 
-Requests to the compute platform are distributed with a standard SKU external Azure Load Balancer. All traffic that reaches the load balancer will have been inspected by Azure WAF. There is a check to ensure that traffic reaching the load balancer was routed via Azure Front Door. This check ensures that all traffic was inspected by the Azure WAF.
+Requests to the application platform are distributed with a standard SKU external Azure Load Balancer. There is a check to ensure that traffic reaching the load balancer was routed via Azure Front Door. This check also ensures that all traffic was inspected by the Azure WAF.
 
 Agents used for the operations and deployment of the architecture must be able to reach into the isolated network. The isolated network can be opened up to allow the agents to communicate. Alternatively, self-hosted agents can be deployed in the virtual network. Opening up the network for the agents increases the attack vector. Consider using self-hosted agents instead of opening up the network for the Microsoft hosted agents.
 
