@@ -12,14 +12,16 @@ The architecture consists of the following aspects:
 
 - **On-premises network**. A private local-area network implemented in an organization.
 - **Azure virtual network**. The virtual network hosts the application and other resources running in Azure.
+
+    [Virtual network routes][udr-overview] define the flow of IP traffic within the Azure virtual network. In the diagram, there are two user-defined route tables.
+
+    In the gateway subnet, traffic is routed through the Azure Firewall instance.
+
+    > [!NOTE]
+    > Depending on the requirements of your VPN connection, you can configure Border Gateway Protocol (BGP) routes to implement the forwarding rules that direct traffic back through the on-premises network.
+
 - **Gateway**. The gateway provides connectivity between the routers in the on-premises network and the virtual network. The gateway is placed in its own subnet.
 - **Azure Firewall**. [Azure Firewall](/azure/firewall/) is a managed firewall as a service. The Firewall instance is placed in its own subnet.
-- **Virtual network routes**. [Virtual network routes][udr-overview] define the flow of IP traffic within the Azure virtual network. In the diagram shown above, there are two user-defined route tables.
-
-  - In the gateway subnet, traffic is routed through the Azure Firewall instance.
-
-  > [!NOTE]
-  > Depending on the requirements of your VPN connection, you can configure Border Gateway Protocol (BGP) routes to implement the forwarding rules that direct traffic back through the on-premises network.
 
 - **Network security groups**. Use [security groups][nsg] to restrict network traffic within the virtual network. 
 
