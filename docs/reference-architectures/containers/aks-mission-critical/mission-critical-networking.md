@@ -20,7 +20,7 @@ products:
 
 # Networking and connectivity for mission-critical workloads
 
-The regional distribution of resources in the reference architecture requires a robust network infrastructure. 
+The regional distribution of resources in the [mission-critical reference architecture](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro) requires a robust network infrastructure. 
 
 A globally distributed design is recommended where Azure services come together to provide a highly available application. The load balancer combined with regional stamps provides that guarantee through reliable connectivity.
 
