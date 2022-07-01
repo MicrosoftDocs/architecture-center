@@ -25,7 +25,7 @@ content: |
 
 # Networking and connectivity for mission-critical workloads
 
-The regional distribution of resources in the reference architecture requires a robust network infrastructure. A mission-critical design requires an always on, active-active implementation.
+The regional distribution of resources in the reference architecture requires a robust network infrastructure. 
 
 A globally distributed design with Azure services come together to provide a regionally distributed, highly available mission-critical application. Azure Front Door combined with regional stamps provide an active-active application with failover and redundancy.
 
