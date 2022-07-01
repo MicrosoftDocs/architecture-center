@@ -16,13 +16,12 @@ The architecture consists of the following aspects:
 - **Azure Firewall**. [Azure Firewall](/azure/firewall/) is a managed firewall as a service. The Firewall instance is placed in its own subnet.
 - **Virtual network routes**. [Virtual network routes][udr-overview] define the flow of IP traffic within the Azure virtual network. In the diagram shown above, there are two user-defined route tables.
 
-  - In the gateway subnet, traffic sent to the web-tier subnet (10.0.1.0/24) is routed through the Azure Firewall instance.
-  - In the web tier subnet, Since there is no route for address space of the virtual network itself to point to Azure firewall, web tier instances are able to communicate directly to each other, not via Azure Firewall.
-
+  - In the gateway subnet, traffic is routed through the Azure Firewall instance.
+  
   > [!NOTE]
   > Depending on the requirements of your VPN connection, you can configure Border Gateway Protocol (BGP) routes to implement the forwarding rules that direct traffic back through the on-premises network.
 
-- **Network security groups**. Use [security groups][nsg] to restrict network traffic within the virtual network. For example, in the deployment provided with this reference architecture, the web tier subnet allows TCP traffic from the on-premises network and from within the virtual network; the business tier allows traffic from the web tier, and the data tier allows traffic from the business tier.
+- **Network security groups**. Use [security groups][nsg] to restrict network traffic within the virtual network. 
 
 - **Azure Bastion**. [Azure Bastion](/azure/bastion/) allows you to log into virtual machines (VMs) in the virtual network through SSH or remote desktop protocol (RDP) without exposing the VMs directly to the internet. Use Bastion to manage the VMs in the virtual network.
 
@@ -76,9 +75,7 @@ To accept inbound traffic from the internet, add a [Destination Network Address 
 - Destination address = Public IP address of the firewall instance.
 - Translated address = Private IP address within the virtual network.
 
-The example deployment routes internet traffic for port 80 to the web tier load balancer.
-
-[Force-tunnel][azure-forced-tunneling] all outbound internet traffic through your on-premises network using the site-to-site VPN tunnel, and route to the internet using network address translation (NAT). This prevents accidental leakage of any confidential information stored in your data tier and allows inspection and auditing of all outgoing traffic.
+[Force-tunnel][azure-forced-tunneling] all outbound internet traffic through your on-premises network using the site-to-site VPN tunnel, and route to the internet using network address translation (NAT). This prevents accidental leakage of any confidential information and allows inspection and auditing of all outgoing traffic.
 
 Don't completely block internet traffic from the application tiers, as this will prevent these tiers from using Azure PaaS services that rely on public IP addresses, such as VM diagnostics logging, downloading of VM extensions, and other functionality. Azure diagnostics also requires that components can read and write to an Azure Storage account.
 
@@ -126,7 +123,7 @@ The user-defined route in the gateway subnet blocks all user requests other than
 
 #### Using NSGs to block/pass traffic between application tiers
 
-Traffic between tiers is restricted by using NSGs. The business tier blocks all traffic that doesn't originate in the web tier, and the data tier blocks all traffic that doesn't originate in the business tier. If you have a requirement to expand the NSG rules to allow broader access to these tiers, weigh these requirements against the security risks. Each new inbound pathway represents an opportunity for accidental or purposeful data leakage or application damage.
+Traffic between tiers is restricted by using NSGs. If you have a requirement to expand the NSG rules to allow broader access to these tiers, weigh these requirements against the security risks. Each new inbound pathway represents an opportunity for accidental or purposeful data leakage or application damage.
 
 ### Use AVNM to create baseline Security Admin rules
 
