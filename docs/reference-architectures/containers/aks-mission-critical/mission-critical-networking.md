@@ -117,6 +117,6 @@ The public endpoints of the individual Azure PaaS services can be configured to 
 
 
 
-Self-hosted Azure DevOps agents must be used for the stamp deployment the same as above. The management of these agents comes with a maintenance cost.
+Self-hosted build agents must be used for the stamp deployment the same as above. The management of these agents comes with a maintenance overhead.
 
 :::image type="content" source="./images/network-diagram-vnet-paasdependencies.png" alt-text="Diagram of the application platform communication dependencies with private endpoints.":::
