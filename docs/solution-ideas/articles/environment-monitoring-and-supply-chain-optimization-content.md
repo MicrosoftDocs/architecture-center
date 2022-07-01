@@ -13,8 +13,9 @@ This solution is ideal for the environment, manufacturing, transportation, and a
 
 ## Architecture
 
-[ ![Architecture diagram showing the data flow for the Environmental Monitoring and the Supply Chain solution](../media/environment-monitor-supply-chain.png)](../media/environment-monitor-supply-chain.png#lightbox)
-*Download an [SVG of this architecture](../media/environment-monitor-supply-chain.svg).*
+[ ![Architecture diagram showing the data flow for the Environmental Monitoring and the Supply Chain solution](../media/environment-monitor-supply-chain-new.png)](../media/environment-monitor-supply-chain-new.png#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/environment-monitor-supply-chain.vsdx) of this architecture.*
 
 ### Dataflow
 
