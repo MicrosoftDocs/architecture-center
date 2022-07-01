@@ -52,7 +52,7 @@ The application defined in the architecture is internet facing and has several r
 
 * A routing solution that is global and can route between independent regional stamps.
 
-* Low-latency failover between the regions.
+* Low-latency in health checking and the ability to stop sending traffic to unhealthy stamps.
 
 * Health monitoring of the stamps to provide fail-over in the event of an application or networking issue.
 
