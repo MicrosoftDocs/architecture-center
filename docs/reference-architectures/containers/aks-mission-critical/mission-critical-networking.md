@@ -69,7 +69,6 @@ Azure Web Application Firewall, integrated with Azure Front Door, is used to pre
 
 The API in the architecture uses Azure Virtual Networks as the traffic isolation boundary. Components in one virtual network can't communicate directly with components in another virtual network.
 
-When configuring IP address spaces and subnets within the virtual networks, allocation of sufficient IP addresses must be considered for the components within the infrastructure. Steps must be taken to ensure there enough IP address spaces for normal run operation and for failover. If a region becomes unavailable, consider the impact of the failover on IP address space in the other regions.
 
 Requests to the compute platform are distributed with a standard SKU external Azure Load Balancer. All traffic that reaches the load balancer will have been inspected by Azure WAF. There is a check to ensure that traffic reaching the load balancer was routed via Azure Front Door. This check ensures that all traffic was inspected by the Azure WAF.
 
