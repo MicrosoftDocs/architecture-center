@@ -115,8 +115,6 @@ Private endpoints are supported for all Azure PaaS services used in this design.
 
 The public endpoints of the individual Azure PaaS services can be configured to disallow public access. This would isolate the resources from public attacks that could cause downtime and throttling which affect reliability and availability.
 
-
-
 Self-hosted build agents must be used for the stamp deployment the same as above. The management of these agents comes with a maintenance overhead.
 
 :::image type="content" source="./images/network-diagram-vnet-paasdependencies.png" alt-text="Diagram of the application platform communication dependencies with private endpoints.":::
