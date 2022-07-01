@@ -198,7 +198,7 @@ For incoming Internet traffic, the load balancer rules define which traffic can 
 
 ## DevOps considerations
 
-In this architecture you use an [Azure Building Blocks template][azbb-template] for provisioning the Azure resources and its dependencies. Since all the main resources and their dependencies are in the same virtual network, they are isolated in the same basic workload. That fact makes it easier to associate the workload's specific resources to a DevOps team, so that the team can independently manage all aspects of those resources. This isolation enables DevOps Teams and Services to perform continuous integration and continuous delivery (CI/CD).
+Since all the main resources and their dependencies are in the same virtual network in this architecture, they are isolated in the same basic workload. That fact makes it easier to associate the workload's specific resources to a DevOps team, so that the team can independently manage all aspects of those resources. This isolation enables DevOps Teams and Services to perform continuous integration and continuous delivery (CI/CD).
 
 Also, you can use different deployment templates and integrate them with [Azure DevOps Services][az-devops] to provision different environments in minutes, for example to replicate production like scenarios or load testing environments only when needed, saving cost.
 
