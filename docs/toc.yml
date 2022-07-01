@@ -307,7 +307,8 @@ items:
               items:
                 - name: Networking and connectivity platform
                   href: reference-architectures/containers/aks-mission-critical/mission-critical-networking.md
-  
+                - name: Application platform
+                  href: reference-architectures/containers/aks-mission-critical/mission-critical-app-platform.md
       - name: Multitenant applications
         items:
           - name: Overview
