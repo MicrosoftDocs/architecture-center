@@ -6,7 +6,7 @@ This reference architecture shows a secure hybrid network that extends an on-pre
 
 *Download a [Visio file][visio-download] of this architecture.*
 
-### Workflow
+### Components
 
 The architecture consists of the following aspects:
 
@@ -17,22 +17,13 @@ The architecture consists of the following aspects:
 - **Virtual network routes**. [Virtual network routes][udr-overview] define the flow of IP traffic within the Azure virtual network. In the diagram shown above, there are two user-defined route tables.
 
   - In the gateway subnet, traffic is routed through the Azure Firewall instance.
-  
+
   > [!NOTE]
   > Depending on the requirements of your VPN connection, you can configure Border Gateway Protocol (BGP) routes to implement the forwarding rules that direct traffic back through the on-premises network.
 
 - **Network security groups**. Use [security groups][nsg] to restrict network traffic within the virtual network. 
 
 - **Azure Bastion**. [Azure Bastion](/azure/bastion/) allows you to log into virtual machines (VMs) in the virtual network through SSH or remote desktop protocol (RDP) without exposing the VMs directly to the internet. Use Bastion to manage the VMs in the virtual network.
-
-### Components
-
-Key technologies in this architecture include:
-
-- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/)
-- [Azure Firewall](https://azure.microsoft.com/services/azure-firewall/)
-- [Azure Bastion](https://azure.microsoft.com/services/azure-bastion/)
-- [VPN Gateway](https://azure.microsoft.com/services/vpn-gateway/) or  [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/)
 
 ## Potential use cases
 
