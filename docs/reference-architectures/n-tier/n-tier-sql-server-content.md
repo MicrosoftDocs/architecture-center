@@ -216,7 +216,7 @@ Virtual networks are a traffic isolation boundary in Azure. By default, VMs in o
 
 ## DevOps considerations
 
-In this architecture, you use [Azure Building Blocks templates][azbb-template] for provisioning the Azure resources and its dependencies. Since all the main resources and their dependencies are in the same virtual network, they are isolated in the same basic workload, that makes it easier to associate the workload's specific resources to a team, so that the team can independently manage all aspects of those resources. This isolation enables DevOps to perform continuous integration and continuous delivery (CI/CD).
+In this architecture, you use [Azure Building Blocks templates][azbb-template] for provisioning the Azure resources and its dependencies. Since all the main resources and their dependencies are in the same virtual network, they are isolated in the same basic workload. That fact makes it easier to associate the workload's specific resources to a team, so that the team can independently manage all aspects of those resources. This isolation enables DevOps to perform continuous integration and continuous delivery (CI/CD).
 
 Also, you can use different deployment templates and integrate them with [Azure DevOps Services][az-devops] to provision different environments in minutes, for example to replicate production like scenarios or load testing environments only when needed, saving cost.
 
