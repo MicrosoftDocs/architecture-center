@@ -111,7 +111,7 @@ Self-hosted build agents must be used for the stamp deployment. The management o
 
 ### Private endpoints - Application platform
 
-Private endpoints are supported for several of the Azure PaaS services used in the design. With private endpoints configured for the application platform, all communication would travel through the Microsoft backbone network.
+Private endpoints are supported for all Azure PaaS services used in this design. With private endpoints configured for the application platform, all communication would travel through the virtual network of the stamp.
 
 The public endpoints of the individual Azure PaaS services can be configured to disallow public access. This would isolate the resources from public attacks that could cause downtime and throttling which affect reliability and availability.
 
