@@ -194,6 +194,8 @@ This has been an overview of how to use Azure AD to secure your application, foc
 
 - [Microsoft identity platform (v2.0) Authentication flows and app scenarios](/azure/active-directory/develop/authentication-flows-app-scenarios)
 
+- [Secure your Internet of Things (IoT) deployment](/azure/iot-fundamentals/iot-security-deployment)
+
 ## Related resources
 
 - [Manage identity in multi-tenant applications](../../multitenant-identity/index.md)
