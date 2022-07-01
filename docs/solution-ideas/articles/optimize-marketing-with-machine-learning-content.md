@@ -2,14 +2,14 @@
 
 Marketing campaigns are about more than the message being delivered; when and how that message is delivered is just as important. Without a data-driven, analytical approach, campaigns can easily miss opportunities or struggle to gain traction.
 
-Nowadays, marketing campaings are often based on social media analysis, which has become increasingly important for companies and organizations around the world.  It is a powerful tool that can be leveraged to receive instant feedback on products and services, improve interactions with customers to increase customer satisfaction, keep up with the competition, and more. Companies often lack efficient, viable ways to monitor these conversations and as a result miss countless opportunities to use these insights to inform their strategies and plans.
+Nowadays, marketing campaigns are often based on social media analysis, which has become increasingly important for companies and organizations around the world.  It is a powerful tool that can be leveraged to receive instant feedback on products and services, improve interactions with customers to increase customer satisfaction, keep up with the competition, and more. Companies often lack efficient, viable ways to monitor these conversations and as a result miss countless opportunities to use these insights to inform their strategies and plans.
 
 ## Potential use cases
-Organizations nowadays are capitalizing in various ways to extract knowledge and information about their customers in order to enhance the customer experience, increase customer satisfaction, gain new leads as well as prevent customer churn. There are three areas where customers are focing their investments in regards to social media analytics, some examples of use cases that this architecture and the solution accelerator could be used, are:
+Organizations nowadays are capitalizing in various ways to extract knowledge and information about their customers in order to enhance the customer experience, increase customer satisfaction, gain new leads as well as prevent customer churn. There are three areas where customers are forcing their investments regarding social media analytics, some examples of use cases that this architecture and the solution accelerator could be used, are:
 
 - **Measure Brand Health:** 
     * Capture customer reactions and feedback for new products on social media.
-    * Analyse Sentiment on social media interactions for a newly introduced product.
+    * Analyze Sentiment on social media interactions for a newly introduced product.
 
 - **Build & maintain customer relationships:**
     * Identify quickly all customer concerns
@@ -63,7 +63,7 @@ Learn more with the following learning paths:
 * [Azure Machine Learning documentation][aml-docs]
 * [Azure Synapse Analytics documentation][synapse-docs]
 * [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)
-* [Cognititve Services Documentation](https://docs.microsoft.com/azure/cognitive-services/)
+* [Cognitive Services Documentation](https://docs.microsoft.com/azure/cognitive-services/)
 * [Power BI documentation][pbi-docs]
 * [Azure Web App Service](https://azure.microsoft.com/services/app-service/web/)
 * [Azure Web App Service Documentation](/azure/app-service/overview)
