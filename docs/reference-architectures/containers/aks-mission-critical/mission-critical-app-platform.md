@@ -2,7 +2,7 @@
 title: Application platform considerations for mission-critical workloads on Azure
 description: Reference architecture for a workload that is accessed over a public endpoint without additional dependencies to other company resources.
 author: msimecek
-ms.author: msimecek
+ms.author: prwilk
 ms.date: 07/01/2022
 ms.topic: conceptual
 ms.service: architecture-center
@@ -233,7 +233,7 @@ Similarly, Application Insights is also deployed as a regional resource to colle
 
 > For design recommendations about monitoring, see [Misson critical guidance in Well-architected Framework: Health modeling](/azure/architecture/framework/mission-critical/mission-critical-health-modeling#design-recommendations-1).
 
-## Next
+## Next steps
 
 Deploy the reference implementation to get a full understanding of reources and their configuration.
 
