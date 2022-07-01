@@ -116,7 +116,6 @@ Private endpoints are supported for all Azure PaaS services used in this design.
 The public endpoints of the individual Azure PaaS services can be configured to disallow public access. This would isolate the resources from public attacks that could cause downtime and throttling which affect reliability and availability.
 
 
-For more information about Managed identities, see [What are managed identities for Azure resources?](/azure/active-directory/managed-identities-azure-resources/overview).
 
 Self-hosted Azure DevOps agents must be used for the stamp deployment the same as above. The management of these agents comes with a maintenance cost.
 
