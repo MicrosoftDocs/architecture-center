@@ -114,7 +114,6 @@ Self-hosted build agents must be used for the stamp deployment the same as above
 
 :::image type="content" source="./images/network-diagram-vnet-paasdependencies.png" alt-text="Diagram of the application platform communication dependencies with private endpoints.":::
 
-
 ## Next steps
 
 Deploy the reference implementation to get a full understanding of the resources and their configuration used in this architecture.
