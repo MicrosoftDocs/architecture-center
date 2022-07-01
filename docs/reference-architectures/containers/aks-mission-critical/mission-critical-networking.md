@@ -72,7 +72,7 @@ The API in the architecture uses Azure Virtual Networks as the traffic isolation
 
 Requests to the application platform are distributed with a standard SKU external Azure Load Balancer. There is a check to ensure that traffic reaching the load balancer was routed via Azure Front Door. This check also ensures that all traffic was inspected by the Azure WAF.
 
-Agents used for the operations and deployment of the architecture must be able to reach into the isolated network. The isolated network can be opened up to allow the agents to communicate. Alternatively, self-hosted agents can be deployed in the virtual network. Opening up the network for the agents increases the attack vector. Consider using self-hosted agents instead of opening up the network for the Microsoft hosted agents.
+Build agents used for the operations and deployment of the architecture must be able to reach into the isolated network. The isolated network can be opened up to allow the agents to communicate. Alternatively, self-hosted agents can be deployed in the virtual network. 
 
 Monitoring of the network throughput, performance of the individual components, and health of the application is required.
 
