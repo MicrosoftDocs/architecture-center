@@ -58,7 +58,7 @@ In this architecture, global layer resources are [Azure Front Door](/azure/front
 
 There are other foundational resources in this design, such as Azure Active Directory (AD) and Azure DNS. They have been omitted in this image for brevity.
 
-![Global resources](./images/global-resources.png)
+![Diagram of the global resources used in this architecture.](./images/global-resources.png)
 
 ### Global load balancer
 
@@ -132,13 +132,13 @@ In this architecture, the deployment stamp deploys the workload and provisions r
 
 In this architecture, stamp resources are [Azure Kubernetes Service](/azure/aks/), [Azure Event Hubs](/azure/event-hubs/), [Azure Key Vault](/azure/key-vault/), and [Azure Blob Storage](/azure/storage/blobs/).
 
-![Stamp resources for the Online architecture](./images/stamp-resources.png)
+![Diagram that depicts the resources in the ephemeral stamp for this architecture.](./images/stamp-resources.png)
 
 ### Scale unit
 
 A stamp can also be considered as a scale unit (SU). All components and services within a given stamp are configured and tested to serve requests in a given range. Here's an example of a scale unit used in the implementation.
 
-![Stamp resources in a scale unit](./images/mission-critical-unit.png)
+![Diagram that shows stamp resources in a scale unit.](./images/mission-critical-unit.png)
 
 Each scale unit is deployed into an Azure region and is therefore primarily handling traffic from that given area (although it can take over traffic from other regions when needed). This geographic spread will likely result in load patterns and business hours that might vary from region to region and as such, every SU is designed to scale-in/-down when idle.
 
