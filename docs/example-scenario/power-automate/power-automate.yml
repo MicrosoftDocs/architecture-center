@@ -23,4 +23,4 @@ name: Power Automate deployment at scale
 summary: See how to use a hub-and-spoke architectural model to deploy Power Automate parent and child flows.
 thumbnailUrl: /azure/architecture/browse/thumbs/power-automate.png
 content: |
-  [!include[](./power-automate-content.md)
+  [!include[](./power-automate-content.md)]
