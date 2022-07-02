@@ -1,5 +1,3 @@
-
-
 This reference architecture shows how to deploy virtual machines (VMs) and a virtual network configured for an [N-tier](../../guide/architecture-styles/n-tier.yml) application, using Apache Cassandra on Linux for the data tier.
 
 ## Architecture
@@ -206,7 +204,7 @@ Since all the main resources and their dependencies are in the same virtual netw
 
 Also, you can use different deployment templates and integrate them with [Azure DevOps Services][az-devops] to provision different environments in minutes, for example to replicate production like scenarios or load testing environments only when needed, saving cost.
 
-In this scenario your virtual machines are configured by using Virtual Machine Extensions, since they offer the possibility of installing certain additional software, such as Apache Cassandra. In particular, the Custom Script Extension allows the download and execution of arbitrary code on a Virtual Machine, allowing unlimited customization of the Operating System of an Azure VM. VM Extensions are installed and executed only at VM creation time. That means if the Operating System gets configured incorrectly at a later stage, it will require a manual intervention to move it back to its correct state. Configuration Management Tools can be used to address this issue.
+In this scenario, your virtual machines are configured by using Virtual Machine Extensions, since they offer the possibility of installing certain additional software, such as Apache Cassandra. In particular, the Custom Script Extension allows the download and execution of arbitrary code on a Virtual Machine, allowing unlimited customization of the Operating System of an Azure VM. VM Extensions are installed and executed only at VM creation time. That means if the Operating System gets configured incorrectly at a later stage, it will require a manual intervention to move it back to its correct state. Configuration Management Tools can be used to address this issue.
 
 Consider using the [Azure Monitor][azure-monitor] to Analyze and optimize the performance of your infrastructure, Monitor and diagnose networking issues without logging into your virtual machines. Application Insights is actually one of the components of Azure Monitor, which gives you rich metrics and logs to verify the state of your complete Azure landscape. Azure Monitor will help you to follow the state of your infrastructure.
 
