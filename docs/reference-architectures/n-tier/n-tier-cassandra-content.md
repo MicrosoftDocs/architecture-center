@@ -2,21 +2,23 @@
 
 This reference architecture shows how to deploy virtual machines (VMs) and a virtual network configured for an [N-tier](../../guide/architecture-styles/n-tier.yml) application, using Apache Cassandra on Linux for the data tier.
 
-[![N-tier architecture using Microsoft Azure](./images/n-tier-cassandra.png)](./images/n-tier-cassandra.png)
+## Architecture
+
+[![Diagram that shows the N-tier architecture using Microsoft Azure.](./images/n-tier-cassandra.png)](./images/n-tier-cassandra.png)
 
 *Download a [Visio file][visio-download] of this architecture.*
 
-## Architecture
+### Workflow
 
 The architecture has the following components.
 
-### General
+#### General
 
 - **Resource group**. [Resource groups][resource-manager-overview] are used to group Azure resources so they can be managed by lifetime, owner, or other criteria.
 
 - **Availability zones**. [Availability zones](/azure/availability-zones/az-overview) are physical locations within an Azure region. Each zone consists of one or more datacenters with independent power, cooling, and networking. By placing VMs across zones, the application becomes resilient to failures within a zone.
 
-### Networking and load balancing
+#### Networking and load balancing
 
 - **Virtual network and subnets**. Every Azure VM is deployed into a virtual network that can be segmented into subnets. Create a separate subnet for each tier.
 
@@ -30,7 +32,7 @@ The architecture has the following components.
 
 - **Azure DNS**. [Azure DNS][azure-dns] is a hosting service for DNS domains. It provides name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services.
 
-### Virtual machines
+#### Virtual machines
 
 - **Apache Cassandra database**. Provides high availability at the data tier, by enabling replication and failover.
 
@@ -96,9 +98,11 @@ The jumpbox has minimal performance requirements, so select a small VM size. Cre
 
 To secure the jumpbox, add an NSG rule that allows ssh connections only from a safe set of public IP addresses. Configure the NSGs for the other subnets to allow ssh traffic from the management subnet.
 
-## Scalability considerations
+## Considerations
 
-### Scale sets
+### Scalability
+
+#### Scale sets
 
 For the web and business tiers, consider using [virtual machine scale sets][vmss], instead of deploying separate VMs into an availability set. A scale set makes it easy to deploy and manage a set of identical VMs, and autoscale the VMs based on performance metrics. As the load on the VMs increases, additional VMs are automatically added to the load balancer.
 
@@ -113,19 +117,19 @@ For more information, see [Design considerations for scale sets][vmss-design].
 > [!TIP]
 > When using any autoscale solution, test it with production-level workloads well in advance.
 
-### Subscription limits
+#### Subscription limits
 
 Each Azure subscription has default limits in place, including a maximum number of VMs per region. You can increase the limit by filing a support request. For more information, see [Azure subscription and service limits, quotas, and constraints][subscription-limits].
 
-### Application Gateway
+#### Application Gateway
 
 Application Gateway supports fixed capacity mode or autoscaling mode. Fixed capacity mode is useful for scenarios with consistent and predictable workloads. Consider using autoscaling mode for workloads with variable traffic. For more information, see [Autoscaling and Zone-redundant Application Gateway v2][app-gw-scaling].
 
-## Performance considerations
+### Performance efficiency
 
 To get the best performance from Cassandra on Azure VMs, see the recommendations in [Run Apache Cassandra on Azure VMs](../../best-practices/cassandra.md).
 
-## Availability considerations
+### Availability
 
 Availability zones provide the best resiliency within a single region. If you need even higher availability, consider replicating the application across two regions.
 
@@ -146,11 +150,11 @@ When deploying to availability zones, use the Standard SKU of Azure Load Balance
 
 A single Application Gateway deployment can run multiple instances of the gateway. For production workloads, run at least two instances.
 
-### Cassandra cluster
+#### Cassandra cluster
 
 For the Cassandra cluster, the failover scenarios depend on the consistency levels used by the application and the number of replicas. For consistency levels and usage in Cassandra, see [Configuring data consistency][cassandra-consistency] and [Cassandra: How many nodes are talked to with Quorum?][cassandra-consistency-usage] Data availability in Cassandra is determined by the consistency level used by the application and the replication mechanism. For replication in Cassandra, see [Data Replication in NoSQL Databases Explained][cassandra-replication].
 
-### Health probes
+#### Health probes
 
 Application Gateway and Load Balancer both use health probes to monitor the availability of VM instances.
 
@@ -168,23 +172,23 @@ For more information about health probes, see:
 
 For considerations about designing a health probe endpoint, see [Health Endpoint Monitoring pattern](../../patterns/health-endpoint-monitoring.yml).
 
-## Cost considerations
+### Cost optimization
 
 Use the [Azure Pricing Calculator][azure-pricing-calculator] to estimates costs. Here are some other considerations.
 
-### Virtual machine scale sets
+#### Virtual machine scale sets
 
 Virtual machine scale sets are available on all Linux VM sizes. You are only charged for the Azure VMs you deploy, as well as any additional underlying infrastructure resources consumed such as storage and networking. There are no incremental charges for the virtual machine scale sets service itself.
 
 For single VMs pricing options See [Linux VMs pricing][Linux-vm-pricing].
 
-### Load balancers
+#### Load balancers
 
 You are charged only for the number of configured load-balancing and outbound rules. Inbound NAT rules are free. There is no hourly charge for the Standard Load Balancer when no rules are configured.
 
 For more information, see the cost section in [Microsoft Azure Well-Architected Framework][WAF-cost].
 
-## Security considerations
+### Security
 
 Virtual networks are a traffic isolation boundary in Azure. VMs in one VNet can't communicate directly with VMs in a different VNet. VMs within the same VNet can communicate, unless you create [network security groups][nsg] (NSGs) to restrict traffic. For more information, see [Microsoft cloud services and network security][network-security].
 
@@ -196,7 +200,7 @@ For incoming Internet traffic, the load balancer rules define which traffic can 
 
 **DDoS protection**. The Azure platform provides basic DDoS protection by default. This basic protection is targeted at protecting the Azure infrastructure as a whole. Although basic DDoS protection is automatically enabled, we recommend using [DDoS Protection Standard][ddos]. Standard protection uses adaptive tuning, based on your application's network traffic patterns, to detect threats. This allows it to apply mitigations against DDoS attacks that might go unnoticed by the infrastructure-wide DDoS policies. Standard protection also provides alerting, telemetry, and analytics through Azure Monitor. For more information, see [Azure DDoS Protection: Best practices and reference architectures][ddos-best-practices].
 
-## DevOps considerations
+### Operational excellence
 
 Since all the main resources and their dependencies are in the same virtual network in this architecture, they are isolated in the same basic workload. That fact makes it easier to associate the workload's specific resources to a DevOps team, so that the team can independently manage all aspects of those resources. This isolation enables DevOps Teams and Services to perform continuous integration and continuous delivery (CI/CD).
 
