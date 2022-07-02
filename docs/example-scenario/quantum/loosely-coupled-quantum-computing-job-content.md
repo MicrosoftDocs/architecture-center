@@ -98,7 +98,7 @@ Monitor job execution so you can inform the user about job status. When job exec
 
 For a description of a continuous integration and continuous delivery (CI/CD) approach for this architecture, see [CI/CD for quantum computing jobs](../../solution-ideas/articles/cicd-for-quantum-computing-jobs.yml).
 
-## Pricing
+### Cost optimization
 
 The overall cost of this solution depends on the quantum computing target that you select to run the quantum job. Calculating estimated costs for the classical components is straightforward. You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
 
