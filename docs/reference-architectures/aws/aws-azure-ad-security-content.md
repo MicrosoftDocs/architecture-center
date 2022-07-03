@@ -56,7 +56,7 @@ Azure AD easily integrates with other Microsoft security solutions, like Microso
 
 ## Recommendations
 
-### Security recommendations
+### Security
 
 The following principles and guidelines are important for any cloud security solution:
 
@@ -108,6 +108,10 @@ Clearly understand and review other AWS IAM account components for appropriate m
 - *IAM groups* are also a way to administer RBAC. Instead of assigning IAM policies directly to individual IAM users, create an IAM group, assign permissions by attaching one or more IAM policies, and add IAM users to the group to inherit the appropriate access rights to resources.
 
 Some *IAM service accounts* must continue to run in AWS IAM to provide programmatic access. Be sure to review these accounts, securely store and restrict access to their security credentials, and rotate the credentials regularly.
+
+## Deploy this scenario
+
+This next section shows you how to deploy Azure AD for single sign-on to an individual AWS account.
 
 ### Plan and prepare
 
@@ -173,9 +177,7 @@ The following diagram shows an example of the configuration steps and final poli
 
 ![Diagram showing configuration steps and final role mapping from AWS IAM to Azure AD.](media/role-mapping.png)
 
-## Deploy this scenario
-
-This next section shows you how to deploy Azure AD for single sign-on to an individual AWS account.
+### Single sign-on integration
 
 Azure AD supports single sign-on integration with AWS SSO. With AWS SSO you can connect Azure AD to AWS in one place and centrally govern access across hundreds of accounts and AWS SSO integrated applications. This enables seamless Azure AD sign-in experience for users to use the AWS CLI.
 
