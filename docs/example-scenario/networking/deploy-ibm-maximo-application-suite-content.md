@@ -17,17 +17,17 @@ MAS 8.x runs on OpenShift, and it's beneficial to familiarize yourself with Open
 
 Many industries use the solutions in MAS, such as:
 
-* Energy and utilities
-* Oil and gas
-* Manufacturing
-* Travel, automotive, and transportation
-* Public sector
+- Energy and utilities
+- Oil and gas
+- Manufacturing
+- Travel, automotive, and transportation
+- Public sector
 
 Find more information about use cases for MAS on IBM's website at [IBM Maximo Application Suite](https://www.ibm.com/products/maximo).
 
 ## Architecture
 
-:::image type="complex" source="./../images/ibm-azure-guide-architecture-diagram.png" alt-text="Architecture diagram showing how to deploy IBM Maximo Application Suite on Azure." border="false":::
+:::image type="complex" source="./images/deploy-ibm-maximo-application-suite-architecture.png" alt-text="Architecture diagram showing how to deploy IBM Maximo Application Suite on Azure." border="false":::
    The diagram contains a large rectangle with the label Azure Virtual Network. Inside it, another large rectangle.
 :::image-end:::
 
@@ -37,46 +37,44 @@ The workload can be deployed both internally or externally facing, depending on 
 
 From the perspective of infrastructure, this architecture provides the following:
 
-* A container hosting platform to deploy highly available workloads across availability zones
-* A privatized deployment of worker and control nodes that are integrated with storage
-* Azure Files Premium and Standard for storage (OpenShift Data Foundation not required)
-* Azure SQL Server running on a virtual machine or container-based IBM Db2 Warehouse
-* Azure DNS for DNS management of OpenShift and its containers
-* Azure Active Directory for single sign-on into MAS
+- A container hosting platform to deploy highly available workloads across availability zones
+- A privatized deployment of worker and control nodes that are integrated with storage
+- Azure Files Premium and Standard for storage (OpenShift Data Foundation not required)
+- Azure SQL Server running on a virtual machine or container-based IBM Db2 Warehouse
+- Azure DNS for DNS management of OpenShift and its containers
+- Azure Active Directory for single sign-on into MAS
 
 
 ### Components
 
-* [Azure Virtual Machines](/azure/virtual-machines/linux/overview) to host the OpenShift platform and run the Maximo containers.
+- [Azure Virtual Machines](/azure/virtual-machines/linux/overview) to host the OpenShift platform and run the Maximo containers.
 
-* [Custom Virtual Machine Image for OpenShift](https://docs.openshift.com/container-platform/4.8/architecture/architecture-rhcos.html).
+- [Custom Virtual Machine Image for OpenShift](https://docs.openshift.com/container-platform/4.8/architecture/architecture-rhcos.html).
 
-* [Azure Load Balancers](/azure/load-balancer/load-balancer-overview) to provide connectivity into the cluster.
+- [Azure Load Balancers](/azure/load-balancer/load-balancer-overview) to provide connectivity into the cluster.
 
-* [Virtual Network](/azure/virtual-network/virtual-networks-overview) for communication between nodes, Azure services, and hybrid connectivity needs.
+- [Virtual Network](/azure/virtual-network/virtual-networks-overview) for communication between nodes, Azure services, and hybrid connectivity needs.
 
-* [Azure Files](/azure/storage/files/storage-files-introduction) hosting the stateful data for the databases and systems inside the cluster.
+- [Azure Files](/azure/storage/files/storage-files-introduction) hosting the stateful data for the databases and systems inside the cluster.
 
-* [Public and Private DNS Zones](/azure/dns/dns-overview) managing the DNS resolution for the containers inside and outside of the solution.
+- [Public and Private DNS Zones](/azure/dns/dns-overview) managing the DNS resolution for the containers inside and outside of the solution.
 
-* Optional [Azure Bastion](/azure/bastion/bastion-overview) and subnet to securely access any of the worker nodes or optional JumpBox machines.
+- Optional [Azure Bastion](/azure/bastion/bastion-overview) and subnet to securely access any of the worker nodes or optional JumpBox machines.
 
-* Optional [Azure SQL on a Virtual Machine](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview?view=azuresql) providing data services to MAS, the database can also be another, like Oracle Exadata or IBM Db2 Warehouse.
+- Optional [Azure SQL on a Virtual Machine](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview?view=azuresql) providing data services to MAS, the database can also be another, like Oracle Exadata or IBM Db2 Warehouse.
 
-* Optional [Twilio Send Grid](https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021) to send emails from MAS to your consumers.
+- Optional [Twilio Send Grid](https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021) to send emails from MAS to your consumers.
 
-* Optional [Linux jump box](/azure/virtual-machines/linux/overview) to do the OpenShift installation from. This machine can also be used to connect and manage the OpenShift cluster long term as it contains the kubeconf file after installation. If you have network connectivity into your Azure environment, then the installation can be done from an existing machine.
+- Optional [Linux jump box](/azure/virtual-machines/linux/overview) to do the OpenShift installation from. This machine can also be used to connect and manage the OpenShift cluster long term as it contains the kubeconf file after installation. If you have network connectivity into your Azure environment, then the installation can be done from an existing machine.
 
 
 ### Alternatives
 
 While typically not necessary, you have other storage options available:
 
-* [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) as a replacement for Azure Files with more performance.
-
-* [Oracle Database on Azure](/azure/virtual-machines/workloads/oracle/oracle-reference-architecture) if you want to use Oracle instead of SQL Server or Db2 Warehouse.
-
-* [OpenShift Data Foundation](https://www.redhat.com/en/technologies/cloud-computing/openshift-data-foundation) if you want to use Db2 Warehouse on OpenShift Data Foundation.
+- [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) as a replacement for Azure Files with more performance.
+- [Oracle Database on Azure](/azure/virtual-machines/workloads/oracle/oracle-reference-architecture) if you want to use Oracle instead of SQL Server or Db2 Warehouse.
+- [OpenShift Data Foundation](https://www.redhat.com/en/technologies/cloud-computing/openshift-data-foundation) if you want to use Db2 Warehouse on OpenShift Data Foundation.
 
 
 ## Recommendations
@@ -87,14 +85,14 @@ Use of earlier or later major versions of OpenShift, such as 4.6 or 4.9, can res
 
 We work closely with IBM and other partners to ensure that the guidance, architecture, and the quickstart guide give you the best experience on Azure. They follow the best practices as outlined in the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/). Contact your IBM account team for support beyond this documentation.
 
-Before you proceed with your deployment, you need to answer a series of design questions:
+Before you proceed with your deployment, you need to answer the following questions about design:
 
-1. What MAS applications do you need? What dependencies do your applications have?
-1. What version of OpenShift is required?
-1. Should OpenShift installation use installer-provisioned infrastructure (IPI) or user-provisioned infrastructure (UPI)?
-1. What databases are needed?
-1. What number and sizes of virtual machines do you need? 
-1. Will users connect from external networks?
+- What MAS applications do you need? What dependencies do your applications have?
+- What version of OpenShift is required?
+- Should OpenShift installation use installer-provisioned infrastructure (IPI) or user-provisioned infrastructure (UPI)?
+- What databases are needed?
+- What number and sizes of virtual machines do you need? 
+- Will users connect from external networks?
 
 ### Maximo Application Suite
 
@@ -102,8 +100,8 @@ Microsoft has tested MAS 8.5+ on Azure. Our recommendation is to use the latest 
 
 Review the MAS applications that you need to complete your business scenario and then review the requirements for each of the applications. For more information, see [IBM Maximo Application Suite system requirements](https://www.ibm.com/support/pages/node/6538166). Each of the applications might need separate databases. We have tested and support the following databases on Azure:
 
-* [SQL Server 2019](https://azure.microsoft.com/en-us/services/virtual-machines/sql-server/#overview) on Azure using Windows or Linux
-* IBM [DB2 Warehouse on Cloud Pak for Data 3.5](https://www.ibm.com/docs/en/cloud-paks/cp-data/3.5.0?topic=services-db2-warehouse)
+- [SQL Server 2019](https://azure.microsoft.com/en-us/services/virtual-machines/sql-server/#overview) on Azure using Windows or Linux
+- IBM [DB2 Warehouse on Cloud Pak for Data 3.5](https://www.ibm.com/docs/en/cloud-paks/cp-data/3.5.0?topic=services-db2-warehouse)
 
 You might also choose to run Oracle Exadata on a virtual machine (VM) or on Oracle Cloud Infrastructure by using interconnection, but this isn't a tested configuration. For more information about interconnection, see [Learn about interconnecting Oracle Cloud with Microsoft Azure](https://docs.oracle.com/en/solutions/learn-azure-oci-interconnect/index.html). Currently, Azure SQL Database and Azure Cosmos DB are not supported. These databases might be supported in future releases of MAS.
 
@@ -314,12 +312,12 @@ _This article is maintained by Microsoft. It was originally written by the follo
 
 Principal authors:
 
- * [David Baumgarten](https://www.linkedin.com/in/baumgarten-david/) | Senior Cloud Solution Architect
- * [Roeland Nieuwenhuis](https://www.linkedin.com/in/roelandnieuwenhuis/) | Principal Cloud Solution Architect
+- [David Baumgarten](https://www.linkedin.com/in/baumgarten-david/) | Senior Cloud Solution Architect
+- [Roeland Nieuwenhuis](https://www.linkedin.com/in/roelandnieuwenhuis/) | Principal Cloud Solution Architect
 
 Other contributors:
 
- * [Gary Moore](https://www.linkedin.com/in/gwmoore) | Programmer/Writer
+- [Gary Moore](https://www.linkedin.com/in/gwmoore) | Programmer/Writer
 
 
 ## Next steps
