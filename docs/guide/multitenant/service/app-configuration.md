@@ -45,7 +45,7 @@ You might instead choose to deploy an Azure App Configuration store for each ten
 
 Consider tenant-specific stores if you have one of the following situations:
 
-- You need to store a large amount of data, or will scale to a large number of tenants, and you'll be at risk of exceeding [any of the resource limits for a single store](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-app-configuration).
+- You need to store a large amount of data per tenant, or will scale to a large number of tenants, and you'll be at risk of exceeding [any of the resource limits for a single store](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-app-configuration).
 - You need to use [customer-managed encryption keys](/azure/azure-app-configuration/concept-customer-managed-keys), where the keys are separate for each tenant.
 
 ## Features of Azure App Configuration that support multitenancy
@@ -60,7 +60,7 @@ For example, suppose you need to store a setting to indicate the logging level f
 
 Azure App Configuration enables you to specify long key names, supporting multiple levels in a hierarchy. If you choose to use long key names, ensure you understand the [size limits for keys and values](/azure/azure-app-configuration/concept-key-value#keys).
 
-When you load a single tenant's configuration into your application, you can specify a [key prefix filter](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.azureappconfigurationoptions.select#parameters) to only load that tenant's keys. You can also configure the .NET SDK for Azure App Configuration to [trim the key prefix](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.azureappconfigurationoptions.trimkeyprefix#microsoft-extensions-configuration-azureappconfiguration-azureappconfigurationoptions-trimkeyprefix(system-string)) from the keys before it makes them available to your application. When you trim the key prefix, your application sees a consistent key name, with that tenant's values loaded into the application.
+When you load a single tenant's configuration into your application, you can specify a [key prefix filter](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.azureappconfigurationoptions.select#parameters) to only load that tenant's keys. You can also configure the provider library for Azure App Configuration to [trim the key prefix](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.azureappconfigurationoptions.trimkeyprefix#microsoft-extensions-configuration-azureappconfiguration-azureappconfigurationoptions-trimkeyprefix(system-string)) from the keys before it makes them available to your application. When you trim the key prefix, your application sees a consistent key name, with that tenant's values loaded into the application.
 
 ### Labels
 
@@ -72,7 +72,7 @@ If you do decide to use labels for each tenant, your application can load just t
 
 ### Application-side caching
 
-When you work with Azure App Configuration, it's important to cache the settings within your application instead of loading them every time you use them. The [Azure App Configuration client libraries](/azure/azure-app-configuration/overview#use-app-configuration) cache settings and refresh them automatically.
+When you work with Azure App Configuration, it's important to cache the settings within your application instead of loading them every time you use them. The [Azure App Configuration provider libraries](/azure/azure-app-configuration/overview#use-app-configuration) cache settings and refresh them automatically.
 
 You also need to decide whether your application loads the settings for a single tenant or for all tenants.
 
