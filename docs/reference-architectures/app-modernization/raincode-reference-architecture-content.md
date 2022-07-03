@@ -75,6 +75,62 @@ This diagram shows how the legacy architecture can be migrated to Azure, taking 
 
 -   [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/) is an Azure PaaS service for PostgreSQL databases.
 
+## Scenario details
+
+This architecture illustrates how the Raincode solution runs on Azure. Raincode on Azure supports the following features:
+
+-   100-percent thread-safe and managed code for .NET and .NET Core.
+
+-   A solution primarily aimed at transforming mainframes to a cloud-native architecture.
+
+-   Native support for static or dynamic SQL queries through SQL Server either on-premises or on Azure SQL DB.
+
+-   Support for Db2 (through Microsoft's HIS) and SQL Server.
+
+-   Visual Studio integration, featuring a debugger, compiler, configurations,# IntelliSense, code colorizer, and project management.
+
+-   Support for all COBOL data types, with mainframe memory representation.
+
+-   Seamless integration with PL/I and ASM370 compilers.
+
+-   A repository with call graphs, statistics, and other compile-time information.
+
+-   Native EBCDIC support at compile time and runtime.
+
+Migrating to a modern, distributed cloud infrastructure using Raincode allows you to:
+
+-   Facilitate new development and maintenance in C\#.
+
+-   Free yourself from the financial burden of COBOL licensing costs.
+
+-   Adopt a flexible and scalable platform by using the latest technologies through .NET Core.
+
+-   Integrate with modern applications such as web and mobile to improve customer experience.
+
+-   Transform your monolithic legacy applications into micro- or service-oriented architecture (SOA).
+
+-   Control your total cost of ownership (TCO) by using Azure's scalability and availability features.
+
+### Potential use cases
+
+Many use cases can benefit from the Raincode compiler; possibilities include:
+
+-   Businesses seeking to modernize infrastructure and escape the high costs, limitations, and rigidity associated with mainframes.
+
+-   Reducing Technical Debt by going cloud native and DevOps.
+
+-   Reducing operational and capital expenditure costs.
+
+-   Organizations opting to move IBM zSeries mainframe workloads to the cloud without the side effects of a complete redevelopment.
+
+-   IBM zSeries mainframe customers who need to migrate mission-critical applications while maintaining continuity with other on-premises applications.
+
+-   Teams looking for the horizontal and vertical scalability that Azure offers.
+
+-   Businesses that favor solutions offering disaster recovery options.
+
+-   Taking advantage of the latest software development innovations: tools, frameworks, languages, and practices.
+
 ## Considerations
 
 The following considerations apply to this solution.
