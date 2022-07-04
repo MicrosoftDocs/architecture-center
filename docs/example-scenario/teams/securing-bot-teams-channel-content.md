@@ -1,22 +1,8 @@
 This example scenario secures the connection to a Microsoft Teams channel bot's web app using Azure Private Link and Azure Private Endpoint, while enabling channels in the Teams client to communicate with the bot through an IP exposed through an Azure Firewall.
 
-Bots allow Teams users to interact with web services through text, interactive cards, and task modules. The Microsoft Bot Framework and Azure Bot Services give you an easy-to-use set of tools for creating and managing these bots.
-
-Bots can be developed using a variety of languages, such as C\#, JavaScript, and Python. Once developed, the bot can be deployed to Azure. A key component of the bot is the web app, which contains the core logic and interface that the user communicates with. One of the key requirements for the bot to work is that it must expose a publicly accessible HTTPS endpoint.
-
-InfoSec policy commonly requires that all incoming traffic to web apps go through a corporate firewall. This means that all traffic going to a bot, and responses from the bot, must route through a corporate firewall, as with any other web app.
-
-## Potential use cases
-
-Organizations can utilize this for mobile and desktop users. Some examples include:
-
-- Simple queries. Bots can deliver an exact match to a query or a group of related matches to help with disambiguation.
-- Multi-turn interactions. Anticipating possible next steps makes it much easier for people to a complete task flow.
-- Reach out to users. A bot may send a message when something has changed in a document or a work item is closed.
-
 ## Architecture
 
-![Teams to Azure Firewall flowchart](media/securing-bot-image-001.png)
+![Diagram showing the Teams to Azure Firewall flowchart.](media/securing-bot-image-001.png)
 
 ### Dataflow
 
@@ -58,6 +44,22 @@ Organizations can utilize this for mobile and desktop users. Some examples inclu
 
 -   [App Service Environment](/azure/app-service/environment/intro) (ASE) can provide a fully isolated and dedicated environment for securely running App Service apps at high scale. This example doesn't make use of ASE to reduce costs, but the sample architecture could support it with modifications.
 
+## Scenario details
+
+Bots allow Teams users to interact with web services through text, interactive cards, and task modules. The Microsoft Bot Framework and Azure Bot Services give you an easy-to-use set of tools for creating and managing these bots.
+
+Bots can be developed using a variety of languages, such as C\#, JavaScript, and Python. Once developed, the bot can be deployed to Azure. A key component of the bot is the web app, which contains the core logic and interface that the user communicates with. One of the key requirements for the bot to work is that it must expose a publicly accessible HTTPS endpoint.
+
+InfoSec policy commonly requires that all incoming traffic to web apps go through a corporate firewall. This means that all traffic going to a bot, and responses from the bot, must route through a corporate firewall, as with any other web app.
+
+### Potential use cases
+
+Organizations can utilize this for mobile and desktop users. Some examples include:
+
+- Simple queries. Bots can deliver an exact match to a query or a group of related matches to help with disambiguation.
+- Multi-turn interactions. Anticipating possible next steps makes it much easier for people to a complete task flow.
+- Reach out to users. A bot may send a message when something has changed in a document or a work item is closed.
+
 ## Considerations
 
 ### Monitoring
@@ -74,7 +76,7 @@ For other scalability topics, see the Azure Architecture Center's [Performance e
 
 It's a common practice to deploy web apps, API apps, and mobile apps to an Azure App Service plan using continuous deployment pipelines. Because a secured bot's App Service is protected using a private endpoint, externally hosted build agents don't have the access required to deploy updates. To work around this, you may need to use a solution such as Azure Pipeline [self-hosted DevOps agents](/azure/devops/pipelines/agents/agents?view=azure-devops&tabs=browser#install).
 
-## Deploy the scenario
+## Deploy this scenario
 
 ### Prerequisites
 
@@ -350,13 +352,13 @@ Principal author:
 -   Review the [Bot Framework SDK Documentation \| Microsoft
     Docs](/azure/bot-service/index-bf-sdk?view=azure-bot-service-4.0) to start building bots.
 
--   Visit the [Azure Architecture Center \| Microsoft
-    Docs](../../browse/index.yml) to review related architectures and guides.
+-   [Bots Secured Behind a Firewall & Teams \| Bot Framework
+    Blog](https://blog.botframework.com/2020/11/23/bots-secured-behind-a-firewall-teams)
 
 ## Related resources
 
--   [Bots Secured Behind a Firewall & Teams \| Bot Framework
-    Blog](https://blog.botframework.com/2020/11/23/bots-secured-behind-a-firewall-teams)
+-   Visit the [Azure Architecture Center \| Microsoft
+    Docs](../../browse/index.yml) to review related architectures and guides.
 
 -   [Azure Firewall Architecture Guide - Azure Architecture Center \| Microsoft
     Docs](../firewalls/index.yml)
