@@ -108,7 +108,7 @@ Principal authors:
 Other contributors:
 
 - [Ahmed Bham](https://www.linkedin.com/in/ahmedbham-solutionsarchitect) | Senior Cloud Solution Architect
-- [Kevin Kraus](httphttps://www.linkedin.com/in/kevin-w-kraus) | Senior Cloud Solution Architect
+- [Kevin Kraus](https://www.linkedin.com/in/kevin-w-kraus) | Senior Cloud Solution Architect
 - [Jason Martinez](https://www.linkedin.com/in/jason-martinez-502766123) | Technical Writer
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
