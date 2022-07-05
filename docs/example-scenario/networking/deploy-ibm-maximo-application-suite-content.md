@@ -51,23 +51,23 @@ From the perspective of infrastructure, this architecture provides the following
 
 - [Azure Virtual Machines](/azure/virtual-machines/linux/overview) to host the OpenShift platform and run the Maximo containers.
 
-- [Custom Virtual Machine Image for OpenShift](https://docs.openshift.com/container-platform/4.8/architecture/architecture-rhcos.html).
+- [Red Hat Enterprise Linux CoreOS](https://docs.openshift.com/container-platform/4.8/architecture/architecture-rhcos.html) to provide a custom VM image for OpenShift.
 
-- [Azure Load Balancers](/azure/load-balancer/load-balancer-overview) to provide connectivity into the cluster.
+- [Azure Load Balancers](https://azure.microsoft.com/services/load-balancer/) to provide connectivity into the cluster.
 
-- [Virtual Network](/azure/virtual-network/virtual-networks-overview) for communication between nodes, Azure services, and hybrid connectivity needs.
+- [Virtual Network](https://azure.microsoft.com/services/virtual-network/) for communication between nodes, Azure services, and hybrid connectivity needs.
 
-- [Azure Files](/azure/storage/files/storage-files-introduction) hosting the stateful data for the databases and systems inside the cluster.
+- [Azure Files](https://azure.microsoft.com/services/storage/files/) hosting the stateful data for the databases and systems inside the cluster.
 
-- [Public and Private DNS Zones](/azure/dns/dns-overview) managing the DNS resolution for the containers inside and outside of the solution.
+- [Azure DNS](https://azure.microsoft.com/services/dns/) to manage DNS resolution for the containers inside and outside of the solution.
 
-- Optional [Azure Bastion](/azure/bastion/bastion-overview) and subnet to securely access any of the worker nodes or optional JumpBox machines.
+- Optional [Azure Bastion](https://azure.microsoft.com/services/azure-bastion/) and subnet to securely access any of the worker nodes or optional JumpBox machines.
 
-- Optional [Azure SQL on a Virtual Machine](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview?view=azuresql) providing data services to MAS, the database can also be another, like Oracle Exadata or IBM Db2 Warehouse.
+- Optional [Azure SQL](https://azure.microsoft.com/products/azure-sql/) on a VM to provide data services to MAS. The database can also be another, like Oracle Exadata or IBM Db2 Warehouse.
 
 - Optional [Twilio Send Grid](https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021) to send emails from MAS to your consumers.
 
-- Optional [Linux jump box](/azure/virtual-machines/linux/overview) to do the OpenShift installation from. This machine can also be used to connect and manage the OpenShift cluster long term as it contains the kubeconf file after installation. If you have network connectivity into your Azure environment, then the installation can be done from an existing machine.
+- Optional [Linux virtual machines in Azure](https://azure.microsoft.com/services/virtual-machines/linux/) to provide a jump box for installation of OpenShift installation. You can also use this VM to connect and manage the OpenShift cluster because it contains the Kubernetes configuration file after installation. If you have network connectivity into your Azure environment, then you can perform the installation from an existing machine.
 
 
 ### Alternatives
