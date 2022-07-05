@@ -11,7 +11,7 @@ This reference architecture shows a secure hybrid network that extends an on-pre
 The architecture consists of the following aspects:
 
 - **On-premises network**. A private local-area network implemented in an organization.
-- **Azure virtual network**. The virtual network hosts the application and other resources running in Azure.
+- **Azure virtual network**. The virtual network hosts the solution components and other resources running in Azure.
 
     [Virtual network routes][udr-overview] define the flow of IP traffic within the Azure virtual network. In the diagram, there are two user-defined route tables.
 
@@ -51,7 +51,7 @@ Use [Azure role-based access control (Azure RBAC)][rbac] to manage the resources
 
 - A security IT administrator role to manage secure network resources such as the firewall.
 
-The DevOps and IT administrator roles should not have access to the firewall resources. This should be restricted to the security IT administrator role.
+The IT administrator role should not have access to the firewall resources. This should be restricted to the security IT administrator role.
 
 ### Resource group recommendations
 
@@ -61,7 +61,7 @@ We recommend creating the following resource groups:
 
 - A resource group containing the virtual network (excluding the VMs), NSGs, and the gateway resources for connecting to the on-premises network. Assign the centralized IT administrator role to this resource group.
 - A resource group containing the VMs for the Azure Firewall instance and the user-defined routes for the gateway subnet. Assign the security IT administrator role to this resource group.
-- Separate resource groups for each application tier that contain the load balancer and VMs. Note that this resource group shouldn't include the subnets for each tier. Assign the DevOps role to this resource group.
+- Separate resource groups for each spoke virtual network that contains the load balancer and VMs.
 
 ### Networking recommendations
 
@@ -72,7 +72,7 @@ To accept inbound traffic from the internet, add a [Destination Network Address 
 
 [Force-tunnel][azure-forced-tunneling] all outbound internet traffic through your on-premises network using the site-to-site VPN tunnel, and route to the internet using network address translation (NAT). This prevents accidental leakage of any confidential information and allows inspection and auditing of all outgoing traffic.
 
-Don't completely block internet traffic from the application tiers, as this will prevent these tiers from using Azure PaaS services that rely on public IP addresses, such as VM diagnostics logging, downloading of VM extensions, and other functionality. Azure diagnostics also requires that components can read and write to an Azure Storage account.
+Don't completely block internet traffic from the resources in the spoke network subnets, as this will prevent these resources from using Azure PaaS services that rely on public IP addresses, such as VM diagnostics logging, downloading of VM extensions, and other functionality. Azure diagnostics also requires that components can read and write to an Azure Storage account.
 
 Verify that outbound internet traffic is force-tunneled correctly. If you're using a VPN connection with the [routing and remote access service][routing-and-remote-access-service] on an on-premises server, use a tool such as [WireShark][wireshark].
 
@@ -114,11 +114,11 @@ This reference architecture implements multiple levels of security.
 
 #### Routing all on-premises user requests through Azure Firewall
 
-The user-defined route in the gateway subnet blocks all user requests other than those received from on-premises. The route passes allowed requests to the firewall, and these requests are passed on to the application if they are allowed by the firewall rules. You can add other routes, but make sure they don't inadvertently bypass the firewall or block administrative traffic intended for the management subnet.
+The user-defined route in the gateway subnet blocks all user requests other than those received from on-premises. The route passes allowed requests to the firewall, and these requests are passed on to the resources in the spoke virtual networks if they are allowed by the firewall rules. You can add other routes, but make sure they don't inadvertently bypass the firewall or block administrative traffic intended for the management subnet.
 
-#### Using NSGs to block/pass traffic between application tiers
+#### Using NSGs to block/pass traffic to spoke virtual network subnets
 
-Traffic between tiers is restricted by using NSGs. If you have a requirement to expand the NSG rules to allow broader access to these tiers, weigh these requirements against the security risks. Each new inbound pathway represents an opportunity for accidental or purposeful data leakage or application damage.
+Traffic to and from resource subnets in spoke virtual networks is restricted by using NSGs. If you have a requirement to expand the NSG rules to allow broader access to these resources, weigh these requirements against the security risks. Each new inbound pathway represents an opportunity for accidental or purposeful data leakage or application damage.
 
 ### Use AVNM to create baseline Security Admin rules
 
@@ -138,7 +138,7 @@ Here are cost considerations for the services used in this architecture.
 
 #### Azure Firewall
 
-In this architecture, Azure Firewall is deployed in the virtual network to control traffic between the gateway's subnet and the subnet in which the application tier runs. In this way Azure Firewall is cost effective because it's used as a shared solution consumed by multiple workloads. Here are the Azure Firewall pricing models:
+In this architecture, Azure Firewall is deployed in the virtual network to control traffic between the gateway's subnet and the resources in the spoke virtual networks. In this way Azure Firewall is cost effective because it's used as a shared solution consumed by multiple workloads. Here are the Azure Firewall pricing models:
 
 - Fixed rate per deployment hour.
 - Data processed per GB to support auto scaling.
@@ -201,7 +201,7 @@ Once the deployment has been completed, verify site-to-site connectivity by look
 
 ![Screenshot showing the status of connections.](./images/portal-connections.png)
 
-The IIS instance found in the spoke network can be accessed from the virtual machine located in the mock on-prem network. Create a connection to the virtual machine using the included Azure Bastion host, open a web browser, and navigate to the address of the application's network load balancer.
+The IIS instance found in the spoke network can be accessed from the virtual machine located in the mock on-prem network. Create a connection to the virtual machine using the included Azure Bastion host, open a web browser, and navigate to the address of the network load balancer.
 
 For detailed information and additional deployment options, see the Azure Resource Manager templates (ARM templates) used to deploy this solution: [Secure Hybrid Network](/samples/mspnp/samples/secure-hybrid-network/).
 
