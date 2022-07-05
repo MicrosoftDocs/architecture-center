@@ -12,7 +12,9 @@ The most utilized CTI in SIEM solutions like Microsoft Sentinel is threat indica
 
 ## Architecture
 
-![Microsoft Sentinel data flow](media/sentinel-threat-intelligence/sentinel-data-flow.png)
+![Diagram showing Microsoft Sentinel data flow](media/sentinel-threat-intelligence/sentinel-data-flow.png)
+
+*Download a [Visio file](https://arch-center.azureedge.net/sentinel-threat-intelligence.vsdx) of this architecture.*
 
 ### Workflow
 
