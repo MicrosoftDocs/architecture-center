@@ -1,19 +1,4 @@
-An Internet-of-Things (IoT) *monitor and manage loop* is a supervisory system that continually monitors a physical system controlled by a set of networked IoT devices. The monitor and manage loop makes sure the system is within the tolerable range of the desired state setpoint, and issues commands to control the system.
-
 This article provides an overview of monitor and manage process loop architecture, characteristics, and components.
-
-## Potential use cases
-
-Some example scenarios for monitor and manage loops include:
-
-- Smart garbage collection: Direct the truck to the route that has the most need for garbage collection.
-- Smart campus: Issue campus evacuation alert upon fire detection in multiple buildings.
-- Power distribution: Proactively shut down the power to multiple city blocks based on a high wind and rain forecast.
-- Gas pipeline monitoring: Shut down a gas pumping station upon sensing pressure drops at multiple segments in a remote pipeline.
-- Smart meters: Monitor power consumption and combine it with weather forecasts to automatically raise the setpoint of home thermostats, as part of a program to give discounts to frugal power consumers.
-- Wind farm: Upon noticing a power factor drop in a wind farm, schedule the inspection of the suspect wind turbines.
-- Process industries: Monitor and control crude oil cracking process in an oil refinery. Monitor and control paint and bulk chemical manufacturing.
-- Discrete manufacturing: Monitor and control a widget inspection and packaging cell.
 
 ## Architecture
 
@@ -47,7 +32,24 @@ Monitor and manage loops include the following components:
 - A **rules engine** consumes and handles business events by adjusting desired device states through appropriate commands. The rules engine may also publish events and alarms to the monitoring console.
 - A **monitoring console** provides visual display and human intervention if necessary.
 
-## Next steps
+## Scenario details
+
+An Internet-of-Things (IoT) *monitor and manage loop* is a supervisory system that continually monitors a physical system controlled by a set of networked IoT devices. The monitor and manage loop makes sure the system is within the tolerable range of the desired state setpoint, and issues commands to control the system.
+
+### Potential use cases
+
+This solution is ideal for the energy, environment, manufacturing, education, facilities, and real-estate industries. Some example scenarios for monitor and manage loops include:
+
+- Smart garbage collection: Direct the truck to the route that has the most need for garbage collection.
+- Smart campus: Issue campus evacuation alert upon fire detection in multiple buildings.
+- Power distribution: Proactively shut down the power to multiple city blocks based on a high wind and rain forecast.
+- Gas pipeline monitoring: Shut down a gas pumping station upon sensing pressure drops at multiple segments in a remote pipeline.
+- Smart meters: Monitor power consumption and combine it with weather forecasts to automatically raise the setpoint of home thermostats, as part of a program to give discounts to frugal power consumers.
+- Wind farm: Upon noticing a power factor drop in a wind farm, schedule the inspection of the suspect wind turbines.
+- Process industries: Monitor and control crude oil cracking process in an oil refinery. Monitor and control paint and bulk chemical manufacturing.
+- Discrete manufacturing: Monitor and control a widget inspection and packaging cell.
+
+## Related resources
 
 - [Measure and control loops](measure-control-loop.yml)
 - [Analyze and optimize loops](analyze-optimize-loop.yml)
