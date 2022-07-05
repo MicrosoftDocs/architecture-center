@@ -74,7 +74,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 Consider implementing the following security features in this architecture:
 
-- [Secure the credentials in Data Factory using Key Vault](/azure/data-factory/store-credentials-in-key-vault)
+- [Secure the credentials in Data Factory by using Key Vault](/azure/data-factory/store-credentials-in-key-vault)
 - [Deploy Azure services in Azure Virtual Network](/azure/virtual-network/virtual-network-for-azure-services)
 - [Enterprise security and governance for Azure Machine Learning](/azure/machine-learning/concept-enterprise-security)
 - [Secure cluster connectivity (No Public IP / NPIP)](/azure/databricks/security/secure-cluster-connectivity)
@@ -118,15 +118,15 @@ Other contributors:
 - [Azure security baseline for Azure Machine Learning](/security/benchmark/azure/baselines/machine-learning-security-baseline)
 - [Azure Synapse Analytics](/azure/synapse-analytics)
 - [Consume data with Power BI](/learn/paths/consume-data-with-power-bi)
-- [Copy and ingest data using Azure Data Factory](/azure/data-factory/data-factory-tutorials#copy-and-ingest-data)
+- [Copy and ingest data by using Azure Data Factory](/azure/data-factory/data-factory-tutorials#copy-and-ingest-data)
 - [Deploy machine learning models to Azure](/azure/machine-learning/how-to-deploy-and-where?tabs=azcli)
 - [Integrate data with Azure Data Factory or Azure Synapse Pipeline](/learn/modules/data-integration-azure-data-factory)
 - [Power BI](https://docs.microsoft.com/power-bi)
-- [Send and receive data using Azure Data Share and transform data using Azure Data Factory](/learn/modules/receive-data-with-azure-data-share-transforming-with-azure-data-factory)
+- [Send and receive data by using Azure Data Share and transform data by using Azure Data Factory](/learn/modules/receive-data-with-azure-data-share-transforming-with-azure-data-factory)
 
 ## Related resources
 
 - [End-to-end computer vision at the edge for manufacturing](../../reference-architectures/ai/end-to-end-smart-factory.yml)
-- [Extract text from objects using Power Automate and AI Builder](extract-object-text.yml)
+- [Extract text from objects by using Power Automate and AI Builder](extract-object-text.yml)
 - [Image classification on Azure](intelligent-apps-image-processing.yml)
 - [Vision classifier model with Azure Custom Vision Cognitive Service](../dronerescue/vision-classifier-model-with-custom-vision.yml)
