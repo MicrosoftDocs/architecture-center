@@ -1,23 +1,12 @@
-
 Any web application that's developed and distributed among more than one layer is known as a multi-tier web application. The tiers divide the application into two or more components that may be separately developed and executed. To put it simply, a multi-tier web application is a front-end web application that calls one or more API applications behind it. This reference architecture showcases how to use service endpoints for secure communications between app services in a multi-tier environment.
-
-By using service endpoints, you can control inbound access to your API app. You can specify that all accessors must be in subnets that you select. The restriction can be set on the API app or at the front-end site with allow and deny rules at the virtual network and subnet levels.
-
-> [!Note]
-> Although this article focuses on the use of service endpoints, other aspects of the architecture, such as Azure App Service and virtual network integration, are widely applicable.
-
-## Potential use cases
-
-This architecture may suit these use cases:
-
-- Solutions with two services that require access restrictions
-- Finance and healthcare applications that require private connections to a back-end API app
 
 ## Architecture
 
 :::image type="content" source="images/multi-tier-app-service-service-endpoint.png" lightbox="images/multi-tier-app-service-service-endpoint.png" alt-text="Architecture of a multi-tier app.":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1874703-PR-3830-multi-tier-app-service-service-endpoint.vsdx) of this architecture.*
+
+### Workflow
 
 Here's the traffic flow and basic configuration of the architecture:
 
@@ -42,9 +31,23 @@ Here's the traffic flow and basic configuration of the architecture:
   - Access restrictions
   - Azure Private Link
 
-  For more information, see [App Service networking features](/azure/app-service/networking-features).
+For more information, see [App Service networking features](/azure/app-service/networking-features).
 
-## Benefits
+## Scenario details
+
+By using service endpoints, you can control inbound access to your API app. You can specify that all accessors must be in subnets that you select. The restriction can be set on the API app or at the front-end site with allow and deny rules at the virtual network and subnet levels.
+
+> [!Note]
+> Although this article focuses on the use of service endpoints, other aspects of the architecture, such as Azure App Service and virtual network integration, are widely applicable.
+
+### Potential use cases
+
+This architecture may suit these use cases:
+
+- Solutions with two services that require access restrictions
+- Finance and healthcare applications that require private connections to a back-end API app
+
+### Benefits
 
 - This architecture provides a way to create a multi-tier web application that has a secure API back end. Traffic to your API app comes only from the subnet of the front-end web app.
 - Service endpoints are more affordable, faster, and easier to set up when compared to App Service Environments. There's no way for an App Service web app to join a virtual network without the App Service Environment, which is expensive.
@@ -65,7 +68,7 @@ Service endpoints protect the API apps from being accessed by anything other tha
 - Learn about scaling a basic web app in [Scaling the App Service app](../app-service-web-app/basic-web-app.yml?tabs=cli#scaling-the-app-service-app). Review the other articles in the same section for ideas regarding other architectures.
 - For more performance efficiency ideas, see [Performance efficiency checklist](/azure/architecture/framework/scalability/performance-efficiency).
 
-## Pricing
+### Cost optimization
 
 Use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs.
 
