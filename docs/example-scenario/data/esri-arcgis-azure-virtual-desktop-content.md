@@ -1,17 +1,6 @@
-Esri's technology is a geographic information system (GIS) that contains important capabilities for the visualization, analysis, data management, and more, of geospatial data. Esri's core technology is called the ArcGIS platform. It includes capabilities for mapping, spatial analysis, 3D GIS, imagery and remote sensing, data collection and management, and field operations. For more information, see the [ArcGIS page](https://www.esri.com/en-us/arcgis/about-arcgis/overview) on the Esri website. 
+This architecture shows how you can deploy Esri ArcGIS Pro in Azure Virtual Desktop to support the hyperscale of Azure. The architecture also includes back-end components like ArcGIS Enterprise to build a complete system on Azure.
 
-A key part of the technology includes a desktop software app called ArcGIS Pro, which is a 64-bit professional desktop GIS. GIS analysts can use it to perform spatial analysis and edit spatial data. GIS administrators can use it to create and publish geospatial services. This architecture shows how you can deploy ArcGIS Pro in Azure Virtual Desktop to support the hyperscale of Azure. The architecture also includes back-end components like ArcGIS Enterprise to build a complete system on Azure.
-
-## Potential use cases
-
-Most of the demand for Esri's ArcGIS and virtual desktop solutions is from:
-
-- Security and regulation applications like utilities, healthcare, and government.
-- Elastic workforce needs like remote work, mergers and acquisition, short-term employees, contractors, and partner access.
-- Employees like bring your own device (BYOD) and mobile users and branch workers. 
-- Specialized workloads like land management, design and engineering, legacy apps, and software development test.
-
-While GIS has been implemented in Azure for many years, it has typically included only the back-end components, which introduces latency between the client and server components. Organizations have been able to deploy desktop GIS on VMs from Azure Marketplace, but this has also been done for a handful of thick clients, which isn't very scalable. This reference architecture addresses both challenges.
+*ArcGIS® is a trademark of its company. No endorsement is implied by the use of this mark.*
 
 ## Architecture
 
@@ -58,6 +47,7 @@ Following is a high-level architecture for deploying ArcGIS components on Azure.
 - [FSLogix](https://docs.microsoft.com/fslogix) enhances and enables user profile management for Windows remote computing environments. It allows users to roam between remote computing session hosts, minimize sign-in times for virtual desktop environments, and optimize file I/O between the host/client and the remote profile store.  
 
   For information about FSLogix Profile Container, Azure Files, and Azure NetApp Files best practices, see [FSLogix for the enterprise](/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix).
+- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) enables you to create your own private network infrastructure in the cloud. 
 - [ArcGIS Pro](https://www.esri.com/en-us/arcgis/products/arcgis-pro/overview) is Esri's professional desktop GIS application. It enables power users to explore, geovisualize, and analyze data. It includes 2D and 3D capabilities and runs best on Azure high performance computing VMs, like those in the NV series. You can scale the use of ArcGIS by using Azure Virtual Desktop.  
 - [ArcGIS Enterprise](https://enterprise.arcgis.com/en/get-started/latest/windows/what-is-arcgis-enterprise-.htm) is a platform for mapping and geovisualization, analytics, and data management that hosts data, applications, and custom low-code or no-code applications. It works with ArcGIS Pro or ArcGIS Desktop (not included here because it's been replaced by ArcGIS Pro). ArcGIS Enterprise isn't part of this reference architecture, but you could extend the architecture to include it.  
 - [Portal for ArcGIS](https://enterprise.arcgis.com/en/portal) is part of the base deployment. It includes the ability to share maps, scenes, apps and other geospatial information within an organization. With this front-end interface, anyone in the organization can make a map, find layers, and perform queries with very little training.  
@@ -66,11 +56,33 @@ Following is a high-level architecture for deploying ArcGIS components on Azure.
 - [Enterprise geodatabase](https://enterprise.arcgis.com/en/server/latest/manage-data/windows/enterprise-geodatabases-and-arcgis-enterprise.htm) is a geospatial database designed to host vector and raster data. It can be deployed in many database management systems. In this architecture, the enterprise geodatabase is stored in Azure SQL Managed Instance. 
 - You can add other ArcGIS Enterprise server roles, like Raster Analytics Server, GeoAnalytics Server, GeoEvent Server, Knowledge Server, and Mission Server, to this base deployment as needed. You can also use newer technologies, like ArcGIS Enterprise on Kubernetes, in this architecture as a replacement for or supplement to ArcGIS Enterprise. GPU-based VMs for Drone2Map, CityEngine, and SURE for ArcGIS can also take advantage of these VMs.
 
+### Alternatives
+
+- Use [ArcGIS Enterprise Builder](https://enterprise.arcgis.com/en/get-started/latest/windows/arcgis-enterprise-builder.htm) to set up a base ArcGIS Enterprise deployment on a single machine. 
+- You can add more ArcGIS Enterprise server roles to this base deployment. For more information, see [ArcGIS Enterprise server roles](https://enterprise.arcgis.com/en/get-started/latest/windows/additional-server-deployment.htm#:~:text=In%20the%20base%20ArcGIS%20Enterprise%20deployment%2C%20ArcGIS%20GIS,reference%20your%20own%20data%20sources%2C%20such%20as%20geodatabases.).
+
+## Scenario details
+
+Esri's technology is a geographic information system (GIS) that contains important capabilities for the visualization, analysis, data management, and more, of geospatial data. Esri's core technology is called the ArcGIS platform. It includes capabilities for mapping, spatial analysis, 3D GIS, imagery and remote sensing, data collection and management, and field operations. For more information, see the [ArcGIS page](https://www.esri.com/en-us/arcgis/about-arcgis/overview) on the Esri website. 
+
+A key part of the technology includes a desktop software app called ArcGIS Pro, which is a 64-bit professional desktop GIS. GIS analysts can use it to perform spatial analysis and edit spatial data. GIS administrators can use it to create and publish geospatial services.
+
+### Potential use cases
+
+Most of the demand for Esri's ArcGIS and virtual desktop solutions is from:
+
+- Security and regulation applications like utilities, healthcare, and government.
+- Elastic workforce needs like remote work, mergers and acquisition, short-term employees, contractors, and partner access.
+- Employees like bring your own device (BYOD) and mobile users and branch workers. 
+- Specialized workloads like land management, design and engineering, legacy apps, and software development test.
+
+While GIS has been implemented in Azure for many years, it has typically included only the back-end components, which introduces latency between the client and server components. Organizations have been able to deploy desktop GIS on VMs from Azure Marketplace, but this has also been done for a handful of thick clients, which isn't very scalable. This reference architecture addresses both challenges.
+
 ## Considerations
 
 These considerations implement the pillars of the Azure Well-Architected Framework, a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
-### Latency and bandwidth
+### Performance efficiency
 
 Implementation of this solution has shown that, ideally, the latency between the end-user and the RDP session needs to be around 200 ms or less. This is ideal because, as ArcGIS Pro users interact with maps and perform measurements or edits, the interactive edits and the tooltips appear quickly enough. The [Azure Virtual Desktop Experience Estimator](https://azure.microsoft.com/services/virtual-desktop/assessment) can provide a quick assessment of connection round-trip time (RTT) from your location, through the Azure Virtual Desktop service, and to each Azure region in which you can deploy virtual machines. 
 
@@ -86,8 +98,6 @@ When you use a remote Windows session, your network's available bandwidth greatl
 
 Keep in mind that the stress put on your network depends on both your app workload's output frame rate and your display resolution. If either the frame rate or display resolution increases, the bandwidth requirement also rises. For example, a light workload with a high-resolution display requires more available bandwidth than a light workload with regular or low resolution.
 
-### Network
-
 Ideally, all components in the preceding architecture diagram are deployed in a single region to minimize latency between components. However, for large organizations, a multiregion deployment is necessary and supported. An additional component to consider is [Azure Front Door](https://azure.microsoft.com/services/frontdoor) which routes users to the closest region.  
 
 Another significant benefit of this architecture is that the latency between it and Esri's SaaS offerings, like ArcGIS Velocity and ArcGIS Image, is also reduced for ArcGIS Pro users and web browser users. All components of the ArcGIS platform are in the cloud.
@@ -102,33 +112,44 @@ You can test your system's latency by using the [Connection Experience Indicator
 
 ### Scaling
 
-You can scale this architecture in many ways. You can scale the VMs for the back end or the desktops (both CPU and GPUs) in, out, up, or down. You can also deploy Azure Virtual Desktop on individual VMs or multisession VMs. Azure Virtual Desktop can scale hundreds or thousands of VMs. See [here](/mem/intune/fundamentals/azure-virtual-desktop-multi-session).
+You can scale this architecture in many ways. You can scale the VMs for the back end or the desktops (both CPU and GPUs) in, out, up, or down. You can also deploy Azure Virtual Desktop on individual VMs or multi-session VMs. Azure Virtual Desktop can scale hundreds or thousands of VMs. For more information, see  [Windows 10 or Windows 11 Enterprise multi-session remote desktops](/mem/intune/fundamentals/azure-virtual-desktop-multi-session).
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors:
+
+ - [Matt Hallenborg](https://www.linkedin.com/in/matt-hallenborg) | (Senior Cloud Solution Architect)
+ - [Ron Vincent](https://www.linkedin.com/in/ron-vincent-8958145) | (Senior Program Manager)
+
+Other contributors:
+
+ - [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | (Technical Writer)
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
  
-- [Azure Virtual Desktop for the enterprise](/azure/architecture/example-scenario/wvd/windows-virtual-desktop) 
 - [Create a managed image of a generalized VM in Azure](/azure/virtual-machines/windows/capture-image-resource) 
-- Prepare an Azure Virtual Desktop Image with this [script](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/shawntmeyer/WVD/tree/master/Image-Build/Customizations)
-- [Download and Install FSLogix](https://docs.microsoft.com/FSLogix/install-ht)
-- [Create golden image in Azure](/azure/virtual-desktop/set-up-golden-image)
+- [Prepare an Azure Virtual Desktop image with this script](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/shawntmeyer/WVD/tree/master/Image-Build/Customizations)
+- [Download and install FSLogix](https://docs.microsoft.com/FSLogix/install-ht)
+- [Create a golden image in Azure](/azure/virtual-desktop/set-up-golden-image)
 - [Create an Azure Virtual Desktop host pool](/azure/virtual-desktop/create-host-pools-azure-marketplace?tabs=azure-portal)
 - [Create an Azure SQL Managed Instance](/azure/azure-sql/managed-instance/instance-create-quickstart?view=azuresql)
 - [Install ArcGIS Server](https://enterprise.arcgis.com/en/server/latest/install/windows/welcome-to-the-arcgis-for-server-install-guide.htm)
 - [Install Portal for ArcGIS](https://enterprise.arcgis.com/en/portal/latest/install/windows/welcome-to-the-portal-for-arcgis-installation-guide.htm) 
 - [Install NVIDIA GPU drivers on N-Series VMs running Windows](/azure/virtual-machines/windows/n-series-driver-setup)
-- [Assessing Azure SQL Managed Instance vis SSMS](https://www.jamesserra.com/archive/2020/04/accessing-managed-instance-via-ssms) 
+- [Assess Azure SQL Managed Instance via SSMS](https://www.jamesserra.com/archive/2020/04/accessing-managed-instance-via-ssms) 
 - [Configure public endpoint in Azure SQL Managed Instance](/azure/azure-sql/managed-instance/public-endpoint-configure?view=azuresql)
 - [Connect to Microsoft SQL Server from ArcGIS](https://pro.arcgis.com/en/pro-app/latest/help/data/geodatabases/manage-sql-server/connect-sqlserver.htm)
 - [Create Enterprise Geodatabase](https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/create-enterprise-geodatabase.htm)
-
-## Alternatives
-
-- [Use the ArcGIS Enterprise Builder](https://enterprise.arcgis.com/en/get-started/latest/windows/arcgis-enterprise-builder.htm)
-- Additional ArcGIS Enterprise server roles can be added to this base deployment. See [here](https://enterprise.arcgis.com/en/get-started/latest/windows/additional-server-deployment.htm#:~:text=In%20the%20base%20ArcGIS%20Enterprise%20deployment%2C%20ArcGIS%20GIS,reference%20your%20own%20data%20sources%2C%20such%20as%20geodatabases.) for more information.
-
-## Additional resources
-
-- [FSLogix for the enterprise - best practices documentation](/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix)
-- For multiple AD forests architecture, read [Multiple AD Forests Architecture in Azure Virtual Desktop](/azure/architecture/example-scenario/wvd/multi-forest)
-- [Tune ArcGIS Enterprise using best practices](https://enterprise.arcgis.com/en/server/latest/administer/windows/tuning-your-arcgis-server-site.htm)
+- [Best practices for tuning ArcGIS Enterprise](https://enterprise.arcgis.com/en/server/latest/administer/windows/tuning-your-arcgis-server-site.htm)
 - [Configure highly available ArcGIS Enterprise](https://enterprise.arcgis.com/en/portal/latest/administer/windows/configure-highly-available-system.htm)
+- [Esri GIS mapping software, location intelligence, and spatial analytics](https://www.esri.com/en-us/home)
+
+## Related resources
+
+- [Azure Virtual Desktop for the enterprise](../wvd/windows-virtual-desktop.yml)
+- [FSLogix for the enterprise - best practices documentation](../wvd/windows-virtual-desktop-fslogix.yml)
+- [Multiple forests with AD DS and Azure AD](../wvd/multi-forest.yml)

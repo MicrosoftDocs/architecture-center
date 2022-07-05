@@ -5818,6 +5818,8 @@ items:
                     maintainContext: true
           - name: Architectures
             items:
+              - name: ArcGIS Platform on Azure Virtual Desktop
+                href: example-scenario/esri-arcgis-azure-virtual-desktop.yml
               - name: Azure Virtual Desktop for the enterprise
                 href: example-scenario/wvd/windows-virtual-desktop.yml
               - name: Multiple Active Directory forests
