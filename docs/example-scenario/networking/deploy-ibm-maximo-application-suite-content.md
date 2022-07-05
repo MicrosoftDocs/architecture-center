@@ -27,7 +27,7 @@ Find more information about use cases for MAS on IBM's website at [IBM Maximo Ap
 
 ## Architecture
 
-:::image type="complex" source="./images/deploy-ibm-maximo-application-suite-architecture.png" alt-text="Architecture diagram showing how to deploy IBM Maximo Application Suite on Azure." border="false":::
+:::image type="complex" alt-text="Architecture diagram showing how to deploy IBM Maximo Application Suite on Azure." source="./media/deploy-ibm-maximo-application-suite-architecture.svg" lightbox="./media/deploy-ibm-maximo-application-suite-architecture.svg":::
    The diagram contains a large rectangle with the label Azure Virtual Network. Inside it, another large rectangle.
 :::image-end:::
 
@@ -40,7 +40,7 @@ From the perspective of infrastructure, this architecture provides the following
 - A container hosting platform to deploy highly available workloads across availability zones
 - A privatized deployment of worker and control nodes that are integrated with storage
 - Azure Files Premium and Standard for storage (OpenShift Data Foundation not required)
-- Azure SQL Server running on a virtual machine or container-based IBM Db2 Warehouse
+- Azure SQL Server running on a virtual machine (VM) or container-based IBM Db2 Warehouse
 - Azure DNS for DNS management of OpenShift and its containers
 - Azure Active Directory for single sign-on into MAS
 
@@ -91,7 +91,7 @@ Before you proceed with your deployment, you need to answer the following questi
 - What version of OpenShift is required?
 - Should OpenShift installation use installer-provisioned infrastructure (IPI) or user-provisioned infrastructure (UPI)?
 - What databases are needed?
-- What number and sizes of virtual machines do you need? 
+- What number and sizes of VMs do you need? 
 - Will users connect from external networks?
 
 ### Maximo Application Suite
@@ -103,7 +103,7 @@ Review the MAS applications that you need to complete your business scenario and
 - [SQL Server 2019](https://azure.microsoft.com/en-us/services/virtual-machines/sql-server/#overview) on Azure using Windows or Linux
 - IBM [DB2 Warehouse on Cloud Pak for Data 3.5](https://www.ibm.com/docs/en/cloud-paks/cp-data/3.5.0?topic=services-db2-warehouse)
 
-You might also choose to run Oracle Exadata on a virtual machine (VM) or on Oracle Cloud Infrastructure by using interconnection, but this isn't a tested configuration. For more information about interconnection, see [Learn about interconnecting Oracle Cloud with Microsoft Azure](https://docs.oracle.com/en/solutions/learn-azure-oci-interconnect/index.html). Currently, Azure SQL Database and Azure Cosmos DB are not supported. These databases might be supported in future releases of MAS.
+You might also choose to run Oracle Exadata on a VM or on Oracle Cloud Infrastructure by using interconnection, but this isn't a tested configuration. For more information about interconnection, see [Learn about interconnecting Oracle Cloud with Microsoft Azure](https://docs.oracle.com/en/solutions/learn-azure-oci-interconnect/index.html). Currently, Azure SQL Database and Azure Cosmos DB are not supported. These databases might be supported in future releases of MAS.
 
 > [!NOTE]
 > In some cases you can't reuse a database for multiple MAS applications because of conflicting database settings. For example, you can't use the same IBM DB2 Warehouse for Health and Manage in combination with Monitor. However, you can mix different database products, such as using Microsoft SQL Server for one application and IBM DB2 Warehouse for another.
@@ -177,7 +177,7 @@ MAS core requires 23 vCPUs for a standard-sized base installation. Sizing for th
 
 Try to keep the types of VMs similar to each other to provide proximity with each of the availability zones between worker and control nodes. That is, if you use a v4 VM for your control nodes, also use a v4 VM for your worker nodes.
 
-If you need a jump box to use the OpenShift command-line interface (oc) or to install MAS, deploy a virtual machine that's running Red Hat Enterprise Linux version 8.4.
+If you need a jump box to use the OpenShift command-line interface (oc) or to install MAS, deploy a VM that's running Red Hat Enterprise Linux version 8.4.
 
 ### Network
 
@@ -291,7 +291,7 @@ Before you start, we recommend that you review the [IBM Maximo Application Suite
 - IBM recommended cluster sizing
 - Determine if you want to provide an existing VNet or let the IPI create one
 - Determine what your HA/DR requirements are
-- Create an install-config.yaml file for the installer
+- Create a configuration file, *install-config.yaml*, for the installer
 
 For a step-by-step guide for installing OpenShift and MAS on Azure, including how to address the prerequisites, see our [quickStart guide](https://github.com/Azure/maximo) on GitHub.
 
