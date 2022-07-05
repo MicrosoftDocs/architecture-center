@@ -6,7 +6,9 @@ This architectural pattern demonstrates how MDM can be incorporated into the Azu
 
 ## Architecture
 
-:::image type="content" source="images/profisee-data-flow.png" border="false" alt-text="Image that shows the MDM Profisee data flow.":::
+:::image type="content" source="images/profisee-data-flow.png" border="false" alt-text="Diagram showing the master data management Profisee data flow.":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/profisee-master-data-managment-data-factory.vsdx) of this architecture.*
 
 #### Data flow
 
