@@ -24,6 +24,6 @@ products:
   - azure-iot-hub
   - azure-kubernetes-service
   - azure-stream-analytics
-thumbnailUrl: /azure/architecture/browse/thumbs/insight-connected-platform.png
+thumbnailUrl: /azure/architecture/browse/thumbs/insight-connected-platform-thumbnail.png
 content: |
    [!include[](iot-connected-platform-content.md)]
