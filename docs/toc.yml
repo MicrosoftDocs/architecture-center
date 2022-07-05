@@ -5267,6 +5267,8 @@ items:
                 maintainContext: true
           - name: Architectures
             items:
+              - name: Deploy IBM Maximo Application Suite 
+                href: example-scenario/networking/deploy-ibm-maximo-application-suite.yml
               - name: High availability for IaaS apps
                 href: example-scenario/infrastructure/iaas-high-availability-disaster-recovery.yml
               - name: Hub-spoke network topology in Azure
