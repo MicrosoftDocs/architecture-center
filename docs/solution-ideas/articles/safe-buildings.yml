@@ -23,6 +23,6 @@ products:
   - azure-kubernetes-service
   - azure-stream-analytics
   - azure-databricks
-thumbnailUrl: /azure/architecture/browse/thumbs/safe-building-arch-design.svg
+thumbnailUrl: /azure/architecture/browse/thumbs/safe-building-arch-design-thumbnail.png
 content: |
    [!include[](safe-buildings-content.md)]
