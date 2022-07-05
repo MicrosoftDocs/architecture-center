@@ -21,6 +21,8 @@ CluedIn includes enterprise-grade governance, for assurance that you can use you
 
 ![Diagram showing CluedIn architectural structure and data flow.](images/cluedin-architecture.svg)
 
+*Download a [Visio file](https://arch-center.azureedge.net/cluedin-architecture.vsdx) of this architecture.*
+
 The CluedIn solution consists of various functional layers that run in a Kubernetes cluster in Azure Kubernetes Service (AKS). A combination of .NET Core microservice applications handles distinct functions like data ingestion, streaming data processing, queuing, and user interface.
 
 1. The CluedIn crawling layer ingests data from customer cloud sources like Azure SQL DB, Azure Cosmos DB, PostgreSQL, and Salesforce databases via Azure Data Factory connectors.
