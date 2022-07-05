@@ -301,8 +301,10 @@ items:
             href: guide/saas/saas-digital-business-journey-azure.md
       - name: Mission critical applications
         items:
-            - name: Mission critical architecture on Azure
+            - name: Mission critical architecture on Azure - Online
               href: reference-architectures/containers/aks-mission-critical/mission-critical-intro.yml
+            - name: Mission critical architecture on Azure - Connected
+              href: reference-architectures/containers/aks-mission-critical/mission-critical-connected-solution.yml
             - name: Design areas
               items:
                 - name: Application platform
