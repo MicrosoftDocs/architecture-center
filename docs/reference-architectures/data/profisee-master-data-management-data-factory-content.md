@@ -52,7 +52,9 @@ Absent a purpose-built MDMapplication, some of the technical capabilities needed
 
 ## MDM integration pipeline
 
-:::image type="content" source="images/profisee-integration-pipeline.png" border="false" alt-text="Image that shows the MDM Profisee integration pipeline.":::
+:::image type="content" source="images/profisee-integration-pipeline.png" border="false" alt-text="Image that shows the master data management Profisee integration pipeline.":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/profisee-master-data-managment-data-factory.vsdx) of this architecture.*
 
 The preceding image shows the details for integrating with the Profisee MDM solution. Key to note is that Azure Data Factory and Profisee include native REST integration support, providing a lightweight and modern integration.
 
