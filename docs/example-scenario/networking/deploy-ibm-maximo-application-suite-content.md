@@ -31,6 +31,8 @@ Find more information about use cases for MAS on IBM's website at [IBM Maximo Ap
    The diagram contains a large rectangle with the label Azure Virtual Network. Inside it, another large rectangle.
 :::image-end:::
 
+*Download a [Visio file](https://arch-center.azureedge.net/deploy-ibm-maximo-application-suite.vsdx) of this architecture.*
+
 The workload can be deployed both internally or externally facing, depending on your requirements.
 
 ### Workflow
