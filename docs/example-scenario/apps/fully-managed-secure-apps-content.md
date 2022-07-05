@@ -1,4 +1,4 @@
-This scenario provides an overview of deploying secure applications using the [Azure App Service Environment (ASE)][intro-to-app-svc-env]. To restrict application access from the Internet, the Azure Application Gateway service and Web Application Firewall are used. This article also provides guidance about continuous integration and continuous deployment (CI/CD) for App Service Environments using Azure DevOps.
+This scenario provides an overview of deploying secure applications using the [Azure App Service Environment (.ASE)][intro-to-app-svc-env]. To restrict application access from the Internet, the Azure Application Gateway service and Web Application Firewall are used. This article also provides guidance about continuous integration and continuous deployment (CI/CD) for App Service Environments using Azure DevOps.
 
 This scenario is commonly deployed in industries such as banking and insurance where customers are conscious of platform-level security in addition to application level security. To demonstrate these concepts, we'll use an application that allows users to submit expense reports.
 
@@ -141,7 +141,7 @@ Principal author:
 
 <!-- links -->
 
-[intro-to-app-svc-env]: /azure/app-service/environment/intro
+[intro-to-app-svc-env]: /azure/app-service/environment/overview
 [create-wildcard-cert-letsencrypt]: /archive/blogs/mihansen/creating-wildcard-ssl-certificates-with-lets-encrypt
 [ase-and-internally-issued-cert]: https://www.patrickob.com/2018/11/10/adding-ca-certs-to-the-trusted-root-store-for-web-apps-hosted-in-an-ase
 [isolated-tier-pricing-and-ase-pricing]: https://azure.microsoft.com/pricing/details/app-service/windows
