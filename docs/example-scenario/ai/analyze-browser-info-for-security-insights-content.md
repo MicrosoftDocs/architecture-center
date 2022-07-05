@@ -1,6 +1,6 @@
-Phishing is a cybercrime where you're contacted by email, telephone, or messaging application by someone posing as a legitimate institution. This person lures you into providing sensitive data such as customer content, banking and credit card details, and passwords.
+Phishing is a cybercrime where you're contacted by email, telephone, or a messaging application by someone posing as a legitimate institution. This person lures you into providing sensitive data such as customer content, banking and credit card details, and passwords.
 
-Phishing is a growing security threat and continues to increase year over year. The ability to identify, catalog, and report phishing sites through proper channels is instrumental in reducing the number of individuals victimized by these crimes.
+Phishing is a growing security threat. The ability to identify, catalog, and report phishing sites through proper channels is instrumental in reducing the number of individuals victimized by these crimes.
 
 Browser accessibility is the practice of making websites more accessible to users with disabilities, such as those with impaired hearing or vision. Improving accessibility makes websites more approachable and empowers users to use the web.
 
@@ -25,7 +25,7 @@ You can apply this solution to the following scenarios:
 
 - Analyze browser screenshots to identify phishing or malicious websites.
 - Scan for use cases where you need to substitute human intervention with machine learning and automation.
-- Recognize accessibility features on browsers to find accessibility issues.
+- Recognize accessibility features on browsers to find accessibility problems.
 - Determine General Data Protection Regulation (GDPR) compliance for browser information.
 
 ## Architecture
@@ -36,10 +36,10 @@ You can apply this solution to the following scenarios:
 
 ### Dataflow
 
-1. Data is ingested when the user uploads files—in the form of flat files—that contain the URL of the presumed phishing link in Data Lake Storage for downstream processing.
-2. Once any new file lands in Data Lake Storage, Azure Data Factory pipelines work as an orchestration layer and trigger an Azure function. The function takes automated screenshots of the URLs by running a headless Selenium browser.
-3. The screenshots taken by Azure Function are categorized by the website they're targeting. The ADF pipelines persist the screenshot in Azure Blob Storage, and are kept in different folders for each company or website targeted.
-4. If the company targeted by the phishing attempt is a new company, Azure Function takes a screenshot of the ground truth for the new company. The script saves the new ground truth for the company in the Azure SQL database.
+1. Data is ingested when the user uploads files—in the form of flat files—that contain the URL of the presumed phishing link to Data Lake Storage for downstream processing.
+2. After a new file lands in Data Lake Storage, Azure Data Factory pipelines work as an orchestration layer and trigger an Azure function. The function takes automated screenshots of the URLs by running a headless Selenium browser.
+3. The screenshots taken by Azure Function are categorized by the website they're targeting. The Azure Data Factory pipelines persist the screenshot in Azure Blob Storage. The screenshots are kept in different folders for each company or website targeted.
+4. If the company targeted by the phishing attempt is new, Azure Function takes a screenshot of the ground truth for the new company. The script saves the new ground truth for the company in the Azure SQL database.
 5. In the image analysis phase, Machine Learning performs two steps. First, it reads each screenshot and the ground truth. Second, it runs the image similarity code. Each folder inside the blob storage is registered by the Machine Learning Python SDK as a datastore. Machine Learning also invokes the specific services and packages needed for scoring the model. The datastore, model registry, and deployment options in Machine Learning help with the model lifecycle management.
 6. The results of the analysis are saved in the SQL database, which includes all of the previous modeling information related to all historical phishing attempts. Any necessary visualization data that’s used in the visualization layer, like Power BI, is also written to Azure SQL Database. This database becomes the data source for any reporting needs.  
 7. As an alternative to storing model results in a SQL database, you can deploy Machine Learning models to containers by using Azure Kubernetes Services (AKS) as a web service, and then call the models via a REST API endpoint. The web service deploys by using Azure App Service. Then you can send data to the REST API endpoint and receive the prediction returned by the model within the web application.
@@ -50,21 +50,21 @@ You can apply this solution to the following scenarios:
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) provides scalable and secure object storage for unstructured data. You can use it for archives, data lakes, high-performance computing, machine learning, and cloud-native workloads. In this solution, it provides a local data store for the Machine Learning data store and a premium data cache for training the Machine Learning model. The premium tier of Blob Storage is for workloads that require fast response times and high transaction rates, like the human-in-the-loop video labeling in this example.
 - [Machine Learning](https://azure.microsoft.com/services/machine-learning) is an enterprise-grade machine learning service used to quickly build and deploy models. It provides users at all skill levels with a low-code designer, automated machine learning, and a hosted Jupyter notebook environment that supports various IDEs.
 - [Azure Functions](https://azure.microsoft.com/services/functions) provides event-driven compute capabilities without requiring you to build the infrastructure.
-- [SQL Database](https://azure.microsoft.com/products/azure-sql/database) is a fully managed SQL server database engine with built-in security, access controls, and automated patching, updating, and backup features with intelligent threat protection.
+- [SQL Database](https://azure.microsoft.com/products/azure-sql/database) is a fully managed SQL server database engine with built-in security and access controls. It has automated patching, updating, and backup features with intelligent threat protection.
 - [Power BI](https://powerbi.microsoft.com/) is a collection of software services, apps, and connectors that work together to turn your unrelated sources of data into coherent, visually immersive, and interactive insights.
-- [Power Apps](https://powerapps.microsoft.com/) is a suite of apps, services, and connectors that are all available on a comprehensive data platform. You can use this service to quickly create applications to meet custom business needs. In this solution, Power Apps is used for data updates and inserts in an intuitive UI. It also functions as a trigger for automation.
+- [Power Apps](https://powerapps.microsoft.com/) is a suite of apps, services, and connectors that are available on a comprehensive data platform. You can use this suite of services to quickly create applications to meet custom business needs. In this solution, Power Apps is used for data updates and inserts in an intuitive UI. It also functions as a trigger for automation.
 
 ### Alternatives
 
-- In this solution, we've presented Machine Learning as a platform to perform image recognition for phishing websites. However, you can utilize [Azure Databricks](https://azure.microsoft.com/services/databricks) or [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) to perform the same type of analytics when you handle a large amount of data.
+- In this solution, we've presented Machine Learning as a platform to perform image recognition for phishing websites. However, you can use [Azure Databricks](https://azure.microsoft.com/services/databricks) or [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) to perform the same type of analytics when you handle a large amount of data.
 - To curate and perform Extract, Transform, and Load (ETL) after the data lands in Data Lake Storage, you can use [Azure Databricks](https://azure.microsoft.com/services/databricks) for a code-first approach as an alternative to Data Factory data flows.
-- Depending on the specific use case and the choice of end-user analytics platform, you can use other relational or storage services such as Azure Synapse Analytics or Data Lake Storage instead of storing the data in Microsoft SQL Server. For example, if the data accumulates for a long period of time and you need to run analytics queries against this data, Azure Synapse Analytics is good to have as part of the architecture.
+- Depending on the specific use case and the end-user analytics platform, you can use other relational or storage services such as Azure Synapse Analytics or Data Lake Storage instead of storing the data in SQL Server. For example, if the data accumulates for a long time and you need to run analytics queries against it, Azure Synapse Analytics is good to have as part of the architecture.
 
 ## Considerations
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
-Follow machine learning operations guidelines to standardize and manage an end-to-end machine learning lifecycle scalable across multiple workspaces. Before going into production, ensure the solution you implement supports ongoing inference with retraining cycles and automated redeployments of models.
+Follow machine learning operations guidelines to standardize and manage an end-to-end machine learning lifecycle that's scalable across multiple workspaces. Before going into production, ensure the solution you implement supports ongoing inference with retraining cycles and automated redeployments of models.
 
 For more information, see [Azure MLOps (v2) solution accelerator](https://github.com/Azure/mlops-v2).
 
@@ -78,16 +78,16 @@ Consider implementing the following security features in this architecture:
 - [Deploy Azure services in Azure Virtual Network](/azure/virtual-network/virtual-network-for-azure-services)
 - [Enterprise security and governance for Azure Machine Learning](/azure/machine-learning/concept-enterprise-security)
 - [Secure cluster connectivity (No Public IP / NPIP)](/azure/databricks/security/secure-cluster-connectivity)
-- [Consider using Azure Databricks Premium for more security features](https://azure.microsoft.com/pricing/details/databricks)
+- [Azure Databricks Premium](https://azure.microsoft.com/pricing/details/databricks)
 - [Azure SQL Database security capabilities](/azure/azure-sql/database/security-overview?view=azuresql)
 
 ### Cost optimization
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-- To estimate the cost of implementing this solution, use the [Azure Pricing Calculator](https://azure.microsoft.com/en-us/pricing/calculator) for the services in this article.
-- Power BI comes with different licensing offerings. For more information, see [Power BI pricing](https://powerbi.microsoft.com/pricing).
-- Depending on the volume of data and the complexity of your geospatial analysis, you might need to scale your Databricks cluster configurations. Refer to the Azure Databricks [cluster sizing](/azure/databricks/clusters/cluster-config-best-practices#--cluster-sizing-examples) examples for best practices on cluster configuration.
+- To estimate the cost of implementing this solution, use the [Azure Pricing Calculator](https://azure.microsoft.com/en-us/pricing/calculator).
+- Power BI comes with various licensing offerings. For more information, see [Power BI pricing](https://powerbi.microsoft.com/pricing).
+- Depending on the volume of data and the complexity of your geospatial analysis, you might need to scale your Databricks cluster configurations. See the Azure Databricks [cluster sizing](/azure/databricks/clusters/cluster-config-best-practices#--cluster-sizing-examples) examples for best practices on cluster configuration.
 
 ### Performance efficiency
 
