@@ -52,7 +52,7 @@ This section provides a high-level overview of the core modules in this architec
 The [Azure landing zone implementations](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/implementation-options) provided as part of the Cloud Adoption Framework suit a wide variety of requirements and use cases. However, there are often scenarios where customization is required to meet specific business needs.  
 
 > [!TIP]
-> See [Tailor the Azure landing zone architecture to meet requirements](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/tailoring-alz) for guidance.
+> See [Tailor the Azure landing zone architecture to meet requirements](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/tailoring-alz) for further information.
 
 The [Bicep Azure landing zone implementation](https://github.com/Azure/ALZ-Bicep) can be used as the basis of your customized deployment. It provides you a way to accelerate your implementation by removing the need to start from scratch because of a specific required change that rules a ready-made option out.
 
