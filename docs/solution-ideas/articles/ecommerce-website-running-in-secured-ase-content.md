@@ -1,13 +1,22 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Keep sensitive user and payment data from an e-commerce website secure by using the Microsoft Azure App Service Environment.
+Keep sensitive user and payment data from an e-commerce website secure by using the Microsoft Azure App Service Environment. This solution is ideal for the retail industry.
+
+## Potential use cases
+
+This solution is optimized for the retail industry.
+
+Other relevant use cases include:
+
+- Building an application that needs elastic scale to handle bursts of users at different times.
+- Building an application that is designed to operate at high availability in different Azure regions around the world.
 
 ## Architecture
 
-![Architecture diagram](../media/ecommerce-website-running-in-secured-ase.png)
+![Architecture diagram shows flow from customer to A S E environment: ecommerce website running in secured A S E.](../media/ecommerce-website-running-in-secured-ase.png)
 *Download an [SVG](../media/ecommerce-website-running-in-secured-ase.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
 1. Customer accesses the public website in browser.
 1. Browser pulls static resources and product images from Azure Content Delivery Network.

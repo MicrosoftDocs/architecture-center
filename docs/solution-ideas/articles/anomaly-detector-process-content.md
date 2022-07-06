@@ -1,29 +1,29 @@
-The Anomaly Detector API enables you to monitor and detect abnormalities in your time series data without having to know machine learning. The Anomaly Detector API's algorithms adapt by automatically identifying and applying the best-fitting models to your data, regardless of industry, scenario, or data volume. Working with your time series data, the API determines boundaries for anomaly detection, expected values, and which data points are anomalies. The architecture provides an overview of the near real-time implementation of an anomaly detection process.
+The Azure Cognitive Services Anomaly Detector API enables you to monitor and detect abnormalities in your time series data without having to know machine learning. The algorithms of the API adapt by automatically identifying and applying the best-fitting models to your time series data, regardless of industry, scenario, or data volume. They determine boundaries for anomaly detection, expected values, and anomalous data points. This article presents an architecture for a near real-time implementation of an anomaly detection process.
 
 ## Potential use cases
 
 Some areas that anomaly detection helps monitor:
 
-* Bank fraud.
-* Structural defect.
-* Medical problem.
+* Bank fraud (finance industry)
+* Structural defects (manufacturing industry)
+* Medical problems (healthcare industry)
 
 ## Architecture
 
-![Diagram of the anomaly detector process architecture.](/azure/architecture/solution-ideas/media/anomaly-detector.png)
+![Diagram of the anomaly detector process architecture.](../media/anomaly-detector.png)
 
 *Download an [SVG file](/azure/architecture/solution-ideas/media/anomaly-detector.svg) of this architecture.*
 
 ### Dataflow
 
-1. Time-series data can comprise multiple sources, such as Azure Database for MySQL, Blob storage, Event Hubs, Cosmos DB, SQL Database, and Azure Database for PostgreSQL.
+1. Time-series data can come from multiple sources, such as Azure Database for MySQL, Blob storage, Event Hubs, Cosmos DB, SQL Database, and Azure Database for PostgreSQL.
 1. Data is ingested into compute from various storage sources to be monitored by Anomaly Detector.
 1. Databricks helps aggregate, sample, and compute the raw data to generate the time with the detected results. Databricks is capable of processing stream and static data. Stream analytics and Azure Synapse can be alternatives based on the requirements.
 1. The anomaly detector API detects anomalies and returns the results to compute.
-1. We queue the anomaly related metadata.
-1. Application Insights picks the message from the message queue based on the anomaly related metadata and sends the alert about the anomaly.
-1. Stores the results in Azure Data Lake Service Gen2. 
-1. Visualizes the results of the time-series anomaly detection.
+1. The anomaly-related metadata is queued.
+1. Application Insights picks the message from the message queue based on the anomaly-related metadata and sends an alert about the anomaly.
+1. The results are stored in Azure Data Lake Service Gen2.
+1. Web applications and Power BI can visualize the results of the anomaly detection.
 
 ### Components
 
@@ -41,7 +41,7 @@ Key technologies used to implement this architecture:
 ### Alternatives
 
 * [Event Hubs with Kafka][event-hubs]: An alternative to running your own Kafka cluster. This Event Hubs feature provides an endpoint that is compatible with Kafka APIs.
-* [Azure Synapse Analytics][synapse-analytics]: Analytics service that brings together enterprise data warehousing and Big Data analytics.
+* [Azure Synapse Analytics][synapse-analytics]: An analytics service that brings together enterprise data warehousing and big data analytics.
 * [Azure Machine Learning](/azure/machine-learning): Build, train, deploy, and manage custom machine learning / anomaly detection models in a cloud-based environment.
 
 ## Considerations
@@ -54,7 +54,7 @@ For general guidance on designing scalable solutions, see the [performance effic
 
 ### Security
 
-[Managed identities for Azure resources][msi] are used to provide access to other resources internal to your account and then assigned to your Azure Functions. Only allow access to the requisite resources in those identities to ensure that nothing extra is exposed to your functions (and potentially to your customers).
+[Managed identities for Azure resources][msi] are used to provide access to other resources internal to your account and then assigned to your Azure Functions. Allow those identities to access only requisite resources to ensure that nothing extra is exposed to your functions (and potentially to your customers).
 
 For general guidance on designing secure solutions, see the [Azure Security Documentation][security].
 
@@ -74,6 +74,7 @@ We've provided three sample cost profiles based on the amount of traffic (we ass
 
 ## Next steps
 
+* [Anomaly Detector API Documentation](/azure/cognitive-services/anomaly-detector)
 * [Interactive demo](https://algoevaluation.azurewebsites.net/#/)
 * [Detect and visualize anomalies in your data with the Anomaly Detector API - Demo on Jupyter Notebook](https://github.com/Azure-Samples/AnomalyDetector/tree/master/ipython-notebook)
 * [Identify anomalies by routing data via IoT Hub to a built-in ML model in Azure Stream Analytics](/learn/modules/data-anomaly-detection-using-azure-iot-hub)

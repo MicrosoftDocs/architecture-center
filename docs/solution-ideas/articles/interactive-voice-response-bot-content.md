@@ -14,7 +14,7 @@ This solution is optimized for the retail industry.
 
 *Download an [SVG file](../media/interactive-voice-response-app-bot.svg) of this architecture.*
 
-### Workflow
+### Dataflow
 
 #### Core Azure services
 
@@ -31,13 +31,13 @@ This solution is optimized for the retail industry.
 
 ### Components
 
-* [Azure Bot Service](https://azure.microsoft.com/services/bot-services/)
-* [Azure Cognitive Search](/azure/search/)
-* [Azure Cognitive Speech Services](https://azure.microsoft.com/services/cognitive-services/speech-services/) (for Bing Speech)
-* [Azure Cognitive Services Language Understanding](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) (LUIS)
-* [Azure Cosmos DB](/azure/cosmos-db/)
-* [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
-* [Azure Web App Service](https://azure.microsoft.com/services/app-service/web/)
+* [Azure Bot Service](https://azure.microsoft.com/services/bot-services)
+* [Azure Cognitive Search](/azure/search)
+* [Azure Cognitive Speech Services](https://azure.microsoft.com/services/cognitive-services/speech-services) (for Bing Speech)
+* [Azure Cognitive Services Language Understanding](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service) (LUIS)
+* [Azure Cosmos DB](/azure/cosmos-db)
+* [Azure SQL Database](https://azure.microsoft.com/services/sql-database)
+* [Azure Web App Service](https://azure.microsoft.com/services/app-service/web)
 
 ## Description of the IVR app
 
@@ -66,9 +66,9 @@ Bing Speech and Cognitive Speech services:
 
 Microsoft Learn modules:
 
-* [How to build a basic chatbot](/learn/modules/how-build-basic-chatbot/)
-* [Transcribe speech input to text](/learn/modules/transcribe-speech-input-text/)
-* [Add conversational intelligence to your apps by using Language Understanding Intelligent Service (LUIS)](/learn/modules/create-and-publish-a-luis-model/)
+* [How to build a basic chatbot](/learn/modules/how-build-basic-chatbot)
+* [Transcribe speech input to text](/learn/modules/transcribe-speech-input-text)
+* [Add conversational intelligence to your apps by using Language Understanding Intelligent Service (LUIS)](/learn/modules/create-and-publish-a-luis-model)
 
 ## Related resources
 

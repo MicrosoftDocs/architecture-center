@@ -52,6 +52,10 @@ If you don't need all of the functionality provided by API Management, another o
 
 **GitHub Actions**. [Workflow][gh-actions] is an automated process (CI/CD) that you set up in your GitHub repository. You can build, test, package, release, or deploy any project on GitHub with a workflow.
 
+## Scenario details
+
+This drone-delivery solution is ideal for the aircraft, aviation, and robotics industries. 
+
 ## Recommendations
 
 ### Function App plans
