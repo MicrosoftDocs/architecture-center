@@ -2558,7 +2558,7 @@ items:
             items:
               - name: AI enrichment with Cognitive Search
                 href: solution-ideas/articles/cognitive-search-with-skillsets.yml
-              - name: Analyze browser information for security and accessibility insights
+              - name: Analyze browser information
                 href: example-scenario/ai/analyze-browser-info-for-security-insights.yml
               - name: Automate document processing
                 href: example-scenario/ai/automate-document-processing-azure-form-recognizer.yml
