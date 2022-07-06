@@ -1,21 +1,21 @@
-IBM's Maximo Application Suite (MAS), also known as *Maximo*, is an enterprise asset management platform with AI-based asset maintenance. MAS focuses on operational resiliency and reliability. The suite consists of a core application platform, MAS, and applications and industry-specific solutions on top of the platform. Each application performs a specific benefit:
+IBM's Maximo Application Suite (MAS), also known as *Maximo*, is an enterprise asset management platform with AI-based asset maintenance. MAS focuses on operational resiliency and reliability. The suite consists of a core application platform, MAS, and applications and industry-specific solutions on top of the platform. Each application provides a specific benefit:
 
 - **Manage**. Reduce down time and costs by using asset management to improve operational performance.
-- **Monitor**. Use IoT for advanced AI-powered remote asset monitoring at scale.
+- **Monitor**. Use IoT for advanced AI-powered monitoring of remote assets at scale.
 - **Health**. Manage asset health by using IoT data from sensors, asset data, and maintenance history.
 - **Visual inspection**. Train machine learning models to use visual inspection for visual analysis of emerging issues.
 - **Predict**. Predict future failures by using machine learning and data analytics.
-- **Assist**. Assist technicians by using AI-powered guidance to a knowledge base of equipment maintenance data and giving them remote access to experts.
+- **Assist**. Assist technicians by providing AI-powered guidance to a knowledge base of equipment maintenance data and by giving them remote access to experts.
 - **Safety**. Collect and analyze data from sensors, provide contextual data, and derive meaningful analytics.
 - **Civil**. Integrate inspection, defect tracking, and maintenance activities to help improve asset life, keep critical systems operating, and lower total costs of ownership of civil infrastructure.
 
-These applications and MAS 8.*x* are tested for use on Azure. Microsoft and the IBM Maximo team partnered together to ensure this solution is configured to run optimally on Azure. This article provides a design for running MAS 8.x on Azure, and it assumes that you'll have support from IBM and a partner for installation. Contact your IBM team for product-specific questions. The Azure Marketplace offers an alternative installation for MAS that supports bringing your own license. For more information, see [IBM Maximo Application Suite (BYOL)](https://azuremarketplace.microsoft.com/marketplace/apps/ibm-usa-ny-armonk-hq-6275750-ibmcloud-asperia.ibm-maximo-application-suite-byol?tab=Overview).
+These applications and MAS 8.*x* are tested for use on Azure. Microsoft and the IBM Maximo team partnered together to ensure this solution is configured to run optimally on Azure. This article provides a design for running MAS 8.*x* on Azure, and it assumes that you'll have support from IBM and a partner for installation. Contact your IBM team for product-specific questions. The Azure Marketplace offers an alternative installation for MAS that supports bringing your own license. For more information, see [IBM Maximo Application Suite (BYOL)](https://azuremarketplace.microsoft.com/marketplace/apps/ibm-usa-ny-armonk-hq-6275750-ibmcloud-asperia.ibm-maximo-application-suite-byol?tab=Overview).
 
-MAS 8.x runs on OpenShift, and it's beneficial to familiarize yourself with OpenShift and the suggested patterns for installation on Azure. For more information, see [Preparing to install on Azure](https://docs.openshift.com/container-platform/4.8/installing/installing_azure/preparing-to-install-on-azure.html). This architecture illustrates an OpenShift cluster, it doesn't go into detail on how to install MAS. To learn more about the installation process, see [Installing Maximo Application Suite from OperatorHub](https://www.ibm.com/docs/en/mas87/8.7.0?topic=installing-maximo-application-suite-from-operatorhub).
+MAS 8.*x* runs on OpenShift, and it's beneficial to familiarize yourself with OpenShift and the suggested patterns for installation on Azure. For more information, see [Preparing to install on Azure](https://docs.openshift.com/container-platform/4.8/installing/installing_azure/preparing-to-install-on-azure.html). This architecture illustrates an OpenShift cluster. It doesn't go into detail on how to install MAS. To learn more about the installation process, see [Installing Maximo Application Suite from OperatorHub](https://www.ibm.com/docs/en/mas87/8.7.0?topic=installing-maximo-application-suite-from-operatorhub).
 
 ## Potential use cases
 
-Many industries use the solutions in MAS, such as:
+Many industries and sectors use the solutions in MAS, such as:
 
 - Energy and utilities
 - Oil and gas
@@ -27,9 +27,7 @@ Find more information about use cases for MAS on IBM's website at [IBM Maximo Ap
 
 ## Architecture
 
-:::image type="complex" alt-text="Architecture diagram showing how to deploy IBM Maximo Application Suite on Azure." source="./media/deploy-ibm-maximo-application-suite-architecture.svg" lightbox="./media/deploy-ibm-maximo-application-suite-architecture.svg":::
-   The diagram contains a large rectangle with the label Azure Virtual Network. Inside it, another large rectangle.
-:::image-end:::
+:::image type="content" alt-text="Architecture diagram that shows the components and services that support deployment of IBM Maximo Application Suite on Azure." source="./media/deploy-ibm-maximo-application-suite-architecture.svg" lightbox="./media/deploy-ibm-maximo-application-suite-architecture.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/deploy-ibm-maximo-application-suite.vsdx) of this architecture.*
 
@@ -41,10 +39,10 @@ From the perspective of infrastructure, this architecture provides the following
 
 - A container hosting platform to deploy highly available workloads across availability zones
 - A privatized deployment of worker and control nodes that are integrated with storage
-- Azure Files Premium and Standard for storage (OpenShift Data Foundation not required)
+- Azure Premium Files and standard files for storage (OpenShift Data Foundation not required)
 - Azure SQL Server running on a virtual machine (VM) or container-based IBM Db2 Warehouse
 - Azure DNS for DNS management of OpenShift and its containers
-- Azure Active Directory for single sign-on into MAS
+- Azure Active Directory (Azure AD) for single sign-on into MAS
 
 
 ### Components
@@ -61,13 +59,13 @@ From the perspective of infrastructure, this architecture provides the following
 
 - [Azure DNS](https://azure.microsoft.com/services/dns/) to manage DNS resolution for the containers inside and outside of the solution.
 
-- Optional [Azure Bastion](https://azure.microsoft.com/services/azure-bastion/) and subnet to securely access any of the worker nodes or optional JumpBox machines.
+- [Azure Bastion](https://azure.microsoft.com/services/azure-bastion/) (optional) and a subnet to securely access any of the worker nodes or optional JumpBox machines. 
 
-- Optional [Azure SQL](https://azure.microsoft.com/products/azure-sql/) on a VM to provide data services to MAS. The database can also be another, like Oracle Exadata or IBM Db2 Warehouse.
+- [Azure SQL](https://azure.microsoft.com/products/azure-sql/) (optional) on a VM to provide data services to MAS. The database can also be another, like Oracle Exadata or IBM Db2 Warehouse.
 
-- Optional [Twilio Send Grid](https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021) to send emails from MAS to your consumers.
+- [Twilio Send Grid](https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021) (optional) to send emails from MAS to your consumers.
 
-- Optional [Linux virtual machines in Azure](https://azure.microsoft.com/services/virtual-machines/linux/) to provide a jump box for installation of OpenShift installation. You can also use this VM to connect and manage the OpenShift cluster because it contains the Kubernetes configuration file after installation. If you have network connectivity into your Azure environment, then you can perform the installation from an existing machine.
+- [Linux virtual machines in Azure](https://azure.microsoft.com/services/virtual-machines/linux/) (optional) to provide a jump box for installation of OpenShift installation. You can also use this VM to connect and manage the OpenShift cluster because it contains the Kubernetes configuration file after installation. If you have network connectivity into your Azure environment, then you can perform the installation from an existing machine.
 
 
 ### Alternatives
@@ -81,24 +79,25 @@ While typically not necessary, you have other storage options available:
 
 ## Recommendations
 
-We recommend installing the latest stable version of IBM MAS, because it provides the best integration options with Azure. Pay close attention to the versions of OpenShift that are supported, because the supported versions vary by the version of MAS. Currently the sliding window release cycle of Azure Redhat OpenShift is too frequent for it to be supported by IBM Maximo.
+We recommend installing the latest stable version of MAS, because it provides the best integration options with Azure. Pay close attention to the versions of OpenShift that are supported, because the supported versions vary with the specific version of MAS. Currently the sliding window release cycle of Azure Redhat OpenShift is too frequent for it to be supported by IBM Maximo.
 
-Use of earlier or later major versions of OpenShift, such as 4.6 or 4.9, can result in falling out of official support for IBM MAS. Before building out your own deployment, we recommend using the quickstart guide to deploy MAS so that you understand how the deployment and configuration works. Knowing how this is done speeds creation of the design requirements for your implementation. For more information, see [QuickStart Guide: Maximo Application Suite on Azure](https://github.com/Azure/maximo).
+Use of earlier or later major versions of OpenShift can result in falling out of official support for MAS. Before building out your own deployment, we recommend using the quickstart guide to deploy MAS so that you understand how the deployment and configuration works. Knowing how this is done speeds creation of the design requirements for your implementation. For more information, see [QuickStart Guide: Maximo Application Suite on Azure](https://github.com/Azure/maximo).
 
 We work closely with IBM and other partners to ensure that the guidance, architecture, and the quickstart guide give you the best experience on Azure. They follow the best practices as outlined in the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/). Contact your IBM account team for support beyond this documentation.
 
 Before you proceed with your deployment, you need to answer the following questions about design:
 
-- What MAS applications do you need? What dependencies do your applications have?
+- What MAS applications do you need? 
+- What dependencies do your applications have?
 - What version of OpenShift is required?
-- Should OpenShift installation use installer-provisioned infrastructure (IPI) or user-provisioned infrastructure (UPI)?
+- Which method of installation of OpenShift should you use?
 - What databases are needed?
 - What number and sizes of VMs do you need? 
 - Will users connect from external networks?
 
 ### Maximo Application Suite
 
-Microsoft has tested MAS 8.5+ on Azure. Our recommendation is to use the latest version of MAS, which is version 8.7.
+Microsoft has tested MAS versions 8.5 and later on Azure. Our recommendation is to use the latest version of MAS, which is version 8.7.
 
 Review the MAS applications that you need to complete your business scenario and then review the requirements for each of the applications. For more information, see [IBM Maximo Application Suite system requirements](https://www.ibm.com/support/pages/node/6538166). Each of the applications might need separate databases. We have tested and support the following databases on Azure:
 
@@ -112,20 +111,20 @@ You might also choose to run Oracle Exadata on a VM or on Oracle Cloud Infrastru
 >
 > For more information about database requirements for the Health application, see [Configuring the database for Maximo Health](https://www.ibm.com/docs/en/mas83/8.3.0?topic=dependencies-configure-database-health).
 
-MAS and some of its applications have dependencies on MongoDB and/or Kafka. How you deploy these solutions should be performance and operations considerations. The defaults are to deploy MongoDB Community Edition and Strimzi Kafka inside the clusters. Some of the prerequisites of MAS, for example BAS, use databases that can't be externalized but that require persistent storage to be provided to the OpenShift cluster.
+MAS and some of its applications have dependencies on MongoDB and Kafka. How you deploy these solutions should be performance and operations considerations. The defaults are to deploy MongoDB Community Edition and Strimzi Kafka inside the clusters. Some of the prerequisites of MAS, for example BAS, use databases that can't be externalized but that require persistent storage to be provided to the OpenShift cluster.
 
-For state-based services that run inside of the OpenShift cluster, it's necessary to frequently back up data and move the backups into another region. Plan and decide accordingly, especially when running Kafka or MongoDB inside of OpenShift.
+For state-based services that run inside of the OpenShift cluster, frequently backing up data and moving the backups into another region is necessary. Plan and decide accordingly, especially when running Kafka or MongoDB inside of OpenShift.
 
-For services that retain state use external Azure PaaS offerings when possible. Doing so improves supportability during an outage.
+For services that retain state, use external Azure platform as a service (PaaS) offerings when possible. Doing so improves supportability during an outage.
 
-Some of the services might require other IBM tooling and services like IBM Watson Machine Learning and IBM App Connect. All of the tools and services can be deployed on top of the same OpenShift cluster.
+Some of the services might require other IBM tooling and services, such as IBM Watson Machine Learning and IBM App Connect. You can deploy all the tools and services on the same OpenShift cluster.
 
 ### OpenShift
 
 > [!NOTE]
-> Running MAS on top of Azure Red Hat OpenShift is not supported.
+> Running MAS on Azure Red Hat OpenShift is not supported.
 
-Before you install OpenShift, you'll need to determine which method you'll be using:
+Before you install OpenShift, you need to determine which method you'll be using:
 
 - **Installer Provisioned Infrastructure (IPI)**. This method uses an installer to deploy and configure the OpenShift environment on Azure. IPI is the most common method for deploying on Azure, and you should use IPI unless your security requirements are too strict to do so.
 
@@ -138,18 +137,20 @@ We recommend using IPI whenever possible, because it significantly reduces the a
 
 When installing OpenShift, you must resolve the following considerations:
 
-- **Region selection**. We recommend using a region with [availability zones](/azure/availability-zones/az-overview#azure-regions-with-availability-zones). During deployment, OpenShift automatically attempts to create nodes across zones based on the configuration found in your configuration file, *install-config.yaml*. By default, OpenShift balances workloads across all available nodes and across the availability zones. If there's an outage in a zone, your solution can continue functioning by having nodes in other zones that can take over the work.
+- **Region selection**. We recommend using a region with [availability zones](/azure/availability-zones/az-overview#azure-regions-with-availability-zones). During deployment, OpenShift automatically attempts to create nodes across zones based on the configuration in the configuration file, *install-config.yaml*. By default, OpenShift balances workloads across all available nodes and across the availability zones. If there's an outage in a zone, your solution can continue functioning by having nodes in other zones that can take over the work.
 
-- **Backup & recovery**. Although MAS isn't supported on Azure Red Hat OpenShift, you can use the instruction for Azure Red Hat OpenShift for backup and recovery. For more information, see [Create an Azure Red Hat OpenShift 4 cluster Application Backup](/azure/openshift/howto-create-a-backup). If you use this method for back-up and recovery, you must take care of disaster recovery of the database some other way. 
+- **Backup & recovery**. Although MAS isn't supported on Azure Red Hat OpenShift, you can use the instruction for Azure Red Hat OpenShift for back-up and recovery. For more information, see [Create an Azure Red Hat OpenShift 4 cluster Application Backup](/azure/openshift/howto-create-a-backup). If you use this method for back-up and recovery, you must provide another method of disaster recovery for the database. 
 
-- **Failover**. Consider deploying OpenShift in two regions and use [Red Hat Advanced Cluster Management](https://www.redhat.com/en/technologies/management/advanced-cluster-management). If your solution has public endpoints, you can place [Azure Traffic Manager](/azure/traffic-manager/) in front of them to redirect traffic to the appropriate cluster if there's an outage of a region. In such a situation, you must also migrate your applications' states and persistent volumes.
+- **Failover**. Consider deploying OpenShift in two regions and use [Red Hat Advanced Cluster Management](https://www.redhat.com/en/technologies/management/advanced-cluster-management). If your solution has public endpoints, you can place [Azure Traffic Manager](/azure/traffic-manager/) between them and the internet to redirect traffic to the appropriate cluster when there's an outage of a region. In such a situation, you must also migrate your applications' states and persistent volumes.
 
 #### Air gapped installations
 
-> [!NOTE]
-> Air gapped patterns have not been fully tested, but they do require using [UPI](https://github.com/openshift/installer/blob/master/docs/user/azure/install_upi.md) for installation.
+In some cases, such as for regulatory compliance, you might require an air-gapped installation of MAS on Azure. *Air gapped* means that there's no inbound or outbound internet access. Without an internet connection, your installation can't retrieve the installation dependencies at run time for the installation of MAS or OpenShift. 
 
-In some cases, such as for regulatory compliance, you might require an air-gapped installation of MAS on Azure. *Air gapped* means that there's no inbound or outbound internet access. Without an internet connection, your installation can't retrieve the installation dependencies at run time for the installation of MAS or OpenShift. We don't recommend that you do an air-gapped installation unless that's a security requirement. An air gap adds significant complexity to the operations of your solution. Activities such as installing software, mirroring containers, updating a mirror to protect against security vulnerabilities, and managing a firewall can become very time consuming.
+> [!NOTE]
+> Air gapped deployments require using [UPI](https://github.com/openshift/installer/blob/master/docs/user/azure/install_upi.md) for installation. However, they have not been fully tested.
+
+We don't recommend that you do an air-gapped installation unless that's a security requirement. An air gap adds significant complexity to the operations of your solution. Activities such as installing software, mirroring containers, updating a mirror to protect against security vulnerabilities, and managing a firewall can become very time consuming.
 
 For more information about air-gapped installations, see the following OpenShift documentation:
 - [Mirroring images for a disconnected installation](https://docs.openshift.com/container-platform/4.8/installing/installing-mirroring-installation-images.html)
@@ -160,14 +161,14 @@ After you've installed OpenShift, see the MAS documentation for similar guidance
 
 ### Sizing your environment
 
-For all workloads (except visual inspection), we recommend using the latest Ds series VMs as your worker nodes. Examples are the [Dsv3](/azure/virtual-machines/dv3-dsv3-series#dsv3-series), [Dasv4](/azure/virtual-machines/dav4-dasv4-series#dasv4-series), [Dsv4](/azure/virtual-machines/dv4-dsv4-series#dsv4-series), [Dasv5](/azure/virtual-machines/dasv5-dadsv5-series#dasv5-series), or [Dsv5](/azure/virtual-machines/dv5-dsv5-series#dsv5-series). We recommend using the latest versions when possible, because they have better performance. Only use VMs that have [premium storage](/azure/virtual-machines/premium-storage-performance).
+For all workloads (except visual inspection), we recommend using the latest *Ds* series VMs as your worker nodes. Examples are the [Dsv3](/azure/virtual-machines/dv3-dsv3-series#dsv3-series), [Dasv4](/azure/virtual-machines/dav4-dasv4-series#dasv4-series), [Dsv4](/azure/virtual-machines/dv4-dsv4-series#dsv4-series), [Dasv5](/azure/virtual-machines/dasv5-dadsv5-series#dasv5-series), or [Dsv5](/azure/virtual-machines/dv5-dsv5-series#dsv5-series). We recommend using the latest versions when possible, because they have better performance. Only use VMs that have [premium storage](/azure/virtual-machines/premium-storage-performance).
 
 [Maximo Visual Inspection](https://www.ibm.com/docs/maximo-vi/1.3.0?topic=planning) requires GPU nodes to perform its machine learning. The solution uses [CUDA](https://developer.nvidia.com/about-cuda) and only supports NVIDIA GPUs. The recommended types of VMs are [NCv3](/azure/virtual-machines/ncv3-series) and [NCasT4_v3](/azure/virtual-machines/nct4-v3-series). If you need to train by using [YOLOv3](https://pjreddie.com/darknet/yolo/), you'll need [Ampere](https://www.nvidia.com/en-us/data-center/ampere-architecture/)-based GPUs. Use the [NVadsA10 v5](/azure/virtual-machines/nva10v5-series) or [NC A100 v4](/azure/virtual-machines/nc-a100-v4-series) for larger training tasks.
 
 For the GPU machines, we recommend starting with the smallest node and scaling up as your requirements increase. 
 
 > [!WARNING]
-> If you need GPU machines, you need OpenShift 4.8.22 as a minimum version to enable the GPUs through the Nvidia Operator.
+> If you need GPU machines, you need OpenShift 4.8.22 as a minimum version to enable the GPUs through the NVIDIA GPU Operator.
 
 For all other machines, we recommend configuring VMs across [availability zones](/azure/availability-zones/az-overview) to support high availability. Configure the nodes as follows:
 
@@ -185,11 +186,11 @@ If you need a jump box to use the OpenShift command-line interface (oc) or to in
 
 With OpenShift, we use the default container network interface (CNI) provider of OpenShift's software-defined networking (SDN). For more information about the default OpenShift CNI, see [Cluster Network Operator in OpenShift Container Platform](https://docs.openshift.com/container-platform/4.8/networking/cluster-network-operator.html). You must size your network for the number of OpenShift control and worker nodes that you need, as well as any other requirements, such as databases and storage accounts.
 
-For a standard MAS production installation, we recommend a virtual network with a /24 of address space. The virtual network has three or four subnets (for Bastion). For OpenShift, the subnet for the worker nodes has a CIDR prefix of /25, and the control nodes have a prefix of /27. A subnet for endpoints and an optional external database server should have a prefix of /27. If you're deploying the optional Azure Bastion, you'll need a subnet named AzureBastionSubnet with a prefix of /26. For more information about the requirements for Azure Bastion, see [Architecture](/azure/bastion/bastion-overview#architecture).
+For a standard MAS production installation, we recommend a virtual network with the address space that a CIDR prefix of /24 provides. The virtual network has three or four subnets (for Bastion). For OpenShift, the subnet for the worker nodes has a CIDR prefix of /25, and the control nodes have a prefix of /27. A subnet for endpoints and an optional external database server should have a prefix of /27. If you're deploying Azure Bastion, which is optional, you need a subnet named *AzureBastionSubnet* with a prefix of /26. For more information about the requirements for Azure Bastion, see [Architecture](/azure/bastion/bastion-overview#architecture).
 
 If you're short on IP addresses, you can implement a highly available configuration with a minimum prefix of /27 for the subnet of control nodes and /27 for the subnet of worker nodes.
 
-If you want to use a different CNI, size your networks accordingly. MAS with some standard applications deploys over 800 Pods, which likely requires a CIDR prefix of /21 or larger. 
+If you want to use a different CNI, size your networks accordingly. MAS with some standard applications deploys over 800 pods, which likely require a CIDR prefix of /21 or larger.
 
 ### Database specifics
 
@@ -199,7 +200,7 @@ If you deploy IoT services, you're required to also provide a Kafka endpoint. Th
 
 MAS comes packed with many databases inside its pods, and those databases retain their states on the file system that's provided for MAS. We recommend using a zone-redundant storage mechanism to retain the states outside of your clusters to be able to absorb zone failures. Our recommended pattern is to use Azure File Storage with the following configurations:
 
-- **Standard**. Provides Server Message Block (SMB) shares for lower throughput and ReadWriteOnce (RWO) workloads. Standard is a great fit for parts of the application that aren't chatty and require a single persistent volume (for example, IBM SLS).
+- **Standard**. Provides Server Message Block (SMB) shares for lower throughput and ReadWriteOnce (RWO) workloads. Standard is a great fit for parts of the application that don't write to storage often and require a single persistent volume (for example, IBM single-level storage).
 
 - **Premium**. Provides Network File System (NFS) shares for higher throughput and ReadWriteMany (RWX) workloads. Volumes like these are used throughout the cluster for RWX workloads, such as the Db2 Warehouse in Cloud Pak for Data or Postgres in Manage.
 
@@ -217,9 +218,9 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-Maintaining access and visibility into the maintenance lifecycle of your assets can be one of your organization's greatest opportunities to operate efficiently and maintain uptime. To improve the security posture of your environment, it's important to use secure authentication (for example, SAML) and to keep your solutions up to date. Use encryption to protect all data that moves in and out of your architecture.
+Maintaining access and visibility into the maintenance lifecycle of your assets can be one of your organization's greatest opportunities to operate efficiently and maintain uptime. To improve the security posture of your environment, it's important to use secure authentication and to keep your solutions up to date. Use encryption to protect all data that moves in and out of your architecture.
 
-Azure delivers MAS by using the models of infrastructure as a service (IaaS) and platform as a Service (PaaS). Microsoft builds security protections into the service at the following levels:
+Azure delivers MAS by using the models of infrastructure as a service (IaaS) and PaaS. Microsoft builds security protections into the service at the following levels:
 
 - Physical datacenter
 - Physical network
@@ -240,7 +241,7 @@ If you need access to your VMs for some reason, you can connect through your hyb
 
 #### Authentication
 
-MAS currently supports the use of SAML via Azure Active Directory (Azure AD). To make this work, you need an enterprise application within Azure AD and either permission to modify the application or the assistance of an Azure AD global administrator who can make the necessary changes.
+MAS currently supports the use of Security Assertion Markup Language (SAML) via Azure AD. To make this work, you need an enterprise application within Azure AD and either permission to modify the application or the assistance of a global administrator who can make the necessary changes.
 
 The [quickstart guide](https://github.com/Azure/maximo) on GitHub has a tutorial on how to set up SAML with MAS. For more information, see [Enabling SAML authentication against Azure AD](https://github.com/Azure/maximo#enabling-saml-authentication-against-azure-ad). 
 
@@ -257,18 +258,18 @@ Control access to the Azure resources that you deploy. Every Azure subscription 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 A standard deployment of MAS consists of the following components:
- - 3 x control VMs
- - 6 x worker VMs
- - 3 x worker VMs (Db2 Warehouse)
-   - You can substitute Db2 Warehouse with Azure SQL Database on a VM in some configurations
-- 2 x Azure Storage accounts
-- 2 x DNS zones
-- 2 x Load balancers
+ - 3 control VMs
+ - 6 worker VMs
+ - 3 worker VMs for Db2 Warehouse
+   - You can substitute Azure SQL Database on a VM in some configurations, rather than use Db2 Warehouse.
+- 2 Azure Storage accounts
+- 2 DNS zones
+- 2 Load balancers
 - Azure Bastion
-- 1 x Visual Inspection VM
-  - This isn't required unless you're planning to run Visual Inspection inside of MAS
+- 1 Visual Inspection VM
+  - This isn't required unless you're planning to run Visual Inspection inside of MAS.
 
-You can review an example estimate by using our [cost calculator](https://azure.com/e/fae03e2386cf46149273a379966e95b1). Configurations vary and should be verified with your IBM sizing team before finalizing your deployment.
+You can review an example estimate by using our [cost calculator](https://azure.com/e/fae03e2386cf46149273a379966e95b1). Configurations vary, and you should verify your configuration with your IBM sizing team before finalizing your deployment.
 
 ### Reliability
 
@@ -280,29 +281,27 @@ Because human error is common, you should deploy MAS by using as much automation
 
 ## Deploy this scenario
 
-### Deployment prerequisites
-
 Before you start, we recommend that you review the [IBM Maximo Application Suite system requirements](https://www.ibm.com/support/pages/node/6538166). Be sure that you have the following resources available before starting the deployment:
 
-- Access to an Azure Subscription with Reader privileges
-- Application Registration (SPN) that has Contributor and User Access Administrator privileges to the subscription
-- Domain or delegated Sub Domain to an Azure DNS Zone
-- Red Hat OpenShift Service Agreement (Pull Secret)
-- IBM MAS Entitlement Key
-- IBM MAS License File (Created after MAS install)
-- IBM recommended cluster sizing
-- Determine if you want to provide an existing VNet or let the IPI create one
-- Determine what your HA/DR requirements are
-- Create a configuration file, *install-config.yaml*, for the installer
+- Access to an Azure Subscription with *Reader* permission
+- Application Registration (service principal name) that has *Contributor* and *User Access Administrator* permissions to the subscription
+- Domain or delegated sub domain to an Azure DNS zone
+- Red Hat OpenShift Service Agreement (pull secret)
+- MAS entitlement key
+- MAS license file (created after MAS installation)
+- IBM-recommended cluster sizing
+- An existing virtual network or let the IPI create one, depending on your requirements
+- Your high-availability and disaster-recovery requirements
+- Configuration file, *install-config.yaml*, for the installer
 
 For a step-by-step guide for installing OpenShift and MAS on Azure, including how to address the prerequisites, see our [quickStart guide](https://github.com/Azure/maximo) on GitHub.
 
 > [!NOTE]
-> [QuickStart Guide: Maximo Application Suite on Azure](https://github.com/Azure/maximo) includes an example of an install-config-yaml file as [/src/ocp/install-config.yaml](https://github.com/Azure/maximo/blob/main/src/ocp/install-config.yaml).
+> [QuickStart Guide: Maximo Application Suite on Azure](https://github.com/Azure/maximo) includes an example of an *install-config.yaml* file in [/src/ocp/](https://github.com/Azure/maximo/blob/main/src/ocp).
 
 ### Deployment considerations
 
-It's best to deploy workloads by using infrastructure as code (IaC) rather than manually deploying workloads, because manual deployment can result in misconfiguration. Container-based workloads can be sensitive to misconfiguration, which can reduce productivity. 
+It's best to deploy workloads by using infrastructure as code (IaC) rather than manually deploying workloads, because manual deployment can result in misconfiguration. Container-based workloads can be sensitive to misconfiguration, which can reduce productivity.
 
 Before building your environment, review the [quickstart guide](https://github.com/azure/maximo#getting-started) to develop an understanding of the design parameters. The quickstart guide isn't intended for a production-ready deployment, but you can use the guide's assets to get to a production-grade mechanism for deployment.
 
