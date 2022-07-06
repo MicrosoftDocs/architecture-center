@@ -1,6 +1,14 @@
-Healthcare organizations are realizing that artificial intelligence (AI) and machine learning can be valuable tools for many parts of their business, from improving patient outcomes to streamlining daily operations. Often, healthcare organizations don't have the technology staff to implement AI and machine learning systems. To improve this situation and get AI and machine learning solutions running on Azure quickly, Microsoft created the [Azure healthcare AI blueprint](/azure/security/blueprints/azure-health?WT.mc_id=ms-docs-dastarr). Using the blueprint, we show how to get started with AI and machine learning quickly in a safe, compliant, secure, and reliable way.
+The healthcare blueprint for AI bootstraps AI and machine learning into your organization using Azure. This article describes how to install the blueprint and what its components are. Then we cover how to use the solution to run an AI and machine learning experiment that predicts a patient’s length of stay.
 
-The health blueprint for AI bootstraps AI and machine learning into your organization using Azure. This article describes how to install the blueprint and what its components are. Then we cover how to use the solution to run an AI and machine learning experiment that predicts a patient’s length of stay.
+## Architecture
+
+The following graphic shows the Azure products that are installed. Each resource or service provides a component of the AI and machine learning processing solution, including the cross-cutting concerns of identity and security.
+
+![Component zones](images/healthcare-ai-blueprint/component-zones.png)
+
+## Scenario details
+
+Healthcare organizations are realizing that artificial intelligence (AI) and machine learning can be valuable tools for many parts of their business, from improving patient outcomes to streamlining daily operations. Often, healthcare organizations don't have the technology staff to implement AI and machine learning systems. To improve this situation and get AI and machine learning solutions running on Azure quickly, Microsoft created the [Azure healthcare AI blueprint](/azure/security/blueprints/azure-health?WT.mc_id=ms-docs-dastarr). Using the blueprint, we show how to get started with AI and machine learning quickly in a safe, compliant, secure, and reliable way.
 
 ### Benefits
 
@@ -16,13 +24,13 @@ The blueprint provides the data and example code for learning how to predict a p
 
 Microsoft Azure offers both PaaS and SaaS offerings and choosing the right one for your needs differs per use case. The blueprint is designed to use PaaS services that solve for predicting a patient’s length of stay in hospital. The Azure healthcare AI blueprint provides everything needed to instantiate a secure and compliant AI and machine learning solution pre-configured for healthcare organizations. The PaaS model used by this blueprint installs and configures the blueprint as a complete solution.
 
-### PaaS option
+#### PaaS option
 
 Using a PaaS services model results in reduced Total Cost of Ownership(TCO) because there's no hardware to manage. The organization doesn’t need to buy and maintain hardware or VMs. The blueprint uses PaaS services exclusively.
 
 This reduces the cost of maintaining an on-premises solution and frees technical staff to focus on strategic initiatives instead of infrastructure. Staff can also move paying for computing and storage from their capital expense budgets to their operational expense budgets instead. The costs of running this blueprint scenario are driven by usage of the services plus the costs of data storage.
 
-### IaaS option
+#### IaaS option
 
 Although the blueprint and this article focus on the PaaS implementation, there's an [open source extension](https://github.com/Azure/Azure-Health-Extension) to the blueprint that allows you to use it in an infrastructure as a service (IaaS) environment.
 
@@ -30,13 +38,15 @@ In an IaaS hosting model, customers pay for uptime of Azure hosted VMs and their
 
 The IaaS model is beyond the scope of this article, which focuses on a PaaS deployment of the blueprint.
 
-## The healthcare AI and machine learning blueprint
+### The healthcare AI and machine learning blueprint
 
 The blueprint creates a starting point for using this technology in a healthcare context. When the blueprint is installed to Azure, all resources, services and several user accounts are created to support the AI and machine learning scenario with appropriate actors, permissions, and services.
 
 The blueprint includes an AI and machine learning experiment to predict a patient’s length of stay, which can help in forecasting staffing, bed counts, and other logistics. The package includes installation scripts, example code, test data, security and privacy support and more.
 
-## Blueprint technical resources
+## Deploy this scenario
+
+### Blueprint technical resources
 
 The resources listed in this section are all found in the GitHub repository.
 
@@ -49,10 +59,6 @@ Review the following primary resources:
 Cross cutting concerns for this model include identity and security, both of which are especially important when dealing with patient data. The components of the machine learning pipeline are shown in this graphic.
 
 ![Machine learning pipeline](images/healthcare-ai-blueprint/ml-pipeline.png)
-
-The following graphic shows the Azure products that are installed. Each resource or service provides a component of the AI and machine learning processing solution, including the cross-cutting concerns of identity and security.
-
-![Component zones](images/healthcare-ai-blueprint/component-zones.png)
 
 Implementing a new system in a regulated healthcare environment is complex. For example, ensuring all aspects of the system are HIPAA compliant and HITRUST certifiable takes more than developing a lightweight solution. The blueprint installs identification and resource permissions to help with these complexities.
 
@@ -72,13 +78,13 @@ The blueprint provides exceptional guidance and instructions for technical staff
 
 These resources are [here on GitHub](https://github.com/Azure/Health-Data-and-AI-Blueprint).
 
-## Installing the blueprint
+### Install the blueprint
 
 There's little time investment to get up and running with this blueprint solution. A bit of PowerShell scripting knowledge is recommended, but step-by-step instructions are available to help guide the installation. This way technologists will be successful in deploying this blueprint, regardless of their scripting skills.
 
 Technical staff can expect to install the blueprint with little experience using Azure in 30 minutes to an hour.
 
-### The installation script
+#### The installation script
 
 The blueprint provides exceptional guidance and instructions for installation. It also provides scripting for install and uninstall of the blueprint services and resources. Calling the PowerShell deployment script is simple. Before the blueprint is installed, certain data must be collected and used as arguments to the deploy.ps1 script, as show in the following code.
 
@@ -92,13 +98,13 @@ The blueprint provides exceptional guidance and instructions for installation. I
             -appInsightsPlan 1 # we want app insights set up
 ```
 
-### The installation environment
+#### The installation environment
 
 **Important!** Don't install the blueprint from a machine outside of Azure. The install is much more likely to succeed if you create a clean Windows 10 VM (or other Windows VM) in Azure. Then run the install scripts from there. This technique uses a cloud-based VM to mitigate latency and help to create a smooth installation.
 
 During installation, the script calls out to other packages to load and use. When installing from a VM in Azure, the lag between the installation machine and the target resources will be much lower. However, some of the scripting packages downloaded are still vulnerable to latency as script packages live outside the Azure environment—which can lead to time-out failures.
 
-### Install failure! (don’t panic)
+#### Troubleshooting: Install failure
 
 The installer downloads some external packages during installation. Sometimes, a script resource request will time out due to lag between the install machine and the package. When this happens, you have two choices:
 
@@ -125,11 +131,11 @@ After running the uninstall script, the following will be gone.
 
 Note that the key vault is held as a “soft delete” and while it isn’t seen in the portal, it doesn’t get deallocated for 30 days. This enables reconstituting the key vault if needed. To learn more about the implications of this and how to handle it, see the [Key vaults](#key-vaults) section of this article.
 
-### Reinstall after an uninstall
+#### Reinstall after an uninstall
 
 If there's a need to reinstall the blueprint after an uninstall, you must change the prefix in the next deployment as the uninstalled key vault will cause an error if you don't change the prefix. More about this is covered in the [Key vaults](#key-vaults) section of this article.
 
-### Required administrator roles
+#### Required administrator roles
 
 The person installing the blueprint must be in the Global Administrator role in Azure AD. The installing account must also be an Azure subscription administrator for the subscription being used. If the person doing the install isn't in both of these roles, the install will fail.
 
@@ -137,7 +143,7 @@ The person installing the blueprint must be in the Global Administrator role in 
 
 Further, the install isn't designed to work with MSDN subscriptions, due to the tight integration with Azure AD. A standard Azure account must be used. If needed, [get a free trial](https://azure.microsoft.com/free/?WT.mc_id=ms-docs-dastarr) with credit to spend for installing the blueprint solution and running its demos.
 
-## Adding other resources
+### Adding other resources
 
 The Azure blueprint installation doesn’t include more services than those needed to implement the AI and machine learning use case. However, more resources or services can be added to the Azure environment. This capability makes it a good test bed for additional initiatives, or a starting point for a production system. For instance, you could add other PaaS services or IaaS resources in the same subscription and Azure AD.
 
@@ -145,11 +151,11 @@ New resources, like [Cosmos DB](/azure/cosmos-db/introduction?WT.mc_id=ms-docs-d
 
 New resources and services can be created with [Azure REST APIs](/rest/api/?view=Azure&WT.mc_id=ms-docs-dastarr), [Azure PowerShell scripting](/powershell/azure/get-started-azureps?view=azurermps-6.6.0&WT.mc_id=ms-docs-dastarr), or by using the [Azure portal](https://portal.azure.com/?WT.mc_id=ms-docs-dastarr).
 
-## Using machine learning with the blueprint
+### Using machine learning with the blueprint
 
 The blueprint was built to demonstrate a machine learning scenario with a regression algorithm used in a model to predict a [patient’s length of stay](/azure/security/blueprints/azure-health?WT.mc_id=ms-docs-dastarr#example-use-case). This is a common prediction for healthcare providers to run as it helps in scheduling staffing and other operational decisions. Further, anomalies can be detected over time when an average length of stay for a given condition rises or declines.
 
-### Ingesting training data
+#### Ingesting training data
 
 With the blueprint installed and all services working properly, the data to be analyzed can be ingested. 100,000 patient [records are available for ingest](/azure/security/blueprints/azure-health?WT.mc_id=ms-docs-dastarr#ingest) and working with the model. Ingesting patient records is the first step in the using [Azure Machine Learning Studio](/azure/machine-learning/studio/what-is-ml-studio?WT.mc_id=ms-docs-dastarr) to run the patient length of stay experiment, as shown in the following image.
 

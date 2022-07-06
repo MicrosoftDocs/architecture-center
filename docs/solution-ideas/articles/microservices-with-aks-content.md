@@ -1,5 +1,7 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
+## Potential use cases
+
 Use AKS to simplify the deployment and management of microservices-based architecture. AKS streamlines horizontal scaling, self-healing, load balancing, and secret management.
 
 ## Architecture
@@ -20,15 +22,15 @@ Use AKS to simplify the deployment and management of microservices-based archite
 
 ### Components
 
-- [Azure DevOps](https://azure.microsoft.com/services/devops/) packages the microservices as containers.
-- [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) offers fully managed Kubernetes clusters for deployment, scaling, and management of containerized applications.
-- [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) is a managed, private Docker registry service on Azure. Use Container Registry to store private Docker images, which are deployed to the cluster.
+- [Azure DevOps](https://azure.microsoft.com/services/devops) packages the microservices as containers.
+- [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service) offers fully managed Kubernetes clusters for deployment, scaling, and management of containerized applications.
+- [Azure Container Registry](https://azure.microsoft.com/services/container-registry) is a managed, private Docker registry service on Azure. Use Container Registry to store private Docker images, which are deployed to the cluster.
 - [GitHub Enterprise](https://help.github.com/en/github) provides a code-hosting platform that developers can use for collaborating on both open-source and inner-source projects.
-- [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) Pipelines is part of Azure DevOps Services that is used to run automated builds, tests, and deployments. Every time code is changed in the code repository, Azure DevOps pipeline continuously builds container images, pushed to your Azure Container Registry, and the manifests are then deployed to your Azure Kubernetes Service cluster.
-- [Azure Active Directory](https://azure.microsoft.com/services/active-directory/). When AKS is integrated with Azure Active Directory, it allows to use Azure AD users, groups, or service principals as subjects in Kubernetes RBAC to manage AKS resources securely.
-- [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/) is a fully managed MySQL Database service on Azure to store stateful data.
-- [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) is a fully managed and intelligent relational database service built for the cloud. With SQL Database, you can create a highly available and high-performance data storage layer for modern cloud applications.
-- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is a fully managed NoSQL database service for building and modernizing scalable, high performance applications.
+- [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) Pipelines is part of Azure DevOps Services that is used to run automated builds, tests, and deployments. Every time code is changed in the code repository, Azure DevOps pipeline continuously builds container images, pushed to your Azure Container Registry, and the manifests are then deployed to your Azure Kubernetes Service cluster.
+- [Azure Active Directory](https://azure.microsoft.com/services/active-directory). When AKS is integrated with Azure Active Directory, it allows you to use Azure AD users, groups, or service principals as subjects in Kubernetes RBAC to manage AKS resources securely.
+- [Azure Database for MySQL](https://azure.microsoft.com/services/mysql) is a fully managed MySQL Database service on Azure to store stateful data.
+- [Azure SQL Database](https://azure.microsoft.com/services/sql-database) is a fully managed and intelligent relational database service built for the cloud. With SQL Database, you can create a highly available and high-performance data storage layer for modern cloud applications.
+- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) is a fully managed NoSQL database service for building and modernizing scalable, high performance applications.
 
 ## Next steps
 

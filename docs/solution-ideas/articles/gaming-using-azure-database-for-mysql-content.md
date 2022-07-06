@@ -13,18 +13,18 @@ This solution is based on a gaming scenario. However, the design patterns are re
 
 ### Dataflow
 1. [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview) routes a user's game traffic to the apps hosted in [Azure App Service](/azure/app-service-web/app-service-web-overview), Functions or Containers and APIs published via Azure API Gateway.
-2. [Azure CDN](/azure/cdn/cdn-overview) serves static images and game content to the user that are stored in [Azure Blob Storage](/azure/storage/blobs/storage-blobs-overview).
-3. [Azure Database for MySQL](/azure/mysql/overview) stores user's game data in a transactional database hosted.
-4. The data from Azure Database for MySQL are processed using [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) and stored in the analytics platform.
-5. (Optional) Use [Power BI](/power-bi/fundamentals/power-bi-overview) to interpret this data and create new visualizations
+1. [Azure CDN](/azure/cdn/cdn-overview) serves static images and game content to the user that are stored in [Azure Blob Storage](/azure/storage/blobs/storage-blobs-overview).
+1. [Azure Database for MySQL](/azure/mysql/overview) stores user's game data in a transactional database hosted.
+1. The data from Azure Database for MySQL are processed using [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) and stored in the analytics platform.
+1. (Optional) Use [Power BI](/power-bi/fundamentals/power-bi-overview) to interpret this data and create new visualizations
 
 ### Components
 
 This architecture includes the following components:
 
-- [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) is a DNS-based load balancer that controls the distribution of user traffic for service endpoints in different Azure regions. During normal operations, it routes requests to the primary region. If that region becomes unavailable, Traffic Manager can fail over to secondary region as needed.
+- [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager) is a DNS-based load balancer that controls the distribution of user traffic for service endpoints in different Azure regions. During normal operations, it routes requests to the primary region. If that region becomes unavailable, Traffic Manager can fail over to secondary region as needed.
 
-- [Azure API Management](https://azure.microsoft.com/services/api-management/) provides an API gateway that sits in front of the Gaming APIs. API Management also can be used to implement concerns such as:
+- [Azure API Management](https://azure.microsoft.com/services/api-management) provides an API gateway that sits in front of the Gaming APIs. API Management also can be used to implement concerns such as:
     - Enforcing usage quotas and rate limits
     - Validating OAuth tokens for authentication
     - Enabling cross-origin requests (CORS)
@@ -33,7 +33,7 @@ This architecture includes the following components:
 
 - [Azure App Service](https://azure.microsoft.com/services/app-service) hosts API applications allowing autoscale and high availability without having to manage infrastructure.
 
-- [Azure CDN](https://azure.microsoft.com/services/cdn/) delivers static, cached content from locations close to users to reduce latency.
+- [Azure CDN](https://azure.microsoft.com/services/cdn) delivers static, cached content from locations close to users to reduce latency.
 
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) are optimized to store large amounts of unstructured data, such as static gaming media.
 

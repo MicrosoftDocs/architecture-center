@@ -20,6 +20,8 @@ This architecture applies to workflows where IT teams fully control the workflow
 
 *Download a [Visio file](https://arch-center.azureedge.net/Power%20Automate%20Hub%20and%20Spoke.vsdx) of this architecture.*
 
+### Workflow
+
 Azure hub-spoke network topology inspires this architecture. Power Platform [Solutions](/powerapps/maker/data-platform/solutions-overview) flows can invoke child flows from Solutions. Parent and child flows ease flow management by avoiding flows with hundreds of steps.
 
 This solution provisions a Power Automate *init flow* workflow for each SharePoint site. In the init flow, either a user or an event *initiates* a workflow. The init flow calls a *central flow* workflow, which runs all the actions that meet a business need.
@@ -89,7 +91,7 @@ Use the [Center of Excellence (CoE) toolkit for Power Platform](/power-platform/
 
 - You can apply DLP policies at the environment level, which allows more flexibility to meet business requirements.
 
-## Pricing
+### Cost optimization
 
 You pay no extra costs for this scenario if you meet the following conditions:
 

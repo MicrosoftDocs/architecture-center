@@ -23,17 +23,19 @@ Other relevant use cases include:
 
 ## Architecture
 
-![Architecture for IoT and data analytics in the construction industry][architecture]
+:::image type="content" border="false" source="./media/architecture-big-data-with-iot.svg" alt-text="Diagram shows the architecture for I o T and data analytics in the construction industry." lightbox="./media/architecture-big-data-with-iot.svg":::
+
+*Download a [Visio file][visio-download] of this architecture.*
 
 The data flows through the solution as follows:
 
 1. Construction equipment collects sensor data and sends the construction results data at regular intervals to load balanced web services hosted on a cluster of Azure virtual machines.
-2. The custom web services ingest the construction results data and store it in an Apache Cassandra cluster also running on Azure virtual machines.
-3. Another dataset is gathered by IoT sensors on various construction equipment and sent to IoT Hub.
-4. Raw data collected is sent directly from IoT Hub to Azure blob storage and is immediately available for viewing and analysis.
-5. Data collected via IoT Hub is processed in near real time by an Azure Stream Analytics job and stored in an Azure SQL database.
-6. The Smart Construction Cloud web application is available to analysts and end users to view and analyze sensor data and imagery.
-7. Batch jobs are initiated on demand by users of the web application. The batch job runs in Apache Spark on HDInsight and analyzes new data stored in the Cassandra cluster.
+1. The custom web services ingest the construction results data and store it in an Apache Cassandra cluster also running on Azure virtual machines.
+1. Another dataset is gathered by IoT sensors on various construction equipment and sent to IoT Hub.
+1. Raw data collected is sent directly from IoT Hub to Azure blob storage and is immediately available for viewing and analysis.
+1. Data collected via IoT Hub is processed in near real time by an Azure Stream Analytics job and stored in an Azure SQL database.
+1. The Smart Construction Cloud web application is available to analysts and end users to view and analyze sensor data and imagery.
+1. Batch jobs are initiated on demand by users of the web application. The batch job runs in Apache Spark on HDInsight and analyzes new data stored in the Cassandra cluster.
 
 ### Components
 
@@ -62,7 +64,7 @@ The broad availability of Azure regions is an important factor for this scenario
 
 Azure support for open-source technologies allowed the customer to take advantage of their existing workforce skills. The customer can also accelerate the adoption of new technologies with lower costs and operating workloads compared to an on-premises solution.
 
-## Pricing
+### Cost optimization
 
 The following considerations will drive a substantial portion of the costs for this solution.
 
@@ -70,9 +72,19 @@ The following considerations will drive a substantial portion of the costs for t
 - [IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub) costs are driven by the number of IoT units provisioned as well as the service tier chosen, which determines the number of messages per day per unit allowed.
 - [Stream Analytics](https://azure.microsoft.com/pricing/details/stream-analytics) is priced by the number of streaming units required to process the data into the service.
 
-## Related resources
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+* [Alex Buck](https://www.linkedin.com/in/alex-buck-0161575) | Senior Content Developer
+
+## Next Steps
 
 Guidance for big data architectures is available in the [Azure Data Architecture Guide](../../data-guide/index.md).
+
+## Related resources
 
 Additional IoT architectures:
 
@@ -93,3 +105,4 @@ IoT architecture guides:
 
 [product-category]: https://azure.microsoft.com/product-categories/analytics
 [architecture]: ./media/architecture-big-data-with-iot.svg
+[visio-download]: https://arch-center.azureedge.net/architecture-big-data-with-iot.vsdx

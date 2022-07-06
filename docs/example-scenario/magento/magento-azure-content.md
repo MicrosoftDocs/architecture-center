@@ -137,7 +137,7 @@ AKS clusters can be deployed across multiple Availability Zones, to provide a hi
 
 - Use resource limit to restrict the total resources allowed for a container, so one particular container can't starve others.
 
-### DevOps considerations
+### DevOps
 
 Here are some operational considerations for this scenario:
 
@@ -159,7 +159,7 @@ Another monitoring option is to use [Grafana](https://grafana.com/) dashboard:
 
 Use [Magento Performance Toolkit](https://github.com/magento/magento2/tree/2.4/setup/performance-toolkit) for performance testing. The toolkit uses [Apache JMeter](https://jmeter.apache.org/) to simulate customer behaviors like signing in, browsing products, and checking out.
 
-## Pricing
+### Cost optimization
 
 - Do capacity planning based on performance testing.
 

@@ -40,7 +40,7 @@ productDirectory:
   items:
     # Card
     - title: Design for the cloud
-      imageSrc: https://docs.microsoft.com/media/common/i_design.svg
+      imageSrc: /media/common/i_design.svg
       links:
         - url: ./guide/design-principles/index.md
           text: Principles of a well-designed application
@@ -56,7 +56,7 @@ productDirectory:
           text: Build microservices on Azure
     # Card
     - title: Optimize your workload
-      imageSrc: https://docs.microsoft.com/media/common/i_architecture.svg
+      imageSrc: /media/common/i_architecture.svg
       links:
         - url: /azure/architecture/framework
           text: Guiding tenets for your architecture
@@ -71,7 +71,7 @@ productDirectory:
     # Card
     - title: Choose the right technology
       # imageSrc should be square in ratio with no whitespace
-      imageSrc: https://docs.microsoft.com/media/common/i_overview.svg
+      imageSrc: /media/common/i_overview.svg
       links:
         - url: ./guide/technology-choices/compute-decision-tree.yml
           text: Choose a compute service
@@ -88,7 +88,7 @@ productDirectory:
     # Card
     - title: Essential scenarios
       # imageSrc should be square in ratio with no whitespace
-      imageSrc: https://docs.microsoft.com/media/common/i_best-practices.svg
+      imageSrc: /media/common/i_best-practices.svg
       links:
         - url: ./guide/startups/startup-architecture.md
           text: Architecture for startups
@@ -398,9 +398,6 @@ conceptualContent:
         - text: Choose a hybrid network architecture
           itemType: architecture
           url: reference-architectures/hybrid-networking/index.yml
-        - text: VPN
-          itemType: architecture
-          url: reference-architectures/hybrid-networking/vpn.yml
         - text: ExpressRoute
           itemType: architecture
           url: reference-architectures/hybrid-networking/expressroute.yml

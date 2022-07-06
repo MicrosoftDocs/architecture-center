@@ -1,22 +1,4 @@
-This solution shows how to use Azure Traffic Manager to extend an app that's located in a local cloud by connecting it to public cloud resources. A change in routing is triggered by an increase or decrease in demand, and resources are added or removed in the cloud. These resources provide redundancy, rapid availability, and geo-compliant routing.
-
-## Potential use cases
-Global enterprises need their apps to be secure, reliable, and available. They need to meet increases in demand and use the right infrastructure to support that demand. It can be difficult to balance costs and maintenance with business-data security, storage, and real-time availability.
-
-When an app can't increase capacity to meet unexpected increases in demand, it can service only a fixed number of users. This lack of scalability can result in users not reaching the app during peak usage times.
-
-However, sometimes it's not economically feasible for a business to maintain the capacity that's required to handle spikes in demand in their on-premises environment. By using this solution, you can use the elasticity of the public cloud with your on-premises solution.  
-
-Use this solution when:
-
-- You need to increase your app's capacity for unexpected demand or periodic increases in demand.
-- You want to pay for certain resources only during peaks.
-
-We don't recommend this solution when:
-
-- Your business is subject to local regulations that require the originating connection to come from an onsite call.
-- Your network experiences regular bottlenecks that would restrict the performance of scaling.
-- Your environment is disconnected from the internet and can't reach the public cloud.
+This solution shows how to use Azure Traffic Manager to extend an app that's located in a local cloud by connecting it to public cloud resources. 
 
 ## Architecture
 
@@ -44,6 +26,29 @@ _Download an [SVG file](https://arch-center.azureedge.net/cross-cloud-scaling.sv
 For web applications, you can use [Azure Front Door](https://azure.microsoft.com/services/frontdoor) instead of Traffic Manager. Azure Front Door works on Layer 7 (the HTTP/HTTPS layer).
 It can keep traffic on the best path to your app, improve service scale, reduce latency, and increase throughput for your global users with edge load balancing, SSL offload, and application acceleration.
 
+## Scenario details
+
+This solution shows how to use Azure Traffic Manager to extend an app that's located in a local cloud by connecting it to public cloud resources. A change in routing is triggered by an increase or decrease in demand, and resources are added or removed in the cloud. These resources provide redundancy, rapid availability, and geo-compliant routing.
+
+### Potential use cases
+
+Global enterprises need their apps to be secure, reliable, and available. They need to meet increases in demand and use the right infrastructure to support that demand. It can be difficult to balance costs and maintenance with business-data security, storage, and real-time availability.
+
+When an app can't increase capacity to meet unexpected increases in demand, it can service only a fixed number of users. This lack of scalability can result in users not reaching the app during peak usage times.
+
+However, sometimes it's not economically feasible for a business to maintain the capacity that's required to handle spikes in demand in their on-premises environment. By using this solution, you can use the elasticity of the public cloud with your on-premises solution.  
+
+Use this solution when:
+
+- You need to increase your app's capacity for unexpected demand or periodic increases in demand.
+- You want to pay for certain resources only during peaks.
+
+We don't recommend this solution when:
+
+- Your business is subject to local regulations that require the originating connection to come from an onsite call.
+- Your network experiences regular bottlenecks that would restrict the performance of scaling.
+- Your environment is disconnected from the internet and can't reach the public cloud.
+
 ## Considerations
 
 ### Reliability
@@ -67,11 +72,14 @@ The key benefit of cross-cloud scaling is the ability to deliver on-demand scali
 - See the [Azure Traffic Manager documentation](/azure/traffic-manager/traffic-manager-overview) to learn more about how this DNS-based traffic load balancer works.
 - See [Hybrid application design considerations](/hybrid/app-solutions/overview-app-design-considerations) to learn more about best practices.
 - Learn about the [Azure Stack portfolio of products and solutions](/azure-stack).
-- When you're ready to deploy this solution, use the [Cross-cloud scaling solution deployment guide](/azure/architecture/hybrid/deployments/solution-deployment-guide-cross-cloud-scaling). It provides step-by-step instructions for deploying and testing the solution's components. 
+- [Extend an on-premises network using VPN](/azure/expressroute/expressroute-howto-coexist-resource-manager)
 
 ## Related resources
 
+- When you're ready to deploy this solution, use the [Cross-cloud scaling solution deployment guide](/azure/architecture/hybrid/deployments/solution-deployment-guide-cross-cloud-scaling). It provides step-by-step instructions for deploying and testing the solution's components.
+
+See the following related architectures:
+
 - [Hybrid architecture design](../../hybrid/hybrid-start-here.md)
 - [Run containers in a hybrid environment](../../hybrid/hybrid-containers.yml)
-- [Extend an on-premises network using VPN](../../reference-architectures/hybrid-networking/vpn.yml)
 - [Hybrid availability and performance monitoring](../../hybrid/hybrid-containers.yml)
