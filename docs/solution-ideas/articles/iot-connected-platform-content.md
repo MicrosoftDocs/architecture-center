@@ -20,7 +20,9 @@ This solution is ideal for the healthcare and facilities industries.
 
 ## Architecture
 
-![Diagram showing the Insight Connected Platform architecture.](../media/insight-connected-platform.png)
+![Diagram showing the Insight Connected Platform architecture.](../media/insight-connected-platform-new.png)
+
+*Download a [Visio file](https://arch-center.azureedge.net/insight-connected-platform.vsdx) of this architecture.*
 
 ### Dataflow
 

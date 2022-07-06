@@ -12,7 +12,9 @@ By using [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) and other
 
 ## Architecture
 
-![Diagram that shows an overview of the organization of a Safe Building as described in this article.](../media/safe-building-arch-design.svg)
+![Diagram that shows an overview of the organization of a Safe Building as described in this article.](../media/safe-building-arch-design-new.png)
+
+*Download a [Visio file](https://arch-center.azureedge.net/safe-building-arch-design.vsdx) of this architecture.*
 
 ### Dataflow
 
