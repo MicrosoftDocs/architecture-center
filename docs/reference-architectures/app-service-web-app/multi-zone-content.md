@@ -8,13 +8,13 @@ Multi-zone architectures are a good alternative to [multi-region architectures],
 
 ![Reference architecture for a web application with high availability](./images/multi-zone-web-app-diagram.png)
 
-*See a [full working sample of this architecture in Azure Samples], including Visio file, Bicep template and Bill of materials.*
+<!-- *See a [full working sample of this architecture in Azure Samples], including Visio file, Bicep template and Bill of materials.* -->
 
 ## Architecture
 
 This architecture builds on the additional availability provided by [Availability Zones infrastructure] found in many Azure regions today. For a list of Azure regions that support Availability Zones see [Azure regions with Availability Zones][az-regions].
 
-Availability Zones spread a solution across multiple zones within a region, allowing for an application to continue functioning when one zone fails. Most Foundational and Mainstream Azure services, as well as many Specialized Azure services provide support for Availability Zones today. All of the Azure services in this architecture are [Zone Redundant], simplifying deployment and management. For a list of Azure services that support Availability Zones see [Azure Services that support Availability Zones][az-services].
+Availability Zones spread a solution across multiple zones within a region, allowing for an application to continue functioning when one zone fails. Most foundational and mainstream Azure services, as well as many Specialized Azure services provide support for Availability Zones today. All of the Azure services in this architecture are [Zone Redundant], simplifying deployment and management. For a list of Azure services that support Availability Zones see [Azure Services that support Availability Zones][az-services].
 
 This is essentially an active/active design within a single region, where high availability is provided as a feature of a platform. In most cases failures are automatically mitigated without user intervention.
 
@@ -28,13 +28,11 @@ In this architecture [Azure Front Door] serves as an edge for all public HTTP tr
 
 Your requirements might differ from the architecture described here. Use the recommendations in this section as a starting point.
 
-### App Service
+### App Services & Functions
 
-> ℹ Zone Redundancy for Azure App Services will be announced soon.
+[App Service Premium v2, Premium v3](app-services-zr), [Isolated v3](ise-zr) and [Azure Functions Elastic Premium SKUs](functions-zr) can be enabled for zone-redundancy. In this configuration App Service Plan instances are distributed across multiple availability zones to protect from data-center or zone failure. A zone-redundancy enabled App Service plan, Isolated App Service Plan, or Elastic Premium plan should be deployed with at least 3 instances To achieve zone redundancy. 
 
-App Service Premium v2, Premium v3 and Isolated v3 SKUs can be enabled for zone-redundancy. In this configuration App Service Plan instances are distributed across multiple availability zones to protect from data-center or zone failure. The minimum instance count for Premium v2 and Premium v3 SKUs with zone-redundancy enabled is 3 instances. The minimum instance count for Isolated v3 with zone-redendancy enabled is 9 instances.
-
-Function Apps should be hosted in a dedicated App Service Plan with zone-redundancy enabled. Availability Zone support for Premium Functions is planned with details to be announced soon. 
+Function Apps should either be hosted in a dedicated App Service Plan (alongside other apps) with zone-redundancy enabled, or as Premium Functions in a zone-redundant Elastic Premium plan.
 
 ### SQL Database
 
@@ -82,3 +80,6 @@ Key Vault is zone redundant in any region where Availbility zones are available.
 [servicebus-az]:https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-outages-disasters#availability-zones
 [redis-zr]:https://docs.microsoft.com/en-us/azure/azure-cache-for-redis/cache-high-availability#zone-redundancy
 [cog-search-az]:https://docs.microsoft.com/en-us/azure/search/search-performance-optimization#availability-zones
+[app-services-zr]:https://docs.microsoft.com/en-us/azure/app-service/how-to-zone-redundancy
+[functions-zr]:https://docs.microsoft.com/en-us/azure/azure-functions/azure-functions-az-redundancy
+[ise-zr]:https://docs.microsoft.com/en-us/azure/app-service/environment/overview-zone-redundancy
