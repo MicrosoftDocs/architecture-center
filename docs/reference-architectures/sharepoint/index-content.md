@@ -191,7 +191,7 @@ For more information about the individual pieces of the solution architecture, s
 - [Overview of MinRole Server Roles in SharePoint Servers 2016 and 2019](/sharepoint/install/overview-of-minrole-server-roles-in-sharepoint-server)
 - [Always On availability groups](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server)
 - [Best practices for SQL Server in a SharePoint Server farm](/sharepoint/administration/best-practices-for-sql-server-in-a-sharepoint-server-farm)
-- [SharePoint Server 2016 in Microsoft Azure](/sharepoint/administration/sharepoint-server-2016-in-microsoft-azure)
+- [SharePoint Server 2016 in Microsoft Azure](/sharepoint/administration/sharepoint-server-in-microsoft-azure)
 
 ## Related resources
 
@@ -213,7 +213,7 @@ For more information about the individual pieces of the solution architecture, s
 [bastion-host]: https://en.wikipedia.org/wiki/Bastion_host
 [create-availability-group]: /sharepoint/administration/sharepoint-intranet-farm-in-azure-phase-5-create-the-availability-group-and-add
 [hybrid-ra]: ../hybrid-networking/index.yml
-[hybrid-vpn-ra]: ../hybrid-networking/vpn.yml
+[hybrid-vpn-ra]: /azure/expressroute/expressroute-howto-coexist-resource-manager
 [load-balancer]: /azure/load-balancer/load-balancer-internal-overview
 [managed-disks]: /azure/storage/storage-managed-disks-overview
 [minroles]: /SharePoint/install/overview-of-minrole-server-roles-in-sharepoint-server
@@ -231,7 +231,7 @@ For more information about the individual pieces of the solution architecture, s
 [sharepoint-reqs]: /SharePoint/install/hardware-and-software-requirements
 [sharepoint-search]: /SharePoint/search/plan-enterprise-search-architecture
 [sql-always-on]: /sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server
-[sql-performance]: /azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance
+[sql-performance]: /azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist
 [sql-server-capacity-planning]: /SharePoint/administration/storage-and-sql-server-capacity-planning-and-configuration
 [sql-quorum]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731739(v=ws.11)
 [sql-sharepoint-best-practices]: /SharePoint/administration/best-practices-for-sql-server-in-a-sharepoint-server-farm

@@ -5,7 +5,7 @@ metadata:
   description: Use a scalable HTAP architecture with Azure SQL Database to combine transaction processing with analytics. Reduce latencies and costs with in-memory databases.
   author: paakos
   ms.author: pahumada
-  ms.date: 09/29/2021
+  ms.date: 06/03/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario

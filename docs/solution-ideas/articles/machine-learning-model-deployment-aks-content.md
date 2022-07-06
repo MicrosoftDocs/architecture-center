@@ -10,7 +10,7 @@ In this solution, [Kubeflow](https://www.kubeflow.org/docs/about/kubeflow) is us
 
 ## Architecture
 
-![Architecture diagram: deploying machine learning models to Azure Kubernetes Services (AKS)](../media/machine-learning-model-deployment-to-aks.png)
+![Architecture diagram: deploying machine learning models to Azure Kubernetes Services (AKS).](../media/machine-learning-model-deployment-to-aks.png)
 *Download an [SVG](../media/machine-learning-model-deployment-to-aks.svg) of this architecture.*
 
 ### Dataflow
@@ -24,10 +24,10 @@ In this solution, [Kubeflow](https://www.kubeflow.org/docs/about/kubeflow) is us
 
 ### Components
 
-* [Azure Blob Storage](/azure/storage/blobs/)
-* [Azure Container Registry](/azure/container-registry/)
-* [Azure Kubernetes Service](https://azure.microsoft.com/services/container-registry/)
-* [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/)
+* [Azure Blob Storage](/azure/storage/blobs)
+* [Azure Container Registry](/azure/container-registry)
+* [Azure Kubernetes Service](https://azure.microsoft.com/services/container-registry)
+* [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning)
 
 ## Next steps
 

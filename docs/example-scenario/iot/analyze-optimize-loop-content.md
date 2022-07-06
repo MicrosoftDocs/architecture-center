@@ -35,6 +35,19 @@ The important components of business optimization control are:
 - **Enterprise data** produced by enterprise systems like product lifecycle management, supply chain, finance, sales, manufacturing and distribution, and customer relationship management. Enterprise data combined with external data sets like weather can contextualize IoT telemetry at business scope for generating compatible insights.
 - **Offline analytics** to process big data in batch mode. Spark jobs and Hadoop map-reduce processing are a couple of examples. Monitor and manage loop and measure and control loop processes then apply the insights obtained from analyze and optimize loops to IoT devices.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+* [Hanukumar Pinnamraju](https://www.linkedin.com/in/hanukumar-pinnamraju-b290298) | Principal Software Engineering Manager
+
 ## Next steps
+
 - [Monitor and manage loops](monitor-manage-loop.yml)
 - [Measure and control loops](measure-control-loop.yml)
+
+## Related Resources
+
+- [Environment monitoring and supply chain optimization with IoT - Azure Solution Ideas](/azure/architecture/solution-ideas/articles/environment-monitoring-and-supply-chain-optimization)

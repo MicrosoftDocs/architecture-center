@@ -6,7 +6,9 @@ This architecture builds on the [AKS Baseline architecture](../aks/secure-baseli
 
 ## Architecture
 
-![Network diagram showing the hub-spoke network with two peered virtual networks and the Azure resources this implementation uses.](images/aks-production-deployment.png)
+:::image type="content" border="false" source="images/aks-production-deployment.png" alt-text="Network diagram showing the hub-spoke network with two peered virtual networks and the Azure resources this implementation uses." lightbox="images/aks-production-deployment.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/aks-microservices-advanced-production-deployment.vsdx) of this architecture.*
 
 If you would prefer to start with a more basic microservices example on AKS, see [Microservices architecture on AKS](./aks-microservices.yml).
 
@@ -320,6 +322,18 @@ Consider the following points when planning for security.
 - AKS has no costs associated with deployment, management, and operations of the Kubernetes cluster. You only pay for the VM instances, storage, and networking resources the cluster consumes. Cluster autoscaling can significantly reduce the cost of the cluster by removing empty or unused nodes.
 
 - To estimate the cost of the required resources, see the [Container Services calculator](https://azure.microsoft.com/pricing/calculator/?service=kubernetes-service).
+
+## Next steps
+
+- [Introduction to Azure Kubernetes Service](/azure/aks/intro-kubernetes)
+- [What is Azure Virtual Networks?](/azure/virtual-network/virtual-networks-overview)
+- [What is Azure Private Link?](/azure/private-link/private-link-overview)
+- [What is Azure Application Gateway?](/azure/application-gateway/overview)
+- [What is Azure Bastion?](/azure/bastion/bastion-overview)
+- [About Azure Key Vault](/azure/key-vault/general/overview)
+- [Introduction to Azure Container Registry](/azure/container-registry/container-registry-intro)
+- [Welcome to Azure Cosmos DB](/azure/cosmos-db/introduction)
+- [Azure Monitor overview](/azure/azure-monitor/overview)
 
 ## Related resources
 

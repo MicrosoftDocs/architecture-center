@@ -3,10 +3,13 @@ title: Types of harm
 titleSuffix: Azure Application Architecture Guide
 description: Know the different types of harms and how to mitigate them. Categories include risk of injury, denial of consequential services, and human rights infringement.
 author: dcass
+categories: azure
 ms.date: 05/18/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: guide
+products:
+  - azure-devops
 ms.category:
   - fcp
 ms.custom:

@@ -1,13 +1,4 @@
-This solution for data write-back functionality in Power BI provides an interactive and efficient way to change data directly from Power BI. Power BI doesn't currently have a native solution that you can use for inline or bulk updates of data while you're interacting with a report or dashboard. To push changes to data, you need to make updates directly in your data stores and then, if you're not using DirectQuery, refresh a data set to complete the process flow. This process can be inefficient and can pose problems for users who don't have access to a specific back end or the underlying data. 
-
-This solution implements a Power Apps canvas app via the native Power Apps visual in Power BI. Power Automate provides background automation for bulk-processing and refreshing. 
-
-## Potential use cases
-
-This architecture is highly iterative. You can use it with several different back-end data stores and adapt it to various use cases. Practical uses for this architecture include:
-- **Inline editing.** The solution can be used for data that needs to be updated on the fly without provisioned access to a back-end database.
-- **Approval workflows.** Extending the capabilities of Power BI with Power Apps and Power Automate allows end users to collect data that requires review directly from a dashboard and send it to subsequent approvers. 
-- **Data-driven alerts.** The solution can provide customization to automated notifications about specific insights via submission of records or the passing of data packets into a Power Automate flow. 
+This solution implements a Power Apps canvas app via the native Power Apps visual in Power BI. Power Automate provides background automation for bulk-processing and refreshing.
 
 ## Architecture
 
@@ -15,11 +6,11 @@ Core components of this solution incorporate the ability to pass pre-filtered da
 
 :::image type="content" border="false" source="media/power-platform-write-backs.png" alt-text="Diagram that shows an architecture for Power BI data write-back." lightbox="media/power-platform-write-backs.png"::: 
 
-*Download a [Visio file](https://arch-center.azureedge.net/Power-Platform-Write-Backs.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/power-platform-write-backs.vsdx) of this architecture.*
 
 ### Dataflow 
 
-**Deployment** 
+#### Deployment
 
 (For more information, see [Deploy this scenario](#deploy-this-scenario) later in this article.)
 
@@ -31,7 +22,7 @@ C. Initiate the integration between Power BI and Power Apps via the Power Apps v
 
 D. Use Power Apps to create a canvas app to provide the ability to interact with and update all necessary data. 
 
-**Process flow**
+#### Process flow
 
 1. **Gather data.** Cross filter a selected row or set of data by selecting part of a visualization in a Power BI report. This interaction passes the necessary underlying data from the Power BI report interface into the embedded canvas app.
 1. **Update data or insert it into Dataverse by using the UI of the canvas app.** You can do that by using bound controls like forms and galleries that are native to Power Apps and that are directly tied to back-end data. Alternatively, you can implement more customized functionality by using unbound controls. These controls require additional Power Fx code. For single-update scenarios, you can code the app to directly commit data to the back end via **SubmitForm**, **Patch**, and  **UpdateIf** functions. For bulk-update scenarios, you can establish a collection (a virtual table) by using the **Collect** function. You can then pass the collection to process all data updates at once. See [Power App UI](#power-app-ui) for screenshots of the canvas app. 
@@ -58,7 +49,18 @@ D. Use Power Apps to create a canvas app to provide the ability to interact with
 - You can build custom applications by using JavaScript, HTML, C#, or other languages that can be embedded into a Power BI report to update selected data. These apps, however, need to be implemented differently in the Power BI report layer because there's no native visualization as there is for Power Apps. If you implement scalability for these apps, you need to monitor it. For information on how to best implement custom components in Power BI, see the [Power BI Developer Center](https://powerbi.microsoft.com/developers).
 - You can also use the [Power Automate visual for Power BI](/power-bi/create-reports/power-bi-automate-visual) for write-back scenarios. This visual is optimized for handling large sets of data, and Power Apps handles delegation. You can use the Power Automate and Power Apps visuals together to provide scalable efficiency. If you use the Power Automate visual, data update occurs in the background without the presence of a displayed UI. 
 
-## Power App UI 
+## Scenario details
+
+This solution for data write-back functionality in Power BI provides an interactive and efficient way to change data directly from Power BI. Power BI doesn't currently have a native solution that you can use for inline or bulk updates of data while you're interacting with a report or dashboard. To push changes to data, you need to make updates directly in your data stores and then, if you're not using DirectQuery, refresh a data set to complete the process flow. This process can be inefficient and can pose problems for users who don't have access to a specific back end or the underlying data.
+
+### Potential use cases
+
+This architecture is highly iterative. You can use it with several different back-end data stores and adapt it to various use cases. Practical uses for this architecture include:
+- **Inline editing.** The solution can be used for data that needs to be updated on the fly without provisioned access to a back-end database.
+- **Approval workflows.** Extending the capabilities of Power BI with Power Apps and Power Automate allows end users to collect data that requires review directly from a dashboard and send it to subsequent approvers. 
+- **Data-driven alerts.** The solution can provide customization to automated notifications about specific insights via submission of records or the passing of data packets into a Power Automate flow. 
+
+### Power App UI 
 
 The following screenshots illustrate the process for passing data from Power BI to the underlying database. 
 
@@ -121,11 +123,11 @@ To deploy this solution:
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-**Principal authors:**
+Principal authors:
 - [Tom Berzok](https://www.linkedin.com/in/thomas-berzok) | Consultant, Data & Analytics at [Slalom](https://www.slalom.com)
 - [Thomas Edmondson](https://www.linkedin.com/in/thomas-edmondson-7a2b9a2) | Principal at [Slalom](https://www.slalom.com)
 
-**Other contributors**
+Other contributors:
 - [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
 
 ## Next steps

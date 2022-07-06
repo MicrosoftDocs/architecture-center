@@ -13,15 +13,22 @@ For example, a machine-learning model can be used to predict actions that are ex
 ![Architecture diagram that shows you how to develop and deploy models on a Data Science VM with R.](../media/campaign-optimization-with-sql-server.png)
 *Download an [SVG](../media/campaign-optimization-with-sql-server.svg) of this architecture.*
 
-### Components
+### Dataflow
 
-This architecture includes the following components:
+This architecture includes the following services:
 
-* [**SQL Server Machine**](/sql/machine-learning/r/sql-server-r-services?view=sql-server-2016&viewFallbackFrom=sql-server-ver15) will be used for compute. Solutions are deployed to SQL Server 2016 by embedding calls to R in stored procedures.
+* [**SQL Server Machine**](/sql/machine-learning/r/sql-server-r-services) will be used for compute. Solutions are deployed to SQL Server 2016 by embedding calls to R in stored procedures.
  
 * [**SQL Server Integration Services**](/sql/integration-services/sql-server-integration-services?view=sql-server-ver15) and [**SQL Server Agent**](/sql/ssms/agent/sql-server-agent?view=sql-server-ver15) can be used to automate these solutions.
 
-* [**Power BI**](https://powerbi.microsoft.com) helps drive better decision making with data visualization. Visualizations help gain deeper data insight.
+* [**Power BI**](/power-bi/fundamentals/power-bi-overview) helps drive better decision making with data visualization. Visualizations help gain deeper data insight.
+
+### Components
+
+- [SQL Server Machine](/sql/machine-learning/r/sql-server-r-services)
+- [SQL Server Integration Services](/sql/integration-services/sql-server-integration-services?view=sql-server-ver15)
+- [SQL Server Agent](/sql/ssms/agent/sql-server-agent?view=sql-server-ver15)
+- [Power BI](https://powerbi.microsoft.com)
 
 ## Business manager perspective
 
@@ -50,6 +57,14 @@ Two roles in this solution idea are:
 ## Deploy this scenario
 
 The AI Gallery [campaign optimization with SQL Server solution](https://gallery.azure.ai/Solution/Campaign-Optimization-with-SQL-Server) implements this solution idea with SQL [Server 2016 R Services](/sql/machine-learning/r/sql-server-r-services) and [Power BI](https://powerbi.microsoft.com/what-is-power-bi/) as an interactive visualization tool. The gallery solution uses simulated data, which can easily be configured to use custom data, to model the acquisition campaign response. The model uses predictors such as demographics, historical campaign performance, and product details. The solution predicts the probability of a lead conversion from each channel, at various times of the day and days of the week, for every lead in the database. The final recommendation for targeting each lead is decided based upon the combination of channel, day of week and time of day with the highest probability of conversion. The solution has been modeled after a standardized data science process, where the data preparation, model training and evaluation can be easily done by a data scientist and the insights visualized and correlated to KPIs by marketing via Power BI visualization.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Prabhjot Kaur](https://www.linkedin.com/in/kaur-profile) | Senior Cloud Solution Architect
 
 ## Next steps
 

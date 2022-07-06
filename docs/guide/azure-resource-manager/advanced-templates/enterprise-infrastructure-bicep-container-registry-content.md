@@ -117,11 +117,11 @@ Finally, though you might not have an index of all repositories and the code wit
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-**Principal authors:**
+Principal authors:
 
 * [Tim Sullivan](https://www.linkedin.com/in/tjsullivan1/) | Senior Cloud Solution Architect
 
-**Other contributors:**
+Other contributors:
 
  * [Gary Moore](https://www.linkedin.com/in/gwmoore/) | Programmer/Writer
  
@@ -140,4 +140,5 @@ Finally, though you might not have an index of all repositories and the code wit
 - [Build a CI/CD pipeline for chatbots with ARM templates](../../../example-scenario/apps/devops-cicd-chatbot.yml)
 - [CI/CD pipeline for container-based workloads](../../../example-scenario/apps/devops-with-aks.yml)
 - [Design a CI/CD pipeline using Azure DevOps](../../../example-scenario/apps/devops-dotnet-webapp.yml)
+- [DevSecOps for Infrastructure as Code (IaC)](../../../solution-ideas/articles/devsecops-infrastructure-as-code.yml)
 - [Microservices with AKS and Azure DevOps](../../../solution-ideas/articles/microservices-with-aks.yml)

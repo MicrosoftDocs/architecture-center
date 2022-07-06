@@ -7,9 +7,13 @@ Several industries rely on supporting their customers over the phone such as Cal
 Traditionally, a Call Center will rely on agents who talk over the phone with customers and the agents need to handle two jobs at the same time: listening and speaking over the phone while at the same time taking notes for further analysis and documentation of a particular case. This makes the job not only harder for the agent, but also less efficient and furthermore, it could even impact negatively on the Call Centers most common KPIS such as AHT (Average Handling Time) and FCR (First Call Resolution).
 
 
+## Potential use cases
+
+This solution can be for organizations that record conversations (for training or quality assurance) that also want a written transcript. It's ideal for the education, retail, and nonprofit industries.
+
 ## Architecture
 
-![Architecture Diagram](../media/speech-services.png)
+![Architecture diagram shows recorded calls to Azure Trans Queue to Speech Endpoint to Transcription Result Queue to Transcript Blob and Insights.](../media/speech-services.png)
 *Download an [SVG](../media/speech-services.svg) of this architecture.*
 
 ### Dataflow

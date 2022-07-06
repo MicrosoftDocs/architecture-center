@@ -159,7 +159,6 @@ We also recommend you browse our open-source solutions for Microsoft Azure:
 |[SAP deployment in Azure using an Oracle database](../example-scenario/apps/sap-production.yml)|Learn proven practices for running SAP on Oracle in Azure, with high availability.|SAP|
 |[SAP HANA for Linux VMs in scale-up systems](../reference-architectures/sap/run-sap-hana-for-linux-virtual-machines.yml)|Learn proven practices for running SAP HANA in a high availability scale-up environment that supports disaster recovery.|SAP|
 |[SAP S/4HANA in Linux on Azure](../reference-architectures/sap/sap-s4hana.yml)|Learn proven practices for running SAP S/4HANA in a Linux environment on Azure, with high availability.|SAP|
-|[SAP system on Oracle Database](../example-scenario/apps/sap-on-oracle.yml)|Examine deployment patterns for SAP systems on Oracle Database that align with the pillars of the Azure Well-Architected Framework. The reference architecture uses Azure NetApp Files for NFS shared storage requirements.|SAP|
 |[SAS on Azure architecture](../guide/sas/sas-overview.yml)|Learn how to run SAS analytics products on Azure. Includes recommendations for using Azure NetApp Files.|Compute|
 |[SQL Server on Azure Virtual Machines with Azure NetApp Files](../example-scenario/file-storage/sql-server-azure-netapp-files.yml)|Implement a high-bandwidth, low-latency solution for SQL Server workloads. Use Azure NetApp Files to get enterprise-scale performance and to reduce costs.|Storage|
 
@@ -180,7 +179,6 @@ We also recommend you browse our open-source solutions for Microsoft Azure:
 |[Run Oracle databases on Azure](../solution-ideas/articles/reference-architecture-for-oracle-database-on-azure.yml)|Use a canonical architecture to achieve high availability for Oracle Database Enterprise Edition on Azure.|Oracle|
 |[Run SAP NetWeaver in Windows on Azure](../reference-architectures/sap/sap-netweaver.yml)|Learn proven practices for running SAP NetWeaver in a Windows environment on Azure, with high availability. Oracle is one recommended database.|SAP|
 |[SAP deployment on Azure using an Oracle database](../example-scenario/apps/sap-production.yml)|Learn proven practices for running SAP on Oracle in Azure, with high availability.|Oracle|
-|[SAP system on Oracle Database](../example-scenario/apps/sap-on-oracle.yml)|Examine deployment patterns for SAP systems on Oracle Database that align with the pillars of the Azure Well-Architected Framework.|Oracle|
 |[Security considerations for highly sensitive IaaS apps in Azure](../reference-architectures/n-tier/high-security-iaas.yml)|Learn about VM security, encryption, NSGs, perimeter networks (also known as DMZs), access control, and other security considerations for highly sensitive IaaS and hybrid apps. A common replication scenario for IaaS architectures uses Oracle Active Data Guard. |Security|
 |[SWIFT\'s Alliance Access on Azure](../example-scenario/finance/swift-alliance-access-on-azure.yml)|View a reference architecture for deploying and running SWIFT Alliance Access on Azure. An Alliance Access component contains an embedded Oracle database.|Networking|
 |[SWIFT\'s Alliance Access with Alliance Connect Virtual on Azure](../example-scenario/finance/swift-alliance-access-vsrx-on-azure.yml)|View a reference architecture for deploying and running SWIFT Alliance Access with Alliance Connect Virtual on Azure. An Alliance Access component contains an embedded Oracle database.|Networking|
@@ -231,7 +229,6 @@ We also recommend you browse our open-source solutions for Microsoft Azure:
 |[SAP NetWeaver on SQL Server](../solution-ideas/articles/sap-netweaver-on-sql-server.yml)|Build an SAP landscape on NetWeaver by using Azure Virtual Machines to host SAP applications and a SQL Server database.|SAP|
 |[SAP S/4HANA for Large Instances](../solution-ideas/articles/sap-s4-hana-on-hli-with-ha-and-dr.yml)|With large SAP HANA instances, use Azure Virtual Machines, OS clustering, and NFS storage for scalability, performance, high reliability, and disaster recovery.|SAP|
 |[SAP S/4HANA in Linux on Azure](../reference-architectures/sap/sap-s4hana.yml)|Review proven practices for running SAP S/4HANA in a Linux environment on Azure, with high availability.|SAP|
-|[SAP system on Oracle Database](../example-scenario/apps/sap-on-oracle.yml)|Examine deployment patterns for SAP systems on Oracle Database that align with the pillars of the Azure Well-Architected Framework.|SAP|
 |[SAP workload automation using SUSE on Azure](../solution-ideas/articles/sap-workload-automation-suse.yml)|Use this solution to bolster productivity and facilitate innovation.|SAP|
 
 ## SAS

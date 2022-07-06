@@ -33,7 +33,7 @@ Follow these design principles to make your application more scalable, resilient
 
 **[Use managed services](managed-services.md)**. When possible, use platform as a service (PaaS) rather than infrastructure as a service (IaaS).
 
-**[Use the best data store for the job](use-the-best-data-store.md)**. Pick the storage technology that is the best fit for your data and how it will be used.
+**[Use the best data store for the job](/azure/architecture/guide/design-principles/use-best-data-store)**. Pick the storage technology that is the best fit for your data and how it will be used.
 
 **[Design for evolution](design-for-evolution.md)**. All successful applications change over time. An evolutionary design is key for continuous innovation.
 

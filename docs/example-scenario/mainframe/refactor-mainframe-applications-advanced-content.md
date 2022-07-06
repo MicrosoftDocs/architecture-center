@@ -1,40 +1,12 @@
-There are many reasons to look for alternatives to the COBOL-based mainframe applications that are still common:
-
-- COBOL developers are retiring and no one is trained to replace them, resulting in a steadily diminishing talent pool. As the talent shortage grows, the costs and risks of relying on COBOL increase.
-- The applications weren't designed for modern IT, resulting in difficult integrations and limited flexibility.
-- IBM mainframe hardware and software are expensive, and licensing and maintenance fees for ancillary mainframe applications and databases are rising.
-
 Advanced's Automated COBOL Refactoring solution refactors COBOL applications to deliver cloud-enabled applications and databases that are functionally equivalent to their legacy counterparts. This reduces costs, allows for deeper integration, and enables customization to meet business requirements. In addition, it unlocks a whole new world of quality and scalability, from automated testing to quality assurance, and the ability to benefit from containerized deployments and orchestration with Docker and Kubernetes.
 
-The refactored applications:
-
-- Are functionally equivalent to the originals.
-- Are easy to maintain—they attain SonarQube A ratings, and follow object-oriented concepts and paradigms.
-- Perform as well as, or better than, the originals.
-- Are cloud-ready and delivered by using a standard DevOps toolchain and best practices.
-
-The refactoring process includes flow normalization, code restructuring, data layer extraction, data remodeling, and packaging for reconstruction. The process identifies cloned code and creates shared replacement objects, simplifying maintenance and manageability. Complex data and control dependency analysis locates and removes dead code.
-
-Once the Advanced solution refactors the COBOL applications and associated databases, Java and C# developers can use standard DevOps tools and CI/CD concepts to extend application functionality. The refactoring process preserves business logic and optimizes performance. Additional benefits include elasticity, granular service definition, and easy integration with cloud-native services.
-
-Automated COBOL Refactoring is available for most COBOL dialects and platforms, including z/OS, OpenVMS, and VME.
-
-## Potential use cases
-
-Advanced refactoring benefits many scenarios, including:
-
-- Businesses seeking to:
-  - Modernize infrastructure and escape the exorbitant costs, limitations, and rigidity associated with mainframes.
-  - Avoid the risk associated with skills shortages around legacy systems and applications by going cloud-native and DevOps.
-  - Reduce operational and capital expenditure costs.
-- Organizations wanting to migrate mainframe workloads to the cloud without costly and error-prone manual rewrites.
-- Organizations that need to migrate business-critical applications while maintaining continuity with other on-premises applications.
-- Teams looking for the horizontal and vertical scalability that Azure offers.
-- Businesses that favor solutions that have disaster recovery options.
+## Mainframe architecture
 
 Here's an example system where automated factoring can be used:
 
 :::image type="content" source="media/refactor-mainframe-applications-advanced-pre.png" alt-text="System architecture on the mainframe" lightbox="media/refactor-mainframe-applications-advanced-pre.png":::
+
+### Workflow
 
 A. Users provide input over TCP/IP, using protocols such as TN3270, HTTP, and HTTPS.
 
@@ -54,7 +26,7 @@ H. Operating systems provide the interface between the engine and the software t
 
 I. Partitions run separate workloads, or segregate work types within the environment.
 
-## Architecture
+## Azure architecture
 
 This is the architecture of the example system shown above when refactored for Azure. Note that the letter callouts in the diagrams reveal where the refactored solution handles the corresponding mainframe functionality.
 
@@ -62,7 +34,7 @@ This is the architecture of the example system shown above when refactored for A
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1885559-refactor-mainframe-applications-advanced.vsdx) of this architecture.*
 
-## Workflow ##
+## Workflow
 
 1. Input typically comes either through Azure ExpressRoute from remote clients, or from other Azure applications. In either case, TCP/IP connections are the primary means of connecting to the system. User access to web applications is over TLS port 443. You can keep the UI of the web applications the same to minimize end user retraining, or you can update it by using modern UX frameworks. Azure Bastion provides admin access to the virtual machines (VMs), maximizing security by minimizing open ports.
 1. Once in Azure, access to the application compute clusters is through an Azure load balancer. This approach allows for scale-out compute resources to process the input work. Depending on input, you can load balance at either the application level or the network-protocol level.
@@ -116,6 +88,42 @@ This example features the following Azure components. Several of these component
 - [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery) mirrors Azure VMs to a secondary Azure region for quick failover and data recovery if an Azure datacenter fails.
 - [Azure Data Factory](/azure/data-factory) is an extract, transform, and load (ETL) service for scale-out, serverless data integration and data transformation. It offers a code-free UI for intuitive authoring and single-pane-of-glass monitoring and management.
 
+## Scenario details
+
+There are many reasons to look for alternatives to the COBOL-based mainframe applications that are still common:
+
+- COBOL developers are retiring and no one is trained to replace them, resulting in a steadily diminishing talent pool. As the talent shortage grows, the costs and risks of relying on COBOL increase.
+- The applications weren't designed for modern IT, resulting in difficult integrations and limited flexibility.
+- IBM mainframe hardware and software are expensive, and licensing and maintenance fees for ancillary mainframe applications and databases are rising.
+
+Advanced's Automated COBOL Refactoring solution refactors COBOL applications to deliver cloud-enabled applications and databases that are functionally equivalent to their legacy counterparts. This reduces costs, allows for deeper integration, and enables customization to meet business requirements. In addition, it unlocks a whole new world of quality and scalability, from automated testing to quality assurance, and the ability to benefit from containerized deployments and orchestration with Docker and Kubernetes.
+
+The refactored applications:
+
+- Are functionally equivalent to the originals.
+- Are easy to maintain—they attain SonarQube A ratings, and follow object-oriented concepts and paradigms.
+- Perform as well as, or better than, the originals.
+- Are cloud-ready and delivered by using a standard DevOps toolchain and best practices.
+
+The refactoring process includes flow normalization, code restructuring, data layer extraction, data remodeling, and packaging for reconstruction. The process identifies cloned code and creates shared replacement objects, simplifying maintenance and manageability. Complex data and control dependency analysis locates and removes dead code.
+
+Once the Advanced solution refactors the COBOL applications and associated databases, Java and C# developers can use standard DevOps tools and CI/CD concepts to extend application functionality. The refactoring process preserves business logic and optimizes performance. Additional benefits include elasticity, granular service definition, and easy integration with cloud-native services.
+
+Automated COBOL Refactoring is available for most COBOL dialects and platforms, including z/OS, OpenVMS, and VME.
+
+## Potential use cases
+
+Advanced refactoring benefits many scenarios, including:
+
+- Businesses seeking to:
+  - Modernize infrastructure and escape the exorbitant costs, limitations, and rigidity associated with mainframes.
+  - Avoid the risk associated with skills shortages around legacy systems and applications by going cloud-native and DevOps.
+  - Reduce operational and capital expenditure costs.
+- Organizations wanting to migrate mainframe workloads to the cloud without costly and error-prone manual rewrites.
+- Organizations that need to migrate business-critical applications while maintaining continuity with other on-premises applications.
+- Teams looking for the horizontal and vertical scalability that Azure offers.
+- Businesses that favor solutions that have disaster recovery options.
+
 ## Considerations
 
 Incorporate the following pillars of the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index) for a highly available and secure system:
@@ -141,7 +149,7 @@ Private Link for Azure SQL Database provides a private, direct connection that's
 
 Resiliency is built into this solution by the load balancers. If one presentation or transaction server fails, other servers behind the load balancers can run the workloads according to the rules and health probes. Availability sets and geo-redundant storage are highly recommended.
 
-## Pricing
+### Cost optimization
 
 Azure avoids unnecessary costs by identifying the correct number of resource types, analyzing spending over time, and scaling to meet business needs without overspending.
 
