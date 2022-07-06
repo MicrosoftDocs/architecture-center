@@ -23,6 +23,6 @@ products:
   - azure-active-directory
 name: Deploy Esri ArcGIS Pro in Azure Virtual Desktop
 summary: View a reference architecture that shows how to deploy ArcGIS Pro in Azure Virtual Desktop to support the hyperscale of Azure.
-thumbnailUrl: /azure/architecture/browse/thumbs/esri-arcgis-azure-virtual-desktop.png
+thumbnailUrl: /azure/architecture/browse/thumbs/virtual-desktop-gis-azure-network.png
 content: |
   [!include[](esri-arcgis-azure-virtual-desktop-content.md)]
