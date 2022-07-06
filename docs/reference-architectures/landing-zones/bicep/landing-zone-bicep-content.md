@@ -11,7 +11,7 @@ Bicep is just one technology you can use to build solutions to deploy Azure land
 
 ## Architecture
 
-:::image type="content" border="true" source="images/bicep-architecture.png" alt-text="Diagram showing the bicep modules for deploying Azure landing zones." lightbox="images/bicep-architecture.png":::
+:::image type="content" border="true" source="images/bicep-architecture.png" alt-text="Diagram showing the bicep modules for deploying Azure landing zones." lightbox="images/bicep-architecture-highres.png":::
 
 The architecture takes advantage of the modular nature of Azure Bicep and is composed of nine modules. Each module encapsulates a core capability of the Cloud Adoption Framework Azure Landing Zones conceptual architecture. The modules can be deployed individually, but there are dependencies.
 
