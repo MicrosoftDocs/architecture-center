@@ -1,15 +1,14 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Speech Services is part of the Cognitive Services family of products and this service leverages AI to work and process audio files. Some of the most common use cases for working with speech files involve the transcription of an audio file into a text file by relying on the Speech-to-text API. Furthermore, the previous use case can see its value amplified with the use of other Cognitive Services which can process the transcriptions and mine the data with APIs such as Text Analytics, Sentiment Analysis, Cognitive Search and Translation.
+Speech Services is part of the Cognitive Services family of products. It leverages AI to work and process audio files. Some of the most common use cases for working with speech files involve the transcription of an audio file into a text file, by relying on the Speech-to-text API. Furthermore, this use case can see its value amplified with the use of other Cognitive Services, which can process the transcriptions and mine the data with APIs, such as Text Analytics, Sentiment Analysis, Cognitive Search, and Translation.
 
-Several industries rely on supporting their customers over the phone such as Call Centers, Medical Response Units, Emergency Services Units, etc.
+Several industries rely on supporting their customers over the phonem, such as call centers, medical response units, emergency services units, and so on.
 
-Traditionally, a Call Center will rely on agents who talk over the phone with customers and the agents need to handle two jobs at the same time: listening and speaking over the phone while at the same time taking notes for further analysis and documentation of a particular case. This makes the job not only harder for the agent, but also less efficient and furthermore, it could even impact negatively on the Call Centers most common KPIS such as AHT (Average Handling Time) and FCR (First Call Resolution).
-
+Traditionally, a call center relies on agents who talk over the phone with customers. The agents need to handle two jobs at the same time: listening and speaking over the phone, while at the same time taking notes for further analysis and documentation of a particular case. This makes the job not only harder for the agent, but also less efficient. It could even impact negatively on the call centers' most common KPIS, such as AHT (average handling time) and FCR (first call resolution).
 
 ## Potential use cases
 
-This solution can be for organizations that record conversations (for training or quality assurance) that also want a written transcript. It's ideal for the education, retail, and nonprofit industries.
+This solution can be for organizations that record conversations (for training or quality assurance) that also want a written transcript. It's ideal for the education, retail, healthcare, and nonprofit industries.
 
 ## Architecture
 
@@ -45,4 +44,3 @@ To learn more about these services, see the following articles:
 
 * [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
 * [Speech-to-text conversion](../../reference-architectures/ai/speech-to-text-transcription-pipeline.yml)
-  
