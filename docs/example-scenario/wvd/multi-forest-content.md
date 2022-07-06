@@ -2,7 +2,7 @@ Many organizations desire to leverage Azure Virtual Desktop (AVD) and create env
 
 ## Architecture
 
-:::image type="content" source="images/azure-virtual-desktop-multi-forest-adds.png" alt-text="Azure Virtual Desktop with AD Domain Services" lightbox="images/azure-virtual-desktop-multi-forest-adds.png":::
+:::image type="content" source="images/azure-virtual-desktop-multi-forest-adds.png" alt-text="Diagram showing Azure Virtual Desktop with AD Domain Services." lightbox="images/azure-virtual-desktop-multi-forest-adds.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-virtual-desktop-multi-forest-adds.vsdx) of this architecture.*
 
