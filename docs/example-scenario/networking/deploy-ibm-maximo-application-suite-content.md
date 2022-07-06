@@ -127,9 +127,9 @@ Some of the services might require other IBM tooling and services like IBM Watso
 
 Before you install OpenShift, you'll need to determine which method you'll be using:
 
-- **Installer Provisioned Infrastructure (IPI)**: This method uses an installer to deploy and configure the OpenShift environment on Azure. IPI is the most common method for deploying on Azure, and you should use IPI unless your security requirements are too strict to do so.
+- **Installer Provisioned Infrastructure (IPI)**. This method uses an installer to deploy and configure the OpenShift environment on Azure. IPI is the most common method for deploying on Azure, and you should use IPI unless your security requirements are too strict to do so.
 
-- **User Provisioned Infrastructure (UPI)**: This method allows fine-grained control over your deployment. UPI requires more steps and considerations to build your environment. Use UPI if IPI doesn't meet your needs. A common use case for UPI is for private, air-gapped installation. Choose UPI when you have no outbound internet access when building the environment.
+- **User Provisioned Infrastructure (UPI)**. This method allows fine-grained control over your deployment. UPI requires more steps and considerations to build your environment. Use UPI if IPI doesn't meet your needs. A common use case for UPI is for private, air-gapped installation. Choose UPI when you have no outbound internet access when building the environment.
 
 We recommend using IPI whenever possible, because it significantly reduces the amount of work that's required to complete installation of OpenShift.
 
@@ -138,11 +138,11 @@ We recommend using IPI whenever possible, because it significantly reduces the a
 
 When installing OpenShift, you must resolve the following considerations:
 
-- **Region selection**: We recommend using a region with [availability zones](/azure/availability-zones/az-overview#azure-regions-with-availability-zones). During deployment, OpenShift automatically attempts to create nodes across zones based on the configuration found in your configuration file, *install-config.yaml*. By default, OpenShift balances workloads across all available nodes and across the availability zones. If there's an outage in a zone, your solution can continue functioning by having nodes in other zones that can take over the work.
+- **Region selection**. We recommend using a region with [availability zones](/azure/availability-zones/az-overview#azure-regions-with-availability-zones). During deployment, OpenShift automatically attempts to create nodes across zones based on the configuration found in your configuration file, *install-config.yaml*. By default, OpenShift balances workloads across all available nodes and across the availability zones. If there's an outage in a zone, your solution can continue functioning by having nodes in other zones that can take over the work.
 
-- **Backup & recovery**: Although MAS isn't supported on Azure Red Hat OpenShift, you can use the instruction for Azure Red Hat OpenShift for backup and recovery. For more information, see [Create an Azure Red Hat OpenShift 4 cluster Application Backup](/azure/openshift/howto-create-a-backup). If you use this method for back-up and recovery, you must take care of disaster recovery of the database some other way. 
+- **Backup & recovery**. Although MAS isn't supported on Azure Red Hat OpenShift, you can use the instruction for Azure Red Hat OpenShift for backup and recovery. For more information, see [Create an Azure Red Hat OpenShift 4 cluster Application Backup](/azure/openshift/howto-create-a-backup). If you use this method for back-up and recovery, you must take care of disaster recovery of the database some other way. 
 
-- **Failover**: Consider deploying OpenShift in two regions and use [Red Hat Advanced Cluster Management](https://www.redhat.com/en/technologies/management/advanced-cluster-management). If your solution has public endpoints, you can place [Azure Traffic Manager](/azure/traffic-manager/) in front of them to redirect traffic to the appropriate cluster if there's an outage of a region. In such a situation, you must also migrate your applications' states and persistent volumes.
+- **Failover**. Consider deploying OpenShift in two regions and use [Red Hat Advanced Cluster Management](https://www.redhat.com/en/technologies/management/advanced-cluster-management). If your solution has public endpoints, you can place [Azure Traffic Manager](/azure/traffic-manager/) in front of them to redirect traffic to the appropriate cluster if there's an outage of a region. In such a situation, you must also migrate your applications' states and persistent volumes.
 
 #### Air gapped installations
 
