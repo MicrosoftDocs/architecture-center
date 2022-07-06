@@ -4864,6 +4864,8 @@ items:
               - name: Connectivity to Oracle Cloud Infrastructure
                 href: /azure/cloud-adoption-framework/ready/azure-best-practices/connectivity-to-other-providers-oci
                 maintainContext: true
+              - name: Spoke-to-spoke networking
+                href: networking/spoke-to-spoke-networking.yml
           - name: Architectures
             items:
               - name: Deploy highly available NVAs

@@ -38,6 +38,8 @@ Direct connections between spokes typically offer better throughput, latency, an
   - Hub and spoke with spokes that are directly connected to each other, without any hop in the middle.
   - A meshed group of virtual networks that are interconnected.
   
+*Download [all Visio diagrams](https://arch-center.azureedge.net/spoke-to-spoke-source-diagrams.vsdx) in this article.*
+  
     :::image type="content" source="media/virtual-network-manager-connectivity-options.png" alt-text="Network diagram that shows the topologies that are supported by Azure Virtual Network Manager." lightbox="media/virtual-network-manager-connectivity-options.png" border="false":::
 
   When you create a hub-and-spoke topology with Azure Virtual Network Manager in which spokes are connected to each other, direct connectivity between spoke virtual networks in the same [network group][avnm_network_group] are automatically created bi-directionally. With Azure Virtual Network Manager, you can statically or dynamically make spoke virtual networks members of a specific network group, which automatically creates the connectivity for any virtual network.
@@ -113,7 +115,7 @@ You can extend the same configuration to multiple regions. For example, in a hub
 
 The design variation with separate Azure firewalls or network virtual appliances for North-South and East-West traffic is also possible in a multi-region hub-and-spoke topology:
 
-:::image type="content" source="media/spoke-to-spoke-via-nva-2-hubs-north-south.png" alt-text="Network diagram that shows a two-region hub-and-spoke design with separated East-West and North-South firewalls in each region." lightbox="media/media/spoke-to-spoke-via-nva-2-hubs-north-south.png" border="false":::
+:::image type="content" source="media/spoke-to-spoke-via-nva-2-hubs-north-south.png" alt-text="Network diagram that shows a two-region hub-and-spoke design with separated East-West and North-South firewalls in each region." lightbox="media/spoke-to-spoke-via-nva-2-hubs-north-south.png" border="false":::
 
 > [!NOTE]
 > The Azure firewall requires that single Azure Firewall resource be deployed in a virtual network. Therefore, a separate hub virtual network is required for additional Azure Firewall resources. For NVA scenarios, you can use a single hub virtual network for additional NVA deployments.
@@ -140,6 +142,24 @@ The same designs are applicable for Virtual WAN. However, one consideration is t
 > For hybrid approaches, it's important to understand that direct connectivity via virtual network peering propagates system routes for its connecting virtual networks that are often more specific than custom routes configured via route tables. Therefore, the virtual network peering path is preferred over custom routes that follow the [longest prefix-match route selection][udr_route_selection]. 
 >
 > However, in less common scenarios, if there's both a system route and a custom user-defined route with the same address prefix, the user-defined route takes precedence over system routes (automatically created by virtual network peering). This behavior results in spoke-to-spoke virtual network traffic traversing through the hub virtual network, even if there's a direct connection through peering.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors: 
+
+ * [Jay Li](https://www.linkedin.com/in/jiayangl) | Senior Program Manager
+ * [Jose Moreno](https://www.linkedin.com/in/erjosito) | Principal Customer Engineer
+* [Alejandra Palacios](https://www.linkedin.com/in/alejandrampalacios) | Senior Azure Infrastructure Customer Engineer
+
+Other contributors:
+
+* [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
+ * [Mohamed Hassan](https://www.linkedin.com/in/mohnader) | Principal PM Manager
+ * [Andrea Michael](https://www.linkedin.com/in/amichael98) | Program Manager
+ * [Yasukuni Morishima](https://www.linkedin.com/in/yasukuni-morishima-621aa9141) | Customer Engineer II
+ * [Jithin P P](https://www.linkedin.com/in/jithin-pp-0456a621) | Customer Engineer
 
 ## Next steps
 
