@@ -175,8 +175,13 @@ items:
                 href: guide/technology-choices/messaging.yml
               - name: Real-time message ingestion
                 href: data-guide/technology-choices/real-time-ingestion.md
-          - name: Choose an IoT solution
-            href: example-scenario/iot/iot-central-iot-hub-cheat-sheet.yml
+          - name: Choose an IoT option
+            items:
+              - name: IoT solutions in Azure
+                href: example-scenario/iot/iot-central-iot-hub-cheat-sheet.yml
+              - name: Compare IoT Hub and Event Hubs
+                href: /azure/iot-hub/iot-hub-compare-event-hubs
+                maintainContext: true
           - name: Choose a mobile development framework
             href: /azure/developer/mobile-apps/choose-mobile-framework
             maintainContext: true
