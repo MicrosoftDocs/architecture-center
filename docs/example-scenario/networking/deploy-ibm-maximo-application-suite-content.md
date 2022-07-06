@@ -105,7 +105,7 @@ Review the MAS applications that you need to complete your business scenario and
 - [SQL Server 2019](https://azure.microsoft.com/en-us/services/virtual-machines/sql-server/#overview) on Azure using Windows or Linux
 - IBM [DB2 Warehouse on Cloud Pak for Data 3.5](https://www.ibm.com/docs/en/cloud-paks/cp-data/3.5.0?topic=services-db2-warehouse)
 
-You might also choose to run Oracle Exadata on a VM or on Oracle Cloud Infrastructure by using interconnection, but this isn't a tested configuration. For more information about interconnection, see [Learn about interconnecting Oracle Cloud with Microsoft Azure](https://docs.oracle.com/en/solutions/learn-azure-oci-interconnect/index.html). Currently, Azure SQL Database and Azure Cosmos DB are not supported. These databases might be supported in future releases of MAS.
+You might also choose to run Oracle Exadata on a VM or on Oracle Cloud Infrastructure by using interconnection, but this isn't a tested configuration. For more information about interconnection, see [Learn about interconnecting Oracle Cloud with Microsoft Azure](https://docs.oracle.com/en/solutions/learn-azure-oci-interconnect/index.html). Currently, Azure SQL Database and Azure Cosmos DB aren't supported. These databases might be supported in future releases of MAS.
 
 > [!NOTE]
 > In some cases you can't reuse a database for multiple MAS applications because of conflicting database settings. For example, you can't use the same IBM DB2 Warehouse for Health and Manage in combination with Monitor. However, you can mix different database products, such as using Microsoft SQL Server for one application and IBM DB2 Warehouse for another.
@@ -140,7 +140,7 @@ When installing OpenShift, you must resolve the following considerations:
 
 - **Region selection**: We recommend using a region with [availability zones](/azure/availability-zones/az-overview#azure-regions-with-availability-zones). During deployment, OpenShift automatically attempts to create nodes across zones based on the configuration found in your configuration file, *install-config.yaml*. By default, OpenShift balances workloads across all available nodes and across the availability zones. If there's an outage in a zone, your solution can continue functioning by having nodes in other zones that can take over the work.
 
-- **Backup & recovery**: Although MAS is not supported on Azure Red Hat OpenShift, you can use the instruction for Azure Red Hat OpenShift for backup and recovery. For more information, see [Create an Azure Red Hat OpenShift 4 cluster Application Backup](/azure/openshift/howto-create-a-backup). If you use this method for back up and recovery, you must take care of disaster recovery of the database some other way. 
+- **Backup & recovery**: Although MAS isn't supported on Azure Red Hat OpenShift, you can use the instruction for Azure Red Hat OpenShift for backup and recovery. For more information, see [Create an Azure Red Hat OpenShift 4 cluster Application Backup](/azure/openshift/howto-create-a-backup). If you use this method for back-up and recovery, you must take care of disaster recovery of the database some other way. 
 
 - **Failover**: Consider deploying OpenShift in two regions and use [Red Hat Advanced Cluster Management](https://www.redhat.com/en/technologies/management/advanced-cluster-management). If your solution has public endpoints, you can place [Azure Traffic Manager](/azure/traffic-manager/) in front of them to redirect traffic to the appropriate cluster if there's an outage of a region. In such a situation, you must also migrate your applications' states and persistent volumes.
 
@@ -149,7 +149,7 @@ When installing OpenShift, you must resolve the following considerations:
 > [!NOTE]
 > Air gapped patterns have not been fully tested, but they do require using [UPI](https://github.com/openshift/installer/blob/master/docs/user/azure/install_upi.md) for installation.
 
-In some cases, such as for regulatory compliance, you might require an air-gapped installation of MAS on Azure. *Air gapped* means that there is no inbound or outbound internet access. Without an internet connection, your installation cannot retrieve the installation dependencies at run time for the installation of MAS or OpenShift. We don't recommend that you do an air-gapped installation unless that's a security requirement. An air gap adds significant complexity to the operations of your solution. Activities such as installing software, mirroring containers, updating a mirror to protect against security vulnerabilities, and managing a firewall can become very time consuming.
+In some cases, such as for regulatory compliance, you might require an air-gapped installation of MAS on Azure. *Air gapped* means that there's no inbound or outbound internet access. Without an internet connection, your installation can't retrieve the installation dependencies at run time for the installation of MAS or OpenShift. We don't recommend that you do an air-gapped installation unless that's a security requirement. An air gap adds significant complexity to the operations of your solution. Activities such as installing software, mirroring containers, updating a mirror to protect against security vulnerabilities, and managing a firewall can become very time consuming.
 
 For more information about air-gapped installations, see the following OpenShift documentation:
 - [Mirroring images for a disconnected installation](https://docs.openshift.com/container-platform/4.8/installing/installing-mirroring-installation-images.html)
@@ -183,19 +183,19 @@ If you need a jump box to use the OpenShift command-line interface (oc) or to in
 
 ### Network
 
-With OpenShift, we use the default container network interface (CNI) provider of OpenShift's software-defined networking (SDN). For more information about the default OpenShift CNI, see [Cluster Network Operator in OpenShift Container Platform](https://docs.openshift.com/container-platform/4.8/networking/cluster-network-operator.html). You must size your network for the number of OpenShift control and worker nodes that you need, as well as any additional requirements, such as databases and storage accounts.
+With OpenShift, we use the default container network interface (CNI) provider of OpenShift's software-defined networking (SDN). For more information about the default OpenShift CNI, see [Cluster Network Operator in OpenShift Container Platform](https://docs.openshift.com/container-platform/4.8/networking/cluster-network-operator.html). You must size your network for the number of OpenShift control and worker nodes that you need, as well as any other requirements, such as databases and storage accounts.
 
 For a standard MAS production installation, we recommend a virtual network with a /24 of address space. The virtual network has three or four subnets (for Bastion). For OpenShift, the subnet for the worker nodes has a CIDR prefix of /25, and the control nodes have a prefix of /27. A subnet for endpoints and an optional external database server should have a prefix of /27. If you're deploying the optional Azure Bastion, you'll need a subnet named AzureBastionSubnet with a prefix of /26. For more information about the requirements for Azure Bastion, see [Architecture](/azure/bastion/bastion-overview#architecture).
 
-If you're short on IP addresses, you can implement a highly available configuration with a minimum prefix of /27 for subnet of control nodes and /27 for the subnet of worker nodes.
+If you're short on IP addresses, you can implement a highly available configuration with a minimum prefix of /27 for the subnet of control nodes and /27 for the subnet of worker nodes.
 
 If you want to use a different CNI, size your networks accordingly. MAS with some standard applications deploys over 800 Pods, which likely requires a CIDR prefix of /21 or larger. 
 
 ### Database specifics
 
-Various components of MAS use MongoDB as a metadata store. The default guidance is to deploy MongoDB Community Edition inside of the cluster. If you deploy it by using that method, ensure that you have in place a proper proper procedure for backing up and restoring the database. Consider using MongoDB Atlas on Azure, because it provides you with an externalized store, backups, scaling, and more. Azure does not currently support using MongoDB APIs with Azure Cosmos DB.
+Various components of MAS use MongoDB as a metadata store. The default guidance is to deploy MongoDB Community Edition inside of the cluster. If you deploy it by using that method, ensure that you have in place a proper procedure for backing up and restoring the database. Consider using MongoDB Atlas on Azure, because it provides you with an externalized store, backups, scaling, and more. Azure doesn't currently support using MongoDB APIs with Azure Cosmos DB.
 
-If you deploy IoT services, you are required to also provide a Kafka endpoint. The default guidance is to use Strimzi to deploy Kafka inside the OpenShift cluster. During a disaster recovery, data inside Strimzi will most likely be lost. If data loss within Kafka is unacceptable, you should consider using Confluent Kafka on Azure. Currently, Azure EventHubs with Kafka endpoints aren't supported. 
+If you deploy IoT services, you're required to also provide a Kafka endpoint. The default guidance is to use Strimzi to deploy Kafka inside the OpenShift cluster. During a disaster recovery, data inside Strimzi will most likely be lost. If data loss within Kafka is unacceptable, you should consider using Confluent Kafka on Azure. Currently, Azure EventHubs with Kafka endpoints aren't supported. 
 
 MAS comes packed with many databases inside its pods, and those databases retain their states on the file system that's provided for MAS. We recommend using a zone-redundant storage mechanism to retain the states outside of your clusters to be able to absorb zone failures. Our recommended pattern is to use Azure File Storage with the following configurations:
 
@@ -203,11 +203,11 @@ MAS comes packed with many databases inside its pods, and those databases retain
 
 - **Premium**. Provides Network File System (NFS) shares for higher throughput and ReadWriteMany (RWX) workloads. Volumes like these are used throughout the cluster for RWX workloads, such as the Db2 Warehouse in Cloud Pak for Data or Postgres in Manage.
 
-Be sure to disable policies for enforcing secure transfer on the Azure Blob Storage or exempt the accounts from such policies. Azure Premium Files with NFS requires that secure transfer be disabled. Ensure that Private Endpoints are used to guarantee private connectivity to your shares.
+Be sure to disable policies for enforcing secure transfer on the Azure Blob Storage or exempt the accounts from such policies. Azure Premium Files with NFS requires that secure transfer be disabled. Be sure to use a [private endpoint](/azure/private-link/private-endpoint-overview) to guarantee private connectivity to your shares.
 
-By default Db2 Warehouse wants to deploy on top of OpenShift Data Foundation (previously known as OpenShift Container Storage). For reasons of cost, performance, scaling, and reliability, we recommended using Azure Premium Files with NFS instead of OpenShift Data Foundation.
+By default, Db2 Warehouse deploys on top of OpenShift Data Foundation (previously known as OpenShift Container Storage). For reasons of cost, performance, scaling, and reliability, we recommended using Azure Premium Files with NFS instead of OpenShift Data Foundation.
 
-Don't use Azure Blob with CSI drivers, because it doesn't support hardlinks, which are required. Lacking hardlinks prevents pods from running. 
+Don't use Azure Blob with CSI drivers, because it doesn't support hard links, which are required. Pods can't run without hard links. 
 
 ## Considerations
 
@@ -266,13 +266,13 @@ A standard deployment of MAS consists of the following components:
 - 2 x Load balancers
 - Azure Bastion
 - 1 x Visual Inspection VM
-  - This is not required unless you're planning to run Visual Inspection inside of MAS
+  - This isn't required unless you're planning to run Visual Inspection inside of MAS
 
 You can review an example estimate by using our [cost calculator](https://azure.com/e/fae03e2386cf46149273a379966e95b1). Configurations vary and should be verified with your IBM sizing team before finalizing your deployment.
 
 ### Reliability
 
-OpenShift has built-in capabilities for self-healing, scaling, and resilience to make sure OpenShift and MAS work successfully. OpenShift and MAS have been designed for parts that fail and recover. A key requirement for self-healing to work is that you there are enough worker nodes. To recover from a zone failure within an Azure region, your control and worker nodes must be balanced across availability zones. 
+OpenShift has built-in capabilities for self-healing, scaling, and resilience to make sure OpenShift and MAS work successfully. OpenShift and MAS have been designed for parts that fail and recover. A key requirement for self-healing to work is that there are enough worker nodes. To recover from a zone failure within an Azure region, your control and worker nodes must be balanced across availability zones. 
 
 MAS and OpenShift use storage to persist state outside of the Kubernetes cluster. For the storage dependencies to continue working during a failure, you should use [zone-redundant storage](/azure/virtual-machines/disks-deploy-zrs) whenever possible. This type of storage remains available when a zone fails.
 
