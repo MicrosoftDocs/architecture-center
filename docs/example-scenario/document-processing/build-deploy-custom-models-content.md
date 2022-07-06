@@ -49,7 +49,7 @@ This article describes Azure solutions for building, training, deploying, and us
 
 - [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) is a set of capabilities built on top of Azure Blob Storage for big data analytics. Data Lake Storage retains the cost effectiveness of Blob Storage, and provides features like file level security and file system semantics with hierarchical namespace.
 
-- [Form Recognizer](https://azure.microsoft.com/services/form-recognizer), part of [Azure Applied AI Services](https://azure.microsoft.com/solutions/ai/applied-ai-services), has in-built document analysis capabilities to extract printed and handwritten text, tables, and key-value pairs. Form Recognizer has prebuilt models for extracting data from invoices, documents, receipts, ID cards, and business cards. Form Recognizer can also train and deploy custom models by using either a [custom template](/azure/applied-ai-services/form-recognizer/concept-custom-template) custom form model, or a [custom neural](/azure/applied-ai-services/form-recognizer/concept-custom-neural) custom document model.
+- [Form Recognizer](https://azure.microsoft.com/services/form-recognizer), part of [Azure Applied AI Services](https://azure.microsoft.com/solutions/ai/applied-ai-services), has in-built document analysis capabilities to extract printed and handwritten text, tables, and key-value pairs. Form Recognizer has prebuilt models for extracting data from invoices, documents, receipts, ID cards, and business cards. Form Recognizer can also train and deploy custom models by using either a [custom template](/azure/applied-ai-services/form-recognizer/concept-custom-template) form model, or a [custom neural](/azure/applied-ai-services/form-recognizer/concept-custom-neural) document model.
 
   [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/) provides a UI for exploring Form Recognizer features and models, and building, tagging, training, and deploying custom models.
 
@@ -67,15 +67,15 @@ This article describes Azure solutions for building, training, deploying, and us
 
 You can add more workflows to this scenario based on specific use cases.
 
-- If the document is in image or PDF format, extract the data by using Azure [Computer Vision](/azure/cognitive-services/computer-vision/overview-ocr), [Form Recognizer Read API](/azure/applied-ai-services/form-recognizer/how-to-guides/use-prebuilt-read?pivots=programming-language-python), or open-source libraries.
+- If the document is in image or PDF format, you can extract the data by using Azure [Computer Vision](/azure/cognitive-services/computer-vision/overview-ocr), [Form Recognizer Read API](/azure/applied-ai-services/form-recognizer/how-to-guides/use-prebuilt-read?pivots=programming-language-python), or open-source libraries.
 
-- You can do text summarization by using the prebuilt model in [Azure Cognitive Service for Language](/azure/cognitive-services/language-service/text-summarization/overview).
+- You can do [document and conversation summarization](/azure/cognitive-services/language-service/text-summarization/overview) by using the prebuilt model in Azure Cognitive Service for Language.
 
-- Use pre-processing code to do text processing steps like cleaning, stop words removal, lemmatization, stemming, and text summarization on extracted data per document processing requirements. You can expose the code as REST APIs for automation. Do these steps manually or automate them by integrating with the [Logic Apps](/azure/logic-apps/logic-apps-custom-api-host-deploy-call) or [Azure Functions](/samples/azure-samples/flask-app-on-azure-functions/azure-functions-python-create-flask-app) ingestion process.
+- Use pre-processing code to do text processing steps like cleaning, stop words removal, lemmatization, stemming, and text summarization on extracted data, per document processing requirements. You can expose the code as REST APIs for automation. Do these steps manually or automate them by integrating with the [Logic Apps](/azure/logic-apps/logic-apps-custom-api-host-deploy-call) or [Azure Functions](/samples/azure-samples/flask-app-on-azure-functions/azure-functions-python-create-flask-app) ingestion process.
 
 ## Potential use cases
 
-You can use custom models for the following document processing use cases:
+The following use cases can take advantage of custom models for document processing:
 
 - Build custom NER and text classification models based on open-source frameworks.
 - Extract custom key-values from documents for various industry verticals like insurance and healthcare.
@@ -108,7 +108,7 @@ Reliability ensures your application can meet the commitments you make to your c
 
 #### Resiliency
 
-- Handle failure modes of individual services like Azure Functions and Azure Storage to ensure resiliency of the compute services and data stores in this solution. For more information, see [Resiliency checklist for specific Azure services](/azure/architecture/checklist/resiliency-per-service).
+- Handle failure modes of individual services like Azure Functions and Azure Storage to ensure resiliency of the compute services and data stores in this scenario. For more information, see [Resiliency checklist for specific Azure services](/azure/architecture/checklist/resiliency-per-service).
 
 - For Form Recognizer, [back up and recover your Form Recognizer models](/azure/applied-ai-services/form-recognizer/disaster-recovery).
 

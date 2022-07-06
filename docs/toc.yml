@@ -2578,7 +2578,7 @@ items:
                 href: reference-architectures/ai/batch-scoring-R-models.yml
               - name: Batch scoring with Spark on Databricks
                 href: reference-architectures/ai/batch-scoring-databricks.yml
-              - name: Build and deploy custom document processing models
+              - name: Build custom document processing models
                 href: example-scenario/document-processing/build-deploy-custom-models.yml
               - name: Build content-based recommendations
                 href: example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml
