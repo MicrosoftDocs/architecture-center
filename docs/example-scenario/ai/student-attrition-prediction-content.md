@@ -6,7 +6,7 @@ This article presents a solution for predicting student attrition. Core componen
 
 ## Architecture
 
-:::image type="content" source="./media/student-attrition-prediction-architecture.png" alt-text="Architecture diagram that shows the traffic route from a user to a private AKS cluster. The traffic flows through Azure Bastion and a jump box." lightbox="./media/student-attrition-prediction-architecture.png" border="false":::
+:::image type="content" source="./media/student-attrition-prediction-architecture.png" alt-text="Architecture diagram that shows how data flows through a machine learning model that predicts student attrition." lightbox="./media/student-attrition-prediction-architecture.png" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1958830-student-attrition-prediction-architecture.vsdx) of this architecture.*
 
@@ -16,7 +16,7 @@ This article presents a solution for predicting student attrition. Core componen
 
 1. **Data preparation**. During data preparation, the data is gathered, combined, structured, and organized so it can be used to build machine learning models, for business intelligence purposes, and in analytics and data visualization applications. The solution uses Azure Data Factory to orchestrate the process of transforming and loading the data. Azure Synapse is used to process data and to trigger Azure Machine Learning experiments.
 
-1. **AI machine learning training**. The solution uses Azure Machine Learning Studio to train a wide range of supervised learning algorithms and find a model that can accurately predict student attrition. The following Responsible AI Toolbox tools help to implement responsible AI:
+1. **AI machine learning training**. The solution uses Azure Machine Learning studio to train a wide range of supervised learning algorithms and find a model that can accurately predict student attrition. The following Responsible AI Toolbox tools help to implement responsible AI:
 
    - The interpretability tool helps users understand the major factors that contribute to student attrition.
    - The fairness tool identifies and mitigates bias in the chosen model that's related to student gender and race.
@@ -79,7 +79,9 @@ The information that's critical for the student attrition model consists of the 
 
 - [Azure Machine Learning](https://azure.microsoft.com/en-us/services/machine-learning/) is an enterprise-grade machine learning service for easy model development and deployment to a wide range of machine learning targets. It provides users at all skill levels with a low-code designer, automated machine learning, and a hosted Jupyter notebook environment that supports various integrated development environments (IDEs).
 
-- [Responsible AI Toolbox](https://responsibleaitoolbox.ai/) is a collection of integrated tools and functionalities that help you implement responsible AI principles. You can use this toolbox to assess machine learning models quickly and easily.
+- [Azure Machine Learning studio](https://azure.microsoft.com/en-us/services/machine-learning/#faq) is a cloud service that you can use to accelerate and manage the machine learning project lifecycle. This service handles training, model deployment, and the management of machine learning operations (MLOps).
+
+- [Responsible AI Toolbox](https://responsibleaitoolbox.ai/) is a collection of integrated tools and functionalities that help you implement responsible AI principles. The toolbox integrates ideas from several open-source tools in the areas of error analysis, interpretability, fairness, counterfactual analysis, and causal decision-making. You can use this open-source framework to assess machine learning models quickly and easily.
 
 - [Azure Data Science Virtual Machine](https://docs.microsoft.com/en-us/azure/machine-learning/data-science-virtual-machine/overview) is a customized VM image on the Azure cloud platform that's built specifically for doing data science. The image has many popular data science tools preinstalled and preconfigured to jump-start building intelligent applications for advanced analytics.
 
@@ -96,33 +98,37 @@ The information that's critical for the student attrition model consists of the 
 
 ## Scenario details
 
-Student attrition is one of the most common challenges that educational institutions across the globe face. Attrition is prevalent at all levels of both private and public education systems, leading to a variety of consequences. For example, in the public system, student attrition results in ineffective use of taxes. At private institutions, attrition results in reputational damage. It also negatively affects the school's revenue. When student attrition levels are elevated, fewer graduating professionals enter the workforce, which threatens the global economy.
+Student attrition is one of the most common challenges that educational institutions across the globe face. Attrition is prevalent at all levels of both private and public education systems, leading to a variety of consequences. For example, in the public system, student attrition results in ineffective use of taxes. At private institutions, attrition damages reputations. It also negatively affects the school's revenue. When student attrition levels are elevated, fewer graduating professionals enter the workforce, which threatens the global economy.
 
-Given these consequences, educational institutions are heavily investing in ways to reduce student attrition. It has become increasingly important for these institutions to understand and address the root causes of attrition. They must be able to predict attrition rates and implement at-scale solutions to minimize student attrition across a broad set of program offerings.
+Given these consequences, educational institutions are heavily investing in ways to reduce student attrition. It has become increasingly important for these institutions to identify and address the root causes of attrition. Understanding the major contributing factors helps institutions support individual students and implement at-scale solutions to reduce attrition rates. Institutions also must be able to predict attrition rates to minimize attrition across a broad set of program offerings.
 
-Predicting student attrition is a binary classification problem that predicts whether a student will drop out of school. This type of model is built on student-centric data that includes demographic data, financial data, the student's academic history, and the course delivery mode.
+Predicting student attrition is a binary classification problem that predicts whether a student will leave school. This type of model is built on student-centric data that includes demographic data, financial data, the student's academic history, and the course delivery mode.
 
 For interpretability and bias detection, this solution uses the Responsible AI Toolbox. When educational institutions understand the factors that impact students' continuous education, they can take appropriate actions to curtail student attrition. But institutions need to use models with no bias toward protected classes like gender and race. This point is important, as is the need to consider and implement responsible AI practices. Equitable models help provide unbiased support for student success.
 
+### Potential use cases
+
+This solution applies to many areas:
+
+- Adaptive learning in education: Adaptive learning is crucial for student success. After taking into account an individual student's progress, educational institutions can customize approaches and support educators in an effort to provide the best possible learning experience for the student.
+- Employee attrition prediction in human resources: Employees are valuable assets of any organization. It's important to know whether employees are dissatisfied, or whether there are other reasons employees might leaving jobs. When employers have this information, they can take proactive measures to retain employees.
+- Customer churn prediction in retail: Churn prediction helps identify whether users are likely to stop using a website, service, or product. Companies and large corporations suffer losses when they can't retain customers. The customer churn model helps these organizations identify opportunities for improving their offerings and preventing customers from leaving them.
+
 ## Considerations
 
-This architecture implements the pillars of the Azure Well-Architected Framework, a set of guiding principles that can improve a workload's quality. For more information, see the [Microsoft Azure Well-Architected Framework](https://www.microsoft.com/azure/partners/well-architected#well-architected-assets).
+These considerations implement the pillars of the Azure Well-Architected Framework, a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
-The technologies in this architecture were chosen for scalability and availability reasons with the aim of managing and controlling the costs.
+The technologies in this architecture were chosen for their scalability and availability, with the aim of managing and controlling the costs.
 
-### Scalability
+### Reliability
 
-You can scale most components in this scenario up or down depending on the analysis activity levels. Azure Synapse Analytics provides scalability and high performance. At low activity levels, you can pause this service or scale back computing resources.
-
-You can scale [Azure Machine Learning](https://azure.microsoft.com/en-us/services/machine-learning/) according to the size of your data size and the compute resources that you need for model training. For deployment, you can scale compute resources based on your expected load, scoring service, and latency requirements with Azure Kubernetes Service (AKS).
-
-For guidance about designing scalable solutions, see [Performance efficiency checklist](https://docs.microsoft.com/en-us/azure/architecture/framework/scalability/performance-efficiency).
-
-### Availability
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
 The components in this architecture feature high availability. But there are two parts to machine learning and analytics tasks: training and production deployment. Resources that are required for training don't typically need high availability. As for production deployment, [Azure Machine Learning VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/availability) fully support high availability.
 
 ### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 The components in this solution offer built-in security. They also support permissions that you can manage by using Azure Active Directory authentication or role-based access control. For information about establishing suitable enterprise-level security, see [Azure Machine Learning best practices for enterprise security](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-enterprise-security).
 
@@ -138,10 +144,22 @@ Consider guidelines in the following resources when you implement security featu
 
 ### Cost optimization
 
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+
 - To optimize costs by paying only for what you need, scale resources according to your analytics, training, and deployment workloads.
 - To estimate the cost of implementing this solution, use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/).
 - For information about various licenses that Power BI offers, see [Power BI pricing](https://powerbi.microsoft.com/en-us/pricing/).
 - For more information about creating a cost-effective workload, see [Overview of the cost optimization pillar](https://docs.microsoft.com/azure/architecture/framework/cost/overview).
+
+### Performance efficiency
+
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+
+You can scale most components in this scenario up or down depending on the analysis activity levels. Azure Synapse Analytics provides scalability and high performance. At low activity levels, you can pause this service or scale back computing resources.
+
+You can scale [Azure Machine Learning](https://azure.microsoft.com/en-us/services/machine-learning/) according to the size of your data size and the compute resources that you need for model training. For deployment, you can scale compute resources based on your expected load, scoring service, and latency requirements with Azure Kubernetes Service (AKS).
+
+For guidance about designing scalable solutions, see [Performance efficiency checklist](https://docs.microsoft.com/en-us/azure/architecture/framework/scalability/performance-efficiency).
 
 ### Other considerations
 
@@ -150,7 +168,7 @@ Follow MLOps guidelines to standardize and manage an end-to-end machine learning
 - [Unifying Machine Learning Operations in Azure](https://microsoft.sharepoint.com/teams/CS_AzureDataAI/SitePages/Mlops.aspx)
 - [Azure MLOps (v2) solution accelerator](https://github.com/Azure/mlops-v2)
 
-As part of Azure Machine Learning, responsible AI is based on the six pillars of AI development and use:
+As part of Azure Machine Learning, responsible AI is based on the six pillars of AI use and development:
 
 - Fairness
 - Reliability and safety
@@ -186,7 +204,7 @@ Principal authors:
 - [What is Azure Active Directory?](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis)
 - [About Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/general/overview)
 
-Related resources
+## Related resources
 
 - [Solutions for the education industry](../../industries/education.md)
 - [Batch scoring of Python models on Azure](../../reference-architectures/ai/batch-scoring-python.yml)
