@@ -1,6 +1,4 @@
-This scenario describes an approach to [machine learning operations
-(MLOps)](/azure/machine-learning/concept-model-management-and-deployment) that involves running model training and batch scoring on Azure Databricks using Databricks Notebook as an orchestrator, as well as managing the end-to-end machine learning life cycle using the open-source
-[MLflow](/azure/databricks/applications/mlflow/) platform.
+This scenario describes an approach to [machine learning operations (MLOps)](/azure/machine-learning/concept-model-management-and-deployment) that involves running model training and batch scoring on Azure Databricks using Databricks Notebook as an orchestrator, as well as managing the end-to-end machine learning life cycle using the open-source [MLflow](/azure/databricks/applications/mlflow/) platform.
 
 ## Architecture
 
@@ -26,7 +24,7 @@ The process in this scenario works as follows:
 
 3. Trigger or schedule model training or batch scoring of Azure Databricks jobs with required parameters.
 
-4. Azure Databricks job invokes it's respective orchestrator notebook.
+4. Azure Databricks job invokes its respective orchestrator notebook.
 
 5. The orchestrator notebook executes a magic Python "pip" command to install ML and MLOps wheel packages as notebook-scoped libraries.
 
