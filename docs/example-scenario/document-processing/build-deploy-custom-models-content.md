@@ -1,11 +1,12 @@
-Document processing is a broad area. It can be difficult to meet all your document processing needs with the prebuilt models available in Azure Form Recognizer and Azure Cognitive Service for Language. You might need to build custom models to automate document processing for different applications.
+Document processing is a broad area. It can be difficult to meet all your document processing needs with the prebuilt models available in Azure Form Recognizer and Azure Cognitive Service for Language. You might need to build custom models to automate document processing for different applications and domains.
 
 Major challenges in model customization include:
 
-- Labelling or tagging text data with relevant key-value pair entities to classify text for extraction.
-- Secure model deployment at scale for easy integration with consuming applications.
+- Labeling or tagging text data with relevant key-value pair entities to classify text for extraction.
+- Deploying models securely at scale for easy integration with consuming applications.
 
-This article provides example scenarios for training and deploying custom models for document processing in Azure. These Azure services also offer user interface (UI) capabilities to do labelling or tagging for text processing.
+This article describes Azure solutions for building, training, deploying, and using custom document processing models. These Azure services also offer user interface (UI) capabilities to do labeling or tagging for text processing.
+
 ## Architecture
 
 ![Diagram showing several alternatives for a custom document processing model build and deployment process.](images/build-deploy-custom-models.png)
@@ -14,27 +15,27 @@ This article provides example scenarios for training and deploying custom models
 
 ### Dataflow
 
-1. Orchestrators like Azure Logic Apps, Azure Data Factory, or Azure Functions ingest emails and attachments from email servers, and files uploaded to FTP servers or through web applications.
+1. Orchestrators like Azure Logic Apps, Azure Data Factory, or Azure Functions ingest messages and attachments from email servers, and files from FTP servers or web applications.
 
-   - Azure Functions and Logic Apps enable serverless workloads. Which service you choose depends on your preference for service capabilities like development, connectors, management, and execution context. For more information, see [Compare Azure Functions and Azure Logic Apps](/azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs#compare-azure-functions-and-azure-logic-apps).
+   - Azure Functions and Logic Apps enable serverless workloads. The service you choose depends on your preference for service capabilities like development, connectors, management, and execution context. For more information, see [Compare Azure Functions and Azure Logic Apps](/azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs#compare-azure-functions-and-azure-logic-apps).
 
    - Consider using Azure Data Factory for bulk data movement.
 
-1. The orchestrators persist ingested data to Azure Blob Storage or Data Lake Storage, organizing the data across data stores based on characteristics like file extensions or customers.
+1. The orchestrators send ingested data to Azure Blob Storage or Data Lake Storage, organizing the data across data stores based on characteristics like file extensions or customers.
 
-1. Form Recognizer Studio, Language Studio, or Azure Machine Learning studio can label and tag textual data and build the custom models on Azure. You can use these three services independently or in various combinations to address different use cases.
+1. Form Recognizer Studio, Language Studio, or Azure Machine Learning studio label and tag textual data and build the custom models. You can use these three services independently or in various combinations to address different use cases.
 
    - If the document requires extracting key-value pairs or creating a custom table from an image format or PDF, use Form Recognizer Studio to tag the data and train the custom model.
 
-   - Azure Machine Learning studio can also do labelling for text classification or entity extraction with open-source frameworks like PyTorch or TensorFlow.
+   - Azure Machine Learning studio can also do labeling for text classification or entity extraction with open-source frameworks like PyTorch or TensorFlow.
 
-   - For document classification based on content, or for domain-specific entity extraction, you can train either a custom text classification model or a custom NER model in Language Studio.
+   - For document classification based on content, or for domain-specific entity extraction, you can train a custom text classification or Named Entity Recognition (NER) model in Language Studio.
 
-1. To use Form Recognizer custom models for inferencing, use the SDK or the Form Recognizer REST API. Include the [model ID](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) or [custom model name](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument) in the Form Recognizer request URL, depending on the API version. Form Recognizer doesn't require any further deployment steps.
+1. Form Recognizer has built-in model deployment. [Use Form Recognizer SDKs or REST API](/azure/applied-ai-services/form-recognizer/how-to-guides/try-sdk-rest-api) to apply custom models for inferencing. Include the [model ID](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) or [custom model name](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument) in the Form Recognizer request URL, depending on the API version. Form Recognizer doesn't require any further deployment steps.
 
-1. You can deploy custom language models trained with Language Studio by using the option the studio provides. Get the REST endpoint [prediction URL](/azure/cognitive-services/language-service/custom-named-entity-recognition/how-to/call-api?tabs=language-studio#send-an-entity-recognition-request-to-your-model) by selecting the model to deploy. You can do model inferencing by using either the REST endpoint or the [Azure SDK client libraries](/azure/cognitive-services/language-service/custom-named-entity-recognition/how-to/call-api?tabs=client#send-an-entity-recognition-request-to-your-model).
+1. Language Studio provides the option to deploy custom language models. Get the REST endpoint [prediction URL](/azure/cognitive-services/language-service/custom-named-entity-recognition/how-to/call-api?tabs=language-studio#send-an-entity-recognition-request-to-your-model) by selecting the model to deploy. You can do model inferencing by using either the REST endpoint or the [Azure SDK client libraries](/azure/cognitive-services/language-service/custom-named-entity-recognition/how-to/call-api?tabs=client#send-an-entity-recognition-request-to-your-model).
 
-1. Deploy custom models developed in the Azure Machine Learning studio to online or batch [Azure managed endpoints](/azure/machine-learning/concept-endpoints), or to Azure Kubernetes Service (AKS) as a [web service using the Azure Machine Learning SDK](/azure/machine-learning/how-to-deploy-azure-kubernetes-service?tabs=python#deploy-to-aks).
+1. Deploy custom models developed in Azure Machine Learning studio to online or batch [Azure Machine Learning managed endpoints](/azure/machine-learning/concept-endpoints), or [deploy to Azure Kubernetes Service (AKS)](/azure/machine-learning/how-to-deploy-azure-kubernetes-service?tabs=python#deploy-to-aks) as a web service by using the Azure Machine Learning SDK.
 
 ### Components
 
@@ -44,27 +45,27 @@ This article provides example scenarios for training and deploying custom models
 
 - [Azure Functions](https://azure.microsoft.com/services/functions) is a serverless compute service that can host event-driven workloads with short-lived processes.
 
-- [Blob Storage](https://azure.microsoft.com/services/storage/blobs) is the object storage solution for raw files in this scenario. Applications can access files on Blob Storage via HTTP/HTTPS. Blob Storage and the storage supports libraries for multiple languages, such as .NET, Node.js, and Python. Blob Storage supports multiple [access tiers](/azure/storage/blobs/access-tiers-overview) to support cost optimization for storing large number of objects or files.
+- [Blob Storage](https://azure.microsoft.com/services/storage/blobs) is the object storage solution for raw files in this scenario. Blob Storage supports libraries for multiple languages, such as .NET, Node.js, and Python. Applications can access files on Blob Storage via HTTP/HTTPS. Blob Storage has [hot, cool, and archive access tiers](/azure/storage/blobs/access-tiers-overview) to support cost optimization for storing large number of objects or files.
 
 - [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) is a set of capabilities built on top of Azure Blob Storage for big data analytics. Data Lake Storage retains the cost effectiveness of Blob Storage, and provides features like file level security and file system semantics with hierarchical namespace.
 
-- [Form Recognizer](https://azure.microsoft.com/services/form-recognizer), part of [Azure Applied AI Services](https://azure.microsoft.com/solutions/ai/applied-ai-services), has in-built document analysis capabilities to extract printed and handwritten text, tables, and key-value pairs. Form Recognizer has prebuilt models for extracting data from invoices, documents, receipts, ID cards, and business cards. Form Recognizer can also train and deploy custom models by using either a [custom template](/azure/applied-ai-services/form-recognizer/concept-custom-template) custom form, or a [custom neural](/azure/applied-ai-services/form-recognizer/concept-custom-neural) custom document.
+- [Form Recognizer](https://azure.microsoft.com/services/form-recognizer), part of [Azure Applied AI Services](https://azure.microsoft.com/solutions/ai/applied-ai-services), has in-built document analysis capabilities to extract printed and handwritten text, tables, and key-value pairs. Form Recognizer has prebuilt models for extracting data from invoices, documents, receipts, ID cards, and business cards. Form Recognizer can also train and deploy custom models by using either a [custom template](/azure/applied-ai-services/form-recognizer/concept-custom-template) custom form model, or a [custom neural](/azure/applied-ai-services/form-recognizer/concept-custom-neural) custom document model.
 
-  [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/) provides a UI for quickly exploring the features and models Form Recognizer Service provides, and for building custom models for tagging, training, and deployment.
+  [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/) provides a UI for exploring Form Recognizer features and models, and building, tagging, training, and deploying custom models.
 
-- [Azure Cognitive Service for Language](https://azure.microsoft.com/services/cognitive-services/language-service) consolidates the Azure natural language processing services on Azure. The Cognitive Service suite offers prebuilt options and customizable options. For more information, see [Available features](/azure/cognitive-services/language-service/overview#available-features).
+- [Azure Cognitive Service for Language](https://azure.microsoft.com/services/cognitive-services/language-service) consolidates the Azure natural language processing services. The suite offers prebuilt and customizable options. For more information, see the Cognitive Service for Language [available features](/azure/cognitive-services/language-service/overview#available-features).
 
-  [Language Studio](https://aka.ms/languageStudio) provides a UI for exploring and analyzing Azure Cognitive Service for Language features. Language Studio also provides options for building custom models with tagging, training, and deployment.
+  [Language Studio](https://aka.ms/languageStudio) provides a UI for exploring and analyzing Azure Cognitive Service for Language features. Language Studio also provides options for building, tagging, training, and deploying custom models.
 
 - [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) is an open platform for managing machine learning model development and deployment at scale.
 
-  - Azure Machine Learning studio provides data labelling options for [images](/azure/machine-learning/how-to-create-image-labeling-projects#image-labeling-capabilities) and [text](/azure/machine-learning/how-to-create-text-labeling-projects).
-  - [Export labelled data](/azure/machine-learning/how-to-use-labeled-dataset#export-data-labels) as [COCO](https://cocodataset.org) or Azure Machine Learning datasets. You can use the datasets for training and deploying models in Azure Machine Learning notebooks. 
+  - Azure Machine Learning studio provides data labeling options for [images](/azure/machine-learning/how-to-create-image-labeling-projects#image-labeling-capabilities) and [text](/azure/machine-learning/how-to-create-text-labeling-projects).
+  - [Export labeled data](/azure/machine-learning/how-to-use-labeled-dataset#export-data-labels) as [COCO](https://cocodataset.org) or Azure Machine Learning datasets. You can use the datasets for training and deploying models in Azure Machine Learning notebooks. 
   - [Deploy models to AKS](/azure/machine-learning/how-to-deploy-azure-kubernetes-service?tabs=python#deploy-to-aks) as a web service for real-time inferencing at scale, or as managed endpoints for both real-time and batch inferencing.
 
 ### Alternatives
 
-You can add more workflows to this scenario based on specific use cases:
+You can add more workflows to this scenario based on specific use cases.
 
 - If the document is in image or PDF format, extract the data by using Azure [Computer Vision](/azure/cognitive-services/computer-vision/overview-ocr), [Form Recognizer Read API](/azure/applied-ai-services/form-recognizer/how-to-guides/use-prebuilt-read?pivots=programming-language-python), or open-source libraries.
 
@@ -74,11 +75,11 @@ You can add more workflows to this scenario based on specific use cases:
 
 ## Potential use cases
 
-You can use these solutions in the following document processing use cases:
+You can use custom models for the following document processing use cases:
 
-- Build custom Named Entity Recognition (NER) and text classification models based on open-source frameworks.
+- Build custom NER and text classification models based on open-source frameworks.
 - Extract custom key-values from documents for various industry verticals like insurance and healthcare.
-- Tag and extract specific domain-dependent entities beyond those captured by the [prebuilt NER models](/azure/cognitive-services/language-service/named-entity-recognition/overview), for domains like security or finance.
+- Tag and extract specific domain-dependent entities beyond the [prebuilt NER models](/azure/cognitive-services/luis/luis-concept-prebuilt-model), for domains like security or finance.
 - Create custom tables from documents.
 - Extract signatures.
 - Label and classify emails or other documents based on content.
@@ -101,9 +102,9 @@ Reliability ensures your application can meet the commitments you make to your c
   - Azure Cognitive Service for Language - [SLA for Azure Cognitive Services](https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1).
   - Azure Functions - [SLA for Azure Functions](https://azure.microsoft.com/support/legal/sla/functions/v1_2).
   - Azure Kubernetes service - [SLA for Azure Kubernetes Service (AKS)](https://azure.microsoft.com/support/legal/sla/kubernetes-service/v1_1).
-  - Azure Storage - [SLA for Storage](https://azure.microsoft.com/support/legal/sla/storage/v1_5/).
+  - Azure Storage - [SLA for Storage Accounts](https://azure.microsoft.com/support/legal/sla/storage/v1_5/).
 
-- For different configuration options to design high availability applications with Azure storage accounts, see [Use geo-redundancy to design highly available applications](/azure/storage/common/geo-redundant-design).
+- For configuration options to design high availability applications with Azure storage accounts, see [Use geo-redundancy to design highly available applications](/azure/storage/common/geo-redundant-design).
 
 #### Resiliency
 
@@ -123,23 +124,27 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 - Implement data protection, identity and access management, and network security recommendations for [Blob Storage](/azure/storage/blobs/security-recommendations), [Cognitive Services](/security/benchmark/azure/baselines/cognitive-services-security-baseline) for Form Recognizer and Language Studio, and [Azure Machine Learning](/security/benchmark/azure/baselines/machine-learning-security-baseline).
 
-- Azure Functions can access resources in a virtual network through virtual network integration. For more information, see [Azure Functions networking options](/azure/azure-functions/functions-networking-options#virtual-network-integration).
+- Azure Functions can access resources in a virtual network through [virtual network integration](/azure/azure-functions/functions-networking-options#virtual-network-integration).
 
 ### Cost optimization
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-The total cost of solution implementation depends on the pricing of each service you use.
+The total cost of implementing this solution depends on the pricing of the services you choose.
 
 The major costs for this solution are:
 
-- The compute cost involved in Azure Machine Learning training. Choose the right node type, cluster size, and number of nodes to help optimize costs. Azure Machine Learning provides options to set the minimum nodes to zero and to set the idle time before the scaledown. For more information, see [Manage and optimize Azure Machine Learning costs](/azure/machine-learning/how-to-manage-optimize-cost).
+- The compute cost involved in Azure Machine Learning training. Choose the right node type, cluster size, and number of nodes to help optimize costs. Azure Machine Learning provides options to set the minimum nodes to zero and to set the idle time before the scale down. For more information, see [Manage and optimize Azure Machine Learning costs](/azure/machine-learning/how-to-manage-optimize-cost).
 
-- Data orchestration duration and activities. For Azure Data Factory, the charges for copy activities on the Azure integration runtime are based on the number of Data Integration Units (DIUs) used and the execution duration. Added orchestration activity runs are also charged based on their number.
+- Data orchestration duration and activities. For Azure Data Factory, the charges for copy activities on the Azure integration runtime are based on the number of Data Integration Units (DIUs) used and the execution duration. Added orchestration activity runs are also charged, based on their number.
 
-  Logic Apps pricing plans depend on the resources created and used. For more information, see [Single-tenant, Multi-tenant and Integration service environment](/azure/logic-apps/plan-manage-costs#costs-that-typically-accrue-with-azure-logic-apps). For more details about billing for each of these components, see [Usage metering, billing, and pricing models for Azure Logic Apps](/azure/logic-apps/logic-apps-pricing). These details can help in choosing the right plan for the specific use cases.
+  Logic Apps pricing plans depend on the resources you create and use. The following articles can help with choosing the right plan for specific use cases:
+  
+  - [Costs that typically accrue with Azure Logic Apps](/azure/logic-apps/plan-manage-costs#costs-that-typically-accrue-with-azure-logic-apps)
+  - [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](/azure/logic-apps/single-tenant-overview-compare)
+  - [Usage metering, billing, and pricing models for Azure Logic Apps](/azure/logic-apps/logic-apps-pricing)
 
-For more information on pricing options, see the following links:
+For more information on pricing for specific components, see the following links:
 
 - [Azure Form Recognizer pricing](https://azure.microsoft.com/pricing/details/form-recognizer)
 - [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions)
@@ -161,9 +166,11 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 - Form Recognizer supports 15 concurrent requests per second by default. To request an increased quota, [create an Azure support ticket](/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
-- For custom models hosted as web services on AKS through Azure Machine Learning services, [azureml-f](/azure/machine-learning/how-to-deploy-azure-kubernetes-service?tabs=python#autoscaling) automatically scales as needed. This front-end component also routes incoming inference requests to deployed services. For deployments as managed endpoints, support [autoscaling](/azure/machine-learning/concept-endpoints#autoscaling) by integrating with the Azure Monitor autoscale feature.
+- For Azure Machine Learning custom models hosted as web services on AKS, the [azureml-fe](/azure/machine-learning/how-to-deploy-azure-kubernetes-service?tabs=python#autoscaling) front end automatically scales as needed. This component also routes incoming inference requests to deployed services.
 
-- The API limits on [Custom NER](/azure/cognitive-services/language-service/custom-named-entity-recognition/service-limits#apis-limits) and [custom text classification](/azure/cognitive-services/language-service/custom-classification/service-limits#api-limits) for inferencing are 20 GET or POST requests per minute.
+- For deployments as managed endpoints, support [autoscaling](/azure/machine-learning/concept-endpoints#autoscaling) by integrating with the [Azure Monitor autoscale feature](/azure/azure-monitor/autoscale/autoscale-overview).
+
+- The API service limits on [custom NER](/azure/cognitive-services/language-service/custom-named-entity-recognition/service-limits#apis-limits) and [custom text classification](/azure/cognitive-services/language-service/custom-classification/service-limits#api-limits) for inferencing are 20 GET or POST requests per minute.
 
 ## Contributors
 
@@ -179,16 +186,16 @@ Principal authors:
 
 - [Get started: Form Recognizer Studio](/azure/applied-ai-services/form-recognizer/quickstarts/try-v3-form-recognizer-studio)
 - [Use Form Recognizer SDKs or REST API](/azure/applied-ai-services/form-recognizer/how-to-guides/try-sdk-rest-api?pivots=programming-language-python)
-- [Get started: Language Studio](/azure/cognitive-services/language-service/language-studio)
-- [OCR on Azure](/azure/cognitive-services/computer-vision/overview-ocr)
+- [Quickstart: Get started with Language Studio](/azure/cognitive-services/language-service/language-studio)
+- [What is optical character recognition (OCR)?](/azure/cognitive-services/computer-vision/overview-ocr)
 - [How to configure Azure Functions with a virtual network](/azure/azure-functions/configure-networking-how-to)
 
 ## Related resources
 
 - [Extract text from objects using Power Automate and AI Builder](../ai/extract-object-text.yml)
-- [Content tagging with NLP](../../solution-ideas/articles/website-content-tag-suggestion-with-deep-learning-and-nlp.yml)
+- [Suggest content tags with NLP using deep learning](../../solution-ideas/articles/website-content-tag-suggestion-with-deep-learning-and-nlp.yml)
 - [Knowledge mining in contract management](../../solution-ideas/articles/contract-management.yml)
 - [Knowledge mining for content research](../../solution-ideas/articles/content-research.yml)
 - [Automate document processing by using Azure Form Recognizer](../ai/automate-document-processing-azure-form-recognizer.yml)
-- [Automation of COVID-19 test forms](../ai/form-recognizer-covid.yml)
+- [Automate COVID-19 test forms](../ai/form-recognizer-covid.yml)
 
