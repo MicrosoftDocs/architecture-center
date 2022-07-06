@@ -1,3 +1,9 @@
+This article presents a solution for predicting student attrition. Core components include:
+
+- Azure Synapse Analytics for data processing.
+- Azure Machine Learning for training and deploying models.
+- Responsible AI Toolbox for identifying contributing factors and eliminating bias.
+
 ## Architecture
 
 :::image type="content" source="./media/student-attrition-prediction-architecture.png" alt-text="Architecture diagram that shows the traffic route from a user to a private AKS cluster. The traffic flows through Azure Bastion and a jump box." lightbox="./media/student-attrition-prediction-architecture.png" border="false":::
@@ -76,3 +82,114 @@ The information that's critical for the student attrition model consists of the 
 - [Responsible AI Toolbox](https://responsibleaitoolbox.ai/) is a collection of integrated tools and functionalities that help you implement responsible AI principles. You can use this toolbox to assess machine learning models quickly and easily.
 
 - [Azure Data Science Virtual Machine](https://docs.microsoft.com/en-us/azure/machine-learning/data-science-virtual-machine/overview) is a customized VM image on the Azure cloud platform that's built specifically for doing data science. The image has many popular data science tools preinstalled and preconfigured to jump-start building intelligent applications for advanced analytics.
+
+- [Azure Machine Learning endpoints](https://docs.microsoft.com/en-us/azure/machine-learning/concept-endpoints) are HTTPS endpoints that clients can access to retrieve inferencing, or scoring, output from a trained model. Each endpoint provides a stable scoring URI with key-token authentication.
+
+- [Web Apps](https://docs.microsoft.com/en-us/azure/app-service/overview) is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. With Web Apps, you can develop in .NET, .NET Core, Java, Ruby, Node.js, PHP, or Python. Applications run and scale with ease in Windows and [Linux](https://docs.microsoft.com/en-us/azure/app-service/overview#app-service-on-linux)-based environments.
+
+- [Power BI]() is the Azure software as a service (SaaS) for business analytics and visually immersive and interactive insights. It provides a rich set of connectors to various data sources, easy transformation capabilities, and sophisticated visualization capabilities.
+
+### Alternatives
+
+- This solution uses Azure Machine Learning as a data modeling and deployment tool. Instead, you can also use Azure Databricks with a code-first approach.
+- The data sources in the architecture are Azure components. You can also feed in training data from third-party sources.
+
+## Scenario details
+
+Student attrition is one of the most common challenges that educational institutions across the globe face. Attrition is prevalent at all levels of both private and public education systems, leading to a variety of consequences. For example, in the public system, student attrition results in ineffective use of taxes. At private institutions, attrition results in reputational damage. It also negatively affects the school's revenue. When student attrition levels are elevated, fewer graduating professionals enter the workforce, which threatens the global economy.
+
+Given these consequences, educational institutions are heavily investing in ways to reduce student attrition. It has become increasingly important for these institutions to understand and address the root causes of attrition. They must be able to predict attrition rates and implement at-scale solutions to minimize student attrition across a broad set of program offerings.
+
+Predicting student attrition is a binary classification problem that predicts whether a student will drop out of school. This type of model is built on student-centric data that includes demographic data, financial data, the student's academic history, and the course delivery mode.
+
+For interpretability and bias detection, this solution uses the Responsible AI Toolbox. When educational institutions understand the factors that impact students' continuous education, they can take appropriate actions to curtail student attrition. But institutions need to use models with no bias toward protected classes like gender and race. This point is important, as is the need to consider and implement responsible AI practices. Equitable models help provide unbiased support for student success.
+
+## Considerations
+
+This architecture implements the pillars of the Azure Well-Architected Framework, a set of guiding principles that can improve a workload's quality. For more information, see the [Microsoft Azure Well-Architected Framework](https://www.microsoft.com/azure/partners/well-architected#well-architected-assets).
+
+The technologies in this architecture were chosen for scalability and availability reasons with the aim of managing and controlling the costs.
+
+### Scalability
+
+You can scale most components in this scenario up or down depending on the analysis activity levels. Azure Synapse Analytics provides scalability and high performance. At low activity levels, you can pause this service or scale back computing resources.
+
+You can scale [Azure Machine Learning](https://azure.microsoft.com/en-us/services/machine-learning/) according to the size of your data size and the compute resources that you need for model training. For deployment, you can scale compute resources based on your expected load, scoring service, and latency requirements with Azure Kubernetes Service (AKS).
+
+For guidance about designing scalable solutions, see [Performance efficiency checklist](https://docs.microsoft.com/en-us/azure/architecture/framework/scalability/performance-efficiency).
+
+### Availability
+
+The components in this architecture feature high availability. But there are two parts to machine learning and analytics tasks: training and production deployment. Resources that are required for training don't typically need high availability. As for production deployment, [Azure Machine Learning VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/availability) fully support high availability.
+
+### Security
+
+The components in this solution offer built-in security. They also support permissions that you can manage by using Azure Active Directory authentication or role-based access control. For information about establishing suitable enterprise-level security, see [Azure Machine Learning best practices for enterprise security](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-enterprise-security).
+
+Azure Synapse features enterprise-grade and industry-leading security that uses component isolation to protect data, secure networks, and boost threat protection. Component isolation can minimize exposure to threats during security attacks. Azure Synapse also offers data obfuscation to protect sensitive personal student data.
+
+Azure SQL Database provides security capabilities at all levels, from data protection and data masking to threat protection. For more information, see [An overview of Azure SQL Database and SQL Managed Instance security capabilities](https://docs.microsoft.com/en-us/azure/azure-sql/database/security-overview?view=azuresql).
+
+Consider guidelines in the following resources when you implement security features in this solution:
+
+- [Deploy dedicated Azure services into virtual networks](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)
+- [Enterprise security and governance for Azure Machine Learning](https://docs.microsoft.com/en-us/azure/machine-learning/concept-enterprise-security)
+- [Overview of the security pillar](https://docs.microsoft.com/en-us/azure/architecture/framework/security/overview)
+
+### Cost optimization
+
+- To optimize costs by paying only for what you need, scale resources according to your analytics, training, and deployment workloads.
+- To estimate the cost of implementing this solution, use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/).
+- For information about various licenses that Power BI offers, see [Power BI pricing](https://powerbi.microsoft.com/en-us/pricing/).
+- For more information about creating a cost-effective workload, see [Overview of the cost optimization pillar](https://docs.microsoft.com/azure/architecture/framework/cost/overview).
+
+### Other considerations
+
+Follow MLOps guidelines to standardize and manage an end-to-end machine learning lifecycle that's scalable across multiple workspaces. Before you go into production, ensure that the implemented solution supports ongoing inference with retraining cycles and the automated redeployment of models. For more information, see the following resources:
+
+- [Unifying Machine Learning Operations in Azure](https://microsoft.sharepoint.com/teams/CS_AzureDataAI/SitePages/Mlops.aspx)
+- [Azure MLOps (v2) solution accelerator](https://github.com/Azure/mlops-v2)
+
+As part of Azure Machine Learning, responsible AI is based on the six pillars of AI development and use:
+
+- Fairness
+- Reliability and safety
+- Privacy and security
+- Inclusiveness
+- Transparency
+- Accountability
+
+For an overview of responsible AI and detailed implementation information, see [What is responsible AI?](https://docs.microsoft.com/en-us/azure/machine-learning/concept-responsible-ml).
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors:
+
+- [Charitha Basani](https://www.linkedin.com/in/charitha-basani-54196031) | Senior Cloud Solution Architect, US National CSA Team
+- [Angela Kunanbaeva](https://www.linkedin.com/in/aqqu) | Senior Cloud Solution Architect, US National CSA Team
+- [Manasa Ramalinga](https://www.linkedin.com/in/trmanasa/ | Senior Cloud Solution Architect, US National CSA Team
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
+## Next steps
+
+- [What is Azure Machine Learning?](https://docs.microsoft.com/en-us/azure/machine-learning/overview-what-is-azure-machine-learning)
+- [Track ML models with MLflow and Azure Machine Learning](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-use-mlflow)
+- [What is automated machine learning (AutoML)?](https://docs.microsoft.com/en-us/azure/machine-learning/concept-automated-ml)
+- [What is Azure Synapse Analytics?](https://docs.microsoft.com/en-us/azure/synapse-analytics/overview-what-is)
+- [Unleash the power of predictive analytics in Azure Synapse with machine learning and AI](https://techcommunity.microsoft.com/t5/azure-synapse-analytics/unleash-the-power-of-predictive-analytics-in-azure-synapse-with/ba-p/1961252)
+- [Introduction to Azure Data Lake Storage Gen2](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction)
+- [Advanced analytics architecture](https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/advanced-analytics-on-big-data)
+- [What is Power BI?](https://docs.microsoft.com/en-us/power-bi/fundamentals/power-bi-overview)
+- [What is Azure Active Directory?](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis)
+- [About Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/general/overview)
+
+Related resources
+
+- [Solutions for the education industry](../../industries/education.md)
+- [Batch scoring of Python models on Azure](../../reference-architectures/ai/batch-scoring-python.yml)
+- [Citizen AI with the Power Platform](./citizen-ai-power-platform.yml)
+- [Deploy AI and machine learning computing on-premises and to the edge](../../hybrid/deploy-ai-ml-azure-stack-edge.yml)
+- [MLOps for Python models using Azure Machine Learning](../../reference-architectures/ai/mlops-python.yml)
