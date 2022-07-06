@@ -10,6 +10,8 @@ The following diagram presents a high-level architecture for deploying ArcGIS co
 
 *Download a [Visio file](https://arch-center.azureedge.net/AVD-GIS-Azure-Network.vsdx) of this architecture.*
 
+### Workflow
+
 - This solution is deployed to a single region with storage, GIS desktop, GIS back end, and Azure Virtual Desktop resource groups. Each resource group contains one subnet, and all subnets are in one virtual network. All components are in a single Azure subscription.  This architecture is a three-tier deployment.
 - The application endpoints are in the on-premises network.
 - The Azure Virtual Desktop control plane handles web access, gateway, broker, diagnostics, and extensibility components like REST APIs.
@@ -71,10 +73,10 @@ A desktop app called *ArcGIS Pro* is a key part of the technology. It's a 64-bit
 
 Esri's ArcGIS and virtual desktop solutions are frequently used for:
 
-- Security and regulation applications like utilities, healthcare, and government.
+- Security and regulation applications like utilities (energy), healthcare, and government.
 - Elastic workforce needs like remote work, mergers and acquisition, short-term employees, contractors, and partner access.
 - Employees like bring your own device (BYOD) users, mobile users, and branch workers. 
-- Specialized workloads like land management, design and engineering, legacy apps, and software testing.
+- Specialized workloads like land management (facilities and real estate), design and engineering, legacy apps, and software testing.
 
 Although GIS has been implemented in Azure for many years, it has typically included only the back-end components. That implementation introduces latency between the client and server components. Organizations have been able to deploy desktop GIS on VMs from Azure Marketplace, but that deployment is for thick clients and isn't very scalable. This architecture addresses both challenges.
 
@@ -89,7 +91,6 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 Ideally, the latency between the end user and the RDP session needs to be around 200 ms or less. This latency helps to ensure that, when ArcGIS Pro users interact with maps and perform measurements or edits, the interactive edits and the tooltips appear quickly enough. The [Azure Virtual Desktop Experience Estimator](https://azure.microsoft.com/services/virtual-desktop/assessment) can provide a quick assessment of connection round-trip time (RTT) from your location, through the Azure Virtual Desktop service, and to each Azure region in which you can deploy virtual machines. 
 
 When you use a remote Windows session, your network's available bandwidth greatly affects the quality of your experience. The following table lists the minimum recommended bandwidths for a smooth user experience. These recommendations are based on the guidelines in [Remote Desktop workloads](/windows-server/remote/remote-desktop-services/remote-desktop-workloads).
-
 
 |Workload type  |Recommended bandwidth  |
 |---------|---------|
@@ -121,7 +122,7 @@ Principal authors:
  - [Matt Hallenborg](https://www.linkedin.com/in/matt-hallenborg) | (Senior Cloud Solution Architect)
  - [Ron Vincent](https://www.linkedin.com/in/ron-vincent-8958145) | (Senior Program Manager)
 
-Other contributors:
+Other contributor:
 
  - [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | (Technical Writer)
  
