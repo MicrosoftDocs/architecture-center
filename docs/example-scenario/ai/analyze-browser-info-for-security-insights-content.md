@@ -1,32 +1,6 @@
-Phishing is a cybercrime where you're contacted by email, telephone, or a messaging application by someone posing as a legitimate institution. This person lures you into providing sensitive data such as customer content, banking and credit card details, and passwords.
-
-Phishing is a growing security threat. The ability to identify, catalog, and report phishing sites through proper channels is instrumental in reducing the number of individuals victimized by these crimes.
-
-Browser accessibility is the practice of making websites more accessible to users with disabilities, such as those with impaired hearing or vision. Improving accessibility makes websites more approachable and empowers users to use the web.
-
-Accessibility is becoming more important with the advent of a more digital future. AI can help identify gaps in accessibility and increase awareness in this area.
-
 This article focuses on showcasing a practical, scalable, and manageable solution to implement an architecture that analyzes browsers for security and accessibility insights. The solution automates image analysis of browser screenshots to identify potential phishing or malicious websites by using machine learning.
 
-This solution supports use cases like cyber security, physical security, compliance, and accessibility. It also offers a framework for ingestion, storage, and manipulation of imagery and metadata that comes from various sources. These sources include browsers, scanning devices, and security cameras.
-
-This solution demonstrates how to interconnect several Azure technologies.
-
-- Use Azure Data Lake and Azure Blob Storage to implement best practices for data operations.
-- Use Microsoft Power Apps to provide image analysis—when requested by the user—coming from various request types, such as URLs, image locations, and websites.
-- Load the inputs and store the analyzed images and results in Azure Data Lake Storage.
-- Use Azure Machine Learning to train, validate, and deploy models.
-
 *Selenium is a trademark of its respective company. No endorsement is implied by the use of this mark.*
-
-## Potential use cases
-
-You can apply this solution to the following scenarios:
-
-- Analyze browser screenshots to identify phishing or malicious websites.
-- Scan for use cases where you need to substitute human intervention with machine learning and automation.
-- Recognize accessibility features on browsers to find accessibility problems.
-- Determine General Data Protection Regulation (GDPR) compliance for browser information.
 
 ## Architecture
 
@@ -59,6 +33,38 @@ You can apply this solution to the following scenarios:
 - In this solution, we've presented Machine Learning as a platform to perform image recognition for phishing websites. However, you can use [Azure Databricks](https://azure.microsoft.com/services/databricks) or [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) to perform the same type of analytics when you handle a large amount of data.
 - To curate and perform Extract, Transform, and Load (ETL) after the data lands in Data Lake Storage, you can use [Azure Databricks](https://azure.microsoft.com/services/databricks) for a code-first approach as an alternative to Data Factory data flows.
 - Depending on the specific use case and the end-user analytics platform, you can use other relational or storage services such as Azure Synapse Analytics or Data Lake Storage instead of storing the data in SQL Server. For example, if the data accumulates for a long time and you need to run analytics queries against it, Azure Synapse Analytics is good to have as part of the architecture.
+
+## Scenario details
+
+Phishing is a cybercrime where you're contacted by email, telephone, or a messaging application by someone posing as a legitimate institution. This person lures you into providing sensitive data such as customer content, banking and credit card details, and passwords.
+
+Phishing is a growing security threat. The ability to identify, catalog, and report phishing sites through proper channels is instrumental in reducing the number of individuals victimized by these crimes.
+
+Browser accessibility is the practice of making websites more accessible to users with disabilities, such as those with impaired hearing or vision. Improving accessibility makes websites more approachable and empowers users to use the web.
+
+Accessibility is becoming more important with the advent of a more digital future. AI can help identify gaps in accessibility and increase awareness in this area.
+
+This article focuses on showcasing a practical, scalable, and manageable solution to implement an architecture that analyzes browsers for security and accessibility insights. The solution automates image analysis of browser screenshots to identify potential phishing or malicious websites by using machine learning.
+
+This solution supports use cases like cyber security, physical security, compliance, and accessibility. It also offers a framework for ingestion, storage, and manipulation of imagery and metadata that comes from various sources. These sources include browsers, scanning devices, and security cameras.
+
+This solution demonstrates how to interconnect several Azure technologies.
+
+- Use Azure Data Lake and Azure Blob Storage to implement best practices for data operations.
+- Use Microsoft Power Apps to provide image analysis—when requested by the user—coming from various request types, such as URLs, image locations, and websites.
+- Load the inputs and store the analyzed images and results in Azure Data Lake Storage.
+- Use Azure Machine Learning to train, validate, and deploy models.
+
+*Selenium is a trademark of its respective company. No endorsement is implied by the use of this mark.*
+
+### Potential use cases
+
+You can apply this solution to the following scenarios:
+
+- Analyze browser screenshots to identify phishing or malicious websites.
+- Scan for use cases where you need to substitute human intervention with machine learning and automation.
+- Recognize accessibility features on browsers to find accessibility problems.
+- Determine General Data Protection Regulation (GDPR) compliance for browser information.
 
 ## Considerations
 
