@@ -2564,6 +2564,8 @@ items:
             items:
               - name: AI enrichment with Cognitive Search
                 href: solution-ideas/articles/cognitive-search-with-skillsets.yml
+              - name: Analyze browser information
+                href: example-scenario/ai/analyze-browser-info-for-security-insights.yml
               - name: Automate document processing
                 href: example-scenario/ai/automate-document-processing-azure-form-recognizer.yml
               - name: Automate COVID-19 test forms
@@ -3066,6 +3068,8 @@ items:
                     href: operator-guides/aks/choose-kubernetes-edge-compute-option.md
                   - name: Choose a bare-metal Kubernetes option
                     href: operator-guides/aks/choose-bare-metal-kubernetes.yml
+              - name: Access an AKS API server
+                href: guide/security/access-azure-kubernetes-service-cluster-api-server.yml
               - name: Orchestrate multi-container applications
                 href: /dotnet/architecture/containerized-lifecycle/design-develop-containerized-apps/orchestrate-high-scalability-availability
                 maintainContext: true

@@ -55,8 +55,6 @@ The following new and updated articles have recently been published in the Azure
 ### New articles
 
 - [Host a Murex MX.3 workload on Azure](./example-scenario/finance/murex-mx3-azure.yml)
-- [Highly available multi-region web app](./reference-architectures/app-service-web-app/multi-region-experiment.yml)
-- [Analytics end-to-end with Azure Synapse](./example-scenario/dataplate2e/data-platform-end-to-end-experiment.yml)
 - [Sentiment analysis and face recognition](./example-scenario/ai/nifi-sentiment-analysis-face-recognition.yml)
 - [Optimize inventory and forecast demand with Power Platform and Azure](./example-scenario/analytics/optimize-inventory-forecast-demand.yml)
 - [Industrial IoT connectivity patterns](./guide/iiot-patterns/iiot-connectivity-patterns.yml)
@@ -66,8 +64,6 @@ The following new and updated articles have recently been published in the Azure
 - [Industrial IoT visibility patterns](./guide/iiot-patterns/iiot-visibility-patterns.yml)
 - [Large-scale custom natural language processing](./solution-ideas/articles/large-scale-custom-natural-language-processing.yml)
 - [Microsoft Sentinel automated responses](./solution-ideas/articles/microsoft-sentinel-automated-response.yml)
-- [Modern analytics architecture with Azure Databricks](./solution-ideas/articles/azure-databricks-modern-analytics-architecture-experiment.yml)
-- [Multi-tier web application built for HA/DR](./example-scenario/infrastructure/multi-tier-app-disaster-recovery-experiment.yml)
 - [Highly reliable mission-critical workload on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-intro.yml)
 - [Architectural approaches for identity in multitenant solutions](./guide/multitenant/approaches/identity.md)
 - [Architectural considerations for identity in a multitenant solution](./guide/multitenant/considerations/identity.md)
@@ -272,7 +268,6 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
-- [Master data management with Azure and CluedIn](./reference-architectures/data/cluedin-experiment.yml)
 - [Sports analytics on Azure](./example-scenario/analytics/sports-analytics-architecture-azure.yml)
 - [Line-of-business application using Azure App Service Environment v3](./example-scenario/apps/line-of-business-internal-app-service-environment-v3.yml)
 - [Azure API Management landing zone accelerator](./example-scenario/integration/app-gateway-internal-api-management-function.yml)
