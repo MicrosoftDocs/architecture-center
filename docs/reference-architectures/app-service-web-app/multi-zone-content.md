@@ -13,7 +13,9 @@ This architecture builds on the [Availability Zones infrastructure][azs] found i
 
 Availability Zones spread a solution across multiple independent zones within a region, allowing for an application to continue functioning when one zone fails. Most foundational and mainstream Azure services, and many Specialized Azure services provide support for Availability Zones today. All of the Azure services in this architecture are [zone-redundant], simplifying deployment and management. For a list of Azure services that support Availability Zones see [Azure Services that support Availability Zones][az-services].
 
-Zone-redundant Azure services automatically manage and mitigate failures, including zone failures, within SLA. Zone-redundancy offers an effective RTO and RPO for zone (datacenter) failure of zero.
+Zone-redundant Azure services automatically manage and mitigate failures, including zone failures, to maintain their [service level agreements (SLAs)](https://azure.microsoft.com/support/legal/sla/)
+
+Zone redundancy offers an effective RTO and RPO for zone (datacenter) failure of zero. This means that, if a single zone within a region becomes unavailable, you should not expect to lose any data and your workload should continue to run.
 
 ### Front Door
 
