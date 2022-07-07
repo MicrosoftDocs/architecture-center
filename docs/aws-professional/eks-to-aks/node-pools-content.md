@@ -69,7 +69,7 @@ You can add a node pool to a new or existing AKS cluster using the Azure portal,
 
 The following code snippet shows how to add a node pool named *mynodepool* with 3 nodes to an existing AKS cluster called *myAKSCluster* in the *myResourceGroup* resource group in the using the [az aks nodepool add](/cli/azure/aks/nodepool#az_aks_nodepool_add) command:
 
-  ```bash
+  ```azurecli-interactive
   az aks nodepool add \
         --resource-group myResourceGroup \
         --cluster-name myAKSCluster \
@@ -83,13 +83,13 @@ The following code snippet shows how to add a node pool named *mynodepool* with 
 
 The commands below explain how to upgrade a single specific node pool. You can use the [az aks nodepool upgrade](/cli/azure/aks/nodepool#az_aks_nodepool_upgrade) to upgrade a node pool. To see the available upgrades use [az aks get-upgrades](/cli/azure/aks#az_aks_get_upgrades).
 
-   ```bash
+   ```azurecli-interactive
     az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster
   ```
 
 You can use the [az aks nodepool upgrade](/cli/azure/aks/nodepool#az_aks_nodepool_upgrade) command to upgrade a node pool, as shown in the following example:
 
-  ```bash
+  ```azurecli-interactive
     az aks nodepool upgrade \
         --resource-group myResourceGroup \
         --cluster-name myAKSCluster \
@@ -100,7 +100,7 @@ You can use the [az aks nodepool upgrade](/cli/azure/aks/nodepool#az_aks_nodepoo
 
 You can list the status of your node pools again using the [az aks node pool list](/cli/azure/aks/nodepool#az_aks_nodepool_list) command.
 
-  ```bash
+  ```azurecli-interactive
     az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
   ```
 
@@ -125,7 +125,7 @@ Here is a list of best practices to follow when upgrading a cluster control plan
 
 As your application workload demands change, you may need to scale the number of nodes in a node pool. The number of nodes can be scaled up or down manually. To scale the number of nodes in a node pool, you can use the [az aks node pool scale](/cli/azure/aks/nodepool#az_aks_nodepool_scale) command. The following example scales the number of nodes in mynodepool to 5:
 
-  ```bash
+  ```azurecli-interactive
     az aks nodepool scale \
         --resource-group myResourceGroup \
         --cluster-name myAKSCluster \
@@ -136,7 +136,7 @@ As your application workload demands change, you may need to scale the number of
 
 You can list the status of your node pools again using the [az aks node pool list](/cli/azure/aks/nodepool#az_aks_nodepool_list) command.
 
-  ```bash
+  ```azurecli-interactive
     az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
   ```
 
@@ -146,7 +146,7 @@ AKS supports scaling node pools in an automatic mode via the  [cluster autoscale
 
 The following [az aks nodepool add](/cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-add) command shows how to add a new node pool called *mynodepool* to an existing cluster. The `--enable-cluster-autoscaler` parameter can be used to enable the cluster autoscaler on the new node pool, while the `--min-count` and `--max-count` parameters can be used to indicate, respectively, the minimum and maximum number of nodes.
 
-  ```bash
+  ```azurecli-interactive
     az aks nodepool update \
     --resource-group myResourceGroup \
     --cluster-name myAKSCluster \
@@ -158,7 +158,7 @@ The following [az aks nodepool add](/cli/azure/aks/nodepool?view=azure-cli-lates
 
 The following [az aks nodepool update](/cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-update) command can be used to update the minimum number of nodes from 1 to 3 for the *mynodepool* node pool.
 
-  ```bash
+  ```azurecli-interactive
     az aks nodepool update \
     --resource-group myResourceGroup \
     --cluster-name myAKSCluster \
@@ -170,7 +170,7 @@ The following [az aks nodepool update](/cli/azure/aks/nodepool?view=azure-cli-la
 
 The cluster autoscaler can be disabled with az aks nodepool update and passing the --disable-cluster-autoscaler parameter.
 
-  ```bash
+  ```azurecli-interactive
     az aks nodepool update \
     --resource-group myResourceGroup \
     --cluster-name myAKSCluster \
@@ -188,7 +188,7 @@ When creating a node pool, you can add Kubernetes [taints](https://kubernetes.io
 
 To create a node pool with a taint, you can use the [az aks nodepool add](/cli/azure/aks/nodepool#az_aks_nodepool_add) command with the `--node-taints` parameter. Likewise, to label the nodes in a node pool, you can use the `--labels` parameter and specify a list of labels, as shown in the following code snippet.
 
-  ```bash
+  ```azurecli-interactive
     az aks nodepool add \
         --resource-group myResourceGroup \
         --cluster-name myAKSCluster \
@@ -242,7 +242,7 @@ Using Standard_D8s_v3 with 100GB OS disk, this VM size supports ephemeral OS and
 
 The following [az aks nodepool add](/cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-add) command shows how to add a new node pool to an existing cluster with an ephemeral OS disk. The `--node-osdisk-type` parameter is used to set the OS disk type to Ephemeral, while the `--node-osdisk-size` parameter is used to define the size of the OS disk.
 
-  ```bash
+  ```azurecli-interactive
     az aks nodepool add \
         --resource-group myResourceGroup \
         --cluster-name myAKSCluster \
@@ -259,7 +259,7 @@ Azure Kubernetes Service supports creating and using Windows Server container no
 
 The following [az aks nodepool add](/cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-add) command adds a node pool to an existing cluster that can run Windows Server containers.
 
-  ```bash
+  ```azurecli-interactive
     az aks nodepool add \
         --resource-group myResourceGroup \
         --cluster-name myAKSCluster \
@@ -280,7 +280,7 @@ Spot nodes are great for workloads that can handle interruptions, early terminat
 
 The following [az aks nodepool add](/cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-add) command adds a spot node pool to an existing cluster with autoscaling enabled.
 
-  ```bash
+  ```azurecli-interactive
     az aks nodepool add \
         --resource-group myResourceGroup \
         --cluster-name myAKSCluster \
