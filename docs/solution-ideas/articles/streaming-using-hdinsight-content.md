@@ -8,9 +8,9 @@ Companies can use this solution to retrieve (or ingest) data from multiple sourc
 
 - Analyzing data from IoT sensors for quality detection, fault analysis, maintenance event prediction
 - Business integration of weather feed or sensor data (agriculture, retail)
-- Analysis of realtime stock market data (financial)
+- Analysis of real-time stock market data (financial)
 - Analysis of current market conditions (insurance and finance)
-- Trend analysis over realtime sales (retail)
+- Trend analysis over real-time sales (retail)
 
 ## Architecture
 
