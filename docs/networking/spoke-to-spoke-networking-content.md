@@ -149,17 +149,17 @@ The same designs are applicable for Virtual WAN. However, one consideration is t
 
 Principal authors: 
 
- * [Jay Li](https://www.linkedin.com/in/jiayangl) | Senior Program Manager
- * [Jose Moreno](https://www.linkedin.com/in/erjosito) | Principal Customer Engineer
+* [Jay Li](https://www.linkedin.com/in/jiayangl) | Senior Program Manager
+* [Jose Moreno](https://www.linkedin.com/in/erjosito) | Principal Customer Engineer
 * [Alejandra Palacios](https://www.linkedin.com/in/alejandrampalacios) | Senior Azure Infrastructure Customer Engineer
 
 Other contributors:
 
 * [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
- * [Mohamed Hassan](https://www.linkedin.com/in/mohnader) | Principal PM Manager
- * [Andrea Michael](https://www.linkedin.com/in/amichael98) | Program Manager
- * [Yasukuni Morishima](https://www.linkedin.com/in/yasukuni-morishima-621aa9141) | Customer Engineer II
- * [Jithin P P](https://www.linkedin.com/in/jithin-pp-0456a621) | Customer Engineer
+* [Mohamed Hassan](https://www.linkedin.com/in/mohnader) | Principal PM Manager
+* [Andrea Michael](https://www.linkedin.com/in/amichael98) | Program Manager
+* [Yasukuni Morishima](https://www.linkedin.com/in/yasukuni-morishima-621aa9141) | Customer Engineer II
+* [Jithin P P](https://www.linkedin.com/in/jithin-pp-0456a621) | Customer Engineer
 
 ## Next steps
 
@@ -168,6 +168,14 @@ Other contributors:
 - [Azure Virtual Network Manager][avnm]
 - [Virtual WAN][vwan]
 - [Azure Firewall][azfw]
+- [Secure network connectivity on Azure](/learn/modules/secure-network-connectivity-azure)
+- [Introduction to Azure Virtual Networks](/learn/modules/introduction-to-azure-virtual-networks)
+
+## Related resources
+- [Hub-spoke network topology in Azure](../reference-architectures/hybrid-networking/hub-spoke.yml)
+- [Hub-spoke network topology with Azure Virtual WAN](hub-spoke-vwan-architecture.yml)
+- [Traditional Azure networking topology](/azure/cloud-adoption-framework/ready/azure-best-practices/traditional-azure-networking-topology)
+
 
 [vwan]: /azure/virtual-wan/virtual-wan-about
 [vwan_limits]: /azure/azure-resource-manager/management/azure-subscription-service-limits#virtual-wan-limits
