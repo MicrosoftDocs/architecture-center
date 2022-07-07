@@ -19,12 +19,13 @@ Companies can use this solution to retrieve (or ingest) data from multiple sourc
 
 ### Dataflow
 
-1. Streaming data is ingested by Apache Kafka.
-1. The data is sent to Apache Spark Streaming and Apache Storm for processing.
-1. The data is stored in Apache HBase, which is a NoSQL database.
-1. The data is consumed by the user in the related apps.
-1. The data is visualized in Power BI.
-1. The data used by Azure HDInsight is stored in Azure Data Lake Storage for secure and scalable processing in the cloud.
+- Streaming data is ingested by one of the following options:
+    - Apache Kafka for data ingestion
+    - Apache Spark Streaming and Apache Storm for processing
+    - Apache HBase, which is a NoSQL database
+- The data is consumed by the user in the related apps.
+- The data is visualized in Power BI.
+- The data used by Azure HDInsight is stored in Azure Data Lake Storage for secure and scalable processing in the cloud.
 
 ### Components
 
