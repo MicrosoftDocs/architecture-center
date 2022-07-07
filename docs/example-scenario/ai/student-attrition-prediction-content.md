@@ -1,6 +1,6 @@
 This article presents a solution for predicting student attrition. Core components include:
 
-- Azure Machine Learning for training and deploying models.
+- Azure Machine Learning for training and deploying machine learning models.
 - Responsible AI Toolbox for identifying contributing factors and eliminating bias.
 - Azure Synapse Analytics for data processing.
 
@@ -42,17 +42,17 @@ This article presents a solution for predicting student attrition. Core componen
 
 #### Student data schema
 
-The information that's critical for the student attrition model consists of factors that identify student behavior. The following table lists data elements that affect student attrition and retention patterns. The list isn't complete.
+The information that's critical for the student attrition model consists of factors that influence student behavior. The following table lists data elements that affect student attrition and retention patterns. The list isn't complete.
 
 | Feature | Subfeature | Description |
 |---------|------------|-------------|
 | Gender |  | The gender that the student was assigned at birth or "Not reported." |
 | Race |  | The student's reported race: either "Black," "White," "Pacific Islander," "Asian," "American Indian," or "Not reported." |
-| First generation in college |  | Whether the student is a first-generation student. Neither parent or guardian of a first-generation student has a four-year degree or higher from a college or university. |
+| First generation in college |  | Whether the student is a first-generation student. With a first-generation student, no parent or guardian has a four-year degree or higher from a college or university. |
 | Total terms |  | The total number of terms that the student has been enrolled. |
 | High school graduate or GED |  | Whether the student graduated from high school or has an equivalent education. |
-| Cumulative GPA |  | The average over all the grades the student has earned. |
-| Cumulative credit hours earned |  | All the hours the student has accumulated over the period of enrollment. |
+| Cumulative GPA |  | The average over all the grades that the student has earned. |
+| Cumulative credit hours earned |  | All the hours that the student has accumulated over the period of enrollment. |
 | Transferred to another program |  | Whether the student has switched programs since starting. |
 | Financial aid eligible |  | Whether the student is eligible for a grant. |
 | Age | Minimum | The minimum age that's recorded for the period of enrollment. |
@@ -82,13 +82,13 @@ The information that's critical for the student attrition model consists of fact
 
 ### Components
 
-- [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake) offers limitless storage for data in different shapes and formats. Besides enterprise-grade security and monitoring support, Azure Data Lake provides easy integration to Azure analytics tools. Built on top of [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs), Azure Data Lake can manage large amounts of unstructured data, such as archives and data lakes. The service is a good fit for high-performance computing, machine learning, and cloud-native workloads. This solution provides a local data store for the machine learning data and a premium data cache for training the machine learning model.
+- [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake) offers limitless storage for data in different shapes and formats. Besides enterprise-grade security and monitoring support, Azure Data Lake integrates easily with Azure analytics tools. Built on top of [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs), Azure Data Lake can manage large amounts of unstructured data, such as archives and data lakes. The service is a good fit for high-performance computing, machine learning, and cloud-native workloads. This solution provides a local data store for the machine learning data and a premium data cache for training the machine learning model.
 
 - [SQL Database](https://azure.microsoft.com/products/azure-sql/database) is a fully managed database engine for modern cloud applications. This database service offers built-in intelligent optimization, global scalability and availability, advanced security options, and dynamic scalability with no downtime. SQL Database can automatically process relational data and non-relational structures such as graphs and JSON, spatial, and XML data. For this service's availability guarantee, see [SLA for Azure SQL Database](https://azure.microsoft.com/support/legal/sla/azure-sql-database/v1_8).
 
 - [Data Factory](https://azure.microsoft.com/services/data-factory) is an orchestration and cloud extract-transform-load (ETL) tool. Besides offering over 90 built-in connectors across various data sources, Data Factory provides copy and transformation functionality in a no-code environment. You can use its diagram view to monitor and manage data integration processes.
 
-- [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/#overview) is an analytics service for enterprise data warehouses. This service uses SQL and Spark technologies and offers dedicated or serverless options for querying data. Azure Synapse Analytics provides a unified experience for ingesting, exploring, preparing, transforming, and managing data. The service also makes data available for business intelligence and machine learning purposes.
+- [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) is an analytics service for enterprise data warehouses. This service uses SQL and Spark technologies and offers dedicated or serverless options for querying data. Azure Synapse Analytics provides a unified experience for ingesting, exploring, preparing, transforming, and managing data. The service also makes data available for business intelligence and machine learning purposes.
 
 - [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) is an enterprise-grade machine learning service for easy model development and deployment to a wide range of machine learning targets. This service provides users at all skill levels with a low-code designer, automated machine learning, and a hosted Jupyter notebook environment that supports various integrated development environments (IDEs).
 
@@ -102,7 +102,7 @@ The information that's critical for the student attrition model consists of fact
 
 - [Web Apps](/azure/app-service/overview) is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. With Web Apps, you can develop in .NET, .NET Core, Java, Ruby, Node.js, PHP, or Python. Applications easily run and scale in Windows and [Linux](/azure/app-service/overview#app-service-on-linux)-based environments.
 
-- [Power BI]() is the Azure software as a service (SaaS) for business analytics and visually immersive and interactive insights. Power BI provides a rich set of connectors to various data sources, easy transformation capabilities, and sophisticated visualization capabilities.
+- [Power BI](https://powerbi.microsoft.com) is the Azure software as a service (SaaS) for business analytics and visually immersive and interactive insights. Power BI provides a rich set of connectors to various data sources, easy transformation capabilities, and sophisticated visualization capabilities.
 
 ### Alternatives
 
@@ -111,7 +111,7 @@ The information that's critical for the student attrition model consists of fact
 
 ## Scenario details
 
-Student attrition is one of the most common challenges that educational institutions across the globe face. Attrition is prevalent at all levels of both private and public education systems, leading to various consequences. For example, in the public system, student attrition results in ineffective use of taxes. At private institutions, attrition damages reputations and negatively affects school revenue. When student attrition levels are elevated, fewer graduating professionals enter the workforce, which threatens the global economy.
+Student attrition is one of the most common challenges faced by educational institutions across the globe. Attrition is prevalent at all levels of both private and public education systems, leading to various consequences. For example, in the public system, student attrition results in ineffective use of tax revenue. At private institutions, attrition damages reputations and negatively affects school revenue. When student attrition levels are elevated, fewer graduating professionals enter the workforce, which threatens the global economy.
 
 Given these consequences, educational institutions are heavily investing in ways to reduce student attrition. It has become increasingly important for these institutions to identify and address the root causes of attrition. Understanding the major contributing factors helps institutions support individual students and implement at-scale solutions to reduce attrition rates. Institutions also must be able to predict attrition rates to minimize attrition across a broad set of program offerings.
 
@@ -123,9 +123,9 @@ For interpretability and bias detection, this solution uses the Responsible AI T
 
 This solution applies to many areas:
 
-- Adaptive learning in education: Adaptive learning is crucial for student success. After taking into account an individual student's progress, educational institutions can customize approaches and support educators in an effort to provide the best possible learning experience for the student.
-- Employee attrition prediction in human resources: Employees are valuable assets of any organization. It's important to know whether employees are dissatisfied, or whether there are other reasons employees might leave jobs. When employers have this information, they can take proactive measures to retain employees.
-- Customer churn prediction in retail: Churn prediction helps identify whether users are likely to stop using a website, service, or product. Companies and large corporations suffer losses when they can't retain customers. The customer churn model helps these organizations identify ways to improve their offerings and prevent customers from leaving them.
+- Adaptive learning. In education, adaptive learning is crucial for student success. After taking into account an individual student's progress, educational institutions can customize approaches and support educators to provide the best possible learning experience for the student.
+- Employee attrition prediction. Employees are valuable assets of any organization. It's important to know whether employees are dissatisfied, or whether there are other reasons employees might leave jobs. When employers have this information, they can take proactive measures to retain employees.
+- Customer churn prediction. In retail, churn prediction helps identify whether users are likely to stop using a website, service, or product. Companies and large corporations suffer losses when they can't retain customers. The customer churn model helps these organizations identify ways to improve their offerings and prevent customers from leaving them.
 
 ## Considerations
 
@@ -153,16 +153,14 @@ When you implement security features in this solution, consider guidelines in th
 
 - [Deploy dedicated Azure services into virtual networks](/azure/virtual-network/virtual-network-for-azure-services)
 - [Enterprise security and governance for Azure Machine Learning](/azure/machine-learning/concept-enterprise-security)
-- [Overview of the security pillar](/azure/architecture/framework/security/overview)
 
 ### Cost optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information about creating a cost-effective workload, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 - To optimize costs by paying only for what you need, scale resources according to your analytics, training, and deployment workloads.
 - To estimate the cost of implementing this solution, use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator).
 - For information about various licenses that Power BI offers, see [Power BI pricing](https://powerbi.microsoft.com/pricing).
-- For more information about creating a cost-effective workload, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 ### Performance efficiency
 
