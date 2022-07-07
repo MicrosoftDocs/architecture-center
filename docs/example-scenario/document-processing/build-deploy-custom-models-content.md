@@ -150,7 +150,7 @@ For more information on pricing for specific components, see the following resou
 
 - [Azure Form Recognizer pricing](https://azure.microsoft.com/pricing/details/form-recognizer)
 - [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions)
-- [Logic Apps Pricing](https://azure.microsoft.com/en-us/pricing/details/logic-apps/)
+- [Logic Apps Pricing](https://azure.microsoft.com/pricing/details/logic-apps/)
 - [Azure Data Factory pricing](https://azure.microsoft.com/en-in/pricing/details/data-factory/data-pipeline)
 - [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs)
 - [Language Service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-service)
