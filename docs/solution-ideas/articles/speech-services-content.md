@@ -2,7 +2,7 @@
 
 Speech Services is part of the Cognitive Services family of products and this service uses AI to work and process audio files. Some of the most common use cases for working with speech files involve the transcription of an audio file into a text file by relying on the Speech-to-text API. Furthermore, the previous use case can see its value amplified with the use of other Cognitive Services which can process the transcriptions and mine the data with APIs such as Text Analytics, Sentiment Analysis, Cognitive Search and Translation.
 
-Several industries rely on supporting their customers over the phonem, such as call centers, medical response units, emergency services units, and so on.
+Several industries rely on supporting their customers over the phone, such as call centers, medical response units, emergency services units, and so on.
 
 Traditionally, a call center relies on agents who talk over the phone with customers. The agents need to handle two jobs at the same time: listening and speaking over the phone, while at the same time taking notes for further analysis and documentation of a particular case. This makes the job not only harder for the agent, but also less efficient. It could even impact negatively on the call centers' most common KPIS, such as AHT (average handling time) and FCR (first call resolution).
 
@@ -40,7 +40,7 @@ To learn more about these services, see the following articles:
 * [Speech service](/azure/cognitive-services/Speech-Service)
 * [Train a Custom Speech model](/azure/cognitive-services/speech-service/how-to-custom-speech-train-model)
 * [Cognitive Service for Language](/azure/cognitive-services/language-service/overview)
-* [Azure Funtions](/azure/azure-functions/functions-reference)
+* [Azure Functions](/azure/azure-functions/functions-reference)
 * [Azure Queue Storage](/azure/storage/queues/storage-queues-introduction)
 
 ## Related resource
