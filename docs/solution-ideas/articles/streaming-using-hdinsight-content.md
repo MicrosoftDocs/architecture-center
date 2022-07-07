@@ -4,7 +4,7 @@ Ingest and process millions of streaming events per second with Apache Kafka, Ap
 
 ## Potential use cases
 
-Insurance companies use this solution to retrieve (or ingest) data from multiple sources that include:
+Companies can use this solution to retrieve (or ingest) data from multiple sources and make real-time business decisions. Scenarios include:
 
 - Individual and/or enterprise history
 - Market conditions
