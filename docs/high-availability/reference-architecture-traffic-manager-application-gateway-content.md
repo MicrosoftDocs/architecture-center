@@ -125,7 +125,7 @@ For considerations about designing a health probe endpoint, see [Health Endpoint
 
 ## Security considerations
 
-- Use [DDoS Protection Standard](/azure/ddos-protection/ddos-protection-overview) for greater DDoS protection than the basic protection that Azure provides. For more information, see [Security considerations](../reference-architectures/n-tier/n-tier-sql-server.yml#security-considerations).
+- Use [DDoS Protection Standard](/azure/ddos-protection/ddos-protection-overview) for greater DDoS protection than the basic protection that Azure provides. For more information, see [Security considerations](../reference-architectures/n-tier/n-tier-sql-server.yml#security).
 - Use [Network Security Groups (NSGs)](/azure/virtual-network/network-security-groups-overview) to restrict network traffic within the virtual network. For example, in the three-tier architecture shown here, the database tier accepts traffic only from the business tier and the Bastion subnet, not from the web front end.
 
 ### Network Security Groups
