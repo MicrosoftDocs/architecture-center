@@ -16,9 +16,9 @@ When managed nodes run an [Amazon EKS optimized Amazon Machine Image (AMI)](http
 
 [Amazon Virtual Private Cloud (Amazon VPC)](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) enables you to launch AWS resources into a virtual network composed of public and private subnets. A [subnet](https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html) is a range of IP addresses in the VPC. A public subnet should be used for hosting resources that must be connected to the internet, while a private subnet should be used for hosting those resources that won't be connected to the public internet. Amazon EKS managed node groups can be provisioned in both public and private subnets.
 
-There are no additional costs to use Amazon EKS managed node groups, you only pay for the AWS resources you provision. These include Amazon EC2 instances, Amazon EBS volumes, Amazon EKS cluster hours, and any other AWS infrastructure.
+There are no extra costs to use Amazon EKS managed node groups, you only pay for the AWS resources you provision. These include Amazon EC2 instances, Amazon EBS volumes, Amazon EKS cluster hours, and any other AWS infrastructure.
 
-When creating a managed node group, you can choose to leverage the [On-Demand or Spot capacity type](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html#managed-node-group-capacity-types) to reduce the cost of agent nodes. Amazon EKS deploys a managed node group with an Amazon EC2 Auto Scaling Group that either contains only On-Demand or only Amazon EC2 Spot Instances:
+When creating a managed node group, you can choose to use the [On-Demand or Spot capacity type](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html#managed-node-group-capacity-types) to reduce the cost of agent nodes. Amazon EKS deploys a managed node group with an Amazon EC2 Auto Scaling Group that either contains only On-Demand or only Amazon EC2 Spot Instances:
 
 - With On-Demand Instances, you pay for compute capacity by the second, with no long-term commitments.
 - Amazon EC2 Spot Instances are spare Amazon EC2 capacity that offers discounts compared to on-Demand prices.
@@ -207,7 +207,7 @@ When creating a new cluster or adding a new node pool to an existing cluster, yo
 
 Azure Kubernetes service supports two networking plugins:
 
-- [Kubenet](https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/#kubenet): this is a very basic, simple network plugin, on Linux only. With kubenet, nodes get a private IP address from the Azure virtual network subnet. Pods receive an IP address from a logically different address space to the Azure virtual network subnet of the nodes. Network address translation (NAT) is then configured so that the pods can reach resources on the Azure virtual network. The source IP address of the traffic is NAT'd to the node's primary IP address. This approach dramatically reduces the number of IP addresses you need to reserve in your network space for pods.
+- [Kubenet](https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/#kubenet): this is a basic, simple network plugin, on Linux only. With kubenet, nodes get a private IP address from the Azure virtual network subnet. Pods receive an IP address from a logically different address space to the Azure virtual network subnet of the nodes. Network address translation (NAT) is then configured so that the pods can reach resources on the Azure virtual network. The source IP address of the traffic is NAT'd to the node's primary IP address. This approach dramatically reduces the number of IP addresses you need to reserve in your network space for pods.
 - [Azure CNI](/azure/aks/configure-azure-cni): with [Azure Container Networking Interface (CNI)](https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md), every pod gets an IP address from the subnet and can be addressed and accessed directly. These IP addresses must be unique across your network space, and must be planned in advance. Each node has a configuration parameter for the maximum number of pods that it supports. The equivalent number of IP addresses per node are then reserved up front for that node. This approach requires more planning, and often leads to IP address exhaustion or the need to rebuild clusters in a larger subnet as your application demands grow.
 
 ### Dynamic IP allocation
@@ -228,7 +228,7 @@ By default, Azure automatically replicates the operating system disk for an virt
 
 By contrast, ephemeral OS disks are stored only on the host machine, just like a temporary disk, and provide lower read/write latency, along with faster node scaling and cluster upgrades.
 
-Like the temporary disk, an ephemeral OS disk is included in the price of the virtual machine, so you incur no additional storage costs.
+Like the temporary disk, an ephemeral OS disk is included in the price of the virtual machine, so you incur no extra storage costs.
 
 > **Important**: when a user does not explicitly request managed disks for the OS, AKS will default to ephemeral OS if possible for a given node pool configuration.
 
@@ -298,7 +298,7 @@ For more information on spot node pools, see [Add a spot node pool to an Azure K
 
 ### Virtual nodes
 
-You can use virtual nodes to scale out application workloads quickly in your AKS cluster. With virtual nodes, you have quick provisioning of pods, and only pay per second for their execution time. You don't need to wait for Kubernetes cluster autoscaler to deploy new worker nodes to run the additional pods. Virtual nodes are only supported with Linux pods and nodes.
+You can use virtual nodes to scale out application workloads quickly in your AKS cluster. With virtual nodes, you have quick provisioning of pods, and only pay per second for their execution time. You don't need to wait for Kubernetes cluster autoscaler to deploy new worker nodes to run more pod replicas. Virtual nodes are only supported with Linux pods and nodes.
 
 The virtual nodes add-on for AKS, is based on the open-source project [Virtual Kubelet](https://github.com/virtual-kubelet/virtual-kubelet).
 
