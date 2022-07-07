@@ -19,7 +19,7 @@ products:
   - azure-kubernetes-service 
   - azure-synapse-analytics 
   - power-bi 
-  - azure-purview
+  - microsoft-purview
 name: Data governance with Profisee and Microsoft Purview
 summary: Integrate Profisee master data management with Microsoft Purview, to build a foundation for data governance and management. Produce and deliver high-quality, trusted data.
 thumbnailUrl: /azure/architecture/browse/thumbs/profisee-master-data-management-purview.png
