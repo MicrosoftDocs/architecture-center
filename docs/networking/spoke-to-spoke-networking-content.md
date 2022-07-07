@@ -38,7 +38,7 @@ Direct connections between spokes typically offer better throughput, latency, an
   - Hub and spoke with spokes that are directly connected to each other, without any hop in the middle.
   - A meshed group of virtual networks that are interconnected.
   
-  *Download [all Visio diagrams](https://arch-center.azureedge.net/spoke-to-spoke-source-diagrams.vsdx) in this article.*
+  > *Download [all Visio diagrams](https://arch-center.azureedge.net/spoke-to-spoke-source-diagrams.vsdx) in this article.*
   
     :::image type="content" source="media/virtual-network-manager-connectivity-options.png" alt-text="Network diagram that shows the topologies that are supported by Azure Virtual Network Manager." lightbox="media/virtual-network-manager-connectivity-options.png" border="false":::
 
