@@ -6,12 +6,11 @@ Ingest and process millions of streaming events per second with Apache Kafka, Ap
 
 Companies can use this solution to retrieve (or ingest) data from multiple sources and make real-time business decisions. Scenarios include:
 
-- Individual and/or enterprise history
-- Market conditions
-- Competitor analysis
-- Previous claims (finance industry)
-- Local demographics (retail and government industries)
-- Weather conditions (agriculture industry)
+- Analyzing data from IoT sensors for quality detection, fault analysis, maintenance event prediction
+- Business integration of weather feed or sensor data (agriculture, retail)
+- Analysis of realtime stock market data (financial)
+- Analysis of current market conditions (insurance and finance)
+- Trend analysis over realtime sales (retail)
 
 ## Architecture
 
