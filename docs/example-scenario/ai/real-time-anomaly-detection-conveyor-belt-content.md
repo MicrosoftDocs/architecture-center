@@ -1,17 +1,19 @@
-The manufacturing industry is undergoing revolutionary changes as an increasing number of firms adopt smart factory floors enabled by artificial intelligence and machine learning. Smart factory floors digitally enable collaborative systems to provide real time responses to changing conditions and customer demands throughout their supply network.
+The manufacturing industry is undergoing revolutionary changes as an increasing number of firms adopt smart factory floors enabled by AI and machine learning. Smart factory floors digitally enable collaborative systems to provide real-time responses to changing conditions and customer demands throughout the supply network.
 
-AI (Artificial Intelligence) and ML (Machine Learning) have been applied in a variety of unique ways throughout the manufacturing sector. The most impactful of these applications are predictive maintenance and fault prevention. Particularly, detecting anomalies in temperature and vibrations of motors attached to conveyor belts has reduced maintenance costs, repair/overhaul time, and the need for spare part inventory, all while simultaneously increasing the uptime of the machinery. The introduction of predictive maintenance and fault prevention saves millions of dollars a year and in some cases saves lives by removing personnel from dangerous situations.
+AI and machine learning have been applied in unique ways throughout the manufacturing sector. The most impactful of these applications are predictive maintenance and fault prevention. Specifically, detecting anomalies in temperature and vibrations of motors attached to conveyor belts reduces maintenance costs, repair and overhaul time, and the need for spare part inventory, all while increasing the uptime of the machinery. The introduction of predictive maintenance and fault prevention saves millions of dollars a year, and in some cases saves lives by removing personnel from dangerous situations.
 
-There are several ways to achieve predictive maintenance including rule-based, supervised, and unsupervised machine learning. Rule-based ML requires known threshold levels. In the case where labels are available for anomalies, supervised ML has proven the most viable option. If no labels are available for the detection of anomalous behavior, unsupervised anomaly detection is the method of choice. Irrespective of the methodology, the model's outcome is to predict if the incoming data is anomalous.
+You can achieve predictive maintenance in several ways, including rule-based, supervised, and unsupervised machine learning. Rule-based machine learning requires known threshold levels. When labels are available for anomalies, supervised machine learning is the most viable option. If no labels are available for the detection of anomalous behavior, unsupervised anomaly detection is the best method. Whatever the methodology, the model's outcome is to predict whether the incoming data is anomalous.
 
-As sensors capture data in real time, anomaly detection methodology should be able to detect them immediately. Potential risks that would otherwise go undetected can be addressed before they escalate. This document provides an overview of an architecture to enable real-time anomaly detection.
+As sensors capture data in real time, anomaly detection should be able to detect anomalies immediately. You can address potential risks that would otherwise go undetected before they escalate. This document provides an overview of an architecture to enable real-time anomaly detection.
 
 ## Potential use cases
 
-This solution can apply to the following scenarios:
-- **Mining use case:** Predictive maintenance of conveyor belts for ore mining, specifically relevant for underground ore mining, opencast ore mining, and ore processing.
-- **Healthcare use case:** Predictive maintenance of conveyor belts used for pharmaceutical products and medical packaging.
-- **Food Industry use case:** Predictive maintenance of conveyor belts used for food production and packaging.
+You can apply this solution to the following scenarios:
+
+- **Manufacturing.** Predictive maintenance of 
+- **Energy industry.** Predictive maintenance of conveyor belts for ore mining, specifically relevant for underground ore mining, open-cast ore mining, and ore processing.
+- **Healthcare.** Predictive maintenance of conveyor belts used for pharmaceutical products and medical packaging.
+- **Food, travel, and hospitality.** Predictive maintenance of conveyor belts used for food production and packaging.
  
 ## Architecture
 
@@ -158,6 +160,8 @@ Follow MLOps guidelines to standardize and manage an end-to-end Machine Learning
 Principal authors: 
 - [Manasa Ramalinga](https://www.linkedin.com/in/trmanasa) | [Senior Cloud Solution Architect, US National CSA Team
 - [Charitha Basani](https://www.linkedin.com/in/charitha-basani-54196031) | [Senior Cloud Solution Architect, US National CSA Team
+
+Mick Alberts 
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
