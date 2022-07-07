@@ -120,17 +120,17 @@ The design variation with separate Azure firewalls or network virtual appliances
 > [!NOTE]
 > The Azure firewall requires that single Azure Firewall resource be deployed in a virtual network. Therefore, a separate hub virtual network is required for additional Azure Firewall resources. For NVA scenarios, you can use a single hub virtual network for additional NVA deployments.
 
-Virtual WAN creates a similar topology and takes over the routing complexity. It does so both in the hubs (which are managed by Microsoft) and in the spokes (where routes can be injected and don't need to be manually defined in route tables). So the network administrator only needs to connect the spoke virtual networks to a Virtual WAN hub and doesn't need to worry about forwarding traffic between regions:
+Virtual WAN creates a similar topology and takes over the routing complexity. It does so both in the hubs (which Microsoft manages) and in the spokes (where routes can be injected and don't need to be manually defined in route tables). So the network administrator only needs to connect the spoke virtual networks to a Virtual WAN hub and doesn't need to worry about forwarding traffic between regions:
 
 :::image type="content" source="media/spoke-to-spoke-through-vwan.png" alt-text="Network diagram that shows a Virtual WAN design with spokes connected via Virtual WAN." lightbox="media/spoke-to-spoke-through-vwan.png" border="false":::
 
 ### Hybrid patterns
 
-Many situations require a hybrid approach that combines the two patterns described previously. In this approach, traffic between certain spokes needs to go over direct connections, but the rest of the spokes communicate through a central network appliance. For example, in a Virtual WAN environment, you can directly connect two specific spokes that have particularly high bandwidth and low latency requirements. Another scenario involves spoke virtual networks that are part of a single environment. For example, you might allow a spoke Development virtual network to connect directly to another spoke Development virtual network, but force Development and Production workloads to communicate through the central appliance.
+Many situations require a hybrid approach that combines the two patterns described previously. In this approach, traffic between certain spokes needs to go over direct connections, but the rest of the spokes communicate through a central network appliance. For example, in a Virtual WAN environment, you can directly connect two specific spokes that have high bandwidth and low latency requirements. Another scenario involves spoke virtual networks that are part of a single environment. For example, you might allow a spoke Development virtual network to connect directly to another spoke Development virtual network, but force Development and Production workloads to communicate through the central appliance.
 
 :::image type="content" source="media/spoke-to-spoke-through-selective-peerings-2-hubs.png" alt-text="Network diagram that shows a two-region hub-and-spoke design, with some spokes connected via virtual network peerings." lightbox="media/spoke-to-spoke-through-selective-peerings-2-hubs.png" border="false":::
 
-Another common pattern involves connecting spokes in one region via direct virtual network peerings or Azure Virtual Network Manager [connected groups][avnm_connected_group], but allowing inter-regional traffic to cross NVAs. The main motivation for this model is typically to reduce the number of virtual network peerings in the architecture. However, compared to the first model (direct connectivity between spokes), one disadvantage introduced in this model is more virtual network peering hops for cross-region traffic. These hops increase costs because of the multiple virtual network peerings that are crossed. Another disadvantage is the additional load to the hub NVAs to front all cross-regional traffic.  
+Another common pattern involves connecting spokes in one region via direct virtual network peerings or Azure Virtual Network Manager [connected groups][avnm_connected_group], but allowing inter-regional traffic to cross NVAs. The main motivation for this model is typically to reduce the number of virtual network peerings in the architecture. However, compared to the first model (direct connectivity between spokes), one disadvantage introduced in this model is more virtual network peering hops for cross-region traffic. These hops increase costs because of the multiple virtual network peerings that are crossed. Another disadvantage is the extra load to the hub NVAs to front all cross-regional traffic.  
 
 :::image type="content" source="media/spoke-to-spoke-through-peerings-2-hubs.png" alt-text="Network diagram that shows a two-region hub-and-spoke design. Spokes in a single region are connected via virtual network peerings." lightbox="media/spoke-to-spoke-through-peerings-2-hubs.png" border="false":::
 
@@ -159,7 +159,7 @@ Other contributors:
 * [Mohamed Hassan](https://www.linkedin.com/in/mohnader) | Principal PM Manager
 * [Andrea Michael](https://www.linkedin.com/in/amichael98) | Program Manager
 * [Yasukuni Morishima](https://www.linkedin.com/in/yasukuni-morishima-621aa9141) | Customer Engineer II
-* [Jithin P P](https://www.linkedin.com/in/jithin-pp-0456a621) | Customer Engineer
+* [Jithin PP](https://www.linkedin.com/in/jithin-pp-0456a621) | Customer Engineer
 
 ## Next steps
 
