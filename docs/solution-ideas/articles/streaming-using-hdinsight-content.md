@@ -24,7 +24,7 @@ Companies can use this solution to retrieve (or ingest) data from multiple sourc
 1. The data is stored in Apache HBase, which is a NoSQL database.
 1. The data is consumed by the user in the related apps.
 1. The data is visualized in Power BI.
-1. The data is sent to and back from Azure HDInsight and Azure Data Lake Storage to securely autoscale processing in the cloud and to perform further analysis.
+1. The data used by Azure HDInsight is stored in Azure Data Lake Storage for secure and scalable processing in the cloud.
 
 ### Components
 
