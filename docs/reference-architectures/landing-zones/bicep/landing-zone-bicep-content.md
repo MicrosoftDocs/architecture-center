@@ -19,7 +19,7 @@ The architecture proposes the inclusion of orchestrator modules to simplify the 
 
 ## Modules
 
-A core concept in Bicep is the use of modules. Modules enable you to organize deployments into logical groupings. With modules, you improve the readability of your Bicep files by encapsulating complex details of your deployment. You can also easily reuse modules for different deployments.
+A core concept in Bicep is the use of [modules](https://docs.microsoft.com/azure/azure-resource-manager/bicep/modules). Modules enable you to organize deployments into logical groupings. With modules, you improve the readability of your Bicep files by encapsulating complex details of your deployment. You can also easily reuse modules for different deployments.
 
 The ability to re-use modules offers a real benefit when defining and deploying landing zones. It enables repeatable, consistent environments in code while reducing the effort required to deploy at scale.
 
