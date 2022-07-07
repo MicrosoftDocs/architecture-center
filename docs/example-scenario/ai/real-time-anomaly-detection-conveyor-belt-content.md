@@ -17,57 +17,57 @@ You can apply this solution to the following scenarios:
  
 ## Architecture
 
-diagram 
+:::image type="content" source="media/realtime-anomaly-detection.png" alt-text="Image alt text." lightbox="media/realtime-anomaly-detection.png" border="false"::: 
 
-*Download a [Visio file] (https://arch-center.azureedge.net/[filename].vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/realtime-anomaly-detection.vsdx) of this architecture.*
 
 ### Workflow
 
 1. Data source
 
-   A sophisticated data-collection sensor is a crucial component of the Internet of Things (IoT). The purpose of sensors is to collect analog data from the physical world and translate it into digital data assets. Sensors can measure just about any aspect of the physical world. The calibration of sensors allows them to be tailored to application-specific functions. In this dataset, sensors have been calibrated to accurately measure temperature and vibrations.
+   A sophisticated data-collection sensor is a crucial Internet of Things (IoT) component. Sensors collect analog data from the physical world and translate it into digital data assets. Sensors can measure just about any aspect of the physical world. The calibration of sensors allows them to be tailored to application-specific functions. In this dataset, sensors are calibrated to accurately measure temperature and vibrations.
    
-   On most factory floors, conveyor belts are run between specific schedules. Anomaly detection of temperature and vibrations are needed when the conveyor belt is up and running. Conveyor belt status is captured and relayed using a Time Series API.
+   On most factory floors, conveyor belts run on schedules. Anomaly detection of temperature and vibrations are needed when the conveyor belt is running. Time Series API is used to capture and relay conveyor belt status.
 
 1. Ingest
 
-   [Azure IoT](/azure/iot-fundamentals/iot-introduction) Hub is recommended for streaming data from IoT sensors and connecting IoT devices. For ingesting data from Time Series API and data orchestration, [Azure Data Factory](/azure/data-factory/introduction) is recommended.
+   We recommend [Azure IoT Hub](/azure/iot-fundamentals/iot-introduction) for streaming data from IoT sensors and connecting IoT devices. For ingesting data from Time Series API and data orchestration, we recommend [Azure Data Factory](/azure/data-factory/introduction).
 
 1. Store
    
-   Data collected from IoT sensors (Temperature and vibrations) and Timeseries API (conveyor belt status) are all time series. Time series data is a collection of observations obtained through repeated measurements over time. This data is collected as flat files. Each flat file is tagged with IoT Sensor ID, and the date/time when it is collected and stored in [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake).
+   Data collected from IoT sensors (temperature and vibrations) and Time Series API (conveyor belt status) are all time series. Time series data is a collection of observations obtained through repeated measurements over time. This data is collected as flat files. Each flat file is tagged with an IoT Sensor ID and the date and time of collection and stored in [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake).
 
-1. AI/ML - Data prep/Train
+1. AI / machine learning - data preparation and training
 
-   **Data preparation** is the process of gathering, combining, structuring, and organizing data so it can be used to build machine learning models, business intelligence (BI), and analytics and data visualization applications.
+   *Data preparation* is the process of gathering, combining, structuring, and organizing data so it can be used to build machine learning models, business intelligence (BI), and analytics and data visualization applications.
    
-   [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) is used to prepare the data before it is used to build models. Databricks provide an interactive workspace that enables collaboration between data engineers, data scientists, and machine learning engineers. As part of the analytics workflow, [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) is used to read data from [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake) to perform data wrangling and data exploration.
+   [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) is used to prepare the data before it's used to build models. It provides an interactive workspace that enables collaboration between data engineers, data scientists, and machine learning engineers. In analytics workflow, Azure Databricks is used to read data from [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake) to perform data wrangling and data exploration.
 
-   **Model training** refers to the process of allowing a machine learning algorithm to learn patterns based on data and to pick a suitable model capable of predicting the attrition of previously unseen students.
+   *Model training* is the process of using a machine learning algorithm to learn patterns based on data and pick a suitable model to make predictions.
  
-   [Azure Machine learning (AML) Studio](https://azure.microsoft.com/services/machine-learning) is used to train the model. AML is a cloud service used for accelerating and managing the machine learning project lifecycle including training, deploying models, and managing MLOps (Machine Learning Operations).
+   [Azure Machine learning](https://azure.microsoft.com/services/machine-learning) is used to train the model. Azure Machine Learning is a cloud service that accelerates and manages the machine learning project lifecycle, including training, deploying models, and managing machine learning operations (MLOps).
 
-1. AI/ML - Inference
+1. AI / machine learning - inference
 
-   Machine learning Inference is the process of feeding previously unseen data points into a machine learning model to calculate an output such as a numerical score, in this case determining if input data is anomalous.
+   *Machine learning inference* is the process of feeding previously unseen data points into a machine learning model to calculate an output, like a numerical score. In this case, it's used to determine whether input data is anomalous.
 
-   The model registry is built into [AML (Azure Machine Learning)](https://azure.microsoft.com/services/machine-learning) and is used to store and version models in the Azure cloud. The model registry makes it easy to organize and keep track of trained models.
+   The model registry is built into [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning). It's used to store and version models in Azure. The model registry makes it easy to organize and keep track of trained models.
 
-   After a machine learning model is trained, the model needs to be deployed so newly available data can be fed through it for inferencing. The deployment target is [Azure Managed Endpoint](/azure/machine-learning/concept-endpoints). Azure managed endpoint is the recommended deployment option that can be implemented easily.
+   After a machine learning model is trained, the model needs to be deployed so newly available data can be fed through it for inferencing. The recommended deployment target is an [Azure managed endpoint](/azure/machine-learning/concept-endpoints). 
 
 1. Analytical workload
 
-   The results of model scoring are saved back into the analytic systems in this case [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake) where the input data was collected. This helps in sourcing the results to the front-end and model monitoring and retraining.
+   The results of model scoring are saved back into the analytic systems, in this case [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake), where the input data was collected. This helps in sourcing the results to the front end and in model monitoring and retraining.
 
-1. Frontend model consumption
+1. Front-end model consumption
 
-   The scored results can be consumed through an app or on the [Power BI](/power-bi/fundamentals/power-bi-overview) platform. In this use case, with real time inferencing as soon as the anomalies are detected alerts can be routed to stakeholders through custom 1st or 3rd-party event management APIs hosted in Azure or elsewhere.
+   You can consume the scored results via an app or on the [Power BI](/power-bi/fundamentals/power-bi-overview) platform. In this use case, with real-time inferencing as soon as anomalies are detected, you can route alerts to stakeholders through custom Microsoft or third-party event management APIs that are hosted in Azure or elsewhere.
 
-## Sample temperature, vibrations, and conveyor belt status data
+## Sample temperature, vibration, and conveyor belt status data
 
-The data necessary to predictively maintain motors attached to conveyor belts are temperature, vibrations, and conveyor belt status. The data exhibited below is a sample for the reference.
+The data necessary to predictively maintain motors attached to conveyor belts are temperature, vibrations, and conveyor belt status. Sample data is presented here.
 
-**Conveyor Belt Status:** On most factory floors, conveyor belts are run on specific schedules. Anomaly detection of temperature and vibrations are needed only when the conveyor belt is up and running. Convery belt value zero means the conveyor belt was inactive and one means it is active. Below is a sample plot of how conveyor belt status is recorded.
+**Conveyor belt status:** On most factory floors, conveyor belts are run on specific schedules. Anomaly detection of temperature and vibration is needed only when the conveyor belt is running. A conveyer belt value of zero indicates that the conveyor belt is inactive. A value of one means it's active. Here's a sample that shows how conveyor belt status is recorded:
 
 image 
 
