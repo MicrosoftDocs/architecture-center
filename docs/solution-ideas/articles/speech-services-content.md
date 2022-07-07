@@ -12,33 +12,36 @@ This solution can be for organizations that record conversations (for training o
 
 ## Architecture
 
-![Architecture diagram shows recorded calls to Azure Trans Queue to Speech Endpoint to Transcription Result Queue to Transcript Blob and Insights.](../media/speech-services.png)
+![Architecture diagram shows recorded calls to Azure trans queue to speech endpoint to transcription result queue to transcript blob and insights.](../media/speech-services.png)
 *Download an [SVG](../media/speech-services.svg) of this architecture.*
 
 ### Dataflow
 
-1. The first step begins with the collection of data. Calls in a Call Center are usually recorded and it would be best to store those recordings in its raw state (.wav or .mp3 file formats) into a Blob Storage.
-1. A function app is then used to issue a GET request to speech service endpoint to get the results transcribed. You can also use Queue Storage to start partitioning the files before issuing a GET request to speech service endpoint. For customization, you can use Custom Speech to build a custom model and deploy the model to an endpoint to get the results transcribed.
-1. The transcribed results will generate an output as a .txt file which can be moved to Blob Storage using a POST request to the Speech Service Endpoint.
-1. Queue storage is used to work with individual files before sending them to their final destination. Call Transcripts Blob is used to store the Call Transcripts in a .txt file format and Transcription Insights Blob that will store the Transcription Insights generated using Language Services to detect sentiment, language, and key phrases for insights.
+1. The first step begins with the collection of data. Calls in a call center are usually recorded. It would be best to store those recordings in their raw state (.wav or .mp3 file formats) into a Blob Storage.
+1. A function app is then used to issue a GET request to a speech service endpoint, to get the results transcribed. You can also use Queue Storage to start partitioning the files before issuing a GET request to a speech service endpoint. For customization, you can use Custom Speech to build a custom model and deploy the model to an endpoint, to get the results transcribed.
+1. The transcribed results will generate an output as a .txt file, which can be moved to Blob Storage by using a POST request to the Speech service endpoint.
+1. Queue Storage works with individual files before sending them to their final destination. A call transcripts blob is used to store the call transcripts in a .txt file format, and a transcription insights blob will store the transcription insights that are generated using Language services to detect sentiment, language, and key phrases for insights.
 1. Finally, the visualization stage can be served either via a web app or a dashboard in Power BI.
 
 
 ### Components
 
 * [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs)
-* [Speech service](https://azure.microsoft.com/en-us/services/cognitive-services/speech-services)
-* [Cognitive Service for Language](https://docs.microsoft.com/en-us/azure/cognitive-services/language-service/overview)
-* [Azure Funtions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-reference?tabs=blob)
-* [Azure Queue Storage](https://docs.microsoft.com/en-us/azure/storage/queues/storage-queues-introduction)
+* [Speech service](https://azure.microsoft.com/services/cognitive-services/speech-services)
+* [Cognitive Service for Language](https://azure.microsoft.com/services/cognitive-services/language-service)
+* [Azure Funtions](https://azure.microsoft.com/services/functions)
+* [Azure Queue Storage](https://azure.microsoft.com/services/storage/queues)
 
 ## Next steps
 
 To learn more about these services, see the following articles:
 
 * [Azure Blob Storage](/azure/storage/blobs)
-* [Speech service](https://docs.microsoft.com/en-us/azure/cognitive-services/Speech-Service/)
-* [Train a Custom Speech model](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/how-to-custom-speech-train-model?pivots=speech-studio)
+* [Speech service](/azure/cognitive-services/Speech-Service)
+* [Train a Custom Speech model](/azure/cognitive-services/speech-service/how-to-custom-speech-train-model)
+* [Cognitive Service for Language](/azure/cognitive-services/language-service/overview)
+* [Azure Funtions](/azure/azure-functions/functions-reference)
+* [Azure Queue Storage](/azure/storage/queues/storage-queues-introduction)
 
 ## Related resource
 
