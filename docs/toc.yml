@@ -537,6 +537,10 @@ items:
                   - name: Connect AWS to Microsoft Defender
                     href: /defender-cloud-apps/connect-aws
                     maintainContext: true
+              - name: Kubernetes for AWS
+                items:
+                  - name: Manage Kubernetes agent nodes
+                    href: aws-professional/eks-to-aks/node-pools.yml
       - name: Azure for Google Cloud professionals
         expanded: true
         items:
