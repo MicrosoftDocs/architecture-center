@@ -21,7 +21,7 @@ Companies can use this solution to retrieve (or ingest) data from multiple sourc
 
 1. Streaming data is ingested by Apache Kafka.
 1. The data is sent to Apache Spark Streaming and Apache Storm for processing.
-1. The data is stored in Apache HBase, which acts as a NoSQL database.
+1. The data is stored in Apache HBase, which is a NoSQL database.
 1. The data is consumed by the user in the related apps.
 1. The data is visualized in Power BI.
 1. The data is sent to and back from Azure HDInsight and Azure Data Lake Storage to securely autoscale processing in the cloud and to perform further analysis.
