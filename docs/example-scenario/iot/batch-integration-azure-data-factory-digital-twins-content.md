@@ -1,14 +1,4 @@
-Azure Digital Twins can help you build virtual representations of your systems and your enterprise that are regularly updated with data from the people, places, and things in your enterprise. Figuring out how to get relevant data into Azure Digital Twins can seem like a challenge. If that data is from systems that require traditional extract, transform, and load (ETL) techniques, this article can help.
-
-In this example scenario, you integrate Azure Digital Twins into line-of-business (LOB) systems by synchronizing or updating your Azure Digital Twins graph with data. With your model and the data pipelines established, you can have a 360-degree view of your environment and system. You determine the frequency of synchronization based on your source systems and the requirements of your solution.
-
-## Potential use cases
-
-This solution is ideal for the manufacturing, automotive, and transportation industries. These other use cases have similar design patterns:
-
-- You have a graph in Azure Digital Twins of moving assets in a warehouse (for example, forklifts). You might want to receive data about the order that's currently being processed for each asset. To do so, you could integrate data from the warehouse management system or the sales LOB application every 10 minutes. The same graph in Azure Digital Twins can be synchronized with asset management solutions every day to receive inventory of assets that are available that day for use in the warehouse.
-
-- You have a fleet of vehicles that belong to a hierarchy that contains data that doesn't change often.  You could use this solution to keep that data updated as needed.
+In this example scenario, you integrate Azure Digital Twins into line-of-business (LOB) systems by synchronizing or updating your Azure Digital Twins graph with data.
 
 ## Architecture
 
@@ -41,6 +31,20 @@ _Download a [Visio file](https://arch-center.azureedge.net/batch-integration-azu
 ### Alternatives
 
 An alternative to this approach is to use [Azure Functions](https://azure.microsoft.com/services/functions) instead of Azure Batch. We chose not to use Azure Functions for this architecture because Functions has a timeout for execution. A timeout could be a problem if the update to Azure Digital Twins requires complex logic, or if the API gets throttled. In such a case, the function could time out before execution is complete. Azure Batch doesn't have this restriction. Also, when using Batch, you can configure the number of virtual machines that are active to process the files. This flexibility helps you to find a balance between the scale and the speed of updates.
+
+## Scenario details
+
+Azure Digital Twins can help you build virtual representations of your systems and your enterprise that are regularly updated with data from the people, places, and things in your enterprise. Figuring out how to get relevant data into Azure Digital Twins can seem like a challenge. If that data is from systems that require traditional extract, transform, and load (ETL) techniques, this article can help.
+
+In this example scenario, you integrate Azure Digital Twins into line-of-business (LOB) systems by synchronizing or updating your Azure Digital Twins graph with data. With your model and the data pipelines established, you can have a 360-degree view of your environment and system. You determine the frequency of synchronization based on your source systems and the requirements of your solution.
+
+### Potential use cases
+
+This solution is ideal for the manufacturing, automotive, and transportation industries. These other use cases have similar design patterns:
+
+- You have a graph in Azure Digital Twins of moving assets in a warehouse (for example, forklifts). You might want to receive data about the order that's currently being processed for each asset. To do so, you could integrate data from the warehouse management system or the sales LOB application every 10 minutes. The same graph in Azure Digital Twins can be synchronized with asset management solutions every day to receive inventory of assets that are available that day for use in the warehouse.
+
+- You have a fleet of vehicles that belong to a hierarchy that contains data that doesn't change often.  You could use this solution to keep that data updated as needed.
 
 ## Considerations
 
@@ -90,27 +94,35 @@ This scenario relies on managed identities for security of the data.  Data Facto
 - The Custom activity code is contained in a .zip file that's placed in Azure Storage.  A DevOps pipeline can manage the deployment of that code.
 - Data Factory supports an end-to-end DevOps lifecycle.
 
+### Cost optimization
+
+Use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator) to get accurate pricing on Azure Digital Twins, Data Factory, and Azure Batch.
+
 ## Deploy this scenario
 
 You can find a reference implementation on GitHub: [Azure Digital Twins Batch Update Prototype](https://github.com/Azure-Samples/azuredigitaltwins-batchupdate).
 
-## Pricing
-
-Use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator) to get accurate pricing on Azure Digital Twins, Data Factory, and Azure Batch.
-
 ## Contributors
 
-_This article is maintained by Microsoft. It was originally written by the following contributors._
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-**Principal author:** 
+Principal author:
 
 - [Howard Ginsburg](https://www.linkedin.com/in/howardginsburg) | Senior Cloud Solution Architect
 
-**Additional contributors:**
+Other contributors:
 
 - [Mike Downs](https://www.linkedin.com/in/mike-downs-4373a66) | Senior Cloud Solution Architect 
 - [Gary Moore](https://www.linkedin.com/in/gwmoore) | Programmer/Writer
 - [Onder Yildirim](https://www.linkedin.com/in/%C3%B6nder-yildirim-0044601) | Senior Cloud Solution Architect 
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+* [Howard Ginsburg](https://www.linkedin.com/in/howardginsburg) | Senior Cloud Solution Architect
 
 ## Next steps
 

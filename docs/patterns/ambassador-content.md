@@ -46,7 +46,7 @@ The following diagram shows an application making a request to a remote service 
 
 ![Example of the Ambassador pattern](./_images/ambassador-example.png)
 
-## Related guidance
+## Related resources
 
 - [Sidecar pattern](./sidecar.yml)
 

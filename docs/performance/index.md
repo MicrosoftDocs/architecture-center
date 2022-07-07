@@ -8,6 +8,9 @@ ms.date: 08/27/2019
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
+azureCategories: compute
+categories: compute
+products: azure
 ms.custom:
   - article
 ---

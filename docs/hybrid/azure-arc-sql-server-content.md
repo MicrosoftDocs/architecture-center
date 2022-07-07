@@ -1,17 +1,12 @@
 This reference architecture illustrates how to leverage Azure Arc for management, maintenance, and monitoring of SQL Server instances in on-premises and multi-cloud environments.
 
+## Architecture
+
 ![Diagram illustrating different scenarios that leverage Azure Arc to optimize administration of SQL Server instances residing on-premises or hosted by third-party cloud providers. The first group of scenarios consists of SQL Server instances running on physical servers or virtual machines. The second group of scenarios comprises on-premises, third-party cloud hosted Kubernetes clusters, or Azure Kubernetes Service clusters running on Azure Stack HCI, with Azure Arc data controller serving as an intermediary management layer. All of these scenarios offer integration with a range of Azure services, such as Azure Monitor and Log Analytics, Azure Policy, Microsoft Defender for Cloud, and Microsoft Sentinel.][architectural-diagram]
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
-Typical uses for this architecture include:
-
-- Assessing Azure Arc enabled SQL Server configuration, availability, performance, and compliance by using Azure Monitor.
-- Detecting and remediating security threats targeting Azure Arc enabled SQL Server by using Microsoft Defender for Cloud and Microsoft Sentinel.
-- Automating deployment and management of Azure Arc enabled SQL Managed Instance on Azure Arc-enabled Kubernetes in on-premises and multi-cloud environments.
-- Automating deployment and management of Azure Arc enabled SQL Managed Instance on Azure Kubernetes Service (AKS) on Azure Stack HCI.
-
-## Architecture
+### Workflow
 
 The architecture consists of the following components and capabilities:
 
@@ -33,6 +28,15 @@ The architecture consists of the following components and capabilities:
 - **[Microsoft Sentinel][azure-sentinel]**. This is a scalable, cloud-native, security information event management (SIEM) and security orchestration automated response (SOAR) solution.
 - **[Microsoft Defender for Cloud][azure-security-center]**. This unified infrastructure security management system strengthens the security posture of your datacenters and provides advanced threat protection across your hybrid workloads.
 - **[Azure Backup][azure-backup]**. The Azure Backup service provides simple, secure, and cost-effective solutions to back up your data and recover it from the Microsoft Azure cloud.
+
+## Scenario details
+
+Typical uses for this architecture include:
+
+- Assessing Azure Arc enabled SQL Server configuration, availability, performance, and compliance by using Azure Monitor.
+- Detecting and remediating security threats targeting Azure Arc enabled SQL Server by using Microsoft Defender for Cloud and Microsoft Sentinel.
+- Automating deployment and management of Azure Arc enabled SQL Managed Instance on Azure Arc-enabled Kubernetes in on-premises and multi-cloud environments.
+- Automating deployment and management of Azure Arc enabled SQL Managed Instance on Azure Kubernetes Service (AKS) on Azure Stack HCI.
 
 ## Recommendations
 
@@ -91,7 +95,7 @@ In addition, because Azure Arc enabled SQL Managed Instance runs on Azure Arc-en
 > [!CAUTION]
 > Verify that the Azure Arc features you intend to use in your production environment are available.
 
-## Architectural excellence
+## Considerations
 
 The [Microsoft Azure Well-Architected Framework][azure-well-architected-framerwork] is a set of guiding tenets that are followed in this reference architecture. The following considerations are framed in the context of these tenets.
 

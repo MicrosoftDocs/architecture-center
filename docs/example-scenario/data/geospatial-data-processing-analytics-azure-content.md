@@ -21,9 +21,11 @@ This solution applies to many areas:
 
 ## Architecture
 
-:::image type="complex" source="./media/geospatial-data-processing-analytics-azure-architecture.png" alt-text="Architecture diagram showing how geospatial data flows through an Azure system. Various components receive, process, store, analyze, and publish the data." border="false":::
-   The diagram contains several gray boxes, each with a different label. From left to right, the labels are Ingest, Prepare, Load, Serve, and Visualize and explore. A final box underneath the others has the label Monitor and secure. Each box contains icons that represent various Azure services. Numbered arrows connect the boxes in the way that the steps describe in the diagram explanation.
-:::image-end:::
+![Architecture diagram showing how geospatial data flows through an Azure system. Various components receive, process, store, analyze, and publish the data.](./media/geospatial-data-processing-analytics-azure-architecture-new.png)
+
+*Download a [Visio file](https://arch-center.azureedge.net/geospatial-data-processing-analytics-azure-architecture.vsdx)* of this architecture.  
+
+The diagram contains several gray boxes, each with a different label. From left to right, the labels are Ingest, Prepare, Load, Serve, and Visualize and explore. A final box underneath the others has the label Monitor and secure. Each box contains icons that represent various Azure services. Numbered arrows connect the boxes in the way that the steps describe in the diagram explanation.
 
 ### Workflow
 
@@ -85,7 +87,7 @@ Throughout the process:
 
 - [Power BI](https://powerbi.microsoft.com) is a collection of software services and apps. You can use Power BI to connect unrelated sources of data and create visuals of them.
 
-- The [Azure Maps visual for Power BI](/azure-maps/power-bi-visual-get-started) provides a way to enhance maps with spatial data. You can use this visual to show how location data affects business metrics.
+- The [Azure Maps visual for Power BI](/azure/azure-maps/power-bi-visual-get-started) provides a way to enhance maps with spatial data. You can use this visual to show how location data affects business metrics.
 
 - [Azure App Service](https://azure.microsoft.com/services/app-service) and its [Web Apps][App Service overview] feature provide a framework for building, deploying, and scaling web apps. The App Service platform offers built-in infrastructure maintenance, security patching, and scaling.
 

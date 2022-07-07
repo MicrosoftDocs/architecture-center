@@ -42,7 +42,7 @@ Client applications such as web apps, mobile apps, and even service applications
 Because this solution uses a highly scalable microservices-based architecture, consider these alternatives for the compute plane:
 
 - [Azure Functions](https://azure.microsoft.com/services/functions) for serverless API services
-- [Azure Spring Cloud](https://azure.microsoft.com/services/spring-cloud) for Java-based microservices
+- [Azure Spring Apps](https://azure.microsoft.com/services/spring-cloud) for Java-based microservices
 - [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric) for stateful and stateless microservices
 
 ## Appropriate reliability
@@ -222,6 +222,14 @@ Reliability, performance efficiency, and cost optimization go hand in hand. The 
 For AKS, you can initially start with standard-sized VMs for the node pool. You can then monitor resource requirements during development or production use, and adjust accordingly.
 
 Cost optimization is a pillar of the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index). For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview). To estimate the cost of Azure products and configurations, use the [Pricing calculator](https://azure.microsoft.com/pricing/calculator).
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+* [Subhajit Chatterjee](https://in.linkedin.com/in/subhajit-chatterjee-b9b53b44) | Principal Software Engineer
 
 ## Next steps
 

@@ -2,11 +2,21 @@
 
 Today's organizations are generating ever-increasing amounts of structured and unstructured data. With Azure managed databases and Azure Synapse Analytics, they can deliver insights to their employees via ERP applications and Power BI, as well as superior customer service through web and mobile applications, scaling without limits as data volumes and application users increase.
 
+## Potential use cases
+
+Organizations utilize ERP to assist with:
+
+- Cost savings (automate simple tasks)
+- Workflow visibility (managers can see project status)
+- Regulatory compliance
+- Data security
+- Customer management (track survey responses, support tickets, and returns)
+
 ## Architecture
 
 ![Architecture Diagram](../media/erp-customer-service.png)
 
-### Data flow
+### Dataflow
 
 First, the company must ingest data from various sources.
 

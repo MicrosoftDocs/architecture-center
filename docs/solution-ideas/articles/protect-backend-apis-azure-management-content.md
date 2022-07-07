@@ -29,7 +29,7 @@ This architecture addresses the needs of organizations seeking to:
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1932168-protect-backend-apis-azure-management.vsdx) of this architecture.*
 
-### Workflow
+### Dataflow
 
 1. To gain access to an application, an API client authenticates by providing credentials such as username and password. The IdP is Azure AD B2C in this solution, but you can use a different one.
 1. The authentication request goes via Azure Front Door to Azure AD B2C, which is configured with a custom domain for sign-in. Azure AD B2C authenticates the user and returns a JSON Web Token (JWT) bearer token back to the user.
@@ -50,7 +50,7 @@ This architecture addresses the needs of organizations seeking to:
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) provides secure communications among Azure resources such as virtual machines (VMs). It also provides access to the internet, and to on-premises networks.
 - [Azure Front Door](https://azure.microsoft.com/services/frontdoor) is a modern cloud content delivery network (CDN) service that delivers high performance, scalability, and secure user experiences for web content and applications. It offers Layer 7 capabilities such as SSL offload, path-based routing, fast failover, and caching to improve the performance and availability of your applications.
 - [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway) is a Layer 7 load balancer that manages traffic to web applications.
-- [API Management](https://azure.microsoft.com/services/api-management) is a turnkey solution for publishing APIs to external and internal clients. It provides features that are useful for managing a public-facing API, including rate limiting, IP restrictions, and authentication that uses Azure Active Directory or another IdP. API Management doesn't perform any load balancing, so it should be used in conjunction with a load balancer such as Application Gateway or a reverse proxy. For information about using API Management with Application Gateway, see [Integrate API Management in an internal virtual network with Application Gateway](/azure/api-management/api-management-howto-integrate-internal-vnet-appgateway).
+- [API Management](https://azure.microsoft.com/services/api-management) is a turnkey solution for publishing APIs to external and internal clients. It provides features that are useful for managing a public-facing API, including rate limiting, IP restrictions, and authentication that uses Azure Active Directory or another IdP. API Management doesn't perform any load balancing, so it should be used with a load balancer such as Application Gateway or a reverse proxy. For information about using API Management with Application Gateway, see [Integrate API Management in an internal virtual network with Application Gateway](/azure/api-management/api-management-howto-integrate-internal-vnet-appgateway).
 - [Azure AD B2C](https://azure.microsoft.com/services/active-directory/external-identities/b2c) is a highly available global identity management service, built on Azure Active Directory, for consumer-facing applications. It scales to hundreds of millions of identities. It's the IdP that this solution uses. It returns the bearer token (JWT) on successful authentication.
 - [Azure App Service](https://azure.microsoft.com/services/app-service) is a fully managed service for building, deploying, and scaling web apps. You can build apps by using .NET, .NET Core, Node.js, Java, Python, or PHP. The apps can run in containers or on Windows or Linux. In a mainframe migration, the front-end screens or web interface can be coded as HTTP-based REST APIs. They can be segregated as in the mainframe application, and can be stateless to orchestrate a microservices-based system.
 - [Azure App Service Environment](/azure/app-service/environment) is a single-tenant deployment of App Service. It enables hosting of applications in a fully isolated and dedicated environment for securely running App Service apps at high scale.
@@ -61,13 +61,13 @@ This architecture addresses the needs of organizations seeking to:
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-**Principal author:**
+Principal author:
 
 - [Arshad Azeem](https://www.linkedin.com/in/arshadazeem) | Senior Cloud Solution Architect
 
-**Other contributors:**
+Other contributors:
 
-- [Raj Penchala](https://www.linkedin.com/in/rajpenchala/) | Principal Cloud Security Architect
+- [Raj Penchala](https://www.linkedin.com/in/rajpenchala) | Principal Cloud Security Architect
 - [Ryan Hudson](https://www.linkedin.com/in/ryanhudsonit) | Principal Cloud Solution Architect
 
 ## Next steps

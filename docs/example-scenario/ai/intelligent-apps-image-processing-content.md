@@ -2,29 +2,33 @@ This scenario is relevant for businesses that need to process images.
 
 Potential applications include classifying images for a fashion website, analyzing text and images for insurance claims, or understanding telemetry data from game screenshots. Traditionally, companies would need to develop expertise in machine learning models, train the models, and finally run the images through their custom process to get the data out of the images.
 
-By using Azure services such as the Computer Vision API and Azure Functions, companies can eliminate the need to manage individual servers, while reducing costs and leveraging the expertise that Microsoft has already developed around processing images with Cognitive Services. This example scenario specifically addresses an image-processing use case. If you have different AI needs, consider the full suite of [Cognitive Services](/azure/cognitive-services/).
+By using Azure services such as the Computer Vision API and Azure Functions, companies can eliminate the need to manage individual servers, while reducing costs and utilizing the expertise that Microsoft has already developed with processing images with Cognitive Services. This example scenario specifically addresses an image-processing use case. If you have different AI needs, consider the full suite of [Cognitive Services](/azure/cognitive-services/).
 
 ## Potential use cases
 
-Other relevant use cases include:
+This solution is ideal for the retail, game, finance, and insurance industries. Other relevant use cases include:
 
-- Classifying images on a fashion website.
-- Classifying telemetry data from screenshots of games.
-- Classifying images for insurance claims.
+- **Classifying images on a fashion website.** Image classification can be used by sellers while uploading pictures of products on the platform for sale. They can then automate the consequent manual tagging involved. The customers can also search through the visual impression of the products.
+
+- **Classifying telemetry data from screenshots of games.** The classification of video games from screenshots is evolving into a relevant problem in social media, coupled with computer vision. For example, when Twitch streamers play different games in succession, they might skip manually updating their stream information. Failure to update stream information could result in the misclassification of streams in user searches and might lead to the loss of potential viewership for both the content creators and the streaming platforms. While introducing novel games, a custom model route could be helpful to introduce the capability to detect novel images from those games.
+
+- **Classifying images for insurance claims.** Image classification can help reduce the time and cost of claims processing and underwriting. It could help analyze natural-disaster damage, vehicle-damage, and identify residential and commercial properties.
 
 ## Architecture
 
 ![Architecture for image classification][architecture]
 
+*Download a [Visio file][visio-download] of this architecture.*
+
 ### Workflow
 
 This scenario covers the back-end components of a web or mobile application. Data flows through the scenario as follows:
 
-1. The API layer is built using [Azure Functions](/azure/azure-functions/functions-overview). These APIs enable the application to upload images and retrieve data from [Azure Cosmos DB](/azure/cosmos-db/introduction).
-2. When an image is uploaded via an API call, it's stored in [Blob storage](/azure/storage/blobs/storage-blobs-introduction).
-3. Adding new files to Blob storage triggers an Event Grid notification to be sent to an Azure Function.
-4. Azure Functions sends a link to the newly uploaded file to the [Computer Vision API](/azure/cognitive-services/computer-vision/home) to analyze.
-5. Once the data has been returned from the Computer Vision API, Azure Functions makes an entry in Cosmos DB to persist the results of the analysis along with the image metadata.
+1. Adding new files (image uploads) in Blob storage triggers an event in Azure Event Grid. The uploading process can be orchestrated via the web or a mobile application. Alternatively, images can be uploaded separately to the Azure Blob storage.
+2. Event Grid sends a notification that triggers the Azure Functions.
+3. Azure Functions calls the Azure Computer Vision API to analyze the newly uploaded image. Computer Vision accesses the image via the blob URL that's parsed by Azure Functions.
+4. Azure Functions persists the Computer Vision API response in Azure Cosmos DB. This response includes the results of the analysis, along with the image metadata.
+5. The results can be consumed and reflected on the web or mobile front end. Note that this approach retrieves the results of the classification but not the uploaded image.
 
 ### Components
 
@@ -41,6 +45,8 @@ This scenario covers the back-end components of a web or mobile application. Dat
 - [Logic Apps](https://azure.microsoft.com/services/logic-apps). If you don't need to react in real-time on added files to a blob, you might consider using Logic Apps. A logic app which can check if a file was added might be start by the [recurrence trigger or sliding windows trigger](/azure/logic-apps/concepts-schedule-automated-recurring-tasks-workflows).
 
 ## Considerations
+
+Consider these points when implementing this solution:
 
 ### Scalability
 
@@ -80,11 +86,13 @@ We have provided three sample cost profiles based on amount of traffic (we assum
 
 Principal authors:
 
- * [David Stanford](https://www.linkedin.com/in/das0) | Principal PM
+* [David Stanford](https://www.linkedin.com/in/das0) | Principal Program Manager
+* [Ashish Chauhan](https://www.linkedin.com/in/a69171115) | Senior Solution Architect
 
 ## Next steps
 
 Product documentation
+
 - [What is Computer Vision?](/azure/cognitive-services/computer-vision/home)
 - [AI enrichment in Azure Cognitive Search](/azure/search/cognitive-search-concept-intro)
 - [Introduction to Azure Functions](/azure/azure-functions/functions-overview)
@@ -93,6 +101,7 @@ Product documentation
 - [Welcome to Azure Cosmos DB](/azure/cosmos-db/introduction)
 
 For a guided learning path, see:
+
 - [Build a serverless web app in Azure][serverless]
 - [Classify images with the Custom Vision service](/learn/modules/classify-images-custom-vision)
 - [Use AI to recognize objects in images by using the Custom Vision service](/learn/modules/train-custom-vision-ai/)
@@ -107,12 +116,11 @@ Before deploying this example scenario in a production environment, review recom
 - [Knowledge mining in digital asset management](../../solution-ideas/articles/digital-asset-management.yml)
 - [AI enrichment with image and natural language processing in Azure Cognitive Search](../../solution-ideas/articles/cognitive-search-with-skillsets.yml)
 
-
 <!-- links -->
 [architecture]: ./media/architecture-intelligent-apps-image-processing.png
-[small-pricing]: https://azure.com/e/ee2cac4c69e84a328b578fcd3a398653
-[medium-pricing]: https://azure.com/e/7c7fc474db344b87aae93bc29ae27108
-[large-pricing]: https://azure.com/e/cbadbca30f8640d6a061f8457a74ba7d
+[small-pricing]: https://azure.com/e/db65c031511b4b3dadf5d143e1d80b0b
+[medium-pricing]: https://azure.com/e/a7705630b96f4ef7bedb39b2a870ceb5
+[large-pricing]: https://azure.com/e/22d0db3728bd4f78bdd709ff652b73ac
 [serverless]: /learn/paths/create-serverless-applications/
 [cv-categories]: /azure/cognitive-services/computer-vision/category-taxonomy
 [resiliency]: /azure/architecture/framework/resiliency/principles
@@ -120,3 +128,4 @@ Before deploying this example scenario in a production environment, review recom
 [scalability]: /azure/architecture/framework/scalability/performance-efficiency
 [functions-best-practices]: /azure/azure-functions/functions-best-practices
 [msi]: /azure/app-service/app-service-managed-service-identity
+[visio-download]: https://arch-center.azureedge.net/architecture-image-classification-on-azure.vsdx

@@ -25,6 +25,8 @@ A customer testifies to the usefulness of the solution: "We deployed an Azure Da
 
 :::image type="content" source="./media/security-log-retention-azure-data-explorer-architecture-diagram.png" alt-text="Architecture diagram showing the flow of security log data. Key components include Sentinel for short-term data and Azure Data Explorer for long-term storage." border="false":::
 
+### Dataflow
+
 1. For SIEM and SOAR, an enterprise uses Sentinel and Defender for Endpoint.
 1. Defender for Endpoint uses native functionality to export data to Azure Event Hubs and Azure Data Lake. Sentinel ingests Defender for Endpoint data to monitor devices.
 1. Sentinel uses Log Analytics as a data platform for exporting data to Event Hubs and Azure Data Lake.
@@ -145,6 +147,14 @@ To automate deployment, use this [PowerShell script][Integrate Azure Data Explor
 The Azure Data Explorer cluster cost is primarily based on the computing power that's used to store data in the hot cache. Queries on hot cache data offer better performance over cold cache queries. This solution stores most of the data in the cold cache, minimizing the computing cost.
 
 To explore the cost of running this solution in your environment, use the [Azure pricing calculator][Azure pricing calculator].
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Deepak Agrawal](https://www.linkedin.com/in/connectwithdeepakagrawal) | Product Manager
 
 ## Next steps
 

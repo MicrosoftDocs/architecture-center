@@ -18,6 +18,8 @@ This model is especially useful in the following scenarios:
 
 *Download a [Visio file](https://arch-center.azureedge.net/transit-hub.vsdx) of this architecture.*
 
+### Dataflow
+
 1. The **Data Producer** app publishes data to Azure Event Hubs, which sends the data to the Azure Functions **Event Processing** function.
 1. The **Data Producer** also sends the JSON schema for storage in an Azure Storage container.
 1. The **Event Processing** function retrieves the JSON schema from Azure Cache for Redis to reduce latency, and uses the schema to validate the data.
@@ -52,6 +54,14 @@ This model is especially useful in the following scenarios:
 - [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db)
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs)
 - [Azure Cache for Redis](https://azure.microsoft.com/services/cache)
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Rick Weyenberg](https://www.linkedin.com/in/rickweyenberg) | Principal Cloud Solution Architect
 
 ## Next steps
 

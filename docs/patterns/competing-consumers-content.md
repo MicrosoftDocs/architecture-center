@@ -132,7 +132,7 @@ public static void Run(
 }
 ```
 
-## Related guidance
+## Related resources
 
 The following patterns and guidance might be relevant when implementing this pattern:
 

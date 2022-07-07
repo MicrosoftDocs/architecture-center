@@ -4,8 +4,8 @@ metadata:
   titleSuffix: Azure Solution Ideas
   description: Create ETL pipelines for batch and streaming data with Azure Databricks to simplify data lake ingestion at any scale.
   author: kpistor
-  ms.author: b-macorn
-  ms.date: 6/18/2021
+  ms.author: edprice
+  ms.date: 05/27/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea

@@ -1,24 +1,24 @@
 ### YamlMime:Architecture
 metadata:
-  title: Connected factory signal pipeline
+  title: Connected factory signal processing pipeline
   titleSuffix: Azure Example Scenarios
-  description: The connected factory signal pipeline architecture provides a common configuration interface to connect brownfield IoT devices through an OPC Unified Architecture (UA) gateway using custom APIs, and KEPServerEX IoT Gateway.
+  description: See a connected factory signal processing pipeline with a common configuration interface to connect brownfield and modern IoT devices through an OPC UA gateway.
   author: EdPrice-MSFT
   ms.author: Francisco.beltrao, martin.weber
-  ms.date: 03/17/2022
+  ms.date: 06/17/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
 azureCategories:
   - iot
 products:
-  - azure-data-explorer
-  - azure-data-lake
-  - azure-digital-twins
   - azure-event-hubs
   - azure-iot-edge
-name: Connected factory signal pipeline
-summary: The connected factory signal pipeline architecture provides a common configuration interface to connect brownfield IoT devices through an OPC Unified Architecture (UA) gateway using custom APIs, and KEPServerEX IoT Gateway.
+  - azure-iot-hub
+  - azure-kubernetes-service
+  - azure-stream-analytics
+name: Connected factory signal processing pipeline
+summary: See a connected factory signal processing pipeline with a common configuration interface to connect brownfield and modern IoT devices through an OPC UA gateway.
 thumbnailUrl: /azure/architecture/browse/thumbs/connected-factory-signal-pipeline-01.png
 content: |
   [!include[](connected-factory-signal-pipeline-content.md)]

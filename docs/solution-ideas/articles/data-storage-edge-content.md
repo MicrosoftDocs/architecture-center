@@ -41,7 +41,15 @@ The architecture uses the following Azure services:
 - [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services) is a comprehensive family of AI services and cognitive APIs that your intelligent apps can use. The services can run on IoT Edge devices via containers.
 - [Azure SQL Database](https://azure.microsoft.com/services/sql-database) is a fully managed relational database with built-in intelligence.
 - [SQL Server on Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server) can run your SQL Server workloads on the cloud at the lowest total cost of ownership.
-- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is a fast NoSQL database with open APIs for any scale.
+- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) is a fast NoSQL database with open APIs for any scale.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Ansley Yeo](https://www.linkedin.com/in/ansleyyeo) | Technology Leader / IoT
 
 ## Next steps
 
