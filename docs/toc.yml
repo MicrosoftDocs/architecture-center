@@ -5824,6 +5824,8 @@ items:
             items:
               - name: Azure Virtual Desktop for the enterprise
                 href: example-scenario/wvd/windows-virtual-desktop.yml
+              - name: Esri ArcGIS on Azure Virtual Desktop
+                href: example-scenario/data/esri-arcgis-azure-virtual-desktop.yml
               - name: Multiple Active Directory forests
                 href: example-scenario/wvd/multi-forest.yml
               - name: Multiple forests with Azure AD DS
