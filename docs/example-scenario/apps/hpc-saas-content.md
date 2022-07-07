@@ -1,5 +1,4 @@
 
-
 This example scenario demonstrates delivery of a software-as-a-service (SaaS) platform built on the high-performance computing (HPC) capabilities of Azure. This scenario is based on an engineering software solution. However, the architecture is relevant to other industries requiring HPC resources such as image rendering, complex modeling, and financial risk calculation.
 
 This example demonstrates an engineering software provider that delivers computer-aided engineering (CAE) applications to engineering firms and manufacturing enterprises. CAE solutions enable innovation, reduce development times, and lower costs throughout the lifetime of a product's design. These solutions require substantial compute resources and often process high data volumes. The high costs of an on-premises HPC appliance or high-end workstations often put these technologies out of reach for small engineering firms, entrepreneurs, and students.
@@ -12,7 +11,7 @@ The company's goals include:
 - Using the latest hardware innovations to run complex simulations, while minimizing the costs for simpler simulations.
 - Enabling true-to-life visualization and rendering in a web browser, without requiring a high-end engineering workstation.
 
-## Relevant use cases
+## Potential use cases
 
 Other relevant use cases include:
 
@@ -24,7 +23,7 @@ Other relevant use cases include:
 
 ![Architecture for a SaaS solution enabling HPC capabilities][architecture]
 
-- Users can access NV-series virtual machines (VMs) via a browser with an HTML5-based RDP connection using the [Apache Guacamole service](https://guacamole.apache.org/). These VM instances provide powerful GPUs for rendering and collaborative tasks. Users can edit their designs and view their results without needing access to high-end mobile computing devices or laptops. The scheduler spins up additional VMs based on user-defined heuristics.
+- Users can access NV-series virtual machines (VMs) via a browser with an HTML5-based RDP connection using the [Apache Guacamole service](https://guacamole.apache.org). These VM instances provide powerful GPUs for rendering and collaborative tasks. Users can edit their designs and view their results without needing access to high-end mobile computing devices or laptops. The scheduler spins up additional VMs based on user-defined heuristics.
 - From a desktop CAD session, users can submit workloads for execution on available HPC cluster nodes. These workloads perform tasks such as stress analysis or computational fluid dynamics calculations, eliminating the need for dedicated on-premises compute clusters. These cluster nodes can be configured to autoscale based on load or queue depth based on active user demand for compute resources.
 - Azure Kubernetes Service (AKS) is used to host the web resources available to end users.
 
@@ -35,7 +34,7 @@ Other relevant use cases include:
 - [General purpose virtual machines](/azure/virtual-machines/linux/sizes-general) running CentOS handle more traditional workloads such as web applications.
 - [Application Gateway](/azure/application-gateway/overview) load balances the requests coming into the web servers.
 - [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) is used to run scalable workloads at a lower cost for simulations that don't require the high end capabilities of HPC or GPU virtual machines.
-- [Altair PBS Works Suite](https://www.altair.com/pbs-works/) orchestrates the HPC workflow, ensuring that enough virtual machine instances are available to handle the current load. It also deallocates virtual machines when demand is lower to reduce costs.
+- [Altair PBS Works Suite](https://www.altair.com/pbs-works) orchestrates the HPC workflow, ensuring that enough virtual machine instances are available to handle the current load. It also deallocates virtual machines when demand is lower to reduce costs.
 - [Blob storage](/azure/storage/blobs/storage-blobs-introduction) stores files that support the scheduled jobs.
 
 ### Alternatives
@@ -61,11 +60,23 @@ The following considerations will drive a substantial portion of the costs for t
 - Azure virtual machine costs increase linearly as additional instances are provisioned. Virtual machines that are deallocated will only incur storage costs, and not compute costs. These deallocated machines can then be reallocated when demand is high.
 - Azure Kubernetes Services costs are based on the VM type chosen to support the workload. The costs will increase linearly based on the number of VMs in the cluster.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+* [Alex Buck](https://www.linkedin.com/in/alex-buck-0161575) | Senior Content Developer
+
 ## Next steps
 
 - Read the [Altair customer story][source-document]. This example scenario is based on a version of their architecture.
 - Review other [Big Compute solutions](https://azure.microsoft.com/solutions/big-compute) available in Azure.
 
+## Related resources
+
+[High-performance computing (HPC) on Azure](/azure/architecture/topics/high-performance-computing)
+[Run containerized HPC workloads with Batch Shipyard](https://github.com/Azure/batch-shipyard)
 <!-- links -->
 [architecture]: ./media/architecture-hpc-saas.png
 [source-document]: https://customers.microsoft.com/story/altair-manufacturing-azure

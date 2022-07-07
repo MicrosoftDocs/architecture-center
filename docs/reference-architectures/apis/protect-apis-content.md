@@ -6,6 +6,8 @@ This article doesn't address the application's underlying services, like App Ser
 
 ![Diagram showing how Application Gateway and API Management protect APIs.](images/protect-apis.png)
 
+*Download a [Visio file](https://arch-center.azureedge.net/protect-apis.vsdx) of this architecture.*
+
 ### Workflow
 
 - Application Gateway sets up a URL redirection mechanism that sends the request to the proper [backend pool](/azure/application-gateway/application-gateway-components#backend-pools), depending on the URL format of the API call:
@@ -56,7 +58,9 @@ This article doesn't address the application's underlying services, like App Ser
   - Partner solutions like [Barracuda](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.waf?tab=overview)
   - Other solutions available in [Azure Marketplace](https://azure.microsoft.com/marketplace/)
 
-## Scalability considerations
+## Considerations
+
+### Scalability
 
 - Application Gateway is the entry point for this architecture, and the WAF feature requires additional processing power for each request analysis. To allow Application Gateway to expand its computational capacity on the spot, it's important to enable autoscaling. For more information, see [Specify autoscale](/azure/application-gateway/tutorial-autoscale-ps#specify-autoscale).
 
@@ -64,7 +68,7 @@ This article doesn't address the application's underlying services, like App Ser
 
 - To support highly concurrent scenarios, turn on API Management autoscaling. Autoscaling quickly expands API Management capabilities in response to growing numbers of incoming requests. For more information, see [Automatically scale an Azure API Management instance](/azure/api-management/api-management-howto-autoscale).
 
-## Availability considerations
+### Availability
 
 - Azure Application Gateway is always deployed in a highly available fashion. If a certain instance stops functioning, Application Gateway transparently creates a new instance. To avoid downtime when creating new instances, you can configure the Application Gateway or WAF deployment to span multiple Availability Zones, making it more resilient to zone failure. For more information, see [Autoscaling and High Availability](/azure/application-gateway/application-gateway-autoscaling-zone-redundant#autoscaling-and-high-availability).
 
@@ -72,13 +76,26 @@ This article doesn't address the application's underlying services, like App Ser
 
   API Management also supports multi-region deployments, which help reduce request latency, and improve availability if one region goes offline. For more information, see [Availability zone support for Azure API Management](/azure/api-management/zone-redundancy).
 
-## Security considerations
+### Security
 
 - For more information about Application Gateway security, see [Azure security baseline for Application Gateway](/security/benchmark/azure/baselines/application-gateway-security-baseline).
 
 - For more information about API Management security, see [Azure security baseline for API Management](/security/benchmark/azure/baselines/api-management-security-baseline).
 
+### Cost optimization
+
+The cost of this architecture depends on configuration aspects like:
+- Service tiers
+- Scalability, meaning the number of instances dynamically allocated by services to support a given demand
+- Automation scripts
+- Whether this architecture will run continuously or just a few hours a month
+
+After you assess these aspects, go to the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) to estimate pricing.
+
 ## Deploy this scenario 
+
+> [!NOTE]
+> This scenario assumes you already have a virtual network in place. If you need help creating a virtual network, see [Create a virtual network using PowerShell](/azure/virtual-network/quick-create-powershell).
 
 ### Deployment with PowerShell
 
@@ -566,21 +583,14 @@ The following deployment steps use the Azure portal to update an existing Azure 
     1. Select **Test**.
     1. Once the test completes successfully, select **Add**.
 
-## Pricing
-
-The cost of this architecture depends on configuration aspects like:
-- Service tiers
-- Scalability, meaning the number of instances dynamically allocated by services to support a given demand
-- Automation scripts
-- Whether this architecture will run continuously or just a few hours a month
-
-After you assess these aspects, go to the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) to estimate pricing.
-
 ## Next steps
+
+- [URL path-based routing overview](/azure/application-gateway/url-route-overview)
+- [Tutorial: Create an application gateway with path-based routing rules using the Azure portal](/azure/application-gateway/create-url-route-portal)
+- [Tutorial: Create an application gateway with URL path-based redirection using the Azure CLI](/azure/application-gateway/tutorial-url-redirect-cli)
+
+## Related resources
 
 - [Web API design](../../best-practices/api-design.md)
 - [Web API implementation](../../best-practices/api-implementation.md)
 - [Gateway Routing pattern](../../patterns/gateway-routing.yml)
-- [URL path-based routing overview](/azure/application-gateway/url-route-overview)
-- [Tutorial: Create an application gateway with path-based routing rules using the Azure portal](/azure/application-gateway/create-url-route-portal)
-- [Tutorial: Create an application gateway with URL path-based redirection using the Azure CLI](/azure/application-gateway/tutorial-url-redirect-cli)

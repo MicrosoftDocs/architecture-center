@@ -1,41 +1,4 @@
-There are important reasons why companies should replace their COBOL and mainframe systems:
-
-- **Scarcity of domain experience:** Developers who understand COBOL and mainframe technology are retiring, and few developers are trained to replace them. The talent pool gets steadily smaller and the costs and risks of relying on COBOL rise.
-- **Limited flexibility:** COBOL and the underlying systems that support it weren't designed for modern cloud-based applications. They're inflexible and hard to integrate.
-- **Exorbitant costs:** IBM mainframe hardware and software costs are high. Licensing and maintenance fees for ancillary mainframe applications and databases are rising.
-
-There *is* a way forward for COBOL and mainframe systems. Astadia’s automated COBOL refactoring solution delivers cloud-enabled applications and databases that do the same things as their legacy counterparts. The refactored applications run as Azure applications in virtual machines provided by Azure Virtual Machines. Azure ExpressRoute makes them available to users, and Azure Load Balancer distributes the load.
-
-Refactoring reduces costs and allows for deeper integration and for customization to meet business requirements. The hassles and costs of COBOL and the mainframe give way to a new world of quality and scalability that includes:
-
-- Automated testing and quality assurance.
-- Docker and Kubernetes for containerized deployment and orchestration.
-
-The refactoring solution creates applications that:
-
-- Are functionally equivalent to their original counterparts.
-- Are written in your choice of Java or C#.
-- Follow object-oriented concepts and paradigms.
-- Are easy to maintain.
-- Perform as well as the applications they replace, or better.
-- Are cloud-ready.
-- Are delivered using a standard DevOps toolchain and best practices.
-
-The refactoring process includes flow normalization, code restructuring, data layer extraction, data remodeling, and packaging for reconstruction. It identifies cloned code and replaces it with shared objects for simpler maintenance and manageability. The process also identifies and removes dead code by analyzing data and control dependencies.
-
-Java and C# developers adapt refactored applications for cloud optimization by using standard DevOps tools and continuous integration and continuous delivery (CI/CD) concepts. Such tools and methods aren’t available for mainframe applications. Optimization delivers efficiencies and business benefits such as elasticity, granular service definition, and easy integration with cloud-native services.
-
-## Potential use cases
-
-Automated refactoring is available for most COBOL dialects and platforms, including z/OS, OpenVMS, and VME. Candidates for using it include organizations seeking to:
-
-- Modernize infrastructure and escape the high costs, limitations, and rigidity of  mainframe systems.
-- Avoid the risks of shortages of COBOL and mainframe developers.
-- Reduce operational costs and capital expenditures.
-- Move mainframe workloads to the cloud without the costs and risks of prolonged manual rewrites.
-- Migrate mission-critical applications to the cloud while maintaining continuity with other on-premises applications.
-- Make their systems horizontally and vertically scalable.
-- Implement disaster recovery techniques.
+Astadia’s automated COBOL refactoring solution delivers cloud-enabled applications and databases that do the same things as their legacy counterparts. The refactored applications run as Azure applications in virtual machines provided by Azure Virtual Machines. Azure ExpressRoute makes them available to users, and Azure Load Balancer distributes the load.
 
 ## Mainframe architecture
 
@@ -43,7 +6,7 @@ Here's a mainframe architecture that represents the kind of system that's suitab
 
 :::image type="content" source="media/refactor-mainframe-applications-astadia-pre.png" alt-text="Diagram for a mainframe architecture that's suitable for Astadia refactoring." lightbox="media/refactor-mainframe-applications-astadia-pre.png" :::
 
-### Mainframe dataflow
+### Dataflow
 
 1. TN3270 and HTTP(S) user input arrives over TCP/IP.
 1. Mainframe input uses standard mainframe protocols.
@@ -55,7 +18,7 @@ Here's a mainframe architecture that represents the kind of system that's suitab
 1. Each operating system runs in its own partition.
 1. Partitions segregate different workloads or work types.
 
-## Architecture
+## Azure architecture
 
 Here's an Azure architecture to replace the mainframe functionality with refactored applications.
 
@@ -103,6 +66,47 @@ Here's an Azure architecture to replace the mainframe functionality with refacto
 - [Site Recovery](https://azure.microsoft.com/services/site-recovery) mirrors VMs to a secondary Azure region for quick failover and disaster recovery if an Azure datacenter fails.
 - [Data Factory](https://azure.microsoft.com/services/data-factory) is an extract, transfer, and load (ETL) service for scale-out serverless data integration and data transformation. It offers a code-free UI for intuitive authoring and single-pane-of-glass monitoring and management.
 
+## Scenario details
+
+There are important reasons why companies should replace their COBOL and mainframe systems:
+
+- **Scarcity of domain experience:** Developers who understand COBOL and mainframe technology are retiring, and few developers are trained to replace them. The talent pool gets steadily smaller and the costs and risks of relying on COBOL rise.
+- **Limited flexibility:** COBOL and the underlying systems that support it weren't designed for modern cloud-based applications. They're inflexible and hard to integrate.
+- **Exorbitant costs:** IBM mainframe hardware and software costs are high. Licensing and maintenance fees for ancillary mainframe applications and databases are rising.
+
+There *is* a way forward for COBOL and mainframe systems. Astadia’s automated COBOL refactoring solution delivers cloud-enabled applications and databases that do the same things as their legacy counterparts. The refactored applications run as Azure applications in virtual machines provided by Azure Virtual Machines. Azure ExpressRoute makes them available to users, and Azure Load Balancer distributes the load.
+
+Refactoring reduces costs and allows for deeper integration and for customization to meet business requirements. The hassles and costs of COBOL and the mainframe give way to a new world of quality and scalability that includes:
+
+- Automated testing and quality assurance.
+- Docker and Kubernetes for containerized deployment and orchestration.
+
+The refactoring solution creates applications that:
+
+- Are functionally equivalent to their original counterparts.
+- Are written in your choice of Java or C#.
+- Follow object-oriented concepts and paradigms.
+- Are easy to maintain.
+- Perform as well as the applications they replace, or better.
+- Are cloud-ready.
+- Are delivered using a standard DevOps toolchain and best practices.
+
+The refactoring process includes flow normalization, code restructuring, data layer extraction, data remodeling, and packaging for reconstruction. It identifies cloned code and replaces it with shared objects for simpler maintenance and manageability. The process also identifies and removes dead code by analyzing data and control dependencies.
+
+Java and C# developers adapt refactored applications for cloud optimization by using standard DevOps tools and continuous integration and continuous delivery (CI/CD) concepts. Such tools and methods aren’t available for mainframe applications. Optimization delivers efficiencies and business benefits such as elasticity, granular service definition, and easy integration with cloud-native services.
+
+### Potential use cases
+
+Automated refactoring is available for most COBOL dialects and platforms, including z/OS, OpenVMS, and VME. Candidates for using it include organizations seeking to:
+
+- Modernize infrastructure and escape the high costs, limitations, and rigidity of  mainframe systems.
+- Avoid the risks of shortages of COBOL and mainframe developers.
+- Reduce operational costs and capital expenditures.
+- Move mainframe workloads to the cloud without the costs and risks of prolonged manual rewrites.
+- Migrate mission-critical applications to the cloud while maintaining continuity with other on-premises applications.
+- Make their systems horizontally and vertically scalable.
+- Implement disaster recovery techniques.
+
 ## Considerations
 
 The considerations in this section, based on the [Microsoft Well-Architected Framework](/azure/architecture/framework), apply to this solution.
@@ -129,7 +133,7 @@ This solution supports deployment in containers, VMs, or Virtual Machine Scale S
 - Private Link for Azure SQL Database provides a private, direct connection that's isolated to the Azure networking backbone and that runs between VMs and SQL Database.
 - Azure Bastion maximizes admin access security by minimizing open ports. It provides secure and seamless RDP/SSH connectivity to virtual network VMs directly from the Azure portal over TLS.
 
-### Cost considerations
+### Cost optimization
 
 - Azure avoids unnecessary costs by identifying the correct number of resource types, analyzing spending over time, and scaling in advance to meet business needs without overspending.
 - Azure minimizes costs by running on VMs. You can turn off the VMs that aren't being used, and provide a schedule for known usage patterns. For more information about cost optimization for VMs, see [Virtual Machines](/azure/architecture/framework/cost/optimize-vm).
@@ -141,17 +145,17 @@ This solution supports deployment in containers, VMs, or Virtual Machine Scale S
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-**Principal author:**
+Principal author:
 
 - [Richard Cronheim](https://www.linkedin.com/in/richcronheim) | Senior Program Manager
 
-**Other contributor:**
+Other contributor:
 
 - [Bhaskar Bandam](https://www.linkedin.com/in/bhaskar-bandam-75202a9) | Senior Program Manager
 
 ## Next steps
 
-- For more information, write to legacy2azure@microsoft.com.
+- For more information, contact legacy2azure@microsoft.com.
 
 #### Azure
 

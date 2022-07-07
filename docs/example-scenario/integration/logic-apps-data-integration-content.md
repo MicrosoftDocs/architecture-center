@@ -105,6 +105,15 @@ Explore these strategies for minimizing Logic Apps costs:
 - [Specify precise trigger conditions][Trigger conditions] for workflows.
 - [Turn off logic apps][Disable or enable logic apps] that don't have to run constantly.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+- [Shan Singh](https://uk.linkedin.com/in/shantnus) | Software Engineer
+- [Beatriz Matsui](https://br.linkedin.com/in/beatrizmatsui) | Consultant – Azure Cloud & AI
+
 ## Next steps
 
 - [Import a Logic App as an API][Import a Logic App as an API]
@@ -118,7 +127,7 @@ Explore these strategies for minimizing Logic Apps costs:
 - [On-premises data gateway documentation][On-premises data gateways documentation]
 - Similar architectures:
 
-  - [On-premises data gateway for Azure Logic Apps][On-premises data gateway for Azure Logic Apps]: A logic app triggered by Azure Spring Cloud that connects to an on-premises SQL Server instance.
+  - [On-premises data gateway for Azure Logic Apps][On-premises data gateway for Azure Logic Apps]: A logic app triggered by Azure Spring Apps that connects to an on-premises SQL Server instance.
   - [Enterprise integration using queues and events][Enterprise integration using queues and events]: Logic apps that respond to API calls by integrating backend systems.
   - [Serverless web application][Serverless web application]: A serverless web app that uses Azure Functions to read database data.
 

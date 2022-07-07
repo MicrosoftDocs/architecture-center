@@ -1,8 +1,8 @@
-Engineering teams experience challenges when they set up DevOps pipelines for continuous deployment. The setup process involves build definitions, release definitions, branch policies, control gates, Azure Resource Manager (ARM) templates, and more. Furthermore, the setup for apps can take days with constant repetition. You can automate this part of the development.
+Engineering teams experience challenges when they set up Azure pipelines for continuous deployment. The setup process involves build definitions, release definitions, branch policies, control gates, Azure Resource Manager (ARM) templates, and more. Furthermore, the setup for apps can take days with constant repetition. You can automate this part of the development.
 
-This article shows you how to take advantage of Azure DevOps REST APIs to build continuous integration and continuous deployment (CI/CD) pipelines. Depending on the workload, the build steps in pipelines can vary. Every team has a preferred number of environments within their Azure subscriptions, that depend on their internal systems and business scenarios. These decisions will influence the number of stages in the DevOps pipelines.
+This article shows you how to take advantage of Azure DevOps REST APIs to build continuous integration and continuous deployment (CI/CD) pipelines. Depending on the workload, the build steps in pipelines can vary. Every team has a preferred number of environments within their Azure subscriptions, that depend on their internal systems and business scenarios. These decisions will influence the number of stages in the Azure pipelines.
 
-By using Azure DevOps service hooks and REST APIs, an event (such as the first push into the repository) can set off a series of steps and can construct the total development path for the repository. Developers can see their changes in minutes, and they no longer need to repeatedly set up DevOps pipelines to create developer, test, and production environments in Azure.
+By using Azure DevOps service hooks and REST APIs, an event (such as the first push into the repository) can set off a series of steps and can construct the total development path for the repository. Developers can see their changes in minutes, and they no longer need to repeatedly set up Azure pipelines to create developer, test, and production environments in Azure.
 
 By using the solution described in this article, your engineering team can focus on projects that create value for your customers.
 
@@ -85,7 +85,6 @@ You can find the source code, deployment files, and instructions to test this sc
 
 - [Deploy an orchestrator logic app in Azure](https://github.com/mspnp/multi-stage-azure-pipeline-automation)
 - [Deploy a .NET Angular workload](https://github.com/mspnp/multi-stage-azure-pipeline-automation-app)
-
 
 ## Next steps
 

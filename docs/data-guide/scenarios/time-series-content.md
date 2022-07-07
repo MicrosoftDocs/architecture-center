@@ -1,62 +1,94 @@
 <!-- cSpell:ignore downsample TSDB -->
-Time series data is a set of values organized by time. Examples of time series data include sensor data, stock prices, click stream data, and application telemetry. Time series data can be analyzed for historical trends, real-time alerts, or predictive modeling.
+Time series data is a set of values organized by time. Temporal ordering, a key characteristic of time series data, organizes events in the order in which they occur and arrive for processing.
 
-![Time Series Insights](./images/time-series-insights.png)
+Choose a time series solution for data whose strategic value centers around changes in an asset or process over time. You can use time series data to look backward and measure change, or to look forward and predict future change.
+Time series data typically arrives in chronological order, usually inserts into a data store, and rarely if ever updates. In contrast, standard online transaction processing (OLTP) data pipelines accept data in any order, and can be updated at any time.
 
-Time series data represents how an asset or process changes over time. The data has a timestamp, but more importantly, time is the most meaningful axis for viewing or analyzing the data. Time series data typically arrives in order of time and is usually treated as an insert rather than an update to your database. Because of this, change is measured over time, enabling you to look backward and to predict future change. As such, time series data is best visualized with scatter or line charts.
+Time series data has timestamps, and time is a meaningful axis for viewing or analyzing the data. Time series data is best visualized with a scatter or line chart.
 
-![Time series data visualized in a line chart](./images/time-series-chart.png)
-
-Some examples of time series data are:
-
-- Stock prices captured over time to detect trends.
-- Server performance, such as CPU usage, I/O load, memory usage, and network bandwidth consumption.
-- Telemetry from sensors on industrial equipment, which can be used to detect pending equipment failure and trigger alert notifications.
-- Real-time car telemetry data including speed, braking, and acceleration over a time window to produce an aggregate risk score for the driver.
-
-In each of these cases, you can see how time is most meaningful as an axis. Displaying the events in the order in which they arrived is a key characteristic of time series data, as there is a natural temporal ordering. This differs from data captured for standard OLTP data pipelines where data can be entered in any order, and updated at any time.
-
-## When to use this solution
-
-Choose a time series solution when you need to ingest data whose strategic value is centered around changes over a period of time, and you are primarily inserting new data and rarely updating, if at all. You can use this information to detect anomalies, visualize trends, and compare current data to historical data, among other things. This type of architecture is also best suited for predictive modeling and forecasting results, because you have the historical record of changes over time, which can be applied to any number of forecasting models.
-
-Using time series offers the following benefits:
-
-- Clearly represents how an asset or process changes over time.
-- Helps you quickly detect changes to a number of related sources, making anomalies and emerging trends clearly stand out.
-- Best suited for predictive modeling and forecasting.
-
-### Internet of Things (IoT)
-
-Data collected by IoT devices is a natural fit for time series storage and analysis. The incoming data is inserted and rarely, if ever, updated. The data is timestamped and inserted in the order it was received, and this data is typically displayed in chronological order, enabling users to discover trends, spot anomalies, and use the information for predictive analysis.
-
-For more information, see [Internet of Things](../big-data/index.yml#internet-of-things-iot).
-
-### Real-time analytics
-
-Time series data is often time sensitive &mdash; that is, it must be acted on quickly, to spot trends in real time or generate alerts. In these scenarios, any delay in insights can cause downtime and business impact. In addition, there is often a need to correlate data from a variety of different sources, such as sensors.
-
-Ideally, you would have a stream processing layer that can handle the incoming data in real time and process all of it with high precision and high granularity. This isn't always possible, depending on your streaming architecture and the components of your stream buffering and stream processing layers. You may need to sacrifice some precision of the time series data by reducing it. This is done by processing sliding time windows (several seconds, for example), allowing the processing layer to perform calculations in a timely manner. You may also need to downsample and aggregate your data when displaying longer periods of time, such as zooming to display data captured over several months.
-
-## Challenges
-
-- Time series data is often very high volume, especially in IoT scenarios. Storing, indexing, querying, analyzing, and visualizing time series data can be challenging.
-
-- It can be challenging to find the right combination of high-speed storage and powerful compute operations for handling real-time analytics, while minimizing time to market and overall cost investment.
+![Screenshot showing time series data visualized in a line chart.](./images/time-series-chart.png)
 
 ## Architecture
 
-In many scenarios that involve time series data, such as IoT, the data is captured in real time. As such, a [real-time processing](../big-data/real-time-processing.yml) architecture is appropriate.
+![Screenshot showing typical time series data flow.](./images/time-series-insights.png)
 
-Data from one or more data sources is ingested into the stream buffering layer by [IoT Hub](/azure/iot-hub/), [Event Hubs](/azure/event-hubs/), or [Kafka on HDInsight](/azure/hdinsight/kafka/apache-kafka-introduction). Next, the data is processed in the stream processing layer that can optionally hand off the processed data to a machine learning service for predictive analytics. The processed data is stored in an analytical data store, such as [Azure Data Explorer](/azure/data-explorer/time-series-analysis),  [HBase](/azure/hdinsight/hbase/apache-hbase-overview), [Azure Cosmos DB](/azure/cosmos-db/), Azure Data Lake, or Blob Storage. An analytics and reporting application or service, like Power BI or OpenTSDB (if stored in HBase), can be used to display the time series data for analysis.
+### Dataflow
 
-Another option is to use [Azure Time Series Insights](/azure/time-series-insights). Time Series Insights is a fully managed service for time series data. In this architecture, Time Series Insights performs the roles of stream processing, data store, and analytics and reporting. It accepts streaming data from either IoT Hub or Event Hubs and stores, processes, analyzes, and displays the data in near real time. It does not pre-aggregate the data, but stores the raw events.
+Many time series-based systems, such as [Internet of things (IoT)](../big-data/index.yml#internet-of-things-iot) scenarios, capture data in real time by using a [real-time processing](../big-data/real-time-processing.yml) architecture.
 
-Time Series Insights is schema adaptive, which means that you do not have to do any data preparation to start deriving insights. This enables you to explore, compare, and correlate a variety of data sources seamlessly. It also provides SQL-like filters and aggregates, ability to construct, visualize, compare, and overlay various time series patterns, heat maps, and the ability to save and share queries.
+1. [Azure IoT Hub](/azure/iot-hub), [Azure Event Hubs](/azure/event-hubs), or [Kafka on HDInsight](/azure/hdinsight/kafka/apache-kafka-introduction) ingest data from one or more data sources into the stream processing layer.
+1. The stream processing layer processes the data, and can hand off the processed data to a machine learning service for predictive analytics.
+1. An analytical data store like [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer), [HBase](/azure/hdinsight/hbase/apache-hbase-overview), [Azure Cosmos DB](/azure/cosmos-db), or [Azure Data Lake](https://azure.microsoft.com/services/storage/data-lake-storage) stores the processed data.
+1. An analytics and reporting application or service like [Power BI](https://powerbi.microsoft.com) or OpenTSDB for HBase can display the time series data for analysis.
 
-## Technology choices
+### Components
 
-- [Data Storage](../technology-choices/data-storage.md)
-- [Analysis, visualizations, and reporting](../technology-choices/analysis-visualizations-reporting.md)
-- [Analytical Data Stores](../technology-choices/analytical-data-stores.md)
-- [Stream processing](../technology-choices/stream-processing.md)
+For more information about the components of a time series architecture, see the following articles:
+
+- [Choose a big data storage technology in Azure](../technology-choices/data-storage.md).
+- [Choose a data analytics and reporting technology in Azure](../technology-choices/analysis-visualizations-reporting.md).
+- [Choose an analytical data store in Azure](../technology-choices/analytical-data-stores.md).
+- [Choose a stream processing technology in Azure](../technology-choices/stream-processing.md).
+
+### Alternatives
+
+You can use [Azure Data Explorer](/azure/data-explorer/time-series-analysis) to develop a complete time series service. Azure Data Explorer includes native support for creating, manipulating, and analyzing multiple time series with near real-time monitoring.
+
+Azure Data Explorer can ingest data from many services and platforms, in many formats. For more information, see [Data formats supported by Azure Data Explorer for ingestion](/azure/data-explorer/ingestion-supported-formats). Ingestion is scalable, and there are no limits.
+
+The Azure Data Explorer [Web UI](/azure/data-explorer/web-query-data) lets you run queries and [build data visualization dashboards](/azure/data-explorer/azure-data-explorer-dashboards). Azure Data Explorer also integrates with dashboard services like Power BI, Grafana, and other data visualization tools that use ODBC and JDBC connectors. For more information, see [Data visualization with Azure Data Explorer](/azure/data-explorer/viz-overview).
+
+## Use cases
+
+- You can analyze time series information to compare current to historical data, detect anomalies and generate real-time alerts, or visualize historical trends.
+
+- Time-series analysis is also well-suited to predictive modeling and results forecasting. You can apply historical change records to many forecasting models.
+
+- IoT data is a natural fit for time series storage and analysis. Incoming IoT data is inserted, and rarely if ever updated. The data is timestamped, inserted in the order received, and typically displays in chronological order. You can look backward to spot anomalies and discover trends, or look forward and use the data for predictive analysis.
+
+Specific examples of time series data include:
+
+- Stock prices captured over time to detect trends.
+- Server performance, such as CPU usage, I/O load, memory usage, and network bandwidth consumption over time.
+- Telemetry from industrial equipment sensors, which can indicate pending equipment failure and trigger alert notifications.
+- Real-time auto data like speed, braking, and acceleration collected over a time period, to produce an aggregate risk score for the driver.
+
+In each of these cases, time is a meaningful axis.
+
+## Considerations
+
+Here are some of the benefits of time series solutions:
+
+- Clearly represent how an asset or process changes over time.
+- Help you quickly detect changes to several related sources, making anomalies and emerging trends easy to identify.
+- Are well-suited for predictive modeling and forecasting.
+
+Here are some of the challenges for time series solutions:
+
+- Time series data is often time sensitive, and must be acted on quickly to spot real-time trends or generate alerts. Delays can cause downtime and business impact.
+- There's often a need to correlate data from different sensors and other sources, increasing complexity.
+- Time series data is often high volume, especially in IoT scenarios. Storing, indexing, querying, analyzing, and visualizing high data volumes can be challenging.
+- It can be hard to find the right combination of high-speed storage and powerful compute for real-time analytics, while minimizing time to market and overall cost investment.
+- A stream processing layer that can process all incoming data in real-time with high precision and high granularity isn't always possible. You might need to sacrifice some precision by reducing data.
+  - You can reduce data by processing sliding time windows like several seconds, to allow the processing layer time to perform calculations.
+  - You can also downsample and aggregate data when displaying longer time periods, such as zooming to display data captured over several months.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+- [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect
+
+## Next steps
+
+- [Microsoft Time Series Algorithm](/analysis-services/data-mining/microsoft-time-series-algorithm)
+- [Time series analysis in Azure Data Explorer](/azure/data-explorer/time-series-analysis)
+
+## Related resources
+
+- [Introduction to predictive maintenance in manufacturing](../../industries/manufacturing/predictive-maintenance-overview.yml)
+- [Predictive maintenance for industrial IoT](../../solution-ideas/articles/iot-predictive-maintenance.yml)
+- [Condition monitoring for industrial IoT](../../solution-ideas/articles/condition-monitoring.yml)
+- [Choose an Internet of Things (IoT) solution in Azure](../../example-scenario/iot/iot-central-iot-hub-cheat-sheet.yml)

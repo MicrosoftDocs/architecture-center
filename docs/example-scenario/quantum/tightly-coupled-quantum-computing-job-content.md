@@ -34,6 +34,7 @@ The tightly coupled approach is preferred in these cases:
 *Download a [PowerPoint file](https://arch-center.azureedge.net/tightly-coupled-quantum.pptx) of this architecture.*
 
 ### Dataflow
+
 1. A signed-in user triggers quantum job execution via a classical client application.
 1. The client application puts input data into Azure Storage.
 1. The client application submits the job to an Azure Quantum workspace, specifying the execution target or targets. The client identifies the workspace via data that's stored in Key Vault and authenticates to the workspace via [managed identity](/azure/active-directory/managed-identities-azure-resources/overview).
@@ -44,6 +45,7 @@ The tightly coupled approach is preferred in these cases:
 This workflow implements the [Asynchronous Request-Reply pattern](../../patterns/async-request-reply.yml) and the steps defined for the [Azure Quantum job lifecycle](/azure/quantum/how-to-work-with-jobs#job-lifecycle).
 
 ### Components
+
 * [Azure Quantum](https://azure.microsoft.com/services/quantum) provides a [workspace](/azure/quantum/how-to-create-workspace), accessible from the Azure portal, for assets associated with running quantum or optimization jobs on various targets. Jobs are run on quantum simulators, quantum hardware, or optimization solvers, depending on the provider you choose.
 * [Azure Active Directory](https://azure.microsoft.com/services/active-directory) coordinates user authentication and helps to protect access to the Azure Quantum workspace.
 * [Key Vault](https://azure.microsoft.com/services/key-vault) safeguards and maintains control of keys and other secrets, like the Azure Quantum workspace name.
@@ -89,7 +91,7 @@ Monitor job execution so you can inform the user about job status. When job exec
 
 For a description of a continuous integration and continuous delivery (CI/CD) approach for this architecture, see [CI/CD for quantum computing jobs](../../solution-ideas/articles/cicd-for-quantum-computing-jobs.yml).
 
-## Pricing
+### Cost optimization
 
 The overall cost of this solution depends on the quantum computing target that you select to run the quantum job. Calculating estimated costs for the classic components is straightforward. You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
 

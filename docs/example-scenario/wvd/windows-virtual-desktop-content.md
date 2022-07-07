@@ -43,8 +43,8 @@ Microsoft manages the following Azure Virtual Desktop services, as part of Azure
 
 Customers manage these components of Azure Virtual Desktop solutions:
 
-- **Azure Virtual Network:** [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/) lets Azure resources like VMs communicate privately with each other and with the internet. By connecting Azure Virtual Desktop host pools to an Active Directory domain, you can define network topology to access virtual desktops and virtual apps from the intranet or internet, based on organizational policy. You can connect an Azure Virtual Desktop to an on-premises network using a virtual private network (VPN), or use [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) to extend the on-premises network into the Azure cloud over a private connection.
-- **Azure AD:** Azure Virtual Desktop uses [Azure AD](https://azure.microsoft.com/services/active-directory/) for identity and access management. Azure AD integration applies Azure AD security features like conditional access, multi-factor authentication, and the [Intelligent Security Graph](https://www.microsoft.com/security/business/intelligence), and helps maintain app compatibility in domain-joined VMs.
+- **Azure Virtual Network:** [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) lets Azure resources like VMs communicate privately with each other and with the internet. By connecting Azure Virtual Desktop host pools to an Active Directory domain, you can define network topology to access virtual desktops and virtual apps from the intranet or internet, based on organizational policy. You can connect an Azure Virtual Desktop to an on-premises network using a virtual private network (VPN), or use [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) to extend the on-premises network into the Azure cloud over a private connection.
+- **Azure AD:** Azure Virtual Desktop uses [Azure AD](https://azure.microsoft.com/services/active-directory) for identity and access management. Azure AD integration applies Azure AD security features like conditional access, multi-factor authentication, and the [Intelligent Security Graph](https://www.microsoft.com/security/business/intelligence), and helps maintain app compatibility in domain-joined VMs.
 - **AD DS:** Azure Virtual Desktop VMs must domain-join an [AD DS](https://azure.microsoft.com/services/active-directory-ds/) service, and the AD DS must be in sync with Azure AD to associate users between the two services. You can use [Azure AD Connect](/azure/active-directory/hybrid/whatis-azure-ad-connect) to associate AD DS with Azure AD.
 - **Azure Virtual Desktop session hosts:** A host pool can run the following operating systems:
   - Windows 7 Enterprise
@@ -69,7 +69,7 @@ Pooled desktop solutions, also called non-persistent desktops, assign users to w
 
 There are several options for updating Azure Virtual Desktop instances. Deploying an updated image every month guarantees compliance and state.
 
-- [Microsoft Endpoint Configuration Manager (MECM)](/mem/configmgr/) updates server and desktop operating systems.
+- [Microsoft Endpoint Configuration Manager (MECM)](/mem/configmgr) updates server and desktop operating systems.
 - [Windows Updates for Business](/windows/deployment/update/waas-manage-updates-wufb) updates desktop operating systems like Windows 10 multi-session.
 - [Azure Update Management](/azure/automation/update-management/overview) updates server operating systems.
 - [Azure Log Analytics](/azure/azure-monitor/platform/log-analytics-agent) checks compliance.
@@ -77,7 +77,7 @@ There are several options for updating Azure Virtual Desktop instances. Deployin
 
 ## Relationships between key logical components
 
-The relationships between host pools, workspaces and other key logical components vary. The following diagram summarises these relationships.
+The relationships between host pools, workspaces and other key logical components vary. The following diagram summarizes these relationships.
 
 ![Relationships between key logical components](images/azure-virtual-desktop-component-relationships.png)
 
@@ -123,7 +123,7 @@ Azure Virtual Desktop much like Azure has a number of service limitations that y
 |-----------------------------------------------------|-------------------------------------------------|--------------------------------------------------|
 | Workspace                                           | Azure Active Directory Tenant                   | 1300 |
 | HostPool                                            | Workspace                                       | 400 |
-| Application group                                   | HostPool                                        | 500<sup>1</sup> |
+| Application group                                   | Azure AD Tenant                                 | 500<sup>1</sup> |
 | RemoteApp                                           | Application group                               | 500 |
 | Role Assignment                                     | Any AVD Object                                  | 200 |
 | Session Host                                        | HostPool                                        | 10,000 |
@@ -150,14 +150,22 @@ Use simulation tools to test deployments with both stress tests and real-life us
 
 Use the [ARM templates](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates) to automate the deployment of your Azure Virtual Desktop environment. These ARM templates support only Azure Resource Manager's Azure Virtual Desktop objects. These ARM templates don't support Azure Virtual Desktop (classic).
 
-## Pricing
+## Cost Optimization
 
 Architect your Azure Virtual Desktop solution to realize cost savings. Here are five different options to help manage costs for enterprises:
 
 - **Windows 10 multi-session**: By delivering a multi-session desktop experience for users that have identical compute requirements, you can let more users log onto a single VM at once, resulting in considerable cost savings.
 - **Azure Hybrid Benefit**: If you have Software Assurance, you can use [Azure Hybrid Benefit for Windows Server](/azure/virtual-machines/windows/hybrid-use-benefit-licensing) to save on the cost of your Azure infrastructure.
-- **Azure Reserved Instances:** You can prepay for your VM usage and save money. Combine [Azure Reserved Instances](https://azure.microsoft.com/pricing/reserved-vm-instances/) with Azure Hybrid Benefit for up to 80 percent savings over list prices.
+- **Azure Reserved Instances:** You can prepay for your VM usage and save money. Combine [Azure Reserved Instances](https://azure.microsoft.com/pricing/reserved-vm-instances) with Azure Hybrid Benefit for up to 80 percent savings over list prices.
 - **Session host load-balancing**: When setting up session hosts, **Breadth-first** is the standard default mode, which spreads users randomly across session hosts. **Depth-first** mode fills up a  session host server with the maximum number of users before it moves on to the next session host. You can adjust this setting for maximum cost benefits.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Tom Hickling](https://www.linkedin.com/in/tomhickling) | Senior Product Manager, Azure Virtual Desktop Engineering
 
 ## Next steps
 

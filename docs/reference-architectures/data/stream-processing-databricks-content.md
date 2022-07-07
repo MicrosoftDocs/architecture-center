@@ -12,7 +12,9 @@ This solution is optimized for the retail industry.
 
 ## Architecture
 
-![Diagram showing a reference architecture for stream processing with Azure Databricks.](./images/stream-processing-databricks.png)
+![Diagram showing a reference architecture for stream processing with Azure Databricks.](./images/stream-processing-databricks-new.png)
+
+*Download a [Visio file](https://arch-center.azureedge.net/stream-processing-databricks.vsdx)* of this architecture.
 
 ### Workflow
 
@@ -46,7 +48,9 @@ Event Hubs uses [partitions](/azure/event-hubs/event-hubs-features#partitions) t
 
 In this scenario, ride data and fare data should end up with the same partition ID for a given taxi cab. This enables Databricks to apply a degree of parallelism when it correlates the two streams. A record in partition *n* of the ride data will match a record in partition *n* of the fare data.
 
-![Diagram of stream processing with Azure Databricks and Event Hubs](./images/stream-processing-databricks-eh.png)
+![Diagram of stream processing with Azure Databricks and Event Hubs](./images/stream-processing-databricks-eh-new.png)
+
+*Download a [Visio file](https://arch-center.azureedge.net/stream-processing-databricks-eh.vsdx)* of this architecture.
 
 In the data generator, the common data model for both record types has a `PartitionKey` property that is the concatenation of `Medallion`, `HackLicense`, and `VendorId`.
 

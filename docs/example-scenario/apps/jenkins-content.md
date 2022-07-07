@@ -8,6 +8,11 @@ This architecture supports disaster recovery with Azure services but does not co
 
 The focus of this document is on the core Azure operations needed to support Jenkins, including the use of Azure Storage to maintain build artifacts, the security items needed for SSO, other services that can be integrated, and scalability for the pipeline. The architecture is designed to work with an existing source control repository. For example, a common scenario is to start Jenkins jobs based on GitHub commits.
 
+## Potential use cases
+
+- Automate CI/CD pipelines
+- Ensure high availability (HA) for mission-critical services
+
 ## Architecture
 
 The architecture consists of the following components:
@@ -28,7 +33,7 @@ The architecture consists of the following components:
 
 - **Managed disks.** A [managed disk][managed-disk] is a persistent virtual hard disk (VHD) used for application storage and also to maintain the state of the Jenkins server and provide disaster recovery. Data disks are stored in Azure Storage. For high performance, [premium storage][premium] is recommended.
 
-- **Azure Blob storage.** The [Windows Azure Storage][configure-storage] Learn how to Azure Blob storage to store the build artifacts that are created and shared with other Jenkins builds.
+- **Azure Blob storage.** The [Microsoft Azure Storage][configure-storage] Learn how to Azure Blob storage to store the build artifacts that are created and shared with other Jenkins builds.
 
 - **Azure Active Directory (Azure AD).** [Azure AD][azure-ad] supports user authentication, allowing you to set up SSO. Azure AD [service principals][service-principal] define the policy and permissions for each role authorization in the workflow, using [Azure role-based access control (Azure RBAC)][rbac]. Each service principal is associated with a Jenkins job.
 

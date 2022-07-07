@@ -1,5 +1,3 @@
-
-
 Azure provides Oracle database images with a "bring your own license" model. If you're properly licensed to use Oracle software, you're allowed to migrate Oracle databases to Azure Virtual Machines (VMs).
 
 See [Oracle and Microsoft Strategic Partnership FAQ](https://www.oracle.com/cloud/azure-interconnect-faq.html) to figure out if Oracle certifies and supports your Oracle database on Azure.
@@ -7,6 +5,8 @@ See [Oracle and Microsoft Strategic Partnership FAQ](https://www.oracle.com/clou
 ## Architecture
 
 ![An architecture diagram that shows Oracle databases on Azure Virtual Machines.](media/lift-shift-azure-vms.png)
+
+### Workflow
 
 1. Create Azure VMs with the correct specifications to support your Oracle database.
 

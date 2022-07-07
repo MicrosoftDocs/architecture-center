@@ -7,7 +7,7 @@ data could improve decision making across multiple banking activities.
 With this data, banks could find information faster about who is at risk for defaulting on
 a loan. Banks can also decide what market portfolio valuation adjustments are needed. Banks
 could also have a clearer view of how their data is stored and managed to meet
-regulatory requirements, so that data can be leveraged, retained, archived or
+regulatory requirements. This way, the data can be leveraged, retained, archived, or
 deleted to comply.
 
 Thousands of decisions, large and small, are required to meet everyday banking
@@ -19,8 +19,7 @@ requires transparency from ingestion to producing actionable data.
 
 To manage the many accounts or businesses that banks are serving, they need to
 make sense of all this data rapidly and cost-effectively. As banks mature
-digitally, the amount of data and the opportunities to leverage that data in new
-ways is exponentially growing. This growth enables banks to pursue new business models and
+digitally, the amount of data and the new opportunities to apply that data are exponentially growing. This growth enables banks to pursue new business models and
 areas of customer-centric opportunities.
 
 Having the appropriate data storage strategy in place is key to operational
@@ -79,14 +78,13 @@ provide data transparency and reliable security.
 ### Virtual Network (VNet) service endpoints
 
 Security is a primary concern when dealing with customer financial information.
-The securing of resources (such as database) within Azure often depends on
+The securing of resources (such as a database) within Azure often depends on
 setting up a network infrastructure within Azure itself, and then accessing that
 network via a specific endpoint.
 
 Before transferring data to Azure, it's useful to consider the network topology
 securing both your Azure resources and the connection to them from on-premises.
-[Virtual Network (VNet?WT.mc_id=bankdm-docs-dastarr) service
-endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview?WT.mc_id=bankdm-docs-dastarr)
+[Virtual Network service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview?WT.mc_id=bankdm-docs-dastarr)
 provide a secured direct connection to an Azure defined VNet.
 
 VNets are defined in Azure to contain Azure resources within a bounded VNet. An
@@ -112,8 +110,8 @@ In the case of smaller databases, the first step of data ingestion is typically
 creating the datastores and structures (like tables) needed via the Azure
 Portal, Azure CLI, or the Azure SDK. For these smaller data stores, the next
 steps may be performed by a custom application written to copy the right data to
-the appropriate Azure data storage. For larger data migrations restoring backups
-in Azure is typically the fastest route.
+the appropriate Azure data storage. Typically, the fastest route for larger data migrations is to restore backups
+in Azure.
 
 There are many ways to transfer data securely and quickly into Azure. [See this
 article](/azure/architecture/data-guide/scenarios/data-transfer?WT.mc_id=bankdm-docs-dastarr)
@@ -126,7 +124,7 @@ Migration Service](/azure/dms/dms-overview?WT.mc_id=bankdm-docs-dastarr) can
 be used to move databases to Azure. The service uses the [Data Migration
 Assistant](/sql/dma/dma-overview?WT.mc_id=bankdm-docs-dastarr) to ensure your
 on-premises database will be compatible with features offered in Azure SQL. Any
-changes required before migrating the database is up to you. Further, use of the
+changes required before migrating the database are up to you. Further, use of the
 service requires a Site-to-Site internet connection between the on-premises
 network and Azure.
 
@@ -135,8 +133,8 @@ network and Azure.
 If SQL Server is on-premises today and the goal is to move to SQL Azure, another
 great technique is to use SQL Server Management Studio [and the BCP utility to
 move data](https://azure.microsoft.com/blog/bcp-and-sql-azure/?WT.mc_id=bankdm-docs-dastarr) into SQL
-Azure. After scripting and creating Azure SQL databases from the original
-on-premises server, BCP can be used to rapidly transfer data into SQL Azure.
+Azure. After you script and create Azure SQL databases from the original
+on-premises server, BCP can be used to rapidly transfer data into Azure SQL.
 
 ### Azure Blob and File storage
 
@@ -172,7 +170,7 @@ the bank’s existing datacenter as shown in Figure 1. The corporate data center
 connects to Files storage through an SMB (Server Message Block) connection.
 Logically, and from the site network’s point of view, the file share can be in
 the corporate datacenter and can be mounted as any other networked file share.
-When using this technique, data is encrypted at rest and during transport
+When you use this technique, data is encrypted at rest and during transport
 between the data center and Azure.
 
 ![Logical File Sharing](./images/data-management-banking-overview/logical-network-connection.png)
@@ -180,7 +178,7 @@ between the data center and Azure.
 Figure 1
 
 Enterprises often use Files storage to consolidate and secure large volumes of
-files. This allows retiring old file servers or re-purposing the hardware.
+files. This allows retiring old file servers or repurposing the hardware.
 Another advantage of moving to Files storage is to centralize data management
 and recovery services.
 
@@ -192,7 +190,7 @@ A service focused on migrating very large volumes of data to Azure is [Azure Dat
 Box](https://azure.microsoft.com/services/storage/databox/?WT.mc_id=bankdm-docs-dastarr). This service
 is designed to migrate data without transferring data or backups over an Azure
 connection. Suitable for terabytes of data, Azure Data Box is an appliance that
-can be ordered from the Azure Portal. It's shipped to your location, where it
+can be ordered from the Azure portal. It's shipped to your location, where it
 can be connected to your network and loaded with data via standard NAS protocols
 and secured via standard256-AES encryption. Once the data is on the appliance,
 it's shipped back to the Azure Data Center where the data is hydrated in Azure.
@@ -205,10 +203,10 @@ Azure Information Protection (AIP) is a cloud-based solution helping organizatio
 ## Data services
 
 Banks struggle with Master Data Management, meta data conflicting due to disparate core banking systems,
-and data coming from origination systems, onboarding systems, offers management systems, CRM systems, and more. Azure has tools to help mitigate thesee and other commonly occurring data issues.
+and data coming from origination systems, onboarding systems, offers management systems, CRM systems, and more. Azure has tools to help mitigate these and other commonly occurring data issues.
 
 There are many operations financial services organizations need to perform on
-their data. When writing data to Azure data stores, there may be a need to
+their data. When you write data to Azure data stores, there may be a need to
 transform that data or to join it with other data that augments what is being
 ingested.
 
@@ -231,7 +229,7 @@ transformed to another format for later downstream processing. An example is
 converting .csv files to parquet files, which are better suited for machine
 learning systems, and storing those parquet files in Blog storage.
 
-Data may also be submitted to downstream compute services such as such as [Azure
+Data may also be submitted to downstream compute services, such as [Azure
 HDInsight](/azure/hdinsight/hadoop/apache-hadoop-introduction?WT.mc_id=bankdm-docs-dastarr),
 [Spark](/azure/hdinsight/spark/apache-spark-overview?WT.mc_id=bankdm-docs-dastarr),
 [Azure Data Lake
@@ -252,7 +250,7 @@ Data Factory pipelines are composed of activities, which take in and output
 datasets. Activities can be assembled into a pipeline defining where you want to
 get your data, how you want it processed, and where you want to store the
 results. Building pipelines with activities is the heart of Data Factory and
-composing a visual workflow right in the Azure Portal makes creating pipelines
+composing a visual workflow right in the Azure portal makes creating pipelines
 easy. [See here for a complete
 listing](/azure/data-factory/concepts-pipelines-activities?WT.mc_id=bankdm-docs-dastarr)
 of activities.
@@ -287,7 +285,7 @@ ownership of the hardware.
 
 ### Azure Archive Storage
 
-For unstructured data such as files or images, Azure offers [several tiers of
+For unstructured data, such as files or images, Azure offers [several tiers of
 storage](/azure/storage/blobs/storage-blob-storage-tiers?WT.mc_id=bankdm-docs-dastarr)
 for Blob storage including hot, cool, and archive. The hot access tier is for
 data that is active and expected to be most performant and in use in
@@ -305,7 +303,7 @@ expensive data tier for blob storage.
 
 ### Azure SQL Database long-term retention
 
-When using Azure SQL, there's a [long-term backup retention
+When you use Azure SQL, there's a [long-term backup retention
 service](/azure/sql-database/sql-database-long-term-retention?WT.mc_id=bankdm-docs-dastarr)
 for storing backups up to ten years. Users can schedule backups to be retained
 for long-term storage such that the backup will be retained for weeks, months,
@@ -355,27 +353,15 @@ are good resources to help plan your overall strategy.
 
 The following technologies are relevant to this solution:
 
-- [Azure
-    Functions](/azure/azure-functions/functions-bindings-timer?WT.mc_id=bankdm-docs-dastarr)
-    are serverless scripts and small programs that can run in response to a
-    system event or on a timer.
+- [Azure Functions](https://azure.microsoft.com/services/functions) is a service that uses serverless scripts and small programs that can run in response to a system event or on a timer.
 
-- [Azure Storage Client
-    Tools](/azure/storage/common/storage-explorers?WT.mc_id=bankdm-docs-dastarr)
-    are tools to access data stores and include far more than the Azure portal.
+- [Azure Storage Client Tools](/azure/storage/common/storage-explorers?WT.mc_id=bankdm-docs-dastarr) are tools to access data stores and include far more than the Azure portal.
 
-- [Blob
-    storage](/azure/storage/blobs/storage-blobs-introduction?WT.mc_id=bankdm-docs-dastarr)
-    is suitable to store files like text or images and other types of
-    unstructured data.
+- [Blob storage](https://azure.microsoft.com/services/storage/blobs) is suitable to store files like text or images and other types of unstructured data.
 
-- [Databricks](/azure/azure-databricks/?WT.mc_id=bankdm-docs-dastarr) is a
-    fully managed service offering easy implementation of a Spark cluster.
+- [Databricks](https://azure.microsoft.com/free/databricks) is a fully managed service offering easy implementation of a Spark cluster.
 
-- [Data
-    Factory](/azure/data-factory/concepts-pipelines-activities?WT.mc_id=bankdm-docs-dastarr)
-    is a cloud data integration service used to compose data storage, transit,
-    and processing services into automated data pipelines
+- [Data Factory](https://azure.microsoft.com/services/data-factory) is a cloud data integration service used to compose data storage, transit, and processing services into automated data pipelines
 
 ## Conclusion
 
@@ -393,19 +379,31 @@ include 3rd party databases.
 
 Operating and acting on that data can be simple using Azure services like
 Databricks and Data Factory. Archival storage is available for long-term storage
-of rarely-accessed data and it can be deleted on a rolling cycle as needed.
+of rarely accessed data, and it can be deleted on a rolling cycle, as needed.
 
 ## Contributors
 
-_This article is being updated and maintained by Microsoft. It was originally written by the following contributors._
+*This article is being updated and maintained by Microsoft. It was originally written by the following contributors.*
 
-**Principal authors:**
+Principal authors:
 
-- [Howard Bush](https://www.linkedin.com/in/howardbush) | 
-Banking and Capital Markets Cloud & AI, Consulting Services
+- [Howard Bush](https://www.linkedin.com/in/howardbush) | Banking and Capital Markets Cloud & AI, Consulting Services
 - [David Starr](https://www.linkedin.com/in/davidstarr) | Principal Azure Software Engineer
 
 ## Next steps
 
-Visit the Azure solutions library for [backup and archival
-storage](https://azure.microsoft.com/solutions/architecture/?solution=backup-archive?WT.mc_id=bankdm-docs-dastarr), to get started designing your data management plan.
+Visit the Azure solutions library for [backup and archival storage](https://azure.microsoft.com/solutions/architecture/?solution=backup-archive?WT.mc_id=bankdm-docs-dastarr) to get started designing your data management plan.
+
+Product documentation:
+
+- [Azure Functions](/azure/azure-functions/functions-overview)
+- [Azure Storage Client Tools](/azure/storage/common/storage-explorers)
+- [Introduction to Blob storage](/azure/storage/blobs/storage-blobs-introduction)
+- [What is Azure Databricks?](/azure/databricks/scenarios/what-is-azure-databricks)
+- [What is Azure Data Factory?](/azure/data-factory/introduction)
+
+## Related resources
+
+- [Loan credit risk and default modeling](../../solution-ideas/articles/loan-credit-risk-analyzer-and-default-modeling.yml)
+- [Medical data storage solutions](../../solution-ideas/articles/medical-data-storage.yml)
+- [Determine customer lifetime and churn with Azure AI services](../../example-scenario/ai/customer-lifecycle-churn.yml)

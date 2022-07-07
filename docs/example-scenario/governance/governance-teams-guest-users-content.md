@@ -113,7 +113,7 @@ Additional considerations:
 - **Access assignment** - Access packages don't replace other mechanisms for access assignment. They're most appropriate in situations such as:
   - Employees need time-limited access for a particular task.
   - Access requires the approval of a manager or other designated individual.
-  - Departments want to manage their their resources without IT involvement.
+  - Departments want to manage their resources without IT involvement.
   - Two or more organizations are collaborating on a project, so multiple users from one organization need to be invited to access another organization's resources.
 - **Updating resources** - With Azure AD entitlement management, you can change the resources in an access package at any time. The users of the package have their resource access automatically adjusted to match the changed package.
 
@@ -122,6 +122,14 @@ Additional considerations:
 - The use of Azure AD entitlement management requires an Azure AD Premium P2 license.
 - Guest access can be used with all Microsoft 365 Business Standard, Microsoft 365 Business Premium, and Microsoft 365 Education subscriptions. No additional Microsoft 365 license is necessary.
 - The billing model for Azure AD External Identities applies to guests in Microsoft 365. Only external users can be invited as guests.
+
+## Contributors
+
+*This article is being updated and maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+* [Martin Boam](https://uk.linkedin.com/in/martinboam) | Associate Architect
 
 ## Next steps
 

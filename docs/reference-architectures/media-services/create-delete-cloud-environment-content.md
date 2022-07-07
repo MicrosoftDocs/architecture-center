@@ -39,7 +39,7 @@ To verify that your environment is up and running, in the Azure portal, confirm 
 
 You should now be able to reach the Event Grid Viewer endpoint and see the web app. Use the endpoint without the `api/eventgrid` URI segment in a web browser to open a URL like: `https://cl1grw-grw-wa-viewer-f233.azurewebsites.net`.
 
-Follow [Test Azure Media Services V3 encoding](test-encoding.yml) to fully test your environment.
+Follow [Test Azure Media Services v3 encoding](test-encoding.yml) to fully test your environment.
 
 ## Azure resources
 
@@ -79,4 +79,4 @@ Microsoft Learn modules:
 - [Gridwich keys and secrets management](maintain-keys.yml)
 - [Gridwich operations for Azure Storage](gridwich-storage-service.yml)
 - [Gridwich project naming and namespaces](gridwich-project-names.yml)
-- [Test Media Services V3 encoding](test-encoding.yml)
+- [Test Media Services v3 encoding](test-encoding.yml)
