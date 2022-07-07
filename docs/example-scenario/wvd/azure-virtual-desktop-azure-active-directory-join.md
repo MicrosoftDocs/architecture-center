@@ -45,14 +45,9 @@ Azure Virtual Desktop Azure AD domain join has some limitations:
 
 - Azure Virtual Desktop supports Azure AD join for both personal and pooled host pools, except when using FSlogix with an Azure Files account that is also joined to the same Azure AD.
 
-- Azure Files now support Azure AD as a [Kerberos](https://en.wikipedia.org/wiki/Kerberos_(protocol)) realm. This allows you to create an Azure Files share to store the FSLogix profiles and configure it to support Azure AD authentication. FSLogix is the technology that enables and manages roaming user profiles in a pooled host pool scenario. The added support for FSLogix profiles combines the cost optimization of using a pooled environment shared among users with the key benefits of Azure AD-joined VMs: 
+- Azure Files now support Azure AD as a [Kerberos](https://en.wikipedia.org/wiki/Kerberos_(protocol)) realm. This allows you to create an Azure Files share to store the FSLogix profiles and configure it to support Azure AD authentication. FSLogix is the technology that enables and manages roaming user profiles in a pooled host pool scenario. The added support for FSLogix profiles combines the cost optimization of using a pooled environment shared among users with the key benefits of Azure AD-joined VMs: no line-of-sight to a domain controller, simplified deployment, and enhanced management with Intune. 
 
-no line-of-sight to a domain controller
-simplified deployment, and
-enhanced management with Intune
- 
-
-The new Azure AD functionality leveraged in this preview allows Azure AD to issue Kerberos tickets to access SMB shares. This removes the need to have access to a domain controller from the session host VM and network share. You can now store your FSLogix user profiles on Azure Files shares and access them from Azure AD-joined VMs. This functionality currently requires the users to have hybrid identities, managed in Active Directory. 
+   The new Azure AD functionality leveraged in this preview allows Azure AD to issue Kerberos tickets to access SMB shares. This removes the need to have access to a domain controller from the session host VM and network share. You can now store your FSLogix user profiles on Azure Files shares and access them from Azure AD-joined VMs. This functionality currently requires the users to have hybrid identities, managed in Active Directory. 
 
 - The session hosts must be Windows 10 Enterprise version 2004 or later.
 
