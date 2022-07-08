@@ -4,19 +4,19 @@ metadata:
   description: Understand storage options for a Kubernetes cluster
   author:  lanicolas
   ms.author: lanicola
-  ms.date: 07/01/22
+  ms.date: 07/08/22
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
+azureCategories:
+  - containers
+  - storage
 products:
   - azure-kubernetes-service
   - azure-storage
   - azure-managed-disks
   - azure-files
   - azure-netapp-files
-categories:
-  - containers
-  - storage
 name: Storage options for a Kubernetes cluster
 summary:  Understand storage options for a Kubernetes cluster
 thumbnailUrl: /azure/architecture/browse/thumbs/aks-firewall.png

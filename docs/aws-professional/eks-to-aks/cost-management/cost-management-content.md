@@ -1,28 +1,3 @@
----
-title: Cost Management for a Kubernetes Cluster
-description: Understand cost items of a Kubernetes cluster
-author: lanicolas
-ms.author: lanicola, paolos
-ms.date: 07/01/22
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
-products:
-  - azure-kubernetes-service
-  - azure-storage
-  - azure-managed-disks
-  - azure-files
-  - azure-netapp-files
-  - azure-load-balancer
-  - azure-virtual-machines
-  - azure-virtual-network
-categories:
-  - containers
-  - storage
-  - networking
-ms.custom: fcp
----
-
 # Cost Management for a Kubernetes Cluster
 
 The following article will guide you on how the pricing for AKS works, how you can optimize the cost for your cluster, and the different tools and solutions to implement a proper cost governance strategy.
