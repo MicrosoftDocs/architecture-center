@@ -2,7 +2,7 @@
 metadata:
   title: Secure network access to Kubernetes API
   description: Understand how to secure network access to Kubernetes API.
-  author: paolosalvatori, gjoshevski, yuvalherziger
+  author: paolosalvatori
   ms.author: paolos, yherziger, mgjoshevski
   ms.date: 07/08/22
   ms.topic: conceptual

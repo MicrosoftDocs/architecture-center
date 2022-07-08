@@ -2,7 +2,7 @@
 metadata:
   title: Kubernetes Monitoring and Logging
   description: Understand the options to monitor and manage the logs of an Azure Kubernetes Service (AKS) cluster and its workloads.
-  author:  ketan-chawda-msft, paolosalvatori, lanicolas
+  author:  ketan-chawda-msft
   ms.author: kechaw, paolos, lanicola
   ms.date: 07/08/22
   ms.topic: conceptual
