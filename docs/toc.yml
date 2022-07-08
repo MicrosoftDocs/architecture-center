@@ -4613,6 +4613,8 @@ items:
                     href: example-scenario/unix-migration/migrate-aix-azure-linux.yml
                   - name: Batch transaction processing
                     href: example-scenario/mainframe/process-batch-transactions.yml
+                  - name: Deploy IBM Maximo Application Suite 
+                    href: example-scenario/networking/deploy-ibm-maximo-application-suite.yml
                   - name: General mainframe refactor to Azure
                     href: example-scenario/mainframe/general-mainframe-refactor.yml
                   - name: IBM System i to Azure using Infinite i
