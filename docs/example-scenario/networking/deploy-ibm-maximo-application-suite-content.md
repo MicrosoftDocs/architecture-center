@@ -1,29 +1,4 @@
-IBM's Maximo Application Suite (MAS), also known as *Maximo*, is an enterprise asset management platform with AI-based asset maintenance. MAS focuses on operational resiliency and reliability. The suite consists of a core application platform, MAS, and applications and industry-specific solutions on top of the platform. Each application provides a specific benefit:
-
-- **Manage**. Reduce down time and costs by using asset management to improve operational performance.
-- **Monitor**. Use IoT for advanced AI-powered monitoring of remote assets at scale.
-- **Health**. Manage asset health by using IoT data from sensors, asset data, and maintenance history.
-- **Visual inspection**. Train machine learning models to use visual inspection for visual analysis of emerging issues.
-- **Predict**. Predict future failures by using machine learning and data analytics.
-- **Assist**. Assist technicians by providing AI-powered guidance to a knowledge base of equipment maintenance data and by giving them remote access to experts.
-- **Safety**. Collect and analyze data from sensors, provide contextual data, and derive meaningful analytics.
-- **Civil**. Integrate inspection, defect tracking, and maintenance activities to help improve asset life, keep critical systems operating, and lower total costs of ownership of civil infrastructure.
-
-These applications and MAS 8.*x* are tested for use on Azure. Microsoft and the IBM Maximo team partnered to ensure this solution is configured to run optimally on Azure. This article provides a design for running MAS 8.*x* on Azure for customers who have support from IBM and a partner for installation. Please contact your IBM team for product-specific questions. The Azure Marketplace offers an alternative installation for MAS that supports bringing your own license. For more information, see [IBM Maximo Application Suite (BYOL)](https://azuremarketplace.microsoft.com/marketplace/apps/ibm-usa-ny-armonk-hq-6275750-ibmcloud-asperia.ibm-maximo-application-suite-byol?tab=Overview).
-
 MAS 8.*x* runs on OpenShift, and it's beneficial to familiarize yourself with OpenShift and the suggested patterns for installation on Azure. For more information, see [Preparing to install on Azure](https://docs.openshift.com/container-platform/4.8/installing/installing_azure/preparing-to-install-on-azure.html). This architecture illustrates an OpenShift cluster. It doesn't go into detail on how to install MAS. To learn more about the installation process, see [Installing Maximo Application Suite from OperatorHub](https://www.ibm.com/docs/en/mas87/8.7.0?topic=installing-maximo-application-suite-from-operatorhub).
-
-## Potential use cases
-
-Many industries and sectors use the solutions in MAS, such as:
-
-- Energy and utilities
-- Oil and gas
-- Manufacturing
-- Travel, automotive, and transportation
-- Public sector
-
-Find more information about use cases for MAS on IBM's website at [IBM Maximo Application Suite](https://www.ibm.com/products/maximo).
 
 ## Architecture
 
@@ -43,7 +18,6 @@ From the perspective of infrastructure, this architecture provides the following
 - Azure SQL Server running on a virtual machine (VM) or container-based IBM Db2 Warehouse
 - Azure DNS for DNS management of OpenShift and its containers
 - Azure Active Directory (Azure AD) for single sign-on into MAS
-
 
 ### Components
 
@@ -67,7 +41,6 @@ From the perspective of infrastructure, this architecture provides the following
 
 - [Linux virtual machines in Azure](https://azure.microsoft.com/services/virtual-machines/linux) (optional) to provide a jump box for installation of OpenShift. You can also use this VM to connect and manage the OpenShift cluster because it contains the Kubernetes configuration file after installation. If you have network connectivity into your Azure environment, you can perform the installation from an existing machine.
 
-
 ### Alternatives
 
 The following services typically aren't necessary, but they're effective alternatives:
@@ -76,6 +49,32 @@ The following services typically aren't necessary, but they're effective alterna
 - [Oracle Database on Azure](https://azure.microsoft.com/en-us/solutions/oracle) if you prefer that to SQL Server or Db2 Warehouse.
 - [OpenShift Data Foundation](https://www.redhat.com/en/technologies/cloud-computing/openshift-data-foundation) if you want to use Db2 Warehouse on OpenShift Data Foundation.
 
+## Scenario details
+
+IBM's Maximo Application Suite (MAS), also known as *Maximo*, is an enterprise asset management platform with AI-based asset maintenance. MAS focuses on operational resiliency and reliability. The suite consists of a core application platform, MAS, and applications and industry-specific solutions on top of the platform. Each application provides a specific benefit:
+
+- **Manage**. Reduce down time and costs by using asset management to improve operational performance.
+- **Monitor**. Use IoT for advanced AI-powered monitoring of remote assets at scale.
+- **Health**. Manage asset health by using IoT data from sensors, asset data, and maintenance history.
+- **Visual inspection**. Train machine learning models to use visual inspection for visual analysis of emerging issues.
+- **Predict**. Predict future failures by using machine learning and data analytics.
+- **Assist**. Assist technicians by providing AI-powered guidance to a knowledge base of equipment maintenance data and by giving them remote access to experts.
+- **Safety**. Collect and analyze data from sensors, provide contextual data, and derive meaningful analytics.
+- **Civil**. Integrate inspection, defect tracking, and maintenance activities to help improve asset life, keep critical systems operating, and lower total costs of ownership of civil infrastructure.
+
+These applications and MAS 8.*x* are tested for use on Azure. Microsoft and the IBM Maximo team partnered to ensure this solution is configured to run optimally on Azure. This article provides a design for running MAS 8.*x* on Azure for customers who have support from IBM and a partner for installation. Please contact your IBM team for product-specific questions. The Azure Marketplace offers an alternative installation for MAS that supports bringing your own license. For more information, see [IBM Maximo Application Suite (BYOL)](https://azuremarketplace.microsoft.com/marketplace/apps/ibm-usa-ny-armonk-hq-6275750-ibmcloud-asperia.ibm-maximo-application-suite-byol?tab=Overview).
+
+### Potential use cases
+
+Many industries and sectors use the solutions in MAS, such as:
+
+- Energy and utilities
+- Oil and gas
+- Manufacturing
+- Travel, automotive, and transportation
+- Public sector
+
+Find more information about use cases for MAS on IBM's website at [IBM Maximo Application Suite](https://www.ibm.com/products/maximo).
 
 ## Recommendations
 
@@ -316,7 +315,7 @@ Principal authors:
 - [David Baumgarten](https://www.linkedin.com/in/baumgarten-david) | Senior Cloud Solution Architect
 - [Roeland Nieuwenhuis](https://www.linkedin.com/in/roelandnieuwenhuis) | Principal Cloud Solution Architect
 
-Other contributors:
+Other contributor:
 
 - [Gary Moore](https://www.linkedin.com/in/gwmoore) | Programmer/Writer
 
@@ -339,7 +338,6 @@ To learn more about the featured technologies, see the following resources:
 - [Introduction to Azure NetApp Files](/learn/modules/introduction-to-azure-netapp-files)
 - [Introduction to Red Hat on Azure](/learn/modules/introduction-to-red-hat-azure)
 - [Red Hat Customer Portal](https://access.redhat.com)
-
 
 ## Related resources
 
