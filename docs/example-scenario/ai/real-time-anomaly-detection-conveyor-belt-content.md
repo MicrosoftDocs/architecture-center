@@ -67,29 +67,34 @@ You can apply this solution to the following scenarios:
 
 The data necessary to predictively maintain motors attached to conveyor belts are temperature, vibrations, and conveyor belt status. Sample data is presented here.
 
-**Conveyor belt status:** On most factory floors, conveyor belts are run on specific schedules. Anomaly detection of temperature and vibration is needed only when the conveyor belt is running. A conveyer belt value of zero indicates that the conveyor belt is inactive. A value of one means it's active. Here's a sample that shows how conveyor belt status is recorded:
+**Conveyor belt status:** On most factory floors, conveyor belts are run on specific schedules. Anomaly detection of temperature and vibration is needed only when the conveyor belt is running. A conveyer belt value of zero indicates that the conveyor belt is inactive. A value of one means it's active. This sample graph shows how conveyor belt status is recorded:
 
-image 
+:::image type="content" source="media/conveyor-belt-status.png" alt-text="Graph that shows conveyor belt status data." lightbox="media/conveyor-belt-status.png" border="false":::
 
-**Temperature:** Sensors attached to conveyor belts and the factory floor can record the temperature of the motor and baseline the ambient temperature. Temperature is seasonally affected due to sunlight exposure, air conditioning settings, and numerous other factors. It is important to address the seasonality aspect of temperature. One of the many ways is to use the baseline ambient temperature on the factory floor and take the difference with the motor temperature to adjust the seasonality in the motor temperature *(Adjusted Temperature = Motor Temperature - Ambient Temperature)*. Below is a sample plot showing temperatures recorded from motors and the ambient baseline temperature.
+**Temperature:** Sensors attached to conveyor belts and the factory floor can record the temperature of the motor and baseline the ambient temperature. Temperature is seasonally affected because of sunlight exposure, air conditioning settings, and numerous other factors. You need to address the seasonal aspect of temperature. There are many ways to do so. Taking motor temperature as an example, one method is to subtract the baseline ambient temperature of the factory floor from the motor temperature:
 
-image
+*(Adjusted Temperature = Motor Temperature - Ambient Temperature)*
 
-Below is a sample plot where the temperature from a conveyor belt motor has been adjusted for seasonality using the ambient temperature of the factory floor. It also shows anomalies in red that are detected by the model using the architecture suggested in the document.
+ This sample graph shows temperatures recorded from motors and the ambient baseline temperature:
 
-image 
+:::image type="content" source="media/motor-ambient-baseline-temperatures.png" alt-text="Graph that shows temperatures recorded from motors and the ambient baseline temperature." lightbox="media/motor-ambient-baseline-temperatures.png" border="false":::
 
-**Vibrations:** Sensors collect vibrations as RMS (Root Mean Square) of the half sinusoidal wave. Since RMS represents the area and not the peak value, it is important to convert RMS to peak before anomalies are found. Below is a sample plot of how vibration peak data is collected by a sensor attached to a motor.
 
-image 
+The following sample graph shows how the temperature from a conveyor belt motor is adjusted for seasonality by using the ambient temperature of the factory floor. It also shows anomalies, in red, that are detected by a model that uses the architecture suggested in this article.
 
-Below is a sample plot that shows vibration anomalies in red that are detected by the model using the architecture suggested in this document.
+:::image type="content" source="media/temperatures-adjusted-anomalies.png" alt-text="Graph that shows how temperatures are adjusted for seasonality. It also shows anomalies." lightbox="media/temperatures-adjusted-anomalies.png" border="false":::
 
-image 
+**Vibrations:** Sensors collect vibrations as RMS (root mean square) of the half sinusoidal wave. Because RMS represents the area and not the peak value, you need to convert RMS to peak before you test for anomalies. This sample graph shows how vibration peak data is collected by a sensor that's attached to a motor:
+
+:::image type="content" source="media/vibration-peak-data.png" alt-text="Graph that shows how vibration peak data is collected by a sensor that's attached to a motor." lightbox="media/vibration-peak-data.png" border="false":::
+
+This sample graph shows vibration anomalies, in red, that are detected by a model that uses the architecture suggested in this article:
+
+:::image type="content" source="media/vibration-anomalies.png" alt-text="Sample graph that shows vibration anomalies." lightbox="media/vibration-anomalies.png" border="false":::
 
 ### Components
 
-- [Azure IoT Hub]() is a collection of Microsoft-managed cloud services that connect, monitor, and control billions of IoT assets. In simpler terms, an IoT solution is made up of one or more IoT devices that communicate with one or more back-end services hosted in the cloud.
+- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) is a collection of Microsoft-managed cloud services that connect, monitor, and control billions of IoT assets. In simpler terms, an IoT solution is made up of one or more IoT devices that communicate with one or more back-end services hosted in the cloud.
 - [Azure Data Factory]() is a cloud-based data integration service that automates data movement and transformation.
 - [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake) is a limitless data storage to house data in different shapes/formats and provides easier integration to the Analytics tools in Azure. The component has enterprise grade security and monitoring support. One can use it for archives, data lakes, high-performance computing, machine learning, and cloud-native workloads. This solution provides a local data store for the ML (MACHINE LEARNING) data and a Premium data cache for training the ML model.
 - [Azure Databricks]() is a data analytics platform optimized for the Microsoft Azure cloud services platform. Azure Databricks offers three environments for developing data intensive applications: Databricks SQL, Databricks Data Science & Engineering, and Databricks Machine Learning.
