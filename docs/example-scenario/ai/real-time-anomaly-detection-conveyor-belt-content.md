@@ -1,8 +1,8 @@
-The manufacturing industry is undergoing revolutionary changes as an increasing number of firms adopt smart factory floors enabled by AI and machine learning. This article provides an overview of an architecture to enable real-time anomaly detection.
+The manufacturing industry is undergoing revolutionary changes as an increasing number of firms adopt smart factory floors enabled by AI and machine learning. This article provides an overview of an architecture to enable real-time anomaly detection for conveyor belts.
  
 ## Architecture
 
-:::image type="content" source="media/real-time-anomaly-detection.png" alt-text="Image alt text." lightbox="media/real-time-anomaly-detection.png" border="false"::: 
+:::image type="content" source="media/real-time-anomaly-detection.png" alt-text="Architecture diagram that shows a solution for real-time anomaly detection." lightbox="media/real-time-anomaly-detection.png" border="false"::: 
 
 *Download a [Visio file](https://arch-center.azureedge.net/realtime-anomaly-detection.vsdx) of this architecture.*
 
@@ -20,17 +20,17 @@ The manufacturing industry is undergoing revolutionary changes as an increasing 
 
 1. Store
    
-   Data collected from IoT sensors (temperature and vibrations) and Time Series API (conveyor belt status) are all time series. Time series data is a collection of observations obtained through repeated measurements over time. This data is collected as flat files. Each flat file is tagged with an IoT Sensor ID and the date and time of collection and stored in [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake).
+   Data collected from IoT sensors (temperature and vibrations) and Time Series API (conveyor belt status) are all time series. Time series data is a collection of observations obtained through repeated measurements over time. This data is collected as flat files. Each flat file is tagged with an IoT sensor ID and the date and time of collection and stored in [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake).
 
 1. AI / machine learning - data preparation and training
 
    *Data preparation* is the process of gathering, combining, structuring, and organizing data so it can be used to build machine learning models, business intelligence (BI), and analytics and data visualization applications.
    
-   [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) is used to prepare the data before it's used to build models. It provides an interactive workspace that enables collaboration between data engineers, data scientists, and machine learning engineers. In analytics workflow, Azure Databricks is used to read data from [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake) to perform data wrangling and data exploration.
+   [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) is used to prepare the data before it's used to build models. Azure Databricks provides an interactive workspace that enables collaboration between data engineers, data scientists, and machine learning engineers. In analytics workflow, Azure Databricks is used to read data from [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake) to perform data wrangling and data exploration.
 
-   *Model training* is the process of using a machine learning algorithm to learn patterns based on data and pick a suitable model to make predictions.
+   *Model training* is the process of using a machine learning algorithm to learn patterns based on data and pick a suitable model for making predictions.
  
-   [Azure Machine learning](https://azure.microsoft.com/services/machine-learning) is used to train the model. Azure Machine Learning is a cloud service that accelerates and manages the machine learning project lifecycle, including training, deploying models, and managing machine learning operations (MLOps).
+   [Azure Machine learning](https://azure.microsoft.com/services/machine-learning) is used to train the model. Azure Machine Learning is a cloud service that accelerates and manages the machine learning project lifecycle. The lifecycle includes training, deploying models, and managing machine learning operations (MLOps).
 
 1. AI / machine learning - inference
 
@@ -42,20 +42,20 @@ The manufacturing industry is undergoing revolutionary changes as an increasing 
 
 1. Analytical workload
 
-   The results of model scoring are saved back into the analytic systems, in this case [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake), where the input data was collected. This helps in sourcing the results to the front end and in model monitoring and retraining.
+   The results of model scoring are saved back into the analytics systems, in this case [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake), where the input data was collected. This helps in sourcing the results to the front end and in model monitoring and retraining.
 
 1. Front-end model consumption
 
-   You can consume the scored results via an app or on the [Power BI](/power-bi/fundamentals/power-bi-overview) platform. In this use case, with real-time inferencing as soon as anomalies are detected, you can route alerts to stakeholders through custom Microsoft or third-party event management APIs that are hosted in Azure or elsewhere.
+   You can consume the scored results via an app or on the [Power BI](/power-bi/fundamentals/power-bi-overview) platform. In this scenario, which provides real-time inferencing as soon as anomalies are detected, you can route alerts to stakeholders through custom Microsoft or third-party event management APIs that are hosted in Azure or elsewhere.
 
 ### Components
 
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) is a collection of Microsoft-managed cloud services that connect, monitor, and control billions of IoT assets.
 - [Azure Data Factory](https://azure.microsoft.com/services/data-factory) is a cloud-based data integration service that automates data movement and transformation.
-- [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake) is a limitless data storage for housing data in various shapes and formats. It provides easy integration with the analytics tools in Azure. It has enterprise-grade security and monitoring support. You can use it for archives, data lakes, high-performance computing, machine learning, and cloud-native workloads. This solution provides a local data store for the machine learning data and a premium data cache to train the machine learning model.
+- [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake) is a limitless data storage service for housing data in various shapes and formats. It provides easy integration with the analytics tools in Azure. It has enterprise-grade security and monitoring support. You can use it for archives, data lakes, high-performance computing, machine learning, and cloud-native workloads. This solution provides a local data store for the machine learning data and a premium data cache to train the machine learning model.
 - [Azure Databricks](https://azure.microsoft.com/services/databricks) is a data analytics platform that's optimized for the Azure platform. It offers three environments for developing data-intensive applications: Databricks SQL, Databricks Data Science & Engineering, and Databricks Machine Learning.
-- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) is the enterprise-grade machine learning service for easier model development and deployment to a wide range of machine learning target computes. It provides users, at all skill levels, with a low-code designer, automated machine learning, and a hosted Jupyter notebook environment that supports various integrated development environments.
-- [Azure Machine Learning endpoints](https://docs.microsoft.com/azure/machine-learning/concept-endpoints) are HTTPS endpoints that clients can call to receive the inferencing(scoring) output of a trained model. An endpoint provides a stable scoring URI with key-token authentication.
+- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) is the enterprise-grade machine learning service for easier model development and deployment to a wide range of machine learning target computes. It provides users at all skill levels with a low-code designer, automated machine learning, and a hosted Jupyter notebook environment that supports various integrated development environments.
+- [Azure Machine Learning endpoints](https://docs.microsoft.com/azure/machine-learning/concept-endpoints) are HTTPS endpoints that clients can call to receive the inferencing (scoring) output of a trained model. An endpoint provides a stable scoring URI with key-token authentication.
 - [Power BI](https://powerbi.microsoft.com) is the Azure software as a service (SaaS) for business analytics and visually immersive and interactive insights. It provides a rich set of connectors to various data sources, easy transformation capabilities, and sophisticated visualization.
 
 ### Alternatives
@@ -71,13 +71,13 @@ The manufacturing industry is undergoing revolutionary changes as an increasing 
 
 Smart factory floors digitally enable collaborative systems to provide real-time responses to changing conditions and customer demands throughout the supply network.
 
-AI and machine learning have been applied in unique ways throughout the manufacturing sector. The most impactful of these applications are predictive maintenance and fault prevention. Specifically, detecting anomalies in temperature and vibrations of motors attached to conveyor belts reduces maintenance costs, repair and overhaul time, and the need for spare part inventory. It also increases the uptime of the machinery. The introduction of predictive maintenance and fault prevention saves millions of dollars a year, and in some cases saves lives by removing personnel from dangerous situations.
+AI and machine learning are used in unique ways throughout the manufacturing sector. The most impactful of these applications are predictive maintenance and fault prevention. Specifically, detecting anomalies in temperature and vibrations of motors attached to conveyor belts reduces maintenance costs, repair and overhaul time, and the need for spare part inventory. It also increases the uptime of the machinery. The introduction of predictive maintenance and fault prevention saves millions of dollars a year, and in some cases saves lives by removing personnel from dangerous situations.
 
 You can achieve predictive maintenance in several ways, including rule-based, supervised, and unsupervised machine learning. Rule-based machine learning requires known threshold levels. When labels are available for anomalies, supervised machine learning is the most viable option. If no labels are available for the detection of anomalous behavior, unsupervised anomaly detection is the best method. Whatever the methodology, the model's outcome is to predict whether the incoming data is anomalous.
 
-As sensors capture data in real time, anomaly detection should be able to detect anomalies immediately. You can address potential risks that would otherwise go undetected before they escalate.
+Because sensors capture data in real time, anomaly detection should be able to detect anomalies immediately. You can address potential risks that would otherwise go undetected before they escalate.
 
-### Sample Temperature, vibration and conveyor belt status data
+### Sample temperature, vibration and conveyor belt status data
 
 The data necessary to predictively maintain motors attached to conveyor belts are temperature, vibrations, and conveyor belt status. Sample data is presented here.
 
@@ -140,9 +140,9 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 This scenario provides improved security that's built into the components. It also provides permissions that you can manage via Azure Active Directory authentication or role-based access control. Consider the following [Azure Machine Learning best practices for enterprise security](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-enterprise-security) to establish suitable security levels.
 
-Manage security and access to the IoT hub that interacts with the IoT sensors by following the baseline guidance in [Azure security baseline for Azure IoT Hub](/security/benchmark/azure/baselines/iot-hub-security-baseline).
+Manage security for and access to the IoT hub that interacts with the IoT sensors by following the baseline guidance in [Azure security baseline for Azure IoT Hub](/security/benchmark/azure/baselines/iot-hub-security-baseline).
 
-Consider implementing the following security features in this architecture:
+See the following resources for more information about security features for this architecture:
 
 - [Deploy dedicated Azure services into virtual networks](/azure/virtual-network/virtual-network-for-azure-services)
 - [Enterprise security and governance for Azure Machine Learning](/azure/machine-learning/concept-enterprise-security)
@@ -154,13 +154,13 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 - To optimize costs, scalability of the resources is based on the analytics workload and the training and deployment workloads.
 - Choose the appropriate pricing tier for the IoT hub and appropriate compute sizes for machine learning and data processing components.
-- To estimate the cost of implementing this solution, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator), inputting the services mentioned previously. [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview) can also be helpful.
+- To estimate the cost of implementing this solution, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator), inputting the services described in this article. [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview) can also be helpful.
 
 ### Operational excellence
 
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
-Follow MLOps guidelines to standardize and manage an end-to-end machine learning lifecycle that's scalable across multiple workspaces. Before going into production, ensure the implemented solution supports ongoing inference with retraining cycles and automated redeployments of models. Here are a few resources to consider:
+Follow MLOps guidelines to standardize and manage an end-to-end machine learning lifecycle that's scalable across multiple workspaces. Before going into production, ensure that the implemented solution supports ongoing inference with retraining cycles and automated redeployments of models. Here are some resources to consider:
 - [MLOps v2](https://microsoft.sharepoint.com/teams/CS_AzureDataAI/SitePages/Mlops.aspx?xsdata=MDV8MDF8fDVhM2M4ZDViNjM1ODRhMWFjMDM3MDhkYTFiZjIwYTkzfDcyZjk4OGJmODZmMTQxYWY5MWFiMmQ3Y2QwMTFkYjQ3fDB8MHw2Mzc4NTMwMjM1OTk4MzcyMzl8R29vZHxWR1ZoYlhOVFpXTjFjbWwwZVZObGNuWnBZMlY4ZXlKV0lqb2lNQzR3TGpBd01EQWlMQ0pRSWpvaVYybHVNeklpTENKQlRpSTZJazkwYUdWeUlpd2lWMVFpT2pFeGZRPT18MXxNVGs2TXpCak9HUmlOR1JsTkRSbE5EVmlaR0UwWVRNMFpqQmpPV1kzT1RWa1pqaEFkR2h5WldGa0xuWXl8fA%3D%3D&sdata=czFMOUVSa3J1WjBSbm5haDc3NStGUVVGYTZyZE93MmF4d3U1cW92NlB2QT0%3D&ovuser=72f988bf-86f1-41af-91ab-2d7cd011db47%2Cchulahlou%40microsoft.com&OR=Teams-HL&CT=1649705566054&params=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiIyOC8yMjAzMjEwMDEwNyJ9)
 - [Azure MLOps (v2) solution accelerator](https://github.com/Azure/mlops-v2)
 
@@ -178,8 +178,8 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 Principal authors:
 
-- [Manasa Ramalinga](https://www.linkedin.com/in/trmanasa) | [Senior Cloud Solution Architect, US National CSA Team
-- [Charitha Basani](https://www.linkedin.com/in/charitha-basani-54196031) | [Senior Cloud Solution Architect, US National CSA Team
+- [Manasa Ramalinga](https://www.linkedin.com/in/trmanasa) | Senior Cloud Solution Architect, US National CSA Team
+- [Charitha Basani](https://www.linkedin.com/in/charitha-basani-54196031) | Senior Cloud Solution Architect, US National CSA Team
 
 Other contributor:
 
