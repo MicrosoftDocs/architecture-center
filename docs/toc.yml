@@ -547,6 +547,10 @@ items:
                     href: aws-professional/eks-to-aks/networking/private-clusters.yml
                   - name: Manage Kubernetes agent nodes
                     href: aws-professional/eks-to-aks/nodes/node-pools.yml
+                  - name: Kubernetes Cost Management
+                    href: aws-professional/eks-to-aks/cost-management/cost-management.yml
+                  - name: Kubernetes Storage
+                    href: aws-professional/eks-to-aks/storage/storage.yml
       - name: Azure for Google Cloud professionals
         expanded: true
         items:
