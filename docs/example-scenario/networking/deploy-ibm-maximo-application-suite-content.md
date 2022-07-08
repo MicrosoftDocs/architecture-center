@@ -286,12 +286,12 @@ Before you start, we recommend that you review the [IBM Maximo Application Suite
 - Access to an Azure Subscription with *Reader* permission
 - Application Registration or service principal name that has *Contributor* and *User Access Administrator* permissions to the subscription
 - Domain or delegated subdomain to an Azure DNS zone
-- Red Hat OpenShift Service Agreement (pull secret)
+- Pull secret from Red Hat to deploy OpenShift
 - MAS entitlement key
 - MAS license file (created after MAS installation)
 - IBM-recommended cluster sizing
-- An existing virtual network or let the IPI create one, depending on your requirements
-- Your high-availability and disaster-recovery requirements
+- Existing virtual network or a new virtual network created by IPI, depending on your requirements
+- High-availability and disaster-recovery requirements for your specific deployment
 - Configuration file, *install-config.yaml*, for the installer
 
 For a step-by-step guide for installing OpenShift and MAS on Azure, including how to address the prerequisites, see our [quickStart guide](https://github.com/Azure/maximo) on GitHub.
