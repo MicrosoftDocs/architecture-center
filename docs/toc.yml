@@ -539,14 +539,28 @@ items:
                     maintainContext: true
               - name: Kubernetes for AWS
                 items:
-                  - name: Kubernetes Pod Identity
-                    href: aws-professional/eks-to-aks/iam/pod-identity.yml
-                  - name: Kubernetes Monitoring and Logging
-                    href: aws-professional/eks-to-aks/monitoring/monitoring.yml
-                  - name: Secure network access to Kubernetes API
-                    href: aws-professional/eks-to-aks/networking/private-clusters.yml
-                  - name: Manage Kubernetes agent nodes
-                    href: aws-professional/eks-to-aks/nodes/node-pools.yml
+                  - name: Cost Management
+                    items:
+                  - name: Identity Access Management
+                    items:
+                    - name: Kubernetes Pod Identity
+                      href: aws-professional/eks-to-aks/iam/pod-identity.yml
+                  - name: Management
+                    items:
+                  - name: Monitoring
+                    items:
+                    - name: Kubernetes Monitoring and Logging
+                      href: aws-professional/eks-to-aks/monitoring/monitoring.yml
+                  - name: Networking
+                    items:
+                    - name: Secure network access to Kubernetes API
+                      href: aws-professional/eks-to-aks/networking/private-clusters.yml
+                  - name: Agent Nodes
+                    items:
+                    - name: Manage Kubernetes agent nodes
+                      href: aws-professional/eks-to-aks/nodes/node-pools.yml
+                  - name: Storage
+                    items:
       - name: Azure for Google Cloud professionals
         expanded: true
         items:
