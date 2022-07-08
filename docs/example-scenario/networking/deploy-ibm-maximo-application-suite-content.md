@@ -104,7 +104,7 @@ Review the MAS applications that you need for your complete business scenario, a
 - [SQL Server 2019](https://azure.microsoft.com/en-us/services/virtual-machines/sql-server/) on Azure using Windows or Linux
 - IBM [DB2 Warehouse on Cloud Pak for Data 3.5](https://www.ibm.com/docs/en/cloud-paks/cp-data/3.5.0?topic=services-db2-warehouse)
 
-You might also choose to run Oracle Exadata on a VM or on Oracle Cloud Infrastructure by using interconnection, but this isn't a tested configuration. For more information about interconnection, see [Learn about interconnecting Oracle Cloud with Microsoft Azure](https://docs.oracle.com/en/solutions/learn-azure-oci-interconnect/index.html). Currently, Azure SQL Database and Azure Cosmos DB aren't supported. These databases might be supported in future releases of MAS.
+You might also choose to run Oracle Exadata on a VM or on Oracle Cloud Infrastructure by using interconnection, but this isn't a tested configuration. For more information about interconnection, see [Learn about interconnecting Oracle Cloud with Microsoft Azure](https://docs.oracle.com/en/solutions/learn-azure-oci-interconnect/index.html). Currently, Azure SQL Database and Azure Cosmos DB aren't supported.
 
 > [!NOTE]
 > In some cases, you can't reuse a database for multiple MAS applications because of conflicting database settings. For example, you can't use the same IBM DB2 Warehouse for Health and Manage in combination with Monitor. However, you can mix different database products, such as using Microsoft SQL Server for one application and IBM DB2 Warehouse for another.
