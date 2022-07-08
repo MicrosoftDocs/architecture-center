@@ -15,6 +15,9 @@ azureCategories:
   - analytics
   - iot
 products:
+  - azure-files
+  - azure-load-balancer
+  - azure-redhat-openshift
   - azure-virtual-machines
   - azure-virtual-network
 name: Deploy IBM Maximo Application Suite (MAS) on Azure
