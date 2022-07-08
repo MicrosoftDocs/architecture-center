@@ -2197,6 +2197,8 @@ items:
                 href: example-scenario/governance/governance-teams-guest-users.yml
               - name: Moodle deployment with NetApp Files
                 href: example-scenario/file-storage/moodle-azure-netapp-files.yml
+              - name: Predict student attrition
+                href: example-scenario/ai/student-attrition-prediction.yml
               - name: Secure research for regulated data
                 href: example-scenario/ai/secure-compute-for-research.yml
               - name: Teacher-provisioned virtual labs in Azure
@@ -2618,6 +2620,8 @@ items:
                 href: reference-architectures/ai/orchestrate-mlops-azure-databricks.yml
               - name: Predict hospital readmissions with ML
                 href: example-scenario/ai/predict-hospital-readmissions-machine-learning.yml
+              - name: Predict student attrition
+                href: example-scenario/ai/student-attrition-prediction.yml
               - name: Quality assurance
                 href: solution-ideas/articles/quality-assurance.yml
               - name: Real-time machine learning on Azure
