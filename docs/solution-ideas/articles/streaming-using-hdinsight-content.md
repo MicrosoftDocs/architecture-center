@@ -19,7 +19,7 @@ Companies can use this solution to retrieve (or ingest) data from multiple sourc
 
 ### Dataflow
 
-- Streaming data is ingested by one of the following options:
+- Streaming data is ingested, processed, and the results are stored by the following:
     - Apache Kafka for data ingestion
     - Apache Spark Streaming or Apache Storm for processing
     - Apache HBase, which is a NoSQL database
