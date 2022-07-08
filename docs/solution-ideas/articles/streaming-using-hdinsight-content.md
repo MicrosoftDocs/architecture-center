@@ -22,7 +22,7 @@ Companies can use this solution to retrieve (or ingest) data from multiple sourc
 - Streaming data is ingested, processed, and the results are stored by the following:
     - Apache Kafka for data ingestion
     - Apache Spark Streaming or Apache Storm for processing
-    - Apache HBase, which is a NoSQL database
+    - Apache HBase, which is a NoSQL database, for the storage of analyzed results
 - The data is consumed by the user in the related apps.
 - The data is visualized in Power BI.
 - The data used by Azure HDInsight is stored in Azure Data Lake Storage for secure and scalable processing in the cloud.
