@@ -1,26 +1,3 @@
----
-title: Storage options for a Kubernetes cluster
-description: Understand storage options for a Kubernetes cluster
-author: lanicolas
-ms.author: lanicola
-ms.date: 07/01/22
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
-products:
-  - azure-kubernetes-service
-  - azure-storage
-  - azure-managed-disks
-  - azure-files
-  - azure-netapp-files
-categories:
-  - containers
-  - storage
-ms.custom: fcp
----
-
-# Storage options for a Kubernetes cluster
-
 The following article will guide you on the different options to store and retrieve data on an Azure Kubernetes Service.
 
 ## EKS Architecture

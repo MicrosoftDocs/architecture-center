@@ -1,23 +1,3 @@
----
-title: Kubernetes Monitoring and Logging
-description: Understand the options to monitor and manage the logs of an Azure Kubernetes Service (AKS) cluster and its workloads.
-author:  ketan-chawda-msft, paolosalvatori, lanicolas
-ms.author: kechaw, paolos, lanicola
-ms.date: 07/01/22
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
-products:
-  - azure-kubernetes-service
-  - azure-monitor
-categories:
-  - containers
-  - management-and-governance
-ms.custom: fcp
----
-
-# Kubernetes Monitoring and Logging
-
 The following article will guide you on the different options to monitor and manage the logs of an Azure Kubernetes Service (AKS) cluster and its workloads.
 
 ## Monitoring and Logging in Elastic Kubernetes Service (EKS)

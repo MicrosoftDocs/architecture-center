@@ -1,5 +1,3 @@
-# Cost Management for a Kubernetes Cluster
-
 The following article will guide you on how the pricing for AKS works, how you can optimize the cost for your cluster, and the different tools and solutions to implement a proper cost governance strategy.
 
 Cost Governance is the continuous process of implementing policies or controls to limit spending or costs. Both native Kubernetes tooling and Azure tools can allow you to have proactive monitoring and optimize the underlying infrastructure costs.

@@ -1,5 +1,3 @@
-# Kubernetes Pod Identity
-
 A common challenge for developers is the management of secrets and credentials used to secure communication between different components making up a solution. Pod identities eliminate the need for developers to manage credentials, to access other cloud services, like Cosmos DB, Key Vault, or Blob Storage.
 
 ## EKS Architecture

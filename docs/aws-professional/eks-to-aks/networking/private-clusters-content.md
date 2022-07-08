@@ -1,5 +1,3 @@
-# Secure network access to Kubernetes API
-
 The following article will guide you on how to establish a secure connection to the managed API Server of an Azure Kubernetes Service (AKS) cluster and the different options to restrict the public network access.
 
 ## Amazon EKS Networking Modes

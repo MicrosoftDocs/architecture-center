@@ -1,5 +1,3 @@
-# Manage Kubernetes agent nodes
-
 The following article will compare how to add, update, create, and delete worker nodes in Azure Kubernetes Service (AKS) and Amazon Elastic Kubernetes Service (Amazon EKS).
 
 ## Amazon EKS managed node groups
