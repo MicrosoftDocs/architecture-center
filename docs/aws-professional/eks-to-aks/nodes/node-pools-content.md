@@ -325,7 +325,7 @@ The following limitations apply when you create and manage AKS clusters that sup
 
 The following references provide links to automation samples and documentation to deploy AKS clusters with a secured API:
 
-- [AKS cluster best practices](//azure/aks/best-practices)
+- [AKS cluster best practices](/azure/aks/best-practices)
 - [GitOps for Azure Kubernetes Service](/azure/architecture/example-scenario/gitops-aks/gitops-blueprint-aks)
 - [Create a Private AKS cluster with a Public DNS Zone](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/private-aks-cluster-with-public-dns-zone)
 - [Create a private Azure Kubernetes Service cluster using Terraform and Azure DevOps](https://github.com/azure-samples/private-aks-cluster-terraform-devops)
