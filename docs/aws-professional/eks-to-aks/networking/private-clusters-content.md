@@ -55,7 +55,7 @@ The second option to improve cluster security and minimize attacks is using [Aut
 
 An [AKS Private Cluster](/azure/aks/private-clusters) provides a higher security and isolation degree with respect to [Authorized IPs](/azure/aks/api-server-authorized-ip-ranges). However, you cannot convert an existing public AKS cluster into a private cluster. Vice versa, Authorized IPs can be enabled for any existing AKS cluster, for example, using the following Azure CLI command:
 
-  ```bash
+ ```azurecli-interactive
   az aks update \
       --resource-group myResourceGroup \
       --name myAKSCluster \
