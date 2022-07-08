@@ -19,7 +19,7 @@ This article presents a solution for predicting student attrition. Core componen
    - Detailed information about financial grants
    - Student responses to course surveys
 
-   Educational data is retrieved from third-party data sources, district databases, and state databases. It's housed in an on-premises database.
+   Educational data is retrieved from various data sources, including district databases and state databases. It's housed in an on-premises database.
 
 1. **Data preparation**. During data preparation, the data is gathered, combined, structured, and organized. It's then ready to be used:
 
@@ -27,18 +27,18 @@ This article presents a solution for predicting student attrition. Core componen
    - For business intelligence purposes.
    - In analytics and data visualization applications.
 
-   The solution uses Azure Data Factory to orchestrate the process of transforming and loading the data. Azure Synapse Analytics is used to process data and to trigger Azure Machine Learning experiments.
+   The solution uses Azure Data Factory to orchestrate the process of transforming and loading the data. It uses Azure Synapse Analytics to process data and to trigger Machine Learning experiments.
 
-1. **AI machine learning training**. The solution uses Azure Machine Learning studio to train a wide range of supervised learning algorithms and find a model that accurately predicts student attrition. The following Responsible AI Toolbox tools help to implement responsible AI:
+1. **AI machine learning training**. The solution uses Azure Machine Learning studio to train a wide range of supervised learning algorithms and to find a model that accurately predicts student attrition. The following Responsible AI Toolbox tools help to implement responsible AI:
 
    - The interpretability tool helps users understand the major factors that contribute to student attrition.
    - The fairness tool identifies and mitigates bias that's related to student gender and race in the chosen model.
 
-1. **AI machine learning inferencing**. During inferencing, previously unseen data points are fed into a machine learning model. The model calculates the probability of student attrition. In Azure Machine Learning, a built-in model registry stores and provides version control for models in the Azure cloud. The model registry makes it easy to organize and keep track of trained models. Trained models are deployed to machine learning virtual machines (VMs) or managed endpoints.
+1. **AI machine learning inferencing**. During inferencing, previously unseen data points are fed into a machine learning model. The model calculates the probability of student attrition. In Machine Learning, a built-in model registry stores and provides version control for models in the Azure cloud. The model registry makes it easy to organize and keep track of trained models. Trained models are deployed to instances of Azure Data Science Virtual Machine or managed endpoints.
 
 1. **Analytical workload**. The model scoring results are stored in Azure Synapse Analytics and Azure SQL Database. The results are then available for use in the front end and for monitoring and retraining the models.
 
-1. **Front-end model consumption**. The Web Apps feature of Azure App Service and the Power BI platform consume the scored results.
+1. **Front-end model consumption**. Power BI and the Web Apps feature of Azure App Service consume the scored results.
 
 #### Student data schema
 
@@ -51,7 +51,7 @@ The information that's critical for the student attrition model consists of fact
 | First generation in college |  | Whether the student is a first-generation student. With a first-generation student, no parent or guardian has a four-year degree or higher from a college or university. |
 | Total terms |  | The total number of terms that the student has been enrolled. |
 | High school graduate or GED |  | Whether the student graduated from high school or has an equivalent education. |
-| Cumulative GPA |  | The average over all the grades that the student has earned. |
+| Cumulative grade point average (GPA) |  | The average over all the grades that the student has earned. |
 | Cumulative credit hours earned |  | All the hours that the student has accumulated over the period of enrollment. |
 | Transferred to another program |  | Whether the student has switched programs since starting. |
 | Financial aid eligible |  | Whether the student is eligible for a grant. |
@@ -67,7 +67,7 @@ The information that's critical for the student attrition model consists of fact
 | Academic standing | Academic suspension | Whether the student has been suspended, expressed as a normalized value in proportion to the enrollment period. |
 | Academic standing | Academic suspension for one year | The proportion of the enrollment period that the student has been suspended for one academic year. |
 | Academic standing | Academic warning | Whether the student has been given an academic warning for failing grades. |
-| Academic standing | Extended probation for low GPA | The period of time that the student's probation has been extended in proportion to the enrollment period. |
+| Academic standing | Extended probation for low GPA | The period that the student's probation has been extended in proportion to the enrollment period. |
 | Academic standing | Good academic standing | The proportion of the enrollment period that the student has been in good academic standing. |
 | Academic standing | Probation after suspension or dismissal | Whether the student has been placed on probation after academic suspension. |
 | Instruction type | Blended | The proportion of time that the student has received a combination of in-person and online instruction. |
@@ -90,24 +90,24 @@ The information that's critical for the student attrition model consists of fact
 
 - [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) is an analytics service for enterprise data warehouses. This service uses SQL and Spark technologies and offers dedicated or serverless options for querying data. Azure Synapse Analytics provides a unified experience for ingesting, exploring, preparing, transforming, and managing data. The service also makes data available for business intelligence and machine learning purposes.
 
-- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) is an enterprise-grade machine learning service for easy model development and deployment to a wide range of machine learning targets. This service provides users at all skill levels with a low-code designer, automated machine learning, and a hosted Jupyter notebook environment that supports various integrated development environments (IDEs).
+- [Machine Learning](https://azure.microsoft.com/services/machine-learning) is an enterprise-grade machine learning service for easy model development and deployment to a wide range of machine learning targets. This service provides users at all skill levels with a low-code designer, automated machine learning, and a hosted Jupyter notebook environment that supports various integrated development environments (IDEs).
 
 - [Azure Machine Learning studio](https://azure.microsoft.com/services/machine-learning/#faq) is a cloud service that you can use to accelerate and manage the machine learning project lifecycle. This service handles training, model deployment, and the management of machine learning operations (MLOps).
 
 - [Responsible AI Toolbox](https://responsibleaitoolbox.ai) is a collection of integrated tools and functionalities that help you implement responsible AI principles. The toolbox integrates ideas from several open-source tools in the areas of error analysis, interpretability, fairness, counterfactual analysis, and causal decision-making. You can use this open-source framework to assess machine learning models quickly and easily.
 
-- [Azure Data Science Virtual Machine](/azure/machine-learning/data-science-virtual-machine/overview) is a customized VM image on the Azure cloud platform that's built specifically for doing data science. The image has many popular data science tools preinstalled and preconfigured to jump-start building intelligent applications for advanced analytics.
+- [Azure Data Science Virtual Machine](/azure/machine-learning/data-science-virtual-machine/overview) is a customized virtual machine (VM) image on the Azure cloud platform that's built specifically for data science. The image has many popular data science tools preinstalled and preconfigured to jump-start building intelligent applications for advanced analytics.
 
-- [Azure Machine Learning endpoints](/azure/machine-learning/concept-endpoints) are HTTPS endpoints that clients can access to retrieve inferencing, or scoring, output from a trained model. Each endpoint provides a stable scoring URI with key-token authentication.
+- [Machine Learning endpoints](/azure/machine-learning/concept-endpoints) are HTTPS endpoints that clients can access to retrieve inferencing output, or scoring output, from a trained model. Each endpoint provides a stable scoring URI with key-token authentication.
 
-- [Web Apps](/azure/app-service/overview) is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. With Web Apps, you can develop in .NET, .NET Core, Java, Ruby, Node.js, PHP, or Python. Applications easily run and scale in Windows and [Linux](/azure/app-service/overview#app-service-on-linux)-based environments.
+- [App Service](https://azure.microsoft.com/en-us/services/app-service/) provides a framework for building, deploying, and scaling web apps. The [Web Apps](/azure/app-service/overview) feature is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. With Web Apps, you can develop in .NET, .NET Core, Java, Ruby, Node.js, PHP, or Python. Applications easily run and scale in Windows and [Linux](/azure/app-service/overview#app-service-on-linux)-based environments.
 
 - [Power BI](https://powerbi.microsoft.com) is the Azure software as a service (SaaS) for business analytics and visually immersive and interactive insights. Power BI provides a rich set of connectors to various data sources, easy transformation capabilities, and sophisticated visualization capabilities.
 
 ### Alternatives
 
-- This solution uses Azure Machine Learning as a data modeling and deployment tool. Instead, you can use Azure Databricks with a code-first approach.
-- The data sources in the solution are Azure components. You can also feed in training data from third-party sources.
+- This solution uses Machine Learning as a data modeling and deployment tool. Instead, you can use Azure Databricks with a code-first approach.
+- The data sources in the solution are Azure components. You can also use training data from third-party sources.
 
 ## Scenario details
 
@@ -123,8 +123,8 @@ For interpretability and bias detection, this solution uses the Responsible AI T
 
 This solution applies to many areas:
 
-- Adaptive learning. In education, adaptive learning is crucial for student success. After taking into account an individual student's progress, educational institutions can customize approaches and support educators to provide the best possible learning experience for the student.
-- Employee attrition prediction. Employees are valuable assets of any organization. It's important to know whether employees are dissatisfied, or whether there are other reasons employees might leave jobs. When employers have this information, they can take proactive measures to retain employees.
+- Adaptive learning. In education, adaptive learning is crucial for student success. After taking into account an individual student's progress, educational institutions can support educators and customize approaches to provide the best possible learning experience for the student.
+- Employee attrition prediction. Employees are valuable assets of any organization. It's important to know whether employees are dissatisfied, or whether there are other reasons employees might leave their jobs. When employers have this information, they can take proactive measures to retain employees.
 - Customer churn prediction. In retail, churn prediction helps identify whether users are likely to stop using a website, service, or product. Companies and large corporations suffer losses when they can't retain customers. The customer churn model helps these organizations identify ways to improve their offerings and prevent customers from leaving them.
 
 ## Considerations
@@ -137,7 +137,7 @@ The technologies in this solution were chosen for their scalability and availabi
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
-The components in this solution feature high availability. But there are two parts to machine learning and analytics tasks: training and production deployment. Resources that are required for training don't typically need high availability. As for production deployment, [Azure Machine Learning VMs](/azure/virtual-machines/availability) fully support high availability.
+The components in this solution feature high availability. But there are two parts to machine learning and analytics tasks: training and production deployment. Resources that are required for training don't typically need high availability. As for production deployment, Azure VMs fully support high availability. For detailed information, see [Availability options for Azure Virtual Machines](/azure/virtual-machines/availability).
 
 ### Security
 
@@ -156,7 +156,7 @@ When you implement security features in this solution, consider guidelines in th
 
 ### Cost optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information about creating a cost-effective workload, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+One aspect of cost optimization is looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information about creating a cost-effective workload, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 - To optimize costs by paying only for what you need, scale resources according to your analytics, training, and deployment workloads.
 - To estimate the cost of implementing this solution, use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator).
@@ -168,7 +168,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 You can scale most components in this scenario up or down depending on the analysis activity levels. Azure Synapse Analytics provides scalability and high performance. At low activity levels, you can pause this service or scale back computing resources.
 
-You can scale Azure Machine Learning according to the size of your data and the compute resources that you need for model training. For deployment, you can scale compute resources based on your expected load, scoring service, and latency requirements with Azure Kubernetes Service (AKS).
+You can scale Machine Learning according to the size of your data and the compute resources that you need for model training. For deployment, you can scale compute resources based on your expected load, scoring service, and latency requirements with Azure Kubernetes Service (AKS).
 
 For guidance about designing scalable solutions, see [Performance efficiency checklist](/azure/architecture/framework/scalability/performance-efficiency).
 
@@ -179,7 +179,7 @@ Follow MLOps guidelines to standardize and manage an end-to-end machine learning
 - [Unifying machine learning operations in Azure](https://microsoft.sharepoint.com/teams/CS_AzureDataAI/SitePages/Mlops.aspx)
 - [Azure MLOps (v2) solution accelerator](https://github.com/Azure/mlops-v2)
 
-As part of Azure Machine Learning, responsible AI is based on the six pillars of AI use and development:
+As part of Machine Learning, responsible AI is based on the six pillars of AI use and development:
 
 - Fairness
 - Reliability and safety
