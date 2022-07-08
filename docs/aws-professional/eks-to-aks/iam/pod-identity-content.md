@@ -71,7 +71,7 @@ The following diagram shows the architecture of the application on an AKS cluste
 - Azure Storage Account
 - Azure Service Bus
 
-![Example of an application that uses Azure AD Workload Identity](./media/azure-ad-workload-identity.png.png)
+![Example of an application that uses Azure AD Workload Identity](./media/azure-ad-workload-identity.png)
 
 There are four steps to get the sample working end-to-end in a Kubernetes cluster:
 
