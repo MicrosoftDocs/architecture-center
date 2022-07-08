@@ -94,108 +94,111 @@ This sample graph shows vibration anomalies, in red, that are detected by a mode
 
 ### Components
 
-- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) is a collection of Microsoft-managed cloud services that connect, monitor, and control billions of IoT assets. In simpler terms, an IoT solution is made up of one or more IoT devices that communicate with one or more back-end services hosted in the cloud.
-- [Azure Data Factory]() is a cloud-based data integration service that automates data movement and transformation.
-- [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake) is a limitless data storage to house data in different shapes/formats and provides easier integration to the Analytics tools in Azure. The component has enterprise grade security and monitoring support. One can use it for archives, data lakes, high-performance computing, machine learning, and cloud-native workloads. This solution provides a local data store for the ML (MACHINE LEARNING) data and a Premium data cache for training the ML model.
-- [Azure Databricks]() is a data analytics platform optimized for the Microsoft Azure cloud services platform. Azure Databricks offers three environments for developing data intensive applications: Databricks SQL, Databricks Data Science & Engineering, and Databricks Machine Learning.
-- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) is the enterprise grade machine learning service for easier model development and deployment to a wide range of ML target computes. It provides users, at all skill levels, with a low-code designer, automated machine learning, and a hosted Jupyter notebook environment that supports various IDEs (Integrated Development Environments).
-- [Azure Managed Endpoint for Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-endpoints) are the HTTPS endpoints that clients can call to receive inferencing(scoring) output of a trained model that provides a stable scoring URI with a key-token authentication.
-- [Power BI]() is the Azure SaaS (software as a service) for Business Analytics and visually immersive and interactive insights. It provides a rich set of connectors to various data sources, easier transformation capabilities, and sophisticated visualization capabilities.
+- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) is a collection of Microsoft-managed cloud services that connect, monitor, and control billions of IoT assets.
+- [Azure Data Factory](https://azure.microsoft.com/services/data-factory) is a cloud-based data integration service that automates data movement and transformation.
+- [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake) is a limitless data storage for housing data in various shapes and formats. It provides easy integration with the analytics tools in Azure. It has enterprise-grade security and monitoring support. You can use it for archives, data lakes, high-performance computing, machine learning, and cloud-native workloads. This solution provides a local data store for the machine learning data and a premium data cache to train the machine learning model.
+- [Azure Databricks](https://azure.microsoft.com/services/databricks) is a data analytics platform that's optimized for the Azure platform. It offers three environments for developing data-intensive applications: Databricks SQL, Databricks Data Science & Engineering, and Databricks Machine Learning.
+- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) is the enterprise-grade machine learning service for easier model development and deployment to a wide range of machine learning target computes. It provides users, at all skill levels, with a low-code designer, automated machine learning, and a hosted Jupyter notebook environment that supports various integrated development environments.
+- [Azure Machine Learning endpoints](https://docs.microsoft.com/azure/machine-learning/concept-endpoints) are HTTPS endpoints that clients can call to receive the inferencing(scoring) output of a trained model. An endpoint provides a stable scoring URI with key-token authentication.
+- [Power BI](https://powerbi.microsoft.com) is the Azure software as a service (SaaS) for business analytics and visually immersive and interactive insights. It provides a rich set of connectors to various data sources, easy transformation capabilities, and sophisticated visualization.
 
 ### Alternatives
 
-- Azure ML is the data modeling and deployment tool in this solution. One can also build the solution in Azure Databricks with a code-first approach. 
-- Event Hubs can be a suitable alternative to IoT Hub for ingesting big data. Both Event Hub and IoT Hub are designed for data ingestion at a massive scale.
-- One can have the data staged in Cosmos DB or Azure SQL Database instead of Azure Data Lake and the data staging/analysis can be accomplished using Azure Data Factory.
-- As an alternative to Databricks, Azure Synapse could be used for Data exploration.
-- Grafana could be used as the visualization tool instead of Power BI.
-- AKS can be an alternative to managed endpoints if one wants more control over that compute tier.
+- Azure Machine Learning provides data modeling and deployment in this solution. You can also build the solution in Azure Databricks, using a code-first approach.
+- [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs) is a suitable alternative to IoT Hub for ingesting big data. Both Event Hubs and IoT Hub are designed for data ingestion at a massive scale.
+- You can stage data in [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) or [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) instead of Data Lake. You can use Data Factory for data staging and analysis.
+- For data exploration, you can use [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) as an alternative to Azure Databricks.
+- You can use Grafana instead of Power BI for visualization.
+- You can use [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) as an alternative to managed endpoints if you want more control over that compute tier.
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
  
-The technologies in this architecture were chosen for scalability and availability reasons with the aim of managing and controlling the costs.
+The technologies in this architecture were chosen for scalability and availability, with the aim of managing and controlling costs.
 
-The Azure Industrial IoT helps you accelerate your path to modernize your connected factory. Also, Azure Digital Twin helps you to model the connected physical environments in a manufacturing setup. The following are some resources to consider:
+Azure Industrial IoT can help you accelerate your path to modernize your connected factory. Also, Azure Digital Twins can help you to model the connected physical environments in a manufacturing setup. For more information, see these resources:
 
 - [Azure Industrial IoT – IoT for Industry 4.0](https://azure.microsoft.com/solutions/industry/manufacturing/iot/#overview)
-- [Digital Twins – Modeling and Simulations](https://azure.microsoft.com/services/digital-twins/#overview)
+- [Azure Digital Twins – modeling and simulations](https://azure.microsoft.com/services/digital-twins/#overview)
 
 ### Reliability
 
-The components in this architecture feature high availability. However, machine learning and analytics tasks are comprised of two parts: training and production deployment.
+The components in this architecture provide high availability. However, machine learning and analytics tasks are made up of two parts: training and production deployment.
 
-Resources required for training do not typically require high availability, as for production deployment high availability is fully supported by [Azure Managed Endpoint](/azure/machine-learning/concept-endpoints).
+Resources required for training don't typically require high availability. For production deployment, high availability is fully supported by [Azure Machine Learning endpoints](/azure/machine-learning/concept-endpoints).
 
 ### Security
 
-This scenario features built in security within the components, as well as permissions that can be managed via Azure Active Directory authentication or role-based access control. Consider the following [Azure Machine learning best practices for enterprise security](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-enterprise-security) to establish suitable security levels.
+This scenario provides improved security that's built into the components. It also provides permissions that you can manage via Azure Active Directory authentication or role-based access control. Consider the following [Azure Machine Learning best practices for enterprise security](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-enterprise-security) to establish suitable security levels.
 
-Manage the security and access to the IoT Hub which interacts with the IoT sensors following the baseline outlines in [IoT Hub Security](/security/benchmark/azure/baselines/iot-hub-security-baseline).
+Manage security and access to the IoT hub that interacts with the IoT sensors by following the baseline guidance in [Azure security baseline for Azure IoT Hub](/security/benchmark/azure/baselines/iot-hub-security-baseline).
 
-Consider implementing the following security features in this architecture: 
+Consider implementing the following security features in this architecture:
 
-- [Deploy Azure services in Azure Virtual Network](/azure/virtual-network/virtual-network-for-azure-services)
-- [Enterprise Security and Governance - Azure ML](/azure/machine-learning/concept-enterprise-security)
+- [Deploy dedicated Azure services into virtual networks](/azure/virtual-network/virtual-network-for-azure-services)
+- [Enterprise security and governance for Azure Machine Learning](/azure/machine-learning/concept-enterprise-security)
 - [Overview of the security pillar](/azure/architecture/framework/security/overview)
 
 ### Cost optimization
 
-- Scalability of the resources depends on the analytics workload and training and deployment workloads enabled to optimize costs as needed.
-- Choose the appropriate pricing tier for the IoT hub and appropriate compute sizes for ML and data processing components.
-- To estimate the cost of implementing this solution, please utilize [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator) for the services mentioned above. It is also valuable to refer to the [Overview of the cost optimization pillars](/azure/architecture/framework/cost/overview).
- 
+- To optimize costs, scalability of the resources is based on the analytics workload and the training and deployment workloads.
+- Choose the appropriate pricing tier for the IoT hub and appropriate compute sizes for machine learning and data processing components.
+- To estimate the cost of implementing this solution, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator), inputting the services mentioned previously. [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview) can also be helpful.
+
 ### Operational excellence
 
-Follow MLOps guidelines to standardize and manage an end-to-end Machine Learning lifecycle scalable across multiple workspaces. Before going into production, ensure the implemented solution supports ongoing inference with retraining cycles and automated redeployments of models. Below are a few resources to consider:
-- [MLOps v2 (sharepoint.com)](https://microsoft.sharepoint.com/teams/CS_AzureDataAI/SitePages/Mlops.aspx?xsdata=MDV8MDF8fDVhM2M4ZDViNjM1ODRhMWFjMDM3MDhkYTFiZjIwYTkzfDcyZjk4OGJmODZmMTQxYWY5MWFiMmQ3Y2QwMTFkYjQ3fDB8MHw2Mzc4NTMwMjM1OTk4MzcyMzl8R29vZHxWR1ZoYlhOVFpXTjFjbWwwZVZObGNuWnBZMlY4ZXlKV0lqb2lNQzR3TGpBd01EQWlMQ0pRSWpvaVYybHVNeklpTENKQlRpSTZJazkwYUdWeUlpd2lWMVFpT2pFeGZRPT18MXxNVGs2TXpCak9HUmlOR1JsTkRSbE5EVmlaR0UwWVRNMFpqQmpPV1kzT1RWa1pqaEFkR2h5WldGa0xuWXl8fA%3D%3D&sdata=czFMOUVSa3J1WjBSbm5haDc3NStGUVVGYTZyZE93MmF4d3U1cW92NlB2QT0%3D&ovuser=72f988bf-86f1-41af-91ab-2d7cd011db47%2Cchulahlou%40microsoft.com&OR=Teams-HL&CT=1649705566054&params=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiIyOC8yMjAzMjEwMDEwNyJ9)
-- [Azure/mlops-v2: Azure MLOps (v2) solution accelerators. (github.com)](https://github.com/Azure/mlops-v2)
+Follow MLOps guidelines to standardize and manage an end-to-end machine learning lifecycle that's scalable across multiple workspaces. Before going into production, ensure the implemented solution supports ongoing inference with retraining cycles and automated redeployments of models. Here are a few resources to consider:
+- [MLOps v2](https://microsoft.sharepoint.com/teams/CS_AzureDataAI/SitePages/Mlops.aspx?xsdata=MDV8MDF8fDVhM2M4ZDViNjM1ODRhMWFjMDM3MDhkYTFiZjIwYTkzfDcyZjk4OGJmODZmMTQxYWY5MWFiMmQ3Y2QwMTFkYjQ3fDB8MHw2Mzc4NTMwMjM1OTk4MzcyMzl8R29vZHxWR1ZoYlhOVFpXTjFjbWwwZVZObGNuWnBZMlY4ZXlKV0lqb2lNQzR3TGpBd01EQWlMQ0pRSWpvaVYybHVNeklpTENKQlRpSTZJazkwYUdWeUlpd2lWMVFpT2pFeGZRPT18MXxNVGs2TXpCak9HUmlOR1JsTkRSbE5EVmlaR0UwWVRNMFpqQmpPV1kzT1RWa1pqaEFkR2h5WldGa0xuWXl8fA%3D%3D&sdata=czFMOUVSa3J1WjBSbm5haDc3NStGUVVGYTZyZE93MmF4d3U1cW92NlB2QT0%3D&ovuser=72f988bf-86f1-41af-91ab-2d7cd011db47%2Cchulahlou%40microsoft.com&OR=Teams-HL&CT=1649705566054&params=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiIyOC8yMjAzMjEwMDEwNyJ9)
+- [Azure MLOps (v2) solution accelerator](https://github.com/Azure/mlops-v2)
 
 ### Performance efficiency
 
-- Most components in this scenario can be scaled up or down depending on the analysis activity levels. 
-- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) can be scaled depending on the data size and the necessary compute resources for model training. For the deployment, compute resources can be scaled based on expected load and scoring service and latency requirements with the AKS (Azure Kubernetes Service) service.
-- The IoT hub and Azure Data Factory can be scaled /tuned to handle large data ingestions. 
-- Consult the [Performance Efficiency checklist](/azure/architecture/framework/scalability/performance-efficiency) for guidance on designing scalable solutions.
+- Most components in this scenario can be scaled up or down based on the analysis activity levels.
+- You can scale [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) based on the data size and the necessary compute resources for model training. For the deployment, you can scale compute resources based on the expected load and scoring service and latency requirements with the AKS service.
+- You can scale and tune the IoT hub and Azure Data Factory to handle large data ingestions.
+- For more information about designing scalable solutions, see [Performance efficiency checklist](/azure/architecture/framework/scalability/performance-efficiency).
 
 ## Contributors
 *This article is being updated and maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors: 
+Principal authors:
+
 - [Manasa Ramalinga](https://www.linkedin.com/in/trmanasa) | [Senior Cloud Solution Architect, US National CSA Team
 - [Charitha Basani](https://www.linkedin.com/in/charitha-basani-54196031) | [Senior Cloud Solution Architect, US National CSA Team
 
-Mick Alberts 
+Other contributor:
+
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer 
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
-- What is Azure Machine Learning?
-- Track ML models with MLflow and Azure Machine Learning
-- Azure Databricks Documentation
-- Azure DataFactory Documentation
-- Introduction to Azure Blob Storage
-- Introduction to Azure Data Lake Storage Gen2
-- Azure IoT Edge documentation
-- Azure IoT Hub Documentation
-- Azure Time Series Insights Documentation
-- Advanced analytics architecture
-- What is Power BI?
-- Detect and visualize anomalies in your data with the Anomaly Detector API - Demo on Jupyter Notebook
-- Identify anomalies by routing data via IoT Hub to a built-in ML model in Azure Stream Analytics
-- Recipe: Predictive maintenance with the Cognitive Services for Big Data
+- [What is Azure Machine Learning?](/azure/machine-learning/overview-what-is-azure-ml)
+- [Track ML models with MLflow and Azure Machine Learning](/azure/machine-learning/how-to-use-mlflow)
+- [Azure Databricks documentation](/azure/databricks/index)
+- [What is Azure Data Factory?](/azure/data-factory/introduction)
+- [Introduction to Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction)
+- [Introduction to Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)
+- [Azure IoT Edge documentation](/azure/iot-edge/index)
+- [Azure IoT Hub documentation](/azure/iot-hub/index)
+- [Azure Time Series Insights documentation](/azure/time-series-insights/index)
+- [Advanced analytics architecture](../../solution-ideas/articles/advanced-analytics-on-big-data.yml)
+- [What is Power BI?](/power-bi/fundamentals/power-bi-overview)
+- [Detect and visualize anomalies in your data with the Anomaly Detector API - Jupyter Notebook demo](https://github.com/Azure-Samples/AnomalyDetector/tree/master/ipython-notebook)
+- [Identify anomalies by routing data via IoT Hub to a built-in machine learning model in Azure Stream Analytics](/learn/modules/examine-iot-hub-message-routing)
+- [Recipe: Predictive maintenance with the Cognitive Services for Big Data](/azure/cognitive-services/big-data/recipes/anomaly-detection)
 
 ## Related resources
 
-- Predictive maintenance solution
-- Extract actionable insights from IoT data
-- Azure industrial IoT analytics guidance
-- Connected factory hierarchy service
-- Connected factory signal pipeline
-- IoT Edge railroad maintenance and safety system
-- Quality assurance
-- Deploy AI and ML computing on-premises and to the edge
-- MLOps for Python models using Azure Machine Learning
+- [Predictive maintenance solution](../../industries/manufacturing/predictive-maintenance-solution.yml)
+- [Extract actionable insights from IoT data](../..//industries/manufacturing/extract-insights-iot-data.yml)
+- [Azure industrial IoT analytics guidance](../../guide/iiot-guidance/iiot-architecture.yml)
+- [Connected factory hierarchy service](../../solution-ideas/articles/connected-factory-hierarchy-service.yml)
+- [Connected factory signal pipeline](../../example-scenario/iot/connected-factory-signal-pipeline.yml)
+- [IoT Edge railroad maintenance and safety system](../../example-scenario/predictive-maintenance/iot-predictive-maintenance.yml)
+- [Quality assurance](../../solution-ideas/articles/quality-assurance.yml)
+- [Deploy AI and machine learning computing on-premises and to the edge](../../hybrid/deploy-ai-ml-azure-stack-edge.yml)
+- [MLOps for Python models using Azure Machine Learning](../../reference-architectures/ai/mlops-python.yml)
 
