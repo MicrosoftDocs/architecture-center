@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Real-time anomaly detection for conveyor belt technology
+  title: Real-time anomaly detection for conveyor belts
   titleSuffix: Azure Architecture Center
   description: View a reference architecture that describes how to enable real-time anomaly detection for conveyor belts. 
   author: manasatramalinga
@@ -19,7 +19,7 @@ products:
   - azure-data-factory
   - azure-databricks
   - azure-data-lake
-name: Implement real-time anomaly detection for conveyor belt technology
+name: Implement real-time anomaly detection for conveyor belts
 summary: View a reference architecture that describes how to enable real-time anomaly detection for conveyor belts.
 thumbnailUrl: /azure/architecture/browse/thumbs/real-time-anomaly-detection.png
 content: |
