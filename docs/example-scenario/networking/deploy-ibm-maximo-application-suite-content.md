@@ -47,21 +47,21 @@ From the perspective of infrastructure, this architecture provides the following
 
 ### Components
 
-- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) to host the OpenShift platform and run the Maximo containers.
+- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) to host the OpenShift platform and run the Maximo containers. Virtual Machines is an infrastructure-as-a-service (IaaS) offering. You can use Virtual Machines to deploy on-demand, scalable computing resources.
 
 - [Red Hat Enterprise Linux CoreOS](https://docs.openshift.com/container-platform/4.8/architecture/architecture-rhcos.html) to provide a custom VM image for OpenShift.
 
-- [Azure Load Balancers](https://azure.microsoft.com/services/load-balancer) to provide connectivity into the cluster.
+- [Azure Load Balancers](https://azure.microsoft.com/services/load-balancer) to provide connectivity into the cluster. Azure Load Balancer is a high-performance, ultra low-latency Layer 4 load-balancing service (inbound and outbound) for all UDP and TCP protocols. It is built to handle millions of requests per second while ensuring your solution is highly available. Azure Load Balancer is zone-redundant, ensuring high availability across Availability Zones.
 
-- [Virtual Network](https://azure.microsoft.com/services/virtual-network) for communication between nodes, Azure services, and hybrid connectivity needs.
+- [Virtual Network](https://azure.microsoft.com/services/virtual-network) for communication between nodes, Azure services, and hybrid connectivity needs.  Virtual Network is the fundamental building block for private networks in Azure.
 
-- [Azure Files](https://azure.microsoft.com/services/storage/files) hosting the stateful data for the databases and systems inside the cluster.
+- [Azure Files](https://azure.microsoft.com/services/storage/files) hosting the stateful data for the databases and systems inside the cluster. Azure Files provides fully managed file shares in the cloud that are accessible via the SMB and NFS protocols.
 
-- [Azure DNS](https://azure.microsoft.com/services/dns) to manage DNS resolution for the containers inside and outside of the solution.
+- [Azure DNS](https://azure.microsoft.com/services/dns) to manage DNS resolution for the containers inside and outside of the solution. Azure DNS supports all common DNS records and provides high availability.
 
-- [Azure Bastion](https://azure.microsoft.com/services/azure-bastion) (optional) and a subnet to securely access any of the worker nodes or optional JumpBox machines. 
+- [Azure Bastion](https://azure.microsoft.com/services/azure-bastion) (optional) and a subnet to securely access any of the worker nodes or optional JumpBox machines. Azure Bastion is a fully managed service that provides secure and seamless RDP and SSH access to VMs without any exposure through public IP addresses.
 
-- [Azure SQL](https://azure.microsoft.com/products/azure-sql) (optional) on a VM to provide data services to MAS. The database can also be another, like Oracle Exadata or IBM Db2 Warehouse.
+- [Azure SQL](https://azure.microsoft.com/products/azure-sql) (optional) on a VM to provide data services to MAS. The database can also be another, like Oracle Exadata or IBM Db2 Warehouse. Azure SQL includes Azure SQL Database and Azure SQL Server.
 
 - [Twilio Send Grid](https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021) (optional) to send emails from MAS to your consumers.
 
@@ -332,13 +332,17 @@ For help with getting started, see the following resources:
 - [Requirements for Maximo](https://www.ibm.com/support/pages/node/6538166)
 - [IBM Maximo Application Suite (BYOL)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/ibm-usa-ny-armonk-hq-6275750-ibmcloud-asperia.ibm-maximo-application-suite-byol?tab=Overview)
 
-To learn more about the featured technologies, see the following information:
+To learn more about the featured technologies, see the following resources:
 
 - [IBM Passport Advantage](https://www.ibm.com/software/passportadvantage/pao_customer.html)
+- [Introduction to Azure DNS](/learn/modules/intro-to-azure-dns)
+- [Introduction to Azure NetApp Files](/learn/modules/introduction-to-azure-netapp-files)
+- [Introduction to Red Hat on Azure](/learn/modules/introduction-to-red-hat-azure)
 - [Red Hat Customer Portal](https://access.redhat.com)
 
 
 ## Related resources
 
-[Predictive maintenance for industrial IoT](/azure/architecture/solution-ideas/articles/iot-predictive-maintenance)
-
+- [Azure enterprise cloud file share](/azure/architecture/hybrid/azure-files-private)
+- [Predictive maintenance for industrial IoT](/azure/architecture/solution-ideas/articles/iot-predictive-maintenance)
+- [JBoss deployment with Red Hat on Azure](/azure/architecture/solution-ideas/articles/jboss-deployment-red-hat)
