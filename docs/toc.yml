@@ -2197,6 +2197,8 @@ items:
                 href: example-scenario/governance/governance-teams-guest-users.yml
               - name: Moodle deployment with NetApp Files
                 href: example-scenario/file-storage/moodle-azure-netapp-files.yml
+              - name: Predict student attrition
+                href: example-scenario/ai/student-attrition-prediction.yml
               - name: Secure research for regulated data
                 href: example-scenario/ai/secure-compute-for-research.yml
               - name: Teacher-provisioned virtual labs in Azure
@@ -2582,6 +2584,8 @@ items:
                 href: reference-architectures/ai/batch-scoring-databricks.yml
               - name: Build content-based recommendations
                 href: example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml
+              - name: Build custom document processing models
+                href: example-scenario/document-processing/build-deploy-custom-models.yml
               - name: Chatbot for hotel booking
                 href: example-scenario/ai/commerce-chatbot.yml
               - name: Citizen AI with the Power Platform
@@ -2616,6 +2620,8 @@ items:
                 href: reference-architectures/ai/orchestrate-mlops-azure-databricks.yml
               - name: Predict hospital readmissions with ML
                 href: example-scenario/ai/predict-hospital-readmissions-machine-learning.yml
+              - name: Predict student attrition
+                href: example-scenario/ai/student-attrition-prediction.yml
               - name: Quality assurance
                 href: solution-ideas/articles/quality-assurance.yml
               - name: Real-time machine learning on Azure
@@ -5176,6 +5182,8 @@ items:
             href: guide/networking/networking-start-here.md
           - name: Guides
             items:
+              - name: Spoke-to-spoke networking
+                href: networking/spoke-to-spoke-networking.yml
               - name: Network security
                 items:
                   - name: Azure network security overview
