@@ -1541,7 +1541,7 @@ items:
               - name: Quality assurance
                 href: solution-ideas/articles/quality-assurance.yml
               - name: Real-time anomaly detection for conveyor belts
-                href: example-scenario/ai/real-time-anomaly-detection-conveyor-belt-content.yml
+                href: example-scenario/ai/real-time-anomaly-detection-conveyor-belt.yml
               - name: Real-time asset tracking and management
                 href: solution-ideas/articles/real-time-asset-tracking-mgmt-iot-central.yml
               - name: Supply chain track and trace
@@ -2627,7 +2627,7 @@ items:
               - name: Quality assurance
                 href: solution-ideas/articles/quality-assurance.yml
               - name: Real-time anomaly detection for conveyor belts
-                href: example-scenario/ai/real-time-anomaly-detection-conveyor-belt-content.yml
+                href: example-scenario/ai/real-time-anomaly-detection-conveyor-belt.yml
               - name: Real-time machine learning on Azure
                 href: example-scenario/ai/deploy-real-time-machine-learning-model-application-ui.yml
               - name: Real-time recommendation API
