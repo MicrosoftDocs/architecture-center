@@ -21,7 +21,7 @@ Companies can use this solution to retrieve (or ingest) data from multiple sourc
 
 - Streaming data is ingested by one of the following options:
     - Apache Kafka for data ingestion
-    - Apache Spark Streaming and Apache Storm for processing
+    - Apache Spark Streaming or Apache Storm for processing
     - Apache HBase, which is a NoSQL database
 - The data is consumed by the user in the related apps.
 - The data is visualized in Power BI.
