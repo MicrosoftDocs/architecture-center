@@ -10,11 +10,11 @@ In EKS, after Kubernetes version 1.11 the cluster will have a default storage cl
 - Amazon FSx for Lustre CSI driver
 - Amazon FSx for NetApp ONTAP CSI driver
 
-By adding these drivers and Storage Classes you can leverage other storage services such as:
+By adding these drivers and Storage Classes you can use other storage services such as:
 
 - Elastic Block Storage: block-level storage solution used with EC2 instances to store persistent data
 - Elastic File System: to provide NFS access to external file systems that can be shared across instances
-- Lustre: Lustre is an opensource file system commonly used in HPC
+- Lustre: Lustre is an open/source file system commonly used in HPC
 - NetApp ONTAP: use a fully managed ONTAP shared storage in AWS
 
 ## Storage options in Azure Kubernetes Service
@@ -43,7 +43,7 @@ As mentioned by default an AKS cluster will come with pre-created storage classe
 
 Both of these classes will create a managed disk that will be attached to the node for the pod's access. The reclaim policy ensures that the disk will be deleted with the persistent volume, the disks can be expanded by editing the persistent volume claim.
 
-These Storage Classes leverage Azure Managed Disks with [locally redundant storage (LRS)](/azure/storage/common/storage-redundancy#locally-redundant-storage) this means that your data will have 3 synchronous copies within a single physical location in an Azure primary region. LRS is the least expensive replication option however it does not offer protection against an entire datacenter failure. To mitigate this risk, and especially when working with an [Availability Zone distributed AKS cluster](/azure/aks/availability-zones) it is recommended to use other replications such as [Zone Redundant Storage (ZRS)](/azure/storage/common/storage-redundancy#zone-redundant-storage) by creating [Zone-redundant managed disks](/azure/virtual-machines/disks-redundancy#zone-redundant-storage-for-managed-disks).
+These Storage Classes use Azure Managed Disks with [locally redundant storage (LRS)](/azure/storage/common/storage-redundancy#locally-redundant-storage) this means that your data will have 3 synchronous copies within a single physical location in an Azure primary region. LRS is the least expensive replication option however it does not offer protection against an entire datacenter failure. To mitigate this risk, and especially when working with an [Availability Zone distributed AKS cluster](/azure/aks/availability-zones) it is recommended to use other replications such as [Zone Redundant Storage (ZRS)](/azure/storage/common/storage-redundancy#zone-redundant-storage) by creating [Zone-redundant managed disks](/azure/virtual-machines/disks-redundancy#zone-redundant-storage-for-managed-disks).
 
 As both Storage Classes are backed by Azure Managed Disks and both use SSD drives, it is important to also understand the differences between Premium and Standard storage:
 
@@ -56,7 +56,7 @@ When using Azure Managed Disks as your primary Storage Class, be mindful of the 
 
 Azure Disks Storage Class allows both [static](/azure/aks/azure-disk-volume) and [dynamic](/azure/aks/azure-disks-dynamic-pv) volume provisioning.
 
-To optimize costs on Azure Managed Disks usage leverage [Azure Reservations](/azure/virtual-machines/disks-reserved-capacity).
+To optimize costs on Azure Managed Disks usage use [Azure Reservations](/azure/virtual-machines/disks-reserved-capacity).
 
 ### Azure Files
 
@@ -74,7 +74,7 @@ With Azure Files there are also a lot more replication options for you Storage A
 - Premium_LRS: premium SKU with SKU with locally redundant storage (LRS) [locally redundant storage (LRS)](/azure/storage/common/storage-redundancy#locally-redundant-storage)
 - Premium_ZRS - premium zone redundant storage (ZRS)
 
-To optimize costs on Azure Files usage leverage [Azure Reservations](/azure/storage/files/files-reserve-capacity).
+To optimize costs on Azure Files usage use [Azure Reservations](/azure/storage/files/files-reserve-capacity).
 
 ### Azure NetApp Files (ANF)
 
