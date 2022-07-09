@@ -129,6 +129,8 @@ items:
                     href: data-guide/relational-data/online-transaction-processing.md
                   - name: Data warehousing
                     href: data-guide/relational-data/data-warehousing.yml
+                  - name: Data lakes
+                    href: data-guide/scenarios/data-lake.md
                   - name: Non-relational data store
                     href: data-guide/big-data/non-relational-data.yml
                   - name: Pipeline orchestration
@@ -430,6 +432,8 @@ items:
                  href: reference-architectures/power-platform/eventual-consistency.yml
                - name: Extract text using Power Automate
                  href: example-scenario/ai/extract-object-text.yml
+               - name: Optimize inventory and forecast demand
+                 href: example-scenario/analytics/optimize-inventory-forecast-demand.yml
                - name: Power Automate deployment at scale
                  href: example-scenario/power-automate/power-automate.yml
                - name: Real-time ML with Power Platform
