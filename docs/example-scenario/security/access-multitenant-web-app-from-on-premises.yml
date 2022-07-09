@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: Improved-security access to multitenant web apps from an on-premises network
-  titleSuffix: Azure Example Scenarios
+  titleSuffix: Azure Architecture Center
   description: Set up improved-security private connectivity to a multitenant web app or function app from an on-premises network or from within an Azure virtual network. 
   author: ansingha
   ms.author: ansingha
