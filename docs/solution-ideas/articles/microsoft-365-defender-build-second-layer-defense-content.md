@@ -1,3 +1,5 @@
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
+
 It's common for organizations to use a hybrid environment, with resources running both on Azure and on-premises. Most Azure resources, such as virtual machines (VMs), Azure applications, and Azure Active Directory (Azure AD), can be protected by security services that run on Azure. 
 
 Organizations often also subscribe to Microsoft 365 to provide users with applications like Word, Excel, PowerPoint, and Exchange online. Microsoft 365 also offers security services that you can use to build an additional layer of security for some of the most used Azure resources.
