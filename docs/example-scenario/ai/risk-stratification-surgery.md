@@ -1,36 +1,43 @@
-Advancements in data collection technologies and developments in data standards (transport, content, terminology, and security) have created a growing AI (Artificial Intelligence) and ML (Machine Learning) transformation within the healthcare industry. This transformation has been particularly disruptive in the spaces of patient care and provider administration, while also providing an opportunity for insurance and pharmaceutical companies to offer digitally connected systems enabling a holistic view of the patient’s wellbeing and healthcare journey.
+Advancements in data collection technologies and developments in data standards (transport, content, terminology, and security) have created a growing AI and machine learning transformation in the healthcare industry. This transformation has been particularly groundbreaking in patient care and provider administration. It has also provided an opportunity for insurance and pharmaceutical companies to offer digitally connected systems that enable a holistic view of a patient's wellbeing and overall healthcare history.
 
-AI (Artificial Intelligence) and ML (Machine Learning) play a pivotal role when it comes to surgical intervention. For  patients, surgery can be a life-changing decision. As such, the ability to predict individual outcomes allows patients and doctors to take appropriate actions and better understand the associated risks.
+AI and machine learning play a pivotal role when it comes to surgical intervention.  For  patients, the decision to undergo surgery can be life changing. The ability to predict individual outcomes enables patients and doctors to take appropriate actions and better understand the associated risks.
 
-Risk stratification can be either binary or a multiclass classification model. In the case of binary classification, outcomes would be a surgery either resulting in a successful or risky outcome. In the case of multiclass classification approach, there is an opportunity to further refine outcomes as successful, moderate, and severe/death. In either approach, one would need patient centric data including demographic, comorbidities, current medication plan, blood test reports, and anything else that can shed light on a patient's overall health.
+Risk stratification can be either a binary or a multiclass classification model. In the case of binary classification, outcomes would be a surgery resulting in either a successful or a risky outcome. In the multiclass classification approach, there's an opportunity to further refine outcomes as successful, moderate, and severe/death. In either approach, one needs patient-centric data, including demographic information, comorbidities, current medication plan, blood test reports, and anything else that can shed light on a patient's overall health.
 
-Developing a transparent system with the ability to explain potential surgical outcomes to a patient must be the primary goal of models like this one. Transparency and interpretability help clinicians have meaningful conversations with patients and lets them establish a treatment plan before the surgery takes place. It is also important to acknowledge that patients come from diverse backgrounds. Therefore, creating a model that is free from bias toward protected classes like gender and race is a necessity. An unbiased model provides unbiased medical support for patients, irrespective of their background, to maximize their chances of a positive surgical outcome. As such, the architecture in this document leverages interpretability and bias detection tools from the Responsible AI toolbox. 
+Developing a transparent system that provides the ability to explain potential surgical outcomes to a patient must be the primary goal of models like this one. Transparency and interpretability help clinicians have meaningful conversations with patients and lets them establish a treatment plan before surgery takes place. 
 
-One of the largest healthcare organizations in the world, National Health Services, UK (United Kingdom), leverages the Azure Machine learning platform and the Responsible AI toolbox for risk stratification models for orthopedic surgery. You can read more about their use case [here](https://news.microsoft.com/en-gb/features/two-nhs-surgeons-are-using-azure-ai-to-spot-patients-facing-increased-risks-during-surgery).
+It's also important to acknowledge that patients come from diverse backgrounds. Creating a model that's free from bias toward gender and race is a necessity. An unbiased model provides unbiased medical support for patients, irrespective of their backgrounds, to maximize their chances of a positive surgical outcome. The architecture in this article uses interpretability and bias-detection tools from the Responsible AI Toolbox.
 
-embedded vid 
+One of the largest healthcare organizations in the world, National Health Services in the United Kingdom, uses the Azure machine learning platform and the Responsible AI Toolbox for risk stratification models for orthopedic surgery. For more information, see  [Two NHS surgeons are using Azure AI to spot patients facing increased risks during surgery](https://news.microsoft.com/en-gb/features/two-nhs-surgeons-are-using-azure-ai-to-spot-patients-facing-increased-risks-during-surgery).
 
-More details on how to implement this model and architecture are the topic of this documentation.
+video intro 
+
+> [!VIDEO https://www.youtube.com/watch?v=LRZHcipcweY]
+
+Details about how to implement this model and architecture are the topic of this article.
 
 ### Potential use cases
 
-This solution applies to the following scenarios:
+Risk stratification models apply to these scenarios:
 
-- **Clinical medicine use case.** Risk stratification models can be used for predicting surgical outcomes for patients undergoing orthopedic, heart surgery, eye surgery, and other types of surgeries. 
-- **Public health use case.** Risk stratification models can also help understand the spread of particular diseases across residents in certain geographical areas. For example, they can help understand how many residents are susceptible to falling sick with COVID. 
-- **Epidemiology use case.** Risk stratification models play a significant role in clinical trials, helping to better understand the outcomes of a treatment against a placebo.
+- **Clinical medicine.**  Predict surgical outcomes for patients undergoing orthopedic surgery, heart surgery, eye surgery, and other types of surgeries.
+- **Public health.** Help medical professionals and policy makers understand the spread of specific diseases among residents in geographical areas. For example, to determine how many residents are susceptible to COVID.
+- **Epidemiology.** Implement clinical trials to better understand the outcomes of a treatment as compared to a placebo.
 
 ## Architecture
 
-diagram 
+:::image type="content" source="media/surgery-risk-models.png" alt-text="Diagram that shows an architecture for implementing surgery risk stratification." lightbox="media/surgery-risk-models.png" border="false":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/surgery-risk-models-reviewed.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/surgery-risk-models.vsdx) of this architecture.*
 
 ### Workflow
 
 1. Data source 
 
-   Patient-centric data is sourced from [FHIR](https://www.hl7.org/fhir/index.html) (Fast Healthcare Interoperability Resources), EHR (Electronic Health Records - they are digital versions of real-time patient information), On-prem, and third-party data sources. When using patient-centric data, it is important to make sure personally identifiable data is carefully handled and is excluded from the training and test dataset.
+   Patient-centric data is sourced from [Fast Healthcare Interoperability Resources (FHIR)](https://www.hl7.org/fhir/index.html), real-time Electronic Health Records (EHR), on-premises, and third-party data sources.
+   
+   > [!IMPORTANT]
+   > When you use patient-centric data, you need to be sure personally identifiable data is carefully handled and is excluded from the training and test dataset.
 
    For surgery risk prediction, below are some of the data features considered:
 
