@@ -4,7 +4,7 @@ This reference architecture provides guidance for designing a mission critical w
 > ![GitHub logo](../../../_images/github.svg) The guidance is backed by a production-grade [example implementation](https://github.com/Azure/Mission-Critical-Connected) which showcases mission critical application development on Azure. This implementation can be used as a basis for further solution development in your first step towards production.
 
 ## Reliability tier
-< Now that we are in a landing zone, how does reliabily of lz impact workload>
+<!--Now that we are in a landing zone, how does reliabily of lz impact workload-->
 
 
 > [!TIP]
@@ -15,8 +15,14 @@ This reference architecture provides guidance for designing a mission critical w
 ## Key design strategies
 
 
-- **strategy n**
-    - key point n 
+- **Dedicated landing zone subscription**
+  
+  Each subscription is already provisioned with foundational services such as network, identity access management, policies, and monitoring.
+
+- **Security**
+    - Network as perimeter
+    - Identity as perimeter 
+    - Private compute cluster
 
     > Refer to [Well-architected mission critical workloads](/azure/architecture/framework/mission-critical/).
 
@@ -30,12 +36,9 @@ The components of this architecture can be broadly categorized in this manner. F
 
 The global resources are long living and share the lifetime of the system. They have the capability of being globally available within the context of a multi-region deployment model. 
 
-
 #### Global load balancer
 
-A global load balancer is critical for reliably routing traffic to the regional deployments with some level of guarantee based on the availability of backend services in a region. Also, this component should have the capability of inspecting ingress traffic, for example through web application firewall. 
-
-**Azure Front Door** is used as the global entry point for all incoming client HTTP(S) traffic, with **Web Application Firewall (WAF)** capabilities applied to secure Layer 7 ingress traffic. It uses TCP Anycast to optimize routing using the Microsoft backbone network and allows for transparent failover in the event of degraded regional health. Routing is dependent on custom health probes that check the composite heath of key regional resources. Azure Front Door also provides a built-in content delivery network (CDN) to cache static assets for the website component. 
+**Azure Front Door** is used as the global load balancer for reliably routing traffic to the regional deployments with some level of guarantee based on the availability of backend services in a region. Also, this component should have the capability of inspecting ingress traffic, for example through web application firewall. 
 
 Another option is Traffic Manager, which is a DNS based Layer 4 load balancer. However, failure is not transparent to all clients since DNS propagation must occur.
 
@@ -43,13 +46,9 @@ Another option is Traffic Manager, which is a DNS based Layer 4 load balancer. H
 
 
 #### Database
+**Azure Cosmos DB with SQL API** is used to store state related to the workload outside the compute cluster. The database account is replicated to each regional stamp and also has zonal redundancy enabled. Also, autoscaling is enabled at the container-level so that containers automatically scale the provisioned throughput as needed. It's highly recommended that the account has multi-master write enabled. However, consider the significant trade-off on cost.
 
-All state related to the workload is stored in an external database, **Azure Cosmos DB with SQL API**. This option was chosen because it has the feature set needed for performance and reliability tuning, both in client and server sides. It's highly recommended that the account has multi-master write enabled.
-
-> [!NOTE]
-> While a multi-region-write configuration represents the gold standard for reliability, there is a significant trade-off on cost, which should be properly considered.
-
-The account is replicated to each regional stamp and also has zonal redundancy enabled. Also, autoscaling is enabled at the container-level so that containers automatically scale the provisioned throughput as needed.
+Network restrictions are enabled to allow only access from Private Endpoints.
 
 > Refer to [Well-architected mission critical workloads: Globally distributed multi-write datastore](/azure/architecture/framework/mission-critical/mission-critical-data-platform#globally-distributed-multi-write-datastore).
 
@@ -76,8 +75,6 @@ This architecture uses a single page application (SPA) that send requests to bac
 
 Another choice is Azure Static Web Apps, which introduces additional considerations, such as how the certificates are exposed, connectivity to global load balancer, and other factors.
 
-Static content is typically cached in a store close to the client, using a content delivery network (CDN), so that the data can be served quickly without communicating directly with backend servers. It's a cost-effective way to increase reliability and reduce network latency. In this architecture, the **built-in CDN capabilities of Azure Front Door** are used to cache static website content at the edge network.
-
 #### Compute cluster
 
 The backend compute runs an application composed of three microservices and is stateless. So, containerization is an appropriate strategy to host the application. **Azure Kubernetes Service (AKS)** was chosen because it meets most business requirements and Kubernetes is widely adopted across many industries. AKS supports advanced scalability and deployment topologies. The AKS [Uptime SLA tier](/azure/aks/uptime-sla) is highly recommended for hosting mission critical applications because it provides availability guarantees for the Kubernetes control plane. 
@@ -89,13 +86,14 @@ Azure offers other compute services such as Azure Functions, Azure App Services.
 
 > Refer to [Well-architected mission critical workloads: Container Orchestration and Kubernetes](/azure/architecture/framework/mission-critical/mission-critical-application-platform#container-orchestration-and-kubernetes).
 
+#### Networking
+This design uses a hub-spoke networking topology. The stamp runs in a spoke that has Azure Virtual Network pre-provisioned. Each stamp has a single virtual network with two subnets. One subnet is for the compute cluster while the second subnet has  Private Endpoints of services that participate in processing a business operation.
+
+For deployment environments that require connectivity to shared organizational resources or interactivity with other workloads, you will need multiple pre-previsioned virtual networks. At least two virtual networks per environment and region are required to support the blue-green deployment strategy. 
+
 #### Regional message broker
 
-To optimize performance and maintain responsiveness during peak load, the design uses asynchronous messaging to handle intensive system flows. As a request is quickly acknowledged back to the frontend APIs, the request is also queued in a message broker. These messages are subsequently consumed by a backend service that, for instance, handles a write operation to a database. 
-
-The entire stamp is stateless except for at certain points, such as this message broker. Data is queued in the broker for a short period of time. The message broker must guarantee at least once delivery. This means even if the broker becomes unavailable, messages will be in the queue after the service is restored. However, it's the consumer's responsibility to determine whether those messages still need processing. The queue is drained after the message is processed and stored in a global database.
-
-In this design, **Azure Event Hubs** is used. An additional Azure Storage account is provisioned for checkpointing. Event Hubs is the recommended choice for use cases that require high throughput, such as event streaming.
+**Azure Event Hubs** is used to optimize performance and maintain responsiveness during peak load, the design uses asynchronous messaging to handle intensive system flows. An additional Azure Storage account is provisioned for checkpointing. 
 
 For use cases that require additional message guarantees, Azure Service Bus is recommended. It allows for two-phase commits with a client side cursor, as well as features such as a built-in dead letter queue and deduplication capabilities.
 
