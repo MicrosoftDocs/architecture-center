@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes the features of Azure App Configuration that are useful when working with multitenanted systems, and it provides links to guidance and examples.
 author: johndowns
 ms.author: jodowns
-ms.date: 07/03/2022
+ms.date: 07/10/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -36,14 +36,13 @@ You also commonly will have tenant-specific settings. For example, you might nee
 
 You can deploy a shared Azure App Configuration store for your whole solution, or for each stamp. You can then use the same store for all of your tenants' settings, and use [key prefixes](#key-prefixes) or [labels](#labels) to distinguish them.
 
+If you need to store a large amount of data per tenant, or will scale to a large number of tenants, you might be at risk of exceeding [any of the resource limits for a single store](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-app-configuration). In this scenario, consider whether you can shard your tenants across a set of shared stores to minimize the deployment and management costs.
+
 If you follow this approach, ensure you understand the [resource quotas and limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-app-configuration) that apply. In particular, be mindful of the total storage limit for the service tier you use, and ensure that you won't exceed the maximum requests per hour.
 
 ### Stores per tenant
 
 You might instead choose to deploy an Azure App Configuration store for each tenant. Azure App Configuration [standard tier](/azure/azure-app-configuration/faq#which-app-configuration-tier-should-i-use) enables you to deploy an unlimited number of stores in your subscription. However, this approach is often more complex to manage, because you have to deploy and configure more resources. There's also [a charge for each store resource that you deploy](https://azure.microsoft.com/pricing/details/app-configuration/#pricing).
-
-If you need to store a large amount of data per tenant, or will scale to a large number of tenants, you might be at risk of exceeding [any of the resource limits for a single store](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-app-configuration). In this scenario, consider whether you can shard your tenants across a set of shared stores to minimize the deployment and management costs.
-
 
 Consider tenant-specific stores if you have one of the following situations:
 
