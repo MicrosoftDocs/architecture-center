@@ -14,7 +14,6 @@ This reference architecture provides guidance for designing a mission critical w
 
 ## Key design strategies
 
-
 - **Dedicated landing zone subscription**
   
   Each subscription is already provisioned with foundational services such as network, identity access management, policies, and monitoring.
@@ -26,129 +25,80 @@ This reference architecture provides guidance for designing a mission critical w
 
     > Refer to [Well-architected mission critical workloads](/azure/architecture/framework/mission-critical/).
 
-## Architecture
-
 ![Mission critical online](./images/mission-critical-architecture-connected.svg)
 
 The components of this architecture can be broadly categorized in this manner. For product documentation about Azure services, see [Related resources](#related-resources). 
 
-### Global resources
+## Global resources
 
 The global resources are long living and share the lifetime of the system. They have the capability of being globally available within the context of a multi-region deployment model. 
 
-#### Global load balancer
-
-**Azure Front Door** is used as the global load balancer for reliably routing traffic to the regional deployments with some level of guarantee based on the availability of backend services in a region. Also, this component should have the capability of inspecting ingress traffic, for example through web application firewall. 
-
-Another option is Traffic Manager, which is a DNS based Layer 4 load balancer. However, failure is not transparent to all clients since DNS propagation must occur.
+**Azure Front Door** is used as the global load balancer for reliably routing traffic to the regional deployments with some level of guarantee based on the availability of backend services in a region. 
 
 > Refer to [Well-architected mission critical workloads: Global traffic routing](/azure/architecture/framework/mission-critical/mission-critical-networking-connectivity#global-traffic-routing).
 
-
-#### Database
-**Azure Cosmos DB with SQL API** is used to store state related to the workload outside the compute cluster. The database account is replicated to each regional stamp and also has zonal redundancy enabled. Also, autoscaling is enabled at the container-level so that containers automatically scale the provisioned throughput as needed. It's highly recommended that the account has multi-master write enabled. However, consider the significant trade-off on cost.
-
-Network restrictions are enabled to allow only access from Private Endpoints.
+**Azure Cosmos DB with SQL API** is used to store state related to the workload outside the compute cluster. The database account is replicated to each regional stamp and also has zonal redundancy enabled. 
 
 > Refer to [Well-architected mission critical workloads: Globally distributed multi-write datastore](/azure/architecture/framework/mission-critical/mission-critical-data-platform#globally-distributed-multi-write-datastore).
 
-
-#### Container registry
-
 **Azure Container Registry** is used to store all container images. It has geo-replication capabilities that allow the resources to function as a single registry, serving multiple regions with multi-master regional registries.
-
-As a security measure, only allow access to required entities and authenticate that access. For example, in the implementation, admin access is disabled. So, the compute cluster can pull images only with Azure Active Directory role assignments.  
 
 > Refer to [Well-architected mission critical workloads: Container registry](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing#container-registry).
 
-
-### Regional resources
+## Regional resources
 The regional resources are provisioned as part of a _deployment stamp_ to a single Azure region. These resources share nothing with resources in another region. They can be independently removed or replicated to additional regions. They, however, share [global resources](#global-resources) between each other. 
 
-In this architecture, a unified deployment pipeline deploys a stamp with these resources. 
+**Static website in an Azure Storage Account** hosts a single page application (SPA) that send requests to backend services.
 
-![Diagram that shows the regional resources.](./images/mission-critical-stamp.png)
-
-#### Frontend
-
-This architecture uses a single page application (SPA) that send requests to backend services. An advantage is that the compute needed for the website experience is offloaded to the client instead of your servers. The SPA is hosted as a **static website in an Azure Storage Account**.
-
-Another choice is Azure Static Web Apps, which introduces additional considerations, such as how the certificates are exposed, connectivity to global load balancer, and other factors.
-
-#### Compute cluster
-
-The backend compute runs an application composed of three microservices and is stateless. So, containerization is an appropriate strategy to host the application. **Azure Kubernetes Service (AKS)** was chosen because it meets most business requirements and Kubernetes is widely adopted across many industries. AKS supports advanced scalability and deployment topologies. The AKS [Uptime SLA tier](/azure/aks/uptime-sla) is highly recommended for hosting mission critical applications because it provides availability guarantees for the Kubernetes control plane. 
-
-Azure offers other compute services such as Azure Functions, Azure App Services. Those options offload additional management responsibilities to Azure at the cost of flexibility and density. 
-
-> [!NOTE] 
->  Avoid storing state on the compute cluster, keeping in mind the ephemeral nature of the stamps. As much as possible, persist state in an external database to keep scaling and recovery operations lightweight. For example in AKS, pods change frequently. Attaching state to pods will add the burden of data consistency.
+**Azure Kubernetes Service (AKS)** is the orchestrator for backend compute  that runs an application and is stateless. 
 
 > Refer to [Well-architected mission critical workloads: Container Orchestration and Kubernetes](/azure/architecture/framework/mission-critical/mission-critical-application-platform#container-orchestration-and-kubernetes).
 
-#### Networking
-This design uses a hub-spoke networking topology. The stamp runs in a spoke that has Azure Virtual Network pre-provisioned. Each stamp has a single virtual network with two subnets. One subnet is for the compute cluster while the second subnet has  Private Endpoints of services that participate in processing a business operation.
-
-For deployment environments that require connectivity to shared organizational resources or interactivity with other workloads, you will need multiple pre-previsioned virtual networks. At least two virtual networks per environment and region are required to support the blue-green deployment strategy. 
-
-#### Regional message broker
-
 **Azure Event Hubs** is used to optimize performance and maintain responsiveness during peak load, the design uses asynchronous messaging to handle intensive system flows. An additional Azure Storage account is provisioned for checkpointing. 
-
-For use cases that require additional message guarantees, Azure Service Bus is recommended. It allows for two-phase commits with a client side cursor, as well as features such as a built-in dead letter queue and deduplication capabilities.
 
 > Refer to [Well-architected mission critical workloads: Loosely coupled event-driven architecture](/azure/architecture/framework/mission-critical/mission-critical-application-design#loosely-coupled-event-driven-architecture).
 
-#### Regional secret store
-
-Each stamp has its own **Azure Key Vault** that stores secrets and configuration. There are common secrets such as connection strings to the global database but there is also information unique to a single stamp, such as the Event Hubs connection string. Also, independent resources avoid a single point of failure.
+**Azure Key Vault** stores secrets and configuration. There are common secrets such as connection strings to the global database but there is also information unique to a single stamp, such as the Event Hubs connection string. Also, independent resources avoid a single point of failure.
 
 > Refer to [Well-architected mission critical workloads: Data integrity protection](/azure/architecture/framework/mission-critical/mission-critical-security#data-integrity-protection).
 
-### Deployment pipeline
+## Deployment pipeline
 
 Build and release pipelines for a mission critical application must be fully automated. No action should be performed manually. This design demonstrates fully automated pipelines that deploy a validated stamp consistently every time. Another alternative approach is to only deploy rolling updates to an existing stamp.  
 
-#### Source code repository
-
 **GitHub** is used for source control, providing a highly available git-based platform for collaboration on application code and infrastructure code.
 
-#### Continuous Integration/Continuous Delivery (CI/CD) pipelines
-
-Automated pipelines are required for building, testing, and deploying a mission workload in preproduction _and_ production environments. **Azure Pipelines** is chosen given its rich tool set that can target Azure and other cloud platforms. 
-
-Another choice is GitHub Actions for CI/CD pipelines. The added benefit is that source code and the pipeline can be collocated. However, Azure Pipelines was chosen because of the richer CD capabilities. 
+**Azure Pipelines** is chosen to automate pipelines are required for building, testing, and deploying a mission workload in preproduction _and_ production environments. 
 
 > Refer to [Well-architected mission critical workloads: DevOps processes](/azure/architecture/framework/mission-critical/mission-critical-operational-procedures#devops-processes).
-
-#### Build Agents
 
 **Microsoft-hosted build agents** are used by this implementation to reduce complexity and management overhead. Self-hosted agents can be used for scenarios that require a hardened security posture.  
 
 > [!NOTE] 
 >  The use of self-hosted agents is demonstrated in the [Mission Critical - Connected](https://aka.ms/mission-critical-connected) reference implementation.
 
-### Observability resources
+## Observability resources
 
-Operational data from application and infrastructure must be available to allow for effective operations and maximize reliability. This reference provides a baseline for achieving holistic observability of an application.
+Operational data from application and infrastructure must be available to allow for effective operations and maximize reliability. This reference provides a baseline for achieving holistic observability of an application. Monitoring data for global resources and regional resources should be stored independently. A single, centralized observability store isn't recommended to avoid a single point of failure.
 
-#### Unified data sink 
+## Unified data sink 
 
 - **Azure Log Analytics** is used as a unified sink to store logs and metrics for all application and infrastructure components. 
 - **Azure Application Insights** is used as an Application Performance Management (APM) tool to collect all application monitoring data and store it directly within Log Analytics.
 
-![Diagram that shows the monitoring resources.](./images/mission-critical-monitoring-resources.svg)
+## Networking
+This design uses a hub-spoke networking topology. The stamp runs in a spoke that has Azure Virtual Network pre-provisioned. Each stamp has a single virtual network with two subnets. One subnet is for the compute cluster while the second subnet has Private Endpoints of services that participate in processing a business operation.
 
-Monitoring data for global resources and regional resources should be stored independently. A single, centralized observability store isn't recommended to avoid a single point of failure. Cross-workspace querying is used to achieve a single pane of glass.
+For deployment environments that require connectivity to shared organizational resources or interactivity with other workloads, you will need multiple pre-previsioned virtual networks. At least two virtual networks per environment and region are required to support the blue-green deployment strategy.
 
-In this architecture, monitoring resources within a region must be independent from the stamp itself, because if you tear down a stamp, you still want to preserve observability. Each regional stamp has its own dedicated Application Insights and Log Analytics Workspace. The resources are provisioned per region but they outlive the stamps.
-
-Similarly, data from shared services such as, Azure Front Door, Cosmos DB, and Container Registry are stored in dedicated instance of Log Analytics Workspace. 
-
-#### Data archiving and analytics
-Operational data that isn't required for active operations is exported from Log Analytics to Azure Storage Accounts for both data retention purposes and to provide an analytical source for AIOps, which can be applied to optimize the application health model and operational procedures.
-
-> Refer to [Well-architected mission critical workloads: Predictive action and AI operations](/azure/architecture/framework/mission-critical/mission-critical-health-modeling#predictive-action-and-ai-operations-aiops).
+## Identity access management
+TBD
+## Management
+TBD
+## Governance
+TBD
+## Platform automation and DevOps
+TBD
 
 ## Request and processor flows
 
