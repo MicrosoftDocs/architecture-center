@@ -1647,289 +1647,6 @@ items:
               - name: ITAR
                 href: /azure/compliance/offerings/offering-itar
                 maintainContext: true
-      - name: Game Development
-        items:
-          - name: Overview
-            href: industries/game-development.md
-          - name: Guides
-            items:
-              - name: Azure PlayFab overview
-                href: /gaming/playfab/what-is-playfab
-                maintainContext: true
-              - name: Azure AD authentication for PlayFab
-                href: /gaming/playfab/features/authentication/aad-authentication/index
-                maintainContext: true
-              - name: PlayFab CloudScript with Azure Functions
-                href: /gaming/playfab/features/automation/cloudscript-af/index
-                maintainContext: true
-              - name: Multiplayer guidance
-                items:
-                  - name: Multiplayer with PlayFab
-                    href: /gaming/playfab/features/multiplayer/mpintro
-                    maintainContext: true
-                  - name: Host multiplayer games
-                    href: /gaming/playfab/features/multiplayer/servers/using-playfab-servers-to-host-games
-                    maintainContext: true
-                  - name: Create virtual machines
-                    href: /gaming/playfab/features/multiplayer/servers/deploying-playfab-multiplayer-server-builds
-                    maintainContext: true
-                  - name: Build definition
-                    href: /gaming/playfab/features/multiplayer/servers/build-definition
-                    maintainContext: true
-                  - name: Linux container images
-                    href: /gaming/playfab/features/multiplayer/servers/deploying-linux-based-builds
-                    maintainContext: true
-                  - name: Measure player latency to Azure
-                    href: /gaming/playfab/features/multiplayer/servers/using-qos-beacons-to-measure-player-latency-to-azure
-                    maintainContext: true
-                  - name: Connect clients to game servers
-                    href: /gaming/playfab/features/multiplayer/servers/connecting-clients-to-game-servers
-                    maintainContext: true
-                  - name: Increase core limits and Azure regions
-                    href: /gaming/playfab/features/multiplayer/servers/identifying-and-increasing-core-limits
-                    maintainContext: true
-              - name: PlayFab Insights
-                href: /gaming/playfab/features/insights/overview
-                maintainContext: true
-              - name: PlayFab samples
-                href: /gaming/playfab/resources/playfab-samples
-                maintainContext: true
-          - name: Architectures
-            items:
-              - name: All game development architectures
-                href: /azure/architecture/browse/?terms=game
-              - name: AI in games
-                items:
-                  - name: Content moderation
-                    href: /gaming/azure/reference-architectures/cognitive-content-moderation
-                    maintainContext: true
-                  - name: Customer service bot for gaming
-                    href: /gaming/azure/reference-architectures/cognitive-css-bot
-                    maintainContext: true
-                  - name: Image classification
-                    href: example-scenario/ai/intelligent-apps-image-processing.yml
-                  - name: Speech to text for gaming
-                    href: /gaming/azure/reference-architectures/cognitive-speech-to-text
-                    maintainContext: true
-                  - name: Text to speech for gaming
-                    href: /gaming/azure/reference-architectures/cognitive-text-to-speech
-                    maintainContext: true
-                  - name: Text translation for gaming
-                    href: /gaming/azure/reference-architectures/cognitive-text-translation
-                    maintainContext: true
-              - name: Analytics in games
-                items:
-                  - name: In-editor debugging telemetry
-                    href: /gaming/azure/reference-architectures/analytics-in-editor-debugging
-                    maintainContext: true
-                  - name: Non-real-time dashboard
-                    href: /gaming/azure/reference-architectures/analytics-non-real-time-dashboard
-                    maintainContext: true
-              - name: Databases for gaming
-                items:
-                  - name: Gaming using Azure MySQL
-                    href: solution-ideas/articles/gaming-using-azure-database-for-mysql.yml
-                  - name: Gaming using Cosmos DB
-                    href: solution-ideas/articles/gaming-using-cosmos-db.yml
-              - name: Game streaming
-                items:
-                  - name: Unreal Pixel Streaming
-                    href: /gaming/azure/reference-architectures/unreal-pixel-streaming-in-azure
-                    maintainContext: true
-                  - name: Deploy Unreal Pixel Streaming
-                    href: /gaming/azure/reference-architectures/unreal-pixel-streaming-deploying
-                    maintainContext: true
-                  - name: Unreal Pixel Streaming at scale
-                    href: /gaming/azure/reference-architectures/unreal-pixel-streaming-at-scale
-                    maintainContext: true
-              - name: Leaderboards
-                items:
-                  - name: Leaderboard basics
-                    href: /gaming/azure/reference-architectures/leaderboard
-                    maintainContext: true
-                  - name: Non-relational leaderboard
-                    href: /gaming/azure/reference-architectures/leaderboard-non-relational
-                    maintainContext: true
-                  - name: Relational leaderboard
-                    href: /gaming/azure/reference-architectures/leaderboard-relational
-                    maintainContext: true
-              - name: Matchmaking
-                items:
-                  - name: Multiplayer matchmaker
-                    href: /gaming/azure/reference-architectures/multiplayer-matchmaker
-                    maintainContext: true
-                  - name: Serverless matchmaker
-                    href: /gaming/azure/reference-architectures/multiplayer-matchmaker-serverless
-                    maintainContext: true
-              - name: Rendering
-                items:
-                  - name: 3D video rendering
-                    href: example-scenario/infrastructure/video-rendering.yml
-                  - name: Digital image-based modeling on Azure
-                    href: example-scenario/infrastructure/image-modeling.yml
-              - name: Scalable gaming servers
-                items:
-                  - name: Multiplayer backend architectures
-                    href: /gaming/azure/reference-architectures/multiplayer
-                    maintainContext: true
-                  - name: Real-time multiplayer
-                    items:
-                      - name: Custom game server scaling
-                        href: /gaming/azure/reference-architectures/multiplayer-custom-server-scaling
-                        maintainContext: true
-                      - name: Multiplayer hosting with Service Fabric
-                        href: /gaming/azure/reference-architectures/multiplayer-synchronous-sf
-                        maintainContext: true
-                      - name: Multiplayer server hosting with ACI
-                        href: /gaming/azure/reference-architectures/multiplayer-synchronous-aci
-                        maintainContext: true
-                      - name: Multiplayer server hosting with AKS
-                        href: /gaming/azure/reference-architectures/multiplayer-synchronous-aks
-                        maintainContext: true
-                      - name: Multiplayer server hosting with Batch
-                        href: /gaming/azure/reference-architectures/multiplayer-synchronous-batch
-                        maintainContext: true
-                  - name: Turn-based multiplayer
-                    items:
-                      - name: Asynchronous multiplayer basics
-                        href: /gaming/azure/reference-architectures/multiplayer-asynchronous
-                        maintainContext: true
-                      - name: Serverless asynchronous multiplayer
-                        href: /gaming/azure/reference-architectures/multiplayer-asynchronous-serverless
-                        maintainContext: true
-              - name: Server hosting
-                items:
-                  - name: Basic game server hosting
-                    href: /gaming/azure/reference-architectures/multiplayer-basic-game-server-hosting
-                    maintainContext: true
-                  - name: LAMP architectures for gaming
-                    href: /gaming/azure/reference-architectures/general-purpose-lamp
-                    maintainContext: true
-          - name: Compliance solutions
-            items:
-              - name: GDPR (EU)
-                items:
-                  - name: GDPR overview
-                    href: /compliance/regulatory/gdpr
-                    maintainContext: true
-                  - name: Delete and export player data
-                    href: /gaming/playfab/features/data/playerdata/playfab-gdpr-deleting-and-exporting-player-data
-                    maintainContext: true
-                  - name: Accountability with Azure logs
-                    href: /compliance/regulatory/gdpr-arc
-                    maintainContext: true
-                  - name: Azure breach response
-                    href: /compliance/regulatory/gdpr-breach-azure-dynamics-windows
-                    maintainContext: true
-                  - name: Azure DSRs
-                    href: /compliance/regulatory/gdpr-dsr-azure
-                    maintainContext: true
-                  - name: Azure DevOps DSRs
-                    href: /compliance/regulatory/gdpr-dsr-vsts
-                    maintainContext: true
-                  - name: Data controllers with Azure
-                    href: /compliance/regulatory/gdpr-dpia-azure
-                    maintainContext: true
-                  - name: Identity protection
-                    href: /compliance/regulatory/gdpr-information-protection
-                    maintainContext: true
-              - name: FERPA, COPPA, and CIPA
-                href: /compliance/regulatory/offering-FERPA
-                maintainContext: true
-      - name: Media and Entertainment
-        items:
-          - name: Overview
-            href: industries/media.md
-          - name: Guides
-            items:
-              - name: Media Services guidance
-                items:
-                  - name: Terminology and concepts
-                    href: /azure/media-services/latest/concepts-overview
-                    maintainContext: true
-                  - name: Media players for Media Services
-                    href: /azure/media-services/latest/player-media-players-concept
-                    maintainContext: true
-                  - name: Test Media Services v3 encoding
-                    href: reference-architectures/media-services/test-encoding.yml
-              - name: Dynamics 365 media accelerator
-                items:
-                  - name: Overview
-                    href: /dynamics365/industry/accelerators/media
-                    maintainContext: true
-                  - name: Content Production solution
-                    href: /dynamics365/industry/accelerators/content-production
-                    maintainContext: true
-                  - name: Configure the accelerator with Azure AD
-                    href: /dynamics365/industry/accelerators/configure-media
-                    maintainContext: true
-              - name: Mixed reality scenarios
-                items:
-                  - name: Free-roam VR multiusers
-                    href: /windows/mixed-reality/enthusiast-guide/free-roam-vr-multiuser-experiences
-                    maintainContext: true
-                  - name: Immersive education
-                    href: /windows/mixed-reality/enthusiast-guide/immersive-education
-                    maintainContext: true
-                  - name: Theme parks and family entertainment
-                    href: /windows/mixed-reality/enthusiast-guide/theme-parks-family-entertainment
-                    maintainContext: true
-                  - name: Training and simulation
-                    href: /windows/mixed-reality/enthusiast-guide/training-simulation
-                    maintainContext: true
-                  - name: Virtual museums and exhibits
-                    href: /windows/mixed-reality/enthusiast-guide/virtual-museums
-                    maintainContext: true
-                  - name: Virtual reality arcades
-                    href: /windows/mixed-reality/enthusiast-guide/virtual-reality-arcades
-                    maintainContext: true
-              - name: Delivering a media experience
-                href: /windows-hardware/test/weg/delivering-a-great-media-experience
-                maintainContext: true
-          - name: Architectures
-            items:
-              - name: All media and entertainment architectures
-                href: /azure/architecture/browse/?terms=media
-              - name: 3D video rendering
-                href: example-scenario/infrastructure/video-rendering.yml
-              - name: Content-based recommendation
-                href: example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml
-              - name: Digital image-based modeling on Azure
-                href: example-scenario/infrastructure/image-modeling.yml
-              - name: Gridwich cloud media system
-                href: reference-architectures/media-services/gridwich-architecture.yml
-              - name: HPC media rendering
-                href: solution-ideas/articles/azure-batch-rendering.yml
-              - name: Image classification on Azure
-                href: example-scenario/ai/intelligent-apps-image-processing.yml
-              - name: Live streaming digital media
-                href: solution-ideas/articles/digital-media-live-stream.yml
-              - name: Movie recommendations on Azure
-                href: example-scenario/ai/movie-recommendations-with-machine-learning.yml
-          - name: Datasets
-            items:
-              - name: Microsoft News recommendation
-                href: /azure/open-datasets/dataset-microsoft-news
-                maintainContext: true
-              - name: TartanAir AirSim
-                href: /azure/open-datasets/dataset-tartanair-simulation
-                maintainContext: true
-          - name: Compliance solutions
-            items:
-              - name: CDSA
-                href: /azure/compliance/offerings/offering-cdsa
-                maintainContext: true
-              - name: Media Services compliance
-                items:
-                  - name: Regulatory compliance
-                    href: /azure/media-services/latest/compliance-concept
-                    maintainContext: true
-                  - name: Privacy and security compliance
-                    href: /azure/media-services/latest/media-services-compliance
-                    maintainContext: true
-              - name: MPA
-                href: /azure/compliance/offerings/offering-mpa
-                maintainContext: true
       - name: Energy and Environment
         items:
           - name: Overview
@@ -2327,6 +2044,289 @@ items:
             maintainContext: true
       - name: Additional verticals
         items:
+          - name: Game Development
+            items:
+              - name: Overview
+                href: industries/game-development.md
+              - name: Guides
+                items:
+                  - name: Azure PlayFab overview
+                    href: /gaming/playfab/what-is-playfab
+                    maintainContext: true
+                  - name: Azure AD authentication for PlayFab
+                    href: /gaming/playfab/features/authentication/aad-authentication/index
+                    maintainContext: true
+                  - name: PlayFab CloudScript with Azure Functions
+                    href: /gaming/playfab/features/automation/cloudscript-af/index
+                    maintainContext: true
+                  - name: Multiplayer guidance
+                    items:
+                      - name: Multiplayer with PlayFab
+                        href: /gaming/playfab/features/multiplayer/mpintro
+                        maintainContext: true
+                      - name: Host multiplayer games
+                        href: /gaming/playfab/features/multiplayer/servers/using-playfab-servers-to-host-games
+                        maintainContext: true
+                      - name: Create virtual machines
+                        href: /gaming/playfab/features/multiplayer/servers/deploying-playfab-multiplayer-server-builds
+                        maintainContext: true
+                      - name: Build definition
+                        href: /gaming/playfab/features/multiplayer/servers/build-definition
+                        maintainContext: true
+                      - name: Linux container images
+                        href: /gaming/playfab/features/multiplayer/servers/deploying-linux-based-builds
+                        maintainContext: true
+                      - name: Measure player latency to Azure
+                        href: /gaming/playfab/features/multiplayer/servers/using-qos-beacons-to-measure-player-latency-to-azure
+                        maintainContext: true
+                      - name: Connect clients to game servers
+                        href: /gaming/playfab/features/multiplayer/servers/connecting-clients-to-game-servers
+                        maintainContext: true
+                      - name: Increase core limits and Azure regions
+                        href: /gaming/playfab/features/multiplayer/servers/identifying-and-increasing-core-limits
+                        maintainContext: true
+                  - name: PlayFab Insights
+                    href: /gaming/playfab/features/insights/overview
+                    maintainContext: true
+                  - name: PlayFab samples
+                    href: /gaming/playfab/resources/playfab-samples
+                    maintainContext: true
+              - name: Architectures
+                items:
+                  - name: All game development architectures
+                    href: /azure/architecture/browse/?terms=game
+                  - name: AI in games
+                    items:
+                      - name: Content moderation
+                        href: /gaming/azure/reference-architectures/cognitive-content-moderation
+                        maintainContext: true
+                      - name: Customer service bot for gaming
+                        href: /gaming/azure/reference-architectures/cognitive-css-bot
+                        maintainContext: true
+                      - name: Image classification
+                        href: example-scenario/ai/intelligent-apps-image-processing.yml
+                      - name: Speech to text for gaming
+                        href: /gaming/azure/reference-architectures/cognitive-speech-to-text
+                        maintainContext: true
+                      - name: Text to speech for gaming
+                        href: /gaming/azure/reference-architectures/cognitive-text-to-speech
+                        maintainContext: true
+                      - name: Text translation for gaming
+                        href: /gaming/azure/reference-architectures/cognitive-text-translation
+                        maintainContext: true
+                  - name: Analytics in games
+                    items:
+                      - name: In-editor debugging telemetry
+                        href: /gaming/azure/reference-architectures/analytics-in-editor-debugging
+                        maintainContext: true
+                      - name: Non-real-time dashboard
+                        href: /gaming/azure/reference-architectures/analytics-non-real-time-dashboard
+                        maintainContext: true
+                  - name: Databases for gaming
+                    items:
+                      - name: Gaming using Azure MySQL
+                        href: solution-ideas/articles/gaming-using-azure-database-for-mysql.yml
+                      - name: Gaming using Cosmos DB
+                        href: solution-ideas/articles/gaming-using-cosmos-db.yml
+                  - name: Game streaming
+                    items:
+                      - name: Unreal Pixel Streaming
+                        href: /gaming/azure/reference-architectures/unreal-pixel-streaming-in-azure
+                        maintainContext: true
+                      - name: Deploy Unreal Pixel Streaming
+                        href: /gaming/azure/reference-architectures/unreal-pixel-streaming-deploying
+                        maintainContext: true
+                      - name: Unreal Pixel Streaming at scale
+                        href: /gaming/azure/reference-architectures/unreal-pixel-streaming-at-scale
+                        maintainContext: true
+                  - name: Leaderboards
+                    items:
+                      - name: Leaderboard basics
+                        href: /gaming/azure/reference-architectures/leaderboard
+                        maintainContext: true
+                      - name: Non-relational leaderboard
+                        href: /gaming/azure/reference-architectures/leaderboard-non-relational
+                        maintainContext: true
+                      - name: Relational leaderboard
+                        href: /gaming/azure/reference-architectures/leaderboard-relational
+                        maintainContext: true
+                  - name: Matchmaking
+                    items:
+                      - name: Multiplayer matchmaker
+                        href: /gaming/azure/reference-architectures/multiplayer-matchmaker
+                        maintainContext: true
+                      - name: Serverless matchmaker
+                        href: /gaming/azure/reference-architectures/multiplayer-matchmaker-serverless
+                        maintainContext: true
+                  - name: Rendering
+                    items:
+                      - name: 3D video rendering
+                        href: example-scenario/infrastructure/video-rendering.yml
+                      - name: Digital image-based modeling on Azure
+                        href: example-scenario/infrastructure/image-modeling.yml
+                  - name: Scalable gaming servers
+                    items:
+                      - name: Multiplayer backend architectures
+                        href: /gaming/azure/reference-architectures/multiplayer
+                        maintainContext: true
+                      - name: Real-time multiplayer
+                        items:
+                          - name: Custom game server scaling
+                            href: /gaming/azure/reference-architectures/multiplayer-custom-server-scaling
+                            maintainContext: true
+                          - name: Multiplayer hosting with Service Fabric
+                            href: /gaming/azure/reference-architectures/multiplayer-synchronous-sf
+                            maintainContext: true
+                          - name: Multiplayer server hosting with ACI
+                            href: /gaming/azure/reference-architectures/multiplayer-synchronous-aci
+                            maintainContext: true
+                          - name: Multiplayer server hosting with AKS
+                            href: /gaming/azure/reference-architectures/multiplayer-synchronous-aks
+                            maintainContext: true
+                          - name: Multiplayer server hosting with Batch
+                            href: /gaming/azure/reference-architectures/multiplayer-synchronous-batch
+                            maintainContext: true
+                      - name: Turn-based multiplayer
+                        items:
+                          - name: Asynchronous multiplayer basics
+                            href: /gaming/azure/reference-architectures/multiplayer-asynchronous
+                            maintainContext: true
+                          - name: Serverless asynchronous multiplayer
+                            href: /gaming/azure/reference-architectures/multiplayer-asynchronous-serverless
+                            maintainContext: true
+                  - name: Server hosting
+                    items:
+                      - name: Basic game server hosting
+                        href: /gaming/azure/reference-architectures/multiplayer-basic-game-server-hosting
+                        maintainContext: true
+                      - name: LAMP architectures for gaming
+                        href: /gaming/azure/reference-architectures/general-purpose-lamp
+                        maintainContext: true
+              - name: Compliance solutions
+                items:
+                  - name: GDPR (EU)
+                    items:
+                      - name: GDPR overview
+                        href: /compliance/regulatory/gdpr
+                        maintainContext: true
+                      - name: Delete and export player data
+                        href: /gaming/playfab/features/data/playerdata/playfab-gdpr-deleting-and-exporting-player-data
+                        maintainContext: true
+                      - name: Accountability with Azure logs
+                        href: /compliance/regulatory/gdpr-arc
+                        maintainContext: true
+                      - name: Azure breach response
+                        href: /compliance/regulatory/gdpr-breach-azure-dynamics-windows
+                        maintainContext: true
+                      - name: Azure DSRs
+                        href: /compliance/regulatory/gdpr-dsr-azure
+                        maintainContext: true
+                      - name: Azure DevOps DSRs
+                        href: /compliance/regulatory/gdpr-dsr-vsts
+                        maintainContext: true
+                      - name: Data controllers with Azure
+                        href: /compliance/regulatory/gdpr-dpia-azure
+                        maintainContext: true
+                      - name: Identity protection
+                        href: /compliance/regulatory/gdpr-information-protection
+                        maintainContext: true
+                  - name: FERPA, COPPA, and CIPA
+                    href: /compliance/regulatory/offering-FERPA
+                    maintainContext: true
+          - name: Media and Entertainment
+            items:
+              - name: Overview
+                href: industries/media.md
+              - name: Guides
+                items:
+                  - name: Media Services guidance
+                    items:
+                      - name: Terminology and concepts
+                        href: /azure/media-services/latest/concepts-overview
+                        maintainContext: true
+                      - name: Media players for Media Services
+                        href: /azure/media-services/latest/player-media-players-concept
+                        maintainContext: true
+                      - name: Test Media Services v3 encoding
+                        href: reference-architectures/media-services/test-encoding.yml
+                  - name: Dynamics 365 media accelerator
+                    items:
+                      - name: Overview
+                        href: /dynamics365/industry/accelerators/media
+                        maintainContext: true
+                      - name: Content Production solution
+                        href: /dynamics365/industry/accelerators/content-production
+                        maintainContext: true
+                      - name: Configure the accelerator with Azure AD
+                        href: /dynamics365/industry/accelerators/configure-media
+                        maintainContext: true
+                  - name: Mixed reality scenarios
+                    items:
+                      - name: Free-roam VR multiusers
+                        href: /windows/mixed-reality/enthusiast-guide/free-roam-vr-multiuser-experiences
+                        maintainContext: true
+                      - name: Immersive education
+                        href: /windows/mixed-reality/enthusiast-guide/immersive-education
+                        maintainContext: true
+                      - name: Theme parks and family entertainment
+                        href: /windows/mixed-reality/enthusiast-guide/theme-parks-family-entertainment
+                        maintainContext: true
+                      - name: Training and simulation
+                        href: /windows/mixed-reality/enthusiast-guide/training-simulation
+                        maintainContext: true
+                      - name: Virtual museums and exhibits
+                        href: /windows/mixed-reality/enthusiast-guide/virtual-museums
+                        maintainContext: true
+                      - name: Virtual reality arcades
+                        href: /windows/mixed-reality/enthusiast-guide/virtual-reality-arcades
+                        maintainContext: true
+                  - name: Delivering a media experience
+                    href: /windows-hardware/test/weg/delivering-a-great-media-experience
+                    maintainContext: true
+              - name: Architectures
+                items:
+                  - name: All media and entertainment architectures
+                    href: /azure/architecture/browse/?terms=media
+                  - name: 3D video rendering
+                    href: example-scenario/infrastructure/video-rendering.yml
+                  - name: Content-based recommendation
+                    href: example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml
+                  - name: Digital image-based modeling on Azure
+                    href: example-scenario/infrastructure/image-modeling.yml
+                  - name: Gridwich cloud media system
+                    href: reference-architectures/media-services/gridwich-architecture.yml
+                  - name: HPC media rendering
+                    href: solution-ideas/articles/azure-batch-rendering.yml
+                  - name: Image classification on Azure
+                    href: example-scenario/ai/intelligent-apps-image-processing.yml
+                  - name: Live streaming digital media
+                    href: solution-ideas/articles/digital-media-live-stream.yml
+                  - name: Movie recommendations on Azure
+                    href: example-scenario/ai/movie-recommendations-with-machine-learning.yml
+              - name: Datasets
+                items:
+                  - name: Microsoft News recommendation
+                    href: /azure/open-datasets/dataset-microsoft-news
+                    maintainContext: true
+                  - name: TartanAir AirSim
+                    href: /azure/open-datasets/dataset-tartanair-simulation
+                    maintainContext: true
+              - name: Compliance solutions
+                items:
+                  - name: CDSA
+                    href: /azure/compliance/offerings/offering-cdsa
+                    maintainContext: true
+                  - name: Media Services compliance
+                    items:
+                      - name: Regulatory compliance
+                        href: /azure/media-services/latest/compliance-concept
+                        maintainContext: true
+                      - name: Privacy and security compliance
+                        href: /azure/media-services/latest/media-services-compliance
+                        maintainContext: true
+                  - name: MPA
+                    href: /azure/compliance/offerings/offering-mpa
+                    maintainContext: true
           - name: Aerospace
             items:
               - name: Guides
