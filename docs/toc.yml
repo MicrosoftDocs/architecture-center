@@ -508,15 +508,40 @@ items:
             href: aws-professional/services.md
           - name: Guidance
             items:
+              - name: Automation for AWS
+                items:
+                  - name: Authenticate runbooks with AWS
+                    href: /azure/automation/automation-config-aws-account
+                    maintainContext: true
+                  - name: Deploy an AWS VM with Automation runbook
+                    href: /azure/automation/automation-scenario-aws-deployment
+                    maintainContext: true
+              - name: Cost management for AWS
+                items:
+                  - name: Set up AWS for Azure Cost Management
+                    href: /azure/cost-management-billing/costs/aws-integration-set-up-configure
+                    maintainContext: true
+                  - name: Manage AWS costs in Azure
+                    href: /azure/cost-management-billing/costs/aws-integration-manage
+                    maintainContext: true
               - name: Identity management for AWS
                 items:
                   - name: Azure AD identity management for AWS
                     href: reference-architectures/aws/aws-azure-ad-security.yml
+                  - name: Onboard an AWS account
+                    href: /azure/active-directory/cloud-infrastructure-entitlement-management/onboard-aws
+                    maintainContext: true
                   - name: Amazon Managed Grafana
                     href: /azure/active-directory/saas-apps/amazon-managed-grafana-tutorial
                     maintainContext: true
                   - name: AWS single-account access
                     href: /azure/active-directory/saas-apps/amazon-web-service-tutorial
+                    maintainContext: true
+                  - name: AWS Single Sign-on
+                    href: /azure/active-directory/saas-apps/aws-single-sign-on-tutorial
+                    maintainContext: true
+                  - name: Configure AWS Single Sign-On
+                    href: /azure/active-directory/saas-apps/aws-single-sign-on-provisioning-tutorial
                     maintainContext: true
                   - name: AWS multiple accounts
                     href: /azure/active-directory/saas-apps/aws-multi-accounts-tutorial
@@ -524,19 +549,34 @@ items:
                   - name: AWS ClientVPN
                     href: /azure/active-directory/saas-apps/aws-clientvpn-tutorial
                     maintainContext: true
-                  - name: AWS Single Sign-on
-                    href: /azure/active-directory/saas-apps/aws-single-sign-on-tutorial
+                  - name: Attach and detach policies
+                    href: /azure/active-directory/cloud-infrastructure-entitlement-management/how-to-attach-detach-permissions
                     maintainContext: true
-                  - name: Azure AAD SSO with AWS SAA
-                    href: /azure/active-directory/saas-apps/amazon-web-service-tutorial
-                    maintainContext: true
-                  - name: Configure AWS Single Sign-On
-                    href: /azure/active-directory/saas-apps/aws-single-sign-on-provisioning-tutorial
-                    maintainContext: true
+              - name: Migration from AWS
+                items:
+                  - name: Azure Migrate
+                    items:
+                      - name: Discover AWS instances
+                        href: /azure/migrate/tutorial-discover-aws
+                        maintainContext: true
+                      - name: Assess AWS instances
+                        href: /azure/migrate/tutorial-assess-aws
+                        maintainContext: true
+                      - name: Migrate AWS VMs
+                        href: /azure/migrate/tutorial-migrate-aws-virtual-machines
+                        maintainContext: true
+                  - name: Compute
+                    items:
+                      - name: Migrate AWS to managed disks
+                        href: /azure/virtual-machines/windows/on-prem-to-azure
+                        maintainContext: true
+                      - name: Migrate an AWS Windows VM
+                        href: /azure/virtual-machines/windows/aws-to-azure
+                        maintainContext: true
               - name: Security for AWS
                 items:
                   - name: Azure security for AWS
-                    href: reference-architectures/aws/aws-azure-ad-security.yml
+                    href: reference-architectures/aws/aws-azure-security-solutions
                   - name: Connect AWS to Microsoft Sentinel
                     href: /azure/sentinel/connect-aws
                     maintainContext: true
@@ -546,6 +586,18 @@ items:
                   - name: Connect AWS to Microsoft Defender
                     href: /defender-cloud-apps/connect-aws
                     maintainContext: true
+                  - name: "Video: AWS connector in Defender"
+                    href: /azure/defender-for-cloud/episode-one
+                    maintainContext: true
+              - name: Azure Databricks for AWS
+                href: /azure/databricks/repos/aws-code-commit-version-control
+                maintainContext: true
+              - name: Azure Service Fabric for AWS
+                href: /azure/service-fabric/service-fabric-tutorial-standalone-create-infrastructure
+                maintainContext: true
+              - name: Azure VPN Gateway for AWS
+                href: /azure/vpn-gateway/vpn-gateway-howto-aws-bgp
+                maintainContext: true
       - name: Azure for Google Cloud professionals
         expanded: true
         items:
@@ -555,13 +607,38 @@ items:
             href: gcp-professional/services.md
           - name: Guidance
             items:
+              - name: Identity management for Google Cloud
+                items:
+                  - name: Onboard a Google Cloud project
+                    href: /azure/active-directory/cloud-infrastructure-entitlement-management/onboard-gcp
+                    maintainContext: true
+                  - name: Add and remove roles and tasks
+                    href: /azure/active-directory/cloud-infrastructure-entitlement-management/how-to-add-remove-role-task
+                    maintainContext: true
+              - name: Migration from Google Cloud
+                items:
+                  - name: Discover Google Cloud instances
+                    href: /azure/migrate/tutorial-discover-gcp
+                    maintainContext: true
+                  - name: Assess Google Cloud VM instances
+                    href: /azure/migrate/tutorial-assess-gcp
+                    maintainContext: true
+                  - name: Migrate Google Cloud VMs to Azure
+                    href: /azure/migrate/tutorial-migrate-gcp-virtual-machines
+                    maintainContext: true
               - name: Security for Google Cloud
                 items:
-                  - name: Protect Google Cloud with Microsoft Defender
+                  - name: Protect Google Cloud with Defender
                     href: /defender-cloud-apps/protect-gcp
                     maintainContext: true
-                  - name: Connect Google Cloud to Microsoft Defender
+                  - name: Connect Google Cloud projects
+                    href: /azure/defender-for-cloud/quickstart-onboard-gcp
+                    maintainContext: true
+                  - name: Connect Google Cloud to Defender
                     href: /defender-cloud-apps/connect-google-gcp
+                    maintainContext: true
+                  - name: "Video: Protect containers in Google Cloud"
+                    href: /azure/defender-for-cloud/episode-ten
                     maintainContext: true
   - name: Design Patterns
     items:
