@@ -880,7 +880,7 @@ items:
               - name: GDPR (EU)
                 href: /compliance/regulatory/gdpr
                 maintainContext: true
-      - name: Finance
+      - name: Financial Services
         items:
           - name: Overview
             href: industries/finance.md
@@ -2292,89 +2292,6 @@ items:
               - name: FERPA overview
                 href: /compliance/regulatory/offering-ferpa
                 maintainContext: true
-      - name: Aerospace
-        items:
-          - name: Guides
-            items:
-              - name: Azure Orbital for space communication
-                href: /azure/orbital/overview
-                maintainContext: true
-              - name: Modular Datacenter
-                href: /azure-stack/mdc/mdc-overview
-                maintainContext: true
-              - name: Drone delivery reference implementation
-                items:
-                  - name: Domain-driven design for drone delivery
-                    items:
-                      - name: Domain analysis
-                        href: /azure/architecture/microservices/model/domain-analysis
-                      - name: Tactical DDD
-                        href: /azure/architecture/microservices/model/tactical-ddd
-                      - name: Identify microservice boundaries
-                        href: /azure/architecture/microservices/model/microservice-boundaries
-                  - name: Design a microservices drone solution
-                    items:
-                      - name: Introduction
-                        href: microservices/design/index.yml
-                      - name: Interservice communication
-                        href: /azure/architecture/microservices/design/interservice-communication
-                      - name: API design
-                        href: /azure/architecture/microservices/design/api-design
-                      - name: Data considerations
-                        href: /azure/architecture/microservices/design/data-considerations
-                  - name: Monitor drone delivery in production
-                    href: microservices/logging-monitoring.yml
-                  - name: Performance tuning for drone delivery
-                    items:
-                      - name: Distributed business transactions
-                        href: /azure/architecture/performance/distributed-transaction
-                      - name: Multiple backend services
-                        href: /azure/architecture/performance/backend-services
-                      - name: Event streaming
-                        href: /azure/architecture/performance/event-streaming
-          - name: Architectures
-            items:
-              - name: All aerospace architectures
-                href: /azure/architecture/browse/?terms=aircraft
-              - name: Advanced (AKS) microservices - drones
-                href: /azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced
-              - name: Geospatial analysis of spaceborne data
-                href: industries/aerospace/geospatial-processing-analytics.yml
-              - name: Ingest FAA content to analyze flight data
-                href: example-scenario/analytics/ingest-faa-swim-analyze-flight-data.yml 
-              - name: Predictive maintenance for aircraft
-                href: /azure/architecture/solution-ideas/articles/predictive-maintenance
-              - name: Serverless web app for drone delivery
-                href: reference-architectures/serverless/web-app.yml
-              - name: Vision classifier model - simulated drone
-                href: /azure/architecture/example-scenario/dronerescue/vision-classifier-model-with-custom-vision
-      - name: Agriculture
-        items:
-          - name: Guides
-            items:
-              - name: Azure FarmBeats overview
-                href: /azure/industry/agriculture/overview-azure-farmbeats
-                maintainContext: true
-              - name: Generate soil moisture heatmap
-                href: /azure/industry/agriculture/generate-soil-moisture-map-in-azure-farmbeats
-                maintainContext: true
-              - name: Sensor partner integration
-                href: /azure/industry/agriculture/sensor-partner-integration-in-azure-farmbeats
-                maintainContext: true
-              - name: Weather partner integration
-                href: /azure/industry/agriculture/weather-partner-integration-in-azure-farmbeats
-                maintainContext: true
-              - name: Imagery partner integration
-                href: /azure/industry/agriculture/imagery-partner-integration-in-azure-farmbeats
-                maintainContext: true
-          - name: Architectures
-            items:
-              - name: All agriculture architectures
-                href: /azure/architecture/browse/?terms=agriculture
-              - name: Environment monitoring with IoT
-                href: solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml
-              - name: Low-latency network for farming
-                href: solution-ideas/articles/low-latency-network.yml
       - name: Nonprofit
         items:
           - name: Azure subscription for nonprofits
@@ -2408,33 +2325,118 @@ items:
           - name: Dynamics 365 nonprofit accelerator for Azure
             href: /dynamics365/industry/accelerators/nfp
             maintainContext: true
-      - name: Sports
+      - name: Additional verticals
         items:
-          - name: Guides
+          - name: Aerospace
             items:
-              - name: Analyze Olympic sports with vision AI
-                href: /archive/msdn-magazine/2018/november/machine-learning-analyzing-olympic-sports-combining-sensors-and-vision-ai
-                maintainContext: true
-          - name: Architectures
-            items: 
-                - name: All sports architectures
-                  href: /azure/architecture/browse/?terms=sports
-                - name: Baseball decision analysis with ML.NET
-                  href: data-guide/big-data/baseball-ml-workload.yml
-                - name: Smart stadiums
-                  items:
-                    - name: Create smart stadiums with Digital Twins
-                      href: example-scenario/iot/smart-places.yml
-                    - name: IoT platform for COVID-19 detection
-                      href: solution-ideas/articles/iot-connected-platform.yml
-                - name: Sports analytics on Azure
-                  href: example-scenario/analytics/sports-analytics-architecture-azure.yml
-                - name: Stream sporting events
-                  items:
-                    - name: Live stream sports
-                      href: solution-ideas/articles/digital-media-live-stream.yml
-                    - name: Video-on-demand digital media
-                      href: solution-ideas/articles/digital-media-video.yml
+              - name: Guides
+                items:
+                  - name: Azure Orbital for space communication
+                    href: /azure/orbital/overview
+                    maintainContext: true
+                  - name: Modular Datacenter
+                    href: /azure-stack/mdc/mdc-overview
+                    maintainContext: true
+                  - name: Drone delivery reference implementation
+                    items:
+                      - name: Domain-driven design for drone delivery
+                        items:
+                          - name: Domain analysis
+                            href: /azure/architecture/microservices/model/domain-analysis
+                          - name: Tactical DDD
+                            href: /azure/architecture/microservices/model/tactical-ddd
+                          - name: Identify microservice boundaries
+                            href: /azure/architecture/microservices/model/microservice-boundaries
+                      - name: Design a microservices drone solution
+                        items:
+                          - name: Introduction
+                            href: microservices/design/index.yml
+                          - name: Interservice communication
+                            href: /azure/architecture/microservices/design/interservice-communication
+                          - name: API design
+                            href: /azure/architecture/microservices/design/api-design
+                          - name: Data considerations
+                            href: /azure/architecture/microservices/design/data-considerations
+                      - name: Monitor drone delivery in production
+                        href: microservices/logging-monitoring.yml
+                      - name: Performance tuning for drone delivery
+                        items:
+                          - name: Distributed business transactions
+                            href: /azure/architecture/performance/distributed-transaction
+                          - name: Multiple backend services
+                            href: /azure/architecture/performance/backend-services
+                          - name: Event streaming
+                            href: /azure/architecture/performance/event-streaming
+              - name: Architectures
+                items:
+                  - name: All aerospace architectures
+                    href: /azure/architecture/browse/?terms=aircraft
+                  - name: Advanced (AKS) microservices - drones
+                    href: /azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced
+                  - name: Geospatial analysis of spaceborne data
+                    href: industries/aerospace/geospatial-processing-analytics.yml
+                  - name: Ingest FAA content to analyze flight data
+                    href: example-scenario/analytics/ingest-faa-swim-analyze-flight-data.yml 
+                  - name: Predictive maintenance for aircraft
+                    href: /azure/architecture/solution-ideas/articles/predictive-maintenance
+                  - name: Serverless web app for drone delivery
+                    href: reference-architectures/serverless/web-app.yml
+                  - name: Vision classifier model - simulated drone
+                    href: /azure/architecture/example-scenario/dronerescue/vision-classifier-model-with-custom-vision
+          - name: Agriculture
+            items:
+              - name: Guides
+                items:
+                  - name: Azure FarmBeats overview
+                    href: /azure/industry/agriculture/overview-azure-farmbeats
+                    maintainContext: true
+                  - name: Generate soil moisture heatmap
+                    href: /azure/industry/agriculture/generate-soil-moisture-map-in-azure-farmbeats
+                    maintainContext: true
+                  - name: Sensor partner integration
+                    href: /azure/industry/agriculture/sensor-partner-integration-in-azure-farmbeats
+                    maintainContext: true
+                  - name: Weather partner integration
+                    href: /azure/industry/agriculture/weather-partner-integration-in-azure-farmbeats
+                    maintainContext: true
+                  - name: Imagery partner integration
+                    href: /azure/industry/agriculture/imagery-partner-integration-in-azure-farmbeats
+                    maintainContext: true
+              - name: Architectures
+                items:
+                  - name: All agriculture architectures
+                    href: /azure/architecture/browse/?terms=agriculture
+                  - name: Environment monitoring with IoT
+                    href: solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml
+                  - name: Low-latency network for farming
+                    href: solution-ideas/articles/low-latency-network.yml
+          - name: Sports
+            items:
+              - name: Guides
+                items:
+                  - name: Analyze Olympic sports with vision AI
+                    href: /archive/msdn-magazine/2018/november/machine-learning-analyzing-olympic-sports-combining-sensors-and-vision-ai
+                    maintainContext: true
+              - name: Architectures
+                items: 
+                    - name: All sports architectures
+                      href: /azure/architecture/browse/?terms=sports
+                    - name: Baseball decision analysis with ML.NET
+                      href: data-guide/big-data/baseball-ml-workload.yml
+                    - name: Smart stadiums
+                      items:
+                        - name: Create smart stadiums with Digital Twins
+                          href: example-scenario/iot/smart-places.yml
+                        - name: IoT platform for COVID-19 detection
+                          href: solution-ideas/articles/iot-connected-platform.yml
+                    - name: Sports analytics on Azure
+                      href: example-scenario/analytics/sports-analytics-architecture-azure.yml
+                    - name: Stream sporting events
+                      items:
+                        - name: Live stream sports
+                          href: solution-ideas/articles/digital-media-live-stream.yml
+                        - name: Video-on-demand digital media
+                          href: solution-ideas/articles/digital-media-video.yml
       - name: IoT-specific industry solutions
         href: reference-architectures/iot/industry-iot-hub-page.md
   - name: Azure categories
