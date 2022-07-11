@@ -30,7 +30,7 @@ AI and machine learning play a pivotal role when it comes to surgical interventi
    - [Azure Data Factory](/azure/data-factory/introduction) transforms, orchestrates, and loads data that's ready for further processing. 
    - [Azure API for FHIR](/azure/healthcare-apis/azure-api-for-fhir/overview) enables the rapid exchange of data. 
    - [Azure Synapse Analytics](/azure/synapse-analytics/index) processes data and triggers Azure Machine Learning experiments. 
-   -      [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake) stores tabular data that describes patient-centric information in flat files.
+   - [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake) stores tabular data that describes patient-centric information in flat files.
 
 1. AI/ machine learning - training
 
