@@ -73,11 +73,11 @@ An architecture document typically depicts one SAP system or landscape only, for
 
 Central networking services, such as firewall, NAT gateway, proxy servers if deployed are best used across entire SAP landscape of all tiers - production, pre-production, development and sandbox. Depending on your requirements, organization size and company policy you can consider separate implementation per tier or one production and one sandbox/testing environment.
 
-Services typically serving one SAP system are best separated as follows
+Services typically serving a SAP system are best separated as follows
 
-- Load Balancers dedicated to individual service. Degree of separation best per company policy on naming and grouping. Recommended deployment is one load balancer for ASCS and another for DB, for each SAP SID separated. This ensure troubleshooting does not get complex with multiple front- and backend pools and load balancing rules all on same single load balancer. Single load balancer per SAP SID also ensures placement in resource groups matches the other infrastructure components.
-- Application Gateway, similarly to load balancer, allows multiple back- and frontends, HTTP settings and rules. The decision to use one AppGw for multiple uses - different web dispatchers ports for same SAP S/4HANA system or different SAP environments is here more common, as usually not all SAP systems in the environment require public access. Recommended approach is thus to use one AppGw at least per tier (production, non-production, sandbox) unless the complexity gets too high.
-- SAP services like saprouter or cloud connector, analytics cloud agent are deployed based on application requirements either centrally or split up. Often production and non-production separation is desired.
+- **Load Balancers** dedicated to individual service. Degree of separation best per company policy on naming and grouping. Recommended deployment is one load balancer for ASCS and another for DB, for each SAP SID separated. This ensure troubleshooting does not get complex with multiple front- and backend pools and load balancing rules all on same single load balancer. Single load balancer per SAP SID also ensures placement in resource groups matches the other infrastructure components.
+- **Application Gateway**, similarly to load balancer, allows multiple back- and frontends, HTTP settings and rules. The decision to use one AppGw for multiple uses - different web dispatchers ports for same SAP S/4HANA system or different SAP environments is here more common, as usually not all SAP systems in the environment require public access. Recommended approach is thus to use one AppGw at least per tier (production, non-production, sandbox) unless the complexity gets too high.
+- **SAP services** like saprouter or cloud connector, analytics cloud agent are deployed based on application requirements either centrally or split up. Often production and non-production separation is desired.
 
 ## SAP Services
 
