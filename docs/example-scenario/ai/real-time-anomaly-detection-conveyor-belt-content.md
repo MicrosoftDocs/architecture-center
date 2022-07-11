@@ -12,7 +12,7 @@ The manufacturing industry is undergoing revolutionary changes as an increasing 
 
    A sophisticated data-collection sensor is a crucial Internet of Things (IoT) component. Sensors collect analog data from the physical world and translate it into digital data assets. Sensors can measure just about any aspect of the physical world. The calibration of sensors allows them to be tailored to application-specific functions. In this dataset, sensors are calibrated to accurately measure temperature and vibrations.
    
-   On most factory floors, conveyor belts run on schedules. Anomaly detection of temperature and vibrations are needed when the conveyor belt is running. Time Series API is used to capture and relay conveyor belt status.
+   On most factory floors, conveyor belts run on schedules. Anomaly detection of temperature and vibrations is needed when the conveyor belt is running. Time Series API is used to capture and relay conveyor belt status.
 
 1. Ingest
 
@@ -26,7 +26,7 @@ The manufacturing industry is undergoing revolutionary changes as an increasing 
 
    *Data preparation* is the process of gathering, combining, structuring, and organizing data so it can be used to build machine learning models, business intelligence (BI), and analytics and data visualization applications.
    
-   [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) is used to prepare the data before it's used to build models. Azure Databricks provides an interactive workspace that enables collaboration between data engineers, data scientists, and machine learning engineers. In analytics workflow, Azure Databricks is used to read data from [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake) to perform data wrangling and data exploration.
+   [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) is used to prepare the data before the data is used to build models. Azure Databricks provides an interactive workspace that enables collaboration between data engineers, data scientists, and machine learning engineers. In analytics workflow, Azure Databricks is used to read data from [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake) to perform data wrangling and data exploration.
 
    *Model training* is the process of using a machine learning algorithm to learn patterns based on data and pick a suitable model for making predictions.
  
@@ -38,7 +38,7 @@ The manufacturing industry is undergoing revolutionary changes as an increasing 
 
    The model registry is built into [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning). It's used to store and version models in Azure. The model registry makes it easy to organize and keep track of trained models.
 
-   After a machine learning model is trained, the model needs to be deployed so newly available data can be fed through it for inferencing. The recommended deployment target is an [Azure managed endpoint](/azure/machine-learning/concept-endpoints). 
+   After a machine learning model is trained, the model needs to be deployed so that newly available data can be fed through it for inferencing. The recommended deployment target is an [Azure managed endpoint](/azure/machine-learning/concept-endpoints). 
 
 1. Analytical workload
 
@@ -69,7 +69,7 @@ The manufacturing industry is undergoing revolutionary changes as an increasing 
 
 ## Scenario details
 
-Smart factory floors digitally enable collaborative systems to provide real-time responses to changing conditions and customer demands throughout the supply network.
+Smart factory floors enable collaborative systems to provide real-time responses to changing conditions and customer demands throughout the supply network.
 
 AI and machine learning are used in unique ways throughout the manufacturing sector. The most impactful of these applications are predictive maintenance and fault prevention. Specifically, detecting anomalies in temperature and vibrations of motors attached to conveyor belts reduces maintenance costs, repair and overhaul time, and the need for spare part inventory. It also increases the uptime of the machinery. The introduction of predictive maintenance and fault prevention saves millions of dollars a year, and in some cases saves lives by removing personnel from dangerous situations.
 
