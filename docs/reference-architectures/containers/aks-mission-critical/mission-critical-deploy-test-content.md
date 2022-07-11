@@ -1,8 +1,24 @@
-## Introduction
+---
+title: Deployment and test for mission-critical workloads on Azure
+description: Reference architecture for a workload that is accessed over a public endpoint without additional dependencies to other company resources - Deployment and test.
+author: sebader
+categories: networking
+ms.author: allensu
+ms.date: 06/28/2022
+ms.topic: conceptual
+ms.service: architecture-center
+ms.subservice: reference-architecture
+ms.category:
+  - devops
+  - deployment
+  - testing
+products:
+  - azure-devops
+---
 
-The deployment and testing of the mission critical environment is a crucial piece of the overall reference architecture. The individual application stamps are deployed as infrastructure as code from a source code repository. Updates to the infrastructure are deployed with zero downtime to the application. A DevOps continuous integration pipeline is used to retrieve the source code from the repository and deploy the individual stamps in Azure.
+The deployment and testing of the mission critical environment is a crucial piece of the overall reference architecture. The individual application stamps are deployed as infrastructure as code from a source code repository. Updates to the infrastructure should be deployed with zero downtime to the application. A DevOps continuous integration pipeline is recommended to retrieve the source code from the repository and deploy the individual stamps in Azure.
 
-Deployment and updates is the central process in the architecture. Infrastructure and application related updates are deployed to fully independent stamps. Only the globally shared infrastructure in the architecture is shared across the stamps. Existing stamps in the infrastructure aren't touched. The new application version will only be deployed to these new stamps. Infrastructure updates will only be deployed to these new stamps.
+Deployment and updates are the central process in the architecture. Infrastructure and application related updates should be deployed to fully independent stamps. Only the globally shared infrastructure in the architecture is shared across the stamps. Existing stamps in the infrastructure aren't touched. The new application version will only be deployed to these new stamps. Infrastructure updates will only be deployed to these new stamps.
 
 The new stamps are added to Azure Front Door. Traffic is gradually moved over to the new stamps. When it's determined that traffic is served from the new stamps without issue, the previous stamps are deleted.
 
