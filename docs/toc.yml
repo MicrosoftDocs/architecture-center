@@ -576,7 +576,7 @@ items:
               - name: Security for AWS
                 items:
                   - name: Azure security for AWS
-                    href: reference-architectures/aws/aws-azure-security-solutions
+                    href: reference-architectures/aws/aws-azure-security-solutions.yml
                   - name: Connect AWS to Microsoft Sentinel
                     href: /azure/sentinel/connect-aws
                     maintainContext: true
