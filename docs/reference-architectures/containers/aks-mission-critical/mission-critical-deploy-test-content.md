@@ -18,17 +18,17 @@ products:
 
 The deployment and testing of the mission critical environment is a crucial piece of the overall reference architecture. The individual application stamps are deployed as infrastructure as code from a source code repository. Updates to the infrastructure should be deployed with zero downtime to the application. A DevOps continuous integration pipeline is recommended to retrieve the source code from the repository and deploy the individual stamps in Azure.
 
-Deployment and updates are the central process in the architecture. Infrastructure and application related updates should be deployed to fully independent stamps. Only the globally shared infrastructure in the architecture is shared across the stamps. Existing stamps in the infrastructure aren't touched. The new application version will only be deployed to these new stamps. Infrastructure updates will only be deployed to these new stamps.
+Deployment and updates are the central process in the architecture. Infrastructure and application related updates should be deployed to fully independent stamps. Only the global infrastructure components in the architecture are shared across the stamps. Existing stamps in the infrastructure aren't touched. The new application version will only be deployed to these new stamps. Infrastructure updates will only be deployed to these new stamps.
 
 The new stamps are added to Azure Front Door. Traffic is gradually moved over to the new stamps. When it's determined that traffic is served from the new stamps without issue, the previous stamps are deleted.
 
-Proactive testing of the infrastructure discovers weaknesses and how the deployed application will behave in the event of a failure.
+Penetration, chaos, and stress testing are recommend for the deployed environment. Proactive testing of the infrastructure discovers weaknesses and how the deployed application will behave in the event of a failure.
 
 ## Deployment
 
-The deployment of the infrastructure in the reference architecture is dependent upon the following components:
+The deployment of the infrastructure in the reference architecture is dependent upon the following processes and components:
 
-* **DevOps** - The source code and pipelines for the infrastructure.
+* **DevOps** - The source code from Github and pipelines in Azure DevOps for the infrastructure.
 
 * **Zero downtime updates** - Updates and upgrades are deployed to the environment with zero downtime to the deployed application.
 
@@ -50,7 +50,7 @@ For more information about Azure Pipelines and Azure DevOps, see [What is Azure 
 
 ### Zero downtime updates
 
-The zero downtime and update strategy in the reference architecture is central to the over all mission critical application. The methodology of replace instead of upgrade of the stamps allows parallel environments for testing and deployment.
+The zero downtime and update strategy in the reference architecture is central to the overall mission critical application. The methodology of replace instead of upgrade of the stamps ensures a fresh installation of the application into a infrastructure stamp. The reference architecture utilizes a blue/green approach and allows for separate test and development environments.
 
 There are two main components of the reference architecture:
 
