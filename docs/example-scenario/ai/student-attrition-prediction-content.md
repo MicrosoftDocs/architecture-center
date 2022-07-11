@@ -194,11 +194,14 @@ For an overview of responsible AI and detailed implementation information, see [
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors:
+Principal author:
+
+- [Manasa Ramalinga](https://www.linkedin.com/in/trmanasa) | Senior Cloud Solution Architect, US National CSA Team
+
+Other contributors:
 
 - [Charitha Basani](https://www.linkedin.com/in/charitha-basani-54196031) | Senior Cloud Solution Architect, US National CSA Team
 - [Angela Kunanbaeva](https://www.linkedin.com/in/aqqu) | Senior Cloud Solution Architect, US National CSA Team
-- [Manasa Ramalinga](https://www.linkedin.com/in/trmanasa) | Senior Cloud Solution Architect, US National CSA Team
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
