@@ -764,6 +764,29 @@ items:
                   - name: Compliance
                     href: /industry/retail/compliance-overview
                     maintainContext: true
+              - name: Dynamics 365 Commerce
+                items:
+                  - name: Commerce home page
+                    href: /dynamics365/commerce
+                    maintainContext: true
+                  - name: Commerce architecture overview
+                    href: /dynamics365/commerce/commerce-architecture
+                    maintainContext: true
+                  - name: Authentication flows
+                    href: /dynamics365/commerce/arch-auth-flow
+                    maintainContext: true
+                  - name: Headless commerce architecture
+                    href: /dynamics365/commerce/dev-itpro/retail-server-architecture
+                    maintainContext: true
+                  - name: Commerce channel communications
+                    href: /dynamics365/commerce/dev-itpro/define-retail-channel-communications-cdx
+                    maintainContext: true
+                  - name: Modern POS architecture
+                    href: /dynamics365/commerce/dev-itpro/retail-modern-pos-architecture
+                    maintainContext: true
+                  - name: Set up Azure DevOps
+                    href: /dynamics365/commerce/dev-itpro/new-environments-visual-studio-teams-branch-retail-projects
+                    maintainContext: true
               - name: Data management in retail
                 href: industries/retail/retail-data-management-overview.md
               - name: AI and ML in retail
@@ -1703,55 +1726,6 @@ items:
               - name: NERC (US) overview
                 href: /azure/compliance/offerings/offering-nerc
                 maintainContext: true
-      - name: Travel and Hospitality
-        items:
-          - name: Overview
-            href: industries/travel-hospitality.md
-          - name: Guides
-            items:
-              - name: AI scenarios
-                items:
-                  - name: Create a Cognitive Search index for hotels
-                    href: /azure/search/search-get-started-portal
-                    maintainContext: true
-                  - name: Data science using Spark for airport travel
-                    href: data-science-process/spark-overview.md
-              - name: IoT spatial analytics - Car rental tracking
-                href: /azure/azure-maps/tutorial-iot-hub-maps
-                maintainContext: true
-              - name: No-code voice assistant for hospitality
-                href: /azure/azure-percept/tutorial-no-code-speech
-                maintainContext: true
-              - name: Observer pattern - Airport baggage claims
-                href: /dotnet/standard/events/observer-design-pattern
-                maintainContext: true
-          - name: Architectures
-            items:
-              - name: All travel and hospitality architectures
-                href: /azure/architecture/browse/?terms=travel
-              - name: Build a chatbot for hotel booking
-                href: example-scenario/ai/commerce-chatbot.yml
-              - name: Build a delta lake in leisure and travel
-                href: solution-ideas/articles/build-data-lake-support-adhoc-queries-online.yml
-              - name: Commerce chatbot as a hotel concierge
-                href: solution-ideas/articles/commerce-chatbot.yml
-              - name: Custom business processes for airlines
-                href: solution-ideas/articles/custom-business-processes.yml
-              - name: Migrate a travel web app with APIM
-                href: example-scenario/apps/apim-api-scenario.yml
-              - name: Predictive aircraft engine monitoring
-                href: solution-ideas/articles/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.yml
-          - name: Datasets
-            items:
-              - name: Public Holidays
-                href: /azure/open-datasets/dataset-public-holidays
-                maintainContext: true
-              - name: Russian open speech to text
-                href: /azure/open-datasets/dataset-open-speech-text
-                maintainContext: true
-              - name: TartanAir AirSim
-                href: /azure/open-datasets/dataset-tartanair-simulation
-                maintainContext: true
       - name: Automotive, Mobility, and Transportation
         items:
           - name: Overview
@@ -1896,51 +1870,6 @@ items:
               - name: GSMA overview
                 href: /azure/compliance/offerings/offering-gsma
                 maintainContext: true
-      - name: Facilities and Real Estate
-        items:
-          - name: Overview
-            href: industries/facilities-real-estate.md
-          - name: Guides
-            items:
-              - name: Smart buildings and smart cities ontologies
-                href: /azure/digital-twins/concepts-ontologies-adopt
-                maintainContext: true
-              - name: Azure Maps indoor maps
-                items:
-                  - name: Creator for indoor maps
-                    href: /azure/azure-maps/creator-indoor-maps
-                    maintainContext: true
-                  - name: Make indoor maps
-                    href: /azure/azure-maps/tutorial-creator-indoor-maps
-                    maintainContext: true
-                  - name: Use the Indoor Maps module
-                    href: /azure/azure-maps/how-to-use-indoor-module
-                    maintainContext: true
-              - name: Facility ontology for Azure Maps
-                href: /azure/azure-maps/creator-facility-ontology?pivots=facility-ontology-v1
-                maintainContext: true
-          - name: Architectures
-            items:
-              - name: All facilities and real estate architectures
-                href: /azure/architecture/browse/?terms=facilities
-              - name: Azure digital twins builder (construction)
-                href: solution-ideas/articles/azure-digital-twins-builder.yml
-              - name: Cognizant Safe Buildings with IoT
-                href: solution-ideas/articles/safe-buildings.yml
-              - name: COVID-19 IoT safe environments
-                href: solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml
-              - name: Facilities management with mixed reality
-                href: solution-ideas/articles/facilities-management-powered-by-mixed-reality-and-iot.yml
-              - name: IoT and data analytics for construction
-                href: example-scenario/data/big-data-with-iot.yml
-              - name: IoT connected light, power, and internet
-                href: solution-ideas/articles/iot-power-management.yml
-              - name: IoT connectivity for healthcare facilities
-                href: solution-ideas/articles/healthcare-network.yml
-              - name: Lighting and disinfection system
-                href: solution-ideas/articles/uven-disinfection.yml
-              - name: Smart places with Azure Digital Twins
-                href: example-scenario/iot/smart-places.yml
       - name: Education
         items:
           - name: Overview
@@ -2327,6 +2256,100 @@ items:
                   - name: MPA
                     href: /azure/compliance/offerings/offering-mpa
                     maintainContext: true
+          - name: Travel and Hospitality
+            items:
+              - name: Overview
+                href: industries/travel-hospitality.md
+              - name: Guides
+                items:
+                  - name: AI scenarios
+                    items:
+                      - name: Create a Cognitive Search index for hotels
+                        href: /azure/search/search-get-started-portal
+                        maintainContext: true
+                      - name: Data science using Spark for airport travel
+                        href: data-science-process/spark-overview.md
+                  - name: IoT spatial analytics - Car rental tracking
+                    href: /azure/azure-maps/tutorial-iot-hub-maps
+                    maintainContext: true
+                  - name: No-code voice assistant for hospitality
+                    href: /azure/azure-percept/tutorial-no-code-speech
+                    maintainContext: true
+                  - name: Observer pattern - Airport baggage claims
+                    href: /dotnet/standard/events/observer-design-pattern
+                    maintainContext: true
+              - name: Architectures
+                items:
+                  - name: All travel and hospitality architectures
+                    href: /azure/architecture/browse/?terms=travel
+                  - name: Build a chatbot for hotel booking
+                    href: example-scenario/ai/commerce-chatbot.yml
+                  - name: Build a delta lake in leisure and travel
+                    href: solution-ideas/articles/build-data-lake-support-adhoc-queries-online.yml
+                  - name: Commerce chatbot as a hotel concierge
+                    href: solution-ideas/articles/commerce-chatbot.yml
+                  - name: Custom business processes for airlines
+                    href: solution-ideas/articles/custom-business-processes.yml
+                  - name: Migrate a travel web app with APIM
+                    href: example-scenario/apps/apim-api-scenario.yml
+                  - name: Predictive aircraft engine monitoring
+                    href: solution-ideas/articles/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.yml
+              - name: Datasets
+                items:
+                  - name: Public Holidays
+                    href: /azure/open-datasets/dataset-public-holidays
+                    maintainContext: true
+                  - name: Russian open speech to text
+                    href: /azure/open-datasets/dataset-open-speech-text
+                    maintainContext: true
+                  - name: TartanAir AirSim
+                    href: /azure/open-datasets/dataset-tartanair-simulation
+                    maintainContext: true
+          - name: Facilities and Real Estate
+            items:
+              - name: Overview
+                href: industries/facilities-real-estate.md
+              - name: Guides
+                items:
+                  - name: Smart buildings and smart cities ontologies
+                    href: /azure/digital-twins/concepts-ontologies-adopt
+                    maintainContext: true
+                  - name: Azure Maps indoor maps
+                    items:
+                      - name: Creator for indoor maps
+                        href: /azure/azure-maps/creator-indoor-maps
+                        maintainContext: true
+                      - name: Make indoor maps
+                        href: /azure/azure-maps/tutorial-creator-indoor-maps
+                        maintainContext: true
+                      - name: Use the Indoor Maps module
+                        href: /azure/azure-maps/how-to-use-indoor-module
+                        maintainContext: true
+                  - name: Facility ontology for Azure Maps
+                    href: /azure/azure-maps/creator-facility-ontology?pivots=facility-ontology-v1
+                    maintainContext: true
+              - name: Architectures
+                items:
+                  - name: All facilities and real estate architectures
+                    href: /azure/architecture/browse/?terms=facilities
+                  - name: Azure digital twins builder (construction)
+                    href: solution-ideas/articles/azure-digital-twins-builder.yml
+                  - name: Cognizant Safe Buildings with IoT
+                    href: solution-ideas/articles/safe-buildings.yml
+                  - name: COVID-19 IoT safe environments
+                    href: solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml
+                  - name: Facilities management with mixed reality
+                    href: solution-ideas/articles/facilities-management-powered-by-mixed-reality-and-iot.yml
+                  - name: IoT and data analytics for construction
+                    href: example-scenario/data/big-data-with-iot.yml
+                  - name: IoT connected light, power, and internet
+                    href: solution-ideas/articles/iot-power-management.yml
+                  - name: IoT connectivity for healthcare facilities
+                    href: solution-ideas/articles/healthcare-network.yml
+                  - name: Lighting and disinfection system
+                    href: solution-ideas/articles/uven-disinfection.yml
+                  - name: Smart places with Azure Digital Twins
+                    href: example-scenario/iot/smart-places.yml
           - name: Aerospace
             items:
               - name: Guides
