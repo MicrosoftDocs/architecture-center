@@ -1105,6 +1105,8 @@ items:
                 href: example-scenario/digital-health/health-portal.yml
               - name: Health data consortium
                 href: example-scenario/data/azure-health-data-consortium.yml
+              - name: Implement risk prediction for surgeries
+                href: example-scenario/risk-stratification-surgery.yml
               - name: IoT Connected Platform for COVID detection
                 href: solution-ideas/articles/iot-connected-platform.yml
               - name: Population health management
@@ -2606,6 +2608,8 @@ items:
                 href: example-scenario/ai/extract-object-text.yml
               - name: Image classification
                 href: example-scenario/ai/intelligent-apps-image-processing.yml
+              - name: Implement risk prediction for surgeries
+                href: example-scenario/risk-stratification-surgery.yml
               - name: Implement the healthcare blueprint for AI
                 href: industries/healthcare/healthcare-ai-blueprint.yml
               - name: Many models ML with Spark
