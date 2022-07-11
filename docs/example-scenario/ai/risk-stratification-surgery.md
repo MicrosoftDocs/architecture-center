@@ -6,13 +6,13 @@ Risk stratification can be either a binary or a multiclass classification model.
 
 Developing a transparent system that provides the ability to explain potential surgical outcomes to a patient must be the primary goal of models like this one. Transparency and interpretability help clinicians have meaningful conversations with patients and lets them establish a treatment plan before surgery takes place. 
 
-It's also important to acknowledge that patients come from diverse backgrounds. Creating a model that's free from bias toward gender and race is a necessity. An unbiased model provides unbiased medical support for patients, irrespective of their backgrounds, to maximize their chances of a positive surgical outcome. The architecture in this article uses interpretability and bias-detection tools from the Responsible AI Toolbox.
+It's also important to acknowledge that patients come from diverse backgrounds. You need to create a model that's free from bias toward protected classes like gender and race. An unbiased model provides unbiased medical support for patients, irrespective of their backgrounds, to maximize their chances of a positive surgical outcome. The architecture in this article uses interpretability and bias-detection tools from the Responsible AI Toolbox.
 
 One of the largest healthcare organizations in the world, National Health Services in the United Kingdom, uses the Azure machine learning platform and the Responsible AI Toolbox for risk stratification models for orthopedic surgery. For more information, see  [Two NHS surgeons are using Azure AI to spot patients facing increased risks during surgery](https://news.microsoft.com/en-gb/features/two-nhs-surgeons-are-using-azure-ai-to-spot-patients-facing-increased-risks-during-surgery).
 
 video intro 
 
-> [!VIDEO https://www.youtube.com/watch?v=LRZHcipcweY]
+[!VIDEO https://www.youtube.com/embed/LRZHcipcweY]
 
 Details about how to implement this model and architecture are the topic of this article.
 
@@ -39,47 +39,47 @@ Risk stratification models apply to these scenarios:
    > [!IMPORTANT]
    > When you use patient-centric data, you need to be sure personally identifiable data is carefully handled and is excluded from the training and test dataset.
 
-   For surgery risk prediction, below are some of the data features considered:
+   For surgery risk prediction, following are some data points to consider:
 
    - Patient demographic information
-   - Information about existing comorbidities along with their severity
-   - Information about patients' current medication plan
+   - Information about existing comorbidities, along with their severity
+   - Information about patient's current medication plan
    - Patient pre-operative blood test information 
-   - Other critical health related information  
+   - Other critical health-related information  
 
 1. Data preparation
 
-   Data preparation is the process of gathering, combining, structuring, and organizing data so it can be used to build machine learning models, business intelligence (BI), and analytics/data visualization applications.
+   *Data preparation* is the process of gathering, combining, structuring, and organizing data so that you can use it to build machine learning models, business intelligence (BI), and analytics and data visualization applications.
 
-   [Azure Data Factory ](/azure/data-factory/introduction) is used for the transformation, orchestration, and loading of data ready for further processing. [Azure API for FHIR](/azure/healthcare-apis/azure-api-for-fhir/overview) enables rapid exchange of data through FHIR APIs. [Azure Synapse]() is used to perform data processing and to trigger Azure Machine learning experiments. [Azure Data Lake]() is used to store tabular data describing patient-centric information in flat files.
+   [Azure Data Factory ](/azure/data-factory/introduction) transforms, orchestrates, and loads data that's ready for further processing. [Azure API for FHIR](/azure/healthcare-apis/azure-api-for-fhir/overview) enables rapid exchange of data. [Azure Synapse Analytics](/azure/synapse-analytics/index.yml) processes data and triggers Azure Machine Learning experiments. [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake) stores tabular data that describes patient-centric information in flat files.
 
-1. AI/ML - Training
+1. AI/ machine learning - training
 
-   Model training refers to the process of allowing a machine learning algorithm to learn patterns based on data and to pick a suitable model capable of predicting the surgery risk of previously unseen patients.
+   *Model training* is the process of using a machine learning algorithm to learn patterns based on data and picking a model that's capable of predicting the surgery risk of previously unseen patients.
  
-   [Azure Machine learning Studio]() is used to train the model. AML is a cloud service used for accelerating and managing the machine learning project lifecycle including training, deploying, and managing MLOps (Machine Learning Operations). 
+   [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) trains the model. Azure Machine Learning is a cloud service that accelerates and manages the machine learning project lifecycle. The lifecycle includes training models, deploying models, and managing machine learning Operations (MLOps). 
  
-   For this particular use case, it is important to choose models that are explainable. With the help of the interactive Interpretability dashboard supported by [RAI (Responsible Artificial Intelligence) toolbox](https://responsibleaitoolbox.ai), stakeholders can clearly understand the factors that play a key role in determining a particular risk for all patients as learned by the model. In addition to this, RAI toolbox also provides interpretation at a patient level. This tremendously helps clinicians to customize the treatment at an individual patient level. 
+   For this use case, you need to use models that can be explained. With the help of the interactive interpretability dashboard in [Responsible AI Toolbox](https://responsibleaitoolbox.ai), stakeholders can clearly understand the factors that play a key role in determining a particular risk for all patients. Responsible AI Toolbox also provides interpretation at the patient level. This helps clinicians customize treatments at that level.
 
-   RAI toolbox also provides an interactive dashboard support for detecting any bias in the chosen model towards protected classes like gender and race. Since the training data is based on patients who have undergone the surgery in the past, it is important for stakeholders to understand any inherent biases in the data that the model has picked up. When the chosen model is biased towards any protected classes, model mitigation can be done by using RAI toolbox.
+   Responsible AI Toolbox provides interactive dashboard support for detecting bias  towards protected classes like gender and race in models. Because the training data is based on patients who have undergone the surgery in the past, it's important for stakeholders to understand any inherent biases in the data that the model has picked up. When the chosen model is biased towards protected classes, you can use Responsible AI Toolbox for model mitigation.
 
-1. AI/ML - Inference
+1. AI / machine learning - inference
 
-   Machine learning Inference is the process of feeding previously unseen data points into a machine learning model to calculate an output such as a numerical score, in this case determining if input data is anomalous. 
+   *Machine learning inference* is the process of feeding previously unseen data points into a machine learning model to calculate an output, like a numerical score. In this case, it's used to determine risks to patients.
  
-   The model registry is built into AML (Azure Machine Learning) and is used to store and version models in the Azure cloud. The model registry makes it easy to organize and keep track of trained models.
+   The model registry is built into Azure Machine Learning. It's used to store and version models in the Azure cloud. The model registry makes it easy to organize and keep track of trained models.
 
-   A trained machine learning model needs to be deployed so newly available data can be fed through it for inferencing. The deployment target is [Azure managed endpoints](/azure/machine-learning/concept-endpoints). Azure managed endpoints are the recommended deployment target that can be easily implemented for this solution. 
+   A trained machine learning model needs to be deployed so that new data can be fed through it for inferencing. The recommended deployment target is an [Azure managed endpoint](/azure/machine-learning/concept-endpoints).
 
-    For any new patient who is in the queue to undergo the surgery, the deployed model can be used, and the possible risks can be inferred based on that patient's historical health information. This way, both clinicians and the patient can understand the risks of them undergoing the surgery and come up with a suitable course of treatment.
+    For any new patient who is in the queue for surgery, the deployed model can be used, and the possible risks can be inferred based on the patient's historical health information. Clinicians and the patient can understand the risks of surgery and determine a suitable course of treatment.
 
-1. Analytical Workload
+1. Analytical workload
 
-   The results of model scoring are saved back into the analytic systems in this case [Azure Synapse]() and [Azure Data Lake]() where the input data is collected. This helps in sourcing the results of the risk prediction to the front-end for patient and clinician consumption, model monitoring and retraining the risk prediction models to help them learn from the newly available data. 
+   The results of model scoring are saved back into the analytics systems, in this case Azure Synapse Analytics and Azure Data Lake, where input data is collected. This helps in sourcing the results of the risk prediction to the front end for patient and clinician consumption, model monitoring, and retraining the prediction models to help them learn from newly available data.
 
-1. Front-end Model Consumption
+1. Front-end model consumption
 
-   The scored results can be consumed through a webapps platform, [Power BI platform](/power-bi/fundamentals/power-bi-overview), [Power Apps](/power-apps/powerapps-overview) and can also be accessed on patient and clinician specific web portals and applications. This helps both patient and clinician to have access to the most up to date along with historical patient information to provide a more accurate diagnosis and to curate the best course of treatment. 
+   You can consume the scored results through a web apps platform, [Power BI](/power-bi/fundamentals/power-bi-overview) and [Power Apps](/power-apps/powerapps-overview). The results can also be accessed through patient and clinician web portals and applications. This helps both patient and clinician to have access to the most up to date along with historical patient information to provide a more accurate diagnosis and to curate the best course of treatment.
 
 ### Components
 
