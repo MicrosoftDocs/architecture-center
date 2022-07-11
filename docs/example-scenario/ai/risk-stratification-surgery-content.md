@@ -27,7 +27,7 @@ AI and machine learning play a pivotal role when it comes to surgical interventi
 
    *Data preparation* is the process of gathering, combining, structuring, and organizing data so that you can use it to build machine learning models, business intelligence (BI), and analytics and data visualization applications.
 
-   [Azure Data Factory](/azure/data-factory/introduction) transforms, orchestrates, and loads data that's ready for further processing. [Azure API for FHIR](/azure/healthcare-apis/azure-api-for-fhir/overview) enables rapid exchange of data. [Azure Synapse Analytics](/azure/synapse-analytics/index.yml) processes data and triggers Azure Machine Learning experiments. [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake) stores tabular data that describes patient-centric information in flat files.
+   [Azure Data Factory](/azure/data-factory/introduction) transforms, orchestrates, and loads data that's ready for further processing. [Azure API for FHIR](/azure/healthcare-apis/azure-api-for-fhir/overview) enables rapid exchange of data. [Azure Synapse Analytics](/azure/synapse-analytics/index) processes data and triggers Azure Machine Learning experiments. [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake) stores tabular data that describes patient-centric information in flat files.
 
 1. AI/ machine learning - training
 
@@ -90,7 +90,9 @@ One of the largest healthcare organizations in the world, National Health Servic
 
 Or watch this short video:
 
-[!VIDEO https://www.youtube.com/embed/LRZHcipcweY]
+<br>
+
+> [!VIDEO https://www.youtube.com/embed/LRZHcipcweY]
 
 ### Potential use cases
 
@@ -157,7 +159,7 @@ Most components in this scenario can be scaled up or down depending on the analy
 
 You can scale [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) based on the data size and the necessary compute resources for model training. You can scale the deployment and compute resources based on the expected load and scoring service.
 
-For more information about designing scalable solutions, see [Performance efficiency checklist](/architecture/framework/scalability/performance-efficiency).
+For more information about designing scalable solutions, see [Performance efficiency checklist](/azure/architecture/framework/scalability/performance-efficiency).
 
 ## Contributors
 
