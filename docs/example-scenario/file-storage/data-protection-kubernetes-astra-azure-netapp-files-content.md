@@ -141,6 +141,14 @@ For Astra Control Service pricing plans, see [Application-aware data management 
 
 To run detailed bandwidth and pricing calculations, use the [Azure NetApp Files Performance Calculator][Azure NetApp Files Performance Calculator]. Basic and advanced calculators are available.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+ * [Arnt de Gier](https://nl.linkedin.com/in/arntdegier) | Technical Marketing Engineer
+
 ## Next steps
 
 - For information on using AKS to deploy a cluster, see [Tutorial: Deploy an Azure Kubernetes Service (AKS) cluster][Tutorial: Deploy an Azure Kubernetes Service (AKS) cluster].

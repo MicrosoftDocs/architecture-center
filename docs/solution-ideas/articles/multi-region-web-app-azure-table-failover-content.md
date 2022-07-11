@@ -25,7 +25,7 @@ The architecture may be appropriate for any application that uses massive amount
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1857597-PR-3334-multi-region-web-app-azure-table-failover.vsdx) of this architecture.*
 
-## Dataflow
+### Dataflow
 
 1. The client authenticates with Azure Active Directory (Azure AD) and is granted access to web applications hosted on Azure App Service.
 1. Azure Front Door, a firewall and layer 7 load balancer, switches user traffic to the standby region in case of a regional outage.
@@ -81,12 +81,12 @@ Principal author:
 
 ## Next steps
 
-- [Web-Queue-Worker architecture style](../../guide/architecture-styles/web-queue-worker.yml)
-- [Data partitioning strategies](../../best-practices/data-partitioning-strategies.yml)
 - [Use geo-redundancy to design highly available applications](/azure/storage/common/geo-redundant-design?toc=%2Fazure%2Fstorage%2Ftables%2Ftoc.json&tabs=current)
 - [Guidelines for table design](/azure/storage/tables/table-storage-design-guidelines)
 
 ## Related resources
 
+- [Web-Queue-Worker architecture style](../../guide/architecture-styles/web-queue-worker.yml)
+- [Data partitioning strategies](../../best-practices/data-partitioning-strategies.yml)
 - [Build a scalable system for massive data](../../data-guide/scenarios/build-scalable-database-solutions-azure-services.md)
 - [RESTful web API design](../../best-practices/api-design.md)

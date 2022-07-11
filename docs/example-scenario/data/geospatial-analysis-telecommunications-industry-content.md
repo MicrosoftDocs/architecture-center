@@ -91,6 +91,14 @@ For better security, consider following this guidance:
 - For the third-party components such as QGIS and ARCGIS, see the vendor websites for pricing information.
 - The frameworks mentioned in this solution, such as Apache Sedona and GeoPandas, are free open-source frameworks.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+* [Arash Mosharraf](https://www.linkedin.com/in/arashaga) | Senior Cloud Solution Architect
+
 ## Next steps
 
 - [Introduction to Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)

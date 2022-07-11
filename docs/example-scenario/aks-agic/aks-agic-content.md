@@ -388,7 +388,7 @@ Principal authors:
 ### Architectural guidance
 
 - [Azure Kubernetes Service (AKS) solution journey](../../reference-architectures/containers/aks-start-here.md)
-- [AKS cluster best practices](/Azure/aks/best-practices?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
+- [AKS cluster best practices](/Azure/aks/best-practices?toc=%2Fazure%2Farchitecture%2Ftoc.json&bc=%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
 - [Azure Kubernetes Services (AKS) day-2 operations guide](../../operator-guides/aks/day-2-operations-guide.md)
 - [Choosing a Kubernetes at the edge compute option](../../operator-guides/aks/choose-kubernetes-edge-compute-option.md)
 

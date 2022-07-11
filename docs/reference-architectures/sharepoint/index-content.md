@@ -164,7 +164,7 @@ All inbound traffic is free. All outbound traffic is billed. Internet bandwidth 
 
 Azure Virtual Network is free. Every subscription is allowed to create up to 50 virtual networks across all regions. All traffic that originates within the boundaries of a virtual network is free. So, communication between two VMs in the same virtual network is free.
 
-This architecture builds on the architecture deployed in [Run Windows VMs for an N-tier application][windows-n-tier]. See [Cost considerations](../../reference-architectures/n-tier/n-tier-sql-server.yml#cost-considerations) for more information.
+This architecture builds on the architecture deployed in [Run Windows VMs for an N-tier application][windows-n-tier].
 
 For more information, see the cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
@@ -191,7 +191,7 @@ For more information about the individual pieces of the solution architecture, s
 - [Overview of MinRole Server Roles in SharePoint Servers 2016 and 2019](/sharepoint/install/overview-of-minrole-server-roles-in-sharepoint-server)
 - [Always On availability groups](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server)
 - [Best practices for SQL Server in a SharePoint Server farm](/sharepoint/administration/best-practices-for-sql-server-in-a-sharepoint-server-farm)
-- [SharePoint Server 2016 in Microsoft Azure](/sharepoint/administration/sharepoint-server-2016-in-microsoft-azure)
+- [SharePoint Server 2016 in Microsoft Azure](/sharepoint/administration/sharepoint-server-in-microsoft-azure)
 
 ## Related resources
 
@@ -213,7 +213,7 @@ For more information about the individual pieces of the solution architecture, s
 [bastion-host]: https://en.wikipedia.org/wiki/Bastion_host
 [create-availability-group]: /sharepoint/administration/sharepoint-intranet-farm-in-azure-phase-5-create-the-availability-group-and-add
 [hybrid-ra]: ../hybrid-networking/index.yml
-[hybrid-vpn-ra]: ../hybrid-networking/vpn.yml
+[hybrid-vpn-ra]: /azure/expressroute/expressroute-howto-coexist-resource-manager
 [load-balancer]: /azure/load-balancer/load-balancer-internal-overview
 [managed-disks]: /azure/storage/storage-managed-disks-overview
 [minroles]: /SharePoint/install/overview-of-minrole-server-roles-in-sharepoint-server

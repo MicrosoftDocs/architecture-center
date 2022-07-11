@@ -2,7 +2,9 @@ This reference architecture shows how to implement continuous integration (CI), 
 
 A reference implementation for this architecture is available on [GitHub][repo].
 
-![Diagram of the MLOps architecture](./_images/ml-ops-python.png)
+:::image type="content" border="false" source="./_images/ml-ops-python.png" alt-text="Diagram of the Machine Learning DevOps architecture." lightbox="./_images/ml-ops-python.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/mlops-python.vsdx) of this architecture.*
 
 ## Architecture
 

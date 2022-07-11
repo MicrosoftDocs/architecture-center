@@ -10,6 +10,8 @@ Do you have legacy Oracle code and prefer using a managed service on Azure? If s
 
 ![An architecture diagram that shows a private endpoint connection reaching out to an Azure Database for PostgreSQL.](media/refactor.png)
 
+### Workflow
+
 1. Use Azure Database Migration Service to automate your Oracle database migration to Azure.
 
 1. Migrate the database to Azure Database for PostgreSQL.
@@ -22,7 +24,7 @@ Do you have legacy Oracle code and prefer using a managed service on Azure? If s
 
 * [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/) is your private network in your Azure environment.
 
-## Deployment
+## Deploy this scenario
 
 ### Prerequisites
 

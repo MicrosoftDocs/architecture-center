@@ -166,6 +166,14 @@ Deploying this solution involves these steps:
 
 - GitHub offers a free service. However, to use advanced security-related features, such as code owners or required reviewers, you need the Team plan. For more information, see [GitHub pricing](https://github.com/pricing).
 
+## Contributors
+
+*This article is being updated and maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+* [Rishabh Saha](https://www.linkedin.com/in/rishabhsaha) | Senior Cloud Solution Architect
+
 ## Next steps
 
 - [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines)

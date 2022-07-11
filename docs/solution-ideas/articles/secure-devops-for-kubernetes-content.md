@@ -8,10 +8,10 @@ Put guardrails around the development processes, by using CI/CD with dynamic pol
 
 ## Architecture
 
-![Architecture diagram](../media/secure-devops-for-kubernetes.png)
+![Architecture diagram shows Inner loop to source code through C I / C D pipelines to Helm chart and Azure Container to A K S production cluster.](../media/secure-devops-for-kubernetes.png)
 *Download an [SVG](../media/secure-devops-for-kubernetes.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
 1. Developers rapidly iterate, test, and debug different parts of an application together, in the same Kubernetes cluster.
 1. Code is merged into a GitHub repository, after which automated builds and tests are run by Azure Pipelines.
@@ -26,11 +26,19 @@ Put guardrails around the development processes, by using CI/CD with dynamic pol
 ### Components
 
 - [GitHub Enterprise](https://help.github.com/en/github) hosts the source code, where developers can collaborate within your organization and the open-source communities. GitHub Enterprise offers advanced security features to identify vulnerabilities in the code you write and in open-source dependencies
-- [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) is a service that provides Continuous Integration and Continuous Delivery jobs, to build and release your application automatically.
-- [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) hosts your Docker container images. This service includes container image scanning with the integration with Microsoft Defender for Cloud.
-- [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) offers a Kubernetes cluster that is fully managed by Azure, to ensure availability and security of your infrastructure.
-- [Azure Policy](https://azure.microsoft.com/services/azure-policy/) lets you create, assign, and manage policies. These policies enforce different rules and effects over your resources, so those resources stay compliant with your corporate standards and service level agreements. It integrates with Azure Kubernetes Service too.
-- [Azure Monitor](https://azure.microsoft.com/services/monitor/) lets you get insights on the availability and performance of your application and infrastructure. It also gives you access to signals to monitor your solution's health and spot abnormal activity early.
+- [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) is a service that provides Continuous Integration and Continuous Delivery jobs, to build and release your application automatically.
+- [Azure Container Registry](https://azure.microsoft.com/services/container-registry) hosts your Docker container images. This service includes container image scanning with the integration with Microsoft Defender for Cloud.
+- [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service) offers a Kubernetes cluster that is fully managed by Azure, to ensure availability and security of your infrastructure.
+- [Azure Policy](https://azure.microsoft.com/services/azure-policy) lets you create, assign, and manage policies. These policies enforce different rules and effects over your resources, so those resources stay compliant with your corporate standards and service level agreements. It integrates with Azure Kubernetes Service too.
+- [Azure Monitor](https://azure.microsoft.com/services/monitor) lets you get insights on the availability and performance of your application and infrastructure. It also gives you access to signals to monitor your solution's health and spot abnormal activity early.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Uthappa Kattera Chengappa](https://www.linkedin.com/in/uthappa) | Principal Cloud Solution Architect
 
 ## Next steps
 

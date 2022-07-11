@@ -385,7 +385,7 @@ Application Insights and Log Analytics support an [extensive query language](/az
 
 Use Azure Monitor alerts to notify sysadmins when certain conditions occur in specific resources. The notification could be an email, Azure function, call a web hook, and so on. For more information, see [Alerts in Azure Monitor](/azure/azure-monitor/platform/alerts-overview).
 
-[Log search alert rules](/azure/azure-monitor/platform/alerts-unified-log) allow you to define and run a Kusto query against a Log Analytics workspace at regular intervals. An alert is created if the query result matches a certain condition.
+[Log search alert rules](/azure/azure-monitor/alerts/alerts-types#log-alerts) allow you to define and run a Kusto query against a Log Analytics workspace at regular intervals. An alert is created if the query result matches a certain condition.
 
 ## Cost considerations
 

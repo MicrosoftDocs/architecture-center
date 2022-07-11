@@ -1,0 +1,26 @@
+### YamlMime:Architecture
+metadata:
+  title: Build the second layer of defense with Microsoft 365 Defender Security services
+  titleSuffix: Azure Architecture Center
+  description: Add additional security to your IT environment by using Microsoft 365 security service in addition to Azure security. This article is part of a series.
+  author: rudneir2
+  ms.author: ruolivei
+  ms.custom: fcp
+  ms.date: 07/11/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+azureCategories:
+  - integration
+  - security
+products:
+  - defender-office365
+  - defender-for-cloud-apps
+  - defender-identity
+  - m365
+  - mem
+name: Build the second layer of defense with Microsoft 365 Defender Security services
+summary: Add additional security to your IT environment by using Microsoft 365 security service in addition to Azure security. This article is part of a series.
+thumbnailUrl: /azure/architecture/browse/thumbs/microsoft-365-defender-build-second-layer-defense-thumbnail.png
+content: |
+  [!include[](microsoft-365-defender-build-second-layer-defense-content.md)]

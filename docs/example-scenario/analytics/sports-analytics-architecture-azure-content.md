@@ -107,23 +107,16 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 If you use Azure Data Factory Mapping Data Flows for extract, transform, and load (ETL), follow the performance and tuning guide for mapping data flows. Mapping data flows this way optimizes your data pipeline and ensures that your data flows meet your performance benchmarks.
 
-## Deploy this scenario
-
-To deploy this scenario and similar solutions, see the following GitHub repositories:
-
-- [Azure/mlops-v2: Azure MLOps (v2) solution accelerators](https://github.com/Azure/mlops-v2)
-- [Azure/mlops-infra-default: Azure MLOps default infrastructure](https://github.com/Azure/mlops-infra-default)
-
 ## Contributors
 
-*This article is maintained by Microsoft.*
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal author:
+Principal authors:
 
 - [Giulia Gallo](https://www.linkedin.com/in/giuliagallo) | Senior Cloud Solution Architect
 - [Jake Switzer](https://www.linkedin.com/in/jake-switzer-1629a983) | Sports Analytics Solution Architect
 
-Other contributors:
+Other contributor:
 
 - [Jason Martinez](https://www.linkedin.com/in/jason-martinez-502766123) | Technical Writer
 

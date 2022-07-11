@@ -4,7 +4,7 @@ description: Summary of how the unified collection of services that the Microsof
 author: DanWahlin
 ms.author: dwahlin
 ms.contributors: dwahlin-5182022
-ms.date: 05/23/2022
+ms.date: 06/14/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -77,3 +77,4 @@ These are the other articles in **Build applications on the Microsoft cloud**:
 - [3. Get the most value from technical talent](get-most-value-technical-talent.md)
 - [4. Integrate new applications with existing solutions](integrate-new-applications-existing-solutions.md)
 - [5. Create and run secure applications](create-run-secure-applications.md)
+- [Video: Building Real-time Collaborative Apps with Azure, Microsoft 365, and Power Platform](https://aka.ms/microsoft-cloud-build22-video)

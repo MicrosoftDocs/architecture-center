@@ -93,6 +93,14 @@ Once you've configure a pipeline with Azure DevOps Projects and the build is com
 
 The pipeline creates a release definition and a continuous deployment trigger, deploying our application into the Dev environment. As part of a continuous deployment process, you may see releases that span multiple environments. A release can span both infrastructure (using techniques such as infrastructure-as-code), and can also deploy the application packages required along with any post-configuration tasks.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+- [Chris Reddington](https://uk.linkedin.com/in/chrisreddington) | Cloud Solution Architect
+
 ## Next steps
 
 Review the following resources to learn more about CI/CD and Azure DevOps:
@@ -108,7 +116,7 @@ Review the following resources to learn more about CI/CD and Azure DevOps:
 
 <!-- links -->
 
-[ansible]: /azure/developer/ansible/
+[ansible]: /azure/developer/ansible
 [application-insights]: /azure/application-insights/app-insights-overview
 [arm-templates]: /azure/azure-resource-manager/template-deployment-overview
 [architecture]: ./media/architecture-devops-dotnet-webapp.svg
