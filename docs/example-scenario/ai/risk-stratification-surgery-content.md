@@ -19,7 +19,7 @@ AI and machine learning play a pivotal role when it comes to surgical interventi
 
    - Patient demographic information
    - Information about existing comorbidities, along with their severity
-   - Information about patient's current medication plan
+   - Information about the patient's current medication plan
    - Patient pre-operative blood test information 
    - Other critical health-related information  
 
@@ -27,7 +27,10 @@ AI and machine learning play a pivotal role when it comes to surgical interventi
 
    *Data preparation* is the process of gathering, combining, structuring, and organizing data so that you can use it to build machine learning models, business intelligence (BI), and analytics and data visualization applications.
 
-   [Azure Data Factory](/azure/data-factory/introduction) transforms, orchestrates, and loads data that's ready for further processing. [Azure API for FHIR](/azure/healthcare-apis/azure-api-for-fhir/overview) enables rapid exchange of data. [Azure Synapse Analytics](/azure/synapse-analytics/index) processes data and triggers Azure Machine Learning experiments. [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake) stores tabular data that describes patient-centric information in flat files.
+   - [Azure Data Factory](/azure/data-factory/introduction) transforms, orchestrates, and loads data that's ready for further processing. 
+   - [Azure API for FHIR](/azure/healthcare-apis/azure-api-for-fhir/overview) enables the rapid exchange of data. 
+   - [Azure Synapse Analytics](/azure/synapse-analytics/index) processes data and triggers Azure Machine Learning experiments. 
+   -      [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake) stores tabular data that describes patient-centric information in flat files.
 
 1. AI/ machine learning - training
 
@@ -47,7 +50,7 @@ AI and machine learning play a pivotal role when it comes to surgical interventi
 
    A trained machine learning model needs to be deployed so that new data can be fed through it for inferencing. The recommended deployment target is an [Azure managed endpoint](/azure/machine-learning/concept-endpoints).
 
-    For any new patient who is in the queue for surgery, the deployed model can be used, and the possible risks can be inferred based on the patient's historical health information. Clinicians and the patient can understand the risks of surgery and determine a suitable course of treatment.
+    For any new patient in the queue for surgery, the deployed model can be used, and the possible risks can be inferred based on the patient's historical health information. Clinicians and the patient can understand the risks of surgery and determine a suitable course of treatment.
 
 1. Analytical workload
 
@@ -55,7 +58,7 @@ AI and machine learning play a pivotal role when it comes to surgical interventi
 
 1. Front-end model consumption
 
-   You can consume the scored results through a web apps platform, [Power BI](/power-bi/fundamentals/power-bi-overview) and [Power Apps](/power-apps/powerapps-overview). The results can also be accessed through patient and clinician web portals and applications. This enables patients and clinicians to access to the most up-to-date information along with historical information for a more accurate diagnosis and to curate the best course of treatment.
+   You can consume the scored results through a web apps platform: [Power BI](/power-bi/fundamentals/power-bi-overview) and [Power Apps](/power-apps/powerapps-overview). The results can also be accessed through patient and clinician web portals and applications. This enables patients and clinicians to access to the most up-to-date information along with historical information for a more accurate diagnosis and to curate the best course of treatment.
 
 ### Components
 
@@ -64,7 +67,7 @@ AI and machine learning play a pivotal role when it comes to surgical interventi
 - [Azure Data Factory](https://azure.microsoft.com/services/data-factory) is a cloud-based data integration service that automates data movement and transformation.
 - [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake) is a limitless data storage service for housing data in various shapes and formats. It provides easy integration with the analytics tools in Azure. It has enterprise-grade security and monitoring support. You can use it for archives, data lakes, high-performance computing, machine learning, and cloud-native workloads. This solution provides a local data store for the machine learning data and a premium data cache to train the machine learning model.
 - [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) is the enterprise-grade machine learning service for easier model development and deployment to a wide range of machine learning target computes. It provides users at all skill levels with a low-code designer, automated machine learning, and a hosted Jupyter notebook environment that supports various integrated development environments.
-- [Responsible AI Toolbox](https://responsibleaitoolbox.ai) is a collection of integrated tools and functionalities to help you operationalize responsible AI. By using this toolbox, you can assess your models and more quickly make user-facing decisions.
+- [Responsible AI Toolbox](https://responsibleaitoolbox.ai) is a collection of integrated tools to help you operationalize responsible AI. By using this toolbox, you can assess your models and more quickly make user-facing decisions.
 - [Azure Machine Learning endpoints](/azure/machine-learning/concept-endpoints) are HTTPS endpoints that clients can call to receive the inferencing (scoring) output of a trained model. An endpoint provides a stable scoring URI with key-token authentication.
 - [Power BI](https://powerbi.microsoft.com) is the Azure software as a service (SaaS) for business analytics and visually immersive and interactive insights. It provides a rich set of connectors to various data sources, easy transformation capabilities, and sophisticated visualization.
 - [Power Apps](https://powerapps.microsoft.com) is a suite of apps, services, and connectors, together with a data platform, that provides a rapid development environment to build custom apps for your business needs. You can use Power Apps to quickly build business apps that connect to your data. Data can be stored in the underlying data platform ([Microsoft Dataverse](/powerapps/maker/data-platform/data-platform-intro)) or in various online and on-premises data sources, like SharePoint, Microsoft 365, Dynamics 365, and SQL Server.
@@ -78,9 +81,9 @@ AI and machine learning play a pivotal role when it comes to surgical interventi
 
 ## Scenario details
 
-Advancements in data collection technologies and developments in data standards (transport, content, terminology, and security) have created a growing AI and machine learning transformation in the healthcare industry. This transformation has been particularly groundbreaking in patient care and provider administration. It has also provided an opportunity for insurance and pharmaceutical companies to offer digitally connected systems that enable a holistic view of a patient's wellbeing and overall healthcare history.
+Advancements in data collection technologies and developments in data standards (transport, content, terminology, and security) have created a growing AI and machine learning transformation in the healthcare industry. This transformation is particularly groundbreaking in patient care and provider administration. It has also provided an opportunity for insurance and pharmaceutical companies to offer digitally connected systems that enable a holistic view of a patient's wellbeing and overall healthcare history.
 
-Risk stratification can be either a binary or a multiclass classification model. In the case of binary classification, outcomes would be a surgery resulting in either a successful or a risky outcome. In the multiclass classification approach, there's an opportunity to further refine outcomes as successful, moderate, and severe/death. In either approach, one needs patient-centric data, including demographic information, comorbidities, current medication plan, blood test reports, and anything else that can shed light on a patient's overall health.
+Risk stratification can be either a binary or a multiclass classification model. In the case of binary classification, outcomes are a surgery resulting in either a successful or a risky outcome. In the multiclass classification approach, there's an opportunity to further refine outcomes as successful, moderate, and severe/death. For either approach, you need patient-centric data, including demographic information, comorbidities, current medication plan, blood test reports, and anything else that can shed light on a patient's overall health.
 
 Developing a transparent system that provides the ability to explain potential surgical outcomes to a patient must be the primary goal of models like this one. Transparency and interpretability help clinicians have meaningful conversations with patients and lets them establish a treatment plan before surgery takes place. 
 
@@ -99,7 +102,7 @@ Or watch this short video:
 This solution is ideal for the healthcare industry. Risk stratification models apply to these scenarios:
 
 - **Clinical medicine.**  Predict surgical outcomes for patients undergoing orthopedic surgery, heart surgery, eye surgery, and other types of surgeries.
-- **Public health.** Help medical professionals and policy makers understand the spread of specific diseases among residents in geographical areas. For example, to determine how many residents are susceptible to COVID.
+- **Public health.** Help medical professionals and policy makers understand the spread of specific diseases among residents in geographical areas, for example, to determine how many residents are susceptible to COVID.
 - **Epidemiology.** Implement clinical trials to better understand the outcomes of a treatment as compared to a placebo.
 
 ## Considerations
@@ -120,7 +123,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 This scenario provides improved security that's built into the components. It also provides permissions that you can manage via Azure Active Directory authentication or role-based access control. Consider the following [Azure Machine learning best practices for enterprise security](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-enterprise-security) to establish suitable security levels.
 
-Azure Synapse features enterprise-grade and industry-leading security features that provide component isolation to protect data, improved network security, and improved threat protection. Component isolation can minimize exposure in the case of a security vulnerability. Azure Synapse also enables data obfuscation to protect sensitive personal data.
+Azure Synapse offers enterprise-grade and industry-leading security features that provide component isolation to protect data, improved network security, and improved threat protection. Component isolation can minimize exposure in the case of a security vulnerability. Azure Synapse also enables data obfuscation to protect sensitive personal data.
 
 Azure Data Lake provides security capabilities at all levels, from improved data protection and data masking to improved threat protection. For more information, see [Azure Data Lake security](/azure/data-lake-store/data-lake-store-security-overview).
 
@@ -138,7 +141,7 @@ For more information about security features for this architecture, see the foll
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 - Scalability of the resources depends on the analytics workload, training, and deployment workloads enabled to optimize costs as needed.
-- To estimate the cost of implementing this solution, use [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator), inputting services described in this article. [Overview of the cost optimization pillars](/azure/architecture/framework/cost/overview) can also be helpful.
+- To estimate the cost of implementing this solution, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator), inputting the services described in this article. [Overview of the cost optimization pillars](/azure/architecture/framework/cost/overview) can also be helpful.
 
 ### Operational excellence
 
