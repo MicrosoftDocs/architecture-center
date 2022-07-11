@@ -40,7 +40,7 @@ There are two main components of the reference architecture:
 
 * **Infrastructure** - Azure services and resources. Deployed with Terraform and it's associated configuration.
 
-* **Application** - The hosted service or application that serves users. Based on Docker containers and npm built artifacts in HTML and JavaScript for the UI.
+* **Application** - The hosted service or application that serves users. Based on Docker containers and npm built artifacts in HTML and JavaScript for the single-page application (SPA) UI.
 
 In many systems, there is an assumption that application updates will be more frequent than infrastructure updates. As a result, different update procedures are developed for each.  With a public cloud infrastructure, changes can happen at a faster pace. The faster pace and rate of change within the Azure platform requires a different approach to updates. One deployment process for application updates and infrastructure updates was chosen. This allows for:
 
