@@ -24,6 +24,6 @@ products:
   - azure-iot-hub
   - azure-language-understanding
   - azure-speech
-thumbnailUrl: /azure/architecture/browse/thumbs/controlling-iot-devices-using-voice.svg
+thumbnailUrl: /azure/architecture/browse/thumbs/controlling-iot-devices-using-voice-thumbnail-new.png
 content: |
    [!include[](iot-controlling-devices-with-voice-assistant-content.md)]
