@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: alexhart11
-ms.date: 07/05/2022
+ms.date: 07/11/2022
 ms.topic: article
 ms.service: architecture-center
 categories: 
@@ -26,11 +26,27 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
+- [Deploy IBM Maximo Application Suite (MAS) on Azure](./example-scenario/networking/deploy-ibm-maximo-application-suite.yml)
+- [Predict student attrition](./example-scenario/ai/student-attrition-prediction.yml)
+- [Patterns for inter-spoke networking](./networking/spoke-to-spoke-networking.yml)
+- [Build and deploy custom document processing models on Azure](./example-scenario/document-processing/build-deploy-custom-models.yml)
+- [Esri ArcGIS Platform on Azure Virtual Desktop](./example-scenario/data/esri-arcgis-azure-virtual-desktop.yml)
+- [Access an Azure Kubernetes Service (AKS) API server](./guide/security/access-azure-kubernetes-service-cluster-api-server.yml)
+- [Analyze browser information](./example-scenario/ai/analyze-browser-info-for-security-insights.yml)
 - [Networking and connectivity for mission-critical workloads on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-networking.md)
 - [Application platform considerations for mission-critical workloads on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-app-platform.md)
 
 ### Updated articles
 
+- [Serverless apps using Cosmos DB](./solution-ideas/articles/serverless-apps-using-cosmos-db.yml)  ([#ace142826](https://github.com/MicrosoftDocs/architecture-center/commit/ace142826))
+- [Streaming using HDInsight](./solution-ideas/articles/streaming-using-hdinsight.yml)  ([#2820f19b4](https://github.com/MicrosoftDocs/architecture-center/commit/2820f19b4))
+- [Azure AD join for Azure Virtual Desktop](./example-scenario/wvd/azure-virtual-desktop-azure-active-directory-join.md)  ([#e115e6f69](https://github.com/MicrosoftDocs/architecture-center/commit/e115e6f69))
+- [Speech services](./solution-ideas/articles/speech-services.yml)  ([#6d0a6e8d5](https://github.com/MicrosoftDocs/architecture-center/commit/6d0a6e8d5))
+- [Azure Automation update management](./hybrid/azure-update-mgmt.yml)  ([#61147a107](https://github.com/MicrosoftDocs/architecture-center/commit/61147a107))
+- [Azure digital twins builder](./solution-ideas/articles/azure-digital-twins-builder.yml)  ([#8670010e0](https://github.com/MicrosoftDocs/architecture-center/commit/8670010e0))
+- [Orchestrate MLOps on Azure Databricks using Databricks Notebook](./reference-architectures/ai/orchestrate-mlops-azure-databricks.yml)  ([#9bd7eb78e](https://github.com/MicrosoftDocs/architecture-center/commit/9bd7eb78e))
+- [Profisee MDM and Azure Data Factory](./reference-architectures/data/profisee-master-data-management-data-factory.yml)  ([#452322d9e](https://github.com/MicrosoftDocs/architecture-center/commit/452322d9e))
+- [Master data management with Azure and CluedIn](./reference-architectures/data/cluedin.yml)  ([#e812e941c](https://github.com/MicrosoftDocs/architecture-center/commit/e812e941c))
 - [Azure AD security for AWS](./reference-architectures/aws/aws-azure-ad-security.yml)  ([#dc5f7ae42](https://github.com/MicrosoftDocs/architecture-center/commit/dc5f7ae42))
 - [Microservices architecture on AKS](./reference-architectures/containers/aks-microservices/aks-microservices.yml)  ([#14de4d17e](https://github.com/MicrosoftDocs/architecture-center/commit/14de4d17e))
 - [Tune hyperparameters for ML models in Python](./reference-architectures/ai/training-python-models.yml)  ([#d2ab6afa8](https://github.com/MicrosoftDocs/architecture-center/commit/d2ab6afa8))
@@ -55,6 +71,8 @@ The following new and updated articles have recently been published in the Azure
 ### New articles
 
 - [Host a Murex MX.3 workload on Azure](./example-scenario/finance/murex-mx3-azure.yml)
+- [Highly available multi-region web app](./reference-architectures/app-service-web-app/multi-region-experiment.yml)
+- [Analytics end-to-end with Azure Synapse](./example-scenario/dataplate2e/data-platform-end-to-end-experiment.yml)
 - [Sentiment analysis and face recognition](./example-scenario/ai/nifi-sentiment-analysis-face-recognition.yml)
 - [Optimize inventory and forecast demand with Power Platform and Azure](./example-scenario/analytics/optimize-inventory-forecast-demand.yml)
 - [Industrial IoT connectivity patterns](./guide/iiot-patterns/iiot-connectivity-patterns.yml)
@@ -64,6 +82,8 @@ The following new and updated articles have recently been published in the Azure
 - [Industrial IoT visibility patterns](./guide/iiot-patterns/iiot-visibility-patterns.yml)
 - [Large-scale custom natural language processing](./solution-ideas/articles/large-scale-custom-natural-language-processing.yml)
 - [Microsoft Sentinel automated responses](./solution-ideas/articles/microsoft-sentinel-automated-response.yml)
+- [Modern analytics architecture with Azure Databricks](./solution-ideas/articles/azure-databricks-modern-analytics-architecture-experiment.yml)
+- [Multi-tier web application built for HA/DR](./example-scenario/infrastructure/multi-tier-app-disaster-recovery-experiment.yml)
 - [Highly reliable mission-critical workload on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-intro.yml)
 - [Architectural approaches for identity in multitenant solutions](./guide/multitenant/approaches/identity.md)
 - [Architectural considerations for identity in a multitenant solution](./guide/multitenant/considerations/identity.md)
@@ -268,6 +288,7 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
+- [Master data management with Azure and CluedIn](./reference-architectures/data/cluedin-experiment.yml)
 - [Sports analytics on Azure](./example-scenario/analytics/sports-analytics-architecture-azure.yml)
 - [Line-of-business application using Azure App Service Environment v3](./example-scenario/apps/line-of-business-internal-app-service-environment-v3.yml)
 - [Azure API Management landing zone accelerator](./example-scenario/integration/app-gateway-internal-api-management-function.yml)
