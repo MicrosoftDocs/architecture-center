@@ -1,38 +1,47 @@
 Customer care centers are an integral part of the success of many businesses in many industries. Speech recognition and analysis of recorded customer calls can provide your business with valuable information about current trends, product shortcomings, and successes. 
 
-The examples solution described below outlines a repeatable pipeline for transcribing and analyzing conversation data. The solution uses the Speech API from [Azure Cognitive Services](/azure/cognitive-services/speech-service/overview) for audio transcription and diarization. [Azure Synapse Analytics](/azure/synapse-analytics/) is used to process and perform NLP tasks such as sentiment analysis and custom named entity recognition through API calls to [Azure Cognitive Service for Language](/azure/cognitive-services/language-service/). 
+The example solution described in this article outlines a repeatable pipeline for transcribing and analyzing conversation data. The solution uses the Speech API from [Azure Cognitive Services](/azure/cognitive-services/speech-service/overview) for audio transcription and diarization. [Azure Synapse Analytics](/azure/synapse-analytics) is used to process and perform natural language processing (NLP) tasks like sentiment analysis and custom Named Entity Recognition through API calls to [Azure Cognitive Service for Language](/azure/cognitive-services/language-service).
 
-The services and pipeline describe here can scale to accommodate any volume of recorded data, and process transcribed text to recognize and remove sensitive information, perform sentiment analysis, and so on.
+You can use the services and pipeline described here to process transcribed text to recognize and remove sensitive information, perform sentiment analysis, and more. You can scale the services and pipeline to accommodate any volume of recorded data.
 
 ## Potential use cases
-This solution will provide value for any organization that record conversations as part of their operations. In particular, customer-facing or internal call centers or support desks will benefit from the insights derived from this solution. 
+
+This solution can provide value for any organization that records conversations. In particular, customer-facing or internal call centers or support desks can benefit from the insights derived from this solution.
 
 ## Architecture
-This architecture consists of two pipelines: 
+
+The architecture consists of two pipelines:
+
 * A transcription pipeline to convert audio to text
 * An enrichment and visualization pipeline
 
 ### Transcription pipeline
-![Architecture diagram: ingest and convert speech to text using Azure Cognitive Services](./media/speech-to-text-transcription-pipeline.png)
 
-### Dataflow for transcription pipeline
-1. Audio files are uploaded to an Azure Storage account by any supported method. Users can use a UI-based tool such as [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) or programmatically using an available [storage SDK or API](/azure/storage/blobs/reference).
-2. The upload to Azure Storage triggers an Azure Logic App. The Logic App will securely access any needed credentials in Azure Key Vault, and make the request to the Speech service's batch transcription API. 
-3. The Logic App submits the audio files call to the Speech service, including optional settings for speaker diarization. 
-4. The speech service completes the batch transcription and securely loads the transcription results to the Storage Account. 
+![Diagram that illustrates how to ingest speech and convert it to text by using Cognitive Services.](./media/speech-to-text-transcription-pipeline.png)
+
+*Download a [Visio file](https://arch-center.azureedge.net/speech-to-text-transcription-pipeline.vsdx) of this architecture.*
+
+### Dataflow for the transcription pipeline
+
+1. Audio files are uploaded to an Azure Storage account via any supported method. You can use a UI-based tool like [Azure Storage Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer) or use a [storage SDK or API](/azure/storage/blobs/reference).
+1. The upload to Azure Storage triggers an Azure logic app. The logic app accesses any necessary credentials in Azure Key Vault and makes a request to the Speech service's batch transcription API.
+1. The logic app submits the audio files call to Speech service, including optional settings for speaker diarization.
+1. Speech service completes the batch transcription and loads the transcription results to the Storage account.
 
 ### Enrichment and visualization pipeline
-![Architecture diagram: transform and enrich transcribed conversations with NLP. Then serve up through visualization tools.](./media/speech-to-text-analytics-nlp-pipeline.png)
 
-### Dataflow for enrichment and visualization pipeline
-5. An Azure Synapse pipeline runs to retrieve and process the transcribed audio text. 
-6. The pipeline sends processed text via API call to the Language service. The service performs various NLP enrichments, such as sentiment and opinion mining, summarization, and custom or pre-built named entity recognition. 
-7. The processed data is then stored in Azure Synapse Analytics SQL pool where it can be served to visualization tools such as Power BI. 
+![Diagram that illustrates the enrichment and visualization pipeline.](./media/speech-to-text-analytics-nlp-pipeline.png)
 
-*Download a [Visio file](https://arch-center.azureedge.net/[filename].vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/speech-to-text-transcription-pipeline.vsdx) of this architecture.*
 
+### Dataflow for the enrichment and visualization pipeline
+
+5. An Azure Synapse Analytics pipeline runs to retrieve and process the transcribed audio text.
+6. The pipeline sends processed text via an API call to the Language service. The service performs various NLP enrichments, like sentiment and opinion mining, summarization, and custom or pre-built named entity recognition.
+7. The processed data is stored in an Azure Synapse Analytics SQL pool, where it can be served to visualization tools like Power BI.
 
 ### Components
+
 - [Azure Blob Storage](https://azure.microsoft.com/product-categories/storage/) Massively scalable and secure object storage for cloud-native workloads, archives, data lakes, high-performance computing, and machine learning. Used to store the audio files, transcription results, and serve as a data lake for downstream analytics. 
 - [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) is an integration platform as a service (iPaaS) built on a containerized runtime. It's used in this solution to integrate storage and speech AI services. 
 - [Azure Cognitive Services Speech service](https://azure.microsoft.com/services/cognitive-services/speech-services) an AI-based API that provides speech capabilities such as speech-to-text, text-to-speech, speech translation, and speaker recognition. Its batch transcription functionality is used in this solution. 
