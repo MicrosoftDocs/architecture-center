@@ -147,6 +147,12 @@ Principal authors:
 
 * [Amar Gowda](https://www.linkedin.com/in/nramar) | Principal Program Manager
 
+Other contributor:
+
+* [Gary Moore](https://www.linkedin.com/in/gwmoore) | Programmer/Writer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [Azure confidential computing](/azure/confidential-computing)

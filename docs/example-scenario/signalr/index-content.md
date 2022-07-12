@@ -1,6 +1,6 @@
 <!-- cSpell:ignore CNAME -->
 
-This scenario describes how to architect a solution that processes changes to underlying data within a web view without the need for a page refresh using real-time services. Examples that use this scenario include real-time tracking of products and goods, as well as social media solutions.
+This scenario describes how to architect a solution that processes changes to underlying data within a web view without the need for a page refresh using real-time services. Examples that use this scenario include real-time tracking of products and goods, and social media solutions.
 
 ## Architecture
 
@@ -20,7 +20,7 @@ There's also [PubNub](https://pubnub.com/). PubNub makes it easy for you to add 
 
 No doubt that Pusher and PubNub are the widely adopted platforms for real-time messaging but for this scenario, we do everything in Azure. SignalR was simply the go to for me as it allows bi-directional communication between server and client. It's also an open-source tool, with 7.9K GitHub stars and 2.2K GitHub forks.
 
-[Here's](https://github.com/SignalR/SignalR) a link to SignalR's open-source repository on GitHub.
+See [SignalR's open-source repository on GitHub](https://github.com/SignalR/SignalR).
 
 ## Scenario details
 
@@ -39,7 +39,7 @@ These other uses cases have similar design patterns:
 
 ## Considerations
 
-In addition to how to configure parameters in the Azure Service Bus connection string in the ServiceBusTrigger, the following considerations are used to develop this scenario:
+Here are some of the considerations taken to develop this scenario, including how to configure parameters in the Azure Service Bus connection string in the ServiceBusTrigger and:
 
 **Hubs:** Hubs can be compared to a video streaming service. You can subscribe to the Hub to send/receive messages from/to the Hub.
 
@@ -64,7 +64,7 @@ Each Azure region is paired with another region within the same geography. In ge
 
 ![Architectural diagram showing how Azure Front Page works to provide high availability for a mobile app.](./haarchitecture.jpg)
 
-Azure Front Door is a scalable and secure entry point for fast delivery of your global applications. Using *priority routing*, Front Door automatically fails over if the primary region becomes unavailable. A multi-region architecture can provide higher availability than deploying to a single region. If a regional outage affects the primary region, you can use Front Door to fail over to the secondary region. This architecture can also help if an individual subsystem of the solution fails. Stop network and application layer attacks at the edge with Web Application Firewall and DDoS Protection. Harden your service using Microsoft-managed rule sets and author your own rules for custom protection of your app.
+Azure Front Door is a scalable and secure entry point for fast delivery of your global applications. By using *priority routing*, it automatically fails over if the primary region becomes unavailable. A multi-region architecture can provide higher availability than deploying to a single region. If a regional outage affects the primary region, you can use Front Door to fail over to the secondary region. This architecture can also help if an individual subsystem of the solution fails. Stop network and application layer attacks at the edge with Web Application Firewall and DDoS Protection. Harden your service using Microsoft-managed rule sets and author your own rules for custom protection of your app.
 
 Front Door is a possible failure point in the system. If the service fails, clients can't access your application during the downtime. Review the [Front Door service level agreement (SLA)](https://azure.microsoft.com/support/legal/sla/frontdoor) and determine whether using Front Door alone meets your business requirements for high availability. If not, consider adding another traffic management solution as a fallback. If the Front Door service fails, change your canonical name (CNAME) records in DNS to point to the other traffic management service. This step must be performed manually, and your application will be unavailable until the DNS changes are propagated.
 
@@ -94,7 +94,7 @@ SignalRFunctionApp is a function app that creates an Azure Functions instance, w
 
 #### Negotiate.cs
 
-This function is triggered by an HTTP request. It's used by client applications to get a token from the SignalR service which clients can use to subscribe to a hub. The function should be named "negotiate." For more information [read this guide](/azure/azure-signalr/signalr-concept-serverless-development-config).
+This function is triggered by an HTTP request. It's used by client applications to get a token from the SignalR service which clients can use to subscribe to a hub. This should be named "negotiate." For more information, [read this guide](/azure/azure-signalr/signalr-concept-serverless-development-config)
 
 #### Message.cs
 
@@ -103,26 +103,26 @@ This function is triggered by a Service Bus Trigger. It has a binding with Signa
 #### Instructions
 
 1. Make sure you have a Service Bus Queue provisioned on Azure.
-2. Make sure you have a SignalR service provisioned in serverless mode on Azure.
-3. Enter your connection strings (Service Bus & SignalR) in the **local.settings.json file.**
-4. Enter the URL of client application (SignalR client) in CORS. [This guide](/azure/azure-signalr/signalr-concept-serverless-development-config) provides the most recent syntax.
-5. Enter your Service Bus Queue name in the Service Bus Trigger inside **Message.cs file**.
+1. Make sure you have a SignalR service provisioned in serverless mode on Azure.
+1. Enter your connection strings (Service Bus & SignalR) in the **local.settings.json file.**
+1. Enter the URL of client application (SignalR client) in CORS. [This guide](/azure/azure-signalr/signalr-concept-serverless-development-config) provides the most recent syntax.
+1. Enter your Service Bus Queue name in the Service Bus Trigger inside **Message.cs file**.
 
 Now, let's configure the client application to test. First, grab the example sources from [here](https://github.com/mspnp/solution-architectures/tree/master/signalr)
 
 ### SignalR client
 
-This simple .NET Core web application subscribes to the hub that's created by SignalRFunctionApp. It then displays messages that are received in the Service Bus Queue, in real time. You can use SignalRFunctionApp to work with a mobile client, but in this repository, we'll stick to the web client.
+This is a simple .NET Core web application to subscribe to the hub created by SignalRFunctionApp and display messages received on the Service Bus Queue in real time. Although you can use SignalRFunctionApp to work with a mobile client, for this repository, we'll stick to the web client.
 
 <!-- markdownlint-disable MD024 -->
 
 #### Instructions
 
 1. Make sure SignalRFunctionApp is running first.
-2. Copy the url generated by the Negotiate function. It will look something like this: `http://localhost:7071/api/`
-3. Paste the url into chat.js inside `signalR.HubConnectionBuilder().withUrl("YOUR_URL_HERE").build();`
-4. Run the application.
-5. You'll see status connected when the web client successfully subscribes to the SignalR hub.
+1. Copy the url generated by the Negotiate function. It will look something like this: `http://localhost:7071/api/`
+1. Paste the url into chat.js inside `signalR.HubConnectionBuilder().withUrl("YOUR_URL_HERE").build();`
+1. Run the application.
+1. You'll see status connected when the web client successfully subscribes to the SignalR hub.
 
 ### SendToQueue.js
 
@@ -131,8 +131,8 @@ This node.js script pushes a message to the Service Bus, so that you can test th
 #### Instructions
 
 1. Install the node Azure Service Bus module (@azure/service-bus).
-2. Enter your connection strings and queue name in the script.
-3. Run the script.
+1. Enter your connection strings and queue name in the script.
+1. Run the script.
 
 ## Next steps
 
@@ -140,14 +140,14 @@ You can take this scenario into your production environment, however, make sure 
 
 You can deploy the code to Azure Functions right from Visual Studio. [Follow this guide](https://tutorials.visualstudio.com/first-azure-function/publish) to learn how to publish your code to Azure Functions from Visual Studio.
 
-[This article explains](/azure/azure-functions/functions-bindings-service-bus) how to work with Azure Service Bus bindings in Azure Functions. Azure Functions supports trigger and output bindings for Service Bus queues and topics.
+See [how to work with Azure Service Bus bindings in Azure Functions](/azure/azure-functions/functions-bindings-service-bus). Azure Functions supports trigger and output bindings for Service Bus queues and topics.
 
-[This article explains](/azure/azure-functions/functions-bindings-signalr-service) how to authenticate and send real-time messages to clients connected to Azure SignalR Service by using SignalR Service bindings in Azure Functions. Azure Functions supports input and output bindings for SignalR Service.
+See [how to authenticate and send real-time messages](/azure/azure-functions/functions-bindings-signalr-service) to clients that are connected to Azure SignalR Service, by using SignalR Service bindings in Azure Functions. Azure Functions supports input and output bindings for SignalR Service.
 
 ## Related resources
 
-- [High-volume batch transaction processing](/azure/architecture-center/example-scenario/mainframe/process-batch-transactions)
-- [Transit hub dynamic pub-sub messaging system](/azure/architecture-center/solution-ideas/articles/transit-hub)
-- [Serverless event processing](/azure/architecture-center/reference-architectures/serverless/event-processing)
-- [Blockchain workflow application](/azure/architecture-center/solution-ideas/articles/blockchain-workflow-application)
-- [Event-based cloud automation](/azure/architecture-center/reference-architectures/serverless/cloud-automation)
+- [High-volume batch transaction processing](/azure/architecture/example-scenario/mainframe/process-batch-transactions)
+- [Transit hub dynamic pub-sub messaging system](/azure/architecture/solution-ideas/articles/transit-hub)
+- [Serverless event processing](/azure/architecture/reference-architectures/serverless/event-processing)
+- [Blockchain workflow application](/azure/architecture/solution-ideas/articles/blockchain-workflow-application)
+- [Event-based cloud automation](/azure/architecture/reference-architectures/serverless/cloud-automation)

@@ -23,9 +23,11 @@ With its Open Platform, Project 15 contributes the latest Azure and IoT technolo
 
 The following sections provide insight into Project 15 Open Platform functionality and architecture.
 
-:::image type="complex" source="../media/project-15-open-platform-overview.png" alt-text="Diagram providing an overview of Project 15 Open Platform functionality. Colors indicate the level of customization that each area requires.":::
+:::image type="complex" source="../media/project-15-open-platform-overview-new.png" alt-text="Diagram providing an overview of Project 15 Open Platform functionality. Colors indicate the level of customization that each area requires.":::
 Diagram showing components and functionality of the Project 15 Open Platform. Bars show areas of functionality, such as user management and security. Boxes represent actions that the platform handles like connect devices and ingest data. Between the boxes are arrows that indicate the flow of data in the system. The components are color coded. Light green elements are fully included in the platform. Dark green elements are included but need customization. Blue elements aren't included by default and require full customization. Images of animals and plants connected to sensors and trackers are also visible. Arrows indicate that their data flows into the system, and the system can manage these devices.
 :::image-end:::
+
+*Download a [Visio file](https://arch-center.azureedge.net/project-15-open-platform-overview.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -39,9 +41,11 @@ Open Platform components fall into these categories:
 
 ### Solution details
 
-:::image type="complex" source="../media/project-15-ref-architecture.png" alt-text="Diagram showing how the Project 15 Open Platform collects, processes, analyzes, stores, secures, visualizes, and monitors IoT device data.":::
+:::image type="complex" source="../media/project-15-ref-architecture-new.png" alt-text="Diagram showing how the Project 15 Open Platform collects, processes, analyzes, stores, secures, visualizes, and monitors IoT device data.":::
 Diagram showing the Azure components that make up the Project 15 Open Platform. Boxes represent layers of the solution, such as the gateway, the data process layer, the presentation layer, and the storage layer. Arrows show how data flows between these layers. Arrows show how users and devices interact with the system.
 :::image-end:::
+
+*Download a [Visio file](https://arch-center.azureedge.net/project-15-ref-architecture.vsdx) of this architecture.*
 
 Various Azure services and configurations make up the Project 15 Open Platform:
 

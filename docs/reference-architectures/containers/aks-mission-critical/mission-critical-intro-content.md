@@ -30,7 +30,7 @@ Many factors can affect the reliability of an application, such as the ability t
     
     Deploy a regional stamp as a _scale unit_ where a logical set of resources can be independently provisioned to keep up with the changes in demand. Each stamp also applies multiple nested scale units, such as the Frontend APIs and Background processors which can scale in and out independently.
 
-    > Refer to [Well-architected mission critical workloads: Scale unit architecture](/azure/architecture/framework/mission-critical-application-design#scale-unit-architecture).
+    > Refer to [Well-architected mission critical workloads: Scale unit architecture](/azure/architecture/framework/mission-critical/mission-critical-application-design#scale-unit-architecture).
 - **Reliable and repeatable deployments**        
     - Use Terraform to apply the _principle of Infrastructure as code (IaC)_, providing version control and a standardized operational approach for infrastructure components.
 
@@ -178,7 +178,7 @@ Similarly, data from shared services such as, Azure Front Door, Cosmos DB, and C
 #### Data archiving and analytics
 Operational data that isn't required for active operations is exported from Log Analytics to Azure Storage Accounts for both data retention purposes and to provide an analytical source for AIOps, which can be applied to optimize the application health model and operational procedures.
 
-> Refer to [Well-architected mission critical workloads: Predictive action and AI operations](/azure/architecture/reference-architectures/containers/aks-mission-critical/azure/architecture/framework/mission-critical/mission-critical-health-modeling#predictive-action-and-ai-operations-aiops).
+> Refer to [Well-architected mission critical workloads: Predictive action and AI operations](/azure/architecture/framework/mission-critical/mission-critical-health-modeling#predictive-action-and-ai-operations-aiops).
 
 ## Request and processor flows
 
@@ -224,13 +224,15 @@ We suggest that you explore these design areas for recommendations and best prac
 |Design area|Description|
 |---|---|
 |[Application design](/azure/architecture/framework/mission-critical/mission-critical-application-design)|Design patterns that allow for scaling, and error handling.|
-|[Application platform](/azure/architecture/framework/mission-critical/mission-critical-application-platform)|Infrastructure choices and mitigations for potential failure cases.|
+|**[Application platform](mission-critical-app-platform.md)|Infrastructure choices and mitigations for potential failure cases.|
 |[Data platform](/azure/architecture/framework/mission-critical/mission-critical-data-platform)|Choices in data store technologies, informed by evaluating required volume, velocity, variety, and veracity characteristics.|
-|[Networking and connectivity](/azure/architecture/framework/mission-critical/mission-critical-networking-connectivity)|Network considerations for routing incoming traffic to stamps.|
+|**[Networking and connectivity](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-networking)|Network considerations for routing incoming traffic to stamps.|
 |[Health modeling](/azure/architecture/framework/mission-critical/mission-critical-health-modeling)|Observability considerations through customer impact analysis correlated monitoring to determine overall application health.|
 |[Deployment and testing](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing)|Strategies for CI/CD pipelines and automation considerations, with incorporated testing scenarios, such as synchronized load testing and failure injection (chaos) testing.|
 |[Security](/azure/architecture/framework/mission-critical/mission-critical-security)|Mitigation of attack vectors through Microsoft Zero Trust model.|
 |[Operational procedures](/azure/architecture/framework/mission-critical/mission-critical-operational-procedures)|Processes related to deployment, key management, patching and updates.|
+
+** Indicates design area considerations that are specific to this reference architecture.
 
 ## Related resources
 
