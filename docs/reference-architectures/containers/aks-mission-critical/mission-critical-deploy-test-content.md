@@ -104,13 +104,17 @@ The reference architecture uses two types of environments for the infrastructure
 
 The permanent environments (**`int`** and **`prod`**) within the reference architecture have different types of resources depending on if they are shared with the entire infrastructure or dedicated to an individual stamp. Resources can be dedicated to a particular release and exist only until the next release unit has taken over.
 
+#### Release units
+
+A release unit is several regional stamps per specific release version. Stamps contain all the resources which aren't shared with the other stamps. These resources are virtual networks, Azure Kubernetes Service cluster, Event Hub, and Azure Key Vault. Cosmos DB and ACR are configured with Terraform data sources.
+
 #### Globally shared resources
 
-All resources shared between release units are defined in an independent Terraform template. These resources are Front Door, Cosmos DB, Container registry (ACR), and the Log Analytics workspace. These resources are deployed before the first regional stamp of a release unit is deployed. The resources are referenced in the Terraform templates for the stamps.
+All resources shared between release units are defined in an independent Terraform template. These resources are Front Door, Cosmos DB, Container registry (ACR), and the Log Analytics workspaces as well as other monitoring-related resources. These resources are deployed before the first regional stamp of a release unit is deployed. The resources are referenced in the Terraform templates for the stamps.
 
 ##### Front Door
 
-While Front Door is a globally shared resource across release units, it's configuration is slightly different than the other global resources. Front Door must be reconfigured when a release unit is deployed. Front Door must be reconfigured to gradually switch over traffic to the new stamps.
+While Front Door is a globally shared resource across stamps, its configuration is slightly different than the other global resources. Front Door must be reconfigured after a new stamp is deployed. Front Door must be reconfigured to gradually switch over traffic to the new stamps.
 
 The backend configuration of Front Door can't be directly defined in the Terraform template. The configuration is inserted with Terraform variables. The variable values are constructed before the Terraform deployment is started.
 
@@ -131,10 +135,6 @@ The individual component configuration for the Front Door deployment is defined 
     2. A routing rule for each API currently supported by the backends. For example: **`/api/1.0/*`** and **`/api/2.0/*`**.
 
     If a release introduces a new version of the backend APIs, the changes will reflect in the UI that is deployed as part of the release. A specific release of the UI will always call a specific version of the API URL. Users served by a UI version will automatically use the respective backend API. Specific routing rules are needed for different instances of the API version. These rules are linked to the corresponding backend pools. In the event that a new API wasn't introduced, all API related routing rules link to the single backend pool. In this case, it doesn't matter if a user is served the UI from a different release than the API.
-
-#### Release units
-
-A release unit is several regional stamps per specific release version. Stamps contain all the resources which aren't shared with the other stamps. These resources are virtual networks, Azure Kubernetes Service cluster, Event Hub, and Azure Key Vault. Cosmos DB and ACR are configured with Terraform data sources.
 
 ### Deployment process
 
