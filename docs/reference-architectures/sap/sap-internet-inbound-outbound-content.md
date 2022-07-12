@@ -79,6 +79,18 @@ Services typically serving a SAP system are best separated as follows
 - **Application Gateway**, similarly to load balancer, allows multiple back- and frontends, HTTP settings and rules. The decision to use one AppGw for multiple uses - different web dispatchers ports for same SAP S/4HANA system or different SAP environments is here more common, as usually not all SAP systems in the environment require public access. Recommended approach is thus to use one AppGw at least per tier (production, non-production, sandbox) unless the complexity gets too high.
 - **SAP services** like saprouter or cloud connector, analytics cloud agent are deployed based on application requirements either centrally or split up. Often production and non-production separation is desired.
 
+### Subnet sizing and design
+
+When designing subnets for your SAP landscape, ensure correct sizing and design principles are adhered to.
+
+- Several Azure PaaS services require own, designated subnets.
+- Application Gateway requires at least /29 subnet, although /27 or larger is [recommended](/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsub). AppGw version 1 and 2 can't be part of the same subnet.
+- If using Azure NetApp Files for your NFS/SMB shares or database storage, again own designated subnet is required. /24 subnet is default and [proper sizing](/azure/azure-netapp-files/azure-netapp-files-delegate-subnet) should be chosen based on requirements.
+- If using SAP virtual hostnames, additional address space is needed in your SAP subnets, including SAP DMZ.
+- Central services like Azure Bastion or Azure Firewall, typically managed by central IT team, require their own dedicated subnets with sufficient sizing.
+
+Dedicated subnets for SAP database and application allow NSGs to be set more strict, protecting both application types with own set of rules. Access to database can be then much more simply limited to SAP applications only, without having to resort to ASGs for granular control. Separating your SAP application and database subnets also allows easier manageability of your security rules within NSGs.
+
 ## SAP Services
 
 ### Saprouter
@@ -103,7 +115,7 @@ As saprouter is a simple executable with a file-based route permission table, it
 
 #### Cascading saprouter
 
-Up to 2 saprouters can be defined for SAP's support connections and thus a concept of a cascading saprouter can be implemented. First saprouter, running in the SAP DMZ application subnet provide access from the central firewall and from SAP's or partners saprouters. Only allowed destination are further saprouters, running with specific workload. This could be a per-tier, per-region or per-SID separation, depending on your enterprise architecture. The second saprouter accepts only internal connections from the first saprouter and provides access to individual SAP systems and VMs. Allowing your finely control access between different teams as needed.
+Up to 2 saprouters can be defined for SAP's support connections and thus a concept of a cascading saprouter can be implemented. First saprouter, running in the SAP DMZ application subnet provide access from the central firewall and from SAP's or partners saprouters. Only allowed destination are further saprouters, running with specific workload. This could be a per-tier, per-region or per-SID separation, depending on your enterprise architecture. The second saprouter accepts only internal connections from the first saprouter and provides access to individual SAP systems and VMs. Allowing your finely control access between different teams as needed. An example of a cascading saprouter is given in the above linked blog post.
 
 ### SAP Fiori and WebGui
 
@@ -147,6 +159,8 @@ For some application scenarios, SAP Analytics Cloud (SAC) Agent is an applicatio
 
 SAP has a [private link service](https://blogs.sap.com/2022/06/22/sap-private-link-service-on-azure-is-now-generally-available-ga/) available for SAP BTP, enabling private connection between selected SAP BTP services and selected services in your Azure subscription and vnet. By using the private link service, the communication is not routed through the public Internet and remains on Azure backbone network, secure, with communication to Azure services through private address space. Data exfiltration protection is built-in when using private link service, since the private endpoint maps the specific Azure service to an IP address. Access is only limited to the mapped Azure service.
 
+Some SAP BTP integration scenarios will favour the private link service approach, while other might favour SAP Cloud Connector. An excelent blog post exists to help you decide which is more suitable and compare both. [SAP Blogs | BTP private linky swear with Azure – running Cloud Connector and SAP Private Link side-by-side](https://blogs.sap.com/2022/07/07/btp-private-linky-swear-with-azure-running-cloud-connector-and-sap-private-link-side-by-side/)
+
 ### SAP RISE/ECS
 
 For customers where SAP operates their SAP system under SAP RISE/ECS contract, SAP acts as the managed service partner. The SAP environment is deployed by SAP and under SAP's architecture, the architecture shown here does not apply to your systems running in RISE with SAP/ECS. Please see our Azure documentation about [integrating such SAP landscape with Azure](/azure/virtual-machines/workloads/sap/sap-rise-integration) services and your network.
@@ -183,6 +197,7 @@ Communities can answer questions and help you set up a successful deployment. Co
 
 - [SAP Blogs | SAP on Azure: Azure Application Gateway Web Application Firewall (WAF) v2 Setup for Internet facing SAP Fiori Apps](https://blogs.sap.com/2020/12/03/sap-on-azure-application-gateway-web-application-firewall-waf-v2-setup-for-internet-facing-sap-fiori-apps/)
 - [SAP Blogs | Getting Started with BTP Private Link Service for Azure](https://blogs.sap.com/2021/12/29/getting-started-with-btp-private-link-service-for-azure/)
+- [SAP Blogs | BTP private linky swear with Azure – running Cloud Connector and SAP Private Link side-by-side](https://blogs.sap.com/2022/07/07/btp-private-linky-swear-with-azure-running-cloud-connector-and-sap-private-link-side-by-side/)
 - [SAP on Azure Tech Community | Saprouter configuration with Azure Firewall](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/saprouter-configuration-with-azure-firewall/ba-p/3293496)
 - [SAP on Azure Tech Community | Use SAP Virtual Host Names with Linux in Azure](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/use-sap-virtual-host-names-with-linux-in-azure/ba-p/3251593)
 - [SAP Documentation | What is Cloud Connector](https://help.sap.com/docs/CP_CONNECTIVITY/cca91383641e40ffbe03bdc78f00f681/e6c7616abb5710148cfcf3e75d96d596.html)
@@ -190,4 +205,3 @@ Communities can answer questions and help you set up a successful deployment. Co
 - [MS Docs | Default outbound access in Azure](/azure/virtual-network/ip-services/default-outbound-access)
 - [MS Docs | Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections)
 - [MS Docs | Subscription decision guide](/azure/cloud-adoption-framework/decision-guides/subscriptions/)
-
