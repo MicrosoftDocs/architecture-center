@@ -83,15 +83,25 @@ However, in some situations, you might need to use different data formats for co
 
 ### Access to tenants' systems
 
-Some integrations involve you connecting to a tenant's systems or data stores. When you do this, you need to carefully consider how you connect to tenants' systems, both at a networking layer and from an identity perspective.
+Some integrations involve you making a connection to a tenant's systems or data stores. When you do this, you need to carefully consider how you connect to tenants' systems, both at a networking layer and from an identity perspective.
 
+#### Network access
 
+Consider the network topology for accessing your tenant's system, which might include the following:
 
-- do you have network access? Will you connect across the internet, and if so, how will that connection be secured? If you use IP address allowlisting, ensure your services support this, and consdier something like NAT Gateway if you need static IP addresses for your outbound traffic. Can you use private link, [agents](../approaches/networking.md#agents), reverse proxies, Azure Relay, etc?
-- How will you authenticate? For example:
-  - API key: Need to manage credentials securely if you connect to customer-owned resources.
-  - Azure AD tokens: You can access a tenant's system by using tokens issued by their Azure AD instance. The token can be issued to your workload (by using a multitenant Azure AD app), or a tenant's user's identity.
-- Ensure your tenants follow the principle of least privilege and avoid granting your system unnecessary permissions. For example, if you only need to read data, you shouldn't have write permissions.
+- **Connect across the internet.** If you connect across the internet, how will the connection be secured? If your tenants plan to restrict based on your IP addresses, ensure that the Azure services that you use support static IP addresses for outbound connections. Consider using [NAT Gateway](../service/nat-gateway.md) to provide static IP addresses if required.
+- **Private endpoints** can be a useful approach to connect to tenants' systems if they're also hosted in Azure.
+- **Agents**, which are [deployed into a tenant's enironment](../approaches/networking.md#agents), can provide a flexible approach and avoid the need for your tenants to allow inbound connections.
+- **Relays**, such as [Azure Relay](TODO), also provide an approach to avoid inbound connections.
+
+#### Authentication
+
+Consider how you authenticate with each tenant when you initiate a connection. You might consider the following approaches:
+
+- **Keys**, such as API keys, certificates, or other secrets. It's important to plan how you will securely manage your tenants' credentials. Leakage of your tenants' secrets could result in a major security incident, potentially impacting a number of your tenants.
+- **Azure Active Directory (Azure AD) tokens**, where you use a token issued by the tenant's own Azure AD instance. The token might be issued to your workload by using a multitenant Azure AD application, or it might be issued to a specific user identity within the tenant's directory.
+
+Whichever approach you select, ensure that your tenants follow the principle of least privilege and avoid granting your system unnecessary permissions. For example, if your system only needs to read data from a tenant's data store, the identity you use to connect shouldn't have write permissions.
 
 ### Tenants' access to your systems
 
