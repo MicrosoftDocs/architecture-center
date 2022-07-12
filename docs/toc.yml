@@ -374,6 +374,8 @@ items:
                 items:
                   - name: Azure Resource Manager
                     href: guide/multitenant/service/resource-manager.md
+                  - name: Azure App Configuration
+                    href: guide/multitenant/service/app-configuration.md
               - name: Compute
                 items:
                   - name: App Service and Functions
