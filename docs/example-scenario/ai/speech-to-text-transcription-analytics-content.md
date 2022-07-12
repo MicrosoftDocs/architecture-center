@@ -19,8 +19,8 @@ The architecture consists of two pipelines:
 
 1. Audio files are uploaded to an Azure Storage account via any supported method. You can use a UI-based tool like [Azure Storage Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer) or use a [storage SDK or API](/azure/storage/blobs/reference).
 1. The upload to Azure Storage triggers an Azure logic app. The logic app accesses any necessary credentials in Azure Key Vault and makes a request to the Speech service's batch transcription API.
-1. The logic app submits the audio files call to Speech service, including optional settings for speaker diarization.
-1. Speech service completes the batch transcription and loads the transcription results to the Storage account.
+1. The logic app submits the audio files call to the Speech service, including optional settings for speaker diarization.
+1. The Speech service completes the batch transcription and loads the transcription results to the Storage account.
 
 ### Enrichment and visualization pipeline
 
@@ -31,7 +31,7 @@ The architecture consists of two pipelines:
 #### Dataflow for the enrichment and visualization pipeline
 
 5. An Azure Synapse Analytics pipeline runs to retrieve and process the transcribed audio text.
-6. The pipeline sends processed text via an API call to the Language service. The service performs various natural language processing (NLP) enrichments, like sentiment and opinion mining, summarization, and custom or pre-built named entity recognition.
+6. The pipeline sends processed text via an API call to the Language service. The service performs various natural language processing (NLP) enrichments, like sentiment and opinion mining, summarization, and custom and pre-built named entity recognition.
 7. The processed data is stored in an Azure Synapse Analytics SQL pool, where it can be served to visualization tools like Power BI.
 
 ### Components
@@ -52,13 +52,13 @@ Here are some alternative approaches to this solution architecture:
 
 ## Scenario details
 
-Customer care centers are an integral part of the success of many businesses in many industries. This solution uses the Speech API from [Azure Cognitive Services](/azure/cognitive-services/speech-service/overview) for the audio transcription and diarization of recorded customer calls. [Azure Synapse Analytics](/azure/synapse-analytics) is used to process and perform NLP tasks like sentiment analysis and custom Named Entity Recognition through API calls to [Azure Cognitive Service for Language](/azure/cognitive-services/language-service).
+Customer care centers are an integral part of the success of many businesses in many industries. This solution uses the Speech API from [Azure Cognitive Services](/azure/cognitive-services/speech-service/overview) for the audio transcription and diarization of recorded customer calls. [Azure Synapse Analytics](/azure/synapse-analytics) is used to process and perform NLP tasks like sentiment analysis and custom named entity recognition through API calls to [Azure Cognitive Service for Language](/azure/cognitive-services/language-service).
 
 You can use the services and pipeline described here to process transcribed text to recognize and remove sensitive information, perform sentiment analysis, and more. You can scale the services and pipeline to accommodate any volume of recorded data.
 
 ### Potential use cases
 
-This solution can provide value to organizations in many industries, including telecommunications, financial, and government. It applies to any organization that records conversations. In particular, customer-facing or internal call centers or support desks can benefit from the insights derived from this solution.
+This solution can provide value to organizations in many industries, including telecommunications, financial services, and government. It applies to any organization that records conversations. In particular, customer-facing or internal call centers or support desks can benefit from the insights derived from this solution.
 
 ## Considerations
 
@@ -78,7 +78,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 All Azure services described in this architecture provide an option for pay-as-you-go billing, so solution costs scale linearly.
 
-Azure Synapse provides an option for serverless SQL pools, which means that the compute for the data warehousing workload can be spun up on demand. If you aren't using Azure Synapse to serve other downstream use cases, consider using serverless to constrain costs.
+Azure Synapse provides an option for serverless SQL pools, so the compute for the data warehousing workload can be spun up on demand. If you aren't using Azure Synapse to serve other downstream use cases, consider using serverless to reduce costs.
 
 See [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview) for more cost optimization strategies.
 
