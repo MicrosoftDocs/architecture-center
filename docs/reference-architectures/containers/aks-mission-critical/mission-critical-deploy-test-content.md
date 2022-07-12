@@ -156,7 +156,7 @@ As part of the release cadence, a pre and post release checklist should be used.
 
     * Clusters are no longer receiving incoming traffic.
 
-    * Event Hubs don't contain any unprocessed messages.
+    * Event Hubs and other message queues don't contain any unprocessed messages.
 
 ### Limitations and risks of the update strategy
 
