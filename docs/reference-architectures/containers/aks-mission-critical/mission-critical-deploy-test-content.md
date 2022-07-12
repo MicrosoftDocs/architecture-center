@@ -122,11 +122,11 @@ The individual component configuration for the Front Door deployment is defined 
 
 * **Frontend** - Session affinity is configured to ensure users don't switch between different UI versions during a single session.
 
-* **Backends** - Front Door is configured with two types of backend pools:
+* **Origins** - Front Door is configured with two types of origin groups:
 
-    1. A pool for the static storage that serves the UI. The pool contains the storage accounts from all currently active release units. Different weights can be assigned to the backends from different release units to gradually move traffic to a newer unit. Each backend from a release unit should have the same weights assigned.
+    1. A pool for the static storage that serves the UI. The pool contains the website storage accounts from all currently active release units. Different weights can be assigned to the backends from different release units to gradually move traffic to a newer unit. Each backend from a release unit should have the same weights assigned.
 
-    2. A pool for the API. If there are release units with different API versions, then an API backend pool exists for each release unit. If all release units offer the same compatible API, all backends are added to the same backend pool and assigned different weights.
+    2. A pool for the API which are hosted on AKS. If there are release units with different API versions, then an API backend pool exists for each release unit. If all release units offer the same compatible API, all backends are added to the same backend pool and assigned different weights.
 
 * **Routing rules** - There are two types of routing rules:
 
@@ -146,7 +146,7 @@ After the new release unit is deployed and validated, it's added to Front Door t
 
 A switch/parameter that distinguishes between releases that do and don't introduce a new API version should be planned for. Based on if the release introduces a new API version, a new backend pool with the API backends must be created. Alternatively, new API backends can be added to an existing backend pool. New UI storage accounts are added to the corresponding existing backend pool. Weights for new backends should be set according to the desired traffic split. A new routing rule as described above must be created that corresponds to the appropriate backend pool.
 
-As a part of the addition of the new release unit, the weights of the new backends should be set to the desired minium user traffic. If no issues are detected, the amount of user traffic should be increased to the new backend pool over a period of time. To adjust the weight parameters, the same deployment steps should be executed again with the desired values.
+As a part of the addition of the new release unit, the weights of the new backends should be set to the desired minimum user traffic. If no issues are detected, the amount of user traffic should be increased to the new backend pool over a period of time. To adjust the weight parameters, the same deployment steps should be executed again with the desired values.
 
 #### Release unit teardown
 
@@ -168,7 +168,7 @@ As part of the release cadence, a pre and post release checklist should be used.
 
     * Clusters are no longer receiving incoming traffic.
 
-    * Event Hubs don't contain any unprocessed messages.
+    * Event Hubs and other message queues don't contain any unprocessed messages.
 
 ### Limitations and risks of the update strategy
 
