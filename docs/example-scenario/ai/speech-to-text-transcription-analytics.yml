@@ -22,6 +22,6 @@ products:
   - azure-logic-apps
 name: Use a speech-to-text transcription pipeline to analyze recorded conversations
 summary: Build a pipeline to transcribe and analyze audio conversations by using the Azure Cognitive Services Speech and Language APIs. 
-thumbnailUrl: media-thumbnail/speech-to-text-analytics-nlp-pipeline-thumb.png
+thumbnailUrl: /azure/architecture/browse/thumbs/speech-to-text-analytics-nlp-pipeline-thumb.png
 content: |
   [!include[](speech-to-text-transcription-analytics-content.md)]

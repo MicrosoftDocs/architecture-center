@@ -69,8 +69,8 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 - The request to the Speech API can include a shared access signature (SAS) URI for a destination container in Azure Storage. A SAS URI enables the Speech service to directly output the transcription files to the container location. If your organization doesn't allow the use of SAS URIs for storage, you need to implement a function to periodically poll the Speech API for completed assets. 
-- Credentials like account or API keys should be stored in Azure Key Vault as secrets. Configure your Logic App and Azure Synapse pipelines to access the key vault by using managed identities to avoid storing secrets in application settings or code.
-- The audio files stored in the blob might contain sensitive customer data. If multiple clients are using the solution, you need to restrict access to these files. Use hierarchical namespace on the storage account and enforce folder and file level permissions to only the needed Azure Active Directory.
+- Credentials like account or API keys should be stored in Azure Key Vault as secrets. Configure your Logic Apps and Azure Synapse pipelines to access the key vault by using managed identities to avoid storing secrets in application settings or code.
+- The audio files that are stored in the blob might contain sensitive customer data. If multiple clients are using the solution, you need to restrict access to these files. Use hierarchical namespace on the storage account and enforce folder and file level permissions to limit access to only the needed Azure Active Directory instance.
 
 ### Cost optimization
 
