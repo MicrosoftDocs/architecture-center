@@ -58,29 +58,36 @@ For more information on user delegation, see the [Delegated user access](#delega
 
 ### Realtime or batch
 
-- Consider whether you'll be working with realtime data or if it will be batched up.
-- Realtime data can be exchanged by using:
-  - APIs or webhooks
-  - Messaging components designed for loosely coupling systems together, like Azure Service Bus (for queues), or Event Grid or Event Hubs (for eventing).
-- Batch data:
-  - Is usually managed through a background job.
-  - Interactions often involve a staging location such as object storage since batch datasets are usually larger
+Consider whether you'll be working with realtime data, or if the data will be sent in batches.
+
+For realtime integrations, these approaches are common:
+
+- Synchronous connections, which are often enabled through APIs or webhooks.
+- Asynchronous connections, which are often enabled through messaging components designed for loosely coupling systems together. For example, Azure Service Bus provides message queuing capabilities, and Azure Event Grid and Event Hubs provide eventing capabilities. These components are often used as part of integration architectures.
+
+In contrast, batch integrations are often managed through a background job, which might be triggered at certain times of the day. Commonly, batch integrations take place by reading from or writing to a *staging location*, such as a blob storage container, because the datasets exchanged can be large.
 
 ### Data volume
 
-- Understand the data volume, because this can help you to plan for your overall system capacity.
-- This applies to both realtime integrations (where you might measure volume as the number of transactions per unit of time) and to batch integrations (where you might measure volume as the number of records exchanged or in bytes).
-- Different tenants might have different volumes of data.
+It's important to understand the volume of data that you exchange through an integration, because this information helps you to plan for your overall system capacity. When you plan your system's capacity, remember that different tenants might have different volumes of data to exchange.
+
+For realtime integrations, you might measure volume as the number of transactions over a specified period of time. For batch integrations, you might measure volume either as the number of records exchanged or the amount of data in bytes.
 
 ### Data formats
 
-- It's important to be clear on the data formats.
-- If the format/schema is within your control, you can simplify things by using the same format for all tenants.
-- But if you have different data formats to use when communicating with different tenants, you might need to implement multiple integrations. See [Composable integration components](#composable-integration-components) for an approach that can help.
+When data is exchanged between two parties, it's important they both have a clear understanding of the format of the data. This includes both the file format, such as JSON or XML, as well as the schema, such as the list of fields that will be included, date formats, and nullability of fields.
+
+When you work with a multitenant system, if possible then it's best to use the same data format for all of your tenants. That way, you avoid having to customize and re-test your integration components for each tenant's requirements.
+
+However, in some situations, you might need to use different data formats for communicating with different tenants, and so you might need to implement multiple integrations. See [Composable integration components](#composable-integration-components) for an approach that can help to simplify this kind of situation.
 
 ### Access to tenants' systems
 
-- If you are accessing tenants' data stores, do you have network access? Can you use private link, [agents](../approaches/networking.md#agents), reverse proxies, Azure Relay, etc?
+Some integrations involve you connecting to a tenant's systems or data stores. When you do this, you need to carefully consider how you connect to tenants' systems, both at a networking layer and from an identity perspective.
+
+
+
+- do you have network access? Will you connect across the internet, and if so, how will that connection be secured? If you use IP address allowlisting, ensure your services support this, and consdier something like NAT Gateway if you need static IP addresses for your outbound traffic. Can you use private link, [agents](../approaches/networking.md#agents), reverse proxies, Azure Relay, etc?
 - How will you authenticate? For example:
   - API key: Need to manage credentials securely if you connect to customer-owned resources.
   - Azure AD tokens: You can access a tenant's system by using tokens issued by their Azure AD instance. The token can be issued to your workload (by using a multitenant Azure AD app), or a tenant's user's identity.
