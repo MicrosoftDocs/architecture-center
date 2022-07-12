@@ -6,9 +6,9 @@ This solution idea uses Azure Digital Twins and other Azure services to enable t
 
 ## Architecture
 
-:::image type="content" source="../media/azure-digital-twins-builder.png" alt-text="Architecture for creating digital twins by using Azure Digital Twins and an app that makes use of BIM data." lightbox="../media/azure-digital-twins-builder.png" border="false" :::
+:::image type="content" source="../media/azure-digital-twins-builder-new.png" alt-text="Architecture for creating digital twins by using Azure Digital Twins and an app that makes use of BIM data." lightbox="../media/azure-digital-twins-builder-new.png" border="false" :::
 
-*Download a [Visio file](https://arch-center.azureedge.net/US-1896838-azure-digital-twins-builder.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/azure-digital-twins-builder.vsdx) of this architecture.*
 
 ### Dataflow
 
