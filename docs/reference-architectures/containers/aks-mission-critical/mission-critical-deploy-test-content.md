@@ -108,7 +108,7 @@ The individual component configuration for the Front Door deployment is defined 
 
 * **Origins** - Front Door is configured with two types of origin groups:
 
-    1. A pool for the static storage that serves the UI. The pool contains the storage accounts from all currently active release units. Different weights can be assigned to the backends from different release units to gradually move traffic to a newer unit. Each backend from a release unit should have the same weights assigned.
+    1. A pool for the static storage that serves the UI. The pool contains the website storage accounts from all currently active release units. Different weights can be assigned to the backends from different release units to gradually move traffic to a newer unit. Each backend from a release unit should have the same weights assigned.
 
     2. A pool for the API. If there are release units with different API versions, then an API backend pool exists for each release unit. If all release units offer the same compatible API, all backends are added to the same backend pool and assigned different weights.
 
