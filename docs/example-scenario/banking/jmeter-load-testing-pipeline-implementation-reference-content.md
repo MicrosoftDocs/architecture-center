@@ -6,7 +6,7 @@ This article provides an overview of an implementation for a scalable cloud load
 
 :::image type="content" source="./images/load-testing-pipeline-jmeter.png" alt-text="Diagram of a load testing pipeline with JMeter, ACI, and Terraform.":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/jmeter-load-testing-pipeline-jmeter.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/load-testing-pipeline-jmeter.vsdx) of this architecture.*
 
 ### Workflow
 
