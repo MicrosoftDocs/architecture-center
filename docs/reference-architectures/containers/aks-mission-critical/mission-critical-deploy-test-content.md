@@ -58,7 +58,7 @@ There are two main components of the reference architecture:
 
 * **Application** - The hosted service or application that serves users. Based on Docker containers and npm built artifacts in HTML and JavaScript for the single-page application (SPA) UI.
 
-In many systems, there is an assumption that application updates will be more frequent than infrastructure updates. As a result, different update procedures are developed for each.  With a public cloud infrastructure, changes can happen at a faster pace. The faster pace and rate of change within the Azure platform requires a different approach to updates. One deployment process for application updates and infrastructure updates was chosen. This allows for:
+In many systems, there is an assumption that application updates will be more frequent than infrastructure updates. As a result, different update procedures are developed for each. With a public cloud infrastructure, changes can happen at a faster pace. One deployment process for application updates and infrastructure updates was chosen. One approach ensures infrastructure and application updates are always in sync. This allows for:
 
 * **One consistent process** - Less chances for mistakes if infrastructure and application updates are mixed together in a release, intentionally or not.
 
@@ -82,7 +82,7 @@ The foundation of the update strategy is the use of branches within the Git repo
 
 #### Hotfixes
 
-In the event that a hotfix is required urgently because of a bug or other issue and can't go through the regular release process, a hotfix path is available. Critical security updates or issues which break the user experience not discovered in testing are considered valid examples of hotfixes.
+In the event that a hotfix is required urgently because of a bug or other issue and can't go through the regular release process, a hotfix path is available. Critical security updates and fixes to the user experience that weren't discovered during initial testing are considered valid examples of hotfixes.
 
 The hotfix must be created in a new **`fix`** branch and then merged into **`main`** using a regular PR. Instead of creating a new release branch, the hotfix is "cherry-picked" into an existing release branch. This branch is usually already deployed to the **`prod`** environment. The CI/CD pipeline that originally deployed the release branch with all the tests is executed again and will now deploy the hotfix as part of the pipeline.
 
