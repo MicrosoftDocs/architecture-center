@@ -94,7 +94,7 @@ All resources shared between release units are defined in an independent Terrafo
 
 ##### Front Door
 
-While Front Door is a globally shared resource across release units, it's configuration is slightly different than the other global resources for two reasons:
+While Front Door is a globally shared resource across stamps, its configuration is slightly different than the other global resources for two reasons:
 
 1. To deploy Front Door, at least one backend for each backend pool must already exist. This is only after at least one release unit has been deployed.
 
