@@ -108,7 +108,7 @@ For more information on user delegation, see the [Delegated user access](#delega
 
 ### Valet Key pattern
 
-* https://docs.microsoft.com/azure/architecture/patterns/valet-key
+* [Valet Key pattern](../../../patterns/valet-key.yml)
 * If you need to share direct access to a data store, this is the way to do it.
 * Don't use your primary Azure Storage account. Instead, create a dedicated account for this.
 * Can be used for batch exports of data - e.g. you build up export data file (which could be quite large), save it to Azure Storage, and generate a time-bound read-only SAS. Provide this to your tenant to download.
@@ -135,7 +135,7 @@ For more information on user delegation, see the [Delegated user access](#delega
 * Service Bus/Event Hubs shared access signatures
 * Event Grid event domains
 * See [messaging approaches](../approaches/messaging.md)
-* Consider if you have different SLAs or QoS guarantees/expectations for different tenants, for both import and export. By using the [Priority Queue pattern](https://docs.microsoft.com/azure/architecture/patterns/priority-queue), you can create separate queues with different worker instances to prioritize them accordingly.
+* Consider if you have different SLAs or QoS guarantees/expectations for different tenants, for both import and export. By using the [Priority Queue pattern](../../../patterns/priority-queue.yml), you can create separate queues with different worker instances to prioritize them accordingly.
 
 ### Composable integration components
 
