@@ -134,7 +134,7 @@ After the new release unit is deployed and validated, it's added to Front Door t
 
 A switch/parameter that distinguishes between releases that do and don't introduce a new API version should be planned for. Based on if the release introduces a new API version, a new backend pool with the API backends must be created. Alternatively, new API backends can be added to an existing backend pool. New UI storage accounts are added to the corresponding existing backend pool. Weights for new backends should be set according to the desired traffic split. A new routing rule as described above must be created that corresponds to the appropriate backend pool.
 
-As a part of the addition of the new release unit, the weights of the new backends should be set to the desired minium user traffic. If no issues are detected, the amount of user traffic should be increased to the new backend pool over a period of time. To adjust the weight parameters, the same deployment steps should be executed again with the desired values.
+As a part of the addition of the new release unit, the weights of the new backends should be set to the desired minimum user traffic. If no issues are detected, the amount of user traffic should be increased to the new backend pool over a period of time. To adjust the weight parameters, the same deployment steps should be executed again with the desired values.
 
 #### Release unit teardown
 
