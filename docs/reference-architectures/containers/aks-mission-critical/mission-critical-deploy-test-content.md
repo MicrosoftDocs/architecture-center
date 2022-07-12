@@ -106,7 +106,7 @@ The individual component configuration for the Front Door deployment is defined 
 
 * **Frontend** - Session affinity is configured to ensure users don't switch between different UI versions during a single session.
 
-* **Backends** - Front Door is configured with two types of backend pools:
+* **Origins** - Front Door is configured with two types of origin groups:
 
     1. A pool for the static storage that serves the UI. The pool contains the storage accounts from all currently active release units. Different weights can be assigned to the backends from different release units to gradually move traffic to a newer unit. Each backend from a release unit should have the same weights assigned.
 
