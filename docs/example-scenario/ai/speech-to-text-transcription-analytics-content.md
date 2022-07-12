@@ -1,12 +1,6 @@
-Customer care centers are an integral part of the success of many businesses in many industries. Speech recognition and analysis of recorded customer calls can provide your business with valuable information about current trends, product shortcomings, and successes. 
+Speech recognition and analysis of recorded customer calls can provide your business with valuable information about current trends, product shortcomings, and successes.
 
-The example solution described in this article outlines a repeatable pipeline for transcribing and analyzing conversation data. The solution uses the Speech API from [Azure Cognitive Services](/azure/cognitive-services/speech-service/overview) for audio transcription and diarization. [Azure Synapse Analytics](/azure/synapse-analytics) is used to process and perform natural language processing (NLP) tasks like sentiment analysis and custom Named Entity Recognition through API calls to [Azure Cognitive Service for Language](/azure/cognitive-services/language-service).
-
-You can use the services and pipeline described here to process transcribed text to recognize and remove sensitive information, perform sentiment analysis, and more. You can scale the services and pipeline to accommodate any volume of recorded data.
-
-## Potential use cases
-
-This solution can provide value for any organization that records conversations. In particular, customer-facing or internal call centers or support desks can benefit from the insights derived from this solution.
+The example solution described in this article outlines a repeatable pipeline for transcribing and analyzing conversation data.
 
 ## Architecture
 
@@ -17,11 +11,11 @@ The architecture consists of two pipelines:
 
 ### Transcription pipeline
 
-![Diagram that illustrates how to ingest speech and convert it to text by using Cognitive Services.](./media/speech-to-text-transcription-pipeline.png)
+![Diagram that illustrates how to ingest speech and convert it to text by using Azure Cognitive Services.](./media/speech-to-text-transcription-pipeline.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/speech-to-text-transcription-pipeline.vsdx) of this architecture.*
 
-### Dataflow for the transcription pipeline
+#### Dataflow for the transcription pipeline
 
 1. Audio files are uploaded to an Azure Storage account via any supported method. You can use a UI-based tool like [Azure Storage Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer) or use a [storage SDK or API](/azure/storage/blobs/reference).
 1. The upload to Azure Storage triggers an Azure logic app. The logic app accesses any necessary credentials in Azure Key Vault and makes a request to the Speech service's batch transcription API.
@@ -34,62 +28,96 @@ The architecture consists of two pipelines:
 
 *Download a [Visio file](https://arch-center.azureedge.net/speech-to-text-transcription-pipeline.vsdx) of this architecture.*
 
-### Dataflow for the enrichment and visualization pipeline
+#### Dataflow for the enrichment and visualization pipeline
 
 5. An Azure Synapse Analytics pipeline runs to retrieve and process the transcribed audio text.
-6. The pipeline sends processed text via an API call to the Language service. The service performs various NLP enrichments, like sentiment and opinion mining, summarization, and custom or pre-built named entity recognition.
+6. The pipeline sends processed text via an API call to the Language service. The service performs various natural language processing (NLP) enrichments, like sentiment and opinion mining, summarization, and custom or pre-built named entity recognition.
 7. The processed data is stored in an Azure Synapse Analytics SQL pool, where it can be served to visualization tools like Power BI.
 
 ### Components
 
-- [Azure Blob Storage](https://azure.microsoft.com/product-categories/storage/) Massively scalable and secure object storage for cloud-native workloads, archives, data lakes, high-performance computing, and machine learning. Used to store the audio files, transcription results, and serve as a data lake for downstream analytics. 
-- [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) is an integration platform as a service (iPaaS) built on a containerized runtime. It's used in this solution to integrate storage and speech AI services. 
-- [Azure Cognitive Services Speech service](https://azure.microsoft.com/services/cognitive-services/speech-services) an AI-based API that provides speech capabilities such as speech-to-text, text-to-speech, speech translation, and speaker recognition. Its batch transcription functionality is used in this solution. 
-- [Azure Cognitive Services for Language](https://azure.microsoft.com/services/cognitive-services/language-service/) an AI-based, high-quality natural language capabilities, from sentiment analysis and entity extraction to automated question answering.
-- [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/) is a suite of services that provide data integration, enterprise data warehousing, and big data analytics. It's used in this solution to transform and enrich transcription data, and serves data to downstream visualization tools.
-- [Power BI](https://powerbi.microsoft.com/) data modeling and visual analytics tool. Used in this solution to present transcribed audio insights to end-users and decision makers. 
+- [Azure Blob Storage.](https://azure.microsoft.com/services/storage/blobs) Massively scalable and secure object storage for cloud-native workloads, archives, data lakes, high-performance computing, and machine learning. In this solution, it stores the audio files and transcription results and serves as a data lake for downstream analytics.
+- [Azure Logic Apps.](https://azure.microsoft.com/services/logic-apps) An integration platform as a service (iPaaS) that's built on a containerized runtime. In this solution, it integrates storage and speech AI services. 
+- [Azure Cognitive Services Speech service.](https://azure.microsoft.com/services/cognitive-services/speech-services) An AI-based API that provides speech capabilities like speech-to-text, text-to-speech, speech translation, and speaker recognition. Its batch transcription functionality is used in this solution.
+- [Azure Cognitive Service for Language.](https://azure.microsoft.com/services/cognitive-services/language-service) An AI-based managed service that provides natural language capabilities like sentiment analysis, entity extraction, and automated question answering.
+- [Azure Synapse Analytics.](https://azure.microsoft.com/services/synapse-analytics) A suite of services that provide data integration, enterprise data warehousing, and big data analytics. In this solution, it transforms and enriches transcription data and serves data to downstream visualization tools.
+- [Power BI.](https://powerbi.microsoft.com) A data modeling and visual analytics tool. In this solution, it presents transcribed audio insights to users and decision makers.
 
 ### Alternatives
-Some alternative approaches to this solution architecture include: 
-* Configure the Storage Blob Storage account to use a hierarchical namespace. This setting offers ACL-based security controls, and can provide performance improvement for some big data workloads. 
-* Azure Functions could be used as a code-first integration tool instead of Logic Apps or Azure Synapse pipelines, depending on the size and scale of the workload.
+
+Here are some alternative approaches to this solution architecture:
+
+* Consider configuring the Blob Storage account to use a hierarchical namespace. This configuration provides ACL-based security controls and can improve performance for some big data workloads.
+* You might be able to use Azure Functions as a code-first integration tool instead of Logic Apps or Azure Synapse pipelines, depending on the size and scale of the workload.
+
+## Scenario details
+
+Customer care centers are an integral part of the success of many businesses in many industries. This solution uses the Speech API from [Azure Cognitive Services](/azure/cognitive-services/speech-service/overview) for the audio transcription and diarization of recorded customer calls. [Azure Synapse Analytics](/azure/synapse-analytics) is used to process and perform NLP tasks like sentiment analysis and custom Named Entity Recognition through API calls to [Azure Cognitive Service for Language](/azure/cognitive-services/language-service).
+
+You can use the services and pipeline described here to process transcribed text to recognize and remove sensitive information, perform sentiment analysis, and more. You can scale the services and pipeline to accommodate any volume of recorded data.
+
+### Potential use cases
+
+This solution can provide value to organizations in many industries, including telecommunications, financial, and government. It applies to any organization that records conversations. In particular, customer-facing or internal call centers or support desks can benefit from the insights derived from this solution.
 
 ## Considerations
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
-### Scalability
-- The batch speech API is designed for high volume, but other Cognitive Services APIs might have request limits based on the subscription tier. Consider containerizing these APIs to avoid throttling large volume processing. Containers give you flexibility of deployment, whether in the cloud or on-premises. You can also mitigate side effects of new version rollouts by using containers. For more information, see [Container support in Azure Cognitive Services](/azure/cognitive-services/cognitive-services-container-support).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Security
-- The request to the speech API can include a SAS URI for a destination container in Azure storage. A SAS URI allows the speech service to directly output the transcription files to that location. If your organization doesn't allow the use of SAS URIs for storage, then you'll need to implement a function to periodically poll the speech API for completed assets. 
-- Store credentials such as account or API-keys in Azure Key Vault as secrets. Configure your Logic App and Synapse pipelines to access the Key Vault using managed identities to avoid storing secrets in applications settings or code. 
-- The audio files stored in the blob might contain sensitive customer data. If multiple clients are using this solution, it's important to restrict access to these files. Using hierarchical namespace on the storage account and enforcing folder/file-level permissions to only the needed Azure Active Directory 
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
+- The request to the Speech API can include a shared access signature (SAS) URI for a destination container in Azure Storage. A SAS URI enables the Speech service to directly output the transcription files to the container location. If your organization doesn't allow the use of SAS URIs for storage, you need to implement a function to periodically poll the Speech API for completed assets. 
+- Credentials like account or API keys should be stored in Azure Key Vault as secrets. Configure your Logic App and Azure Synapse pipelines to access the key vault by using managed identities to avoid storing secrets in application settings or code.
+- The audio files stored in the blob might contain sensitive customer data. If multiple clients are using the solution, you need to restrict access to these files. Use hierarchical namespace on the storage account and enforce folder and file level permissions to only the needed Azure Active Directory.
 
 ### Cost optimization
-All of the Azure services described in this architecture have the option of pay-as-you-go billing, meaning the solution cost scales linearly. 
 
-Azure Synapse has the option for a serverless SQL pool, which means that the compute for the data warehousing workload can be spun up on demand. If your Synapse isn't serving other downstream use cases, consider serverless as a way to constrain costs. 
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-See the [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview) for more cost optimization strategies.
+All Azure services described in this architecture provide an option for pay-as-you-go billing, so solution costs scale linearly.
 
-Click here to see pricing for the suggested services in the Azure pricing calculator: https://azure.com/e/27232ae18e00459fa724d25275250f11
+Azure Synapse provides an option for serverless SQL pools, which means that the compute for the data warehousing workload can be spun up on demand. If you aren't using Azure Synapse to serve other downstream use cases, consider using serverless to constrain costs.
 
+See [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview) for more cost optimization strategies.
+
+For pricing for the services suggested here, see this [estimate in the Azure pricing calculator](https://azure.com/e/27232ae18e00459fa724d25275250f11).
+
+### Performance efficiency
+
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+
+The batch speech API is designed for high volume, but other Cognitive Services APIs might have request limits for each subscription tier. Consider containerizing these APIs to avoid throttling large-volume processing. Containers give you flexibility in deployment, in the cloud or on-premises. You can also mitigate side effects of new version rollouts by using containers. For more information, see [Container support in Azure Cognitive Services](/azure/cognitive-services/cognitive-services-container-support).
 
 ## Contributors
+
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-**Principal authors:** 
- * [Brady Leavitt](https://www.linkedin.com/in/bradyleavitt/) | (Azure AI/ML Solution Specialist)
- * [Christina Skarpathiotaki](https://www.linkedin.com/in/christinaskarpathiotaki/) | (Specialized AI Cloud Solution Architect)
+Principal authors:
+
+* [Brady Leavitt](https://www.linkedin.com/in/bradyleavitt) | Dir Specialist GBB 
+* [Christina Skarpathiotaki](https://www.linkedin.com/in/christinaskarpathiotaki) | Cloud Solution Architect
+
+Other contributor:
+
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
 
 ## Next steps
-* [Quickstart: Recognize and convert speech to text](/azure/cognitive-services/speech-service/get-started-speech-to-text?tabs=windowsinstall%2Cterminal&pivots=programming-language-python)
-* [Quickstart: Create an integration workflow with multi-tenant Azure Logic Apps and the Azure portal](/azure/logic-apps/quickstart-create-first-logic-app-workflow)
-* [Quickstart: Get started with Language Studio](/azure/cognitive-services/language-service/language-studio)
-* [Cognitive Services in Azure Synapse Analytics](/azure/synapse-analytics/machine-learning/overview-cognitive-services)
 
-## Related resources
+- [Quickstart: Recognize and convert speech to text](/azure/cognitive-services/speech-service/get-started-speech-to-text?tabs=windowsinstall%2Cterminal&pivots=programming-language-python)
+- [Quickstart: Create an integration workflow with multi-tenant Azure Logic Apps and the Azure portal](/azure/logic-apps/quickstart-create-first-logic-app-workflow)
+- [Quickstart: Get started with Language Studio](/azure/cognitive-services/language-service/language-studio)
+- [Cognitive Services in Azure Synapse Analytics](/azure/synapse-analytics/machine-learning/overview-cognitive-services)
 - [What is the Speech service?](/azure/cognitive-services/speech-service/overview)
 - [What is Azure Logic Apps?](/azure/logic-apps/logic-apps-overview)
 - [What is Azure Cognitive Service for Language?](/azure/cognitive-services/language-service/overview)
-- [What is Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is)
+- [What is Azure Synapse Analytics?](/azure/synapse-analytics/overview-what-is)
+- [Extract insights from text with the Language service](/learn/modules/extract-insights-text-with-text-analytics-service)
+-  [Model, query, and explore data in Azure Synapse](/learn/paths/model-query-explore-data-for-azure-synapse)
+
+## Related resources
+
+- [Natural language processing technology](../../data-guide/technology-choices/natural-language-processing.yml)
+- [Optimize marketing with machine learning](../../solution-ideas/articles/optimize-marketing-with-machine-learning.yml)
+- [Big data analytics with enterprise-grade security using Azure Synapse](../../solution-ideas/articles/big-data-analytics-enterprise-grade-security.yml)
