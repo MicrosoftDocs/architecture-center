@@ -23,7 +23,7 @@ ms.custom:
 
 # Architectural approaches for tenant integration and data access
 
-It's common for systems to integrate together, even across organizational boundaries. When you build a multitenant solution, you might have requirements to send data back to your tenants' systems, or to receive data from those systems. In this article, we outline the key considerations when you work with integrations for a multitenant solution solution.
+It's common for systems to integrate together, even across organizational boundaries. When you build a multitenant solution, you might have requirements to send data back to your tenants' systems, or to receive data from those systems. In this article, we outline the key considerations when you work with integrations for a multitenant solution.
 
 > [!NOTE]
 > If you provide multiple integration points, it's best to consider each one independently. Often, different integration points have different requirements and are designed differently, even if they're connecting the same systems together in multiple different ways.
@@ -32,7 +32,7 @@ It's common for systems to integrate together, even across organizational bounda
 
 ### Direction of data flow
 
-It's important to clearly understand the direction in which your data flows, because this affects several aspects of your architecture including how you manage identity and your solution's networking topology. There are two common data flows:
+It's important to understand the direction in which your data flows. The data flow direction affects several aspects of your architecture, such as how you manage identity and your solution's networking topology. There are two common data flows:
 
 - **Export**, which means the data flows from your multitenant system to your individual tenants' systems.
 - **Import**, which means data comes from your tenants' systems into your multitenant system.
@@ -56,28 +56,28 @@ Alternatively, if you work with user-scoped data, then you might need to use an 
 
 For more information on user delegation, see the [Delegated user access](#delegated-user-access) approach below.
 
-### Realtime or batch
+### Real-time or batch
 
-Consider whether you'll be working with realtime data, or if the data will be sent in batches.
+Consider whether you'll be working with real-time data, or if the data will be sent in batches.
 
-For realtime integrations, these approaches are common:
+For real-time integrations, these approaches are common:
 
 - Synchronous connections, which are often enabled through APIs or webhooks.
 - Asynchronous connections, which are often enabled through messaging components designed for loosely coupling systems together. For example, Azure Service Bus provides message queuing capabilities, and Azure Event Grid and Event Hubs provide eventing capabilities. These components are often used as part of integration architectures.
 
-In contrast, batch integrations are often managed through a background job, which might be triggered at certain times of the day. Commonly, batch integrations take place by reading from or writing to a *staging location*, such as a blob storage container, because the datasets exchanged can be large.
+In contrast, batch integrations are often managed through a background job, which might be triggered at certain times of the day. Commonly, batch integrations take place through a *staging location*, such as a blob storage container, because the datasets exchanged can be large.
 
 ### Data volume
 
 It's important to understand the volume of data that you exchange through an integration, because this information helps you to plan for your overall system capacity. When you plan your system's capacity, remember that different tenants might have different volumes of data to exchange.
 
-For realtime integrations, you might measure volume as the number of transactions over a specified period of time. For batch integrations, you might measure volume either as the number of records exchanged or the amount of data in bytes.
+For real-time integrations, you might measure volume as the number of transactions over a specified period of time. For batch integrations, you might measure volume either as the number of records exchanged or the amount of data in bytes.
 
 ### Data formats
 
-When data is exchanged between two parties, it's important they both have a clear understanding of the format of the data. This includes both the file format, such as JSON or XML, as well as the schema, such as the list of fields that will be included, date formats, and nullability of fields.
+When data is exchanged between two parties, it's important they both have a clear understanding of the format of the data. The data format includes both the file format, such as JSON or XML, and the schema, such as the list of fields that will be included, date formats, and nullability of fields.
 
-When you work with a multitenant system, if possible then it's best to use the same data format for all of your tenants. That way, you avoid having to customize and re-test your integration components for each tenant's requirements.
+When you work with a multitenant system, if possible then it's best to use the same data format for all of your tenants. That way, you avoid having to customize and retest your integration components for each tenant's requirements.
 
 However, in some situations, you might need to use different data formats for communicating with different tenants, and so you might need to implement multiple integrations. See [Composable integration components](#composable-integration-components) for an approach that can help to simplify this kind of situation.
 
@@ -87,18 +87,18 @@ Some integrations involve you making a connection to a tenant's systems or data 
 
 #### Network access
 
-Consider the network topology for accessing your tenant's system, which might include the following:
+Consider the network topology for accessing your tenant's system, which might include the following options:
 
-- **Connect across the internet.** If you connect across the internet, how will the connection be secured? If your tenants plan to restrict based on your IP addresses, ensure that the Azure services that you use support static IP addresses for outbound connections. Consider using [NAT Gateway](../service/nat-gateway.md) to provide static IP addresses if required.
+- **Connect across the internet.** If you connect across the internet, how will the connection be secured? If your tenants plan to restrict based on your IP addresses, ensure that the Azure services that your solution uses can support static IP addresses for outbound connections. Consider using [NAT Gateway](../service/nat-gateway.md) to provide static IP addresses if necessary.
 - **Private endpoints** can be a useful approach to connect to tenants' systems if they're also hosted in Azure.
-- **Agents**, which are [deployed into a tenant's enironment](../approaches/networking.md#agents), can provide a flexible approach and avoid the need for your tenants to allow inbound connections.
+- **Agents**, which are [deployed into a tenant's environment](../approaches/networking.md#agents), can provide a flexible approach and avoid the need for your tenants to allow inbound connections.
 - **Relays**, such as [Azure Relay](/azure/azure-relay/relay-what-is-it), also provide an approach to avoid inbound connections.
 
 #### Authentication
 
 Consider how you authenticate with each tenant when you initiate a connection. You might consider the following approaches:
 
-- **Keys**, such as API keys, certificates, or other secrets. It's important to plan how you will securely manage your tenants' credentials. Leakage of your tenants' secrets could result in a major security incident, potentially impacting a number of your tenants.
+- **Keys**, such as API keys, certificates, or other secrets. It's important to plan how you'll securely manage your tenants' credentials. Leakage of your tenants' secrets could result in a major security incident, potentially impacting many tenants.
 - **Azure Active Directory (Azure AD) tokens**, where you use a token issued by the tenant's own Azure AD instance. The token might be issued to your workload by using a multitenant Azure AD application, or it might be issued to a specific user identity within the tenant's directory.
 
 Whichever approach you select, ensure that your tenants follow the principle of least privilege and avoid granting your system unnecessary permissions. For example, if your system only needs to read data from a tenant's data store, the identity you use to connect shouldn't have write permissions.
@@ -107,10 +107,10 @@ Whichever approach you select, ensure that your tenants follow the principle of 
 
 If tenants need to connect to your system, consider providing dedicated APIs or other integration points, which you can then model as part of the surface area of your solution.
 
-In some situations, you might decide to provide your tenants with direct access to you Azure resources. Consider the ramifications carefully and ensure you understand how to grant access to tenants in a safe manner. For example, you might use one of the following approaches:
+In some situations, you might decide to provide your tenants with direct access to your Azure resources. Consider the ramifications carefully and ensure you understand how to grant access to tenants in a safe manner. For example, you might use one of the following approaches:
 
 - Use the [Valet Key pattern](#valet-key-pattern), which involves using security measures like shared access signatures to grant restricted access to certain Azure resources.
-- Use dedicated resources for integration points, such as a dedicated storage account. It's a good practice to keep integration resources separated from your core system resources. This approach helps you to minimize the *blast radius* of a security incident. It also ensure that, if a tenant accidentally initiates large numbers of connections to the resource and exhausts its capacity, the rest of your system will continue to run.
+- Use dedicated resources for integration points, such as a dedicated storage account. It's a good practice to keep integration resources separated from your core system resources. This approach helps you to minimize the *blast radius* of a security incident. It also ensures that, if a tenant accidentally initiates large numbers of connections to the resource and exhausts its capacity, the rest of your system continues to run.
 
 ### Compliance
 
@@ -120,7 +120,7 @@ When you start to interact directly with your tenants' data, or transmit that da
 
 ### Expose APIs
 
-Realtime integrations commonly involve exposing APIs to your tenants or other parties to use. APIs require special considerations, especially when used by external parties. These concerns include the following:
+Real-time integrations commonly involve exposing APIs to your tenants or other parties to use. APIs require special considerations, especially when used by external parties. Consider the following concerns:
 
 - Who is granted access to the API?
 - How will you authenticate the API's users?
@@ -131,11 +131,11 @@ It's a good practice to use an API gateway, such as [Azure API Management](/azur
 
 ### Valet Key pattern
 
-Occasionally you might need to provide a tenant, or another third party, with direct access to Azure Storage, Azure Cosmos DB, or another supported data source. Consider following the [Valet Key pattern](../../../patterns/valet-key.yml) to securely share data and restrict access to the data store.
+Occasionally a tenant might need direct access to a data source such as Azure Storage or Azure Cosmos DB. Consider following the [Valet Key pattern](../../../patterns/valet-key.yml) to securely share data and restrict access to the data store.
 
 For example, you could use this approach when batch exporting a large data file. After you've generated the export file, you can save it to a blob container in Azure Storage, and then generate a time-bound, read-only shared access signature. This signature can be provided to the tenant along with the blob URL. The tenant can then download the file from Azure Storage until the signature's expiry.
 
-Similarly, you can generate a shared access signature with permissions to write to a specific blob. When you provide this to a tenant, they can write their data to the blob. By using Event Grid integration for Azure Storage, your application can then be notified to process and import the data file.
+Similarly, you can generate a shared access signature with permissions to write to a specific blob. When you provide a shared access signature to a tenant, they can write their data to the blob. By using Event Grid integration for Azure Storage, your application can then be notified to process and import the data file.
 
 ### Webhooks
 
@@ -162,16 +162,15 @@ Messaging allows for asynchronous, loosely coupled communication between systems
 
 When you use messaging as part of integrating with your tenants' systems, consider whether you should use [shared access signatures for Azure Service Bus](/azure/service-bus-messaging/service-bus-sas) or [Azure Event Hubs](/azure/event-hubs/authorize-access-shared-access-signature). Shared access signatures enable you to grant limited access to your messaging resources to third parties without enabling them to access the rest of your messaging subsystem.
 
-In some scenarios, you might provide different service level agreements (SLAs) or quality of service (QoS) guarantees to different tenants. For example, a subset of your tenants might expect to have their data export requests processed more quickly than others. By using the [Priority Queue pattern](../../../patterns/priority-queue.yml), you can create separate queues for different levels of priority 
-] with different worker instances to prioritize them accordingly.
+In some scenarios, you might provide different service level agreements (SLAs) or quality of service (QoS) guarantees to different tenants. For example, a subset of your tenants might expect to have their data export requests processed more quickly than others. By using the [Priority Queue pattern](../../../patterns/priority-queue.yml), you can create separate queues for different levels of priority, with different worker instances to prioritize them accordingly.
 
 ### Composable integration components
 
 In some scenarios, you might need to integrate with many different tenants, each of which uses different data formats or different types of network connectivity.
 
-A common approach in integration is to build and test individual steps that retrieve data, transform it to a specific format, and transmit it by using a particular network transport or to a known destination type. Typically, these individual elements are built by using services like Azure Functions and Azure Logic Apps. The overall integration process is defined by using a tool like Logic Apps or Azure Data Factory, and it invokes each of the steps that were already defined.
+A common approach in integration is to build and test individual steps that retrieve data, transform it to a specific format, and transmit it by using a particular network transport or to a known destination type. Typically, you build these individual elements by using services like Azure Functions and Azure Logic Apps. You then define the overall integration process by using a tool like Logic Apps or Azure Data Factory, and it invokes each of the precreated steps.
 
-When working with complex multitenant integration scenarios, it can be helpful to define a library of reusable integration steps. Then, you can either build workflows for each tenant to compose the applicable pieces together based on that tenant's requirements. Alternatively, you might be able to expose some of the data sets or integration components directly to your tenants so that they can build their own integration workflows from them.
+When you work with complex multitenant integration scenarios, it can be helpful to define a library of reusable integration steps. Then, you can either build workflows for each tenant to compose the applicable pieces together based on that tenant's requirements. Alternatively, you might be able to expose some of the data sets or integration components directly to your tenants so that they can build their own integration workflows from them.
 
 Similarly, you might need to import data from tenants who use a different data format or different transport to others. A good approach for this scenario is to build tenant-specific *connectors*, which are workflows that normalize and import the data into a standardized format and location, which then trigger your main import process.
 
