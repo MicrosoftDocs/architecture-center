@@ -20,6 +20,6 @@ products:
   - azure-files
 name: Run HP-UX workloads in Azure with Stromasys Charon-PAR
 summary: Learn how to use a lift-and-shift approach to migrate an HP-UX workload to Azure.
-thumbnailUrl: /azure/architecture/browse/thumbs/stromasys-charon-par-hp-ux.png
+thumbnailUrl: /azure/architecture/browse/thumbs/charon-par-hp-ux.png
 content: |
   [!include[](hp-ux-stromasys-charon-par-content.md)]
