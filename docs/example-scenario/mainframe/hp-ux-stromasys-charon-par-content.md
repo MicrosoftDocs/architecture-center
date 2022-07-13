@@ -9,13 +9,11 @@ download link
 
 ### Workflow
 
-Charon-PAR runs on Azure, emulating the PA-RISC systems for HP-UX. On this virtual system (Azure virtual machines), you install the Charon host operating system (Linux), the Charon emulator software, and your legacy operating system (HP-UX) and the associated applications. It's just as though you're using the original hardware. This enables an HP-UX workload or application to run unchanged in an emulation environment on a VM in Azure.
-
-The preceding diagram shows a typical scenario. The numbered annotations refer to the following:
+Charon-PAR runs on Azure, emulating the PA-RISC systems for HP-UX. On this virtual system (Azure virtual machines), you install the Charon host operating system (Linux), the Charon emulator software, and your legacy operating system (HP-UX) and the associated applications. It's as though you're using the original hardware. This configuration enables an HP-UX workload or application to run unchanged in an emulation environment on a VM in Azure.
 
 1. The Charon-PAR software runs on Linux Azure VMs because Charon-PAR requires a Linux host. Charon-PAR emulates the PA-RISC processor architecture. The HP-UX workloads run on these emulated PA-RISC systems.
-1. The HP-UX workloads can reside on the solid-state drive (SSD) managed disk of the host Azure VM. 
-1. One or more host network interface controllers (NICs) can be dedicated to the guest operating system. You can do this by dedicating physical NICs to the guest operating system. The HP-UX VMs each get their own Azure network interface, so they have their own dedicated private IP addresses. This host-specific network interface is normally used within the Charon configuration for the dedicated use of guest workloads.
+1. The HP-UX workloads can reside on the solid-state drive (SSD) managed disk of the host Azure VM.
+1. One or more host network interface controllers (NICs) can be dedicated to the guest operating system. You can do that by dedicating physical NICs to the guest operating system. The HP-UX VMs each get their own Azure network interface, so they have their own dedicated private IP addresses. This host-specific network interface is normally used within the Charon configuration for the dedicated use of guest workloads.
 
    Optionally, you can easily set up Azure public IP addresses on the same network interfaces. There must always be network interfaces dedicated to the guest OS. The host is allocated a network interface. PA9-32 720 allows only one network interface, but PA9-64 allows multiple network interfaces dedicated to the guest OS.
 1. Users can  connect via Secure Shell (SSH) directly to the HP-UX VMs (if SSH is supported by the version of HP-UX). These VMs their own dedicated network interface cards and IP addresses.
@@ -35,7 +33,7 @@ The preceding diagram shows a typical scenario. The numbered annotations refer t
 
 This solution works best with premium SSDs or ultra disk SSDs. We recommend premium SSD disks. Azure ultra SSD managed disks are an option for even higher input/output operations per second (IOPS).
 
-For the best performance, we recommend a compute-optimized FX-series VM. You can use the Azure Fs-series for low-end spec servers, but the required minimum for PAR is 3.0 GHz (3.4 GHz or more recommended), and an FX-series instance is required for high-end servers.
+For the best performance, we recommend a compute-optimized FX-series VM. You can use the Azure Fs-series for low-end spec servers, but the required minimum for PAR is 3.0 GHz. (3.4 GHz or more is recommended.) An FX-series instance is required for high-end servers.
 
 ## Scenario details
 
@@ -47,15 +45,15 @@ Running applications with an emulator on the cloud provides numerous benefits, l
 
 This article describes a migration of an HP-UX workload to Azure. It shows how emulator software Charon-PAR can run HP-UX workloads on Azure.
 
-The core business of [Stromasys](https://www.stromasys.com) centers on cross-platform virtualization / server virtualization software that allows owners of HP-UX legacy systems to continue running their mission-critical applications unchanged on new industry standard computer systems. Charon products preserve current application investments by enabling customers to continue to use their existing applications and business processes. Because everything continues to run without modification, no re-training or re-staffing is required. Charon products dramatically reduce the cost of ownership by reducing computer footprint, energy consumption, and cooling costs, while eliminating the risks and costs associated with running on aging hardware.
+The core business of [Stromasys](https://www.stromasys.com) centers on cross-platform virtualization / server virtualization software that allows owners of HP-UX legacy systems to continue running their mission-critical applications unchanged on new industry standard computer systems. Charon products preserve current application investments by enabling customers to continue to use their existing applications and business processes. Because everything continues to run without modification, no retraining or restaffing is required. Charon products dramatically reduce the cost of ownership by reducing computer footprint, energy consumption, and cooling costs while eliminating the risks and costs associated with running on aging hardware.
 
 The Stromasys Charon environment provides a significantly higher level of platform stability. For the first time since the first HP-UX systems were introduced, replacing the actual physical server no longer requires any changes to the HP-UX software environment. Charon also provides more platform stability and has virtually unlimited lifetime.
 
 With the steady increase in the use of Azure-hosted systems in the typical corporate environment, an emulated HP-UX system hosted on Linux is the best way to host an HP-UX system in these environments. Integral to the engagement is the ability to demonstrate the functionality of the emulated HP-UX-based applications in a virtual/Azure/Charon environment.
 
-This is illustrated in the following image:
+The following image illustrates the migration approach recommended in this article:
 
-![Diagram that compares two approaches to migration.](media/comparison.png)
+![Diagram that illustrates the migration approach.](media/comparison.png)
 
 Benefits of the lift-and-shift approach to migration include:
 
@@ -105,7 +103,7 @@ Operational excellence covers the operations processes that deploy an applicatio
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
-At least one CPU core for the host operating system and 2 cores per emulated CPU are required. This solution works best with [compute optimized Azure VMs](/azure/virtual-machines/sizes-compute). Compute optimized VMs have a high CPU-to-memory ratio. The [FX-series](/azure/virtual-machines/fx-series) virtual machine is a new addition to the F-Series. For the best performance, we recommend a FX-series VM. It's designed for high-frequency compute workloads. It features a base frequency of 3.4 GHz and an all-core-turbo clock speed of up to 4.0 GHz. We recommend FX-series for high-end HP-UX workloads.
+At least one CPU core for the host operating system and two cores per emulated CPU are required. This solution works best with [compute optimized Azure VMs](/azure/virtual-machines/sizes-compute). Compute optimized VMs have a high CPU-to-memory ratio. The [FX-series](/azure/virtual-machines/fx-series) virtual machine is a new addition to the F-Series. For the best performance, we recommend a FX-series VM. It's designed for high-frequency compute workloads. It features a base frequency of 3.4 GHz and an all-core-turbo clock speed of up to 4.0 GHz. We recommend FX-series for high-end HP-UX workloads.
 
 Fx-series VMs feature a higher CPU-to-memory ratio. They're equipped with 2 GB of RAM and 16 GB of local SSD per CPU core. 
 
@@ -128,8 +126,16 @@ Other contributors:
 
 - [Charon-PAR](https://www.stromasys.com/solutions/charon-par)
 - [Charon on the Azure Cloud | Stromasys](https://www.stromasys.com/solutions/charon-on-the-azure-cloud)
-- What is Azure Virtual Network?
+- [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
+- [Linux virtual machines in Azure](/azure/virtual-machines/linux/overview)
+- [What is Azure ExpressRoute?](/azure/expressroute/expressroute-introduction)
+- [Create a Linux virtual machine in Azure](/learn/modules/create-linux-virtual-machine-in-azure)
 
 For more information, contact legacy2azure@microsoft.com
 
 ## Related resources
+
+- [Mainframe migration overview](/azure/cloud-adoption-framework/infrastructure/mainframe-migration)
+- [Make the switch from mainframes to Azure](/azure/cloud-adoption-framework/infrastructure/mainframe-migration/migration-strategies)
+- [Modernize mainframe and midrange data](../../reference-architectures/migration/modernize-mainframe-data-to-azure.yml)
+- [Azure mainframe and midrange architecture concepts and patterns](../../mainframe/mainframe-midrange-architecture.md)
