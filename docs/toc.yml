@@ -1218,6 +1218,8 @@ items:
                 href: example-scenario/digital-health/health-portal.yml
               - name: Health data consortium
                 href: example-scenario/data/azure-health-data-consortium.yml
+              - name: Implement risk prediction for surgeries
+                href: example-scenario/ai/risk-stratification-surgery.yml
               - name: IoT Connected Platform for COVID detection
                 href: solution-ideas/articles/iot-connected-platform.yml
               - name: Population health management
@@ -1711,6 +1713,8 @@ items:
             items:
               - name: All energy and environment architectures
                 href: /azure/architecture/browse/?terms=energy
+              - name: Deploy IBM Maximo Application Suite 
+                href: example-scenario/networking/deploy-ibm-maximo-application-suite.yml
               - name: Environmental monitoring
                 href: solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml
               - name: Geospatial data processing and analytics
@@ -2112,7 +2116,7 @@ items:
                             href: /gaming/azure/reference-architectures/multiplayer-custom-server-scaling
                             maintainContext: true
                           - name: Multiplayer hosting with Service Fabric
-                            href: /gaming/azure/reference-architectures/multiplayer-synchronous-sf
+                            href: /gaming/azure/reference-architectures/multiplayer-synchronous
                             maintainContext: true
                           - name: Multiplayer server hosting with ACI
                             href: /gaming/azure/reference-architectures/multiplayer-synchronous-aci
@@ -2723,6 +2727,8 @@ items:
                 href: example-scenario/ai/extract-object-text.yml
               - name: Image classification
                 href: example-scenario/ai/intelligent-apps-image-processing.yml
+              - name: Implement risk prediction for surgeries
+                href: example-scenario/ai/risk-stratification-surgery.yml
               - name: Implement the healthcare blueprint for AI
                 href: industries/healthcare/healthcare-ai-blueprint.yml
               - name: Many models ML with Spark
@@ -3283,7 +3289,7 @@ items:
                 href: /gaming/azure/reference-architectures/multiplayer-synchronous-aks
                 maintainContext: true
               - name: Multiplayer hosting with Service Fabric
-                href: /gaming/azure/reference-architectures/multiplayer-synchronous-sf
+                href: /gaming/azure/reference-architectures/multiplayer-synchronous
                 maintainContext: true
               - name: Multitenancy with AKS and AGIC
                 href: example-scenario/aks-agic/aks-agic.yml
@@ -4748,8 +4754,6 @@ items:
                     href: example-scenario/unix-migration/migrate-aix-azure-linux.yml
                   - name: Batch transaction processing
                     href: example-scenario/mainframe/process-batch-transactions.yml
-                  - name: Deploy IBM Maximo Application Suite 
-                    href: example-scenario/networking/deploy-ibm-maximo-application-suite.yml
                   - name: General mainframe refactor to Azure
                     href: example-scenario/mainframe/general-mainframe-refactor.yml
                   - name: IBM System i to Azure using Infinite i
