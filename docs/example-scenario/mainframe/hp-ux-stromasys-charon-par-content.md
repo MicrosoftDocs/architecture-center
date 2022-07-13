@@ -112,7 +112,7 @@ Fx-series VMs feature a higher CPU-to-memory ratio. They're equipped with 2 GB o
 
 Principal author:
 
- - [Sunnyma Ghosh](https://www.linkedin.com/in/sunnymaghosh) | Senior Program Manager 
+ - [Sunnyma Ghosh](https://www.linkedin.com/in/sunnymaghosh) | Senior Program Manager
 
 Other contributors:
 
