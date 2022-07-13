@@ -15,7 +15,7 @@ This reference architecture describes a common production system. This architect
 
 The network layout is greatly simplified to demonstrate architectural principals and is not intended to describe a full enterprise network.
 
-The following components are required.
+The following components are used and some shared services are optional depends on your local implementation.
 
 **Azure Virtual Network.** The [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) (VNet) service securely connects Azure resources to each other. In this architecture, a VNet connects to an on-premises environment through a gateway deployed in the hub of a [hub-spoke topology](../../reference-architectures/hybrid-networking/hub-spoke.yml). The spoke is the VNet used for the SAP applications and the database tiers.
 
@@ -25,11 +25,17 @@ The following components are required.
 
 - **Application tier.** Includes the Fiori Front-end Server pool, SAP Web Dispatcher pool, application server pool, and SAP Central Services cluster. For high availability of Central Services on Azure running in Linux virtual machines, a highly available network file share service is required, such as [NFS File Shares in Azure Files](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs-azure-files), [Azure NetApp Files](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files), clustered Network File Shares (NFS) servers, or [SIOS Protection Suite for Linux](https://us.sios.com/solutions/sap-high-availability/) . To set up a highly available file share for the Central Services cluster on Red Hat Enterprise Linux, [GlusterFS](/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-glusterfs) can be configured on Azure virtual machines running Red Hat Enterprise Linux. On SUSE Linux Enterprise Server 15 SP1 and later versions or SUSE Linux Enterprise Server for SAP Applications, you can use [Azure Shared Disks](/azure/virtual-machines/disks-shared#linux) on a Pacemaker cluster to achieve high availability.
 
-- **SAP HANA.** The database tier uses two or more Linux virtual machines in a cluster to achieve high availability in a scale-up deployment. HANA System Replication (HSR) is used to replicate contents between primary and secondary HANA systems. Linux clustering is used to detect system failures and facilitate automatic failover. A storage-based or cloud-based fencing mechanism must be used to ensure the failed system is isolated or shut down to avoid the cluster split-brain condition. In HANA scale-out deployments, database high availability is achieved by configuring standby nodes without the need of the Linux clustering component.
+- **SAP HANA.** The database tier uses two or more Linux virtual machines in a cluster to achieve high availability in a scale-up deployment. HANA System Replication (HSR) is used to replicate contents between primary and secondary HANA systems. Linux clustering is used to detect system failures and facilitate automatic failover. A storage-based or cloud-based fencing mechanism must be used to ensure the failed system is isolated or shut down to avoid the cluster split-brain condition. In HANA scale-out deployments, database high availability is achieved by configuring either standby nodes without the need of the Linux clustering component; or scale-out over shared storage over ANF.
 
-- **Jumpbox.** Also called a bastion host, this secure virtual machine on the network is used to connect to the other virtual machines and is typically deployed as part of the shared services, such as domain controllers and backup services. The jumpbox is deployed on a virtual machine to support SAP HANA Studio, SAPGUI, file transfer, and other functions that are commonly used for installation and administration purposes. For remote desktop protocol (RDP) or secure shell (SSH) services, try [Azure Bastion](/azure/bastion/bastion-overview). If only RDP and SSH are used for administration, Azure Bastion is a great alternative.
+- **Jumpbox/Bastion.** A jumpbox is also called a bastion host, this secure virtual machine on the network is used to connect to the other virtual machines and is typically deployed as part of the shared services, such as domain controllers and backup services. The jumpbox is deployed on a virtual machine to support SAP HANA Studio, SAPGUI, file transfer, and other functions that are commonly used for installation and administration purposes. For remote desktop protocol (RDP) or secure shell (SSH) services, try [Azure Bastion](/azure/bastion/bastion-overview). If only RDP and SSH are used for administration, Azure Bastion is a great alternative.
+
+**Private DNS.** Azure Private DNS provides a reliable and secure DNS service for your virtual network. [Azure Private DNS](/azure/dns/private-dns-overview) manages and resolves domain names in the virtual network without the need to configure a custom DNS solution.
 
 **Load balancers.** To distribute traffic to virtual machines in the SAP application-tier subnet for high availability, we recommend using the [Standard load balancers](/azure/load-balancer/load-balancer-standard-availability-zones) are used. It's important to highlight that the Standard Load Balancer is secure by default, and no virtual machines behind the Standard Load Balancer will have outbound internet connectivity. To enable outbound internet in the virtual machines, you must consider your [Standard Load Balancer configuration](/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections). For SAP web-based application high availability, use the built-in [SAP Web Dispatcher](https://help.sap.com/doc/saphelp_em900/9.0/en-US/48/8fe37933114e6fe10000000a421937/content.htm?no_cache=true), or another commercially available load balancer, depending on the traffic type (such as HTTP or SAP GUI) or the required network services (such as Secure Sockets Layer (SSL) termination).
+
+The Standard LB supports multiple frontend virtual IPs which is ideal for the ASCS/ERS cluster implementation where both services can share one LB to simplify the solution.
+
+The Standard LB also supports multi-SID SAP clusters.  In other words, multiple SAP systems on [SLES](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid) or [RHEL](/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-multi-sid) can share a common high availability infrastructure to save cost. We urge readers to evaluate the cost saving with the risk of placing too many systems in one cluster.  We support no more than 5 SIDs per cluster.
 
 **Availability sets.** Virtual machines for all pools and clusters (Web Dispatcher, SAP application servers, Central Services, and HANA) are grouped into separate [availability sets](/azure/virtual-machines/windows/tutorial-availability-sets), and at least two virtual machines are provisioned per role. Availability sets increase the availability of applications and virtual machines through management of hosts system faults or maintenance events by distributing role instances onto multiple hosts. An alternative is to use [Availability Zones](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones) to improve workload availability as described later in this article.
 
@@ -72,6 +78,8 @@ This architecture addresses broad base requirements and assumes that the Embedde
 
 If you use the FES hub deployment, the FES is an add-on component to the classic SAP NetWeaver ABAP stack. Set up high availability in the same way you protect a three-tier ABAP application stack with clustered or multi-host capability-with a standby server database layer, clustered ASCS layer with high availability NFS for shared storage, and at least two application servers. Traffic is load-balanced via a pair of either clustered or parallel Web Dispatchers. For internet facing Fiori apps a [FES hub deployment](https://blogs.sap.com/2017/12/15/considerations-and-recommendations-for-internet-facing-fiori-apps/) in DMZ would be recommended. Use [Azure Application Gateway/WAF](/azure/application-gateway/) as a critical component to defense traffic with [Azure AD with SAML](/azure/active-directory/saas-apps/sap-netweaver-tutorial) for user authentication and SSO for [SAP Fiori](/azure/active-directory/saas-apps/sap-fiori-tutorial).
 ![Reference architecture for SAP Fiori](./images/fiori.png)
+
+For more information on [SAP internet, outbound, and inbound solution](docs/reference-architectures/sap/sap-internet-inbound-outbound-content.md), refer to the linked document.
 
 ### Application servers pool
 
@@ -141,8 +149,11 @@ For traffic from SAP GUI clients connecting an SAP server via DIAG protocol or R
 Some customers use standard storage for their application servers. Because standard managed disks are not supported, as stated in SAP note 1928533, we recommend using Premium [Azure Managed Disks](/azure/storage/storage-managed-disks-overview) or [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) in all cases. Note that a recent update to [SAP note 2015553](https://launchpad.support.sap.com/#/notes/2015553) excludes the use of Standard HDD Storage and Standard SSD Storage for a few specific use cases.
 
 Because application servers do not host any business data, you can also use the smaller P4 and P6 Premium disks to help minimize cost.  To understand the VM availability SLA associates with the storage types selection, please see [SLA for Virtual Machines](/support/legal/sla/virtual-machines/v1_9/).
-For High-Availability scenarios [Azure Shared Disks](/azure/virtual-machines/disks-shared) features are available on Premium SSD and Ultra SSD [Azure Managed Disks](/azure/storage/storage-managed-disks-overview). Azure Shared Disks can be used with Windows Server, SUSE Enterprise Linux 15 SP 1 and above, or SUSE Enterprise Linux For SAP. 
-Azure NetApp Files has file sharing functionality built in.
+For High-Availability scenarios [Azure Shared Disks](/azure/virtual-machines/disks-shared) features are available on Premium SSD and Ultra SSD [Azure Managed Disks](/azure/storage/storage-managed-disks-overview). 
+
+Azure Shared Disks can be used with Windows Server, SUSE Enterprise Linux 15 SP 1 and above, or SUSE Enterprise Linux For SAP.  It's worth noting that Azure Shared Disk used in Linux clusters is simply to serve the purpose of a Stonith Block Device (SBD).  It offers a quorum vote in a cluster network partitioning situation.  This shared disk doesn't have a filesystem on it and doesn't support simultaneous writes from multiple cluster member VMs.
+
+Azure NetApp Files have file sharing functionalities built in.
 
 For NFS Share scenarios, [Azure NetApp Files](/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp) provides 99.99% availability (four nines) for NFS shares that can be used for /hana/shared, /hana/data, and /hana/log volumes. Using Azure NetApp Files-based NFS shares for the /hana/data and /hana/log volumes requires the usage of the NFS v4.1 protocol. For the /hana/shared volume the NFS v3 protocol is supported.
 
@@ -178,7 +189,7 @@ Azure NetApp Files has unique performance features that allow for real time tuni
 At the SAP application layer, Azure offers a wide range of virtual machine sizes for scaling up and scaling out. For an inclusive list, see [SAP Note
 1928533](https://launchpad.support.sap.com/#/notes/1928533) - SAP Applications on Azure: Supported Products and Azure VM types (SAP Service Marketplace account required for access). As we continue to certify more virtual machines types, you can scale up or down in the same cloud deployment.
 
-At the database layer, this architecture runs SAP HANA S/4 applications on Azure virtual machines that can scale up to 6 terabytes (TB) in one instance. If your workload exceeds the maximum virtual machine size, Microsoft offers [Azure Large Instances](/azure/virtual-machines/workloads/sap/hana-overview-architecture) for SAP HANA, an option that far exceeds the 12 TB RAM cap. Rev. 4 of these physical servers are located in a Microsoft Azure datacenter and, as of this writing, provide up to 24 TB of memory capacity for a single instance. A multi-node configuration is also possible with a total memory capacity of up to 24 TB for online transaction processing (OLTP) applications and 60 TB for online analytical processing (OLAP) applications.
+At the database layer, this architecture runs SAP HANA S/4 applications on Azure virtual machines that can scale up to 12 terabytes (TB) in one instance. If your workload exceeds the maximum virtual machine size, Microsoft offers [Azure Large Instances](/azure/virtual-machines/workloads/sap/hana-overview-architecture) for SAP HANA, an option that far exceeds the 12 TB RAM capacity. Revision 4 of these physical servers are located in a Microsoft Azure datacenter and, as of this writing, provide up to 24 TB of memory capacity for a single instance. A multi-node configuration is also possible with a total memory capacity of up to 24 TB for online transaction processing (OLTP) applications and 60 TB for online analytical processing (OLAP) applications.
 
 ## Availability considerations
 
@@ -188,7 +199,7 @@ In this distributed installation of the SAP application, the base installation i
 
 ### Web Dispatcher in the application servers tier
 
-High availability is achieved with redundant Web Dispatcher instances. See the [SAP Web Dispatcher](https://help.sap.com/viewer/683d6a1797a34730a6e005d1e8de6f22/202110.001/en-US/488fe37933114e6fe10000000a421937.html?q=SAP%20Web%20Dispatcher) in the SAP documentation.
+High availability is achieved with redundant Web Dispatcher instances. See the [SAP Web Dispatcher](https://help.sap.com/viewer/683d6a1797a34730a6e005d1e8de6f22/202110.001/en-US/488fe37933114e6fe10000000a421937.html?q=SAP%20Web%20Dispatcher) in the SAP documentation.  Depends on the size of the application behind the SWD, in small deployments with little scalability concern, some customers colocate the SWD with the ASCS VMs.  This way they save independent OS maintenance and gain high availability at the same time.
 
 ### Central Services in the application servers tier
 
@@ -270,7 +281,7 @@ Azure Site Recovery can also be used to set up DR for a [multi-tier SAP NetWeave
 
 This component of the SAP application stack also does not persist business data. You can build a virtual machine in the DR region to run the Central Services role.
 
-The ASCS global host files, namely the /sapmnt share, are commonly served by either a highly available NFS cluster or [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction). To protect this content, copy it to the remote file service (NFS or Azure NetApp Files) that provides the /sapmnt share to the DR SAP system. Use Rsync or any reliable file copy tools.
+The ASCS global host files, namely the /sapmnt share, are commonly served by either NFS over AFS or [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction). To protect this content in the case of NFS over AFS, use a custom replication script (using rsync for example) which runs on a scheduled basis copying content to another file share in the DR region. For the case of ANF, make use of its native cross region replication feature to replicate content for the /sapmnt share of the DR SAP system.
 
 Azure Site Recovery supports the replication of STONITH devices created with iSCSI targets.
 
@@ -365,7 +376,7 @@ To provide SAP-based monitoring of resources and service performance of the SAP 
 
 SAP has its own Users Management Engine (UME) to control role-based access and authorization within the SAP application and databases. For details, see [SAP HANA Security: An Overview](https://archive.sap.com/documents/docs/DOC-62943).
 
-For additional network security, consider implementing a [network DMZ](../../reference-architectures/dmz/secure-vnet-dmz.yml), which uses a network virtual appliance to create a firewall in front of the subnet for the Web Dispatcher and Fiori Front-End Server pools.
+For additional network security, consider implementing a [network DMZ](../../reference-architectures/dmz/secure-vnet-dmz.yml), which uses a network virtual appliance to create a firewall in front of the subnet for the Web Dispatcher and Fiori Front-End Server pools. Data transfer cost is a reason for active Fiori apps front-end servers to locate in the same vnet as the S/4 systems instead of placing them in the DMZ and connecting to S/4 through vnet peering.
 
 For infrastructure security, data is encrypted in transit and at rest. The "Security considerations" section of the [SAP NetWeaver on Azure Virtual Machines–Planning and Implementation Guide](/azure/virtual-machines/workloads/sap/planning-guide) begins to address network security and applies to S/4HANA. The guide also specifies the network ports you must open on the firewalls to allow application communication.
 
