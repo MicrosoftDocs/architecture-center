@@ -141,7 +141,7 @@ Similarly, you can generate a shared access signature with permissions to write 
 
 Webhooks enable you to send events to your tenants at a URL that they provide to you. When you have information to send, you initiate a connection to the tenant's webhook and include your data in the HTTP request payload.
 
-[CloudEvents](https://cloudevents.io/) is a standardized data format for webhooks. If you choose to build your own webhook eventing system, consider following the CloudEvents standard to simplify your tenants' integration requirements. Alternatively, you can use a service like [Azure Event Grid](/azure/event-grid/overview) to provide webhook functionality. Event Grid works natively with CloudEvents.
+[CloudEvents](https://cloudevents.io/) is a standardized data format for webhooks. If you choose to build your own webhook eventing system, consider following the CloudEvents standard to simplify your tenants' integration requirements. Alternatively, you can use a service like [Azure Event Grid](/azure/event-grid/overview) to provide webhook functionality. Event Grid works natively with CloudEvents, and supports [event domains](/azure/event-grid/event-domains), which are useful for multitenant solutions.
 
 > [!NOTE]
 > Whenever you make outbound connections to your tenants' systems, remember that you're connecting to an external system. Follow recommended cloud practices including using [retries](../../../patterns/retry.yml), the [Circuit Breaker pattern](../../../patterns/circuit-breaker.yml), and the [Bulkhead pattern](../../../patterns/bulkhead.yml) to ensure that problems in the tenant's system don't propagate to your system.
@@ -158,11 +158,12 @@ After a user establishes the initial connection, your system needs to securely s
 
 ### Messaging
 
-* Loosely coupled
-* Service Bus/Event Hubs shared access signatures
-* Event Grid event domains
-* See [messaging approaches](../approaches/messaging.md)
-* Consider if you have different SLAs or QoS guarantees/expectations for different tenants, for both import and export. By using the [Priority Queue pattern](../../../patterns/priority-queue.yml), you can create separate queues with different worker instances to prioritize them accordingly.
+Messaging allows for asynchronous, loosely coupled communication between systems or components. Messaging is commonly used in integration scenarios to decouple the source and destination systems. For more information on messaging and multitenancy, see [Architectural approaches for messaging in multitenant solutions](../approaches/messaging.md).
+
+When you use messaging as part of integrating with your tenants' systems, consider whether you should use [shared access signatures for Azure Service Bus](/azure/service-bus-messaging/service-bus-sas) or [Azure Event Hubs](/azure/event-hubs/authorize-access-shared-access-signature). Shared access signatures enable you to grant limited access to your messaging resources to third parties without enabling them to access the rest of your messaging subsystem.
+
+In some scenarios, you might provide different service level agreements (SLAs) or quality of service (QoS) guarantees to different tenants. For example, a subset of your tenants might expect to have their data export requests processed more quickly than others. By using the [Priority Queue pattern](../../../patterns/priority-queue.yml), you can create separate queues for different levels of priority 
+] with different worker instances to prioritize them accordingly.
 
 ### Composable integration components
 
