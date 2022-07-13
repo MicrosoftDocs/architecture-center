@@ -2,8 +2,7 @@ This article describes the lift-and-shift migration of an HP-UX workload to Azur
 
 ## Architecture
 
-:::image type="content" source="media/stromasys-charon-par-hp-ux.png" alt-text="Diagram that shows an architecture for lift-and-shift migration of HP-UX." 
-lightbox="media/stromasys-charon-par-hp-ux.png" border="false":::
+:::image type="content" source="media/stromasys-charon-par-hp-ux.png" alt-text="Diagram that shows an architecture for lift-and-shift migration of HP-UX." lightbox="media/stromasys-charon-par-hp-ux.png" border="false":::
 
 download link  
 
