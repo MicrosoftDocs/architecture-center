@@ -1,4 +1,4 @@
-Data-driven enterprises need to keep their back end and analytics systems in near real-time sync with customer-facing applications. The impact of transactions, updates, and changes must reflect accurately through end-to-end processes, related applications, and online transaction processing (OLTP) systems. The tolerable latency for a change in an OLTP application to reflect in the downstream systems that use the data might be just a few minutes.
+Data-driven enterprises need to keep their back end and analytics systems in near real-time sync with customer-facing applications. The impact of transactions, updates, and changes must reflect accurately through end-to-end processes, related applications, and online transaction processing (OLTP) systems. The tolerable latency for changes in OLTP applications to reflect in the downstream systems that use the data might be just a few minutes.
 
 This article describes an end-to-end solution for near real-time data processing to keep lakehouse data in sync. The solution uses Azure Event Hubs, Azure Synapse Analytics, and Azure Data Lake Storage for data processing and analytics.
 
@@ -22,9 +22,9 @@ This article describes an end-to-end solution for near real-time data processing
 
 1. Azure Synapse Spark pools use fully supported Apache Spark structured streaming APIs to process data in the Spark streaming framework. The data processing step incorporates data quality checks and high-level business rule validations.
 
-1. Data Lake Storage stores the validated data in the open [Delta Lake](https://docs.delta.io/latest/delta-intro.html) format. Delta Lake provides atomicity, consistency, isolation, and durability (ACID) semantics and transactions, scalable metadata handling, and unified streaming and batch data processing on top of existing data lakes. Using indexes for query acceleration augments Delta with further performance enhancements. Data from the Data Lake Storage validated zone can also be a source for further advanced analytics and machine learning.
+1. Data Lake Storage stores the validated data in the open [Delta Lake](https://docs.delta.io/latest/delta-intro.html) format. Delta Lake provides atomicity, consistency, isolation, and durability (ACID) semantics and transactions, scalable metadata handling, and unified streaming and batch data processing for existing data lakes. Using indexes for query acceleration augments Delta with further performance enhancements. Data from the Data Lake Storage validated zone can also be a source for further advanced analytics and machine learning.
 
-1. Data from the Data Lake Storage validated zone, transformed and enriched with additional rules into its final processed state, loads to a dedicated SQL pool for running large scale analytical queries.
+1. Data from the Data Lake Storage validated zone, transformed and enriched with more rules into its final processed state, loads to a dedicated SQL pool for running large scale analytical queries.
 
 1. Power BI uses the data exposed through the dedicated SQL pool to build enterprise-grade dashboards and reports.
 
@@ -35,13 +35,13 @@ This article describes an end-to-end solution for near real-time data processing
 
 1. For some low-latency interfaces, data must be denormalized for single-digit server latencies. This usage scenario is mainly for API responses. This scenario queries documents in a NoSQL datastore such as Azure Cosmos DB for single-digit millisecond responses.
 
-1. The Azure Cosmos DB partitioning strategy might not lend itself to all query patterns. In these cases, you can augment the solution by indexing the data that the APIs need to access with Azure Cognitive Search. Azure Cosmos DB and Cognitive Search can fulfill most scenarios that require very low latency query responses.
+1. The Azure Cosmos DB partitioning strategy might not lend itself to all query patterns. In these cases, you can augment the solution by indexing the data that the APIs need to access with Azure Cognitive Search. Azure Cosmos DB and Cognitive Search can fulfill most scenarios that require low latency query responses.
 
 ### Components
 
 The solution uses the following Azure components:
 
-- [Event Hubs](https://azure.microsoft.com/services/event-hubs) is a managed, distributed ingestion service that can scale to ingest large amounts of data. With the Event Hubs subscriber-publisher mechanism, different applications can send messages to topics in Event Hubs, and downstream consumers can connect to and process messages. The Event Hubs capture feature can write messages to Data Lake Storage in AVRO format as they arrive. This ability enables easy micro-batch processing and longterm retention scenarios. Event Hubs also offers a Kafka-compatible API and supports schema registry.
+- [Event Hubs](https://azure.microsoft.com/services/event-hubs) is a managed, distributed ingestion service that can scale to ingest large amounts of data. With the Event Hubs subscriber-publisher mechanism, different applications can send messages to topics in Event Hubs, and downstream consumers can connect to and process messages. The Event Hubs capture feature can write messages to Data Lake Storage in AVRO format as they arrive. This ability enables easy micro-batch processing and long-term retention scenarios. Event Hubs also offers a Kafka-compatible API and supports schema registry.
 
 - [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) forms the storage subsystem that stores all data in raw and validated formats. Data Lake Storage can handle transactions at scale, and supports different file formats and sizes. Hierarchical namespaces help customers organize data into a familiar folder structure and support Portable Operating System Interface for UniX (POSIX) permissions. The Azure Blob Filesystem (ABFS) driver offers a Hadoop-compatible API.
 
@@ -67,7 +67,7 @@ The end-to-end workflow to process changes in near real-time requires:
 - An ingestion buffer to publish the change events at scale. This service should have the ability to handle large amounts of data as messages arrive. Individual subscribers can connect to this system and process the data.
 - Distributed and scalable storage for data as-is in a raw format.
 - A distributed, efficient stream processing system that lets users restart and manage state.
-- A analytics system that runs at scale to power business decisions.
+- An analytics system that runs at scale to power business decisions.
 - A self-serve analytics interface.
 - For low-latency API responses, a NoSQL database to store denormalized representation of the data.
 - For some cases, a system to index data, refresh the index at regular intervals, and make the latest data available for downstream consumption.
@@ -113,7 +113,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
-- Event Hubs can be scaled through partitioning. Consider partitioning your data to preserve the order of events though a commit log. Partitioning lets you create multiple parallel logs by maximizing the available throughput capacity.
+- Event Hubs can be scaled through partitioning. Consider partitioning your data to preserve the order of events through a commit log. Partitioning lets you create multiple parallel logs by maximizing the available throughput capacity.
 
 - You can set up Azure Synapse Spark pools using small, medium, or large virtual machine (VM) SKUs, based on the workload. You can also configure autoscale on Azure Synapse Spark pools to account for spiky workloads. If you need more compute resources, the clusters automatically scale up to meet the demand, and scale down after processing is complete.
 
@@ -125,7 +125,9 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal author: [Pratima Valavala](https://www.linkedin.com/in/pratimavalavala) | Cloud Solution Architect
+Principal author:
+
+- [Pratima Valavala](https://www.linkedin.com/in/pratimavalavala) | Cloud Solution Architect
 
 Other contributors:
 
