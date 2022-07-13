@@ -118,23 +118,28 @@ When you start to interact directly with your tenants' data, or transmit that da
 
 ## Approaches and patterns to consider
 
-<!-- TODO here down -->
-
 ### Expose APIs
 
-* Use API Management to front any APIs, especially for third parties
-* Use subscriptions, rate limiting, auth policies to offload these responsibilities from your backends
-* See APIM service-specific guidance (when it's ready)
+Realtime integrations commonly involve exposing APIs to your tenants or other parties to use. APIs require special considerations, especially when used by external parties. These concerns include the following:
+
+- Who is granted access to the API?
+- How will you authenticate the API's users?
+- Is there a limit to the number of requests that an API user can make over a period of time?
+- How will you provide information about your APIs, and documentation for each API? For example, you might implement a developer portal.
+
+It's a good practice to use an API gateway, such as [Azure API Management](TODO), to handle these concerns and many others. By using an API gateway, you hav ea single place to implement policies that your APIs follow and you simplify the implementation of your backend API systems.
 
 ### Valet Key pattern
 
-* [Valet Key pattern](../../../patterns/valet-key.yml)
-* If you need to share direct access to a data store, this is the way to do it.
-* Don't use your primary Azure Storage account. Instead, create a dedicated account for this.
-* Can be used for batch exports of data - e.g. you build up export data file (which could be quite large), save it to Azure Storage, and generate a time-bound read-only SAS. Provide this to your tenant to download.
-* Similarly, can use this for import - generate a SAS that allows writes to a specific blob, let your tenant write data to it, and then Event Grid tells you when it's ready to process.
+Occasionally you might need to provide a tenant, or another third party, with direct access to Azure Storage, Azure Cosmos DB, or another supported data source. Consider following the [Valet Key pattern](../../../patterns/valet-key.yml) to securely share data and restrict access to the data store.
+
+For example, you could use this approach when batch exporting a large data file. After you've generated the export file, you can save it to a blob container in Azure Storage, and then generate a time-bound, read-only shared access signature. This signature can be provided to the tenant along with the blob URL. The tenant can then download the file from Azure Storage until the signature's expiry.
+
+Similarly, you can generate a shared access signature with permissions to write to a specific blob. When you provide this to a tenant, they can write their data to the blob. By using Event Grid integration for Azure Storage, your application can then be notified to process and import the data file.
 
 ### Webhooks
+
+<!-- TODO here down -->
 
 * Enables you to send events to tenants at URLs they specify.
 * Can use a service like Event Grid, or build your own eventing system. TODO link to section below about Event Grid and EG domains
