@@ -33,7 +33,7 @@ Your network will have more than one Azure virtual network, which can be in the 
 
 If all your virtual networks are in the same region, we suggest having one WSUS for every 18,000 VMs. This suggestion is based on a combination of the VM requirements, the number of client VMs being updated, and the cost of communicating between virtual networks. For more information on WSUS capacity requirements, see [Plan your WSUS deployment](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment).
 
-You can determine the cost of these configurations by using the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/). You'll need to provide the following information:
+You can determine the cost of these configurations by using the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator). You'll need to provide the following information:
 
 - Virtual machine:
   - Region: The region where your Azure virtual network is deployed.
@@ -196,6 +196,14 @@ Currently, WSUS doesn't support synchronization with the Windows Home SKU.
 ## Azure Update Management
 
 You can use the Update Management solution in Azure to manage and schedule operating system updates for VMs that are syncing against WSUS. The patch status of the VM (that is, which patches are missing) is assessed based on the source that the VM is configured to sync with. If the Windows VM is configured to report to WSUS, the results might differ from what Microsoft Update shows, depending on when WSUS last synced with Microsoft Update. After you configure your WSUS environment, you can enable Update Management. For more information, see [Update Management overview and onboarding steps](/azure/automation/update-management/overview).
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Paul Reed](https://www.linkedin.com/in/paulreed55) | Azure Compliance Senior Program Manager
 
 ## Next steps
 

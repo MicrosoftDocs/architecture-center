@@ -1,18 +1,10 @@
 This article describes how a cloud-based *Security Information and Event Management (SIEM)* solution like [Microsoft Sentinel](/azure/sentinel/overview) can use *threat indicators* to detect, provide context, and inform responses to existing or potential cyber threats.
 
-*Cyber threat intelligence (CTI)* can come from many sources, such as open-source data feeds, threat intelligence sharing communities, paid intelligence feeds, and security investigations within organizations. CTI can range from written reports on a threat actor's motivations, infrastructure, and techniques, to specific observations of IP addresses, domains, and file hashes. CTI provides essential context for unusual activity, so security personnel can act quickly to protect people and assets.
-
-The most utilized CTI in SIEM solutions like Microsoft Sentinel is threat indicator data, sometimes called *Indicators of Compromise (IoCs)*. Threat indicators associate URLs, file hashes, IP addresses, and other data with known threat activity like phishing, botnets, or malware. This form of threat intelligence is often called *tactical threat intelligence*, because security products and automation can use it in large scale to protect and detect potential threats. Microsoft Sentinel can help detect, respond to, and provide CTI context for malicious cyber activity.
-
-## Potential use cases
-
-- Connect to open-source threat indicator data from public servers to identify, analyze, and respond to threat activity.
-- Use existing threat intelligence platforms or custom solutions with the Microsoft Graph **tiIndicators** API to connect and control access to threat indicator data.
-- Provide CTI context and reporting for security investigators and stakeholders.
-
 ## Architecture
 
-![Microsoft Sentinel data flow](media/sentinel-threat-intelligence/sentinel-data-flow.png)
+![Diagram showing Microsoft Sentinel data flow.](media/sentinel-threat-intelligence/sentinel-data-flow.png)
+
+*Download a [Visio file](https://arch-center.azureedge.net/sentinel-threat-intelligence.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -86,6 +78,18 @@ For detailed instructions on viewing and editing the Microsoft Sentinel Threat I
 - Any organization that has a custom TIP can use the [Microsoft Graph Security tiIndicators API](/graph/api/resources/tiindicator?view=graph-rest-beta) to send threat indicators to other Microsoft security solutions like [Defender ATP](https://www.microsoft.com/microsoft-365/windows/microsoft-defender-atp).
 
 - Microsoft Sentinel provides many other built-in data connectors to Microsoft solutions like Microsoft Threat Protection, Microsoft 365 sources, and Microsoft Defender for Cloud Apps. There are also built-in connectors to the broader security ecosystem for non-Microsoft solutions. You can also use common event format, Syslog, or REST API to connect your data sources with Microsoft Sentinel. For more information, see [Connect data sources](/azure/sentinel/connect-data-sources).
+
+## Scenario details
+
+*Cyber threat intelligence (CTI)* can come from many sources, such as open-source data feeds, threat intelligence sharing communities, paid intelligence feeds, and security investigations within organizations. CTI can range from written reports on a threat actor's motivations, infrastructure, and techniques, to specific observations of IP addresses, domains, and file hashes. CTI provides essential context for unusual activity, so security personnel can act quickly to protect people and assets.
+
+The most utilized CTI in SIEM solutions like Microsoft Sentinel is threat indicator data, sometimes called *Indicators of Compromise (IoCs)*. Threat indicators associate URLs, file hashes, IP addresses, and other data with known threat activity like phishing, botnets, or malware. This form of threat intelligence is often called *tactical threat intelligence*, because security products and automation can use it in large scale to protect and detect potential threats. Microsoft Sentinel can help detect, respond to, and provide CTI context for malicious cyber activity.
+
+### Potential use cases
+
+- Connect to open-source threat indicator data from public servers to identify, analyze, and respond to threat activity.
+- Use existing threat intelligence platforms or custom solutions with the Microsoft Graph **tiIndicators** API to connect and control access to threat indicator data.
+- Provide CTI context and reporting for security investigators and stakeholders.
 
 ## Considerations
 

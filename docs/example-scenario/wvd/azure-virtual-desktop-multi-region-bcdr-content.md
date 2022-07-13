@@ -199,6 +199,9 @@ The following example shows a Cloud Cache configuration and related registry key
   - Registry Key path = **HKEY_LOCAL_MACHINE > SOFTWARE > FSLogix > Profiles**
   - *CCDLocations* value = **type=smb,connectionString=\\northeustg1\profiles;type=smb,connectionString=\\westeustg1\profiles**
 
+> [!NOTE]
+> If you previously downloaded the **FSLogix Templates**, you can accomplish the same configurations through the Active Directory Group Policy Management Console. For more details on how to set up the Group Policy Object for FSLogix, refer to the guide, [Use FSLogix Group Policy Template Files](/fslogix/use-group-policy-templates-ht).
+
     :::image type="content" source="images/fslogix-cloud-cache-registry-keys-hires.png" alt-text="Screenshot that shows the Cloud Cache registry keys." lightbox="images/fslogix-cloud-cache-registry-keys-hires.png":::
 
 - Office container storage account URI = **\\northeustg2\odcf**
@@ -225,14 +228,14 @@ The Cloud Cache configuration and replication mechanisms guarantee profile data 
 
 :::image type="content" source="images/cloud-cache-replication-diagram.png" alt-text="Diagram that shows a high-level overview of the Cloud Cache replication flow." lightbox="images/cloud-cache-replication-diagram.png":::
 
-#### Workflow
+#### Dataflow
 
 1. The Virtual Desktop user launches Virtual Desktop client, and then opens a published Desktop or Remote App application assigned to the primary region host pool.
-2. FSLogix retrieves the user Profile and Office containers, and then mounts the underlying storage VHD/X from the storage account located in the primary region.
-3. At the same time, the Cloud Cache component initializes replication between the files in the primary region and the files in the secondary region. For this process, Cloud Cache in the primary region acquires an exclusive read-write lock on these files.
-4. The same Virtual Desktop user now wants to launch another published application assigned on the secondary region host pool.
-5. The FSLogix component running on the Virtual Desktop session host in the secondary region tries to mount the user profile VHD/X files from the local storage account. But the mounting fails since these files are locked by the Cloud Cache component running on the Virtual Desktop session host in the primary region.
-6. In the default FSLogix and Cloud Cache configuration, the user can't sign in and an error is tracked in the FSLogix diagnostic logs, *ERROR_LOCK_VIOLATION 33 (0x21)*.
+1. FSLogix retrieves the user Profile and Office containers, and then mounts the underlying storage VHD/X from the storage account located in the primary region.
+1. At the same time, the Cloud Cache component initializes replication between the files in the primary region and the files in the secondary region. For this process, Cloud Cache in the primary region acquires an exclusive read-write lock on these files.
+1. The same Virtual Desktop user now wants to launch another published application assigned on the secondary region host pool.
+1. The FSLogix component running on the Virtual Desktop session host in the secondary region tries to mount the user profile VHD/X files from the local storage account. But the mounting fails since these files are locked by the Cloud Cache component running on the Virtual Desktop session host in the primary region.
+1. In the default FSLogix and Cloud Cache configuration, the user can't sign in and an error is tracked in the FSLogix diagnostic logs, *ERROR_LOCK_VIOLATION 33 (0x21)*.
 
     :::image type="content" source="images/fslogix-log.png" alt-text="Screenshot that shows the FSLogix diagnostic log." lightbox="images/fslogix-log.png":::
 
@@ -247,7 +250,7 @@ One of the most important dependencies for Virtual Desktop is the availability o
 - **Azure AD Connect**
   - If you're using Azure AD with Active Directory Domain Services, and then [Azure AD Connect](/azure/active-directory/hybrid/whatis-azure-ad-connect) to synchronize user identity data between Active Directory Domain Services and Azure AD, you should consider the resiliency and recovery of this service for protection from a permanent disaster.
   - You can provide high availability and disaster recovery by installing a second instance of the service in the secondary region and enable [staging mode](/azure/active-directory/hybrid/plan-connect-topologies#staging-server).
-  - If there's a recovery, the administrator is required to promote the secondary instance by taking it out of staging mode. They must follow the same procedure as placing a server into staging mode.
+  - If there's a recovery, the administrator is required to promote the secondary instance by taking it out of staging mode. They must follow the same procedure as placing a server into staging mode. Azure AD Global Administrator credentials are required to perform this configuration.
 
     :::image type="content" source="images/active-directory-connect-configuration-wizard.png" alt-text="Screenshot that shows the A D Connect configuration wizard.":::
 
@@ -319,9 +322,9 @@ Here's the initial situation and configuration assumptions:
 The following steps describe when a failover happens, after either a planned or unplanned disaster recovery.
 
 1. In the primary host pool, remove user assignments by the groups GRP1, GRP2, and GRP3 for application groups DAG1, APPG2, and APPG3.
-2. There's a forced disconnection for all connected users from the primary host pool.
-3. In the secondary host pool, where the same application groups are configured, you must grant user access to DAG1, APPG2, and APPG3 using groups GRP1, GRP2, and GRP3.
-4. Review and adjust the capacity of the host pool in the secondary region. Here, you might want to rely on an auto-scale plan to automatically power on session hosts. You can also manually start the necessary resources.
+1. There's a forced disconnection for all connected users from the primary host pool.
+1. In the secondary host pool, where the same application groups are configured, you must grant user access to DAG1, APPG2, and APPG3 using groups GRP1, GRP2, and GRP3.
+1. Review and adjust the capacity of the host pool in the secondary region. Here, you might want to rely on an auto-scale plan to automatically power on session hosts. You can also manually start the necessary resources.
 
 The **Failback** steps and flow are similar, and you can execute the entire process multiple times. Cloud Cache and configuring the storage accounts ensures that Profile and Office container data is replicated. Before failback, ensure that the host pool configuration and compute resources will be recovered. For the storage part, if there's data loss in the primary region, Cloud Cache will replicate Profile and Office container data from the secondary region storage.
 
@@ -365,11 +368,12 @@ FSLogix permits this configuration and the usage of separate storage accounts. O
 
 Principal authors:
 
-- [Ben Martin Baur](https://www.linkedin.com/in/ben-martin-baur) | Cloud Solution Architect
-- [Igor Pagliai](https://www.linkedin.com/in/igorpag) | FastTrack for Azure (FTA) Principal Engineer
+ * [Ben Martin Baur](https://www.linkedin.com/in/ben-martin-baur) | Cloud Solution Architect
+ * [Igor Pagliai](https://www.linkedin.com/in/igorpag) | FastTrack for Azure (FTA) Principal Engineer
 
-Other contributor:
+Other contributors:
 
+- [Nelson Del Villar](https://www.linkedin.com/in/nelsondelvillar) | Senior Customer Engineer
 - [Jason Martinez](https://www.linkedin.com/in/jason-martinez-502766123) | Technical Writer
 
 ## Next steps

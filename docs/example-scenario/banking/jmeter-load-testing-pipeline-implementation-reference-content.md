@@ -1,54 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This article provides an overview of an implementation for a scalable cloud load testing pipeline. The testing pipeline does a lot to carry out stress testing:
-
-* Creates infrastructure on-demand.
-
-* Deploys the infrastructure.
-
-* Executes testing.
-
-* Reports results.
-
-* Destroys infrastructure on-demand.
-
-The implementation uses [Apache JMeter](https://jmeter.apache.org) and [Terraform](https://www.terraform.io) to provision and destroy the required infrastructure from Azure. It also enables observation and viewing of test results. The commercial software engineer (CSE) team used it to help a customer create a [banking system cloud transformation solution](banking-system-cloud-transformation.yml).
-
-This implementation enables the following capabilities:
-
-* Viewing combined data in a dashboard to monitor the scalability and performance of a solution infrastructure.
-
-* The ability to determine:
-
-  * The impact of infrastructure scalability.
-
-  * The reaction to failures in the existing architectural design and various workloads.
-
-  The CSE team made these determinations by observing a set of simulations. They ran functional scenarios in the simulations and monitored the performance and scalability of the infrastructure.
-
-* Supports any system that exposes a JMeter supported endpoint. For example: Azure Container Instances (ACI), Azure Kubernetes Service (AKS), and so on. Carries out pod/node autoscaling and performance tests on all services.
-
-The implementation also supports:
-
-* Executing performance tests over the microservices until the solution reaches or surpasses a target of a set number of transactions per second.
-
-* Executing horizontal pod/node autoscaling tests over microservices.
-
-* Providing observability on specific solution component(s) by activating metrics captured (for example, with Prometheus and Grafana).
-
-* Providing a detailed report about the tests executed, the applications' behavior and the partitioning strategies adopted where applicable (for example, Kafka).
-
-This implementation provides the following advantages:
-
-* Full integration with Azure.
-
-* Alternative to other proprietary/deprecating solutions.
-
-* Fully open-source.
-
-## Potential use case
-
-This solution is ideal for any scenario in which there's a need to evaluate the capability of different infrastructure designs and configurations to handle different types of loads.
+This article provides an overview of an implementation for a scalable cloud load testing pipeline.
 
 ## Architecture
 
@@ -56,7 +8,7 @@ This solution is ideal for any scenario in which there's a need to evaluate the 
 
 ### Workflow
 
-The CSE team structured the load testing implementation into two Azure Pipelines:
+The Microsoft CSE team structured the load testing implementation into two Azure Pipelines:
 
 1. One pipeline builds a custom JMeter Docker container and pushes the image to Azure Container Registry (ACR). This structure provides flexibility for adding any JMeter plugin.
 
@@ -105,6 +57,58 @@ To integrate with Azure test results, the solution uses a Python script to conve
   * [Apache JMeter](https://jmeter.apache.org)
 
   * [Terraform](https://www.terraform.io)
+
+## Scenario details
+
+This article provides an overview of an implementation for a scalable cloud load testing pipeline. The testing pipeline does a lot to carry out stress testing:
+
+* Creates infrastructure on-demand.
+
+* Deploys the infrastructure.
+
+* Executes testing.
+
+* Reports results.
+
+* Destroys infrastructure on-demand.
+
+The implementation uses [Apache JMeter](https://jmeter.apache.org) and [Terraform](https://www.terraform.io) to provision and destroy the required infrastructure from Azure. It also enables observation and viewing of test results. The commercial software engineer (CSE) team used it to help a customer create a [banking system cloud transformation solution](banking-system-cloud-transformation.yml).
+
+This implementation enables the following capabilities:
+
+* Viewing combined data in a dashboard to monitor the scalability and performance of a solution infrastructure.
+
+* The ability to determine:
+
+  * The impact of infrastructure scalability.
+
+  * The reaction to failures in the existing architectural design and various workloads.
+
+  The CSE team made these determinations by observing a set of simulations. They ran functional scenarios in the simulations and monitored the performance and scalability of the infrastructure.
+
+* Supports any system that exposes a JMeter supported endpoint. For example: Azure Container Instances (ACI), Azure Kubernetes Service (AKS), and so on. Carries out pod/node autoscaling and performance tests on all services.
+
+The implementation also supports:
+
+* Executing performance tests over the microservices until the solution reaches or surpasses a target of a set number of transactions per second.
+
+* Executing horizontal pod/node autoscaling tests over microservices.
+
+* Providing observability on specific solution component(s) by activating metrics captured (for example, with Prometheus and Grafana).
+
+* Providing a detailed report about the tests executed, the applications' behavior and the partitioning strategies adopted where applicable (for example, Kafka).
+
+This implementation provides the following advantages:
+
+* Full integration with Azure.
+
+* Alternative to other proprietary/deprecating solutions.
+
+* Fully open-source.
+
+### Potential use cases
+
+This solution is ideal for any scenario in which there's a need to evaluate the capability of different infrastructure designs and configurations to handle different types of loads.
 
 ## Next steps
 
