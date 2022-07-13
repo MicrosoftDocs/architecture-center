@@ -2810,10 +2810,10 @@ items:
                 href: solution-ideas/articles/interactive-price-analytics.yml
               - name: IoT and data analytics
                 href: example-scenario/data/big-data-with-iot.yml
-              - name: Real-time lakehouse data processing
-                href: example-scenario/data/real-time-lakehouse-data-processing.yml
               - name: Long-term security logs in Data Explorer
                 href: example-scenario/security/security-log-retention-azure-data-explorer.yml
+              - name: Near real-time processing for lakehouse data
+                href: example-scenario/data/real-time-lakehouse-data-processing.yml
               - name: Partitioning in Event Hubs and Kafka
                 href: reference-architectures/event-hubs/partitioning-in-event-hubs-and-kafka.yml
               - name: Precision medicine pipeline with genomics
