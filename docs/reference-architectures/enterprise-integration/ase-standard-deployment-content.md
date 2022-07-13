@@ -8,7 +8,9 @@ This reference architecture demonstrates a common enterprise workload using ASE,
 
 ## Architecture
 
-![Reference architecture for standard ASE deployment](./_images/standard-ase-deployment.png)
+![Diagram showing architecture for standard App Service Environment deployment.](./_images/standard-ase-deployment.png)
+
+*Download a [Visio file](https://arch-center.azureedge.net/standard-ase-deployment.vsdx) of this architecture.*
 
 ### Workflow
 
