@@ -1635,8 +1635,6 @@ items:
                 href: solution-ideas/articles/anomaly-detector-process.yml
               - name: Batch integration in a factory
                 href: example-scenario/iot/batch-integration-azure-data-factory-digital-twins.yml
-              - name: Build a speech-to-text transcription pipeline
-                href: reference-architectures/ai/speech-to-text-transcription-pipeline.yml
               - name: Computer vision for manufacturing
                 href: reference-architectures/ai/end-to-end-smart-factory.yml
               - name: Condition monitoring
@@ -2761,8 +2759,8 @@ items:
                 href: example-scenario/ai/scale-ai-and-machine-learning-in-regulated-industries.yml
               - name: Secure research for regulated data
                 href: example-scenario/ai/secure-compute-for-research.yml
-              - name: Speech to text conversion
-                href: reference-architectures/ai/speech-to-text-transcription-pipeline.yml
+              - name: Speech transcription pipeline
+                href: example-scenario/ai/speech-to-text-transcription-analytics.yml
               - name: Training Python models
                 href: reference-architectures/ai/training-python-models.yml
           - name: Solution ideas
