@@ -143,16 +143,18 @@ Webhooks enable you to send events to your tenants at a URL that they provide to
 
 [CloudEvents](https://cloudevents.io/) is a standardized data format for webhooks. If you choose to build your own webhook eventing system, consider following the CloudEvents standard to simplify your tenants' integration requirements. Alternatively, you can use a service like [Azure Event Grid](/azure/event-grid/overview) to provide webhook functionality. Event Grid works natively with CloudEvents.
 
+> [!NOTE]
+> Whenever you make outbound connections to your tenants' systems, remember that you're connecting to an external system. Follow recommended cloud practices including using [retries](../../../patterns/retry.yml), the [Circuit Breaker pattern](../../../patterns/circuit-breaker.yml), and the [Bulkhead pattern](../../../patterns/bulkhead.yml) to ensure that problems in the tenant's system don't propagate to your system.
+
 ### Delegated user access
 
-<!-- TODO here down -->
+When you access data from a tenant's data stores, consider whether you need to use a specific user's identity to access the data. When you do, your integration is subject to the same permissions that the user has. This approach is often called [delegated access](#full-and-user-delegated-access).
 
-<!-- Make this section stand alone without the section earlier - might need to repeat a bit of the info above -->
-* If you need to access data directly from a tenant's own data stores, consider whether you need to use a user's identity (and associated permissions).
-  * Example scenario: You provide and run ML models on your tenants' data. You need to access their data in Synapse, Azure Storage, etc. Each tenant presumably has their own AAD tenant.
-* When implementing user-delegated access, it makes it easier if the service supports AAD. Not all services do. [See here for complete list](/azure/active-directory/managed-identities-azure-resources/services-azure-active-directory-support)
-* You probably need to store user tokens (and, importantly, refresh tokens) for each user that you need to impersonate.
-* If you make outbound connections to your tenants, treat them as external systems and follow good practices around things like retries/circuit breakers, bulkheads, etc. Ensure if they have problems that they don't propagate to your system
+For example, suppose your multitenant service runs machine learning models over your tenants' data. You need to access each tenant's data store from services like Azure Synapse Analytics, Azure Storage, Azure Cosmos DB, and others. Each tenant has their own Azure AD instance. Your solution can be granted delegated access to the data store so that you can retrieve the data that a specific user can access.
+
+Delegated access is easier if the data store supports Azure AD authentication. [Many Azure services support Azure AD identities.](/azure/active-directory/managed-identities-azure-resources/services-azure-active-directory-support)
+
+After a user establishes the initial connection, your system needs to securely store user tokens and refresh tokens so that you can continue to access the data store.
 
 ### Messaging
 
