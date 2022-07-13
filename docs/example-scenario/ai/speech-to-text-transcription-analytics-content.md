@@ -11,7 +11,7 @@ The architecture consists of two pipelines:
 
 ### Transcription pipeline
 
-![Diagram that illustrates how to ingest speech and convert it to text by using Azure Cognitive Services.](./media/speech-to-text-transcription-pipeline.png)
+![Diagram that illustrates how to ingest speech and convert it to text by using Azure Cognitive Services.](./media/speech-to-text-transcription.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/speech-to-text-transcription-pipeline.vsdx) of this architecture.*
 
@@ -24,7 +24,7 @@ The architecture consists of two pipelines:
 
 ### Enrichment and visualization pipeline
 
-![Diagram that illustrates the enrichment and visualization pipeline.](./media/speech-to-text-analytics-nlp-pipeline.png)
+![Diagram that illustrates the enrichment and visualization pipeline.](./media/speech-to-text-nlp.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/speech-to-text-transcription-pipeline.vsdx) of this architecture.*
 
