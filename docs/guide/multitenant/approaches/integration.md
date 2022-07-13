@@ -92,7 +92,7 @@ Consider the network topology for accessing your tenant's system, which might in
 - **Connect across the internet.** If you connect across the internet, how will the connection be secured? If your tenants plan to restrict based on your IP addresses, ensure that the Azure services that you use support static IP addresses for outbound connections. Consider using [NAT Gateway](../service/nat-gateway.md) to provide static IP addresses if required.
 - **Private endpoints** can be a useful approach to connect to tenants' systems if they're also hosted in Azure.
 - **Agents**, which are [deployed into a tenant's enironment](../approaches/networking.md#agents), can provide a flexible approach and avoid the need for your tenants to allow inbound connections.
-- **Relays**, such as [Azure Relay](TODO), also provide an approach to avoid inbound connections.
+- **Relays**, such as [Azure Relay](/azure/azure-relay/relay-what-is-it), also provide an approach to avoid inbound connections.
 
 #### Authentication
 
@@ -127,7 +127,7 @@ Realtime integrations commonly involve exposing APIs to your tenants or other pa
 - Is there a limit to the number of requests that an API user can make over a period of time?
 - How will you provide information about your APIs, and documentation for each API? For example, you might implement a developer portal.
 
-It's a good practice to use an API gateway, such as [Azure API Management](TODO), to handle these concerns and many others. By using an API gateway, you hav ea single place to implement policies that your APIs follow and you simplify the implementation of your backend API systems.
+It's a good practice to use an API gateway, such as [Azure API Management](/azure/api-management/api-management-key-concepts), to handle these concerns and many others. By using an API gateway, you have a single place to implement policies that your APIs follow and you simplify the implementation of your backend API systems.
 
 ### Valet Key pattern
 
@@ -139,13 +139,13 @@ Similarly, you can generate a shared access signature with permissions to write 
 
 ### Webhooks
 
-<!-- TODO here down -->
+Webhooks enable you to send events to your tenants at a URL that they provide to you. When you have information to send, you initiate a connection to the tenant's webhook and include your data in the HTTP request payload.
 
-* Enables you to send events to tenants at URLs they specify.
-* Can use a service like Event Grid, or build your own eventing system. TODO link to section below about Event Grid and EG domains
-* Consider using CloudEvents as a standard if you create events. Event Grid works natively with CloudEvents, but you can follow the same standard even if you use other approaches.
+[CloudEvents](https://cloudevents.io/) is a standardized data format for webhooks. If you choose to build your own webhook eventing system, consider following the CloudEvents standard to simplify your tenants' integration requirements. Alternatively, you can use a service like [Azure Event Grid](/azure/event-grid/overview) to provide webhook functionality. Event Grid works natively with CloudEvents.
 
 ### Delegated user access
+
+<!-- TODO here down -->
 
 <!-- Make this section stand alone without the section earlier - might need to repeat a bit of the info above -->
 * If you need to access data directly from a tenant's own data stores, consider whether you need to use a user's identity (and associated permissions).
