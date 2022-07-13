@@ -8,7 +8,7 @@ download link
 
 ### Workflow
 
-Charon-PAR runs on Azure, emulating the PA-RISC systems for HP-UX. On this virtual system (Azure virtual machines), you install the Charon host operating system (Linux), the Charon emulator software, and your legacy operating system (HP-UX) and the associated applications. It's as though you're using the original hardware. This configuration enables an HP-UX workload or application to run unchanged in an emulation environment on a VM in Azure.
+Charon-PAR runs on Azure, emulating the PA-RISC systems for HP-UX. On this virtual system (Azure virtual machines), you install the Charon host operating system (Linux), the Charon emulator software, and your legacy operating system (HP-UX) and the associated applications. The configuration enables an HP-UX workload or application to run unchanged in an emulation environment on a VM in Azure. The virtual system behaves as though you're using the original hardware.
 
 1. The Charon-PAR software runs on Linux Azure VMs because Charon-PAR requires a Linux host. Charon-PAR emulates the PA-RISC processor architecture. The HP-UX workloads run on these emulated PA-RISC systems.
 1. The HP-UX workloads can reside on the solid-state drive (SSD) managed disk of the host Azure VM.
