@@ -130,7 +130,7 @@ Other contributors:
 - [What is Azure ExpressRoute?](/azure/expressroute/expressroute-introduction)
 - [Create a Linux virtual machine in Azure](/learn/modules/create-linux-virtual-machine-in-azure)
 
-For more information, contact legacy2azure@microsoft.com
+For more information, contact [legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com).
 
 ## Related resources
 
