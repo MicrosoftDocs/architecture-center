@@ -26,7 +26,7 @@ Charon-PAR runs on Azure, emulating the PA-RISC systems for HP-UX. On this virtu
 - [Azure SSD managed disks](/azure/virtual-machines/managed-disks-overview) are block-level storage volumes managed by Azure that are used with Azure VMs. Ultra disks, premium SSDs, standard SSDs, and standard hard disk drives (HDDs) are available. For this architecture, we recommend either premium SSDs or ultra disk SSDs.
 - [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) enables you to extend your on-premises networks into the Microsoft Cloud over a private connection that's facilitated by a connectivity provider. By using ExpressRoute, you can establish connections to Microsoft Cloud services like Azure and Microsoft 365.
 - [Azure Storage](https://azure.microsoft.com/product-categories/storage) and [Azure Files](https://azure.microsoft.com/services/storage/files) offer fully managed file shares in the cloud that can be accessed via the industry-standard Server Message Block (SMB) protocol. Azure file shares can be mounted concurrently by cloud or on-premises deployments of Windows, Linux, and macOS.
-- [Stromasys Charon-PAR](https://www.stromasys.com/solutions/charon-par) re-creates the PA-RISC virtual hardware layer on industry standard x86-64 computer systems and VMs. The virtual hardware layer is compatible with a range of HP-UX software that runs on it, so there's no need for code conversion or source code. (See a list of [compatible versions](https://fileserver.stromasys.com/files/list?apikey=par-3-0-4-lp_6363838b&name=).) CHARON-PAR is a member of the Stromasys cross-platform hardware virtualization product family. It's a hardware virtualization layer that runs under Linux on industry standard servers. It emulates a range of historic 64-bit and 32-bit PA-RISC hardware and enables existing users of these systems to move to modern Intel-based server hardware.
+- [Stromasys Charon-PAR](https://www.stromasys.com/solutions/charon-par) re-creates the PA-RISC virtual hardware layer on industry standard x86-64 computer systems and VMs. The virtual hardware layer is compatible with a range of HP-UX software that runs on it, so there's no need for code conversion or source code. (See a list of [compatible versions](https://fileserver.stromasys.com/files/list?apikey=par-3-0-4-lp_6363838b&name=).) Charon-PAR is a member of the Stromasys cross-platform hardware virtualization product family. It's a hardware virtualization layer that runs under Linux on industry standard servers. It emulates a range of historical 64-bit and 32-bit PA-RISC hardware and enables existing users of these systems to move to modern Intel-based server hardware.
 
 ### Alternatives
 
@@ -38,9 +38,9 @@ For the best performance, we recommend a compute-optimized FX-series VM. You can
 
 Frequently, the evolution and maintenance of business applications is stalled because of underlying legacy hardware. Sometimes the hardware is no longer compatible with newer upgrades and integrations, or, worse, it's no longer supported. Aging infrastructure for mission critical-applications is a concern. The longer the problem remains unsolved, the higher the risk and cost of mitigation. 
 
-These applications have supported the organization's critical business and evolved over decades, gone through audits and certifications, and have well-established operations around them. Instead of a high-risk and complex re-engineering project, an alternative approach is a low-risk project that moves the applications as-is to a modern and less expensive platform, like Azure cloud, with the help of an emulator. Such a project, often called *lift and shift*, preserves the business functionality of the application and replaces only the hardware, guaranteeing business continuity.
+These applications might have supported the organization's critical business and evolved over decades, gone through audits and certifications, and have well-established operations around them. Instead of a high-risk and complex re-engineering project, an alternative approach is a low-risk project that moves the applications as-is to a modern and less expensive platform, like Azure cloud, with the help of an emulator. Such a project, often called *lift and shift*, preserves the business functionality of the application and replaces only the hardware, guaranteeing business continuity.
 
-Running applications with an emulator on the cloud provides numerous benefits, like security, elasticity, disaster recovery, high availability, and failover. But the most significant benefit is the reduced operational costs and ease of maintenance. No risky migration projects or changes to the software (operating system, middleware) are required. A server virtualization software on Azure can be the first step towards modernization. After the workload is on Azure, you can potentially take advantage of other benefits of the cloud.
+Running applications with an emulator on the cloud provides numerous benefits, like security, elasticity, disaster recovery, high availability, and failover. But the most significant benefit is the reduced operational costs and ease of maintenance. No risky migration projects or changes to the software (operating system and middleware) are required. A server virtualization software on Azure can be the first step towards modernization. After the workload is on Azure, you can potentially take advantage of other benefits of the cloud.
 
 This article describes a migration of an HP-UX workload to Azure. It shows how emulator software Charon-PAR can run HP-UX workloads on Azure.
 
@@ -48,7 +48,7 @@ The core business of [Stromasys](https://www.stromasys.com) centers on cross-pla
 
 The Stromasys Charon environment provides a significantly higher level of platform stability. For the first time since the first HP-UX systems were introduced, replacing the actual physical server no longer requires any changes to the HP-UX software environment. Charon also provides more platform stability and has virtually unlimited lifetime.
 
-With the steady increase in the use of Azure-hosted systems in the typical corporate environment, an emulated HP-UX system hosted on Linux is the best way to host an HP-UX system in these environments. Integral to the engagement is the ability to demonstrate the functionality of the emulated HP-UX-based applications in a virtual/Azure/Charon environment.
+With the steady increase in the use of Azure-hosted systems in the typical corporate environment, an emulated HP-UX system hosted on Linux is the best way to host an HP-UX system in these environments.
 
 The following image illustrates the migration approach recommended in this article:
 
@@ -57,7 +57,7 @@ The following image illustrates the migration approach recommended in this artic
 Benefits of the lift-and-shift approach to migration include:
 
 - Azure/Charon customers can continue to use existing critical applications without the cost of rewriting, porting, migrating, or retraining.
-- Maintenance costs are reduced by moving these applications to emulated systems that are hosted on Azure.
+- Maintenance costs are reduced because these applications are moved to emulated systems that are hosted on Azure.
 
 
 ### Potential use cases
@@ -65,7 +65,7 @@ Benefits of the lift-and-shift approach to migration include:
 - Enable low-friction lift-and-shift of on-premises HP-UX workloads that run on PA-RISC server machines to Azure.
 - Continue to use HP-UX applications that run on end-of-life PA-RISC servers without any changes, but free the applications from old hardware and continue to provide users with the same or better interfaces.
 - Manage multiple server hosts and child VMs from a single interface.
-- Use low-cost Azure storage to archive tapes for regulatory and compliance.
+- Use low-cost Azure storage to archive tapes for regulatory and compliance purposes.
 - Migrate a database to the cloud and run the application in the cloud via emulation without any changes.
 
 ## Considerations
@@ -77,20 +77,20 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 - This solution uses an Azure network security group to manage traffic between Azure resources. For more information, see [Network security groups](/azure/virtual-network/network-security-groups-overview).
-- [For additional security, consider using Azure Bastion](https://azure.microsoft.com/services/azure-bastion). Azure Bastion maximizes admin access security by minimizing open ports. Bastion provides secure and seamless RDP/SSH connectivity to virtual network VMs directly from the Azure portal over TLS.
+- [For additional security, consider using Azure Bastion](https://azure.microsoft.com/services/azure-bastion). Azure Bastion maximizes admin access security by minimizing open ports. It provides secure and seamless RDP/SSH connectivity to virtual network VMs directly from the Azure portal over TLS.
 
 ### Cost optimization
 
 Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-Azure avoids unnecessary costs by identifying the correct number of resource types, analyzing spending over time, and scaling to meet business needs without overspending. For example, with Azure you pay as you go, so when you don't need workloads, you can shut them down to save money. You can start Charon-PAR as a service manually or automatically when the Azure VM starts. You can stop the service manually or automatically when the host system shuts down. Ensure that you always shut down the guest OS (HP-UX), then the emulator (Charon), and then the host VM (Azure VM). When you bring up the system, do it in the reverse order. Here are few other cost optimization considerations:
+Azure avoids unnecessary costs by identifying the correct number of resource types, analyzing spending over time, and scaling to meet business needs without overspending. For example, with Azure you pay as you go, when you don't need workloads, you can shut them down to save money. You can start Charon-PAR as a service manually or automatically when the Azure VM starts. You can stop the service manually or automatically when the host system shuts down. Ensure that you always first shut down the guest OS (HP-UX), then the emulator (Charon), and then the host VM (Azure VM). When you start up the system, do it in the reverse order. Here are few other cost optimization considerations:
 
 - [Azure Files](https://azure.microsoft.com/pricing/details/storage/files) pricing depends on many factors: data volume, data redundancy, transaction volume, and the number of file sync servers that you use.
 - [Azure Storage](https://azure.microsoft.com/pricing/details/storage) costs depend on your data redundancy configurations and volume.
 - The VMs in this architecture use either premium SSDs or ultra disk SSDs. For more information, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks).
 - For [ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute), you pay a monthly port fee and outbound data transfer charges.
 
-To estimate the cost of Azure products and configurations, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator). To learn more about Stromasys products and their related services, see the [Stromasys website](https://www.stromasys.com)
+To estimate the cost of Azure products and configurations, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator). To learn more about Stromasys products and their related services, see the [Stromasys website](https://www.stromasys.com).
 
 ### Operational excellence
 
@@ -102,9 +102,9 @@ Operational excellence covers the operations processes that deploy an applicatio
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
-At least one CPU core for the host operating system and two cores per emulated CPU are required. This solution works best with [compute optimized Azure VMs](/azure/virtual-machines/sizes-compute). Compute optimized VMs have a high CPU-to-memory ratio. The [FX-series](/azure/virtual-machines/fx-series) virtual machine is a new addition to the F-Series. For the best performance, we recommend a FX-series VM. It's designed for high-frequency compute workloads. It features a base frequency of 3.4 GHz and an all-core-turbo clock speed of up to 4.0 GHz. We recommend FX-series for high-end HP-UX workloads.
+At least one CPU core for the host operating system and two cores per emulated CPU are required. This solution works best with [compute optimized Azure VMs](/azure/virtual-machines/sizes-compute). Compute optimized VMs have a high CPU-to-memory ratio. The [FX-series](/azure/virtual-machines/fx-series) virtual machine is a new addition to the F-Series. For the best performance, we recommend an FX-series VM. It's designed for high-frequency compute workloads. It features a base frequency of 3.4 GHz and an all-core-turbo clock speed of up to 4.0 GHz. We recommend FX-series for high-end HP-UX workloads.
 
-Fx-series VMs feature a higher CPU-to-memory ratio. They're equipped with 2 GB of RAM and 16 GB of local SSD per CPU core. 
+Fx-series VMs are equipped with 2 GB of RAM and 16 GB of local SSD per CPU core.
 
 ## Contributors
 
