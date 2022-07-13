@@ -179,11 +179,11 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 Principal authors:
 
 - [Manasa Ramalinga](https://www.linkedin.com/in/trmanasa) | Senior Cloud Solution Architect, US National CSA Team
-- [Charitha Basani](https://www.linkedin.com/in/charitha-basani-54196031) | Senior Cloud Solution Architect, US National CSA Team
 
-Other contributor:
+Other contributors:
 
 - [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer 
+- [Charitha Basani](https://www.linkedin.com/in/charitha-basani-54196031) | Senior Cloud Solution Architect, US National CSA Team
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
