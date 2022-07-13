@@ -12,7 +12,7 @@ This article describes an end-to-end solution for near real-time data processing
 
 ### Dataflow
 
-1. Change data capture is a prerequisite for source systems to listen to changes. [Debezium connectors](https://debezium.io/documentation/reference/stable/connectors/index.html) can connect to different source systems and tap into changes as they happen. Debezium connectors can capture changes and produce events from various relational database management systems (RDBMS). Installing a Debezium connector requires a Kafka connect system.
+1. Change data capture is a prerequisite for source systems to listen to changes. [Debezium connectors](https://debezium.io/documentation/reference/stable/connectors/index.html) can connect to different source systems and tap into changes as they happen. The connectors can capture changes and produce events from various relational database management systems (RDBMS). Installing a Debezium connector requires a Kafka connect system.
 
 1. The connectors extract change data and send the captured events to Azure Event Hubs. Event Hubs can receive large amounts of data from multiple sources.
 
@@ -22,7 +22,9 @@ This article describes an end-to-end solution for near real-time data processing
 
 1. Azure Synapse Spark pools use fully supported Apache Spark structured streaming APIs to process data in the Spark streaming framework. The data processing step incorporates data quality checks and high-level business rule validations.
 
-1. Data Lake Storage stores the validated data in the open [Delta Lake](https://docs.delta.io/latest/delta-intro.html) format. Delta Lake provides atomicity, consistency, isolation, and durability (ACID) semantics and transactions, scalable metadata handling, and unified streaming and batch data processing for existing data lakes. Using indexes for query acceleration augments Delta with further performance enhancements. Data from the Data Lake Storage validated zone can also be a source for further advanced analytics and machine learning.
+1. Data Lake Storage stores the validated data in the open [Delta Lake](https://docs.delta.io/latest/delta-intro.html) format. Delta Lake provides atomicity, consistency, isolation, and durability (ACID) semantics and transactions, scalable metadata handling, and unified streaming and batch data processing for existing data lakes.
+
+   Using indexes for query acceleration augments Delta with further performance enhancements. Data from the Data Lake Storage validated zone can also be a source for further advanced analytics and machine learning.
 
 1. Data from the Data Lake Storage validated zone, transformed and enriched with more rules into its final processed state, loads to a dedicated SQL pool for running large scale analytical queries.
 
@@ -39,15 +41,15 @@ This article describes an end-to-end solution for near real-time data processing
 
 ### Components
 
-The solution uses the following Azure components:
+This solution uses the following Azure components:
 
-- [Event Hubs](https://azure.microsoft.com/services/event-hubs) is a managed, distributed ingestion service that can scale to ingest large amounts of data. With the Event Hubs subscriber-publisher mechanism, different applications can send messages to topics in Event Hubs, and downstream consumers can connect to and process messages. The Event Hubs capture feature can write messages to Data Lake Storage in AVRO format as they arrive. This ability enables easy micro-batch processing and long-term retention scenarios. Event Hubs also offers a Kafka-compatible API and supports schema registry.
+- [Event Hubs](https://azure.microsoft.com/services/event-hubs) is a managed, distributed ingestion service that can scale to ingest large amounts of data. With the Event Hubs subscriber-publisher mechanism, different applications can send messages to topics in Event Hubs, and downstream consumers can connect to and process messages. The Event Hubs Capture feature can write messages to Data Lake Storage in AVRO format as they arrive. This ability enables easy micro-batch processing and long-term retention scenarios. Event Hubs also offers a Kafka-compatible API, and supports schema registry.
 
 - [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) forms the storage subsystem that stores all data in raw and validated formats. Data Lake Storage can handle transactions at scale, and supports different file formats and sizes. Hierarchical namespaces help customers organize data into a familiar folder structure and support Portable Operating System Interface for UniX (POSIX) permissions. The Azure Blob Filesystem (ABFS) driver offers a Hadoop-compatible API.
 
 - [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) is a limitless analytics service that brings together data integration, enterprise data warehousing, and big data analytics. This solution uses the following features of the Azure Synapse Analytics ecosystem:
 
-  - [Azure Synapse Spark pools](/azure/synapse-analytics/spark/apache-spark-overview) offer an on-demand Spark runtime with built-in performance enhancements to open-source Spark. Customers can configure flexible autoscale settings, submit jobs remotely through the Apache Livy endpoint, and use the Synapse Studio notebook interface for interactive experiences.
+  - [Azure Synapse Spark pools](/azure/synapse-analytics/spark/apache-spark-overview) offer an on-demand Spark runtime that adds built-in performance enhancements to open-source Spark. Customers can configure flexible autoscale settings, submit jobs remotely through the Apache Livy endpoint, and use the Synapse Studio notebook interface for interactive experiences.
 
   - [Azure Synapse SQL serverless pools](/azure/synapse-analytics/sql/on-demand-workspace-overview) provide an interface to query lakehouse data by using a familiar T-SQL syntax. There's no infrastructure to set up, and Azure Synapse workspace deployment automatically creates the endpoint. Azure Synapse SQL serverless pools enable basic discovery and exploration of data in place, and are a good option for end user ad-hoc query analysis.
 
@@ -113,11 +115,11 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
-- Event Hubs can be scaled through partitioning. Consider partitioning your data to preserve the order of events through a commit log. Partitioning lets you create multiple parallel logs by maximizing the available throughput capacity.
+- You can scale Event Hubs through partitioning. Consider partitioning your data to preserve the order of events through a commit log. Partitioning lets you create multiple parallel logs by maximizing the available throughput capacity.
 
 - You can set up Azure Synapse Spark pools using small, medium, or large virtual machine (VM) SKUs, based on the workload. You can also configure autoscale on Azure Synapse Spark pools to account for spiky workloads. If you need more compute resources, the clusters automatically scale up to meet the demand, and scale down after processing is complete.
 
-- Consider using best practices for designing tables in the dedicated SQL pool. Associated performance and scalability limits apply, based on the tier that the SQL pool is running on.
+- Use best practices for designing tables in the dedicated SQL pool. Associated performance and scalability limits apply, based on the tier that the SQL pool is running on.
 
 - Azure Cosmos DB uses partitions to scale containers, based on a partition key. All data based on a partition key forms a logical partition. Make sure to choose the correct partitioning strategy based on workload requirements. You can also use indexes for faster data retrieval.
 
