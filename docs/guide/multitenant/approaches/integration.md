@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes approaches to consider for integrations in a multitenant solution.
 author: johndowns
 ms.author: jodowns
-ms.date: 07/11/2022
+ms.date: 07/12/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -105,17 +105,20 @@ Whichever approach you select, ensure that your tenants follow the principle of 
 
 ### Tenants' access to your systems
 
-- Think carefully before providing tenants with direct access to your Azure resources.
-- There are approaches you can use to do it safely though, including:
-   - Valet Key pattern with security measures like shared access signatures
-   - Using features like a dedicated storage account, or SFTP
-- If you do this, it's best to keep integration resources separated from your core system resources. Otherwise, imagine if a tenant accidentally hammers your storage account and it approaches the transaction limit - you want to limit the blast radius to just the integration components, not your whole solution.
+If tenants need to connect to your system, consider providing dedicated APIs or other integration points, which you can then model as part of the surface area of your solution.
+
+In some situations, you might decide to provide your tenants with direct access to you Azure resources. Consider the ramifications carefully and ensure you understand how to grant access to tenants in a safe manner. For example, you might use one of the following approaches:
+
+- Use the [Valet Key pattern](#valet-key-pattern), which involves using security measures like shared access signatures to grant restricted access to certain Azure resources.
+- Use dedicated resources for integration points, such as a dedicated storage account. It's a good practice to keep integration resources separated from your core system resources. This approach helps you to minimize the *blast radius* of a security incident. It also ensure that, if a tenant accidentally initiates large numbers of connections to the resource and exhausts its capacity, the rest of your system will continue to run.
 
 ### Compliance
 
-- When you start to interact directly with your tenants' data, it's critical that you have a clear understanding of their [governance and compliance requirements](../approaches/governance-compliance.md).
+When you start to interact directly with your tenants' data, or transmit that data, it's critical that you have a clear understanding of your tenants' [governance and compliance requirements](../approaches/governance-compliance.md).
 
 ## Approaches and patterns to consider
+
+<!-- TODO here down -->
 
 ### Expose APIs
 
