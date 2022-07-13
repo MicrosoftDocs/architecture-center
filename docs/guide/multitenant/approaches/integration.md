@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes approaches to consider for integrations in a multitenant solution.
 author: johndowns
 ms.author: jodowns
-ms.date: 07/12/2022
+ms.date: 07/13/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -144,7 +144,7 @@ Webhooks enable you to send events to your tenants at a URL that they provide to
 [CloudEvents](https://cloudevents.io/) is a standardized data format for webhooks. If you choose to build your own webhook eventing system, consider following the CloudEvents standard to simplify your tenants' integration requirements. Alternatively, you can use a service like [Azure Event Grid](/azure/event-grid/overview) to provide webhook functionality. Event Grid works natively with CloudEvents, and supports [event domains](/azure/event-grid/event-domains), which are useful for multitenant solutions.
 
 > [!NOTE]
-> Whenever you make outbound connections to your tenants' systems, remember that you're connecting to an external system. Follow recommended cloud practices including using [retries](../../../patterns/retry.yml), the [Circuit Breaker pattern](../../../patterns/circuit-breaker.yml), and the [Bulkhead pattern](../../../patterns/bulkhead.yml) to ensure that problems in the tenant's system don't propagate to your system.
+> Whenever you make outbound connections to your tenants' systems, remember that you're connecting to an external system. Follow recommended cloud practices including using the [Retry pattern](../../../patterns/retry.yml), the [Circuit Breaker pattern](../../../patterns/circuit-breaker.yml), and the [Bulkhead pattern](../../../patterns/bulkhead.yml) to ensure that problems in the tenant's system don't propagate to your system.
 
 ### Delegated user access
 
@@ -167,22 +167,23 @@ In some scenarios, you might provide different service level agreements (SLAs) o
 
 ### Composable integration components
 
-* If you need to integrate with many tenants with different systems/formats, one approach is:
-   * Build a set of core integration data sets and code, e.g. using Azure Functions or Azure Data Factory
-   * Either:
-      * Expose these to your customers, so they can build their own integration components on top of them (e.g. using Logic Apps or Azure Data Factory); or
-      * Build Logic Apps or Data Factory pipelines for your customers
-   * This might give you the ability to build reusable components, while also meeting different tenants' integration requirements - e.g. different formats or transports.
-* Similarly when ingesting data from multiple tenants in different formats or from different transports, it's a good idea to standardise them. Consider using tenant-specific Logic Apps to normalise and ingest data into a standard format/location.
-* You might provide more options or flexibility for tenants at a higher pricing tier, while requiring that tenants at a lower tier follow a standard approach.
+In some scenarios, you might need to integrate with many different tenants, each of which uses different data formats or different types of network connectivity.
+
+A common approach in integration is to build and test individual steps that retrieve data, transform it to a specific format, and transmit it by using a particular network transport or to a known destination type. Typically, these individual elements are built by using services like Azure Functions and Azure Logic Apps. The overall integration process is defined by using a tool like Logic Apps or Azure Data Factory, and it invokes each of the steps that were already defined.
+
+When working with complex multitenant integration scenarios, it can be helpful to define a library of reusable integration steps. Then, you can either build workflows for each tenant to compose the applicable pieces together based on that tenant's requirements. Alternatively, you might be able to expose some of the data sets or integration components directly to your tenants so that they can build their own integration workflows from them.
+
+Similarly, you might need to import data from tenants who use a different data format or different transport to others. A good approach for this scenario is to build tenant-specific *connectors*, which are workflows that normalize and import the data into a standardized format and location, which then trigger your main import process.
+
+If you use a [tiered pricing model](../considerations/pricing-models.md#feature--and-service-level-based-pricing), you might choose to require that tenants at a low pricing tier follow a standard approach with a limited set of data formats and transports. Higher pricing tiers might enable more customization or flexibility in the integration components that you offer.
 
 ## Antipatterns to avoid
 
-- **Exposing your primary data stores directly to tenants.** For example, don't provide credentials to your data stores to your customers, and don't replicate from your MySQL main database to customers' read replicas. Create dedicated *integration data stores*, and use the Valet Key pattern to expose the data.
-- **Exposing APIs without API Management.**
-- **Tight coupling.** Integrations to third parties should be loosely coupled where possible, for security, performance isolation, etc.
-- **Custom code for each tenant.** Try to build up standardised approaches for integration and reuse them across tenants. If you have to customise, then keep as much shared logic as possible.
+- **Exposing your primary data stores directly to tenants.** For example, avoid providing credentials to your data stores to your customers, and don't replicate data from your primary database to customers' read replicas. Instead, create dedicated *integration data stores*, and use the [Valet Key pattern](#valet-key-pattern) to expose the data.
+- **Exposing APIs without an API gateway.** APIs have specific concerns for access control, billing, and metering. Even if you don't plan to use API policies initially, it's a good idea to include an API gateway early. That way, if you need to customize your API policies in the future, you don't need to make breaking changes to the URLs that a third party depends on.
+- **Unnecessary tight coupling.** Loose coupling, such as by using [messaging](#messaging) approaches, can provide a range of benefits for security, performance isolation, and resiliency. When possible, it's a good idea to loosely couple your integrations with third parties. If you do need to tightly couple to a third party, ensure that you follow good practices like [Retry pattern](../../../patterns/retry.yml), the [Circuit Breaker pattern](../../../patterns/circuit-breaker.yml), and the [Bulkhead pattern](../../../patterns/bulkhead.yml).
+- **Custom code for a specific tenant.** Tenant-specific features or code can make your solution harder to test. It also makes it harder to modify your solution the future because you have to understand more code paths. Instead, try to build [composable components](#composable-integration-components) that abstract the requirements for any specific tenant, and reuse them across multiple tenants with similar requirements.
 
 ## Next steps
 
-Links to other relevant pages within our section.
+Review [Architectural approaches for messaging in multitenant solutions](../approaches/messaging.md).
