@@ -2116,7 +2116,7 @@ items:
                             href: /gaming/azure/reference-architectures/multiplayer-custom-server-scaling
                             maintainContext: true
                           - name: Multiplayer hosting with Service Fabric
-                            href: /gaming/azure/reference-architectures/multiplayer-synchronous-sf
+                            href: /gaming/azure/reference-architectures/multiplayer-synchronous
                             maintainContext: true
                           - name: Multiplayer server hosting with ACI
                             href: /gaming/azure/reference-architectures/multiplayer-synchronous-aci
@@ -3289,7 +3289,7 @@ items:
                 href: /gaming/azure/reference-architectures/multiplayer-synchronous-aks
                 maintainContext: true
               - name: Multiplayer hosting with Service Fabric
-                href: /gaming/azure/reference-architectures/multiplayer-synchronous-sf
+                href: /gaming/azure/reference-architectures/multiplayer-synchronous
                 maintainContext: true
               - name: Multitenancy with AKS and AGIC
                 href: example-scenario/aks-agic/aks-agic.yml
