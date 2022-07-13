@@ -50,7 +50,7 @@ For example, imagine that you're the vendor of a SaaS accounting system. Your te
 
 Both approaches have valid use cases, so it's important to clearly understand your tenants' requirements.
 
-If you work with full data sets, you effectively treat the other system as a [trusted subsystem](TODO), which requires a high level of trust. You also should consider using a *workload identity* instead of a user identity for this integration. A workload identity is a system identity that doesn't correspond to a single user. The workload identity would be granted a high level of permission to the data.
+If you work with full data sets, you effectively treat the other system as a *trusted subsystem*. You also should consider using a *workload identity* instead of a user identity for this integration. A workload identity is a system identity that doesn't correspond to a single user. The workload identity would be granted a high level of permission to the data.
 
 Alternatively, if you work with user-scoped data, then you might need to use an approach like *delegation* to access the correct subset of data from the data set. Then, the destination system effectively gets the same permission that the user has.
 
