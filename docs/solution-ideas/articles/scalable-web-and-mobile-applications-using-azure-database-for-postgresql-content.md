@@ -2,9 +2,13 @@
 
 Rapidly build engaging, performant, and scalable cross-platform and native apps for iOS, Android, Windows, or Mac.
 
+## Potential use cases
+
+This solution is for any organization that utilizes both web and mobile applications.
+
 ## Architecture
 
-![Architecture Diagram](../media/scalable-web-and-mobile-applications-using-azure-database-for-postgresql.png)
+![Architecture diagram shows browser or mobile app requests to Azure App Services to Azure Database for Postgres S Q L.](../media/scalable-web-and-mobile-applications-using-azure-database-for-postgresql.png)
 _Download an [SVG](../media/scalable-web-and-mobile-applications-using-azure-database-for-postgresql.svg) of this architecture._
 
 ### Dataflow
@@ -18,6 +22,14 @@ _Download an [SVG](../media/scalable-web-and-mobile-applications-using-azure-dat
 
 - [Azure App Services](https://azure.microsoft.com/services/app-service)
 - [Azure Database for PostgreSQL](https://azure.microsoft.com/en-us/services/postgresql)
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Andrew Harvey](https://www.linkedin.com/in/andrewharvey) | Principal Program Manager - Microsoft for Startups
 
 ## Next steps
 

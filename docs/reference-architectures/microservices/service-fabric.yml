@@ -3,7 +3,7 @@ metadata:
   title: Azure Service Fabric microservices architecture
   description: Learn how to deploy microservices to Azure Service Fabric, which can be used as a starting point for most cluster configuration deployments.
   author: PageWriter-MSFT
-  ms.author: pnp
+  ms.author: prwilk
   ms.date: 06/13/2019
   ms.topic: conceptual
   ms.service: architecture-center

@@ -1,5 +1,3 @@
-
-
 Are you comfortable working with Microsoft SQL Server? If so, you can use Azure SQL Managed Instance to rearchitect your database. It's a good option because it:
 
 * Provides built-in [business continuity and disaster recovery capabilities](/azure/sql-database/sql-database-business-continuity).
@@ -12,13 +10,15 @@ Are you comfortable working with Microsoft SQL Server? If so, you can use Azure 
 
 ![AN architecture diagram that shows Azure SQL Managed Instances connected to an Azure SQL Database over a private endpoint connection.](media/rearchitect.png)
 
+### Workflow
+
 1. Use SSMA to convert your Oracle schema to SQL schema.
 
 1. Migrate the new schema to Azure SQL Managed Instance.
 
 1. Connect the SQL Managed instance to your Azure SQL database.
 
-## Components
+### Components
 
 * [Azure SQL Managed Instance](https://azure.microsoft.com/services/azure-sql/sql-managed-instance/) is the intelligent, scalable, cloud database service that combines the broadest SQL Server engine compatibility with all the benefits of a fully managed and evergreen platform as a service (PAAS).
 
@@ -26,7 +26,7 @@ Are you comfortable working with Microsoft SQL Server? If so, you can use Azure 
 
 * [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/) is your private network in your Azure environment.
 
-## Deployment
+## Deploy this scenario
 
 ### Evaluate your Oracle database
 

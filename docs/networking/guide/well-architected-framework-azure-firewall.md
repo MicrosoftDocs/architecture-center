@@ -4,12 +4,13 @@ titleSuffix: Azure Architecture Center
 description: This guidance provides best practices for Azure Firewall, based on the Well-Architected Framework's five pillars of architecture excellence.
 author: rohilla-shweta
 ms.author: rosanto
-ms.date: 08/25/2021
+ms.date: 06/20/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
   - azure-firewall
+  - azure-firewall-manager
 categories:
   - networking
 ms.custom:
@@ -162,13 +163,13 @@ Azure Firewall exposes a few other logs and metrics for troubleshooting that can
 
  ## Next steps
 
- - See the [Microsoft Azure Well-Architected Framework](../../framework/index.md).
+ - See the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index).
  - [What is Azure Firewall?](/azure/firewall/overview)
 
  ## Related resources
 
  - [Azure Firewall architecture overview](../../example-scenario/firewalls/index.yml)
- - [Azure Well-Architected Framework review of Azure Application Gateway](./waf-application-gateway.md)
+ - [Azure Well-Architected Framework review of Azure Application Gateway](/azure/architecture/framework/services/networking/azure-application-gateway#securitysecurity)
  - [Firewall and Application Gateway for virtual networks](../../example-scenario/gateway/firewall-application-gateway.yml)
  - [Choose between virtual network peering and VPN gateways](../../reference-architectures/hybrid-networking/vnet-peering.yml)
  - [Hub-spoke network topology in Azure](../../reference-architectures/hybrid-networking/hub-spoke.yml)

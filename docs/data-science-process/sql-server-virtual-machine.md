@@ -1,12 +1,12 @@
 ---
 title: Process data in a SQL Server virtual machine on Azure
 description: Explore + process data and generate features using Python or SQL in a SQL Server virtual machine on Azure.
-services: machine-learning
 author: marktab
 manager: marktab
 editor: marktab
-ms.service: machine-learning
-ms.subservice: team-data-science-process
+services: architecture-center
+ms.service: architecture-center
+ms.subservice: azure-guide
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
@@ -157,7 +157,7 @@ Now you can work with the Pandas data frame as covered in the article [Process A
 
 ## Azure Data Science in Action Example
 
-For an end-to-end walkthrough example of the Azure Data Science Process using a public dataset, see [Azure Data Science Process in Action](sql-walkthrough.md).
+For an end-to-end walkthrough example of the Azure Data Science Process using a public dataset, see [Azure Data Science Process in Action](/azure/architecture/data-science-process/overview).
 
 [1]: ./media/sql-server-virtual-machine/reader-db-featurized-input.png
 

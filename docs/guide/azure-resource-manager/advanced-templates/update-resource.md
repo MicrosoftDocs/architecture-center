@@ -136,7 +136,7 @@ Let's take a look at the resource object for our `firstVNet` resource first. Not
 
 An example template is available on [GitHub][github]. To deploy the template, run the following [Azure CLI][cli] commands:
 
-```bash
+```azurecli
 az group create --location <location> --name <resource-group-name>
 az deployment group create -g <resource-group-name> \
     --template-uri https://raw.githubusercontent.com/mspnp/template-examples/master/example1-update/deploy.json

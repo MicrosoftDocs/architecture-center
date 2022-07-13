@@ -3,13 +3,17 @@ title: Design for self healing
 titleSuffix: Azure Application Architecture Guide
 description: Learn to design resilient applications that can recover from failures without manual intervention through self-healing.
 author: EdPrice-MSFT
-ms.date: 08/30/2018
+ms.date: 12/13/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: guide
 ms.custom:
   - seojan19
   - guide
+products:
+  - azure
+categories:
+  - management-and-governance
 ---
 
 # Design for self healing
@@ -60,11 +64,11 @@ For a structured approach to making your applications self healing, see [Design 
 
 <!-- links -->
 
-[circuit-breaker]: ../../patterns/circuit-breaker.md
-[compensating-transactions]: ../../patterns/compensating-transaction.md
-[leader-election]: ../../patterns/leader-election.md
-[load-level]: ../../patterns/queue-based-load-leveling.md
-[resiliency-overview]: ../../framework/resiliency/principles.md
-[retry]: ../../patterns/retry.md
-[throttle]: ../../patterns/throttling.md
+[circuit-breaker]: ../../patterns/circuit-breaker.yml
+[compensating-transactions]: ../../patterns/compensating-transaction.yml
+[leader-election]: ../../patterns/leader-election.yml
+[load-level]: ../../patterns/queue-based-load-leveling.yml
+[resiliency-overview]: /azure/architecture/framework/resiliency/principles
+[retry]: ../../patterns/retry.yml
+[throttle]: ../../patterns/throttling.yml
 [transient-fault-handling]: ../../best-practices/transient-faults.md

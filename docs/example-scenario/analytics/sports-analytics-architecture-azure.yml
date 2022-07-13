@@ -1,0 +1,26 @@
+### YamlMime:Architecture
+metadata:
+  title: Sports analytics on Azure
+  titleSuffix: Azure Architecture Center
+  description: Build an example workload architecture that uses Azure services to process and maintain data used by sports analytics solutions.
+  author: EdPrice-MSFT
+  ms.author: jacob.switzer
+  ms.date: 05/31/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+azureCategories:
+  - analytics
+  - ai-machine-learning
+products:
+  - azure-data-factory
+  - azure-data-lake-gen2
+  - azure-databricks
+  - azure-event-hubs
+  - power-bi
+
+name: Build a sports analytics architecture on Azure
+summary: Build an example workload architecture that uses Azure services to process and maintain data used by sports analytics solutions.
+thumbnailUrl: /azure/architecture/browse/thumbs/sports-analytics-azure-reference-architecture.png
+content: |
+  [!include[](sports-analytics-architecture-azure-content.md)]

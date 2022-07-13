@@ -23,6 +23,8 @@ This framework makes use of native Azure analytics services for data ingestion, 
 
 :::image type="content" source="media/predict-hospital-readmissions-machine-learning.png" lightbox="media/predict-hospital-readmissions-machine-learning.png" alt-text="Architecture of a multi-tier app.":::
 
+*Download a [PowerPoint file](https://arch-center.azureedge.net/predict-hospital-readmission-07-23-21.pptx) of this architecture.*
+
 The architecture is described in terms of the roles of the participants.
 
 1. **Data Engineer:** Responsible for ingesting the data from the source systems and orchestrating data pipelines to move data from the source to the target. May also be responsible for performing data transformations on the raw data.
@@ -50,7 +52,7 @@ The architecture is described in terms of the roles of the participants.
 
    The expected output is relational queries, BI reports, and dashboards.
 
-1. **MLOps Engineer:** Responsible for productionizing models that the Data Scientist or Citizen Data Scientist provides.
+1. **MLOps Engineer:** Responsible for putting models into production that the Data Scientist or Citizen Data Scientist provides.
 
    The expected output is models that are ready for production and reproducible.
 
@@ -80,7 +82,7 @@ Although this list provides a comprehensive view of all the potential roles that
 
 ## Considerations
 
-Incorporate the following pillars of the [Microsoft Azure Well-Architected Framework](../../framework/index.md) for a highly available and secure system:
+Incorporate the following pillars of the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index) for a highly available and secure system:
 
 ### Availability
 
@@ -115,6 +117,15 @@ Pricing for this solution is based on:
 - Compute resources that are needed to perform machine learning tasks.
 
 You can estimate costs by using the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+- [Matt Hansen](https://www.linkedin.com/in/matthansen0) | Senior Cloud Solution Architect
+- [Sandy Su](https://www.linkedin.com/in/sandylsu/) | Cloud Solution Architect
 
 ## Next steps
 

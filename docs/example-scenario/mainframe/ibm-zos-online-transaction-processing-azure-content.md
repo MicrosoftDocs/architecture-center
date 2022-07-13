@@ -33,7 +33,7 @@ This architecture is ideal for OLTP workloads that have these characteristics:
 1. Mainframe users are familiar with 3270 terminals and on-premises connectivity. In the migrated system, they interact with Azure applications via public internet or via a private connection implemented with Azure ExpressRoute. Azure Active Directory (Azure AD) provides authentication.
 1. Input requests go to a global load balancer service, like Azure Front Door or Azure Traffic Manager. The load balancer can serve a geographically spread user base. It routes the requests according to rules defined for the supported workloads. These load balancers can coordinate with Azure Application Gateway or Azure Load Balancer for load balancing of the application layer. The Azure Content Delivery Network service caches static content in edge servers for quick response, secured using the Web Application Firewall (WAF) service.
 1. The front end of the application layer uses Azure services like Azure App Service to implement application screens and to interact with users. The screens are migrated versions of the mainframe screens.
-1. COBOL and PL/1 code in the back end of the application layer implements the business logic. The code can use services like Azure Functions, WebJobs, and Azure Spring Cloud microservices. Applications can run in an Azure Kubernetes Service (AKS) container.
+1. COBOL and PL/1 code in the back end of the application layer implements the business logic. The code can use services like Azure Functions, WebJobs, and Azure Spring Apps microservices. Applications can run in an Azure Kubernetes Service (AKS) container.
 1. An in-memory data store accelerates high-throughput OLTP applications. One such store is In-Memory OLTP, a feature of Azure SQL Database and Azure SQL Managed Instance. Another is Azure Cache for Redis.
 1. The data layer can include, for example:
 
@@ -56,7 +56,7 @@ This architecture is ideal for OLTP workloads that have these characteristics:
 - [Azure Web Application Firewall](https://azure.microsoft.com/services/web-application-firewall) helps protect web apps from malicious attacks and common web vulnerabilities, such as SQL injection and cross-site scripting.
 - [Azure Content Delivery Network (CDN)](https://azure.microsoft.com/services/cdn) caches static content in edge servers for quick response, and uses network optimizations to improve response for dynamic content. CDN is especially useful when the user base is global.
 - [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway) is an application delivery controller service. It operates at layer 7, the application layer, and has various load-balancing capabilities.
-- [Azure Load Balancer](https://azure.microsoft.com/services/load-balancer) is a layer 4 (TCP, UDP) load balancer. In this architecture, it provides load balancing options for Spring Cloud and AKS.
+- [Azure Load Balancer](https://azure.microsoft.com/services/load-balancer) is a layer 4 (TCP, UDP) load balancer. In this architecture, it provides load balancing options for Spring Apps and AKS.
 
 #### Application
 
@@ -64,7 +64,7 @@ This architecture is ideal for OLTP workloads that have these characteristics:
 - [Azure App Service](https://azure.microsoft.com/services/app-service) is a fully managed service for building, deploying, and scaling web apps. You can build apps using .NET, .NET Core, Node.js, Java, Python, or PHP. The apps can run in containers or on Windows or Linux. In a mainframe migration, the front-end screens or web interface can be coded as HTTP-based REST APIs. They can be segregated as per the mainframe application, and can be stateless to orchestrate a microservices-based system.
 - WebJobs is a feature of Azure App Service that runs a program or script in the same instance as a web app, API app, or mobile app. A web job can be a good choice for implementing sharable and reusable program logic. For technical information, see [Run background tasks with WebJobs in Azure App Service](/azure/app-service/webjobs-create).
 - [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) is a fully managed Kubernetes service for deploying and managing containerized applications. AKS simplifies deployment of a managed AKS cluster in Azure by offloading the operational overhead to Azure.
-- [Azure Spring Cloud](https://azure.microsoft.com/services/spring-cloud) is a fully managed Spring Cloud service, jointly built and operated by Microsoft and VMware. With it, you can easily deploy, manage and run Spring microservices, and write Spring applications using Java or .NET.
+- [Azure Spring Apps](https://azure.microsoft.com/services/spring-cloud) is a fully managed Spring service, jointly built and operated by Microsoft and VMware. With it, you can easily deploy, manage and run Spring microservices, and write Spring applications using Java or .NET.
 - [Azure Service Bus](https://azure.microsoft.com/services/service-bus) is a reliable cloud messaging service for simple hybrid integration. Service Bus and Storage queues can connect the front end with the business logic in the migrated system.
 - [Azure Functions](https://azure.microsoft.com/services/functions) provides an environment for running small pieces of code, called functions, without having to establish an application infrastructure. You can use it to process bulk data, integrate systems, work with IoT, and build simple APIs and microservices. With microservices, you can create servers that connect to Azure services and are always up to date.
 - [Azure Cache for Redis](https://azure.microsoft.com/services/cache) is a fully managed in-memory caching service for sharing data and state among compute resources. It includes both the open-source Redis (OSS Redis) and a commercial product from Redis Labs (Redis Enterprise) as a managed service. You can improve performance of high-throughput OLTP applications by designing them to scale and to make use of an in-memory data store such as Azure Cache for Redis.
@@ -106,12 +106,12 @@ This architecture is ideal for OLTP workloads that have these characteristics:
 - ExpressRoute creates a private connection to Azure from an on-premises environment. You can also use site-to-site VPN.
 - Azure AD can authenticate resources and control access using Azure role-based access control (RBAC).
 - Database services in Azure support various security options like data encryption at rest.
-- For general guidance on designing secure solutions, see [Overview of the security pillar](../../framework/security/overview.md).
+- For general guidance on designing secure solutions, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 ### Resiliency
 
 - This scenario uses Azure Monitor and Application Insights to monitor the health of the Azure resources. You can set alerts for proactive management.
-- For guidance on resiliency in Azure, see [Designing reliable Azure applications](../../framework/resiliency/app-design.md).
+- For guidance on resiliency in Azure, see [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
 
 ## Pricing
 
@@ -141,4 +141,4 @@ This architecture is ideal for OLTP workloads that have these characteristics:
 - [Azure Monitor overview](/azure/azure-monitor/overview)
 - [Create, view, and manage metric alerts using Azure Monitor](/azure/azure-monitor/alerts/alerts-metric)
 - [Create and share dashboards of Log Analytics data](/azure/azure-monitor/visualize/tutorial-logs-dashboards)
-- [Overview of the security pillar](../../framework/security/overview.md)
+- [Overview of the security pillar](/azure/architecture/framework/security/overview)

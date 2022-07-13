@@ -1,5 +1,3 @@
-
-
 Do you have legacy Oracle code and prefer using a managed service on Azure? If so, you can use the Azure Database Migration Service to migrate your Oracle database to Azure Database for PostgreSQL. It's the option for you because it:
 
 * Provides built-in [business continuity](/azure/postgresql/concepts-business-continuity) and [disaster recovery](/azure/postgresql/concepts-backup) capacity.
@@ -12,11 +10,13 @@ Do you have legacy Oracle code and prefer using a managed service on Azure? If s
 
 ![An architecture diagram that shows a private endpoint connection reaching out to an Azure Database for PostgreSQL.](media/refactor.png)
 
+### Workflow
+
 1. Use Azure Database Migration Service to automate your Oracle database migration to Azure.
 
 1. Migrate the database to Azure Database for PostgreSQL.
 
-## Components
+### Components
 
 * [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) is a tool that helps you simplify, guide, and automate your database migration to Azure.
 
@@ -24,7 +24,7 @@ Do you have legacy Oracle code and prefer using a managed service on Azure? If s
 
 * [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/) is your private network in your Azure environment.
 
-## Deployment
+## Deploy this scenario
 
 ### Prerequisites
 

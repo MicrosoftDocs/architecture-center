@@ -8,19 +8,13 @@ This reference architecture outlines an implementation plan for replicating and 
   - Preparation: Transforming and manipulating data by using mapping rules that meet target database requirements.
 - Loading: Inserting data into a target database.
 
-## Potential use cases
-
-Data replication and sync scenarios that can benefit from this solution include:
-
-- Command Query Responsibility Segregation (CQRS) architectures that use Azure to service all inquire channels.
-- Environments that test on-premises applications and rehosted or re-engineered applications in parallel.
-- On-premises systems with tightly coupled applications that require phased remediation or modernization.
-
 ## Architecture
 
 :::image type="complex" source="./images/sync-mainframe-data-with-azure.png" alt-text="Architecture diagram showing how to sync on-premises and Azure databases during mainframe modernization." border="false":::
    The diagram contains two parts, one for on-premises components, and one for Azure components. The on-premises part contains rectangles, one that pictures databases and one that contains integration tools. A server icon that represents the self-hosted integration runtime is also located in the on-premises part. The Azure part also contains rectangles. One is for pipelines. Others are for services that the solution uses for staging and preparing data. Another contains Azure databases. Arrows point from on-premises components to Azure components. These arrows represent the flow of data in the replication and sync processes. One of the arrows goes through the on-premises data gateway.
 :::image-end:::
+
+### Workflow
 
 Mainframe and midrange systems update on-premises application databases on a regular interval. To maintain consistency, the solution syncs the latest data with Azure databases. The sync process involves the following steps:
 
@@ -72,11 +66,11 @@ Mainframe and midrange systems update on-premises application databases on a reg
 
 1. Azure Synapse Analytics manages the data and makes it available for business intelligence and machine learning applications.
 
-## Components
+### Components
 
 The solution uses the following components:
 
-### Tools
+#### Tools
 
 - [Microsoft Service for DRDA][Microsoft Service for DRDA] is a component of [Host Integration Server (HIS)][What is HIS]. Microsoft Service for DRDA is an Application Server (AS) that DRDA Application Requester (AR) clients use. Examples of DRDA AR clients include IBM Db2 for z/OS and Db2 for i5/OS. These clients use the AS to convert Db2 SQL statements and run them on SQL Server.
 
@@ -91,15 +85,17 @@ The solution uses the following components:
 
 - [Azure Synapse Analytics][Azure Synapse Analytics] is an analytics service for data warehouses and big data systems. This tool uses Spark technologies and has deep integration with Power BI, Azure Machine Learning, and other Azure services.
 
-### Data integrators
+#### Data integrators
 
-- [Data Factory][Azure Data Factory] is a hybrid data integration service. You can use this fully managed, serverless solution to create, schedule, and orchestrate ETL and [ELT][ELT] workflows.
+- [Azure Data Factory][Azure Data Factory] is a hybrid data integration service. You can use this fully managed, serverless solution to create, schedule, and orchestrate ETL and [ELT][ELT] workflows.
 
-- [SSIS][SQL Server Integration Services] is a platform for building enterprise-level data integration and transformation solutions. You can use SSIS to manage, replicate, cleanse, and mine data.
+- [Azure Synapse Analytics] is an enterprise analytics service that accelerates time to insight, across data warehouses and big data systems. Azure Synapse brings together the best of SQL technologies (that are used in enterprise data warehousing), Spark technologies used for big data, Data Explorer for log and time series analytics, Pipelines for data integration and ETL/ELT, and deep integration with other Azure services, such as Power BI, Cosmos DB, and Azure Machine Learning.
+
+- [SQL Server Integration Services (SSIS)][SQL Server Integration Services] is a platform for building enterprise-level data integration and transformation solutions. You can use SSIS to manage, replicate, cleanse, and mine data.
 
 - [Azure Databricks][Azure Databricks] is a data analytics platform. Based on the Apache Spark open-source distributed processing system, Azure Databricks is optimized for Azure cloud services. In an analytics workflow, Azure Databricks reads data from multiple sources and uses Spark to provide insights.
 
-### Data storage
+#### Data storage
 
 - [Azure SQL Database][Azure SQL Database] is part of the [Azure SQL][Azure SQL] family and is built for the cloud. This service offers all the benefits of a fully managed and evergreen platform as a service. SQL Database also provides AI-powered, automated features that optimize performance and durability. Serverless compute and [Hyperscale storage options][Hyperscale service tier] automatically scale resources on demand.
 
@@ -119,13 +115,19 @@ The solution uses the following components:
 
 - [Blob Storage][Azure Blob Storage] provides optimized cloud object storage that manages massive amounts of unstructured data.
 
-### Networking
+#### Networking
 
 - An [on-premises data gateway][What is an on-premises data gateway?] acts as a bridge that connects on-premises data with cloud services. Typically, you [install the gateway on a dedicated on-premises VM][Install an on-premises data gateway]. Cloud services can then securely use on-premises data.
 
-- [Azure VMs][Azure virtual machines] are on-demand, scalable computing resources that are available with Azure. An Azure VM provides the flexibility of virtualization. But it eliminates the maintenance demands of physical hardware. Azure VMs offer a choice of operating systems, including Windows and Linux.
+- An [IR][Integration runtime in Azure Data Factory] is the compute infrastructure that Data Factory uses to integrate data across different network environments. Data Factory uses [self-hosted IRs][Self-hosted integration runtime] to copy data between cloud data stores and data stores in on-premises networks. You can also use [Azure Synapse Pipelines](/azure/synapse-analytics/get-started-pipelines).
 
-- An [IR][Integration runtime in Azure Data Factory] is the compute infrastructure that Data Factory uses to integrate data across different network environments. Data Factory uses [self-hosted IRs][Self-hosted integration runtime] to copy data between cloud data stores and data stores in on-premises networks.
+## Potential use cases
+
+Data replication and sync scenarios that can benefit from this solution include:
+
+- Command Query Responsibility Segregation (CQRS) architectures that use Azure to service all inquire channels.
+- Environments that test on-premises applications and rehosted or re-engineered applications in parallel.
+- On-premises systems with tightly coupled applications that require phased remediation or modernization.
 
 ## Recommendations
 
@@ -135,7 +137,9 @@ When you use Data Factory to extract data, take steps to [tune the performance o
 
 Keep these points in mind when considering this architecture.
 
-### Availability considerations
+### Reliability
+
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
 - Infrastructure management, including [availability][Types of Databases on Azure], is automated in Azure databases.
 
@@ -143,15 +147,31 @@ Keep these points in mind when considering this architecture.
 
 - You can cluster the on-premises data gateway and IR to provide higher availability guarantees.
 
-### Manageability considerations
+### Security
 
-- When you use an on-premises application gateway, be aware of [limits on read and write operations][Gateway considerations].
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-- To use SSMA for Db2, install the client program on a computer that can access the source Db2 database and the target instance of SQL Server. That computer should meet the requirements listed in [Installing SSMA for Db2 client][Installing SSMA for DB2 client (DB2ToSQL) Prerequisites].
+- Make use of [network security groups](/azure/virtual-network/manage-network-security-group) to limit access of services to only what they need to function.
 
-- The [self-hosted IR can only run on a Windows operating system][Self-hosted IR compute resource and scaling].
+- Use [private endpoints](/azure/private-link/private-endpoint-overview) for your PaaS (Platform as a Service) services. Use service firewalls to supplement security for your services that are both reachable and unreachable through the Internet.
 
-### Scalability considerations
+- Be aware of the differences between on-premises client identities and client identities in Azure. You will need to compensate for any differences.
+
+- Use managed identities for component-to-component data flows.
+
+- See [Planning and Architecting Solutions Using Microsoft Service for DRDA](/host-integration-server/core/planning-and-architecting-solutions-using-microsoft-service-for-drda) to learn about the types of client connections that Microsoft Service for DRDA supports. Client connections affect the nature of transactions, pooling, failover, authentication, and encryption on your network.
+
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+
+- Pricing models vary between component services. Review the pricing models of the available component services to ensure the pricing models fit your budget.
+
+- Use the [Azure pricing calculator][Azure pricing calculator] to estimate the cost of implementing this solution.
+
+### Operational excellence
+
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
 - Infrastructure management, including [scalability][Types of Databases on Azure], is automated in Azure databases.
 
@@ -159,19 +179,15 @@ Keep these points in mind when considering this architecture.
 
 - You can cluster the on-premises data gateway and IR for scalability.
 
+### Performance efficiency
+
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+
+- When you use an on-premises application gateway, be aware of [limits on read and write operations][Gateway considerations].
+
 - Consider [Azure ExpressRoute][Azure ExpressRoute] as a high-scale option if your implementation uses significant bandwidth for initial replication or ongoing changed data replication.
 
-### Security considerations
-
-- The on-premises data gateway provides data protection during transfers from on-premises to Azure systems.
-
-- See [Network transports and transactions] to learn about the types of client connections that Microsoft Service for DRDA supports.
-
-- Ensure that the security level of the Azure environment that has access to the on-premises data gateway meets the security requirements of the on-premises network.
-
-## Pricing
-
-Use the [Azure pricing calculator][Azure pricing calculator] to estimate the cost of implementing this solution.
+- The [self-hosted IR can only run on a Windows operating system][Self-hosted IR compute resource and scaling].
 
 ## Next steps
 
@@ -228,3 +244,4 @@ Use the [Azure pricing calculator][Azure pricing calculator] to estimate the cos
 [Azure Database for MySQL]: https://azure.microsoft.com/services/mysql/
 [What is HIS]: /host-integration-server/what-is-his
 [What is NoSQL? Databases for a cloud-scale future]: https://www.infoworld.com/article/3240644/what-is-nosql-databases-for-a-cloud-scale-future.html
+[Azure Synapse Analytics]: /azure/synapse-analytics/overview-what-is

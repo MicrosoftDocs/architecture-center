@@ -1,22 +1,10 @@
-Transforming proprietary legacy applications, infrastructures, and processes to standardized, benchmarked cloud technologies promotes agile DevOps principles and practices that are today's productivity norm. The transformation of legacy applications and infrastructures leads to more unified business and IT alignment.
-
 This article describes how [Asysco's](https://asysco.com) Automated Migration Technology (AMT) migrates an IBM z/OS mainframe system to the Azure cloud. The AMT framework converts proprietary IBM z/OS mainframe applications into native .NET applications that run on Windows Server OS virtual machines (VMs). On-premises mainframe resources migrate to cost-effective, scalable, secure Azure infrastructure-as-a-service (IaaS) and platform-as-a-service (PaaS) environments.
-
-AMT provides an accelerated move into Azure without rewriting application code or redesigning data architecture. The migration framework converts legacy code to C#, while maintaining the source code in its original form. Application user interfaces and interactions can remain unchanged, minimizing the need for user retraining.
-
-## Potential use cases
-
-Many scenarios can benefit from Asysco AMT migration. Possibilities include the following cases:
-
-- Modernizing infrastructure to avoid the high costs, limitations, and rigidity of mainframes.
-- Moving mainframe workloads to the cloud without the side effects of a complete redevelopment.
-- Migrating mission-critical applications to the cloud while maintaining continuity with on-premises mainframe applications.
-- Implementing flexible horizontal and vertical scalability.
-- Deploying high availability (HA) and disaster recovery (DR) capabilities.
 
 ## Architecture
 
 ![Diagram showing how Asysco A M T migration maps z/O S mainframe components to Azure capabilities.](media/asysco-zos-migration.svg)
+
+## Workflow
 
 The preceding diagram shows how the typical components of an IBM z/OS mainframe system can map and migrate to Azure capabilities.
 
@@ -76,6 +64,24 @@ The AMT Framework supports several methodologies to move client workloads to Azu
 
 Modernizing each application on its own schedule can be more relaxed than converting everything at once. If regaining time on the mainframe is a goal, the stepped method can provide more processing cycles on the mainframe as applications convert to Azure. Eventual starvation of the mainframe can highlight the need to retire the mainframe expense.
 
+## Scenario details
+
+Transforming proprietary legacy applications, infrastructures, and processes to standardized, benchmarked cloud technologies promotes agile DevOps principles and practices that are today's productivity norm. The transformation of legacy applications and infrastructures leads to more unified business and IT alignment.
+
+[Asysco's](https://asysco.com) Automated Migration Technology (AMT) migrates an IBM z/OS mainframe system to the Azure cloud. The AMT framework converts proprietary IBM z/OS mainframe applications into native .NET applications that run on Windows Server OS virtual machines (VMs). On-premises mainframe resources migrate to cost-effective, scalable, secure Azure infrastructure-as-a-service (IaaS) and platform-as-a-service (PaaS) environments.
+
+AMT provides an accelerated move into Azure without rewriting application code or redesigning data architecture. The migration framework converts legacy code to C#, while maintaining the source code in its original form. Application user interfaces and interactions can remain unchanged, minimizing the need for user retraining.
+
+### Potential use cases
+
+Many scenarios can benefit from Asysco AMT migration. Possibilities include the following cases:
+
+- Modernizing infrastructure to avoid the high costs, limitations, and rigidity of mainframes.
+- Moving mainframe workloads to the cloud without the side effects of a complete redevelopment.
+- Migrating mission-critical applications to the cloud while maintaining continuity with on-premises mainframe applications.
+- Implementing flexible horizontal and vertical scalability.
+- Deploying high availability (HA) and disaster recovery (DR) capabilities.
+
 ## Considerations
 
 The following considerations apply to this solution:
@@ -102,7 +108,7 @@ Azure Load Balancer builds resiliency into this solution. If one presentation or
 
 - [Azure Bastion](/azure/bastion/bastion-overview) maximizes admin access security by minimizing open ports.
 
-## Pricing
+### Cost optimization
 
 Azure helps you avoid unnecessary costs by identifying resource needs, analyzing spending over time, and scaling to meet business needs without overspending. Asysco AMT in Azure runs on Windows VMs, which help you optimize costs by turning off VMs when not in use and scripting schedules for known usage patterns.
 
@@ -119,9 +125,10 @@ To estimate and calculate costs for your implementation of this solution, use th
 ## Next steps
 
 - For more information, please contact [legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com).
-- [Refactor IBM z/OS mainframe Coupling Facility (CF) to Azure](../../reference-architectures/zos/refactor-zos-coupling-facility.yml).
-- See the [Microsoft Azure Well-Architected Framework](../../framework/index.md) for more information about cost optimization for [VM instances](../../framework/cost/optimize-vm.md).
-## Related resources
-
+- See the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index) for more information about cost optimization for [VM instances](/azure/architecture/framework/cost/optimize-vm).
 - Visit the [Azure Marketplace](https://azuremarketplace.microsoft.com/home) for information about [Asysco AMT GO](https://azuremarketplace.microsoft.com/marketplace/apps/asyscosoftwarebv.amtvmcc_basic_2019_002?tab=Overview).
 - See the blog post [MIPS Equivalent Sizing for IBM CICS COBOL Applications Migrated to Microsoft Azure](https://techcommunity.microsoft.com/t5/azure-global/mips-equivalent-sizing-for-ibm-cics-cobol-applications-migrated/ba-p/731665).
+
+## Related resources
+
+- [Refactor IBM z/OS mainframe Coupling Facility (CF) to Azure](../../reference-architectures/zos/refactor-zos-coupling-facility.yml).

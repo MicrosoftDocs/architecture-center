@@ -26,7 +26,7 @@ The Application Gateway is zone-redundant. It isn't affected by the failure of Z
 
 Spreading resources across Availability Zones also protects an application from planned maintenance. When VMs are distributed across three Availability Zones they are, in effect, spread across three update domains. The Azure platform recognizes this distribution across update domains to ensure that VMs in different zones aren't updated at the same time.
 
-By replicating VMs across Availability Zones, you can protect your applications and data from a zone failure. This is how Azure meets the industry-best 99.99% VM uptime service-level agreement (SLA). See [Building solutions for high availability using Availability Zones](./building-solutions-for-high-availability.md).
+By replicating VMs across Availability Zones, you can protect your applications and data from a zone failure. This is how Azure meets the industry-best 99.99% VM uptime service-level agreement (SLA). See [Building solutions for high availability using Availability Zones](./building-solutions-for-high-availability.yml).
 
 The architecture has the following components.
 
@@ -84,7 +84,7 @@ Configure the SQL Server Always On availability group as follows:
 > [!NOTE]
 > When floating IP is enabled, the front-end port number must be the same as the back-end port number in the load balancer rule.
 
-When a SQL client tries to connect, the load balancer routes the connection request to the primary replica. If there's a failover to another replica, the load balancer automatically routes new requests to a new primary replica. For more information, see [Configure a load balancer for an availability group on Azure SQL Server VMs](/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener).
+When a SQL client tries to connect, the load balancer routes the connection request to the primary replica. If there's a failover to another replica, the load balancer automatically routes new requests to a new primary replica. For more information, see [Configure a load balancer for an availability group on Azure SQL Server VMs](/azure/azure-sql/virtual-machines/windows/availability-group-load-balancer-portal-configure).
 
 A failover closes existing client connections. After the failover completes, new connections are routed to the new primary replica.
 
@@ -120,7 +120,7 @@ For more information about health probes, see:
 - [Load Balancer health probes](/azure/load-balancer/load-balancer-custom-probe-overview)
 - [Application Gateway health monitoring overview](/azure/application-gateway/application-gateway-probe-overview)
 
-For considerations about designing a health probe endpoint, see [Health Endpoint Monitoring pattern](../patterns/health-endpoint-monitoring.md).
+For considerations about designing a health probe endpoint, see [Health Endpoint Monitoring pattern](../patterns/health-endpoint-monitoring.yml).
 
 ## Cost considerations
 
@@ -142,7 +142,7 @@ For SQL server VMs pricing options, see [SQL VMs pricing](https://www.microsoft.
 
 You're charged only for the number of configured load-balancing and outbound rules. Inbound NAT rules are free. There's no hourly charge for the Standard Load Balancer when no rules are configured.
 
-For more information, see the cost section in [Azure Architecture Framework](../framework/cost/overview.md).
+For more information, see the cost section in [Azure Architecture Framework](/azure/architecture/framework/cost/overview).
 
 ### Application Gateway
 

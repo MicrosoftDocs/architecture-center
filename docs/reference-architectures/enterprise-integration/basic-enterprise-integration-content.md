@@ -4,7 +4,9 @@ This reference architecture uses [Azure Integration Services][integration-servic
 
 Azure Integration Services is a collection of services for integrating applications and data. This architecture uses two of those services: [Logic Apps][logic-apps] to orchestrate workflows, and [API Management][apim] to create catalogs of APIs. This architecture is sufficient for basic integration scenarios where the workflow is triggered by synchronous calls to backend services. A more sophisticated architecture using [queues and events](./queues-events.yml) builds on this basic architecture.
 
-![Architecture diagram - Simple enterprise integration](./_images/simple-enterprise-integration.png)
+![Architecture diagram showing Simple enterprise integration](./_images/simple-enterprise-integration.png)
+
+*Download a [Visio file](https://arch-center.azureedge.net/simple-enterprise-integration.vsdx) of this architecture.*
 
 ## Architecture
 
@@ -186,7 +188,7 @@ For greater reliability and scalability, use message queues and events to decoup
 <!-- links -->
 
 [aad]: /azure/active-directory
-[aaf-cost]: ../../framework/cost/overview.md
+[aaf-cost]: /azure/architecture/framework/cost/overview
 [apim]: /azure/api-management
 [apim-autoscale]: /azure/api-management/api-management-howto-autoscale
 [apim-backup]: /azure/api-management/api-management-howto-disaster-recovery-backup-restore

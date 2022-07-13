@@ -10,9 +10,9 @@ ms.service: architecture-center
 ms.subservice: azure-guide
 products:
   - azure
+  - azure-cosmos-db
 categories:
-  - management-and-governance
-  - security
+  - data
 ms.category:
   - fcp
 ms.custom:
@@ -28,7 +28,7 @@ On this page, we describe some of the features of Azure Cosmos DB that are usefu
 
 ### Partitioning
 
-By using partitions with your Cosmos DB containers, you can create containers that are shared across multiple tenants. Typically you use the tenant identifier as a partition key, but you might also consider using multiple partition keys for a single tenant. A well-planned partitioning strategy effectively implements the [Sharding pattern](../../../patterns/sharding.md). With large containers, Cosmos DB spreads your tenants across multiple physical nodes to achieve a high degree of scale.
+By using partitions with your Cosmos DB containers, you can create containers that are shared across multiple tenants. Typically you use the tenant identifier as a partition key, but you might also consider using multiple partition keys for a single tenant. A well-planned partitioning strategy effectively implements the [Sharding pattern](../../../patterns/sharding.yml). With large containers, Cosmos DB spreads your tenants across multiple physical nodes to achieve a high degree of scale.
 
 More information:
 
@@ -39,7 +39,7 @@ More information:
 
 Cosmos DB's pricing model is based on the number of *request units* per second that you provision or consume. A request unit is a logical abstraction of the cost of a database operation or query. Typically, you provision a defined number of request units per second for your workload, which is referred to as *throughput*. Cosmos DB provides several options for how you provision throughput. In a multitenant environment, the selection you make affects the performance and price of your Cosmos DB resources.
 
-One tenancy model for Cosmos DB involves deploying separate containers for each tenant within a shared database. Cosmos DB enables you to provision request units for a database, and all of the containers share the request units. If your tenant workloads don't typically overlap, this can provide a useful approach to reduce your operational costs. However, note that this approach is susceptible to the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/index.md) because a single tenant's container might consume a disproportionate amount of the shared provisioned request units. To mitigate this after you've identified noisy tenants, you can optionally set provisioned throughput on a specific container. The other containers in the database continue to share their throughput, but the noisy tenant consumes their own dedicated throughput.
+One tenancy model for Cosmos DB involves deploying separate containers for each tenant within a shared database. Cosmos DB enables you to provision request units for a database, and all of the containers share the request units. If your tenant workloads don't typically overlap, this can provide a useful approach to reduce your operational costs. However, note that this approach is susceptible to the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml) because a single tenant's container might consume a disproportionate amount of the shared provisioned request units. To mitigate this after you've identified noisy tenants, you can optionally set provisioned throughput on a specific container. The other containers in the database continue to share their throughput, but the noisy tenant consumes their own dedicated throughput.
 
 Cosmos DB also provides a serverless tier, which is suited for workloads with intermittent or unpredictable traffic. Alternatively, autoscaling enables you to configure policies to specify the scaling of provisioned throughput. In a multitenant solution, you might combine all of these approaches to support different types of tenant.
 
@@ -80,7 +80,7 @@ When you use a single container for multiple tenants, you can make use of Cosmos
 
 This approach tends to work well when the amount of data stored for each tenant is small. It can be a good choice for building a [pricing model](../considerations/pricing-models.md) that includes a free tier, and for business-to-consumer (B2C) solutions. In general, by using shared containers, you achieve the highest density of tenants and therefore the lowest price per tenant.
 
-It's important to consider the throughput of your container. All of the tenants will share the container's throughput, so the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/index.md) can cause performance challenges if your tenants have high or overlapping workloads. This problem can sometimes be mitigated by grouping subsets of tenants into different containers, and by ensuring that each tenant group has compatible usage patterns. Alternatively, you can consider a hybrid multi- and single-tenant model, where smaller tenants are grouped into shared partitioned containers, and large customers have dedicated containers.
+It's important to consider the throughput of your container. All of the tenants will share the container's throughput, so the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml) can cause performance challenges if your tenants have high or overlapping workloads. This problem can sometimes be mitigated by grouping subsets of tenants into different containers, and by ensuring that each tenant group has compatible usage patterns. Alternatively, you can consider a hybrid multi- and single-tenant model, where smaller tenants are grouped into shared partitioned containers, and large customers have dedicated containers.
 
 It's also important to consider the amount of data you store in each logical partition. Azure Cosmos DB allows each logical partition to grow to up to 20 GB. If you have a single tenant that needs to store more than 20 GB of data, consider spreading the data across multiple logical partitions. For example, instead of having a single partition key of `Contoso`, you might *salt* the partition keys by creating multiple partition keys for a tenant, such as `Contoso1`, `Contoso2`, and so forth. When you query the data for a tenant, you can use the `WHERE IN` clause to match all of the partition keys. [Hierarchical partition keys](https://devblogs.microsoft.com/cosmosdb/hierarchical-partition-keys-private-preview) can also be used to support large tenants.
 
@@ -90,9 +90,9 @@ Consider the operational aspects of your solution, and the different phases of t
 
 You can provision dedicated containers for each tenant. This can work well when the data you store for your tenant can be combined into a single container.
 
-When using a container for each tenant, you can consider sharing throughput with other tenants by provisioning throughput at the database level. Consider the restrictions and limits around the [minimum number of request units for your database](/azure/cosmos-db/concepts-limits#minimum-throughput-limits) and the [maximum number of containers in the database](/azure/cosmos-db/concepts-limits#provisioned-throughput-1). Also, consider whether your tenants require a guaranteed level of performance, and whether they're susceptible to the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/index.md). If necessary, plan to group tenants into different databases that are based on workload patterns.
+When using a container for each tenant, you can consider sharing throughput with other tenants by provisioning throughput at the database level. Consider the restrictions and limits around the [minimum number of request units for your database](/azure/cosmos-db/concepts-limits#minimum-throughput-limits) and the [maximum number of containers in the database](/azure/cosmos-db/concepts-limits#provisioned-throughput-1). Also, consider whether your tenants require a guaranteed level of performance, and whether they're susceptible to the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml). If necessary, plan to group tenants into different databases that are based on workload patterns.
 
-Alternatively, you can provision dedicated throughput for each container. This works well for larger tenants, and for tenants that are at risk of the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/index.md). However, the baseline throughput for each tenant is higher, so consider the minimum requirements and cost implications of this model.
+Alternatively, you can provision dedicated throughput for each container. This works well for larger tenants, and for tenants that are at risk of the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml). However, the baseline throughput for each tenant is higher, so consider the minimum requirements and cost implications of this model.
 
 Lifecycle management is generally simpler when containers are dedicated to tenants. You can [easily move tenants between shared and dedicated throughput models](/azure/cosmos-db/set-throughput#set-throughput-on-a-database-and-a-container), and when deprovisioning a tenant, you can quickly delete the container.
 
@@ -113,7 +113,7 @@ You can consider a combination of the above approaches to suit different tenants
 
 ## Next steps
 
-Review [storage and data approaches for multitenancy](../approaches/storage-data.md).
+Review [storage and data approaches for multitenancy](../approaches/storage-data.yml).
 
 ## Related resources
 

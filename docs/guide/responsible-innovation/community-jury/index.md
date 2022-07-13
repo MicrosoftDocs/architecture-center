@@ -3,10 +3,13 @@ title: Community jury
 titleSuffix: Azure Application Architecture Guide
 description: Learn about the Community jury stakeholder collaboration technique that allows project teams to understand the perceptions and concerns of stakeholders.
 author: dcass
+categories: azure
 ms.date: 05/18/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: guide
+products:
+  - azure-devops
 ms.category:
   - fcp
 ms.custom:
@@ -154,7 +157,6 @@ Medium/pragmatist               =\> All other responses
 Explore the following references for detailed information on this method:
 
 - Jefferson center: creator of the Citizen's Jury method [https://jefferson-center.org/about-us/how-we-work/](https://jefferson-center.org/about-us/how-we-work/)
-- Citizen's jury handbook [http://www.rachel.org/files/document/Citizens\_Jury\_Handbook.pdf](http://www.rachel.org/files/document/Citizens_Jury_Handbook.pdf)
 - Case study: Connected Health Cities (UK)
   - [Project page](https://www.connectedhealthcities.org/chc-hub/public-engagement/citizens-juries-chc/citizens-jury-2018/)
   - [Final report](https://www.connectedhealthcities.org/wp-content/uploads/2018/08/Reasonable-expectations-jury-report-v1.0-FINAL-09.08.18.pdf)

@@ -1,26 +1,10 @@
-Micro Focus Enterprise Server 6.0 is an application deployment environment for IBM z/OS mainframe applications. Enterprise Server can help you modernize and integrate your mainframe applications with technologies like .NET and Java. Enterprise Server also supports application flexibility across Linux and Windows with containerized or virtual machine (VM) deployments on Azure.
-
 This sample solution is a prescriptive, well-architected example of a Micro Focus Enterprise Server 6.0 VM-based deployment in Azure. The solution implements high availability (HA) and disaster recovery (DR) by using a secondary Azure failover region. The failover region uses Azure Site Recovery for the VMs in the application tier, and a SQL Server Always On configuration for the data tier. A Micro Focus Performance Availability Cluster (PAC) boosts VM performance, availability, and scalability.
-
-<!--For a similar scenario that uses Azure Kubernetes Service (AKS) for containerized applications, see []().-->
-
-## Potential use cases
-
-Deploying Enterprise Server on Azure VMs can help businesses:
-
-- Provide a secure, stable host environment for cloud or on-premises access to mission-critical APIs.
-
-- Lower operating and maintenance costs by supporting Linux and Windows platforms, containerized and VM-based deployments, and scale-out flexibility.
-
-- Ensure Always On high availability and regional disaster recovery.
-
-- Modernize applications to improve productivity and collaboration and respond to changing business needs.
-
-- Streamline software deployment with a low-cost distributed environment, boosting developer productivity and paving the way to DevOps.
 
 ## Architecture
 
 ![Diagram showing Micro Focus Enterprise Server 6.0 deployed in a hybrid configuration with Azure VMs and regional disaster recovery.](media/micro-focus-enterprise-server.png)
+
+### Workflow
 
 1. Enterprise Server on-premises users interact with Enterprise Server applications through Micro Focus Reflection Desktop terminal emulator, Reflection for the Web, and Reflection Mobile. IBM 3270 terminal access can use any 3270 emulator.
 
@@ -50,7 +34,7 @@ Deploying Enterprise Server on Azure VMs can help businesses:
 
 1. As a security best practice, the solution deploys Enterprise Server management tools into a separate virtual network subnet.
 
-## Components
+### Components
 
 This solution uses the following Azure components:
 
@@ -76,31 +60,53 @@ This solution uses the following Azure components:
 
 - [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) keeps applications and workloads running during outages by replicating VMs from a primary site to a secondary location.
 
+## Scenario details
+
+Micro Focus Enterprise Server 6.0 is an application deployment environment for IBM z/OS mainframe applications. Enterprise Server can help you modernize and integrate your mainframe applications with technologies like .NET and Java. Enterprise Server also supports application flexibility across Linux and Windows with containerized or virtual machine (VM) deployments on Azure.
+
+This sample solution is a prescriptive, well-architected example of a Micro Focus Enterprise Server 6.0 VM-based deployment in Azure. The solution implements high availability (HA) and disaster recovery (DR) by using a secondary Azure failover region. The failover region uses Azure Site Recovery for the VMs in the application tier, and a SQL Server Always On configuration for the data tier. A Micro Focus Performance Availability Cluster (PAC) boosts VM performance, availability, and scalability.
+
+<!--For a similar scenario that uses Azure Kubernetes Service (AKS) for containerized applications, see []().-->
+
+### Potential use cases
+
+Deploying Enterprise Server on Azure VMs can help businesses:
+
+- Provide a secure, stable host environment for cloud or on-premises access to mission-critical APIs.
+
+- Lower operating and maintenance costs by supporting Linux and Windows platforms, containerized and VM-based deployments, and scale-out flexibility.
+
+- Ensure Always On high availability and regional disaster recovery.
+
+- Modernize applications to improve productivity and collaboration and respond to changing business needs.
+
+- Streamline software deployment with a low-cost distributed environment, boosting developer productivity and paving the way to DevOps.
+
 ## Considerations
 
-The following considerations, based on the [Microsoft Azure Well-Architected Framework](../../framework/index.md), apply to this solution:
+The following considerations, based on the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index), apply to this solution:
 
-### Availability considerations
+### Availability
 
 - PACs and availability sets for Azure VMs ensure enough VMs are available to meet mission-critical batch process needs.
 
 - SQL Server Always On Availability Groups and Azure Site Recovery provide reliability with HA and DR across geographic regions.
 
-### Performance considerations
+### Performance efficiency
 
 - The PAC enables horizontal scaling according to application load.
 
 - Azure Cache for Redis and Azure Storage accounts maintain critical component operations. These features provide high performance for data reads and writes, hot storage access, and long-term data storage.
 
-### Scalability considerations
+### Scalability
 
 A PAC configures several Enterprise Server instances in a scale-out architecture using [availability sets](/azure/virtual-machines/availability#availability-sets). The PAC supports future horizontal scaling.
 
-### Security considerations
+### Security
 
 All the components within the Micro Focus Enterprise Server architecture work with Azure security components like Azure AD identity integration, virtual networks, and encryption as needed.
 
-## Pricing
+### Cost optimization
 
 To estimate and calculate costs for your implementation of this solution, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
@@ -112,13 +118,13 @@ To estimate and calculate costs for your implementation of this solution, use th
 
 ## Next steps
 
-- [Refactor IBM z/OS mainframe Coupling Facility (CF) to Azure](../../reference-architectures/zos/refactor-zos-coupling-facility.yml).
-- [Replicate and sync mainframe data in Azure](../../reference-architectures/migration/sync-mainframe-data-with-azure.yml).
-- See the [Microsoft Azure Well-Architected Framework](../../framework/index.md) for more information about cost optimization for [VM instances](../../framework/cost/optimize-vm.md).
-- For more information, please contact <legacy2azure@microsoft.com>.
+- For more information, contact <legacy2azure@microsoft.com>.
+- See the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index) for more information about cost optimization for [VM instances](/azure/architecture/framework/cost/optimize-vm).
 
 ## Related resources
 
+- [Refactor IBM z/OS mainframe Coupling Facility (CF) to Azure](../../reference-architectures/zos/refactor-zos-coupling-facility.yml).
+- [Replicate and sync mainframe data in Azure](../../reference-architectures/migration/sync-mainframe-data-with-azure.yml).
 - [Windows n-tier application with SQL Server on Azure](../../reference-architectures/n-tier/n-tier-sql-server.yml)
 - [Multi-region n-tier application](../../reference-architectures/n-tier/multi-region-sql-server.yml)
 - [Multi-tier web application built for HA/DR](../infrastructure/multi-tier-app-disaster-recovery.yml)

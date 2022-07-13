@@ -4,7 +4,8 @@ metadata:
   titleSuffix: Azure Example Scenarios
   description: Learn about the device builder, application developer, and solution operator roles and how they interact in an IoT solution.
   author: wamachine
-  ms.date: 08/10/2020
+  ms.author: jasonwa
+  ms.date: 06/17/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario

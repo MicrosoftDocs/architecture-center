@@ -1,14 +1,14 @@
 ---
 title: Move data to a SQL Server virtual machine
 description: Move data from flat files or from on-premises SQL Server to SQL Server on Azure VM.
-services: machine-learning
 author: marktab
 manager: marktab
 editor: marktab
-ms.service: machine-learning
-ms.subservice: team-data-science-process
+services: architecture-center
+ms.service: architecture-center
+ms.subservice: azure-guide
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 01/04/2022
 ms.author: tdsp
 ms.custom:
   - previous-author=deguhath
@@ -172,7 +172,7 @@ You can also use the following migration strategies:
 
 1. [Deploy a SQL Server Database to a Microsoft Azure VM wizard](#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard)
 2. [Export to Flat File](#export-flat-file)
-3. [SQL Database Migration Wizard](#sql-migration)
+3. [SQL Server Migration Assistant (SSMA)](#sql-migration)
 4. [Database back up and restore](#sql-backup)
 
 We describe each of these options below:
@@ -200,11 +200,11 @@ Various methods can be used to bulk export data from an On-Premises SQL Server a
     `bcp dbname..tablename format nul -c -x -f  exportformatfilename.xml  -U username@servername.database.windows.net -S tcp:servername -P password  --t \t -r \n`
 4. Use any of the methods described in section [Moving Data from File Source](#filesource_to_sqlonazurevm) to move the data in flat files to a SQL Server.
 
-### <a name="sql-migration"></a>SQL Database Migration Wizard
+### <a name="sql-migration"></a>SQL Server Migration Assistant (SSMA)
 
-[Microsoft Data Migration](https://techcommunity.microsoft.com/t5/microsoft-data-migration/bg-p/MicrosoftDataMigration) provides a user-friendly way to move data between two SQL server instances. It allows the user to map the data schema between sources and destination tables, choose column types and various other functionalities. It uses bulk copy (BCP) under the covers. A screenshot of the welcome screen for the SQL Database Migration wizard is shown below.
+[SQL Server Migration Assistant (SSMA)](https://techcommunity.microsoft.com/t5/microsoft-data-migration/bg-p/MicrosoftDataMigration) provides a user-friendly way to move data between two SQL server instances. It allows the user to map the data schema between sources and destination tables, choose column types and various other functionalities. It uses bulk copy (BCP) under the covers. A screenshot of the welcome screen for SQL Server Migration Assistant (SSMA) is shown below.
 
-![SQL Server Migration Wizard][2]
+![Screenshot of the SQL Server Migration Assistant (SSMA).][2]
 
 ### <a name="sql-backup"></a>Database back up and restore
 
@@ -215,7 +215,7 @@ SQL Server supports:
 
 A screenshot of the Database back up/restore options from SQL Server Management Studio is shown below.
 
-![SQL Server Import Tool][1]
+![Screenshot of the SQL Server Import Tool.][1]
 
 ## Resources
 
@@ -224,4 +224,4 @@ A screenshot of the Database back up/restore options from SQL Server Management 
 [SQL Server on Azure Virtual Machines overview](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview)
 
 [1]: ./media/move-sql-server-virtual-machine/sql-server-built-in-utilities.png
-[2]: ./media/move-sql-server-virtual-machine/database-migration-wizard.png
+[2]: ./media/move-sql-server-virtual-machine/addsql-aud.png

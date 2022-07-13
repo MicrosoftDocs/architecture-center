@@ -1,11 +1,35 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution demonstrates how to build and deploy a machine learning model with SQL Server 2016 with R Services to predict if a Bank loan will need to be charged off within next three months.
+A charged off loan is a loan that is declared by a creditor (usually a lending institution) that an amount of debt is unlikely to be collected, usually when the loan repayment is severely delinquent by the debtor. Given that high chargeoff has a negative impact on lending institutions’ year-end financials, lending institutions often monitor loan chargeoff risk very closely to prevent loans from getting charged-off.
+
+## Potential use cases
+
+This solution demonstrates how to build and deploy a machine learning model, with SQL Server 2019 pre-installed in a Data Science VM with R Services embedded, to predict if a bank loan will need to be charged off within the given period. This solution is ideal for the finance industry.
 
 ## Architecture
 
-![Architecture Diagram](../media/loan-chargeoff-prediction-with-sql-server.png)
-*Download an [SVG](../media/loan-chargeoff-prediction-with-sql-server.svg) of this architecture.*
+![Architecture diagram of building and deploying an ML model to predict a bank loan.](../media/loan-chargeoff-prediction-with-sql-server.png)
+*Download a [Visio file](https://arch-center.azureedge.net/loan-chargeoff-prediction.vsdx) for this architecture.*
+
+### Dataflow
+
+1. Develop and deploy R code into R Studio IDE, which is installed on a VM or Data Scientist workstation. It's connected to a Data Science VM, where SQL Server is installed.
+
+1. Predict and score the model. The prediction and scored data can be visualized into Power BI.
+
+Data scientists do the data preparation, model training, and evaluation from their favorite R IDE. DBAs can take care of the deployment using SQL stored procedures with embedded R code.
+
+Finally, a Power BI report is used to visualize the predicted and scored results that are deployed.
+
+### Components
+
+Key technologies used to implement this architecture:
+
+- [Power BI](https://powerbi.microsoft.com)
+- [Data Science Virtual Machines](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines)
+- [Virtual Machines](https://azure.microsoft.com/services/virtual-machines)
+
+In a Data Science VM, the SQL Server 2019 Developer edition is pre-installed. For information about the other tools included on the Azure Data Science VM, see [What tools are included on the Azure Data Science Virtual Machine?](/azure/machine-learning/data-science-virtual-machine/tools-included).
 
 ## Solution details
 
@@ -37,6 +61,39 @@ Click on the Deploy button to test the automation and the entire solution will b
 
 Your Azure subscription used for the deployment will incur consumption charges on the services used in this solution, approximately $1.15/hour for the default VM.
 
-Ensure that you stop your VM instance when not actively using the solution. If you run the VM, you will incur higher costs.
+Ensure that you stop your VM instance when not actively using the solution. If you run the VM, you'll incur higher costs.
 
-Make sure to delete the solution if you are not using it.
+Make sure to delete the solution if you're not using it.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+ - [Avijit Prasad](https://www.linkedin.com/in/avijit-prasad🌐-96768a42) | Cloud Consultant
+
+## Next steps
+
+Product documentation:
+
+- [Linux virtual machines in Azure](/azure/virtual-machines/linux/overview)
+- [Run SQL Server in the cloud](/sql/linux/quickstart-install-connect-clouds)
+- [What is Power BI?](/power-bi/fundamentals/power-bi-overview)
+- [What is SQL Server on Windows Azure Virtual Machines?](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview)
+- [Windows virtual machines in Azure](/azure/virtual-machines/windows/overview)
+
+Microsoft Learn modules:
+
+- [Create a Linux virtual machine in Azure](/learn/modules/create-linux-virtual-machine-in-azure)
+- [Create a Windows virtual machine in Azure](/learn/modules/create-windows-virtual-machine-in-azure)
+- [Create reports and dashboards with Power BI](/learn/modules/explore-power-bi)
+- [Deploy and configure servers, instances, and databases for Azure SQL](/learn/modules/azure-sql-deploy-configure)
+
+## Related resources
+
+- [Azure Kubernetes Service (AKS) architecture design](../../reference-architectures/containers/aks-start-here.md)
+- [Campaign optimization with SQL Server and machine learning](campaign-optimization-with-sql-server.yml)
+- [Finance management apps using Azure Database for PostgreSQL](finance-management-apps-using-azure-database-for-postgresql.yml)
+- [Finance management apps using Azure Database for MySQL](finance-management-apps-using-azure-database-for-mysql.yml)
+- [Loan charge-off prediction with Azure HDInsight Spark clusters](loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters.yml)

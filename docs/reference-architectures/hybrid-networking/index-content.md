@@ -20,7 +20,7 @@ This architecture is suitable for hybrid applications where the traffic between 
 
 ### Reference architecture
 
-- [Hybrid network with VPN gateway](./vpn.yml)
+- [Hybrid network with VPN gateway](/azure/expressroute/expressroute-howto-coexist-resource-manager)
 
 <!-- markdownlint-disable MD024 -->
 
@@ -33,6 +33,7 @@ This architecture is suitable for hybrid applications running large-scale, missi
 ### Benefits
 
 - Much higher bandwidth available; up to 10 Gbps depending on the connectivity provider.
+- Lower and more consistent latencies compared to typical connections over the Internet.
 - Supports dynamic scaling of bandwidth to help reduce costs during periods of lower demand. However, not all connectivity providers have this option.
 - May allow your organization direct access to national clouds, depending on the connectivity provider.
 - 99.9% availability SLA across the entire connection.

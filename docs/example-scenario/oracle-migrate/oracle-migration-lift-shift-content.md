@@ -1,5 +1,3 @@
-
-
 Azure provides Oracle database images with a "bring your own license" model. If you're properly licensed to use Oracle software, you're allowed to migrate Oracle databases to Azure Virtual Machines (VMs).
 
 See [Oracle and Microsoft Strategic Partnership FAQ](https://www.oracle.com/cloud/azure-interconnect-faq.html) to figure out if Oracle certifies and supports your Oracle database on Azure.
@@ -8,11 +6,13 @@ See [Oracle and Microsoft Strategic Partnership FAQ](https://www.oracle.com/clou
 
 ![An architecture diagram that shows Oracle databases on Azure Virtual Machines.](media/lift-shift-azure-vms.png)
 
+### Workflow
+
 1. Create Azure VMs with the correct specifications to support your Oracle database.
 
 1. Migrate your Oracle database to the Azure VMs.
 
-## Components
+### Components
 
 * [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) lets you migrate your business and important workloads to Azure to increase operational efficiencies.
 
@@ -44,10 +44,10 @@ Refer to these articles for supporting info:
 
 * [Reference architectures for Oracle Database Enterprise Edition on Azure](/azure/virtual-machines/workloads/oracle/oracle-reference-architecture)
 
-You can't use Oracle Real Application Cluster (RAC) by itself in Azure. If you use FlashGrid SkyCluster, then you can host RAC on Azure. Follow these links for more information:
+You can't use Oracle Real Application Cluster (RAC) by itself in Azure. If you use FlashGrid Cluster, then you can host RAC on Azure. Follow these links for more information:
 
-* Oracle RAC in Azure with FlashGrid SkyCluster: [Oracle RAC in Azure with FlashGrid SkyCluster](https://www.flashgrid.io/oracle-rac-in-azure/)
-* Azure SkyCluster for Oracle RAC VM image: [SkyCluster for Oracle RAC](https://azuremarketplace.microsoft.com/marketplace/apps/flashgrid-inc.flashgrid-skycluster)
+* [FlashGrid Cluster for Oracle RAC on Azure](https://www.flashgrid.io/products/flashgrid-for-oracle-rac-on-azure/)
+* [FlashGrid Cluster for Oracle RAC on Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/flashgrid-inc.flashgrid-skycluster)
 
 ## Next steps
 

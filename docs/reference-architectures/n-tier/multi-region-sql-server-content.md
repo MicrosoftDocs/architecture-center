@@ -1,12 +1,12 @@
-
-
 This reference architecture shows a set of proven practices for running an N-tier application in multiple Azure regions, in order to achieve availability and a robust disaster recovery infrastructure.
+
+## Architecture
 
 ![Highly available network architecture for Azure N-tier applications"](./images/multi-region-sql-server.png)
 
 *Download a [Visio file][visio-download] of this architecture.*
 
-## Architecture
+### Workflow
 
 This architecture builds on the one shown in [N-tier application with SQL Server](n-tier-sql-server.yml).
 
@@ -154,7 +154,7 @@ Test the resiliency of the system to failures. Here are some common failure scen
 
 Measure the recovery times and verify they meet your business requirements. Test combinations of failure modes, as well.
 
-## Cost considerations
+## Cost optimization
 
 Use the [Azure Pricing Calculator][azure-pricing-calculator] to estimates costs. Here are some other considerations.
 
@@ -181,6 +181,7 @@ Traffic Manager billing is based on the number of DNS queries received, with a d
 For more information, see the cost section in [Microsoft Azure Well-Architected Framework][WAF-cost].
 
 ### VNET-Peering pricing
+
 A high-availability deployment that leverages multiple Azure Regions will make use of VNET-Peering. There are different charges for VNET-Peering within the same region and for Global VNET-Peering.
 
 For more information, see [Virtual Network Pricing](https://azure.microsoft.com/pricing/details/virtual-network/).
@@ -199,11 +200,10 @@ In order to test the Azure environment where the applications are running, it sh
 
 For more information, see the Operational Excellence section in [Microsoft Azure Well-Architected Framework][WAF-devops].
 
-## Next Steps
+## Next steps
 
 - [Deploy Traffic Manager in Azure](/azure/traffic-manager/quickstart-create-traffic-manager-profile)
 - [Deploy Azure Load Balancer](/azure/load-balancer/load-balancer-overview)
-
 
 ## Related resources
 
@@ -222,7 +222,7 @@ The following architecture uses some of the same technologies:
 [Windows-vm-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/windows
 [Managed-Sql-pricing]: https://azure.microsoft.com/pricing/details/sql-database/managed
 [azure-sql-db]: /azure/sql-database
-[health-endpoint-monitoring-pattern]: ../../patterns/health-endpoint-monitoring.md
+[health-endpoint-monitoring-pattern]: ../../patterns/health-endpoint-monitoring.yml
 [azure-cli]: /cli/azure
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [regional-pairs]: /azure/best-practices-availability-paired-regions
@@ -239,5 +239,5 @@ The following architecture uses some of the same technologies:
 [visio-download]: https://arch-center.azureedge.net/vm-reference-architectures.vsdx
 [vnet-dns]: /azure/virtual-network/manage-virtual-network#change-dns-servers
 [wsfc]: /sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server?view=sql-server-ver15
-[WAF-cost]: ../../framework/cost/overview.md
-[WAF-devops]: ../../framework/devops/overview.md
+[WAF-cost]: /azure/architecture/framework/cost/overview
+[WAF-devops]: /azure/architecture/framework/devops/overview

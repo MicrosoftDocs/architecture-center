@@ -9,7 +9,7 @@ The company needs a modern approach to analysis data, so that decisions are made
 - Loading data using a highly parallelized approach that can support thousands of incentive programs, without the high costs of deploying and maintaining on-premises infrastructure.
 - Greatly reducing the time needed to gather and transform data, so you can focus on analyzing the data.
 
-## Relevant use cases
+## Potential use cases
 
 This approach can also be used to:
 
@@ -20,6 +20,8 @@ This approach can also be used to:
 ## Architecture
 
 ![Architecture for a data warehousing and analysis scenario in Azure](./media/architecture-data-warehousing.png)
+
+*Download a [Visio file](https://arch-center.azureedge.net/architecture-data-warehousing.vsdx) of this architecture.*
 
 The data flows through the solution as follows:
 
@@ -81,6 +83,14 @@ Review a [pricing sample for a data warehousing scenario][calculator] via the Az
 - [Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services) is available in developer, basic, and standard tiers. Instances are priced based on query processing units (QPUs) and available memory. To keep your costs lower, minimize the number of queries you run, how much data they process, and how often they run.
 - [Power BI](https://powerbi.microsoft.com/pricing) has different product options for different requirements. [Power BI Embedded](https://azure.microsoft.com/pricing/details/power-bi-embedded) provides an Azure-based option for embedding Power BI functionality inside your applications. A Power BI Embedded instance is included in the pricing sample above.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+* [Alex Buck](https://www.linkedin.com/in/alex-buck-0161575) | Senior Content Developer
+
 ## Next steps
 
 - Review the [Azure reference architecture for automated enterprise BI](../../reference-architectures/data/enterprise-bi-adf.yml), which includes instructions for deploying an instance of this architecture in Azure.
@@ -91,3 +101,8 @@ Review a [pricing sample for a data warehousing scenario][calculator] via the Az
 
 [source-document]: https://customers.microsoft.com/story/maritz
 [calculator]: https://azure.com/e/b798fb70c53e4dd19fdeacea4db78276
+
+## Related resources
+
+- [Data warehousing in Microsoft Azure](/azure/architecture/data-guide/relational-data/data-warehousing)
+- [Enterprise data warehouse](/azure/architecture/solution-ideas/articles/enterprise-data-warehouse)

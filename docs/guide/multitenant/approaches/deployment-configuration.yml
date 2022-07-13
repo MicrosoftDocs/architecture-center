@@ -10,11 +10,13 @@ metadata:
   ms.subservice: azure-guide
 azureCategories:
   - management-and-governance
-  - security
+  - devops
 products:
   - azure
-  - azure-sql-database
+  - azure-devops
+  - azure-pipelines
   - azure-marketplace
+  - github
 name: Architectural approaches for the deployment and configuration of multitenant solutions
 summary: This article describes approaches to consider when deploying and configuring a multitenant solution.
 thumbnailUrl: /azure/architecture/browse/thumbs/example-data-pipeline.png

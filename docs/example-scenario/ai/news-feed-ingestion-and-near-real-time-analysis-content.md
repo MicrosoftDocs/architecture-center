@@ -96,7 +96,7 @@ Azure Cosmos DB is powerful but incurs the greatest [cost][db-cost] in this depl
 
 Pricing for Azure Functions varies depending on the [plan][function-plan] it runs in.
 
-## Deploy the scenario
+## Deploy this scenario
 
 > [!NOTE]
 > You must have an existing Azure account. If you don't have an Azure subscription, create a [free account][free] before you begin.
