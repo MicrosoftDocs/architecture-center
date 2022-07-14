@@ -15,12 +15,12 @@ Charon-PAR runs on Azure, emulating the PA-RISC systems for HP-UX. On this virtu
 1. One or more host network interface controllers (NICs) can be dedicated to the guest operating system. You can do that by dedicating physical NICs to the guest operating system. The HP-UX VMs each get their own Azure network interface, so they have their own dedicated private IP addresses. This host-specific network interface is normally used within the Charon configuration for the dedicated use of guest workloads.
 
    Optionally, you can easily set up Azure public IP addresses on the same network interfaces. There must always be network interfaces dedicated to the guest OS. The host is allocated a network interface. PA9-32 720 allows only one network interface, but PA9-64 allows multiple network interfaces dedicated to the guest OS.
-1. Users can  connect via Secure Shell (SSH) directly to the HP-UX VMs (if SSH is supported by the version of HP-UX). These VMs their own dedicated network interface cards and IP addresses.
+1. Users can  connect via Secure Shell (SSH) directly to the HP-UX VMs (if SSH is supported by the HP-UX version). These VMs have their own dedicated network interface cards and IP addresses.
 1. Azure storage account file shares mounted on the Linux VM allow mapping of the Charon-PAR virtual tape manager to a locally mounted device, which is backed by an Azure Files storage account in the cloud. This mapping enables low-cost storage of archived tapes for regulatory and compliance purposes.
 
 ### Components
 
-- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) provides on-demand, scalable computing resources in Azure. An Azure VM gives you the flexibility of virtualization without requiring you to buy and maintain physical hardware. Azure VMs provide a choice of operating systems, including Windows and Linux.
+- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) provides on-demand, scalable computing resources in Azure. An Azure VM gives you the flexibility of virtualization without requiring you to buy and maintain physical hardware. Azure VMs offer a choice of operating systems, including Windows and Linux.
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is the fundamental building block for private networks on Azure. Virtual networks enable Azure resources like VMs to communicate with each other, the internet, and on-premises networks. Azure Virtual Network is like a traditional network in your own datacenter, but it provides the additional scale, availability, and isolation benefits of the Azure infrastructure.
 - [Azure Virtual Network interface cards](/azure/virtual-network/virtual-network-network-interface) enable an Azure VM to communicate with internet, Azure, and on-premises resources. As shown in the diagram, you can add additional network interface cards to a single Azure VM, which allows the Solaris child VMs to have their own dedicated network interface devices and IP addresses.
 - [Azure SSD managed disks](/azure/virtual-machines/managed-disks-overview) are block-level storage volumes managed by Azure that are used with Azure VMs. Ultra disks, premium SSDs, standard SSDs, and standard hard disk drives (HDDs) are available. For this architecture, we recommend either premium SSDs or ultra disk SSDs.
@@ -38,15 +38,15 @@ For the best performance, we recommend a compute-optimized FX-series VM. You can
 
 Frequently, the evolution and maintenance of business applications is stalled because of underlying legacy hardware. Sometimes the hardware is no longer compatible with newer upgrades and integrations, or, worse, it's no longer supported. Aging infrastructure for mission critical-applications is a concern. The longer the problem remains unsolved, the higher the risk and cost of mitigation. 
 
-These applications might have supported the organization's critical business and evolved over decades, gone through audits and certifications, and have well-established operations around them. Instead of a high-risk and complex re-engineering project, an alternative approach is a low-risk project that moves the applications as-is to a modern and less expensive platform, like Azure cloud, with the help of an emulator. Such a project, often called *lift and shift*, preserves the business functionality of the application and replaces only the hardware, guaranteeing business continuity.
+These applications might have supported the organization's critical business and evolved over decades, gone through audits and certifications, and have well-established operations around them. Instead of a high-risk and complex re-engineering project, an alternative approach is a low-risk project that moves the applications as-is to a modern and less expensive platform, like Azure cloud, with the help of an emulator. Such a project, often called *lift and shift*, preserves the business functionality of the application and replaces only the hardware, providing business continuity.
 
-Running applications with an emulator on the cloud provides numerous benefits, like security, elasticity, disaster recovery, high availability, and failover. But the most significant benefit is the reduced operational costs and ease of maintenance. No risky migration projects or changes to the software (operating system and middleware) are required. A server virtualization software on Azure can be the first step towards modernization. After the workload is on Azure, you can potentially take advantage of other benefits of the cloud.
+Running applications with an emulator on the cloud provides numerous benefits, like security, elasticity, disaster recovery, high availability, and failover. But the most significant benefits are the reduced operational costs and the ease of maintenance. No risky migration projects or changes to the operating system or middleware are required. A server virtualization software on Azure can be the first step towards modernization. After the workload is on Azure, you can potentially take advantage of other benefits of the cloud.
 
 This article describes a migration of an HP-UX workload to Azure. It shows how emulator software Charon-PAR can run HP-UX workloads on Azure.
 
 The core business of [Stromasys](https://www.stromasys.com) centers on cross-platform virtualization / server virtualization software that allows owners of HP-UX legacy systems to continue running their mission-critical applications unchanged on new industry standard computer systems. Charon products preserve current application investments by enabling customers to continue to use their existing applications and business processes. Because everything continues to run without modification, no retraining or restaffing is required. Charon products dramatically reduce the cost of ownership by reducing computer footprint, energy consumption, and cooling costs while eliminating the risks and costs associated with running on aging hardware.
 
-The Stromasys Charon environment provides a significantly higher level of platform stability. For the first time since the first HP-UX systems were introduced, replacing the actual physical server no longer requires any changes to the HP-UX software environment. Charon also provides more platform stability and has virtually unlimited lifetime.
+The Stromasys Charon environment provides a significantly higher level of platform stability. For the first time since the first HP-UX systems were introduced, replacing the actual physical server no longer requires changes to the HP-UX software environment. Charon also provides more platform stability and has virtually unlimited lifetime.
 
 With the steady increase in the use of Azure-hosted systems in the typical corporate environment, an emulated HP-UX system hosted on Linux is the best way to host an HP-UX system in these environments.
 
@@ -62,7 +62,7 @@ Benefits of the lift-and-shift approach to migration include:
 
 ### Potential use cases
 
-- Enable low-friction lift-and-shift of on-premises HP-UX workloads that run on PA-RISC server machines to Azure.
+- Enable low-friction lift-and-shift to Azure of on-premises HP-UX workloads that run on PA-RISC server machines.
 - Continue to use HP-UX applications that run on end-of-life PA-RISC servers without any changes, but free the applications from old hardware and continue to provide users with the same or better interfaces.
 - Manage multiple server hosts and child VMs from a single interface.
 - Use low-cost Azure storage to archive tapes for regulatory and compliance purposes.
@@ -77,13 +77,13 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 - This solution uses an Azure network security group to manage traffic between Azure resources. For more information, see [Network security groups](/azure/virtual-network/network-security-groups-overview).
-- [For additional security, consider using Azure Bastion](https://azure.microsoft.com/services/azure-bastion). Azure Bastion maximizes admin access security by minimizing open ports. It provides secure and seamless RDP/SSH connectivity to virtual network VMs directly from the Azure portal over TLS.
+- [For increased security, consider using Azure Bastion](https://azure.microsoft.com/services/azure-bastion). Azure Bastion maximizes admin access security by minimizing open ports. It provides secure and seamless RDP/SSH connectivity to virtual network VMs directly from the Azure portal over TLS.
 
 ### Cost optimization
 
 Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-Azure avoids unnecessary costs by identifying the correct number of resource types, analyzing spending over time, and scaling to meet business needs without overspending. For example, with Azure you pay as you go, when you don't need workloads, you can shut them down to save money. You can start Charon-PAR as a service manually or automatically when the Azure VM starts. You can stop the service manually or automatically when the host system shuts down. Ensure that you always first shut down the guest OS (HP-UX), then the emulator (Charon), and then the host VM (Azure VM). When you start up the system, do it in the reverse order. Here are few other cost optimization considerations:
+Azure avoids unnecessary costs by identifying the correct number of resource types, analyzing spending over time, and scaling to meet business needs without overspending. For example, with Azure, you pay as you go. When you don't need workloads, you can shut them down to save money. You can start Charon-PAR as a service manually or automatically when the Azure VM starts. You can stop the service manually or automatically when the host system shuts down. Ensure that you always first shut down the guest OS (HP-UX), then the emulator (Charon), and then the host VM. When you start up the system, do it in the reverse order. Here are few other cost optimization considerations:
 
 - [Azure Files](https://azure.microsoft.com/pricing/details/storage/files) pricing depends on many factors: data volume, data redundancy, transaction volume, and the number of file sync servers that you use.
 - [Azure Storage](https://azure.microsoft.com/pricing/details/storage) costs depend on your data redundancy configurations and volume.
