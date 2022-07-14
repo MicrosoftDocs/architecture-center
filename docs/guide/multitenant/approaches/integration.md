@@ -73,19 +73,19 @@ For real-time integrations, you might measure volume as the number of transactio
 
 ### Data formats
 
-When data is exchanged between two parties, it's important they both have a clear understanding of the format of the data. The data format includes both the file format, such as JSON or XML, and the schema, such as the list of fields that will be included, date formats, and nullability of fields.
+When data is exchanged between two parties, it's important they both have a clear understanding of the format of the data. The data format includes both the file format, such as JSON, Parquet, CSV, or XML, and the schema, such as the list of fields that will be included, date formats, and nullability of fields.
 
-When you work with a multitenant system, use the same data format for all of your tenants if you can. That way, you avoid having to customize and retest your integration components for each tenant's requirements. However, in some situations, you might need to use different data formats for communicating with different tenants, and so you might need to implement multiple integrations. See [Composable integration components](#composable-integration-components) for an approach that can help to simplify this kind of situation.
+When you work with a multitenant system, if possible, it's best to standardize and use the same data format for all of your tenants. That way, you avoid having to customize and retest your integration components for each tenant's requirements. However, in some situations, you might need to use different data formats for communicating with different tenants, and so you might need to implement multiple integrations. See [Composable integration components](#composable-integration-components) for an approach that can help to simplify this kind of situation.
 
 ### Access to tenants' systems
 
-Some integrations involve you making a connection to a tenant's systems or data stores. When you connect to a tenant's systems, you need to carefully consider how you connect to tenants' systems, both at a networking layer and from an identity perspective.
+Some integrations involve you making a connection to your tenant's systems or data stores. When you connect to your tenant's systems, you need to carefully consider both the networking and identity components of the connection.
 
 #### Network access
 
 Consider the network topology for accessing your tenant's system, which might include the following options:
 
-- **Connect across the internet.** If you connect across the internet, how will the connection be secured? If your tenants plan to restrict based on your IP addresses, ensure that the Azure services that your solution uses can support static IP addresses for outbound connections. Consider using [NAT Gateway](../service/nat-gateway.md) to provide static IP addresses if necessary.
+- **Connect across the internet.** If you connect across the internet, how will the connection be secured and the data encrypted? If your tenants plan to restrict based on your IP addresses, ensure that the Azure services that your solution uses can support static IP addresses for outbound connections. For example, consider using [NAT Gateway](../service/nat-gateway.md) to provide static IP addresses if necessary.
 - **Private endpoints** can be a useful approach to connect to tenants' systems if they're also hosted in Azure.
 - **Agents**, which are [deployed into a tenant's environment](../approaches/networking.md#agents), can provide a flexible approach and avoid the need for your tenants to allow inbound connections.
 - **Relays**, such as [Azure Relay](/azure/azure-relay/relay-what-is-it), also provide an approach to avoid inbound connections.
@@ -95,7 +95,7 @@ Consider the network topology for accessing your tenant's system, which might in
 Consider how you authenticate with each tenant when you initiate a connection. You might consider the following approaches:
 
 - **Keys**, such as API keys, certificates, or other secrets. It's important to plan how you'll securely manage your tenants' credentials. Leakage of your tenants' secrets could result in a major security incident, potentially impacting many tenants.
-- **Azure Active Directory (Azure AD) tokens**, where you use a token issued by the tenant's own Azure AD instance. The token might be issued to your workload by using a multitenant Azure AD application, or it might be issued to a specific user identity within the tenant's directory.
+- **Azure Active Directory (Azure AD) tokens**, where you use a token issued by the tenant's own Azure AD instance. The token might be issued directly to your workload by using a multitenant Azure AD application registration or a specific service principal. Alternatively, your workload can request delegated permission to access resources on behalf of a specific user within the tenant's directory.
 
 Whichever approach you select, ensure that your tenants follow the principle of least privilege and avoid granting your system unnecessary permissions. For example, if your system only needs to read data from a tenant's data store, the identity you use to connect shouldn't have write permissions.
 
@@ -127,7 +127,7 @@ It's a good practice to use an API gateway, such as [Azure API Management](/azur
 
 ### Valet Key pattern
 
-Occasionally a tenant might need direct access to a data source such as Azure Storage or Azure Cosmos DB. Consider following the [Valet Key pattern](../../../patterns/valet-key.yml) to securely share data and restrict access to the data store.
+Occasionally a tenant might need direct access to a data source such as Azure Storage. Consider following the [Valet Key pattern](../../../patterns/valet-key.yml) to securely share data and restrict access to the data store.
 
 For example, you could use this approach when batch exporting a large data file. After you've generated the export file, you can save it to a blob container in Azure Storage, and then generate a time-bound, read-only shared access signature. This signature can be provided to the tenant along with the blob URL. The tenant can then download the file from Azure Storage until the signature's expiry.
 
@@ -172,7 +172,7 @@ A common approach in integration is to build and test individual steps that perf
 
 Typically, you build these individual elements by using services like Azure Functions and Azure Logic Apps. You then define the overall integration process by using a tool like Logic Apps or Azure Data Factory, and it invokes each of the precreated steps.
 
-When you work with complex multitenant integration scenarios, it can be helpful to define a library of reusable integration steps. Then, you can either build workflows for each tenant to compose the applicable pieces together based on that tenant's requirements. Alternatively, you might be able to expose some of the data sets or integration components directly to your tenants so that they can build their own integration workflows from them.
+When you work with complex multitenant integration scenarios, it can be helpful to define a library of reusable integration steps. Then, you can build workflows for each tenant to compose the applicable pieces together based on that tenant's requirements. Alternatively, you might be able to expose some of the data sets or integration components directly to your tenants so that they can build their own integration workflows from them.
 
 Similarly, you might need to import data from tenants who use a different data format or different transport to others. A good approach for this scenario is to build tenant-specific *connectors*. Connectors are workflows that normalize and import the data into a standardized format and location, and then trigger your main shared import process.
 
@@ -180,7 +180,7 @@ If you use a [tiered pricing model](../considerations/pricing-models.md#feature-
 
 ## Antipatterns to avoid
 
-- **Exposing your primary data stores directly to tenants.** For example, avoid providing credentials to your data stores to your customers, and don't replicate data from your primary database to customers' read replicas. Instead, create dedicated *integration data stores*, and use the [Valet Key pattern](#valet-key-pattern) to expose the data.
+- **Exposing your primary data stores directly to tenants.** For example, avoid providing credentials to your data stores to your customers, and don't directly replicate data from your primary database to customers' read replicas of the same database system. Instead, create dedicated *integration data stores*, and use the [Valet Key pattern](#valet-key-pattern) to expose the data.
 - **Exposing APIs without an API gateway.** APIs have specific concerns for access control, billing, and metering. Even if you don't plan to use API policies initially, it's a good idea to include an API gateway early. That way, if you need to customize your API policies in the future, you don't need to make breaking changes to the URLs that a third party depends on.
 - **Unnecessary tight coupling.** Loose coupling, such as by using [messaging](#messaging) approaches, can provide a range of benefits for security, performance isolation, and resiliency. When possible, it's a good idea to loosely couple your integrations with third parties. If you do need to tightly couple to a third party, ensure that you follow good practices like [Retry pattern](../../../patterns/retry.yml), the [Circuit Breaker pattern](../../../patterns/circuit-breaker.yml), and the [Bulkhead pattern](../../../patterns/bulkhead.yml).
 - **Custom integrations for specific tenants.** Tenant-specific features or code can make your solution harder to test. It also makes it harder to modify your solution the future because you have to understand more code paths. Instead, try to build [composable components](#composable-integration-components) that abstract the requirements for any specific tenant, and reuse them across multiple tenants with similar requirements.
