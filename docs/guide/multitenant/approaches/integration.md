@@ -146,7 +146,7 @@ Alternatively, you can use a service like [Azure Event Grid](/azure/event-grid/o
 
 ### Delegated user access
 
-When you access data from a tenant's data stores, consider whether you need to use a specific user's identity to access the data. When you do, your integration is subject to the same permissions that the user has. This approach is often called [delegated access](#full-and-user-delegated-access).
+When you access data from a tenant's data stores, consider whether you need to use a specific user's identity to access the data. When you do, your integration is subject to the same permissions that the user has. This approach is often called [delegated access](#full-or-user-delegated-access).
 
 For example, suppose your multitenant service runs machine learning models over your tenants' data. You need to access each tenant's instances of services like Azure Synapse Analytics, Azure Storage, Azure Cosmos DB, and others. Each tenant has their own Azure AD instance. Your solution can be granted delegated access to the data store so that you can retrieve the data that a specific user can access.
 
