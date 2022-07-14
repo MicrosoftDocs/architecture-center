@@ -1712,7 +1712,7 @@ items:
               - name: All energy and environment architectures
                 href: /azure/architecture/browse/?terms=energy
               - name: Deploy IBM Maximo Application Suite 
-                href: example-scenario/networking/deploy-ibm-maximo-application-suite.yml
+                href: example-scenario/apps/deploy-ibm-maximo-application-suite.yml
               - name: Environmental monitoring
                 href: solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml
               - name: Geospatial data processing and analytics
