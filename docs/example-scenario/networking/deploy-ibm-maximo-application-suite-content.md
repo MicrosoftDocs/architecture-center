@@ -78,7 +78,7 @@ Find more information about use cases for MAS on IBM's website at [IBM Maximo Ap
 
 ## Recommendations
 
-We recommend installing the latest stable version of MAS because it provides the best integration options with Azure. Pay close attention to the versions of OpenShift that are supported, because the supported versions vary with the specific version of MAS. Currently the sliding window release cycle of Azure Redhat OpenShift is too frequent for it to be supported by IBM Maximo.
+We recommend installing the latest stable version of MAS because it provides the best integration options with Azure. Pay close attention to the versions of OpenShift that are supported, because the supported versions vary with the specific version of MAS. Currently the sliding window release cycle of Azure Red Hat OpenShift is too frequent for it to be supported by IBM Maximo Application Suite.
 
 Use of earlier or later major versions of OpenShift can result in falling out of official support for MAS. Before building out your own deployment, we recommend using the quickstart guide to deploy MAS so that you understand how the deployment and configuration works. Knowing how this is done speeds creation of the design requirements for your implementation. For more information, see [QuickStart Guide: Maximo Application Suite on Azure](https://github.com/Azure/maximo).
 
@@ -101,12 +101,12 @@ Microsoft has tested MAS versions 8.5 and later on Azure. Our recommendation is 
 Review the MAS applications that you need for your complete business scenario, and then review the requirements for each of the applications. For more information, see [IBM Maximo Application Suite system requirements](https://www.ibm.com/support/pages/node/6538166). Each of the applications might need separate databases. We have tested and support the following databases on Azure:
 
 - [SQL Server 2019](https://azure.microsoft.com/en-us/services/virtual-machines/sql-server/) on Azure using Windows or Linux
-- IBM [DB2 Warehouse on Cloud Pak for Data 3.5](https://www.ibm.com/docs/en/cloud-paks/cp-data/3.5.0?topic=services-db2-warehouse)
+- IBM [Db2 Warehouse on Cloud Pak for Data 3.5](https://www.ibm.com/docs/en/cloud-paks/cp-data/3.5.0?topic=services-db2-warehouse)
 
 You might also choose to run Oracle Exadata on a VM or on Oracle Cloud Infrastructure by using interconnection, but this isn't a tested configuration. For more information about interconnection, see [Learn about interconnecting Oracle Cloud with Microsoft Azure](https://docs.oracle.com/en/solutions/learn-azure-oci-interconnect/index.html). Currently, Azure SQL Database and Azure Cosmos DB aren't supported.
 
 > [!NOTE]
-> In some cases, you can't reuse a database for multiple MAS applications because of conflicting database settings. For example, you can't use the same IBM DB2 Warehouse for Health and Manage in combination with Monitor. However, you can mix different database products, such as using Microsoft SQL Server for one application and IBM DB2 Warehouse for another.
+> In some cases, you can't reuse a database for multiple MAS applications because of conflicting database settings. For example, you can't use the same IBM Db2 Warehouse for Health and Manage in combination with Monitor. However, you can mix different database products, such as using Microsoft SQL Server for one application and IBM Db2 Warehouse for another.
 >
 > For more information about database requirements for the Health application, see [Configuring the database for Maximo Health](https://www.ibm.com/docs/en/mas83/8.3.0?topic=dependencies-configure-database-health).
 
