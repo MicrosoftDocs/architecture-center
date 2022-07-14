@@ -87,7 +87,7 @@ Consider the network topology for accessing your tenant's system, which might in
 
 - **Connect across the internet.** If you connect across the internet, how will the connection be secured and the data encrypted? If your tenants plan to restrict based on your IP addresses, ensure that the Azure services that your solution uses can support static IP addresses for outbound connections. For example, consider using [NAT Gateway](../service/nat-gateway.md) to provide static IP addresses if necessary.
 - [**Private endpoints**](/azure/private-link/private-endpoint-overview), implemented by using Azure Private Link, can be a useful approach to connect to tenants' systems if they're also hosted in Azure. For more information on private networking considerations, see the guidance on [networking approaches for multitenancy](networking.md#public-or-private-access).
-- [**Agents**, which are deployed into a tenant's environment](../approaches/networking.md#agents), can provide a flexible approach and avoid the need for your tenants to allow inbound connections.
+- [**Agents**](../approaches/networking.md#agents), which are deployed into a tenant's environment, can provide a flexible approach and avoid the need for your tenants to allow inbound connections.
 - **Relays**, such as [Azure Relay](/azure/azure-relay/relay-what-is-it), also provide an approach to avoid inbound connections.
 
 #### Authentication
@@ -152,7 +152,7 @@ For example, suppose your multitenant service runs machine learning models over 
 
 Delegated access is easier if the data store supports Azure AD authentication. [Many Azure services support Azure AD identities.](/azure/active-directory/managed-identities-azure-resources/services-azure-active-directory-support)
 
-After a user establishes the initial connection, your system needs to securely store user tokens and refresh tokens so that you can continue to access the data store.
+For example, suppose that your multitenant web application and background processes need to access Azure Storage by using your tenants' user identities from Azure AD. First, you [create a multitenant Azure AD application registration](/azure/active-directory/develop/scenario-web-app-sign-user-overview) representing your solution. Next, you [grant the application delegated permission to access Azure Storage as the signed-in user](/azure/storage/common/storage-auth-aad-app#grant-your-registered-app-permissions-to-azure-storage). You also configure your application to authenticate users by using Azure AD. After a user signs in, Azure AD issues your application a short-lived access token that can be used to access Azure Storage on behalf of the user, and a longer-lived refresh token. Your system needs to securely store the refresh token so that your background processes can obtain new access tokens and continue to have access Azure Storage on behalf of the user.
 
 ### Messaging
 
