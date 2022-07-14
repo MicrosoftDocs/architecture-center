@@ -86,12 +86,13 @@ Some integrations involve you making a connection to your tenant's systems or da
 
 #### Network access
 
-Consider the network topology for accessing your tenant's system, which might include the following options:
+Consider the network topology for accessing your tenant's system. which might include the following options:
 
 - **Connect across the internet.** If you connect across the internet, how will the connection be secured and the data encrypted? If your tenants plan to restrict based on your IP addresses, ensure that the Azure services that your solution uses can support static IP addresses for outbound connections. For example, consider using [NAT Gateway](../service/nat-gateway.md) to provide static IP addresses if necessary.
-- [**Private endpoints**](/azure/private-link/private-endpoint-overview), implemented by using Azure Private Link, can be a useful approach to connect to tenants' systems if they're also hosted in Azure. For more information on private networking considerations, see the guidance on [networking approaches for multitenancy](networking.md#public-or-private-access).
 - [**Agents**](../approaches/networking.md#agents), which are deployed into a tenant's environment, can provide a flexible approach and avoid the need for your tenants to allow inbound connections.
 - **Relays**, such as [Azure Relay](/azure/azure-relay/relay-what-is-it), also provide an approach to avoid inbound connections.
+
+For more information, see the guidance on [networking approaches for multitenancy](networking.md#public-or-private-access).
 
 #### Authentication
 
