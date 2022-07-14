@@ -45,7 +45,7 @@ In many systems, access to certain data is restricted to specific users. The dat
 
 For example, consider Microsoft Power BI, which is a multitenant service that provides reporting and business intelligence on top of customer-owned data stores. When you configure Power BI, you configure *data sources* to pull data from databases, APIs, and other data stores. You can configure data stores in two different ways:
 
-- **Import all the data from the underlying data store**. This approach requires that Power BI be provided with credentials for an identity that can access the complete data store. Then, Power BI administrators can separately configure permissions to the imported data after it's imported into Power BI, and Power BI enforces the permissions.
+- **Import all the data from the underlying data store**. This approach requires that Power BI is provided with credentials for an identity that can access the complete data store. Then, Power BI administrators can separately configure permissions to the imported data after it's imported into Power BI, and Power BI enforces the permissions.
 - **Import a subset of data from the underlying data store based on a user's permissions.** When a user creates the data source, they use their credentials and the associated permissions. The exact subset of data that Power BI imports depends on the access level of the user who created the data source.
 
 Both approaches have valid use cases, so it's important to clearly understand your tenants' requirements.
@@ -60,7 +60,7 @@ Consider whether you'll be working with real-time data, or if the data will be s
 
 For real-time integrations, these approaches are common:
 
-- **Request/response**, where a client initiates a request to a server and receives a response. Typically, request/response integrations are implemented by using APIs or webhooks. Requests can be made synchronously, where they wait for acknowledgment and a response, or asynchronously, where they use something like the [Asynchronous request-reply pattern](../../../patterns/async-request-reply.yml) to wait for a response.
+- **Request/response**, where a client initiates a request to a server and receives a response. Typically, request/response integrations are implemented by using APIs or webhooks. Requests might be *synchronous*, where they wait for acknowledgment and a response. Alternatively, requests can be *asynchronous*, using something like the [Asynchronous request-reply pattern](../../../patterns/async-request-reply.yml) to wait for a response.
 - **Loosely coupled communication**, which is often enabled through messaging components designed for loosely coupling systems together. For example, Azure Service Bus provides message queuing capabilities, and Azure Event Grid and Event Hubs provide eventing capabilities. These components are often used as part of integration architectures.
 
 In contrast, batch integrations are often managed through a background job, which might be triggered at certain times of the day. Commonly, batch integrations take place through a *staging location*, such as a blob storage container, because the data sets exchanged can be large.
@@ -73,7 +73,10 @@ For real-time integrations, you might measure volume as the number of transactio
 
 ### Data formats
 
-When data is exchanged between two parties, it's important they both have a clear understanding of the format of the data. The data format includes both the file format, such as JSON, Parquet, CSV, or XML, and the schema, such as the list of fields that will be included, date formats, and nullability of fields.
+When data is exchanged between two parties, it's important they both have a clear understanding of the format of the data, including the following elements:
+
+- The file format, such as JSON, Parquet, CSV, or XML.
+- The schema, such as the list of fields that will be included, date formats, and nullability of fields.
 
 When you work with a multitenant system, if possible, it's best to standardize and use the same data format for all of your tenants. That way, you avoid having to customize and retest your integration components for each tenant's requirements. However, in some situations, you might need to use different data formats for communicating with different tenants, and so you might need to implement multiple integrations. See [Composable integration components](#composable-integration-components) for an approach that can help to simplify this kind of situation.
 
@@ -127,7 +130,7 @@ It's a good practice to use an API gateway, such as [Azure API Management](/azur
 
 ### Valet Key pattern
 
-Occasionally a tenant might need direct access to a data source such as Azure Storage. Consider following the [Valet Key pattern](../../../patterns/valet-key.yml) to securely share data and restrict access to the data store.
+Occasionally a tenant might need direct access to a data source such as Azure Storage. Consider following the [Valet Key pattern](../../../patterns/valet-key.yml) to share data securely and restrict access to the data store.
 
 For example, you could use this approach when batch exporting a large data file. After you've generated the export file, you can save it to a blob container in Azure Storage, and then generate a time-bound, read-only shared access signature. This signature can be provided to the tenant along with the blob URL. The tenant can then download the file from Azure Storage until the signature's expiry.
 
@@ -152,7 +155,7 @@ For example, suppose your multitenant service runs machine learning models over 
 
 Delegated access is easier if the data store supports Azure AD authentication. [Many Azure services support Azure AD identities.](/azure/active-directory/managed-identities-azure-resources/services-azure-active-directory-support)
 
-For example, suppose that your multitenant web application and background processes need to access Azure Storage by using your tenants' user identities from Azure AD. First, you [create a multitenant Azure AD application registration](/azure/active-directory/develop/scenario-web-app-sign-user-overview) representing your solution. Next, you [grant the application delegated permission to access Azure Storage as the signed-in user](/azure/storage/common/storage-auth-aad-app#grant-your-registered-app-permissions-to-azure-storage). You also configure your application to authenticate users by using Azure AD. After a user signs in, Azure AD issues your application a short-lived access token that can be used to access Azure Storage on behalf of the user, and a longer-lived refresh token. Your system needs to securely store the refresh token so that your background processes can obtain new access tokens and continue to have access to Azure Storage on behalf of the user.
+For example, suppose that your multitenant web application and background processes need to access Azure Storage by using your tenants' user identities from Azure AD. First, you [create a multitenant Azure AD application registration](/azure/active-directory/develop/scenario-web-app-sign-user-overview) representing your solution. Next, you [grant the application delegated permission to access Azure Storage as the signed-in user](/azure/storage/common/storage-auth-aad-app#grant-your-registered-app-permissions-to-azure-storage). You also configure your application to authenticate users by using Azure AD. After a user signs in, Azure AD issues your application a short-lived access token that can be used to access Azure Storage on behalf of the user, and a longer-lived refresh token. Your system needs to store the refresh token securely so that your background processes can obtain new access tokens and continue to have access to Azure Storage on behalf of the user.
 
 ### Messaging
 
