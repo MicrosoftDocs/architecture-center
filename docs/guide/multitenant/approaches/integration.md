@@ -160,7 +160,8 @@ For example, suppose that your multitenant web application and background proces
 1. [Create a multitenant Azure AD application registration](/azure/active-directory/develop/scenario-web-app-sign-user-overview) representing your solution.
 1. [Grant the application delegated permission to access Azure Storage as the signed-in user](/azure/storage/common/storage-auth-aad-app#grant-your-registered-app-permissions-to-azure-storage).
 1. Configure your application to authenticate users by using Azure AD.
-1. After a user signs in, Azure AD issues your application a short-lived access token that can be used to access Azure Storage on behalf of the user, and a longer-lived refresh token. Your system needs to store the refresh token securely so that your background processes can obtain new access tokens and continue to access Azure Storage on behalf of the user.
+
+After a user signs in, Azure AD issues your application a short-lived access token that can be used to access Azure Storage on behalf of the user, and a longer-lived refresh token. Your system needs to store the refresh token securely so that your background processes can obtain new access tokens and continue to access Azure Storage on behalf of the user.
 
 ### Messaging
 
