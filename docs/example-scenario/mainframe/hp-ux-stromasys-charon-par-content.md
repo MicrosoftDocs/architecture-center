@@ -1,4 +1,4 @@
-This article describes the lift-and-shift migration of an HP-UX workload to Azure. HP-UX is HP's Unix operating system for PA-RISC workstations and servers. The article shows how emulator software called Charon-PAR from Microsoft partner [Stromasys](https://www.stromasys.com/about) can run HP-UX workloads on Azure. 
+This article describes the lift-and-shift migration of an HP-UX workload to Azure. HP-UX is HP's Unix operating system for PA-RISC workstations and servers. The article shows how emulator software called Charon-PAR from Microsoft partner [Stromasys](https://www.stromasys.com/about) can run HP-UX workloads on Azure.
 
 ## Architecture
 
