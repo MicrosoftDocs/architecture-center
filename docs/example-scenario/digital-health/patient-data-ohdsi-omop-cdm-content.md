@@ -4,6 +4,8 @@ The ability to federate, harmonize, visualize, segment, and analyze clinical pat
 
 OHDSI on Azure allows organizations that want to use the OMOP CDM and the associated analytical tools to easily deploy and operate the solution on the Azure platform.
 
+*"Terraform" is either registered trademark or a trademark of HashiCorp in the United States and/or other countries. No endorsement by HashiCorp is implied by the use of this mark.*
+
 ### Potential use cases
 
 Several types of healthcare organizations can benefit from this solution, including:
@@ -66,40 +68,75 @@ Azure SQL Database includes zone-redundant databases, failover groups, geo-repli
 
 You might want to consider using Application Insights to monitor the health of your application. With Application Insights, you can generate alerts and respond to performance problems that would affect the customer experience. For more information, see [What is Application Insights?](/azure/application-insights/app-insights-overview).
 
-For other reliability articles, see [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
+For more information about reliability, see [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
 
 ### Security
 
-This scenario uses [Managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview), which provide an identity for applications to use when connecting to resources that support Azure Active Directory (Azure AD) authentication. This eliminates the need for engineers to manage secrets and credentials for each Azure resource.
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-[SQL Database uses a layered approach](/azure/azure-sql/database/security-overview) to protect customer data, which covers network security, access management, threat protection and information protection. For additional information on SQL Database security, see [Azure SQL Database security and compliance](/azure/sql-database/sql-database-technical-overview#advanced-security-and-compliance).
+This scenario uses [Managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview), which provide an identity for an application to use when it connects to resources that support Azure AD authentication. Managed identities eliminate the need to manage secrets and credentials for each Azure resource.
 
-If secure networking is a critical requirement, consider using [Azure Private Link](/azure/private-link/private-link-overview) to securely [connect Azure App Service to Azure SQL](/azure/architecture/example-scenario/private-web-app/private-web-app). This removes public internet access to the SQL database, which is a commonly used attack vector. You can also use [Azure Private Endpoints for Azure Storage](/azure/storage/common/storage-private-endpoints) to securely access data over an Azure Private Link. These additions are not currently included in the solution but can be added in as required.
+[SQL Database uses a layered approach](/azure/azure-sql/database/security-overview) to protect customer data. It covers network security, access management, threat protection, and information protection. For additional information on SQL Database security, see [Azure SQL Database security and compliance](/azure/sql-database/sql-database-technical-overview#advanced-security-and-compliance).
+
+If high-security networking is a critical requirement, consider using [Azure Private Link](/azure/private-link/private-link-overview) to [connect App Service to Azure SQL](/azure/architecture/example-scenario/private-web-app/private-web-app) with improved security. Doing so removes public internet access to the SQL database, which is a commonly used attack vector. You can also use [private endpoints for Azure Storage](/azure/storage/common/storage-private-endpoints) to access data over an Azure private link with increased security. These implementations aren't currently included in the solution, but you can add them if you need to.
 
 For general guidance on designing secure solutions, see the [Azure Security documentation](/azure/security).
 
 ### Cost optimization
 
-To better understand the cost of running this scenario on Azure, use the [Azure pricing calculator](https://azure.com/e/c57b00bcd0f747e296b1c2bcc3986957). This estimate assumes the default configuration of all Azure resources deployed via infrastructure as code. These cost estimates can change based on the size of your data, and from other potentially shared resources in your organization (for example, Azure Active Directory and Azure Dev Ops).
+Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+
+To better understand the cost of running this scenario on Azure, use the [Azure pricing calculator](https://azure.com/e/c57b00bcd0f747e296b1c2bcc3986957). This estimate uses the default configuration of all Azure resources deployed via infrastructure as code. These cost estimates can change based on the size of your data and because of other resources in your organization that might be shared, like Azure AD or Azure DevOps.
 
 ### Performance efficiency
 
-This scenario uses Azure App Service, which can be enabled to automatically scale the number of instances that support the Atlas UI. This functionality allows us to keep up with end-user demand. For more information on auto-scale, see [Autoscaling best practices](../../best-practices/auto-scaling.md) in the Azure Architecture Center.
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
-For other scalability articles, see the [performance efficiency checklist](/azure/architecture/framework/scalability/performance-efficiency) in the Azure Architecture Center.
+This scenario uses App Service, which you can optionally use to automatically scale the number of instances that support the Atlas UI. This functionality allows you to keep up with end-user demand. For more information about autoscaling, see [Autoscaling best practices](../../best-practices/auto-scaling.md).
+
+For more information, see [Performance efficiency checklist](/azure/architecture/framework/scalability/performance-efficiency).
 
 ## Deploy this scenario
 
-Check out our [OHDSI on Azure OSS project](https://github.com/microsoft/OHDSIonAzure) for guides on how to deploy an OHDSI tool suite and additional detailed technical documentation.
+See these resources for more information on deploying an OHDSI tool suite and additional detailed documentation:
 
-## Next steps
-
+- [OHDSI on Azure OSS project](https://github.com/microsoft/OHDSIonAzure)
 - [OHDSI on Azure – Introduction](https://github.com/microsoft/OHDSIonAzure/blob/main/README.md)
 - [Creating your OHDSI CDM environment](https://github.com/microsoft/OHDSIonAzure/blob/main/docs/creating_your_environment.md)
 
-## Related resources
+## Contributors
 
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors:
+
+- [Andy Gee](https://www.linkedin.com/in/andy-gee-00946239) | Senior Software Engineer
+- [Kaipo Lucas](https://www.linkedin.com/in/kaipolucas) | Senior Program Manager
+- [Yvonne Radsmikham](https://www.linkedin.com/in/yvonne-radsmikham-223b4096) | Senior Software Engineer
+- [Cory Stevenson](https://www.linkedin.com/in/corygstevenson) | Senior Specialist
+
+Other contributors:
+
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
+- [Heather Camm](https://www.linkedin.com/in/heather-camm-2367ba15) | Senior Program Manager
+- [Gayatri Jaiswal](https://www.linkedin.com/in/gayatrijaiswal) | Program Manager
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
+## Next steps
+
+- [Azure AD documentation](/azure/active-directory)
+- [What is Azure Pipelines?](/azure/devops/pipelines/get-started/what-is-azure-pipelines)
+- [What is Azure DevOps?](/azure/devops/user-guide/what-is-azure-devops)
+- [What is Azure SQL Database?](/azure/azure-sql/database/sql-database-paas-overview)
 - [OHDSI homepage](https://www.ohdsi.org)
 - [OHDSI Atlas demo environment](https://atlas-demo.ohdsi.org/#/home)
 - [OHDSI GitHub](https://github.com/OHDSI)
 - [OHDSI YouTube channel](https://www.youtube.com/user/OHDSIJoinTheJourney)
+ 
+## Related resources
+
+- [Solutions for the healthcare industry](/azure/architecture/industries/healthcare)
+- [What is Microsoft Cloud for Healthcare?](/industry/healthcare/overview)
+- [Clinical insights with Microsoft Cloud for Healthcare](/azure/architecture/example-scenario/mch-health/medical-data-insights)
+- [Confidential computing on a healthcare platform](/azure/architecture/example-scenario/confidential/healthcare-inference)
