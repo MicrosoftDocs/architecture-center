@@ -155,7 +155,12 @@ For example, suppose your multitenant service runs machine learning models over 
 
 Delegated access is easier if the data store supports Azure AD authentication. [Many Azure services support Azure AD identities.](/azure/active-directory/managed-identities-azure-resources/services-azure-active-directory-support)
 
-For example, suppose that your multitenant web application and background processes need to access Azure Storage by using your tenants' user identities from Azure AD. First, you [create a multitenant Azure AD application registration](/azure/active-directory/develop/scenario-web-app-sign-user-overview) representing your solution. Next, you [grant the application delegated permission to access Azure Storage as the signed-in user](/azure/storage/common/storage-auth-aad-app#grant-your-registered-app-permissions-to-azure-storage). You also configure your application to authenticate users by using Azure AD. After a user signs in, Azure AD issues your application a short-lived access token that can be used to access Azure Storage on behalf of the user, and a longer-lived refresh token. Your system needs to store the refresh token securely so that your background processes can obtain new access tokens and continue to have access to Azure Storage on behalf of the user.
+For example, suppose that your multitenant web application and background processes need to access Azure Storage by using your tenants' user identities from Azure AD. You might do the following steps:
+
+1. [Create a multitenant Azure AD application registration](/azure/active-directory/develop/scenario-web-app-sign-user-overview) representing your solution.
+1. [Grant the application delegated permission to access Azure Storage as the signed-in user](/azure/storage/common/storage-auth-aad-app#grant-your-registered-app-permissions-to-azure-storage).
+1. Configure your application to authenticate users by using Azure AD.
+1. After a user signs in, Azure AD issues your application a short-lived access token that can be used to access Azure Storage on behalf of the user, and a longer-lived refresh token. Your system needs to store the refresh token securely so that your background processes can obtain new access tokens and continue to access Azure Storage on behalf of the user.
 
 ### Messaging
 
