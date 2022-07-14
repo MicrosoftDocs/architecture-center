@@ -37,24 +37,22 @@ It's important to understand the direction in which your data flows. The data fl
 - **Export**, which means the data flows from your multitenant system to your individual tenants' systems.
 - **Import**, which means data comes from your tenants' systems into your multitenant system.
 
-It's also important to consider the networking data flow, which doesn't necessarily correspond to the logical data flow direction. For example, you might initiate an outbound connection to a tenant so that you can import the data from the tenant's system.
+It's also important to consider the networking data flow direction, which doesn't necessarily correspond to the logical data flow direction. For example, you might initiate an outbound connection to a tenant so that you can import the data from the tenant's system.
 
 ### Full and user-delegated access
 
-In many systems, access to data is restricted to specific users. The data that one user has access to might not be the same as the data that another user has access to. It's important to consider whether you expect to work with complete data sets, or if the data sets you import or export are based on what a specific user has permission to access.
+In many systems, access to certain data is restricted to specific users. The data that one user can access might not be the same as the data that another user can access. It's important to consider whether you expect to work with complete data sets, or if the data sets you import or export are based on what a specific user has permission to access.
 
-For example, imagine that you're the vendor of a SaaS accounting system. Your tenants are the customers who use your solution, and each tenant has many users. Most of the users who access the system can only work with data that relates to their own business unit. A tenant asks you to export the data from your solution into their own on-premises systems for offline analysis. It's important to decide which approach you follow, such as the following approaches:
+For example, imagine that you're the vendor of a SaaS accounting system. Your tenants are the customers who use your solution, and each tenant has many users. Most of the users who access the system can only work with data that relates to their own business unit within their organization. A tenant asks you to export the data from your solution into their own on-premises systems for offline analysis. It's important to decide which approach you follow, such as the following approaches:
 
-- Export all of the data from your system to your tenant's system. If user permissions aren't set up in the destination data store, users might get access to data they shouldn't be allowed to see.
-- Export only a subset of the data, depending on the access level of the user who initiated the request. If your tenant expects a complete copy of the data from your system, this approach won't give them what they're looking for.
+- **Export all of the data from your system to your tenant's system.** If user permissions aren't set up in the destination data store, users might get access to data they shouldn't be allowed to see.
+- **Export only a subset of the data from your system to your tenant's system.** The exact subset of data depend on the access level of the user who initiated the request. If your tenant expects a complete copy of all of the data from your system, this approach won't give them what they're looking for.
 
 Both approaches have valid use cases, so it's important to clearly understand your tenants' requirements.
 
-If you work with full data sets, you effectively treat the other system as a *trusted subsystem*. You also should consider using a *workload identity* instead of a user identity for this integration. A workload identity is a system identity that doesn't correspond to a single user. The workload identity would be granted a high level of permission to the data.
+If you work with full data sets, you effectively treat the other system as a *trusted subsystem*. You also should consider using a *workload identity* instead of a user identity for this integration. A workload identity is a system identity that doesn't correspond to a single user. The workload identity is granted a high level of permission to the data in the source system.
 
-Alternatively, if you work with user-scoped data, then you might need to use an approach like *delegation* to access the correct subset of data from the data set. Then, the destination system effectively gets the same permission that the user has.
-
-For more information on user delegation, see the [Delegated user access](#delegated-user-access) approach below.
+Alternatively, if you work with user-scoped data, then you might need to use an approach like *delegation* to access the correct subset of data from the data set. Then, the destination system effectively gets the same permission as a specific user. For more information on user delegation, see the [Delegated user access](#delegated-user-access) approach below. If you use delegation, consider how you'll handle scenarios where a user is deprovisioned or their permissions change.
 
 ### Real-time or batch
 
