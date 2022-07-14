@@ -26,7 +26,7 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
-- [Deploy IBM Maximo Application Suite (MAS) on Azure](./example-scenario/networking/deploy-ibm-maximo-application-suite.yml)
+- [Deploy IBM Maximo Application Suite (MAS) on Azure](./example-scenario/apps/deploy-ibm-maximo-application-suite.yml)
 - [Predict student attrition](./example-scenario/ai/student-attrition-prediction.yml)
 - [Patterns for inter-spoke networking](./networking/spoke-to-spoke-networking.yml)
 - [Build and deploy custom document processing models on Azure](./example-scenario/document-processing/build-deploy-custom-models.yml)
