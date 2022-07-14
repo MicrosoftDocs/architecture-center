@@ -23,7 +23,7 @@ ms.custom:
 
 # Architectural approaches for tenant integration and data access
 
-It's common for systems to integrate together, even across organizational boundaries. When you build a multitenant solution, you might have requirements to send data back to your tenants' systems, or to receive data from those systems. In this article, we outline the key considerations when you work with integrations for a multitenant solution.
+It's common for systems to integrate together, even across organizational boundaries. When you build a multitenant solution, you might have requirements to send data back to your tenants' systems, or to receive data from those systems. In this article, we outline the key considerations and approaches for architecting and developing integrations for a multitenant solution.
 
 > [!NOTE]
 > If you provide multiple integration points, it's best to consider each one independently. Often, different integration points have different requirements and are designed differently, even if they're connecting the same systems together in multiple different ways.
@@ -39,14 +39,14 @@ It's important to understand the direction in which your data flows. The data fl
 
 It's also important to consider the networking data flow direction, which doesn't necessarily correspond to the logical data flow direction. For example, you might initiate an outbound connection to a tenant so that you can import the data from the tenant's system.
 
-### Full and user-delegated access
+### Full or user-delegated access
 
 In many systems, access to certain data is restricted to specific users. The data that one user can access might not be the same as the data that another user can access. It's important to consider whether you expect to work with complete data sets, or if the data sets you import or export are based on what a specific user has permission to access.
 
-For example, imagine that you're the vendor of a SaaS accounting system. Your tenants are the customers who use your solution, and each tenant has many users. Most of the users who access the system can only work with data that relates to their own business unit within their organization. A tenant asks you to export the data from your solution into their own on-premises systems for offline analysis. It's important to decide which approach you follow, such as the following approaches:
+For example, imagine that you're the vendor of a SaaS accounting system. Your tenants are the customers who use your solution, and each tenant has many users. Most of the users who access the system can only work with data that relates to their own business unit within their organization. An administrator of the tenant asks you to export the data from your solution into their own on-premises systems for offline analysis. It's important to decide which approach you follow, such as the following approaches:
 
 - **Export all of the data from your system to your tenant's system.** If user permissions aren't set up in the destination data store, users might get access to data they shouldn't be allowed to see.
-- **Export only a subset of the data from your system to your tenant's system.** The exact subset of data depend on the access level of the user who initiated the request. If your tenant expects a complete copy of all of the data from your system, this approach won't give them what they're looking for.
+- **Export only a subset of the data from your system to your tenant's system.** The exact subset of data depend on the access level of the user who initiated the request. If the tenant administrator expects a complete copy of all of the data from your system, this approach won't give them what they're looking for.
 
 Both approaches have valid use cases, so it's important to clearly understand your tenants' requirements.
 
@@ -60,8 +60,8 @@ Consider whether you'll be working with real-time data, or if the data will be s
 
 For real-time integrations, these approaches are common:
 
-- Synchronous connections, which are often enabled through APIs or webhooks.
-- Asynchronous connections, which are often enabled through messaging components designed for loosely coupling systems together. For example, Azure Service Bus provides message queuing capabilities, and Azure Event Grid and Event Hubs provide eventing capabilities. These components are often used as part of integration architectures.
+- **Request/response**, where a client initiates a request to a server and receives a response. Typically, request/response integrations are implemented by using APIs or webhooks. Requests can be made synchronously, where they wait for acknowledgment and a response, or asynchronously, where they use something like the [Asynchronous request-reply pattern](../../../patterns/async-request-reply.yml) to wait for a response.
+- **Loosely coupled communication**, which is often enabled through messaging components designed for loosely coupling systems together. For example, Azure Service Bus provides message queuing capabilities, and Azure Event Grid and Event Hubs provide eventing capabilities. These components are often used as part of integration architectures.
 
 In contrast, batch integrations are often managed through a background job, which might be triggered at certain times of the day. Commonly, batch integrations take place through a *staging location*, such as a blob storage container, because the datasets exchanged can be large.
 
@@ -75,9 +75,7 @@ For real-time integrations, you might measure volume as the number of transactio
 
 When data is exchanged between two parties, it's important they both have a clear understanding of the format of the data. The data format includes both the file format, such as JSON or XML, and the schema, such as the list of fields that will be included, date formats, and nullability of fields.
 
-When you work with a multitenant system, if possible then it's best to use the same data format for all of your tenants. That way, you avoid having to customize and retest your integration components for each tenant's requirements.
-
-However, in some situations, you might need to use different data formats for communicating with different tenants, and so you might need to implement multiple integrations. See [Composable integration components](#composable-integration-components) for an approach that can help to simplify this kind of situation.
+When you work with a multitenant system, use the same data format for all of your tenants if you can. That way, you avoid having to customize and retest your integration components for each tenant's requirements. However, in some situations, you might need to use different data formats for communicating with different tenants, and so you might need to implement multiple integrations. See [Composable integration components](#composable-integration-components) for an approach that can help to simplify this kind of situation.
 
 ### Access to tenants' systems
 
