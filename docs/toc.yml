@@ -1218,6 +1218,8 @@ items:
                 href: example-scenario/digital-health/health-portal.yml
               - name: Health data consortium
                 href: example-scenario/data/azure-health-data-consortium.yml
+              - name: Implement risk prediction for surgeries
+                href: example-scenario/ai/risk-stratification-surgery.yml
               - name: IoT Connected Platform for COVID detection
                 href: solution-ideas/articles/iot-connected-platform.yml
               - name: Population health management
@@ -1633,8 +1635,6 @@ items:
                 href: solution-ideas/articles/anomaly-detector-process.yml
               - name: Batch integration in a factory
                 href: example-scenario/iot/batch-integration-azure-data-factory-digital-twins.yml
-              - name: Build a speech-to-text transcription pipeline
-                href: reference-architectures/ai/speech-to-text-transcription-pipeline.yml
               - name: Computer vision for manufacturing
                 href: reference-architectures/ai/end-to-end-smart-factory.yml
               - name: Condition monitoring
@@ -2114,7 +2114,7 @@ items:
                             href: /gaming/azure/reference-architectures/multiplayer-custom-server-scaling
                             maintainContext: true
                           - name: Multiplayer hosting with Service Fabric
-                            href: /gaming/azure/reference-architectures/multiplayer-synchronous-sf
+                            href: /gaming/azure/reference-architectures/multiplayer-synchronous
                             maintainContext: true
                           - name: Multiplayer server hosting with ACI
                             href: /gaming/azure/reference-architectures/multiplayer-synchronous-aci
@@ -2725,6 +2725,8 @@ items:
                 href: example-scenario/ai/extract-object-text.yml
               - name: Image classification
                 href: example-scenario/ai/intelligent-apps-image-processing.yml
+              - name: Implement risk prediction for surgeries
+                href: example-scenario/ai/risk-stratification-surgery.yml
               - name: Implement the healthcare blueprint for AI
                 href: industries/healthcare/healthcare-ai-blueprint.yml
               - name: Many models ML with Spark
@@ -2757,8 +2759,8 @@ items:
                 href: example-scenario/ai/scale-ai-and-machine-learning-in-regulated-industries.yml
               - name: Secure research for regulated data
                 href: example-scenario/ai/secure-compute-for-research.yml
-              - name: Speech to text conversion
-                href: reference-architectures/ai/speech-to-text-transcription-pipeline.yml
+              - name: Speech transcription pipeline
+                href: example-scenario/ai/speech-to-text-transcription-analytics.yml
               - name: Training Python models
                 href: reference-architectures/ai/training-python-models.yml
           - name: Solution ideas
@@ -3285,7 +3287,7 @@ items:
                 href: /gaming/azure/reference-architectures/multiplayer-synchronous-aks
                 maintainContext: true
               - name: Multiplayer hosting with Service Fabric
-                href: /gaming/azure/reference-architectures/multiplayer-synchronous-sf
+                href: /gaming/azure/reference-architectures/multiplayer-synchronous
                 maintainContext: true
               - name: Multitenancy with AKS and AGIC
                 href: example-scenario/aks-agic/aks-agic.yml
