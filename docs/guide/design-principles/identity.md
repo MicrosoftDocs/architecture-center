@@ -17,9 +17,7 @@ ms.custom:
   - guide
 ---
 
-# Use an identity service
-
-## Use an identity service platform instead of building or operating your own
+# Use an identity service platform instead of building or operating your own
 
 Almost every cloud application needs to work with user identities. Identity is the foundation of modern security practices like [zero trust](https://www.microsoft.com/security/business/zero-trust), and user identity for applications is a critical part of your solution's architecture.
 
