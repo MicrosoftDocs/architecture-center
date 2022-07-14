@@ -83,7 +83,7 @@ However, in some situations, you might need to use different data formats for co
 
 ### Access to tenants' systems
 
-Some integrations involve you making a connection to a tenant's systems or data stores. When you do this, you need to carefully consider how you connect to tenants' systems, both at a networking layer and from an identity perspective.
+Some integrations involve you making a connection to a tenant's systems or data stores. When you connect to a tenant's systems, you need to carefully consider how you connect to tenants' systems, both at a networking layer and from an identity perspective.
 
 #### Network access
 
@@ -168,11 +168,17 @@ In some scenarios, you might provide different service level agreements (SLAs) o
 
 In some scenarios, you might need to integrate with many different tenants, each of which uses different data formats or different types of network connectivity.
 
-A common approach in integration is to build and test individual steps that retrieve data, transform it to a specific format, and transmit it by using a particular network transport or to a known destination type. Typically, you build these individual elements by using services like Azure Functions and Azure Logic Apps. You then define the overall integration process by using a tool like Logic Apps or Azure Data Factory, and it invokes each of the precreated steps.
+A common approach in integration is to build and test individual steps that perform the following types of actions:
+
+- Retrieve data from a data store.
+- Transform data to a specific format or schema.
+- Transmit the data by using a particular network transport or to a known destination type.
+
+Typically, you build these individual elements by using services like Azure Functions and Azure Logic Apps. You then define the overall integration process by using a tool like Logic Apps or Azure Data Factory, and it invokes each of the precreated steps.
 
 When you work with complex multitenant integration scenarios, it can be helpful to define a library of reusable integration steps. Then, you can either build workflows for each tenant to compose the applicable pieces together based on that tenant's requirements. Alternatively, you might be able to expose some of the data sets or integration components directly to your tenants so that they can build their own integration workflows from them.
 
-Similarly, you might need to import data from tenants who use a different data format or different transport to others. A good approach for this scenario is to build tenant-specific *connectors*, which are workflows that normalize and import the data into a standardized format and location, which then trigger your main import process.
+Similarly, you might need to import data from tenants who use a different data format or different transport to others. A good approach for this scenario is to build tenant-specific *connectors*. Connectors are workflows that normalize and import the data into a standardized format and location, and then trigger your main shared import process.
 
 If you use a [tiered pricing model](../considerations/pricing-models.md#feature--and-service-level-based-pricing), you might choose to require that tenants at a low pricing tier follow a standard approach with a limited set of data formats and transports. Higher pricing tiers might enable more customization or flexibility in the integration components that you offer.
 
