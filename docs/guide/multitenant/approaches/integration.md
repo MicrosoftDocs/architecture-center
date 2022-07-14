@@ -63,7 +63,7 @@ For real-time integrations, these approaches are common:
 - **Request/response**, where a client initiates a request to a server and receives a response. Typically, request/response integrations are implemented by using APIs or webhooks. Requests can be made synchronously, where they wait for acknowledgment and a response, or asynchronously, where they use something like the [Asynchronous request-reply pattern](../../../patterns/async-request-reply.yml) to wait for a response.
 - **Loosely coupled communication**, which is often enabled through messaging components designed for loosely coupling systems together. For example, Azure Service Bus provides message queuing capabilities, and Azure Event Grid and Event Hubs provide eventing capabilities. These components are often used as part of integration architectures.
 
-In contrast, batch integrations are often managed through a background job, which might be triggered at certain times of the day. Commonly, batch integrations take place through a *staging location*, such as a blob storage container, because the datasets exchanged can be large.
+In contrast, batch integrations are often managed through a background job, which might be triggered at certain times of the day. Commonly, batch integrations take place through a *staging location*, such as a blob storage container, because the data sets exchanged can be large.
 
 ### Data volume
 
@@ -86,18 +86,18 @@ Some integrations involve you making a connection to your tenant's systems or da
 Consider the network topology for accessing your tenant's system, which might include the following options:
 
 - **Connect across the internet.** If you connect across the internet, how will the connection be secured and the data encrypted? If your tenants plan to restrict based on your IP addresses, ensure that the Azure services that your solution uses can support static IP addresses for outbound connections. For example, consider using [NAT Gateway](../service/nat-gateway.md) to provide static IP addresses if necessary.
-- **Private endpoints** can be a useful approach to connect to tenants' systems if they're also hosted in Azure.
-- **Agents**, which are [deployed into a tenant's environment](../approaches/networking.md#agents), can provide a flexible approach and avoid the need for your tenants to allow inbound connections.
+- [**Private endpoints**](/azure/private-link/private-endpoint-overview), implemented by using Azure Private Link, can be a useful approach to connect to tenants' systems if they're also hosted in Azure. For more information on private networking considerations, see the guidance on [networking approaches for multitenancy](networking.md#public-or-private-access).
+- [**Agents**, which are deployed into a tenant's environment](../approaches/networking.md#agents), can provide a flexible approach and avoid the need for your tenants to allow inbound connections.
 - **Relays**, such as [Azure Relay](/azure/azure-relay/relay-what-is-it), also provide an approach to avoid inbound connections.
 
 #### Authentication
 
 Consider how you authenticate with each tenant when you initiate a connection. You might consider the following approaches:
 
-- **Keys**, such as API keys, certificates, or other secrets. It's important to plan how you'll securely manage your tenants' credentials. Leakage of your tenants' secrets could result in a major security incident, potentially impacting many tenants.
+- **Secrets**, such as API keys or certificates. It's important to plan how you'll securely manage your tenants' credentials. Leakage of your tenants' secrets could result in a major security incident, potentially impacting many tenants.
 - **Azure Active Directory (Azure AD) tokens**, where you use a token issued by the tenant's own Azure AD instance. The token might be issued directly to your workload by using a multitenant Azure AD application registration or a specific service principal. Alternatively, your workload can request delegated permission to access resources on behalf of a specific user within the tenant's directory.
 
-Whichever approach you select, ensure that your tenants follow the principle of least privilege and avoid granting your system unnecessary permissions. For example, if your system only needs to read data from a tenant's data store, the identity you use to connect shouldn't have write permissions.
+Whichever approach you select, ensure that your tenants follow the principle of least privilege and avoid granting your system unnecessary permissions. For example, if your system only needs to read data from a tenant's data store, then the identity that your system uses shouldn't have write permissions.
 
 ### Tenants' access to your systems
 
@@ -116,14 +116,14 @@ When you start to interact directly with your tenants' data, or transmit that da
 
 ### Expose APIs
 
-Real-time integrations commonly involve exposing APIs to your tenants or other parties to use. APIs require special considerations, especially when used by external parties. Consider the following concerns:
+Real-time integrations commonly involve exposing APIs to your tenants or other parties to use. APIs require special considerations, especially when used by external parties. Consider the following questions:
 
 - Who is granted access to the API?
 - How will you authenticate the API's users?
 - Is there a limit to the number of requests that an API user can make over a period of time?
-- How will you provide information about your APIs, and documentation for each API? For example, you might implement a developer portal.
+- How will you provide information about your APIs, and documentation for each API? For example, do you need to implement a developer portal?
 
-It's a good practice to use an API gateway, such as [Azure API Management](/azure/api-management/api-management-key-concepts), to handle these concerns and many others. By using an API gateway, you have a single place to implement policies that your APIs follow and you simplify the implementation of your backend API systems.
+It's a good practice to use an API gateway, such as [Azure API Management](/azure/api-management/api-management-key-concepts), to handle these concerns and many others. API gateways give you single place to implement policies that your APIs follow, and they simplify the implementation of your backend API systems.
 
 ### Valet Key pattern
 
@@ -137,7 +137,9 @@ Similarly, you can generate a shared access signature with permissions to write 
 
 Webhooks enable you to send events to your tenants at a URL that they provide to you. When you have information to send, you initiate a connection to the tenant's webhook and include your data in the HTTP request payload.
 
-[CloudEvents](https://cloudevents.io/) is a standardized data format for webhooks. If you choose to build your own webhook eventing system, consider following the CloudEvents standard to simplify your tenants' integration requirements. Alternatively, you can use a service like [Azure Event Grid](/azure/event-grid/overview) to provide webhook functionality. Event Grid works natively with CloudEvents, and supports [event domains](/azure/event-grid/event-domains), which are useful for multitenant solutions.
+If you choose to build your own webhook eventing system, consider following the [CloudEvents](https://cloudevents.io/) standard to simplify your tenants' integration requirements.
+
+Alternatively, you can use a service like [Azure Event Grid](/azure/event-grid/overview) to provide webhook functionality. Event Grid works natively with CloudEvents, and supports [event domains](/azure/event-grid/event-domains), which are useful for multitenant solutions.
 
 > [!NOTE]
 > Whenever you make outbound connections to your tenants' systems, remember that you're connecting to an external system. Follow recommended cloud practices including using the [Retry pattern](../../../patterns/retry.yml), the [Circuit Breaker pattern](../../../patterns/circuit-breaker.yml), and the [Bulkhead pattern](../../../patterns/bulkhead.yml) to ensure that problems in the tenant's system don't propagate to your system.
@@ -146,7 +148,7 @@ Webhooks enable you to send events to your tenants at a URL that they provide to
 
 When you access data from a tenant's data stores, consider whether you need to use a specific user's identity to access the data. When you do, your integration is subject to the same permissions that the user has. This approach is often called [delegated access](#full-and-user-delegated-access).
 
-For example, suppose your multitenant service runs machine learning models over your tenants' data. You need to access each tenant's data store from services like Azure Synapse Analytics, Azure Storage, Azure Cosmos DB, and others. Each tenant has their own Azure AD instance. Your solution can be granted delegated access to the data store so that you can retrieve the data that a specific user can access.
+For example, suppose your multitenant service runs machine learning models over your tenants' data. You need to access each tenant's instances of services like Azure Synapse Analytics, Azure Storage, Azure Cosmos DB, and others. Each tenant has their own Azure AD instance. Your solution can be granted delegated access to the data store so that you can retrieve the data that a specific user can access.
 
 Delegated access is easier if the data store supports Azure AD authentication. [Many Azure services support Azure AD identities.](/azure/active-directory/managed-identities-azure-resources/services-azure-active-directory-support)
 
@@ -156,13 +158,13 @@ After a user establishes the initial connection, your system needs to securely s
 
 Messaging allows for asynchronous, loosely coupled communication between systems or components. Messaging is commonly used in integration scenarios to decouple the source and destination systems. For more information on messaging and multitenancy, see [Architectural approaches for messaging in multitenant solutions](../approaches/messaging.md).
 
-When you use messaging as part of integrating with your tenants' systems, consider whether you should use [shared access signatures for Azure Service Bus](/azure/service-bus-messaging/service-bus-sas) or [Azure Event Hubs](/azure/event-hubs/authorize-access-shared-access-signature). Shared access signatures enable you to grant limited access to your messaging resources to third parties without enabling them to access the rest of your messaging subsystem.
+When you use messaging as part of an integration with your tenants' systems, consider whether you should use [shared access signatures for Azure Service Bus](/azure/service-bus-messaging/service-bus-sas) or [Azure Event Hubs](/azure/event-hubs/authorize-access-shared-access-signature). Shared access signatures enable you to grant limited access to your messaging resources to third parties without enabling them to access the rest of your messaging subsystem.
 
 In some scenarios, you might provide different service level agreements (SLAs) or quality of service (QoS) guarantees to different tenants. For example, a subset of your tenants might expect to have their data export requests processed more quickly than others. By using the [Priority Queue pattern](../../../patterns/priority-queue.yml), you can create separate queues for different levels of priority, with different worker instances to prioritize them accordingly.
 
 ### Composable integration components
 
-In some scenarios, you might need to integrate with many different tenants, each of which uses different data formats or different types of network connectivity.
+Sometimes you might need to integrate with many different tenants, each of which uses different data formats or different types of network connectivity.
 
 A common approach in integration is to build and test individual steps that perform the following types of actions:
 
@@ -170,7 +172,7 @@ A common approach in integration is to build and test individual steps that perf
 - Transform data to a specific format or schema.
 - Transmit the data by using a particular network transport or to a known destination type.
 
-Typically, you build these individual elements by using services like Azure Functions and Azure Logic Apps. You then define the overall integration process by using a tool like Logic Apps or Azure Data Factory, and it invokes each of the precreated steps.
+Typically, you build these individual elements by using services like Azure Functions and Azure Logic Apps. You then define the overall integration process by using a tool like Logic Apps or Azure Data Factory, and it invokes each of the predefined steps.
 
 When you work with complex multitenant integration scenarios, it can be helpful to define a library of reusable integration steps. Then, you can build workflows for each tenant to compose the applicable pieces together based on that tenant's requirements. Alternatively, you might be able to expose some of the data sets or integration components directly to your tenants so that they can build their own integration workflows from them.
 
