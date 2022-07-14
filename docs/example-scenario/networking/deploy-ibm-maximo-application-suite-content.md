@@ -112,7 +112,7 @@ You might also choose to run Oracle Exadata on a VM or on Oracle Cloud Infrastru
 
 MAS and some of its applications have dependencies on MongoDB and Kafka. Decide how to deploy these solutions based on considerations of performance and operations. The defaults are to deploy MongoDB Community Edition and Strimzi Kafka inside the clusters. Some of the prerequisites of MAS, for example BAS, use databases that can't be externalized but that require persistent storage to be provided to the OpenShift cluster.
 
-For state-based services that run inside of the OpenShift cluster, frequently backing up data and moving the backups into another region is necessary. Plan and decide accordingly, especially when running Kafka or MongoDB inside of OpenShift.
+For state-based services that run inside of the OpenShift cluster, frequently backing up data and moving the backups into another region is necessary. Design and plan out a recovery strategy in case of disaster and decide accordingly, especially when running Kafka or MongoDB inside of OpenShift.
 
 For services that retain state, use external Azure platform as a service (PaaS) offerings when possible. Doing so improves supportability during an outage.
 
@@ -175,7 +175,7 @@ For all other machines, we recommend configuring VMs across [availability zones]
 
 - **Worker nodes**. A minimum of two machines per availability zone within the selected region. We recommend a vCPU count of at least 8. Our reference uses 6x [Standard_D8s_v4](/azure/virtual-machines/dv4-dsv4-series#dsv4-series) nodes.
 
-MAS core requires 23 vCPUs for a standard-sized base installation. Sizing for the worker nodes varies based on which MAS applications your configuration deploys and the load on your environment. For example, Manage for 10 users requires another 2 vCPUs.
+MAS core requires 13 vCPUs for a standard-sized base installation. Sizing for the worker nodes varies based on which MAS applications your configuration deploys and the load on your environment. For example, Manage for 10 users requires another 2 vCPUs. We recommend that you review the [IBM Maximo Application Suite system requirements](https://www.ibm.com/support/pages/ibm-maximo-application-suite-system-requirements) to get a good sizing estimate.
 
 Try to keep the types of VMs similar to each other to provide proximity with each of the availability zones between worker and control nodes. That is, if you use a v4 VM for your control nodes, also use a v4 VM for your worker nodes.
 
@@ -280,7 +280,7 @@ Because human error is common, you should deploy MAS by using as much automation
 
 ## Deploy this scenario
 
-Before you start, we recommend that you review the [IBM Maximo Application Suite system requirements](https://www.ibm.com/support/pages/node/6538166). Be sure that you have the following resources available before starting the deployment:
+Before you start, we recommend that you review the [IBM Maximo Application Suite system requirements](https://www.ibm.com/support/pages/ibm-maximo-application-suite-system-requirements). Be sure that you have the following resources available before starting the deployment:
 
 - Access to an Azure Subscription with *Reader* permission
 - Application Registration or service principal name that has *Contributor* and *User Access Administrator* permissions to the subscription
