@@ -1,7 +1,7 @@
 This article presents a solution for predicting student attrition. Core components include:
 
 - Azure Machine Learning for training and deploying machine learning models.
-- Responsible AI Toolbox for identifying contributing factors and eliminating bias.
+- Responsible AI Toolbox for identifying contributing factors and detecting bias.
 - Azure Synapse Analytics for data processing.
 
 ## Architecture
@@ -31,8 +31,8 @@ This article presents a solution for predicting student attrition. Core componen
 
 1. **AI machine learning training**. The solution uses Azure Machine Learning studio to train a wide range of supervised learning algorithms and to find a model that accurately predicts student attrition. The following Responsible AI Toolbox tools help to implement responsible AI:
 
-   - The interpretability tool helps users understand the major factors that contribute to student attrition.
-   - The fairness tool identifies and mitigates bias that's related to student gender and race in the chosen model.
+   - The interactive interpretability dashboard helps users understand the major factors that contribute to student attrition.
+   - The fairness tool provides an interactive dashboard for detecting and mitigating bias that's related to student gender and race in the chosen model.
 
 1. **AI machine learning inferencing**. During inferencing, previously unseen data points are fed into a machine learning model. The model calculates the probability of student attrition. In Machine Learning, a built-in model registry stores and provides version control for models in the Azure cloud. The model registry makes it easy to organize and keep track of trained models. Trained models are deployed to instances of Azure Data Science Virtual Machine or managed endpoints.
 
@@ -194,11 +194,14 @@ For an overview of responsible AI and detailed implementation information, see [
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors:
+Principal author:
+
+- [Manasa Ramalinga](https://www.linkedin.com/in/trmanasa) | Senior Cloud Solution Architect, US National CSA Team
+
+Other contributors:
 
 - [Charitha Basani](https://www.linkedin.com/in/charitha-basani-54196031) | Senior Cloud Solution Architect, US National CSA Team
 - [Angela Kunanbaeva](https://www.linkedin.com/in/aqqu) | Senior Cloud Solution Architect, US National CSA Team
-- [Manasa Ramalinga](https://www.linkedin.com/in/trmanasa) | Senior Cloud Solution Architect, US National CSA Team
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
