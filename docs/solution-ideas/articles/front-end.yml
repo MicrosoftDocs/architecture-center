@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Solution Ideas
   description: Accelerate development with a visual designer. Use Azure Functions for low-latency processing and Azure Power Apps and Power Automate for out-of-box connectors.
   author: EdPrice-MSFT
-  ms.author: edprice
+  ms.author: architectures
   ms.date: 05/27/2022
   ms.topic: conceptual
   ms.service: architecture-center

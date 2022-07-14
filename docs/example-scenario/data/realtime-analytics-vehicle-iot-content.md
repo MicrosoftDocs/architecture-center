@@ -17,7 +17,9 @@ Imagine a car manufacturing company that wants to create a solution to:
 
 ## Architecture
 
-![Reference architecture](media/architecture-realtime-analytics-vehicle-data-1.png)
+:::image type="content" border="false" source="media/architecture-realtime-analytics-vehicle-data-1.png" alt-text="Diagram showing vehicle data ingestion, processing, and visualization." lightbox="media/architecture-realtime-analytics-vehicle-data-1.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/architecture-realtime-analytics-vehicle-data.vsdx) of this architecture.*
 
 ### Dataflow
 
