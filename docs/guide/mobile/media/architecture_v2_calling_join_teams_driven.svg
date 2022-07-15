@@ -688,15 +688,16 @@
 			<v:textRect cx="49.8539" cy="273.125" width="99.71" height="20"/>
 			<rect x="0" y="263.125" width="99.7077" height="20" class="st10"/>
 			<text x="10.93" y="275.83" class="st11" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Voice &#38; Video Calling  </text>		</g>
-		<g id="shape1166-216" v:mID="1166" v:groupContext="shape" transform="translate(341.732,-216.963)">
+		<g id="shape1166-216" v:mID="1166" v:groupContext="shape" transform="translate(328.891,-219.5)">
 			<title>Sheet.1166</title>
-			<desc>Manage Teams meeting</desc>
+			<desc>Manage Teams meeting via Teams or Outlook</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
-			<v:textRect cx="24.9269" cy="273.125" width="49.86" height="20"/>
-			<rect x="0" y="263.125" width="49.8539" height="20" class="st10"/>
-			<text x="10.05" y="265.03" class="st11" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Manage <tspan
-						x="12.98" dy="1.2em" class="st5">Teams </tspan><tspan x="9.83" dy="1.2em" class="st5">meeting </tspan> </text>		</g>
-		<g id="shape1167-221" v:mID="1167" v:groupContext="shape" transform="translate(190.399,-215.963)">
+			<v:textRect cx="33.5543" cy="273.125" width="67.11" height="20"/>
+			<rect x="0" y="263.125" width="67.1087" height="20" class="st10"/>
+			<text x="5.72" y="259.63" class="st11" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Manage Teams <tspan
+						x="12.22" dy="1.2em" class="st5">meeting via </tspan><tspan x="16.65" dy="1.2em" class="st5">Teams or </tspan><tspan
+						x="18.88" dy="1.2em" class="st5">Outlook </tspan> </text>		</g>
+		<g id="shape1167-222" v:mID="1167" v:groupContext="shape" transform="translate(190.399,-215.963)">
 			<title>Sheet.1167</title>
 			<desc>Manage Teams meeting</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
@@ -704,7 +705,7 @@
 			<rect x="0" y="263.125" width="49.8539" height="20" class="st10"/>
 			<text x="10.05" y="265.03" class="st11" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Manage <tspan
 						x="12.98" dy="1.2em" class="st5">Teams </tspan><tspan x="9.83" dy="1.2em" class="st5">meeting </tspan> </text>		</g>
-		<g id="shape1168-226" v:mID="1168" v:groupContext="shape" transform="translate(78.0945,-217.213)">
+		<g id="shape1168-227" v:mID="1168" v:groupContext="shape" transform="translate(78.0945,-217.213)">
 			<title>Sheet.1168</title>
 			<desc>Share Teams meeting coordinates</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
@@ -712,15 +713,15 @@
 			<rect x="0" y="263.125" width="67.1087" height="20" class="st10"/>
 			<text x="10.2" y="265.03" class="st11" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Share Teams <tspan
 						x="18.46" dy="1.2em" class="st5">meeting </tspan><tspan x="11.91" dy="1.2em" class="st5">coordinates</tspan></text>		</g>
-		<g id="shape1169-231" v:mID="1169" v:groupContext="shape" transform="translate(252.205,-91.2776)">
+		<g id="shape1169-232" v:mID="1169" v:groupContext="shape" transform="translate(249.75,-90.0001)">
 			<title>Sheet.1169</title>
-			<desc>Start Meeting</desc>
+			<desc>Start Meeting via Teams UI</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
-			<v:textRect cx="21.8397" cy="273.125" width="43.68" height="20"/>
-			<rect x="0" y="263.125" width="43.6793" height="20" class="st10"/>
-			<text x="13.03" y="270.43" class="st11" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Start <tspan
-						x="6.49" dy="1.2em" class="st5">Meeting</tspan></text>		</g>
-		<g id="shape1170-235" v:mID="1170" v:groupContext="shape" transform="translate(128.563,-91.2776)">
+			<v:textRect cx="26.8974" cy="273.125" width="53.8" height="20"/>
+			<rect x="0" y="263.125" width="53.7949" height="20" class="st10"/>
+			<text x="18.09" y="265.03" class="st11" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Start <tspan
+						x="5.31" dy="1.2em" class="st5">Meeting via </tspan><tspan x="9.92" dy="1.2em" class="st5">Teams UI</tspan></text>		</g>
+		<g id="shape1170-237" v:mID="1170" v:groupContext="shape" transform="translate(128.563,-91.2776)">
 			<title>Sheet.1170</title>
 			<desc>Join Meeting</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
