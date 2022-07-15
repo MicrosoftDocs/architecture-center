@@ -27,6 +27,8 @@ This solution is ideal for the healthcare and facilities industries. We recommen
 
 ![Diagram that shows the UVEN architecture.](../media/uven-system.png)
 
+*Download a [Visio file](https://arch-center.azureedge.net/uven-system.vsdx) of this architecture.*
+
 ### Dataflow
 
 - The system uses radar proximity sensors to detect when people are present. Whenever a space is unoccupied, the panels emit UV radiation to heavily reduce or eliminate viruses and bacteria.
