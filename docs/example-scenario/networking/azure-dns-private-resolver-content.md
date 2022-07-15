@@ -10,9 +10,9 @@ Before Azure DNS Private Resolver was available, a DNS forwarder VM was deployed
   
 You can't use the Azure public DNS service to resolve on-premises domain names.
 
-:::image type="content" source="./media/manage-routing-azure-route-server-architecture.png" alt-text="Architecture diagram that shows how data flows between local networks, a hub virtual network, a spoke virtual network, and various gateways." border="false" lightbox="./media/manage-routing-azure-route-server-architecture.svg":::
+:::image type="content" source="./media/dns-forwarder-architecture.png" alt-text="Architecture diagram that shows a solution without Azure DNS Private Resolver. Traffic from an on-premises server to an Azure database is visible." border="false" lightbox="./media/dns-forwarder-architecture.png":::
 
-*Download a [Visio file][Visio version of architecture diagram] of this architecture.*
+*Download a [PowerPoint file](https://arch-center.azureedge.net/US-1968331-azure-dns-private-resolver.pptx) of this architecture.*
 
 #### Workflow
 
@@ -40,9 +40,9 @@ For more information, see [Azure Private Endpoint DNS configuration](https://doc
 
 The following architecture uses a [hub-spoke network topology](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?tabs=cli). As a best practice, the Azure Landing Zone design pattern recommends using this type of topology. A hybrid network connection is also established by using [Azure ExpressRoute](https://azure.microsoft.com/en-us/services/expressroute/) and [Azure Firewall](https://docs.microsoft.com/en-us/azure/firewall/). This setup provides a [secure hybrid network](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?tabs=portal). Azure DNS Private Resolver is deployed in the hub network.
 
-:::image type="content" source="./media/manage-routing-azure-route-server-architecture.png" alt-text="Architecture diagram that shows how data flows between local networks, a hub virtual network, a spoke virtual network, and various gateways." border="false" lightbox="./media/manage-routing-azure-route-server-architecture.svg":::
+:::image type="content" source="./media/azure-dns-private-resolver-architecture.png" alt-text="Architecture diagram that shows an on-premises network connected to an Azure hub-and-spoke network. Azure DNS Private Resolver is in the hub network." border="false" lightbox="./media/azure-dns-private-resolver-architecture.png":::
 
-*Download a [Visio file][Visio version of architecture diagram] of this architecture.*
+*Download a [PowerPoint file](https://arch-center.azureedge.net/US-1968331-azure-dns-private-resolver.pptx) of this architecture.*
 
 #### Workflow
 
@@ -50,12 +50,16 @@ The solution that uses Azure DNS Private Resolver contains the following compone
 
 - An on-premises network. This network of customer datacenters is connected to Azure via ExpressRoute or a site-to-site VPN. Network components include two local DNS servers that use the IP addresses 192.168.0.1 and 192.168.0.2, respectively. Both servers work as resolvers or forwarders for all the computers inside the on-premises network.
 
-  An administrator creates all local DNS and Azure endpoints on these servers. Conditional forwarders are configured on these servers for the blob and API private endpoint DNS zones. Those forwarders forward requests to the Azure DNS Private Resolver inbound connection. It uses the IP address 10.0.0.8 and is hosted within the hub virtual network.
+  An administrator creates all local DNS and Azure endpoints on these servers. Conditional forwarders are configured on these servers for the blob and API private endpoint DNS zones. Those forwarders forward requests to the Azure DNS Private Resolver inbound connection. The inbound endpoint uses the IP address 10.0.0.8 and is hosted within the hub virtual network.
 
-  - App1.onprem.company.com - 192.168.0.8
-  - App2.onprem.company.com - 192.168.0.9
-  - privatelink.blob.core.windows.net - 10.0.0.8 (DNS forwarder record)
-  - privatelink.azure-api.net - 10.0.0.8 (DNS forwarder record)
+  The following table lists the records on the local servers.
+
+  | Domain name | IP address | Record type |
+  | --- | --- | ---|
+  | App1.onprem.company.com | 192.168.0.8 | Address mapping |
+  | App2.onprem.company.com | 192.168.0.9 | Address mapping |
+  | privatelink.blob.core.windows.net | 10.0.0.8 | DNS forwarder |
+  | privatelink.azure-api.net | 10.0.0.8 | DNS forwarder |
 
 - A hub network.
 
@@ -83,9 +87,9 @@ The solution that uses Azure DNS Private Resolver contains the following compone
 
 The following diagram shows the traffic flow that results when an on-premises server issues a DNS request.
 
-:::image type="content" source="./media/manage-routing-azure-route-server-architecture.png" alt-text="Architecture diagram that shows how data flows between local networks, a hub virtual network, a spoke virtual network, and various gateways." border="false" lightbox="./media/manage-routing-azure-route-server-architecture.svg":::
+:::image type="content" source="./media/azure-dns-private-resolver-on-premises-query-traffic.png" alt-text="Architecture diagram that shows Azure DNS Private Resolver name resolution traffic when an on-premises server queries an Azure private DNS record." border="false" lightbox="./media/azure-dns-private-resolver-on-premises-query-traffic.png":::
 
-*Download a [Visio file][Visio version of architecture diagram] of this architecture.*
+*Download a [PowerPoint file](https://arch-center.azureedge.net/US-1968331-azure-dns-private-resolver.pptx) of this architecture.*
 
 1. An on-premises server queries an Azure private DNS record such as privatelink.blob.core.windows.net. The request is sent to the local DNS server at IP address 192.168.0.1 or 192.168.0.2. All on-premises computers point to the local DNS server.
 
@@ -99,9 +103,9 @@ The following diagram shows the traffic flow that results when an on-premises se
 
 The following diagram shows the traffic flow that results when VM 1 issues a DNS request. In this case, the Spoke 1 spoke network attempts to resolve the request.
 
-:::image type="content" source="./media/manage-routing-azure-route-server-architecture.png" alt-text="Architecture diagram that shows how data flows between local networks, a hub virtual network, a spoke virtual network, and various gateways." border="false" lightbox="./media/manage-routing-azure-route-server-architecture.svg":::
+:::image type="content" source="./media/azure-dns-private-resolver-spoke-query-traffic.png" alt-text="Architecture diagram that shows name resolution traffic with Azure DNS Private Resolver when a spoke VM issues a DNS request." border="false" lightbox="./media/azure-dns-private-resolver-spoke-query-traffic.png":::
 
-*Download a [Visio file][Visio version of architecture diagram] of this architecture.*
+*Download a [PowerPoint file](https://arch-center.azureedge.net/US-1968331-azure-dns-private-resolver.pptx) of this architecture.*
 
 1. VM 1 queries a DNS record. The spoke virtual networks are configured to use the name resolution that Azure provides. As a result, the Azure public DNS service is used to resolve the DNS query.
 
@@ -111,7 +115,7 @@ The following diagram shows the traffic flow that results when VM 1 issues a DNS
 
 1. If a match is found in the DNS forwarding ruleset, the DNS query is forwarded via the outbound endpoint to the IP address that's specified in the ruleset.
 
-1. If the Azure private DNS service (**2**) and Azure DNS Private Resolver (**3**) couldn't find a matching record, the Azure public DNS service is used to resolve the query.
+1. If the Azure private DNS service (**2**) and Azure DNS Private Resolver (**3**) can't find a matching record, the Azure public DNS service is used to resolve the query.
 
 Each DNS forwarding rule specifies one or more target DNS servers to use for conditional forwarding. Specified information includes the domain name, target IP address, and port.
 
@@ -135,3 +139,54 @@ Each DNS forwarding rule specifies one or more target DNS servers to use for con
 - The [Azure private DNS service](https://docs.microsoft.com/en-us/azure/dns/private-dns-overview) manages and resolves domain names in a virtual network and connected virtual networks. When you use this service, you don't need to configure a custom DNS solution. By using private DNS zones, you can use custom domain names instead of the names that Azure provides during deployment.
 
 - [DNS forwarders](https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/plan/reviewing-dns-concepts#resolving-names-by-using-forwarding) are DNS servers that forward queries to servers that are outside the network. The DNS forwarder only forwards queries for names that it can't resolve.
+
+## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
+### Reliability
+
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+
+#### Regional availability
+
+For a list of regions in which Azure DNS Private Resolver is available, see [Regional availability](https://docs.microsoft.com/en-us/azure/dns/dns-private-resolver-overview#regional-availability).
+
+A DNS resolver can only refer to a virtual network that's in the same region as the DNS resolver.
+
+### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
+Azure DNS supports the extended ASCII encoding set for text (TXT) record sets. For more information, see [Azure DNS FAQ](https://docs.microsoft.com/en-us/azure/dns/dns-faq#does-azure-dns-support-the-extended-ascii-encoding--8-bit--set-for-txt-record-sets-).
+
+Azure DNS doesn't currently support domain name system security extensions (DNSSEC). But users have requested this feature.
+
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+
+- As a solution, Azure DNS Private Resolver is largely cost-effective. One of the primary benefits of Azure DNS Private Resolver is that it's fully managed, which eliminates the need for dedicated servers.
+- To calculate the cost of Azure DNS Private Resolver, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/). For Azure DNS Private Resolver pricing models, see [Azure DNS pricing](https://azure.microsoft.com/en-in/pricing/details/dns/).
+- Pricing also includes availability and scalability features.
+- Azure ExpressRoute supports two billing models:
+
+  - Metered data, which charges you per gigabyte for outbound data transfers
+  - Unlimited data, which charges you a fixed monthly port fee that covers all inbound and outbound data transfers.
+
+  For more information, see [Azure ExpressRoute pricing](https://azure.microsoft.com/en-us/pricing/details/expressroute/).
+
+- If you use a VPN instead of ExpressRoute, the cost varies by the SKU and is charged per hour. For more information, see [VPN Gateway pricing](https://azure.microsoft.com/en-us/pricing/details/vpn-gateway/).
+
+### Networking
+
+The following resources provide more information about creating a private DNS resolver:
+
+- [Create an Azure DNS Private Resolver using the Azure portal](https://docs.microsoft.com/en-us/azure/dns/dns-private-resolver-get-started-portal)
+- [Create an Azure DNS Private Resolver using Azure PowerShell](https://docs.microsoft.com/en-us/azure/dns/dns-private-resolver-get-started-powershell)
+
+#### Reverse DNS support
+
+For detailed information about Azure support for reverse DNS and how reverse DNS works, see [Overview of reverse DNS and support in Azure](https://docs.microsoft.com/en-us/azure/dns/dns-reverse-dns-overview).
+
+Traditionally, DNS records map a DNS name to an IP address. For example, `www.contoso.com` resolves to 42.3.10.170. With reverse DNS, the mapping goes in the opposite direction. An IP address is mapped back to a name. For example, the IP address 42.3.10.170 resolves to `www.contoso.com`.
