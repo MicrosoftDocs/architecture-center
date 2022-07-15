@@ -2,7 +2,7 @@ OHDSI (Observational Health Data Sciences and Informatics) created and maintains
 
 OHDSI on Azure allows organizations that want to use the OMOP CDM and the associated analytical tools to easily deploy and operate the solution on the Azure platform.
 
-*"Terraform" is either registered trademark or a trademark of HashiCorp in the United States and/or other countries. No endorsement by HashiCorp is implied by the use of this mark.*
+*"Terraform" is either a registered trademark or a trademark of HashiCorp in the United States and/or other countries. No endorsement by HashiCorp is implied by the use of this mark.*
 
 ## Architecture
 
@@ -11,32 +11,32 @@ OHDSI on Azure allows organizations that want to use the OMOP CDM and the associ
 *Download a [Visio file](https://arch-center.azureedge.net/ohdsi-azure.vsdx ) of this architecture.*
 
 The preceding diagram illustrates the solution architecture at a high level. The solution is made up of two major resource groups:
-- Bootstrap resource group. A foundational set of Azure resources that support the deployment of the OMOP resource group.
-- OMOP resource group. Contains the OHDSI-specific Azure resources.
+- **Bootstrap resource group.** Contains a foundational set of Azure resources that support the deployment of the OMOP resource group.
+- **OMOP resource group.** Contains the OHDSI-specific Azure resources.
 
-All deployment automation is orchestrated via Azure Pipelines.
+Azure Pipelines orchestrates all deployment automation.
 
 This article is primarily intended for DevOps engineering teams. If you plan to deploy this scenario, you should have experience with the Azure portal and Azure DevOps.
 
 ### Workflow
 
 1. Deploy the Bootstrap resource group to support the resources and permissions needed for deployment of the OHDSI resources.
-1. Deploy the OMOP resource group for the OHDSI-specific Azure resources. This step should complete all your infrastructure-related setup.
+1. Deploy the OMOP resource group for the OHDSI-specific Azure resources. This step should complete your infrastructure-related setup.
 1. Provision the OMOP CDM and vocabularies to deploy the data model and populate the [OMOP controlled vocabularies](https://ohdsi.github.io/TheBookOfOhdsi/StandardizedVocabularies.html) into the Azure SQL CDM.
 1. Deploy the OHDSI applications:
-   1. Set up the Atlas UI and WebAPI using the BroadSea WebTools image. [Atlas](https://www.ohdsi.org/atlas-a-unified-interface-for-the-ohdsi-tools) is a web UI that integrates features from various OHDSI applications, which is supported by the [WebAPI](https://www.ohdsi.org/web/wiki/doku.php?id=documentation:software:webapi) layer.
-   1. Set up Achilles and Synthea using the BroadSea Methods image. [Achilles](https://www.ohdsi.org/web/wiki/doku.php?id=documentation:software:achilles) is an R-based script that runs data characterization and quality assessments on the OMOP CDM. The [Synthea ETL](https://github.com/OHDSI/ETL-Synthea) script is an optional tool that allows the user to load synthetic patient data into the OMOP CDM.
+   1. Set up the Atlas UI and WebAPI by using the BroadSea WebTools image. [Atlas](https://www.ohdsi.org/atlas-a-unified-interface-for-the-ohdsi-tools) is a web UI that integrates features from various OHDSI applications. It's supported by the [WebAPI](https://www.ohdsi.org/web/wiki/doku.php?id=documentation:software:webapi) layer.
+   1. Set up Achilles and Synthea by using the BroadSea Methods image. [Achilles](https://www.ohdsi.org/web/wiki/doku.php?id=documentation:software:achilles) is an R-based script that runs data characterization and quality assessments on the OMOP CDM. The [Synthea ETL](https://github.com/OHDSI/ETL-Synthea) script is an optional tool that allows users to load synthetic patient data into the OMOP CDM.
    
 ### Components
 
-- [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory) is the Microsoft multitenant cloud-based directory and identity management service. Azure AD is a foundational service that's used to manage permissions for environment deployment.
-- [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) automatically builds and tests code projects. This [Azure DevOps](https://azure.microsoft.com/services/devops) service combines continuous integration (CI) and continuous delivery (CD). Azure Pipelines uses these practices to constantly and consistently test and build code and ship it to any target. These pipelines are define and run this deployment approach for OHDSI on Azure.
+- [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory) is a multitenant cloud-based directory and identity management service. Azure AD is used to manage permissions for environment deployment.
+- [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) automatically builds and tests code projects. This [Azure DevOps](https://azure.microsoft.com/services/devops) service combines continuous integration (CI) and continuous delivery (CD). Azure Pipelines uses these practices to constantly and consistently test and build code and ship it to any target. These pipelines define and run this deployment approach for OHDSI on Azure.
 - [Azure Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets) enable you to create and manage a group of heterogeneous load-balanced virtual machines (VMs). These VMs coordinate the deployment of the environment.
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) is a storage service that's optimized for storing massive amounts of unstructured data. Blob Storage is used to store the [Terraform state file](/azure/developer/terraform/store-state-in-azure-storage?tabs=azure-cli) and the raw [OMOP vocabulary files](https://www.ohdsi.org/data-standardization/vocabulary-resources) (before ingestion into the CDM).
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault) is an Azure service for storing and accessing secrets, keys, and certificates with improved security. Key Vault provides HSM-backed security and audited access through role-based access controls that are integrated with Azure AD. In this architecture, Key Vault stores all secrets, including API keys, passwords, cryptographic keys, and certificates.
 - [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) is a fully managed platform as a service (PaaS) database engine. SQL Database handles database management functions like upgrading, patching, backups, and monitoring. This service houses the OMOP CDM and all associated relational data.
 - [Azure Web Application Firewall](https://azure.microsoft.com/services/web-application-firewall) helps protect applications from common web-based attacks like [OWASP](https://owasp.org) vulnerabilities, SQL injection, and cross-site scripting. This technology is cloud native. It doesn't require licensing and is pay-as-you-go.
-- [Azure Container Registry](https://azure.microsoft.com/services/container-registry) enables you to build, store, and manage container images and artifacts in a private registry for all types of container deployments. In this solution, it stores the various OHDSI application images (BroadSea WebTools and BroadSea Methods) for deployment into Azure App Service.
+- [Azure Container Registry](https://azure.microsoft.com/services/container-registry) enables you to build, store, and manage container images and artifacts in a private registry for all types of container deployments. In this solution, it stores OHDSI application images (BroadSea WebTools and BroadSea Methods) for deployment into Azure App Service.
 - [Azure App Service](https://azure.microsoft.com/services/app-service) is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. This service supports the OHDSI WebAPI and Atlas applications.
 
 ### Alternatives
@@ -48,9 +48,9 @@ If you require more scalability or control, consider these alternatives:
 
 ## Scenario details
 
-The ability to federate, harmonize, visualize, segment, and analyze clinical patient data has rapidly become a popular use case in the healthcare industry. Many organizations, including academic institutions, government agencies, and organizations in the private sector, are looking for ways to use of their patient health data in the acceleration of research and development. Unfortunately, most IT teams struggle to collaborate effectively with researchers to provide a work environment where researchers can feel productive and empowered.
+The ability to federate, harmonize, visualize, segment, and analyze clinical patient data has rapidly become a popular use case in the healthcare industry. Many organizations, including academic institutions, government agencies, and organizations in the private sector, are looking for ways to use of their patient health data to accelerate research and development. Unfortunately, most IT teams struggle to collaborate effectively with researchers to provide a work environment where researchers can feel productive and empowered.
 
-[OHDSI](https://ohdsi.org/who-we-are) is an initiative that includes thousands of collaborators in over 70 countries across the globe. It offers one of few available solutions in an open-source format for researchers. OHDSI created and maintains the [OMOP CDM](https://www.ohdsi.org/data-standardization/the-common-data-model) standard and associated OHDSI software tools to visualize and analyze their clinical health data.
+[OHDSI](https://ohdsi.org/who-we-are) is an initiative that includes thousands of collaborators in over 70 countries. It offers one of the few available solutions in an open-source format for researchers. OHDSI created and maintains the [OMOP CDM](https://www.ohdsi.org/data-standardization/the-common-data-model) standard and associated OHDSI software tools to visualize and analyze clinical health data.
 
 ### Potential use cases
 
@@ -80,7 +80,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 This scenario uses [Managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview), which provide an identity for an application to use when it connects to resources that support Azure AD authentication. Managed identities eliminate the need to manage secrets and credentials for each Azure resource.
 
-[SQL Database uses a layered approach](/azure/azure-sql/database/security-overview) to protect customer data. It covers network security, access management, threat protection, and information protection. For more information on SQL Database security, see [Azure SQL Database security and compliance](/azure/sql-database/sql-database-technical-overview#advanced-security-and-compliance).
+[SQL Database uses a layered approach](/azure/azure-sql/database/security-overview) to help protect customer data. It covers network security, access management, threat protection, and information protection. For more information on SQL Database security, see [Azure SQL Database security and compliance](/azure/sql-database/sql-database-technical-overview#advanced-security-and-compliance).
 
 If high-security networking is a critical requirement, consider using [Azure Private Link](/azure/private-link/private-link-overview) to [connect App Service to Azure SQL](../../example-scenario/private-web-app/private-web-app.yml) with improved security. Doing so removes public internet access to the SQL database, which is a commonly used attack vector. You can also use [private endpoints for Azure Storage](/azure/storage/common/storage-private-endpoints) to access data over an Azure private link with increased security. These implementations aren't currently included in the solution, but you can add them if you need to.
 
@@ -102,7 +102,7 @@ For more information, see [Performance efficiency checklist](/azure/architecture
 
 ## Deploy this scenario
 
-See these resources for more information on deploying an OHDSI tool suite and additional detailed documentation:
+See these resources for more information on deploying an OHDSI tool suite and for additional detailed documentation:
 
 - [OHDSI on Azure OSS project](https://github.com/microsoft/OHDSIonAzure)
 - [OHDSI on Azure – Introduction](https://github.com/microsoft/OHDSIonAzure/blob/main/README.md)
@@ -133,7 +133,7 @@ Other contributors:
 - [What is Azure Pipelines?](/azure/devops/pipelines/get-started/what-is-azure-pipelines)
 - [What is Azure DevOps?](/azure/devops/user-guide/what-is-azure-devops)
 - [What is Azure SQL Database?](/azure/azure-sql/database/sql-database-paas-overview)
-- [OHDSI homepage](https://www.ohdsi.org)
+- [OHDSI home page](https://www.ohdsi.org)
 - [OHDSI Atlas demo environment](https://atlas-demo.ohdsi.org/#/home)
 - [OHDSI GitHub](https://github.com/OHDSI)
 - [OHDSI YouTube channel](https://www.youtube.com/user/OHDSIJoinTheJourney)
