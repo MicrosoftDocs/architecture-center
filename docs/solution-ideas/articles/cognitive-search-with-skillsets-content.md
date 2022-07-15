@@ -1,4 +1,4 @@
-The Azure Cognitive Search skills in this example solution include image processing, natural language processing, and custom skills that capture domain-specific data.
+Azure Cognitive Search is a search service with AI enrichment capabilities to help identify and explore relevant content at scale. This article provides an example solution to enrich text and image documents, using image processing, natural language processing, and custom skills that capture domain-specific data.
 
 ## Potential use cases
 
@@ -13,13 +13,18 @@ The Azure Cognitive Search skills in this example solution include image process
 This diagram illustrates the process of passing unstructured data through the Cognitive Search skills pipeline to produce structured, indexable data.
 
 ![Cognitive Search architecture to convert unstructured into structured data](../media/cognitive-search-for-ai-enrichment.png)
+*Download an [SVG](../media/cognitive-search-for-ai-enrichment.svg) of this architecture.*
 
 ### Dataflow
 
-1. Blob storage provides the unstructured document and image data to Cognitive Search.
-1. Cognitive Search applies pre-built cognitive skill sets to the data, including OCR, text and handwriting recognition, image analysis, entity recognition, and full-text search.
-1. The Cognitive Search extensibility mechanism uses an Azure Function to apply the CIA Cryptonyms custom skill to the data.
-1. The pre-built and custom skill sets deliver structured knowledge that Azure Cognitive Search can index.
+1. Unstructured data, such as documents and images, is stored in Azure Blob Storage, from where data is ingested into Cognitive Search.
+1. The indexing process is initiated with the "Document Cracking" step, where images and text are extracted from the data, followed by by the content enrichment. The enrichment steps that occur in this process depend on the data and type of skills selected.
+1. [**Built-in skills**](https://docs.microsoft.com/en-us/azure/search/cognitive-search-predefined-skills) are based on Cognitive Services APIs: Computer Vision and Language Service. These skills enable AI enrichments such as image OCR, image analysis, text translation, entity recognition, and full-text search.
+1. [**Custom Skills**](https://docs.microsoft.com/en-us/azure/search/cognitive-search-custom-skill-interface) provide support to more complex scenarios, where more complex AI models or services might be required. Examples of custom skills include Forms Recognizer, Azure Machine Learning models, and Azure Functions.
+1. Following the enrichment process, the indexer saves the outputs into a [**searchable index**](https://docs.microsoft.com/en-us/azure/search/search-what-is-an-index). This index contains the enriched and indexed documents, and is used for full text search and other query forms.
+1. Additionally, the enriched documents can also be projected into a [**knowledge store**](https://docs.microsoft.com/en-us/azure/search/knowledge-store-concept-intro), which can be used for downstream apps like knowledge mining or data science.
+1. The search index can be queried to access the enriched content. The index supports custom analyzers, fuzzy search queries, filters and scoring profile to tune search relevance.
+1. Access to the knowledge store can be achieved by any application that connects to Blob Storage or to Table Storage.  
 
 ### Components
 
@@ -37,7 +42,7 @@ Azure Cognitive Search works with other Azure components to provide this solutio
 
 - The [Text Analytics API](/azure/cognitive-services/text-analytics/overview) extracts text information from unstructured documents by using capabilities like [Named Entity Recognition (NER)](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking), [key phrase extraction](/azure/search/cognitive-search-skill-keyphrases), and [full-text search](/azure/search/search-lucene-query-architecture).
 
-- [Custom skills](/azure/search/cognitive-search-custom-skill-interface) extend Cognitive Search to apply specific enrichment transformations to content. The current example solution creates a custom skill to apply [CIA Cryptonyms](https://www.maryferrell.org/php/cryptdb.php), which decode uppercase code names in CIA documents. For example, the CIA assigned the cryptonym `GPFLOOR` to Lee Harvey Oswald, so the custom CIA Cryptonym skill links any JFK files containing that cryptonym with Oswald.
+- [Custom skills](/azure/search/cognitive-search-custom-skill-interface) extend Cognitive Search to apply specific enrichment transformations to content.
 
 #### Azure Functions
 
@@ -47,8 +52,10 @@ Azure Cognitive Search works with other Azure components to provide this solutio
 
 This example solution also builds a standalone web app in [Azure App Service](/azure/app-service) for testing, demonstrating, searching the index, and exploring connections in the enriched and indexed documents.
 
-## Scenario details
+## Scenario
 
+The following scenario exemplifies the implementation of the example solution described above. 
+ 
 Large, unstructured datasets like the [JFK Files](https://www.archives.gov/research/jfk/2017-release), which contains over 34,000 pages of documents about the CIA investigation of the 1963 JFK assassination, include typewritten and handwritten notes, photos and diagrams, and other unstructured data that standard search solutions can't parse.
 
 *AI enrichment* in Azure Cognitive Search can extract and enhance searchable, indexable text from images, blobs, and other unstructured data sources like the JFK Files by using pre-trained machine learning skill sets from the Cognitive Services [Computer Vision](/azure/cognitive-services/computer-vision/home) and [Text Analytics](/azure/cognitive-services/text-analytics/overview) APIs. You can also create and attach [custom skills](/azure/search/cognitive-search-custom-skill-interface) to add special processing for domain-specific data like CIA Cryptonyms. Azure Cognitive Search can then index and search the context.
@@ -61,6 +68,10 @@ The Azure Cognitive Search skills in this example solution fall into the followi
 
 - *Custom skills* that capture domain-specific data. These skills are build with the [custom skills interface](/azure/search/cognitive-search-custom-skill-interface).
 
+### Deploy this scenario
+
+This example solution uses Azure Cognitive Search AI enrichment to extract meaning from the original complex, unstructured JFK Files dataset. You can [work through the project](https://github.com/microsoft/AzureSearch_JFK_Files), watch the process in action in an [online video](/shows/AI-Show/Using-Cognitive-Search-to-Understand-the-JFK-Documents), or explore the JFK Files with an [online demo](https://aka.ms/jfkfiles-demo).
+
 ## Considerations
 
 - The code project and demo showcase a particular Cognitive Search use case. This example solution isn't intended to be a framework or scalable architecture for all scenarios, but to provide a general guideline and example.
@@ -68,9 +79,7 @@ The Azure Cognitive Search skills in this example solution fall into the followi
 - Some scanned and native PDF formats may not parse correctly in Cognitive Search.
 - The JFK Files sample project and demo create a public website and publicly readable storage container for extracted images, so don't use this solution with non-public data.
 
-## Deploy this scenario
 
-This example solution uses Azure Cognitive Search AI enrichment to extract meaning from the original complex, unstructured JFK Files dataset. You can [work through the project](https://github.com/microsoft/AzureSearch_JFK_Files), watch the process in action in an [online video](/shows/AI-Show/Using-Cognitive-Search-to-Understand-the-JFK-Documents), or explore the JFK Files with an [online demo](https://aka.ms/jfkfiles-demo).
 
 ## Contributors
 
@@ -78,7 +87,7 @@ This example solution uses Azure Cognitive Search AI enrichment to extract meani
 
 Principal author:
 
- * [Jose Contreras](https://www.linkedin.com/in/josedanielcontreras) | Principal Software Engineering Manager
+ * [Carlos Alexandre Santos](https://www.linkedin.com/in/carlosafsantos) | Senior Specialized AI Cloud Solution Architect
 
 ## Next steps
 
