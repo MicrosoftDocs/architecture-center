@@ -113,8 +113,23 @@ Principal author:
 
 ## Next steps
 
-- To see more examples, tutorials, and tools to help you build your own recommendation system, visit the [Microsoft Recommenders] GitHub repository.
-- See the blog post, [Building recommender systems with Azure Machine Learning service](https://azure.microsoft.com/blog/building-recommender-systems-with-azure-machine-learning-service).
+- For general information about recommendation systems, see these resources:
+
+  - For examples, tutorials, and tools that can help you build your own recommendation system, see the [Microsoft Recommenders GitHub repository](https://github.com/Microsoft/Recommenders).
+  - [Building recommender systems with Azure Machine Learning service](https://azure.microsoft.com/blog/building-recommender-systems-with-azure-machine-learning-service)
+
+- For information about the solution components, see these resources:
+
+  - [Introduction to Azure Blob storage](/azure/storage/blobs/storage-blobs-introduction)
+  - [What is Azure Databricks?](/azure/databricks/scenarios/what-is-azure-databricks)
+  - [Introduction to Container registries in Azure](/azure/container-registry/container-registry-intro)
+  - [Azure Kubernetes Service](/azure/aks/intro-kubernetes)
+  - [What is Azure Machine Learning?](/azure/machine-learning/overview-what-is-azure-machine-learning)
+
+- For courses about recommendation systems and machine learning, see these resources:
+
+  - [Work with product recommendations in Dynamics 365 Commerce](/learn/modules/product-recommendations)
+  - [Create machine learning models](/learn/paths/create-machine-learn-models)
 
 ## Related resources
 

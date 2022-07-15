@@ -16,6 +16,11 @@ This architecture consists of the following services:
 
 **[Container Registry][acr]** is used to store the Docker image that Azure Machine Learning Compute uses to run the training.
 
+### Components
+
+
+
+
 ## Scenario details
 
 **Scenario:** Classifying images is a widely applied technique in computer vision, often tackled by training a convolutional neural network (CNN). For particularly large models with large datasets, the training process can take weeks or months on a single GPU. In some situations, the models are so large that it is not possible to fit reasonable batch sizes onto the GPU. Using distributed training in these situations can shorten the training time.
