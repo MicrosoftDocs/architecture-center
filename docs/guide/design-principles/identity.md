@@ -3,7 +3,7 @@ title: Use a fully managed identity service platform
 titleSuffix: Azure Architecture Center
 description: Learn why it's important to use an identity as a service (IDaaS) platform instead of building or running your own.
 author: johndowns
-ms.date: 007/15/2022
+ms.date: 07/19/2022
 ms.author: jodowns
 ms.topic: conceptual
 ms.service: architecture-center
