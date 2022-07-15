@@ -23,4 +23,4 @@ name: Analyze observational patient data by using OHDSI with the OMOP CDM
 summary: Deploy and operate a solution that uses OHDSI and the OMAP CDM to analyze observational patient data.
 thumbnailUrl: /azure/architecture/browse/thumbs/ohdsi-azure.png
 content: |
-  [!include[](patient-data-ohdsi-omop-cdn-content.md)]
+  [!include[](patient-data-ohdsi-omop-cdm-content.md)]
