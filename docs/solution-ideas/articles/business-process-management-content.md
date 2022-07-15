@@ -17,40 +17,45 @@ This solution is ideal for the finance industry. When organizations task employe
 
 ![Architecture Diagram: knowledge mining in business process management, with three steps: ingest, enrich, and explore.](../media/knowledge-mining-business-process-management.png)
 
+*Download the [Visio file](../media/knowledge-mining-business-process-management.vsdx) of this architecture.*
+
 ### Dataflow
 
 There are three steps in knowledge mining: ingest, enrich, and explore.
 
-- **Ingest**
+* **Ingest**
 
   The ingest step aggregates content from a range of sources, including structured and unstructured data.
 
   For business process management, you can ingest different types of content like project-related items including SOWs, requests for proposal, and sales team correspondence. Or, financial-related content can be ingested including: invoice archives, W2 forms, receipts, healthcare claim forms, bank statements, legal agreements, balance sheets, income statements, cash flow statements, company disclosures, SEC documents, and annual reports.
 
-- **Enrich**
+* **Enrich**
 
-  The enrich step uses AI capabilities to extract information, find patterns, and deepen understanding.
+  The enrich step uses AI capabilities to extract information, find patterns, and deepen understanding using [Azure's Applied AI Services suite](https://docs.microsoft.com/azure/applied-ai-services).
 
-  In this step, you can use optical character recognition, forms recognition, layout understanding, table extraction, and key-value pair extraction.
+  In this step, you can use optical character recognition (OCR) using Azure Computer Vision services and forms recognition over the documents using Azure Form Recognizer. There are even [pre-trained models](https://formrecognizer.appliedai.azure.com/studio) such as the Invoice Model, the ID Document Model, and the Receipt Model. Or, for more flexibility, you can build a custom model.
 
-- **Explore**
+* **Explore**
 
   The explore step is exploring the data via search, bots, existing business applications, and data visualizations.
 
-  Explore the content by automatically populating data from invoices into ELP systems, databases, or compile enriched documents in the knowledge store and project them into tabular or object stores. Projected stores can be used to surface trends in an analytics dashboard, such as frequent issues, popular products, and much more.
+  Explore the content by automatically populating data from invoices into ELP systems, databases, or compile enriched documents in the knowledge store and project them into tabular or object stores. These physical stores can surface trends in an analytics dashboard, such as frequent issues, popular products, and much more.
 
 ### Components
 
-Key technologies used to implement tools for technical content review and research
+Key technologies used to implement tools for this technical content review and research:
 
-- [Azure Cognitive Search](/azure/search)
-- [Cognitive Services Form Recognizer](https://azure.microsoft.com/services/cognitive-services/form-recognizer)
-- [Web API custom skill interface](/azure/search/cognitive-search-custom-skill-interface)
+* [Cognitive Services Form Recognizer](https://azure.microsoft.com/services/cognitive-services/form-recognizer)
+* [Azure Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/#overview)
+* [Azure Cognitive Search](https://docs.microsoft.com/azure/search)
+* [Azure Form Recognizer](https://docs.microsoft.com/azure/applied-ai-services/form-recognizer/)
+* [Web API custom skill interface](/azure/search/cognitive-search-custom-skill-interface)
 
 ## Next steps
 
-- Use the [knowledge mining solution accelerator](/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining) to build an initial knowledge mining prototype with Azure Cognitive Search.
+* Use the [knowledge mining solution accelerator](/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining) to build an initial knowledge mining prototype with Azure Cognitive Search.
 
-- Build an Azure Cognitive Search [custom skill](/azure/search/cognitive-search-custom-skill-interface).
+* Build an Azure Cognitive Search [custom skill](/azure/search/cognitive-search-custom-skill-interface).
 
-- Explore the Microsoft Learning Path [knowledge mining with Azure Cognitive Search](/learn/paths/implement-knowledge-mining-azure-cognitive-search).
+* Learn about using [extracting data from documents and forms using OCR and Form Recognizer](https://docs.microsoft.com/Shows/AI-Show/Extracting-Data-From-Documents-and-Forms-with-OCR-and-Form-Recognizer)
+* Explore the Microsoft Learning Path [knowledge mining with Azure Cognitive Search](/learn/paths/implement-knowledge-mining-azure-cognitive-search).
