@@ -87,9 +87,9 @@ Similarly, an identity system must perform well and be able to scale to the leve
 
 If you run an identity system, it becomes your responsibility to keep it secured. Examples of the controls you need to consider implementing include:
 
-* Penetration testing needs to be performed regularly, and requires specialized expertise.
-* Your employees, and anybody else with access to the system, might need to be vetted.
-* All changes to your solution must be tightly controlled and reviewed by experts.
+* Periodic penetration testing, which requires specialized expertise.
+* Vetting of employees and anybody else with access to the system.
+* Tight control of all changes to your solution with all changes reviewed by experts.
 
 These controls are often expensive and difficult to implement.
 
@@ -124,3 +124,6 @@ Other contributors:
 
 - [What is Azure Active Directory?](/azure/active-directory/fundamentals/active-directory-whatis)
 - [What is Azure Active Directory B2C?](/azure/active-directory-b2c/overview)
+
+## Related resources
+
