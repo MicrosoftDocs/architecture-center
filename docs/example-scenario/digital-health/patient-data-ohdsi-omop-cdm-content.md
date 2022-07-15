@@ -1,4 +1,4 @@
-OHDSI (Observational Health Data Sciences and Informatics) created and maintains the [OMOP CDM](https://www.ohdsi.org/data-standardization/the-common-data-model) (Observational Medical Outcomes Partnership Common Data Model) standard and associated OHDSI software tools to visualize and analyze clinical health data. These tools facilitate the design and execution of analyses on standardized, patient-level, observational data.
+Observational Health Data Sciences and Informatics (OHDSI) created and maintains the [Observational Medical Outcomes Partnership Common Data Model (OMOP CDM)](https://www.ohdsi.org/data-standardization/the-common-data-model) standard and associated OHDSI software tools to visualize and analyze clinical health data. These tools facilitate the design and execution of analyses on standardized, patient-level, observational data.
 
 OHDSI on Azure allows organizations that want to use the OMOP CDM and the associated analytical tools to easily deploy and operate the solution on the Azure platform.
 
@@ -22,15 +22,15 @@ This article is primarily intended for DevOps engineering teams. If you plan to 
 
 1. Deploy the Bootstrap resource group to support the resources and permissions needed for deployment of the OHDSI resources.
 1. Deploy the OMOP resource group for the OHDSI-specific Azure resources. This step should complete your infrastructure-related setup.
-1. Provision the OMOP CDM and vocabularies to deploy the data model and populate the [OMOP controlled vocabularies](https://ohdsi.github.io/TheBookOfOhdsi/StandardizedVocabularies.html) into the Azure SQL CDM.
+1. Provision the OMOP CDM and vocabularies to deploy the data model and populate the [OMOP controlled vocabularies](https://ohdsi.github.io/TheBookOfOhdsi/StandardizedVocabularies.html) into the CDM in Azure SQL.
 1. Deploy the OHDSI applications:
    1. Set up the Atlas UI and WebAPI by using the BroadSea WebTools image. [Atlas](https://www.ohdsi.org/atlas-a-unified-interface-for-the-ohdsi-tools) is a web UI that integrates features from various OHDSI applications. It's supported by the [WebAPI](https://www.ohdsi.org/web/wiki/doku.php?id=documentation:software:webapi) layer.
-   1. Set up Achilles and Synthea by using the BroadSea Methods image. [Achilles](https://www.ohdsi.org/web/wiki/doku.php?id=documentation:software:achilles) is an R-based script that runs data characterization and quality assessments on the OMOP CDM. The [Synthea ETL](https://github.com/OHDSI/ETL-Synthea) script is an optional tool that allows users to load synthetic patient data into the OMOP CDM.
+   1. Set up Achilles and Synthea by using the BroadSea Methods image. [Achilles](https://www.ohdsi.org/web/wiki/doku.php?id=documentation:software:achilles) is an R-based script that runs data characterization and quality assessments on the OMOP CDM. The [Synthea ETL](https://github.com/OHDSI/ETL-Synthea) script is an optional tool that enables users to load synthetic patient data into the OMOP CDM.
    
 ### Components
 
 - [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory) is a multitenant cloud-based directory and identity management service. Azure AD is used to manage permissions for environment deployment.
-- [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) automatically builds and tests code projects. This [Azure DevOps](https://azure.microsoft.com/services/devops) service combines continuous integration (CI) and continuous delivery (CD). Azure Pipelines uses these practices to constantly and consistently test and build code and ship it to any target. These pipelines define and run this deployment approach for OHDSI on Azure.
+- [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) automatically builds and tests code projects. This [Azure DevOps](https://azure.microsoft.com/services/devops) service combines continuous integration (CI) and continuous delivery (CD). Azure Pipelines uses these practices to constantly and consistently test and build code and ship it to any target. Pipelines define and run this deployment approach for OHDSI on Azure.
 - [Azure Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets) enable you to create and manage a group of heterogeneous load-balanced virtual machines (VMs). These VMs coordinate the deployment of the environment.
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) is a storage service that's optimized for storing massive amounts of unstructured data. Blob Storage is used to store the [Terraform state file](/azure/developer/terraform/store-state-in-azure-storage?tabs=azure-cli) and the raw [OMOP vocabulary files](https://www.ohdsi.org/data-standardization/vocabulary-resources) (before ingestion into the CDM).
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault) is an Azure service for storing and accessing secrets, keys, and certificates with improved security. Key Vault provides HSM-backed security and audited access through role-based access controls that are integrated with Azure AD. In this architecture, Key Vault stores all secrets, including API keys, passwords, cryptographic keys, and certificates.
@@ -44,11 +44,11 @@ This article is primarily intended for DevOps engineering teams. If you plan to 
 If you require more scalability or control, consider these alternatives:
 
 - [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) or [Azure Container Apps](https://azure.microsoft.com/services/container-apps) instead of App Service.
-- [Azure Synapse](https://azure.microsoft.com/services/synapse-analytics) instead of Azure SQL Database.
+- [Azure Synapse](https://azure.microsoft.com/services/synapse-analytics) instead of SQL Database.
 
 ## Scenario details
 
-The ability to federate, harmonize, visualize, segment, and analyze clinical patient data has rapidly become a popular use case in the healthcare industry. Many organizations, including academic institutions, government agencies, and organizations in the private sector, are looking for ways to use of their patient health data to accelerate research and development. Unfortunately, most IT teams struggle to collaborate effectively with researchers to provide a work environment where researchers can feel productive and empowered.
+The ability to federate, harmonize, visualize, segment, and analyze clinical patient data has rapidly become a popular use case in the healthcare industry. Many organizations, including academic institutions, government agencies, and organizations in the private sector, are looking for ways to use their patient health data to accelerate research and development. Unfortunately, most IT teams struggle to collaborate effectively with researchers to provide a work environment where researchers can feel productive and empowered.
 
 [OHDSI](https://ohdsi.org/who-we-are) is an initiative that includes thousands of collaborators in over 70 countries. It offers one of the few available solutions in an open-source format for researchers. OHDSI created and maintains the [OMOP CDM](https://www.ohdsi.org/data-standardization/the-common-data-model) standard and associated OHDSI software tools to visualize and analyze clinical health data.
 
@@ -68,9 +68,9 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
-Azure SQL Database includes zone-redundant databases, failover groups, geo-replication, and automatic backups. These features allow your application to continue running if there's a maintenance event or outage. For more information, see [Azure SQL Database availability capabilities](/azure/sql-database/sql-database-technical-overview#availability-capabilities).
+SQL Database includes zone-redundant databases, failover groups, geo-replication, and automatic backups. These features allow your application to continue running if there's a maintenance event or outage. For more information, see [Azure SQL Database availability capabilities](/azure/sql-database/sql-database-technical-overview#availability-capabilities).
 
-You might want to consider using Application Insights to monitor the health of your application. With Application Insights, you can generate alerts and respond to performance problems that would affect the customer experience. For more information, see [What is Application Insights?](/azure/application-insights/app-insights-overview).
+You might want to consider using Application Insights to monitor the health of your application. With Application Insights, you can generate alerts and respond to performance problems that affect the customer experience. For more information, see [What is Application Insights?](/azure/application-insights/app-insights-overview).
 
 For more information about reliability, see [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
 
@@ -82,7 +82,7 @@ This scenario uses [Managed identities for Azure resources](/azure/active-direct
 
 [SQL Database uses a layered approach](/azure/azure-sql/database/security-overview) to help protect customer data. It covers network security, access management, threat protection, and information protection. For more information on SQL Database security, see [Azure SQL Database security and compliance](/azure/sql-database/sql-database-technical-overview#advanced-security-and-compliance).
 
-If high-security networking is a critical requirement, consider using [Azure Private Link](/azure/private-link/private-link-overview) to [connect App Service to Azure SQL](../../example-scenario/private-web-app/private-web-app.yml) with improved security. Doing so removes public internet access to the SQL database, which is a commonly used attack vector. You can also use [private endpoints for Azure Storage](/azure/storage/common/storage-private-endpoints) to access data over an Azure private link with increased security. These implementations aren't currently included in the solution, but you can add them if you need to.
+If high-security networking is a critical requirement, consider using [Azure Private Link](/azure/private-link/private-link-overview) to [connect App Service to Azure SQL](../../example-scenario/private-web-app/private-web-app.yml). Doing so removes public internet access to the SQL database, which is a commonly used attack vector. You can also use [private endpoints for Azure Storage](/azure/storage/common/storage-private-endpoints) to access data over an Azure private link with increased security. These implementations aren't currently included in the solution, but you can add them if you need to.
 
 For general guidance on designing secure solutions, see the [Azure Security documentation](/azure/security).
 
