@@ -158,17 +158,17 @@ As part of the release cadence, a pre and post release checklist should be used.
 
 * **Pre-release checklist** - Before starting a release, check the following:
 
-    * Ensure the latest state of the **`main`** branch was successfully deployed to and tested in the **`int`** environment.
+    - Ensure the latest state of the **`main`** branch was successfully deployed to and tested in the **`int`** environment.
 
-    * Update the changelog file through a PR against the **`main`** branch.
+    - Update the changelog file through a PR against the **`main`** branch.
 
-    * Create a **`release/`** branch from the **`main`** branch.
+    - Create a **`release/`** branch from the **`main`** branch.
 
 * **Post-release checklist** - Before old stamps are destroyed and their references are removed from Front Door, check that:
 
-    * Clusters are no longer receiving incoming traffic.
+    - Clusters are no longer receiving incoming traffic.
 
-    * Event Hubs and other message queues don't contain any unprocessed messages.
+    - Event Hubs and other message queues don't contain any unprocessed messages.
 
 ### Limitations and risks of the update strategy
 
@@ -182,10 +182,20 @@ The update strategy described in this reference architecture has a some limitati
 
 ### Application data forward compatibility considerations
 
-The update strategy can support multiple version of an API and work components executing concurrently. Because Cosmos DB is shared between two or more versions, there is a possibility that data elements changed by one version might not always match the version of the API or working consuming it. The API layers and workers must implement forward compatibility design. Earlier versions of the API or worker components processes data that was inserted by a later API or worker component version. It ignores parts it doesn't understand.
+The update strategy can support multiple version of an API and work components executing concurrently. Because Cosmos DB is shared between two or more versions, there is a possibility that data elements changed by one version might not always match the version of the API or workers consuming it. The API layers and workers must implement forward compatibility design. Earlier versions of the API or worker components processes data that was inserted by a later API or worker component version. It ignores parts it doesn't understand.
 
-## Failure injection testing
+## Testing implementation
 
-### DNS failure
+The reference architecture contains different tests used at different stages within the testing implementation. 
 
-### Firewall block
+These tests include:
+
+* **Unit tests**: These tests validate that the business logic of the application works as expected. The reference architecture contains a sample suite of C# unit tests executed automatically before every container build by Azure DevOps. If any test fails, the pipeline will stop and build and deployment won't proceed.
+
+* **Load tests**: These tests help to evaluate the capacity, scalability, and potential bottlenecks for a given workload or stack. The reference implementation contains a user load generator to create synthetic load patterns that can be used to simulate real traffic. The load generator can also be used independently of the reference implementation.
+
+* **Smoke tests**: These tests identify if the infrastructure and workload are available and act as expected. Smoke tests are executed as part of every deployment. 
+
+* **UI tests**: These tests validate that the user interface was deployed and works as expected. The current implementation only captures screenshots of several pages after deployment without any actual testing.
+
+* **Failure injection tests***: These tests can be be automated or executed manually. Automated testing in the architecture integrates Azure Chaos Studio as part of the deployment pipelines.
