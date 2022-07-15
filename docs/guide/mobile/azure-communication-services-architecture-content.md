@@ -1,6 +1,6 @@
 This guide presents data flow diagrams for [Azure Communication Services (ACS)](https://docs.microsoft.com/en-us/azure/communication-services/). Use these diagrams to understand how your clients and services interact with Azure to deliver communication experiences.
 
-Azure Communication Services are cloud-based services with REST APIs and client library SDKs to help you integrate communication into your applications. Azure Communication Services supports multiple communication formats: voice and video calling, text chat, SMS and custom binary data. 
+Azure Communication Services are cloud-based services with REST APIs and client library SDKs to help you integrate communication into your applications. Azure Communication Services supports multiple communication formats: voice and video calling, text chat, SMS and custom binary data.
 
 You can add communication to Web and mobile apps, integrate custom services and bots, and programmatically access the publicly switched telephony network (PSTN). You can acquire [phone numbers](https://docs.microsoft.com/azure/communication-services/concepts/numbers/number-types) directly from Azure Communication Services APIs or the Azure portal; and use these numbers for SMS or voice calling applications. [Azure Communication Services direct routing](https://docs.microsoft.com/azure/communication-services/concepts/telephony/telephony-concept#azure-direct-routing) allows you to bring your own telephony provider using session initiation protocol (SIP) and session border controllers.
 
@@ -21,12 +21,12 @@ Industry standards for communication such as [WebRTC](https://webrtc.org/) separ
 A common data flow is client applications initiating communication by requesting control information from a service controller:
 
 1. What meetings do I have today?
-2. What phone number do I use to call my friend Joseph? 
+2. What phone number do I use to call my friend Joseph?
 3. What are the names of my teammates? What chat threads do we have on-going?
 
-Your control service fulfills these requests by providing clients Azure Communication Services tokens and identifiers for users, threads, phone numbers, and calls, which are then used by clients to interact with the Azure data plane. Azure Communication Service APIs do not constrain the design of your end-user experience or the concepts that control communication. 
+Your control service fulfills these requests by providing clients Azure Communication Services tokens and identifiers for users, threads, phone numbers, and calls, which are then used by clients to interact with the Azure data plane. Azure Communication Service APIs do not constrain the design of your end-user experience or the concepts that control communication.
 
-In the WebRTC standard, the process of clients requesting control information from services is called *control messages* or *signaling* - and ACS identifiers such as call ID are comparable to [WebRTC session descriptions](https://datatracker.ietf.org/doc/html/rfc8866). 
+In the WebRTC standard, the process of clients requesting control information from services is called *control messages* or *signaling* - and ACS identifiers such as call ID are comparable to [WebRTC session descriptions](https://datatracker.ietf.org/doc/html/rfc8866).
 
 ## Authenticate users with user access tokens
 
@@ -35,9 +35,9 @@ Azure Communication Services clients present `user access tokens` to access the 
 :::image type="content" source="./media/architecture_v2_identity.svg" alt-text="Diagram showing user access token architecture.":::
 
 ### Dataflows
-1. The user starts the client application. 
+1. The user starts the client application.
 2. The client application contacts your identity management service. The identity management service maintains a mapping between your users and other addressable objects (for example services or bots) to Azure Communication Service identities.
-3. The identity management service [issues a user access token](https://docs.microsoft.com/rest/api/communication/communicationidentity/communication-identity/issue-access-token) for the applicable identity. 
+3. The identity management service [issues a user access token](https://docs.microsoft.com/rest/api/communication/communicationidentity/communication-identity/issue-access-token) for the applicable identity.
 
 Azure App Services or Azure Functions are straightforward options for operating the identity management service. These services scale easily and have built-in features to [authenticate](https://docs.microsoft.com/en-us/azure/app-service/overview-authentication-authorization) end-users. They're integrated with [OpenID](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-openid-connect) and 3rd party identity providers such as [Facebook](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-facebook).
 
@@ -47,23 +47,25 @@ Azure App Services or Azure Functions are straightforward options for operating 
 - **Tutorial:** [Build a identity management service using Azure Functions](https://docs.microsoft.com/azure/communication-services/tutorials/trusted-service-tutorial)
 - **Sample:** [Build a identity management service using Azure Functions](https://github.com/Azure-Samples/communication-services-authentication-hero-nodejs)
 
-## User calling an app or phone number 
-The simplest voice and video calling scenario involves a user calling another user in the foreground without push notifications.
+## User calling an app or phone number
+The simplest voice and video calling scenario involves a user calling another user in the foreground without push notifications. You can integrate Azure Communcation Services voice and video calling into Web, native mobile, and Windows desktop apps. An [open-source UI library](https://docs.microsoft.com/azure/communication-services/concepts/ui-library/ui-library-overview?pivots=platform-web) is available to accelerate development.
 
 :::image type="content" source="./media/architecture_v2_calling_without_notifications.svg" alt-text="Diagram showing Communication Services architecture calling without push notifications.":::
 
 ### Dataflows
 
-1. The accepting user initializes the Call client, allowing them to receive incoming phone calls.
-2. The initiating user needs the Azure Communication Services identity of the person they want to call. A typical experience may have a *friend's list* maintained by the identity management service that collates the user's friends and associated Azure Communication Service identities.
+2. The initiating user obtains the Azure Communication Services identity of the person they want to call. A typical experience may have a *friend's list* maintained by the identity management service that collates the user's friends and associated Azure Communication Service identities.
 3. The initiating user initializes their Call client and calls the remote user.
-4. The accepting user is notified of the incoming call through the Calling SDK.
+4. The accepting user is notified of the incoming call through the Calling SDK. Note that to receive incoming calls, the acceptor must have already initialized their Call client.
 5. The users communicate with each other using voice and video in a call.
 
-Azure App Services is a straightforward option for create a custom Web app. This flow is nearly identical in cases where a user is calling an external phone number. The only difference is that in order to access traditional telephony, the initiating user must request from the controller service the source and destination phone numbers to use for communication. 
+This dataflow is nearly identical in cases where a user is calling an external phone number. The key  difference is that  to access traditional telephony, the initiating user client must request from the controller service  source and destination phone numbers, as opposed to user identities.
+
+In some situations you may want apps to accept calls in the background, using platform services like Apple Push Notifications. This is possible by integrating [Azure Communication Services with Azure Notification Hub](https://docs.microsoft.com/azure/communication-services/concepts/notifications).
 
  ### Resources
 - **Concept:** [Calling Overview](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/calling-sdk-features)
+- **Concept:** [UI library](https://docs.microsoft.com/azure/communication-services/concepts/ui-library/ui-library-overview?pivots=platform-web)
 - **Quickstart:** [Add voice calling to your app](https://docs.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/getting-started-with-calling.md)
 - **Quickstart:** [Add video calling to your app](https://docs.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/get-started-with-video-calling.md)
 - **Hero Sample:** [Group Calling for Web, iOS, and Android](https://docs.microsoft.com/azure/communication-services/samples/calling-hero-sample.md)
@@ -83,8 +85,8 @@ You may want users to join a call without an explicit invitation. Your app may h
 ## Extending Microsoft 365 & Teams
 Many organizations use Microsoft 365 and Teams for communication. [Azure Communcication Services and Teams are interoperable,](https://docs.microsoft.com/azure/communication-services/concepts/teams-interop.md) which enables these scenarios:
 
-1. **Building a custom application for an external user to join a Teams meeting.** This scenario is ideal for virtual visit scenarios, where a business using Teams hosts a meeting for external consumers who are using a custom app and a custom identity. Check out the [Virtual Visits tutorial and Sample Builder](https://review.docs.microsoft.com/en-us/azure/communication-services/tutorials/virtual-visits?branch=pr-en-us-184102) to learn more about this specific scenario.
-2. **Building a custom application for an internal user with Teams/AAD credentials.** This scenario is designed for building custom Teams clients for employees. For example, [Landis Technologies](https://landistechnologies.com/microsoft-teams-attendant-console/) offers a custom attendant app that answers calls to Teams phone numbers.
+1. **Building a custom application for an external user to join a Teams meeting.** This scenario is ideal for virtual visit scenarios, where a business using Teams hosts a meeting for external consumers who are using a custom app and a custom identity. Check out the [Virtual Visits tutorial and Sample Builder](https://docs.microsoft.com/azure/communication-services/tutorials/virtual-visits) to learn more about this specific scenario.
+2. **Building a custom application for an internal user with Teams/AAD credentials.** This scenario is designed for building custom Teams clients for employees.
 
 These custom application scenarios combine usage of [Microsoft Graph APIs](https://docs.microsoft.com/en-us/graph/overview?view=graph-rest-1.0) and Azure Communication Services. When building external apps and services that connect to Teams, you generally Graph as the *Teams control plane* - configuring who, how, and when users communicate using APIs for:
 
@@ -93,9 +95,9 @@ These custom application scenarios combine usage of [Microsoft Graph APIs](https
 
 You use information from these control APIs like `meeting URL` and `thread identifier` to connect Azure Communication Service Calling and Chat clients to the Team's data plane.
 
-[Teams also has SDKs](https://docs.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview) for adding custom experiences *within* the Teams experiences and through the [Teams store](https://docs.microsoft.com/microsoftteams/platform/concepts/deploy-and-publish/appsource/publish) such as tabs, bots, and automation. These scenarios are outside this article's scope. 
+[Teams also has SDKs](https://docs.microsoft.com/microsoftteams/platform/get-started/get-started-overview) for adding custom experiences *within* the Teams experiences and through the [Teams store](https://docs.microsoft.com/microsoftteams/platform/concepts/deploy-and-publish/appsource/publish) such as tabs, bots, and automation. These scenarios are outside this article's scope.
 
-Azure doesn't support interoperability with Team channels. Use Graph's [Chat](https://docs.microsoft.com/graph/api/chat-get?view=graph-rest-1.0&tabs=http) and [Channel](https://docs.microsoft.com/en-us/graph/api/channel-get?view=graph-rest-1.0&tabs=http) APIs to build custom clients for employees accessing channels. 
+Azure Communication Services does not directly support interactions with Teams channels. Custom applications can use Graph's [Chat](https://docs.microsoft.com/graph/api/chat-get?view=graph-rest-1.0&tabs=http) and [Channel](https://docs.microsoft.com/en-us/graph/api/channel-get?view=graph-rest-1.0&tabs=http) APIs to build custom clients for employees accessing channels.
 
 ## Joining a scheduled Teams call
 Azure Communication Service applications can join Teams calls. For external users, they need a link to the Teams meeting, and this is managed using Graph APIs. The complete flow is below:
@@ -104,20 +106,20 @@ Azure Communication Service applications can join Teams calls. For external user
 
 
 ### Dataflows
-1. The Communication Controller Service creates a group call with [Graph APIs](/graph/api/resources/onlinemeeting?view=graph-rest-1.0&preserve-view=true). Another pattern involves end users creating the group call using [Bookings](https://www.microsoft.com/microsoft-365/business/scheduling-and-booking-app), Outlook or Teams.
+1. The Communication Controller Service schedules the group call with [Graph APIs](/graph/api/resources/onlinemeeting?view=graph-rest-1.0&preserve-view=true). Another pattern (Flow 1B) involves end users scheduling the group call using Outlook or Teams.
 2. The communication controller service shares the Teams call details with Azure Communication Service clients.
-3. Typically, a Teams user must join the call and allow external users to join through the lobby. However this experience is sensitive to the Teams tenant configuration and specific meeting settings.
+3. Typically, a Teams user must join the call through the Teams UI and allow external users to pass through the Teams pre-call lobby. However this requirement is sensitive to the Teams tenant configuration and specific meeting settings.
 4. Azure Communication Service users initialize their Call client and join the Teams meeting, using the details received in Step 2.
 5. The users communicate with each other using voice and video in a call.
 
 ### Resources
+- **Tutorial and Sample Builder:**  [Virtual Visits](https://docs.microsoft.com/azure/communication-services/tutorials/virtual-visits)
 - **Concept:** [Teams Interoperability](https://docs.microsoft.com/en-us/azure/communication-services/concepts/teams-interop.md)
 - **Quickstart:** [Join a Teams meeting](https://docs.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/get-started-teams-interop.md)
 
 ## Next steps
 - [What is Azure Communication Services?](https://docs.microsoft.com/en-us/azure/communication-services/overview)
 - [Create a Communication Services resource](https://docs.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource)
-- [Azure Communication Services Client and Server Architecture](https://docs.microsoft.com/en-us/azure/communication-services/concepts/client-and-server-architecture)
 
 ## Related resources
 - [Azure Communication Services Reference docs](https://docs.microsoft.com/en-us/azure/communication-services/concepts/reference)
