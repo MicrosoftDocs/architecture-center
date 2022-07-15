@@ -198,7 +198,7 @@ These tests include:
 
 * **UI tests** - These tests validate that the user interface was deployed and works as expected. The current implementation only captures screenshots of several pages after deployment without any actual testing.
 
-* **Failure injection tests*** - These tests can be be automated or executed manually. Automated testing in the architecture integrates Azure Chaos Studio as part of the deployment pipelines.
+* **Failure injection tests** - These tests can be be automated or executed manually. Automated testing in the architecture integrates Azure Chaos Studio as part of the deployment pipelines.
 
 ### Frameworks
 
