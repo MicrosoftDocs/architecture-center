@@ -1207,7 +1207,7 @@ items:
               - name: All healthcare architectures
                 href: /azure/architecture/browse/?terms=healthcare
               - name: Analyze observational patient data by using OHDSI
-                href: patient-data-ohdsi-omop-cdm.yml
+                href: example-scenario/digital-health/patient-data-ohdsi-omop-cdm.yml
               - name: Automate COVID-19 test forms
                 href: example-scenario/ai/form-recognizer-covid.yml 
               - name: Build a telehealth system with Azure
@@ -2692,7 +2692,7 @@ items:
               - name: Analyze browser information
                 href: example-scenario/ai/analyze-browser-info-for-security-insights.yml
               - name: Analyze observational patient data by using OHDSI
-                href: patient-data-ohdsi-omop-cdm.yml
+                href: example-scenario/digital-health/patient-data-ohdsi-omop-cdm.yml
               - name: Automate document processing
                 href: example-scenario/ai/automate-document-processing-azure-form-recognizer.yml
               - name: Automate COVID-19 test forms
