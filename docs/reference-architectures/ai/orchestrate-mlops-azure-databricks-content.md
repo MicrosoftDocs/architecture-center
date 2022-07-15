@@ -24,7 +24,7 @@ See the [Databricks Customers website](https://databricks.com/customers) for exa
 
 The reference architecture below provides a template for a robust MLOps process using Azure Databricks. All elements in the architecture are pluggable, so other Azure and 3rd-party services may integrate throughout the architecture as needed. This architecture and description are adapted from the eBook &quot;[The Big Book of MLOps](https://databricks.com/p/ebook/the-big-book-of-mlops),&quot; © Databricks, Inc.
 
-![](RackMultipart20220714-1-vf6u5j_html_8c9cf1efc81f01de.png)
+![](_images/orchestrate-mlops-azure-databricks-01.png)
 
 ## Workflow
 
