@@ -101,7 +101,7 @@ If you choose to use a separate identity platform, you need to consider how your
 
 ### Focus on your core value
 
-It's expensive and complex to maintain a secure, reliable, and high-capacity identity platform. In most situations, an identity system isn't a component that adds value to your solution, or that differentiates you from your competitors. It's good to outsource your identity requirements to a system built by experts. That way, you can focus on architecting and building the components of your solution that add business value for your customers.
+It's expensive and complex to maintain a secure, reliable, and responsive identity platform. In most situations, an identity system isn't a component that adds value to your solution, or that differentiates you from your competitors. It's good to outsource your identity requirements to a system built by experts. That way, you can focus on architecting and building the components of your solution that add business value for your customers.
 
 ## Contributors
 
