@@ -190,12 +190,41 @@ The reference architecture contains different tests used at different stages wit
 
 These tests include:
 
-* **Unit tests**: These tests validate that the business logic of the application works as expected. The reference architecture contains a sample suite of C# unit tests executed automatically before every container build by Azure DevOps. If any test fails, the pipeline will stop and build and deployment won't proceed.
+* **Unit tests** - These tests validate that the business logic of the application works as expected. The reference architecture contains a sample suite of C# unit tests executed automatically before every container build by Azure DevOps. If any test fails, the pipeline will stop and build and deployment won't proceed.
 
-* **Load tests**: These tests help to evaluate the capacity, scalability, and potential bottlenecks for a given workload or stack. The reference implementation contains a user load generator to create synthetic load patterns that can be used to simulate real traffic. The load generator can also be used independently of the reference implementation.
+* **Load tests** - These tests help to evaluate the capacity, scalability, and potential bottlenecks for a given workload or stack. The reference implementation contains a user load generator to create synthetic load patterns that can be used to simulate real traffic. The load generator can also be used independently of the reference implementation.
 
-* **Smoke tests**: These tests identify if the infrastructure and workload are available and act as expected. Smoke tests are executed as part of every deployment. 
+* **Smoke tests** - These tests identify if the infrastructure and workload are available and act as expected. Smoke tests are executed as part of every deployment.
 
-* **UI tests**: These tests validate that the user interface was deployed and works as expected. The current implementation only captures screenshots of several pages after deployment without any actual testing.
+* **UI tests** - These tests validate that the user interface was deployed and works as expected. The current implementation only captures screenshots of several pages after deployment without any actual testing.
 
-* **Failure injection tests***: These tests can be be automated or executed manually. Automated testing in the architecture integrates Azure Chaos Studio as part of the deployment pipelines.
+* **Failure injection tests*** - These tests can be be automated or executed manually. Automated testing in the architecture integrates Azure Chaos Studio as part of the deployment pipelines.
+
+### Frameworks
+
+The online reference implementation existing testing capabilities and frameworks whenever possible.
+
+| Framework | Test | Description |
+| --------- | ---- | ----------- |
+| **NUnit** | Unit | This framework is used for unit testing the .NET Core portion of the implementation. Unit tests are executed automatically by Azure DevOps before container builds. |
+| **JMeter with Azure Load Test** | Load | [Azure Load Test](/azure/load-testing/overview-what-is-azure-load-testing) is a managed service used to execute [Apache JMeter](https://jmeter.apache.org/) load test definitions. |
+| **Locust** | Load | Locust is an open source load testing framework written in Python. |
+| **Playwright** | UI and Smoke | Playwright is an open source Node.js library to automate Chromium, Firefox and WebKit with a single API. The Playwright test definition can also be used independently of the reference implementation. |
+| **Azure Chaos Studio** | Failure injection | The reference implementation uses Azure Chaos Studio as an optional step in the E2E validation pipeline to inject failures for resiliency validation. |
+
+### Failure Injection testing and Chaos Engineering
+
+Distributed applications should be resilient to service and component outages. Failure Injection testing (also known as Fault Injection or Chaos Engineering) is the practice of subjecting applications and services to real-world stresses and failures.
+
+Resilience is a property of an entire system and injecting faults helps to find issues in the application. Addressing these issues helps to validate application resiliency to unreliable conditions, missing dependencies and other errors.
+
+Manual and automatic tests can be executed against the infrastructure to find faults and issues in the implementation.
+
+#### Automatic
+
+The reference architecture integrates [Azure Chaos Studio](/azure/chaos-studio/chaos-studio-overview) to deploy and run a set of Azure Chaos Studio experiments to inject various faults at the global and stamp levels. Chaos experiments can be executed as an optional part of the E2E deployment pipeline. When the tests are executed, the optional load test is always executed in a parallel. The load test is used to create load on the cluster to validate the impact of the injected faults.
+
+#### Manual
+
+
+
