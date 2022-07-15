@@ -5,7 +5,7 @@ metadata:
   description: Learn about a reference architecture that shows how to move data from mainframe and midrange systems to Azure.
   author: EdPrice-MSFT
   ms.author: Pratim.Dasgupta
-  ms.date: 04/11/2022
+  ms.date: 07/01/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario

@@ -1,22 +1,6 @@
-A front-end application that makes calls to one or more API applications behind it is known as a *multi-tier web application*. This type of architecture usually gets complicated when you want to secure the API applications by making them unavailable from the internet. 
-
-You can provide security for your API applications in several ways that make them accessible only from your front-end applications. This involves securing your API application's inbound traffic.
-
-A network interface that uses Azure Private Link to connect you privately, in a highly secure way, to your web app is known as a *private endpoint*. It uses a private IP address from the virtual network, effectively bringing the web app into that network. This feature is applicable only for inbound flows to your web app.
-
-[Private endpoints](/azure/private-link/private-endpoint-overview) help to protect against data exfiltration because the only thing you can access across the private endpoint is the app with which it's configured.
-
 The architecture described in this article uses private endpoints to provide highly secure communications between app services in a multi-tier environment.
 
 For information about using service endpoints to accomplish the same thing, see [Multi-tier app service with service endpoints](../../reference-architectures/app-service-web-app/multi-tier-app-service-service-endpoint.yml).
-
-## Potential use cases
-
-Here are some use cases for this architecture:
-- Applications that require private connections to a back-end API app.
-- Restricting app access from resources in a virtual network.
-- Exposing your app on a private IP in a virtual network.
-- Connecting from a web app to Azure Storage, Azure Event Grid, Azure Cognitive Search, Azure Cosmos DB, or any other service that supports a [private endpoint](/azure/private-link/private-endpoint-overview#private-link-resource) for inbound connectivity.
 
 ## Architecture
 
@@ -51,7 +35,25 @@ These are some alternative ways to provide security for your web apps:
 
 For more information, see [App Service networking features](/azure/app-service/networking-features).
 
-## Benefits
+## Scenario details
+
+A front-end application that makes calls to one or more API applications behind it is known as a *multi-tier web application*. This type of architecture usually gets complicated when you want to secure the API applications by making them unavailable from the internet. 
+
+You can provide security for your API applications in several ways that make them accessible only from your front-end applications. This involves securing your API application's inbound traffic.
+
+A network interface that uses Azure Private Link to connect you privately, in a highly secure way, to your web app is known as a *private endpoint*. It uses a private IP address from the virtual network, effectively bringing the web app into that network. This feature is applicable only for inbound flows to your web app.
+
+[Private endpoints](/azure/private-link/private-endpoint-overview) help to protect against data exfiltration because the only thing you can access across the private endpoint is the app with which it's configured.
+
+### Potential use cases
+
+Here are some use cases for this architecture:
+- Applications that require private connections to a back-end API app.
+- Restricting app access from resources in a virtual network.
+- Exposing your app on a private IP in a virtual network.
+- Connecting from a web app to Azure Storage, Azure Event Grid, Azure Cognitive Search, Azure Cosmos DB, or any other service that supports a [private endpoint](/azure/private-link/private-endpoint-overview#private-link-resource) for inbound connectivity.
+
+### Benefits
 
 These are some benefits of using a private endpoint for your web app:
 - Eliminates public exposure and makes the app more secure.

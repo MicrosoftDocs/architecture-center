@@ -12,7 +12,19 @@ Use Azure Automation state configuration to host and manage PowerShell Desired S
 
 This example scenario demonstrates using Azure Automation State Configuration to install a web server on both Windows and Linux-based Azure Virtual Machines. Azure Monitor is used to raise an alert for any non-compliant systems.
 
-![](./media/azure-state-config.png)
+![Diagram showing the state configuration architecture.](./media/azure-state-config.png)
+
+### Workflow
+
+The following services and components are used in this solution.
+
+- **Azure Automation:** Azure Automation delivers a cloud-based automation and configuration service that supports consistent management across your Azure and non-Azure environments.
+
+- **Azure Automation State Configuration:** is a configuration management solution built on top of PowerShell Desired State Configuration (DSC). State configuration works with Azure virtual machines, on-premises machines, and machines in a cloud other than Azure. Using state configuration, you can import PowerShell DSC resources and assign them to many virtual machines from a central location. Once each endpoint has evaluated and / or applied the desired state, state compliance is reported to Azure and can be seen on a built-in dashboard.
+
+- **Azure Monitor:** Azure Monitor collects and stores metrics and logs, application telemetry, and platform metrics for the Azure services. Use this data to monitor the application, set up alerts, dashboards, and perform root cause analysis of failures.
+
+- **Azure Virtual Machines:** Azure IaaS solution for running virtual machines.
 
 ## Reference deployment
 
@@ -79,18 +91,6 @@ For detailed information and additional deployment options, see the ARM Template
 > [!div class="nextstepaction"]
 > [Azure Automation State Configuration ARM Templates](/samples/mspnp/samples/azure-automation-state-configuration)
 
-## Components
-
-The following services and components are used in this solution.
-
-- **Azure Automation:** Azure Automation delivers a cloud-based automation and configuration service that supports consistent management across your Azure and non-Azure environments.
-
-- **Azure Automation State Configuration:** is a configuration management solution built on top of PowerShell Desired State Configuration (DSC). State configuration works with Azure virtual machines, on-premises machines, and machines in a cloud other than Azure. Using state configuration, you can import PowerShell DSC resources and assign them to many virtual machines from a central location. Once each endpoint has evaluated and / or applied the desired state, state compliance is reported to Azure and can be seen on a built-in dashboard.
-
-- **Azure Monitor:** Azure Monitor collects and stores metrics and logs, application telemetry, and platform metrics for the Azure services. Use this data to monitor the application, set up alerts, dashboards, and perform root cause analysis of failures.
-
-- **Azure Virtual Machines:** Azure IaaS solution for running virtual machines.
-
 ## Considerations
 
 Consider the following items when managing systems configuration with Azure Automation State Configuration.
@@ -155,7 +155,7 @@ AzureDiagnostics
 
 For more information on monitoring Azure Automation State Configuration, see [Integrate with Azure Monitor logs](/azure/automation/automation-dsc-diagnostics).
 
-## Pricing
+### Cost optimization
 
 Configuration management includes the configuration pull service and change tracking capabilities. Billing is based on the number of nodes that are registered with the service and the log data stored in the Azure Log Analytics service.
 
@@ -165,6 +165,9 @@ For more information, see [Automation pricing](https://azure.microsoft.com/prici
 
 ## Next steps
 
+- [Azure Automation State Configuration documentation](/azure/automation/automation-dsc-overview)
+
+## Related resources
+
 - [Browse additional solutions](/azure/architecture/browse)
 - [Azure Automation update management](/azure/architecture/hybrid/azure-update-mgmt)
-- [Azure Automation State Configuration documentation](/azure/automation/automation-dsc-overview)

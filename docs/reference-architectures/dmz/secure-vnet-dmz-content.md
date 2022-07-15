@@ -1,4 +1,4 @@
-This reference architecture shows a secure hybrid network that extends an on-premises network to Azure. The architecture implements a *perimeter network*, also called a *DMZ*, between the on-premises network and an Azure virtual network. All inbound and outbound traffic passes through Azure Firewall.
+This reference architecture shows a secure hybrid network that extends an on-premises network to Azure. The architecture implements a *perimeter network*, also called a *DMZ*, between the on-premises network and an Azure virtual network. All inbound and outbound traffic passes through Azure Firewall. 
 
 ## Architecture
 
@@ -6,34 +6,28 @@ This reference architecture shows a secure hybrid network that extends an on-pre
 
 *Download a [Visio file][visio-download] of this architecture.*
 
-### Workflow
+### Components
 
 The architecture consists of the following aspects:
 
 - **On-premises network**. A private local-area network implemented in an organization.
-- **Azure virtual network**. The virtual network hosts the application and other resources running in Azure.
+- **Azure virtual network**. The virtual network hosts the solution components and other resources running in Azure.
+
+    [Virtual network routes][udr-overview] define the flow of IP traffic within the Azure virtual network. In the diagram, there are two user-defined route tables.
+
+    In the gateway subnet, traffic is routed through the Azure Firewall instance.
+
+    > [!NOTE]
+    > Depending on the requirements of your VPN connection, you can configure Border Gateway Protocol (BGP) routes to implement the forwarding rules that direct traffic back through the on-premises network.
+
 - **Gateway**. The gateway provides connectivity between the routers in the on-premises network and the virtual network. The gateway is placed in its own subnet.
 - **Azure Firewall**. [Azure Firewall](/azure/firewall/) is a managed firewall as a service. The Firewall instance is placed in its own subnet.
-- **Virtual network routes**. [Virtual network routes][udr-overview] define the flow of IP traffic within the Azure virtual network. In the diagram shown above, there are two user-defined route tables.
 
-  - In the gateway subnet, traffic sent to the web-tier subnet (10.0.1.0/24) is routed through the Azure Firewall instance.
-  - In the web tier subnet, Since there is no route for address space of the virtual network itself to point to Azure firewall, web tier instances are able to communicate directly to each other, not via Azure Firewall.
-
-  > [!NOTE]
-  > Depending on the requirements of your VPN connection, you can configure Border Gateway Protocol (BGP) routes to implement the forwarding rules that direct traffic back through the on-premises network.
-
-- **Network security groups**. Use [security groups][nsg] to restrict network traffic within the virtual network. For example, in the deployment provided with this reference architecture, the web tier subnet allows TCP traffic from the on-premises network and from within the virtual network; the business tier allows traffic from the web tier, and the data tier allows traffic from the business tier.
+- **Network security groups**. Use [security groups][nsg] to restrict network traffic within the virtual network. 
 
 - **Azure Bastion**. [Azure Bastion](/azure/bastion/) allows you to log into virtual machines (VMs) in the virtual network through SSH or remote desktop protocol (RDP) without exposing the VMs directly to the internet. Use Bastion to manage the VMs in the virtual network.
 
-### Components
-
-Key technologies in this architecture include:
-
-- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/)
-- [Azure Firewall](https://azure.microsoft.com/services/azure-firewall/)
-- [Azure Bastion](https://azure.microsoft.com/services/azure-bastion/)
-- [VPN Gateway](https://azure.microsoft.com/services/vpn-gateway/) or  [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/)
+    Bastion [requires a dedicated subnet named **AzureBastionSubnet**](/azure/bastion/configuration-settings#subnet).
 
 ## Potential use cases
 
@@ -57,7 +51,7 @@ Use [Azure role-based access control (Azure RBAC)][rbac] to manage the resources
 
 - A security IT administrator role to manage secure network resources such as the firewall.
 
-The DevOps and IT administrator roles should not have access to the firewall resources. This should be restricted to the security IT administrator role.
+The IT administrator role should not have access to the firewall resources. This should be restricted to the security IT administrator role.
 
 ### Resource group recommendations
 
@@ -67,7 +61,7 @@ We recommend creating the following resource groups:
 
 - A resource group containing the virtual network (excluding the VMs), NSGs, and the gateway resources for connecting to the on-premises network. Assign the centralized IT administrator role to this resource group.
 - A resource group containing the VMs for the Azure Firewall instance and the user-defined routes for the gateway subnet. Assign the security IT administrator role to this resource group.
-- Separate resource groups for each application tier that contain the load balancer and VMs. Note that this resource group shouldn't include the subnets for each tier. Assign the DevOps role to this resource group.
+- Separate resource groups for each spoke virtual network that contains the load balancer and VMs.
 
 ### Networking recommendations
 
@@ -76,11 +70,9 @@ To accept inbound traffic from the internet, add a [Destination Network Address 
 - Destination address = Public IP address of the firewall instance.
 - Translated address = Private IP address within the virtual network.
 
-The example deployment routes internet traffic for port 80 to the web tier load balancer.
+[Force-tunnel][azure-forced-tunneling] all outbound internet traffic through your on-premises network using the site-to-site VPN tunnel, and route to the internet using network address translation (NAT). This prevents accidental leakage of any confidential information and allows inspection and auditing of all outgoing traffic.
 
-[Force-tunnel][azure-forced-tunneling] all outbound internet traffic through your on-premises network using the site-to-site VPN tunnel, and route to the internet using network address translation (NAT). This prevents accidental leakage of any confidential information stored in your data tier and allows inspection and auditing of all outgoing traffic.
-
-Don't completely block internet traffic from the application tiers, as this will prevent these tiers from using Azure PaaS services that rely on public IP addresses, such as VM diagnostics logging, downloading of VM extensions, and other functionality. Azure diagnostics also requires that components can read and write to an Azure Storage account.
+Don't completely block internet traffic from the resources in the spoke network subnets, as this will prevent these resources from using Azure PaaS services that rely on public IP addresses, such as VM diagnostics logging, downloading of VM extensions, and other functionality. Azure diagnostics also requires that components can read and write to an Azure Storage account.
 
 Verify that outbound internet traffic is force-tunneled correctly. If you're using a VPN connection with the [routing and remote access service][routing-and-remote-access-service] on an on-premises server, use a tool such as [WireShark][wireshark].
 
@@ -128,11 +120,11 @@ This reference architecture implements multiple levels of security.
 
 #### Routing all on-premises user requests through Azure Firewall
 
-The user-defined route in the gateway subnet blocks all user requests other than those received from on-premises. The route passes allowed requests to the firewall, and these requests are passed on to the application if they are allowed by the firewall rules. You can add other routes, but make sure they don't inadvertently bypass the firewall or block administrative traffic intended for the management subnet.
+The user-defined route in the gateway subnet blocks all user requests other than those received from on-premises. The route passes allowed requests to the firewall, and these requests are passed on to the resources in the spoke virtual networks if they are allowed by the firewall rules. You can add other routes, but make sure they don't inadvertently bypass the firewall or block administrative traffic intended for the management subnet.
 
-#### Using NSGs to block/pass traffic between application tiers
+#### Using NSGs to block/pass traffic to spoke virtual network subnets
 
-Traffic between tiers is restricted by using NSGs. The business tier blocks all traffic that doesn't originate in the web tier, and the data tier blocks all traffic that doesn't originate in the business tier. If you have a requirement to expand the NSG rules to allow broader access to these tiers, weigh these requirements against the security risks. Each new inbound pathway represents an opportunity for accidental or purposeful data leakage or application damage.
+Traffic to and from resource subnets in spoke virtual networks is restricted by using NSGs. If you have a requirement to expand the NSG rules to allow broader access to these resources, weigh these requirements against the security risks. Each new inbound pathway represents an opportunity for accidental or purposeful data leakage or application damage.
 
 ### Use AVNM to create baseline Security Admin rules
 
@@ -152,7 +144,7 @@ Here are cost considerations for the services used in this architecture.
 
 #### Azure Firewall
 
-In this architecture, Azure Firewall is deployed in the virtual network to control traffic between the gateway's subnet and the subnet in which the application tier runs. In this way Azure Firewall is cost effective because it's used as a shared solution consumed by multiple workloads. Here are the Azure Firewall pricing models:
+In this architecture, Azure Firewall is deployed in the virtual network to control traffic between the gateway's subnet and the resources in the spoke virtual networks. In this way Azure Firewall is cost effective because it's used as a shared solution consumed by multiple workloads. Here are the Azure Firewall pricing models:
 
 - Fixed rate per deployment hour.
 - Data processed per GB to support auto scaling.

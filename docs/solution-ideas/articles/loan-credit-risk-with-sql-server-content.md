@@ -7,7 +7,7 @@ By using SQL Server 2016 and later with Machine Learning Services, a lending ins
 ![Architecture Diagram](../media/loan-credit-risk-with-sql-server.png)
 *Download the [Visio file](../media/loan-credit-risk-with-sql-server.vsdx) of this architecture.*
 
-### Data flow
+### Dataflow
 
 Connect to your data source (e.g. SQL Server) and use your preferred IDE to develop Python and/or R models. When the model is ready, [publish it to SQL Server](https://docs.microsoft.com/sql/machine-learning/deploy/modify-r-python-code-to-run-in-sql-server) or visualize in Power BI.  Should you want to manage your model in a fully-functional workspace, you are also able to deploy the model to an [Azure Machine Learning Workspace](https://docs.microsoft.com/en-us/azure/machine-learning/concept-workspace). 
 
