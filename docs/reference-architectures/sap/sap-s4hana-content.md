@@ -4,7 +4,7 @@ This reference architecture shows a set of proven practices for running S/4HANA 
 
 ## Architecture
 
-![Reference architecture for SAP S/4HANA for Linux virtual machines on Azure Avset](./images/s4-avset-afs-ppg.png)
+![Reference architecture for SAP S/4HANA for Linux virtual machines on Azure Avset.](./images/s4-avset-afs-ppg.png)
 
 *Download a [Visio file][visio-download] of this architecture.*
 
