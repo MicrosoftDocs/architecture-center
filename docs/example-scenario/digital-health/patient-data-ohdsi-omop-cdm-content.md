@@ -1,24 +1,14 @@
-The ability to federate, harmonize, visualize, segment, and analyze clinical patient data has rapidly become a popular use case in the healthcare industry. Many organizations, including academic institutions, government agencies, and organizations in the private sector, are looking for ways to use of their patient health data in the acceleration of research and development. Unfortunately, most IT teams struggle to collaborate effectively with researchers to provide a work environment where researchers can feel productive and empowered.
-
-[OHDSI](https://ohdsi.org/who-we-are) (Observational Health Data Sciences and Informatics) is an initiative that includes thousands of collaborators in over 70 countries across the globe. It offers one of few available solutions in an open-source format for researchers. OHDSI created and maintains the [OMOP CDM](https://www.ohdsi.org/data-standardization/the-common-data-model) (Observational Medical Outcomes Partnership Common Data Model) standard and associated OHDSI software tools to visualize and analyze their clinical health data. These tools facilitate the design and execution of analyses on standardized, patient-level, observational data.
+OHDSI (Observational Health Data Sciences and Informatics) created and maintains the [OMOP CDM](https://www.ohdsi.org/data-standardization/the-common-data-model) (Observational Medical Outcomes Partnership Common Data Model) standard and associated OHDSI software tools to visualize and analyze clinical health data. These tools facilitate the design and execution of analyses on standardized, patient-level, observational data.
 
 OHDSI on Azure allows organizations that want to use the OMOP CDM and the associated analytical tools to easily deploy and operate the solution on the Azure platform.
 
 *"Terraform" is either registered trademark or a trademark of HashiCorp in the United States and/or other countries. No endorsement by HashiCorp is implied by the use of this mark.*
 
-### Potential use cases
-
-Several types of healthcare organizations can benefit from this solution, including:
-
-- Academic institutions that want to enable scientific researchers to tackle observational cohort studies by using clinical data.
-- Governmental agencies that want to federate large amounts of disparate data sources to accelerate scientific discovery.
-- Private sector companies that want to streamline the identification of potential patients for clinical trials.
-
 ## Architecture
 
-:::image type="content" source="images/ohdsi-azure.png" alt-text="Diagram that shows an architecture for analyzing patient data by using OHDSI." lightbox="images/ohdsi-azure.png":::
+:::image type="content" source="images/ohdsi-azure.png" alt-text="Diagram that shows an architecture for analyzing patient data by using OHDSI." lightbox="images/ohdsi-azure.png" border="false":::
 
-link
+*Download a [Visio file](https://arch-center.azureedge.net/ohdsi-azure.vsdx ) of this architecture.*
 
 The preceding diagram illustrates the solution architecture at a high level. The solution is made up of two major resource groups:
 - Bootstrap resource group. A foundational set of Azure resources that support the deployment of the OMOP resource group.
@@ -31,7 +21,7 @@ This article is primarily intended for DevOps engineering teams. If you plan to 
 ### Workflow
 
 1. Deploy the Bootstrap resource group to support the resources and permissions needed for deployment of the OHDSI resources.
-1. Deploy the OMOP resource group for the OHDSI-specific Azure resources. This should complete all your infrastructure-related setup.
+1. Deploy the OMOP resource group for the OHDSI-specific Azure resources. This step should complete all your infrastructure-related setup.
 1. Provision the OMOP CDM and vocabularies to deploy the data model and populate the [OMOP controlled vocabularies](https://ohdsi.github.io/TheBookOfOhdsi/StandardizedVocabularies.html) into the Azure SQL CDM.
 1. Deploy the OHDSI applications:
    1. Set up the Atlas UI and WebAPI using the BroadSea WebTools image. [Atlas](https://www.ohdsi.org/atlas-a-unified-interface-for-the-ohdsi-tools) is a web UI that integrates features from various OHDSI applications, which is supported by the [WebAPI](https://www.ohdsi.org/web/wiki/doku.php?id=documentation:software:webapi) layer.
@@ -56,6 +46,20 @@ If you require more scalability or control, consider these alternatives:
 - [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) or [Azure Container Apps](https://azure.microsoft.com/services/container-apps) instead of App Service.
 - [Azure Synapse](https://azure.microsoft.com/services/synapse-analytics) instead of Azure SQL Database.
 
+## Scenario details
+
+The ability to federate, harmonize, visualize, segment, and analyze clinical patient data has rapidly become a popular use case in the healthcare industry. Many organizations, including academic institutions, government agencies, and organizations in the private sector, are looking for ways to use of their patient health data in the acceleration of research and development. Unfortunately, most IT teams struggle to collaborate effectively with researchers to provide a work environment where researchers can feel productive and empowered.
+
+[OHDSI](https://ohdsi.org/who-we-are) is an initiative that includes thousands of collaborators in over 70 countries across the globe. It offers one of few available solutions in an open-source format for researchers. OHDSI created and maintains the [OMOP CDM](https://www.ohdsi.org/data-standardization/the-common-data-model) standard and associated OHDSI software tools to visualize and analyze their clinical health data.
+
+### Potential use cases
+
+Several types of healthcare organizations can benefit from this solution, including:
+
+- Academic institutions that want to enable scientific researchers to tackle observational cohort studies by using clinical data.
+- Governmental agencies that want to federate large amounts of disparate data sources to accelerate scientific discovery.
+- Private sector companies that want to streamline the identification of potential patients for clinical trials.
+
 ## Considerations
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
@@ -76,9 +80,9 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 This scenario uses [Managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview), which provide an identity for an application to use when it connects to resources that support Azure AD authentication. Managed identities eliminate the need to manage secrets and credentials for each Azure resource.
 
-[SQL Database uses a layered approach](/azure/azure-sql/database/security-overview) to protect customer data. It covers network security, access management, threat protection, and information protection. For additional information on SQL Database security, see [Azure SQL Database security and compliance](/azure/sql-database/sql-database-technical-overview#advanced-security-and-compliance).
+[SQL Database uses a layered approach](/azure/azure-sql/database/security-overview) to protect customer data. It covers network security, access management, threat protection, and information protection. For more information on SQL Database security, see [Azure SQL Database security and compliance](/azure/sql-database/sql-database-technical-overview#advanced-security-and-compliance).
 
-If high-security networking is a critical requirement, consider using [Azure Private Link](/azure/private-link/private-link-overview) to [connect App Service to Azure SQL](/azure/architecture/example-scenario/private-web-app/private-web-app) with improved security. Doing so removes public internet access to the SQL database, which is a commonly used attack vector. You can also use [private endpoints for Azure Storage](/azure/storage/common/storage-private-endpoints) to access data over an Azure private link with increased security. These implementations aren't currently included in the solution, but you can add them if you need to.
+If high-security networking is a critical requirement, consider using [Azure Private Link](/azure/private-link/private-link-overview) to [connect App Service to Azure SQL](../../example-scenario/private-web-app/private-web-app.yml) with improved security. Doing so removes public internet access to the SQL database, which is a commonly used attack vector. You can also use [private endpoints for Azure Storage](/azure/storage/common/storage-private-endpoints) to access data over an Azure private link with increased security. These implementations aren't currently included in the solution, but you can add them if you need to.
 
 For general guidance on designing secure solutions, see the [Azure Security documentation](/azure/security).
 
@@ -136,7 +140,7 @@ Other contributors:
  
 ## Related resources
 
-- [Solutions for the healthcare industry](/azure/architecture/industries/healthcare)
+- [Solutions for the healthcare industry](../../industries/healthcare.md)
 - [What is Microsoft Cloud for Healthcare?](/industry/healthcare/overview)
-- [Clinical insights with Microsoft Cloud for Healthcare](/azure/architecture/example-scenario/mch-health/medical-data-insights)
-- [Confidential computing on a healthcare platform](/azure/architecture/example-scenario/confidential/healthcare-inference)
+- [Clinical insights with Microsoft Cloud for Healthcare](../../example-scenario/mch-health/medical-data-insights.yml)
+- [Confidential computing on a healthcare platform](../../example-scenario/confidential/healthcare-inference.yml)

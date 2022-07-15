@@ -21,6 +21,6 @@ products:
   - azure-container-registry
 name: Analyze observational patient data by using OHDSI with the OMOP CDM
 summary: Deploy and operate a solution that uses OHDSI and the OMAP CDM to analyze observational patient data.
-thumbnailUrl: /azure/architecture/browse/thumbs/<browse-png-filename>.png
+thumbnailUrl: /azure/architecture/browse/thumbs/ohdsi-azure.png
 content: |
-  [!include[](<sample-solution>-content.md)]
+  [!include[](patient-data-ohdsi-omop-cdn-content.md)]
