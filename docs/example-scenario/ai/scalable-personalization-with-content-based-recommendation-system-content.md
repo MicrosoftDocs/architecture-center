@@ -26,7 +26,7 @@ This solution is ideal for the retail industry. This scenario is relevant to the
 
 ## Architecture
 
-![Architectural diagram: training, evaluation, and deployment of a machine learning model for content-based personalization on Apache Spark using Azure Databricks.](./media/architecture-scalable-personalization.png)
+![Architectural diagram: training, evaluation, and deployment of a machine learning model for content-based personalization using Azure Databricks.](./media/architecture-scalable-personalization.png)
 
 ### Dataflow
 
