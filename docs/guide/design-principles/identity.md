@@ -124,6 +124,15 @@ Other contributors:
 
 - [What is Azure Active Directory?](/azure/active-directory/fundamentals/active-directory-whatis)
 - [What is Azure Active Directory B2C?](/azure/active-directory-b2c/overview)
+- [Explore identity and Azure AD](/learn/modules/explore-identity-azure-active-directory)
+- [Design an identity security strategy](/learn/modules/design-identity-security-strategy)
+- [Implement Microsoft identity](/learn/paths/m365-identity-associate)
+- [Manage identity and access in Azure Active Directory](/learn/paths/manage-identity-and-access)
 
 ## Related resources
 
+- [Authenticate using Azure AD and OpenID Connect](/azure/architecture/multitenant-identity/authenticate)
+- [Federated identity pattern](/azure/architecture/patterns/federated-identity)
+- [Hybrid identity](/azure/architecture/solution-ideas/articles/hybrid-identity)
+- [Identity architecture design](/azure/architecture/identity/identity-start-here)
+- [Resilient identity and access management with Azure AD](/azure/architecture/guide/resilience/resilience-overview)
