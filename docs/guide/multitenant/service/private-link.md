@@ -47,26 +47,26 @@ When you use Azure App Configuration in a multitenant application, there are sev
 
 ### Visibility
 
-- Private Link service enables you to [control the visibility of your private endpoint](https://docs.microsoft.com/azure/private-link/private-link-service-overview#control-service-exposure).
+- Private Link service enables you to [control the visibility of your private endpoint](/azure/private-link/private-link-service-overview#control-service-exposure).
 - Will you let all Azure subscriptions be able to add a private endpoint to your service, or will it only be for a subset?
 - If you only allow known subscriptions, how will you authorise their subscription IDs? For example, you might provide an administration user interface in your solution to collect the subscription ID, and then passing that subscription ID to Azure to pre-approve connection requests.
 
 ### Aliases
 
-- When using Private Link service, as well as some other Private Link-compatible Azure services, you can [provide an alias](https://docs.microsoft.com/azure/private-link/private-link-service-overview#alias) to your tenants instead of giving them your Azure subscription IDs and other resource details.
+- When using Private Link service, as well as some other Private Link-compatible Azure services, you can [provide an alias](/azure/private-link/private-link-service-overview#alias) to your tenants instead of giving them your Azure subscription IDs and other resource details.
 - This avoids disclosure of your subscription IDs and resource group names.
 
 ### Approval process
 
 - Private Link service supports manual and auto approval based on subscription IDs.
 - Even if you use manual approval, you might build a custom automated approval system to look at your tenants who have been authorised for using private endpoints, and approving those connections automatically.
-- [Doc](https://docs.microsoft.com/azure/private-link/private-link-service-overview#control-service-access)
+- [Doc](/azure/private-link/private-link-service-overview#control-service-access)
 
 ### Proxy Protocol v2
 
 - By default, you only see the NATted IP address of the client. However, Private Link service enables you to get access to the original client IP address in their own private subnet.
 - This can be useful if you need to add IP address-based access restrictions for clients on different private IP addresses all accessing the same private endpoint. For example, you might enable tenants to set their own access restrictions to enforce a rule like "host 10.0.0.10 can access the service, but 10.0.0.20 can't". Or, you might implement IP address restrictions to enforce licensing constraints.
-- [Doc](https://docs.microsoft.com/azure/private-link/private-link-service-overview#getting-connection-information-using-tcp-proxy-v2)
+- [Doc](/azure/private-link/private-link-service-overview#getting-connection-information-using-tcp-proxy-v2)
 
 ## Related resources
 
