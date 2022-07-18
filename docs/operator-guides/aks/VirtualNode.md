@@ -1,3 +1,19 @@
+---
+title: Common Issues for Virtual Nodes
+categories: Azure Architecture Center 
+titleSuffix: Azure Architecture Center
+description: Learn to know overall Common Issues in Virtual Nodes deployed for AKS, as part of a triage step for AKS clusters.
+author: shubhammicrosoft1
+ms.author: shagnih
+ms.date: 07/19/2022
+ms.topic: conceptual
+ms.service: architecture-center
+ms.subservice: azure-guide
+products:
+  - azure-kubernetes-service
+ms.custom:
+  - e2e-aks
+---
 # Analysing Virtual Nodes Issues deployed to AKS Cluster
 
 Applications deployed to a virtual node or configuration / availability of a Virtual Node service can face issues due to various reasons and in most cases Infrastructure deployment issues or config in Application deployment YAML can cause these issues. 
