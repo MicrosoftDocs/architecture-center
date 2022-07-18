@@ -49,17 +49,17 @@ nodeSelector:
         effect: NoSchedule
 ```
 
-Node-affinity can help in the management of the workload across these options. See [Provide dedicated nodes using taints and tolerations](https://docs.microsoft.com/en-us/azure/aks/operator-best-practices-advanced-scheduler#provide-dedicated-nodes-using-taints-and-tolerations) for more details on how to use node-affinity.
+Node-affinity can help in the management of the workload across these options. See [Provide dedicated nodes using taints and tolerations](https://docs.microsoft.com/azure/aks/operator-best-practices-advanced-scheduler#provide-dedicated-nodes-using-taints-and-tolerations) for more details on how to use node-affinity.
 
 Minimum Troubleshooting Investigation
 1. 	Check Region Availability
-    * Use virtual nodes - [Azure Kubernetes Service | Microsoft Docs](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes#regional-availability)
+    * Use virtual nodes - [Azure Kubernetes Service | Microsoft Docs](https://docs.microsoft.com/azure/aks/virtual-nodes#regional-availability)
 2. Check if a second subnet was created
-    *	[Create virtual nodes using Azure CLI - Azure Kubernetes Service | Microsoft Docs](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-cli#create-a-virtual-network)
+    *	[Create virtual nodes using Azure CLI - Azure Kubernetes Service | Microsoft Docs](https://docs.microsoft.com/azure/aks/virtual-nodes-cli#create-a-virtual-network)
 3. Use Azure Monitor
-    * [Monitoring Azure Container Instances - Azure Container Instances | Microsoft Docs](https://docs.microsoft.com/en-us/azure/container-instances/monitor-azure-container-instances)
+    * [Monitoring Azure Container Instances - Azure Container Instances | Microsoft Docs](https://docs.microsoft.com/azure/container-instances/monitor-azure-container-instances)
 4. View Logging & Events
-    * [Collect & analyze resource logs - Azure Container Instances | Microsoft Docs](https://docs.microsoft.com/en-us/azure/container-instances/container-instances-log-analytics)
+    * [Collect & analyze resource logs - Azure Container Instances | Microsoft Docs](https://docs.microsoft.com/azure/container-instances/container-instances-log-analytics)
 
 
 ## Next steps
