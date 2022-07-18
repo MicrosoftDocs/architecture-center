@@ -1,4 +1,4 @@
-This example scenario discusses a [highly available](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview) solution for a jump server solution running on Azure using an open-source tool called Apache Guacamole, which similar functionalities from [Azure Bastion](https://docs.microsoft.com/en-us/azure/bastion/bastion-overview)
+This example scenario discusses a [high-availability](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview) solution for a jump server solution running on Azure using an open-source tool called Apache Guacamole, which similar functionalities from [Azure Bastion](https://docs.microsoft.com/en-us/azure/bastion/bastion-overview)
 
 Apache Guacamole is a clientless remote desktop gateway that supports standard protocols like VNC, RDP, and SSH. Clientless means your clients don't need to install anything but just use a web browser to remotely access your fleet of VMs.
 
