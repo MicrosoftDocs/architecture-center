@@ -47,12 +47,12 @@ The architecture includes a public load balancer that receives external access r
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network): The fundamental building block for your private network on Azure.
 - [Public IP addresses](/azure/virtual-network/ip-services/public-ip-addresses): A service that allows internet resources to communicate inbound to Azure resources.
 - [Network security groups](/azure/virtual-network/network-security-groups-overview): A service that filters network traffic traveling to and from Azure resources in an Azure virtual network.
-- [Availability set](/azure/virtual-machines/availability-set-overview): A logical grouping of VMs that allows Azure to understand how your application is built to provide for redundancy and availability
-- [Azure Database for MySQL](https://azure.microsoft.com/en-us/services/mysql/): A fully managed MySQL Database as a Service 
+- [Availability set](/azure/virtual-machines/availability-set-overview): A logical grouping of VMs that allows Azure to provide redundancy and availability.
+- [Azure Database for MySQL](https://azure.microsoft.com/services/mysql): A fully managed MySQL database as a service.
 
 ## Alternatives
 
-Customers who doesn't need this high level of control using their own solution can implement a solution similar to this leveraging the usage of [Azure Bastion](https://azure.microsoft.com/services/azure-bastion/), a fully managed service that provides secure and seamless Remote Desktop Protocol (RDP) and Secure Shell Protocol (SSH) access to VMs without any exposure through public IP addresses. 
+If you don't need as much control as the solution described here provides, you can use [Azure Bastion](https://azure.microsoft.com/services/azure-bastion), a fully managed service that offers high-security RDP and SSH access to VMs without any exposure through public IP addresses.
 
 ## Considerations
 
@@ -60,9 +60,9 @@ The following considerations apply to this scenario.
 
 ### Reliability
 
-The solution's resiliency depends on the failure modes of individual services like Virtual Machines, Azure Database for MySQL, and Azure Load Balancer Azure. For more information, see [Resiliency checklist](https://docs.microsoft.com/azure/architecture/checklist/resiliency-per-service) for specific Azure services.
+This solution's resiliency depends on the failure modes of individual services like Azure Virtual Machines, Azure Database for MySQL, and Azure Load Balancer. For more information, see [Resiliency checklist for specific Azure services](/azure/architecture/checklist/resiliency-per-service).
 
-Consider the information [available here](https://docs.microsoft.com/azure/architecture/framework/resiliency/design-checklist) when designing for reliability, and also this guide about [Azure Resiliency](https://docs.microsoft.com/en-us/azure/availability-zones/overview).
+Consider the information [available here](/azure/architecture/framework/resiliency/design-checklist) when designing for reliability, and also this guide about [Azure Resiliency](/azure/availability-zones/overview).
 
 Levarage the business continuity and disaster recovery guidance [published here](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/design-area/management-business-continuity-disaster-recovery).
 
