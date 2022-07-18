@@ -26,4 +26,4 @@ products:
   - azure-virtual-network
 thumbnailUrl: /azure/architecture/browse/thumbs/mission-critical-thumb.svg
 content: |
-   [!include[](mission-critical-network-solution-content.md)]
+   [!include[](mission-critical-network-architecture-content.md)]

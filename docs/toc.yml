@@ -304,7 +304,7 @@ items:
             - name: Mission critical baseline architecture
               href: reference-architectures/containers/aks-mission-critical/mission-critical-intro.yml
             - name: Mission critical architecture with network controls
-              href: reference-architectures/containers/aks-mission-critical/mission-critical-network-solution.yml
+              href: reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture.yml
             - name: Design areas
               items:
                 - name: Application platform
