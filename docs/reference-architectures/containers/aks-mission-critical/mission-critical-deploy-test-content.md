@@ -50,7 +50,7 @@ For more information about Azure Pipelines and Azure DevOps, see [What is Azure 
 
 ### Zero downtime updates
 
-The zero downtime and update strategy in the reference architecture is central to the overall mission critical application. The methodology of replace instead of upgrade of the stamps ensures a fresh installation of the application into a infrastructure stamp. The reference architecture utilizes a blue/green approach and allows for separate test and development environments.
+The zero-downtime update strategy in the reference architecture is central to the overall mission critical application. The methodology of replace instead of upgrade of the stamps ensures a fresh installation of the application into a infrastructure stamp. The reference architecture utilizes a blue/green approach and allows for separate test and development environments.
 
 There are two main components of the reference architecture:
 
