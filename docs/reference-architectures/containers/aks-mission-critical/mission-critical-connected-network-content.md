@@ -1,10 +1,10 @@
-This reference architecture provides guidance for designing a mission critical workload that can be connected to an Azure landing zone. It uses cloud-native capabilities to maximize reliability and operational effectiveness. It applies the design methodology for [Well-Architected mission-critical workloads](https://aka.ms/mission-critical) to an internet-facing application that relies on organizational resources, integrates with other workloads, and uses shared services. In this architecture, it's assumed that virtual private network or Azure Private DNS Zone already exist within the Azure landing zones connectivity subscription.
+This reference architecture provides guidance for designing a mission critical workload that has network controls in place to enhance communication paths to and from the workload. It uses cloud-native capabilities to maximize reliability, overall security, and operational effectiveness. It extends the [mission-critical baseline architecture](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro) for an internet-facing application with features such as ingress and egress restrictions, and securing connectivity with PaaS services. It's recommended that you become familiar with the baseline before proceeding with this article.
 
 > [!IMPORTANT]
 > ![GitHub logo](../../../_images/github.svg) The guidance is backed by a production-grade [example implementation](https://github.com/Azure/Mission-Critical-Connected) which showcases mission critical application development on Azure. This implementation can be used as a basis for further solution development in your first step towards production.
 
 ## Reliability tier
-<!--Now that we are in a landing zone, how does reliabily of lz impact workload-->
+<!--how does security impact the overall reliablity-->
 
 
 > [!TIP]
@@ -14,14 +14,9 @@ This reference architecture provides guidance for designing a mission critical w
 
 ## Key design strategies
 
-- **Dedicated landing zone subscription**
+- **PaaS connectivity**
   
-  Each subscription is already provisioned with foundational services such as network, identity access management, policies, and monitoring.
-
-- **Security**
-    - Network as perimeter
-    - Identity as perimeter 
-    - Private compute cluster
+- **Communication with the workload**
 
     > Refer to [Well-architected mission critical workloads](/azure/architecture/framework/mission-critical/).
 
@@ -50,9 +45,13 @@ The regional resources are provisioned as part of a _deployment stamp_ to a sing
 
 **Static website in an Azure Storage Account** hosts a single page application (SPA) that send requests to backend services.
 
+**Azure Virtual Networks** provide secure environments for running the workload. <!-- what are the subnets and what do they hold--> 
+
 **Azure Kubernetes Service (AKS)** is the orchestrator for backend compute  that runs an application and is stateless. 
 
 > Refer to [Well-architected mission critical workloads: Container Orchestration and Kubernetes](/azure/architecture/framework/mission-critical/mission-critical-application-platform#container-orchestration-and-kubernetes).
+
+**Azure Firewall** is a network security service that protects all the Azure Virtual Network resources. The firewall allows only approved services and fully qualified domain names (FQDNs) as egress traffic.
 
 **Azure Event Hubs** is used to optimize performance and maintain responsiveness during peak load, the design uses asynchronous messaging to handle intensive system flows. An additional Azure Storage account is provisioned for checkpointing. 
 
@@ -72,7 +71,7 @@ Build and release pipelines for a mission critical application must be fully aut
 
 > Refer to [Well-architected mission critical workloads: DevOps processes](/azure/architecture/framework/mission-critical/mission-critical-operational-procedures#devops-processes).
 
-**Microsoft-hosted build agents** are used by this implementation to reduce complexity and management overhead. Self-hosted agents can be used for scenarios that require a hardened security posture.  
+**Self-hosted build agents** are used by this implementation <!--why not Microsoft-->  
 
 > [!NOTE] 
 >  The use of self-hosted agents is demonstrated in the [Mission Critical - Connected](https://aka.ms/mission-critical-connected) reference implementation.
@@ -87,18 +86,11 @@ Operational data from application and infrastructure must be available to allow 
 - **Azure Application Insights** is used as an Application Performance Management (APM) tool to collect all application monitoring data and store it directly within Log Analytics.
 
 ## Networking
-This design uses a hub-spoke networking topology. The stamp runs in a spoke that has Azure Virtual Network pre-provisioned. Each stamp has a single virtual network with two subnets. One subnet is for the compute cluster while the second subnet has Private Endpoints of services that participate in processing a business operation.
+<!--Coming soon-->
 
-For deployment environments that require connectivity to shared organizational resources or interactivity with other workloads, you will need multiple pre-previsioned virtual networks. At least two virtual networks per environment and region are required to support the blue-green deployment strategy.
+## Private compute
 
-## Identity access management
-TBD
-## Management
-TBD
-## Governance
-TBD
-## Platform automation and DevOps
-TBD
+<!--Coming soon-->
 
 ## Request and processor flows
 

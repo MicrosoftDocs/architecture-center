@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
-  title: Highly reliable mission-critical workload on Azure - Connected
-  description: Reference architecture for a highly reliable workload that he mission-critical workload takes a dependency on the Azure landing zone to provide connectivity resources which allow for integration with other applications and shared services. 
+  title: Mission-critical architecture with network controls
+  description: Reference architecture for a highly reliable workload with enhanced network controls such as private endpoints.
   author: calcof
   ms.author: prwilk
   ms.date: 07/19/2022
@@ -19,12 +19,11 @@ azureCategories:
   - networking
   - security
   - devops
-summary: Reference architecture for a highly reliable workload that he mission-critical workload takes a dependency on the Azure landing zone to provide connectivity resources which allow for integration with other applications and shared services. 
+summary: Reference architecture for a highly reliable workload with enhanced network controls such as private endpoints.
 products:
   - azure-front-door
-  - azure-container-registry
-  - azure-kubernetes-service
-  - azure-rbac
+  - azure-firewall
+  - azure-virtual-network
 thumbnailUrl: /azure/architecture/browse/thumbs/mission-critical-thumb.svg
 content: |
-   [!include[](mission-critical-connected-solution-content.md)]
+   [!include[](mission-critical-network-solution-content.md)]
