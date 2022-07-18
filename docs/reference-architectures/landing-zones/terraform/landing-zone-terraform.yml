@@ -22,5 +22,6 @@ products:
   - azure-policy
   - azure-rbac
   - azure-virtual-network
+thumbnailUrl: /azure/architecture/browse/thumbs/alz-tf-module-overview.png
 content: |
    [!include[](landing-zone-terraform-content.md)]

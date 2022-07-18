@@ -22,5 +22,6 @@ products:
   - azure-policy
   - azure-rbac
   - azure-virtual-network
+thumbnailUrl: /azure/architecture/browse/thumbs/bicep-architecture.png
 content: |
    [!include[](landing-zone-bicep-content.md)]
