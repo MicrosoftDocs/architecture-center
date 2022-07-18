@@ -5153,6 +5153,8 @@ items:
                 maintainContext: true
           - name: Architectures
             items:
+              - name: Internet inbound and outbound connections for SAP on Azure
+                href: reference-architectures/sap/sap-internet-inbound-outbound.yml
               - name: Dev/test for SAP
                 href: example-scenario/apps/sap-dev-test.yml
               - name: SAP BusinessObjects BI platform

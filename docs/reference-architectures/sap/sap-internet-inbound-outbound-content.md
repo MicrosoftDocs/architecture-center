@@ -1,4 +1,4 @@
-<!-- cSpell:ignore saprouter linky Youtube -->
+<!-- cSpell:ignore saprouter linky -->
 
 This reference architecture shows a set of proven practices how to securely enable inbound and outbound Internet connections for your SAP on Azure landscape
 
@@ -131,7 +131,7 @@ Keep in mind that securing the SAP Web Dispatcher needs to be performed in any s
 
 #### Firewall and AppGw
 
-All web traffic provided by the application gateway is https based and encrypted with the provided TLS certificate. Using a Firewall as entry point into the corporate network, with its public IP, and SAP Fiori traffic flowing from firewall to AppGw next through internal IP is possible and a [documented use case](/azure/architecture/example-scenario/gateway/firewall-application-gateway#application-gateway-after-firewall). Since the TCP/IP layer 7 encryption is already in place through TLS, there's limited benefit of using firewall in such scenario, and thus cannot perform any packet inspection. One aspect is Fiori communicating through same external IP for both inbound and outbound traffic, which is typically not required for SAP Fiori deployments. As such, using only AppGw with public IP is the recommended use case for SAP deployments.
+All web traffic provided by the application gateway is https based and encrypted with the provided TLS certificate. Using a Firewall as entry point into the corporate network, with its public IP, and SAP Fiori traffic flowing from firewall to AppGw next through internal IP is possible and a [documented use case](/azure/architecture/example-scenario/gateway/firewall-application-gateway#application-gateway-after-firewall). Since the TCP/IP layer 7 encryption is already in place through TLS, there's limited benefit of using firewall in such scenario, and thus can't perform any packet inspection. One aspect is Fiori communicating through same external IP for both inbound and outbound traffic, which is typically not required for SAP Fiori deployments. As such, using only AppGw with public IP is the recommended use case for SAP deployments.
 
 #### AppGw for internal IP (optional)
 
