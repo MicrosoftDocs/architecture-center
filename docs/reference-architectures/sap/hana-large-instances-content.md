@@ -20,7 +20,7 @@ This architecture consists of the following infrastructure components.
 
 - **Virtual network**. The [Azure Virtual Network][vnet] (VNet) service securely connects Azure resources to each other and is subdivided into separate [subnets][subnet] for each layer. SAP application layers are deployed on Azure Virtual Machines (VMs) to connect to the HANA database layer residing on large instances.
 
-- **HLI Revision 4 network**. As of July 2019, two revisions of HANA Large Instances are available. This implementation assumes [Revision 4][rev4] (Rev 4), the design that is deployed in Azure datacenters in close physical proximity to the Azure VMs where the SAP application servers run. When used in conjunction with an [ExpressRoute FastPath][fastpath] configuration, Rev 4 elevates application performance. These networking features also support the Rev 3 deployment.
+- **HLI Revision 4.5 network**. As of July 2021, two revisions of HANA Large Instances are available. This implementation assumes [Revision 4][rev4] (Rev 4), the design that is deployed in Azure datacenters in close physical proximity to the Azure VMs where the SAP application servers run. When used in conjunction with an [ExpressRoute FastPath][fastpath] configuration, Rev 4.5 elevates application performance. These networking features also support the Rev 3 deployment.
 
 - **Virtual machines (VMs)**. VMs are used in the SAP application layer and shared services layer. The latter includes a jump box used by administrators to set up HANA Large Instances and to provide access to other VMs. To colocate the SAP application servers in the same datacenter with the HANA Large Instance units, use [proximity placement groups][ppg].
 
