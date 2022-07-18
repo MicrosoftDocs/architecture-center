@@ -4,7 +4,7 @@ This reference architecture shows a set of proven practices for running S/4HANA 
 
 ## Architecture
 
-![Diagram that shows a reference architecture for SAP S/4HANA on Linux virtual machines.](./images/sap-s-4hana.png)
+:::image type="content" source="./images/sap-s-4hana.png" alt-text="Diagram that shows a reference architecture for SAP S/4HANA on Linux virtual machines." lightbox="./images/sap-s-4hana.png" border="false":::
 
 *Download a [Visio file][visio-download] of this architecture.*
 
@@ -347,7 +347,7 @@ All inbound data transfer is free. All outbound data transfer is charged based o
 
 #### Backup
 
-SAP HANA data can be backed up in many ways. After migrating to Azure, continue to use any existing backup solutions you already have. Azure provides two native approaches to backup. You can back up [SAP HANA on virtual machines, or use Azure Backup on the file level](/azure/virtual-machines/workloads/sap/sap-hana-backup-guide). Azure Backup is [BackInt certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions?id=s:e062231e-9fb7-4ea8-b7d2-e6fe448c592d) by SAP.  See also the [Azure Backup FAQ](/azure/backup/backup-azure-backup-faq).
+SAP HANA data can be backed up in many ways. After migrating to Azure, continue to use any existing backup solutions you already have. Azure provides two native approaches to backup. You can back up [SAP HANA on virtual machines or use Azure Backup at the file level](/azure/virtual-machines/workloads/sap/sap-hana-backup-guide). Azure Backup is [BackInt certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions?id=s:e062231e-9fb7-4ea8-b7d2-e6fe448c592d) by SAP.  See also the [Azure Backup FAQ](/azure/backup/backup-azure-backup-faq).
 
 > [!NOTE]
 > As of this writing, only HANA single container deployments support Azure storage snapshot.
@@ -406,8 +406,6 @@ See the following articles for more information and for examples of SAP workload
 - [Use Azure to host and run SAP workload scenarios](/azure/virtual-machines/workloads/sap/get-started)
 
 ## Related resources
-
-Explore the following related architectures:
 
 - [Running SAP production workloads using an Oracle Database on Azure](../../example-scenario/apps/sap-production.yml)
 
