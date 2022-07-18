@@ -1,4 +1,4 @@
-This article will discuss the design of the modularized [Azure Landing Zones (ALZ) - Bicep](https://github.com/Azure/ALZ-Bicep) solution you can use to deploy and manage the core platform capabilities of the [Azure landing zone conceptual architecture](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-conceptual-architecture) as detailed in the Cloud Adoption Framework (CAF).
+This article discusses the design considerations of the modularized [Azure Landing Zones (ALZ) - Bicep](https://github.com/Azure/ALZ-Bicep) solution you can use to deploy and manage the core platform capabilities of the [Azure landing zone conceptual architecture](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/#azure-landing-zone-conceptual-architecture) as detailed in the Cloud Adoption Framework (CAF).
 
 [Bicep](https://docs.microsoft.com/azure/azure-resource-manager/bicep/overview?tabs=bicep) is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources. It has concise syntax, reliable type safety, and support for code reuse.
 

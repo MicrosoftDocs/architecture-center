@@ -9,12 +9,12 @@ items:
     href: changelog.md
   - name: Landing zones
     items:
-      - name: Design Guides
+      - name: Design guides
         items:
-          - name: Bicep Azure landing zone reference architecture
-            href: reference-architectures/landing-zones/bicep/landing-zone-bicep.yml
-          - name: Bicep Azure landing zone reference architecture
-            href: reference-architectures/landing-zones/terraform/landing-zone-terraform.yml
+          - name: Bicep landing zone implementation
+            href: landing-zones/bicep/landing-zone-bicep.yml
+          - name: Terraform landing zone implementation
+            href: landing-zones/terraform/landing-zone-terraform.yml
   - name: Application architecture fundamentals
     items:
       - name: Introduction
