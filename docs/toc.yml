@@ -5403,6 +5403,8 @@ items:
                 maintainContext: true
           - name: Architectures
             items:
+              - name: Azure DNS Private Resolver
+                href: example-scenario/networking/azure-dns-private-resolver-content.yml
               - name: Deploy IBM Maximo Application Suite 
                 href: example-scenario/networking/deploy-ibm-maximo-application-suite.yml
               - name: High availability for IaaS apps
