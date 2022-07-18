@@ -6,7 +6,7 @@ OHDSI on Azure allows organizations that want to use the OMOP CDM and the associ
 
 ## Architecture
 
-:::image type="content" source="images/ohdsi-azure.png" alt-text="Diagram that shows an architecture for analyzing patient data by using OHDSI." lightbox="images/ohdsi-azure.png" border="false":::
+:::image type="content" source="images/ohdsi-omop-azure.png" alt-text="Diagram that shows an architecture for analyzing patient data by using OHDSI." lightbox="images/ohdsi-omop-azure.png" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/ohdsi-azure.vsdx ) of this architecture.*
 
