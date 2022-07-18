@@ -7,12 +7,14 @@ items:
     href: icons/index.md
   - name: What's new
     href: changelog.md
-  - name: Platform architecture fundamentals
+  - name: Landing zones
     items:
-      - name: Architectures
+      - name: Design Guides
         items:
           - name: Bicep Azure landing zone reference architecture
             href: reference-architectures/landing-zones/bicep/landing-zone-bicep.yml
+          - name: Bicep Azure landing zone reference architecture
+            href: reference-architectures/landing-zones/terraform/landing-zone-terraform.yml
   - name: Application architecture fundamentals
     items:
       - name: Introduction

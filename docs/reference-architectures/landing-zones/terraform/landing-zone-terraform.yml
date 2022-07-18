@@ -1,21 +1,21 @@
 ### YamlMime:Architecture
 metadata:
-  title: Azure Landing Zones (ALZ) - Bicep design guide
-  description: Azure Landing Zones (ALZ) - Bicep design guide
+  title: Azure landing zones Terraform module design guide
+  description: Azure landing zones Terraform module design guide
   author: robbagby
   ms.author: robbag
-  ms.date: 06/14/2022
+  ms.date: 07/18/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: guide
-name: Azure Landing Zones (ALZ) - Bicep design guide
+name: Azure landing zones Terraform module design guide
 azureCategories:
   - devops
   - hybrid
   - management-and-governance
   - networking
   - security
-summary: Azure Landing Zones (ALZ) - Bicep design guide
+summary: Azure landing zones Terraform module design guide
 products:
   - azure
   - azure-resource-manager
@@ -23,4 +23,4 @@ products:
   - azure-rbac
   - azure-virtual-network
 content: |
-   [!include[](landing-zone-bicep-content.md)]
+   [!include[](landing-zone-terraform-content.md)]
