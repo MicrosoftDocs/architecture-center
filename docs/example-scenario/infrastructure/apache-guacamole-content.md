@@ -1,46 +1,53 @@
-This example scenario describes a [high-availability](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview) solution for a jump server solution running on Azure. It uses an open-source tool called Apache Guacamole, which similar functionalities from [Azure Bastion](https://docs.microsoft.com/en-us/azure/bastion/bastion-overview).
+This example scenario describes a [high-availability](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview) solution for a jump server solution that runs on Azure. It uses an open-source tool called Apache Guacamole, which has functionality that's similar to that of [Azure Bastion](https://docs.microsoft.com/en-us/azure/bastion/bastion-overview).
 
-Apache Guacamole is a clientless remote desktop gateway that supports standard protocols like VNC, RDP, and SSH. Clientless means your clients don't need to install anything but just use a web browser to remotely access your fleet of VMs.
+Apache Guacamole is a clientless remote desktop gateway that supports standard protocols like Virtual Network Computing (VNC), Remote Desktop Protocol (RDP), and
+Secure Shell (SSH). Because it's clientless, your users don't need to install anything. They just use a web browser to remotely access your virtual machines (VMs).
 
-For more information about Guacamole and the internal components, visit its [architecture page](https://guacamole.apache.org/doc/gug/guacamole-architecture.html).
+For more information about Guacamole and its internal components, see [Implementation and architecture](https://guacamole.apache.org/doc/gug/guacamole-architecture.html).
 
-To offer high availability, this solution:
+disclaimer 
 
-* Make use of [Availability Sets](https://docs.microsoft.com/en-us/azure/virtual-machines/availability#availability-sets) for Virtual Machines ensuring 99.95% of SLA
-* Use Azure Database for MySQL, a highly available, scalable, managed database as service guarantees a [99.99% SLA](https://docs.microsoft.com/en-us/azure/mysql/concepts-high-availability).
+To provide high availability, this solution:
 
-The environment to be built will leverage the usage of Azure Database for MySQL (DBaaS), Azure Load Balancer, and Virtual Machines with [Nginx as Reverse Proxy](https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/), [Tomcat as Application Service](https://tomcat.apache.org/), and the [Certbot](https://certbot.eff.org/) to get free SSL certificates from [Let's Encrypt](https://letsencrypt.org/).
+* Uses [availability sets](/azure/virtual-machines/availability#availability-sets) for VMs. For service-level agreements (SLAs), see [SLAs for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9).
+* Uses Azure Database for MySQL, a high-availability, scalable, managed database. For SLAs, see [SLAs for Azure Database for MySQL](https://azure.microsoft.com/support/legal/sla/mysql/v1_2).
+
+The solution also uses:
+- Azure Load Balancer.
+-  VMs with [NGINX as a reverse proxy](https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy).
+- [Tomcat as an application service](https://tomcat.apache.org).
+- [Certbot](https://certbot.eff.org) to get free Secure Sockets Layer (SSL) certificates from [Let's Encrypt](https://letsencrypt.org/).
 
 ## Potential use cases
 
-* Access your computers from any device: As Guacamole requires only a reasonably-fast, standards-compliant browser, Guacamole will run on many devices, including mobile phones and tablets.
-* Keep a computer in the “cloud”: Computers hosted on virtualized hardware are more resilient to failures, and with so many companies now offering on-demand computing resources, Guacamole is a perfect way to access several machines that are only accessible over the internet.
-* Provide easy access to a group of people: Guacamole allows you to centralize access to a large group of machines, and specify on a per-user basis which machines are accessible. Rather than remember a list of machines and credentials, users need only log into a central server and click on one of the connections listed.
-* Adding HTML5 remote access to your existing infrastructure: As Guacamole is an API, not just a web application, the core components and libraries provided by the Guacamole project can be used to add HTML5 remote access features to an existing application. You need not use the main Guacamole web application; you can write (or integrate with) your own rather easily.
+* Access your computers from any device. Because Guacamole requires only a reasonably fast standards-compliant browser, Guacamole runs on many devices, including mobile phones and tablets.
+* Keep a computer in the cloud. Computers hosted on virtualized hardware are more resilient to failures. With so many companies now offering on-demand computing resources, Guacamole is a perfect way to access machines that are accessible only over the internet.
+* Provide easy access to a group of people. You can use Guacamole to centralize access to a large group of machines and specify on a per-user basis which machines are accessible. Rather than remember a list of machines and credentials, users only need to  sign in to a central server and select one of the listed connections.
+* Add HTML5 remote access to your existing infrastructure. Because Guacamole is an API and not just a web application, you can use the core components and libraries provided by the Guacamole project to add HTML5 remote access features to an existing application. You don't need to use the main Guacamole web application. You can write or integrate with your own fairly easily.
 
 ## Architecture
 
-The drawing below refers to the suggested architecture. This architecture includes a public load balancer that receives external accesses and directs them to two virtual machines in the web layer. The web layer communicates with the data layer where we have a MySQL database responsible for storing login information, accesses, and connections.
+The architecture includes a public load balancer that receives external access requests and directs them to two VMs in the web layer. The web layer communicates with the data layer, where a MySQL database stores sign-in information, access events, and connections.
 
-[![Diagram of the reference architecture Apache Guacamole on Azure](media/azure-architecture-guacamole.png)](media/azure-architecture-guacamole.png#lightbox)
+[![Diagram that shows a reference architecture for using Apache Guacamole on Azure.](media/azure-architecture-guacamole.png)](media/azure-architecture-guacamole.png#lightbox)
 
-Download a Visio file of this architecture
+*Download a [Visio file](https://arch-center.azureedge.net/azure-architecture-guacamole.vsdx) of this architecture.*
 
 ## Dataflow
 
-1. Users start the connection over the Internet
-2. The connection from the user is established with the Azure Public Load Balancer 
-3. The Azure Public Load Balancer receives external access and directs the traffic for the two virtual machines in the Web Tier
-4. The Web Tier communicates with Azure Database for MySQL in the Data Tier which is responsible for storing login information, accesses, and connections
-5. The connection is established with the target clients through SSH, VNC, or RDP protocol
+1. A user initiates a connection over the internet.
+2. The connection from the user is established with the Azure public load balancer.
+3. The Azure public load balancer receives external access and directs the traffic for the two VMs in the web tier.
+4. The web tier communicates with Azure Database for MySQL in the data tier. This database stores sign-in information, access events, and connections.
+5. The connection is established with the target clients via SSH, VNC, or RDP protocol.
 
 ## Components
 
-- [Azure Load Balancer](https://azure.microsoft.com/services/load-balancer): A service to distribute load (incoming network traffic) across a group of backend resources or servers
-- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network): The fundamental building block for your private network in Azure
-- [Public IP Addresses](https://docs.microsoft.com/en-us/azure/virtual-network/ip-services/public-ip-addresses): A service to allow Internet resources to communicate inbound to Azure resources
-- [Network Security Group](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview): A service to filter network traffic to and from Azure resources in an Azure virtual network
-- [Azure Availability Set](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview): A logical grouping of VMs that allows Azure to understand how your application is built to provide for redundancy and availability
+- [Azure Load Balancer](https://azure.microsoft.com/services/load-balancer): A service for distributing load (incoming network traffic) across a group of back-end resources or servers.
+- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network): The fundamental building block for your private network on Azure.
+- [Public IP addresses](/azure/virtual-network/ip-services/public-ip-addresses): A service that allows internet resources to communicate inbound to Azure resources.
+- [Network security groups](/azure/virtual-network/network-security-groups-overview): A service that filters network traffic traveling to and from Azure resources in an Azure virtual network.
+- [Availability set](/azure/virtual-machines/availability-set-overview): A logical grouping of VMs that allows Azure to understand how your application is built to provide for redundancy and availability
 - [Azure Database for MySQL](https://azure.microsoft.com/en-us/services/mysql/): A fully managed MySQL Database as a Service 
 
 ## Alternatives
