@@ -1,4 +1,4 @@
-This article presents a solution for using Azure DNS Private Resolver to simplify hybrid recursive domain name system (DNS) resolution. You can use Azure Private DNS Resolver for on-premises workloads and Azure workloads. Azure Private DNS Resolver simplifies private DNS resolution from on-premises to Azure Private DNS and vice versa.
+This article presents a solution for using Azure DNS Private Resolver to simplify hybrid recursive domain name system (DNS) resolution. You can use Azure DNS Private Resolver for on-premises workloads and Azure workloads. Azure DNS Private Resolver simplifies private DNS resolution from on-premises to Azure Private DNS and vice versa.
 
 ## Architecture
 
