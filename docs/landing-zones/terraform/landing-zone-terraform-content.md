@@ -2,7 +2,7 @@ This article discusses the design considerations of the [Azure landing zones Ter
 
 Terraform is an open-source Infrastructure as Code (IaC) tool, created by HashiCorp, that uses declarative syntax to deploy infrastructure resources. (Kevin - what key features of Terraform do you want to call out here? State management? Other?)
 
-![GitHub logo](../../../_images/github.png) The module is available on [GitHub: Azure landing zones Terraform module](https://github.com/Azure/terraform-azurerm-caf-enterprise-scale). You can use it as a starting point and configure it as per your needs.
+![GitHub logo](../../_images/github.png) The module is available on [GitHub: Azure landing zones Terraform module](https://github.com/Azure/terraform-azurerm-caf-enterprise-scale). You can use it as a starting point and configure it as per your needs.
 
 > [!NOTE]
 > There are [implementations](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/implementation-options) for several deployment technologies, including portal-based, ARM templates and Terraform modules. The choice of deployment technology should not influence the resulting Azure landing zones deployment.
@@ -58,7 +58,7 @@ Landing zone management groups reference the archetype definitions. In this way,
 
 #### Deployment - core resources
 
-By default, the module will deploy the following hierarchy which is the core set of landing zones:
+By default, the module will deploy the following hierarchy, which is the core set of landing zones:
 
 * Root
   * Platform
@@ -69,9 +69,9 @@ By default, the module will deploy the following hierarchy which is the core set
   * Decommissioned
   * Sandbox
 
-The SAP, Corp and Online landing zones do not apply to everyone so they are not deployed by default. The following are ways to deploy workload management groups:
+The SAP, Corp and Online landing zones don't apply to everyone so they aren't deployed by default. The following are ways to deploy workload management groups:
 
-1. For demo purposes, you can set the ```deploy_demo_landing_zones``` variable to true which will deploy SAP, Corp and Online landing zones
+1. For demo purposes, you can set the ```deploy_demo_landing_zones``` variable to true that will deploy SAP, Corp and Online landing zones
 2. For production purposes, you can turn on the management groups you want by setting the following variables to true:
     * ```deploy_corp_landing_zones```
     * ```deploy_online_landing_zones```
@@ -86,11 +86,11 @@ The [Management Resources](https://github.com/Azure/terraform-azurerm-caf-enterp
 
 | Resource Type(s) | Description | Useful Links |
 |---|---|---|
-| Azure Monitor, Azure Automation, and Microsoft Sentinel | Azure Monitor, Azure Automation and Microsoft Sentinel allow you monitor and manage your infrastructure and workloads. Azure Monitor is a solution that allows you to collect, analyze and act on telemetry from your environment.<br/><br/>Microsoft Sentinel is a cloud-native security information and event management (SIEM). It allows you to:<br/><ul><li>Collect - Collect data across your entire infrastructure</li><li>Detect - Detect threats that were previously undetected</li><li>Respond - Respond to legitimate threats with built-in orchestration</li><li>Investigate - Investigate threats with artificial intelligence</li></ul><br/><br/>Azure Automation is a cloud-based automation system. It includes:<br/><ul><li>Configuration management - Inventory and track changes for Linux and Windows virtual machines and manage desired state configuration</li><li>Update management - Assess Windows and Linux system compliance and create scheduled deployments to meet compliance</li><li>Process automation - Automate management tasks</li></ul> | <ul><li>[Workload management and monitoring - CAF documentation](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/design-area/management-workloads)</li></ul> |
+| Azure Monitor, Azure Automation, and Microsoft Sentinel | Azure Monitor, Azure Automation and Microsoft Sentinel allow you to monitor and manage your infrastructure and workloads. Azure Monitor is a solution that allows you to collect, analyze and act on telemetry from your environment.<br/><br/>Microsoft Sentinel is a cloud-native security information and event management (SIEM). It allows you to:<br/><ul><li>Collect - Collect data across your entire infrastructure</li><li>Detect - Detect threats that were previously undetected</li><li>Respond - Respond to legitimate threats with built-in orchestration</li><li>Investigate - Investigate threats with artificial intelligence</li></ul><br/><br/>Azure Automation is a cloud-based automation system. It includes:<br/><ul><li>Configuration management - Inventory and track changes for Linux and Windows virtual machines and manage desired state configuration</li><li>Update management - Assess Windows and Linux system compliance and create scheduled deployments to meet compliance</li><li>Process automation - Automate management tasks</li></ul> | <ul><li>[Workload management and monitoring - CAF documentation](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/design-area/management-workloads)</li></ul> |
 
 #### Deployment - management resources
 
-To deploy the management resources, the ```deploy_management_resources``` variable must be set to true and the ```subscription_id_management``` variable must be set to the id of the management subscription where the resources are to be deployed.
+To deploy the management resources, the ```deploy_management_resources``` variable must be set to true and the ```subscription_id_management``` variable must be set to the ID of the management subscription where the resources are to be deployed.
 
 ```bash
 deploy_management_resources = true
@@ -105,9 +105,9 @@ The [Connectivity Resources](https://github.com/Azure/terraform-azurerm-caf-ente
 
 | Resource Type(s) | Description | Useful Links |
 |---|---|---|
-| [Core networking resource types listed here](https://github.com/Azure/terraform-azurerm-caf-enterprise-scale/wiki/%5BUser-Guide%5D-Connectivity-Resources#resource-types) | Network topology is a key consideration in Azure landing zone deployments. [CAF focuses on 2 core networking approaches](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/define-an-azure-network-topology):<br/><ul><li>Topologies based on Azure Virtual WAN</li><li>Traditional topologies</li></ul> | <ul><li>[Define an Azure network topology - CAF Documentation](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/define-an-azure-network-topology)</li></ul> |
+| [Core networking resource types listed here](https://github.com/Azure/terraform-azurerm-caf-enterprise-scale/wiki/%5BUser-Guide%5D-Connectivity-Resources#resource-types) | Network topology is a key consideration in Azure landing zone deployments. [CAF focuses on two core networking approaches](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/define-an-azure-network-topology):<br/><ul><li>Topologies based on Azure Virtual WAN</li><li>Traditional topologies</li></ul> | <ul><li>[Define an Azure network topology - CAF Documentation](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/define-an-azure-network-topology)</li></ul> |
 | DDoS protection plans | Azure landing zone guidance recommends enabling DDoS Protection Standard. This service offers turnkey protection against DDoS attacks. | <ul><li>[Azure DDoS Protection Standard overview](https://docs.microsoft.com/azure/ddos-protection/ddos-protection-overview)</li></ul> |
-| DNS Zones, Private DNS Zones, and Private DNS Zone Virtual Network Link | Private DNS zones can be deployed to support the use of private endpoints. A private endpoint is a NIC that is assigned a private IP address from your virtual network that you can use to securely communicate to services that supports Azure Private Link. Private DNS zones can be configured to resolve the fully qualified domain name (FQDN) of the service to the private endpoint private IP address. | <ul><li>[Azure Private Endpoint DNS configuration](https://docs.microsoft.com/azure/private-link/private-endpoint-dns)</li></ul> |
+| DNS Zones, Private DNS Zones, and Private DNS Zone Virtual Network Link | Private DNS zones can be deployed to support the use of private endpoints. A private endpoint is a NIC that is assigned a private IP address from your virtual network. You can use the private IP address to securely communicate to services that supports Azure Private Link. Private DNS zones can be configured to resolve the fully qualified domain name (FQDN) of the service to the private endpoint private IP address. | <ul><li>[Azure Private Endpoint DNS configuration](https://docs.microsoft.com/azure/private-link/private-endpoint-dns)</li></ul> |
 
 #### Deployment - connectivity resources
 
@@ -121,7 +121,7 @@ No resources are deployed with this capability. When the ```deploy_identity_reso
 
 #### Deployment - identity resources
 
-To deploy the identity capability, the ```deploy_identity_resources``` variable must be set to true and the ```subscription_id_identity``` variable must be set to the id of the identity subscription where the policies are to be configured.
+To deploy the identity capability, the ```deploy_identity_resources``` variable must be set to true and the ```subscription_id_identity``` variable must be set to the ID of the identity subscription where the policies are to be configured.
 
 ```bash
 deploy_identity_resources = true
