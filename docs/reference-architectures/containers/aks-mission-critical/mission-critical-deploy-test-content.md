@@ -150,7 +150,7 @@ As a part of the addition of the new release unit, the weights of the new backen
 
 #### Release unit teardown
 
-As part of the deployment pipeline for the a release unit, there is a destroy stage which removes all stamps once a release unit is no longer needed and all traffic has been moved to a new release version. This stage includes the removal of release unit references from Front Door. This is critical to enable the release of a new version at a later date. Front Door must point to a single release unit.
+As part of the deployment pipeline for the a release unit, there is a destroy stage which removes all stamps once a release unit is no longer needed and all traffic has been moved to a new release version. This stage includes the removal of release unit references from Front Door. This is critical to enable the release of a new version at a later date. Front Door must point to a single release unit in order to be prepared for the next release in the future.
 
 #### Checklists
 
