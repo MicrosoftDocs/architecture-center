@@ -11,7 +11,7 @@ OHDSI on Azure allows organizations that want to use the OMOP CDM and the associ
 *Download a [Visio file](https://arch-center.azureedge.net/ohdsi-azure.vsdx ) of this architecture.*
 
 The preceding diagram illustrates the solution architecture at a high level. The solution is made up of two major resource groups:
-- **Bootstrap resource group.** Contains a foundational set of Azure resources that support the deployment of the OMOP resource group.
+- **Bootstrap resource group.** Contains a foundational set of Azure resources that support the deployment of the OMOP resource group. 
 - **OMOP resource group.** Contains the OHDSI-specific Azure resources.
 
 Azure Pipelines orchestrates all deployment automation.
