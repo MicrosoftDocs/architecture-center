@@ -190,7 +190,7 @@ The reference architecture contains different tests used at different stages wit
 
 These tests include:
 
-* **Unit tests** - These tests validate that the business logic of the application works as expected. The reference architecture contains a sample suite of C# unit tests executed automatically before every container build by Azure DevOps. If any test fails, the pipeline will stop and build and deployment won't proceed.
+* **Unit tests** - These tests validate that the business logic of the application works as expected. The reference architecture contains a sample suite of unit tests executed automatically before every container build by Azure DevOps. If any test fails, the pipeline will stop and build and deployment won't proceed.
 
 * **Load tests** - These tests help to evaluate the capacity, scalability, and potential bottlenecks for a given workload or stack. The reference implementation contains a user load generator to create synthetic load patterns that can be used to simulate real traffic. The load generator can also be used independently of the reference implementation.
 
