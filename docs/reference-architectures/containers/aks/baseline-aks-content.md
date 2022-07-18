@@ -1,6 +1,10 @@
-In this reference architecture, we'll build a baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster. This article includes recommendations for networking, security, identity, management, and monitoring of the cluster based on an organization's business requirements.
+This reference architecture provides a recomended baseline infrastructure architecture to deploy an Azure Kubernetes Service (AKS) cluster on Azure. It uses our design principles and is based on our [architectural best practices](/azure/architecture/framework/services/compute/azure-kubernetes-service/azure-kubernetes-service) from the [Azure Well-Architected Framework](/azure/architecture/framework/) to guide an interdisciplinary or multiple distinct teams like networking, security, and identity through getting this general purpose infrastructure deployed.
 
-![GitHub logo](../../../_images/github.png) An implementation of this architecture is available on [GitHub: Azure Kubernetes Service (AKS) Secure Baseline Reference Implementation](https://github.com/mspnp/aks-secure-baseline). You can use it as a starting point and configure it as per your needs.
+This architecture isn't focused on a workload, rather it concentrates on the AKS cluster itself. The information here is the minimum recommended baseline for most AKS clusters. It integrates with Azure services that delivers observability, a network topology that supports multi-regional growth, and secures the in-cluster traffic.
+
+The target architecture is influenced by your business requirements, and as a result may vary between different application contexts. It should be considered as your starting point for pre-production and production stages.
+
+![GitHub logo](../../../_images/github.png) An implementation of this architecture is available on [GitHub: Azure Kubernetes Service (AKS) Baseline Reference Implementation](https://github.com/mspnp/aks-baseline). You can use it as a starting point and configure it per your needs.
 
 > [!NOTE]
 > This reference architecture requires knowledge of Kubernetes and its concepts. If you need a refresher, see the [**Learn more about AKS**](#learn-more-about-aks) section for resources.
@@ -55,13 +59,13 @@ In this reference architecture, we'll build a baseline infrastructure that deplo
 
 This architecture uses a hub-spoke network topology. The hub and spoke(s) are deployed in separate virtual networks connected through [peering](/azure/virtual-network/virtual-network-peering-overview). Some advantages of this topology are:
 
--   Segregated management. It allows for a way to apply governance and control the blast radius. It also supports the concept of landing zone with separation of duties.
+-   Segregated management. Enables a way to apply governance and adhere to the principle of least privilege. It also supports the concept of an [Azure landing zone](/azure/cloud-adoption-framework/ready/landing-zone/) with separation of duties.
 
 -   Minimizes direct exposure of Azure resources to the public internet.
 
 -   Organizations often operate with regional hub-spoke topologies. Hub-spoke network topologies can be expanded in the future and provide workload isolation.
 
--   All web applications should require a web application firewall (WAF) service to help govern HTTP traffic flows.
+-   All web applications should require a web application firewall (WAF) service to help govern HTTP traffic flow.
 
 -   A natural choice for workloads that span multiple subscriptions.
 
@@ -69,21 +73,23 @@ This architecture uses a hub-spoke network topology. The hub and spoke(s) are de
 
 -   Certain resources, such as a firewall and DNS can be shared across networks.
 
-![Hub-spoke network topology](images/secure-baseline-architecture.svg)
+![Hub-spoke network topology](images/baseline-architecture.svg)
 
 *Download a [Visio file](https://arch-center.azureedge.net/secure-baseline-architecture.vsdx) of this architecture.*
 
 ### Hub
 
-The hub virtual network is the central point of connectivity and observability. Within the network, three subnets are deployed.
+The hub virtual network is the central point of connectivity and observability. A hub always contains an Azure Firewall with global firewall policies defined by your central IT teams to enforce organization wide firewall policy, Azure Bastion, a gateway subnet for VPN connectivity, and Azure Monitor for network observability.
+
+Within the network, three subnets are deployed.
 
 #### Subnet to host Azure Firewall
 
-[Azure Firewall](/azure/firewall/) is firewall as a service. The firewall instance secures outbound network traffic. Without this layer of security, the flow might communicate with a malicious third-party service that could exfiltrate sensitive company data.
+[Azure Firewall](/azure/firewall/) is firewall as a service. The firewall instance secures outbound network traffic. Without this layer of security, this traffic might communicate with a malicious third-party service that could exfiltrate sensitive company data. [Azure Firewall Manager](/azure/firewall-manager/overview) enables you to centrally deploy and configure multiple Azure Firewall instances and manage Azure Firewall policies for this *hub virtual network* network architecture type.
 
 #### Subnet to host a gateway
 
-This subnet is a placeholder for a VPN or ExpressRoute gateway. The gateway provides connectivity between the routers in the on-premises network and the virtual network.
+This subnet is a placeholder for a VPN or ExpressRoute gateway. The gateway provides connectivity between the routers in your on-premises network and the virtual network.
 
 #### Subnet to host Azure Bastion
 
@@ -91,7 +97,7 @@ This subnet is a placeholder for [Azure Bastion](/azure/bastion/bastion-overview
 
 ### Spoke
 
-The spoke virtual network will contain the AKS cluster and other related resources. The spoke has four subnets:
+The spoke virtual network contains the AKS cluster and other related resources. The spoke has four subnets:
 
 #### Subnet to host Azure Application Gateway
 
@@ -99,17 +105,17 @@ Azure [Application Gateway](/azure/application-gateway/overview) is a web traffi
 
 #### Subnet to host the ingress resources
 
-To route and distribute traffic, Traefik is the ingress controller that is going to fulfill the Kubernetes ingress resources. The Azure internal load balancers exist in this subnet.
+To route and distribute traffic, [Traefik](https://doc.traefik.io/traefik/) is the ingress controller that is going to fulfill the Kubernetes ingress resources. The Azure internal load balancers exist in this subnet.
 
 #### Subnet to host the cluster nodes
 
-AKS maintains two separate groups of nodes (or node pools). The *system node pool* hosts pods that run core cluster services. The *user node pool* runs the Contoso workload and the ingress controller to facilitate inbound communication to the workload. The workload is a simple ASP.NET application.
+AKS maintains two separate groups of nodes (or node pools). The *system node pool* hosts pods that run core cluster services. The *user node pool* runs your workload and the ingress controller to enable inbound communication to the workload.
 
 For additional information, [Hub-spoke network topology in Azure](../../hybrid-networking/hub-spoke.yml).
 
-#### Subnet to host the Private Link endpoints
+#### Subnet to host the Private Link endpoint
 
-Private Link connections are created for the Azure Container Registry and Azure Key Vault, so these services can be accessed using Private Endpoints within the spoke virtual network. Private Link endpoints don't require a dedicated subnet and could also be placed in the hub virtual network. In the baseline implementation, they're deployed to a dedicated subnet within the spoke virtual network. This approach reduces traffic passing the peered network connection, keeps the resources that belong to the cluster in the same virtual network and allows you to apply granular security rules at the subnet level using network security groups.
+Private Link connections are created for the [Azure Container Registry](/azure/container-registry/) and [Azure Key Vault](/azure/key-vault/general/overview), so these services can be accessed using [Private Endpoint](/azure/private-link/private-endpoint-overview) within the spoke virtual network. Private Link endpoints don't require a dedicated subnet and can also be placed in the hub virtual network. In the baseline implementation, they're deployed to a dedicated subnet within the spoke virtual network. This approach reduces traffic passing the peered network connection, keeps the resources that belong to the cluster in the same virtual network, and allows you to apply granular security rules at the subnet level using network security groups.
 
 For additional information, [Private Link deployment options](../../../guide/networking/private-link-hub-spoke-network.yml#decision-tree-for-private-link-deployment).
 
@@ -746,6 +752,8 @@ Continue learning about the AKS baseline architecture:
 
 See the following related guide:
 
+- [Azure Well-Architected Framework review for Azure Kubernetes Service (AKS)](/azure/architecture/framework/services/compute/azure-kubernetes-service/azure-kubernetes-service)
+- [Azure Landing Zone for Azure Kubernetes Service (AKS)](/azure/cloud-adoption-framework/scenarios/app-platform/aks/landing-zone-accelerator)
 - [Azure Kubernetes Services (AKS) day-2 operations guide](/azure/architecture/operator-guides/aks/day-2-operations-guide)
 
 See the following related architectures:
