@@ -11,8 +11,7 @@ These articles describe:
 
 ## Similarities and differences
 
-Please note that AKS is not the only way to run containers Azure, just like EKS is one of the options for AWS. For more information, see [Comparing Container Apps with other Azure container options](https://docs.microsoft.com/en-us/azure/container-apps/compare-options). The scope of this series of articles is to compare AWS EKS with [Azure Kubernetes Service](/azure/aks/intro-kubernetes) (AKS). It does not contrast other Azure services such as Azure Container Apps, Azure Red Hat Openshift, Azure Container Instance, or Azure App Service with AWS services like Amazon Elastic Container Service or AWS Fargate. For more information on the different Azure services you can use to host your containerized workloads, see [Choose an Azure compute service](/azure/architecture/guide/technology-choices/compute-decision-tree)
-
+Please note that AKS is not the only way to run containers Azure, just like EKS is one of the options for AWS. For more information, see [Comparing Container Apps with other Azure container options](/azure/container-apps/compare-options). The scope of this series of articles is to compare AWS EKS with [Azure Kubernetes Service](/azure/aks/intro-kubernetes) (AKS). It does not contrast other Azure services such as Azure Container Apps, Azure Red Hat Openshift, Azure Container Instance, or Azure App Service with AWS services like Amazon Elastic Container Service or AWS Fargate. For more information on the different Azure services you can use to host your containerized workloads, see [Choose an Azure compute service](/azure/architecture/guide/technology-choices/compute-decision-tree)
 
 ## Amazon Elastic Kubernetes Service (EKS) to Azure Kubernetes Service guidance
 
