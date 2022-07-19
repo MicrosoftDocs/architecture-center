@@ -5,7 +5,7 @@ metadata:
   description: This article describes an example workload of creating multiple Active Directory forests with Azure Virtual Desktop.
   author: nehalineogi
   ms.author: tmaher
-  ms.date: 06/24/2022
+  ms.date: 07/06/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
@@ -22,6 +22,6 @@ products:
   - azure-active-directory-domain
   - azure-expressroute
   - azure-storage
-thumbnailUrl: /azure/architecture/browse/thumbs/two-forest-hybrid.png
+thumbnailUrl: /azure/architecture/browse/thumbs/azure-virtual-desktop-multi-forest-adds.png
 content: |
    [!include[](multi-forest-content.md)]

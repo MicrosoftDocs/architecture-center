@@ -1,13 +1,4 @@
-The success and adoption of any API platform is largely dependent on how highly it's regarded in the marketplace. Beyond the digital assets offered by the platform, the ease of finding APIs and the ease of using them has a large effect on whether customers use a platform. Customers must be able to find documentation and receive support for issues. The platform should also facilitate community contribution to help your customers shape your APIs to their needs. As the publisher of APIs, you need a website that effectively markets your APIs and helps customers to differentiate between offerings. When they've selected APIs, you need to be able to give access only to authenticated users, manage consumption, and deliver accurate invoices for use. This example scenario shows how you can use Azure service and GitHub to create a platform that does all of this and more.
-
-## Potential use cases
-
-You can use this solution to make it easy for API developers to:
-
-- Discover and understand your API product offerings.
-- Subscribe and integrate with your various applications and channels.
-- Get help, troubleshoot problems, and remediate issues.
-- Promote community contribution and exchange ideas and knowledge.
+As the publisher of APIs, you need a website that effectively markets your APIs and helps customers to differentiate between offerings. When they've selected APIs, you need to be able to give access only to authenticated users, manage consumption, and deliver accurate invoices for use. This example scenario shows how you can use Azure service and GitHub to create a platform that does all of this and more.
 
 ## Architecture
 
@@ -71,13 +62,26 @@ The solution is composed of the following software as a service (SaaS) offerings
 
 - [Azure Active Directory B2C (Azure AD B2C)](https://azure.microsoft.com/services/active-directory/external-identities/b2c) is an extension of Azure Active Directory (Azure AD) that your application can use to manage external customer or partner identities for access and authorization. You can make use of the [Microsoft identify platform](/azure/active-directory/develop/v2-overview) to easily integrate identity and authorization in your custom applications.
 
-## API value chain
+## Scenario details
+
+The success and adoption of any API platform is largely dependent on how highly it's regarded in the marketplace. Beyond the digital assets offered by the platform, the ease of finding APIs and the ease of using them has a large effect on whether customers use a platform. Customers must be able to find documentation and receive support for issues. The platform should also facilitate community contribution to help your customers shape your APIs to their needs. As the publisher of APIs, you need a website that effectively markets your APIs and helps customers to differentiate between offerings. When they've selected APIs, you need to be able to give access only to authenticated users, manage consumption, and deliver accurate invoices for use. This example scenario shows how you can use Azure service and GitHub to create a platform that does all of this and more.
+
+### Potential use cases
+
+You can use this solution to make it easy for API developers to:
+
+- Discover and understand your API product offerings.
+- Subscribe and integrate with your various applications and channels.
+- Get help, troubleshoot problems, and remediate issues.
+- Promote community contribution and exchange ideas and knowledge.
+
+### API value chain
 
 :::image type="content" alt-text="Diagram that describes the A P I value chain." source="media/design-api-developer-experiences-management-github-value-chain.png":::
 
 At the top of the value chain is the API service provider. Next are the API consumers or integrators, who design and build the experiences for the eventual target consumers. End users and customers are the final beneficiaries in the value chain.
 
-## API developer experience
+### API developer experience
 
 :::image type="content" alt-text="Diagram of features and capabilities of the enhanced A P I developer experience." source="media/design-api-developer-experiences-management-github-basic-features.png" lightbox="media/design-api-developer-experiences-management-github-basic-features.png":::
 
@@ -91,7 +95,7 @@ The API developer experience features three portals:
 
 - **Account portal**. Registered users manage their subscriptions and perform other account-related activities by using the account portal.
 
-## Functional requirements
+### Functional requirements
 
 At a high level, the functional requirements for an enterprise-scale API platform fit into three categories, namely _productization_, _platform administration_, and _consumer experiences_.
 
@@ -99,7 +103,7 @@ At a high level, the functional requirements for an enterprise-scale API platfor
 
 The following sections further describe the capabilities within each feature area.
 
-### Productization
+#### Productization
 
 The goal of productization is to identify and define the monetized APIs, their management, and a strategy for selling them as digital products. As a result, it covers:
 
@@ -119,7 +123,7 @@ Productization comprises the following capabilities:
 
 - **Physical assets**. This comprises the actual cloud services that are part of the specific API product and their corresponding lifecycle management. Consider the operations cost of maintaining these services while deriving the pricing plans.
 
-### Platform administration
+#### Platform administration
 
 Platform administration focuses on the overall hosting, management, and governance of the API platform. It also provides an end-to-end solution for administration of the various line-of-business applications and services. Major areas of focus are subscription management, billing, and invoicing. Platform administration also provides generation of business insights and analytics to present the overall health of the service, including its financial and operational aspects.
 
@@ -135,7 +139,7 @@ Platform administration comprises the following capabilities:
 
 - **Support**. Establish tools and processes to handle support requests.
 
-### Consumer experience
+#### Consumer experience
 
 The adoption of the API platform is heavily dependent on how easily consumers can:
 
@@ -167,8 +171,7 @@ Azure AD B2C offers high availability and scales to supporting hundreds of milli
 
 GitHub makes security reviews an automated part of code reviews, scanning every new commit for potential security issues. This service helps you to discover problems as soon as they're offered as additions to the code base. GitHub security allows you to customize searches for security concerns and integrate third-party scanning engines. For more features and details, see [Security](https://github.com/features/security) on GitHub.
 
-
-## Pricing
+### Cost optimization
 
 You can develop the consumer portal by using the _Team_ or _Enterprise_ [pricing plan for GitHub](https://github.com/pricing). Refer to the feature matrix to identify which plan best suits your enterprise.
 

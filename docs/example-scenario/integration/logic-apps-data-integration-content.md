@@ -10,6 +10,8 @@ Use this solution to automate data integration tasks that you perform in respons
    The diagram contains two boxes, one for Azure components, and one for on-premises components. Outside the Azure box is a data file labeled J S O N. An arrow points from the J S O N file into an A P I Management icon that's inside the Azure box. A second arrow points from the A P I Management icon to a Logic Apps icon that's also inside the Azure box. Three arrows point away from the Logic Apps icon. One leads to a Key Vault icon that's inside the Azure box. One leads to an on-premises data gateway icon that's between the two boxes. And the third leads to an Azure Monitor icon that's inside the Azure box. Another arrow points from the gateway to a SQL Server icon that's inside the on-premises box. A final arrow points from the SQL Server icon to a person outside the on-premises box.
 :::image-end:::
 
+*Download a [Visio file](https://arch-center.azureedge.net/logic-apps-data-integration.vsdx) of this architecture.*
+
 1. API Management accepts API calls in the form of HTTP requests.
 
 1. API Management securely routes the HTTP requests to Logic Apps.

@@ -63,11 +63,11 @@ This scenario uses the following Azure services:
 - [Azure Service Endpoints][svcep] provide secure and direct connectivity to Azure services over an optimized route on the Azure backbone network, and allow access only from the range of private source IPs in the integration subnet.
 - [Microsoft Authentication Library (MSAL)][msal] is an OIDC-compatible library that allows a service to fetch access tokens from Azure AD using a client credentials flow.
 
-## Alternatives
+### Alternatives
 
 There are several alternatives to the example scenario.
 
-### Managed identity
+#### Managed identity
 
 Instead of registering as an application with Azure AD, Service A could use a [managed identity][mi] to fetch an access token. Managed identity frees operators from having to manage credentials for an app registration.
 
@@ -75,11 +75,11 @@ While a managed identity lets Service A fetch a token, it doesn't provide an Azu
 
 You can't assign a managed identity to an app role through the Azure portal, only through the Azure PowerShell command line. For more information, see [Assign a managed identity access to an application role using PowerShell][addmitorole].
 
-### Azure Functions
+#### Azure Functions
 
 You can host the services in [Azure Functions][functions] instead of App Service. To restrict access on the network layer by using Regional VNet Integration, you need to host the Functions apps in an App Service plan or a Premium Plan. For more information, see [Azure Functions networking options][functionsnetworking].
 
-### App Service built-in authentication and authorization
+#### App Service built-in authentication and authorization
 
 By design, this scenario colocates the authorization code with the rest of the business logic by performing token validation as part of application code. [App Service built-in authentication and authorization][easyauth], or Easy Auth, can also perform basic token validation before sending a request to a service. The service then relies on the hosting infrastructure to reject unauthorized requests.
 
@@ -87,7 +87,7 @@ To configure App Service authentication and authorization, set the authorization
 
 The downside of using Easy Auth is that the service loses the authentication and authorization protection if it moves elsewhere. While App Service authentication and authorization works for simple scenarios, complex authorization requirements should use logic from within the application code.
 
-### Service endpoints vs. private endpoints
+#### Service endpoints vs. private endpoints
 
 This scenario uses service endpoints rather than [private endpoints][privateend], because only service endpoints allow restricting access to a web app from a given subnet. Filtering inbound traffic on private endpoints isn't supported through Network Security Groups (NSGs) or by using App Service access restrictions. Every service with network line-of-sight can communicate with the private endpoint of a web application. This limits private endpoint usefulness for locking down traffic on the network layer.
 
@@ -97,7 +97,7 @@ This scenario uses service endpoints rather than [private endpoints][privateend]
 
 - Every worker instance in an App Service Plan occupies a separate private IP address within the integration subnet. To plan for scale, ensure that the integration subnet is large enough to accommodate the scale you expect.
 
-## Pricing
+### Cost optimization
 
 Pricing for this scenario depends on your specific infrastructure and requirements. Azure AD has Free up to Premium tiers, depending on needs. Costs for Azure App Service or other hosts vary with your specific scale and security requirements, as described in [Alternatives](#alternatives) and [Considerations](#considerations).
 

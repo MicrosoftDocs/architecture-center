@@ -16,7 +16,7 @@ products:
   - azure-databricks
   - azure-synapse-analytics
   - power-bi
-  - azure-purview
+  - microsoft-purview
 ms.custom:
   - overview
   - fcp
