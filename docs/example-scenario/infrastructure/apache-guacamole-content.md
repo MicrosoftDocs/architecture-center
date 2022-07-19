@@ -1,4 +1,4 @@
-This example scenario describes a [high-availability](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview) solution for a jump server solution that runs on Azure. It uses an open-source tool called Apache Guacamole, which has functionality that's similar to that of [Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview).
+This example scenario describes a [high-availability](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview) solution for a jump server solution that runs on Azure. It uses an open-source tool called Apache Guacamole, which has functionality that's similar to that of [Azure Bastion](https://azure.microsoft.com/services/azure-bastion).
 
 *Apache®, Apache Guacamole, and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
@@ -51,9 +51,9 @@ The solution also uses:
 ### Potential use cases
 
 * Access your computers from any device. Because Guacamole requires only a reasonably fast standards-compliant browser, Guacamole runs on many devices, including mobile phones and tablets.
-* Keep a computer in the cloud. Computers hosted on virtualized hardware are more resilient to failures. With so many companies now offering on-demand computing resources, Guacamole is a perfect way to access machines that are accessible only over the internet.
-* Provide easy access to a group of people. You can use Guacamole to centralize access to a large group of machines and specify on a per-user basis which machines are accessible. Rather than remember a list of machines and credentials, users only need to  sign in to a central server and select one of the listed connections.
-* Add HTML5 remote access to your existing infrastructure. Because Guacamole is an API and not just a web application, you can use the core components and libraries provided by the Guacamole project to add HTML5 remote access features to an existing application. You don't need to use the main Guacamole web application. You can write or integrate with your own fairly easily.
+* Host a computer in the cloud. Computers hosted on virtualized hardware are more resilient to failures. With the current availability of on-demand computing resources, Guacamole is a perfect way to access machines that are accessible only over the internet.
+* Provide easy access to a group of people. You can use Guacamole to centralize access to a large group of machines and specify on a per-user basis which machines can be accessed. Rather than remember a list of machines and credentials, users only need to  sign in to a central server and select one of the listed connections.
+* Add HTML5 remote access to your existing infrastructure. Because Guacamole is an API and not just a web application, you can use the core components and libraries provided by the Guacamole project to add HTML5 remote access features to an existing application. You don't need to use the main Guacamole web application. You can write or integrate with your own applications fairly easily.
 
 ## Considerations
 
@@ -73,23 +73,23 @@ For information about disaster recovery, see
 
 For Azure VMs in the web tier, you can use [availability sets](/azure/virtual-machines/availability-set-overview#what-is-an-availability-set) to create a logical grouping of VMs that provides redundancy and availability. We recommend at least two VMs per availability set to create a high-availability application and meet the [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines).
 
-Because Azure Database for MySQL, in the data tier, is a managed database as a service, its architecture is optimized for built-in high availability. For information about SLAs, see [SLAs for Azure Database for MySQL](/azure/mysql/concepts-high-availability)
+Because Azure Database for MySQL is a managed database as a service, its architecture is optimized for built-in high availability. For information about SLAs, see [SLAs for Azure Database for MySQL](/azure/mysql/concepts-high-availability).
 
 ### Security
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-You might want to add [Azure Web Application Firewall](/azure/web-application-firewall/overview) to this solution. It helps protect your application from common vulnerabilities. This Azure Application Gateway option uses Open Web Application Security Project (OWASP) rules to prevent attacks like cross-site scripting, session hijacking, and other exploits.
+You might want to add [Azure Web Application Firewall](/azure/web-application-firewall/overview) to this solution. It helps protect your application from common vulnerabilities. This Azure Application Gateway option uses Open Web Application Security Project (OWASP) rules to help prevent attacks like cross-site scripting, session hijacking, and other exploits.
 
 As an added layer of protection, be sure to use [Azure network security groups](/azure/virtual-network/network-security-groups-overview) to filter network traffic traveling to and from Azure resources in the Azure virtual network.
 
-You should also consider [Private Link for Azure Database for MySQL](/azure/mysql/single-server/concepts-data-access-security-private-link). You can use Private Link to connect to platform as a service (PaaS) services in Azure via a private endpoint. Private Link essentially brings Azure services inside your private virtual network. The PaaS resources can be accessed via the private IP address just like any other resource in the virtual network.
+You should also consider [Private Link for Azure Database for MySQL](/azure/mysql/single-server/concepts-data-access-security-private-link). You can use Private Link to connect to platform as a service (PaaS) services in Azure via a private endpoint. Private Link essentially brings Azure services inside your private virtual network. PaaS resources can be accessed via the private IP address just like any other resource in the virtual network.
 
 Finally, follow [these security guidelines](/azure/security/fundamentals/overview) when you implement this solution.
 
 ### Cost optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost optimization is about finding ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 To better understand the cost of running this scenario on Azure, use the [pricing calculator](https://azure.microsoft.com/pricing/calculator).
 
@@ -111,13 +111,13 @@ Implement software engineering disciplines across your entire environment, inclu
 - Build and release with [continuous integration](https://docs.microsoft.com/devops/develop/what-is-continuous-integration) and [continuous delivery](https://docs.microsoft.com/devops/deliver/what-is-continuous-delivery) (CI/CD) pipelines.
 - Use automated testing.
 
-For more information,see [Operational excellence design principles](/azure/architecture/framework/devops/principles).
+For more information, see [Operational excellence design principles](/azure/architecture/framework/devops/principles).
 
 ### Performance efficiency
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient way. To accomplish this goal, consider using [Azure Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview), which allows you to create and manage a group of load-balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule.
+To accomplish this goal, consider using [Azure Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview), which you can use to create and manage a group of load-balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule.
 
 ## Deploy this scenario
 
@@ -141,7 +141,6 @@ Principal author:
 ## Next steps
 
 * [Apache Guacamole documentation](https://guacamole.apache.org/doc/gug/administration.html)
-* [Azure Bastion](/services/azure-bastion)
 * [Azure Bastion documentation](/azure/bastion/bastion-overview)
 * [What is Azure Load Balancer?](/azure/load-balancer/load-balancer-overview)
 * [Azure Database for MySQL](/azure/mysql)
