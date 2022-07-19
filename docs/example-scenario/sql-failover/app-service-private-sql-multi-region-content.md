@@ -2,20 +2,6 @@ This example scenario discusses a [highly available][High availability] solution
 
 See [Web app private connectivity to Azure SQL Database][Web app private connectivity to Azure SQL database] for information on the base architecture.
 
-To offer high availability, this solution:
-
-- Deploys a secondary instance of the solution in another Azure region.
-- [Uses auto-failover groups for geo-replication and high availability of the database][Use auto-failover groups to enable transparent and coordinated failover of multiple databases].
-
-You can achieve high availability with a [complete region failover][Complete region failover]. However, this solution uses a partial region failover. With this approach, only components with issues fail over:
-
-- If the primary database fails over, the web app in the primary region connects to the newly activated secondary database while maintaining private connectivity.
-- If the app goes down in the primary region, the instance in the secondary region takes over. That instance connects to the primary database, which is still active.
-
-## Potential use cases
-
-With private connectivity to an SQL database and high availability, this solution has applications in many areas. Examples include the financial, healthcare, and defense industries.
-
 ## Architecture
 
 :::image type="complex" source="./media/app-service-private-sql-multi-region-solution-architecture.png" alt-text="Architecture diagram showing how traffic flows from a web app to a database on a private connection. Routes for multiple failover scenarios are visible." border="false":::
@@ -151,6 +137,22 @@ In this case:
   - Azure Event Grid
   - Function Apps
   - Other web apps
+
+## Scenario details
+
+To offer high availability, this solution:
+
+- Deploys a secondary instance of the solution in another Azure region.
+- [Uses auto-failover groups for geo-replication and high availability of the database][Use auto-failover groups to enable transparent and coordinated failover of multiple databases].
+
+You can achieve high availability with a [complete region failover][Complete region failover]. However, this solution uses a partial region failover. With this approach, only components with issues fail over:
+
+- If the primary database fails over, the web app in the primary region connects to the newly activated secondary database while maintaining private connectivity.
+- If the app goes down in the primary region, the instance in the secondary region takes over. That instance connects to the primary database, which is still active.
+
+### Potential use cases
+
+With private connectivity to an SQL database and high availability, this solution has applications in many areas. Examples include the financial, healthcare, and defense industries.
 
 ## Considerations
 

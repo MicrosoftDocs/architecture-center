@@ -6,7 +6,7 @@ This solution demonstrates how to interconnect the following Azure AI technologi
 
 - Use Azure Data Lake and Azure Databricks to implement best practices for data operations.
 - Use Azure Databricks to do exploratory data analysis.
-- Do batch experiment training of an [Sklearn](https://www.kite.com/python/docs/sklearn) machine learning model on Azure Databricks.
+- Do batch experiment training of an [Sklearn](https://www.adamsmith.haus/python/docs/sklearn) machine learning model on Azure Databricks.
 - Use MLflow to track machine learning experiments.
 - Batch score machine learning models on Azure Databricks.
 - Use Azure Machine Learning to model registration and deployment.
@@ -112,7 +112,7 @@ To estimate the cost of Azure products and configurations, visit the [Azure pric
 
 Principal author:
 
-* [Giulia Gallo](https://www.linkedin.com/in/giuliagallo) | Senior Cloud Solution Architect
+- [Giulia Gallo](https://www.linkedin.com/in/giuliagallo) | Senior Cloud Solution Architect
 
 ## Next steps
 
