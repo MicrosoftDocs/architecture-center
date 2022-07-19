@@ -1,25 +1,3 @@
----
-title: Azure Kubernetes Service for EKS professionals
-description: Learn about Azure Kubernetes Service as a managed solution, configurations, and best practices along with key similarities and differences between the EKS offering in AWS.
-author: lanicolas
-categories: azure
-ms.author: lanicola, paolos
-ms.date: 07/11/2022
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
-azureCategories: 
-  - azure-kubernetes-service
-products:
-  - containers
-  - storage
-  - networking
-ms.custom:
-  - fcp
----
-
-# Azure Kubernetes Service for EKS professionals
-
 This series of articles will help professionals who are familiar with Amazon Elastic Kubernetes Service (EKS) to understand Azure Kubernetes Service (AKS) while highlighting key similarities and differences between the two managed Kubernetes solutions. The articles provide best practices and automated reference implementations to improve the security, compliance, and observability of your Azure Kubernetes Service deployments.
 
 These articles describe:

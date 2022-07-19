@@ -539,6 +539,8 @@ items:
                     maintainContext: true
               - name: Kubernetes for AWS
                 items:
+                  - name: Azure Kubernetes Service for EKS professionals
+                    href: aws-professional/eks-to-aks/index.yml
                   - name: Cost Management
                     items:
                       - name: Kubernetes Cost Management
