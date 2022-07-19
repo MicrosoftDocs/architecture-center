@@ -1,0 +1,1 @@
+## Technology choices for Azure solutions
