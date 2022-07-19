@@ -15,7 +15,7 @@ This reference architecture shows a set of proven practices for running S/4HANA 
 
 This reference architecture describes a common production system. This architecture is deployed with virtual machine sizes that can be changed to accommodate your organization's needs. To suit your business needs, this configuration can be reduced to a single virtual machine.
 
-The network layout is greatly simplified to demonstrate architectural principals and is not intended to describe a full enterprise network.
+The network layout is greatly simplified to demonstrate architectural principles and is not intended to describe a full enterprise network.
 
 The following components are required.
 
@@ -394,6 +394,20 @@ Communities can answer questions and help you set up a successful deployment. Co
 - [SAP Community](https://www.sap.com/community.html)
 
 - [Stack Overflow SAP](http://stackoverflow.com/tags/sap/info)
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ - [Ben Trinh](https://www.linkedin.com/in/bentrinh) | Principal Architect
+
+Other contributors:
+
+ - [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
