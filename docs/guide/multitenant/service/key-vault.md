@@ -30,7 +30,7 @@ Azure Key Vault is used to manage secure data for your solution, including secre
 When working with a multitenant system using Key Vault, you need to make a decision about the level of isolation you want to use. The choice of isolation models you use depends on several factors, including the following:
 
 - How many tenants do you plan to have?
-- Do you share your application tier betweeen multiple tenants, do you deploy single-tenant application instances, or do you deploy separate deployment stamps for each tenant?
+- Do you share your application tier between multiple tenants, do you deploy single-tenant application instances, or do you deploy separate deployment stamps for each tenant?
 - Do your tenants need to manage their own encryption keys?
 - Do your tenants have compliance requirements that require their secrets are stored separately to other tenants' secrets?
 
