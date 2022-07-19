@@ -17,12 +17,12 @@ Please note that AKS is not the only way to run containers Azure, just like EKS 
 
 The following articles provide best practices for the specific design areas:
 
-- [Kubernetes Pod Identity](./iam/pod-identity-content.md)
-- [Cost Management for a Kubernetes Cluster](./cost-management/cost-management-content.md)
-- [Kubernetes Monitoring and Logging](./monitoring/monitoring-content.md)
-- [Secure network access to Kubernetes API](./networking/private-clusters-content.md)
+- [Kubernetes Pod Identity](./iam/pod-identity-content)
+- [Cost Management for a Kubernetes Cluster](./cost-management/cost-management-content)
+- [Kubernetes Monitoring and Logging](./monitoring/monitoring-content)
+- [Secure network access to Kubernetes API](./networking/private-clusters-content)
 - [Agent node management](./nodes/node-pools-content.md)
-- [Kubernetes Storage options](./storage/storage-content.md)
+- [Kubernetes Storage options](./storage/storage-content)
 
 ## Next Steps
 

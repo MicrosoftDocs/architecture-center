@@ -13,8 +13,6 @@ azureCategories:
   - compute
 products:
   - azure-kubernetes-service
-ms.custom:
-  - fcp
 name: Azure Kubernetes Service for EKS professionals
 summary: Learn about Azure Kubernetes Service as a managed solution, configurations, best practices, similarities and differences with AWS EKS.
 thumbnailUrl: /azure/architecture/browse/thumbs/aks-firewall.png
