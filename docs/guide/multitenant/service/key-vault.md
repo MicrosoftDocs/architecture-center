@@ -40,7 +40,7 @@ The following table summarizes the differences between the main tenancy models f
 |-|-|-|-|
 | **Data isolation** | High | Very high | Low |
 | **Performance isolation** | High | High | Low |
-| **Deployment complexity** | Medium | High. Tenant must correctly grant access to provider | Low |
+| **Deployment complexity** | Low-medium depending on the number of tenants | High. Tenant must correctly grant access to provider | Low |
 | **Operational complexity** | High | Low for provider, higher for tenant | Lowest |
 | **Example scenario** | Individual deployment stamps per tenant | Customer-managed encryption keys | Large multitenant solution with shared application tier |
 
