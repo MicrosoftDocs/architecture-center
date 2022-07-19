@@ -45,6 +45,8 @@ items:
             href: guide/design-principles/design-for-operations.md
           - name: Use managed services
             href: guide/design-principles/managed-services.md
+          - name: Use an identity service
+            href: guide/design-principles/identity.md
           - name: Use the best data store
             href: /azure/architecture/guide/design-principles/use-best-data-store
           - name: Design for evolution
@@ -1208,6 +1210,8 @@ items:
             items:
               - name: All healthcare architectures
                 href: /azure/architecture/browse/?terms=healthcare
+              - name: Analyze observational patient data by using OHDSI
+                href: example-scenario/digital-health/patient-data-ohdsi-omop-cdm.yml
               - name: Automate COVID-19 test forms
                 href: example-scenario/ai/form-recognizer-covid.yml 
               - name: Build a telehealth system with Azure
@@ -2687,6 +2691,8 @@ items:
                 href: solution-ideas/articles/cognitive-search-with-skillsets.yml
               - name: Analyze browser information
                 href: example-scenario/ai/analyze-browser-info-for-security-insights.yml
+              - name: Analyze observational patient data by using OHDSI
+                href: example-scenario/digital-health/patient-data-ohdsi-omop-cdm.yml
               - name: Automate document processing
                 href: example-scenario/ai/automate-document-processing-azure-form-recognizer.yml
               - name: Automate COVID-19 test forms
