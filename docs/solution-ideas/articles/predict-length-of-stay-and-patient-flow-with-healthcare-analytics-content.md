@@ -15,12 +15,26 @@ Being able to predict length of stay at the time of admission helps hospitals pr
 
 ### Dataflow
 
-* [SQL Server Machine Learning Services](/sql/machine-learning/sql-server-machine-learning-services): Stores the patient and hospital data. Provides training and predicted models and predicted results for consumption using R.
-* [Power BI](/power-bi) provides an interactive dashboard with visualization that uses data stored in SQL Server to drive decisions on the predictions.
-* [Azure Machine Learning](/azure/machine-learning): Machine Learning helps you design, test, operationalize, and manage predictive analytics solutions in the cloud.
+- [SQL Server Machine Learning Services](/sql/machine-learning/sql-server-machine-learning-services): Stores the patient and hospital data. Provides training and predicted models and predicted results for consumption using R.
+- [Power BI](/power-bi) provides an interactive dashboard with visualization that uses data stored in SQL Server to drive decisions on the predictions.
+- [Azure Machine Learning](/azure/machine-learning): Machine Learning helps you design, test, operationalize, and manage predictive analytics solutions in the cloud.
+
+### Components
+
+- [Machine Learning Services](/sql/machine-learning) is a feature of SQL Server and [Azure SQL Managed Instance](https://azure.microsoft.com/products/azure-sql/managed-instance/) that gives you the ability to run Python and R scripts with relational data. You can use open-source packages and frameworks for predictive analytics and machine learning. You can also use the Microsoft Python and R packages. Machine Learning Services runs the scripts in-database without moving data outside SQL Server or over the network.
+- [Power BI](https://powerbi.microsoft.com) is a business analytics service that's part of Microsoft Power Platform. Power BI provides interactive visualizations and business intelligence capabilities. Its easy-to-use interface makes it possible for users to create their own reports and dashboards.
+- [Machine Learning](https://azure.microsoft.com/services/machine-learning/) is a cloud-based environment that you can use to train, deploy, automate, and manage machine learning models. You can use the models to forecast future behavior, outcomes, and trends.
 
 ## Next steps
 
-* Learn more about [SQL Server Machine Learning Services](/sql/machine-learning/sql-server-machine-learning-services)
-* Learn how to [Consume Azure Machine Learning models in Power BI](/power-bi/connect-data/service-aml-integrate)
-* Learn more about [Machine Learning](/azure/machine-learning/overview-what-is-azure-ml)
+- Learn more about [SQL Server Machine Learning Services](/sql/machine-learning/sql-server-machine-learning-services)
+- Learn how to [Consume Azure Machine Learning models in Power BI](/power-bi/connect-data/service-aml-integrate)
+- Learn more about [Machine Learning](/azure/machine-learning/overview-what-is-azure-ml)
+
+## Related resources
+
+- [Predict the length of stay in hospitals](./predicting-length-of-stay-in-hospitals.yml)
+- [Predict hospital readmissions with traditional and automated machine learning techniques](../../example-scenario/ai/predict-hospital-readmissions-machine-learning.yml)
+- [Loan credit risk with SQL Server](./loan-credit-risk-with-sql-server.yml)
+- [Campaign optimization with SQL Server and machine learning](./campaign-optimization-with-sql-server.yml)
+- [Loan chargeoff prediction with SQL Server](./loan-chargeoff-prediction-with-sql-server.yml)

@@ -49,6 +49,8 @@ This solution is ideal for the retail industry. This scenario is relevant to the
 
 ## Considerations
 
+Consider the points in the following sections when you use this solution.
+
 ### Scalability
 
 For training, you can scale [Azure Databricks] up or down based on the size of the data used and the compute necessary for model training. To scale, you can adjust the total number of cores or amount of memory available to the cluster. Just edit the number or type of [Virtual Machines](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) (VMs) used. The Criteo dataset contains 45.8 million rows in this example; it was trained in a few minutes on a cluster with 10 standard [L8s](/azure/virtual-machines/lsv2-series) VMs.
@@ -79,6 +81,8 @@ To better understand the cost of running this scenario on Azure, use the [Azure 
 To see how pricing differs for your use case, change the variables to match your expected data size and serving load requirements. For larger or smaller training data sizes, the size of the Azure Databricks cluster can be increased or reduced, respectively. To handle larger numbers of concurrent users during model serving, the AKS cluster should be increased. For more information on scaling AKS to support latency and load requirements, review the [operationalization notebook](https://github.com/microsoft/recommenders/blob/master/examples/05_operationalize/lightgbm_criteo_o16n.ipynb).
 
 ## Deploy this scenario
+
+Use the information in the following sections to deploy this solution.
 
 ### Prerequisites
 
