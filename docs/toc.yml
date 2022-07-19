@@ -537,7 +537,7 @@ items:
                   - name: Connect AWS to Microsoft Defender
                     href: /defender-cloud-apps/connect-aws
                     maintainContext: true
-              - name: Kubernetes for AWS
+              - name: AKS for AWS
                 items:
                   - name: Azure Kubernetes Service for EKS professionals
                     href: aws-professional/eks-to-aks/index.yml
@@ -547,7 +547,7 @@ items:
                         href: aws-professional/eks-to-aks/cost-management/cost-management.yml
                   - name: Identity Access Management
                     items:
-                      - name: Kubernetes Pod Identity
+                      - name: Workload Identity
                         href: aws-professional/eks-to-aks/iam/pod-identity.yml
                   - name: Management
                     items:
