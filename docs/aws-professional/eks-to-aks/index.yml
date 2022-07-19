@@ -3,9 +3,8 @@ metadata:
   title: Azure Kubernetes Service for EKS professionals
   description: Learn about Azure Kubernetes Service as a managed solution, configurations, best practices, similarities and differences with AWS EKS.
   author: lanicolas
-  categories: azure
   ms.author: lanicola, paolos
-  ms.date: 07/19/2022
+  ms.date: 07/19/22
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
