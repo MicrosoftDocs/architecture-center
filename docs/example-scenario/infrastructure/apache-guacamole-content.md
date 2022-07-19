@@ -1,4 +1,4 @@
-This example scenario describes a [high-availability](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview) solution for a jump server solution that runs on Azure. It uses an open-source tool called Apache Guacamole, which has functionality that's similar to that of [Azure Bastion](https://azure.microsoft.com/services/azure-bastion).
+This example scenario describes a [high-availability](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview) solution for a jump server that runs on Azure. It uses an open-source tool called Apache Guacamole, which has functionality that's like that of [Azure Bastion](https://azure.microsoft.com/services/azure-bastion).
 
 *Apache®, Apache Guacamole, and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
@@ -50,7 +50,7 @@ The solution also uses:
 
 ### Potential use cases
 
-* Access your computers from any device. Because Guacamole requires only a reasonably fast standards-compliant browser, Guacamole runs on many devices, including mobile phones and tablets.
+* Access your computers from any device. Because Guacamole requires only a reasonably fast standards-compliant browser, it runs on many devices, including mobile phones and tablets.
 * Host a computer in the cloud. Computers hosted on virtualized hardware are more resilient to failures. With the current availability of on-demand computing resources, Guacamole is a perfect way to access machines that are accessible only over the internet.
 * Provide easy access to a group of people. You can use Guacamole to centralize access to a large group of machines and specify on a per-user basis which machines can be accessed. Rather than remember a list of machines and credentials, users only need to  sign in to a central server and select one of the listed connections.
 * Add HTML5 remote access to your existing infrastructure. Because Guacamole is an API and not just a web application, you can use the core components and libraries provided by the Guacamole project to add HTML5 remote access features to an existing application. You don't need to use the main Guacamole web application. You can write or integrate with your own applications fairly easily.
@@ -69,7 +69,7 @@ This solution's resiliency depends on the failure modes of individual services l
 - [Resiliency checklist for specific Azure services](/azure/architecture/checklist/resiliency-per-service)
 
 For information about disaster recovery, see
-[Business continuity and disaster recovery](/azure/cloud-adoption-framework/ready/landing-zone/design-area/management-business-continuity-disaster-recovery)
+[Business continuity and disaster recovery](/azure/cloud-adoption-framework/ready/landing-zone/design-area/management-business-continuity-disaster-recovery).
 
 For Azure VMs in the web tier, you can use [availability sets](/azure/virtual-machines/availability-set-overview#what-is-an-availability-set) to create a logical grouping of VMs that provides redundancy and availability. We recommend at least two VMs per availability set to create a high-availability application and meet the [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines).
 
@@ -117,7 +117,7 @@ For more information, see [Operational excellence design principles](/azure/arch
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
-To accomplish this goal, consider using [Azure Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview), which you can use to create and manage a group of load-balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule.
+To accomplish this goal, consider using [Azure Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview), which you can use to create and manage a group of load-balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or according to a defined schedule.
 
 ## Deploy this scenario
 
