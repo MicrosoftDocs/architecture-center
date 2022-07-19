@@ -50,7 +50,7 @@ You might consider deploying a vault for each of your tenants within your (the s
 
 This approach makes sense when you have separate application deployments for each tenant. If you have a shared application tier, it's unlikely that using separate vaults will give you much data isolation benefit because all of the vaults need to trust the same application tier.
 
-There's no limit to the number of vaults you can deploy into an Azure subscription. However, yuo should consider the following limits:
+There's no limit to the number of vaults you can deploy into an Azure subscription. However, you should consider the following limits:
 
 - [There are subscription-wide limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#key-vault-limits) on the number of requests in a time period. These limits apply regardless of the number of vaults in the subscription. So, it's important to follow [throttling guidance](/azure/key-vault/general/overview-throttling) even when you have tenant-specific vaults.
 - There's a [limit to the number of Azure role assignments that you can create within a subscription](/azure/role-based-access-control/troubleshooting#azure-role-assignments-limit). When you deploy and configure large numbers of vaults in a subscription, you might approach these limits.
