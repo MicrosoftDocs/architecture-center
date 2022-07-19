@@ -39,14 +39,14 @@ The following table summarizes the differences between the main tenancy models f
 | Consideration | Vault per tenant, in provider's subscription | Vault per tenant, in tenant's subscription | Shared vault |
 |-|-|-|-|
 | **Data isolation** | High | Very high | Low |
-| **Performance isolation** | High | High | Low |
+| **Performance isolation** | Medium. High throughput might be limited even with many vaults | High | Low |
 | **Deployment complexity** | Low-medium depending on the number of tenants | High. Tenant must correctly grant access to provider | Low |
 | **Operational complexity** | High | Low for provider, higher for tenant | Lowest |
 | **Example scenario** | Individual deployment stamps per tenant | Customer-managed encryption keys | Large multitenant solution with shared application tier |
 
 ### Vault per tenant, in provider's subscription
 
-You might consider deploying a vault for each of your tenants within your (the service provider's) Azure subscription.
+You might consider deploying a vault for each of your tenants within your (the service provider's) Azure subscription. This approach provides you with strong data isolation between each tenant's data, but it requires that you deploy and manage an increasing number of vaults as you increase the number of tenants.
 
 This approach makes sense when you have separate application deployments for each tenant. If you have a shared application tier, it's unlikely that using separate vaults will give you much data isolation benefit because all of the vaults need to trust the same application tier.
 
