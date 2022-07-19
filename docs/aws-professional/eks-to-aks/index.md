@@ -20,7 +20,7 @@ ms.custom:
 
 # Azure Kubernetes Service for EKS professionals
 
-This series of articles will help professionals that are familiar with Amazon Elastic Kubernetes Service (EKS) to understand Azure Kubernetes Service (AKS) while highlighting key similarities and differences between the two solutions. The articles provide best practices and automated reference implementations to improve your Azure Kubernetes Service deployments strengthening your security, compliance and observability.
+This series of articles will help professionals who are familiar with Amazon Elastic Kubernetes Service (EKS) to understand Azure Kubernetes Service (AKS) while highlighting key similarities and differences between the two managed Kubernetes solutions. The articles provide best practices and automated reference implementations to improve the security, compliance, and observability of your Azure Kubernetes Service deployments.
 
 These articles describe:
 
