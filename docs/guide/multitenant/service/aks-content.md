@@ -48,7 +48,7 @@ The control plane includes the following core Kubernetes components:
 | *kube-scheduler*  | When you create or scale applications, the Scheduler determines what nodes can run the workload and starts them.                                                                                    |  
 | *kube-controller-manager* | The Controller Manager oversees a number of smaller Controllers that perform actions such as replicating pods and handling node operations.  |  
 
-AKS provides a single-tenant control plane, with a dedicated API server that is shared by all the workloads running on the AKS cluster. For architectural best practices, see [Azure Well-Architected Framework review - Azure Kubernetes Service (AKS)][/azure/architecture/framework/services/compute/azure-kubernetes-service/azure-kubernetes-service].
+AKS provides a single-tenant control plane, with a dedicated API server that is shared by all the workloads running on the AKS cluster. For architectural best practices, see [Azure Well-Architected Framework review - Azure Kubernetes Service (AKS)](/azure/architecture/framework/services/compute/azure-kubernetes-service/azure-kubernetes-service).
 
 ### Nodes and node pools
 
@@ -68,9 +68,16 @@ In AKS, the VM image for your cluster's nodes is based on Ubuntu Linux or Window
 
 In Azure Kubernetes Service (AKS), nodes of the same configuration are grouped into [node pools](/azure/aks/use-multiple-node-pools). In an AKS cluster, you can create multiple node pools with different VM sizes for various purposes, tenants, and workloads and use taints and node labels to place applications on a specific node pool to avoid the [noisy neighbor issue](/azure/architecture/antipatterns/noisy-neighbor/noisy-neighbor). Using different VM sizes for different node pools allows you to optimize costs. For more information, see [Create and manage multiple node pools for a cluster in Azure Kubernetes Service (AKS)](/azure/aks/use-multiple-node-pools).
 
+In a shared AKS cluster, you can dedicate a set of nodes or a node pool to running pods from a particular tenant. For more information, see [Node isolation](#node-isolation) and [Tenancy models](#tenancy-models).
+
 ## Isolation models
 
 A multitenant Kubernetes cluster is shared by multiple users and workloads that are commonly referred to as "tenants." This definition includes Kubernetes clusters that different teams or divisions share within an organization. It also contains clusters that are shared by per-customer instances of a software-as-a-service (SaaS) application. Cluster multitenancy is an alternative to managing many single-tenant dedicated clusters. The operators of a multitenant Kubernetes cluster must isolate tenants from each other. This isolation minimizes the damage that a compromised or malicious tenant can do to the cluster and to other tenants. When several users or teams share the same cluster with a fixed number of nodes, there is a concern that one team could use more than its fair share of resources. [Resource Quotas](https://kubernetes.io/docs/concepts/policy/resource-quotas) is a tool for administrators to address this concern.
+
+Based on the security level provided by isolation, we can distinguish between soft and hard multitenancy. 
+
+- Soft multitenancy is suitable within a single enterprise where tenants are different teams or departments that trust each other. In this scenario, isolation aims to guarantee workloads integrity, orchestrate cluster resources across different internal user groups, and defend against possible security attacks.
+- Hard multi tenancy is used to describe scenarios where heterogeneous tenants do not trust each other, often from security and resource-sharing perspectives.
 
 When you plan to build a multitenant [Azure Kubernetes Service](/azure/aks/intro-kubernetes) (AKS) cluster, you should consider the layers of resource isolation and multitenancy provided by [Kubernetes](https://kubernetes.io/docs/concepts/security/multi-tenancy/): cluster, namespace, node, pod, and container. In addition, you should consider the security implications of sharing different resources among multiple tenants. For example, scheduling pods from different tenants on the same node could reduce the number of machines needed in the cluster. On the other hand, you might need to prevent specific workloads from being colocated. For example, you might not allow untrusted code from outside your organization to run on the same node as containers that process sensitive information.
 
@@ -151,13 +158,78 @@ For example, you can configure a separate storage class for each tenant and use 
 
 ### Node Isolation
 
-Node isolation is another technique that you can use to isolate tenant workloads from each other. With node isolation, a set of agent nodes is dedicated to running only the pods of a particular tenant. This configuration reduces the  [noisy neighbor issue](/azure/architecture/antipatterns/noisy-neighbor/noisy-neighbor), as all the pods running on a given node will belong to a single tenant. TThe risk of information disclosure and data tampering is lower with node isolation because an attacker that manages to get control of a container will only have access to the containers and volumes mounted that belong to a single tenant.
+Node isolation is another technique that you can use to isolate tenant workloads from each other. With node isolation, a set of agent nodes is dedicated to running only the pods of a particular tenant. This configuration reduces the  [noisy neighbor issue](/azure/architecture/antipatterns/noisy-neighbor/noisy-neighbor), as all the pods running on a set of nodes will belong to a single tenant. The risk of information disclosure and data tampering is lower with node isolation because an attacker that manages to get control of a container will only have access to the containers and volumes mounted that belong to a single tenant. In AKS, you can create a dedicated node pool for those tenants that have strict requirements in terms of isolation, security, and performance. You can use [taints and tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/), [node labels, node selectors, and node affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/) to constrain tenants pods to run only on a particular set of nodes or node pools.
 
-Although workloads from different tenants are running on different nodes, it is important to be aware that the kubelet and (unless using virtual control planes) the API service are still shared services. A skilled attacker could use the permissions assigned to the kubelet or other pods running on the node to move laterally within the cluster and gain access to tenant workloads running on other nodes. If this is a major concern, consider implementing compensating controls such as seccomp, AppArmor or SELinux or explore using sandboxed containers or creating separate clusters for each tenant.
+Although workloads from different tenants are running on different nodes, it is important to be aware that the kubelet and (unless using virtual control planes) the Kubernetes API service are still shared services. A skilled attacker could use the permissions assigned to the kubelet or other pods running on the node to move laterally within the cluster and gain access to tenant workloads running on other nodes. If this is a major concern, consider segregating tenants into separate AKS clusters.
 
-Node isolation is a little easier to reason about from a billing standpoint than sandboxing containers since you can charge back per node rather than per pod. It also has fewer compatibility and performance issues and may be easier to implement than sandboxing containers. For example, nodes for each tenant can be configured with taints so that only pods with the corresponding toleration can run on them. A mutating webhook could then be used to automatically add [tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/) and node affinities to pods deployed into tenant namespaces so that they run on a specific set of nodes designated for that tenant.
+Node isolation allows you to  easily associate and charge back the cost of a set of nodes or node pool to a single tenant. Node isolation is strictly related ot the tenancy model adopted by your solution.
 
-Node isolation can be implemented using an [pod node selectors](https://kubernetes.io//docs/concepts/scheduling-eviction/assign-pod-node/) or a [Virtual Kubelet](https://github.com/virtual-kubelet).
+## Tenancy models
+
+Azure Kubernetes Service (AKS) provides more types of node isolation and tenancy models.
+
+### Automated single-tenant deployments
+
+In an automated single-tenant deployment model, you deploy a dedicated set of resources for each tenant, as illustrated in this example:
+
+![Diagram showing three tenants, each with separate deployments.](./media/aks/automated-single-tenant-deployments.png)
+
+Each tenant workload runs in a dedicated AKS cluster and accesses a distinct set of Azure resources. Typically, multitenant solutions built using this model make extensive use of [infrastructure as code](/devops/deliver/what-is-infrastructure-as-code) (IaC) such as [Bicep](/azure/azure-resource-manager/bicep/overview?tabs=bicep), [ARM](/azure/azure-resource-manager/management/overview), [Terraform](/azure/developer/terraform/overview) or the [Azure Resource Manager REST APIs](/rest/api/resources/) to initiate and coordinate the on-demand deployment of tenant-dedicated resources. You might use this approach when you need to provision an entirely separate infrastructure for each of your customers. Consider the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml) when planning your deployment.
+
+**Benefits:**
+
+- A key benefit of this approach is that the API Server of each tenant AKS cluster is separate. This approach guarantees full isolation across tenants from a security, networking, and resource consumption level. An attacker that manages to get control of a container will only have access to the containers and volumes mounted that belong to a single tenant. A full-isolation tenancy model is critical to some customers with a high regulatory compliance overhead.
+- Tenants are unlikely to affect each other's system performance, which allows for avoiding [noisy neighbor problem](/azure/architecture/antipatterns/noisy-neighbor/noisy-neighbor). This consideration includes the traffic against the API Server. The API server is a shared, critical component in any Kubernetes cluster. Custom controllers that generate unregulated, high-volume traffic against the API server can cause cluster instability, leading to request failures, timeouts and API retry storms. The [Uptime SLA](/azure/aks/uptime-sla) feature allows to scale out the control plane of an AKS cluster to meet traffic demand. Still, provisioning a dedicated cluster may be a better solution for those customers with strong requirements in terms of workload isolation.
+- Updates and changes can be rolled out progressively across tenants, which reduces the likelihood of a system-wide outage. Azure costs can be easily charged back to tenants as every resource is used by a single tenant.
+
+**Risks:**
+
+- Cost efficiency is low because every tenant uses a dedicated set of resources.
+- Ongoing maintenance is likely to be time-consuming as it needs to be replicated across multiple AKS clusters, one for each tenant. Consider automating your operational processes and applying changes progressively through your environments. It would help if you also considered other cross-deployment operations, like reporting and analytics across your whole estate. Likewise, ensure you plan how to query and manipulate data across multiple deployments.
+
+### Fully multitenant deployments
+
+In a fully multitenant deployment, a single application serves the requests of all the tenants, and all Azure resources are shared, including the AKS cluster. In this context, you only have one set of infrastructure to deploy, monitor, and maintain, and all tenants use it, as illustrated in the following diagram:
+
+![Diagram showing three tenants, all using a single shared deployment.](./media/aks/fully-multitenant-deployments.png)
+
+**Benefits**:
+
+- This model is attractive because of the lower cost of operating a solution with shared components. When using this tenancy model, you may need to deploy a larger AKS cluster and adopt a higher SKU for any shared data repository to sustain the traffic generated by all tenants' resources, such as data repositories.
+
+**Risks**:
+
+- In this context, a single application handles all tenants' requests. You should design and implement security measures to prevent tenants from flooding the application with calls, which could slow down the entire system and impact all tenants.
+- If the traffic profile is highly variable, you should configure the AKS cluster autoscaler to vary the number of pods and agent nodes based on the system resource usage, such as CPU and Memory. Alternatively, you could scale out and scale in the number of pods and cluster nodes based on custom metrics such as the number of pending requests or the metrics of an external messaging system using [Kubernetes Event-driven Autoscaling](https://keda.sh/) (KEDA).
+- Ensure to separate data for each tenant and implement safeguards to avoid data leakage between different tenants. 
+- Make sure to [track and associate Azure costs](/azure/architecture/guide/multitenant/considerations/measure-consumption) to individual tenants based on their actual usage. Third-party solutions such as [kubecost](https://www.kubecost.com/) can help you to calculate and break down costs across different teams and tenants.
+- Maintenance can be more straightforward with a single deployment since you only have to update one set of Azure resources and maintain a single application. However, it's also often riskier since any changes to the infrastructure or application components may affect the entire customer base.
+- Scale can be a factor to consider as well. You are more likely to hit Azure resource scale limits when you have a shared set of resources. To avoid hitting a resource quota limit, you might consider distributing your tenants across multiple Azure subscriptions.
+
+### Vertically partitioned deployments
+
+You don't have to sit at the extremes of these scales. Instead, you could consider vertically partitioning your tenants, with the following steps:
+
+- Use a combination of single-tenant and multitenant deployments. For example, you might have most of your customers' data and application tiers on multitenant infrastructures, but you might deploy single-tenant infrastructures for customers who require higher performance or data isolation.
+- Deploy multiple instances of your solution geographically, and have each tenant pinned to a specific deployment. This is particularly effective when you have tenants in different geographies.
+
+Here's an example that illustrates a shared deployment for some tenants, and a single-tenant deployment for another:
+
+![Diagram showing three tenants. Tenants A and B share a deployment. Tenant C has a dedicated deployment.](./media/aks/vertically-partitioned-deployments.png)
+
+**Benefits:** Since you are still sharing infrastructure, you can still gain some of the cost benefits of having shared multitenant deployments. You can deploy cheaper, shared resources for certain customers, like those who are trying your service with a trial. You can even bill customers a higher rate to be on a single-tenant deployment, thereby recouping some of your costs.
+
+**Risks:** Your codebase will likely need to be designed to support both multitenant and single-tenant deployments. If you plan to allow migration between infrastructures, you need to consider how you migrate customers from a multitenant deployment to their own single-tenant deployment. You also need to have a clear understanding of which of your logical tenants are on which sets of physical infrastructure, so that you can communicate information about system issues or upgrades to the relevant customers.
+
+### Horizontally partitioned deployments
+
+You can also consider horizontally partitioning your deployments. This means you have some shared components, while maintaining other components with single-tenant deployments. For example, you could build a single application tier, and then deploy individual databases for each tenant, as shown in this illustration:
+
+![Diagram showing three tenants, each using a dedicated database and a single, shared web server.](./media/aks/horizontally-partitioned-deployments.png)
+
+**Benefits:** Horizontally partitioned deployments can help you mitigate a noisy-neighbor problem, if you've identified that most of the load on your system is due to specific components that you can deploy separately for each tenant. For example, your databases might absorb most of your system's load, because the query load is high. If a single tenant sends a large number of requests to your solution, the performance of a database might be negatively affected, but other tenants' databases (and shared components, like the application tier) remain unaffected.
+
+**Risks:** With a horizontally partitioned deployment, you still need to consider the automated deployment and management of your components, especially the components used by a single tenant.
 
 ## TODO
 
