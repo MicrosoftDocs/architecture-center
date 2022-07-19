@@ -4,7 +4,7 @@ This reference architecture shows a set of proven practices for running S/4HANA 
 
 ## Architecture
 
-:::image type="content" source="./images/sap-s-4hana.png" alt-text="Diagram that shows a reference architecture for SAP S/4HANA on Linux virtual machines." lightbox="./images/sap-s-4hana.png" border="false":::
+:::image type="content" source="./images/sap-s-4hana-linux.png" alt-text="Diagram that shows a reference architecture for SAP S/4HANA on Linux virtual machines." lightbox="./images/sap-s-4hana-linux.png" border="false":::
 
 *Download a [Visio file][visio-download] of this architecture.*
 
