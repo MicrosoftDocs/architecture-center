@@ -1,5 +1,3 @@
-
-
 This series of articles provides a way for you to assess your current Oracle database environment, figure out your best migration path to Azure, and links to documents that help you make your migratory move. Your migration path can be to an Azure Virtual Machine (VM). It might also be to an Azure Managed Database that is running on an Azure VM.
 
 To migrate an Oracle database to an Azure environment, you have to:
@@ -15,6 +13,8 @@ To migrate an Oracle database to an Azure environment, you have to:
 This flow chart shows you the steps to move an Oracle database to either a PostgreSQL or a SQL database in Azure. The steps and the details are similar for both migration paths. Pay attention to the schema conversion and the data migration sections.
 
 ![Flow chart depicting the steps you have to take to convert your Oracle Database to a SQL or PostgreSQL database in Azure.](media/oracle-migration-process-to-sql-pg.png)
+
+### Workflow
 
 1. Use Oracle script artifacts to evaluate Oracle database.
 
@@ -54,7 +54,7 @@ The migration decision tree helps you find the appropriate path of your Oracle d
 
 ![A decision tree that lays out the decisions you have to make to figure out what migration path is best for you.](media/oracle-migration-tree.png)
 
-## Next steps
+## Related resources
 
 What you do next depends on where you wind up on the decision tree:
 
