@@ -50,7 +50,7 @@ You might consider deploying a vault for each of your tenants within your (the s
 
 This approach makes sense when you have separate application deployments for each tenant. If you have a shared application tier, it's unlikely that using separate vaults will give you much data isolation benefit because all of the vaults need to trust the same application tier.
 
-There's no limit to the number of vaults you can deploy into an Azure subscription. However, two limits you should consider are:
+There's no limit to the number of vaults you can deploy into an Azure subscription. However, yuo should consider the following limits:
 
 - [There are subscription-wide limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#key-vault-limits) on the number of requests in a time period. These limits regardless of the number of vaults in the subscription. So, it's important to follow [throttling guidance](/azure/key-vault/general/overview-throttling) even when you have tenant-specific vaults.
 - There's a [limit to the number of Azure role assignments that you can create within a subscription](/azure/role-based-access-control/troubleshooting#azure-role-assignments-limit). When you deploy and configure large numbers of vaults in a subscription, you might approach these limits.
@@ -59,7 +59,7 @@ There's no limit to the number of vaults you can deploy into an Azure subscripti
 
 In some situations, your tenants might create vaults in their own Azure subscriptions and want to grant you access to work with secrets, certificates, or keys. This approach might be appropriate when you allow *customer-managed keys* (CMKs) for encryption within your solution.
 
-In order to access the data in your tenant's vault, you need to authenticate via their Azure AD instance. One approach is to publish a [multitenant Azure AD application](/azure/active-directory/develop/single-and-multi-tenant-apps). Your tenants must perform a one-time consent process where they register the multitenant Azure AD application in their own Azure AD tenant, and grant your multitenant Azure AD application the appropriate level of access to their vault. They also need to provide you with the full resource ID of the vault that they've created. Then, your application code can use a service principal associated with the multitenant Azure AD application in your own Azure AD to access each tenant's vault.
+In order to access the data in your tenant's vault, you need the tenant to provide you with access to their vault. This process requires that you authenticate through their Azure AD instance. One approach is to publish a [multitenant Azure AD application](/azure/active-directory/develop/single-and-multi-tenant-apps). Your tenants must perform a one-time consent process where they register the multitenant Azure AD application in their own Azure AD tenant, and grant your multitenant Azure AD application the appropriate level of access to their vault. They also need to provide you with the full resource ID of the vault that they've created. Then, your application code can use a service principal associated with the multitenant Azure AD application in your own Azure AD to access each tenant's vault.
 
 Alternatively, you might ask each tenant to create a service principal for your service to use, and to provide you with its credentials. However, this approach requires that you securely store and manage credentials for each tenant, which is a potential security liability.
 
@@ -67,7 +67,7 @@ If your tenants configure network access controls on their vaults, ensure that y
 
 ### Shared vault
 
-You might choose to share tenants' secrets within a single vault. The vault is deployed in your (the solution provider's) Azure subscription, and you're responsible for managing it.
+You might choose to share tenants' secrets within a single vault. The vault is deployed in your (the solution provider's) Azure subscription, and you're responsible for managing it. This approach is simplest, but provides the least data isolation and performance isolation.
 
 You might also choose to deploy multiple shared vaults. For example, if you follow the [Deployment Stamps pattern](../approaches/overview.yml#deployment-stamps-pattern), it's likely you'll deploy a shared vault within each stamp. Similarly, if you deploy a multi-region solution, you should deploy vaults into each region for a number of reasons, including to avoid cross-region traffic latency when working with the data in your vault, to support data residency requirements, and to enable the use of regional vaults within other services that require same-region deployments.
 
