@@ -12,7 +12,7 @@ This solution is used by retailers and others selling goods or services.
 
 ![Architecture Diagram show the flow from the browser through the C M S web app to both Azure database and application insights.](../media/digital-marketing-using-azure-database-for-postgresql.png)
 
-*Download an [SVG](../media/digital-marketing-using-azure-database-for-postgresql.svg) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/digital-marketing-using-azure-database-for-postgresql.vsdx) of this architecture.*
 
 ### Dataflow
 
