@@ -5435,6 +5435,8 @@ items:
                     href: hybrid/hybrid-perf-monitoring.yml
               - name: Implement a secure hybrid network
                 href: reference-architectures/dmz/secure-vnet-dmz.yml
+              - name: Implement an open-source jump server
+                href: example-scenario/infrastructure/apache-guacamole.yml
               - name: Interconnect with China using Virtual WAN
                 href: /azure/virtual-wan/interconnect-china
                 maintainContext: true
