@@ -1,14 +1,9 @@
 This article discusses important areas to consider when using the [Azure landing zones Terraform module](https://registry.terraform.io/modules/Azure/caf-enterprise-scale/azurerm/latest). The module provides an opinionated approach to deploy and operate an Azure platform based on the [Azure landing zone conceptual architecture](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone#azure-landing-zone-conceptual-architecture) as detailed in the Cloud Adoption Framework (CAF).
 
-Terraform is an open-source Infrastructure as Code (IaC) tool, created by HashiCorp, that uses declarative syntax to deploy infrastructure resources. Many customers choose to use Terraform due to the following benefits:
+Terraform is an open-source Infrastructure as Code (IaC) tool, created by HashiCorp, that uses declarative syntax to deploy infrastructure resources. It is extensible, has cross-platform support and enables immutable infrastructure through state tracking.
 
-* Open source offering, with commercial options available where needed.
-* Extensible through [providers](https://www.terraform.io/language/providers), enabling the benefits of Infrastructure-as-Code across multiple cloud or SaaS platforms, and other software with a supported API.
-* Cross platform support, allowing a consistent user experience across Windows, MacOS and Unix based operating systems.
-* Immutable infrastructure enabled through state tracking, ensuring any unauthorized changes (configuration drift) can be resolved safely and reliably.
-
-:::image type="icon" source="../../_images/Terraform_VerticalLogo_Color_RGB.svg":::
-The module is available on the [Terraform Registry: Azure landing zones Terraform module](https://registry.terraform.io/modules/Azure/caf-enterprise-scale/azurerm/latest). You can use it as a starting point and configure it as per your needs.
+> [!IMPORTANT]
+> The module is available on the [Terraform Registry: Azure landing zones Terraform module](https://registry.terraform.io/modules/Azure/caf-enterprise-scale/azurerm/latest). You can use it as a starting point and configure it as per your needs.
 
 > [!NOTE]
 > There are [implementations](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/implementation-options) for several deployment technologies, including portal-based, ARM templates and Terraform modules. The choice of deployment technology should not influence the resulting Azure landing zones deployment.
@@ -17,9 +12,9 @@ The module is available on the [Terraform Registry: Azure landing zones Terrafor
 
 :::image type="content" border="true" source="images/alz-tf-module-overview.png" alt-text="Diagram showing the Azure landing zones conceptual architecture." lightbox="images/alz-tf-module-overview.png":::
 
-The architecture takes advantage of the configurable nature of Terraform and is composed of a primary orchestration module. This module encapsulates multiple capabilities of the Azure Landing Zones conceptual architecture. Each capability can be deployed individually (or in part), but there are dependencies to be aware of.
+The architecture takes advantage of the configurable nature of Terraform and is composed of a primary orchestration module. This module encapsulates multiple capabilities of the Azure landing zones conceptual architecture. You can deploy each capability individually or in part. When doing so, you need to take into account that the capabilities have dependencies.
 
-The architecture utilizes an orchestrator approach to simplify the deployment experience. For some customers, it will be preferred to implement each capability using one or more dedicated module instances, each dedicated to a specific part of the architecture. This is all possible with the correct configuration.
+The architecture utilizes an orchestrator approach to simplify the deployment experience. You might prefer to implement each capability using one or more dedicated module instances where each is dedicated to a specific part of the architecture. This is all possible with the correct configuration.
 
 ## Modules
 
@@ -27,11 +22,11 @@ A core concept in Terraform is the use of modules. Modules enable you to organiz
 
 The ability to re-use modules offers a real benefit when defining and deploying landing zones. It enables repeatable, consistent environments in code while reducing the effort required to deploy at scale.
 
-Although the Terraform implementation of Azure landing zones is delivered using a single module, this module acts as an orchestration layer and does not prevent the implementation of capabilities using multiple module instances.
+The Terraform implementation of Azure landing zones is delivered using a single module that acts as an orchestration layer. This does not prevent you from implementing capabilities using multiple module instances.
 
 ## Layers and staging
 
-The implementation focuses on the central resource hierarchy of the [Azure landing zone conceptual architecture](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone#azure-landing-zone-conceptual-architecture).  The design is centered around the following capabilities:
+The implementation focuses on the central resource hierarchy of the [Azure landing zone conceptual architecture](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone#azure-landing-zone-conceptual-architecture). The design is centered around the following capabilities:
 
 * Core resources
 * Management resources
@@ -40,7 +35,7 @@ The implementation focuses on the central resource hierarchy of the [Azure landi
 
 The module groups resources into these capabilities as they are intended to be deployed together. These groups form logical stages of the implementation.
 
-Deployment of each of these capabilities is controlled using feature flags. A benefit of this approach is the ability to add to your environment incrementally over time. For example, you can start with a small number of capabilities. You can add the remaining capabilities at a later stage when you’re ready.
+You control the deployment of each of these capabilities by using feature flags. A benefit of this approach is the ability to add to your environment incrementally over time. For example, you can start with a small number of capabilities. You can add the remaining capabilities at a later stage when you’re ready.
 
 ### Core resources
 
@@ -90,15 +85,15 @@ No resources are deployed with this capability. When the ```deploy_identity_reso
 
 This section provides a high-level overview of the resources deployed by this module.
 
-| Resource Type(s) | Description | Useful Links |
-|---|---|---|
-| Management Groups | Management groups are the highest level resources in an Azure tenant. Management groups allow you to more easily manage your resources. You can apply policy at the management group level and lower level resources will inherit that policy. Specifically, you can apply the following items at the management group level that will be inherited by subscriptions under the management group:<br /><ul><li>Azure Policies</li><li>Azure Role Based Access Controls (RBAC) role assignments</li><li>Cost controls</li></ul> | <ul><li>[Management groups - Cloud Adoption Framework (CAF) documentation](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-management-groups)</li></ul> |
-| Policy definitions, policy assignments, and policy set definitions | DeployIfNotExists (DINE) or Modify policies help ensure the subscriptions and resources that make up landing zones are compliant. Policies are assigned to management groups through policy assignments. The policies  ease the burden of management of landing zones. Policy set definitions group sets of policies together.<br /><br />Not all customers are able to use DINE or Modify policies. If that is the case for you, [CAF guidance on custom policies](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/enterprise-scale/dine-guidance) provides guidance. | <ul><li>[Adopt policy-driven guardrails - CAF documentation](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/enterprise-scale/dine-guidance)</li><li>[Custom policy definitions deployed in reference implementations](https://github.com/Azure/Enterprise-Scale/blob/main/docs/ESLZ-Policies.md)</li></ul> |
-| Role definitions and role assignments | Role-based access control (RBAC) simplifies the management of user rights within a system. Instead of managing the rights of individuals, you determine the rights required for different roles in your system. Azure RBAC has several [built-in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles). Custom role definitions allow you to create custom roles for your environment.<br/><br/> Identity and access management (IAM) is the key security boundary in cloud computing. Azure RBAC allows you to perform role assignments of built-in roles or custom role definitions to Service Principals, Managed Identities or security groups across management groups and subscriptions. | <ul><li>[Azure role-based access control - CAF documentation](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/considerations/roles)</li><li>[Azure identity and access management design area - CAF documentation](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/design-area/identity-access)</li><li>[Custom policy definitions deployed in reference implementations](https://github.com/Azure/Enterprise-Scale/blob/main/docs/ESLZ-Policies.md)</li></ul> |
-| Azure Monitor, Azure Automation, and Microsoft Sentinel | Azure Monitor, Azure Automation and Microsoft Sentinel allow you to monitor and manage your infrastructure and workloads. Azure Monitor is a solution that allows you to collect, analyze and act on telemetry from your environment.<br/><br/>Microsoft Sentinel is a cloud-native security information and event management (SIEM). It allows you to:<br/><ul><li>Collect - Collect data across your entire infrastructure</li><li>Detect - Detect threats that were previously undetected</li><li>Respond - Respond to legitimate threats with built-in orchestration</li><li>Investigate - Investigate threats with artificial intelligence</li></ul><br/>Azure Automation is a cloud-based automation system. It includes:<br/><ul><li>Configuration management - Inventory and track changes for Linux and Windows virtual machines and manage desired state configuration</li><li>Update management - Assess Windows and Linux system compliance and create scheduled deployments to meet compliance</li><li>Process automation - Automate management tasks</li></ul> | <ul><li>[Workload management and monitoring - CAF documentation](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/design-area/management-workloads)</li></ul> |
-| [Core networking resource types listed here](https://github.com/Azure/terraform-azurerm-caf-enterprise-scale/wiki/%5BUser-Guide%5D-Connectivity-Resources#resource-types) | Network topology is a key consideration in Azure landing zone deployments. [CAF focuses on two core networking approaches](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/define-an-azure-network-topology):<br/><ul><li>Topologies based on Azure Virtual WAN</li><li>Traditional topologies</li></ul> | <ul><li>[Define an Azure network topology - CAF Documentation](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/define-an-azure-network-topology)</li></ul> |
-| DDoS protection plans | Azure landing zone guidance recommends enabling DDoS Protection Standard. This service offers turnkey protection against DDoS attacks. | <ul><li>[Azure DDoS Protection Standard overview](https://docs.microsoft.com/azure/ddos-protection/ddos-protection-overview)</li></ul> |
-| DNS Zones, Private DNS Zones, and Private DNS Zone Virtual Network Link | Private DNS zones can be deployed to support the use of private endpoints. A private endpoint is a NIC that is assigned a private IP address from your virtual network. You can use the private IP address to securely communicate to services that supports Azure Private Link. Private DNS zones can be configured to resolve the fully qualified domain name (FQDN) of the service to the private endpoint private IP address. | <ul><li>[Azure Private Endpoint DNS configuration](https://docs.microsoft.com/azure/private-link/private-endpoint-dns)</li></ul> |
+| Layer | Resource Type(s) | Description | Useful Links |
+|---|---|---|---|
+| Core | Management Groups | Management groups are the highest level resources in an Azure tenant. Management groups allow you to more easily manage your resources. You can apply policy at the management group level and lower level resources will inherit that policy. Specifically, you can apply the following items at the management group level that will be inherited by subscriptions under the management group:<br /><ul><li>Azure Policies</li><li>Azure Role Based Access Controls (RBAC) role assignments</li><li>Cost controls</li></ul> | <ul><li>[Management groups - Cloud Adoption Framework (CAF) documentation](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-management-groups)</li></ul> |
+| Core | Policy definitions, policy assignments, and policy set definitions | DeployIfNotExists (DINE) or Modify policies help ensure the subscriptions and resources that make up landing zones are compliant. Policies are assigned to management groups through policy assignments. The policies  ease the burden of management of landing zones. Policy set definitions group sets of policies together.<br /><br />Not all customers are able to use DINE or Modify policies. If that is the case for you, [CAF guidance on custom policies](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/enterprise-scale/dine-guidance) provides guidance. | <ul><li>[Adopt policy-driven guardrails - CAF documentation](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/enterprise-scale/dine-guidance)</li><li>[Custom policy definitions deployed in reference implementations](https://github.com/Azure/Enterprise-Scale/blob/main/docs/ESLZ-Policies.md)</li></ul> |
+| Core | Role definitions and role assignments | Role-based access control (RBAC) simplifies the management of user rights within a system. Instead of managing the rights of individuals, you determine the rights required for different roles in your system. Azure RBAC has several [built-in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles). Custom role definitions allow you to create custom roles for your environment.<br/><br/> Identity and access management (IAM) is the key security boundary in cloud computing. Azure RBAC allows you to perform role assignments of built-in roles or custom role definitions to Service Principals, Managed Identities or security groups across management groups and subscriptions. | <ul><li>[Azure role-based access control - CAF documentation](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/considerations/roles)</li><li>[Azure identity and access management design area - CAF documentation](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/design-area/identity-access)</li><li>[Custom policy definitions deployed in reference implementations](https://github.com/Azure/Enterprise-Scale/blob/main/docs/ESLZ-Policies.md)</li></ul> |
+| Management | Azure Monitor, Azure Automation, and Microsoft Sentinel | Azure Monitor, Azure Automation and Microsoft Sentinel allow you to monitor and manage your infrastructure and workloads. Azure Monitor is a solution that allows you to collect, analyze and act on telemetry from your environment.<br/><br/>Microsoft Sentinel is a cloud-native security information and event management (SIEM). It allows you to:<br/><ul><li>Collect - Collect data across your entire infrastructure</li><li>Detect - Detect threats that were previously undetected</li><li>Respond - Respond to legitimate threats with built-in orchestration</li><li>Investigate - Investigate threats with artificial intelligence</li></ul><br/>Azure Automation is a cloud-based automation system. It includes:<br/><ul><li>Configuration management - Inventory and track changes for Linux and Windows virtual machines and manage desired state configuration</li><li>Update management - Assess Windows and Linux system compliance and create scheduled deployments to meet compliance</li><li>Process automation - Automate management tasks</li></ul> | <ul><li>[Workload management and monitoring - CAF documentation](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/design-area/management-workloads)</li></ul> |
+| Connectivity | [Core networking resource types listed here](https://github.com/Azure/terraform-azurerm-caf-enterprise-scale/wiki/%5BUser-Guide%5D-Connectivity-Resources#resource-types) | Network topology is a key consideration in Azure landing zone deployments. [CAF focuses on two core networking approaches](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/define-an-azure-network-topology):<br/><ul><li>Topologies based on Azure Virtual WAN</li><li>Traditional topologies</li></ul> | <ul><li>[Define an Azure network topology - CAF Documentation](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/define-an-azure-network-topology)</li></ul> |
+| Connectivity | DDoS protection plans | Azure landing zone guidance recommends enabling DDoS Protection Standard. This service offers turnkey protection against DDoS attacks. | <ul><li>[Azure DDoS Protection Standard overview](https://docs.microsoft.com/azure/ddos-protection/ddos-protection-overview)</li></ul> |
+| Connectivity | DNS Zones, Private DNS Zones, and Private DNS Zone Virtual Network Link | Private DNS zones can be deployed to support the use of private endpoints. A private endpoint is a NIC that is assigned a private IP address from your virtual network. You can use the private IP address to securely communicate to services that supports Azure Private Link. Private DNS zones can be configured to resolve the fully qualified domain name (FQDN) of the service to the private endpoint private IP address. | <ul><li>[Azure Private Endpoint DNS configuration](https://docs.microsoft.com/azure/private-link/private-endpoint-dns)</li></ul> |
 
 ## Using the Terraform module
 
@@ -111,7 +106,7 @@ By default, the module will deploy the following hierarchy, which is the core se
     * Identity
     * Management
     * Connectivity
-  * Landing Zones
+  * Landing zones
   * Decommissioned
   * Sandbox
 
@@ -135,7 +130,7 @@ subscription_id_management = <management subscription id>
 
 ### Deploying connectivity resources
 
-Deploy Connectivity Resources provides guidance on how to deploy these topologies.
+[Deploy Connectivity Resources](https://github.com/Azure/terraform-azurerm-caf-enterprise-scale/wiki/%5BExamples%5D-Deploy-Connectivity-Resources) provides guidance on how to deploy these topologies.
 
 ### Deploying identity resources
 
@@ -148,7 +143,7 @@ subscription_id_identity = <identity subscription id>
 
 ## Customizing the Terraform implementation
 
-The [Azure landing zone implementations](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/implementation-options) provided as part of the Cloud Adoption Framework suit a wide variety of requirements and use cases. However, there are often scenarios where customization is required to meet specific business needs.  
+The [Azure landing zone implementations](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/implementation-options) provided as part of the Cloud Adoption Framework suit a wide variety of requirements and use cases. However, there are often scenarios where customization is required to meet specific business needs.
 
 > [!TIP]
 > See [Tailor the Azure landing zone architecture to meet requirements](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/tailoring-alz) for further information.
