@@ -14,6 +14,8 @@ This diagram illustrates the process of passing unstructured data through the Co
 
 ![Cognitive Search architecture to convert unstructured into structured data](../media/cognitive-search-for-ai-enrichment.png)
 
+*Download a [Visio file](https://arch-center.azureedge.net/cognitive-search-for-ai-enrichment.vsdx) of this architecture.*
+
 ### Dataflow
 
 1. Blob storage provides the unstructured document and image data to Cognitive Search.
