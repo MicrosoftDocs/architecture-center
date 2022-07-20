@@ -11,7 +11,7 @@ You can use Azure Functions and Azure Cosmos DB to build globally distributed, s
 ### Dataflow
 
 - A customer places an order in an e-commerce website.
-- The order triggers an instance of Functions. The function handles the customer's checkout and stores information about the order in Azure Cosmos DB.
+- The order triggers an instance of Functions. The function processes the customer's checkout and stores information about the order in Azure Cosmos DB.
 - The database insert operation triggers an Azure Cosmos DB change feed event.
 - Systems that subscribe to change feed events are notified.
 - The change feed notifications trigger Functions:
@@ -24,7 +24,6 @@ You can use Azure Functions and Azure Cosmos DB to build globally distributed, s
 
 - [Functions](https://azure.microsoft.com/services/functions) is an event-driven serverless compute platform. With Functions, you can use triggers and bindings to integrate services at scale.
 - [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) is a globally distributed, multi-model database. With Azure Cosmos DB, your solutions can elastically scale throughput and storage across any number of geographic regions.
-
 
 ## Scenario details
 

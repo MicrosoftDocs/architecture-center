@@ -33,7 +33,7 @@ The convolutional layer is the first layer of a convolutional network. These lay
 
 ### Components
 
-- [Blob Storage](https://azure.microsoft.com/services/storage/blobs) is a service that's part of Azure Storage. Blob Storage offers optimized cloud object storage for large amounts of unstructured data.
+- [Blob Storage](https://azure.microsoft.com/services/storage/blobs) is a service that's part of [Azure Storage](https://azure.microsoft.com/products/category/storage). Blob Storage offers optimized cloud object storage for large amounts of unstructured data.
 - [Machine Learning](https://azure.microsoft.com/services/machine-learning/) is a cloud-based environment that you can use to train, deploy, automate, manage, and track machine learning models. You can use the models to forecast future behavior, outcomes, and trends.
 - [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) is a globally distributed, multi-model database. With Azure Cosmos DB, your solutions can elastically scale throughput and storage across any number of geographic regions.
 

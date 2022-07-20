@@ -18,9 +18,9 @@ This architecture consists of the following services:
 
 ### Components
 
-- [Azure Machine Learning](https://azure.microsoft.com/en-us/services/machine-learning) is an open platform for managing the development and deployment of machine-learning models at scale. The platform supports commonly used open frameworks and offers automated featurization and algorithm selection. You can use Machine Learning to deploy models to various targets, including Azure Container Instances.
-- [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) is a service that's part of Storage. Blob Storage offers optimized cloud object storage for large amounts of unstructured data.
-- [Container Registry](https://azure.microsoft.com/en-us/services/container-registry) is a cloud-based, private registry service. You can use Container Registry to store and manage private Docker container images and related artifacts.
+- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) is an open platform for managing the development and deployment of machine-learning models at scale. The platform supports commonly used open frameworks and offers automated featurization and algorithm selection. You can use Machine Learning to deploy models to various targets, including Azure Container Instances.
+- [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) is a service that's part of [Azure Storage](https://azure.microsoft.com/products/category/storage). Blob Storage offers optimized cloud object storage for large amounts of unstructured data.
+- [Container Registry](https://azure.microsoft.com/services/container-registry) is a cloud-based, private registry service. You can use Container Registry to store and manage private Docker container images and related artifacts.
 
 ## Scenario details
 
