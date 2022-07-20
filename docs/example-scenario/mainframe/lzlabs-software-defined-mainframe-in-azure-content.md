@@ -9,7 +9,7 @@ LzLabs Software Defined Mainframe (SDM) significantly reduces the risk and compl
 
 ### Workflow
 
-1. LzLabs SDM applications are accessed just like ordinary mainframe applications via a 3270 terminal. You can use any terminal emulator you like. For management, administration, and other activities, the [LzWorkbench client](https://www.lzlabs.com/products/lzworkbench/) is used. The server component runs on the SDM VM.
+1. LzLabs SDM applications are accessed just like ordinary mainframe applications via a 3270 terminal. You can use any terminal emulator you like. For management, administration, and other activities, the [LzWorkbench client](https://www.lzlabs.com/resources/lzworkbench-data-sheet//) is used. The server component runs on the SDM VM.
 1. The port access is typically configured to adapt to the security requirements of the customer.
 1. For a secure implementation of SDM, a web services front end should be implemented that consists of:
    - [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) for any CICS APIs accessing via the web,
@@ -85,8 +85,8 @@ See the following resources from LzLabs:
 
 - [LzLabs website](https://www.lzlabs.com)
 - [LzLabs Software Defined Mainframe product overview](https://www.lzlabs.com/products)
-- [LzWorkbench](https://www.lzlabs.com/products/lzworkbench)
-- [LzLabs video library](https://www.lzlabs.com/learn-more/videos)
+- [LzWorkbench](https://www.lzlabs.com/resources/lzworkbench-data-sheet/)
+- [LzLabs video library](https://www.lzlabs.com/resources/demo-video-unlock/)
 
 See the following documentation from Microsoft:
 

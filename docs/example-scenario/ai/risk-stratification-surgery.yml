@@ -1,0 +1,26 @@
+### YamlMime:Architecture
+metadata:
+  title: Risk prediction models for surgeries
+  titleSuffix: Azure Architecture Center
+  description: Enable a risk stratification model for surgeries.
+  author: manasatramalinga
+  ms.author: manasatr
+  ms.date: 07/14/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.custom: fcp
+azureCategories:
+  - ai-machine-learning
+  - analytics
+products:
+  - azure-machine-learning
+  - azure-synapse-analytics
+  - azure-data-factory
+  - azure-data-lake
+  - power-bi
+name: Implement risk prediction for surgeries
+summary: Enable a risk stratification model for surgeries.
+thumbnailUrl: /azure/architecture/browse/thumbs/surgery-risk-models.png
+content: |
+  [!include[](risk-stratification-surgery-content.md)]
