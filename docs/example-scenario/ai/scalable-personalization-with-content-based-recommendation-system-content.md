@@ -120,7 +120,7 @@ Principal author:
 - For general information about recommendation systems, see these resources:
 
   - For examples, tutorials, and tools that can help you build your own recommendation system, see the [Microsoft Recommenders GitHub repository](https://github.com/Microsoft/Recommenders).
-  - [Building recommender systems with Azure Machine Learning service](https://azure.microsoft.com/blog/building-recommender-systems-with-azure-machine-learning-service)
+  - For a blog post about a GitHub repository that provides examples and best practices for building recommendation systems, see [Building recommender systems with Azure Machine Learning service](https://azure.microsoft.com/blog/building-recommender-systems-with-azure-machine-learning-service).
 
 - For information about the solution components, see these resources:
 

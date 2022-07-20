@@ -78,7 +78,7 @@ Although Azure Machine Learning Compute can mount Standard tier Blob Storage usi
 
 ### Container Registry
 
-Whenever a Machine Learning workspace is provisioned, a set of dependent resources - Blob Storage, Key Vault, Container Registry, and Application Insights - is also provisioned. Alternatively, one may use existing Azure resources and associate them with the new Machine learning workspace during its creation.
+Whenever a Machine Learning workspace is provisioned, a set of dependent resources—Blob Storage, Key Vault, Container Registry, and Application Insights—is also provisioned. Alternatively, you can use existing Azure resources and associate them with the new Machine learning workspace during its creation.
 
 By default, Basic tier Container Registry is provisioned. For large-scale deep learning, we recommend that you customize your workspace to use Premium tier Container Registry as it offers significantly higher bandwidth that will allow you to quicker pull Docker images across nodes of your training cluster.
 
