@@ -5415,6 +5415,8 @@ items:
                 maintainContext: true
           - name: Architectures
             items:
+              - name: Azure DNS Private Resolver
+                href: example-scenario/networking/azure-dns-private-resolver.yml
               - name: High availability for IaaS apps
                 href: example-scenario/infrastructure/iaas-high-availability-disaster-recovery.yml
               - name: Hub-spoke network topology in Azure
