@@ -117,7 +117,7 @@ With the exponential growth in data, organizations rely on the limitless compute
 
 ## Choose an AI / machine learning service
 
-AI is the capability of a computer to imitate intelligent human behavior. Through AI, machines can analyze images, comprehend speech, interact in natural ways, and make predictions using data. Review these articles to learn about the AI and machine learning technology choices that are available on Azure:
+AI is the capability of a computer to imitate intelligent human behavior. Through AI, machines can analyze images, comprehend speech, interact in natural ways, and make predictions based on data. Review these articles to learn about the AI and machine learning technology choices that are available on Azure:
 
 |Article |Summary  |
 |---------|---------|
