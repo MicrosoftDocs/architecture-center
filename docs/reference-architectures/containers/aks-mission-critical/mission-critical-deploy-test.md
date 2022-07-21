@@ -16,6 +16,8 @@ products:
   - azure-devops
 ---
 
+# Deployment and test for mission-critical workloads on Azure
+
 The deployment and testing of the mission critical environment is a crucial piece of the overall reference architecture. The individual application stamps are deployed using infrastructure as code from a source code repository. Updates to the infrastructure, as well as the application on top, should be deployed with zero downtime to the application. A DevOps continuous integration pipeline is recommended to retrieve the source code from the repository and deploy the individual stamps in Azure.
 
 Deployment and updates are the central process in the architecture. Infrastructure and application related updates should be deployed to fully independent stamps. Only the global infrastructure components in the architecture are shared across the stamps. Existing stamps in the infrastructure aren't touched. Infrastructure updates will only be deployed to these new stamps. Likewise, the new application version will only be deployed to these new stamps.
@@ -251,5 +253,3 @@ Two examples of failure injection tests performed against the reference architec
     | **Cosmos DB** | Removal of the existing firewall policy for a virtual network results in the Health Service to begin to fail with minimum lag. This only simulates a specific case, an entire Cosmos DB outage. Most failure cases that occur on a regional level should be mitigated automatically by transparent failover of the client to a different Cosmos DB region. The DNS-based failure injection testing described previously is a more meaningful test for Cosmos DB. |
     | **Container registry (ACR)** | When the access to ACR is blocked, the creation of new pods that have been pulled and cached previously on an AKS node will continue to work. The creation still works due to the **k8s** deployment flag **`pullPolicy=IfNotPresent`**. Nodes that haven't pulled and cached an image before the block can't spawn a new pod and fails immediately with **`ErrImagePull`** errors. **`kubectl describe pod`** displays the corresponding **`403 Forbidden`** message. |
     | **AKS ingress Load Balancer** | The alteration of the inbound rules for HTTP(S)(ports 80 and 443) in the AKS managed Network Security Group (NSG) to **Deny** results in user or health probe traffic fail to reach the cluster. The test of this failure is difficult to pinpoint the root cause, which was simulated as blockage between the network path of Front Door and a regional stamp. Front Door immediately detects this failure and takes the stamp out of rotation. |
-
-
