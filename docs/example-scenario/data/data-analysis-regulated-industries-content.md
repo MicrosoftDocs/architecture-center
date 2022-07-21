@@ -260,10 +260,10 @@ You can automatically deploy the Data Analytical Workspace by using the provided
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal author:
+Principal authors:
 
 * [Jiri Binko](https://cz.linkedin.com/in/jiribinko) | Principal Cloud Solution Architect
-* [DJ Dean](https://www.linkedin.com/in/deandaniel) | Principal Cloud Solution Architect
+* [DJ Dean](https://www.linkedin.com/in/deandaniel)  | Principal Cloud Solution Architect
 
 
 ## Next steps
