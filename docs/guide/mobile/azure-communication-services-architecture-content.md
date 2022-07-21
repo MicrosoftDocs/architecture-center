@@ -34,11 +34,13 @@ Communication Services clients present user access tokens to access the Azure ca
 
 :::image type="content" source="./media/architecture-identity.png" alt-text="Diagram that shows the user access token architecture." border="false":::
 
+*Download a [Visio file](https://arch-center.azureedge.net/azure-communication-services-architecture.vsdx) of this architecture.*
+
 ### Dataflow
 
 1. A user starts the client application.
 2. The client application contacts your identity management service. The identity management service maintains a mapping between your users and other addressable objects, like services or bots, to Communication Services identities.
-3. The identity management service [issues a user access token](/rest/api/communication/communicationidentity/communication-identity/issue-access-token) for the applicable identity.
+3. The identity management service uses the mapping to [issue a user access token](/rest/api/communication/communicationidentity/communication-identity/issue-access-token) for the applicable identity.
 
 Azure App Service or Azure Functions are straightforward options for operating the identity management service. These services scale easily and have built-in features to [authenticate](/azure/app-service/overview-authentication-authorization) users. They're integrated with [OpenID](/azure/app-service/configure-authentication-provider-openid-connect) and third-party identity providers like [Facebook](/azure/app-service/configure-authentication-provider-facebook).
 
@@ -53,6 +55,8 @@ Azure App Service or Azure Functions are straightforward options for operating t
 The simplest voice and video calling scenario involves a user calling another user in the foreground without push notifications. You can integrate Communication Services voice and video calling into web, native mobile, and Windows desktop apps. The [open-source UI Library](https://docs.microsoft.com/azure/communication-services/concepts/ui-library/ui-library-overview?pivots=platform-web) can help you accelerate development.
 
 :::image type="content" source="./media/call-without-notifications.png" alt-text="Diagram that shows Communication Services calling without push notifications." border="false":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/azure-communication-services-architecture.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -78,6 +82,8 @@ In some situations, you might want apps to accept calls in the background by usi
 You might want users to be able to join a call without an explicit invitation. Your app might have a persistent *social space* or *club* that includes a video calling channel, and users join that video call when they want to. This dataflow shows a call that's initially created by a client and allows a remote client to join without explicit invitation.
 
 :::image type="content" source="./media/call-join-client-driven.png" alt-text="Diagram that shows a call without an invitation." border="false":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/azure-communication-services-architecture.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -110,6 +116,8 @@ Communication Services applications can join Teams calls. For external users, th
 
 :::image type="content" source="./media/teams-driven-join.png" alt-text="Diagram showing Communication Services architecture for joining a Teams meeting." border="false":::
 
+*Download a [Visio file](https://arch-center.azureedge.net/azure-communication-services-architecture.vsdx) of this architecture.*
+
 ### Dataflow
 
 1. A. The communication controller service schedules the group call by using the [Graph API](/graph/api/resources/onlinemeeting?view=graph-rest-1.0&preserve-view=true). In another pattern, 1. B., users schedule the group call by using Outlook or Teams.
@@ -124,11 +132,30 @@ Communication Services applications can join Teams calls. For external users, th
 - **Concept:** [Teams interoperability](/azure/communication-services/concepts/teams-interop)
 - **Quickstart:** [Join a Teams meeting](/azure/communication-services/quickstarts/voice-video-calling/get-started-teams-interop)
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ - [Chris Palmer](https://www.linkedin.com/in/palmerchristopher) | Principal Group Product Manager
+
+Other contributors:
+
+ - [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
+ - Mick Bengtson | Content Developer
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [What is Communication Services?](/azure/communication-services/overview)
 - [Create a Communication Services resource](/azure/communication-services/quickstarts/create-communication-resource)
+- [Communication Services reference documentation](/azure/communication-services/concepts/reference)
+- [Learn module: Introduction to Azure Communication Services](/learn/modules/intro-azure-communication-services)
+- [Learn module: Create a voice calling web app with Azure Communication Services](/learn/modules/communication-services-voice-calling-web-app)
 
 ## Related resources
 
-- [Communication Services reference documentation](/azure/communication-services/concepts/reference)
+- [Governance of Microsoft Teams guest users](../../example-scenario/governance/governance-teams-guest-users.yml)
+- [Real-time presence with Microsoft 365, Azure, and Power Platform](../../solution-ideas/articles/presence-microsoft-365-power-platform.yml)
