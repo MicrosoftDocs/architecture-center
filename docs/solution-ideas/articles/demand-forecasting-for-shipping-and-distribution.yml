@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Solution Ideas
   description: Use historical demand data to train a demand forecasting model for shipping and distribution solutions on Microsoft AI Platform.
   author: EdPrice-MSFT
-  ms.author: edprice
+  ms.author: architectures
   ms.date: 05/24/2022
   ms.topic: conceptual
   ms.service: architecture-center

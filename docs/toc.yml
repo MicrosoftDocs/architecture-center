@@ -45,6 +45,8 @@ items:
             href: guide/design-principles/design-for-operations.md
           - name: Use managed services
             href: guide/design-principles/managed-services.md
+          - name: Use an identity service
+            href: guide/design-principles/identity.md
           - name: Use the best data store
             href: /azure/architecture/guide/design-principles/use-best-data-store
           - name: Design for evolution
@@ -1206,6 +1208,8 @@ items:
             items:
               - name: All healthcare architectures
                 href: /azure/architecture/browse/?terms=healthcare
+              - name: Analyze observational patient data by using OHDSI
+                href: example-scenario/digital-health/patient-data-ohdsi-omop-cdm.yml
               - name: Automate COVID-19 test forms
                 href: example-scenario/ai/form-recognizer-covid.yml 
               - name: Build a telehealth system with Azure
@@ -1635,8 +1639,6 @@ items:
                 href: solution-ideas/articles/anomaly-detector-process.yml
               - name: Batch integration in a factory
                 href: example-scenario/iot/batch-integration-azure-data-factory-digital-twins.yml
-              - name: Build a speech-to-text transcription pipeline
-                href: reference-architectures/ai/speech-to-text-transcription-pipeline.yml
               - name: Computer vision for manufacturing
                 href: reference-architectures/ai/end-to-end-smart-factory.yml
               - name: Condition monitoring
@@ -1713,8 +1715,6 @@ items:
             items:
               - name: All energy and environment architectures
                 href: /azure/architecture/browse/?terms=energy
-              - name: Deploy IBM Maximo Application Suite 
-                href: example-scenario/networking/deploy-ibm-maximo-application-suite.yml
               - name: Environmental monitoring
                 href: solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml
               - name: Geospatial data processing and analytics
@@ -2689,6 +2689,8 @@ items:
                 href: solution-ideas/articles/cognitive-search-with-skillsets.yml
               - name: Analyze browser information
                 href: example-scenario/ai/analyze-browser-info-for-security-insights.yml
+              - name: Analyze observational patient data by using OHDSI
+                href: example-scenario/digital-health/patient-data-ohdsi-omop-cdm.yml
               - name: Automate document processing
                 href: example-scenario/ai/automate-document-processing-azure-form-recognizer.yml
               - name: Automate COVID-19 test forms
@@ -2761,8 +2763,8 @@ items:
                 href: example-scenario/ai/scale-ai-and-machine-learning-in-regulated-industries.yml
               - name: Secure research for regulated data
                 href: example-scenario/ai/secure-compute-for-research.yml
-              - name: Speech to text conversion
-                href: reference-architectures/ai/speech-to-text-transcription-pipeline.yml
+              - name: Speech transcription pipeline
+                href: example-scenario/ai/speech-to-text-transcription-analytics.yml
               - name: Training Python models
                 href: reference-architectures/ai/training-python-models.yml
           - name: Solution ideas
@@ -2943,6 +2945,8 @@ items:
                 href: example-scenario/data/big-data-with-iot.yml
               - name: Long-term security logs in Data Explorer
                 href: example-scenario/security/security-log-retention-azure-data-explorer.yml
+              - name: Near real-time processing for lakehouse data
+                href: example-scenario/data/real-time-lakehouse-data-processing.yml
               - name: Partitioning in Event Hubs and Kafka
                 href: reference-architectures/event-hubs/partitioning-in-event-hubs-and-kafka.yml
               - name: Precision medicine pipeline with genomics
@@ -3122,6 +3126,8 @@ items:
                 href: example-scenario/infrastructure/video-rendering.yml
               - name: Computer-aided engineering
                 href: example-scenario/apps/hpc-saas.yml
+              - name: Deploy IBM Maximo Application Suite 
+                href: example-scenario/apps/deploy-ibm-maximo-application-suite.yml
               - name: Digital image modeling
                 href: example-scenario/infrastructure/image-modeling.yml
               - name: HPC cluster deployed in the cloud
@@ -4768,6 +4774,8 @@ items:
                     href: example-scenario/mainframe/micro-focus-server.yml
                   - name: Migrate AIX workloads with Skytap
                     href: example-scenario/mainframe/migrate-aix-workloads-to-azure-with-skytap.yml
+                  - name: Migrate HP-UX workloads
+                    href:  example-scenario/mainframe/hp-ux-stromasys-charon-par.yml
                   - name: Migrate IBM i series to Azure with Skytap
                     href: example-scenario/mainframe/migrate-ibm-i-series-to-azure-with-skytap.yml
                   - name: Refactor IBM z/OS mainframe CF
@@ -5407,8 +5415,8 @@ items:
                 maintainContext: true
           - name: Architectures
             items:
-              - name: Deploy IBM Maximo Application Suite 
-                href: example-scenario/networking/deploy-ibm-maximo-application-suite.yml
+              - name: Azure DNS Private Resolver
+                href: example-scenario/networking/azure-dns-private-resolver.yml
               - name: High availability for IaaS apps
                 href: example-scenario/infrastructure/iaas-high-availability-disaster-recovery.yml
               - name: Hub-spoke network topology in Azure
@@ -5427,6 +5435,8 @@ items:
                     href: hybrid/hybrid-perf-monitoring.yml
               - name: Implement a secure hybrid network
                 href: reference-architectures/dmz/secure-vnet-dmz.yml
+              - name: Implement an open-source jump server
+                href: example-scenario/infrastructure/apache-guacamole.yml
               - name: Interconnect with China using Virtual WAN
                 href: /azure/virtual-wan/interconnect-china
                 maintainContext: true
