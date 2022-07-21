@@ -52,6 +52,7 @@ Azure App Service or Azure Functions are straightforward options for operating t
 - **Sample:** [Build an identity management service using Azure Functions](https://github.com/Azure-Samples/communication-services-authentication-hero-nodejs)
 
 ## User calls an app or phone number
+
 The simplest voice and video calling scenario involves a user calling another user in the foreground without push notifications. You can integrate Communication Services voice and video calling into web, native mobile, and Windows desktop apps. The [open-source UI Library](https://docs.microsoft.com/azure/communication-services/concepts/ui-library/ui-library-overview?pivots=platform-web) can help you accelerate development.
 
 :::image type="content" source="./media/call-without-notifications.png" alt-text="Diagram that shows Communication Services calling without push notifications." border="false":::
