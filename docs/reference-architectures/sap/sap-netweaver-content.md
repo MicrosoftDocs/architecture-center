@@ -1,5 +1,7 @@
 <!-- cSpell:ignore lbrader netweaver jump-box jump-boxes ACLs HANA SWDs SMLG ABAP SAPGUI SAPGUIs SPOF WSFC ASCS MSEE Iperf SIOS sapmnt -->
 
+# Forewords
+
 This reference architecture shows a set of proven practices for running SAP NetWeaver in a Windows environment, on Azure, with high availability. The database is AnyDB, the SAP term for any supported database management system (DBMS) besides SAP HANA.
 
 ## Architecture
@@ -356,7 +358,7 @@ For more information, see the cost section in [Microsoft Azure Well-Architected 
 
 If your workload requires more memory and fewer CPUs, consider using one of the [constrained vCPU virtual machine](/azure/virtual-machines/constrained-vcpu) sizes to reduce software licensing costs that are per-vCPU.
 
-### Virtual machines
+### Virtual machines cost
 
 This architecture uses virtual machines for the application tier and the database tier. The SAP NetWeaver tier uses Windows virtual machines to run SAP services and applications. The database tier runs AnyDB as the database, like SQL Server, Oracle, or IBM DB2. Virtual machines are also used as jump boxes for management.
 

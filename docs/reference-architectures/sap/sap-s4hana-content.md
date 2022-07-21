@@ -1,5 +1,7 @@
 <!-- cSpell:ignore lbrader HANA Fiori -->
 
+# Forewords
+
 This reference architecture shows a set of proven practices for running S/4HANA and Suite on HANA in a high availability environment that supports disaster recovery on Azure. The Fiori information applies only to S/4HANA applications.
 
 ![Reference architecture for SAP S/4HANA for Linux virtual machines on Azure Avset](./images/s4-avset-afs-ppg.png)
@@ -313,7 +315,7 @@ Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs.
 
 For more information, see the cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
-### Virtual machines
+### Virtual machine cost
 
 This architecture uses virtual machines running Linux, for the application tier and database tier. SAP NetWeaver tier uses Windows virtual machines to run SAP services and applications. The database tier runs AnyDB as the database, such as Microsoft SQL Server, Oracle, or IBM DB2. Virtual machines are also used as jump boxes for management.
 
