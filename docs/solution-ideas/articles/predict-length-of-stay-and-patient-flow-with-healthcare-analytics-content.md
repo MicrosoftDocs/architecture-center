@@ -27,9 +27,9 @@ Being able to predict length of stay at the time of admission helps hospitals pr
 
 ## Next steps
 
-- Learn more about [SQL Server Machine Learning Services](/sql/machine-learning/sql-server-machine-learning-services).
-- Learn how to [Consume Azure Machine Learning models in Power BI](/power-bi/connect-data/service-aml-integrate).
-- Learn more about [Machine Learning](/azure/machine-learning/overview-what-is-azure-ml).
+- [What is SQL Server Machine Learning Services with Python and R?](/sql/machine-learning/sql-server-machine-learning-services)
+- [Tutorial: Consume Azure Machine Learning models in Power BI](/power-bi/connect-data/service-aml-integrate)
+- [What is Azure Machine Learning?](/azure/machine-learning/overview-what-is-azure-ml)
 
 ## Related resources
 
