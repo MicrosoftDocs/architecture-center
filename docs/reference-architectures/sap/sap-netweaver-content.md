@@ -6,13 +6,13 @@ This reference architecture shows a set of proven practices for running SAP NetW
 
 The first diagram shows SAP NetWeaver in a Windows environment in an availability set scenario. The architecture uses Azure NetApp Files for the shared files layer and a proximity placement group for improved performance:
 
-![Diagram that shows a reference architecture for SAP NetWeaver on Windows. The database is AnyDB on Azure VMs with availability sets.](./images/sap-netweaver-availability-set-proximity-placement-group-afs.jpg) 
+![Diagram that shows a reference architecture for SAP NetWeaver on Windows. The database is AnyDB on Azure VMs with availability sets.](./images/sap-netweaver-avset-afs-ppg.png)
 
 _Download a [Visio file](https://arch-center.azureedge.net/sap-netweaver-AVSet-Netapp-PPG.vsdx) that shows this architecture._
 
 The second diagram shows SAP NetWeaver in a Windows environment. Availability Zones are used for improved resilience:
 
-![Diagram that shows a reference architecture for SAP NetWeaver on Windows. The database is AnyDB on Azure VMs with Availability Zones.](./images/sap-netweaver-availability-zones.jpg)
+![Diagram that shows a reference architecture for SAP NetWeaver on Windows. The database is AnyDB on Azure VMs with Availability Zones.](./images/sap-netweaver-avzones.png)
 
 _Download a [Visio file](https://arch-center.azureedge.net/sap-netweaver-AVZones.vsdx) that shows this architecture._
 
@@ -41,11 +41,15 @@ These following components annotate the workflow of this architecture:
 
 **Private DNS.** Azure Private DNS provides a reliable and secure DNS service for your virtual network. [Azure Private DNS](/azure/dns/private-dns-overview) manages and resolves domain names in the virtual network without the need to configure a custom DNS solution.
 
-**Load balancers.** Load balancers are used to distribute traffic to virtual machines in the application-tier subnet. For high availability, use the built-in SAP Web Dispatcher, [Azure Load Balancer](/azure/load-balancer/load-balancer-overview), or network appliances. Your choice depends on the traffic type (like HTTP or SAP GUI) or the required network services, like Secure Sockets Layer (SSL) termination.  When you incorporate Azure Load Balancer in a zonal deployment of SAP, make sure you select the Standard SKU load balancer because the Basic SKU balancer doesn't come with zone redundancy.
+**Load balancers.** Load balancers are used to distribute traffic to virtual machines in the application-tier subnet. For SAP application high availability, use the built-in SAP Web Dispatcher, [Azure Load Balancer](/azure/load-balancer/load-balancer-overview), or network appliances. Your choice depends on the traffic types (like HTTP or SAP GUI) or the required network services, like Secure Sockets Layer (SSL) termination.  When you incorporate Azure Load Balancer in a zonal deployment of SAP, make sure you select the Standard SKU load balancer because the Basic SKU balancer doesn't come with zone redundancy.
+
+For some internet facing inbound/outbound design examples, see [SAP internet, outbound, and inbound solution](/azure/architecture/reference-architectures/sap/sap-internet-inbound-outbound).
 
 The Standard LB supports multiple frontend virtual IPs which is ideal for the ASCS/ERS cluster implementation where both services can share one LB to simplify the solution.
 
 The Standard LB also supports multi-SID SAP clusters.  In other words, [multiple SAP systems on Windows](/azure/virtual-machines/workloads/sap/high-availability-guide) can share a common high availability infrastructure to save cost. We urge readers to evaluate the cost saving with the risk of placing too many systems in one cluster.  We support no more than 5 SIDs per cluster.
+
+**Application Gateway.** Azure Application Gateway is a web traffic load balancer that enables you to manage traffic to your web applications. Traditional load balancers operate at the transport layer (OSI layer 4 - TCP and UDP) and route traffic based on source IP address and port, to a destination IP address and port. Application Gateway can make routing decisions based on additional attributes of an HTTP request, for example URI path or host headers. This type of routing is known as application layer (OSI layer 7) load balancing.
 
 **Availability sets.** VMs for all pools and clusters (Web Dispatcher, SAP application servers, Central Services, and databases) are grouped into separate [availability sets](/azure/virtual-machines/windows/tutorial-availability-sets). At least two virtual machines are provisioned per role. Availability sets increase the availability of the applications and VMs. They do so through management of host system faults or maintenance events by distributing role instances onto multiple hosts. An alternative is to use [Availability Zones](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones) to improve workload availability, as described later in this article.
 
