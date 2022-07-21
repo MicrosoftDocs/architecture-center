@@ -32,7 +32,7 @@ The architecture consists of:
 
 ### Application solution
 
-[![Diagram showing user interfaces interacting with Azure Application Gateway and the cloud application components.](../media/iot-power-architecture.png)](../media/iot-power-architecture.png#lightbox)
+[![Diagram showing user interfaces interacting with Azure Application Gateway and the cloud application components.](../media/iot-power-architecture-new.png)](../media/iot-power-architecture.png#lightbox)
 
 #### Dataflow
 
@@ -46,7 +46,7 @@ The architecture consists of:
 
 The business intelligence part of the process includes the following data analysis and control loop:
 
-![Diagram showing an analytics loop that runs post-processed telemetry data through a trained AI model to control the device.](../media/iot-power-analytics.png)
+![Diagram showing an analytics loop that runs post-processed telemetry data through a trained AI model to control the device.](../media/iot-power-analytics-new.png)
 
 #### Dataflow
 
