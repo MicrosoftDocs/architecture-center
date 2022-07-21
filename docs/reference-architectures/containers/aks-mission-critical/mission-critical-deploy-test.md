@@ -16,9 +16,9 @@ products:
   - azure-devops
 ---
 
-The deployment and testing of the mission critical environment is a crucial piece of the overall reference architecture. The individual application stamps are deployed as infrastructure as code from a source code repository. Updates to the infrastructure should be deployed with zero downtime to the application. A DevOps continuous integration pipeline is recommended to retrieve the source code from the repository and deploy the individual stamps in Azure.
+The deployment and testing of the mission critical environment is a crucial piece of the overall reference architecture. The individual application stamps are deployed using infrastructure as code from a source code repository. Updates to the infrastructure, as well as the application on top, should be deployed with zero downtime to the application. A DevOps continuous integration pipeline is recommended to retrieve the source code from the repository and deploy the individual stamps in Azure.
 
-Deployment and updates are the central process in the architecture. Infrastructure and application related updates should be deployed to fully independent stamps. Only the global infrastructure components in the architecture are shared across the stamps. Existing stamps in the infrastructure aren't touched. The new application version will only be deployed to these new stamps. Infrastructure updates will only be deployed to these new stamps.
+Deployment and updates are the central process in the architecture. Infrastructure and application related updates should be deployed to fully independent stamps. Only the global infrastructure components in the architecture are shared across the stamps. Existing stamps in the infrastructure aren't touched. Infrastructure updates will only be deployed to these new stamps. Likewise, the new application version will only be deployed to these new stamps.
 
 The new stamps are added to Azure Front Door. Traffic is gradually moved over to the new stamps. When it's determined that traffic is served from the new stamps without issue, the previous stamps are deleted.
 
@@ -54,7 +54,7 @@ For more information about Azure Pipelines and Azure DevOps, see [What is Azure 
 
 ### Zero downtime updates
 
-The zero downtime and update strategy in the reference architecture is central to the overall mission critical application. The methodology of replace instead of upgrade of the stamps ensures a fresh installation of the application into a infrastructure stamp. The reference architecture utilizes a blue/green approach and allows for separate test and development environments.
+The zero-downtime update strategy in the reference architecture is central to the overall mission critical application. The methodology of replace instead of upgrade of the stamps ensures a fresh installation of the application into a infrastructure stamp. The reference architecture utilizes a blue/green approach and allows for separate test and development environments.
 
 There are two main components of the reference architecture:
 
@@ -154,25 +154,25 @@ As a part of the addition of the new release unit, the weights of the new backen
 
 #### Release unit teardown
 
-As part of the deployment pipeline for the a release unit, there is a destroy stage which removes all stamps once a release unit is no longer needed and all traffic has been moved to a new release version. This stage includes the removal of release unit references from Front Door. This is critical to enable the release of a new version at a later date. Front Door must point to a single release unit.
+As part of the deployment pipeline for the a release unit, there is a destroy stage which removes all stamps once a release unit is no longer needed and all traffic has been moved to a new release version. This stage includes the removal of release unit references from Front Door. This is critical to enable the release of a new version at a later date. Front Door must point to a single release unit in order to be prepared for the next release in the future.
 
 #### Checklists
 
-As part of the release cadence, a pre and post release checklist should be used. 
+As part of the release cadence, a pre and post release checklist should be used. The following is an example of the items that should be in any checklist at a minimum. 
 
 * **Pre-release checklist** - Before starting a release, check the following:
 
-    * Ensure the latest state of the **`main`** branch was successfully deployed to and tested in the **`int`** environment.
+    - Ensure the latest state of the **`main`** branch was successfully deployed to and tested in the **`int`** environment.
 
-    * Update the changelog file through a PR against the **`main`** branch.
+    - Update the changelog file through a PR against the **`main`** branch.
 
-    * Create a **`release/`** branch from the **`main`** branch.
+    - Create a **`release/`** branch from the **`main`** branch.
 
 * **Post-release checklist** - Before old stamps are destroyed and their references are removed from Front Door, check that:
 
-    * Clusters are no longer receiving incoming traffic.
+    - Clusters are no longer receiving incoming traffic.
 
-    * Event Hubs and other message queues don't contain any unprocessed messages.
+    - Event Hubs and other message queues don't contain any unprocessed messages.
 
 ### Limitations and risks of the update strategy
 
@@ -186,8 +186,70 @@ The update strategy described in this reference architecture has a some limitati
 
 ### Application data forward compatibility considerations
 
-The update strategy can support multiple version of an API and work components executing concurrently. Because Cosmos DB is shared between two or more versions, there is a possibility that data elements changed by one version might not always match the version of the API or working consuming it. The API layers and workers must implement forward compatibility design. Earlier versions of the API or worker components processes data that was inserted by a later API or worker component version. It ignores parts it doesn't understand.
+The update strategy can support multiple version of an API and work components executing concurrently. Because Cosmos DB is shared between two or more versions, there is a possibility that data elements changed by one version might not always match the version of the API or workers consuming it. The API layers and workers must implement forward compatibility design. Earlier versions of the API or worker components processes data that was inserted by a later API or worker component version. It ignores parts it doesn't understand.
 
 ## Testing implementation
 
-The reference implementation
+The reference architecture contains different tests used at different stages within the testing implementation. 
+
+These tests include:
+
+* **Unit tests** - These tests validate that the business logic of the application works as expected. The reference architecture contains a sample suite of unit tests executed automatically before every container build by Azure DevOps. If any test fails, the pipeline will stop and build and deployment won't proceed.
+
+* **Load tests** - These tests help to evaluate the capacity, scalability, and potential bottlenecks for a given workload or stack. The reference implementation contains a user load generator to create synthetic load patterns that can be used to simulate real traffic. The load generator can also be used independently of the reference implementation.
+
+* **Smoke tests** - These tests identify if the infrastructure and workload are available and act as expected. Smoke tests are executed as part of every deployment.
+
+* **UI tests** - These tests validate that the user interface was deployed and works as expected. The current implementation only captures screenshots of several pages after deployment without any actual testing.
+
+* **Failure injection tests** - These tests can be be automated or executed manually. Automated testing in the architecture integrates Azure Chaos Studio as part of the deployment pipelines.
+
+### Frameworks
+
+The online reference implementation existing testing capabilities and frameworks whenever possible.
+
+| Framework | Test | Description |
+| --------- | ---- | ----------- |
+| **NUnit** | Unit | This framework is used for unit testing the .NET Core portion of the implementation. Unit tests are executed automatically by Azure DevOps before container builds. |
+| **JMeter with Azure Load Test** | Load | [Azure Load Test](/azure/load-testing/overview-what-is-azure-load-testing) is a managed service used to execute [Apache JMeter](https://jmeter.apache.org/) load test definitions. |
+| **Locust** | Load | Locust is an open source load testing framework written in Python. |
+| **Playwright** | UI and Smoke | Playwright is an open source Node.js library to automate Chromium, Firefox and WebKit with a single API. The Playwright test definition can also be used independently of the reference implementation. |
+| **Azure Chaos Studio** | Failure injection | The reference implementation uses Azure Chaos Studio as an optional step in the E2E validation pipeline to inject failures for resiliency validation. |
+
+### Failure Injection testing and Chaos Engineering
+
+Distributed applications should be resilient to service and component outages. Failure Injection testing (also known as Fault Injection or Chaos Engineering) is the practice of subjecting applications and services to real-world stresses and failures.
+
+Resilience is a property of an entire system and injecting faults helps to find issues in the application. Addressing these issues helps to validate application resiliency to unreliable conditions, missing dependencies and other errors.
+
+Manual and automatic tests can be executed against the infrastructure to find faults and issues in the implementation.
+
+#### Automatic
+
+The reference architecture integrates [Azure Chaos Studio](/azure/chaos-studio/chaos-studio-overview) to deploy and run a set of Azure Chaos Studio experiments to inject various faults at the stamp level. Chaos experiments can be executed as an optional part of the E2E deployment pipeline. When the tests are executed, the optional load test is always executed in a parallel. The load test is used to create load on the cluster to validate the impact of the injected faults.
+
+#### Manual
+
+Manual failure injection testing should be done in an E2E validation environment. This environment ensures full representative tests without risk of interference from other environments. Most of the failures generated with the tests can be observed directly in the Application Insights [Live metrics](/azure/azure-monitor/app/live-stream) view. The remaining failures are available in the Failures view and corresponding log tables. Other failures require deeper debugging such as the use of **`kubectl`** to observe the behavior inside of AKS.
+
+Two examples of failure injection tests performed against the reference architecture are:
+
+* **DNS-based failure injection** - A test case that can simulate multiple issues. DNS resolution failures due to either the failure of a DNS server or Azure DNS. DNS based testing can help simulate general connections issues between a client and a service, for example when the **BackgroundProcessor** can't connect to the Event Hub.
+
+    In single-host scenarios you can modify the local **`hosts`** file to overwrite DNS resolution. In a larger environment with multiple dynamic servers like AKS, a **`hosts`** file isn't feasible. [Azure Private DNS Zones](/azure/dns/private-dns-privatednszone) can be used as an alternative to test failure scenarios.
+
+    Azure Event Hub and Azure Cosmos DB are two of the Azure services used within the reference implementation that can be used to inject DNS-based failures. Event Hub DNS resolution can be manipulated with a Azure Private DNS zone tied to the virtual network of one of the stamps. Cosmos DB is a globally replicated service with specific regional endpoints. Manipulation of the DNS records for those endpoints can simulate a failure for a specific region and test the failover of clients.
+
+* **Firewall blocking** - Most Azure services support firewall access restrictions based on virtual networks and/or IP addresses. In the reference infrastructure these restrictions are used to restrict access to Cosmos DB or Event Hub. A simple procedure is to remove existing **Allow** rules or adding new **Block** rules. This procedure can simulate firewall misconfigurations or service outages.
+
+    The following example services in the reference implementation can be tested with a firewall test:
+
+    | Service | Result |
+    | ------- | ------ |
+    | **Key Vault** | When access to Key Vault is blocked, the most direct impact was the failure of new pods to spawn. The Key Vault CSI driver that fetches secrets on pod startup can't perform it's tasks and prevents the pod from starting. Corresponding error messages can be observed with **`kubectl describe po CatalogService-deploy-my-new-pod -n workload`**. Existing pods will continue to work, although the same error message will be observed. The error message is generated by the results of the periodic update check for secrets. Though untested, it's assumed that executing a deployment won't work while Key Vault is inaccessible. Terraform and Azure CLI tasks within the pipeline run makes requests to Key Vault. |
+    | **Event Hub** | When access to Event Hub is blocked, new messages sent by the **CatalogService** and **HealthService** will fail. Retrieval of messages by the **BackgroundProcess** will slowly fail, with total failure within a few minutes. |
+    | **Cosmos DB** | Removal of the existing firewall policy for a virtual network results in the Health Service to begin to fail with minimum lag. This only simulates a specific case, an entire Cosmos DB outage. Most failure cases that occur on a regional level should be mitigated automatically by transparent failover of the client to a different Cosmos DB region. The DNS-based failure injection testing described previously is a more meaningful test for Cosmos DB. |
+    | **Container registry (ACR)** | When the access to ACR is blocked, the creation of new pods that have been pulled and cached previously on an AKS node will continue to work. The creation still works due to the **k8s** deployment flag **`pullPolicy=IfNotPresent`**. Nodes that haven't pulled and cached an image before the block can't spawn a new pod and fails immediately with **`ErrImagePull`** errors. **`kubectl describe pod`** displays the corresponding **`403 Forbidden`** message. |
+    | **AKS ingress Load Balancer** | The alteration of the inbound rules for HTTP(S)(ports 80 and 443) in the AKS managed Network Security Group (NSG) to **Deny** results in user or health probe traffic fail to reach the cluster. The test of this failure is difficult to pinpoint the root cause, which was simulated as blockage between the network path of Front Door and a regional stamp. Front Door immediately detects this failure and takes the stamp out of rotation. |
+
+
