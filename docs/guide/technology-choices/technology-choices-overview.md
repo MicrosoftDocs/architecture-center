@@ -50,7 +50,7 @@ There are many ways to build and deploy cloud-native and containerized applicati
 
 |Article |Summary  |
 |---------|---------|
-|[Compare Container Apps with other Azure container options](/azure/container-apps/compare-options)   |     Understand when to use Azure Container Apps and how it compares to other container options, including Azure Container Instances, Azure App Service, Azure Functions, and Azure Kubernetes Service.    |
+|[Compare Container Apps with other Azure container options](/azure/container-apps/compare-options?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)   |     Understand when to use Azure Container Apps and how it compares to other container options, including Azure Container Instances, Azure App Service, Azure Functions, and Azure Kubernetes Service (AKS).    |
 |[Choose a Kubernetes at the edge compute option](../../operator-guides/aks/choose-kubernetes-edge-compute-option.md)     |   Learn about the pros and cons of various options for extending compute at the edge.      |
 |[Choose a bare-metal Kubernetes at the edge platform option](../../operator-guides/aks/choose-bare-metal-kubernetes.yml)     |   Find the best option, given a specific use case, for configuring Kubernetes clusters at the edge.      |
 
@@ -72,8 +72,8 @@ Identity solutions help you protect your data and resources. These articles can 
 
 |Article |Summary  |
 |---------|---------|
-|[Active Directory services](/azure/active-directory-domain-services/compare-identity-solutions)     |    Compare the identity services provided by Active Directory Domain Services, Azure Active Directory (Azure AD), and Azure Active Directory Domain Services.     |
-|[Hybrid identity authentication methods](/azure/active-directory/hybrid/choose-ad-authn)     |   Choose an authentication method for an Azure AD hybrid identity solution in a medium-sized to large organization.      |
+|[Active Directory services](/azure/active-directory-domain-services/compare-identity-solutions?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)     |    Compare the identity services that are provided by Active Directory Domain Services, Azure Active Directory (Azure AD), and Azure Active Directory Domain Services.     |
+|[Hybrid identity authentication methods](/azure/active-directory/hybrid/choose-ad-authn?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)     |   Choose an authentication method for an Azure AD hybrid identity solution in a medium-sized to large organization.      |
 
 ## Choose a storage service
 
@@ -81,9 +81,9 @@ The Azure Storage platform is the Microsoft cloud storage solution for modern da
 
 |Article |Summary  |
 |---------|---------|
-|[Review your storage options](/azure/cloud-adoption-framework/ready/considerations/storage-options)     |     Review the storage options for Azure workloads.     |
-|[Azure managed disk types](/azure/virtual-machines/disks-types)     |   Learn about the disk types that are available for Azure virtual machines, including Ultra disks, Premium SSDs v2 (preview), Premium SSDs, Standard SSDs, and Standard HDDs.      |
-|[Choose an Azure solution for data transfer](/azure/storage/common/storage-choose-data-transfer-solution)     |     Choose an Azure solution for data transfer, based on the amount of data and the available network bandwidth in your environment.    |
+|[Review your storage options](/azure/cloud-adoption-framework/ready/considerations/storage-options?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)     |     Review the storage options for Azure workloads.     |
+|[Azure managed disk types](/azure/virtual-machines/disks-types?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)     |   Learn about the disk types that are available for Azure virtual machines, including Ultra disks, Premium SSDs v2 (preview), Premium SSDs, Standard SSDs, and Standard HDDs.      |
+|[Choose an Azure solution for data transfer](/azure/storage/common/storage-choose-data-transfer-solution?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)     |     Choose an Azure solution for data transfer, based on the amount of data and the available network bandwidth in your environment.    |
 
 ## Choose a data store
 
@@ -125,7 +125,7 @@ AI is the capability of a computer to imitate intelligent human behavior. Throug
 |[Natural language processing technology](../../data-guide/technology-choices/natural-language-processing.yml)     |     Choose a natural language processing service for sentiment analysis, topic and language detection, key phrase extraction, and document categorization.    |
 |[Compare machine learning products and technologies](../../data-guide/technology-choices/data-science-and-machine-learning.md)     |  Compare options for building, deploying, and managing your machine learning models. Decide which products to use for your solution.       |
 |[Azure Machine Learning guide for tool selection](../../example-scenario/mlops/aml-decision-tree.yml)     |     Choose the best services for building an end-to-end machine learning pipeline, from experimentation to deployment.    |
-|[MLflow and Azure Machine Learning](/azure/machine-learning/concept-mlflow)     |     Learn about how Azure Machine Learning uses MLflow to log metrics and artifacts from machine learning models and deploy your machine learning models to an endpoint.    |
+|[MLflow and Azure Machine Learning](/azure/machine-learning/concept-mlflow?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)     |     Learn about how Azure Machine Learning uses MLflow to log metrics and artifacts from machine learning models and deploy your machine learning models to an endpoint.    |
 
 ## Choose a networking service
 
@@ -142,7 +142,7 @@ Learn about the services that Azure provides to help you deliver events or messa
 
 |Article |Summary  |
 |---------|---------|
-|[Compare messaging services](/azure/event-grid/compare-messaging-services)     |     Learn about the three Azure messaging services: Azure Event Grid, Azure Event Hubs, and Azure Service Bus. Choose the best service for your scenario.    |
+|[Compare messaging services](/azure/event-grid/compare-messaging-services?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)     |     Learn about the three Azure messaging services: Azure Event Grid, Azure Event Hubs, and Azure Service Bus. Choose the best service for your scenario.    |
 |[Asynchronous messaging options](messaging.yml)     |     Learn about asynchronous messaging options in Azure, including the various types of messages and the entities that participate in a messaging infrastructure.    |
 |[Choose a real-time message ingestion technology](../../data-guide/technology-choices/real-time-ingestion.md)     |  Choose an Azure message ingestion store to support message buffering, scale-out processing, reliable delivery, and queuing semantics.       |
 
@@ -153,13 +153,13 @@ IoT solutions use a combination of technologies to connect devices, events, and 
 |Article |Summary  |
 |---------|---------|
 |[Choose an IoT solution](../../example-scenario/iot/iot-central-iot-hub-cheat-sheet.yml)     |  Use Azure IoT Central or individual Azure platform as a service (PaaS) components to build, deploy, and manage IoT solutions.       |
-|[Compare IoT Hub and Event Hubs](/azure/iot-hub/iot-hub-compare-event-hubs)     |     Review a comparison between Azure IoT Hub and Event Hubs that highlights functional differences and use cases. The comparison includes supported protocols, device management, monitoring, and file uploads.    |
+|[Compare IoT Hub and Event Hubs](/azure/iot-hub/iot-hub-compare-event-hubs?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)     |     Review a comparison between Azure IoT Hub and Event Hubs that highlights functional differences and use cases. The comparison includes supported protocols, device management, monitoring, and file uploads.    |
 
 ## Choose a mobile development framework
 
 |Article |Summary  |
 |---------|---------|
-|[Choose a mobile development framework](/azure/developer/mobile-apps/choose-mobile-framework)     |     Learn about the supported native and cross-platform languages for building client applications.    |
+|[Choose a mobile development framework](/azure/developer/mobile-apps/choose-mobile-framework?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)     |     Learn about the supported native and cross-platform languages for building client applications.    |
 
 ## Choose a mixed reality engine
 
