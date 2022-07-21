@@ -53,7 +53,7 @@ Node-affinity can help in the management of the workload across these options. S
 
 Minimum Troubleshooting Investigation
 1. 	Check Region Availability
-    * Use virtual nodes - [Azure Kubernetes Service | Microsoft Docs](./azure/aks/virtual-nodes.md)
+    * Use virtual nodes - [Azure Kubernetes Service | Microsoft Docs](/azure/aks/virtual-nodes.md)
 2. Check if a second subnet was created
     *	[Create virtual nodes using Azure CLI - Azure Kubernetes Service | Microsoft Docs](/azure/aks/virtual-nodes-cli.md)
 3. Use Azure Monitor
