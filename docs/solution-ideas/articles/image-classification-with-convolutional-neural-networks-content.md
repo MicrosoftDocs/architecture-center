@@ -38,6 +38,16 @@ The convolutional layer is the first layer of a convolutional network. These lay
 - [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) is a globally distributed, multi-model database. With Azure Cosmos DB, your solutions can elastically scale throughput and storage across any number of geographic regions.
 - [Azure Container Registry](https://azure.microsoft.com/services/container-registry) builds, stores, and manages container images and can store containerized machine learning models.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributor.*
+
+Principal author:
+
+- [Ashish Chauhan](https://www.linkedin.com/in/a69171115/) | Senior Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - To learn more about Blob Storage, see [Introduction to Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction).
