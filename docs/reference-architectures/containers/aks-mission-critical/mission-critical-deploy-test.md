@@ -4,7 +4,7 @@ description: Reference architecture for a workload that is accessed over a publi
 author: sebader
 categories: devops
 ms.author: allensu
-ms.date: 07/12/2022
+ms.date: 07/22/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: reference-architecture
