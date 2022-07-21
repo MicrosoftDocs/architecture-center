@@ -12,11 +12,11 @@ This example scenario covers the training, evaluation, and deployment of a machi
 
 Once the data is available, the following steps are executed to build and operationalize a recommendation system:
 
-1. The sets of distinct user and item data are pre-processed and joined, which results in a mixture of numeric and categorical features to be used for predicting user-item interactions (clicks). This table is uploaded to [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction). For demonstration purposes, the [Criteo display advertising challenge dataset](https://labs.criteo.com/2014/02/download-dataset/) is used. This dataset matches the described anonymized table because it contains a binary label for observed user clicks, 13 numerical features, and another 26 categorical features.
+1. The sets of distinct user and item data are pre-processed and joined, which results in a mixture of numeric and categorical features to be used for predicting user-item interactions (clicks). This table is uploaded to [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction). For demonstration purposes, the [Criteo display advertising challenge dataset](https://labs.criteo.com/2014/02/download-dataset) is used. This dataset matches the described anonymized table because it contains a binary label for observed user clicks, 13 numerical features, and another 26 categorical features.
 1. The [MMLSpark] library enables the training of a [LightGBM] classifier on [Azure Databricks] to predict the click probability as a function of the numeric and categorical features that were created in the previous step. LightBGM is a highly efficient machine learning algorithm, and MMLSpark enables the distributed training of LightGBM models over large datasets.
 1. The trained classifier is serialized and stored in the Azure Model Registry. With Azure Model Registry, you can store and organize different versions of the model (for example, based on newer data or different hyperparameters) within an Azure Machine Learning workspace.
 1. A serving script is defined using the [MML Spark Serving] library to provide predictions from the trained model.
-1. Machine Learning is used to create a Docker image in the [Azure Container Registry](/azure/container-registry/) that holds the image with the scoring script and all necessary dependencies for serving predictions.
+1. Machine Learning is used to create a Docker image in the [Azure Container Registry](/azure/container-registry) that holds the image with the scoring script and all necessary dependencies for serving predictions.
 1. Machine Learning is also used to provision the compute for serving predictions. A Kubernetes cluster is configured using [Azure Kubernetes Service](/azure/aks/intro-kubernetes) (AKS) with the number of nodes needed to handle expected load. The virtual machine size can be adjusted based on the model's computation and memory requirements.
 1. The scoring service is deployed as a web service on the AKS cluster. The service provides an endpoint where user and item features can be sent to receive the predicted probability of a click for that user and item.
 
@@ -53,7 +53,7 @@ Consider the points in the following sections when you use this solution.
 
 ### Scalability
 
-For training, you can scale [Azure Databricks] up or down based on the size of the data used and the compute necessary for model training. To scale, you can adjust the total number of cores or amount of memory available to the cluster. Just edit the number or type of [Virtual Machines](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) (VMs) used. The Criteo dataset contains 45.8 million rows in this example; it was trained in a few minutes on a cluster with 10 standard [L8s](/azure/virtual-machines/lsv2-series) VMs.
+For training, you can scale [Azure Databricks] up or down based on the size of the data used and the compute necessary for model training. To scale, you can adjust the total number of cores or amount of memory available to the cluster. Just edit the number or type of [Virtual Machines](https://azure.microsoft.com/pricing/details/virtual-machines/linux) (VMs) used. The Criteo dataset contains 45.8 million rows in this example; it was trained in a few minutes on a cluster with 10 standard [L8s](/azure/virtual-machines/lsv2-series) VMs.
 
 For deployment, you can scale the compute resources based on the expected load for the scoring service and latency requirements. The scoring service uses [MML Spark Serving] running separately on each node in the Kubernetes cluster. With this practice, you can seamlessly transfer the feature transformation and model prediction pipeline developed on [Azure Databricks] to the production side. The practice also removes the need to precompute scores for all possible user and item combinations, which might be difficult if you're using dynamic user features such as time of day.
 
@@ -69,7 +69,7 @@ This scenario can use Azure Active Directory (Azure AD) to authenticate users to
 
 ### Cost optimization
 
-To better understand the cost of running this scenario on Azure, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/). Good starting assumptions are:
+To better understand the cost of running this scenario on Azure, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator). Good starting assumptions are:
 
 - Training data is of the same scale as the example dataset used (45.8 million rows).
 - Training needs to happen daily to update the serving model.
