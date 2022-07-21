@@ -10,6 +10,8 @@ It's common to copy a profile to and from the network, when a user signs in and 
 
 ![Diagram showing the FSLogix conceptual architecture.](./images/fslogix-concept.png)
 
+*Download a [Visio file](https://arch-center.azureedge.net/windows-virtual-desktop-fslogix.vsdx) of this architecture.*
+
 The conceptual architecture diagram above shows how FSLogix works within the operating system:
 * The Windows Service agent needs to be installed in the VDI image.
 * Once the installation is completed, two filter drivers are injected into the operating system.
@@ -80,7 +82,9 @@ The following list describes some important things to keep in mind when using Az
 - With the FSLogix [ObjectSpecific](/fslogix/configure-per-user-per-group-ht) per-group setting, you can filter different Azure Files storage accounts to accommodate more users. The maximum limit of IOPs per storage account doesn't mean you cannot stack them. This applies to both personal and pooled host pool scenarios. The architecture diagram below explains it in more details.
 - You are able to use multiple storage accounts in one Azure virtual network (VNet). For example, you can assign different network shares to specific groups of users in your environment using AD groups.
 
-![Files scenario](./images/fslogix-files.png)
+:::image type="content" border="false" source="./images/fslogix-files.png" alt-text="Diagram showing Files scenario" lightbox="./images/fslogix-files.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/windows-virtual-desktop-fslogix.vsdx) of this architecture.*
 
 The table below shows you how you can further optimize your AVD environment. Detailed information of [Azure Files performance targets](/azure/storage/files/storage-files-scale-targets#file-share-and-file-scale-targets) (*Standard* and [Premium](/azure/storage/files/storage-files-planning#understanding-provisioning-for-premium-file-shares)) and [pricing](https://azure.microsoft.com/pricing/details/storage/files/) is available to help you fine-tune your file-share solution.
 
@@ -101,13 +105,17 @@ Currently, up to 1000 IP connections per active VNet are possible. These are the
 
 If the AVD Windows 10 Multi-session user per vCPU [recommendations](/windows-server/remote/remote-desktop-services/virtual-machine-recs) sizing for the D32as_v4 VM is calculated based on the light or medium workload, more than 120,000 users would fit within 1,000 virtual machines before approaching the 1,000 IP limit, as shown in the following figure.
 
-![NetApp Files pooled scenario](./images/fslogix-netapp-files-pooled.png)
+:::image type="content" border="false" source="./images/fslogix-netapp-files-pooled.png" alt-text="Diagram showing NetApp Files pooled scenario" lightbox="./images/fslogix-netapp-files-pooled.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/windows-virtual-desktop-fslogix.vsdx) of this architecture.*
 
 #### Personal scenarios
 
 Users are mapped to specific desktop pods. Each pod has just under 1,000 virtual machines, leaving room for IP addresses propagating from the management VNet. Azure NetApp Files can easily handle 900+ personal desktops per single-session host pool. The actual number of virtual machines is equal to 1,000 minus the number of management hosts found in the Hub VNet.
 
-![NetApp Files personal scenario](./images/fslogix-netapp-files-personal.png)
+:::image type="content" border="false" source="./images/fslogix-netapp-files-personal.png" alt-text="Diagram showing NetApp Files personal scenario" lightbox="./images/fslogix-netapp-files-personal.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/windows-virtual-desktop-fslogix.vsdx) of this architecture.*
 
 ## Storage permissions
 
