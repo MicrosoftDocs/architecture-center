@@ -38,15 +38,15 @@ The term *compute* refers to the hosting model for the computing resources that 
 
 |Article |Summary  |
 |---------|---------|
-|[Choose an Azure compute service](compute-decision-tree.yml)  | Decide which compute service, or hosting model for computing resources, best suits your application.        |
-|[High availability and disaster recovery scenarios for IaaS apps](../../example-scenario/infrastructure/iaas-high-availability-disaster-recovery.yml)  | Learn about high availability (HA) and disaster recovery (DR) options for multitier infrastructure as a service (IaaS) apps on Azure.        |
+|[Choose an Azure compute service](compute-decision-tree.yml)  | Decide which compute service best suits your application.        |
+|[High availability and disaster recovery scenarios for IaaS apps](../../example-scenario/infrastructure/iaas-high-availability-disaster-recovery.yml)  | Learn about high availability (HA) and disaster recovery (DR) options for multitier infrastructure as a service (IaaS) apps in Azure.        |
 |[Choose an Azure compute option for microservices](../../microservices/design/compute-options.md)|     Learn about two compute options for microservices: service orchestrator and serverless architecture.    |
 |[Choose between traditional web apps and SPAs](/dotnet/architecture/modern-web-apps-azure/choose-between-traditional-web-and-single-page-apps)  |  Learn how to choose between traditional web apps and single-page applications (SPAs).       |
 |[Choose an Azure multiparty computing service](multiparty-computing-service.yml)  |   Decide which multiparty computing services to use for your solution.      |
 
 ## Choose a container option
 
-There are many ways to build and deploy cloud native and containerized applications on Azure. Review these articles to learn more:
+There are many ways to build and deploy cloud-native and containerized applications in Azure. Review these articles to learn more:
 
 |Article |Summary  |
 |---------|---------|
@@ -77,12 +77,12 @@ Identity solutions help you protect your data and resources. These articles can 
 
 ## Choose a storage service
 
-The Azure Storage platform is the Microsoft cloud storage solution for modern data storage scenarios. Use these articles to determine the best solution for your use case:
+The Azure Storage platform is the Microsoft cloud storage solution for modern data storage scenarios. Review these articles to determine the best solution for your use case:
 
 |Article |Summary  |
 |---------|---------|
 |[Review your storage options](/azure/cloud-adoption-framework/ready/considerations/storage-options)     |     Review the storage options for Azure workloads.     |
-|[Azure managed disk types](/azure/virtual-machines/disks-types)     |   Learn about the disk types that are available for Azure virtual machines, including Ultra disks, Premium SSDs v2 (preview), Premium SSDs, standard SSDs, and Standard HDDs.      |
+|[Azure managed disk types](/azure/virtual-machines/disks-types)     |   Learn about the disk types that are available for Azure virtual machines, including Ultra disks, Premium SSDs v2 (preview), Premium SSDs, Standard SSDs, and Standard HDDs.      |
 |[Choose an Azure solution for data transfer](/azure/storage/common/storage-choose-data-transfer-solution)     |     Choose an Azure solution for data transfer, based on the amount of data and the available network bandwidth in your environment.    |
 
 ## Choose a data store
@@ -98,7 +98,7 @@ The cloud is changing the way applications are designed, including how data is p
 |[OLAP solutions](../../data-guide/relational-data/online-analytical-processing.yml)|Learn about online analytical processing (OLAP) solutions for organizing large databases and supporting complex analysis without affecting transactional systems.|
 |[OLTP solutions](../../data-guide/relational-data/online-transaction-processing.md)|Learn about atomicity, consistency, and other features of online transaction processing (OLTP), which manages transactional data and supports querying.|
 |[Data warehousing](../../data-guide/relational-data/data-warehousing.yml)|Learn about data warehousing in Azure. A data warehouse is a repository of integrated data from disparate sources that's used for reporting and analysis of the data.|
-|[Data lakes](../../data-guide/scenarios/data-lake.md)|Learn about data lake storage repositories, which can hold terabytes or petabytes of data in native, raw format.|
+|[Data lakes](../../data-guide/scenarios/data-lake.md)|Learn about data lake storage repositories, which can hold terabytes or petabytes of data in a native, raw format.|
 |[Non-relational data and NoSQL](../../data-guide/big-data/non-relational-data.yml)|Learn about non-relational databases that store data as key/value pairs, graphs, time series, objects, and other storage models.|
 |[Choose a data pipeline orchestration technology](../../data-guide/technology-choices/pipeline-orchestration-data-movement.md) |Choose an Azure data pipeline orchestration technology to automate pipeline orchestration, control flow, and data movement workflows.|
 |[Choose a search data store](../../data-guide/technology-choices/search-options.md)|Learn about the capabilities of search data stores in Azure and the key criteria for choosing one that best matches your needs.|
@@ -117,7 +117,7 @@ With the exponential growth in data, organizations rely on the limitless compute
 
 ## Choose an AI / machine learning service
 
-AI is the capability of a computer to imitate intelligent human behavior. Through AI, machines can analyze images, comprehend speech, interact in natural ways, and make predictions based on data. Review these articles to learn about the AI and machine learning technology choices that are available on Azure:
+AI is the capability of a computer to imitate intelligent human behavior. Through AI, machines can analyze images, comprehend speech, interact in natural ways, and make predictions based on data. Review these articles to learn about the AI and machine learning technology choices that are available in Azure:
 
 |Article |Summary  |
 |---------|---------|
