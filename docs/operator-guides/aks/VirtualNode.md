@@ -49,26 +49,26 @@ nodeSelector:
         effect: NoSchedule
 ```
 
-Node-affinity can help in the management of the workload across these options. See [Provide dedicated nodes using taints and tolerations](https://docs.microsoft.com/azure/aks/operator-best-practices-advanced-scheduler#provide-dedicated-nodes-using-taints-and-tolerations) for more details on how to use node-affinity.
+Node-affinity can help in the management of the workload across these options. See [Provide dedicated nodes using taints and tolerations](../../azure/aks/operator-best-practices-advanced-scheduler#provide-dedicated-nodes-using-taints-and-tolerations) for more details on how to use node-affinity.
 
 Minimum Troubleshooting Investigation
 1. 	Check Region Availability
-    * Use virtual nodes - [Azure Kubernetes Service | Microsoft Docs](https://docs.microsoft.com/azure/aks/virtual-nodes#regional-availability)
+    * Use virtual nodes - [Azure Kubernetes Service | Microsoft Docs](../../azure/aks/virtual-nodes.md)
 2. Check if a second subnet was created
-    *	[Create virtual nodes using Azure CLI - Azure Kubernetes Service | Microsoft Docs](https://docs.microsoft.com/azure/aks/virtual-nodes-cli#create-a-virtual-network)
+    *	[Create virtual nodes using Azure CLI - Azure Kubernetes Service | Microsoft Docs](/azure/aks/virtual-nodes-cli.md)
 3. Use Azure Monitor
-    * [Monitoring Azure Container Instances - Azure Container Instances | Microsoft Docs](https://docs.microsoft.com/azure/container-instances/monitor-azure-container-instances)
+    * [Monitoring Azure Container Instances - Azure Container Instances | Microsoft Docs](../../azure/container-instances/monitor-azure-container-instances.md)
 4. View Logging & Events
-    * [Collect & analyze resource logs - Azure Container Instances | Microsoft Docs](https://docs.microsoft.com/azure/container-instances/container-instances-log-analytics)
+    * [Collect & analyze resource logs - Azure Container Instances | Microsoft Docs](../../azure/container-instances/container-instances-log-analytics.md)
 
 
 ## Next steps
 
 This article focused on scaling clusters using Virtual Nodes. For more information about cluster operations in AKS, see the following best practices:
 
-* [Multi-tenancy and cluster isolation][aks-best-practices-scheduler]
-* [Basic Kubernetes scheduler features][aks-best-practices-scheduler]
-* [Authentication and authorization][aks-best-practices-identity]
+* [Multi-tenancy and cluster isolation][/azure/aks/aks-best-practices-scheduler]
+* [Basic Kubernetes scheduler features][/azure/aks/aks-best-practices-scheduler]
+* [Authentication and authorization][/azure/aks/aks-best-practices-identity]
 
 <!-- EXTERNAL LINKS -->
 [k8s-taints-tolerations]: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
@@ -77,8 +77,7 @@ This article focused on scaling clusters using Virtual Nodes. For more informati
 [k8s-pod-affinity]: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#always-co-located-in-the-same-node
 
 <!-- INTERNAL LINKS -->
-[aks-best-practices-scheduler]: operator-best-practices-scheduler.md
-[aks-best-practices-cluster-isolation]: operator-best-practices-cluster-isolation.md
-[aks-best-practices-identity]: operator-best-practices-identity.md
-[use-multiple-node-pools]: use-multiple-node-pools.md
-[taint-node-pool]: use-multiple-node-pools.md#specify-a-taint-label-or-tag-for-a-node-pool
+[resource-limits]: developer-best-practices-resource-management.md#define-pod-resource-requests-and-limits
+[aks-best-practices-cluster-isolation]: /azure/aks/operator-best-practices-cluster-isolation.md
+[aks-best-practices-advanced-scheduler]: /azure/aks/operator-best-practices-advanced-scheduler.md
+[aks-best-practices-identity]: /azure/aks/operator-best-practices-identity.md
