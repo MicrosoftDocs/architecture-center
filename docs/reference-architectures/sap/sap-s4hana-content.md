@@ -370,7 +370,7 @@ To provide SAP-based monitoring of resources and service performance of the SAP 
 
 ### Security
 
-SAP has its own Users Management Engine (UME) to control role-based access and authorization within the SAP application and databases. For details, see [SAP HANA Security: An Overview](https://archive.sap.com/documents/docs/DOC-62943).
+SAP has its own Users Management Engine (UME) to control role-based access and authorization within the SAP application and databases. For details, see [SAP HANA Security: An Overview](https://www.tutorialspoint.com/sap_hana/sap_hana_security_overview.htm).
 
 For additional network security, consider implementing a [network DMZ](../../reference-architectures/dmz/secure-vnet-dmz.yml), which uses a network virtual appliance to create a firewall in front of the subnet for the Web Dispatcher and Fiori Front-End Server pools.
 

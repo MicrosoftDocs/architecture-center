@@ -234,7 +234,7 @@ You may wish to review the following [Azure example scenarios](/azure/architectu
 [sap-1736976]: https://launchpad.support.sap.com/#/notes/1736976
 [sap-2296290]: https://launchpad.support.sap.com/#/notes/2296290
 [sap-community]: https://www.sap.com/community.html
-[sap-security]: https://archive.sap.com/documents/docs/DOC-62943
+[sap-security]: https://www.tutorialspoint.com/sap_hana/sap_hana_security_overview.htm
 [scenarios]: /azure/virtual-machines/workloads/sap/hana-supported-scenario
 [scripts]: /azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery
 [s4hana]: ./sap-s4hana.yml
