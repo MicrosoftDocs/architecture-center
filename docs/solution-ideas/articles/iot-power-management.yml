@@ -21,6 +21,6 @@ products:
   - azure-machine-learning
   - azure-synapse-analytics
   - power-bi
-thumbnailUrl: /azure/architecture/browse/thumbs/iot-power-architecture.png
+thumbnailUrl: /azure/architecture/browse/thumbs/iot-power-architecture-thumbnail-new.png
 content: |
    [!include[](iot-power-management-content.md)]
