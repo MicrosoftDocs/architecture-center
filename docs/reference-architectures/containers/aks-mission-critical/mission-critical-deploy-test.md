@@ -52,7 +52,7 @@ An additional component in the design used for the deployment are build agents. 
 
 For more information about Azure Pipelines and Azure DevOps, see [What is Azure DevOps?](/azure/devops/user-guide/what-is-azure-devops).
 
-:::image type="content" source="./images/deployment-pipeline-prod.png" alt-text="Diagram of flowchart of Devops pipeline." lightbox="./images/deployment-pipeline-prod.png":::
+:::image type="content" source="./images/deployment-pipeline-prod.png" alt-text="Diagram of flowchart of Devops pipeline." lightbox="./images/deployment-pipeline-prod-big.png":::
 
 ### Zero downtime updates
 
