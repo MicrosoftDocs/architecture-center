@@ -3,7 +3,7 @@ title: Technology choices for Azure solutions
 description: View a list of resources that can help you make informed decisions about the technologies you choose for your Azure solutions.
 author: EdPrice-MSFT
 ms.author: edprice
-ms.date: 07/21/2022
+ms.date: 07/22/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
