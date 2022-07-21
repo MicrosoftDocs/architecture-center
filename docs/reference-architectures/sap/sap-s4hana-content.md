@@ -37,7 +37,7 @@ The Standard LB supports multiple frontend virtual IPs which is ideal for the AS
 
 The Standard LB also supports multi-SID SAP clusters.  In other words, multiple SAP systems on [SLES](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid) or [RHEL](/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-multi-sid) can share a common high availability infrastructure to save cost. We urge readers to evaluate the cost saving with the risk of placing too many systems in one cluster.  We support no more than 5 SIDs per cluster.
 
-**Application Gateway.** Azure Application Gateway is a web traffic load balancer that enables you to manage traffic to your web applications. Traditional load balancers operate at the transport layer (OSI layer 4 - TCP and UDP) and route traffic based on source IP address and port, to a destination IP address and port. Application Gateway can make routing decisions based on additional attributes of an HTTP request, for example URI path or host headers. This type of routing is known as application layer (OSI layer 7) load balancing.  S/4HANA offers web application services through Fiori.  This Fiori frontend (web apps) can be load balanced using the Azure Application Gateway.
+**Application Gateway.** Azure Application Gateway is a web traffic load balancer that enables you to manage traffic to your web applications. Traditional load balancers operate at the transport layer (OSI layer 4 - TCP and UDP) and route traffic based on source IP address and port, to a destination IP address and port. Application Gateway can make routing decisions based on additional attributes of an HTTP request, for example URI path or host headers. This type of routing is known as application layer (OSI layer 7) load balancing.  S/4HANA offers web application services through Fiori.  This Fiori frontend (web apps) can be load balanced using the Azure Application Gateway.  
 
 **Availability sets.** Virtual machines for all pools and clusters (Web Dispatcher, SAP application servers, Central Services, and HANA) are grouped into separate [availability sets](/azure/virtual-machines/windows/tutorial-availability-sets), and at least two virtual machines are provisioned per role. Availability sets increase the availability of applications and virtual machines through management of hosts system faults or maintenance events by distributing role instances onto multiple hosts. An alternative is to use [Availability Zones](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones) to improve workload availability as described later in this article.
 
@@ -81,7 +81,7 @@ This architecture addresses broad base requirements and assumes that the Embedde
 If you use the FES hub deployment, the FES is an add-on component to the classic SAP NetWeaver ABAP stack. Set up high availability in the same way you protect a three-tier ABAP application stack with clustered or multi-host capability-with a standby server database layer, clustered ASCS layer with high availability NFS for shared storage, and at least two application servers. Traffic is load-balanced via a pair of either clustered or parallel Web Dispatchers. For internet facing Fiori apps a [FES hub deployment](https://blogs.sap.com/2017/12/15/considerations-and-recommendations-for-internet-facing-fiori-apps/) in DMZ would be recommended. Use [Azure Application Gateway/WAF](/azure/application-gateway/) as a critical component to defense traffic with [Azure AD with SAML](/azure/active-directory/saas-apps/sap-netweaver-tutorial) for user authentication and SSO for [SAP Fiori](/azure/active-directory/saas-apps/sap-fiori-tutorial).
 ![Reference architecture for SAP Fiori](./images/fiori.png)
 
-For more information on [SAP internet, outbound, and inbound solution](docs/reference-architectures/sap/sap-internet-inbound-outbound-content.md), refer to the linked document.
+For more information on [SAP internet, outbound, and inbound solution](/azure/architecture/reference-architectures/sap/sap-internet-inbound-outbound), refer to the linked document.
 
 ### Application servers pool
 
@@ -261,8 +261,7 @@ The two-node clusters for Central Services and the database are stretched across
 
 **Active/active deployment example**
 
-In an
-[active/active](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones#activeactive-deployment) deployment, two sets of application servers are built across two zones. Within each zone, two in each set of application servers are inactive (shut down). As a result, there are active application servers in both zones in normal operations.
+In an [active/active](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones#activeactive-deployment) deployment, two sets of application servers are built across two zones. Within each zone, two in each set of application servers are inactive (shut down). As a result, there are active application servers in both zones in normal operations.
 
 The ASCS and database services run in zone 1. The application servers in zone 2 may have longer network latency when connecting to the ASCS and database services due to the physical distance between zones.
 

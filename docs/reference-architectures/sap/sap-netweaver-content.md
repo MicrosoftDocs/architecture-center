@@ -19,7 +19,7 @@ _Download a [Visio file](https://arch-center.azureedge.net/sap-netweaver-AVZones
 > [!NOTE]
 > To deploy this reference architecture, you need appropriate licensing of SAP products and other non-Microsoft technologies.
 
-This reference architecture describes a production system. It's deployed with specific virtual machine (VM) sizes that can be changed to accommodate your organization's needs. It can be reduced to a single VM. The network layout is greatly simplified to demonstrate the architectural principals. It's not intended to describe a full enterprise network.
+This reference architecture document describes a production system. It's deployed with specific virtual machine (VM) sizes that can be changed to accommodate your organization's needs. It can be reduced to a single VM. The network layout is greatly simplified to demonstrate the architectural principals. It's not intended to describe a full enterprise network.
 
 ### Workflow
 
