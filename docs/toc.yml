@@ -56,7 +56,7 @@ items:
       - name: Technology choices
         items:
           - name: Overview
-            href: guide/technology-choices/overview.md
+            href: guide/technology-choices/technology-choices-overview.md
           - name: Choose a compute service
             items:
               - name: Azure compute services
