@@ -1,5 +1,10 @@
+<<<<<<< HEAD
+=======
 <!-- Building a content recommendation system -->
+>>>>>>> 46612d5e391c15961ec836c9ef549bdac4462d8c
 
+<<<<<<< HEAD
+=======
 Recommendations are a key revenue driver for many businesses and are used in different kinds of industries, including retail, news, and media. With the availability of large amounts of data, you can now provide highly relevant recommendations using machine learning.
 
 There are three main types of recommendation systems in supervised learning techniques: collaborative filtering, content-based & the hybrid method approach.
@@ -81,3 +86,5 @@ Principal author:
 [Azure Synapse]: https://azure.microsoft.com/en-us/services/synapse-analytics/
 [LightGBM]: https://github.com/Microsoft/LightGBM
 [1]: https://azure.microsoft.com/support/legal/sla/summary
+
+>>>>>>> 46612d5e391c15961ec836c9ef549bdac4462d8c
