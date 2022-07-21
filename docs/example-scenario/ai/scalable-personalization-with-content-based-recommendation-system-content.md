@@ -1,6 +1,6 @@
 <!-- Building a content recommendation system -->
 
-Recommendations are a main revenue driver for many businesses and are used in different kinds of industries, including retail, news, and media. With the availability of large amounts of data, you can now provide highly relevant recommendations using machine learning.
+Recommendations are a key revenue driver for many businesses and are used in different kinds of industries, including retail, news, and media. With the availability of large amounts of data, you can now provide highly relevant recommendations using machine learning.
 
 There are three main types of recommendation systems in supervised learning techniques: collaborative filtering, content-based & the hybrid method approach.
 
