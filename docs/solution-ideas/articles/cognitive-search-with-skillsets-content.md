@@ -88,6 +88,7 @@ This example solution uses Azure Cognitive Search AI enrichment to extract meani
 Principal author:
 
  * [Carlos Alexandre Santos](https://www.linkedin.com/in/carlosafsantos) | Senior Specialized AI Cloud Solution Architect
+ * [Jose Contreras](https://www.linkedin.com/in/josedanielcontreras) | Principal Software Engineering Manager
 
 ## Next steps
 
