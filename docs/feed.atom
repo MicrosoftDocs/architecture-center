@@ -2,18 +2,66 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2022-07-11T14:01:37.691Z</updated>
+    <updated>2022-07-18T14:06:19.727Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://docs.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
     <entry>
-        <title type="html"><![CDATA[Deploy IBM Maximo Application Suite (MAS) on Azure]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/example-scenario/networking/deploy-ibm-maximo-application-suite</id>
-        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/networking/deploy-ibm-maximo-application-suite"/>
-        <updated>2022-07-08T21:27:51.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to run IBM Maximo Application Suite on Azure. See guidance for designing and implementing cloud solutions with MAS 8.5 and up that use Azure.]]></summary>
+        <title type="html"><![CDATA[Build a speech-to-text transcription pipeline to analyze recorded conversations]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/ai/speech-to-text-transcription-analytics</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/ai/speech-to-text-transcription-analytics"/>
+        <updated>2022-07-13T23:02:18.000Z</updated>
+        <summary type="html"><![CDATA[Build a pipeline to transcribe and analyze audio conversations by using the Azure Cognitive Services Speech and Language APIs.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Near real-time lakehouse data processing]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/data/real-time-lakehouse-data-processing</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/data/real-time-lakehouse-data-processing"/>
+        <updated>2022-07-14T22:24:14.000Z</updated>
+        <summary type="html"><![CDATA[Use Azure Event Hubs, Azure Synapse Analytics, and Azure Data Lake Storage to create an end-to-end, near real-time data lakehouse data processing solution.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Run HP-UX workloads in Azure with Stromasys Charon-PAR]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/mainframe/hp-ux-stromasys-charon-par</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/mainframe/hp-ux-stromasys-charon-par"/>
+        <updated>2022-07-14T21:50:29.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use a lift-and-shift approach to migrate an HP-UX workload to Azure. The architecture uses Charon-PAR emulator software.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Risk prediction models for surgeries]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/ai/risk-stratification-surgery</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/ai/risk-stratification-surgery"/>
+        <updated>2022-07-13T19:30:17.000Z</updated>
+        <summary type="html"><![CDATA[Enable a risk stratification model for surgeries.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure App Configuration considerations for multitenancy]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/multitenant/service/app-configuration</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/multitenant/service/app-configuration"/>
+        <updated>2022-07-12T10:07:06.000Z</updated>
+        <summary type="html"><![CDATA[This article describes the features of Azure App Configuration that are useful when working with multitenanted systems, and it provides links to guidance and examples.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Cache for Redis considerations for multitenancy]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/multitenant/service/cache-redis</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/multitenant/service/cache-redis"/>
+        <updated>2022-07-12T03:41:23.000Z</updated>
+        <summary type="html"><![CDATA[This article describes the features of Azure Cache for Redis that are useful when you work with multitenanted systems, and it provides links to guidance for how to use Azure Cache for Redis in a multitenant solution.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Real-time anomaly detection for conveyor belts]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/ai/real-time-anomaly-detection-conveyor-belt</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/ai/real-time-anomaly-detection-conveyor-belt"/>
+        <updated>2022-07-11T21:20:18.000Z</updated>
+        <summary type="html"><![CDATA[View a reference architecture that describes how to enable real-time anomaly detection for conveyor belts.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
@@ -79,6 +127,14 @@
         <updated>2022-07-01T16:16:39.000Z</updated>
         <summary type="html"><![CDATA[Reference architecture for a workload that is accessed over a public endpoint without additional dependencies to other company resources - App Platform.]]></summary>
         <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Big data analytics on confidential computing]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/confidential/data-analytics-containers-spark-kubernetes-azure-sql</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/confidential/data-analytics-containers-spark-kubernetes-azure-sql"/>
+        <updated>2022-07-11T21:21:39.000Z</updated>
+        <summary type="html"><![CDATA[Use confidential computing on Kubernetes to run big data analytics with Apache Spark inside confidential containers that are protected by Intel Software Guard Extensions with data from Azure Data Lake and Azure SQL Database.]]></summary>
+        <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Serverless apps using Cosmos DB]]></title>
@@ -3670,14 +3726,6 @@
         <link href="https://docs.microsoft.com/azure/architecture/hybrid/azure-update-mgmt"/>
         <updated>2022-04-25T22:28:33.000Z</updated>
         <summary type="html"><![CDATA[Learn how to design a hybrid update management solution to manage updates on both Microsoft Azure and on-premises Windows and Linux computers.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Build a speech-to-text transcription pipeline]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/ai/speech-to-text-transcription-pipeline</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/ai/speech-to-text-transcription-pipeline"/>
-        <updated>2022-04-25T22:28:33.000Z</updated>
-        <summary type="html"><![CDATA[Build an audio ingestion and speech-to-text transcription pipeline with Azure Cognitive Services. Speech recognition can be used for analyzing customer calls.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>

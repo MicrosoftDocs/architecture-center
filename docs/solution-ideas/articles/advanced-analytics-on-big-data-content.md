@@ -16,7 +16,7 @@ Organizations have the ability to access more data than ever before. Advanced an
 
 :::image type="content" source="../media/advanced-analytics-on-big-data.png" alt-text="Diagram of an advanced analytics architecture using Azure Synapse Analytics with Azure Data Lake Storage Gen2, Azure Analysis Services, Azure Cosmos DB, and Power BI." border="false":::
 
-*Download an [SVG file](../media/advanced-analytics-on-big-data.svg) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/advanced-analytics-on-big-data.vsdx) of this architecture.*
 
 ### Dataflow
 

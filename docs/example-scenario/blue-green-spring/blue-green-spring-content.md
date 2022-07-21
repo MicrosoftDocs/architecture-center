@@ -90,7 +90,7 @@ For information about getting extra security on your Azure Spring Apps service, 
 
 ### DevOps
 
-Automation of this setup via GitHub Action workflows increases DevOps productivity. One of the most useful features is the ability to quickly roll back changes that behave unexpectedly. Just reject the new deployment.
+Automation of this setup via GitHub Actions workflows increases DevOps productivity. One of the most useful features is the ability to quickly roll back changes that behave unexpectedly. Just reject the new deployment.
 
 Teams often manage multiple environments for the same application. It's typical to have several versions of an application deployed to different Azure Spring Apps services. The Git repository, which is the single source of truth, shows which versions of applications are currently deployed to a cluster.
 
