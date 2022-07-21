@@ -2356,6 +2356,11 @@
       "source_path": "docs/reference-architectures/hybrid-networking/vpn.yml",
       "redirect_url": "/azure/expressroute/expressroute-howto-coexist-resource-manager",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/ai/speech-to-text-transcription-pipeline.yml",
+      "redirect_url": "/azure/architecture/example-scenario/ai/speech-to-text-transcription-analytics",
+      "redirect_document_id": false
     }
   ]
 }
