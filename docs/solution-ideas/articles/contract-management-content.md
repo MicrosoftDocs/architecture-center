@@ -6,14 +6,14 @@ This architecture demonstrates how to use [knowledge mining](https://azure.micro
 
 ## Potential use cases
 
-Many companies create products for multiple sectors, as such the business opportunities with different vendors and buyers increases exponentially. Knowledge mining can help organizations to scour thousands of pages of sources to create a competitive bid. Minor details in the bidding process can make the difference between a healthy profit or lost opportunity on a project.
+Many companies create products for multiple sectors. Because these companies work with various vendors and buyers, their business opportunities increase exponentially. Knowledge mining can help organizations scour thousands of pages of sources to create a competitive bid. Minor details in the bidding process can make the difference between a healthy profit or lost opportunity on a project.
 
-Industries that rely on knowledge mining for contract management:
+Industries that rely on knowledge mining for contract management include:
 
-- Marketing
-- Retail
-- Logistics
-- Manufacturing
+- Marketing.
+- Retail.
+- Logistics.
+- Manufacturing.
 
 ## Architecture
 
@@ -49,11 +49,8 @@ The following key technologies are used to implement tools for technical content
 ## Next steps
 
 - To build an initial knowledge mining prototype with Azure Cognitive Search, use the [knowledge mining solution accelerator](/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining).
-
 - Build an Azure Cognitive Search [custom skill](/azure/search/cognitive-search-custom-skill-interface).
-
 - Explore the Microsoft Learning Path [knowledge mining with Azure Cognitive Search](/learn/paths/implement-knowledge-mining-azure-cognitive-search).
-
 - To learn more about the components in this solution, see these resources:
 
   - [Azure Cognitive Search documentation](/azure/search)

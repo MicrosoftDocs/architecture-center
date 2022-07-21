@@ -2,20 +2,20 @@
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This architecture describes how [knowledge mining](https://azure.microsoft.com/solutions/knowledge-mining) can be used for content research.
+This architecture describes how you can use [knowledge mining](https://azure.microsoft.com/solutions/knowledge-mining) for content research.
 
 ## Potential use cases
 
 When organizations task employees to review and research technical data, it can be tedious to read page after page of dense text. Knowledge mining helps employees quickly review these dense materials. In industries where bidding competition is fierce, or when the diagnosis of a problem must be quick or in near real-time, companies can use knowledge mining to avoid costly mistakes and gain faster insights during content research.
 
-Industries that rely on knowledge mining:
+Industries that rely on knowledge mining include:
 
-- Education
-- Marketing
-- Banking (finance)
-- Service providers
-- Retail
-- News and media
+- Education.
+- Marketing.
+- Banking (finance).
+- Service providers.
+- Retail.
+- News and media.
 
 ## Architecture
 
@@ -51,11 +51,8 @@ The following key technologies are used to implement tools for technical content
 ## Next steps
 
 - To build an initial knowledge mining prototype with Azure Cognitive Search, use the [knowledge mining solution accelerator](/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining).
-
 - Build and Azure Cognitive Search [custom skill](/azure/search/cognitive-search-custom-skill-interface).
-
 - Explore the Microsoft Learning Path [knowledge mining with Azure Cognitive Search](/learn/paths/implement-knowledge-mining-azure-cognitive-search).
-
 - To learn more about the components in this solution, see these resources:
 
   - [Azure Cognitive Search documentation](/azure/search)

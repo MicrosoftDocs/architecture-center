@@ -28,7 +28,7 @@ There are three steps in knowledge mining: ingest, enrich, and explore.
 
 ### Components
 
-Key technologies used to implement tools for technical content review and research:
+The following key technologies are used to implement tools for technical content review and research:
 
 - [Azure Cognitive Search](https://azure.microsoft.com/services/search) is a cloud search service that supplies infrastructure, APIs, and tools for searching. You can use Azure Cognitive Search to build search experiences over private, heterogeneous content in web, mobile, and enterprise applications.
 - [Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision) uses text recognition APIs to extract text from images. Computer Vision is part of [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services).
@@ -38,13 +38,9 @@ Key technologies used to implement tools for technical content review and resear
 ## Next steps
 
 - Read an architecture overview on [artificial intelligence (AI)](../../data-guide/big-data/ai-overview.md).
-
 - To build an initial knowledge mining prototype with Azure Cognitive Search, use the [knowledge mining solution accelerator](/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining).
-
 - Build an Azure Cognitive Search [custom skill](/azure/search/cognitive-search-custom-skill-interface).
-
 - Explore the Microsoft Learning Path [knowledge mining with Azure Cognitive Search](/learn/paths/implement-knowledge-mining-azure-cognitive-search).
-
 - To learn more about the components in this solution, see these resources:
 
   - [Azure Cognitive Search documentation](/azure/search)
