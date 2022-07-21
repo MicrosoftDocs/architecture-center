@@ -1,118 +1,168 @@
+---
+title: Technology choices for Azure solutions
+description: View a list of resources that can help you make informed decisions about the technologies you choose for your Azure solutions.
+author: EdPrice-MSFT
+ms.author: architectures
+ms.date: 07/21/2022
+ms.topic: conceptual
+ms.service: architecture-center
+ms.subservice: azure-guide
+products:
+  - azure-machine-learning
+  - azure-stack-hub
+  - azure-kubernetes-service
+  - azure-iot-hub
+  - azure-iot-central
+categories:
+  - ai-machine-learning
+  - containers
+  - compute
+  - hybrid
+  - identity
+  - storage
+  - databases
+  - analytics
+  - networking
+  - iot
+  - mobile
+ms.custom: fcp
+---
+
 # Technology choices for Azure solutions
 
-intro 
+This article provides a list of resources that you can use to make informed decisions about the technologies that you choose for your Azure solutions. Explore comparison matrices, flowcharts, and decision trees to ensure that you find the best matches for your scenario.
 
 ## Choose a compute service
 
-intros?
+The term *compute* refers to the hosting model for the computing resources that your application runs on. The following articles can help you choose the right technologies:
 
 |Article |Summary  |
 |---------|---------|
-|[Choose an Azure compute service](/azure/architecture/guide/technology-choices/compute-decision-tree)  | Decide which compute service, or hosting model for computing resources, best suits your application.        |
-|[High availability and disaster recovery scenarios for IaaS apps](/azure/architecture/example-scenario/infrastructure/iaas-high-availability-disaster-recovery)  | Learn about high-availability (HA) and disaster recovery (DR) options when deploying multitier infrastructure-as-a-service (IaaS) apps to Azure.        |
-|[Choose an Azure compute option for microservices](/azure/architecture/microservices/design/compute-options)|     Learn about service orchestrator and serverless architecture as compute options, or hosting models for the computing resources where your application runs.    |
-|[Choose between traditional web apps and single-page apps (SPAs)](/dotnet/architecture/modern-web-apps-azure/choose-between-traditional-web-and-single-page-apps)  |  Learn how to choose between traditional web apps and single page applications (SPAs) when building web applications.       |
-|[Choose an Azure multiparty computing service](/architecture/guide/technology-choices/multiparty-computing-service)  |   Use this chart and other information to decide which multiparty computing services to use for your solution.      |
+|[Choose an Azure compute service](compute-decision-tree.yml)  | Decide which compute service, or hosting model for computing resources, best suits your application.        |
+|[High availability and disaster recovery scenarios for IaaS apps](../../example-scenario/infrastructure/iaas-high-availability-disaster-recovery.yml)  | Learn about high availability (HA) and disaster recovery (DR) options for multitier infrastructure as a service (IaaS) apps on Azure.        |
+|[Choose an Azure compute option for microservices](../../microservices/design/compute-options.md)|     Learn about two compute options for microservices: service orchestrator and serverless architecture.    |
+|[Choose between traditional web apps and SPAs](/dotnet/architecture/modern-web-apps-azure/choose-between-traditional-web-and-single-page-apps)  |  Learn how to choose between traditional web apps and single-page applications (SPAs).       |
+|[Choose an Azure multiparty computing service](multiparty-computing-service.yml)  |   Decide which multiparty computing services to use for your solution.      |
 
-## Choose a container
+## Choose a container option
+
+There are many ways to build and deploy cloud native and containerized applications on Azure. Review these articles to learn more:
 
 |Article |Summary  |
 |---------|---------|
-|[Comparing Container Apps with other Azure container options](/azure/container-apps/compare-options)   |     Understand when to use Azure Container Apps and how it compares to other container options including Azure Container Instances, Azure App Service, Azure Functions, and Azure Kubernetes Service.    |
-|[Choose a Kubernetes at the edge compute option](/azure/architecture/operator-guides/aks/choose-kubernetes-edge-compute-option)     |   Learn about trade-offs for various options available for extending compute on the edge.      |
-|[Choose a bare-metal Kubernetes at the edge platform option](/azure/architecture/operator-guides/aks/choose-bare-metal-kubernetes)     |   Find the best option for your use case when configuring Kubernetes clusters at the edge.      |
+|[Compare Container Apps with other Azure container options](/azure/container-apps/compare-options)   |     Understand when to use Azure Container Apps and how it compares to other container options, including Azure Container Instances, Azure App Service, Azure Functions, and Azure Kubernetes Service.    |
+|[Choose a Kubernetes at the edge compute option](../../operator-guides/aks/choose-kubernetes-edge-compute-option.md)     |   Learn about the pros and cons of various options for extending compute at the edge.      |
+|[Choose a bare-metal Kubernetes at the edge platform option](../../operator-guides/aks/choose-bare-metal-kubernetes.yml)     |   Find the best option, given a specific use case, for configuring Kubernetes clusters at the edge.      |
 
 ## Choose a hybrid option
 
+Many organizations need a hybrid approach to analytics, automation, and services because their data is hosted both on-premises and in the cloud. The following articles can help you choose the best technologies for your scenario:
+
 |Article |Summary  |
 |---------|---------|
-|[Compare Azure Stack Hub to Azure](/azure-stack/user/azure-stack-considerations)     |    Understand the differences between Azure and Azure Stack Hub when using services and building apps.     |
-|[Compare Azure, Stack Hub, and Stack HCI](/azure-stack/operator/compare-azure-azure-stack)   |    Learn the differences between global Azure, Azure Stack Hub, and Azure Stack HCI.     |
-|[Compare Azure Stack HCI to Stack Hub](/azure-stack/hci/concepts/compare-azure-stack-hub)     |    Determine whether Azure Stack HCI or Azure Stack Hub is right for your organization.     |
-|[Compare Stack HCI to Windows Server](/azure-stack/hci/concepts/compare-windows-server)|     Determine whether Azure Stack HCI or Windows Server is right for your organization.    |
+|[Compare Azure Stack Hub to Azure](/azure-stack/user/azure-stack-considerations)     |    Learn the differences between Azure and Azure Stack Hub.     |
+|[Compare Azure, Azure Stack Hub, and Azure Stack HCI](/azure-stack/operator/compare-azure-azure-stack)   |    Learn the differences between Azure, Azure Stack Hub, and Azure Stack HCI.     |
+|[Compare Azure Stack HCI to Azure Stack Hub](/azure-stack/hci/concepts/compare-azure-stack-hub)     |    Determine whether Azure Stack HCI or Azure Stack Hub is right for your organization.     |
+|[Compare Azure Stack HCI to Windows Server](/azure-stack/hci/concepts/compare-windows-server)|     Determine whether Azure Stack HCI or Windows Server is right for your organization.    |
 |[Choose drives for Azure Stack HCI and Windows Server clusters](/azure-stack/hci/concepts/choose-drives)     |    Learn how to choose drives for Azure Stack HCI and Windows Server clusters to meet performance and capacity requirements.     |
 
 ## Choose an identity service
 
+Identity solutions help you protect your data and resources. These articles can help you choose an Azure identity service:
+
 |Article |Summary  |
 |---------|---------|
-|[Active Directory services](/azure/active-directory-domain-services/compare-identity-solutions)     |    Compare the different identity offerings for Active Directory Domain Services, Azure Active Directory, and Azure Active Directory Domain Services.     |
-|[Hybrid identity authentication methods](/azure/active-directory/hybrid/choose-ad-authn)     |   This guide helps CEOs, CIOs, CISOs, Chief Identity Architects, Enterprise Architects, and Security and IT decision makers responsible for choosing an authentication method for their Azure AD hybrid identity solution in medium to large organizations.      |
+|[Active Directory services](/azure/active-directory-domain-services/compare-identity-solutions)     |    Compare the identity services provided by Active Directory Domain Services, Azure Active Directory (Azure AD), and Azure Active Directory Domain Services.     |
+|[Hybrid identity authentication methods](/azure/active-directory/hybrid/choose-ad-authn)     |   Choose an authentication method for an Azure AD hybrid identity solution in a medium-sized to large organization.      |
 
 ## Choose a storage service
 
+The Azure Storage platform is the Microsoft cloud storage solution for modern data storage scenarios. Use these articles to determine the best solution for your use case:
+
 |Article |Summary  |
 |---------|---------|
-|[Review your storage options](/azure/cloud-adoption-framework/ready/considerations/storage-options)     |    Use the Cloud Adoption Framework for Azure to learn how to review your storage options for Azure workloads.     |
-|[Azure managed disk types](/azure/virtual-machines/disks-types)     |   Learn about the available Azure disk types for virtual machines, including ultra disks, Premium SSDs v2 (preview), Premium SSDs, standard SSDs, and Standard HDDs.      |
-|[Choose an Azure solution for data transfer](/azure/storage/common/storage-choose-data-transfer-solution)     |     Learn how to choose an Azure solution for data transfer based on data sizes and available network bandwidth in your environment.    |
+|[Review your storage options](/azure/cloud-adoption-framework/ready/considerations/storage-options)     |     Review the storage options for Azure workloads.     |
+|[Azure managed disk types](/azure/virtual-machines/disks-types)     |   Learn about the disk types that are available for Azure virtual machines, including Ultra disks, Premium SSDs v2 (preview), Premium SSDs, standard SSDs, and Standard HDDs.      |
+|[Choose an Azure solution for data transfer](/azure/storage/common/storage-choose-data-transfer-solution)     |     Choose an Azure solution for data transfer, based on the amount of data and the available network bandwidth in your environment.    |
 
 ## Choose a data store
 
+The cloud is changing the way applications are designed, including how data is processed and stored. These articles can help you choose a data solution:
+
 |Article |Summary  |
 |---------|---------|
-|[Understand data store models](/azure/architecture/guide/technology-choices/data-store-overview)     |   Learn about the high-level differences between the various data storage models found in Azure data services.      |
-|[Choose an Azure data store for your application](/azure/architecture/guide/technology-choices/data-store-decision-tree)    |     Select an Azure data store for your application. View a graphical representation of choosing your data store    |
-|[Criteria for choosing a data store](/azure/architecture/guide/technology-choices/data-store-considerations)|Explore general considerations when choosing your data store. Examine functional and non-functional requirements, management and cost, security, and DevOps.|
-|[Choose a big data storage technology in Azure](/azure/architecture/data-guide/technology-choices/data-storage)     |    Compare big data storage technology options in Azure, including key selection criteria and a capability matrix.     |
-|[OLAP solutions](/azure/architecture/data-guide/relational-data/online-analytical-processing)|Learn about online analytical processing (OLAP) solutions to organize large databases and support complex analysis without affecting transactional systems.|
-|[OLTP solutions](/azure/architecture/data-guide/relational-data/online-transaction-processing)|Learn about atomicity, consistency, and other features of online transaction processing (OLTP), which manages transactional data while supporting querying.|
-|[Data warehousing](/azure/architecture/data-guide/relational-data/data-warehousing)|Learn about data warehousing in Azure. A data warehouse is a repository of integrated data from disparate sources used for reporting and analysis of the data.|
-|[Data lakes](/azure/architecture/data-guide/scenarios/data-lake)|Learn about data lake storage repositories, which can hold terabytes and petabytes of data in native, raw format.|
-|[Non-relational data and NoSQL](/azure/architecture/data-guide/big-data/non-relational-data)|Learn about non-relational databases that store data as key/value pairs, graphs, time series, objects, and other storage models, based on data requirements.|
-|[Choose a data pipeline orchestration technology](/azure/architecture/data-guide/technology-choices/pipeline-orchestration-data-movement) |Choose an Azure data pipeline orchestration technology to automate pipeline orchestration, control flow, and data movement workflows.|
-|[Choose a search data store](/azure/architecture/data-guide/technology-choices/search-options)|Learn about the capabilities of search data stores in Azure and the key criteria for choosing one that best matches your needs.|
-|[Transfer data to and from Azure](/azure/architecture/data-guide/scenarios/data-transfer)|Learn about Azure data transfer options like Import/Export, Data Box, Data Factory, and command line and graphical interface tools.|
+|[Understand data store models](data-store-overview.md)     |   Learn about the high-level differences between the various data storage models in Azure data services.      |
+|[Choose an Azure data store for your application](data-store-decision-tree.md)    |    Use a flowchart to choose an Azure data store.    |
+|[Criteria for choosing a data store](data-store-considerations.md)|Review some general considerations for choosing a data store. |
+|[Choose a big data storage technology in Azure](../../data-guide/technology-choices/data-storage.md)     |    Compare big data storage options in Azure. View key selection criteria and a capability matrix.     |
+|[OLAP solutions](../../data-guide/relational-data/online-analytical-processing.yml)|Learn about online analytical processing (OLAP) solutions for organizing large databases and supporting complex analysis without affecting transactional systems.|
+|[OLTP solutions](../../data-guide/relational-data/online-transaction-processing.md)|Learn about atomicity, consistency, and other features of online transaction processing (OLTP), which manages transactional data and supports querying.|
+|[Data warehousing](../../data-guide/relational-data/data-warehousing.yml)|Learn about data warehousing in Azure. A data warehouse is a repository of integrated data from disparate sources that's used for reporting and analysis of the data.|
+|[Data lakes](../../data-guide/scenarios/data-lake.md)|Learn about data lake storage repositories, which can hold terabytes or petabytes of data in native, raw format.|
+|[Non-relational data and NoSQL](../../data-guide/big-data/non-relational-data.yml)|Learn about non-relational databases that store data as key/value pairs, graphs, time series, objects, and other storage models.|
+|[Choose a data pipeline orchestration technology](../../data-guide/technology-choices/pipeline-orchestration-data-movement.md) |Choose an Azure data pipeline orchestration technology to automate pipeline orchestration, control flow, and data movement workflows.|
+|[Choose a search data store](../../data-guide/technology-choices/search-options.md)|Learn about the capabilities of search data stores in Azure and the key criteria for choosing one that best matches your needs.|
+|[Transfer data to and from Azure](../../data-guide/scenarios/data-transfer.md)|Learn about Azure data transfer options like Azure Import/Export, Azure Data Box, Azure Data Factory, and command-line and graphical interface tools.|
 
 ## Choose an analytics solution
 
+With the exponential growth in data, organizations rely on the limitless compute, storage, and analytical power of Azure. Review these articles to learn about the available analytics solutions:
+
 |Article |Summary  |
 |---------|---------|
-|[Choose an analytical data store](/azure/architecture/data-guide/technology-choices/analytical-data-stores)     |      Evaluate analytical data store options for big data in Azure, including key selection criteria and a capability matrix.   |
-|[Choose a data analytics and reporting technology](/azure/architecture/data-guide/technology-choices/analysis-visualizations-reporting)     |  Evaluate big data analytics technology options for Azure, including key selection criteria and a capability matrix.       |
-|[Choose a batch processing technology](/azure/architecture/data-guide/technology-choices/batch-processing)     |    Compare technology choices for big data batch processing in Azure, including key selection criteria and a capability matrix.     |
-|[Choose a stream processing technology](/azure/architecture/data-guide/technology-choices/stream-processing)     |   Compare options for real-time message stream processing in Azure, with key selection criteria and a capability matrix.      |
+|[Choose an analytical data store](../../data-guide/technology-choices/analytical-data-stores.md)     |      Evaluate analytical data store options for big data in Azure.   |
+|[Choose a data analytics and reporting technology](../../data-guide/technology-choices/analysis-visualizations-reporting.md)     |  Evaluate big data analytics technology options for Azure.       |
+|[Choose a batch processing technology](../../data-guide/technology-choices/batch-processing.md)     |    Compare technology choices for big data batch processing in Azure.     |
+|[Choose a stream processing technology](../../data-guide/technology-choices/stream-processing.md)     |   Compare options for real-time message stream processing in Azure.      |
 
 ## Choose an AI / machine learning service
 
+AI is the capability of a computer to imitate intelligent human behavior. Through AI, machines can analyze images, comprehend speech, interact in natural ways, and make predictions using data. Review these articles to learn about the AI and machine learning technology choices that are available on Azure:
+
 |Article |Summary  |
 |---------|---------|
-|[Choose an Azure Cognitive Services technology](/azure/architecture/data-guide/technology-choices/cognitive-services)|     Learn about Microsoft cognitive services that you can use in artificial intelligence applications and data flows.    |
-|[Natural language processing technology](/azure/architecture/data-guide/technology-choices/natural-language-processing)     |     Choose a natural language processing service for sentiment analysis, topic and language detection, key phrase extraction, and document categorization.    |
-|[Compare machine learning products and technologies](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)     |  Compare options for building, deploying, and managing your machine learning models. Decide which products to choose for your solution.       |
-|[Azure Machine Learning guide for tool selection](/azure/architecture/example-scenario/mlops/aml-decision-tree)     |     Learn how to choose the best services for building an end-to-end machine learning pipeline from experimentation to deployment.    |
-|[MLflow and Azure Machine Learning](/azure/machine-learning/concept-mlflow)     |     Learn about how Azure Machine Learning uses MLflow to log metrics and artifacts from ML models, and deploy your ML models to an endpoint.    |
+|[Choose an Azure Cognitive Services technology](../../data-guide/technology-choices/cognitive-services.md)|     Learn about cognitive services that you can use in AI applications and data flows.    |
+|[Natural language processing technology](../../data-guide/technology-choices/natural-language-processing.yml)     |     Choose a natural language processing service for sentiment analysis, topic and language detection, key phrase extraction, and document categorization.    |
+|[Compare machine learning products and technologies](../../data-guide/technology-choices/data-science-and-machine-learning.md)     |  Compare options for building, deploying, and managing your machine learning models. Decide which products to use for your solution.       |
+|[Azure Machine Learning guide for tool selection](../../example-scenario/mlops/aml-decision-tree.yml)     |     Choose the best services for building an end-to-end machine learning pipeline, from experimentation to deployment.    |
+|[MLflow and Azure Machine Learning](/azure/machine-learning/concept-mlflow)     |     Learn about how Azure Machine Learning uses MLflow to log metrics and artifacts from machine learning models and deploy your machine learning models to an endpoint.    |
 
 ## Choose a networking service
 
+These articles can help you explore the networking technologies that are available in Azure:
+
 |Article |Summary  |
 |---------|---------|
-|[Load balancing options](/azure/architecture/guide/technology-choices/load-balancing-overview)     |    Learn about Azure load balancing services and how you can use them to distribute your workloads across multiple computing resources.     |
-|[Choose between virtual network peering and VPN gateways](/azure/architecture/reference-architectures/hybrid-networking/vnet-peering)     |   Review the differences between virtual network peering and VPN gateways, which are two ways to connect virtual networks in Azure.      |
+|[Load balancing options](load-balancing-overview.yml)     |    Learn about Azure load balancing services and how you can use them to distribute your workloads across multiple computing resources.     |
+|[Choose between virtual network peering and VPN gateways](../../reference-architectures/hybrid-networking/vnet-peering.yml)     |   Review the differences between virtual network peering and VPN gateways, which are two ways to connect virtual networks in Azure.      |
 
 ## Choose a messaging service
 
+Learn about the services that Azure provides to help you deliver events or messages throughout your solution:
+
 |Article |Summary  |
 |---------|---------|
-|[Compare messaging services](/azure/event-grid/compare-messaging-services)     |     Describes the three Azure messaging services - Azure Event Grid, Event Hubs, and Service Bus. Recommends which service to use for different scenarios.    |
-|[Asynchronous messaging options](/azure/architecture/guide/technology-choices/messaging)     |     Learn about asynchronous messaging options in Azure, including the different types of messages and the entities that participate in a messaging infrastructure.    |
-|[Choose a real-time message ingestion technology](/azure/architecture/data-guide/technology-choices/real-time-ingestion)     |  Choose an Azure message ingestion store to support message buffering, scale-out processing, reliable delivery, and queuing semantics.       |
+|[Compare messaging services](/azure/event-grid/compare-messaging-services)     |     Learn about the three Azure messaging services: Azure Event Grid, Azure Event Hubs, and Azure Service Bus. Choose the best service for your scenario.    |
+|[Asynchronous messaging options](messaging.yml)     |     Learn about asynchronous messaging options in Azure, including the various types of messages and the entities that participate in a messaging infrastructure.    |
+|[Choose a real-time message ingestion technology](../../data-guide/technology-choices/real-time-ingestion.md)     |  Choose an Azure message ingestion store to support message buffering, scale-out processing, reliable delivery, and queuing semantics.       |
 
 ## Choose an IoT option
 
+IoT solutions use a combination of technologies to connect devices, events, and actions through cloud applications. Review these articles to learn more about the IoT technology choices that Azure provides:
+
 |Article |Summary  |
 |---------|---------|
-|[Choose an IoT solution](/azure/architecture/example-scenario/iot/iot-central-iot-hub-cheat-sheet)     |  Use Azure IoT Central or individual Azure platform-as-a-service (PaaS) components to build, deploy, and manage internet-of-things (IoT) solutions.       |
-|[Compare IoT Hub and Event Hubs](/azure/iot-hub/iot-hub-compare-event-hubs)     |     A comparison of the IoT Hub and Event Hubs Azure services highlighting functional differences and use cases. The comparison includes supported protocols, device management, monitoring, and file uploads.    |
+|[Choose an IoT solution](../../example-scenario/iot/iot-central-iot-hub-cheat-sheet.yml)     |  Use Azure IoT Central or individual Azure platform as a service (PaaS) components to build, deploy, and manage IoT solutions.       |
+|[Compare IoT Hub and Event Hubs](/azure/iot-hub/iot-hub-compare-event-hubs)     |     Review a comparison between Azure IoT Hub and Event Hubs that highlights functional differences and use cases. The comparison includes supported protocols, device management, monitoring, and file uploads.    |
 
 ## Choose a mobile development framework
 
 |Article |Summary  |
 |---------|---------|
-|[Choose a mobile development framework](/azure/developer/mobile-apps/choose-mobile-framework)     |     Learn about the supported native and cross-platform languages to build client applications.    |
+|[Choose a mobile development framework](/azure/developer/mobile-apps/choose-mobile-framework)     |     Learn about the supported native and cross-platform languages for building client applications.    |
 
 ## Choose a mixed reality engine
 
 |Article |Summary  |
 |---------|---------|
-|[Choose a mixed reality engine](/windows/mixed-reality/develop/choosing-an-engine)     |     Get introduced to the engine choices available for Mixed Reality development for HoloLens and VR.    |
+|[Choose a mixed reality engine](/windows/mixed-reality/develop/choosing-an-engine)     |    Learn about the engine choices for mixed reality development for HoloLens and virtual reality.    |
