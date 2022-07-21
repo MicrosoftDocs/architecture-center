@@ -38,7 +38,7 @@ The deployment of the infrastructure in the reference architecture is dependent 
 
 * **Shared and dedicated resources** - Azure resources that are dedicated and shared to the stamps and overall infrastructure.
 
-    :::image type="content" source="./images/mission-critical-ref-flowchart.png" alt-text="Diagram of flowchart of deployment process.":::
+:::image type="content" source="./images/mission-critical-ref-flowchart.png" alt-text="Diagram of flowchart of deployment process.":::
 
 ### DevOps
 
