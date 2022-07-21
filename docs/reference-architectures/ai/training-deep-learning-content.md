@@ -10,7 +10,7 @@ A reference implementation for this architecture is available on [GitHub][github
 
 This architecture consists of the following services:
 
-**[Azure Machine Learning Compute][aml-compute]** plays the central role in this architecture by scaling resources up and down according to need. Azure ML Compute is a service that helps provision and manage clusters of VMs, schedule jobs, gather results, scale resources, and handle failures. It supports GPU-enabled VMs for deep learning workloads.
+**[Azure Machine Learning Compute][aml-compute]** plays the central role in this architecture by scaling resources up and down according to need. Azure Machine Learning Compute is a service that helps provision and manage clusters of VMs, schedule jobs, gather results, scale resources, and handle failures. It supports GPU-enabled VMs for deep learning workloads.
 
 **[Standard Blob Storage][azure-blob]** is used to store the logs and results. **[Premium Blob Storage][premium-storage]** is used to store the training data and is mounted in the nodes of the training cluster using [blobfuse][blobfuse]. The Premium tier of Blob Storage offers better performance than the Standard tier and is recommended for distributed training scenarios. When mounted using blobfuse, during first the epoch, the training data is downloaded to the local disks of the training cluster and cached. For every subsequent epoch, the data is read from the local disks, which is the most performant option.
 
@@ -24,13 +24,13 @@ This architecture consists of the following services:
 
 ## Scenario details
 
-**Scenario:** Classifying images is a widely applied technique in computer vision, often tackled by training a convolutional neural network (CNN). For particularly large models with large datasets, the training process can take weeks or months on a single GPU. In some situations, the models are so large that it is not possible to fit reasonable batch sizes onto the GPU. Using distributed training in these situations can shorten the training time.
+**Scenario:** Classifying images is a widely applied technique in computer vision, often tackled by training a convolutional neural network (CNN). For particularly large models with large datasets, the training process can take weeks or months on a single GPU. In some situations, the models are so large that it's not possible to fit reasonable batch sizes onto the GPU. Using distributed training in these situations can shorten the training time.
 
 In this specific scenario, a [ResNet50 CNN model][resnet] is trained using [Horovod][horovod] on the [ImageNet dataset][imagenet] and on synthetic data. The reference implementation shows how to accomplish this task using [TensorFlow][tensorflow].
 
 There are several ways to train a deep learning model in a distributed fashion, including data-parallel and model-parallel approaches based on synchronous or asynchronous updates. Currently the most common scenario is data-parallel training with synchronous updates. This approach is the easiest to implement and is sufficient for most use cases.
 
-In data-parallel distributed training with synchronous updates, the model is replicated across *n* hardware devices. A mini-batch of training samples is divided into *n* micro-batches. Each device performs the forward and backward passes for a micro-batch. When a device finishes the process, it shares the updates with the other devices. These values are used to calculate the updated weights of the entire mini-batch, and the weights are synchronized across the models. This scenario is covered in the associated [GitHub][github] repository.
+In data-parallel distributed training with synchronous updates, the model is replicated across *n* hardware devices. A mini-batch of training samples is divided into *n* micro-batches. Each device performs forward and backward passes for a micro-batch. When a device finishes the process, it shares the updates with the other devices. These values are used to calculate the updated weights of the entire mini-batch, and the weights are synchronized across the models. This scenario is covered in the associated [GitHub][github] repository.
 
 ![Data-parallel distributed training][1]
 
@@ -40,7 +40,7 @@ The steps for training are:
 
 1. Create scripts that will run on the cluster and train your model.
 2. Write training data to Blob Storage.
-3. Create a Machine Learning workspace. This will also create an instance of Container Registry to host your Docker images.
+3. Create a Machine Learning workspace. This step also creates an instance of Container Registry to host your Docker images.
 4. Create a Machine Learning GPU-enabled Cluster.
 5. Submit training jobs. For each job with unique dependencies, a new Docker image is built and pushed to your container registry. During execution, the appropriate Docker image runs and executes your script.
 6. All the results and logs are written to Blob Storage.
@@ -70,29 +70,32 @@ Each VM series shown in the previous table includes a configuration with InfiniB
 
 ### Storage
 
-When training deep learning models, an often-overlooked aspect is where the training data is stored. If the storage is too slow to keep up with the demands of the GPUs, training performance can degrade.
+When you train deep learning models, an often-overlooked aspect is where the training data is stored. If the storage is too slow to keep up with the demands of the GPUs, training performance can degrade.
 
-Azure Machine Learning Compute supports many storage options. For best performance it is advisable that you download the data locally to each node. However, this can be cumbersome, because all the nodes must download the data from Blob Storage, and with the ImageNet dataset, this can take a considerable amount of time. By default Azure ML mounts storage such that it caches the data locally. This means, in practice, that after the first epoch the data is read from local storage. This combined with Premium Blob Storage offers a good compromise between ease of use and performance.
+Azure Machine Learning Compute supports many storage options. For best performance, download the data locally to each node. However, this process can be cumbersome, because you have to download the data to each node from Blob Storage. With the ImageNet dataset, this process can take a considerable amount of time. By default, Machine Learning mounts storage such that it caches the data locally. As a result, in practice, after the first epoch, the data is read from local storage. Combined with Premium Blob Storage, this arrangement offers a good compromise between ease of use and performance.
 
-Although Azure Machine Learning Compute can mount Standard tier Blob Storage using the [blobfuse][blobfuse] adapter, we do not recommend using the Standard tier for distributed training as the performance typically is not good enough to handle the necessary throughput. Use Premium tier as storage for training data as shown in the architecture diagram above. You may also refer to the following [blog post][premium-storage-comparison] for throughput and latency comparison between the two tiers.
+Although Azure Machine Learning Compute can mount Standard tier Blob Storage using the [blobfuse][blobfuse] adapter, we don't recommend using the Standard tier for distributed training as the performance typically isn't good enough to handle the necessary throughput. Use Premium tier as storage for training data as shown in the architecture diagram above. You may also refer to the following [blog post][premium-storage-comparison] for throughput and latency comparison between the two tiers.
 
 ### Container Registry
 
-Whenever a Machine Learning workspace is provisioned, a set of dependent resources—Blob Storage, Key Vault, Container Registry, and Application Insights—is also provisioned. Alternatively, you can use existing Azure resources and associate them with the new Machine learning workspace during its creation.
+Whenever a Machine Learning workspace is provisioned, a set of dependent resources—Blob Storage, Key Vault, Container Registry, and Application Insights—is also provisioned. Alternatively, you can use existing Azure resources and associate them with the new Machine Learning workspace during its creation.
 
-By default, Basic tier Container Registry is provisioned. For large-scale deep learning, we recommend that you customize your workspace to use Premium tier Container Registry as it offers significantly higher bandwidth that will allow you to quicker pull Docker images across nodes of your training cluster.
+By default, Basic tier Container Registry is provisioned. For large-scale deep learning, we recommend that you customize your workspace to use Premium tier Container Registry. It offers significantly higher bandwidth that allows you to quickly pull Docker images across nodes of your training cluster.
 
 ### Scalability
 
-The scaling efficiency of distributed training is always less than 100 percent due to network overhead &mdash; syncing the entire model between devices becomes a bottleneck. Therefore, distributed training is most suited for large models that cannot be trained using a reasonable batch size on a single GPU, or for problems that cannot be addressed by distributing the model in a simple, parallel way.
+The scaling efficiency of distributed training is always less than 100 percent due to network overhead&mdash;syncing the entire model between devices becomes a bottleneck. Therefore, distributed training is best suited for:
 
-Distributed training is not recommended for running hyperparameter searches. The scaling efficiency affects performance and makes a distributed approach less efficient than training multiple model configurations separately.
+- Large models that can't be trained by using a reasonable batch size on a single GPU.
+- Problems that can't be addressed by distributing the model in a simple, parallel way.
 
-One way to increase scaling efficiency is to increase the batch size. That must be done carefully, however, because increasing the batch size without adjusting the other parameters can hurt the model's final performance.
+Distributed training isn't recommended for running hyperparameter searches. The scaling efficiency affects performance and makes a distributed approach less efficient than training multiple model configurations separately.
+
+One way to increase scaling efficiency is to increase the batch size. But make this adjustment carefully. Increasing the batch size without adjusting the other parameters can hurt the model's final performance.
 
 ### Data format
 
-With large datasets it is often advisable to use data formats such as [TFRecords][tfrecords] or [Petastorm][petastorm] that provide better I/O performance than multiple small image files.
+With large datasets, it's often advisable to use data formats such as [TFRecords][tfrecords] or [Petastorm][petastorm] that provide better I/O performance than multiple small image files.
 
 ### Security
 
@@ -102,21 +105,21 @@ In scenarios that use sensitive data, you should consider designating a Machine 
 
 #### Encrypt data at rest and in motion
 
-Encrypt sensitive data at rest &mdash; that is, in the blob storage. Each time data moves from one location to the other, use SSL to secure the data transfer. For more information, see the [Azure Storage security guide][security-guide].
+Encrypt sensitive data at rest&mdash;that is, in the blob storage. Each time data moves from one location to the other, use SSL to secure the data transfer. For more information, see the [Azure Storage security guide][security-guide].
 
 #### Secure data in a virtual network
 
-For production deployments, consider deploying the Machine Learning cluster into a subnet of a virtual network that you specify. This allows the compute nodes in the cluster to communicate securely with other virtual machines or with an on-premises network. You can also use [service or private endpoints][endpoints] for all associated resources to grant access from a virtual network.
+For production deployments, consider deploying the Machine Learning cluster into a subnet of a virtual network that you specify. With this setup, the compute nodes in the cluster can communicate securely with other virtual machines or with an on-premises network. You can also use [service or private endpoints][endpoints] for all associated resources to grant access from a virtual network.
 
 ### Monitoring
 
-While running your job, it is important to monitor the progress and make sure that things are working as expected. However, it can be a challenge to monitor across a cluster of active nodes.
+While running your job, it's important to monitor the progress and make sure that things are working as expected. However, it can be a challenge to monitor across a cluster of active nodes.
 
-Machine Learning offers many ways to [instrument your experiments][azureml-logging]. The stdout/stderr from your scripts are automatically logged. These logs are automatically synced to your workspace blob storage. You can either view these files through the Azure portal, or download or stream them using the Python SDK or Machine Learning CLI. If you log your experiments using Tensorboard, these logs are automatically synced and you can access them directly or use the Machine Learning SDK to stream them to a [Tensorboard session][azureml-tensorboard].
+Machine Learning offers many ways to [instrument your experiments][azureml-logging]. The stdout/stderr from your scripts are automatically logged. These logs are automatically synced to your workspace blob storage. You can either view these files through the Azure portal, or download or stream them using the Python SDK or Machine Learning CLI. If you log your experiments using Tensorboard, these logs are automatically synced. You can access them directly or use the Machine Learning SDK to stream them to a [Tensorboard session][azureml-tensorboard].
 
 ### Cost optimization
 
-Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs of running your deep learning workload. Here are [cost planning and management][costs] considerations specific to Azure ML. For more information, see the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
+Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs of running your deep learning workload. Here are [cost planning and management][costs] considerations specific to Machine Learning. For more information, see the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 
 #### Premium Blob Storage
 
@@ -128,9 +131,9 @@ Container Registry offers Basic, Standard and Premium. Choose a tier depending o
 
 #### Azure Machine Learning Compute
 
-In this architecture, Azure ML Compute is likely the main cost driver. The implementation needs a cluster of GPU compute nodes price of which is determined by their number and the selected VM size. For more information on the VM sizes that include GPUs, see [GPU-optimized virtual machine sizes][gpu-vm-sizes] and [Azure Virtual Machines Pricing][az-vm-pricing].
+In this architecture, Azure Machine Learning Compute is likely the main cost driver. The implementation needs a cluster of GPU compute nodes price of which is determined by their number and the selected VM size. For more information on the VM sizes that include GPUs, see [GPU-optimized virtual machine sizes][gpu-vm-sizes] and [Azure Virtual Machines Pricing][az-vm-pricing].
 
-Typically, deep learning workloads checkpoint progress after every (few) epoch(s) to limit the impact of unexpected interruptions to the training. This can be nicely paired with the ability to leverage low-priority VMs for Machine Learning compute clusters. Low-priority VMs use Azure's excess capacity at significantly reduced rates, however, they can be preempted if capacity demands increase.
+Typically, deep learning workloads checkpoint progress after every (few) epoch(s) to limit the impact of unexpected interruptions to the training. This practice can be nicely paired with the ability to use low-priority VMs for Machine Learning compute clusters. Low-priority VMs use Azure's excess capacity at significantly reduced rates, but they can be preempted if capacity demands increase.
 
 ## Deploy this scenario
 
@@ -140,7 +143,7 @@ The reference implementation of this architecture is available on [GitHub][githu
 
 - [Azure Machine Learning Cheat Sheet - distributed GPU training][distr-training]
 - [Azure Machine Learning - distributed training examples][distr-training-examples]
-- [What is Azure Machine Learning?](what-is-azure-machine-learning)
+- [What is Azure Machine Learning?][what-is-azure-machine-learning]
 - [Introduction to Container registries in Azure][introduction-to-container-registries-in-azure]
 - [Introduction to Azure Blob Storage][introduction-to-azure-blob-storage]
 - [Train compute-intensive models with Azure Machine Learning][train-compute-intensive-models-with-azure-machine-learning]

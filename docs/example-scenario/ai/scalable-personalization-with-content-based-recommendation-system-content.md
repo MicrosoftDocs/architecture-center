@@ -124,7 +124,7 @@ Principal author:
 
 - For information about the solution components, see these resources:
 
-  - [Introduction to Azure Blob storage](/azure/storage/blobs/storage-blobs-introduction)
+  - [Introduction to Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction)
   - [What is Azure Databricks?](/azure/databricks/scenarios/what-is-azure-databricks)
   - [Introduction to Container registries in Azure](/azure/container-registry/container-registry-intro)
   - [Azure Kubernetes Service](/azure/aks/intro-kubernetes)

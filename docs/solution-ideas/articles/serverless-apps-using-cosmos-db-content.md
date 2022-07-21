@@ -35,7 +35,7 @@ Microservices offer many benefits:
 - They fit well in a DevOps environment.
 - They decrease time to market by speeding up the software development lifecycle.
 
-An efficient way to implement microservices is to use a serverless technology. This solution uses Functions, which provides a serverless compute experience. The solution uses Azure Cosmos DB for data storage. Azure Cosmos DB offers a change feed that integrates with Functions.
+An efficient way to implement microservices is to use a serverless technology. This solution uses Functions, an Azure offering that provides a serverless compute experience. The solution uses Azure Cosmos DB for data storage. Azure Cosmos DB offers a change feed that integrates with Functions.
 
 ### Potential use cases
 
