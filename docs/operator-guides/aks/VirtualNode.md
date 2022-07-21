@@ -49,17 +49,17 @@ nodeSelector:
         effect: NoSchedule
 ```
 
-Node-affinity can help in the management of the workload across these options. See [Provide dedicated nodes using taints and tolerations](../../azure/aks/operator-best-practices-advanced-scheduler#provide-dedicated-nodes-using-taints-and-tolerations) for more details on how to use node-affinity.
+Node-affinity can help in the management of the workload across these options. See [Provide dedicated nodes using taints and tolerations](/azure/aks/operator-best-practices-advanced-scheduler#provide-dedicated-nodes-using-taints-and-tolerations) for more details on how to use node-affinity.
 
 Minimum Troubleshooting Investigation
 1. 	Check Region Availability
-    * Use virtual nodes - [Azure Kubernetes Service | Microsoft Docs](../../azure/aks/virtual-nodes.md)
+    * Use virtual nodes - [Azure Kubernetes Service | Microsoft Docs](./azure/aks/virtual-nodes.md)
 2. Check if a second subnet was created
     *	[Create virtual nodes using Azure CLI - Azure Kubernetes Service | Microsoft Docs](/azure/aks/virtual-nodes-cli.md)
 3. Use Azure Monitor
-    * [Monitoring Azure Container Instances - Azure Container Instances | Microsoft Docs](../../azure/container-instances/monitor-azure-container-instances.md)
+    * [Monitoring Azure Container Instances - Azure Container Instances | Microsoft Docs](/azure/container-instances/monitor-azure-container-instances.md)
 4. View Logging & Events
-    * [Collect & analyze resource logs - Azure Container Instances | Microsoft Docs](../../azure/container-instances/container-instances-log-analytics.md)
+    * [Collect & analyze resource logs - Azure Container Instances | Microsoft Docs](/azure/container-instances/container-instances-log-analytics.md)
 
 
 ## Next steps
