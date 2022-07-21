@@ -14,18 +14,18 @@ products:
 ms.custom:
   - e2e-aks
 ---
-# Analysing Virtual Nodes Issues deployed to AKS Cluster
+# Analyzing Virtual Nodes Issues deployed to AKS Cluster
 
-Applications deployed to a virtual node or configuration / availability of a Virtual Node service can face issues due to various reasons and in most cases Infrastructure deployment issues or config in Application deployment YAML can cause these issues. 
+Applications that are deployed on virtual nodes  can face issues due to some reasons which can be related to YAML definitions or related Configurations. 
 
 ## Common Issues
 1. Virtual Node not available in a certain region
-   * If VNET SKUs are not available for Azure Container Instances in a region, then Virtual Node will not be available
+   * If VNET SKUs aren't available for Azure Container Instances in a region, then Virtual Node won't be available
 2. Virtual Node  not showing up
    * Need a second subnet in the same VNET as the virtual nodes
 
 3. Daemon loses connection with control plane
-   * The easiest way to fix this is to trigger any nodepool activity, such as a scale up or scale down (one node is enough) or a nodepool upgrade (if available). This should bring your nodepool back to the ready state.
+   * The easiest way to fix this is to trigger any node pool activity, such as a scale up or scale down (one node is enough) or a node pool upgrade (if available). This should bring your node pool back to the ready state.
 
 **Note** If you have autoscaling enabled and you try to do a scale up/down operation using the CLI, you need to deactivate the autoscaling first and then do the scale up/down. You can restart the autoscaling after the process is complete.
 
@@ -33,7 +33,7 @@ Applications deployed to a virtual node or configuration / availability of a Vir
 
     * You must have a CNI enabled cluster & can't work on Kubenet at time of writing
 
-5. Deployment completed however workload gets scheduled on the agentpool node rather than virtual node
+5. Deployment completed however workload gets scheduled on the agent pool node rather than virtual node
 
     * The below snippet can be used to schedule to virtual node
 
@@ -49,7 +49,7 @@ nodeSelector:
         effect: NoSchedule
 ```
 
-Node-affinity can help in the management of the workload across these options. See [Provide dedicated nodes using taints and tolerations](/azure/aks/operator-best-practices-advanced-scheduler#provide-dedicated-nodes-using-taints-and-tolerations) for more details on how to use node-affinity.
+Node-affinity can help in the management of the workload across these options. For more information see [Provide dedicated nodes using taints and tolerations](/azure/aks/operator-best-practices-advanced-scheduler#provide-dedicated-nodes-using-taints-and-tolerations) for more details on how to use node-affinity.
 
 Minimum Troubleshooting Investigation
 1. 	Check Region Availability
@@ -64,7 +64,7 @@ Minimum Troubleshooting Investigation
 
 ## Next steps
 
-This article focused on scaling clusters using Virtual Nodes. For more information about cluster operations in AKS, see the following best practices:
+For more information see:
 
 * [Multi-tenancy and cluster isolation][/azure/aks/aks-best-practices-scheduler]
 * [Basic Kubernetes scheduler features][/azure/aks/aks-best-practices-scheduler]
