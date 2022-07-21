@@ -13,24 +13,26 @@ This solution is built on the Azure managed services: [Content Delivery Network]
 
 ### Dataflow
 
-* Stores large amounts of unstructured data that can be accessed from anywhere in the world via HTTP or HTTPS. You can use [Blob Storage](https://azure.microsoft.com/services/storage/blobs) to expose data publicly to the world, or to store application data privately.
-* [Azure Encoding](https://azure.microsoft.com/services/media-services/encoding): Encoding jobs are one of the most common processing operations in Media Services. You create encoding jobs to convert media files from one encoding to another.
-* [Azure streaming endpoint](https://azure.microsoft.com/services/media-services/live-on-demand): Represents a streaming service that can deliver content directly to a client player application, or to a content delivery network (CDN) for further distribution.
-* [Content Delivery Network](https://azure.microsoft.com/services/cdn): Provides secure, reliable content delivery with broad global reach and a rich feature set.
-* [Azure Media Player](https://azure.microsoft.com/services/media-services/media-player): Uses industry standards, such as HTML5 (MSE/EME) to provide an enriched adaptive streaming experience. Regardless of the playback technology used, developers have a unified JavaScript interface to access APIs.
-* [Azure Cognitive Search](https://azure.microsoft.com/services/search): Delegates search-as-a-service server and infrastructure management to Microsoft, leaving you with a ready-to-use service that you can populate with your data, and then use to add search to your web or mobile application.
-* [Web Apps](https://azure.microsoft.com/services/app-service/web): Hosts the website or web application.
-* [Azure Media Indexer](https://azure.microsoft.com/services/media-services/media-indexer): Enables you to make the content of your media files searchable and to generate a full-text transcript for closed-captioning and keywords. You can process one media file or multiple media files in a batch.
+* Stores large amounts of unstructured data that can be accessed from anywhere in the world via HTTP or HTTPS. You can use [Blob Storage](/azure/storage/blobs/storage-blobs-introduction) to expose data publicly to the world, or to store application data privately.
+* [Azure Encoding](/azure/media-services/latest/encode-concept): Encoding jobs are one of the most common processing operations in Media Services. You create encoding jobs to convert media files from one encoding to another.
+* [Azure streaming endpoint](/azure/media-services/latest/media-services-overview): Represents a streaming service that can deliver content directly to a client player application, or to a content delivery network (CDN) for further distribution.
+* [Content Delivery Network](/azure/frontdoor/front-door-overview): Provides secure, reliable content delivery with broad global reach and a rich feature set.
+* [Azure Media Player](/azure/media-services/latest/media-services-overview): Uses industry standards, such as HTML5 (MSE/EME) to provide an enriched adaptive streaming experience. Regardless of the playback technology used, developers have a unified JavaScript interface to access APIs.
+* [Azure Cognitive Search](/azure/search): Delegates search-as-a-service server and infrastructure management to Microsoft, leaving you with a ready-to-use service that you can populate with your data, and then use to add search to your web or mobile application.
+* [Web Apps](/azure/app-service/overview): Hosts the website or web application.
+* [Azure Media Indexer](/azure/media-services/previous/media-services-index-content): Enables you to make the content of your media files searchable and to generate a full-text transcript for closed-captioning and keywords. You can process one media file or multiple media files in a batch.
 
 ## Components
 
 * [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs)
 * [Azure Media Services](https://azure.microsoft.com/services/media-services)
+* [Live and on-demand streaming](https://azure.microsoft.com/services/media-services/live-on-demand)
 * [Azure Encoding](https://azure.microsoft.com/services/media-services/encoding)
 * [Azure Media Player](https://azure.microsoft.com/services/media-services/media-player)
 * [Azure Content Delivery Network](https://azure.microsoft.com/services/cdn)
 * [Azure Cognitive Search](https://azure.microsoft.com/services/search)
 * [Azure Web Apps](https://azure.microsoft.com/services/app-service/web)
+* [Azure Media Indexer](https://azure.microsoft.com/services/media-services/media-indexer)
 
 ## Next steps
 
@@ -38,7 +40,7 @@ This solution is built on the Azure managed services: [Content Delivery Network]
 * [How to encode an asset using Media Encoder](/azure/media-services/previous/media-services-dotnet-encode-with-media-encoder-standard)
 * [How to manage streaming endpoints](/azure/media-services/previous/media-services-streaming-endpoints-overview)
 * [Using Azure Content Delivery Network](/azure/cdn/cdn-create-new-endpoint)
-* Develop video player applications
+* [Develop video player applications](/azure/media-services/azure-media-player/azure-media-player-writing-plugins)
 * [Create an Azure Cognitive Search service](/azure/search/search-create-service-portal)
 * [Run Web Apps in the cloud](/azure/app-service/overview)
 * [Indexing media files](/azure/media-services/previous/media-services-index-content)
