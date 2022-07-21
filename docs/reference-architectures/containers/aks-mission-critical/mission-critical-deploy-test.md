@@ -2,9 +2,9 @@
 title: Deployment and test for mission-critical workloads on Azure
 description: Reference architecture for a workload that is accessed over a public endpoint without additional dependencies to other company resources - Deployment and test.
 author: sebader
-categories: networking
+categories: devops
 ms.author: allensu
-ms.date: 06/28/2022
+ms.date: 07/12/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: reference-architecture
@@ -36,6 +36,8 @@ The deployment of the infrastructure in the reference architecture is dependent 
 
 * **Shared and dedicated resources** - Azure resources that are dedicated and shared to the stamps and overall infrastructure.
 
+    :::image type="content" source="./images/mission-critical-ref-flowchart.png" alt-text="Diagram of flowchart of deployment process.":::
+
 ### DevOps
 
 The DevOps components provide the source code repository and CI/CD pipelines for deployment of the infrastructure and updates. Github and Azure Pipelines were chosen as the components.
@@ -47,6 +49,8 @@ The DevOps components provide the source code repository and CI/CD pipelines for
 An additional component in the design used for the deployment are build agents. Microsoft Hosted build agents are used as part of Azure Pipelines to deploy the infrastructure and updates. The use of Microsoft Hosted build agents removes the management burden for developers to maintain and update the build agent.
 
 For more information about Azure Pipelines and Azure DevOps, see [What is Azure DevOps?](/azure/devops/user-guide/what-is-azure-devops).
+
+:::image type="content" source="./images/deployment-pipeline-prod.png" alt-text="Diagram of flowchart of Devops pipeline.":::
 
 ### Zero downtime updates
 
@@ -184,8 +188,6 @@ The update strategy described in this reference architecture has a some limitati
 
 The update strategy can support multiple version of an API and work components executing concurrently. Because Cosmos DB is shared between two or more versions, there is a possibility that data elements changed by one version might not always match the version of the API or working consuming it. The API layers and workers must implement forward compatibility design. Earlier versions of the API or worker components processes data that was inserted by a later API or worker component version. It ignores parts it doesn't understand.
 
-## Failure injection testing
+## Testing implementation
 
-### DNS failure
-
-### Firewall block
+The reference implementation
