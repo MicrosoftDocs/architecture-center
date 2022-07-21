@@ -28,6 +28,8 @@ The solution consists of two processes:
 
 *Download a [Visio file][Visio version of golden image publishing process architecture diagram] of this architecture.*
 
+### Dataflow
+
 The golden image publishing process runs monthly and contains these steps:
 
 1. The process captures a base image from Azure Marketplace.
@@ -195,6 +197,14 @@ Unless you use a third-party service such as Ansible or Terraform, this approach
   - The cost of storing replicas.
   - Network egress charges for replicating images.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Yunus Emre Alpozen](https://www.linkedin.com/in/yemre) | Program Architect
+
 ## Next steps
 
 - [Azure landing zone][Azure landing zone]
@@ -219,15 +229,15 @@ Unless you use a third-party service such as Ansible or Terraform, this approach
 [Azure Policy Regulatory Compliance controls for Azure Virtual Machines]: /azure/virtual-machines/security-controls-policy
 [Azure Shared Image Galleries]: /azure/virtual-machines/shared-image-galleries#billing
 [Azure VM Image Builder - pricing]: https://azure.microsoft.com/pricing/details/image-builder
-[Bulkhead pattern]: ../../patterns/bulkhead.md
+[Bulkhead pattern]: ../../patterns/bulkhead.yml
 [A computer-aided engineering service]: ../apps/hpc-saas.yml#considerations
 [Control and audit your resources by using Azure Policy]: /learn/modules/build-cloud-governance-strategy-azure/6-control-audit-resources-azure-policy
 [Custom Script Extensions]: /azure/virtual-machines/extensions/custom-script-windows
-[Deployment Stamps pattern]: ../../patterns/deployment-stamp.md
+[Deployment Stamps pattern]: ../../patterns/deployment-stamp.yml
 [Designing resilient applications for Azure]: /azure/architecture/framework/resiliency/principles
 [DevSecOps in Azure]: ../../solution-ideas/articles/devsecops-in-azure.yml
 [DevTest and DevOps for IaaS solutions]: ../../solution-ideas/articles/dev-test-iaas.yml
-[Geode pattern]: ../../patterns/geodes.md
+[Geode pattern]: ../../patterns/geodes.yml
 [How to find a Marketplace image version]: /azure/virtual-machines/windows/cli-ps-findimage#view-purchase-plan-properties
 [Only allow certain image publishers from the Marketplace]: https://github.com/Azure/azure-policy/tree/master/samples/Compute/allowed-image-publishers
 [Overview of the reliability pillar]: /azure/architecture/framework/resiliency/overview

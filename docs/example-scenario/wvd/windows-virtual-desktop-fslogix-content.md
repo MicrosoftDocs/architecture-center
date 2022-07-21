@@ -2,15 +2,20 @@ This article provides insights on designing, sizing, and implementing a Microsof
 
 [FSLogix](/fslogix/) is a set of solutions that enhance, enable, and simplify non-persistent Windows computing environments. FSLogix solutions are appropriate for virtual environments in both public and private clouds. These solutions may also be used to create more portable computing sessions when using physical devices.
 
-For combining FSLogix with Azure Virtual Desktop as a desktop virtualization solution on Azure, store your profiles on either [Azure Files](/azure/storage/files/storage-files-introduction) or [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) as described in [Storage options for FSLogix profile containers in Azure Virtual Desktop](/azure/virtual-desktop/store-fslogix-profile). This way you can leverage another Azure platform service that requires zero infrastructure, and simplify management of your storage environment.
+For combining FSLogix with Azure Virtual Desktop as a desktop virtualization solution on Azure, store your profiles on either [Azure Files](/azure/storage/files/storage-files-introduction) or [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) as described in [Storage options for FSLogix profile containers in Azure Virtual Desktop](/azure/virtual-desktop/store-fslogix-profile). This way you can utilize another Azure platform service that requires zero infrastructure, and simplify management of your storage environment.
 
 ## FSLogix filter driver architecture
 
 It's common to copy a profile to and from the network, when a user signs in and out of a remote environment. Because user profiles can often be large, sign in and sign out times often became unacceptable. FSLogix Containers redirect user profiles to a network location. Profiles are placed in VHDx files and mounted at run time. Mounting and using a profile on the network eliminates delays often associated with solutions that copy files.
 
-The conceptual architecture diagram below shows how FSLogix works within the operating system. The Windows Service agent needs to be installed in the VDI image. Once the installation is completed, two filter drivers are injected into the operating system. Thereafter, you can set appropriate registry (or [ADMX](/microsoft-edge/deploy/managing-group-policy-admx-files)) entries, to place a VHDx container on a file system or [SMB](https://en.wikipedia.org/wiki/Server_Message_Block) share location (Azure Storage as shown in the diagram below).
+![Diagram showing the FSLogix conceptual architecture.](./images/fslogix-concept.png)
 
-![FSLogix conceptual architecture](./images/fslogix-concept.png)
+*Download a [Visio file](https://arch-center.azureedge.net/windows-virtual-desktop-fslogix.vsdx) of this architecture.*
+
+The conceptual architecture diagram above shows how FSLogix works within the operating system:
+* The Windows Service agent needs to be installed in the VDI image.
+* Once the installation is completed, two filter drivers are injected into the operating system.
+* You can then set the appropriate registry (or [ADMX](/microsoft-edge/deploy/managing-group-policy-admx-files)) entries, to place a VHDx container on a file system or [SMB](https://en.wikipedia.org/wiki/Server_Message_Block) share location (Azure Storage, as shown in the diagram above).
 
 ## Profile Container and Office Container
 
@@ -77,7 +82,9 @@ The following list describes some important things to keep in mind when using Az
 - With the FSLogix [ObjectSpecific](/fslogix/configure-per-user-per-group-ht) per-group setting, you can filter different Azure Files storage accounts to accommodate more users. The maximum limit of IOPs per storage account doesn't mean you cannot stack them. This applies to both personal and pooled host pool scenarios. The architecture diagram below explains it in more details.
 - You are able to use multiple storage accounts in one Azure virtual network (VNet). For example, you can assign different network shares to specific groups of users in your environment using AD groups.
 
-![Files scenario](./images/fslogix-files.png)
+:::image type="content" border="false" source="./images/fslogix-files.png" alt-text="Diagram showing Files scenario" lightbox="./images/fslogix-files.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/windows-virtual-desktop-fslogix.vsdx) of this architecture.*
 
 The table below shows you how you can further optimize your AVD environment. Detailed information of [Azure Files performance targets](/azure/storage/files/storage-files-scale-targets#file-share-and-file-scale-targets) (*Standard* and [Premium](/azure/storage/files/storage-files-planning#understanding-provisioning-for-premium-file-shares)) and [pricing](https://azure.microsoft.com/pricing/details/storage/files/) is available to help you fine-tune your file-share solution.
 
@@ -98,13 +105,17 @@ Currently, up to 1000 IP connections per active VNet are possible. These are the
 
 If the AVD Windows 10 Multi-session user per vCPU [recommendations](/windows-server/remote/remote-desktop-services/virtual-machine-recs) sizing for the D32as_v4 VM is calculated based on the light or medium workload, more than 120,000 users would fit within 1,000 virtual machines before approaching the 1,000 IP limit, as shown in the following figure.
 
-![NetApp Files pooled scenario](./images/fslogix-netapp-files-pooled.png)
+:::image type="content" border="false" source="./images/fslogix-netapp-files-pooled.png" alt-text="Diagram showing NetApp Files pooled scenario" lightbox="./images/fslogix-netapp-files-pooled.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/windows-virtual-desktop-fslogix.vsdx) of this architecture.*
 
 #### Personal scenarios
 
 Users are mapped to specific desktop pods. Each pod has just under 1,000 virtual machines, leaving room for IP addresses propagating from the management VNet. Azure NetApp Files can easily handle 900+ personal desktops per single-session host pool. The actual number of virtual machines is equal to 1,000 minus the number of management hosts found in the Hub VNet.
 
-![NetApp Files personal scenario](./images/fslogix-netapp-files-personal.png)
+:::image type="content" border="false" source="./images/fslogix-netapp-files-personal.png" alt-text="Diagram showing NetApp Files personal scenario" lightbox="./images/fslogix-netapp-files-personal.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/windows-virtual-desktop-fslogix.vsdx) of this architecture.*
 
 ## Storage permissions
 
@@ -255,6 +266,14 @@ The following settings are commonly used by our customers in their desktop virtu
 To manage these registry settings at scale, group policy templates are included with the FSlogix installation package.  Guidance for using these templates can be found in the article [Use FSLogix Group Policy Templates](/fslogix/use-group-policy-templates-ht).
 
 Note: 'FlipFlopProfileDirectoryName' is managed by the 'swap directory name components' setting if using the GPO template.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Christiaan Brinkhoff](https://www.linkedin.com/in/christiaanbrinkhoff) | Principal PM and Community Lead, Windows 365
 
 ## Next steps
 

@@ -1,0 +1,21 @@
+### YamlMime:Architecture
+metadata:
+  title: Publisher-Subscriber pattern
+  description: Learn about the Publisher-Subscriber pattern, which enables an application to announce events to many interested consumers asynchronously.
+  author: alexbuckgit
+  ms.author: alexbuckgit
+  ms.date: 12/07/2018
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - networking
+products:
+  - azure-event-grid
+  - azure-event-hubs
+  - azure-service-bus
+name: Publisher-Subscriber pattern
+summary: Learn about the Publisher-Subscriber pattern, which enables an application to announce events to many interested consumers asynchronously.
+thumbnailUrl: /azure/architecture/browse/thumbs/enterprise-integration-queues.png
+content: |
+  [!include[](publisher-subscriber-content.md)]

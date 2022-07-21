@@ -1,0 +1,19 @@
+### YamlMime:Architecture
+metadata:
+  title: Sidecar pattern
+  description: Deploy components of an application into a separate process or container to provide isolation and encapsulation.
+  author: EdPrice-MSFT
+  ms.author: pnp
+  ms.date: <publish or major update date - mm/dd/yyyy>
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - networking
+products:
+  - azure
+name: Sidecar pattern
+summary: Deploy components of an application into a separate process or container to provide isolation and encapsulation.
+thumbnailUrl: /azure/architecture/browse/thumbs/sidecar.png
+content: |
+  [!include[](sidecar-content.md)]

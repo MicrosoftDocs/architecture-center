@@ -5,7 +5,7 @@ metadata:
   description: Use Internet of Things technologies with the Project 15 Open Platform to accelerate innovation in species tracking, ecosystem monitoring, and other areas.
   author: AltaOhms
   ms.author: pacorte
-  ms.date: 11/09/2020
+  ms.date: 07/12/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
@@ -24,6 +24,6 @@ products:
   - azure-functions
   - azure-iot-hub
   - azure-stream-analytics
-thumbnailUrl: /azure/architecture/browse/thumbs/project-15-ref-architecture.png
+thumbnailUrl: /azure/architecture/browse/thumbs/project-15-ref-architecture-thumbnail.png
 content: |
    [!include[](project-15-iot-sustainability-content.md)]

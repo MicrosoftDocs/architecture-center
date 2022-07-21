@@ -4,19 +4,23 @@ Engage with customers around the world through rich, personalized digital market
 
 Create personalized and timely customer experiences, increase campaign performance to win new customers, drive more revenue for your business, and get maximum performance by automatically scaling on demand.
 
+## Potential use cases
+
+This solution is used by retailers and others selling goods or services.
+
 ## Architecture
 
-![Architecture Diagram](../media/digital-marketing-using-azure-database-for-postgresql.png)
+![Architecture Diagram show the flow from the browser through the C M S web app to both Azure database and application insights.](../media/digital-marketing-using-azure-database-for-postgresql.png)
 
-*Download an [SVG](../media/digital-marketing-using-azure-database-for-postgresql.svg) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/digital-marketing-using-azure-database-for-postgresql.vsdx) of this architecture.*
 
-### Data flow
+### Dataflow
 
 1. Use Azure App Service to build and host a content management system (CMS) of your choice without managing infrastructure. It offers autoscaling and high availability.
-2. Azure Content Delivery Network (CDN) efficiently delivers web content to users by caching their content at strategically placed nodes across the world, thus reducing latency for users.
-3. Manage customer data in Azure Database for PostgreSql with a fully managed and intelligent Azure database for PostgreSQL that provides high availability and scalability.
-4. Store session state and output cache in Azure Cache for Redis to improve performance and reduce load times of your web front end.
-5. Detect issues, diagnose crashes, and track usage in your web app with Azure Monitor Application Insights. Application Insights is designed to help you continuously improve performance and usability.
+1. Azure Content Delivery Network (CDN) efficiently delivers web content to users by caching their content at strategically placed nodes across the world, thus reducing latency for users.
+1. Manage customer data in Azure Database for PostgreSql with a fully managed and intelligent Azure database for PostgreSQL that provides high availability and scalability.
+1. Store session state and output cache in Azure Cache for Redis to improve performance and reduce load times of your web front end.
+1. Detect issues, diagnose crashes, and track usage in your web app with Azure Monitor Application Insights. Application Insights is designed to help you continuously improve performance and usability.
 
 ### Components
 
@@ -24,7 +28,7 @@ Create personalized and timely customer experiences, increase campaign performan
 * [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql): A fully managed and intelligent Azure database for PostgreSQL.
 * [Azure Monitor Application Insights](https://azure.microsoft.com/services/monitor): Application Insights provides health and performance monitoring and diagnostics.
 * [Azure CDN](https://azure.microsoft.com/services/cdn): A content delivery network serves static content like images, scripts, and CSS, and it reduces the load on web app servers.
-* [Azure Cache for Redis](https://azure.microsoft.com/services/cache): Enables very fast queries and improves scalability by reducing the load on the main database.
+* [Azure Cache for Redis](https://azure.microsoft.com/services/cache): Enables fast queries and improves scalability by reducing the load on the main database.
 
 ## Next steps
 

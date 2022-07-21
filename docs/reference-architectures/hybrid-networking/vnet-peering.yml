@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Reference Architectures
   description: Review the differences between virtual network peering and VPN gateways, which are two ways to connect virtual networks in Azure.
   author: anavinahar
-  ms.author: pnp
+  ms.author: anavin
   ms.date: 12/13/2019
   ms.topic: conceptual
   ms.service: architecture-center

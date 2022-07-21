@@ -1,21 +1,10 @@
 This example scenario is relevant to organizations that need a highly scalable and resilient architecture for online order processing. Potential applications include e-commerce and retail point-of-sale, order fulfillment, and inventory reservation and tracking.
 
-This scenario takes an event-sourcing approach, using a functional programming model implemented via [microservices](https://azure.com/microservices). Each microservice is treated as a stream processor, and all business logic is implemented via microservices. This approach enables high availability and resiliency, geo-replication, and fast performance.
-
-Using managed Azure services such as Cosmos DB and HDInsight can help reduce costs by using Microsoft's expertise in globally distributed cloud-scale data storage and retrieval. This scenario specifically addresses an e-commerce or retail scenario; if you have other needs for data services, you should review the list of available [fully managed intelligent database services in Azure][product-category].
-
-## Potential use cases
-
-Other relevant use cases include:
-
-- E-commerce or retail point-of-sale back-end systems.
-- Inventory management systems.
-- Order fulfillment systems.
-- Other integration scenarios relevant to an order processing pipeline.
-
 ## Architecture
 
 ![Example architecture for a scalable order processing pipeline][architecture]
+
+### Dataflow
 
 This architecture details key components of an order processing pipeline. The data flows through the scenario as follows:
 
@@ -30,11 +19,26 @@ This architecture details key components of an order processing pipeline. The da
 - [Cosmos DB](/azure/cosmos-db/introduction) is Microsoft's globally distributed, multi-model database that enables your solutions to elastically and independently scale throughput and storage across any number of geographic regions. It offers throughput, latency, availability, and consistency guarantees with comprehensive service level agreements (SLAs). This scenario uses Cosmos DB for event stream storage and snapshot storage, and it applies [Cosmos DB's Change Feed][docs-cosmos-db-change-feed] features to provide data consistency and fault recovery.
 - [Apache Kafka on HDInsight](/azure/hdinsight/kafka/apache-kafka-introduction) is a managed service implementation of Apache Kafka, an open-source distributed streaming platform for building real-time streaming data pipelines and applications. Kafka also provides message broker functionality similar to a message queue, for publishing and subscribing to named data streams. This scenario uses Kafka to process incoming and downstream events, in the order processing pipeline.
 
+## Scenario details
+
+This scenario takes an event-sourcing approach, using a functional programming model implemented via [microservices](https://azure.com/microservices). Each microservice is treated as a stream processor, and all business logic is implemented via microservices. This approach enables high availability and resiliency, geo-replication, and fast performance.
+
+Using managed Azure services such as Cosmos DB and HDInsight can help reduce costs by using Microsoft's expertise in globally distributed cloud-scale data storage and retrieval. This scenario specifically addresses an e-commerce or retail scenario; if you have other needs for data services, you should review the list of available [fully managed intelligent database services in Azure][product-category].
+
+### Potential use cases
+
+Other relevant use cases include:
+
+- E-commerce or retail point-of-sale back-end systems.
+- Inventory management systems, for the retail or manufacturing industries.
+- Order fulfillment systems.
+- Other integration scenarios relevant to an order processing pipeline.
+
 ## Considerations
 
 Many technology options are available for real-time message ingestion, data storage, stream processing, storage of analytical data, and analytics and reporting. For an overview of these options, their capabilities, and key selection criteria, see [Big data architectures: Real-time processing](../../data-guide/technology-choices/real-time-ingestion.md) in the [Azure Data Architecture Guide](../../data-guide/index.md).
 
-Microservices have become a popular architectural style for building cloud applications that are resilient, highly scalable, independently deployable, and able to evolve quickly. Microservices require a different approach to designing and building applications. Tools such as Docker, Kubernetes, Azure Service Fabric, and Nomad enable the development of microservices-based architectures. For guidance on building and running a microservices-based architecture, see [Designing microservices on Azure](../../microservices/index.md) in the Azure Architecture Center.
+Microservices have become a popular architectural style for building cloud applications that are resilient, highly scalable, independently deployable, and able to evolve quickly. Microservices require a different approach to designing and building applications. Tools such as Docker, Kubernetes, Azure Service Fabric, and Nomad enable the development of microservices-based architectures. For guidance on building and running a microservices-based architecture, see [Designing microservices on Azure](../../microservices/index.yml) in the Azure Architecture Center.
 
 ### Availability
 
@@ -60,7 +64,7 @@ For general guidance on designing secure solutions, see the [Azure Security Docu
 
 The event sourcing architecture and associated technologies in this example scenario make this scenario highly resilient when failures occur. For general guidance on designing resilient solutions, see [Designing resilient applications for Azure](/azure/architecture/framework/resiliency/reliability-patterns).
 
-## Pricing
+### Cost optimization
 
 To examine the cost of running this scenario, all of the services are pre-configured in the cost calculator. To see how pricing would change for your particular scenario, change the appropriate variables to match your expected data volume. For this scenario, the example pricing includes only Cosmos DB and a Kafka cluster for processing events raised from the Cosmos DB Change Feed. Event processors and microservices for originating systems and other downstream systems are not included, and their cost is highly dependent on the quantity and scale of these services as well as the technologies chosen for implementing them.
 
@@ -71,6 +75,14 @@ We have provided three sample cost profiles based on amount of activity you expe
 - [Small][small-pricing]: this pricing example correlates to 5 RUs reserved with a 1 TB data store in Cosmos DB and a small (D3 v2) Kafka cluster.
 - [Medium][medium-pricing]: this pricing example correlates to 50 RUs reserved with a 10 TB data store in Cosmos DB and a midsized (D4 v2) Kafka cluster.
 - [Large][large-pricing]: this pricing example correlates to 500 RUs reserved with a 30 TB data store in Cosmos DB and a large (D5 v2) Kafka cluster.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+* [Alex Buck](https://www.linkedin.com/in/alex-buck-0161575) | Senior Content Developer
 
 ## Next steps
 
@@ -86,7 +98,7 @@ See this other content:
 
 See the related architectural content:
 
-- See the [Real time processing architecture](../../data-guide/big-data/real-time-processing.md) in the [Azure Data Architecture Guide](../../data-guide/index.md).
+- See the [Real time processing architecture](../../data-guide/big-data/real-time-processing.yml) in the [Azure Data Architecture Guide](../../data-guide/index.md).
 - [E-commerce front end](/azure/architecture/example-scenario/apps/ecommerce-scenario)
 - [Architect scalable e-commerce web app](/azure/architecture/solution-ideas/articles/scalable-ecommerce-web-app)
 - [Intelligent product search engine for e-commerce](/azure/architecture/example-scenario/apps/ecommerce-search)

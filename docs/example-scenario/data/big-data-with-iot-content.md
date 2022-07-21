@@ -1,39 +1,20 @@
 This example scenario is relevant to organizations building solutions that integrate data from many IoT devices into a comprehensive data analysis architecture to improve and automate decision making. Potential applications include construction, mining, manufacturing, or other industry solutions involving large volumes of data from many IoT-based data inputs.
 
-In this scenario, a construction equipment manufacturer builds vehicles, meters, and drones that use IoT and GPS technologies to emit telemetry data. The company wants to modernize their data architecture to better monitor operating conditions and equipment health. Replacing the company's legacy solution using on-premises infrastructure would be both time intensive and labor intensive, and would not be able to scale sufficiently to handle the anticipated data volume.
-
-The company wants to build a cloud-based "smart construction" solution. It should gather a comprehensive set of data for a construction site and automate the operation and maintenance of the various elements of the site. The company's goals include:
-
-- Integrating and analyzing all construction site equipment and data to minimize equipment downtime and reduce theft.
-- Remotely and automatically controlling construction equipment to mitigate the effects of a labor shortage, ultimately requiring fewer workers and enabling lower-skilled workers to succeed.
-- Minimizing the operating costs and labor requirements for the supporting infrastructure, while increasing productivity and safety.
-- Easily scaling the infrastructure to support increases in telemetry data.
-- Complying with all relevant legal requirements by provisioning resources in-country without compromising system availability.
-- Using open-source software to maximize the investment in workers' current skills.
-
-Using managed Azure services such as IoT Hub and HDInsight will allow the customer to rapidly build and deploy a comprehensive solution with a lower operating cost. If you have additional data analytics needs, you should review the list of available [fully managed data analytics services in Azure][product-category].
-
-## Relevant use cases
-
-Other relevant use cases include:
-
-- Construction, mining, or equipment manufacturing scenarios
-- Large-scale collection of device data for storage and analysis
-- Ingestion and analysis of large datasets
-
 ## Architecture
 
-![Architecture for IoT and data analytics in the construction industry][architecture]
+:::image type="content" border="false" source="./media/architecture-big-data-with-iot.svg" alt-text="Diagram shows the architecture for I o T and data analytics in the construction industry." lightbox="./media/architecture-big-data-with-iot.svg":::
+
+*Download a [Visio file][visio-download] of this architecture.*
 
 The data flows through the solution as follows:
 
 1. Construction equipment collects sensor data and sends the construction results data at regular intervals to load balanced web services hosted on a cluster of Azure virtual machines.
-2. The custom web services ingest the construction results data and store it in an Apache Cassandra cluster also running on Azure virtual machines.
-3. Another dataset is gathered by IoT sensors on various construction equipment and sent to IoT Hub.
-4. Raw data collected is sent directly from IoT Hub to Azure blob storage and is immediately available for viewing and analysis.
-5. Data collected via IoT Hub is processed in near real time by an Azure Stream Analytics job and stored in an Azure SQL database.
-6. The Smart Construction Cloud web application is available to analysts and end users to view and analyze sensor data and imagery.
-7. Batch jobs are initiated on demand by users of the web application. The batch job runs in Apache Spark on HDInsight and analyzes new data stored in the Cassandra cluster.
+1. The custom web services ingest the construction results data and store it in an Apache Cassandra cluster also running on Azure virtual machines.
+1. Another dataset is gathered by IoT sensors on various construction equipment and sent to IoT Hub.
+1. Raw data collected is sent directly from IoT Hub to Azure blob storage and is immediately available for viewing and analysis.
+1. Data collected via IoT Hub is processed in near real time by an Azure Stream Analytics job and stored in an Azure SQL database.
+1. The Smart Construction Cloud web application is available to analysts and end users to view and analyze sensor data and imagery.
+1. Batch jobs are initiated on demand by users of the web application. The batch job runs in Apache Spark on HDInsight and analyzes new data stored in the Cassandra cluster.
 
 ### Components
 
@@ -56,13 +37,36 @@ The data flows through the solution as follows:
 - [Web Apps](/azure/app-service) could also be used to host the web services for ingesting construction results data.
 - Many technology options are available for real-time message ingestion, data storage, stream processing, storage of analytical data, and analytics and reporting. For an overview of these options, their capabilities, and key selection criteria, see [Big data architectures: Real-time processing](../../data-guide/technology-choices/real-time-ingestion.md) in the [Azure Data Architecture Guide](../../data-guide/technology-choices/real-time-ingestion.md).
 
+## Scenario details
+
+In this scenario, a construction equipment manufacturer builds vehicles, meters, and drones that use IoT and GPS technologies to emit telemetry data. The company wants to modernize their data architecture to better monitor operating conditions and equipment health. Replacing the company's legacy solution using on-premises infrastructure would be both time intensive and labor intensive, and would not be able to scale sufficiently to handle the anticipated data volume.
+
+The company wants to build a cloud-based "smart construction" solution. It should gather a comprehensive set of data for a construction site and automate the operation and maintenance of the various elements of the site. The company's goals include:
+
+- Integrating and analyzing all construction site equipment and data to minimize equipment downtime and reduce theft.
+- Remotely and automatically controlling construction equipment to mitigate the effects of a labor shortage, ultimately requiring fewer workers and enabling lower-skilled workers to succeed.
+- Minimizing the operating costs and labor requirements for the supporting infrastructure, while increasing productivity and safety.
+- Easily scaling the infrastructure to support increases in telemetry data.
+- Complying with all relevant legal requirements by provisioning resources in-country without compromising system availability.
+- Using open-source software to maximize the investment in workers' current skills.
+
+Using managed Azure services such as IoT Hub and HDInsight will allow the customer to rapidly build and deploy a comprehensive solution with a lower operating cost. If you have additional data analytics needs, you should review the list of available [fully managed data analytics services in Azure][product-category].
+
+### Potential use cases
+
+Other relevant use cases include:
+
+- Construction (facilities and real-estate), mining (energy), or equipment manufacturing scenarios
+- Large-scale collection of device data for storage and analysis
+- Ingestion and analysis of large datasets
+
 ## Considerations
 
 The broad availability of Azure regions is an important factor for this scenario. Having more than one region in a single country can provide disaster recovery while also enabling compliance with contractual obligations and law enforcement requirements. Azure's high-speed communication between regions is also an important factor in this scenario.
 
 Azure support for open-source technologies allowed the customer to take advantage of their existing workforce skills. The customer can also accelerate the adoption of new technologies with lower costs and operating workloads compared to an on-premises solution.
 
-## Pricing
+### Cost optimization
 
 The following considerations will drive a substantial portion of the costs for this solution.
 
@@ -70,9 +74,19 @@ The following considerations will drive a substantial portion of the costs for t
 - [IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub) costs are driven by the number of IoT units provisioned as well as the service tier chosen, which determines the number of messages per day per unit allowed.
 - [Stream Analytics](https://azure.microsoft.com/pricing/details/stream-analytics) is priced by the number of streaming units required to process the data into the service.
 
-## Related resources
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+* [Alex Buck](https://www.linkedin.com/in/alex-buck-0161575) | Senior Content Developer
+
+## Next Steps
 
 Guidance for big data architectures is available in the [Azure Data Architecture Guide](../../data-guide/index.md).
+
+## Related resources
 
 Additional IoT architectures:
 
@@ -86,10 +100,11 @@ IoT architecture guides:
 
 - [IoT concepts](../iot/introduction-to-solutions.yml)
 - [Azure IoT Edge Vision](../../guide/iot-edge-vision/index.md)
-- [Azure industrial IoT analytics guidance](../../guide/iiot-guidance/iiot-architecture.md)
+- [Azure industrial IoT analytics guidance](../../guide/iiot-guidance/iiot-architecture.yml)
 - [IoT patterns](../iot/measure-control-loop.yml)
 
 <!-- links -->
 
 [product-category]: https://azure.microsoft.com/product-categories/analytics
 [architecture]: ./media/architecture-big-data-with-iot.svg
+[visio-download]: https://arch-center.azureedge.net/architecture-big-data-with-iot.vsdx

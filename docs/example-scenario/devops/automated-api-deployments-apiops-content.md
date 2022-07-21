@@ -52,7 +52,7 @@ The solution has the following components:
 
 - [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) enables continuous integration (CI) and continuous delivery (CD) to test and build your code and ship it to any target.
 
-- [Azure Repos](/services/devops/repos) is a set of version control tools, including standard Git, that you can use to manage your code.
+- [Azure Repos](/azure/devops/repos) is a set of version control tools, including standard Git, that you can use to manage your code.
 
 ### Alternatives
 
@@ -165,6 +165,14 @@ Deploying this solution involves these steps:
 - API Management offers the following tiers: Consumption, Developer, Basic, Standard, and Premium.
 
 - GitHub offers a free service. However, to use advanced security-related features, such as code owners or required reviewers, you need the Team plan. For more information, see [GitHub pricing](https://github.com/pricing).
+
+## Contributors
+
+*This article is being updated and maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+* [Rishabh Saha](https://www.linkedin.com/in/rishabhsaha) | Senior Cloud Solution Architect
 
 ## Next steps
 

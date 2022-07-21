@@ -4,8 +4,8 @@ metadata:
   titleSuffix: Azure Solution Ideas
   description: Learn how to configure a DevTest and DevOps infrastructure for development, testing, and deploying IaaS-based software.
   author: EdPrice-MSFT
-  ms.author: pnp
-  ms.date: 09/17/2020
+  ms.author: architectures
+  ms.date: 05/26/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea

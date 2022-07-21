@@ -123,7 +123,7 @@ Use [Transparent Data Encryption][sql-encryption] if you need to encrypt data at
 
 This architecture builds on the one shown in [Basic web application][basic-web-app], see the [DevOps considerations section][basic-web-app-devops].
 
-## Pricing
+### Cost optimization
 
 Use caching to reduce the load on servers that serve content that doesn't change frequently. Every render cycle of a page can impact cost because it consumes compute, memory, and bandwidth. Those costs can be reduced significantly by using caching, especially for static content services, such as JavaScript single-page apps and media streaming content.
 
@@ -147,7 +147,7 @@ Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator) to 
 
 - [Basic web application][basic-web-app]
 - [Run a web application in multiple Azure regions for high availability][web-app-multi-region]
-- [Overview of load-balancing options in Azure](../../guide/technology-choices/load-balancing-overview.md)
+- [Overview of load-balancing options in Azure](../../guide/technology-choices/load-balancing-overview.yml)
 
 <!-- links -->
 
@@ -162,10 +162,10 @@ Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator) to 
 [azure-search-scaling]: /azure/search/search-capacity-planning
 [basic-web-app]: ./basic-web-app.yml
 [basic-web-app-devops]: ./basic-web-app.yml#devops
-[caching-guidance]: ../../best-practices/caching.md
+[caching-guidance]: ../../best-practices/caching.yml
 [cdn-app-service]: /azure/app-service-web/cdn-websites-with-cdn
 [cdn-storage-account]: /azure/cdn/cdn-create-a-storage-account-with-cdn
-[cdn-guidance]: ../../best-practices/cdn.md
+[cdn-guidance]: ../../best-practices/cdn.yml
 [cors]: /azure/app-service-api/app-service-api-cors-consume-javascript
 [cosmosdb]: /azure/cosmos-db
 [datastore]: ../..//guide/technology-choices/data-store-overview.md
@@ -177,5 +177,5 @@ Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator) to 
 [sql-db]: /azure/sql-database
 [sql-elastic]: /azure/sql-database/sql-database-elastic-scale-introduction
 [sql-encryption]: /azure/azure-sql/database/transparent-data-encryption-tde-overview?view=sql-server-ver15
-[visio-download]: https://arch-center.azureedge.net/app-service-reference-architectures.vsdx
+[visio-download]: https://arch-center.azureedge.net/app-service-reference-architectures-scalable-webapp.vsdx
 [web-app-multi-region]: ./multi-region.yml

@@ -1,12 +1,12 @@
 ---
 title: Team Data Science Process for DevOps
 description: Developer Operations (DevOps) functions that are specific to an Advanced Analytics and Cognitive Services solution implementation.
-services: machine-learning
 author: marktab
 manager: marktab
 editor: marktab
-ms.service: machine-learning
-ms.subservice: team-data-science-process
+services: architecture-center
+ms.service: architecture-center
+ms.subservice: azure-guide
 ms.topic: article
 ms.date: 12/14/2021
 ms.author: tdsp
@@ -28,7 +28,7 @@ The following table provides level-based guidance to help complete the DevOps ob
 
 | Objective | Topic | **Resource** | **Technologies** | **Level** | **Prerequisites** |
 |--|--|--|--|--|--|
-| Understand Advanced Analytics | The Team Data Science Process Lifecycle | [This technical walkthrough describes the Team Data Science Process](overview.md) | Data Science | Intermediate | General technology background, familiarity with data solutions, Familiarity with IT projects and solution implementation |
+| Understand Advanced Analytics | The Team Data Science Process Lifecycle | [This technical walkthrough describes the Team Data Science Process](overview.yml) | Data Science | Intermediate | General technology background, familiarity with data solutions, Familiarity with IT projects and solution implementation |
 | Understand the Microsoft Azure Platform for Advanced Analytics | Information Management | [This reference gives and overview of Azure Data Factory to build pipelines for analytics data solutions](/azure/data-factory/v1/data-factory-introduction) | Microsoft Azure Data Factory | Experienced | General technology background, familiarity with data solutions, Familiarity with IT projects and solution implementation |
 |  | | [This reference covers an overview of the Azure Data Catalog which you can use to document and manage metadata on your data sources](/azure/data-catalog/overview) | Microsoft Azure Data Catalog | Intermediate | General technology background, familiarity with data solutions, familiarity with Relational Database Management Systems (RDBMS) and NoSQL data sources |
 |  | | [This reference covers an overview of the Azure Event Hubs system and how you and use it to ingest data into your solution](/azure/event-hubs/event-hubs-about) | Azure Event Hubs | Intermediate | General technology background, familiarity with data solutions, familiarity with Relational Database Management Systems (RDBMS) and NoSQL data sources, familiarity with the Internet of Things (IoT) terminology and use |
@@ -66,7 +66,7 @@ The following table provides level-based guidance to help complete the DevOps ob
 |  |  | [Use this previous reference for Runbooks to automate tests using System Center](/system-center/orchestrator/automate-runbooks) | System Center | Experienced | Experience with System Center Orchestrator |
 |  |  | [As part of not only testing but development, you should build in Security. The Microsoft SDL Threat Modeling Tool can help in all phases. Learn more and download it here](https://www.microsoft.com/SDL/adopt/threatmodeling.aspx) | Threat Monitoring Tool | Experienced | Familiarity with security concepts, software development |
 |  |  | [This article explains how to use the Microsoft Attack Surface Analyzer to test your Advanced Analytics solution](https://technet.microsoft.com/security/gg749821.aspx) | Attack Surface Analyzer | Experienced | Familiarity with security concepts, software development |
-|  | Package | [This reference explains the concepts of working with Packages in TFS and Visual Studio Codespace](https://www.visualstudio.com/docs/package/collaborate-with-packages) | Visual Studio Codespace | Experienced | Software development, familiarity with an SDLC |
+|  | Package | [This reference explains the concepts of working with Packages in TFS and Visual Studio Codespace](/cli/vsts/package) | Visual Studio Codespace | Experienced | Software development, familiarity with an SDLC |
 |  |  | [Use this previous reference for Runbooks to automate packaging using System Center](/system-center/orchestrator/automate-runbooks) | System Center | Experienced | Experience with System Center Orchestrator |
 |  |  | [This reference explains how to create a data pipeline for your solution, which you can save as a JSON template as a "package"](/azure/data-factory/v1/data-factory-introduction) | Azure Data Factory | Intermediate | General computing background, data project experience |
 |  |  | [This topic describes the structure of an Azure Resource Manager template](/azure/azure-resource-manager/templates/template-syntax) | Azure Resource Manager | Intermediate | Familiarity with the Microsoft Azure Platform |

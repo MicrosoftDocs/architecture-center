@@ -48,7 +48,7 @@ The second workflow is how authors contribute new content:
 
 ### Alternatives
 
-- [SQL Server for Linux](/azure/virtual-machines/linux/sql/sql-server-linux-virtual-machines-overview) can replace the MariaDB data store.
+- [SQL Server for Linux](/azure/azure-sql/virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview) can replace the MariaDB data store.
 - [Azure database for MySQL](/azure/mysql/overview) can replace the MariaDB data store if you prefer a fully managed solution.
 
 ## Considerations
@@ -86,6 +86,14 @@ We have provided a pre-configured [cost profile][pricing] based on the architect
 - How much traffic are you expecting in terms of GB/month? The amount of traffic will have the biggest impact on your cost, as it will impact the number of VMs that are required to surface the data in the virtual machine scale set. Additionally, it will directly correlate with the amount of data that is surfaced via the CDN.
 - How much new data are you going to be writing to your website? New data written to your website correlates with how much data is mirrored across the regions.
 - How much of your content is dynamic? How much is static? The variance around dynamic and static content influences how much data has to be retrieved from the database tier versus how much will be cached in the CDN.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+* [David Stanford](https://www.linkedin.com/in/das0) | Principal Program Manager
 
 ## Next steps
 

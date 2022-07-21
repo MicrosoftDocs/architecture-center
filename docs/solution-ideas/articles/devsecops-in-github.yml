@@ -1,11 +1,11 @@
 ### YamlMime:Architecture
 metadata:
-  title: DevSecOps in GitHub
-  titleSuffix: Azure Solution Ideas
-  description: Learn how GitHub tools make security practices an integral part of DevOps while maintaining efficiency and see how to use these tools within an Azure framework.
+  title: DevSecOps with GitHub Security
+  titleSuffix: Azure Architecture Center
+  description: Learn how GitHub tools like Codespaces and Actions make security practices an integral part of DevOps while maintaining efficiency in an Azure framework.
   author: fmigacz
   ms.author: fmigacz
-  ms.date: 09/01/2020
+  ms.date: 06/30/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
@@ -14,17 +14,19 @@ metadata:
     - security
   ms.custom:
     - fcp
+    - kr2b-contr-experiment
   social_image_url: /azure/architecture/solution-ideas/media/devsecops-in-github-data-flow.png
-name: DevSecOps in GitHub
+name: DevSecOps with GitHub Security
 azureCategories:
   - devops
   - security
-summary: Learn how GitHub tools make security practices an integral part of DevOps while maintaining efficiency and see how to use these tools within an Azure framework.
+summary: Learn how GitHub tools like Codespaces and Actions make security practices an integral part of DevOps while maintaining efficiency in an Azure framework.
 products:
   - azure-active-directory
   - azure-monitor
   - azure-policy
   - azure-security-center
+  - github
 thumbnailUrl: /azure/architecture/browse/thumbs/devsecops-in-github-data-flow.png
 content: |
    [!include[](devsecops-in-github-content.md)]

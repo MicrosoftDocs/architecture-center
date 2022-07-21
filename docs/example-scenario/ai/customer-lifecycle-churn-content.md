@@ -6,7 +6,7 @@ This solution demonstrates how to interconnect the following Azure AI technologi
 
 - Use Azure Data Lake and Azure Databricks to implement best practices for data operations.
 - Use Azure Databricks to do exploratory data analysis.
-- Do batch experiment training of an [Sklearn](https://www.kite.com/python/docs/sklearn) machine learning model on Azure Databricks.
+- Do batch experiment training of an [Sklearn](https://www.adamsmith.haus/python/docs/sklearn) machine learning model on Azure Databricks.
 - Use MLflow to track machine learning experiments.
 - Batch score machine learning models on Azure Databricks.
 - Use Azure Machine Learning to model registration and deployment.
@@ -14,7 +14,7 @@ This solution demonstrates how to interconnect the following Azure AI technologi
 
 ## Potential use cases
 
-This solution is helpful in the following use cases:
+This solution is ideal for the retail industry. It's helpful in the following use cases:
 
 - In marketing, to determine how much to spend to acquire a customer.
 - For product teams, to tailor products and services for their best customers.
@@ -26,6 +26,8 @@ This solution is helpful in the following use cases:
 ![Architecture diagram for scenario to determine customer lifetime and churn by using Azure AI services.](./media/architecture-customer-lifetime-churn.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/architecture-customer-lifetime-churn.vsdx) of this architecture.*
+
+### Dataflow
 
 1. **Ingestion and orchestration**: Ingest historical, transactional, and third-party data for the customer from on-premises data sources. Use Azure Data Factory and store the results in Azure Data Lake Storage.
 
@@ -89,7 +91,7 @@ Use [Azure Key Vault](https://azure.microsoft.com/services/key-vault) and Databr
 
 Azure services are either deployed in a secure virtual network or accessed using the Azure Private Link feature. If necessary, row-level security provides granular access to individual users in Azure Analysis Services or SQL Database.
 
-## Pricing
+### Cost optimization
 
 Azure Databricks is a premium Apache Spark offering with an associated cost.
 
@@ -103,6 +105,14 @@ Costs related to this use case depend on the standard pricing for the following 
 - [Azure Machine Learning pricing](https://azure.microsoft.com/pricing/details/machine-learning)
 
 To estimate the cost of Azure products and configurations, visit the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+- [Giulia Gallo](https://www.linkedin.com/in/giuliagallo) | Senior Cloud Solution Architect
 
 ## Next steps
 

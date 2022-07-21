@@ -4,15 +4,15 @@ Mining companies can have Azure continually monitor the performance data from th
 
 ## Potential use cases
 
-- Monitoring of mining equipment, and other equipment that can provide the needed data.
+- Monitor mining equipment and other equipment that can provide the needed data. This solution is ideal for the energy industry.
 
 ## Architecture
 
-:::image type="content" source="../media/monitor-mining-equipment.png" alt-text="Architecture for monitoring mining equipment" lightbox="../media/monitor-mining-equipment.png":::
+:::image type="content" source="../media/monitor-mining-equipment.png" alt-text="Diagram showing the architecture for monitoring mining equipment." lightbox="../media/monitor-mining-equipment.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1816419-PR-2777-monitor-mining-equipment.vsdx) of this architecture.*
 
-### Data flow
+### Dataflow
 
 The data flows through the solution as follows:
 
@@ -32,15 +32,23 @@ The data flows through the solution as follows:
 
 Data is loaded from these different data sources using several Azure components:
 
-- [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/) makes Azure Storage the foundation for building enterprise data lakes on Azure. It can quickly process massive amounts of data (petabytes).
-- [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) is a managed service that orchestrates and automates data movement and data transformation. In this architecture, it copies the data from the source to Azure Storage.
-- [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) are automated workflows for common enterprise orchestration tasks. Logic Apps includes [connectors](/connectors/) for many popular cloud services, on-premises products, and other applications.
-- [Azure Databricks](https://azure.microsoft.com/services/databricks/) is an Apache Spark-based analytics platform optimized for the Microsoft Azure cloud services platform. Designed in collaboration with the founders of Apache Spark, Databricks is integrated with Azure to provide one-click setup, streamlined workflows, and an interactive workspace.
+- [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) makes Azure Storage the foundation for building enterprise data lakes on Azure. It can quickly process massive amounts of data (petabytes).
+- [Azure Data Factory](https://azure.microsoft.com/services/data-factory) is a managed service that orchestrates and automates data movement and data transformation. In this architecture, it copies the data from the source to Azure Storage.
+- [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) are automated workflows for common enterprise orchestration tasks. Logic Apps includes [connectors](/connectors/) for many popular cloud services, on-premises products, and other applications.
+- [Azure Databricks](https://azure.microsoft.com/services/databricks) is an Apache Spark-based analytics platform optimized for the Microsoft Azure cloud services platform. Databricks is integrated with Azure to provide one-click setup, streamlined workflows, and an interactive workspace that was designed in collaboration with the founders of Apache Spark.
 - [Azure Databricks – Auto Loader](/azure/databricks/spark/latest/structured-streaming/auto-loader) provides a structured streaming source called cloudFiles. The cloudFiles source automatically processes new files as they arrive at a directory, and can also process other files in the directory.
-- [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/) is a distributed system for storing and analyzing large datasets. Its use of massive parallel processing (MPP) makes it suitable for running high-performance analytics.
-- [Azure Functions](https://azure.microsoft.com/services/functions/) allows you to run small pieces of code (called "functions") without worrying about application infrastructure. Azure Functions is a great solution for processing bulk data, integrating systems, working with the internet-of-things (IoT), and building simple APIs and micro-services.
+- [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) is a distributed system for storing and analyzing large datasets. Its use of massive parallel processing (MPP) makes it suitable for running high-performance analytics.
+- [Azure Functions](https://azure.microsoft.com/services/functions) allows you to run small pieces of code (called "functions") without worrying about application infrastructure. Azure Functions is a great solution for processing bulk data, integrating systems, working with the internet-of-things (IoT), and building simple APIs and micro-services.
 - [Power BI](/power-bi/) is a suite of business analytics tools to analyze data and provide insights. Power BI can query a semantic model stored in Analysis Services, or it can query Azure Synapse directly.
 - [Power Apps](/powerapps/powerapps-overview) is a suite of apps, services, and connectors for building custom business apps. It includes an underlying data platform ([Microsoft Dataverse](/powerapps/maker/data-platform/data-platform-intro)) and a rapid development environment.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+* [Ansley Yeo](https://www.linkedin.com/in/ansleyyeo) | Technology Leader and IoT
 
 ## Next steps
 
@@ -55,18 +63,18 @@ Data is loaded from these different data sources using several Azure components:
 
 Information about the Delta Lake open-source project for building a Lakehouse architecture:
 
-- [Delta Lake Key Features](https://delta.io/)
+- [Delta Lake Key Features](https://delta.io)
 - [What is Delta Lake](/azure/synapse-analytics/spark/apache-spark-what-is-delta-lake)
-- [Delta Lake and Delta Engine guide](/azure/databricks/delta/)
+- [Delta Lake and Delta Engine guide](/azure/databricks/delta)
 
 ## Related resources
 
 See the following related database architectural guidance:
 
 - [Azure Data Architecture Guide](../../data-guide/index.md)
-- [Non-relational data and NoSQL](../../data-guide/big-data/non-relational-data.md)
-- [Big data architectures](../../data-guide/big-data/index.md)
-- [Batch processing](../../data-guide/big-data/batch-processing.md)
+- [Non-relational data and NoSQL](../../data-guide/big-data/non-relational-data.yml)
+- [Big data architectures](../../data-guide/big-data/index.yml)
+- [Batch processing](../../data-guide/big-data/batch-processing.yml)
 - [Choosing a batch processing technology in Azure](../../data-guide/technology-choices/batch-processing.md)
 - [Data lakes](../../data-guide/scenarios/data-lake.md)
 - [Choosing a big data storage technology in Azure](../../data-guide/technology-choices/data-storage.md)
@@ -81,6 +89,6 @@ See the following related IoT architectural guidance:
 
 - [IoT solutions conceptual overview](../../example-scenario/data/big-data-with-iot.yml)
 - [Vision with Azure IoT Edge](../../guide/iot-edge-vision/index.md)
-- [Azure Industrial IoT Analytics Guidance](../../guide/iiot-guidance/iiot-architecture.md)
+- [Azure Industrial IoT Analytics Guidance](../../guide/iiot-guidance/iiot-architecture.yml)
 - [Azure IoT reference architecture](../../reference-architectures/iot.yml)
 - [IoT and data analytics](../../example-scenario/data/big-data-with-iot.yml)

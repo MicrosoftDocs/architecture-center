@@ -1,6 +1,10 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution provides a highly available deployment of SharePoint using a load balanced Azure Active Directory (Azure AD), highly available SQL always on instance, and highly available SharePoint resources. It addresses the requirement to deliver highly available intranet capability using the latest and greatest supported platforms.
+This solution provides a highly available deployment of SharePoint using a load balanced Azure Active Directory (Azure AD), highly available SQL always on instance, and highly available SharePoint resources.
+
+## Potential use cases
+
+This solution address the capability to deliver highly available intranet capability to teams within your business, by using the latest and greatest support platforms.
 
 ## Architecture
 
@@ -11,7 +15,7 @@ This solution provides a highly available deployment of SharePoint using a load 
 <p>Use ExpressRoute or VPN Gateway for management access to resource group.</p>
 </div>
 
-### Data flow
+### Dataflow
 
 1. Create resource group for the storage, network, and virtual machine, plus other dependent elements.
 1. Create virtual network to host the virtual machines and load balancers for the deployment. Ensure the network has appropriate network security groups implemented to protect network traffic flow.
@@ -42,7 +46,7 @@ This solution provides a highly available deployment of SharePoint using a load 
 * [Virtual Network documentation](/azure/virtual-network/virtual-networks-overview)
 * [Storage Documentation](/azure/storage/blobs/storage-blobs-introduction)
 * [Microsoft server software support for VMs](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines)
-* [SharePoint Server 2016 in Azure DevTest environment](/sharepoint/administration/intranet-sharepoint-server-2016-in-azure-dev-test-environment)
-* [Deploy a SQL Server database to an Azure VM](/sql/relational-databases/databases/deploy-a-sql-server-database-to-a-microsoft-azure-virtual-machine?view=sql-server-2017)
+* [SharePoint Server 2016 in Azure DevTest environment](/sharepoint/administration/intranet-sharepoint-server-in-azure-dev-test-environment)
+* [Deploy a SQL Server database to an Azure VM](/azure/azure-sql/virtual-machines/windows/create-sql-vm-portal)
 * [Load Balancer documentation](/azure/load-balancer/load-balancer-standard-overview)
 * [ExpressRoute documentation](/azure/expressroute)

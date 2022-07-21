@@ -226,14 +226,14 @@ Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs.
 
 ## Related resources
 
-* [Manage identity in multitenant applications](../../multitenant-identity/index.md)
+* [Manage identity in multitenant applications](../../multitenant-identity/index.yml)
 * [Integrate on-premises AD with Azure](./index.yml)
 * [Extend on-premises AD FS to Azure](./adfs.yml)
 
 <!-- links -->
 
 [aaf-cost]: /azure/architecture/framework/cost/overview
-[implementing-a-multi-tier-architecture-on-Azure]: ../n-tier/n-tier-sql-server.yml#cost-considerations
+[implementing-a-multi-tier-architecture-on-Azure]: ../n-tier/n-tier-sql-server.yml#cost-optimization
 
 [aad-agent-installation]: /azure/active-directory/active-directory-aadconnect-health-agent-install
 [aad-application-proxy]: /azure/active-directory/active-directory-application-proxy-enable

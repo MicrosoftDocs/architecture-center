@@ -1,0 +1,19 @@
+### YamlMime:Architecture
+metadata:
+  title:  Federated Identity pattern
+  description: Use the Federated Identity design pattern to delegate authentication to an external identity provider.
+  author: EdPrice-MSFT
+  ms.author: edprice
+  ms.date: 06/23/2017
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - identity
+products:
+  - azure-active-directory
+name:  Federated Identity pattern
+summary: Use the Federated Identity design pattern to delegate authentication to an external identity provider.
+thumbnailUrl: /azure/architecture/browse/thumbs/federated-identity-multitenant.png
+content: |
+  [!include[](federated-identity-content.md)]
