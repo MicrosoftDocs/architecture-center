@@ -2,12 +2,6 @@
 
 This architecture shows how you can create a solution personalizing offers with [Azure Functions](/azure/azure-functions/functions-overview), [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-ml), and [Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction).
 
-## Potential use cases
-
-By personalizing your offers, you'll deliver an individualized experience for current and prospective customers, boosting engagement and improving customer conversion, lifetime value, and retention.
-
-This solution is ideal for the retail and marketing industries.
-
 ## Architecture
 
 ![Architecture diagram: personalizing offers with machine learning and near real time analytics.](../media/personalized-marketing.png)
@@ -42,6 +36,12 @@ Personalized marketing is essential for building customer loyalty and remaining 
 Marketers using intelligent systems and analyzing massive amounts of data can deliver highly relevant and personalized offers to each user, cutting through the clutter and driving engagement. For example, retailers can provide offers and content based on each customer's unique interests, preferences and product affinity, putting products in front of the people most likely to buy them.
 
 This architecture shows how you can create a solution personalizing offers with [Azure Functions](/azure/azure-functions/functions-overview), [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-ml), and [Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction).
+
+### Potential use cases
+
+By personalizing your offers, you'll deliver an individualized experience for current and prospective customers, boosting engagement and improving customer conversion, lifetime value, and retention.
+
+This solution is ideal for the retail and marketing industries.
 
 ## Next steps
 
