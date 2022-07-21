@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article provides a set of links and resources for architects and developers of multitenant solutions.
 author: johndowns
 ms.author: jodowns
-ms.date: 07/14/2022
+ms.date: 07/22/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
