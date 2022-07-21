@@ -30,9 +30,9 @@ In the WebRTC standard, the process of clients requesting control information fr
 
 ## Authenticate users via user access tokens
 
-Communication Services clients present user access tokens to access the Azure calling and chat data plane securely. `User access tokens` should be generated and managed by a trusted service due to the sensitive nature of the token and the connection string or Azure Active Directory secrets necessary to generate them. Failure to properly manage access tokens can result in additional charges due to misuse of resources.
+Communication Services clients present user access tokens to access the Azure calling and chat data plane with improved security. You should generate and manage user access tokens by using a trusted service. The token and the connection string or Azure Active Directory secrets necessary to generate them need to be protected. Failure to properly manage access tokens can result in additional charges because of misuse of resources.
 
-:::image type="content" source="./media/architecture_v2_identity.svg" alt-text="Diagram showing user access token architecture.":::
+:::image type="content" source="./media/architecture-identity.png" alt-text="Diagram that shows the user access token architecture." border="false":::
 
 ### Dataflows
 1. The user starts the client application.
