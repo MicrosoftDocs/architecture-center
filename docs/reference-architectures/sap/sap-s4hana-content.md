@@ -1,10 +1,10 @@
-<!-- cSpell:ignore lbrader HANA Fiori -->
+<!-- cSpell:ignore lbrader netweaver jump-box jump-boxes ACLs HANA SWDs SMLG ABAP SAPGUI SAPGUIs SPOF WSFC ASCS MSEE Iperf SIOS sapmnt -->
 
 # Forewords
 
 This reference architecture shows a set of proven practices for running S/4HANA and Suite on HANA in a high availability environment that supports disaster recovery on Azure. The Fiori information applies only to S/4HANA applications.
 
-![Reference architecture for SAP S/4HANA for Linux virtual machines on Azure Avset](./images/s4-avset-afs-ppg.png)
+![Reference architecture for SAP S/4HANA for Linux virtual machines on Azure Availability set](./images/s4-avset-afs-ppg.png)
 
 *Download a [Visio file][visio-download] of this architecture.*
 
