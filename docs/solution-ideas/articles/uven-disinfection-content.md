@@ -25,7 +25,9 @@ This solution is ideal for the healthcare and facilities industries. We recommen
 
 ## Architecture
 
-![Diagram that shows the UVEN architecture.](../media/uven-system.png)
+:::image type="content" alt-text="Diagram that shows the UVEN architecture." source="../media/uven-system.png" lightbox="../media/uven-system.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/uven-system.vsdx) of this architecture.*
 
 ### Dataflow
 

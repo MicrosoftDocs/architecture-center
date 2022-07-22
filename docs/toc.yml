@@ -45,6 +45,8 @@ items:
             href: guide/design-principles/design-for-operations.md
           - name: Use managed services
             href: guide/design-principles/managed-services.md
+          - name: Use an identity service
+            href: guide/design-principles/identity.md
           - name: Use the best data store
             href: /azure/architecture/guide/design-principles/use-best-data-store
           - name: Design for evolution
@@ -53,6 +55,8 @@ items:
             href: guide/design-principles/build-for-business.md
       - name: Technology choices
         items:
+          - name: Overview
+            href: guide/technology-choices/technology-choices-overview.md
           - name: Choose a compute service
             items:
               - name: Azure compute services
@@ -1206,6 +1210,8 @@ items:
             items:
               - name: All healthcare architectures
                 href: /azure/architecture/browse/?terms=healthcare
+              - name: Analyze observational patient data by using OHDSI
+                href: example-scenario/digital-health/patient-data-ohdsi-omop-cdm.yml
               - name: Automate COVID-19 test forms
                 href: example-scenario/ai/form-recognizer-covid.yml 
               - name: Build a telehealth system with Azure
@@ -2685,6 +2691,8 @@ items:
                 href: solution-ideas/articles/cognitive-search-with-skillsets.yml
               - name: Analyze browser information
                 href: example-scenario/ai/analyze-browser-info-for-security-insights.yml
+              - name: Analyze observational patient data by using OHDSI
+                href: example-scenario/digital-health/patient-data-ohdsi-omop-cdm.yml
               - name: Automate document processing
                 href: example-scenario/ai/automate-document-processing-azure-form-recognizer.yml
               - name: Automate COVID-19 test forms
@@ -5409,6 +5417,8 @@ items:
                 maintainContext: true
           - name: Architectures
             items:
+              - name: Azure DNS Private Resolver
+                href: example-scenario/networking/azure-dns-private-resolver.yml
               - name: High availability for IaaS apps
                 href: example-scenario/infrastructure/iaas-high-availability-disaster-recovery.yml
               - name: Hub-spoke network topology in Azure
@@ -5427,6 +5437,8 @@ items:
                     href: hybrid/hybrid-perf-monitoring.yml
               - name: Implement a secure hybrid network
                 href: reference-architectures/dmz/secure-vnet-dmz.yml
+              - name: Implement an open-source jump server
+                href: example-scenario/infrastructure/apache-guacamole.yml
               - name: Interconnect with China using Virtual WAN
                 href: /azure/virtual-wan/interconnect-china
                 maintainContext: true
@@ -5590,13 +5602,7 @@ items:
                 href: reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines.yml
               - name: SAP deployment using an Oracle DB
                 href: example-scenario/apps/sap-production.yml
-              - name: SAP HANA on HLI general architecture
-                href: /azure/virtual-machines/workloads/sap/hana-architecture
-                maintainContext: true
-              - name: SAP HANA on HLI network architecture
-                href: /azure/virtual-machines/workloads/sap/hana-network-architecture
-                maintainContext: true
-              - name: SAP HANA on HLI with HA and DR
+              - name: SAP HANA on HLI
                 href: reference-architectures/sap/hana-large-instances.yml
               - name: SAP HANA scale-out with standby node
                 href: /azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel
