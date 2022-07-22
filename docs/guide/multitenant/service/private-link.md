@@ -23,19 +23,41 @@ ms.custom:
 
 # Multitenancy and Azure Private Link
 
-- Your services run in Azure. You might have tenants who also have an Azure environment, or even an on-premises environment that's connected to Azure through a VPN or ExpressRoute.
-- They might want to access your application through a private IP address within their own Azure virtual network.
+Azure Private Link provides private IP addressing for Azure platform services, and for your own applications hosted on Azure virtual machines. You can use Private Link to enable private connectivity from your tenants' Azure environments. Tenants can also use Private Link to access your solution from their on-premises environments when they're connected through virtual private networks (VPNs) or ExpressRoute. In this article, we review how you can configure Private Link for an Azure-hosted multitenant solution.
 
 ## Key considerations
 
-- Which backend service do users connect to?
-  - Private Link service is used with SLB.
-  - Your application tier might be using App Service or another PaaS service, which then imposes limits around how many private endpoints can be attached. Or, you can 
-  - Also if your application is designed to be internet-facing, e.g. with Front Door and/or a WAF, then a private endpoint might bypass this. Consider your networking topology carefully
-- Ensure that you understand the constraints that your services might impose when you enable private endpoints.
-  - Each service has limits on the number of private endpoints and the number of connections that can be made to each private endpoint. Depending on the service, these limits are different.
-  - For example, Application Gateway requires that you [provision a second subnet for Private Link](/azure/application-gateway/private-link-configure).
-  - App Service disables public access to your application, which also can impact your ability to deploy and remotely debug your application.
+### Service selection
+
+When you use Private Link, it's important to consider the service that you want to allow inbound connectivity to. In most solutions, the service is one of the following types:
+
+- An application hosting platform, like Azure App Service.
+- A network or API gateway, like Azure Application Gateway or Azure API Management.
+- Virtual machines.
+
+The application platform you use determines a number of aspects of your Private Link configuration, and the limits that apply. Additionally, some application services don't support Private Link for inbound traffic.
+
+### Limits
+
+Carefully consider the number of private endpoints that you can create. If you use a platform as a service (PaaS) application platform, it's important be aware of the maximum number of private endpoints that a single resource can support. If you run virtual machines, you can attach a Private Link service instance to a load balancer. In this configuration, you can generally connect a higher number of private endpoints, but limits still apply. These limits might determine how many tenants you can connect to your resources by using Private Link. Review [TODO quotas](TODO) to understand the limits to the number of endpoints and connections.
+
+Additionally, some services require specialized networking configuration to use Private Link. For example, if you use Private Link with Azure Application Gateway, you must [provision a dedicated subnet](/azure/application-gateway/private-link-configure) in addition to the standard subnet for the Application Gateway resource.
+
+Carefully test your solution, including your deployment and diagnostic configuration, with your Private Link configuration enabled. Some Azure services block public internet traffic when a private endpoint is enabled, which can require that you change your deployment and management processes.
+
+### Internet-facing applications
+
+If you plan to deploy your solution to be both internet-facing and also exposed through private endpoints, consider your topology and the traffic paths that each type of tenant will follow.
+
+For example, suppose you build an internet-facing application that runs on a virtual machine scale set. You use Azure Front Door, including its web application firewall (WAF), for security and traffic acceleration:
+
+<!-- TODO diagram -->
+
+If you provide a tenant with a private endpoint to access your solution, their traffic bypasses your Front Door profile and the WAF:
+
+<!-- TODO diagram -->
+
+In some solutions, this might be problematic because your WAF might be an important security component. You might also embed traffic routing or caching functionality in your Front Door profile, and traffic flowing through private endpoints won't use these features.
 
 ## Isolation models
 
