@@ -51,11 +51,11 @@ If you plan to deploy your solution to be both internet-facing and also exposed 
 
 For example, suppose you build an internet-facing application that runs on a virtual machine scale set. You use Azure Front Door, including its web application firewall (WAF), for security and traffic acceleration:
 
-<!-- TODO diagram -->
+![Diagram showing requests from one tenant coming into Front Door through the internet.](media/private-link/private-link-internet.png)
 
 If you provide a tenant with a private endpoint to access your solution, their traffic bypasses your Front Door profile and the WAF:
 
-<!-- TODO diagram -->
+![Diagram showing requests from a second tenant coming into the application through a private endpoint, bypassing Front Door.](media/private-link/private-link-private-endpoint.png)
 
 In some solutions, this might be problematic because your WAF might be an important security component. You might also embed traffic routing or caching functionality in your Front Door profile, and traffic flowing through private endpoints won't use these features.
 
