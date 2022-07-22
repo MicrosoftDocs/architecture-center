@@ -84,7 +84,7 @@ The scaling requirements depend on the functionality of the service. Some servic
 
 In this reference architecture, the `CatalogService` has at least 3 instances per cluster to spread automatically across three Availability Zones per Azure Region. Each instance requests one CPU core and a given amount of memory based on upfront load testing. Each instance is expected to serve approximately 250 requests per second based on a standardized usage pattern. `CatalogService` has a 3:1 relationship to `Ingress`.
 
-The `BackgroundProcessor` service has very different requirements and is considered a background worker which has no direct impact on the user experience. `BackgroundProcessor` has a different auto-scaling configuration than `CatalogService` and it can scale between 3 and 32 instances, which matches the maximum number of Event Hub partitions. The ratio between `CatalogService` and `BackgroundProcessor` is around 10:1.
+In other cases, the service might not have negative impact on user experience but may cause performance bottlenecks. For instance, the `BackgroundProcessor` service is a background worker that should be able  to<ask Martin what the requirement is>. It can scale between 3 and 32 instances, which matches the maximum number of event hub partitions. The ratio between `CatalogService` and `BackgroundProcessor` is around 10:1.
 
 All workload components as well as supporting services like the `HealthService` and `Ingress` are configured with at least 3 or in case of the `HealthService` 2 instances (replicas) per cluster. This configuration prevents availability issues and ensures that the service is always available. The instances are automatically spread across nodes and therefore also across Availability Zones.
 
