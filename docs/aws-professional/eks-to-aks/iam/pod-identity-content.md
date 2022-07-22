@@ -22,6 +22,14 @@ A managed identity for Azure resources lets a pod authenticate itself against Az
 
 ![Simplified workflow for pod managed identity in Azure](./media/pod-identity.png)
 
+Message flow:
+
+1. Pod requests a security token to access an Azure resource.
+2. Pod identity establishes identity of the pod and obtains the azureAssignedIdentity for the pod
+3. Pod identity uses azureAssignedIdentity to obtain a security token on behalf of the pod.
+4. Security token is returned to the pod.
+5. Pod uses the security token to access an Azure resource.
+
 With a managed identity, your application code doesn't need to include credentials to access a service, such as Azure Storage. As each pod authenticates with its own identity, so you can audit and review access. If your application connects with other Azure services, use managed identities to limit credential reuse and risk of exposure.
 
 For more information about pod identities, see [Configure an AKS cluster to use pod managed identities and with your applications](https://github.com/Azure/aad-pod-identity#demo).
@@ -62,14 +70,46 @@ For more information, see the following resources:
 
 ## Example Workload
 
-The following diagram shows the architecture of the application on an AKS cluster with the [OIDC Issuer](https://docs.microsoft.com/en-us/azure/aks/cluster-configuration#oidc-issuer-preview) enabled. The figure also shows how both the frontend and backend applications exchange the security tokens issued by the Kubernetes cluster to their service account with Azure AD tokens and how they use these tokens to access the following Azure AD protected resources:
+Let's assume you want to deploy to AKS a workload composed of a frontend and backend service on an AKS cluster that need to access the following services using a security token issued by Azure Active Directory:
 
 - Azure Key Vault
 - Azure CosmosDB
 - Azure Storage Account
 - Azure Service Bus
 
+### Prerequisites
+
+- Setup an AKS cluster with the [OIDC Issuer](https://docs.microsoft.com/en-us/azure/aks/cluster-configuration#oidc-issuer-preview) enabled.
+- Install the [mutating admission webhook](https://azure.github.io/azure-workload-identity/docs/installation/mutating-admission-webhook.html).
+- Create a Kubernetes service account for the workloads.
+- Create an Azure AD application as shown in the [Quick Start](https://azure.github.io/azure-workload-identity/docs/quick-start.html).
+- Assign roles with the right permissions to the Azure AD registered application on the Azure resources accessed by the frontend and backend applications:
+
+  - Azure Key Vault
+  - Azure Cosmos DB
+  - Azure Storage Account
+  - Azure Service Bus namespace
+
+- Establish [federated identity credential](https://azure.github.io/azure-workload-identity/docs/quick-start.html) between the Azure AD application and the service account issuer and subject.
+- Deploy the workload application to the AKS cluster.
+
+### Message Flow
+
+The following diagram shows how the frontend and backend applications:
+
+- Acquire security tokens for their service account from the [OIDC Issuer](https://docs.microsoft.com/en-us/azure/aks/cluster-configuration#oidc-issuer-preview) of the AKS cluster. 
+- Exchange security tokens acquired from the OIDC issuer with security tokens issued by Azure AD.
+- Use Azure AD issued security tokens to access Azure resources.
+
 ![Example of an application that uses Azure AD Workload Identity](./media/azure-ad-workload-identity.png)
+
+Message Flow:
+
+1. Kubernetes issues a token to the pod when it is scheduled on a node, based on the pod or deployment spec.
+2. Pod sends the OIDC token issued by AKS to Azure AD to request an Azure AD token for the specific `appId` and resource.
+3. Azure AD checks the trust on the application and validates the incoming token.
+4. Azure AD issues a security token: `{sub: appId, aud: requested-audience}`.
+5. Pod uses Azure AD token to access the target Azure resource.
 
 There are four steps to get the sample working end-to-end in a Kubernetes cluster:
 

@@ -50,8 +50,6 @@
         "zoiner"
     ],
     "cSpell.words": [
-        "CPUs",
-        "Logix",
         "aadds",
         "accountabilities",
         "anonymize",
@@ -100,6 +98,7 @@
         "contoso",
         "contoso's",
         "cortana",
+        "CPUs",
         "cutover",
         "cyberattacks",
         "cybersecurity",
@@ -174,6 +173,7 @@
         "leverage",
         "lifecycle",
         "lightbox",
+        "Logix",
         "mbps",
         "metastore",
         "microculture",
@@ -212,6 +212,7 @@
         "nontransient",
         "northstar",
         "ntlm",
+        "OIDC",
         "olap",
         "oltp",
         "onboarded",
