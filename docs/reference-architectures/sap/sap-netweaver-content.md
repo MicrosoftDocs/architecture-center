@@ -35,7 +35,7 @@ These following components annotate the workflow of this architecture:
 
 - **AnyDB.** The database tier runs AnyDB as the database, such as Microsoft SQL Server, Oracle, or IBM Db2.
 
-- **Jumpbox/Bastion** A jumpbox is also called a bastion host. Administrators use this improved-security virtual machine to connect to the other virtual machines. It's typically a part of shared services, like domain controllers and backup services. If Secure Shell Protocol (SSH) and Remote Desktop Protocol (RDP) are the only services used for server administration, an [Azure Bastion](/azure/bastion/bastion-overview) host is an alternative. If you use other management tools, like SQL Server Management Studio or SAP Front End, use a traditional, self-deployed jump-box.
+- **Jumpbox/Bastion** A jumpbox is also called a bastion host. Administrators use this improved-security virtual machine to connect to the other virtual machines. It's typically a part of shared services, like domain controllers and backup services. If Secure Shell Protocol (SSH) and Remote Desktop Protocol (RDP) are the only services used for server administration, an [Azure Bastion](/azure/bastion/bastion-overview) host is an alternative. If you use other management tools, like SQL Server Management Studio or SAP Front End, use a traditional, self-deployed jumpbox.
 
 - **Windows Server Active Directory domain controllers.** The domain controllers are used for identity management of all virtual machines and users in the domain.
 
@@ -289,7 +289,7 @@ If you're using Azure NetApp Files for your database storage, you might be able 
 
 ### DR for shared services
 
-Many IT services, like administrative jump boxes, cloud-based directory services, backup, and monitoring services, are shared by all your deployed cloud assets. Replicate your shared services into the DR region by using whatever means the services provide.
+Many IT services, like administrative jumpboxes, cloud-based directory services, backup, and monitoring services, are shared by all your deployed cloud assets. Replicate your shared services into the DR region by using whatever means the services provide.
 
 ### Automated DR with Azure Site Recovery
 
@@ -358,7 +358,7 @@ If your workload requires more memory and fewer CPUs, consider using one of the 
 
 ### Virtual machines
 
-This architecture uses virtual machines for the application tier and the database tier. The SAP NetWeaver tier uses Windows virtual machines to run SAP services and applications. The database tier runs AnyDB as the database, like SQL Server, Oracle, or IBM DB2. Virtual machines are also used as jump boxes for management.
+This architecture uses virtual machines for the application tier and the database tier. The SAP NetWeaver tier uses Windows virtual machines to run SAP services and applications. The database tier runs AnyDB as the database, like SQL Server, Oracle, or IBM DB2. Virtual machines are also used as jumpboxes for management.
 
 There are several payment options for virtual machines in general:
 
