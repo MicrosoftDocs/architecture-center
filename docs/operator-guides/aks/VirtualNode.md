@@ -34,9 +34,9 @@ Applications that are deployed on virtual nodes can face issues due to some reas
 
         ```yaml
         nodeSelector:
-        kubernetes.io/role: agent
-        beta.kubernetes.io/os: linux
-        type: virtual-kubelet
+         kubernetes.io/role: agent
+         beta.kubernetes.io/os: linux
+         type: virtual-kubelet
         tolerations:
         - key: virtual-kubelet.io/provider
         operator: Exists
