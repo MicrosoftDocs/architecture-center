@@ -6,16 +6,16 @@ You can add communication to web and mobile apps, integrate custom services and 
 
 The following components are used in these data flow diagrams:
 
-- **Client application.** A website or native application that end users use for communication. Communication Services provides [SDK client libraries](/azure/communication-services/concepts/sdk-options) for browsers and native apps. [The open-source UI Library](/azure/communication-services/concepts/ui-library/ui-library-overview?pivots=platform-web) built on these SDKs provides programmable web (React), iOS, and Android UI components.
+- **Client application.** A website or native application used by end users for communication. Communication Services provides [SDK client libraries](/azure/communication-services/concepts/sdk-options) for browsers and native apps. [The open-source UI Library](/azure/communication-services/concepts/ui-library/ui-library-overview?pivots=platform-web) built on these SDKs provides programmable web (React), iOS, and Android UI components.
 - **Identity management service.**  A service that you build to map users and services to Communication Services identities. This service also creates tokens for users when they need to access the data plane.
 - **Communication controller service.**  A service that you build to control chat threads and voice and video calls.
 - **Communication data service.**  A service capability that you build to directly interact with communication content, like sending chat and SMS messages or playing audio in a voice call.
 
-Industry standards for communication like [WebRTC](https://webrtc.org) separate communication into a **control and signaling plane** and a **data plane**. By using Communication Services, you can build a communication experience without understanding the service's internal implementation of WebRTC. These concepts can, however, help you design your app:
+Industry standards for communication, like [WebRTC](https://webrtc.org), separate communication into a **control and signaling plane** and a **data plane**. By using Communication Services, you can build a communication experience without needing to understand the service's internal implementation of WebRTC. These concepts can, however, help you design your app:
 
 | System  | Function| Protocols  | Access model   |
 |---|---|-----|--|
-| **Control plane** | Governs who communicates, when, and how | REST | [Azure Active Directory service credentials](https://docs.microsoft.com/azure/communication-services/concepts/authentication#azure-ad-authentication) |
+| **Control plane** | Governs who communicates, when, and how | REST | [Azure AD service credentials](https://docs.microsoft.com/azure/communication-services/concepts/authentication#azure-ad-authentication) |
 | **Data plane**| Contains communication content, voice, video, text, and data that interface with humans and apps | UDP, [RTMP](/azure/communication-services/concepts/voice-video-calling/network-requirements), WebSockets, REST | [User access tokens](/azure/communication-services/concepts/authentication#user-access-tokens) and Azure AD service credentials |
 
 A common data flow occurs when client applications initiate communication by requesting control information from a service controller:
@@ -30,7 +30,7 @@ In the WebRTC standard, clients request control information from services by sen
 
 ## Users authenticated via user access tokens
 
-Communication Services clients present user access tokens to access the Azure calling and chat data plane with improved security. You should generate and manage user access tokens by using a trusted service. The token and the connection string or Azure Active Directory (Azure AD) secrets necessary to generate them need to be protected. Failure to properly manage access tokens can result in additional charges because of misuse of resources.
+Communication Services clients present user access tokens to access, with improved security, the Azure calling and chat data plane. You should generate and manage user access tokens by using a trusted service. The token and the connection string or Azure Active Directory (Azure AD) secrets necessary to generate them need to be protected. Failure to properly manage access tokens can result in additional charges because of misuse of resources.
 
 :::image type="content" source="./media/architecture-identity.png" alt-text="Diagram that shows the user access token architecture." border="false":::
 
@@ -39,10 +39,10 @@ Communication Services clients present user access tokens to access the Azure ca
 ### Dataflow
 
 1. A user starts the client application.
-2. The client application contacts your identity management service. The identity management service maintains a mapping between your users and other addressable objects, like services or bots, to Communication Services identities.
+2. The client application contacts your identity management service. The identity management service maintains a mapping between application identities and  Communication Services identities. (Application identities include your users and other addressable objects, like services or bots.)
 3. The identity management service uses the mapping to [issue a user access token](/rest/api/communication/communicationidentity/communication-identity/issue-access-token) for the applicable identity.
 
-Azure App Service or Azure Functions are straightforward options for operating the identity management service. These services scale easily and have built-in features to [authenticate](/azure/app-service/overview-authentication-authorization) users. They're integrated with [OpenID](/azure/app-service/configure-authentication-provider-openid-connect) and third-party identity providers like [Facebook](/azure/app-service/configure-authentication-provider-facebook).
+Azure App Service or Azure Functions are two alternatives for operating the identity management service. These services scale easily and have built-in features to [authenticate](/azure/app-service/overview-authentication-authorization) users. They're integrated with [OpenID](/azure/app-service/configure-authentication-provider-openid-connect) and third-party identity providers like [Facebook](/azure/app-service/configure-authentication-provider-facebook).
 
 ### Resources
 
@@ -66,7 +66,7 @@ The simplest voice and video calling scenario involves a user calling another us
 1. The accepting user is notified of the incoming call via the Calling SDK. To receive incoming calls, the acceptor must have already initialized the Call client.
 1. The users communicate with each other via voice and video in a call.
 
-The dataflow is nearly identical when a user calls an external phone number. The key  difference is that, to access traditional telephony, the initiating user client must request from the controller service source and destination phone numbers, as opposed to user identities.
+The dataflow is nearly identical when a user calls an external phone number. The key  difference is that, to access traditional telephony, the initiating user client must request source and destination phone numbers from the controller service, as opposed to user identities.
 
 In some situations, you might want apps to accept calls in the background by using platform services like Apple Push Notification. You can enable this functionality by integrating [Communication Services with Azure Notification Hubs](/azure/communication-services/concepts/notifications).
 
@@ -80,7 +80,7 @@ In some situations, you might want apps to accept calls in the background by usi
 
 ## User joins a group call without an invitation
 
-You might want users to be able to join a call without an explicit invitation. Your app might have a persistent *social space* or *club* that includes a video calling channel, and users join that video call when they want to. This dataflow shows a call that's initially created by a client and allows a remote client to join without explicit invitation.
+You might want users to be able to join a call without an explicit invitation. Your app might provide a persistent *social space* or *club* that includes a video calling channel that users can join when they want to. This dataflow shows a call that's initially created by a client and allows a remote client to join without explicit invitation:
 
 :::image type="content" source="./media/call-join-client-driven.png" alt-text="Diagram that shows a call without an invitation." border="false":::
 
@@ -101,7 +101,7 @@ Many organizations use Microsoft 365 and Teams for communication. [Communication
 - **Build a custom application to allow an external user to join a Teams meeting.** This scenario is ideal for virtual visit scenarios, where a business that's using Teams hosts a meeting for external consumers who are using a custom app and a custom identity. To learn more about this scenario, see [Virtual visits tutorial and Sample Builder](https://docs.microsoft.com/azure/communication-services/tutorials/virtual-visits).
 - **Build a custom application for an internal user with Teams / Azure AD credentials.** This scenario is designed for building custom Teams clients for employees.
 
-These custom application scenarios use [Microsoft Graph APIs](/graph/overview?view=graph-rest-1.0) and Communication Services. When you build external apps and services that connect to Teams, you generally use Microsoft Graph as the *Teams control plane*. You use this control plane to configure who communicates and how and when users communicate by using APIs for:
+These custom application scenarios use [Microsoft Graph APIs](/graph/overview?view=graph-rest-1.0) and Communication Services. When you build external apps and services that connect to Teams, you generally use Microsoft Graph as the *Teams control plane*. You use this control plane to configure who communicates and how and when they communicate by using APIs for:
 
 - [Teams](/graph/api/resources/team?view=graph-rest-1.0)
 - [Calendar and online meetings](/graph/choose-online-meeting-api?view=graph-rest-1.0)
@@ -121,7 +121,7 @@ Communication Services applications can join Teams calls. For external users, th
 
 ### Dataflow
 
-1. A. The communication controller service schedules the group call by using the [Graph API](/graph/api/resources/onlinemeeting?view=graph-rest-1.0&preserve-view=true). In another pattern, 1. B., users schedule the group call by using Outlook or Teams.
+1. A. The communication controller service schedules the group call by using the [Microsoft Graph API](/graph/api/resources/onlinemeeting?view=graph-rest-1.0&preserve-view=true). In another use case, 1. B., users schedule the group call by using Outlook or Teams.
 2. The communication controller service shares the Teams call details with Communication Services clients.
 3. Typically, a Teams user must join the call via the Teams UI and allow external users to pass through the Teams pre-call lobby. However, this requirement depends on the Teams tenant configuration and specific meeting settings.
 4. Communication Services users initialize the Call client and join the Teams meeting by using the details received in step 2.
