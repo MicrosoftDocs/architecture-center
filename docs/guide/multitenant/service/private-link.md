@@ -39,7 +39,7 @@ The application platform you use determines a number of aspects of your Private 
 
 ### Limits
 
-Carefully consider the number of private endpoints that you can create. If you use a platform as a service (PaaS) application platform, it's important be aware of the maximum number of private endpoints that a single resource can support. If you run virtual machines, you can attach a Private Link service instance to a load balancer. In this configuration, you can generally connect a higher number of private endpoints, but limits still apply. These limits might determine how many tenants you can connect to your resources by using Private Link. Review [Azure subscription and service limits, quotas, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits) to understand the limits to the number of endpoints and connections.
+Carefully consider the number of private endpoints that you can create based on your solution's architecture. If you use a platform as a service (PaaS) application platform, it's important be aware of the maximum number of private endpoints that a single resource can support. If you run virtual machines, you can attach a Private Link service instance to a load balancer. In this configuration, you can generally connect a higher number of private endpoints, but limits still apply. These limits might determine how many tenants you can connect to your resources by using Private Link. Review [Azure subscription and service limits, quotas, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits) to understand the limits to the number of endpoints and connections.
 
 Additionally, some services require specialized networking configuration to use Private Link. For example, if you use Private Link with Azure Application Gateway, you must [provision a dedicated subnet](/azure/application-gateway/private-link-configure) in addition to the standard subnet for the Application Gateway resource.
 
@@ -53,7 +53,7 @@ For example, suppose you build an internet-facing application that runs on a vir
 
 ![Diagram showing requests from one tenant coming into Front Door through the internet.](media/private-link/private-link-internet.png)
 
-If you provide Tenant B with a private endpoint to access your solution, their traffic bypasses your Front Door profile and the WAF:
+If you provide tenant B with a private endpoint to access your solution, their traffic bypasses your Front Door profile and the WAF:
 
 ![Diagram showing requests from a second tenant coming into the application through a private endpoint, bypassing Front Door.](media/private-link/private-link-private-endpoint.png)
 
@@ -61,11 +61,16 @@ In some solutions, this might be problematic because your WAF might be an import
 
 ## Isolation models
 
-- The decision over how many PL resources to deploy largely depends on whether your application tier is shared or dedicated.
-- If you have an application tier that's shared between multiple tenants:
-   - If it's VM-based, you need to deploy one or more PLS resources. Typically you'll start with one, and then deploy more only if you run into limits (although the limits are high).
-   - If it's PaaS-based, you will deploy one PE per tenant. Note that there are limits around how many PEs can be attached to a single PaaS resource - the limits differ for each service.
-- If you have dedicated application tier deployments per tenant, you probably only need one or a small number of PEs per deployment to enable the tenant to access the resource.
+Private Link is designed to support scenarios where a single application tier can be used by multiple separate clients, such as your tenants. When you consider isolation for Private Link, the main concern is around the number of resources you need to deploy to support your requirements.
+
+The isolation model you select, and the number of resources you deploy to support Private Link, typically depend on whether your application tier resources are dedicated to a specific tenant or if they're shared between tenants.
+
+If you deploy a dedicated set of application tier resources for each tenant, it's likely that you can deploy one private endpoint for that tenant to use to access their resources. It's unlikely that you'll exhaust any Private Link-related service limits, because each tenant has their own resources dedicated to them.
+
+If you share your application tier resources between multiple tenants, then the number of Private Link resources you deploy depends on the underlying Azure service:
+
+- For virtual machine-based workloads, you need to deploy one or more Private Link service instances. A single Private Link service instance supports a large number of private endpoints. If you do exhaust the limit, you can deploy additional instances, although there are also limits to the number of Private Link services you can deploy on a single load balancer.
+- For Azure platofm services, you need to deploy one private endpoint for each of your tenants' virtual networks that connect to your service. There are limits on the number of private endpoints that can be attached to a single resource, and these limits are different for each service.
 
 ## Features of Azure Private Link that support multitenancy
 
@@ -90,7 +95,7 @@ After a connection has been established between a client (like a tenant) and a p
 The Private Link service supports several types of approval flows, including:
 
 - **Manual approval**, where your team explicitly approves every connection. This approach is viable when you have a small number of tenants who use your service through Private Link.
-- **API-based approval**, where the Private Link service treats the connection as requiring a manual approval, but your application uses the [Update Private Endpoint Connection API](/rest/api/virtualnetwork/private-link-services/update-private-endpoint-connection) to approve a connection. This approach can be useful when you have a list of tenants who have been authorized to use private endpoints.
+- **API-based approval**, where the Private Link service treats the connection as requiring a manual approval, and your application uses the [Update Private Endpoint Connection API](/rest/api/virtualnetwork/private-link-services/update-private-endpoint-connection) to approve a connection. This approach can be useful when you have a list of tenants who have been authorized to use private endpoints.
 - **Auto-approval**, where the Private Link service itself maintains the list of subscription IDs that should have their connections automatically approved.
 
 For more information, see [Control service access](/azure/private-link/private-link-service-overview#control-service-access).
