@@ -258,7 +258,6 @@ This model may also offer different service-level agreements for different tiers
 
 ## TODO
 
-- taints, node affinities and node selectors
 - one identity for each namespace
 - multiple service proxies
 - front door
