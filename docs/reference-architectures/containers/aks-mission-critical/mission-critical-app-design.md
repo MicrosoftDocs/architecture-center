@@ -86,7 +86,7 @@ In this reference architecture, the `CatalogService` has at least 3 instances pe
 
 In other cases, the service might not have negative impact on user experience but may cause performance bottlenecks. For instance, the `BackgroundProcessor` service is a background worker that should be able  to<ask Martin what the requirement is>. It can scale between 3 and 32 instances, which matches the maximum number of event hub partitions. The ratio between `CatalogService` and `BackgroundProcessor` is around 10:1.
 
-All workload components as well as supporting services like the `HealthService` and `Ingress` are configured with at least 3 or in case of the `HealthService` 2 instances (replicas) per cluster. This configuration prevents availability issues and ensures that the service is always available. The instances are automatically spread across nodes and therefore also across Availability Zones.
+There are also overall scalability considerations that are applicable to all workload services to prevent availability issues and ensure that the service is always available. For example, supporting services like the `HealthService` and `Ingress` are configured with minimum of three replicas.  The instances are automatically spread across nodes and therefore also across Availability Zones.
 
 In addition, each component of the workload has [Pod Disruption Budgets (PDBs)](/azure/aks/operator-best-practices-scheduler#plan-for-availability-using-pod-disruption-budgets) configured to ensure that a minimum number of instances is always available.
 
