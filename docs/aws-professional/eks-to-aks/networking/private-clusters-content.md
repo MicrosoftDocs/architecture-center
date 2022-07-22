@@ -47,7 +47,7 @@ You can use the following parameters exposed by the AKS resource provider to cus
 
 The following table shows the options in terms of DNS configuration that you can adopt when deploying a private AKS cluster:
 
-<table>
+<table border="1">
   <tr>
     <td colspan="2" rowspan="2">DNS Options</td>
     <td colspan="2">enablePrivateClusterPublicFQDN</td>
