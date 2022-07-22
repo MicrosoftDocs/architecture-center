@@ -6,10 +6,10 @@ You can add communication to web and mobile apps, integrate custom services and 
 
 The following components are used in these data flow diagrams:
 
-- **Client application.** End users use this website or native application to communicate. Communication Services provides [SDK client libraries](/azure/communication-services/concepts/sdk-options) for browsers and native apps. [The open-source UI Library](/azure/communication-services/concepts/ui-library/ui-library-overview?pivots=platform-web) built on these SDKs provides programmable web (React), iOS, and Android UI components.
-- **Identity management service.**  This is a service that you build to map users and services to Communication Services identities. This service also creates tokens for users when they need to access the data plane.
-- **Communication controller service.**  This is a service that you build to control chat threads and voice and video calls.
-- **Communication data service.**  This is a service capability that you build to directly interact with communication content, like sending chat and SMS messages or playing audio in a voice call.
+- **Client application.** A website or native application that end users use for communication. Communication Services provides [SDK client libraries](/azure/communication-services/concepts/sdk-options) for browsers and native apps. [The open-source UI Library](/azure/communication-services/concepts/ui-library/ui-library-overview?pivots=platform-web) built on these SDKs provides programmable web (React), iOS, and Android UI components.
+- **Identity management service.**  A service that you build to map users and services to Communication Services identities. This service also creates tokens for users when they need to access the data plane.
+- **Communication controller service.**  A service that you build to control chat threads and voice and video calls.
+- **Communication data service.**  A service capability that you build to directly interact with communication content, like sending chat and SMS messages or playing audio in a voice call.
 
 Industry standards for communication like [WebRTC](https://webrtc.org) separate communication into a **control and signaling plane** and a **data plane**. By using Communication Services, you can build a communication experience without understanding the service's internal implementation of WebRTC. These concepts can, however, help you design your app:
 
@@ -22,11 +22,11 @@ A common data flow occurs when client applications initiate communication by req
 
 - What meetings do I have today?
 - What phone number do I use to call my friend Joseph?
-- What are the names of my teammates? What chat threads do we have on-going?
+- What are the names of my teammates? What ongoing chat threads do we have?
 
 Your control service fulfills these requests by providing clients with Communication Services tokens and identifiers for users, threads, phone numbers, and calls. Clients then use these tokens and identifiers to interact with the Azure data plane. Communication Services APIs don't constrain the design of your end-user experience or the processes that control communication.
 
-In the WebRTC standard, the process of clients requesting control information from services is called *control messages* or *signaling*. Communication Services identifiers like call ID are comparable to [WebRTC session descriptions](https://datatracker.ietf.org/doc/html/rfc8866).
+In the WebRTC standard, clients request control information from services by sending *control messages* in a process known as *signaling*. Communication Services identifiers like call ID are comparable to [WebRTC session descriptions](https://datatracker.ietf.org/doc/html/rfc8866).
 
 ## Users authenticated via user access tokens
 
