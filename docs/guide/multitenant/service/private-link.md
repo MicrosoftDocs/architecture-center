@@ -49,11 +49,11 @@ Carefully test your solution, including your deployment and diagnostic configura
 
 If you plan to deploy your solution to be both internet-facing and also exposed through private endpoints, consider your topology and the traffic paths that each type of tenant will follow.
 
-For example, suppose you build an internet-facing application that runs on a virtual machine scale set. You use Azure Front Door, including its web application firewall (WAF), for security and traffic acceleration, and you [configure Front Door to send its traffic through a private endpoint](/azure/frontdoor/private-link):
+For example, suppose you build an internet-facing application that runs on a virtual machine scale set. You use Azure Front Door, including its web application firewall (WAF), for security and traffic acceleration, and you [configure Front Door to send its traffic through a private endpoint](/azure/frontdoor/private-link). Tenant A uses this path to access your service:
 
 ![Diagram showing requests from one tenant coming into Front Door through the internet.](media/private-link/private-link-internet.png)
 
-If you provide a tenant with a private endpoint to access your solution, their traffic bypasses your Front Door profile and the WAF:
+If you provide Tenant B with a private endpoint to access your solution, their traffic bypasses your Front Door profile and the WAF:
 
 ![Diagram showing requests from a second tenant coming into the application through a private endpoint, bypassing Front Door.](media/private-link/private-link-private-endpoint.png)
 
@@ -71,19 +71,19 @@ In some solutions, this might be problematic because your WAF might be an import
 
 Private Link has several features that are helpful in a multitenant environment. However, the specific features available to you depend on the service you use. The Azure Private Link service, for virtual machines and load balancers, support all of the features described below. Other services with Private Link support might support only a subset of these features.
 
-### Aliases
+### Service aliases
 
 When a tenant configures access to your service by using Private Link, they need to be able to identify your service so that Azure can establish the connection.
 
 Private Link service, and certain other Private Link-compatible Azure services, enable you to [configure an alias](/azure/private-link/private-link-service-overview#alias) that you provide to your tenants. By using an alias, you avoid disclosing your Azure subscription IDs and resource group names.
 
-### Visibility
+### Service visibility
 
 The Private Link service enables you to [control the visibility of your private endpoint](/azure/private-link/private-link-service-overview#control-service-exposure). This means that you can specify whether all Azure customers can connect to your private endpoint when they know your service's alias, or whether you restrict access.
 
 You can also specify pre-approved Azure subscription IDs that can connect to your private endpoint. If you choose to use this approach, consider how you'll collect and authorize subscription IDs. For example, you might provide an administration user interface in your application to collect a tenant's subscription ID. Then, you can dynamically reconfigure your Private Link service instance to pre-approve that subscription ID for connections.
 
-### Approval process
+### Connection approvals
 
 After a connection has been established between a client (like a tenant) and a private endpoint, Private Link requires that the connection be *approved*. Until the connection is approved, traffic can't flow through the private endpoint connection.
 
