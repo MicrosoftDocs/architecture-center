@@ -49,7 +49,7 @@ Carefully test your solution, including your deployment and diagnostic configura
 
 If you plan to deploy your solution to be both internet-facing and also exposed through private endpoints, consider your topology and the traffic paths that each type of tenant will follow.
 
-For example, suppose you build an internet-facing application that runs on a virtual machine scale set. You use Azure Front Door, including its web application firewall (WAF), for security and traffic acceleration:
+For example, suppose you build an internet-facing application that runs on a virtual machine scale set. You use Azure Front Door, including its web application firewall (WAF), for security and traffic acceleration, and you [configure Front Door to send its traffic through a private endpoint](/azure/frontdoor/private-link):
 
 ![Diagram showing requests from one tenant coming into Front Door through the internet.](media/private-link/private-link-internet.png)
 
