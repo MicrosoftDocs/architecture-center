@@ -2,7 +2,7 @@
 
 For the people running a healthcare facility, length of stay—the number of days from patient admission to discharge—matters. However, that number can vary across facilities and across disease conditions and specialties, even within the same healthcare system, making it hard to track patient flow and plan accordingly.
 
-This Azure solution helps hospital administrators use the power of machine learning to predict the length of stay for in-hospital admissions, to improve capacity planning and resource utilization. A chief medical information officer might use a predictive model to determine which facilities are overtaxed and which resources to bolster within those facilities, and a care line manager might use it to determine if there are adequate staff resources to handle the release of a patient.
+This Azure solution helps hospital administrators use the power of machine learning to predict the length of stay for in-hospital admissions, to improve capacity planning and resource utilization. A chief medical information officer might use a predictive model to determine which facilities are overtaxed and which resources to bolster within those facilities, and a care line manager might use a model to determine whether there are adequate staff resources to handle the release of a patient.
 
 ## Potential use cases
 
@@ -15,9 +15,9 @@ Being able to predict length of stay at the time of admission helps hospitals pr
 
 ### Dataflow
 
-- [SQL Server Machine Learning Services](/sql/machine-learning/sql-server-machine-learning-services): Stores the patient and hospital data. Provides training and predicted models and predicted results for consumption using R.
-- [Power BI](/power-bi) provides an interactive dashboard with visualization that uses data stored in SQL Server to drive decisions on the predictions.
-- [Azure Machine Learning](/azure/machine-learning): Machine Learning helps you design, test, operationalize, and manage predictive analytics solutions in the cloud.
+- [Azure Machine Learning](/azure/machine-learning) is used to design, test, operationalize, and manage predictive analytics solutions in the cloud.
+- [SQL Server Machine Learning Services](/sql/machine-learning/sql-server-machine-learning-services) stores the patient and hospital data. These services provide training and predicted models and predicted results for consumption using R.
+- [Power BI](/power-bi) provides an interactive dashboard with visualization that uses data that's stored in SQL Server to drive decisions on the predictions.
 
 ### Components
 
