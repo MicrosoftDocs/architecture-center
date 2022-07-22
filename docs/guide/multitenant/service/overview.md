@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article introduces the guidance we provide for using many distinct Azure services in a multitenant solution.
 author: johndowns
 ms.author: jodowns
-ms.date: 1/11/2021
+ms.date: 07/21/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -37,8 +37,8 @@ The articles in this section describe some Azure services commonly used in multi
 
 - Deployment and configuration: [Azure Resource Manager](resource-manager.md) and [Azure App Configuration](app-configuration.md)
 - Compute: [App Service and Azure Functions](app-service.yml)
-- Networking: [NAT Gateway](nat-gateway.md)
-- Storage and data: [Azure Storage](storage.md), [Azure SQL Database](sql-database.md), [Azure Cosmos DB](cosmos-db.md), and [Azure Database for PostgreSQL](postgresql.md)
+- Networking: [Private Link](private-link.md) and [Virtual Network NAT](nat-gateway.md)
+- Storage and data: [Azure Cache for Redis](cache-redis.md), [Azure Cosmos DB](cosmos-db.md), [Azure Database for PostgreSQL](postgresql.md), [Azure Storage](storage.md), and [Azure SQL Database](sql-database.md).
 
 We frequently add new articles with guidance for additional services. You're also welcome to [submit suggestions for additional service-specific guidance](https://aka.ms/multitenancy/feedback).
 

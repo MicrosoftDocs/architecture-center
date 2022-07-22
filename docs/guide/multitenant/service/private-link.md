@@ -23,7 +23,11 @@ ms.custom:
 
 # Multitenancy and Azure Private Link
 
-Azure Private Link provides private IP addressing for Azure platform services, and for your own applications hosted on Azure virtual machines. You can use Private Link to enable private connectivity from your tenants' Azure environments. Tenants can also use Private Link to access your solution from their on-premises environments when they're connected through virtual private networks (VPNs) or ExpressRoute. In this article, we review how you can configure Private Link for an Azure-hosted multitenant solution.
+Azure Private Link provides private IP addressing for Azure platform services, and for your own applications hosted on Azure virtual machines. You can use Private Link to enable private connectivity from your tenants' Azure environments. Tenants can also use Private Link to access your solution from their on-premises environments when they're connected through virtual private networks (VPNs) or ExpressRoute.
+
+Azure Private Link service is used by many large SaaS providers, including [Snowflake](/shows/Azure-Videos/Azure-Private-Link--Snowflake), [Confluent Cloud](https://www.confluent.io/blog/how-to-set-up-secure-networking-in-confluent-with-azure-private-link/), and [MongoDB Atlas](https://www.mongodb.com/blog/post/announcing-azure-private-link-integration-for-mongo-db-atlas).
+
+In this article, we review how you can configure Private Link for an Azure-hosted multitenant solution.
 
 ## Key considerations
 
@@ -95,7 +99,7 @@ After a connection has been established between a client (like a tenant) and a p
 The Private Link service supports several types of approval flows, including:
 
 - **Manual approval**, where your team explicitly approves every connection. This approach is viable when you have a small number of tenants who use your service through Private Link.
-- **API-based approval**, where the Private Link service treats the connection as requiring a manual approval, and your application uses the [Update Private Endpoint Connection API](/rest/api/virtualnetwork/private-link-services/update-private-endpoint-connection) to approve a connection. This approach can be useful when you have a list of tenants who have been authorized to use private endpoints.
+- **API-based approval**, where the Private Link service treats the connection as requiring a manual approval, and your application uses the [Update Private Endpoint Connection API](/rest/api/virtualnetwork/private-link-services/update-private-endpoint-connection), the Azure CLI, or Azure PowerShell to approve a connection. This approach can be useful when you have a list of tenants who have been authorized to use private endpoints.
 - **Auto-approval**, where the Private Link service itself maintains the list of subscription IDs that should have their connections automatically approved.
 
 For more information, see [Control service access](/azure/private-link/private-link-service-overview#control-service-access).
