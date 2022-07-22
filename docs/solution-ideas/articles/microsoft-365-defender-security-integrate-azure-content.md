@@ -1,3 +1,5 @@
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
+
 You can enhance the security posture of your organization’s IT environment by using the security features of both Microsoft 365 and Azure. This article, the fifth in a series of five, describes how you can integrate the security features of these services by using Microsoft 365 Defender and Azure monitoring services. 
 
 This article builds on the previous articles in the series:

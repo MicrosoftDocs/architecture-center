@@ -11,7 +11,9 @@ This solution idea describes how to create voice conversational interfaces with 
 
 ## Architecture
 
-![Diagram showing the architecture of a voice assistant app.](../media/controlling-iot-devices-using-voice.svg)
+![Diagram showing the architecture of a voice assistant app.](../media/controlling-iot-devices-using-voice-new.png)
+
+*Download a [Visio file](https://arch-center.azureedge.net/controlling-iot-devices-using-voice.vsdx) of this architecture.*
 
 ### Dataflow
 

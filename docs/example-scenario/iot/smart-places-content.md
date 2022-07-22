@@ -231,6 +231,7 @@ This solution applies to many areas:
 
 - Smart campuses (education industry)
 - Facilities management (real estate)
+- Smart stadiums (sports industry)
 - Smart offices
 - Energy optimization
 

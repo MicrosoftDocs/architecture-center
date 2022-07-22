@@ -1,26 +1,8 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Conceptually, the DevSecOps for infrastructure as code (IaC) is similar to [DevSecOps for application code on Azure](/azure/architecture/solution-ideas/articles/devsecops-in-azure). But you need a different set of pipelines and tools to manage and automate continuous integration and continuous delivery (CI/CD) for IaC.
-
-When you adopt IaC, it's important to create automation tests as you develop the code. These tests reduce the complexity of testing IaC when your workload scales. You can use local infrastructure configuration states like Terraform states and plans to develop [test-driven development (TDD) for IaC](/azure/cloud-adoption-framework/ready/considerations/test-driven-development). These configuration states emulate the actual deployments. You can run integration tests for IaC on actual infrastructure deployments using the [Azure Resource Graph REST API](/rest/api/azure-resourcegraph/).
-
-Policy as Code (PaC) is also an important method to deliver infrastructure that's compliant to regulations and corporate governance. You can add [PaC workflows](/azure/governance/policy/concepts/policy-as-code) into your pipelines to automate cloud governance.
-
-Securing infrastructure early in the development stage reduces the risks of misconfiguring infrastructure that opens up points for attack after deployment. You can integrate static code analysis tools for infrastructure like Synk, or Aquasecurity tfsec by using GitHub’s CodeQL, to scan security issues in infrastructure code. This process is similar to Static Application Security Testing (SAST).
-
-When the infrastructure is deployed and operational, cloud configuration drifts can be difficult to resolve, especially in production environments.
-
-Set up dedicated service principals to deploy or modify cloud infrastructure for production environments. Then remove all other access that allows manual configuration of the environment. In the event you need manual configurations, elevate access for the designated administrator, and then remove elevated access once the change is modified. You should configure Azure Monitor to raise an issue in GitHub for developers to reconcile the changes. However, manual configuration should be avoided if possible.
-
-It's important to continuously monitor the cloud environment for threats and vulnerabilities to prevent security incidents. You can use Threat protection and security information and event management (SIEM) tools to detect abnormal traffic. These tools automatically alert security administrators and raise an issue in GitHub for attention.
-
 This solution idea illustrates the DevSecOps pipeline using GitHub for IaC and how to govern the workflow for operation excellence, security, and cost optimization.
 
 *Terraform is a trademark of Hashicorp. No endorsement is implied by the use of this mark.*
-
-## Potential use cases
-
-You're part of a central team of IaC developers that uses a multicloud strategy for the fictional company Contoso. You want to deploy cloud infrastructure into a new Azure landing zone, using DevSecOps for IaC to ensure the security and quality of deployments. You also want to track and audit all modifications to the infrastructure.
 
 ## Architecture
 
@@ -50,6 +32,26 @@ You're part of a central team of IaC developers that uses a multicloud strategy 
 - [Microsoft Sentinel](https://azure.microsoft.com/services/microsoft-sentinel) is a cloud-native SIEM and security orchestration automated response (SOAR) solution. It uses advanced AI and security analytics to help you detect and respond to threats across your enterprise.
 - [Azure Policy](https://azure.microsoft.com/services/azure-policy) helps teams manage and prevent IT issues through policy definitions that can enforce rules for cloud resources. For example, if your project is about to deploy a virtual machine with an unrecognized SKU, Azure Policy alerts you to the problem and stops the deployment.
 - [Azure Monitor](https://azure.microsoft.com/services/monitor) collects and analyzes app telemetry, such as performance metrics and activity logs. When this service identifies irregular conditions, it alerts apps and personnel.
+
+## Scenario details
+
+Conceptually, the DevSecOps for infrastructure as code (IaC) is similar to [DevSecOps for application code on Azure](/azure/architecture/solution-ideas/articles/devsecops-in-azure). But you need a different set of pipelines and tools to manage and automate continuous integration and continuous delivery (CI/CD) for IaC.
+
+When you adopt IaC, it's important to create automation tests as you develop the code. These tests reduce the complexity of testing IaC when your workload scales. You can use local infrastructure configuration states like Terraform states and plans to develop [test-driven development (TDD) for IaC](/azure/cloud-adoption-framework/ready/considerations/test-driven-development). These configuration states emulate the actual deployments. You can run integration tests for IaC on actual infrastructure deployments using the [Azure Resource Graph REST API](/rest/api/azure-resourcegraph/).
+
+Policy as Code (PaC) is also an important method to deliver infrastructure that's compliant to regulations and corporate governance. You can add [PaC workflows](/azure/governance/policy/concepts/policy-as-code) into your pipelines to automate cloud governance.
+
+Securing infrastructure early in the development stage reduces the risks of misconfiguring infrastructure that opens up points for attack after deployment. You can integrate static code analysis tools for infrastructure like Synk, or Aquasecurity tfsec by using GitHub’s CodeQL, to scan security issues in infrastructure code. This process is similar to Static Application Security Testing (SAST).
+
+When the infrastructure is deployed and operational, cloud configuration drifts can be difficult to resolve, especially in production environments.
+
+Set up dedicated service principals to deploy or modify cloud infrastructure for production environments. Then remove all other access that allows manual configuration of the environment. In the event you need manual configurations, elevate access for the designated administrator, and then remove elevated access once the change is modified. You should configure Azure Monitor to raise an issue in GitHub for developers to reconcile the changes. However, manual configuration should be avoided if possible.
+
+It's important to continuously monitor the cloud environment for threats and vulnerabilities to prevent security incidents. You can use Threat protection and security information and event management (SIEM) tools to detect abnormal traffic. These tools automatically alert security administrators and raise an issue in GitHub for attention.
+
+### Potential use cases
+
+You're part of a central team of IaC developers that uses a multicloud strategy for the fictional company Contoso. You want to deploy cloud infrastructure into a new Azure landing zone, using DevSecOps for IaC to ensure the security and quality of deployments. You also want to track and audit all modifications to the infrastructure.
 
 ## Contributors
 
