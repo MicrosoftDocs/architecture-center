@@ -113,10 +113,10 @@ Message Flow:
 
 There are four steps to get the sample working end-to-end in a Kubernetes cluster:
 
-- Cluster administrators configure the AKS cluster to issue tokens. An OIDC discovery document is published to allow validation of these tokens.
-- Developers configure their deployments to use Kubernetes service accounts and get Kubernetes tokens.
-- Azure AD applications are configured to trust the Kubernetes tokens.
-- The Kubernetes tokens are exchanged for Azure AD tokens, and used to access Azure AD protected resources such as Azure and Microsoft Graph.
+1. Cluster administrators configure the AKS cluster to issue tokens. An OIDC discovery document is published to allow validation of these tokens.
+2. Developers configure their deployments to use Kubernetes service accounts and get Kubernetes tokens.
+3. Azure AD applications are configured to trust the Kubernetes tokens.
+4. The Kubernetes tokens are exchanged for Azure AD tokens, and used to access Azure AD protected resources such as Azure and Microsoft Graph.
 
 You can find the code of this example workload on [GitHub](https://github.com/azure-samples/azure-ad-workload-identity).
 
