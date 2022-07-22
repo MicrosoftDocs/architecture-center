@@ -47,7 +47,59 @@ You can use the following parameters exposed by the AKS resource provider to cus
 
 The following table shows the options in terms of DNS configuration that you can adopt when deploying a private AKS cluster:
 
-  ![Private AKS Cluster](./media/private_aks_cluster_dns_options.png)
+<table>
+  <tr>
+    <td colspan="2" rowspan="2" style="text-align: left;">DNS Options</td>
+    <td colspan="2" style="text-align: center;">enablePrivateClusterPublicFQDN</td>
+  </tr>
+    <td style="text-align: center;">true</td>
+    <td style="text-align: center;">false</td>
+  <tr>
+  <tr>
+    <td rowspan="3" style="text-align: left;">privateDnsZone</td>
+    <td>system</td>
+    <td>
+      <ul>
+        <li>Agent nodes, and any other virtual machine in the AKS cluster virtual network or in any connected virtual network with a virtual network link with the private DNS zone, use the A record in the private DNS zone to resolve the private IP address of the private endpoint for communication to the API server.</li>
+        <li>Any other virtual machine uses the public FQDN of the API Server.</li>
+      </ul>
+    </td>
+    <td>
+      <ul>
+        <li>Agent nodes (and any other virtual machine in the AKS cluster virtual network or in any connected virtual network with a virtual network link with the private DNS zone) use the A record in the private DNS zone to resolve the private IP address of the private endpoint for communication to the API server.</li>
+        <li>No public API Server FQDN is available for virtual machines outside of the AKS cluster virtual network or any connected virtual network.</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>Private DNS Zone resource id</td>
+    <td>
+      <ul>
+        <li>Agent nodes (and any other virtual machine in the AKS cluster virtual network or in any connected virtual network with a virtual network link with the private DNS zone) use the A record in the private DNS zone to resolve the private IP address of the private endpoint for communication to the API server.</li>
+        <li>Any other virtual machine uses the public FQDN of the API Server.</li>
+      </ul>
+    </td>
+    <td>
+      <ul>
+        <li>Agent nodes (and any other virtual machine in the AKS cluster virtual network or in any connected virtual network with a virtual network link with the private DNS zone) use the A record in the private DNS zone to resolve the private IP address of the private endpoint for communication to the API server. No public API Server FQDN is available for virtual machines outside of the AKS cluster virtual network or any connected virtual network.</li>
+        <li>No public API Server FQDN is available for virtual machines outside of the AKS cluster virtual network or any connected virtual network.</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>none</td>
+    <td>
+      <ul>
+        <li>All the virtual machines, including agent nodes, use the public FQDN of the API Server available via as an A record in an Azure-managed public DNS zone.</li>
+      </ul>
+    </td>
+    <td>
+      <ul>
+        <li> Wrong configuration: the private AKS cluster needs at least a public or a private DNS zone for the name resolution of the API Server.</li>
+      </ul>
+    </td>
+  </tr>
+</table>
 
 The second option to improve cluster security and minimize attacks is using [Authorized IPs](/azure/aks/api-server-authorized-ip-ranges) to restrict the access to the control plane of an AKS cluster to a well-known list of IP addresses and CIDRs. When using this is still publicly exposed, but access is limited to a set of IP ranges. For more information, see [Secure access to the API server using authorized IP address ranges in Azure Kubernetes Service (AKS)](/azure/aks/api-server-authorized-ip-ranges).
 
