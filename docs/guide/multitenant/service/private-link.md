@@ -69,30 +69,39 @@ In some solutions, this might be problematic because your WAF might be an import
 
 ## Features of Azure Private Link that support multitenancy
 
-When you use Azure App Configuration in a multitenant application, there are several features that you can use to store and retrieve tenant-specific settings.
-
-### Visibility
-
-- Private Link service enables you to [control the visibility of your private endpoint](/azure/private-link/private-link-service-overview#control-service-exposure).
-- Will you let all Azure subscriptions be able to add a private endpoint to your service, or will it only be for a subset?
-- If you only allow known subscriptions, how will you authorise their subscription IDs? For example, you might provide an administration user interface in your solution to collect the subscription ID, and then passing that subscription ID to Azure to pre-approve connection requests.
+Private Link has several features that are helpful in a multitenant environment. However, the specific features available to you depend on the service you use. The Azure Private Link service, for virtual machines and load balancers, support all of the features described below. Other services with Private Link support might support only a subset of these features.
 
 ### Aliases
 
-- When using Private Link service, as well as some other Private Link-compatible Azure services, you can [provide an alias](/azure/private-link/private-link-service-overview#alias) to your tenants instead of giving them your Azure subscription IDs and other resource details.
-- This avoids disclosure of your subscription IDs and resource group names.
+When a tenant configures access to your service by using Private Link, they need to be able to identify your service so that Azure can establish the connection.
+
+Private Link service, and certain other Private Link-compatible Azure services, enable you to [configure an alias](/azure/private-link/private-link-service-overview#alias) that you provide to your tenants. By using an alias, you avoid disclosing your Azure subscription IDs and resource group names.
+
+### Visibility
+
+The Private Link service enables you to [control the visibility of your private endpoint](/azure/private-link/private-link-service-overview#control-service-exposure). This means that you can specify whether all Azure customers can connect to your private endpoint when they know your service's alias, or whether you restrict access.
+
+You can also specify pre-approved Azure subscription IDs that can connect to your private endpoint. If you choose to use this approach, consider how you'll collect and authorize subscription IDs. For example, you might provide an administration user interface in your application to collect a tenant's subscription ID. Then, you can dynamically reconfigure your Private Link service instance to pre-approve that subscription ID for connections.
 
 ### Approval process
 
-- Private Link service supports manual and auto approval based on subscription IDs.
-- Even if you use manual approval, you might build a custom automated approval system to look at your tenants who have been authorised for using private endpoints, and approving those connections automatically.
-- [Doc](/azure/private-link/private-link-service-overview#control-service-access)
+After a connection has been established between a client (like a tenant) and a private endpoint, Private Link requires that the connection be *approved*. Until the connection is approved, traffic can't flow through the private endpoint connection.
+
+The Private Link service supports several types of approval flows, including:
+
+- **Manual approval**, where your team explicitly approves every connection. This approach is viable when you have a small number of tenants who use your service through Private Link.
+- **API-based approval**, where the Private Link service treats the connection as requiring a manual approval, but your application uses the [Update Private Endpoint Connection API](/rest/api/virtualnetwork/private-link-services/update-private-endpoint-connection) to approve a connection. This approach can be useful when you have a list of tenants who have been authorized to use private endpoints.
+- **Auto-approval**, where the Private Link service itself maintains the list of subscription IDs that should have their connections automatically approved.
+
+For more information, see [Control service access](/azure/private-link/private-link-service-overview#control-service-access).
 
 ### Proxy Protocol v2
 
-- By default, you only see the NATted IP address of the client. However, Private Link service enables you to get access to the original client IP address in their own private subnet.
-- This can be useful if you need to add IP address-based access restrictions for clients on different private IP addresses all accessing the same private endpoint. For example, you might enable tenants to set their own access restrictions to enforce a rule like "host 10.0.0.10 can access the service, but 10.0.0.20 can't". Or, you might implement IP address restrictions to enforce licensing constraints.
-- [Doc](/azure/private-link/private-link-service-overview#getting-connection-information-using-tcp-proxy-v2)
+When you use Private Link service, by default your application only has visibility of an IP address that has been through network address translation (NAT). This behavior means that traffic appears to flow from within your own virtual network.
+
+Private Link service enables you to get access to the original client IP address, in the tenant's virtual network. This feature uses the [TCP Proxy Protocol v2](/azure/private-link/private-link-service-overview#getting-connection-information-using-tcp-proxy-v2).
+
+For example, suppose your tenants' administrators need to add IP address-based access restrictions, such as *host 10.0.010 can access the service, but host 10.0.0.20 can't*. When you use Proxy Protocol v2, you can enable your tenants to configure these types of access restrictions in your application. However, your application code needs to inspect the client's original IP address and enforce the restrictions.
 
 ## Related resources
 
