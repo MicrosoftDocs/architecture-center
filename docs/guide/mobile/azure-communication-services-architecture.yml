@@ -9,7 +9,6 @@ metadata:
   ms.service: architecture-center
   ms.subservice: azure-guide
   ms.custom:
-    - fcp
     - cse
 name: Azure Communication Services architecture design
 summary: Learn how to add communication features to your applications by using Azure Communication Services.
