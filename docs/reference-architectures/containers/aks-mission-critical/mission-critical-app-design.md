@@ -78,7 +78,7 @@ Advanced instrumentation, such as distributed tracing, are not in scope.
 
 ## Scalability
 
-The `CatalogService` as well as the `BackgroundProcessor` workload component can scale in and out individually. Both services are stateless, packaged as and deployed via Helm charts to each of the (regional) stamps, have proper requests and limits in place and have a pre-configured auto-scaling (HPA) rule in place.
+Individual workload services should be able to scale out independently (insert why? from reliability perspective). In this design the services are packaged and deployed by using Helm charts to each stamp. They are configured to have the expected requests and limits and a pre-configured auto-scaling (HPA) rule in place. (what is preconfigured? like built-in?) 
 
 The scaling requirements depend on the functionality of the service. Some services have a direct impact on end user is  expected to be able to scale out automatically to provide a positive user experience and performance at any time.
 
