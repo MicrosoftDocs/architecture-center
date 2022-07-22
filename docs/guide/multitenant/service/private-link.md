@@ -94,7 +94,7 @@ You can also specify pre-approved Azure subscription IDs that can connect to you
 
 ### Connection approvals
 
-After a connection has been established between a client (like a tenant) and a private endpoint, Private Link requires that the connection be *approved*. Until the connection is approved, traffic can't flow through the private endpoint connection.
+After a connection has been established between a client (like a tenant) and a private endpoint, Private Link requires that the connection is *approved*. Until the connection is approved, traffic can't flow through the private endpoint connection.
 
 The Private Link service supports several types of approval flows, including:
 
