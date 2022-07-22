@@ -43,8 +43,6 @@ Just like EKS monitoring, when you enable Container Insights for your AKS cluste
 
 [Prometheus](https://prometheus.io/) is a popular open source metric monitoring solution and is a part of the [Cloud Native Compute Foundation](https://www.cncf.io/). Container insights provides a seamless onboarding experience to collect Prometheus metrics. Typically, to use Prometheus, you need to set up and manage a Prometheus server with a store. By integrating with Azure Monitor, a Prometheus server is not required. You just need to expose the Prometheus metrics endpoint through your exporters or pods (application), and the containerized agent for Container insights can scrape the metrics for you. Container Insights complements and completes end-to-end monitoring of AKS including log collection which Prometheus as a stand-alone tool doesn’t provide. For more information, see [Configure scraping of Prometheus metrics with Container insights](/azure/azure-monitor/containers/container-insights-prometheus-integration).
 
-![prometheus-monitoring-aks](./media/prometheus-monitoring-aks.png)
-
 ## Next Steps
 
 The following references provide documentation on the deployment and automation of monitoring on AKS:

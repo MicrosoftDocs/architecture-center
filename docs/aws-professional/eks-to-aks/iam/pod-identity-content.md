@@ -60,6 +60,14 @@ As shown in the following diagram, , the Kubernetes cluster becomes a security t
 
 ![Simplified workflow for pod managed identity in Azure](./media/message-flow.png)
 
+Message Flow:
+
+1. Kubelet projects service account token to the workload at a configurable file path.
+2. Kubernetes workload sends projected, signed service account token to the Azure Active Directory and requests an access token to it.
+3. Azure Active Directory checks trust on the registered application and validates incoming token.
+4. Azure Active Directory issues a security access token.
+5. The Kubernetes workload accesses Azure resources using Azure AD access token.
+
 For more information, see the following resources:
 
 - [Azure Workload Identity open-source project](https://azure.github.io/azure-workload-identity).
