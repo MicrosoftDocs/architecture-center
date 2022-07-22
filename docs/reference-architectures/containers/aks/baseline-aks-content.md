@@ -147,7 +147,7 @@ The address space of the virtual network should be large enough to hold all subn
 
 The preceding list isn't exhaustive. If your design has other resources that will impact the number of available IP addresses, accommodate those addresses.
 
-This architecture is designed for a single workload. For multiple workloads, you may want to isolate the user node pools from each other and from the system node pool. That choice may result in more subnets that are smaller in size. Also, the ingress resource might be more complex. You might need multiple ingress controllers that will require extra addresses.
+This architecture is designed for a single workload. For multiple workloads, you might want to isolate the user node pools from each other and from the system node pool. That choice results in more subnets that are smaller in size. Also, the ingress resource might be more complex, and as a result you might need multiple ingress controllers that requires extra IP addresses.
 
 For the complete set of considerations for this architecture, see [AKS baseline Network Topology](https://github.com/mspnp/aks-secure-baseline/blob/main/networking/topology.md).
 
@@ -201,11 +201,12 @@ It's recommended that managed identities is enabled so that the cluster can inte
 
 As an example for the inside-out case, let's study the use of managed identities when the cluster needs to pull images from a container registry. This action requires the cluster to get the credentials of the registry. One way is to store that information in the form of Kubernetes Secrets object and use `imagePullSecrets` to retrieve the secret. That approach isn't recommended because of security complexities. Not only do you need prior knowledge of the secret but also disclosure of that secret through the DevOps pipeline. Another reason is the operational overhead of managing the rotation of the secret. Instead, grant `acrPull` access to the managed identity of the cluster to your registry. This approach addresses those concerns.
 
-In this architecture, the cluster accesses Azure resources that are secured by Azure AD and perform operations that support managed identities. Assign Azure role-based access control (Azure RBAC) and permissions to the cluster's managed identities, depending on the operations that the cluster intends to do. The cluster will authenticate itself to Azure AD and then be allowed or denied access based on the roles it has been assigned. Here are some examples from this reference implementation where Azure built-in roles have been assigned to the cluster:
+In this architecture, the cluster accesses Azure resources that are secured by Azure AD and perform operations that support managed identities. Assign Azure role-based access control (Azure RBAC) and permissions to the cluster's managed identities, depending on the operations that the cluster intends to do. The cluster authenticates itself to Azure AD and then be allowed or denied access based on the roles it has been assigned. Here are some examples from this reference implementation where Azure built-in roles have been assigned to the cluster:
 
 -   [Network Contributor](/azure/role-based-access-control/built-in-roles#network-contributor). The cluster's ability to control the spoke virtual network. This role assignment allows AKS cluster system assigned identity to work with the dedicated subnet for the Internal Ingress Controller services.
 -   [Monitoring Metrics Publisher](/azure/role-based-access-control/built-in-roles#monitoring-metrics-publisher). The cluster's ability to send metrics to Azure Monitor.
 -   [AcrPull](/azure/role-based-access-control/built-in-roles#acrpull). The cluster's ability to pull images from the specified Azure Container Registries.
+- 
 
 ### Cluster access
 
@@ -233,7 +234,7 @@ For more information, see [Azure RBAC for Kubernetes Authorization](/azure/aks/m
 
 #### Local accounts
 
-AKS supports native [Kubernetes user authentication](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#users-in-kubernetes). User access to clusters using this method is not suggested. It is certificate-based and is performed external to your primary identity provider; making centralized user access control and governance difficult. Always manage access to your cluster via Azure Active Directory, and configure your cluster to explicitly disable local account access.
+AKS supports native [Kubernetes user authentication](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#users-in-kubernetes). User access to clusters using this method is not suggested. It is certificate-based and is performed external to your primary identity provider; making centralized user access control and governance difficult. Always manage access to your cluster using Azure Active Directory, and configure your cluster to explicitly disable local account access.
 
 In this reference implementation, access via local cluster accounts is explicitly disabled when the cluster is deployed.
 
@@ -349,15 +350,15 @@ You can implement end-to-end TLS traffic all at every hop the way through to the
 
 ### Egress traffic flow
 
-For zero-trust control and the ability to inspect traffic, all egress traffic from the cluster moves through Azure Firewall. You can implement that choice using user-defined routes (UDRs). The next hop of the route is the [private IP address](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#private-ip-addresses) of the Azure Firewall. Here, Azure Firewall decides whether to block or allow the egress traffic. That decision is based on the specific rules defined in the Azure Firewall or the built-in threat intelligence rules.
+In this architecture, we recommend all egress traffic from the cluster communicating through through Azure Firewall or your own similar network virtual appliance, over other options such as [NAT Gateway](/azure/virtual-network/nat-gateway/nat-gateway-resource) or [HTTP proxy](/azure/aks/http-proxy). Azure Firewall provides zero-trust control and the ability to inspect this traffic, and you can implement that choice using user-defined routes (UDRs). The next hop of the route is the [private IP address](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#private-ip-addresses) of the Azure Firewall. Here, Azure Firewall decides whether to block or allow the egress traffic. That decision is based on the specific rules defined in the Azure Firewall or the built-in threat intelligence rules.
 
 > [!NOTE]
-> If you use a public load balancer as your public point for ingress traffic and egress through Azure Firewall using UDRs, you might see an [asymmetric routing situation](/azure/aks/limit-egress-traffic#add-a-dnat-rule-to-azure-firewall). This architecture uses *internal* load balancers in a dedicated ingress subnet behind the Application Gateway. This design choice not only enhances security but also eliminates asymmetric routing concerns. Alternatively, you could route ingress traffic through your Azure Firewall before or after your Application Gateway. That approach isn't necessary or recommended for most situations.
+> If you use a public load balancer as your public point for ingress traffic and egress through Azure Firewall using UDRs, you might see an [asymmetric routing situation](/azure/aks/limit-egress-traffic#add-a-dnat-rule-to-azure-firewall). This architecture uses *internal* load balancers in a dedicated ingress subnet behind the Application Gateway. This design choice not only enhances security, but also eliminates asymmetric routing concerns. Alternatively, you could route ingress traffic through your Azure Firewall before or after your Application Gateway, however this approach isn't necessary or recommended for most situations.
 > For more information about asymmetric routing, see [Integrate Azure Firewall with Azure Standard Load Balancer](/azure/firewall/integrate-lb#asymmetric-routing).
 
-An exception to the zero-trust control is when the cluster needs to communicate with other Azure resources. For instance, the cluster needs to pull an updated image from the container registry. The recommended approach is by using  [Azure Private Link](/azure/private-link/private-link-overview). The advantage is that specific subnets reach the service directly. Also, traffic between the cluster and the service isn't exposed to public internet. A downside is that Private Link needs additional configuration instead of using the target service over its public endpoint. Also, not all Azure services or SKUs support Private Link. For those cases, consider enabling a Service Endpoint on the subnet to access the service.
+An exception to the zero-trust control is when the cluster needs to communicate with other Azure resources. For instance, the cluster needs to pull an updated image from the container registry, or secrets from Azure Key Vault. The recommended approach is by using [Azure Private Link](/azure/private-link/private-link-overview). The advantage is that specific subnets reach the service directly instead of the traffic between the cluster and the services going over the internet. A downside is that Private Link needs additional configuration instead of using the target service over its public endpoint. Also, not all Azure services or SKUs support Private Link. For those cases, consider enabling a Service Endpoint on the subnet to access the service.
 
-If Private Link or Service Endpoints aren't an option, you can reach other services through their public endpoints, and control access through Azure Firewall rules and the firewall built into the target service. Because this traffic will go through the static IP address of the firewall, that address can be added the service's IP allowlist. One downside is that Azure Firewall will need to have additional rules to make sure only traffic from specific subnet is allowed.
+If Private Link or Service Endpoints aren't an option, you can reach other services through their public endpoints, and control access through Azure Firewall rules and the firewall built into the target service. Because this traffic will go through the static IP address of the firewall, that address can be added the service's IP allowlist. One downside is that Azure Firewall needs to have additional rules to make sure only traffic from a specific subnet is allowed.
 
 ### Pod-to-pod traffic
 
@@ -379,7 +380,7 @@ For more information, see [Define API server authorized IP ranges](/azure/aks/ap
 
 ## Add secret management
 
-Store secrets in a managed key store, such as Azure Key Vault. The advantage is that the managed store handles rotation of secrets, offers strong encryption, provides an access audit log, and keeps core secrets out of the deployment pipeline.
+Store secrets in a managed key store, such as Azure Key Vault. The advantage is that the managed store handles rotation of secrets, offers strong encryption, provides an access audit log, and keeps core secrets out of the deployment pipeline. In this architecture, Azure Key Vault firewall is enabled and configured with private link connections to the resources in Azure that need to access secrets and certificates.
 
 Azure Key Vault is well integrated with other Azure services. Use the built-in feature of those services to access secrets. For an example about how Azure Application Gateway accesses TLS certificates for the ingress flow, see the [Ingress traffic flow](#ingress-traffic-flow) section.
 
@@ -531,7 +532,7 @@ In case of failure in the primary region, you should be able to quickly create a
 
 ### Kubernetes API Server Uptime SLA
 
-AKS can be used as a free service, but that tier doesn't offer a financially backed SLA. To obtain that SLA, you must choose to add an Uptime SLA to your purchase. We recommend all production clusters use this option. Reserve clusters without this option for pre-production clusters. When combined with Azure Availability Zones, the Kubernetes API server SLA is increased to 99.95%. Your node pools, and other resources are covered under their own SLA.
+AKS can be used as a free service, but that tier doesn't offer a financially backed SLA. To obtain that SLA, you must choose to add the AKS [Uptime SLA](/azure/aks/uptime-sla) to your purchase. We recommend all production clusters use this option. Reserve clusters without this option for pre-production clusters. When combined with Azure Availability Zones, the Kubernetes API server SLA is increased to 99.95%. Your node pools, and other resources are covered under their own SLA.
 
 ### Tradeoff
 
