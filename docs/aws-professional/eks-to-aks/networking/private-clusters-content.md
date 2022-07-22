@@ -49,14 +49,14 @@ The following table shows the options in terms of DNS configuration that you can
 
 <table>
   <tr>
-    <td colspan="2" rowspan="2" style="text-align: left;">DNS Options</td>
-    <td colspan="2" style="text-align: center;">enablePrivateClusterPublicFQDN</td>
+    <td colspan="2" rowspan="2">DNS Options</td>
+    <td colspan="2">enablePrivateClusterPublicFQDN</td>
   </tr>
-    <td style="text-align: center;">true</td>
-    <td style="text-align: center;">false</td>
+    <td>true</td>
+    <td>false</td>
   <tr>
   <tr>
-    <td rowspan="3" style="text-align: left;">privateDnsZone</td>
+    <td rowspan="3">privateDnsZone</td>
     <td>system</td>
     <td>
       <ul>
