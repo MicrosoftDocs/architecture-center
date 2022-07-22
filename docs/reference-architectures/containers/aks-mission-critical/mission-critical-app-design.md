@@ -80,7 +80,7 @@ Advanced instrumentation, such as distributed tracing, are not in scope.
 
 The `CatalogService` as well as the `BackgroundProcessor` workload component can scale in and out individually. Both services are stateless, packaged as and deployed via Helm charts to each of the (regional) stamps, have proper requests and limits in place and have a pre-configured auto-scaling (HPA) rule in place.
 
-`CatalogService` performance has a direct impact on the end user experience. The service is expected to be able to scale out automatically to provide a positive user experience and performance at any time.
+The scaling requirements depend on the functionality of the service. Some services have a direct impact on end user is  expected to be able to scale out automatically to provide a positive user experience and performance at any time.
 
 The `CatalogService` has at least 3 instances per cluster to spread automatically across three Availability Zones per Azure Region. Each instance requests one CPU core and a given amount of memory based on upfront load testing. Each instance is expected to serve approximately 250 requests per second based on a standardized usage pattern. `CatalogService` has a 3:1 relationship to `Ingress`.
 
