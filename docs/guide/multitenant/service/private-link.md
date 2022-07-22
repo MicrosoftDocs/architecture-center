@@ -39,7 +39,11 @@ ms.custom:
 
 ## Isolation models
 
-TODO
+- The decision over how many PL resources to deploy largely depends on whether your application tier is shared or dedicated.
+- If you have an application tier that's shared between multiple tenants:
+   - If it's VM-based, you need to deploy one or more PLS resources. Typically you'll start with one, and then deploy more only if you run into limits (although the limits are high).
+   - If it's PaaS-based, you will deploy one PE per tenant. Note that there are limits around how many PEs can be attached to a single PaaS resource - the limits differ for each service.
+- If you have dedicated application tier deployments per tenant, you probably only need one or a small number of PEs per deployment to enable the tenant to access the resource.
 
 ## Features of Azure Private Link that support multitenancy
 
