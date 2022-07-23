@@ -1,5 +1,5 @@
 ---
-title: Private Link service considerations for multitenancy
+title: Azure Private Link service considerations for multitenancy
 titleSuffix: Azure Architecture Center
 description: This article describes the features of Azure Private Link that are useful when working with multitenanted systems, and it provides links to guidance and examples.
 author: johndowns
@@ -74,11 +74,11 @@ If you deploy a dedicated set of application tier resources for each tenant, it'
 If you share your application tier resources between multiple tenants, then the number of Private Link resources you deploy depends on the underlying Azure service:
 
 - For virtual machine-based workloads, you need to deploy one or more Private Link service instances. A single Private Link service instance supports a large number of private endpoints. If you do exhaust the limit, you can deploy more instances, although there are also limits to the number of Private Link services you can deploy on a single load balancer.
-- For Azure platofm services, you need to deploy one private endpoint for each of your tenants' virtual networks that connect to your service. There are limits on the number of private endpoints that can be attached to a single resource, and these limits are different for each service.
+- For Azure platform services, you need to deploy one private endpoint for each of your tenants' virtual networks that connect to your service. There are limits on the number of private endpoints that can be attached to a single resource, and these limits are different for each service.
 
 ## Features of Azure Private Link that support multitenancy
 
-Private Link has several features that are helpful in a multitenant environment. However, the specific features available to you depend on the service you use. The Azure Private Link service, for virtual machines and load balancers, support all of the features described below. Other services with Private Link support might support only a subset of these features.
+Private Link has several features that are helpful in a multitenant environment. However, the specific features available to you depend on the service you use. The foundational Azure Private Link service, for virtual machines and load balancers, supports all of the features described below. Other services with Private Link support might provide only a subset of these features.
 
 ### Service aliases
 
@@ -94,7 +94,7 @@ You can also specify pre-approved Azure subscription IDs that can connect to you
 
 ### Connection approvals
 
-After a connection has been established between a client (like a tenant) and a private endpoint, Private Link requires that the connection is *approved*. Until the connection is approved, traffic can't flow through the private endpoint connection.
+After a connection has been requested between a client (like a tenant) and a private endpoint, Private Link requires that the connection is *approved*. Until the connection is approved, traffic can't flow through the private endpoint connection.
 
 The Private Link service supports several types of approval flows, including:
 

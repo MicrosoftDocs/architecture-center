@@ -132,7 +132,7 @@ Examples of Microsoft services that provide agents for connectivity to tenants' 
 
 ### Azure Private Link service
 
-[Azure Private Link service](/azure/private-link/private-link-service-overview) provides private connectivity from a tenant's Azure environment to your solution. Tenants can also use Private Link service with their own VNet, to access your service from an on-premises environment. Azure securely routes the traffic to the service.
+[Azure Private Link service](/azure/private-link/private-link-service-overview) provides private connectivity from a tenant's Azure environment to your solution. Tenants can also use Private Link service with their own VNet, to access your service from an on-premises environment. Azure securely routes the traffic to the service using private IP addresses.
 
 For more information about Private Link and multitenancy, see [Multitenancy and Azure Private Link](../service/private-link.md).
 
