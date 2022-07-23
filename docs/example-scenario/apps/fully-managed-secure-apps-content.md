@@ -93,7 +93,7 @@ Another point to consider is DNS. In order to allow applications within the App 
 
 ### Security
 
-- Consider applying the [typical design patterns for security](/azure/architecture/framework/security/security-patterns) where appropriate.
+- Review the overview of the [security pillar]([design-patterns-security]).
 - Review the security considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture].
 - Consider following a [secure development lifecycle][secure-development] process to help developers build more secure software and address security compliance requirements while reducing development cost.
 - Review the blueprint architecture for [Azure PCI DSS compliance][pci-dss-blueprint].
@@ -163,7 +163,7 @@ Principal author:
 [design-patterns-availability]: /azure/architecture/framework/resiliency/reliability-patterns
 [design-patterns-resiliency]: /azure/architecture/framework/resiliency/resiliency-patterns
 [design-patterns-performance-efficiency]: /azure/architecture/framework/scalability/performance-efficiency-patterns
-[design-patterns-security]: /azure/architecture/framework/security/security-patterns
+[design-patterns-security]: /azure/architecture/framework/security/overview
 [design-geo-distributed-ase]: /azure/app-service/environment/app-service-app-service-environment-geo-distributed-scale
 [design-best-practice-cloud-apps-autoscale]: ../../best-practices/auto-scaling.md
 
@@ -174,7 +174,7 @@ Principal author:
 [docs-waf]: /azure/application-gateway/waf-overview
 [docs-azure-devops]: /azure/devops/?view=vsts
 [docs-azure-vm]: /azure/virtual-machines/windows/overview
-[docs-azure-scale-ase]: /azure/app-service/environment/intro
+[docs-azure-scale-ase]: /azure/app-service/environment/overview
 [docs-service-fabric]: /azure/service-fabric
 [docs-kubernetes-service]: /azure/aks
 [Azure Networking]: /azure/networking/networking-overview
