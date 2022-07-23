@@ -93,7 +93,7 @@ Another point to consider is DNS. In order to allow applications within the App 
 
 ### Security
 
-- Review the overview of the [security pillar]([design-patterns-security]).
+- Review the overview of the [security pillar][design-patterns-security].
 - Review the security considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture].
 - Consider following a [secure development lifecycle][secure-development] process to help developers build more secure software and address security compliance requirements while reducing development cost.
 - Review the blueprint architecture for [Azure PCI DSS compliance][pci-dss-blueprint].
