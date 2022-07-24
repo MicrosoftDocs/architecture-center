@@ -19,10 +19,8 @@ This reference architecture provides guidance for designing a mission critical w
 The [design strategies for mission-critical baseline](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro#key-design-strategies) still apply in this use case. Here are some additional points:
 
 - **Secure ingress**
-Take PaaS services offline. Eliminate any connectivoty from resources used in the solution.
-Taking components offline has a cost which is private endpoint. and subnet. However that is only from ingress perspective. What's coming to these services.
-
-Ingress: In our global routing we have a bunhc of private endpojnts. In the stamp vnet, we need a subnet that has a PL service and ILB. 
+    
+    Ingress or inbound communication into the virtual network must secured. Eliminate any public connectivity to Azure services by using private endpoints. Further, inspect traffic to subnets by using network security groups (NSGs) on subnets with private endpoints.
 
 - **Secure egress** 
 
@@ -30,20 +28,14 @@ Ingress: In our global routing we have a bunhc of private endpojnts. In the stam
 
     Consider restricting outbound traffic to the internet using Azure Firewall and network security groups (NSGs) on the subnets.
 
-
 - **Balance tradeoffs with security**
 
     There are significant trade-offs security features are added to the workload architecture. You might notice some impact on performance, operational agility, and even reliability. However, attack vectors, such as Denial-Of-Service (DDoS), data intrusion, and others, can target the system's overall reliability and eventually cause unavailability.
 
-It's also important to note that there are often significant trade-offs associated with a hardened security posture, particularly with respect to performance, operational agility, and in some cases reliability. For example, the inclusion of inline Network Virtual Appliances (NVA) for Next-Generation Firewall (NGFW) capabilities, such as deep packet inspection, will introduce a significant performance penalty, additional operational complexity, and a reliability risk if scalability and recovery operations are not closely aligned with that of the application. It's therefore essential that additional security components and practices intended to mitigate key threat vectors are also designed to support the reliability target of an application, which will form a key aspect of the recommendations and considerations presented within this section.
-
-
   
-- **Communication with the workload**
+> Refer to [Well-architected mission critical workloads](/azure/architecture/framework/mission-critical/).
 
-    > Refer to [Well-architected mission critical workloads](/azure/architecture/framework/mission-critical/).
-
-![Mission critical online](./images/mission-critical-architecture-connected.svg)
+![Mission critical online](./images/mission-critical-architecture-network.svg)
 
 The components of this architecture can be broadly categorized in this manner. For product documentation about Azure services, see [Related resources](#related-resources). 
 
