@@ -33,7 +33,7 @@ The [design strategies for mission-critical baseline](/azure/architecture/refere
     There are significant trade-offs security features are added to the workload architecture. You might notice some impact on performance, operational agility, and even reliability. However, attack vectors, such as Denial-Of-Service (DDoS), data intrusion, and others, can target the system's overall reliability and eventually cause unavailability.
 
   
-> Refer to [Well-architected mission critical workloads](/azure/architecture/framework/mission-critical/).
+> The preceding strategies are based on the guidance provided in [Well-architected mission critical workloads](/azure/architecture/framework/mission-critical/).
 
 ![Mission critical online](./images/mission-critical-architecture-network.svg)
 
@@ -60,7 +60,7 @@ The regional resources are provisioned as part of a _deployment stamp_ to a sing
 
 **Static website in an Azure Storage Account** hosts a single page application (SPA) that send requests to backend services.
 
-**Azure Virtual Networks** provide secure environments for running the workload. <!-- what are the subnets and what do they hold--> 
+**Azure Virtual Networks** provide secure environments for running the workload and management operations. 
 
 **Azure Kubernetes Service (AKS)** is the orchestrator for backend compute that runs an application and is stateless. The AKS cluster is deployed as a private cluster. So, the Kubernetes API server isn't exposed to the public internet, and traffic to the API server is limited to a private network. 
 
@@ -106,15 +106,35 @@ Because the compute cluster is private, additional resources are provisioned to 
 
 **Azure Bastion** provides secure access to a jump box and removes the need for the jump boxes to have public IPs. Bastion host is in a dedicated subnet of the virtual network in the stamp. 
 
-## Private compute
-rk.
-
-ACR Tasks
-
-
 
 ## Networking
-<!--Coming soon-->
+
+- Stamp Vnet
+    - private endpoints
+    - subnets
+    - NSGs
+- Management Vnet
+    - private endpoints
+    - subnets
+    - NSG
+
+- Global routing
+![Diagram showing secure global routing for a mission critical workload](./images/mission-critical-global-routing-network.png)
+
+- Ingress
+
+![Diagram showing secure ingress traffic to a mission critical workload](./images/mission-critical-network-ingress.png)
+
+- Egress
+
+![Diagram showing secure egress traffic from a mission critical workload](./images/mission-critical-network-egress.png)
+
+
+
+
+
+
+
 On the subnets that have Azure Container Registry agents, NSGs allow only necessary outbound traffic. For instance, traffic is allowed to Azure Key Vault, Azure Active Directory, Azure Monitor, and other services that the container registry needs to talk to.
 
 The subnet with the jump box is intended for management operations. The NSG rule only allows SSH access from Azure Bastion in the hub, and limited outbound connections. Jump boxes do not have universal internet access, and are controlled at both the subnet NSG and Azure Firewall.
@@ -138,47 +158,6 @@ regional vnets, has firewall. it's peered to the stamp v-net.
 peering: when one vnet can talk to another vnet. free flowing. treat two as one. for MC perspective, peering can fail. It's weird to set up. Both sides resources need to be created. Deployment can be trickly. Not very intentional. You need non overlapping IP space. 
 
 closer to the connected story.
-
-## Private compute
-
-<!--Coming soon-->
-
-## Request and processor flows
-
-This image shows the request and background processor flow of the reference implementation.
-
-:::image type="content" source="./images/request-flow.png" alt-text="Diagram of the request flow." lightbox="./images/request-flow.png":::
-
-The description of this flow is in the following sections.
-
-### Website request flow
-
-1. A request for the web user interface is sent to a global load balancer. For this reference architecture, the global load balancer is Azure Front Door.
-
-2. The WAF Rules are evaluated. WAF rules positively affect the reliability of the system by protecting against a variety of attacks such as cross-site scripting (XSS) and SQL injection. Azure Front Door will return an error to the requester if a WAF rule is violated and processing stops. If there are no WAF rules violated, Azure Front Door continues processing.
-
-3. Azure Front Door uses routing rules to determine which backend pool to forward a request to. [How requests are matched to a routing rule](/azure/frontdoor/front-door-route-matching). In this reference implementation, the routing rules allow Azure Front Door to route UI and frontend API requests to different backend resources. In this case, the pattern "/*" matches the UI routing rule. This rule routes the request to a backend pool that contains storage accounts with static websites that host the Single Page Application (SPA). Azure Front Door uses the Priority and Weight assigned to the backends in the pool to select the backend to route the request. [Traffic routing methods to origin](/azure/frontdoor/routing-methods). Azure Front Door uses health probes to ensure that requests aren't routed to backends that aren't healthy. The SPA is served from the selected storage account with static website.
-
-    > [!NOTE]
-    > The terms **backend pools** and **backends** in Azure Front Door Classic are called **origin groups** and **origins** in Azure Front Door Standard or Premium Tiers.  
-
-4. The SPA makes an API call to the Azure Front Door frontend host. The pattern of the API request URL is "/api/*".
-
-### Frontend API request flow
-
-5. The WAF Rules are evaluated like in step 2.
-
-6. Azure Front Door matches the request to the API routing rule by the "/api/*" pattern. The API routing rule routes the request to a backend pool that contains the public IP addresses for NGINX Ingress Controllers that know how to route requests to the correct service in Azure Kubernetes Service (AKS). Like before, Azure Front Door uses the Priority and Weight assigned to the backends to select the correct NGINX Ingress Controller backend.
-
-7. For GET requests, the frontend API performs read operations on a database. For this reference implementation, the database is a global Azure Cosmos DB instance. Azure Cosmos DB has several features that makes it a good choice for a mission critical workload including the ability to easily configure multi-write regions, allowing for automatic failover for reads and writes to secondary regions. The API uses the client SDK configured with retry logic to communicate with Cosmos DB. The SDK determines the optimal order of available Cosmos DB regions to communicate with based on the ApplicationRegion parameter.
-
-8. For POST or PUT requests, the Frontend API performs writes to a message broker. In the reference implementation, the message broker is Azure Event Hubs. You can choose Service Bus alternatively. A handler will later read messages from the message broker and perform any required writes to Cosmos DB. The API uses the client SDK to perform writes. The client can be configured for retries.
-
-## Background processor flow
-
-9. The background processors process messages from the message broker. The background processors use the client SDK to perform reads. The client can be configured for retries.
-
-10. The background processors perform the appropriate write operations on the global Azure Cosmos DB instance. The background processors use the client SDK configured with retry to connect to Azure Cosmos DB. The client's preferred region list could be configured with multiple regions. In that case, if a write fails, the retry will be done on the next preferred region.
 
 ## Design areas
 
