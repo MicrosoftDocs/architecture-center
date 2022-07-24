@@ -1,4 +1,6 @@
-This reference architecture provides guidance for designing a mission critical workload that has network controls in place to enhance communication paths to and from the workload. It uses cloud-native capabilities to maximize reliability, overall security, and operational effectiveness. It extends the [mission-critical baseline architecture](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro) for an internet-facing application with features such as ingress and egress restrictions, and securing connectivity with PaaS services. It's recommended that you become familiar with the baseline before proceeding with this article.
+This reference architecture provides guidance for designing a mission critical workload that has network controls in place to prevent any unauthorized public access between the internet and the workload.
+
+ It builds on the [mission-critical baseline architecture](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro), which is focused on maximizing reliability and operational effectiveness. This architecture adds features to secure ingress and egress paths using cloud-native capabilities. It's recommended that you become familiar with the baseline before proceeding with this article.
 
 > [!IMPORTANT]
 > ![GitHub logo](../../../_images/github.svg) The guidance is backed by a production-grade [example implementation](https://github.com/Azure/Mission-Critical-Connected) which showcases mission critical application development on Azure. This implementation can be used as a basis for further solution development in your first step towards production.
@@ -14,7 +16,28 @@ This reference architecture provides guidance for designing a mission critical w
 
 ## Key design strategies
 
-- **PaaS connectivity**
+The [design strategies for mission-critical baseline](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro#key-design-strategies) still apply in this use case. Here are some additional points:
+
+- **Secure ingress**
+Take PaaS services offline. Eliminate any connectivoty from resources used in the solution.
+Taking components offline has a cost which is private endpoint. and subnet. However that is only from ingress perspective. What's coming to these services.
+
+Ingress: In our global routing we have a bunhc of private endpojnts. In the stamp vnet, we need a subnet that has a PL service and ILB. 
+
+- **Secure egress** 
+
+    Egress traffic refers to traffic from a virtual network to entities outside that network. For example, Azure services used in the workload might need to access  endpoints for various management and control plane operations. That communication might be over the public internet. Lack of security controls on egress traffic might lead to data exfilteration attacks by malicious third-party services.
+
+    Consider restricting outbound traffic to the internet using Azure Firewall and network security groups (NSGs) on the subnets.
+
+
+- **Balance tradeoffs with security**
+
+    There are significant trade-offs security features are added to the workload architecture. You might notice some impact on performance, operational agility, and even reliability. However, attack vectors, such as Denial-Of-Service (DDoS), data intrusion, and others, can target the system's overall reliability and eventually cause unavailability.
+
+It's also important to note that there are often significant trade-offs associated with a hardened security posture, particularly with respect to performance, operational agility, and in some cases reliability. For example, the inclusion of inline Network Virtual Appliances (NVA) for Next-Generation Firewall (NGFW) capabilities, such as deep packet inspection, will introduce a significant performance penalty, additional operational complexity, and a reliability risk if scalability and recovery operations are not closely aligned with that of the application. It's therefore essential that additional security components and practices intended to mitigate key threat vectors are also designed to support the reliability target of an application, which will form a key aspect of the recommendations and considerations presented within this section.
+
+
   
 - **Communication with the workload**
 
@@ -47,7 +70,7 @@ The regional resources are provisioned as part of a _deployment stamp_ to a sing
 
 **Azure Virtual Networks** provide secure environments for running the workload. <!-- what are the subnets and what do they hold--> 
 
-**Azure Kubernetes Service (AKS)** is the orchestrator for backend compute  that runs an application and is stateless. 
+**Azure Kubernetes Service (AKS)** is the orchestrator for backend compute that runs an application and is stateless. The AKS cluster is deployed as a private cluster. So, the Kubernetes API server isn't exposed to the public internet, and traffic to the API server is limited to a private network. 
 
 > Refer to [Well-architected mission critical workloads: Container Orchestration and Kubernetes](/azure/architecture/framework/mission-critical/mission-critical-application-platform#container-orchestration-and-kubernetes).
 
@@ -71,22 +94,58 @@ Build and release pipelines for a mission critical application must be fully aut
 
 > Refer to [Well-architected mission critical workloads: DevOps processes](/azure/architecture/framework/mission-critical/mission-critical-operational-procedures#devops-processes).
 
-**Self-hosted build agents** are used by this implementation <!--why not Microsoft-->  
+**Self-hosted Azure DevOps build agent pools** are used to have more control over the builds and deployments. This level of autonomy is needed because the compute cluster is private. 
 
 > [!NOTE] 
 >  The use of self-hosted agents is demonstrated in the [Mission Critical - Connected](https://aka.ms/mission-critical-connected) reference implementation.
 
 ## Observability resources
 
-Operational data from application and infrastructure must be available to allow for effective operations and maximize reliability. This reference provides a baseline for achieving holistic observability of an application. Monitoring data for global resources and regional resources should be stored independently. A single, centralized observability store isn't recommended to avoid a single point of failure.
-
-## Unified data sink 
+Operational data from application and infrastructure must be available to allow for effective operations and maximize reliability. Monitoring data for global resources and regional resources should be stored independently. A single, centralized observability store isn't recommended to avoid a single point of failure.
 
 - **Azure Log Analytics** is used as a unified sink to store logs and metrics for all application and infrastructure components. 
 - **Azure Application Insights** is used as an Application Performance Management (APM) tool to collect all application monitoring data and store it directly within Log Analytics.
 
+## Management resources
+
+Because the compute cluster is private, additional resources are provisioned to gain secure access to cluster. 
+
+**Azure Virtual Machine Scale Sets** for jump box instances to run tools against the cluster, such as kubectl.
+
+**Azure Bastion** provides secure access to a jump box and removes the need for the jump boxes to have public IPs. Bastion host is in a dedicated subnet of the virtual network in the stamp. 
+
+## Private compute
+rk.
+
+ACR Tasks
+
+
+
 ## Networking
 <!--Coming soon-->
+On the subnets that have Azure Container Registry agents, NSGs allow only necessary outbound traffic. For instance, traffic is allowed to Azure Key Vault, Azure Active Directory, Azure Monitor, and other services that the container registry needs to talk to.
+
+The subnet with the jump box is intended for management operations. The NSG rule only allows SSH access from Azure Bastion in the hub, and limited outbound connections. Jump boxes do not have universal internet access, and are controlled at both the subnet NSG and Azure Firewall.
+Ingress flow: 
+Build agents need access to resources
+No peering
+
+Egress flow:
+Two solutions:
+
+- New snet called azure in all stamps. there's UDR on the subnet if there's coming from AKS or private endpoint. It will be go through Firewall. 
+- Firewall rules can be very crisp and hyper local.
+
+(most aligned version but very cost inffective. )
+
+Option 2:
+
+Keep vnet the same, 2 snets (priv end, k8)
+regional vnets, has firewall. it's peered to the stamp v-net. 
+(violates principles)
+peering: when one vnet can talk to another vnet. free flowing. treat two as one. for MC perspective, peering can fail. It's weird to set up. Both sides resources need to be created. Deployment can be trickly. Not very intentional. You need non overlapping IP space. 
+
+closer to the connected story.
 
 ## Private compute
 
