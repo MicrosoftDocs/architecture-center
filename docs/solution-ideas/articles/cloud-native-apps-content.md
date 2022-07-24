@@ -8,7 +8,9 @@ Organizations can build cloud-native applications using Azure managed databases,
 
 ## Architecture
 
-![Architecture Diagram](../media/cloud-native-apps.png)
+![Diagram  showing cloud native application data flow with Azure Cosmos DB, Azure Database for PostgreSQL and Azure Cache for Redis.](../media/cloud-native-apps.png)
+
+*Download a [Visio file](https://arch-center.azureedge.net/cloud-native-apps.vsdx) of this architecture.*
 
 ### Dataflow
 

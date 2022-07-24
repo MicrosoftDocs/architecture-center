@@ -117,14 +117,16 @@ You must have an existing Azure account. If you do not have an Azure subscriptio
      --resource-group ${RG_NAME} \
      --vnet-name ${VNET_NAME} \
      --address-prefix 10.0.2.0/24
-
+ 
    # Add a subnet where the private endpoint will be deployed for the app service
    az network vnet subnet create \
      --name ${SUBNET_PVT_NAME} \
      --resource-group ${RG_NAME} \
      --vnet-name ${VNET_NAME} \
-     --address-prefix 10.0.3.0/24
-   ```
+     --address-prefix 10.0.3.0/24 \
+    ```
+
+When you create a private endpoint subnet, the private endpoint policies are disabled by default.
 
 > When complete, you should see the following subnets within your virtual network:
 
