@@ -1,8 +1,8 @@
-Mainframe OLTP systems have the capability of processing millions of transactions for vast numbers of users. IBM Information Management System (IMS) is one of the robust and classic Mainframe Transaction Manager used across major companies for online transaction processing. It has two main components, the IMS DC (Data Communication) component and the underlying hierarchical DBMS IMS DB (Data Base) component.
+Mainframe OLTP systems can process millions of transactions for vast numbers of users. IBM Information Management System (IMS) is one a robust classic mainframe transaction manager used by major companies for online transaction processing. It has two main components, the IMS/DC (Data Communications) component and the underlying hierarchical DBMS IMS DB (database) component.
 
-This architecture is focused on implementing an IMS Mainframe application workload to Azure using Raincode’s IMSql product. Migrating an IMS DB application to cloud native solution is complex compared to a relational database application. Here we discuss rehosting a Mainframe IMS workload to Azure seamlessly without translation or modification of existing application with critical IMS features and capabilities using IMSql and Azure SQL Server.
+This architecture describes how to implement an IMS mainframe application workload to Azure by using Raincode's IMSql. Migrating an IMS DB application to a cloud-native solution is more complex than migrating a relational database application. In this article, we discuss rehosting a mainframe IMS workload to Azure seamlessly, without translating or modifying of an existing application with critical IMS features and capabilities. The solution uses IMSql and Azure SQL.
 
-IMS DB/DC Workload Architecture
+IMS DB/DC workload architecture
 
 image 
 
