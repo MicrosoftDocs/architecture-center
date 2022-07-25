@@ -6,18 +6,18 @@ IMS DB/DC workload architecture
 
 image 
 
-1. Users connect to the mainframe over TCP/IP using standard mainframe protocols like TN3270 and HTTPS. 
-1. The transaction managers interact with the users and invoke the application to satisfy user requests. 
-1. In the front end of the application layer, users interact with the IMS screens or with web pages. 
-1. Application code uses storage capabilities of IMS DB (hierarchical) back-end data layer. 
-1. All offline huge data operations are performed through batch jobs.   
+1. Users connect to the mainframe over TCP/IP by using standard mainframe protocols like TN3270 and HTTPS. 
+1. Transaction managers interact with users and invoke the application to satisfy user requests.
+1. In the front end of the application layer, users interact with IMS screens or with web pages.
+1. Application code uses storage capabilities of the IMS DB (hierarchical) back-end data layer.
+1. All offline big data operations are performed via batch jobs.
 1. Concurrently with transaction processing, other services provide authentication, security, management, monitoring, and reporting. These services interact with all other services in the system.
 
-IMSql Overview 
+IMSql overview
 
-Raincode’s IMSql product provides a way forward for IMS based workloads to be hosted on Azure or on-prem distributed SQL Server based implementations. The product provides a holistic solution to run an IMS workload – including the app, data, and middleware components. IMSql has the capability and features to ingest the hierarchical (IMS DB) data structure to relational Data Model in SQL Server, SQL on VM and Azure SQL MI. It has built-in APIs (Application Programming Interfaces) for IMS application programs D/LI calls and extends the data layer beyond the hierarchical workload to cloud native apps that are used to relational data. We will be looking at the components and technologies used in this product and how they operate together 
+Raincode's IMSql provides a way to host IMS-based workloads on Azure or on-premises distributed implementations that are based on SQL Server. IMSql provides a holistic solution for running an IMS workload, including the app, data, and middleware components. It has the ability to ingest the hierarchical (IMS DB) data structure to a relational data model in SQL Server, SQL Server on Azure Virtual Machines, and Azure SQL Managed Instance. It has built-in APIs for IMS application program D/LI calls and extends the data layer beyond the hierarchical workload to cloud-native apps that are used for relational data. This article will describe the components and technologies of this product and how they operate together.
 
-IMSql Architecture on Azure 
+IMSql architecture on Azure 
 
 image 
 
@@ -25,15 +25,9 @@ Workflow 
 
 1. IMSql Terminal Server 
 
- 
-
-The traditional way to access the Mainframe z/OS interface is through an IBM in-house terminal or terminal emulation software. Any application with a geographically dispersed network with thousands of users can connect to the Mainframes through any form of terminal. When an IMS DC application is rehosted on the distributed cloud-based system there is a need to centrally host the application and resource and publish them for the remote client devices. The IMSql Terminal Servers enable business to accomplish this on Azure. 
-
- 
+   The traditional way to access the Mainframe z/OS interface is via an IBM in-house terminal or via terminal emulation software. An application that has a geographically dispersed network with thousands of users can connect to the mainframes through any form of terminal. When an IMS DC application is rehosted on the distributed cloud-based system, you need to centrally host the application and resource and publish them for the remote client devices. You can accomplish this on Azure by using the IMSql Terminal Servers.
 
 2. SQL Server Service broker 
-
- 
 
 In Mainframe IMS DC orchestrates the communication layer between the user Terminals and the application programs by transmitting and processing messages in a control region. This asynchronous communication layer is orchestrated using SQL Server’s Service Broker functionality on rehosting. The service broker helps with communication through its message delivery framework, scales out messages to separate processing servers, current Users, and their diversified transaction processing.      
 
