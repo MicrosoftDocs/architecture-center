@@ -12,7 +12,7 @@ Terraform is an open-source Infrastructure as Code (IaC) tool, created by HashiC
 
 :::image type="content" border="true" source="images/alz-tf-module-overview.png" alt-text="Diagram showing the Azure landing zones conceptual architecture." lightbox="images/alz-tf-module-overview.png":::
 
-The architecture takes advantage of the configurable nature of Terraform and is composed of a primary orchestration module. This module encapsulates multiple capabilities of the Azure landing zones conceptual architecture. You can deploy each capability individually or in part. When doing so, you need to take into account that the capabilities have dependencies.
+The architecture takes advantage of the configurable nature of Terraform and is composed of a primary orchestration module. This module encapsulates multiple capabilities of the Azure landing zones conceptual architecture. You can deploy each capability individually or in part. For example, you can deploy just a hub network, or just the DDoS protection plan, or just the DNS resources. When doing so, you need to take into account that the capabilities have dependencies.
 
 The architecture utilizes an orchestrator approach to simplify the deployment experience. You might prefer to implement each capability using one or more dedicated module instances where each is dedicated to a specific part of the architecture. This is all possible with the correct configuration.
 
@@ -22,7 +22,7 @@ A core concept in Terraform is the use of modules. Modules enable you to organiz
 
 The ability to re-use modules offers a real benefit when defining and deploying landing zones. It enables repeatable, consistent environments in code while reducing the effort required to deploy at scale.
 
-The Terraform implementation of Azure landing zones is delivered using a single module that acts as an orchestration layer. This does not prevent you from implementing capabilities using multiple module instances.
+The Terraform implementation of Azure landing zones is delivered using a single module that acts as an orchestration layer. The orchestration layer allows you to select which resources are deployed and managed using the module. The module can be used multiple times in the same environment to deploy resources independently from each other. This can be useful in organizations where different teams are responsible for the different capabilities, or collections of sub-resources.
 
 ## Layers and staging
 
