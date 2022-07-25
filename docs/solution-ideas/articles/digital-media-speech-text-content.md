@@ -10,7 +10,7 @@ This solution is built on the Azure managed services [Content Delivery Network](
 
 This solution applies to scenarios that can benefit from the ability to search recorded speech. Examples include:
 
-- Training andn educational videos.
+- Training and educational videos.
 - Crime investigations.
 - Customer service analysis.
 
