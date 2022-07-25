@@ -33,7 +33,7 @@ Properly size the number of Public IPs that your firewall needs. Validate whethe
 
 Use Azure Firewall Manager and its policies to reduce your operational costs, by increasing the efficiency and reducing your management overhead. Review your Firewall Manager policies, associations, and inheritance carefully. Policies are billed based on firewall associations. A policy with zero or one firewall association is free of charge. A policy with multiple firewall associations is billed at a fixed rate. See more details at [Pricing - Firewall Manager](https://azure.microsoft.com/pricing/details/firewall-manager).
 
-Review the differences between the two Azure Firewall SKUs. The Standard option is usually enough for east-west traffic, where Premium comes with the necessary additional features for north-south traffic, as well as the forced tunneling feature and many other features. See more information at [Azure Firewall Premium Preview features](/azure/firewall/premium-features). Deploy mixed scenarios using the Standard and Premium options, according to your needs.
+Review the differences between the two Azure Firewall SKUs. The Standard option is usually enough for east-west traffic, whereas Premium comes with the necessary additional features for north-south traffic. See more information at [Azure Firewall Premium Preview features](/azure/firewall/premium-features). Deploy mixed scenarios using the Standard and Premium options, according to your needs.
 
 ## Operational excellence
 

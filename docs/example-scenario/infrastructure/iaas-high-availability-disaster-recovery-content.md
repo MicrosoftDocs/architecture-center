@@ -76,7 +76,7 @@ If you want to use a VM-based *cluster arbiter*, for example a *file-share witne
 
 All VMs in an AZ are in a single *fault domain* (FD) and *update domain* (UD), meaning they share a common power source and network switch, and can all be rebooted at the same time. If you create VMs across different AZs, your VMs are effectively distributed across different FDs and UDs, so they won't all fail or be rebooted at the same time. If you want to have redundant in-zone VMs as well as cross-zone VMs, you should place the in-zone VMs in ASs in PPGs to ensure they won't all be rebooted at once. Even for single-instance VM workloads that aren't redundant today, you can still optionally use ASs in the PPGs to allow for future growth and flexibility.
 
-For deploying virtual machine scale sets across AZs, consider using [Orchestration mode](/azure/virtual-machine-scale-sets/orchestration-modes), currently in public preview, which allows combining FDs and AZs.
+For deploying virtual machine scale sets across AZs, consider using [Orchestration mode](/azure/virtual-machine-scale-sets/orchestration-modes-api-comparison), currently in public preview, which allows combining FDs and AZs.
 
 AZs with in-zone PPGs allow for one of the lowest network latencies in Azure, and an SLA of at least 99.99% because of multi-datacenter resiliency. Use [accelerated networking](/azure/virtual-network/create-vm-accelerated-networking-powershell) on the VMs where possible.
 

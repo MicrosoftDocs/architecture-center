@@ -2,9 +2,9 @@
 title: Secure data solutions
 description: Learn about data protection, access control, auditing, and Azure services and tools that help you secure data assets.
 author: EdPrice-MSFT
-ms.author: edprice
+ms.author: architectures
 categories: azure
-ms.date: 06/21/2022
+ms.date: 07/25/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
