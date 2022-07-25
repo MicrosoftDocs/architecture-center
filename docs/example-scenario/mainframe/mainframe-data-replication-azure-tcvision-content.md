@@ -1,4 +1,4 @@
-tcVISION is a mainframe manager system. It provides an IBM mainframe integration solution for mainframe data replication, data synchronization, data migration, and change data capture (CDC) to multiple Azure data platform services.
++tcVISION is a data replication solution. It provides an IBM mainframe integration solution for mainframe data replication, data synchronization, data migration, and change data capture (CDC) to multiple Azure data platform services.
 
 ## Architecture
 
@@ -10,7 +10,7 @@ The tcVISION logo is a trademark of its respective company. No endorsement is im
 
 ### Workflow
 
-1. The tcVISION database management system supports CDC from many mainframe-based databases. Examples include Db2, IMS/DB, Software AG ADABAS, CA Datacom, CA IDMS, and so on. tcVISION provides log-based CDC agents to capture the change data on the record level. This log-based CDC puts negligible overhead on production source databases.
+1. The tcVISION data replication solution supports CDC from many mainframe-based databases. Examples include Db2, IMS/DB, Software AG ADABAS, CA Datacom, CA IDMS, and so on. tcVISION provides log-based CDC agents to capture the change data on the record level. This log-based CDC puts negligible overhead on production source databases.
 1. tcVISION also supports CDC from virtual storage access method (VSAM) files.
 1. A task starts on the mainframe. Started tasks (STCs) are created on the mainframe as part of tcVISION software installation. Two vital STCs are:
    * Capture agent, which captures changed data from the source.
