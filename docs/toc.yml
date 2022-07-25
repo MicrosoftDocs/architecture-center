@@ -4836,6 +4836,8 @@ items:
                     href: solution-ideas/articles/mainframe-azure-file-replication.yml
       - name: Management + Governance
         items:
+          - name: Get started
+            href: management-governnance/management-governance-start-here.md
           - name: Guides
             items:
               - name: Governance best practices

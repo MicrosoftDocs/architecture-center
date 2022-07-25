@@ -115,7 +115,7 @@ The Azure Well-Architected Framework is a set of guiding tenets that you can use
 
 For additional guidance, see:
 
-- [Design area: Management for Azure environments](/azure/cloud-adoption-framework/ready/landing-zone/design-area/management?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
+- [Design area: Management for Azure environments](/azure/cloud-adoption-framework/ready/landing-zone/design-area/management)
 - [Governance best practices](/security/compass/governance)
 
 
@@ -128,7 +128,7 @@ Get the latest updates on [Azure management](https://azure.microsoft.com/updates
 Following are a few more management and governance architectures to consider: 
 
 - [Archive on-premises data to the cloud](/azure/architecture/solution-ideas/articles/backup-archive-on-premises)
-- [Management and monitoring for an Azure VMware Solution enterprise-scale scenario](/azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-management-and-monitoring?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
+- [Management and monitoring for an Azure VMware Solution enterprise-scale scenario](/azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-management-and-monitoring)
 - [Computer forensics chain of custody in Azure](/azure/architecture/example-scenario/forensics)
 - [Deploy a line-of-business application using Azure App Service Environment v3](/azure/architecture/example-scenario/apps/line-of-business-internal-app-service-environment-v3)
 - [Centralized app configuration and security](/azure/architecture/solution-ideas/articles/appconfig-key-vault)
