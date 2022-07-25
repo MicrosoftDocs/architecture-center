@@ -2,11 +2,17 @@
 
 This article presents a solution for real-time inferencing on [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes).
 
+AKS is useful when you need high-scale production deployments of your machine learning models. A high-scale deployment involves a fast response time, autoscaling of the deployed service, and logging. For more information, see [Deploy a model to an Azure Kubernetes Service cluster](/azure/machine-learning/how-to-deploy-azure-kubernetes-service).
+
+This solution uses [Kubeflow](https://www.kubeflow.org/docs/about/kubeflow) to manage the deployment to AKS. The machine learning models run on AKS clusters that are backed by GPU-enabled virtual machines (VMs).
+
 ## Potential use cases
 
-Use AKS when you need high-scale production deployments of your machine learning models. A high-scale deployment involves a fast response time, autoscaling of the deployed service, and logging. For more information, see [Deploy a model to an Azure Kubernetes Service cluster](/azure/machine-learning/how-to-deploy-azure-kubernetes-service).
+This solution applies to scenarios that use AKS and GPU-enabled VMs for machine learning. Examples include:
 
-This solution uses [Kubeflow](https://www.kubeflow.org/docs/about/kubeflow) to manage the deployment to AKS. Your machine learning models run on AKS clusters that are backed by GPU-enabled virtual machines (VMs).
+- Image classification systems.
+- Natural language processing algorithms.
+- Predictive maintenance systems.
 
 ## Architecture
 
@@ -31,18 +37,14 @@ This solution uses [Kubeflow](https://www.kubeflow.org/docs/about/kubeflow) to m
 
 ## Next steps
 
-Read product documentation:
-
 - [What is Azure Machine Learning?](/azure/machine-learning/overview-what-is-azure-ml)
 - [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes)
 - [Deploy a model to an Azure Kubernetes Service cluster](/azure/machine-learning/how-to-deploy-azure-kubernetes-service)
 - [Kubeflow on Azure](https://www.kubeflow.org/docs/distributions/azure)
-- [What is Azure Blob storage?](/azure/storage/blobs/storage-blobs-overview)
+- [What is Azure Blob Storage?](/azure/storage/blobs/storage-blobs-overview)
 - [Introduction to container registries in Azure](/azure/container-registry/container-registry-intro)
 
 ## Related resources
-
-See other Architecture Center articles:
 
 - [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
 - [Distributed training of deep learning models on Azure](../../reference-architectures/ai/training-deep-learning.yml)

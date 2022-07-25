@@ -25,7 +25,7 @@ If you can extract information about your customers from social media, you can e
 ## Architecture
 
 ![Architecture diagram that shows the flow of data from external sources to its visualization. Other steps include ingestion, enrichment, and storage.][architecture-png]
-*Download a [SVG file][architecture-svg] of this architecture.*
+*Download an [SVG file][architecture-svg] of this architecture.*
 
 ### Dataflow
 
@@ -70,14 +70,12 @@ Learn more with the following learning paths:
 - [Sentiment Analysis with Cognitive Services in Azure Synapse Analytics](/azure/synapse-analytics/machine-learning/tutorial-cognitive-services-sentiment)
 - [Text Analytics with Cognitive Services in Azure Synapse Analytics](/azure/synapse-analytics/machine-learning/tutorial-text-analytics-use-mmlspark)
 
-For information on solution components, see these resources:
+For information about solution components, see these resources:
 
 - [Azure Machine Learning documentation][aml-docs]
 - [Azure Synapse Analytics documentation][synapse-docs]
-- [Cognitive Services](https://azure.microsoft.com/services/cognitive-services)
 - [Cognitive Services Documentation](https://docs.microsoft.com/azure/cognitive-services)
 - [Power BI documentation][pbi-docs]
-- [Web Apps](https://azure.microsoft.com/services/app-service/web)
 - [App Service overview](/azure/app-service/overview)
 - [Train machine learning models in Azure Synapse Analytics][apache-spark-machine-learning-training]
 - [Machine learning model scoring for dedicated SQL pools in Azure Synapse Analytics][tutorial-sql-pool-model-scoring-wizard]
@@ -87,7 +85,7 @@ For information on solution components, see these resources:
 
 - [Predictive marketing with machine learning](./predictive-marketing-campaigns-with-machine-learning-and-spark.yml)
 - [Face recognition and sentiment analysis](../../example-scenario/ai/nifi-sentiment-analysis-face-recognition.yml)
-- [Customer churn prediction using real-time analytics](./articles/customer-churn-prediction.yml)
+- [Customer churn prediction using real-time analytics](./customer-churn-prediction.yml)
 
 
 <!-- links -->

@@ -4,9 +4,15 @@ A speech-to-text solution provides a way to identify speech in static video file
 
 When you use this solution, you can upload static videos to an Azure website. The Azure Media Indexer uses the Speech API to index the speech within the videos and stores it in an Azure database. You can search for words or phrases by using the Web Apps feature of Azure App Service. Then you can retrieve a list of results. When you select a result, you can see the place in the video that mentions the word or phrase.
 
+This solution is built on the Azure managed services [Content Delivery Network](https://azure.microsoft.com/services/cdn) and [Azure Cognitive Search](https://azure.microsoft.com/services/search).
+
 ## Potential use cases
 
-This solution is built on the Azure managed services: [Content Delivery Network](https://azure.microsoft.com/services/cdn) and [Azure Cognitive Search](https://azure.microsoft.com/services/search). These services run in a high-availability environment, patched and supported, which allows you to focus on your solution instead of the environment they run in.
+This solution applies to scenarios that can benefit from the ability to search recorded speech. Examples include:
+
+- Training andn educational videos.
+- Crime investigations.
+- Customer service analysis.
 
 ## Architecture
 
