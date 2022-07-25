@@ -30,7 +30,7 @@ Azure provides a wide range of services to help you with management and governan
 
 - [Azure Attestation](https://azure.microsoft.com/services/azure-attestation). Remotely verify the trustworthiness of a platform and the integrity of the binaries running inside it.
 - [Azure confidential ledger](https://azure.microsoft.com/services/azure-confidential-ledger). Store and process confidential data with confidence.
-- [Azure Purview](https://azure.microsoft.com/services/purview). Govern, protect, and manage your data estate.
+- [Azure Purview](https://azure.microsoft.com/services/purview). Govern, protect, and manage your data.
 - [Azure Policy](https://azure.microsoft.com/services/azure-policy). Achieve real-time cloud compliance at scale with consistent resource governance.
 - [Azure Stack](https://azure.microsoft.com/products/azure-stack). Place technologies and services in appropriate locations, based on your business requirements. Meet custom compliance, sovereignty, and data gravity requirements.
 - [Azure Backup](https://azure.microsoft.com/services/backup). Define backup policies and provide protection for a wide range of enterprise workloads.
