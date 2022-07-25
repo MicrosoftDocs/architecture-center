@@ -10,17 +10,17 @@ As an open platform, Kubernetes allows you to build your applications with your 
 
 AKS clusters can be shared across multiple tenants in different scenarios and ways. In some cases, diverse applications can run in the same cluster, while in other cases, multiple instances of the same application can run in the same shared cluster, one for each tenant. All these types of sharing are frequently described using the umbrella term multitenancy. Kubernetes does not have a first-class concept of end-users or tenants. Still, it provides several features to help you manage different tenancy requirements.
 
-### Multitenancy types
+## Multitenancy types
 
 The first step to determining how to share an AKS cluster across multiple tenants is understanding your scenario to evaluate the patterns and tools at your disposal. In general, multitenancy in Kubernetes clusters falls into two main categories, though many variations are still possible.
 
-#### Multiple teams
+### Multiple teams
 
 A common form of multitenancy is to share a cluster between multiple teams within an organization, each of whom can deploy, monitor, and operate one or more solutions. These workloads frequently need to communicate with each other and with other internal or external applications located on the same cluster or other hosting platforms.
 In addition, these workloads need to communicate with services such as a relational database, a NoSQL repository, or a messaging system hosted in the same cluster or running as PaaS services on Azure.
 In this scenario, members of the teams often have direct access to Kubernetes resources via tools such as [kubectl](https://kubernetes.io/docs/reference/kubectl/), or indirect access through GitOps controllers, such as [Flux](https://fluxcd.io/) and [Argo CD](https://argo-cd.readthedocs.io/en/stable/), or other types of release automation tools. There is often some level of trust between members of different teams, but Kubernetes policies such as RBAC, [resource quotas](https://kubernetes.io/docs/concepts/policy/resource-quotas/), and [network policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/) are essential to safely and fairly share clusters.
 
-#### Multiple customers
+### Multiple customers
 
 Another common form of multitenancy frequently involves a Software-as-a-Service (SaaS) vendor or a service provider running multiple instances of a workload for their customers. In this scenario, the customers do not have direct access to the AKS cluster but only to their application. More, they don't even know that their application runs on Kubernetes. Cost optimization is frequently a critical concern, and service providers use Kubernetes policies such as [resource quotas](https://kubernetes.io/docs/concepts/policy/resource-quotas/) and [network policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/) to ensure that the workloads are strongly isolated from each other.
 
@@ -83,7 +83,24 @@ In Kubernetes, a [namespace](https://kubernetes.io/docs/reference/glossary/?fund
 1. Object names within a namespace can overlap with names in other namespaces, similar to files in folders. This feature allows tenants to name their resources without worrying about any name collisions with other tenants sharing the same cluster. This happens for example when multiple instances of the same application, one for each tenant, are deployed on the same cluster.
 2. Many Kubernetes security policies are scoped to namespaces. For example, [RBAC Roles](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) and [Network Policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/) are namespace-scoped resources. Using RBAC, Users and Service Accounts can be restricted to a namespace.
 
-In a multi-tenant environment, a namespace helps segment a tenant's workload into a logical and distinct management unit. A common practice is to isolate every workload in its namespace, even if the same tenant operates multiple workloads. This approach guarantees better isolation at the security level, as each workload can use a separate identity to access resources in the same cluster or downstream PaaS services.
+In a multi-tenant environment, a namespace helps segment a tenant's workload into a logical and distinct management unit. A common practice is to isolate every workload in its namespace, even if the same tenant operates multiple workloads. This approach ensures the following advantages:
+
+- Each workload only has access to its own resources, such as Config Maps and Secrets, and allows you to tailor dedicated security policies for each workload.
+- Better isolation at the security level, as each workload can use a separate identity to access resources in the same cluster or downstream PaaS services.
+- Flexibility to switch between dedicated and shared clusters in the future or to use multi-cluster tooling such as service meshes.
+
+When hosting multiple workloads in a single namespace for the same tenant, it could be problematic to create and handle distinct policies for each application. In this scenario, you can use Kubernetes [Hierarchical Namespace Controller (HNC)](https://github.com/kubernetes-sigs/hierarchical-namespaces) to organize tenant workloads namespaces into hierarchies and share specific policies and resources between them. It also helps you manage namespace labels, namespace lifecycles, and delegated management, and share resource quotas across related namespaces. These capabilities can be helpful in both [multi-team](#multiple-teams) and [multi-customer](#multiple-customers) scenarios.
+
+Other projects that provide similar capabilities and aid in managing namespaced resources are listed below:
+
+- Multi-team tenancy
+
+  - [Capsule](https://github.com/clastix/capsule)
+  - [Kiosk](https://github.com/loft-sh/kiosk)
+
+- Multi-customer tenancy
+
+  - [Kubeplus](https://github.com/cloud-ark/kubeplus)
 
 ### Access controls
 
@@ -292,10 +309,24 @@ Message Flow:
 
 For more information, see the following resources:
 
-- [Azure Workload Identity open-source project](https://azure.github.io/azure-workload-identity). 
+- [Azure Workload Identity open-source project](https://azure.github.io/azure-workload-identity).
 - [Workload identity federation](https://docs.microsoft.com/azure/active-directory/develop/workload-identity-federation)
 - [Azure AD workload identity federation with Kubernetes](https://blog.identitydigest.com/azuread-federate-k8s/)
 - [Use Azure AD workload identity for Kubernetes in a .NET Standard application](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/use-azure-ad-workload-identity-for-kubernetes-in-a-net-standard/ba-p/3576218)
+
+## Networking
+
+## Restrict network access to the API server
+
+In Kubernetes, the API server receives requests to perform actions in the cluster, such as creating resources or scaling the number of nodes. When sharing an AKS cluster across multiple teams within an organization, protect access to the control plane using a [private Azure Kubernetes Service (AKS) cluster](/azure/aks/private-clusters) or [authorized IP ranges](/azure/aks/api-server-authorized-ip-ranges):
+
+- By using a private AKS cluster, you can ensure that the network traffic between your API server and your node pools remains within your virtual network. In a private AKS cluster, the control plane or API server has an internal IP address only accessible via an [Azure Private Endpoint](/azure/private-link/private-endpoint-overview) located in the same virtual network of the AKS cluster. Likewise, any virtual machine in the same virtual network can privately communicate with the control plane via the private endpoint. For more information, see [Create a private Azure Kubernetes Service cluster](/azure/aks/private-clusters).
+- The second option to improve cluster security and minimize attacks is using [Authorized IPs](/azure/aks/api-server-authorized-ip-ranges) to restrict the access to the control plane of an AKS cluster to a well-known list of IP addresses and CIDRs. When using this is still publicly exposed, but access is limited to a set of IP ranges. For more information, see [Secure access to the API server using authorized IP address ranges in Azure Kubernetes Service (AKS)](/azure/aks/api-server-authorized-ip-ranges).
+
+## Private Link Integration
+
+[Azure Private Link Service (PLS)](/azure/private-link/private-link-service-overview) is an infrastructure component that allows applications to privately connect to a service via an [Azure Private Endpoint (PE)]/azure/private-link/private-endpoint-overview) defined in a virtual network and connected to the frontend IP configuration of an [Azure Load Balancer (ALB)](/azure/load-balancer/load-balancer-overview). With [Azure Private Link](/azure/private-link/private-link-overview), service providers can securely provide their services to their tenants that can connect from within Azure or on-premises without data exfiltration risks.
+You can use [Azure Private Link Service Integration](https://cloud-provider-azure.sigs.k8s.io/development/design-docs/pls-integration/) to provide tenants with private connectivity to their AKS-hosted workloads in a secure way without the need to expose any public endpoint on the public internet.
 
 ## Reverse Proxy
 
@@ -318,13 +349,46 @@ When using the [Application Gateway Ingress Controller (AGIC)](/azure/applicatio
 - Configure the [Application Gateway](/azure/application-gateway/overview) used by the ingress controller for [Autoscaling](/azure/application-gateway/application-gateway-autoscaling-zone-redundant). With autoscaling enabled, the Application Gateway and WAF v2 SKUs scale out or in based on application traffic requirements. This mode offers better elasticity to your application and eliminates the need to guess the application gateway size or instance count. This mode also allows you to save cost by not requiring the gateway to run at peak-provisioned capacity for the expected maximum traffic load. You must specify a minimum and optionally maximum instance count.
 - Consider deploying multiple instances of the [Application Gateway Ingress Controller (AGIC)](/azure/application-gateway/ingress-controller-overview), each associated to a separate [Application Gateway](/azure/application-gateway/overview), when the number of tenant applications exceeds the [maximum amount of sites](/azure/azure-resource-manager/management/azure-subscription-service-limits#application-gateway-limits). Assuming that each tenant application runs in a dedicated namespace, use [multiple namespace support](/azure/application-gateway/ingress-controller-multiple-namespace-support) to spread tenant applications across more instances of the [Application Gateway Ingress Controller (AGIC)](/azure/application-gateway/ingress-controller-overview).
 
-## TODO
+### Integration with Azure Front Door
 
-- one identity for each namespace
-- multiple service proxies
-- front door
-- nginx
-- application gateway
-- azure private link service
-- monitoring
-- devops
+[Azure Front Door](/azure/frontdoor/front-door-overview) is Microsoft's modern cloud Content Delivery Network (CDN) that provides fast, reliable, and secure access between users and web applications across the globe. Azure Front Door supports features such as request acceleration, SSL termination, response caching, WAF at the edge, URL-based routing, rewrite, and redirections.
+
+You can use [Azure Front Door](/azure/frontdoor/front-door-overview) global Azure Kubernetes Service (AKS) to expose AKS-hosted tenant applications to the public internet and implement geo-disaster recovery across multiple regions.
+
+Front Door delivers static content using Microsoft's global edge network with hundreds of [points-of-presence (POPs)](/azure/frontdoor/edge-locations-by-region) distributed around the world close to tenants' customers. This feature allows fast delivery of static (e.g., client-side scripts, images, CSS files) and dynamic (e.g., previously cached response messages) artifacts used by AKS-hosted tenant applications, including single-page applications (SPA).
+
+[Azure Web Application Firewall (WAF)](/azure/web-application-firewall/afds/afds-overview) on Azure Front Door provides centralized protection for web applications. You can use Azure WAF to defend AKS-hosted tenant applications that expose a public endpoint on the internet from malicious attacks.
+
+You can use Azure Front Door to manage custom domain names and SSL termination for one or more tenant applications running on a shared AKS cluster. 
+
+You can configure Azure Front Door Premium to privately connect to one or more tenant applications running on an AKS cluster via an internal load balancer origin using the [Azure Private Link Service](/azure/private-link/private-link-service-overview). For more information, see [Connect Azure Front Door Premium to an internal load balancer origin with Private Link](/azure/frontdoor/standard-premium/how-to-enable-private-link-internal-load-balancer).
+
+## Integration with Azure Firewall
+
+In a multitenant environment, communications with a Kubernetes cluster should be protected by a firewall that monitors and controls the incoming and outgoing network traffic based on a set of security rules. A firewall typically establishes a barrier between a trusted network and an untrusted network, such as the internet.
+
+[Azure Firewall](/azure/firewall/overview) or a 3rd party firewall can be deployed to a hub virtual network and used to inspect traffic to and from AKS-hosted tenant applications, while AKS clusters can be deployed to spoke virtual networks peered to the hub virtual network and configured to route egress traffic to the firewall. By default, AKS clusters have unrestricted outbound internet access. This level of network access allows nodes and services that run in the AKS cluster to access external resources as needed. If you want to restrict egress traffic, a limited number of ports and addresses must remain accessible to maintain healthy cluster maintenance tasks. The easiest way to provide security for the outbound traffic from a Kubernetes cluster like AKS is to use a software firewall that can control outbound traffic based on domain names. Azure Firewall can restrict outbound HTTP and HTTPS traffic based on the fully qualified domain name (FQDN) of the destination. You can also configure your firewall and security rules to allow these required ports and addresses. For more information, see [Control egress traffic for cluster nodes in AKS](https://docs.microsoft.com/en-us/azure/aks/limit-egress-traffic).
+
+Likewise, you can control ingress traffic and improve security by enabling [threat intelligence-based filtering](https://docs.microsoft.com/en-us/azure/firewall/threat-intel) on an Azure firewall deployed to a shared perimeter network. This filtering can provide alerts and deny traffic to and from known malicious IP addresses and domains.
+
+For more information, see [Use Azure Firewall to help protect an Azure Kubernetes Service (AKS) cluster](/azure/architecture/example-scenario/aks-firewall/aks-firewall).
+
+## Outbound connections
+
+When AKS-hosted applications connect to a large number of databases or external services, the cluster may be at risk of SNAT port exhaustion. [SNAT Ports](/azure/load-balancer/load-balancer-outbound-connections#what-are-snat-ports) are used to generate unique identifiers used to maintain distinct flows initiated by applications running on the same set of compute resources. Running several tenant applications on a shared Azure Kubernetes Service cluster which make a high number of outbound calls can lead to a SNAT port exhaustion. An AKS cluster can handle outbound connections in 3 different ways:
+
+- [Azure Public Load Balancer](/azure/load-balancer/load-balancer-overview): by default, AKS provisions a Standard SKU Load Balancer to be set up and used for egress connections. However, the default setup may not meet the requirements of all scenarios if public IPs are disallowed or additional hops are required for egress. By default, the public Load Balancer gets created with a default public IP address that is used by the [outbound rules](/azure/load-balancer/outbound-rules). Outbound rules allow you to explicitly define SNAT(source network address translation) for a public standard load balancer. This configuration allows you to use the public IP(s) of your load balancer to provide outbound internet connectivity for your backend instances. When necessary, to avoid the [SNAT Port Exhaustion](/azure/load-balancer/troubleshoot-outbound-connection) you can configure the outbound rules of the public load balancer to use additional public IP addresses. For more information, see [Use the frontend IP address of a load balancer for outbound via outbound rules](/azure/load-balancer/load-balancer-outbound-connections#outboundrules).
+- [Azure NAT Gateway](/azure/virtual-network/nat-gateway/nat-overview): you can configure an AKS cluster to use [Azure NAT Gateway](/azure/aks/nat-gateway) to route egress traffic from tenant applications. Azure NAT Gateway allows up to 64,512 outbound UDP and TCP traffic flows per public IP address with a maximum of 16 IP addresses. To avoid the risk of SNAT Port exhaustion when using a NAT Gateway to handle outbound connections from an AKS cluster, you can associate more public IP addresses or a [public IP address prefix](/azure/virtual-network/ip-services/public-ip-address-prefix) to the gateway. For more information, see [Associate a NAT gateway to the subnet](/azure/load-balancer/load-balancer-outbound-connections#2-associate-a-nat-gateway-to-the-subnet).
+- [User-Defined Route](/azure/aks/egress-outboundtype): you can customize an AKS cluster's egress route to support custom network scenarios, such as those which disallows public IPs and requires the cluster to sit behind a network virtual appliance (NVA). When configuring a cluster for [user-defined routing](/azure/aks/egress-outboundtype#outbound-type-of-userdefinedrouting), AKS won't automatically configure egress paths. The egress setup must be done by you, for example routing egress traffic though an [Azure Firewall](/azure/aks/limit-egress-traffic#restrict-egress-traffic-using-azure-firewall). The AKS cluster must be deployed into an existing virtual network with a subnet that has been previously configured because when not using standard load balancer (SLB) architecture, you must establish explicit egress. As such, this architecture requires explicitly sending egress traffic to an appliance like a firewall, gateway, proxy or to allow the Network Address Translation (NAT) to be done by a public IP assigned to the standard load balancer or appliance.
+
+## Monitoring
+
+You can enable use [Azure Monitor](/azure/aks/monitor-aks) and [Container Insights](/azure/azure-monitor/containers/container-insights-overview) to monitor tenant applications running on a shared SAKS cluster and calculate cost breakdowns on individual namespaces. Azure Monitor allows monitoring the health and performance of Azure Kubernetes Service (AKS). It includes the collection of [logs and metrics](/azure/aks/monitor-aks-reference), telemetry analysis, and visualization of collected data to identify trends and how to configure alerting to be proactively notified of critical issues. You can enable [Container insights](/azure/azure-monitor/containers/container-insights-overview) to expand on this monitoring. 
+
+Container insights is a feature in Azure Monitor that monitors the health and performance of AKS clusters and workloads. Container insights provides interactive views and workbooks that analyze collected data for a variety of monitoring scenarios.
+
+You can also adopt open source tools such as [Prometheus](https://prometheus.io/) and [Grafana](https://www.prometheus.io/docs/visualization/grafana/), that are widely used by the community for Kubernetes monitoring, or adopt other 3rd party tools for monitoring and observability.
+
+## Next steps
+
+Review [Resources for architects and developers of multitenant solutions](../related-resources.md).
