@@ -5263,6 +5263,8 @@ items:
         items:
           - name: Guides
             items:
+              - name: Azure Communication Services architecture
+                href: guide/mobile/azure-communication-services-architecture.yml
               - name: Choose a mobile development framework
                 href: /azure/developer/mobile-apps/choose-mobile-framework
                 maintainContext: true
