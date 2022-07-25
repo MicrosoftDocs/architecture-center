@@ -121,7 +121,7 @@ For additional guidance, see:
 
 ## Stay current with management and governance
 
-Get the latest updates on [Azure management](https://azure.microsoft.com/updates/?category=management-tools) and [Azure governance](https://azure.microsoft.com/updates/?query=governance%20management) technologies.
+Get the latest updates on [Azure management](https://azure.microsoft.com/updates/?category=management-tools) and [Azure governance](https://azure.microsoft.com/updates/?query=governance) technologies.
 
 ## Additional resources
 
