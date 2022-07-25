@@ -1,6 +1,8 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-A speech-to-text solution allows you to identify speech in static video files so you can manage it as standard content, such as allowing employees to search within training videos for spoken words or phrases, and then enabling them to navigate to the specific moment in the video. This solution allows you to upload static videos to an Azure website. The Azure Media Indexer uses the Speech API to index the speech within the videos and stores it in SQL Azure. You can search for words or phrases by using Azure Web Apps and retrieve a list of results. Selecting a result enables you to see where in the video the word or phrase is mentioned.
+A speech-to-text solution provides a way to identify speech in static video files so you can manage it as standard content. For instance, employees can use this technology to search within training videos for spoken words or phrases. Then they can navigate to the specific moment in the video that contains the word or phrase.
+
+When you use this solution, you can upload static videos to an Azure website. The Azure Media Indexer uses the Speech API to index the speech within the videos and stores it in an Azure database. You can search for words or phrases by using the Web Apps feature of Azure App Service. Then you can retrieve a list of results. When you select a result, you can see the place in the video that mentions the word or phrase.
 
 ## Potential use cases
 
@@ -31,7 +33,7 @@ This solution is built on the Azure managed services: [Content Delivery Network]
 - [Azure Media Player](https://azure.microsoft.com/services/media-services/media-player) plays videos that are in various formats.
 - [Azure Content Delivery Network](https://azure.microsoft.com/services/cdn) offers a global solution for rapidly delivering content. This service provides your users with fast, reliable, and secure access to your apps' static and dynamic web content.
 - [Azure Cognitive Search](https://azure.microsoft.com/services/search) is a cloud search service that supplies infrastructure, APIs, and tools for searching. You can use Azure Cognitive Search to build search experiences over private, heterogeneous content in web, mobile, and enterprise applications.
-- [Azure App Service](https://azure.microsoft.com/en-us/services/app-service/) provides a framework for building, deploying, and scaling web apps. The [Web Apps](https://azure.microsoft.com/en-us/services/app-service/web/) feature is a service for hosting web applications, REST APIs, and mobile back ends.
+- [App Service](https://azure.microsoft.com/en-us/services/app-service/) provides a framework for building, deploying, and scaling web apps. The [Web Apps](https://azure.microsoft.com/en-us/services/app-service/web/) feature is a service for hosting web applications, REST APIs, and mobile back ends.
 - [Azure Media Indexer](https://azure.microsoft.com/services/media-services/media-indexer) provides a way to make content of your media files searchable. It can also generate a full-text transcript for closed captioning and keywords.
 
 ## Next steps

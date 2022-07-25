@@ -44,9 +44,9 @@ This solution is optimized for the retail industry.
 
 For more details about this solution, including source code and data customization, fork or explore the [Call-Center Solution project](https://github.com/ujjwalmsft/cortana-intelligence-call-center-solution) on GitHub.
 
-Automated customer interaction is essential to a business of any size. In fact, [61%](https://www.talkdesk.com/blog/10-customer-services-statistics-for-call-center-supervisors) of consumers prefer to communicate via speech, and most of them prefer self-service. Because customer satisfaction is a priority for all businesses, self-service is a critical facet of any customer-facing communications strategy.
+Automated customer interaction is essential to a business of any size. In fact, [61 percent](https://www.talkdesk.com/blog/10-customer-services-statistics-for-call-center-supervisors) of consumers prefer to communicate via speech, and most of them prefer self-service. Because customer satisfaction is a priority for all businesses, self-service is a critical facet of any customer-facing communications strategy.
 
-Today, mobile phones are dominant and keypads aren't always within reach. As such, interactive voice response (IVR) systems are an intuitive and convenient way for customers to convey their requests. This solution idea provides an intelligent and natural self-service experience that can be repurposed across all customer channels.
+Today, mobile phones are dominant and keypads aren't always within reach. As a result, IVR systems are an intuitive and convenient way for customers to convey their requests. This solution idea provides an intelligent and natural self-service experience that can be repurposed across all customer channels.
 
 The Azure AI Platform is backed by Microsoft Azure cloud platform and provides all of the essential elements for building an automated IVR solution. There are tools for data ingestion, data storage, data processing, and advanced analytics components.
 
