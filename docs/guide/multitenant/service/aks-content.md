@@ -37,16 +37,7 @@ When you create an AKS cluster, a control plane is automatically created and con
 
 ### Control plane
 
-The control plane layer is automatically provisioned and configured whenever you deploy an AKS cluster. If you opt for the free tier, this is provided at no cost. Alternatively, you can create an AKS cluster with the Uptime SLA that enables a financially backed, higher SLA for the control plane. [Uptime SLA](/azure/aks/uptime-sla) is a paid feature and is enabled per cluster. Uptime SLA pricing is determined by the number of discrete clusters, and not by the size of the individual clusters. Clusters with Uptime SLA, also regarded as Paid tier in AKS REST APIs, come with greater amount of control plane resources and automatically scale to meet the load of your cluster. Uptime SLA guarantees 99.95% availability of the Kubernetes API server endpoint for clusters that use Availability Zones and 99.9% of availability for clusters that don't use Availability Zones. The control plane and its resources reside only on the region where you created the cluster.
-
-The control plane includes the following core Kubernetes components:
-
-| Component | Description |  
-| ----------------- | ------------- |  
-| *kube-apiserver*  | The API server is how the underlying Kubernetes APIs are exposed. This component provides the interaction for management tools, such as `kubectl` or the Kubernetes dashboard. |  
-| *etcd* | To maintain the state of your Kubernetes cluster and configuration, the highly available *etcd* is a key value store within Kubernetes.                                      |  
-| *kube-scheduler*  | When you create or scale applications, the Scheduler determines what nodes can run the workload and starts them.                                                                                    |  
-| *kube-controller-manager* | The Controller Manager oversees a number of smaller Controllers that perform actions such as replicating pods and handling node operations.  |  
+The control plane layer is automatically provisioned and configured whenever you deploy an AKS cluster. If you opt for the free tier, this is provided at no cost. Alternatively, you can create an AKS cluster with the Uptime SLA that enables a financially backed, higher SLA for the control plane. [Uptime SLA](/azure/aks/uptime-sla) is a paid feature and is enabled per cluster. Uptime SLA pricing is determined by the number of discrete clusters, and not by the size of the individual clusters. Clusters with Uptime SLA, also regarded as paid tier in AKS REST APIs, come with greater amount of control plane resources and automatically scale to meet the load of your cluster. Uptime SLA guarantees 99.95% availability of the Kubernetes. 
 
 AKS provides a single-tenant control plane, with a dedicated API server that is shared by all the workloads running on the AKS cluster. For architectural best practices, see [Azure Well-Architected Framework review - Azure Kubernetes Service (AKS)](/azure/architecture/framework/services/compute/azure-kubernetes-service/azure-kubernetes-service).
 
@@ -54,15 +45,9 @@ AKS provides a single-tenant control plane, with a dedicated API server that is 
 
 To run your applications and supporting services, you need one or more Kubernetes *agent nodes*. An AKS cluster is composed of at least one node, an Azure virtual machine (VM) that runs the following [Kubernetes node components](https://kubernetes.io/docs/concepts/overview/components/#node-components).
 
-| Component | Description |  
-| ----------------- | ------------- |  
-| `kubelet` | The Kubernetes agent that processes the orchestration requests from the control plane along with scheduling and running the requested containers. |  
-| *kube-proxy* | Handles virtual networking on each node. The proxy routes network traffic and manages IP addressing for services and pods. |  
-| *container runtime* | Allows containerized applications to run and interact with additional resources, such as the virtual network and storage. AKS clusters using Kubernetes version 1.19+ for Linux node pools use `containerd` as their container runtime. Beginning in Kubernetes version 1.20 for Windows node pools, `containerd` can be used in preview for the container runtime, but Docker is still the default container runtime. AKS clusters using prior versions of Kubernetes for node pools use Docker as their container runtime. |  
-
 ![Azure virtual machine and supporting resources for a Kubernetes node](./media/aks/aks-node-resource-interactions.png)
 
-The Azure VM size for your nodes defines the storage CPUs, memory, size, and type available (such as high-performance SSD or regular HDD). Plan the node size around whether your applications may require large amounts of CPU and memory or high-performance storage. You can manually or automatically scale out the number of nodes in your AKS cluster to meet demand.
+The Azure VM size for agent nodes defines the storage CPUs, memory, size, and type available (such as high-performance SSD or regular HDD). Plan the node size around whether tenant applications may require large amounts of CPU and memory or high-performance storage. You can manually or automatically scale out the number of nodes in your AKS cluster to meet current demand.
 
 In AKS, the VM image for your cluster's nodes is based on Ubuntu Linux or Windows Server. When you create an AKS cluster or scale out the number of nodes, the Azure platform automatically creates and configures the requested number of VMs. Agent nodes are billed as standard VMs, so any VM size discounts (including [Azure reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations)) are automatically applied.
 
@@ -277,16 +262,49 @@ To reduce the risk of downtimes that may affect tenant applications during clust
 
 ## Security
 
-When a separate application
+### Cluster access
+
+When you share an AKS cluster between multiple teams within an organization, you need to implement the [principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) to isolate different tenants from one another. In particular, you need to make sure that users have access only to their Kubernetes namespaces and resources when using tools such as [kubectl](https://kubernetes.io/docs/reference/kubectl/), [Helm](https://helm.sh/), [Flux](https://fluxcd.io/), [Argo CD](https://argo-cd.readthedocs.io/en/stable/), or other types of tools.
+
+If your AKS cluster [integrates with Azure Active Directory (Azure AD)](/azure/aks/managed-aad), you should use [Kubernetes role bindings](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding) to grant permissions to Azure AD users to perform actions within the cluster. When enabled, this integration allows customers to use Azure AD users, groups, or service principals as subjects in Kubernetes RBAC. For more information, see [Control access to cluster resources using Kubernetes role-based access control and Azure Active Directory identities in Azure Kubernetes Service](/azure/aks/azure-ad-rbac). This feature frees you from having to manage user identities and credentials for Kubernetes separately. However, you still have to set up and manage Azure RBAC and Kubernetes RBAC separately. For more details on authentication and authorization with RBAC on AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](/azure/aks/concepts-identity).
+
+You can configure an AKS cluster to leverage Azure RBAC for Kubernetes Authorization. The ability to manage RBAC for Kubernetes resources from Azure gives you a choice to manage RBAC for the cluster resources using Azure or native Kubernetes RBAC. With the Azure RBAC integration, AKS will use a Kubernetes Authorization webhook server to authorize calls to the Kubernetes API server. When enabled, Azure AD principals will be validated exclusively by Azure RBAC, while regular Kubernetes users and service accounts are validated solely by Kubernetes RBAC, as shown in the following picture.
+
+![Azure RBAC for Kubernetes authorization flow](./media/aks/azure-rbac-k8s-authz-flow.png)
+
+You can use Azure AD-integrated security and Azure RBAC to grant permissions to team users only on a subset of namespaces and resources just using Azure built-in or custom role definitions and role assignments. For more information, see [Azure RBAC for Kubernetes Authorization](/azure/aks/concepts-identity#azure-rbac-for-kubernetes-authorization).
+
+### Workload Identity
+
+When hosting multiple tenant applications on a single AKS cluster, each in a separate namespace, each workload should use a different [Kubernetes service account](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/) and credentials to access downstream Azure services. *Service accounts* are one of the primary user types in Kubernetes. The Kubernetes API holds and manages service accounts. Service account credentials are stored as Kubernetes secrets, allowing them to be used by authorized pods to communicate with the API Server. Most API requests provide an authentication token for a service account or a normal user account.
+
+Tenant workloads deployed to AKS clusters can use Azure AD application credentials to access Azure AD-protected resources, such as Azure Key Vault and Microsoft Graph. [Azure AD Workload Identity for Kubernetes](https://azure.github.io/azure-workload-identity/docs/introduction.html) integrates with the Kubernetes native capabilities to federate with any external identity providers. As shown in the following diagram, the Kubernetes cluster becomes a security token issuer, issuing tokens to tenant service accounts. These security tokens, one for each tenant, can be configured to be trusted by Azure AD applications and exchanged with an Azure AD access token that tenant applications can use to access Azure services.
+
+![Simplified workflow for pod managed identity in Azure](./media/aks/message-flow.png)
+
+Message Flow:
+
+1. Kubelet projects service account token to the workload at a configurable file path.
+2. Kubernetes workload sends projected, signed service account token to the Azure Active Directory and requests an access token to it.
+3. Azure Active Directory checks trust on the registered application and validates incoming token.
+4. Azure Active Directory issues a security access token.
+5. The Kubernetes workload accesses Azure resources using Azure AD access token.
+
+For more information, see the following resources:
+
+- [Azure Workload Identity open-source project](https://azure.github.io/azure-workload-identity). 
+- [Workload identity federation](https://docs.microsoft.com/azure/active-directory/develop/workload-identity-federation)
+- [Azure AD workload identity federation with Kubernetes](https://blog.identitydigest.com/azuread-federate-k8s/)
+- [Use Azure AD workload identity for Kubernetes in a .NET Standard application](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/use-azure-ad-workload-identity-for-kubernetes-in-a-net-standard/ba-p/3576218)
 
 ## Reverse Proxy
 
-A [reverse proxy](https://en.wikipedia.org/wiki/Reverse_proxy) is a load balancer and API Gateway typically used in front of tenant applications to secure, filter, and dispatch incoming requests. Popular reverse proxies support features such as load balancing, SSL termination, and layer 7 routing. Reverse proxies are typically implemented to help increase security, performance, and reliability. Popular reverse proxies for Kubernetes include the following implementations:
+A [reverse proxy](https://en.wikipedia.org/wiki/Reverse_proxy) is a load balancer, and API Gateway is typically used in front of tenant applications to secure, filter, and dispatch incoming requests. Popular reverse proxies support features such as load balancing, SSL termination, and layer 7 routing. Reverse proxies are typically implemented to help increase security, performance, and reliability. Popular reverse proxies for Kubernetes include the following implementations:
 
-- [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/) is a popular reverse proxy servers that support advanced features such as load balancing, SSL termination, and layer 7 routing.
-- [Traefik Kubernetes Ingress provider](https://doc.traefik.io/traefik/providers/kubernetes-ingress/) is a Kubernetes Ingress controller that can be used to manages access to cluster services by supporting the Ingress specification.
-- [HAProxy Kubernetes Ingress Controller](https://www.haproxy.com/documentation/kubernetes/latest/) is yet another reverse proxy for Kubernetes which supports common features such as TLS termination, URL-path based routing, and more.
-- [Application Gateway Ingress Controller (AGIC)](/azure/application-gateway/ingress-controller-overview) is a Kubernetes application, which makes it possible for [Azure Kubernetes Service (AKS)](https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/) customers to leverage Azure's native [Application Gateway](/azure/application-gateway/overview) L7 load-balancer to expose tenant applications to the public internet or internally to other systems running in a virtual network. AGIC monitors the Kubernetes cluster it is hosted on and continuously updates an Application Gateway, so that selected services are exposed to the Internet.
+- [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/) is a popular reverse proxy server that supports advanced features such as load balancing, SSL termination, and layer 7 routing.
+- [Traefik Kubernetes Ingress provider](https://doc.traefik.io/traefik/providers/kubernetes-ingress/) is a Kubernetes Ingress controller that can be used to manage access to cluster services by supporting the Ingress specification.
+- [HAProxy Kubernetes Ingress Controller](https://www.haproxy.com/documentation/kubernetes/latest/) is yet another reverse proxy for Kubernetes, which supports standard features such as TLS termination, URL-path-based routing, and more.
+- [Application Gateway Ingress Controller (AGIC)](/azure/application-gateway/ingress-controller-overview) is a Kubernetes application, which makes it possible for [Azure Kubernetes Service (AKS)](https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/) customers to leverage Azure's native [Application Gateway](/azure/application-gateway/overview) L7 load-balancer to expose tenant applications to the public internet or internally to other systems running in a virtual network.
 
 When using an AKS-hosted reverse proxy to secure and handle incoming requests to multiple tenant applications, consider the following recommendations:
 
@@ -297,8 +315,8 @@ When using an AKS-hosted reverse proxy to secure and handle incoming requests to
 
 When using the [Application Gateway Ingress Controller (AGIC)](/azure/application-gateway/ingress-controller-overview) consider implementing the following best practices:
 
-- Configure the [Application Gateway](/azure/application-gateway/overview) used by the ingress controller for [Autoscaling](/azure/application-gateway/application-gateway-autoscaling-zone-redundant). With autoscaling enabled, the Application Gateway and WAF v2 SKUs scale out or in based on application traffic requirements. This mode offers better elasticity to your application and eliminates the need to guess the application gateway size or instance count. This mode also allows you to save cost by not requiring the gateway to run at peak-provisioned capacity for expected maximum traffic load. You must specify a minimum and optionally maximum instance count.
-- Consider deploying multiple instances of the [Application Gateway Ingress Controller (AGIC)](/azure/application-gateway/ingress-controller-overview), each associated to a separate [Application Gateway](/azure/application-gateway/overview), when the number of tenant applications exceeds the [maximum amount of sites](/azure/azure-resource-manager/management/azure-subscription-service-limits#application-gateway-limits). Assuming that each tenant application runs in a separate namespace, use [multiple namespace support](/azure/application-gateway/ingress-controller-multiple-namespace-support) to spread tenant applications across multiple instances of the [Application Gateway Ingress Controller (AGIC)](/azure/application-gateway/ingress-controller-overview).
+- Configure the [Application Gateway](/azure/application-gateway/overview) used by the ingress controller for [Autoscaling](/azure/application-gateway/application-gateway-autoscaling-zone-redundant). With autoscaling enabled, the Application Gateway and WAF v2 SKUs scale out or in based on application traffic requirements. This mode offers better elasticity to your application and eliminates the need to guess the application gateway size or instance count. This mode also allows you to save cost by not requiring the gateway to run at peak-provisioned capacity for the expected maximum traffic load. You must specify a minimum and optionally maximum instance count.
+- Consider deploying multiple instances of the [Application Gateway Ingress Controller (AGIC)](/azure/application-gateway/ingress-controller-overview), each associated to a separate [Application Gateway](/azure/application-gateway/overview), when the number of tenant applications exceeds the [maximum amount of sites](/azure/azure-resource-manager/management/azure-subscription-service-limits#application-gateway-limits). Assuming that each tenant application runs in a dedicated namespace, use [multiple namespace support](/azure/application-gateway/ingress-controller-multiple-namespace-support) to spread tenant applications across more instances of the [Application Gateway Ingress Controller (AGIC)](/azure/application-gateway/ingress-controller-overview).
 
 ## TODO
 
