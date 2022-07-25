@@ -20,7 +20,7 @@ categories:
 
 # Management and governance architecture design
 
-Management and governance includes tasks like: 
+Management and governance includes critical tasks like: 
 - The monitoring, auditing, and reporting of security and business requirements. 
 - Implementing backup, disaster recovery, and high availability.
 - Ensuring compliance with internal requirements and external regulations.
@@ -28,15 +28,15 @@ Management and governance includes tasks like:
 
 Azure provides a wide range of services to help you with management and governance. Here are a few examples:  
 
-- [Azure Backup](https://azure.microsoft.com/services/backup). A centralized backup service and solution to help protect against ransomware.
-- [Azure Stack](https://azure.microsoft.com/products/azure-stack). Azure Stack enables organizations to make technology placement decisions based on business needs. It can help with simplifying meeting custom compliance, sovereignty, and data gravity requirements.
+- [Azure Attestation](https://azure.microsoft.com/services/azure-attestation). Remotely verify the trustworthiness of a platform and the integrity of the binaries running inside it.
+- [Azure confidential ledger](https://azure.microsoft.com/services/azure-confidential-ledger). Store and process confidential data with confidence.
+- [Azure Purview](https://azure.microsoft.com/services/purview). Govern, protect, and manage your data estate.
+- [Azure Policy](https://azure.microsoft.com/services/azure-policy). Achieve real-time cloud compliance at scale with consistent resource governance.
+- [Azure Stack](https://azure.microsoft.com/products/azure-stack). Locate technologies and services based on your business requirements. Meet custom compliance, sovereignty, and data gravity requirements.
+- [Azure Backup](https://azure.microsoft.com/services/backup). Define backup policies and provide protection for a wide range of enterprise workloads.
 - [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery). Keep your business running with built-in disaster recovery service.
-- [Azure Archive Storage](https://azure.microsoft.com/services/storage/archive). Industry leading price point for storing rarely accessed data.
-- [Azure confidential ledger](https://azure.microsoft.com/services/azure-confidential-ledger) Store and process confidential data with confidence.
-- [Azure Attestation](https://azure.microsoft.com/services/azure-attestation). A unified solution for remotely verifying the trustworthiness of a platform and the integrity of the binaries running inside it.
-- [Azure Purview](https://azure.microsoft.com/services/purview). Govern, protect, and manage your data estate
-- [azure policy](https://azure.microsoft.com/services/azure-policy)Achieve real-time cloud compliance at scale with consistent resource governance
-- [Azure Monitor](https://azure.microsoft.com/services/monitor). Full observability into your applications, infrastructure, and network.
+- [Azure Archive Storage](https://azure.microsoft.com/services/storage/archive). Store rarely accessed data.
+- [Azure Monitor](https://azure.microsoft.com/services/monitor). Get full observability into your applications, infrastructure, and network.
 
 ## Introduction to management and governance on Azure
 
@@ -44,15 +44,16 @@ If you're new to management and governance on Azure, the best way to learn more 
 
 Here are some resources to get you started:
 
-- Learning path: [Manage information protection and governance](/learn/paths/m365-compliance-information) Microsoft solutions for information protection and governance help organizations achieve the right balance between keeping their data protected and their people productive.
-- Module: [Design an enterprise governance strategy](/learn/modules/enterprise-governance). Learn to use RBAC and Azure Policy to limit access to your Azure solutions, and determine which method is right for your security goals.
+- Learning path: [Manage information protection and governance](/learn/paths/m365-compliance-information) 
+- Module: [Design an enterprise governance strategy](/learn/modules/enterprise-governance)
 - Module: [Design a solution for backup and disaster recovery](/learn/modules/design-solution-for-backup-disaster-recovery)
 
 ## Path to production
 
-Key aspects of management and governance include backup, disaster recovery, and high availability, gov, data protection... See the following architectures ...  
+The following sections provide links to reference architectures in some key management and governance categories:
 
 ### Backup
+
 - [Azure Backup architecture and components](/azure/backup/backup-architecture)
 - [Support matrix for Azure Backup](/azure/backup/backup-support-matrix)
 - [Backup cloud and on-premises workloads to cloud](/azure/backup/guidance-best-practices)
@@ -83,27 +84,11 @@ Key aspects of management and governance include backup, disaster recovery, and 
 - [Build solutions for high availability using availability zones](/azure/architecture/high-availability/building-solutions-for-high-availability)
 
 ### Compliance and governance
+
 - [Manage virtual machine compliance](/azure/architecture/example-scenario/security/virtual-machine-compliance)
 - [Custom data sovereignty and data gravity requirements](/azure/architecture/solution-ideas/articles/data-sovereignty-and-gravity)
 - [End-to-end governance in Azure when using CI/CD](/azure/architecture/example-scenario/governance/end-to-end-governance-in-azure)
 - [Introduction of an AKS regulated cluster for PCI-DSS 3.2.1](/azure/architecture/reference-architectures/containers/aks-pci/aks-pci-intro)
-
-## Best practices
-
-[Governance best practices](/security/compass/governance)
-
-[Regulatory compliance](/azure/architecture/framework/security/design-regulatory-compliance)
-
-[Administrative account security](/azure/architecture/framework/security/design-admins)
-
-## Management and government architectures 
-
-### Updates 
-
-- [Plan deployment for updating Windows VMs in Azure](/azure/architecture/example-scenario/wsus)
-- [Azure Automation update management](/azure/architecture/hybrid/azure-update-mgmt)
-
-### archive 
 
 ### Hybrid management
 
@@ -111,19 +96,43 @@ Key aspects of management and governance include backup, disaster recovery, and 
 - [Azure Automation in a hybrid environment](/azure/architecture/hybrid/azure-automation-hybrid)
 - [Azure Automation update management](/azure/architecture/hybrid/azure-update-mgmt)
 - [Back up files and applications on Azure Stack Hub](/azure/architecture/hybrid/azure-stack-backup)
-- [Disaster recovery for Azure Stack Hub virtual machines](https://docs.microsoft.com/en-us/azure/architecture/hybrid/azure-stack-vm-disaster-recovery)
+- [Disaster recovery for Azure Stack Hub virtual machines](/azure/architecture/hybrid/azure-stack-vm-disaster-recovery)
 - [Hybrid availability and performance monitoring](/azure/architecture/hybrid/hybrid-perf-monitoring)
 - [Manage configurations for Azure Arc-enabled servers](/azure/architecture/hybrid/azure-arc-hybrid-config)
 - [Manage hybrid Azure workloads using Windows Admin Center](/azure/architecture/hybrid/hybrid-server-os-mgmt)
 
+### Update management
+
+- [Plan deployment for updating Windows VMs in Azure](/azure/architecture/example-scenario/wsus)
+- [Azure Automation update management](/azure/architecture/hybrid/azure-update-mgmt)
+
+## Best practices
+
+The Azure Well-Architected Framework is a set of guiding tenets that you can use to improve the quality of your architectures. For management and governance best practices, see:
+
+- [Regulatory compliance](/azure/architecture/framework/security/design-regulatory-compliance)
+- [Administrative account security](/azure/architecture/framework/security/design-admins)
+
+For additional guidance, see:
+
+- [Design area: Management for Azure environments](/azure/cloud-adoption-framework/ready/landing-zone/design-area/management?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
+- [Governance best practices](/security/compass/governance)
+
 
 ## Stay current with management and governance
 
+Get the latest updates on [Azure management](https://azure.microsoft.com/updates/?category=management-tools) and [Azure governance](https://azure.microsoft.com/updates/?query=governance%20management) technologies.
+
 ## Additional resources
 
-### Example solutions
+Following are a few more management and governance architectures to consider: 
 
-### any other? 
+- [Archive on-premises data to the cloud](/azure/architecture/solution-ideas/articles/backup-archive-on-premises)
+- [Management and monitoring for an Azure VMware Solution enterprise-scale scenario](/azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-management-and-monitoring?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
+- [Computer forensics chain of custody in Azure](/azure/architecture/example-scenario/forensics)
+- [Deploy a line-of-business application using Azure App Service Environment v3](/azure/architecture/example-scenario/apps/line-of-business-internal-app-service-environment-v3)
+- [Centralized app configuration and security](/azure/architecture/solution-ideas/articles/appconfig-key-vault)
+
 
 ### AWS or Google Cloud professionals
 
