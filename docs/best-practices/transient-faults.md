@@ -3,9 +3,9 @@ title: Retry general guidance
 titleSuffix: Best practices for cloud applications
 description: Learn how to handle transient faults when connecting to resources, caused by loss of network connectivity, temporary unavailability, or timeouts.
 author: EdPrice-MSFT
-ms.author: pnp
+ms.author: architectures
 categories: azure
-ms.date: 07/13/2016
+ms.date: 07/25/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: best-practice
