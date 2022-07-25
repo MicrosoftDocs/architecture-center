@@ -54,57 +54,57 @@ The following sections provide links to reference architectures in some key mana
 
 ### Backup
 
-- [Azure Backup architecture and components](/azure/backup/backup-architecture)
+- [Azure Backup architecture and components](/azure/backup/backup-architecture?toc=https%3A%2F%2Freview.docs.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Freview.docs.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
 - [Support matrix for Azure Backup](/azure/backup/backup-support-matrix)
 - [Backup cloud and on-premises workloads to cloud](/azure/backup/guidance-best-practices)
 
 ### Disaster recovery
 
 - [Azure to Azure disaster recovery architecture](/azure/site-recovery/azure-to-azure-architecture)
-- [Support matrix for Azure VM disaster recovery between Azure regions](/azure/site-recovery/azure-to-azure-support-matrix?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
-- [Integrate ExpressRoute with disaster recovery for Azure VMs](/azure/site-recovery/azure-vm-disaster-recovery-with-expressroute?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
-- [Recover from a region-wide service disruption](/azure/architecture/resiliency/recovery-loss-azure-region)
-- [Move Azure VMs to another Azure region](/azure/site-recovery/azure-to-azure-move-overview?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
-- [Business continuity and disaster recovery (BCDR) for Azure VMware Solution enterprise-scale scenario](/azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-business-continuity-and-disaster-recovery?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
-- [Enterprise-scale disaster recovery](/azure/architecture/solution-ideas/articles/disaster-recovery-enterprise-scale-dr)
-- [SMB disaster recovery with Azure Site Recovery](/azure/architecture/solution-ideas/articles/disaster-recovery-smb-azure-site-recovery)
-- [SMB disaster recovery with Double-Take DR](/azure/architecture/solution-ideas/articles/disaster-recovery-smb-double-take-dr)
-- [Disaster recovery for enterprise bots](/azure/architecture/solution-ideas/articles/enterprise-chatbot-disaster-recovery)
-- [Use Azure Stack HCI stretched clusters for disaster recovery](/azure/architecture/hybrid/azure-stack-hci-dr)
+- [Support matrix for Azure VM disaster recovery between Azure regions](/azure/site-recovery/azure-to-azure-support-matrix)
+- [Integrate ExpressRoute with disaster recovery for Azure VMs](/azure/site-recovery/azure-vm-disaster-recovery-with-expressroute)
+- [Recover from a region-wide service disruption](../../resiliency/recovery-loss-azure-region.md)
+- [Move Azure VMs to another Azure region](/azure/site-recovery/azure-to-azure-move-overview)
+- [Business continuity and disaster recovery (BCDR) for Azure VMware Solution enterprise-scale scenario](/azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-business-continuity-and-disaster-recovery)
+- [Enterprise-scale disaster recovery](../../solution-ideas/articles/disaster-recovery-enterprise-scale-dr.yml)
+- [SMB disaster recovery with Azure Site Recovery](../../solution-ideas/articles/disaster-recovery-smb-azure-site-recovery.yml)
+- [SMB disaster recovery with Double-Take DR](../../solution-ideas/articles/disaster-recovery-smb-double-take-dr.yml)
+- [Disaster recovery for enterprise bots](../../solution-ideas/articles/enterprise-chatbot-disaster-recovery.yml)
+- [Use Azure Stack HCI stretched clusters for disaster recovery](../../hybrid/azure-stack-hci-dr.yml)
 
 ### High availability
 
-- [Build high availability into your BCDR strategy](/azure/architecture/solution-ideas/articles/build-high-availability-into-your-bcdr-strategy)
-- [High availability and disaster recovery scenarios for IaaS apps](/azure/architecture/example-scenario/infrastructure/iaas-high-availability-disaster-recovery)
-- [High availability enterprise deployment using App Service Environment](/architecture/reference-architectures/enterprise-integration/ase-high-availability-deployment)
-- [Highly available multi-region web application](/azure/architecture/reference-architectures/app-service-web-app/multi-region)
-- [Deploy highly available NVAs](/azure/architecture/reference-architectures/dmz/nva-ha)
-- [Highly available SharePoint farm](/azure/architecture/solution-ideas/articles/highly-available-sharepoint-farm)
-- [Run a highly available SharePoint Server 2016 farm in Azure](/azure/architecture/reference-architectures/sharepoint)
-- [Build solutions for high availability using availability zones](/azure/architecture/high-availability/building-solutions-for-high-availability)
+- [Build high availability into your BCDR strategy](../../solution-ideas/articles/build-high-availability-into-your-bcdr-strategy.yml)
+- [High availability and disaster recovery scenarios for IaaS apps](../../example-scenario/infrastructure/iaas-high-availability-disaster-recovery.yml)
+- [High availability enterprise deployment using App Service Environment](../../reference-architectures/enterprise-integration/ase-high-availability-deployment.yml)
+- [Highly available multi-region web application](../../reference-architectures/app-service-web-app/multi-region.yml)
+- [Deploy highly available NVAs](../../reference-architectures/dmz/nva-ha.yml)
+- [Highly available SharePoint farm](../../solution-ideas/articles/highly-available-sharepoint-farm.yml)
+- [Run a highly available SharePoint Server 2016 farm in Azure](../../reference-architectures/sharepoint/index.yml)
+- [Build solutions for high availability using availability zones](../../high-availability/building-solutions-for-high-availability.yml)
 
 ### Compliance and governance
 
-- [Manage virtual machine compliance](/azure/architecture/example-scenario/security/virtual-machine-compliance)
-- [Custom data sovereignty and data gravity requirements](/azure/architecture/solution-ideas/articles/data-sovereignty-and-gravity)
-- [End-to-end governance in Azure when using CI/CD](/azure/architecture/example-scenario/governance/end-to-end-governance-in-azure)
-- [Introduction of an AKS regulated cluster for PCI-DSS 3.2.1](/azure/architecture/reference-architectures/containers/aks-pci/aks-pci-intro)
+- [Manage virtual machine compliance](../../example-scenario/security/virtual-machine-compliance.yml)
+- [Custom data sovereignty and data gravity requirements](../../solution-ideas/articles/data-sovereignty-and-gravity.yml)
+- [End-to-end governance in Azure when using CI/CD](../../example-scenario/governance/end-to-end-governance-in-azure.yml)
+- [Introduction of an AKS regulated cluster for PCI-DSS 3.2.1](../../reference-architectures/containers/aks-pci/aks-pci-intro.yml)
 
 ### Hybrid management
 
-- [Azure Arc hybrid management and deployment for Kubernetes clusters](/azure/architecture/hybrid/arc-hybrid-kubernetes)
-- [Azure Automation in a hybrid environment](/azure/architecture/hybrid/azure-automation-hybrid)
-- [Azure Automation update management](/azure/architecture/hybrid/azure-update-mgmt)
-- [Back up files and applications on Azure Stack Hub](/azure/architecture/hybrid/azure-stack-backup)
-- [Disaster recovery for Azure Stack Hub virtual machines](/azure/architecture/hybrid/azure-stack-vm-disaster-recovery)
-- [Hybrid availability and performance monitoring](/azure/architecture/hybrid/hybrid-perf-monitoring)
-- [Manage configurations for Azure Arc-enabled servers](/azure/architecture/hybrid/azure-arc-hybrid-config)
-- [Manage hybrid Azure workloads using Windows Admin Center](/azure/architecture/hybrid/hybrid-server-os-mgmt)
+- [Azure Arc hybrid management and deployment for Kubernetes clusters](../../hybrid/arc-hybrid-kubernetes.yml)
+- [Azure Automation in a hybrid environment](../../hybrid/azure-automation-hybrid.yml)
+- [Azure Automation update management](../../hybrid/azure-update-mgmt.yml)
+- [Back up files and applications on Azure Stack Hub](../../hybrid/azure-stack-backup.yml)
+- [Disaster recovery for Azure Stack Hub virtual machines](../../hybrid/azure-stack-vm-disaster-recovery.yml)
+- [Hybrid availability and performance monitoring](../../hybrid/hybrid-perf-monitoring.yml)
+- [Manage configurations for Azure Arc-enabled servers](../../hybrid/azure-arc-hybrid-config.yml)
+- [Manage hybrid Azure workloads using Windows Admin Center](../../hybrid/hybrid-server-os-mgmt.yml)
 
 ### Update management
 
-- [Plan deployment for updating Windows VMs in Azure](/azure/architecture/example-scenario/wsus)
-- [Azure Automation update management](/azure/architecture/hybrid/azure-update-mgmt)
+- [Plan deployment for updating Windows VMs in Azure](../../example-scenario/wsus/index.yml)
+- [Azure Automation update management](../../hybrid/azure-update-mgmt.yml)
 
 ## Best practices
 
@@ -127,14 +127,14 @@ Get the latest updates on [Azure management](https://azure.microsoft.com/updates
 
 Following are a few more management and governance architectures to consider: 
 
-- [Archive on-premises data to the cloud](/azure/architecture/solution-ideas/articles/backup-archive-on-premises)
+- [Archive on-premises data to the cloud](../../solution-ideas/articles/backup-archive-on-premises.yml)
 - [Management and monitoring for an Azure VMware Solution enterprise-scale scenario](/azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-management-and-monitoring)
-- [Computer forensics chain of custody in Azure](/azure/architecture/example-scenario/forensics)
-- [Deploy a line-of-business application using Azure App Service Environment v3](/azure/architecture/example-scenario/apps/line-of-business-internal-app-service-environment-v3)
-- [Centralized app configuration and security](/azure/architecture/solution-ideas/articles/appconfig-key-vault)
+- [Computer forensics chain of custody in Azure](../../example-scenario/forensics/index.yml)
+- [Deploy a line-of-business application using Azure App Service Environment v3](../../example-scenario/apps/line-of-business-internal-app-service-environment-v3.yml)
+- [Centralized app configuration and security](../../solution-ideas/articles/appconfig-key-vault.yml)
 
 
 ### AWS or Google Cloud professionals
 
-- [AWS to Azure services comparison - Management and governance](/azure/architecture/aws-professional/services#management-and-governance)
-- [Google Cloud to Azure services comparison - Management](/azure/architecture/gcp-professional/services#management)
+- [AWS to Azure services comparison - Management and governance](../../aws-professional/services.md#management-and-governance)
+- [Google Cloud to Azure services comparison - Management](../../gcp-professional/services.md#management)
