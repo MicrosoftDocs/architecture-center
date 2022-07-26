@@ -15,8 +15,8 @@ This solution can be used broadly, but is ideal for the retail industry and the 
 1. The user uses an application, which is hosted on [Azure App Service](/azure/app-service), either via a web browser or a mobile device.
 1. App Service communicates with [Azure Bot Service](/azure/bot-service) to facilitate the interaction between the user and the application.
 1. Bot Service uses [Azure Cognitive Services Language Understanding](/azure/cognitive-services/luis/what-is-luis) to identify user intents and meaning.
-1. Language Understanding (LUIS) returns the identified user intent to the Azure Bot.
-1. Azure Bot passes a visual context input, such as an image, to the [Bing Visual Search API](/azure/cognitive-services/bing-visual-search).
+1. Language Understanding (LUIS) returns the identified user intent to the Azure bot.
+1. The bot passes a visual context input, such as an image, to the [Bing Visual Search API](/azure/cognitive-services/bing-visual-search).
 1. The API returns output to Bot Service.
 1. Optionally, the bot retrieves more information for user queries within the user's domain by using the [Bing Custom Search API](/azure/cognitive-services/bing-custom-search).
 1. The Custom Search API returns output to Bot Service.
@@ -35,13 +35,12 @@ This solution can be used broadly, but is ideal for the retail industry and the 
 
 - [What are Azure Cognitive Services?](/azure/cognitive-services/what-are-cognitive-services)
 - [What is Language Understanding (LUIS)?](/azure/cognitive-services/luis/what-is-luis)
-- [What is the Azure Bing Search API?](/azure/cognitive-services/bing-web-search)
-- [Introduction to Bot Framework Composer](/composer/introduction)
-- [App Service overview](/azure/app-service/overview)
-- [Azure Bot Service documentation](/azure/bot-service)
-- [What is Language Understanding (LUIS)?](/azure/cognitive-services/luis/what-is-luis)
+- [Bing Search API documentation](/azure/cognitive-services/bing-web-search)
 - [What is the Bing Visual Search API?](/azure/cognitive-services/bing-visual-search)
 - [What is the Bing Custom Search API?](/azure/cognitive-services/bing-custom-search)
+- [App Service overview](/azure/app-service/overview)
+- [Azure Bot Service documentation](/azure/bot-service)
+- [Introduction to Bot Framework Composer](/composer/introduction)
 
 ## Related resources
 

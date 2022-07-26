@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This article presents a solution for predicting and preventing future health incidents by combining Internet of Things (IoT) data and intelligence to optimize treatments. The solution uses Azure services to remotely monitor patients and analyze the massive amounts of data that medical devices generate.
+This article presents a solution for predicting and preventing future health incidents by combining Internet of Things (IoT) data and intelligence to optimize treatments. The solution uses Azure services to remotely monitor patients and analyze the massive amount of data that medical devices generate.
 
 ## Potential use cases
 
@@ -24,7 +24,7 @@ This solution is ideal for the medical and healthcare industry.
 
 - [IoT Hub](https://azure.microsoft.com/services/iot-hub) connects, monitors, and manages billions of IoT assets.
 - [Defender for Cloud](https://azure.microsoft.com/services/security-center) provides unified security management and advanced threat protection across hybrid cloud workloads.
-- [Cognitive Services](https://azure.microsoft.com/services/cognitive-services) provides AI functionality. The REST APIs and client library SDKs can help you build cognitive intelligence into apps.
+- [Cognitive Services](https://azure.microsoft.com/services/cognitive-services) provides AI functionality. Its REST APIs and client library SDKs can help you build cognitive intelligence into apps.
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault) safeguards and maintains control of keys and other secrets.
 - [Logic Apps](https://azure.microsoft.com/services/logic-apps) automates workflows. With this service, you can connect apps and data across clouds without writing code.
 - [Power BI Embedded](https://azure.microsoft.com/services/power-bi-embedded) provides a way to embed fully interactive, stunning data visualizations in your applications.
