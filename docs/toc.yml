@@ -2521,6 +2521,8 @@ items:
                 items:
                   - name: Upscale ML lifecycle with MLOps
                     href: example-scenario/mlops/mlops-technical-paper.yml
+                  - name: Machine learning operations (MLOps) v2
+                    href: data-guide/technology-choices/machine-learning-operations-v2.md
                   - name: MLOps maturity model
                     href: example-scenario/mlops/mlops-maturity-model.yml
                   - name: Azure ML service selection guide
