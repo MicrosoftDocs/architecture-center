@@ -82,6 +82,8 @@ You can also add a more restrictive firewall rule to allow only your app's [outb
 
 Using private connectivity through the Virtual Network provides the following firewall options to prevent others from accessing the database:
 
+- Create NSG and link to **PrivateLinkSubnet** in this example to restrict inbound traffic will only be accessible from **AppSvcSubnet** subnet. Keep in mind that subnet which contains private endpoint need to enable **PrivateEndpointNetworkPolicies** property before link existing NSG. See [this article](/azure/private-link/disable-private-endpoint-network-policy) for more details. 
+
 - Create a [virtual network rule](/azure/azure-sql/database/vnet-service-endpoint-rule-overview) that allows traffic only from the regional VNet Integration delegated subnet, **AppSvcSubnet** in this example. The delegated subnet must have a [Service Endpoint](/azure/virtual-network/virtual-network-service-endpoints-overview) configured for `Microsoft.Sql`, so the database can identify traffic from that subnet.
 
 - Configure the firewall to [Deny public network access](/azure/azure-sql/database/connectivity-settings#deny-public-network-access), which turns off all other firewall rules and makes the database accessible only through its private endpoint.
