@@ -1,3 +1,27 @@
+---
+title: Azure landing zones - Terraform module design considerations
+description: Design considerations for the Azure landing zones Terraform module.
+author: robbagby
+ms.author: robbag
+ms.date: 07/18/2022
+ms.topic: conceptual
+ms.service: architecture-center
+ms.subservice: guide
+azureCategories:
+  - devops
+  - hybrid
+  - management-and-governance
+  - networking
+  - security
+summary: Design considerations for the Azure landing zones Terraform module.
+products:
+  - azure
+  - azure-resource-manager
+  - azure-policy
+  - azure-rbac
+  - azure-virtual-network
+---
+
 This article discusses important areas to consider when using the [Azure landing zones Terraform module](https://registry.terraform.io/modules/Azure/caf-enterprise-scale/azurerm/latest). The module provides an opinionated approach to deploy and operate an Azure platform based on the [Azure landing zone conceptual architecture](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone#azure-landing-zone-conceptual-architecture) as detailed in the Cloud Adoption Framework (CAF).
 
 Terraform is an open-source Infrastructure as Code (IaC) tool, created by HashiCorp, that uses declarative syntax to deploy infrastructure resources. It is extensible, has cross-platform support and enables immutable infrastructure through state tracking.
