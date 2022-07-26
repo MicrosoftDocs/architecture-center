@@ -18,4 +18,4 @@ name: Choose an Internet of Things (IoT) solution in Azure
 summary: Use Azure IoT Central or individual Azure platform-as-a-service (PaaS) components to build, deploy, and manage internet-of-things (IoT) solutions.
 thumbnailUrl: /azure/architecture/browse/thumbs/iotc-arch.png
 content: |
-   [!include[](iot-central-iot-hub-cheat-sheet-content.md)]ms.author
+   [!include[](iot-central-iot-hub-cheat-sheet-content.md)]
