@@ -4818,6 +4818,8 @@ items:
                 items:
                   - name: Mainframe data replication with Qlik
                     href: example-scenario/mainframe/mainframe-midrange-data-replication-azure-qlik.yml
+                  - name: Mainframe data replication with tcVISION
+                    href: example-scenario/mainframe/mainframe-data-replication-azure-tcvision.yml
                   - name: Model9 mainframe modernization
                     href: example-scenario/mainframe/mainframe-modernization-model9.yml
                   - name: Modernize mainframe and midrange data
@@ -4836,6 +4838,8 @@ items:
                     href: solution-ideas/articles/mainframe-azure-file-replication.yml
       - name: Management + Governance
         items:
+          - name: Get started
+            href: guide/management-governance/management-governance-start-here.md
           - name: Guides
             items:
               - name: Governance best practices
@@ -5263,6 +5267,8 @@ items:
         items:
           - name: Guides
             items:
+              - name: Azure Communication Services architecture
+                href: guide/mobile/azure-communication-services-architecture.yml
               - name: Choose a mobile development framework
                 href: /azure/developer/mobile-apps/choose-mobile-framework
                 maintainContext: true

@@ -1,0 +1,23 @@
+### YamlMime:Architecture
+metadata:
+  title: Azure Communication Services architecture design
+  description: Learn how to add communications features to your applications by using Azure Communication Services.
+  author: MatchaMatch
+  ms.author: mikben
+  ms.date: 07/25/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+  ms.custom:
+    - cse
+name: Azure Communication Services architecture design
+summary: Learn how to add communication features to your applications by using Azure Communication Services.
+products:
+  - azure-communication-services
+  - azure-active-directory
+  - azure-functions
+azureCategories:
+  - identity
+thumbnailUrl: /azure/architecture/browse/thumbs/architecture-identity.png
+content: |
+   [!include[](azure-communication-services-architecture-content.md)]
