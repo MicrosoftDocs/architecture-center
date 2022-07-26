@@ -23,7 +23,7 @@ products:
 
 This article discusses important areas to consider when using the [Azure landing zones Terraform module](https://registry.terraform.io/modules/Azure/caf-enterprise-scale/azurerm/latest). The module provides an opinionated approach to deploy and operate an Azure platform based on the [Azure landing zone conceptual architecture](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone#azure-landing-zone-conceptual-architecture) as detailed in the Cloud Adoption Framework (CAF).
 
-Terraform is an open-source Infrastructure as Code (IaC) tool, created by HashiCorp, that uses declarative syntax to deploy infrastructure resources. It is extensible, has cross-platform support and enables immutable infrastructure through state tracking.
+Terraform is an open-source Infrastructure as Code (IaC) tool, created by HashiCorp, that uses declarative syntax to deploy infrastructure resources. It is extensible, has cross-platform support and enables immutable infrastructure through state tracking. 
 
 > [!IMPORTANT]
 > The module is available on the [Terraform Registry: Azure landing zones Terraform module](https://registry.terraform.io/modules/Azure/caf-enterprise-scale/azurerm/latest). You can use it as a starting point and configure it as per your needs.
