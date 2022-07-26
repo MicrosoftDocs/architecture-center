@@ -12,9 +12,9 @@ items:
       - name: Design guides
         items:
           - name: Bicep landing zone implementation
-            href: landing-zones/bicep/landing-zone-bicep-content.md
+            href: landing-zones/bicep/landing-zone-bicep.md
           - name: Terraform landing zone implementation
-            href: landing-zones/terraform/landing-zone-terraform-content.md
+            href: landing-zones/terraform/landing-zone-terraform.md
   - name: Application architecture fundamentals
     items:
       - name: Introduction
