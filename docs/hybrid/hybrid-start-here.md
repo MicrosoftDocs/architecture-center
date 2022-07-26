@@ -5,8 +5,8 @@ author: EdPrice-MSFT
 ms.service: architecture-center
 ms.subservice: reference-architecture
 ms.topic: conceptual
-ms.date: 09/03/2021
-ms.author: pnp
+ms.date: 07/26/2022
+ms.author: architectures
 categories:
   - hybrid
   - management-and-governance
