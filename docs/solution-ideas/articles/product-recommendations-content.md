@@ -24,7 +24,7 @@ This solution is typically employed by retailers.
 
 - [Blob Storage](https://azure.microsoft.com/services/storage/blobs) is a service that's part of [Azure Storage](https://azure.microsoft.com/products/category/storage). Blob Storage offers optimized cloud object storage for large amounts of unstructured data.
 - [Event Hubs](https://azure.microsoft.com/services/event-hubs) is a fully managed streaming platform.
-- [Azure Machine Learning](https://azure.microsoft.com/en-us/services/machine-learning) is a cloud-based environment that you can use to train, deploy, automate, manage, and track machine learning models.
+- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) is a cloud-based environment that you can use to train, deploy, automate, manage, and track machine learning models.
 - [Azure SQL Database](https://azure.microsoft.com/services/sql-database) is a fully managed platform as a service (PaaS) database engine. SQL Database runs on the latest stable version of SQL Server and a patched operating system.
 - [Stream Analytics](https://azure.microsoft.com/services/stream-analytics) offers real-time serverless stream processing. This service provides a way to run queries in the cloud and on edge devices.
 - [Power BI](https://powerbi.microsoft.com) is a business analytics service that provides interactive visualizations and business intelligence capabilities. Its easy-to-use interface makes it possible for you to create your own reports and dashboards.

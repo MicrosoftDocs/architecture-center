@@ -23,8 +23,8 @@ This solution can be used broadly, but is ideal for the retail industry and the 
 
 ### Components
 
-- [App Service](https://azure.microsoft.com/en-us/services/app-service/) provides a framework for building, deploying, and scaling web apps.
-- [Bot Service](https://azure.microsoft.com/en-us/services/bot-services/) provides an integrated development environment for bot building.
+- [App Service](https://azure.microsoft.com/services/app-service) provides a framework for building, deploying, and scaling web apps.
+- [Bot Service](https://azure.microsoft.com/services/bot-services) provides an integrated development environment for bot building.
 - [Cognitive Services](https://azure.microsoft.com/services/cognitive-services) consists of cloud-based services that provide AI functionality.
 - [Azure Cognitive Service for Language](https://azure.microsoft.com/services/cognitive-services/language-service) is part of Cognitive Services that offers many natural language processing services.
 - [Conversational language understanding](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service) is a feature of Cognitive Service for Language. This cloud-based API service offers machine-learning intelligence capabilities for building conversational apps. You can use language understanding (LUIS) to predict the meaning of a conversation and pull out relevant, detailed information.
