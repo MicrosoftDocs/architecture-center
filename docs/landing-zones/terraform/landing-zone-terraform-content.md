@@ -13,7 +13,6 @@ azureCategories:
   - management-and-governance
   - networking
   - security
-summary: Design considerations for the Azure landing zones Terraform module.
 products:
   - azure
   - azure-resource-manager
