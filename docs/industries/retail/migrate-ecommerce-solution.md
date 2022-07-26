@@ -2,8 +2,8 @@
 # required metadata
 title: Migrate your e-commerce solution to Azure
 author: EdPrice-MSFT
-ms.author: edprice
-ms.date: 04/06/2022
+ms.author: architectures
+ms.date: 07/26/2022
 ms.topic: article
 ms.service: industry
 products:

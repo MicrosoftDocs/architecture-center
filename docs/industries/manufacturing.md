@@ -3,8 +3,8 @@ title: Solutions for the manufacturing industry
 titleSuffix: Azure Architecture Center
 description: Architectures and ideas to use Azure services for building efficient, scalable, and reliable manufacturing solutions.
 author: EdPrice-MSFT
-ms.author: edprice
-ms.date: 11/22/2021
+ms.author: architectures
+ms.date: 07/26/2022
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: azure-guide
