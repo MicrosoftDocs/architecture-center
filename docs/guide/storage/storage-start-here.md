@@ -1,10 +1,10 @@
 ---
-title: Storage design
+title: Storage architecture
 titleSuffix: Azure Architecture Center
 description: Get an overview of Azure Storage technologies, guidance offerings, solution ideas, and reference architectures.  
 author: EdPrice-MSFT
-ms.author: edprice 
-ms.date: 04/01/2022
+ms.author: architectures 
+ms.date: 07/26/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide

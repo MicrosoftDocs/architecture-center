@@ -3,7 +3,7 @@ title: Use a fully managed identity service platform
 titleSuffix: Azure Architecture Center
 description: Learn why it's important to use an identity as a service (IDaaS) platform instead of building or running your own.
 author: johndowns
-ms.date: 07/19/2022
+ms.date: 07/21/2022
 ms.author: jodowns
 ms.topic: conceptual
 ms.service: architecture-center
@@ -31,6 +31,16 @@ For most solutions, we strongly recommend using an identity as a service (IDaaS)
 > Your solution requirements might lead you to use a framework or off-the-shelf identity solution that you host and run yourself. While using a prebuilt identity platform mitigates some of the issues that are described in this article, handling many of these issues is still your responsibility with such a solution.
 > 
 > You should avoid using an identity system that you build from scratch.
+
+### Avoid storing credentials
+
+When you run your own identity system, you have to store a database of credentials. You should never store credentials in clear text, or even as encrypted data.
+
+Instead, you might consider cryptographically hashing and salting credentials before storing them, which makes them more difficult to attack. However, even hashed and salted credentials are vulnerable to several types of attack.
+
+Regardless of how you protect the individual credentials, maintaining a database of credentials makes you a target for attacks. Recent years have shown that both large and small organizations have had their credentials databases targeted for attack.
+
+*Consider credential storage to be a liability, not an asset.* By using an IDaaS, you outsource the problem of credential storage to experts who can invest the time and resources in securely managing credentials.
 
 ### Implement identity and federation protocols
 
@@ -66,16 +76,6 @@ IDaaS platforms can also provide an improved set of security features that are b
 - Ongoing monitoring of the threat landscape and the current vectors that attackers use
 
 If you build or run your own identity system, you can't take advantage of these features.
-
-### Avoid storing credentials
-
-When you run your own identity system, you have to store a database of credentials. You should never store credentials in clear text, or even as encrypted data.
-
-Instead, you might consider cryptographically hashing and salting credentials before storing them, which makes them more difficult to attack. However, even hashed and salted credentials are vulnerable to several types of attack.
-
-Regardless of how you protect the individual credentials, maintaining a database of credentials makes you a target for attacks. Recent years have shown that both large and small organizations have had their credentials databases targeted for attack.
-
-*Consider credential storage to be a liability, not an asset.* By using an IDaaS, you outsource the problem of credential storage to experts who can invest the time and resources in securely managing credentials.
 
 ### Use a reliable, high-performance identity system
 
