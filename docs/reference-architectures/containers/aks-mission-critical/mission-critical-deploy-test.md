@@ -40,7 +40,7 @@ The deployment of the infrastructure in the reference architecture is dependent 
 
 :::image type="content" source="./images/mission-critical-ref-flowchart.png" alt-text="Diagram of flowchart of deployment process.":::
 
-### DevOps
+## DevOps
 
 The DevOps components provide the source code repository and CI/CD pipelines for deployment of the infrastructure and updates. Github and Azure Pipelines were chosen as the components.
 
@@ -54,7 +54,7 @@ For more information about Azure Pipelines and Azure DevOps, see [What is Azure 
 
 :::image type="content" source="./images/deployment-pipeline-prod.png" alt-text="Diagram of flowchart of Devops pipeline." lightbox="./images/deployment-pipeline-prod-big.png":::
 
-### Zero downtime updates
+## Zero downtime updates
 
 The zero-downtime update strategy in the reference architecture is central to the overall mission critical application. The methodology of replace instead of upgrade of the stamps ensures a fresh installation of the application into a infrastructure stamp. The reference architecture utilizes a blue/green approach and allows for separate test and development environments.
 
@@ -76,7 +76,7 @@ In many systems, there is an assumption that application updates will be more fr
 
 * **Elimination of manual changes and configuration drift** - Every environment is a fresh deployment.
 
-#### Branching strategy
+### Branching strategy
 
 The foundation of the update strategy is the use of branches within the Git repository. The reference architecture uses three types of branches:
 
@@ -86,7 +86,7 @@ The foundation of the update strategy is the use of branches within the Git repo
 | **`main`** | The continuously forward moving and stable branch. Mostly used for integration testing. Changes to main are made only through pull requests. A branch policy prohibits direct writes. Nightly releases against the permanent **`integration (int)`** environment are automatically executed from the **`main`** branch. The **`main`** branch is considered stable. It should be safe to assume that at any given time, a release can be created from it. |
 | **`release/*`** | Release branches are only created from the **`main`** branch. The branches follow the format **`release/2021.7.X`**. Branch policies are used so that only repo administrators are allowed to create **`release/*`** branches. Only these branches are used to deploy to the **`prod`** environment.
 
-#### Hotfixes
+### Hotfixes
 
 In the event that a hotfix is required urgently because of a bug or other issue and can't go through the regular release process, a hotfix path is available. Critical security updates and fixes to the user experience that weren't discovered during initial testing are considered valid examples of hotfixes.
 
@@ -94,7 +94,7 @@ The hotfix must be created in a new **`fix`** branch and then merged into **`mai
 
 To avoid major issues, it's important that the hotfix contains a small number of isolated commits that can easily be cherry-picked and integrated into the release branch. If this isn't the case with the hotfix, it's an indication that the change doesn't qualify as a hotfix. The change should be deployed as a full new release and potentially combined with a rollback to a former stable version until the new release can be deployed.
 
-### Environments
+## Environments
 
 The reference architecture uses two types of environments for the infrastructure:
 
@@ -106,19 +106,19 @@ The reference architecture uses two types of environments for the infrastructure
 
     * **Production (prod)** - The **`prod`** version is only deployed from **`release/*`** branches. The traffic switchover uses more granular steps. A manual approval gate is between each step. Each release creates new regional stamps and deploys the new application version to the stamps. Existing stamps aren't touched in the process. The most important consideration for **`prod`** is that it should be **"always on"**. No planned or unplanned downtime should ever occur. The only exception is foundational changes to the database layer.  A planned maintenance window maybe needed.
 
-### Shared and dedicated resources
+## Shared and dedicated resources
 
 The permanent environments (**`int`** and **`prod`**) within the reference architecture have different types of resources depending on if they are shared with the entire infrastructure or dedicated to an individual stamp. Resources can be dedicated to a particular release and exist only until the next release unit has taken over.
 
-#### Release units
+### Release units
 
 A release unit is several regional stamps per specific release version. Stamps contain all the resources which aren't shared with the other stamps. These resources are virtual networks, Azure Kubernetes Service cluster, Event Hub, and Azure Key Vault. Cosmos DB and ACR are configured with Terraform data sources.
 
-#### Globally shared resources
+### Globally shared resources
 
 All resources shared between release units are defined in an independent Terraform template. These resources are Front Door, Cosmos DB, Container registry (ACR), and the Log Analytics workspaces as well as other monitoring-related resources. These resources are deployed before the first regional stamp of a release unit is deployed. The resources are referenced in the Terraform templates for the stamps.
 
-##### Front Door
+### Front Door
 
 While Front Door is a globally shared resource across stamps, its configuration is slightly different than the other global resources. Front Door must be reconfigured after a new stamp is deployed. Front Door must be reconfigured to gradually switch over traffic to the new stamps.
 
@@ -142,7 +142,7 @@ The individual component configuration for the Front Door deployment is defined 
 
     If a release introduces a new version of the backend APIs, the changes will reflect in the UI that is deployed as part of the release. A specific release of the UI will always call a specific version of the API URL. Users served by a UI version will automatically use the respective backend API. Specific routing rules are needed for different instances of the API version. These rules are linked to the corresponding backend pools. In the event that a new API wasn't introduced, all API related routing rules link to the single backend pool. In this case, it doesn't matter if a user is served the UI from a different release than the API.
 
-### Deployment process
+## Deployment process
 
 A blue/green deployment is the goal of the deployment process. A new release from a **`release/*`** branch is deployed into the **`prod`** environment. User traffic is gradually shifted to the stamps for the new release.
 
@@ -154,11 +154,11 @@ A switch/parameter that distinguishes between releases that do and don't introdu
 
 As a part of the addition of the new release unit, the weights of the new backends should be set to the desired minimum user traffic. If no issues are detected, the amount of user traffic should be increased to the new backend pool over a period of time. To adjust the weight parameters, the same deployment steps should be executed again with the desired values.
 
-#### Release unit teardown
+### Release unit teardown
 
 As part of the deployment pipeline for the a release unit, there is a destroy stage which removes all stamps once a release unit is no longer needed and all traffic has been moved to a new release version. This stage includes the removal of release unit references from Front Door. This is critical to enable the release of a new version at a later date. Front Door must point to a single release unit in order to be prepared for the next release in the future.
 
-#### Checklists
+### Checklists
 
 As part of the release cadence, a pre and post release checklist should be used. The following is an example of the items that should be in any checklist at a minimum. 
 
@@ -176,7 +176,7 @@ As part of the release cadence, a pre and post release checklist should be used.
 
     - Event Hubs and other message queues don't contain any unprocessed messages.
 
-### Limitations and risks of the update strategy
+## Limitations and risks of the update strategy
 
 The update strategy described in this reference architecture has a some limitations and risks that should be mentioned:
 
@@ -186,7 +186,7 @@ The update strategy described in this reference architecture has a some limitati
 
 * Small changes time consuming - The update process results in a longer release process for small changes. This can be partially mitigated with the hotfix process described in the previous section.
 
-### Application data forward compatibility considerations
+## Application data forward compatibility considerations
 
 The update strategy can support multiple version of an API and work components executing concurrently. Because Cosmos DB is shared between two or more versions, there is a possibility that data elements changed by one version might not always match the version of the API or workers consuming it. The API layers and workers must implement forward compatibility design. Earlier versions of the API or worker components processes data that was inserted by a later API or worker component version. It ignores parts it doesn't understand.
 
@@ -206,7 +206,7 @@ These tests include:
 
 * **Failure injection tests** - These tests can be be automated or executed manually. Automated testing in the architecture integrates Azure Chaos Studio as part of the deployment pipelines.
 
-### Frameworks
+## Frameworks
 
 The online reference implementation existing testing capabilities and frameworks whenever possible.
 
@@ -218,7 +218,7 @@ The online reference implementation existing testing capabilities and frameworks
 | **Playwright** | UI and Smoke | Playwright is an open source Node.js library to automate Chromium, Firefox and WebKit with a single API. The Playwright test definition can also be used independently of the reference implementation. |
 | **Azure Chaos Studio** | Failure injection | The reference implementation uses Azure Chaos Studio as an optional step in the E2E validation pipeline to inject failures for resiliency validation. |
 
-### Failure Injection testing and Chaos Engineering
+## Failure Injection testing and Chaos Engineering
 
 Distributed applications should be resilient to service and component outages. Failure Injection testing (also known as Fault Injection or Chaos Engineering) is the practice of subjecting applications and services to real-world stresses and failures.
 
@@ -226,11 +226,11 @@ Resilience is a property of an entire system and injecting faults helps to find 
 
 Manual and automatic tests can be executed against the infrastructure to find faults and issues in the implementation.
 
-#### Automatic
+### Automatic
 
 The reference architecture integrates [Azure Chaos Studio](/azure/chaos-studio/chaos-studio-overview) to deploy and run a set of Azure Chaos Studio experiments to inject various faults at the stamp level. Chaos experiments can be executed as an optional part of the E2E deployment pipeline. When the tests are executed, the optional load test is always executed in a parallel. The load test is used to create load on the cluster to validate the impact of the injected faults.
 
-#### Manual
+### Manual
 
 Manual failure injection testing should be done in an E2E validation environment. This environment ensures full representative tests without risk of interference from other environments. Most of the failures generated with the tests can be observed directly in the Application Insights [Live metrics](/azure/azure-monitor/app/live-stream) view. The remaining failures are available in the Failures view and corresponding log tables. Other failures require deeper debugging such as the use of **`kubectl`** to observe the behavior inside of AKS.
 
