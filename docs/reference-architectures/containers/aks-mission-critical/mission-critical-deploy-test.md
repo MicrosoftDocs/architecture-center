@@ -142,7 +142,7 @@ The individual component configuration for the Front Door deployment is defined 
 
     If a release introduces a new version of the backend APIs, the changes will reflect in the UI that is deployed as part of the release. A specific release of the UI will always call a specific version of the API URL. Users served by a UI version will automatically use the respective backend API. Specific routing rules are needed for different instances of the API version. These rules are linked to the corresponding backend pools. In the event that a new API wasn't introduced, all API related routing rules link to the single backend pool. In this case, it doesn't matter if a user is served the UI from a different release than the API.
 
-## Deployment process
+## Deployment: Deployment process
 
 A blue/green deployment is the goal of the deployment process. A new release from a **`release/*`** branch is deployed into the **`prod`** environment. User traffic is gradually shifted to the stamps for the new release.
 
@@ -176,7 +176,7 @@ As part of the release cadence, a pre and post release checklist should be used.
 
     - Event Hubs and other message queues don't contain any unprocessed messages.
 
-## Limitations and risks of the update strategy
+## Deployment: Limitations and risks of the update strategy
 
 The update strategy described in this reference architecture has a some limitations and risks that should be mentioned:
 
@@ -186,11 +186,11 @@ The update strategy described in this reference architecture has a some limitati
 
 * Small changes time consuming - The update process results in a longer release process for small changes. This can be partially mitigated with the hotfix process described in the previous section.
 
-## Application data forward compatibility considerations
+## Deployment: Application data forward compatibility considerations
 
 The update strategy can support multiple version of an API and work components executing concurrently. Because Cosmos DB is shared between two or more versions, there is a possibility that data elements changed by one version might not always match the version of the API or workers consuming it. The API layers and workers must implement forward compatibility design. Earlier versions of the API or worker components processes data that was inserted by a later API or worker component version. It ignores parts it doesn't understand.
 
-## Testing implementation
+## Testing
 
 The reference architecture contains different tests used at different stages within the testing implementation. 
 
@@ -206,7 +206,7 @@ These tests include:
 
 * **Failure injection tests** - These tests can be be automated or executed manually. Automated testing in the architecture integrates Azure Chaos Studio as part of the deployment pipelines.
 
-## Frameworks
+## Testing: Frameworks
 
 The online reference implementation existing testing capabilities and frameworks whenever possible.
 
@@ -218,7 +218,7 @@ The online reference implementation existing testing capabilities and frameworks
 | **Playwright** | UI and Smoke | Playwright is an open source Node.js library to automate Chromium, Firefox and WebKit with a single API. The Playwright test definition can also be used independently of the reference implementation. |
 | **Azure Chaos Studio** | Failure injection | The reference implementation uses Azure Chaos Studio as an optional step in the E2E validation pipeline to inject failures for resiliency validation. |
 
-## Failure Injection testing and Chaos Engineering
+## Testing: Failure Injection testing and Chaos Engineering
 
 Distributed applications should be resilient to service and component outages. Failure Injection testing (also known as Fault Injection or Chaos Engineering) is the practice of subjecting applications and services to real-world stresses and failures.
 
