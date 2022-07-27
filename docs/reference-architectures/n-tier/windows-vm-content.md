@@ -112,6 +112,9 @@ For more information, see the Operational Excellence section in [Azure Well-Arch
 
 ## Next steps
 
+- To create a Windows VM, see [Quickstart: Create a Windows virtual machine in the Azure portal](/azure/virtual-machines/windows/quick-create-portal)
+- To install NVIDIA drivers on a Windows VM, see [Install NVIDIA GPU drivers on N-series VMs running Windows](/azure/virtual-machines/windows/n-series-driver-setup)
+- To install AMD drivers on a Windows VM, see [Install AMD GPU drivers on N-series VMs running Windows](/azure/virtual-machines/windows/n-series-amd-driver-setup)
 - To provision a Windows VM, see [Create and Manage Windows VMs with Azure PowerShell](/azure/virtual-machines/windows/tutorial-manage-vm)
 - For a complete N-tier architecture on Windows VMs, see [Windows N-tier application on Azure with SQL Server](./n-tier-sql-server.yml).
 
