@@ -109,7 +109,8 @@ The [connectivity resources](https://github.com/Azure/terraform-azurerm-caf-ente
 
 The [identity resources](https://github.com/Azure/terraform-azurerm-caf-enterprise-scale/wiki/%5BUser-Guide%5D-Identity-Resources) capability of the module aligns to the [Azure identity and access management design area](/azure/cloud-adoption-framework/ready/landing-zone/design-area/identity-access) of the Cloud Adoption Framework. This capability provides the option to configure policies on the Identity platform landing zone.
 
-No resources are deployed with this capability. When the ```deploy_identity_resources``` variable is set to true, Azure Policy assignments are configured that protect resources in the identity platform landing zone subscription.
+> [!NOTE]
+> No resources are deployed with this capability. When the ```deploy_identity_resources``` variable is set to true, Azure Policy assignments are configured that protect resources in the identity platform landing zone subscription.
 
 ## Module descriptions
 
