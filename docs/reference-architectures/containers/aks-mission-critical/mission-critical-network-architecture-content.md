@@ -56,7 +56,7 @@ The global resources are long living and share the lifetime of the system. They 
 > Refer to [Well-architected mission critical workloads: Container registry](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing#container-registry).
 
 ## Regional resources
-The regional resources are provisioned as part of a _deployment stamp_ to a single Azure region. These resources share nothing with resources in another region. They can be independently removed or replicated to additional regions. They, however, share [global resources](#global-resources) between each other. 
+The regional resources are provisioned as part of a _deployment stamp_ to a single Azure region. They are short-lived to provide more resiliency, scale, and proximity to users. These resources share nothing with resources in another region. They can be independently removed or replicated to additional regions. They, however, share [global resources](#global-resources) between each other. 
 
 **Static website in an Azure Storage Account** hosts a single page application (SPA) that send requests to backend services.
 
@@ -106,9 +106,20 @@ Because the compute cluster is private, additional resources are provisioned to 
 
 **Azure Bastion** provides secure access to a jump box and removes the need for the jump boxes to have public IPs. Bastion host is in a dedicated subnet of the virtual network in the stamp. 
 
+The regional resources are provisioned as part of a _deployment stamp_ to a single Azure region. These resources share nothing with resources in another region. They can be independently removed or replicated to additional regions. They, however, share [global resources](#global-resources) between each other.
 
 ## Networking
 
+Isolate regional resources and management resources in separate virtual networks. They have distinct purposes. 
+
+- Regional resources participate in processing of a business operation and need higher security controls. For example, the compute cluster must be protected from direct internet traffic. Management resources are provisioned only to access the regional resources for operations. So, they can be exposed to the public internet. 
+
+- The expected lifetimes of those resources are also different. Regional resources are expected to be short-lived (ephemeral). They are created as part of the deployment stamp and destroyed when the stamp is torn down. Management resources share the lifetime of the region and out live the stamp resources.
+
+These resources are expected to communicate with other resources in the stamp and global resources.  and resur and  resources communicate with other resources over 
+
+Within each virtual network, use subnets connected through Azure load balancers.
+The In this desgin, there are two virtual networks:
 - Stamp Vnet
     - private endpoints
     - subnets
