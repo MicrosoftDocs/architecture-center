@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This guidance provides best practices for Azure Firewall, based on the Well-Architected Framework's five pillars of architecture excellence.
 author: rohilla-shweta
 ms.author: rosanto
-ms.date: 06/20/2022
+ms.date: 07/28/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
