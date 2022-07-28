@@ -34,6 +34,8 @@ The architecture consists of:
 
 [![Diagram showing user interfaces interacting with Azure Application Gateway and the cloud application components.](../media/iot-power-architecture.png)](../media/iot-power-architecture.png#lightbox)
 
+*Download a [Visio file](https://arch-center.azureedge.net/iot-power-architecture.vsdx)* of this architecture.
+
 #### Dataflow
 
 1. Field sales and service agents use a mobile platform to interact with the cloud application via Azure Application Gateway. End users use a built-in interface or mobile app to access and control their devices.
@@ -46,7 +48,8 @@ The architecture consists of:
 
 The business intelligence part of the process includes the following data analysis and control loop:
 
-![Diagram showing an analytics loop that runs post-processed telemetry data through a trained AI model to control the device.](../media/iot-power-analytics.png)
+![Diagram showing an analytics loop that runs post-processed telemetry data through a trained AI model to control the device.](../media/iot-power-analytics.png)  
+*Download a [Visio file](https://arch-center.azureedge.net/iot-power-analytics.vsdx)* of this architecture.
 
 #### Dataflow
 
