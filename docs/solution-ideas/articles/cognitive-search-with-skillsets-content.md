@@ -111,7 +111,6 @@ Try the Microsoft Learn path:
 
 - [Implement knowledge mining with Azure Cognitive Search](/learn/paths/implement-knowledge-mining-azure-cognitive-search)
 
-
 ## Related resources
 
 See the related architectures and guidance:
