@@ -1,18 +1,18 @@
 <!-- cSpell:ignore lbrader netweaver jump-box jump-boxes ACLs HANA SWDs SMLG ABAP SAPGUI SAPGUIs SPOF WSFC ASCS MSEE Iperf SIOS sapmnt -->
 
-This reference architecture shows a set of proven practices for running SAP NetWeaver in a Windows environment, on Azure, with high availability. The database is AnyDB, the SAP term for any supported database management system (DBMS) besides SAP HANA.
+This article presents a set of proven practices for running SAP NetWeaver in a Windows environment, on Azure, with high availability. The database is AnyDB, the SAP term for any supported database management system (DBMS) besides SAP HANA.
 
 ## Architecture
 
-The first diagram shows SAP NetWeaver in a Windows environment in an availability set scenario. The architecture uses Azure NetApp Files for the shared files layer and a proximity placement group for improved performance:
+The following diagram shows SAP NetWeaver in a Windows environment in an availability set scenario. The architecture uses Azure NetApp Files for the shared files layer and a proximity placement group for improved performance.
 
 ![Diagram that shows a reference architecture for SAP NetWeaver on Windows. The database is AnyDB on Azure VMs with availability sets.](./images/sap-netweaver-avset-afs-ppg.png)
 
 _Download a [Visio file](https://arch-center.azureedge.net/sap-netweaver-AVSet-Netapp-PPG.vsdx) that shows this architecture._
 
-The second diagram shows SAP NetWeaver in a Windows environment. Availability Zones are used for improved resilience:
+The following diagram shows SAP NetWeaver in a Windows environment. Availability zones are used for improved resilience.
 
-![Diagram that shows a reference architecture for SAP NetWeaver on Windows. The database is AnyDB on Azure VMs with Availability Zones.](./images/sap-netweaver-avzones.png)
+![Diagram that shows a reference architecture for SAP NetWeaver on Windows. The database is AnyDB on Azure VMs with availability zones.](./images/sap-netweaver-avzones.png)
 
 _Download a [Visio file](https://arch-center.azureedge.net/sap-netweaver-AVZones.vsdx) that shows this architecture._
 
@@ -51,7 +51,7 @@ The Standard SKU also supports multi-SID SAP clusters.  In other words, [multipl
 
 **Application Gateway.** Azure Application Gateway is a web traffic load balancer that enables you to manage traffic to your web applications. Traditional load balancers operate at the transport layer (OSI layer 4 - TCP and UDP), and they route traffic based on the source IP address and port, to a destination IP address and port. Application Gateway can make routing decisions based on additional attributes of an HTTP request, such as URI path or host headers. This type of routing is known as application layer (OSI layer 7) load balancing.
 
-**Availability sets.** VMs for all pools and clusters (Web Dispatcher, SAP application servers, Central Services, and databases) are grouped into separate [availability sets](/azure/virtual-machines/windows/tutorial-availability-sets). At least two virtual machines are provisioned per role. Availability sets increase the availability of the applications and VMs. They do so through management of host system faults or maintenance events by distributing role instances onto multiple hosts. An alternative is to use [Availability Zones](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones) to improve workload availability, as described later in this article.
+**Availability sets.** VMs for all pools and clusters (Web Dispatcher, SAP application servers, Central Services, and databases) are grouped into separate [availability sets](/azure/virtual-machines/windows/tutorial-availability-sets). At least two virtual machines are provisioned per role. Availability sets increase the availability of the applications and VMs. They do so through management of host system faults or maintenance events by distributing role instances onto multiple hosts. An alternative is to use [availability zones](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones) to improve workload availability, as described later in this article.
 
 **Zone-redundant gateway.** Azure ExpressRoute or VPN gateways can be deployed across zones to guard against zone failures. See [Zone-redundant virtual network gateways](/azure/vpn-gateway/about-zone-redundant-vnet-gateways) to understand the differences between a zonal deployment and a zone-redundant deployment.  It's worth mentioning here that the IP addresses used need to be of Standard SKU for a zone deployment of the gateways.
  
@@ -103,7 +103,7 @@ Availability sets distribute servers to various physical infrastructures and upd
 
 All virtual machines in a set must perform the same role. Don't mix servers of different roles in the same availability set. For example, don't place an ASCS node in the same availability set with the application servers.
 
-You can deploy Azure availability sets in [Azure Availability Zones](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones) when you use a [proximity placement group](/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios).
+You can deploy Azure availability sets in [Azure availability zones](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones) when you use a [proximity placement group](/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios).
 
 ### Networking
 
@@ -181,9 +181,9 @@ Some SAP applications require frequent communication with the database. The phys
 
 To optimize network latency, you can use [proximity placement groups](/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios), which set a logical constraint on the virtual machines deployed in availability sets. Proximity placement groups favor collocation and performance over scalability, availability, or cost. They can greatly improve the user experience for most SAP applications. Scripts are available on [GitHub](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities).
 
-### Availability Zones
+### Availability zones
 
-[Availability Zones](/azure/availability-zones/az-overview) allow you to deploy virtual machines across zones. That is, physically separated locations within a specific Azure region. Their purpose is to enhance service availability, but consider performance when you deploy resources with zones.
+[Availability zones](/azure/availability-zones/az-overview) allow you to deploy virtual machines across zones. That is, physically separated locations within a specific Azure region. Their purpose is to enhance service availability, but consider performance when you deploy resources with zones.
 
 Administrators need a clear network latency profile between all zones of a target region before they can determine the resource placement with minimum inter-zone latency. To create this profile, deploy small virtual machines in each zone for testing. Recommended tools for these tests include [PsPing](/sysinternals/downloads/psping) and [Iperf](https://sourceforge.net/projects/iperf). When the tests are done, remove the virtual machines that you used for testing. As an alternative, there is also an [Azure inter-zone latency check tool](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/blob/main/AvZone-Latency-Test/AvZone-Latency-Test.ps1) available for your convenience.
 
@@ -195,7 +195,7 @@ You can scale SAP application servers and the Central Services clusters up, down
 
 ## Availability considerations
 
-Resource redundancy is the general theme in high-availability infrastructure solutions. For enterprises that have a less stringent SLA, single-instance Azure virtual machines with premium disks provide an [uptime SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8). When you deploy redundant resources in an availability set or across Availability Zones, the service availability is elevated.
+Resource redundancy is the general theme in high-availability infrastructure solutions. For enterprises that have a less stringent SLA, single-instance Azure virtual machines with premium disks provide an [uptime SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8). When you deploy redundant resources in an availability set or across availability zones, the service availability is elevated.
 
 In this distributed installation of the SAP application, the base installation is replicated to achieve high availability. For each layer of the architecture, the high availability design varies.
 
@@ -232,13 +232,13 @@ For this reference architecture, we've assumed the source database is running on
 
 For implementation details about specific database systems, see [Azure Virtual Machines DBMS deployment for SAP NetWeaver](/azure/virtual-machines/workloads/sap/dbms_guide_general).
 
-### Virtual machines deployed across Availability Zones
+### Virtual machines deployed across availability zones
 
-Availability Zones are a logical construct designed to improve workload availability and protect application services and virtual machines against datacenter outages. Virtual machines in a single zone are treated as if they were in a single update or fault domain. When you select zonal deployment, virtual machines in the same zone are distributed to fault and upgrade domains on a best-effort basis.
+Availability zones are a logical construct designed to improve workload availability and protect application services and virtual machines against datacenter outages. Virtual machines in a single zone are treated as if they were in a single update or fault domain. When you select zonal deployment, virtual machines in the same zone are distributed to fault and upgrade domains on a best-effort basis.
 
 In [Azure regions](https://azure.microsoft.com/global-infrastructure/regions) that support this feature, at least three zones are available. But the maximum distance between datacenters in these zones isn't guaranteed. To deploy a multitier SAP system across zones, you need to know the network latency within a zone and across targeted zones. You also need to know how sensitive your deployed applications are to network latency.
 
-Take these [considerations](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones) into account when you decide to deploy resources across Availability Zones:
+Take these [considerations](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones) into account when you decide to deploy resources across availability zones:
 
 - Latency between virtual machines in one zone.
 
@@ -247,7 +247,7 @@ Take these [considerations](/azure/virtual-machines/workloads/sap/sap-ha-availab
 - Availability of the same Azure services (virtual machine types) in the chosen zones.
 
 > [!NOTE]
-> Availability Zones support intra-region high availability, but they aren't effective for DR. The distances between zones are too short. Typical DR regions should be at least 100 miles away from the primary region.
+> Availability zones support intra-region high availability, but they aren't effective for DR. The distances between zones are too short. Typical DR regions should be at least 100 miles away from the primary region.
 
 **Active/inactive deployment example**
 
@@ -378,7 +378,7 @@ If you need more control over maintenance events or hardware isolation, for eith
 
 For all pools and clusters (Web Dispatcher, SAP application servers, Central Services, and the database) the virtual machines are grouped into separate availability sets. There's no cost for an availability set. You pay only for each VM instance that you create.
 
-If you're deploying a workload across Availability Zones, availability sets aren't required.
+If you're deploying a workload across availability zones, availability sets aren't required.
 
 ### Azure Load Balancer
 
