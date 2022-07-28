@@ -2,8 +2,8 @@
 title: Apache scenarios on Azure
 description: Review a list of architectures and solutions that use Apache open-source solutions.
 author: EdPrice-MSFT
-ms.author: edprice
-ms.date: 04/11/2022 
+ms.author: architectures
+ms.date: 07/26/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide

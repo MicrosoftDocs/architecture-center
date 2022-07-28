@@ -135,6 +135,8 @@ For more information, see the Operational excellence section in [Microsoft Azure
 
 ## Next steps
 
+- To create a Linux VM, see [Quickstart: Create a Linux virtual machine in the Azure portal](/azure/virtual-machines/linux/quick-create-portal)
+- To install an NVIDIA driver on a Linux VM, see [Install NVIDIA GPU drivers on N-series VMs running Linux](/azure/virtual-machines/linux/n-series-driver-setup)
 - To provision a Linux VM, see [Create and Manage Linux VMs with the Azure CLI](/azure/virtual-machines/linux/tutorial-manage-vm)
 - For a complete N-tier architecture on Linux VMs, see [Linux N-tier application in Azure with Apache Cassandra](./n-tier-cassandra.yml).
 

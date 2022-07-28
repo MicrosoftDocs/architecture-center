@@ -2,8 +2,8 @@
 title: Introduction to microservices
 description: Introduction to microservices.
 author: EdPrice-MSFT
-ms.author: edprice
-ms.date: 06/21/2022
+ms.author: architectures
+ms.date: 07/26/2022
 ms.topic: include
 ms.service: architecture-center
 ms.subservice: guide
