@@ -5,7 +5,7 @@ metadata:
   description: Help secure the connection to a Microsoft Teams channel bot’s web app by using Azure Private Link and Azure Private Endpoint.
   author: ajafry
   ms.author: aljafry
-  ms.date: 07/02/2022
+  ms.date: 07/29/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
