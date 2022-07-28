@@ -1,4 +1,4 @@
-This architecture describes how to implement an Information Management System (IMS) mainframe application workload to Azure by using Raincode's IMSql. Migrating an IMS database (DB) application to a cloud-native solution is more complex than migrating a relational database application. This article describes how to seamlessly rehost a mainframe IMS workload that has critical IMS features and capabilities to Azure. You don't need to translate or modify your existing application. The solution uses IMSql and Azure SQL.
+This architecture describes how to implement an Information Management System (IMS) mainframe application workload to Azure by using Raincode's IMSql. Migrating an IMS database (DB) application to a cloud-native solution is more complex than migrating a relational database application. This article describes how to seamlessly rehost a mainframe IMS workload that has critical IMS features and capabilities to Azure. You don't need to translate or modify your existing application.
 
 ## IMS DB/DC workload architecture, before migration
 
@@ -45,7 +45,7 @@ This architecture describes how to implement an Information Management System (I
 
 6. Raincode JCL
 
-   Raincode job control language (JCL) is an interpreter that's compatible with z/OS JCL. The Raincode JCL interpreter makes the transition of the intricate business logic embedded in JCL into the Azure and .NET Core platforms as smooth as possible. Raincode JCL is designed to run code compiled by the Raincode COBOL, PL/I, and ASM370 compilers. It can easily run steps written in virtually any language. It can be configured and fine-tuned with user-written code, so you can adapt it to your own needs for batch scheduling.
+   Raincode job control language (JCL) is an interpreter that's compatible with z/OS JCL. The Raincode JCL interpreter makes the transition from the intricate business logic embedded in JCL to the Azure and .NET Core platforms as smooth as possible. Raincode JCL is designed to run code compiled by the Raincode COBOL, PL/I, and ASM370 compilers. It can easily run steps written in virtually any language. It can be configured and fine-tuned with user-written code, so you can adapt it to your own needs for batch scheduling.
 
 7. IMSql data view  
 
@@ -59,13 +59,13 @@ This architecture describes how to implement an Information Management System (I
 ### Database object migration
 
 - The original IMS DB database description (DBD) is extracted and transferred from Mainframe. IMSql uses the DBD information to produce SQL scripts for generating a target database and tables in Azure SQL.
-- Each segment in an IMS DBD is translated as a table in Azure.
+- Each segment in an IMS DBD is translated as a table on Azure.
 - The tables consist of a key field, search fields, and the complete IMS segment data as it's represented in EBCDIC.
 - The IMS segment tree structure is retained with the primary and foreign key relationship in Azure SQL tables.
 
 ### Initial data load
 
-- The data from IMS DB is extracted using a mainframe job and commonly available download utilities like DFSRRC00 and DFSURGL0.  
+- The data from IMS DB is extracted via a mainframe job and commonly available download utilities like DFSRRC00 and DFSURGL0.  
 - You can transfer the extracted binary files to Azure by using Azure Data Factory connectors like FTP and SFTP and a Java-based solution that runs on Unix Subsystem Services (USS).  
 - IMSql has a built-in load utility for completing the initial data loads. This tool uses the SQL Server bulk copy program (bcp) utility. It ensures bcp execution and the required referential integrity between the tables to match the expected hierarchical structure.
 - This migration addresses a one-time data load from IMS DB, not co-existence and associated data synchronization.  
@@ -87,8 +87,8 @@ This architecture describes how to implement an Information Management System (I
 
 ### Components
 
-- [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) enables you to quickly build powerful integration solutions. Mainframe users are familiar with 3270 terminals and on-premises connectivity. They can use the Logic Apps [IBM 3270 connector](/azure/connectors/connectors-run-3270-apps-ibm-mainframe-create-api-3270) to access and run IBM mainframe apps. In the migrated system, they interact with Azure applications via the public internet or a private connection implemented with Azure ExpressRoute. [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory) provides authentication.
-- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is the fundamental building block for your private network in Azure. Virtual Network enables many types of Azure resources, like Azure virtual machines (VMs), to communicate with each other, the internet, and on-premises networks, all with improved security. Virtual Network is like a traditional network that you operate in your own datacenter, but it brings more of the benefits of the Azure infrastructure, like scale, availability, and isolation.  
+- [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) enables you to quickly build powerful integration solutions. Mainframe users are familiar with 3270 terminals and on-premises connectivity. They can use the Logic Apps [IBM 3270 connector](/azure/connectors/connectors-run-3270-apps-ibm-mainframe-create-api-3270) to access and run IBM mainframe apps. In the migrated system, they interact with Azure applications via the public internet or a private connection that's implemented via Azure ExpressRoute. [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory) provides authentication.
+- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is the fundamental building block for your private network on Azure. Virtual Network enables many types of Azure resources, like Azure virtual machines (VMs), to communicate with each other, the internet, and on-premises networks, all with improved security. Virtual Network is like a traditional network that you operate in your own datacenter, but it brings more of the benefits of the Azure infrastructure, like scale, availability, and isolation.  
 - [ExpressRoute](https://azure.microsoft.com/services/expressroute) enables you to extend your on-premises networks into the Microsoft Cloud over a private connection that's facilitated by a connectivity provider. You can use ExpressRoute to establish connections to Microsoft Cloud services like Azure and Office 365.
 - [Azure Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets) provides automated and load balanced VM scaling that simplifies the management of your applications and increases availability.
 - [Azure SQL Managed Instance](https://azure.microsoft.com/products/azure-sql/managed-instance), part of the Azure SQL service portfolio, is a managed, highly secure, always up-to-date SQL instance in the cloud.
@@ -97,7 +97,7 @@ This architecture describes how to implement an Information Management System (I
 ### Alternatives
 
 - You can use Azure SQL Server IaaS as an alternative to SQL Managed Instance. We recommend SQL Managed Instance in this architecture because of benefits like high availability, seamless integration with various Azure services, and management of underlying security patches and maintenance.  
-- You can use an Azure single-VM architecture as an alternative to Virtual Machine Scale Sets. You might want to use Azure VMs for workloads that have constant load and performance demands and no need for scaling. This architecture uses Virtual Machine Scale Sets to handle typical IMS workloads.
+- You can use an Azure single-VM architecture as an alternative to Virtual Machine Scale Sets. You might want to use single VMs for workloads that have constant load and performance demands and no need for scaling. This architecture uses Virtual Machine Scale Sets to handle typical IMS workloads.
 
 ## Scenario details
 
