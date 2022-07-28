@@ -1,20 +1,23 @@
-This article briefly explains the steps to run ADS CFD Code Leo application on a Virtual Machine deployed in Azure Cloud Platform and presents the performance results. Learn more about ADS CFD at [ADS CFD Inc. (aerodynamic-solutions.com)](https://new.aerodynamic-solutions.com).
+This article briefly explains the steps for running [ADS CFD's](https://new.aerodynamic-solutions.com) Code Leo application on a virtual machine deployed on Azure. It also presents performance results.
 
-The ADS CFD flow solver, Code Leo, is a URANS-based flow solver that delivers both accurate and fast flow simulations for general flow configurations
-- It is a density-based, compressible flow code, with explicit time-marching, and convergence acceleration.
-- It is second order accurate in time and space with low numerical smoothing
-- It is used to run both the steady-state and unsteady simulations
-- It can handle both structured multi-block meshes and unstructured meshes with mixed tetrahedrons, pyramids, prisms and hex elements.
-- It allows use of various turbomachinery rotor/stator interaction models including the sliding mesh, mixing plane and frozen rotor models.
+Code Leo is a URANS-based flow solver that delivers accurate and fast flow simulations for general flow configurations. Code Leo:
 
-Originally designed for CPUs, ADS CFD has extended it to take advantage of the advanced GPU architecture following the advent of cost-effective GPUs. The methods used have been validated over multiple decades by industry leaders including AFRL, and NASA. Code Leo allows users to switch easily between CPU and GPU solvers.
- 
-The ADS CFD software is used primarily in the aerospace and turbomachinery industries for performance and durability assessments of jet engines and aircraft. One of the main use cases is the analysis and optimization of the integrated engine/aircraft configurations so that next generation aircraft designs can be closed on time and with confidence
+- Is density based and compressible and has explicit time marching and convergence acceleration.
+- Is second-order accurate in time and space with low numerical smoothing.
+- Is used to run both steady-state and unsteady simulations.
+- Can handle structured multi-block meshes and unstructured meshes with mixed tetrahedrons, pyramids, prisms, and hex elements.
+- Allows the use of various turbomachinery rotor/stator interaction models, including sliding mesh, mixing plane, and frozen rotor models.
 
-Prior to installing the ADS CFD Code Leo application, you’ll need to deploy and connect a virtual machine, and install the required NVIDIA and AMD drivers. 
+Code Leo was originally designed for CPUs, but ADS CFD has extended it to take advantage of the advanced GPU architecture when GPUs became more cost-effective. It's been validated for decades by industry leaders like Air Force Research Laboratory and NASA. Code Leo users can switch easily between CPU and GPU solvers.
 
-**Run a Windows VM on Azure** (https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/n-tier/windows-vm)
-**Run a Linux VM on Azure** (https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/n-tier/linux-vm)
+ADS CFD software is used primarily in the aerospace and turbomachinery industries for performance and durability assessments of jet engines and aircraft. One of the main use cases is the analysis and optimization of integrated engine/aircraft configurations so that next-generation aircraft designs can be closed on time and with confidence.
+
+Before you install Code Leo, you need to deploy and connect a virtual machine (VM) and install the required NVIDIA and AMD drivers.
+
+See one of these articles to deploy the VM:
+
+- [Run a Windows VM on Azure](/azure/architecture/reference-architectures/n-tier/windows-vm)
+- [Run a Linux VM on Azure](/azure/architecture/reference-architectures/n-tier/linux-vm)
 
 Install ADS CFD Code Leo application on a Virtual Machine
 DOWNLOAD THE PRODUCT
