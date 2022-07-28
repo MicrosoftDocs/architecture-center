@@ -1,4 +1,4 @@
-This architecture describes how to implement an Information Management System (IMS) mainframe application workload to Azure by using Raincode's IMSql. Migrating an IMS database (DB) application to a cloud-native solution is more complex than migrating a relational database application. This article describes how to seamlessly rehost a mainframe IMS workload that has critical IMS features and capabilities to Azure. You don't need to translate or modify your existing application.
+This architecture describes how to implement an Information Management System (IMS) mainframe application workload on Azure by using Raincode's IMSql. Migrating an IMS database (DB) application to a cloud-native solution is more complex than migrating a relational database application. This article describes how to seamlessly rehost a mainframe IMS workload that has critical IMS features and capabilities to Azure. You don't need to translate or modify your existing application.
 
 ## IMS DB/DC workload architecture, before migration
 
@@ -39,7 +39,7 @@ This architecture describes how to implement an Information Management System (I
 
 5. DL/I call API  
 
-   - IMSql API ensures that the COBOL IMS DL/I calls are translated to equivalent SQL queries, fetches the data, and returns it back to the application program in the expected format.
+   - The IMSql API ensures that the COBOL IMS DL/I calls are translated to equivalent SQL queries, fetches the data, and returns it back to the application program in the expected format.
    - IMSql also tracks the Program position on the Table record to perform create, read, update, and delete (CRUD) operations, like the hierarchical DB.
    - IMSql can create SQL stored procedures during compilation to respond to performance-intensive DL/I calls.
 
@@ -80,8 +80,8 @@ This architecture describes how to implement an Information Management System (I
    1. Mainframe IMS data files are copied to Azure Blob Storage via SFTP.
    1. Mainframe JCL is used to run a custom Java solution that moves data between the mainframe system and SFTP Azure Blob Storage.  
 1. By using the DBD file, IMSql creates the target DB and tables, with necessary referential integrity.
-1. After data objects are created, IMSql loads the data to the corresponding table in a sequential order.
-1. All migrated IMS data is hosted in SQL Managed Instance.
+1. After data objects are created, IMSql loads the data to the corresponding table in sequential order.
+1. All migrated IMS data is hosted in Azure SQL Managed Instance.
 1. The application database consists of the raw segment data for processing IMS online and batch processing.
 1. The IMS read/write views consist of segment data that's expanded based on the copybook layout.
 
@@ -91,7 +91,7 @@ This architecture describes how to implement an Information Management System (I
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is the fundamental building block for your private network on Azure. Virtual Network enables many types of Azure resources, like Azure virtual machines (VMs), to communicate with each other, the internet, and on-premises networks, all with improved security. Virtual Network is like a traditional network that you operate in your own datacenter, but it brings more of the benefits of the Azure infrastructure, like scale, availability, and isolation.  
 - [ExpressRoute](https://azure.microsoft.com/services/expressroute) enables you to extend your on-premises networks into the Microsoft Cloud over a private connection that's facilitated by a connectivity provider. You can use ExpressRoute to establish connections to Microsoft Cloud services like Azure and Office 365.
 - [Azure Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets) provides automated and load balanced VM scaling that simplifies the management of your applications and increases availability.
-- [Azure SQL Managed Instance](https://azure.microsoft.com/products/azure-sql/managed-instance), part of the Azure SQL service portfolio, is a managed, highly secure, always up-to-date SQL instance in the cloud.
+- [SQL Managed Instance](https://azure.microsoft.com/products/azure-sql/managed-instance), part of the Azure SQL service portfolio, is a managed, highly secure, always up-to-date SQL instance in the cloud.
 - [Azure AD](https://azure.microsoft.com/services/active-directory) is a cloud-based enterprise identity and access management service. Azure AD single sign-on and multifactor authentication help users sign in and access resources while helping to protect against cybersecurity attacks.
 
 ### Alternatives
@@ -103,7 +103,7 @@ This architecture describes how to implement an Information Management System (I
 
 Mainframe OLTP systems can process millions of transactions for vast numbers of users. IBM IMS is a robust classic mainframe transaction manager used by major companies for online transaction processing. It has two main components: the IMS DC component and the underlying hierarchical DBMS IMS DB component.
 
-IMSql provides a way to host IMS-based workloads on Azure or on-premises distributed implementations that are based on SQL Server. IMSql provides a holistic solution for running an IMS workload, including the app, data, and middleware components. It can ingest the hierarchical (IMS DB) data structure to a relational data model in SQL Server, SQL Server on Azure Virtual Machines, and Azure SQL Managed Instance. It has built-in APIs for IMS application program DL/I calls and extends the data layer beyond the hierarchical workload to cloud-native apps that are used for relational data.
+IMSql provides a way to host IMS-based workloads on Azure or on-premises distributed implementations that are based on SQL Server. IMSql provides a holistic solution for running an IMS workload, including the app, data, and middleware components. It can ingest the hierarchical (IMS DB) data structure to a relational data model in SQL Server, SQL Server on Azure Virtual Machines, and SQL Managed Instance. It has built-in APIs for IMS application program DL/I calls and extends the data layer beyond the hierarchical workload to cloud-native apps that are used for relational data.
 
 This solution provides the following benefits:
 
@@ -145,7 +145,7 @@ For general guidance on designing highly secure data solutions, see [Azure secur
 
 Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-- Virtual Machine Scale Sets optimize costs by minimizing the number of unnecessary hardware instances that run your application when demand is low.
+- Virtual Machine Scale Sets optimizes costs by minimizing the number of unnecessary hardware instances that run your application when demand is low.
 - SQL Managed Instance provides various pricing tiers, like general purpose and business critical, to optimize costs based on usage and business criticality.  
 - Azure Reserved Virtual Machine Instances with pay-as-you-go prices help manage costs across predictable and variable workloads. In many cases, you can further reduce your costs by implementing reserved-instance size flexibility.
 - [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit) is a licensing benefit that can help you significantly reduce the costs of running your workloads in the cloud. It works by letting you use your on-premises Software Assurance-enabled Windows Server and SQL Server licenses on Azure.
@@ -159,7 +159,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 - Virtual Machine Scale Sets ensures that enough VMs are available to meet mission-critical online and batch processing needs.
 - Azure Blob Storage is a scalable system for storing backups, archival data, secondary data files, and other unstructured digital objects.
 - [Database Engine Tuning Advisor](/sql/relational-databases/performance/database-engine-tuning-advisor?view=sql-server-ver16) analyzes databases and makes recommendations that you can use to optimize query performance. You can use Database Engine Tuning Advisor to select and create an optimal set of indexes, indexed views, or table partitions.
-- [Scalability](/azure/azure-sql/database/scale-resources?view=azuresql) is one of the most important characteristics of PaaS. It enables you to dynamically add resources to your service when they're needed. You can use Azure SQL Database to easily change the resources (CPU power, memory, IO throughput, and storage) that are allocated to your databases. You can use SQL Managed Instance to dynamically add more resources to your database with minimal downtime.
+- [Scalability](/azure/azure-sql/database/scale-resources?view=azuresql) is one of the most important characteristics of PaaS. It enables you to dynamically add resources to your service when they're needed. You can use Azure SQL Database to easily change the resources (CPU power, memory, I/O throughput, and storage) that are allocated to your databases. You can use SQL Managed Instance to dynamically add resources to your database with minimal downtime.
 - [In-Memory OLTP](/sql/relational-databases/in-memory-oltp/overview-and-usage-scenarios?view=sql-server-ver16) is a technology available in SQL Server and SQL Database for optimizing the performance of transaction processing, data ingestion, data load, and transient data scenarios.  
 
 ## Contributors
@@ -181,7 +181,7 @@ Other contributors:
 ## Next steps
 
 - [Mainframe to Azure Data Factory using FTP Connector](https://techcommunity.microsoft.com/t5/modernization-best-practices-and/copy-files-from-mainframe-to-azure-data-platform-using-adf-ftp/ba-p/3042555) 
-- [Mainframe to Azure Data Platform using sFTP](https://techcommunity.microsoft.com/t5/modernization-best-practices-and/mainframe-files-transfer-to-azure-data-platform-using-sftp/ba-p/3302194)
+- [Mainframe to Azure Data Platform using SFTP](https://techcommunity.microsoft.com/t5/modernization-best-practices-and/mainframe-files-transfer-to-azure-data-platform-using-sftp/ba-p/3302194)
 - [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
 - [What is Azure ExpressRoute?](/azure/expressroute/expressroute-introduction)
 
