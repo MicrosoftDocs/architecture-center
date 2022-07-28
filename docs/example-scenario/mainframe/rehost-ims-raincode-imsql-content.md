@@ -2,7 +2,7 @@ This architecture describes how to implement an Information Management System (I
 
 ## IMS DB/DC workload architecture, before migration
 
-pre image
+:::image type="content" source="media/pre-migration.png" alt-text="Diagram that shows the pre-migration IMS DB/DC workload architecture." lightbox="media/pre-migration.png" border="false":::
 
 ### Dataflow
 
@@ -15,9 +15,9 @@ pre image
 
 ## IMSql architecture on Azure
 
-post image
+:::image type="content" source="media/imsql.png" alt-text="Diagram that shows the IMSql architecture on Azure." lightbox="media/imsql.png" border="false":::
 
-visio download  
+*Download a [Visio file](https://arch-center.azureedge.net/IMSql.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -54,9 +54,7 @@ visio download
 
 ## Data migration via IMSql
 
-image
-
-visio download? 
+:::image type="content" source="media/data-migration.png" alt-text="Diagram that shows the data migration via IMSql." lightbox="media/data-migration.png" border="false":::
 
 ### Database object migration
 
