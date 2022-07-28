@@ -4,8 +4,8 @@ metadata:
   titleSuffix: Azure Architecture Center
   description: Create a modern analytics architecture with Azure Databricks, Data Lake Storage, and other Azure services. Unify data, analytics, and AI workloads at any scale.
   author: EdPrice-MSFT
-  ms.author: edprice
-  ms.date: 05/31/2022
+  ms.author: architectures
+  ms.date: 07/22/2022
   ms.topic: conceptual
   ms.custom: fcp
   ms.service: architecture-center

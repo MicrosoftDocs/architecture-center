@@ -2,8 +2,8 @@
 title: Choose a compute option for microservices
 description: Learn about service orchestrator and serverless architecture as compute options, or hosting models for the computing resources where your application runs.
 author: EdPrice-MSFT
-ms.author: pnp
-ms.date: 02/25/2019
+ms.author: architectures
+ms.date: 07/26/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide

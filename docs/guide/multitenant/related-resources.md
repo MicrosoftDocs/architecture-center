@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article provides a set of links and resources for architects and developers of multitenant solutions.
 author: johndowns
 ms.author: jodowns
-ms.date: 08/16/2021
+ms.date: 07/22/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -71,6 +71,12 @@ While the entirety of the [Azure Well-Architected Framework](/azure/architecture
 
 * [Best practices for cluster isolation in Azure Kubernetes Service](/azure/aks/operator-best-practices-cluster-isolation): AKS provides flexibility in how you can run multitenant clusters and can isolate resources. To maximize your investment in Kubernetes, you must first understand and implement AKS multitenancy and isolation features. This best practices article focuses on isolation for cluster operators.
 * [Best practices for cluster security and upgrades in Azure Kubernetes Service](/azure/aks/operator-best-practices-cluster-security): As you manage clusters in Azure Kubernetes Service (AKS), workload and data security is a key consideration. When you run multitenant clusters using logical isolation, you especially need to secure resource and workload access.
+
+### Networking
+
+* [Azure Private Link Service explanation and demos from provider (SaaS ISV) and consumer perspectives](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/azure-private-link-service-explanation-and-demos-from-provider/ba-p/3570251): A video that looks at the Azure Private Link service feature that enables multitenant service providers (such as independent software vendors building SaaS products). This solution enable consumers to access the provider's service using private IP addresses from the consumer's own Azure virtual networks.
+* [TCP Proxy Protocol v2 with Azure Private Link Service — Deep Dive](https://arsenvlad.medium.com/tcp-proxy-protocol-v2-with-azure-private-link-service-deep-dive-64f8db9586cf): A video that presents a deep dive into TCP Proxy Protocol v2, which is an advanced feature of the Azure Private Link service. It's useful in multitenant and SaaS scenarios. The video shows you how to enable Proxy Protocol v2 in the Azure Private Link service. It also shows you how to configure an NGINX service to read the source private IP address of the original client (rather than the NAT IP), to access the service via the private endpoint.
+* [Using NGINX Plus to decode Proxy Protocol TLV linkIdentifier from the Azure Private Link service](https://arsenvlad.medium.com/using-nginx-plus-to-decode-proxy-protocol-tlv-linkidentifier-from-azure-private-link-service-135675be84c3): A video that looks at how to use NGINX Plus to get the TCP Proxy Protocol v2 TLV from the Azure Private Link service and then extract and decode the numeric linkIdentifier (also called LINKID) of the private endpoint connection. This solution is useful for multitenant providers who need to identify the specific consumer tenant from which the connection was made.
 
 ### Storage and data
 

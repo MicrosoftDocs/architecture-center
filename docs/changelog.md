@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: alexhart11
-ms.date: 07/18/2022
+ms.date: 07/25/2022
 ms.topic: article
 ms.service: architecture-center
 categories: 
@@ -27,6 +27,11 @@ The following new and updated articles have recently been published in the Azure
 ### New articles
 
 - [Build a speech-to-text transcription pipeline to analyze recorded conversations](./example-scenario/ai/speech-to-text-transcription-analytics.yml)
+- [Technology choices for Azure solutions](./guide/technology-choices/technology-choices-overview.md)
+- [Implement an open-source jump server solution on Azure](./example-scenario/infrastructure/apache-guacamole.yml)
+- [Azure DNS Private Resolver](./example-scenario/networking/azure-dns-private-resolver.yml)
+- [Analyze observational patient data by using OHDSI with the OMOP CDM](./example-scenario/digital-health/patient-data-ohdsi-omop-cdm.yml)
+- [Use a fully managed identity service platform](./guide/design-principles/identity.md)
 - [Near real-time lakehouse data processing](./example-scenario/data/real-time-lakehouse-data-processing.yml)
 - [Run HP-UX workloads in Azure with Stromasys Charon-PAR](./example-scenario/mainframe/hp-ux-stromasys-charon-par.yml)
 - [Risk prediction models for surgeries](./example-scenario/ai/risk-stratification-surgery.yml)
@@ -44,8 +49,21 @@ The following new and updated articles have recently been published in the Azure
 
 ### Updated articles
 
+- [Build a content-based recommendation system](./example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml)  ([#d56dbd4c9](https://github.com/MicrosoftDocs/architecture-center/commit/d56dbd4c9))
+- [Distributed training, deep learning models](./reference-architectures/ai/training-deep-learning.yml)  ([#d56dbd4c9](https://github.com/MicrosoftDocs/architecture-center/commit/d56dbd4c9))
+- [Image classification with CNNs](./solution-ideas/articles/image-classification-with-convolutional-neural-networks.yml)  ([#d56dbd4c9](https://github.com/MicrosoftDocs/architecture-center/commit/d56dbd4c9))
+- [Predict length of stay and patient flow](./solution-ideas/articles/predict-length-of-stay-and-patient-flow-with-healthcare-analytics.yml)  ([#d56dbd4c9](https://github.com/MicrosoftDocs/architecture-center/commit/d56dbd4c9))
+- [Serverless apps using Cosmos DB](./solution-ideas/articles/serverless-apps-using-cosmos-db.yml)  ([#d56dbd4c9](https://github.com/MicrosoftDocs/architecture-center/commit/d56dbd4c9))
+- [Related resources for multitenancy](./guide/multitenant/related-resources.md)  ([#15f9d2f37](https://github.com/MicrosoftDocs/architecture-center/commit/15f9d2f37))
+- [Knowledge mining in auditing, risk, and compliance management](./solution-ideas/articles/auditing-and-risk-compliance.yml)  ([#01882173e](https://github.com/MicrosoftDocs/architecture-center/commit/01882173e))
+- [Knowledge mining in business process management](./solution-ideas/articles/business-process-management.yml)  ([#01882173e](https://github.com/MicrosoftDocs/architecture-center/commit/01882173e))
+- [Knowledge mining for content research](./solution-ideas/articles/content-research.yml)  ([#01882173e](https://github.com/MicrosoftDocs/architecture-center/commit/01882173e))
+- [Knowledge mining in contract management](./solution-ideas/articles/contract-management.yml)  ([#01882173e](https://github.com/MicrosoftDocs/architecture-center/commit/01882173e))
+- [Customer support and feedback analysis](./solution-ideas/articles/customer-feedback-and-analytics.yml)  ([#01882173e](https://github.com/MicrosoftDocs/architecture-center/commit/01882173e))
+- [Knowledge mining in digital asset management](./solution-ideas/articles/digital-asset-management.yml)  ([#01882173e](https://github.com/MicrosoftDocs/architecture-center/commit/01882173e))
+- [FSLogix for the enterprise](./example-scenario/wvd/windows-virtual-desktop-fslogix.yml)  ([#08dfebd05](https://github.com/MicrosoftDocs/architecture-center/commit/08dfebd05))
+- [SAP S/4HANA in Linux on Azure](./reference-architectures/sap/sap-s4hana.yml)  ([#20a172c8e](https://github.com/MicrosoftDocs/architecture-center/commit/20a172c8e))
 - [Big data analytics on confidential computing](./example-scenario/confidential/data-analytics-containers-spark-kubernetes-azure-sql.yml)  ([#fc3e7b8ee](https://github.com/MicrosoftDocs/architecture-center/commit/fc3e7b8ee))
-- [Serverless apps using Cosmos DB](./solution-ideas/articles/serverless-apps-using-cosmos-db.yml)  ([#ace142826](https://github.com/MicrosoftDocs/architecture-center/commit/ace142826))
 - [Streaming using HDInsight](./solution-ideas/articles/streaming-using-hdinsight.yml)  ([#2820f19b4](https://github.com/MicrosoftDocs/architecture-center/commit/2820f19b4))
 - [Azure AD join for Azure Virtual Desktop](./example-scenario/wvd/azure-virtual-desktop-azure-active-directory-join.md)  ([#e115e6f69](https://github.com/MicrosoftDocs/architecture-center/commit/e115e6f69))
 - [Speech services](./solution-ideas/articles/speech-services.yml)  ([#6d0a6e8d5](https://github.com/MicrosoftDocs/architecture-center/commit/6d0a6e8d5))
