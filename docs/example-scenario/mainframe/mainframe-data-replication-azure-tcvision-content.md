@@ -2,9 +2,9 @@
 
 ## Architecture
 
-![Architecture diagram of the data flow in migrating mainframe to Azure data platform.](./media/mainframe-realtime-batch-data-replication-azure-using-tcvision.png)
+![Architecture diagram of the data flow in migrating mainframe to Azure data platform.](./media/mainframe-realtime-batch-data-replication-azure-tcvision.png)
 
-*Download a [Visio file](https://arch-center.azureedge.net/Mainframe-Realtime-Batch-Data-Replication-Azure-using-tcVISION.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/Mainframe-Realtime-Batch-Data-Replication-Azure-tcVISION.vsdx) of this architecture.*
 
 The tcVISION logo is a trademark of its respective company. No endorsement is implied by the use of this mark.
 
@@ -89,13 +89,13 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 ### Cost optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview). Use the [Azure pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator) to estimate the cost of implementing this solution.
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview). Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the cost of implementing this solution.
 
 ## Scenario details
 
 Mainframes are servers that process a large number of transactions. Mainframe applications generate and consume large amounts of data daily. With the introduction of public clouds that offer elasticity, cost optimization, ease of use, and easy integration, many x86 and mainframe applications are moving to the cloud. It's now important for organizations to have a well-designed mainframe-to-cloud data integration and migration strategy.
 
-This reference architecture shows how to integrate an IBM Z (mainframe) data tier with Azure cloud data platform. To integrate mainframe with Azure cloud data platform, use [tcVISION](https://www.bossoftware.de/index.php/en/products/tcvision-real-time-mainframe-data-integration) software provided by [B.O.S. Software](https://www.bossoftware.de/index.php/en/products/tcvision-real-time-mainframe-data-integration) and [Treehouse Software](https://www.treehouse.com/tcVISION.shtml).
+This scenario shows how to integrate an IBM Z (mainframe) data tier with Azure cloud data platform. To integrate mainframe with Azure cloud data platform, use [tcVISION](https://www.bossoftware.de/index.php/en/products/tcvision-real-time-mainframe-data-integration) software provided by [B.O.S. Software](https://www.bossoftware.de/index.php/en/products/tcvision-real-time-mainframe-data-integration) and [Treehouse Software](https://www.treehouse.com/tcVISION.shtml).
 
 ### Potential use cases
 
@@ -122,28 +122,28 @@ Other contributors:
 ## Next steps
 
 * [Application Insights](/azure/azure-monitor/app/app-insights-overview)
-* [Azure AD](/azure/active-directory/fundamentals/active-directory-whatis)
-* [Azure Data Engineering for mainframe and midrange modernization](mailto:datasqlninja@microsoft.com).
-* [Azure ExpressRoute](/azure/expressroute/expressroute-introduction)
-* [Azure Functions](/azure/azure-functions/functions-overview)
-* [Azure Logic Apps](/azure/logic-apps/logic-apps-overview)
-* [Azure Monitor](/azure/azure-monitor/overview)
-* [Azure Monitor Logs](/azure/azure-monitor/logs/data-platform-logs)
-* [Azure SQL](/azure/azure-sql/database/sql-database-paas-overview)
-* [Azure Storage](/azure/storage/common/storage-introduction)
-* [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/)
-* [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways)
-* [Azure Cosmos DB](/azure/cosmos-db/introduction)
-* [Data migration guide](https://datamigration.microsoft.com/)
-* [Log Analytics](/azure/azure-monitor/log-query/log-query-overview)
 * [Architect a data platform in Azure](/learn/paths/architect-data-platform/)
-* [Azure Artifacts](/azure/devops/artifacts/start-using-azure-artifacts)
-* [Azure Boards](/azure/devops/boards/get-started/what-is-azure-boards)
-* [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines)
-* [Azure Repos](/azure/devops/repos/get-started/what-is-repos)
-* [Azure Test Plans](/azure/devops/test/overview?view=azure-devops)
+* [Azure AD](https://azure.microsoft.com/services/active-directory/)
+* [Azure Artifacts](https://azure.microsoft.com/services/devops/artifacts/)
+* [Azure Boards](https://azure.microsoft.com/services/devops/boards/)
+* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)
+* [Azure Data Engineering for mainframe and midrange modernization](mailto:datasqlninja@microsoft.com).
+* [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/)
+* [Azure Functions](https://azure.microsoft.com/services/functions/)
+* [Azure Logic Apps](/azure/logic-apps/logic-apps-overview)
+* [Azure Monitor](https://azure.microsoft.com/services/monitor/)
+* [Azure Monitor Logs](/azure/azure-monitor/logs/data-platform-logs)
+* [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
+* [Azure Repos](https://azure.microsoft.com/services/devops/repos/)
+* [Azure SQL](https://azure.microsoft.com/products/azure-sql/)
+* [Azure Storage](https://azure.microsoft.com/products/category/storage/)
+* [Azure Test Plans](https://azure.microsoft.com/services/devops/test-plans/)
+* [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/#overview)
+* [Azure VPN Gateway](https://azure.microsoft.com/services/vpn-gateway/)
+* [Data migration guide](https://datamigration.microsoft.com/)
 * [Data platform modernization](/learn/modules/introduction-data-platform-modernization/)
 * [Design your data migration to Azure](/learn/modules/design-your-migration-to-azure/)
+* [Log Analytics](/azure/azure-monitor/log-query/log-query-overview)
 
 ## Related resources
 

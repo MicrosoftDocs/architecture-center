@@ -5,7 +5,7 @@ metadata:
   description: Learn how to use tcVISION, a mainframe data replication solution, to migrate data to and from multiple Azure Data Platform services.
   author: sandippk
   ms.author: sandipk
-  ms.date: 07/25/2022
+  ms.date: 07/28/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
@@ -22,6 +22,6 @@ products:
   - azure-storage
 name: Mainframe and midrange data replication to Azure using tcVISION
 summary: Learn how to use tcVISION, a mainframe data replication solution, to migrate data to and from multiple Azure Data Platform services.
-thumbnailUrl: /azure/architecture/browse/thumbs/mainframe-realtime-batch-data-replication-azure-using-tcvision.png
+thumbnailUrl: /azure/architecture/browse/thumbs/mainframe-realtime-batch-data-replication-azure-tcvision.png
 content: |
   [!include[](mainframe-data-replication-azure-tcvision-content.md)]
