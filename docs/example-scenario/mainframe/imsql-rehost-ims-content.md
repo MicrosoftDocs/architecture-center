@@ -1,8 +1,6 @@
-This architecture shows how the Raincode IMSql rehosts IMS/DB (IMS Database Manager) and IMS/TM (IMS Transaction Manager) systems on .NET and SQL Server in the simplest possible setting, namely using virtual machines. Legacy applications can be recompiled to target .NET and interact with IMSql in the same manner as they would interact with IMS on the Mainframe. Raincode’s IMSql transforms Mainframe applications to an Azure-native architecture while thoroughly preserving the business logic.    
+This architecture shows how to use Raincode's IMSql to rehost IMS Database Manager (IMS DB) and IMS Transaction Manager (MS TM) systems on .NET and SQL Server in the simplest way: by using virtual machines. You can recompile legacy applications to target .NET and interact with IMSql in the same way that they interact with IMS on a mainframe. IMSql transitions mainframe applications to an Azure-native architecture while thoroughly preserving the business logic. 
 
-This architecture is focused on implementing an IMS Mainframe application workload to Azure using Raincode’s IMSql product. This architecture is about rehosting a Mainframe IMS workload to Azure seamlessly without translation or modification of existing application with critical IMS features and capabilities using IMSql and Azure SQL Server.
-
-Architecture 
+Architecture
 
 Source (or Before) IBM z/OS Architecture 
 
@@ -56,7 +54,9 @@ Workflow
 
 - Azure VM scale set could be replaced with Azure single VM architecture. Azure VM could be adapted for workload with constant load and performance demands and no need for scaling, in this architecture we use Azure VM scale set to handle typical IMS workloads.
 
-## Scenario details 
+## Scenario details
+
+This architecture shows how to seamlessly rehost to Azure a mainframe workload that has critical IMS features and capabilities. You don't need to translate or modify your existing application. The architecture uses IMSql and Azure SQL.
 
 - Raincode’s Compilers generate 100% thread-safe and managed code for .NET 
 - IMSql is intrinsically non-transformational: it keeps the sources (COBOL, PL/I) as-is with the IMS-specific CBLTDLI and PLITDLI calls, as well as EXEC DLI statements unaltered. This ensures optimal maintainability of the resulting system. This property extends to IMS/DB data: it is imported as is, in bulk, with no change whatsoever, cleansing or normalization. 
