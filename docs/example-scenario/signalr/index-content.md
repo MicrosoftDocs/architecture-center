@@ -42,7 +42,7 @@ These other use cases have similar design patterns:
 Here are a couple of things to keep in mind as you develop this scenario, including how to configure parameters in the Azure Service Bus connection string in ServiceBusTrigger:
 
 * **Hubs**: Hubs can be compared to a video streaming service. You can subscribe to a hub to send and receive messages from and to it.
-* **Targets**: Targets are like radio channels. Targets are everyone who's listening to the target channel and is notified when there's a new message on it.
+* **Targets**: Targets are like radio channels. They include everyone who's listening to the target channel, and they're notified when there's a new message on it.
 
 If you can remember the preceding two features of the SignalR platform, it will be easy to get up and running quickly.
 
@@ -67,11 +67,11 @@ Azure Front Door is a scalable and secure entry point for fast delivery of your 
 
 This architecture can also help if an individual subsystem of the solution fails. Stop network and application layer attacks at the edge with Web Application Firewall and DDoS Protection. Harden your service by using Microsoft-managed rule sets, and author your own rules for custom protection of your app.
 
-Front Door is a possible failure point in the system. If the service fails, clients can't access your application during the downtime. Review the [Front Door service-level agreement (SLA)](https://azure.microsoft.com/support/legal/sla/frontdoor) and determine whether using Front Door alone meets your business requirements for high availability. If not, consider adding another traffic management solution as a fallback. If the Front Door service fails, change your canonical name (CNAME) records in DNS to point to the other traffic management service. This step must be performed manually, and your application will be unavailable until the DNS changes are propagated.
+Front Door is a possible failure point in the system. If the service fails, clients can't access your application during the downtime. Review the [Front Door service-level agreement (SLA)](https://azure.microsoft.com/support/legal/sla/frontdoor) and determine whether using Front Door alone meets your business requirements for high availability. If not, consider adding another traffic management solution as a fallback. If the Front Door service fails, change your canonical name (CNAME) records in DNS to point to the other traffic management service. You must perform this step manually, and your application will be unavailable until the DNS changes are propagated.
 
 ### Cost optimization
 
-Let's assume that your business has 1,000 orders a day and needs to share location data with all of them concurrently. Your estimated Azure usage for deploying this scenario will be close to USD192 per month, based on pricing at the time of writing.
+Let's assume that your business has 1,000 orders a day and needs to share location data with all of them concurrently. Your estimated Azure usage for deploying this scenario will be close to USD192 per month, based on pricing at the date of publication.
 
 | Service type          | Estimated monthly cost |
 |--- |---:|
@@ -86,7 +86,7 @@ Let's assume that your business has 1,000 orders a day and needs to share locati
 
 A serverless real-time application that's built with Azure Functions and Azure SignalR Service ordinarily requires two Azure Functions:
 
-- A "negotiate" function that the client calls to obtain a valid SignalR Service access token and service endpoint URL.
+- A `negotiate` function that the client calls to obtain a valid SignalR Service access token and service endpoint URL.
 - One or more functions that send messages or manage group membership.
 
 ### SignalRFunctionApp
@@ -95,7 +95,7 @@ SignalRFunctionApp is a function app that creates an Azure Functions instance, w
 
 #### Negotiate.cs
 
-This function is triggered by an HTTP request. It's used by client applications to get a token from the SignalR service, which clients can use to subscribe to a hub. This function should be named "negotiate." For more information, see [Azure Functions development and configuration with Azure SignalR Service](/azure/azure-signalr/signalr-concept-serverless-development-config.md),
+This function is triggered by an HTTP request. It's used by client applications to get a token from the SignalR service, which clients can use to subscribe to a hub. This function should be named `negotiate`. For more information, see [Azure Functions development and configuration with Azure SignalR Service](/azure/azure-signalr/signalr-concept-serverless-development-config.md),
 
 #### Message.cs
 
@@ -115,7 +115,7 @@ Now, let's configure the client application to test it. First, grab the example 
 
 ### SignalR client
 
-This is a simple .NET Core web application to subscribe to the hub that's created by SignalRFunctionApp. It displays messages received on the service bus queue in real time. Although you can use SignalRFunctionApp to work with a mobile client, let's stick to the web client for this scenario in this repository.
+This is a simple .NET Core web application to subscribe to the hub that's created by SignalRFunctionApp. It displays messages that are received on the service bus queue in real time. Although you can use SignalRFunctionApp to work with a mobile client, let's stick to the web client for this scenario in this repository.
 
 <!-- markdownlint-disable MD024 -->
 
@@ -130,7 +130,7 @@ This is a simple .NET Core web application to subscribe to the hub that's create
 
 ### SendToQueue.js
 
-This node.js script pushes a message to the Service Bus, so that you can test the deployment that you've just completed.
+This node.js script pushes a message to the Service Bus, so that you can test the deployment you've just completed.
 
 #### Instructions
 
