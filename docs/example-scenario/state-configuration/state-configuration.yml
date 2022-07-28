@@ -12,7 +12,7 @@ metadata:
     - devops
   ms.custom:
     - example-scenario
-name: Azure Automation State Configuration
+name: Use Azure Automation State Configuration with Windows and Linux
 azureCategories:
   - devops
 summary: Use Azure Automation State Configuration to configure Windows and Linux systems.
