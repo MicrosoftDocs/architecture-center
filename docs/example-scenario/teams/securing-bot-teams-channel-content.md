@@ -1,8 +1,8 @@
-This example scenario helps secure the connection to a Microsoft Teams channel bot's web app by using Azure Private Link and Azure Private Endpoint. At the same time, it enables channels in the Teams client to communicate with the bot through an IP that's exposed through an Azure Firewall.
+This example scenario helps secure the connection to a Microsoft Teams channel bot's web app by using Azure Private Link and Azure Private Endpoint. At the same time, it enables channels in the Teams client to communicate with the bot through an IP that's exposed through an Azure Firewall instance.
 
 ## Architecture
 
-![Diagram showing the Teams to Azure Firewall flowchart.](media/securing-bot-image-001.png)
+![Diagram showing the Teams-to-Azure Firewall flowchart.](media/securing-bot-image-001.png)
 
 ### Dataflow
 
@@ -18,7 +18,7 @@ This example scenario helps secure the connection to a Microsoft Teams channel b
 
 -   [Route table](/azure/virtual-network/virtual-networks-udr-overview) defines the routes that traffic takes within the virtual network. It ensures that traffic coming to and from the bot passes through the firewall.
 
-    -   The default route with the 0.0.0.0/0 address prefix instructs Azure to route traffic that isn't within the address prefix of any other route to the subnet where the Azure Firewall is deployed. In this example, it's the only route.
+    -   The default route with the 0.0.0.0/0 address prefix instructs Azure to route traffic that isn't within the address prefix of any other route to the subnet where the Azure Firewall instance is deployed. In this example, it's the only route.
 
     -   The *Virtual Network Integration Subnet* and the *Private Endpoint Subnet* are associated with the route table, ensuring that any traffic passing through them is routed through the firewall.
 
@@ -130,7 +130,7 @@ You must have an existing Azure account. If you don't have an Azure subscription
 
     > ![Screenshot of the vnet-SecureBot "Subnets" pane.](media/securing-bot-image-002.png)
 
-1. Deploy an Azure Firewall into the firewall subnet that you created in step 1 by running the following CLI commands:
+1. Deploy an Azure Firewall instance into the firewall subnet that you created in step 1 by running the following CLI commands:
 
     ```azurecli                                                                                                                                             
     # Create a firewall
