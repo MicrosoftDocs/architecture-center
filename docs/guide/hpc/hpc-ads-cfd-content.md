@@ -1,0 +1,1 @@
+This article briefly explains the steps to run ADS CFD Code Leo application on a Virtual Machine deployed in Azure Cloud Platform and presents the performance results. Learn more about ADS CFD at [ADS CFD Inc. (aerodynamic-solutions.com)](https://new.aerodynamic-solutions.com).
