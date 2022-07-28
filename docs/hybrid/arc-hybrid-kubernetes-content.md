@@ -1,18 +1,12 @@
+This reference architecture demonstrates how Azure Arc extends Kubernetes cluster management and configuration across customer data centers, edge locations, and multiple cloud environments.
 
+## Architecture
 
-This reference architecture demonstrates how Azure Arc extends Kubernetes cluster management and configuration across customer data centers, edge locations, and multiple cloud environments. You can use Azure Arc to register Kubernetes clusters hosted outside of Microsoft Azure, and use Azure tools to manage these clusters alongside clusters hosted in Azure Kubernetes Service (AKS).
 ![An Azure Arc for Kubernetes topology diagram.][Architecture diagram]
 
 *Download a [Visio file][Architecture visio] of this architecture.*
 
-Typical uses for this architecture include:
-
-- Managing on-premises Kubernetes clusters alongside clusters hosted in AKS for inventory, grouping, and tagging.
-- Monitoring Kubernetes clusters across hybrid environments using Azure Monitor.
-- Deploying and enforcing policies for Kubernetes clusters across hybrid environments using Azure Policy.
-- Deploying and enforcing GitOps using Azure Policy.
-
-## Architecture
+### Workflow
 
 The architecture consists of the following components:
 
@@ -21,6 +15,19 @@ The architecture consists of the following components:
 - **[On-premises Kubernetes cluster][kubernetes]**. Attach Cloud Native Computing Foundation (CNCF)-certified Kubernetes clusters hosted in on-premises or third-party cloud environments.
 - **[Azure Policy][Azure Policy]**. Deploy and manage policies for Arc-enabled Kubernetes clusters.
 - **[Azure Monitor][Azure Monitor]**. Observe and monitor Arc-enabled Kubernetes clusters.
+
+## Scenario details
+
+You can use Azure Arc to register Kubernetes clusters hosted outside of Microsoft Azure, and use Azure tools to manage these clusters alongside clusters hosted in Azure Kubernetes Service (AKS).
+
+### Potential use cases
+
+Typical uses for this architecture include:
+
+- Managing on-premises Kubernetes clusters alongside clusters hosted in AKS for inventory, grouping, and tagging.
+- Monitoring Kubernetes clusters across hybrid environments using Azure Monitor.
+- Deploying and enforcing policies for Kubernetes clusters across hybrid environments using Azure Policy.
+- Deploying and enforcing GitOps using Azure Policy.
 
 ## Recommendations
 
@@ -41,6 +48,10 @@ Azure Arc-enabled Kubernetes consists of a few agents (also referred to as *oper
 - **deployment.apps/resource-sync-agent**. Syncs the previously mentioned cluster metadata to Azure.
 - **deployment.apps/clusteridentityoperator**. Maintains the Managed Service Identity (MSI) certificate used by other agents to communicate with Azure.
 - **deployment.apps/flux-logs-agent**. Collects logs from the flux operators deployed as a part of source control configuration.
+- **deployment.apps/extension-manager**.	Installs and manages lifecycle of extension helm charts.
+- **deployment.apps/kube-aad-proxy**.	Used for authentication of requests sent to the cluster using Cluster Connect.
+- **deployment.apps/clusterconnect-agent**.	Reverse proxy agent that enables Cluster Connect feature to provide access to apiserver of cluster. Optional component deployed only if cluster-connect feature is enabled on the cluster.
+- **deployment.apps/guard**.	Authentication and authorization webhook server used for Azure Active Directory (Azure AD) RBAC. Optional component deployed only if azure-rbac feature is enabled on the cluster.
 
 For more information, refer to [Connect an Azure Arc-enabled Kubernetes cluster][Connect an Azure Arc-enabled Kubernetes cluster].
 
@@ -91,26 +102,28 @@ Azure Arc agents require the following protocols/ports/outbound URLs to function
 |`https://login.microsoftonline.com:443`|Required to fetch and update Azure Resource Manager tokens.|
 |`https://azurearcfork8s.azurecr.io:443`|Required to pull container images for Azure Arc agents.
 
-## Availability considerations
+## Considerations
+
+### Availability
 
 - In most cases, the location you select when you create the installation script should be the Azure region geographically closest to your on-premises resources. The rest of the data will be stored within the Azure geography containing the region you specify. This might also affect your choice of region if you have data residency requirements. If an outage affects the Azure region to which your machine is connected, the outage will not affect the connected machine, but management operations using Azure might not be able to complete. For resilience in the event of a regional outage, if you have multiple locations that provide a geographically-redundant service, it's best to connect the machines in each location to a different Azure region. For available regions, consult [Supported regions][Supported regions] for Azure Arc-enabled Kubernetes.
 - You should ensure that services referenced in the **Architecture** section are supported in the region to which Azure Arc is deployed.
 
-## Manageability considerations
+### Manageability
 
 - Before configuring your Azure Arc-enabled Kubernetes clusters, review the Azure Resource Manager [Subscription limits][subscription limits] and [Resource group limits][resource group limits] to plan for the number of clusters.
 
-## DevOps Considerations
+### DevOps
 
 - Use Helm, the open-source packaging tool, to install and manage the Kubernetes application life cycles. Similar to Linux package managers such as APT and Yum, Helm is used to manage Kubernetes *charts*, which are packages of preconfigured Kubernetes resources. For more information, refer to [Deploy Helm Charts using GitOps on Arc-enabled Kubernetes cluster][Deploy Helm Charts using GitOps on Arc-enabled Kubernetes cluster].
 
-## Security considerations
+### Security
 
 - You can use Azure RBAC to manage access to Azure Arc-enabled Kubernetes across Azure and on-premises environments using Azure Active Directory (Azure AD) identities. For more information, refer to [Use Azure RBAC for Kubernetes Authorization][Use Azure RBAC for Kubernetes Authorization].
 - We recommend using a service principal with limited privileges for onboarding Kubernetes clusters to Azure Arc. This is useful in CI/CD pipelines such as Azure Pipelines and GitHub Actions. For more information, refer to [Create an Azure Arc-enabled onboarding Service Principal][Create an Azure Arc-enabled onboarding Service Principal].
 - To simplify service principal management, you can use managed identities in AKS. However, clusters must be created using the managed identity and existing clusters (including Azure and on-premises clusters) can't be migrated to managed identities. For more information, refer to [Use managed identities in Azure Kubernetes Service][Use managed identities in Azure Kubernetes Service].
 
-## Cost considerations
+### Cost optimization
 
 - General cost considerations are described in the [Principles of cost optimization][Principles of cost optimization] section in the Microsoft Azure Well-Architected Framework.
 
