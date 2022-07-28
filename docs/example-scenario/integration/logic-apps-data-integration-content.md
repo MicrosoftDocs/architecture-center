@@ -1,8 +1,4 @@
-With Azure Logic Apps, you can integrate cloud data into on-premises data storage. For instance, a logic app can store HTTP request data in a SQL Server database. Because Logic Apps functions as a secure Azure API Management endpoint, calls to your API can trigger various data-related tasks. Besides updating on-premises databases, you can also send Teams or email messages.
-
-## Potential use cases
-
-Use this solution to automate data integration tasks that you perform in response to API calls.
+This solution uses Azure Logic Apps to integrate cloud data into on-premises data storage.
 
 ## Architecture
 
@@ -11,6 +7,8 @@ Use this solution to automate data integration tasks that you perform in respons
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/logic-apps-data-integration.vsdx) of this architecture.*
+
+### Workflow
 
 1. API Management accepts API calls in the form of HTTP requests.
 
@@ -58,19 +56,27 @@ A few alternatives exist for this solution:
 
 - [Power Apps][What is Power Apps?] also provides solutions for automating workflows that involve connecting to on-premises data sources.
 
+## Scenario details
+
+A logic app can store HTTP request data in a SQL Server database. Because Logic Apps functions as a secure Azure API Management endpoint, calls to your API can trigger various data-related tasks. Besides updating on-premises databases, you can also send Teams or email messages.
+
+### Potential use cases
+
+Use this solution to automate data integration tasks that you perform in response to API calls.
+
 ## Considerations
 
 Keep these points in mind when considering this architecture.
 
-### Availability considerations
+### Availability
 
 For high availability, [add the on-premises gateway to a cluster][Install a gateway cluster] instead of installing a standalone gateway.
 
-### Scalability considerations
+### Scalability
 
 With the serverless model that Logic Apps uses, the service automatically scales to meet demand. But be aware of [limits on read and write operations with the on-premises data gateway][Limits on read and write operations with the on-premises data gateway].
 
-### Security considerations
+### Security
 
 - The on-premises data gateway uses credential encryption and user authentication to protect data during transfers between on-premises and Azure systems.
 - API Management helps to ensure that only authorized clients call your logic app. You can also take these steps:
@@ -88,7 +94,7 @@ With the serverless model that Logic Apps uses, the service automatically scales
   - [Restrict access by IP address range][Restrict access by IP address range].
   - [Use obfuscation to secure run history data][Secure data in run history by using obfuscation].
 
-## Pricing
+### Cost optimization
 
 The following table provides cost profiles that use varying levels of expected throughput:
 
