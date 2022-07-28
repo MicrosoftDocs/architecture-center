@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Azure Automation State Configuration
+  title: Use Azure Automation State Configuration with Windows and Linux
   description: Use Azure Automation State Configuration to configure Windows and Linux systems.
   author: EdPrice-MSFT
   ms.author: architectures
