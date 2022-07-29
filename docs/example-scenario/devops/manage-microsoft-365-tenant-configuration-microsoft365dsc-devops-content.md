@@ -1,19 +1,4 @@
-Many companies are adopting DevOps practices and want to apply these practices to their Microsoft 365 tenants. If you don't adopt DevOps for Microsoft 365, you might encounter some common problems:
-
-- Misconfiguration
-- Challenges with tracking configuration changes
-- No approval process for tenant modifications
-
-You can use the solution described in this article to automate changes to Microsoft 365 tenant configurations by using [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops) and [Microsoft365DSC](https://microsoft365dsc.com). Microsoft365DSC is a [PowerShell Desired State Configuration (DSC)](/powershell/scripting/dsc/overview) module. You can use it to configure and manage Microsoft 365 tenants in a true DevOps style: configuration as code.
-
 The solution described here tracks changes made by service administrators and adds an approval process to deployments to Microsoft 365 tenants. It can help you prevent untracked changes to Microsoft 365 tenants. It also helps to prevent configuration drift between multiple Microsoft 365 tenants.
-
-## Potential use cases
-
-This solution can help you manage Microsoft 365 tenant configuration in a controlled and automated way, using DevOps tools and practices, across:
-
-- Development, test, acceptance, and production environments.
-- Multiple customer tenants, as in a managed-service provider scenario.
 
 ## Architecture
 
@@ -44,7 +29,26 @@ As a next step, you can use DSC in [Azure Automation](/azure/automation/automati
 
 This architecture uses Key Vault to store Azure App Service certificates or user credentials that are used for authentication to the Microsoft 365 tenant. Key Vault provides scalability. As an alternative, you can use pipeline variables to reduce the complexity of the solution.
 
+## Scenario details
+
+Many companies are adopting DevOps practices and want to apply these practices to their Microsoft 365 tenants. If you don't adopt DevOps for Microsoft 365, you might encounter some common problems:
+
+- Misconfiguration
+- Challenges with tracking configuration changes
+- No approval process for tenant modifications
+
+You can use the solution described in this article to automate changes to Microsoft 365 tenant configurations by using [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops) and [Microsoft365DSC](https://microsoft365dsc.com). Microsoft365DSC is a [PowerShell Desired State Configuration (DSC)](/powershell/scripting/dsc/overview) module. You can use it to configure and manage Microsoft 365 tenants in a true DevOps style: configuration as code.
+
+### Potential use cases
+
+This solution can help you manage Microsoft 365 tenant configuration in a controlled and automated way, using DevOps tools and practices, across:
+
+- Development, test, acceptance, and production environments.
+- Multiple customer tenants, as in a managed-service provider scenario.
+
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 Most people starting out with PowerShell DSC find that it takes a while to learn it. It helps if you have a solid understanding of PowerShell and experience with creating scripts.
 
@@ -74,7 +78,9 @@ If you build a Microsoft365DSC solution on Azure DevOps, you can also take advan
 
 You can run this solution in Azure DevOps Server. You could create a similar solution in GitHub by using GitHub Actions.  
 
-## Pricing
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 For Azure DevOps pricing information, see [Pricing for Azure DevOps](https://azure.microsoft.com/pricing/details/devops/azure-devops-services). If you incorporate Key Vault into your solution, you can find [pricing information here](https://azure.microsoft.com/pricing/details/key-vault).
 
@@ -82,9 +88,9 @@ You can also use the [Azure pricing calculator](https://azure.microsoft.com/pric
 
 ## Contributors
 
-*This article is being updated and maintained by Microsoft. It was originally written by the following contributors.*
+*This article is being maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors:
+Principal author:
 
 * [Derek Smay](https://www.linkedin.com/in/dereksmay) | Senior Customer Engineer
 
