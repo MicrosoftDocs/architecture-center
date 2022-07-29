@@ -7,6 +7,14 @@ items:
     href: icons/index.md
   - name: What's new
     href: changelog.md
+  - name: Landing zones
+    items:
+      - name: Design guides
+        items:
+          - name: Bicep landing zone implementation
+            href: landing-zones/bicep/landing-zone-bicep.md
+          - name: Terraform landing zone implementation
+            href: landing-zones/terraform/landing-zone-terraform.md
   - name: Application architecture fundamentals
     items:
       - name: Introduction
@@ -2521,6 +2529,8 @@ items:
                 items:
                   - name: Upscale ML lifecycle with MLOps
                     href: example-scenario/mlops/mlops-technical-paper.yml
+                  - name: Machine learning operations (MLOps) v2
+                    href: data-guide/technology-choices/machine-learning-operations-v2.md
                   - name: MLOps maturity model
                     href: example-scenario/mlops/mlops-maturity-model.yml
                   - name: Azure ML service selection guide
