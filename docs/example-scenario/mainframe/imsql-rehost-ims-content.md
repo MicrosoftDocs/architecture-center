@@ -1,41 +1,37 @@
-This architecture shows how to use Raincode's IMSql to rehost IMS Database Manager (IMS DB) and IMS Transaction Manager (IMS TM) systems on .NET and SQL Server in the simplest way: by using virtual machines. You can recompile legacy applications to target .NET and interact with IMSql in the same way that they interact with IMS on a mainframe. IMSql transitions mainframe applications to an Azure-native architecture while thoroughly preserving the business logic. 
+This architecture shows how to use Raincode's IMSql to rehost IMS Database Manager (IMS DB) and IMS Transaction Manager (IMS TM) systems on .NET and SQL Server in the simplest way: by using virtual machines. You can recompile legacy applications to target .NET and interact with IMSql in the same way that they interact with IMS on a mainframe. IMSql transitions mainframe applications to an Azure-native architecture while thoroughly preserving the business logic.
 
 ## Architecture
 
-### IBM z/OS architecture, before migration 
+### IBM z/OS architecture, before migration
 
-image
-
-download link ??
+:::image type="content" source="media/mainframe-architecture.png" alt-text="Diagram that shows the mainframe architecture before migration." lightbox="media/mainframe-architecture.png" border="false":::
 
 #### Dataflow
 
-1. Users connect via TCP/IP by using protocols like TN3270 and HTTPS.
+A. Users connect via TCP/IP by using protocols like TN3270 and HTTPS.
 
-1. Input into the mainframe uses standard mainframe communication protocols.  
+B. Input into the mainframe uses standard mainframe communication protocols.  
 
-1. Applications receive the data. These applications are either batch or online systems.  
-1. COBOL, PL/I, Assembler, or other compatible languages run in an enabled environment.  
+C. Applications receive the data. These applications are either batch or online systems.  
+D. COBOL, PL/I, Assembler, or other compatible languages run in an enabled environment.  
 
-1. Database systems, commonly include hierarchical/network and relational systems, store data.  
+E. Database systems, commonly hierarchical/network and relational systems, store data.  
 
-1. Common services, like program execution, I/O operations, error detection, and protection within the environment, provide support.  
+F. Common services, like program execution, I/O operations, error detection, and protection within the environment, provide support.  
 
-1. Middleware and utilities manage services like tape storage, queueing, output, and web services within the environment.  
+G. Middleware and utilities manage services like tape storage, queueing, output, and web services within the environment.  
 
-1. Operating systems run on partitions.  
+H. Operating systems run on partitions.  
 
-1. Partitions run separate workloads and segregate work types within the environment.  
+I. Partitions run separate workloads and segregate work types within the environment.  
 
 ### Azure architecture, after migration  
 
-image 
-
-download link 
+:::image type="content" source="media/imsql-virual-machines.png" alt-text="Diagram that shows the IMSql architecture after migration to virtual machines." lightbox="media/imsql-virual-machines.png" border="false":::
 
 #### Dataflow
 
-1. IBM 3270 terminal emulators connect to IMS TM applications that are deployed on Azure as is via the Raincode IMSql Terminal Server.
+1. IBM 3270 terminal emulators connect to IMS TM applications that are deployed on Azure as is via the IMSql Terminal Server.
 1. Batch processes written in JCL are run as is via transient Azure container instances that run the Raincode JCL interpreter.
 1. Read/write SQL Server views on the IMS data enable modern applications or business intelligence (like Power BI) to communicate directly with IMS applications, abstracting away mainframe elements like data structures and character encodings.
 1. Raincode Console provides a web-based administration environment for IMSql. 
@@ -51,7 +47,7 @@ download link
 
 - You can use Azure SQL Server IaaS as an alternative to SQL Managed Instance. We recommend SQL Managed Instance in this architecture because of benefits like high availability, seamless integration with various Azure services, and management of underlying security patches and maintenance.
 
-- You can use an Azure single-VM architecture as an alternative to Virtual Machine Scale Sets. You might want to use single VMs for workloads that have constant load and performance demands and no need for scaling. This architecture uses Virtual Machine Scale Sets to handle typical IMS workloads.
+- You can use an Azure single-VM architecture as an alternative to Virtual Machine Scale Sets. You might want to use single VMs for workloads that have constant load and performance demands and don't need scaling. This architecture uses Virtual Machine Scale Sets to handle typical IMS workloads.
 
 ## Scenario details
 
@@ -68,7 +64,7 @@ This architecture shows how to seamlessly rehost to Azure a mainframe workload t
 
 ### Potential use cases  
   
-- Modernize infrastructure and eliminate the high costs, limitations, and rigidity associated with IMS, or, more generally, mainframes.  
+- Modernize infrastructure and eliminate the high costs, limitations, and rigidity associated with IMS, or, more generally, with mainframes.  
 - Reduce technical debt by implementing cloud-native solutions and supporting a DevOps strategy.  
 - Move IMS workloads to the cloud without the side effects of a complete redevelopment.
 - Move IMS business-critical applications while maintaining continuity with other on-premises applications.
@@ -100,7 +96,7 @@ For general guidance on designing highly secure SQL solutions, see [Azure securi
 
 ### Cost optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 - Azure provides cost optimization by running on Windows VMs. You can turn off the VMs when they're not being used and script a schedule for known usage patterns. Azure helps you avoid unnecessary costs by identifying the right number of resource types, analyzing spending over time, and scaling to meet business needs without overspending.  
 - SQL Managed Instance provides various pricing tiers, like general purpose and business critical, to optimize costs based on usage and business criticality. 
