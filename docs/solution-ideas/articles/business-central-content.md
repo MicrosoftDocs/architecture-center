@@ -1,15 +1,10 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Dynamics 365 Business Central SaaS isn't available in all countries. Therefore, it's important to offer clients a similar model using Business Central running as a VM in Azure.
-
-## Potential use cases
-
-Partners can build their own architecture where they can deploy Business Central, and clients can use this SMB ERP solution as a service using the most of benefits of using Business Central as a cloud solution. This example shows how to establish a production environment for Business Central in a partner's private Azure environment. Topics like licensing and authentication are beyond the scope of this solution idea.
+Because Dynamics 365 Business Central SaaS isn't available in all countries, this solution shows you how to use Business Central running as a VM in Azure.
 
 ## Architecture
 
 ![Diagram showing the Business Central architecture.](../media/business-central-as-a-service.png)
-
 
 ### Dataflow
 
@@ -38,7 +33,21 @@ Similarly, with standard Azure SQL, you can choose different tiers and different
 
 With [Azure Load Balancer](/azure/load-balancer/load-balancer-overview), you can scale your applications and create highly available services. Load balancer supports both inbound and outbound scenarios. Load balancer provides low latency and high throughput and scales up to millions of flows for all TCP and UDP applications.
 
-## Pricing
+## Scenario details
+
+Dynamics 365 Business Central SaaS isn't available in all countries. Therefore, it's important to demonstrate a similar model using Business Central running as a VM in Azure.
+
+### Potential use cases
+
+Partners can build their own architecture where they can deploy Business Central, and clients can use this SMB ERP solution as a service using the most of benefits of using Business Central as a cloud solution. This example shows how to establish a production environment for Business Central in a partner's private Azure environment. Topics like licensing and authentication are beyond the scope of this solution idea.
+
+## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 It's important to note that the partner doesn't need a virtual machine for each customer. It can significantly reduce costs for middle-tier service (VM) by combining access and just changing ports.
 
