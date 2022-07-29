@@ -75,7 +75,8 @@ Installation of Virtual Nodes or workload deployment on them can have some chall
         - key: azure.com/aci
           effect: NoSchedule
 ```
-    **Reference Link**: [Tolerations & NodeSelector](/azure/aks/virtual-nodes-cli#deploy-a-sample-app)
+
+**Reference Link**: [Tolerations & NodeSelector](/azure/aks/virtual-nodes-cli#deploy-a-sample-app)
 
 <br/>
 
