@@ -42,7 +42,7 @@ Code Leo was used to run both the steady state and unsteady simulations.
 
 The CC3 wheel model is used for this performance evaluation. This model has two parts, the impeller and the diffuser, as shown here:
 
-![Image that shows the impeller and diffuser.](/media/impeller-diffuser.png)
+![Image that shows the impeller and diffuser.](media/impeller-diffuser.png)
 
 |Model  |Number of elements |Number of nodes  |
 |---------|---------|---------|
@@ -55,67 +55,86 @@ ADS CFD provided CPU results, which are used as a baseline for comparing GPU run
 
 The elapsed time for CPU simulation is 3,600 minutes. The simulation was performed on a server with Xeon 23 CPUs with a clock speed of 2.4 GHz.
 
-#### Performance results of NDv4 A100, diffuser and impeller
+#### Performance results for NDv4 A100, diffuser and impeller
 
-|NO OF GPUS. |ELAPSED TIME (MINUTES)|SIMULATION SPEED-UP  |
+|Number of GPUs |Elapsed time in minutes|Relative improvement  |
 |---------|---------|---------|
-|1-GPU     |    159     |22.64         |
-|2-GPU     |       95  | 37.89        |
-|4-GPU     |         61|  59.02       |
-|8-GPU     |         45|   80.00      |
+|1     |    159     |22.64         |
+|2     |       95  | 37.89        |
+|4     |         61|  59.02       |
+|8     |         45|   80.00      |
 
-image 
+![Graph that shows the performance results for NDv4 A100.](media/improvement-nd-a100-v4.png)
 
-Runs performed on Xeon 23 CPU with 2.4 GHz and A100 , which has 8 GPUs, each GPU has 40 GB memory.
+Simulations were performed on Xeon 23 CPUs with 2.4 GHz on A100, which has 8 GPUs, each with 40 GB of memory.
 
-Performance Results of NCv3 V100, Diffuser and Impeller
+#### Performance results for NCv3 V100, diffuser and impeller
 
 
-|NO OF GPUS. |ELAPSED TIME (MINUTES)|SIMULATION SPEED-UP  |
+|Number of GPUs |Elapsed time in minutes|Relative improvement  |
 |---------|---------|---------|
-|1-GPU     |    -     |-        |
-|2-GPU     |   173      |  20.81       |
-|4-GPU     |   123      |  29.27      |
-|8-GPU     |   112      |  32.14     |
+|1     |    -     |-        |
+|2     |   173      |  20.81       |
+|4     |   123      |  29.27      |
+|8     |   112      |  32.14     |
 
-Note: The Model requires high GPU memory and hence the 1 GPU case could not perform the run.
+> [!NOTE]
+> The model requires high GPU memory, so the 1-GPU VM couldn't perform the run.
 
-image 
+![Graph that shows the performance results for NCv3 V100.](media/improvement-ncv3-v100.png) 
 
-Runs performed on Xeon 23 CPU with 2.4 GHz and V100, which has 4 GPUs, each GPU has 16 GB memory.
+Simulations were performed on Xeon 23 CPUs with 2.4 GHz on V100, which has 4 GPUs, each with 16 GB of memory.
 
-Pricing 
+## Pricing
 
-The application installation time not considered for Azure cost calculation, only model run time (wall clock time) considered for cost calculation. Please note following calculation is indicative, the actuals would depend on the model size.
+Only model running time (wall clock time) is considered for these cost calculations. Application installation time isn't considered. The calculations are indicative. The actual numbers depend on the size of the model.
 
-For the cost estimate, [Azure calculator](https://azure.microsoft.com/pricing/calculator) can be used for the required configuration. 
+You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for your configuration.
 
-ND96asr_v4
+The following tables provide elapsed times in hours. To compute total cost, multiply by the Azure VM hourly cost, which you can find [here for Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/#pricing) and [here for Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#pricing).
 
-|GPU  |Elapsed time in hours  |Azure VM hourly cost  |Total Azure cost  |
-|---------|---------|---------|---------|
-|1 GPU     |2.65         |  $35.36       |$93.70         |
-|2 GPU    |1.58         |  $35.36       | $55.87        |
-|4 GPU    | 1.02        |   $35.36      | $36.07        |
-|8 GPU     | 0.75        |  $35.36       | $26.52        |
+### ND96asr_v4
 
-NC24s_v3
+|Number of GPUs  |Elapsed time in hours  |
+|---------|---------|
+|1  |2.65         |  
+|2     |1.58         |  
+|4     | 1.02        |  
+|8      | 0.75        | 
+
+### NC24s_v3
 
 
-|GPU  |Elapsed time in hours  |Azure VM hourly cost  |Total Azure cost  |
-|---------|---------|---------|---------|
-|2 GPU    | 2.88      |  $16.94       | $48.79        |
-|4 GPU    | 2.05        |   $16.94      | $34.73        |
-|8 GPU     |  1.87      |  $16.94       | $31.68        |
+|Number of GPUs  |Elapsed time in hours  |
+|---------|---------|
+|2 | 2.88      | 
+|4    | 2.05        |  
+|8      |  1.87      |  
 
-Summary
+## Additional notes about tests
 
-- ADS CFD Code Leo is successfully tested on NDv4 and NCv3 Virtual Machines on Azure Cloud Platform.
-- For NDv4 A100 Virtual Machine, demonstrated good GPU acceleration. Every incremental GPU shows good speed up in all 8 GPUs and the peak performance of 80x is achieved with 8 GPUs.
-- For NCv3 V100 Virtual Machine, demonstrated good GPU acceleration. Every incremental GPU shows good speed up in all 4 GPUs and the peak performance of 32x is achieved with 4 GPUs. For complex problems, 1 GPU memory of 16GB may not be sufficient hence 2 GPUs are recommended for this instance type.
-- GPU technology in ADS CFD Code Leo on Azure platform has brought unprecedented processing power.
+- Code Leo has been successfully tested on NDv4 and NCv3 VMs on Azure.
+- The NDv4 A100 VM demonstrated good GPU acceleration. Every added GPU provides good speed improvements. The peak performance of 80x is attained with 8 GPUs.
+- The NCv3 V100 VM also demonstrated good GPU acceleration. Every added GPU provides good speed improvements. The peak performance of 32x is attained with 4 GPUs. For complex problems, the 1 GPU memory of 16 GB might not be sufficient, so we recommend 2 GPUs for this scenario.
+- The GPU technology in Code Leo provides unprecedented processing power on Azure.
 
 ## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+- [Hari Bagudu](https://www.linkedin.com/in/hari-bagudu-88732a19) | Senior Manager
+- [Gauhar Junnarkar](https://www.linkedin.com/in/gauharjunnarkar) | Principal Program Manager
+- [Vinod Pamulapati](https://www.linkedin.com/in/vinod-reddy-20481a104) | HPC Performance Engineer
+
+Other contributors:
+
+- [Mick Alberts]() 
+- [Guy Bursell]() |
+- [Sachin Rastogi]() |
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
