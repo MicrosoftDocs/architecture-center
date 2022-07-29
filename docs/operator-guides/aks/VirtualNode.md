@@ -30,7 +30,7 @@ Installation of Virtual Nodes or workload deployment on them can have some chall
 2. Sometimes during the installation phase you can notice that Virtual Node is not available in AKS cluster even after enabling the virtual node option through portal or through Addons
    * ACI uses a separate subnet for deploying workloads & because the virtual nodes need a dedicated subnet to spin up ACI instances (as pods) , please verify if a second subnet was created & that should not overlap with Cluster subnet range -   [Create virtual nodes using Azure CLI - Azure Kubernetes Service | Microsoft Docs](/azure/aks/virtual-nodes-cli)
    
-   * Virtual Nodes utilize Azure CNI for getting IP's on demand from the subnet that is allocated to them , so a cluster identity used by the AKS cluster must have at least Network Contributor permissions on the subnet within your virtual network. If you wish to define a custom role instead of using the built-in Network Contributor role, the following permissions are required - [Pre-requistes for Azure CNI](https://docs.microsoft.com/en-us/azure/aks/configure-azure-cni#prerequisites)
+   * Virtual Nodes utilize Azure CNI for getting IP's on demand from the subnet that is allocated to them , so a cluster identity used by the AKS cluster must have at least Network Contributor permissions on the subnet within your virtual network. If you wish to define a custom role instead of using the built-in Network Contributor role, the following permissions are required - [Pre-requistes for Azure CNI](/azure/aks/configure-azure-cni#prerequisites)
         * Microsoft.Network/virtualNetworks/subnets/join/action
         * Microsoft.Network/virtualNetworks/subnets/read
     * To monitor Virtual nodes Pods , refer [Collect & analyze resource logs - Azure Container Instances | Microsoft Docs](/azure/container-instances/container-instances-log-analytics)
@@ -64,7 +64,7 @@ Installation of Virtual Nodes or workload deployment on them can have some chall
 
      The below snippet can be used to schedule to virtual node
 
-        ```yaml
+```yaml
         nodeSelector:
           kubernetes.io/role: agent
           beta.kubernetes.io/os: linux
@@ -74,7 +74,7 @@ Installation of Virtual Nodes or workload deployment on them can have some chall
           operator: Exists
         - key: azure.com/aci
           effect: NoSchedule
-        ```
+```
     **Reference Link**: [Tolerations & NodeSelector](/azure/aks/virtual-nodes-cli#deploy-a-sample-app)
 
 <br/>
