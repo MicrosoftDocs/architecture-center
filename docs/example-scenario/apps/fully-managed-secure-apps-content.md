@@ -108,7 +108,7 @@ Another point to consider is DNS. In order to allow applications within the App 
 
 ## Deploy this scenario
 
-To deploy this scenario, follow this [step-by-step tutorial][end-to-end-walkthrough] demonstrating how to manually deploy each component. This tutorial also provides a .NET sample application that runs a simple Contoso expense reporting application.
+To deploy this scenario, follow this [step-by-step tutorial][end-to-end-walkthrough] demonstrating how to manually deploy each component. Select App Service Environment v3 instead of v2, when following the tutorial. This tutorial also provides a .NET sample application that runs a simple Contoso expense reporting application.
 
 ## Pricing
 
