@@ -6,6 +6,8 @@ The solution described here tracks changes made by service administrators and ad
 
 *Download a [Visio file](https://arch-center.azureedge.net/M365DevOps.vsdx) of this architecture.*
 
+### Workflow
+
 1. Admin 1 adds, updates, or deletes an entry in Admin 1's fork of the Microsoft 365 config file.
 2. Admin 1 commits and syncs the changes to Admin 1's forked repository.
 3. Admin 1 creates a pull request (PR) to merge the changes to the main repository.
