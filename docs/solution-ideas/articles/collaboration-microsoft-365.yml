@@ -1,11 +1,11 @@
 ### YamlMime:Architecture
 metadata:
   title: Real-time collaboration with Azure and Microsoft 365
-  titleSuffix: Azure Solution Ideas
+  titleSuffix: Azure Architecture Center
   description: Learn about a custom collaboration solution that uses libraries and Azure services. 
   author: DanWahlin
   ms.author: dwahlin
-  ms.date: 05/23/2022
+  ms.date: 07/28/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
