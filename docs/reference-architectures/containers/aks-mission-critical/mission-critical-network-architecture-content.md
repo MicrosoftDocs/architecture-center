@@ -112,46 +112,50 @@ The regional resources are provisioned as part of a _deployment stamp_ to a sing
 
 Isolate regional resources and management resources in separate virtual networks. They have distinct purposes. 
 
-- Regional resources participate in processing of a business operation and need higher security controls. For example, the compute cluster must be protected from direct internet traffic. Management resources are provisioned only to access the regional resources for operations. So, they can be exposed to the public internet. 
+- Type of traffic: Regional resources participate in processing of a business operation and need higher security controls. For example, the compute cluster must be protected from direct internet traffic. Management resources are provisioned only to access the regional resources for operations. So, they can be exposed to the public internet. 
 
-- The expected lifetimes of those resources are also different. Regional resources are expected to be short-lived (ephemeral). They are created as part of the deployment stamp and destroyed when the stamp is torn down. Management resources share the lifetime of the region and out live the stamp resources.
+- Lifetime: The expected lifetimes of those resources are also different. Regional resources are expected to be short-lived (ephemeral). They are created as part of the deployment stamp and destroyed when the stamp is torn down. Management resources share the lifetime of the region and out live the stamp resources.
 
-These resources are expected to communicate with other resources in the stamp and global resources.  and resur and  resources communicate with other resources over 
+In this architecture, there are two virtual networks: stamp network and operations network. Create further isolation within each virtual network by using subnets and network security groups (NSGs) to secure communication between the subnets.
 
-Within each virtual network, use subnets connected through Azure load balancers.
-The In this desgin, there are two virtual networks:
-- Stamp Vnet
-    - private endpoints
-    - subnets
-    - NSGs
-- Management Vnet
-    - private endpoints
-    - subnets
-    - NSG
+### Operations virtual network
 
-- Global routing
-![Diagram showing secure global routing for a mission critical workload](./images/mission-critical-global-routing-network.png)
+The operational traffic isolated in a separate virtual network. Because the cluster is private in this architecture, the network requires tighter security and segmentation through  subnetting. There are separate subnets to support, the deployment model that requires self-hosted build agents; management operations such as debugging. 
 
-- Ingress
+Both operations need to access PaaS services in the regional stamp, such as AKS, Key Vault, and others. Also, access to global resources such as the container registry is needed. In this architecture all PaaS service are locked down and can only be reached through private endpoints. So, another subnet is created for those endpoints. Inbound access to this subnet is secured by NSG that only allows traffic from the management and deployment subnets.
+
+(need to mention DNS here)
+
 
 ![Diagram showing secure ingress traffic to a mission critical workload](./images/mission-critical-network-ingress.png)
 
+#### Management operations
+
+A typical use case is when an operator needs to access the compute cluster to run management tools and commands. Nodes in a private cluster  cannot be accessed directly. That's why jump boxes are provisioned where the operator can run the tools. But, the jump boxes need to be protected from unauthorized access. Direct access to jump boxes by opening RDP/SSH ports should be avoided. Azure Bastion is recommended for this purpose and requires a dedicated subnet in this virtual network. There's a separate subnet for the jump boxes. 
+
+> [!NOTE] Connectivity through Azure Bastion and jump boxes can have an impact on developer productivity (like what?). Be aware of these impacts before deciding to harden security for your mission-critical workload.
+
+You can secure ingress to the jump box subnet by using an NSG that only allows inbound traffic from the Bastion subnet over SSH.
+
+If the operator needs to access public endpoints, outbound traffic must also be secure. (How?)
+
+#### Deployment operations
+
+To build deployment pipelines, you need to provision additional compute to run build agents. This architecture sequesters the build agents in a separate subnet. Ingress is restricted to Azure DevOps. Egress (how?)
+
+
+## Global routing
+![Diagram showing secure global routing for a mission critical workload](./images/mission-critical-global-routing-network.png)
+
+
+## Stamp ingress
+
+## Stamp egress
 - Egress
 
 ![Diagram showing secure egress traffic from a mission critical workload](./images/mission-critical-network-egress.png)
 
 
-
-
-
-
-
-On the subnets that have Azure Container Registry agents, NSGs allow only necessary outbound traffic. For instance, traffic is allowed to Azure Key Vault, Azure Active Directory, Azure Monitor, and other services that the container registry needs to talk to.
-
-The subnet with the jump box is intended for management operations. The NSG rule only allows SSH access from Azure Bastion in the hub, and limited outbound connections. Jump boxes do not have universal internet access, and are controlled at both the subnet NSG and Azure Firewall.
-Ingress flow: 
-Build agents need access to resources
-No peering
 
 Egress flow:
 Two solutions:
