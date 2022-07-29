@@ -16,56 +16,81 @@ ms.custom:
 ---
 # Analyzing Virtual Nodes Issues deployed to AKS Cluster
 
-Applications that are deployed on virtual nodes can face issues due to some reasons as mentioned below , which can be due to YAML definitions or related Configurations
+Installation of Virtual Nodes or workload deployment on them can have some challenges & therefore this document is created for Asministrators to know the most common issues & how the relative guidance be helpful
 
-## Common Issues
-1. Virtual Node not available in a certain region
-   * If VNET SKUs aren't available for Azure Container Instances in a region, then Virtual Node won't be available
-2. Virtual Node  not showing up
-   * Need a second subnet in the same VNET, as the virtual nodes need a dedicated subnet to spin up ACI instances as pods
+## General Issues & relative Guidance
 
-3. Error: _ACIConnectorRequiresAzureNetworking_ -  ACI Connector requires Azure network plugin
+<br/>
 
-    * You must have a CNI enabled cluster & can't work on Kubenet at time of writing
+1. If you're deploying virtual nodes on AKS where Virtual Node is not available , its because
+   * VNET SKUs aren't available for Azure Container Instances in the region, please verify region availability from [Verify Region Availability](/azure/aks/virtual-nodes)
 
-4. Deployment completed however workload gets scheduled on the agent pool node rather than virtual node
+<br/>
 
-    * The below snippet can be used to schedule to virtual node
+2. Sometimes during the installation phase you can notice that Virtual Node is not available in AKS cluster even after enabling the virtual node option through portal or through Addons
+   * ACI uses a separate subnet for deploying workloads & because the virtual nodes need a dedicated subnet to spin up ACI instances (as pods) , please verify if a second subnet was created & that should not overlap with Cluster subnet range -   [Create virtual nodes using Azure CLI - Azure Kubernetes Service | Microsoft Docs](/azure/aks/virtual-nodes-cli)
+   
+   * Virtual Nodes utilize Azure CNI for getting IP's on demand from the subnet that is allocated to them , so a cluster identity used by the AKS cluster must have at least Network Contributor permissions on the subnet within your virtual network. If you wish to define a custom role instead of using the built-in Network Contributor role, the following permissions are required - [Pre-requistes for Azure CNI](https://docs.microsoft.com/en-us/azure/aks/configure-azure-cni#prerequisites)
+        * Microsoft.Network/virtualNetworks/subnets/join/action
+        * Microsoft.Network/virtualNetworks/subnets/read
+    * To monitor Virtual nodes Pods , refer [Collect & analyze resource logs - Azure Container Instances | Microsoft Docs](/azure/container-instances/container-instances-log-analytics)
+
+  
+<br/>
+
+
+3. There could be scenarios where the installation of Virtual node on Kubenet enabled AKS clusters can face some issues like below & then how can you fix that up
+
+    **Error** 
+
+    You might see error that look like these:
+
+    ```output
+    ACIConnectorRequiresAzureNetworking -  ACI Connector requires Azure network plugin
+    ```
+    **Solution**
+
+    You must have a CNI enabled cluster & can't work on Kubenet at time of writing
+
+
+    **Reference Link** : [Known limitations](/azure/aks/virtual-nodes#known-limitations)
+* Container Insights can also help in providing further insights for the pods & containers workloads on Virtual Nodes uery the Logs, For more information refer [Collect & analyze resource logs - Azure Container Instances | Microsoft Docs](/azure/azure-monitor/containers/container-insights-log-query)
+
+        
+
+<br/>
+
+4. Scenarios where deployment gets completed however workload gets scheduled on the agent pool node rather than virtual node
+
+     The below snippet can be used to schedule to virtual node
 
         ```yaml
         nodeSelector:
-         kubernetes.io/role: agent
-         beta.kubernetes.io/os: linux
-         type: virtual-kubelet
+          kubernetes.io/role: agent
+          beta.kubernetes.io/os: linux
+          type: virtual-kubelet
         tolerations:
         - key: virtual-kubelet.io/provider
-        operator: Exists
+          operator: Exists
         - key: azure.com/aci
-        effect: NoSchedule
+          effect: NoSchedule
         ```
+    **Reference Link**: [Tolerations & NodeSelector](/azure/aks/virtual-nodes-cli#deploy-a-sample-app)
 
-Node-affinity can help in the management of the workload across these options. For more information see [Provide dedicated nodes using taints and tolerations](/azure/aks/operator-best-practices-advanced-scheduler#provide-dedicated-nodes-using-taints-and-tolerations) for more details on how to use node-affinity.
+<br/>
 
-Minimum Troubleshooting Investigation
-1. 	Check Region Availability
-    * Use virtual nodes - [Azure Kubernetes Service | Microsoft Docs](/azure/aks/virtual-nodes)
-2. Check if a second subnet was created
-    *	[Create virtual nodes using Azure CLI - Azure Kubernetes Service | Microsoft Docs](/azure/aks/virtual-nodes-cli)
-3. Use Azure Monitor
-    * [Monitoring Azure Container Instances - Azure Container Instances | Microsoft Docs](/azure/container-instances/monitor-azure-container-instances)
-    
-    
-4. View Logging & Events
-    * [Collect & analyze resource logs - Azure Container Instances | Microsoft Docs](/azure/container-instances/container-instances-log-analytics)
-        * Logs & Events can be viewed through Log-Analytics , Examples below
-    
-          For Logs 
 
-            ```kusto
-            ContainerInstanceLog_CL | where (TimeGenerated > ago(1h))
-            ```
-          For Events 
 
-            ```kusto
-            ContainerEvent_CL | where (TimeGenerated > ago(1h))
-            ```
+## Next steps
+
+Configure virtual nodes for your clusters:
+
+* [Create virtual nodes using Azure CLI](/azure/aks/virtual-nodes-cli)
+* [Create virtual nodes using the portal in Azure Kubernetes Services (AKS)](/azure/aks/virtual-nodes-portal)
+
+Virtual nodes are often one component of a scaling solution in AKS. For more information on scaling solutions, see the following articles:
+
+* [Understand Kubernetes horizontal pod autoscaler](/azure/aks/concepts-scale#horizontal-pod-autoscaler)
+* [Understand Kubernetes cluster autoscaler](/azure/aks/concepts-scale#cluster-autoscaler)
+* [Check out the Autoscale sample for Virtual Nodes](https://github.com/Azure-Samples/virtual-node-autoscale)
+* [Read more about the Virtual Kubelet open source library](https://github.com/virtual-kubelet/virtual-kubelet)
