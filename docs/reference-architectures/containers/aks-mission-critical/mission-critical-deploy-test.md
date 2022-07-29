@@ -40,6 +40,8 @@ The deployment of the infrastructure in the reference architecture is dependent 
 
 :::image type="content" source="./images/mission-critical-ref-flowchart.png" alt-text="Diagram of flowchart of deployment process.":::
 
+For more information, refer to [Deployment and testing for mission-critical workloads on Azure: Design considerations](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing#design-considerations)
+
 ## Deployment: DevOps
 
 The DevOps components provide the source code repository and CI/CD pipelines for deployment of the infrastructure and updates. Github and Azure Pipelines were chosen as the components.
@@ -53,6 +55,8 @@ An additional component in the design used for the deployment are build agents. 
 For more information about Azure Pipelines and Azure DevOps, see [What is Azure DevOps?](/azure/devops/user-guide/what-is-azure-devops).
 
 :::image type="content" source="./images/deployment-pipeline-prod.png" alt-text="Diagram of flowchart of Devops pipeline." lightbox="./images/deployment-pipeline-prod-big.png":::
+
+For more information, refer to [Deployment and testing for mission-critical workloads on Azure: Infrastructure-as-Code deployments](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing#infrastructure-as-code-deployments)
 
 ## Deployment: Zero downtime updates
 
@@ -76,6 +80,8 @@ In many systems, there is an assumption that application updates will be more fr
 
 * **Elimination of manual changes and configuration drift** - Every environment is a fresh deployment.
 
+For more information, refer to [Deployment and testing for mission-critical workloads on Azure: Ephemeral blue/green deployments](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing#ephemeral-bluegreen-deployments)
+
 ### Branching strategy
 
 The foundation of the update strategy is the use of branches within the Git repository. The reference architecture uses three types of branches:
@@ -85,6 +91,8 @@ The foundation of the update strategy is the use of branches within the Git repo
 | **`feature/*`** and **`fix/*`** | The entry points for any change. These branches are created by developers and should be given a descriptive name, like **`feature/catalog-update`** or **`fix/worker-timeout-bug`**. When changes are ready to be merged, a pull request (PR) against the **`main`** branch is created. Every PR must be approved by at least one reviewer. With limited exceptions, every change that is proposed in a PR must run through the end-to-end (E2E) validation pipeline. The E2E pipeline should be used by developers to test and debug changes to a complete environment. |
 | **`main`** | The continuously forward moving and stable branch. Mostly used for integration testing. Changes to main are made only through pull requests. A branch policy prohibits direct writes. Nightly releases against the permanent **`integration (int)`** environment are automatically executed from the **`main`** branch. The **`main`** branch is considered stable. It should be safe to assume that at any given time, a release can be created from it. |
 | **`release/*`** | Release branches are only created from the **`main`** branch. The branches follow the format **`release/2021.7.X`**. Branch policies are used so that only repo administrators are allowed to create **`release/*`** branches. Only these branches are used to deploy to the **`prod`** environment.
+
+For more information, refer to [Deployment and testing for mission-critical workloads on Azure: Branching strategy](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing#branching-strategy)
 
 ### Hotfixes
 
@@ -205,6 +213,8 @@ These tests include:
 * **UI tests** - These tests validate that the user interface was deployed and works as expected. The current implementation only captures screenshots of several pages after deployment without any actual testing.
 
 * **Failure injection tests** - These tests can be be automated or executed manually. Automated testing in the architecture integrates Azure Chaos Studio as part of the deployment pipelines.
+
+For more information, refer to [Deployment and testing for mission-critical workloads on Azure: Continuous validation and testing](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing#continuous-validation-and-testing)
 
 ## Testing: Frameworks
 
