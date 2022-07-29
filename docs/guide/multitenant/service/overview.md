@@ -35,7 +35,7 @@ The content in this section is designed for architects, lead developers, and any
 
 The articles in this section describe some Azure services commonly used in multitenant solutions. The following Azure services are covered so far:
 
-- Deployment and configuration: [Azure Resource Manager](resource-manager.md)
+- Deployment and configuration: [Azure Resource Manager](resource-manager.md) and [Azure App Configuration](app-configuration.md)
 - Compute: [App Service and Azure Functions](app-service.yml)
 - Networking: [NAT Gateway](nat-gateway.md)
 - Storage and data: [Azure Storage](storage.md), [Azure SQL Database](sql-database.md), [Azure Cosmos DB](cosmos-db.md), and [Azure Database for PostgreSQL](postgresql.md)

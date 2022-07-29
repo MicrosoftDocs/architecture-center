@@ -11,7 +11,9 @@ This solution idea demonstrates how end manufacturers can connect their assets t
 
 ## Architecture
 
-[ ![Diagram showing the architecture.](../media/condition-monitoring.svg) ](../media/condition-monitoring.svg#lightbox)
+[ ![Diagram showing the architecture.](../media/condition-monitoring-new.png) ](../media/condition-monitoring.svg#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/condition-monitoring.vsdx) of this architecture.*
 
 ### Dataflow
 

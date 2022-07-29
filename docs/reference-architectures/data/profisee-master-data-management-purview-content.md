@@ -6,6 +6,8 @@ The following flow illustration represents the general order of activity that oc
 
 ![Diagram of Purview microservice design architecture.](./images/purview-microservice-design-architecture.png)
 
+*Download a [Visio file](https://arch-center.azureedge.net/purview-microservice-design-architecture.vsdx) of this architecture.*
+
 ### Dataflow
 
 Metadata and data flow include these steps, shown in the preceding figure:
@@ -50,6 +52,8 @@ As more data is loaded into Azure, the need to properly govern and manage that d
 Without high-quality data in your Azure data estate, the business value of Azure will be undermined, perhaps critically. The solution is to build a foundation for data governance and management that can produce and deliver high-quality, trusted data. Working together, Microsoft Purview and Profisee master data management (MDM) form such a platform.
 
 ![Diagram of Purview and Profisee overview.](./images/purview-overview.png)
+
+*Download a [Visio file](https://arch-center.azureedge.net/profisee-master-data-management-purview-overview.vsdx) of this diagram.*
 
 **Microsoft Purview** catalogs all the data sources and identifies any sensitive information, as well as lineage. It gives the data architect a place to consider the  appropriate data standards that should be imposed on all data. Purview's focus is on governance to find, classify, and define policies and standards. Enforcing policies and standards and remediating deficient data falls to technologies like master data management (MDM).
 

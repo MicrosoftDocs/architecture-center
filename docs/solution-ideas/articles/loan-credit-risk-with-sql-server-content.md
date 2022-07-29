@@ -7,9 +7,12 @@ By using SQL Server 2019 with Machine Learning Services, a lending institution c
 ![Architecture Diagram](../media/loan-credit-risk-with-sql-server.png)
 *Download an [SVG](../media/loan-credit-risk-with-sql-server.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
-Start a Windows or Linux version of the Azure Data Science Virtual Machine. Connect to your data source. Use your preferred IDE to develop Python and R models. When the model is ready, publish it to SQL Server, Azure Machine Learning, or Power BI.
+* Start a Windows or Linux version of the Azure Data Science Virtual Machine. 
+* Connect to your data source. 
+* Use your preferred IDE to develop Python and R models. 
+* When the model is ready, publish it to SQL Server, Azure Machine Learning, or Power BI. In this diagram, we visualize the data in Power BI.
 
 ### Components
 

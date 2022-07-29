@@ -10,7 +10,9 @@ This solution is optimized for the retail scenario.
 
 ## Architecture
 
-![Reference architecture for creating a stream processing pipeline with Azure Stream Analytics](./images/stream-processing-asa/stream-processing-asa.png)
+![Diagram showing reference architecture for creating a stream processing pipeline with Azure Stream Analytics.](./images/stream-processing-asa/stream-processing-asa.png)
+
+*Download a [Visio file](https://arch-center.azureedge.net/stream-processing-stream-analytics.vsdx) of this architecture.*
 
 ### Workflow
 

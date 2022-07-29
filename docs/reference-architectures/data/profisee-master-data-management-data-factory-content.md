@@ -1,14 +1,12 @@
-Azure is used as the core of many digital transformation programs, but it is dependent on the quality and consistency of data from multiple sources—business applications, databases, data feeds, and so on—and delivers value through business intelligence, analytics, machine learning, and more. Profisee's Master Data Management (MDM) solution completes the Azure data estate with a practical method to 'align and combine' data from multiple sources by enforcing consistent data standards on source data (match, merge, standardize, verify, correct). Native integration with Azure Data Factory and other Azure Data Services further streamlines this process to accelerate the delivery Azure business benefits.
-
-A core aspect of how MDM solutions function is that they combine data from multiple sources to create a "golden record master" that contains the best-known and trusted data for each record. This structure is built out domain-by-domain according to requirements, but it nearly always requires multiple domains. Common domains are customer, product, and location, but domains can represent anything from reference data to contracts and drug names. In general, the better domain coverage that can be built out relative to the broad Azure data requirements the better.
-
 This architectural pattern demonstrates how MDM can be incorporated into the Azure data services ecosystem to improve the quality of data used for analytics and operational decision making. MDM solves several common challenges including the identification and management of duplicate data (match and merge), flagging, and resolving data quality issues, standardizing, and enriching data, and the ability for data stewards to proactively manage and improve the data. This pattern presents a modern approach to MDM, with all technologies deployable natively in Azure, including Profisee, which can be deployed via containers and orchestrated with Azure Kubernetes Service.
 
 ## Architecture
 
-:::image type="content" source="images/profisee-data-flow.png" border="false" alt-text="Image that shows the MDM Profisee data flow.":::
+:::image type="content" source="images/profisee-data-flow.png" border="false" alt-text="Diagram showing the master data management Profisee data flow.":::
 
-#### Data flow
+*Download a [Visio file](https://arch-center.azureedge.net/profisee-master-data-managment-data-factory.vsdx) of this architecture.*
+
+### Dataflow
 
 1. **Source data load:** Source data from business applications is copied to Azure Data Lake, where it is initially stored for further transformation and use in downstream analytics. Source data can generally be classified into one of three categories:
    - Structured master data – The information that describes customers, products, locations, and so on. Master data is low volume, high complexity, and changes slowly over time, is often the data that organizations struggle the most with data quality.
@@ -48,9 +46,17 @@ Absent a purpose-built MDMapplication, some of the technical capabilities needed
 - Duplicate data management - Azure Data Factory can be used to [deduplicate rows](/azure/data-factory/how-to-data-flow-dedupe-nulls-snippets) where sufficient identifiers are available for an exact match.  In this case, the logic to merge matched with appropriate survivorship would likely require custom hardcoded scripts.
 - Data stewardship - [Power Apps](https://powerapps.microsoft.com/) can be used to quickly develop simple data stewardship solutions to manage data in Azure, along with appropriate user interfaces for review, workflow, alerts, and validations.
 
-## MDM integration pipeline
+## Scenario details
 
-:::image type="content" source="images/profisee-integration-pipeline.png" border="false" alt-text="Image that shows the MDM Profisee integration pipeline.":::
+Azure is used as the core of many digital transformation programs, but it is dependent on the quality and consistency of data from multiple sources—business applications, databases, data feeds, and so on—and delivers value through business intelligence, analytics, machine learning, and more. Profisee's Master Data Management (MDM) solution completes the Azure data estate with a practical method to 'align and combine' data from multiple sources by enforcing consistent data standards on source data (match, merge, standardize, verify, correct). Native integration with Azure Data Factory and other Azure Data Services further streamlines this process to accelerate the delivery Azure business benefits.
+
+A core aspect of how MDM solutions function is that they combine data from multiple sources to create a "golden record master" that contains the best-known and trusted data for each record. This structure is built out domain-by-domain according to requirements, but it nearly always requires multiple domains. Common domains are customer, product, and location, but domains can represent anything from reference data to contracts and drug names. In general, the better domain coverage that can be built out relative to the broad Azure data requirements the better.
+
+### MDM integration pipeline
+
+:::image type="content" source="images/profisee-integration-pipeline.png" border="false" alt-text="Image that shows the master data management Profisee integration pipeline.":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/profisee-master-data-managment-data-factory.vsdx) of this architecture.*
 
 The preceding image shows the details for integrating with the Profisee MDM solution. Key to note is that Azure Data Factory and Profisee include native REST integration support, providing a lightweight and modern integration.
 
@@ -60,13 +66,13 @@ The preceding image shows the details for integrating with the Profisee MDM solu
 
 3. **Load master data for analytics:** Azure Data Factory uses its REST source to stream master data from Profisee to Azure Synapse Analytics.
 
-### Azure Data Factory templates for Profisee
+#### Azure Data Factory templates for Profisee
 
 In collaboration with Microsoft, Profisee has developed a set of Azure Data Factory templates that make it faster and easier to integrate Profisee into the Azure Data Services ecosystem. These templates use Azure Data Factories REST data source and data sink to read and write data from Profisee's REST Gateway API. Templates are provided for both reading from and writing to Profisee.
 
 :::image type="content" source="images/profisee-data-factory-template.png" alt-text="Screenshot that shows MDM Profisee and the Azure Data Factory template.":::
 
-### Example Data Factory template: JSON to Profisee over REST
+#### Example Data Factory template: JSON to Profisee over REST
 
 The following screenshots illustrate an Azure Data Factory template that copies data from a JSON file in an Azure Data Lake to Profisee via REST.
 
@@ -80,7 +86,7 @@ Then, data is synced to Profisee via REST:
 
 For more information, see [Azure Data Factory templates for Profisee](https://github.com/profisee/azuredatafactory).
 
-## MDM processing
+### MDM processing
 
 In an analytical MDM use case, data is often processed through the MDM solution on an automated basis as part of the broader integration process to load data for analytics. Below illustrates a typical process for customer data in this context.
 
@@ -140,11 +146,11 @@ As illustrated above, MDM addresses several common challenges encountered when i
 | Duplicate  data management           | Duplicate  records that exist within and across applications are identified and grouped  based on existing unique identifiers. This requires identifiers to be shared  across systems (for example, SSN or email), and these can only be matched and  grouped when identical. More sophisticated approaches require significant  investments in integration engineering. | Built-in  machine learning matching capabilities identify duplicate records within and  across systems, generating a golden record to represent the group. This  enables records to be "fuzzy matched", grouping records that are similar,  with explainable results. Groups can be managed in scenarios where the ML  engine is unable to form a group with high confidence. |
 | Data  stewardship                    | Data  stewardship activities are confined to updating data in the source  applications (for example, ERP or CRM). Typically, issues are discovered when  performing analytics such as missing, incomplete, or incorrect data. The  issues are corrected in the source application, and then are updated in the  analytics solution during the next update. Any new information to manage must  be added to source applications, which can take time and be costly. | MDM solutions  have built-in data stewardship capabilities, enabling users to access and  manage data. Ideally, the system is configured to flag issues and prompt data  stewards to correct them. New information or hierarchies can be quickly  configured in the solution so that they can be managed by data stewards. |
 
-## MDM use cases
+### MDM use cases
 
 While there are numerous use cases for MDM, there are a small number of use cases that cover most real-world MDM implementations. Note that although these use cases are focused on a single domain, they are unlikely to be built from only that domain. In other words, even these focused use cases are most likely to include multiple master data domains.
 
-### Customer 360
+#### Customer 360
 
 Consolidating customer data for analytics is the most common MDM use case. Organizations capture customer data across an increasing number of applications, creating duplicate customer data within and across applications with inconsistencies and discrepancies. This poor-quality data makes it difficult to realize the value of modern analytics solutions due to poor quality customer data. Symptoms include the following challenges:
 
@@ -156,7 +162,7 @@ Consolidating customer data for analytics is the most common MDM use case. Organ
 
 * Poor-quality insights from AI and machine learning due to poor-quality input data.
 
-### Product 360
+#### Product 360
 
 Product data is often spread across multiple enterprise applications, such as ERP, PLM, or e-commerce. The result is a challenge understanding the total catalog of products that have inconsistent definitions for properties such as the product's name, description, and characteristics. This is complicated by different definitions of reference data. Symptoms include the following challenges:
 
@@ -166,7 +172,7 @@ Product data is often spread across multiple enterprise applications, such as ER
 
 * Hard to rationalize products due to conflicting definitions, leading to missing or inaccurate information in analytics.
 
-### Reference data 360
+#### Reference data 360
 
 In the context of analytics, reference data exists as numerous lists of data that is often used to further describe other sets of master data. For example, lists of countries, currencies, colors, sizes, and units of measure. Inconsistent reference data leads to obvious errors in downstream analytics. Symptoms include:
 
@@ -176,7 +182,7 @@ In the context of analytics, reference data exists as numerous lists of data tha
 
 * Difficult to tie numbers across organizations due to differences in agreed upon reference data values for categorizing data.
 
-### Finance 360
+#### Finance 360
 
 Financial organizations rely heavily on data for critical activities such as monthly, quarterly, and annual reporting. Organizations with multiple finance and accounting systems often have financial data across multiple general ledgers, which need to be consolidated to produce financial reports. MDM can provide a centralized place to map and manage Accounts, Cost Centers, Business Entities, and other financial data sets to a consolidated view. Symptoms include the following challenges:
 
@@ -200,7 +206,11 @@ Profisee runs natively on Azure Kubernetes Service and Azure SQL Database. Azure
 
 Profisee authenticates users using OpenID Connect, which implements an OAuth 2.0 authentication flow. Most organizations configure Profisee to authenticate users against Azure Active Directory, ensuring enterprise policies for authentication can be applied and enforced.
 
-## Deploy the scenario
+### Cost optimization
+
+Running costs consist of a software license and Azure consumption. For more information, contact Profisee at https://profisee.com/contact/.
+
+## Deploy this scenario
 
 To deploy this scenario:
 
@@ -209,10 +219,6 @@ To deploy this scenario:
 3. Configure your Azure Data Factory to [connect to a Git repository](/azure/data-factory/source-control).
 4. Add [Profisee's Azure Data Factory templates](https://github.com/profisee/azuredatafactory).
 5. Create a new Pipeline [using a template](/azure/data-factory/solution-templates-introduction).
-
-## Pricing
-
-Running costs consist of a software license and Azure consumption. For more information, contact Profisee at https://profisee.com/contact/.
 
 ## Next steps
 

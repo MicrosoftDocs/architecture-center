@@ -12,7 +12,9 @@ This solution is optimized for the retail industry and for the media and enterta
 
 ## Architecture
 
-![Architecture of a machine learning model for training movie recommendations](_images/recommenders-architecture.png)
+![Diagram showing architecture of a machine learning model for training movie recommendations.](_images/recommenders-architecture.png)
+
+*Download a [Visio file](https://arch-center.azureedge.net/ai-real-time-recommendation.vsdx) of this architecture.*
 
 This reference architecture is for training and deploying a real-time recommender service API that can provide the top 10 movie recommendations for a user.
 

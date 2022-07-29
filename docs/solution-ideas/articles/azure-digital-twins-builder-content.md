@@ -2,39 +2,13 @@
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Architecture, engineering, and construction (AEC) professionals use Building Information Modeling (BIM) as a foundation for efficient design and construction processes. BIM is the most effective tool for modeling a facility and its supporting systems, and produces a flexible, parametric, and relational dataset that can comprehensively document a built asset. It's becoming the industry standard tool for planning and managing the built environment.
-
-BIM data is exceptionally valuable, and it can be improved with a digital representation, based on sensor telemetry, of the physical environment. Such a representation is known as a digital twin (DT). DTs help real estate owners and operators manage the operations of their buildings. This is the digital building lifecycle approach to managing.
-
-This solution idea is to use Azure Digital Twins and other Azure services to enable this process more effectively, from BIM to DT. Creating a DT for a facility requires extensive data entry that's done by using either Azure native tools or external tools. The data often requires interpretations of drawings, documentation, and data models of other relevant systems of record. Such interpretations risk data fidelity, and cause inefficiencies in the DT implementation process, inefficiencies that hinder the adoption of DTs.
-
-The key to the solution is having a web app that uses BIM data from Autodesk Forge to automate the creation of an Azure Digital Twins foundational dataset. The app provides both visual and relational context to support the instantiation of a DT in the Azure Digital Twins build process.
-
-By providing the basis for holistic, responsive, and automated building management systems, this app helps address the vast range of challenges that arise when managing buildings digitally at large scale.
-
-The solution in this article uses Autodesk Forge data specifically, but using BIM data from other providers can work also. The idea is broadly applicable to the process of creating a DT from BIM data.
-
-> [!Important]
-> This document is created strictly for informative purposes to demonstrate how Autodesk Forge API can supply BIM data to a web app that creates a DT. Your use of third-party applications is subject to terms between you and the third party. Microsoft Corporation is not affiliated with, is not a partner to, and does not endorse or sponsor Autodesk or any of Autodesk's products. There are other sources of BIM data that you can use to create DTs.
-
-## Potential use cases
-
-BIM models can describe many structures besides offices, including:
-
-- Datacenters.
-- Factories.
-- Power plants.
-- Bridges.
-
-These structures become more intelligent and advanced as sensors and connected devices become smaller and more affordable. Azure Digital Twins can bring greater accuracy, control, and predictability to the building owner’s building management data. You can, for example, manage frequency sensors within Azure Digital Twins for predictive maintenance of building roof chillers.
-
-Real estate portfolio managers can use BIM and DTs to improve their understanding of the elements within defined spaces, for better building space management.
+This solution idea uses Azure Digital Twins and other Azure services to enable the process more effectively, from building information modeling (BIM) to digital twins (DT). Creating a DT for a facility requires extensive data entry that's done by using either Azure native tools or external tools. The data often requires interpretations of drawings, documentation, and data models of other relevant systems of record. Such interpretations risk data fidelity, and cause inefficiencies in the DT implementation process, inefficiencies that hinder the adoption of DTs. The solution in this article uses Autodesk Forge data specifically, but using BIM data from other providers can work also. The idea is broadly applicable to the process of creating a DT from BIM data.
 
 ## Architecture
 
-:::image type="content" source="../media/azure-digital-twins-builder.png" alt-text="Architecture for creating digital twins by using Azure Digital Twins and an app that makes use of BIM data." lightbox="../media/azure-digital-twins-builder.png" border="false" :::
+:::image type="content" source="../media/azure-digital-twins-builder-new.png" alt-text="Architecture for creating digital twins by using Azure Digital Twins and an app that makes use of BIM data." lightbox="../media/azure-digital-twins-builder-new.png" border="false" :::
 
-*Download a [Visio file](https://arch-center.azureedge.net/US-1896838-azure-digital-twins-builder.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/azure-digital-twins-builder.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -60,13 +34,45 @@ Real estate portfolio managers can use BIM and DTs to improve their understandin
 - [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database/#overview) stores and parses the extracted metadata from a model. Due to the complexity of a model's metadata, Autodesk recommends parsing the data by uploading it to Azure SQL Database in a specific structure, and then using a query that Autodesk provides.
 - [Azure Storage](https://azure.microsoft.com/product-categories/storage) provides temporary storage for data that will be used to create a DT, but isn't yet ready for publishing by Azure Twins Service.
 
+## Scenario details
+
+Architecture, engineering, and construction (AEC) professionals use building information modeling (BIM) as a foundation for efficient design and construction processes. BIM is the most effective tool for modeling a facility and its supporting systems, and produces a flexible, parametric, and relational dataset that can comprehensively document a built asset. It's becoming the industry standard tool for planning and managing the built environment.
+
+BIM data is exceptionally valuable, and it can be improved with a digital representation, based on sensor telemetry, of the physical environment. Such a representation is known as a digital twin (DT). DTs help real estate owners and operators manage the operations of their buildings. This is the digital building lifecycle approach to managing.
+
+This solution idea uses Azure Digital Twins and other Azure services to enable this process more effectively, from BIM to DT. Creating a DT for a facility requires extensive data entry that's done by using either Azure native tools or external tools. The data often requires interpretations of drawings, documentation, and data models of other relevant systems of record. Such interpretations risk data fidelity, and cause inefficiencies in the DT implementation process, inefficiencies that hinder the adoption of DTs.
+
+The key to the solution is having a web app that uses BIM data from Autodesk Forge to automate the creation of an Azure Digital Twins foundational dataset. The app provides both visual and relational context to support the instantiation of a DT in the Azure Digital Twins build process.
+
+By providing the basis for holistic, responsive, and automated building management systems, this app helps address the vast range of challenges that arise when managing buildings digitally at large scale.
+
+The solution in this article uses Autodesk Forge data specifically, but using BIM data from other providers can work also. The idea is broadly applicable to the process of creating a DT from BIM data.
+
+> [!Important]
+> This document is created strictly for informative purposes to demonstrate how Autodesk Forge API can supply BIM data to a web app that creates a DT. Your use of third-party applications is subject to terms between you and the third party. Microsoft Corporation is not affiliated with, is not a partner to, and does not endorse or sponsor Autodesk or any of Autodesk's products. There are other sources of BIM data that you can use to create DTs.
+
+### Potential use cases
+
+This solution is ideal for the facilities, real-estate, manufacturing, energy, and government industries. 
+
+BIM models can describe many structures besides offices, including:
+
+- Datacenters.
+- Factories.
+- Power plants.
+- Bridges.
+
+These structures become more intelligent and advanced as sensors and connected devices become smaller and more affordable. Azure Digital Twins can bring greater accuracy, control, and predictability to the building owner’s building management data. You can, for example, manage frequency sensors within Azure Digital Twins for predictive maintenance of building roof chillers.
+
+Real estate portfolio managers can use BIM and DTs to improve their understanding of the elements within defined spaces, for better building space management.
+
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 
-* [Marcus Farquhar](https://www.linedin.com/in/marcusfarquhar) | Technology Innovation and Experimentation Lead
+* [Marcus Farquhar](https://www.linkedin.com/in/marcusfarquhar) | Technology Innovation and Experimentation Lead
 
 ## Next steps
 
