@@ -29,13 +29,13 @@ Consider this scenario for the following use cases:
 
 ### Components
 
-- The [App Service Environment][intro-to-app-svc-env] provides a fully isolated, dedicated environment for securely running the application at high scale. In addition, since the App Service Environment and the workloads that run on it are behind a virtual network, it also provides an extra layer of security and isolation. The requirement of high scale and isolation drove the selection of ILB App Service Environment.
-- This workload uses the [isolated App Service pricing tier][isolated-tier-pricing-and-ase-pricing], so the application runs in a private dedicated environment in an Azure datacenter using Dv2-series VMs with faster processors, SSD storage, and double the memory-to-core ratio compared to Standard.
+- The [App Service Environment][intro-to-app-svc-env] provides a fully isolated, dedicated environment for securely running the application at high scale. In addition, because the App Service Environment and the workloads that run on it are behind a virtual network, it also provides an extra layer of security and isolation. The requirement of high scale and isolation drove the selection of ILB App Service Environment.
+- This workload uses the [isolated App Service pricing tier][isolated-tier-pricing-and-ase-pricing], so the application runs in a private dedicated environment in an Azure datacenter using faster processors, SSD storage, and double the memory-to-core ratio compared to Standard.
 - Azure App Services [Web App][docs-webapps] and [API App][docs-apiapps] host web applications and RESTful APIs. These apps and APIs are hosted on the Isolated service plan, which also offers autoscaling, custom domains, and so on, but in a dedicated tier.
 - Azure [Application Gateway][docs-appgw] is a web traffic load balancer operating at Layer 7 that manages traffic to the web application. It offers SSL offloading, which removes extra overhead from the web servers hosting the web app to decrypt traffic again.
 - [Web Application Firewall][docs-waf] (WAF) is a feature of Application Gateway. Enabling the WAF in the Application Gateway further enhances security. The WAF uses OWASP rules to protect the web application against attacks such as cross-site scripting, session hijacks, and SQL injection.
 - [Azure SQL Database][docs-sql-database] was selected because most of the data in this application is relational data, with some data as documents and Blobs.
-- [Azure Networking][azure-networking] provides various networking capabilities in Azure, and the networks can be peered with other virtual networks in Azure Connectivity. Connections can also be established with on-premises datacenters via ExpressRoute or site-to-site. In this case, a [service endpoint][sql-service-endpoint] is enabled on the virtual network to ensure the data is flowing only between the Azure virtual network and the SQL Database instance.
+- [Azure Networking][azure-networking] provides various networking capabilities in Azure, and the networks can be peered with other virtual networks in Azure. Connections can also be established with on-premises datacenters via ExpressRoute or site-to-site. In this case, a [service endpoint][sql-service-endpoint] is enabled on the virtual network to ensure the data is flowing only between the Azure virtual network and the SQL Database instance.
 - [Azure DevOps][docs-azure-devops] is used to help teams collaborate during sprints, using features that support Agile Development, and to create build and release pipelines.
 - An Azure build [VM][docs-azure-vm] was created so that the installed agent can pull down the respective build, and deploy the web app to the environment.
 
@@ -75,7 +75,7 @@ Additionally, the custom domain name used for apps and the domain name used by t
 
 Choose a domain for the ILB App Service Environment that won't conflict with those custom domain names. You can use something like contoso-internal.com for the domain of your environment for this example, because that won't conflict with custom domain names that end in .contoso.com.
 
-Another point to consider is DNS. In order to allow applications within the App Service Environment to communicate with each other, for instance a web application to talk to an API, you'll need to have DNS configured for your virtual network holding the environment. You can either [bring your own DNS][bring-your-own-dns] or you can use [Azure DNS private zones][private-zones]
+Another point to consider is DNS. In order to allow applications within the App Service Environment to communicate with each other, for instance a web application to talk to an API, you'll need to have DNS configured for your virtual network holding the environment. You can either [bring your own DNS][bring-your-own-dns] or you can use [Azure DNS private zones][private-zones].
 
 ### Availability
 
@@ -112,13 +112,13 @@ To deploy this scenario, follow this [step-by-step tutorial][end-to-end-walkthro
 
 ## Pricing
 
-Explore the cost of running this scenario, all of the services are pre-configured in the cost calculator. To see how the pricing would change for your particular use case, change the appropriate variables to match your expected traffic.
+Explore the cost of running this scenario. All of the services are pre-configured in the cost calculator. To see how pricing would change for your particular use case, change the appropriate variables to match your expected traffic.
 
 We've provided three sample cost profiles based on amount of traffic you expect to get:
 
-- [Small][small-pricing]: This pricing example represents the components necessary to build the out for a minimum production level instance. Here we're assuming a few users, numbering only in a few thousand per month. The app is using a single instance of a standard web app that will be enough to enable autoscaling. Each of the other components is scaled to a basic tier that will allow for a minimum amount of cost but still ensure that there's SLA support and enough capacity to handle a production-level workload.
-- [Medium][medium-pricing]: This pricing example represents the components indicative of a moderate size deployment. Here we estimate approximately 100,000 users using the system over the course of a month. The expected traffic is handled in a single app service instance with a moderate standard tier. Additionally, moderate tiers of cognitive and search services are added to the calculator.
-- [Large][large-pricing]: This pricing example represents an application meant for high scale, at the order of millions of users per month, when moving terabytes of data. At this level of usage high performance, premium tier web apps deployed in multiple regions fronted by traffic manager is required. Data consists of the following components: storage, databases, and CDN, are configured for terabytes of data.
+- [Small][small-pricing]: This pricing example represents the components necessary for a minimum production-level instance serving a few thousand users per month. The app is using a single instance of a standard web app that will be enough to enable autoscaling. Each of the other components is scaled to a basic tier that will minimize cost but still ensure that there's SLA support and enough capacity to handle a production-level workload.
+- [Medium][medium-pricing]: This pricing example represents the components needed for a moderate size deployment. Here we estimate approximately 100,000 users over the course of a month. The expected traffic is handled in a single app service instance with a moderate standard tier. Additionally, moderate tiers of cognitive and search services are added to the calculator.
+- [Large][large-pricing]: This pricing example represents an application meant for high scale, at the order of millions of users per month, moving terabytes of data. At this level of usage, high performance, premium tier web apps deployed in multiple regions fronted by traffic manager are required. Data consists of the following components: storage, databases, and CDN, all configured for terabytes of data.
 
 ## Contributors
 
