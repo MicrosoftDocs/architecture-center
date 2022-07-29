@@ -188,6 +188,13 @@ Other contributors:
 For more information, contact [Mainframe modernization](mailto:mainframedatamod@microsoft.com).
 
 ## Related resources
+
+See the companion architecture:
+
+- [Rehost IMS workloads to virtual machines by using IMSql](imsql-rehost-ims.yml)
+
+More related resources: 
+
 - [General mainframe refactor to Azure](general-mainframe-refactor.yml)
 - [Mainframe access to Azure databases](../../solution-ideas/articles/mainframe-access-azure-databases.yml)
 - [Re-engineer mainframe batch applications on Azure](../../example-scenario/mainframe/reengineer-mainframe-batch-apps-azure.yml)
