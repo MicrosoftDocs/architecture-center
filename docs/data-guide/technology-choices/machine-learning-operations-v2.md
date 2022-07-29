@@ -77,6 +77,8 @@ The architectures currently covered by MLOps v2 and discussed in this article ar
 
 :::image type="content" source="../images/classical-ml-architecture.png" lightbox="../images/classical-ml-architecture.png" alt-text="Diagram for the classical machine learning architecture." border="false":::
 
+*Download a [Visio file](https://arch-center.azureedge.net/machine-learning-operation-classical-ml.vsdx) of this architecture.*
+
 ### Workflow for the classical machine learning architecture
 
 1. Data estate
@@ -129,6 +131,8 @@ The architectures currently covered by MLOps v2 and discussed in this article ar
 
 :::image type="content" source="../images/computer-vision-architecture.png" lightbox="../images/computer-vision-architecture.png" alt-text="Diagram for the computer vision architecture." border="false":::
 
+*Download a [Visio file](https://arch-center.azureedge.net/machine-learning-operation-computer-vision.vsdx) of this architecture.*
+
 ### Workflow for the CV architecture
 
 The Machine Learning CV architecture is based on the classical machine learning architecture, but it has modifications that are particular to supervised CV scenarios.
@@ -166,7 +170,9 @@ The Machine Learning CV architecture is based on the classical machine learning 
 
 ### Machine Learning NLP architecture
 
-:::image type="content" source="../images/natural-language-processing-architecture.png" lightbox="../images/natural-language-processing-architecture.png" alt-text="Diagram for the NLP architecture." border="false":::
+:::image type="content" source="../images/natural-language-processing-architecture.png" lightbox="../images/natural-language-processing-architecture.png" alt-text="Diagram for the N L P architecture." border="false":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/machine-learning-operation-natural-language-processing.vsdx) of this architecture.*
 
 #### Workflow for the NLP architecture
 

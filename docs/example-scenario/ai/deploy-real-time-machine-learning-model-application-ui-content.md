@@ -1,42 +1,8 @@
-This article expands on [Citizen AI with the Power Platform](../ai/citizen-ai-power-platform.yml), which provides a high-level example of a low-code, end-to-end *lambda architecture* for real-time and batch data streaming. It covers how to deploy machine learning models for real-time and batch inference. This article also covers how to consume these models by using an end-user application or analyzing results in Power BI.
+This solution expands on [Citizen AI with the Power Platform](../ai/citizen-ai-power-platform.yml), which provides a high-level example of a low-code, end-to-end *lambda architecture* for real-time and batch data streaming. It covers how to deploy machine learning models for real-time and batch inference. This article also covers how to consume these models by using an end-user application or analyzing results in Power BI.
 
 This article guides you through a model-view-presenter (MVP) architecture by using semi-structured data stored in [Azure Data Lake Storage](/azure/machine-learning/concept-data). You use this data in [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) for training a machine learning model. You deploy the model to a real-time endpoint deployed on an [Azure Container Instance](/azure/machine-learning/how-to-deploy-azure-container-instance) or [Azure Kubernetes Service (AKS)](/azure/machine-learning/how-to-deploy-azure-kubernetes-service?tabs=python) cluster. Finally, Power Apps consumes the model by using a low-code, custom user app.
 
-The ability to rapidly prototype and validate an AI application in a real-world setting is important to following a fail-fast approach. The following services can help with this development:
-
-**Machine Learning**
-
-- Supports no-code to fully coded machine learning development
-- Has a flexible, low-code GUI
-- Enables users to rapidly source and prep data
-- Enables users to rapidly build and deploy models
-- Has advanced, automated machine learning capabilities for machine learning algorithm development
-
-**Power Apps and Power Automate**
-
-- Enables users to build custom applications and automation workflows
-- Creates workflows so that consumers and business processes can interact with a machine learning model
-
-## Potential use cases
-
-This example workload is designed to help a buyer or a purchasing agent in the automotive industry estimate a car's market price. A user can use a Power App to submit vehicle details to a model that's trained on market data and receive a price prediction in return.
-
-The applicability of this example workload *isn't limited to a specific industry and can apply to a variety of use cases*. Any use case that uses data stored on a data lake for model training and deployment to a real-time web application can also be used for unstructured or structured data.
-
-- **Customer segmentation**: Identify target markets based on real-time data and indicators. For example, predict the promotion that a shopper might respond to based on purchase data and customer details.
-  - Key industries: Banking, insurance, retail, and telecommunications.
-- **Churn prevention**: Identify signs of dissatisfaction among customers and identify customers who are at risk for leaving.
-  - Key industries: Banking, insurance, automotive, and retail
-- **Predictive maintenance**: With operational reporting, and by analyzing metrics and real-time data related to the lifecycle maintenance of technical equipment, companies can predict timelines, potential maintenance events, and upcoming expenditure requirements. These predictions help to optimize maintenance costs and avoid critical downtime.
-  - Key industries: Automotive, manufacturing, logistics, and oil and gas
-- **Real-time personalization**: Generate personalized recommendations for customers in real time.
-  - Key industries: Retail and e-commerce.
-
 ## Architecture
-
-This architecture extends [Analytics end-to-end with Azure Synapse](../dataplate2e/data-platform-end-to-end.yml), an example scenario. With this scenario, a custom machine learning model can train in Machine Learning. Then you can implement the model with a custom application built by using Microsoft Power Platform.
-
-[Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) fulfills the role of a low-code GUI for machine learning development. It has automated machine learning and deploys to batch or real-time endpoints. [Microsoft Power Platform](https://powerplatform.microsoft.com), which includes [Microsoft Power Apps](https://powerapps.microsoft.com) and [Microsoft Power Automate](https://flow.microsoft.com), provides the tools to rapidly build a custom application and workflow that implements your machine learning algorithm. Now your end users can build production grade machine learning applications to transform their legacy business processes.
 
 :::image type="content" source="media/deploy-real-time-machine-learning-model-application-ui.png" alt-text="Diagram that shows a machine learning model created in Machine Learning that obtains car data from Data Lake Storage and provides inferences to an endpoint." lightbox="media/deploy-real-time-machine-learning-model-application-ui.png" :::
 
@@ -77,6 +43,44 @@ This architecture extends [Analytics end-to-end with Azure Synapse](../dataplate
 ### Alternatives
 
 The solution in this article focuses on an architecture that benefits from speed-to-outcome. In specific use cases, the needs of a custom model can be met by pre-trained models that use [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services) or [Azure Applied AI Services](https://azure.microsoft.com/product-categories/applied-ai-services). In others, [Power Apps AI Builder](https://powerapps.microsoft.com/ai-builder) might provide a fit-for-purpose model.
+
+## Scenario details
+
+The ability to rapidly prototype and validate an AI application in a real-world setting is important to following a fail-fast approach. The following services can help with this development:
+
+**Machine Learning**
+
+- Supports no-code to fully coded machine learning development
+- Has a flexible, low-code GUI
+- Enables users to rapidly source and prep data
+- Enables users to rapidly build and deploy models
+- Has advanced, automated machine learning capabilities for machine learning algorithm development
+
+**Power Apps and Power Automate**
+
+- Enables users to build custom applications and automation workflows
+- Creates workflows so that consumers and business processes can interact with a machine learning model
+
+### End-to-end analytics
+
+This architecture extends [Analytics end-to-end with Azure Synapse](../dataplate2e/data-platform-end-to-end.yml), an example scenario. With this scenario, a custom machine learning model can train in Machine Learning. Then you can implement the model with a custom application built by using Microsoft Power Platform.
+
+[Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) fulfills the role of a low-code GUI for machine learning development. It has automated machine learning and deploys to batch or real-time endpoints. [Microsoft Power Platform](https://powerplatform.microsoft.com), which includes [Microsoft Power Apps](https://powerapps.microsoft.com) and [Microsoft Power Automate](https://flow.microsoft.com), provides the tools to rapidly build a custom application and workflow that implements your machine learning algorithm. Now your end users can build production grade machine learning applications to transform their legacy business processes.
+
+### Potential use cases
+
+This example workload is designed to help a buyer or a purchasing agent in the automotive industry estimate a car's market price. A user can use a Power App to submit vehicle details to a model that's trained on market data and receive a price prediction in return.
+
+The applicability of this example workload *isn't limited to a specific industry and can apply to a variety of use cases*. Any use case that uses data stored on a data lake for model training and deployment to a real-time web application can also be used for unstructured or structured data.
+
+- **Customer segmentation**: Identify target markets based on real-time data and indicators. For example, predict the promotion that a shopper might respond to based on purchase data and customer details.
+  - Key industries: Banking, insurance, retail, and telecommunications.
+- **Churn prevention**: Identify signs of dissatisfaction among customers and identify customers who are at risk for leaving.
+  - Key industries: Banking, insurance, automotive, and retail
+- **Predictive maintenance**: With operational reporting, and by analyzing metrics and real-time data related to the lifecycle maintenance of technical equipment, companies can predict timelines, potential maintenance events, and upcoming expenditure requirements. These predictions help to optimize maintenance costs and avoid critical downtime.
+  - Key industries: Automotive, manufacturing, logistics, and oil and gas
+- **Real-time personalization**: Generate personalized recommendations for customers in real time.
+  - Key industries: Retail and e-commerce.
 
 ## Considerations
 
