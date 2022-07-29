@@ -7,59 +7,55 @@ Code Leo is a URANS-based flow solver that delivers accurate and fast flow simul
 - Is used to run both steady-state and unsteady simulations.
 - Can handle structured multi-block meshes and unstructured meshes with mixed tetrahedrons, pyramids, prisms, and hex elements.
 - Allows the use of various turbomachinery rotor/stator interaction models, including sliding mesh, mixing plane, and frozen rotor models.
+- Is HPC-aware and uses MPI+MP for parallel computing.
 
 Code Leo was originally designed for CPUs, but ADS CFD has extended it to take advantage of the advanced GPU architecture when GPUs became more cost-effective. It's been validated for decades by industry leaders like Air Force Research Laboratory and NASA. Code Leo users can switch easily between CPU and GPU solvers.
 
 ADS CFD software is used primarily in the aerospace and turbomachinery industries for performance and durability assessments of jet engines and aircraft. One of the main use cases is the analysis and optimization of integrated engine/aircraft configurations so that next-generation aircraft designs can be closed on time and with confidence.
 
+## Install Code Leo on a virtual machine
+
 Before you install Code Leo, you need to deploy and connect a virtual machine (VM) and install the required NVIDIA and AMD drivers.
 
-See one of these articles to deploy the VM:
+For information about deploying the VM, see one of these articles:
 
 - [Run a Windows VM on Azure](/azure/architecture/reference-architectures/n-tier/windows-vm)
 - [Run a Linux VM on Azure](/azure/architecture/reference-architectures/n-tier/linux-vm)
 
-Install ADS CFD Code Leo application on a Virtual Machine
-DOWNLOAD THE PRODUCT
 
-**Instructions on how to download Code Leo products from the ADS CFD portal.**
-Before beginning, open the ADS CFD portal in a web browser and log on:
-1. Click on **Support tab** on home page.
-1. Click on **Download** button.
-1. Click the latest version **Download** icon for Linux.
-1. The package contains one run file.
+To download Code Leo products from the ADS CFD portal:
 
-INSTALL CODE LEO APPLICATION
+1. Open the ADS CFD portal in a web browser and sign in.
+1. Select **Support tab** on the home page.
+1. Select **Download**.
+1. Select the download link for the latest version of Linux.
 
-Installation instructions for Code Leo can be found at https://new.aerodynamic-solutions.com/support
+The package contains one run file.
 
-Performance results of Code Leo on Azure virtual machine
-ADS CFD CODE LEO OVERVIEW
+ See the [ADS CFD website](https://new.aerodynamic-solutions.com/support) for instructions for installing Code Leo.
 
-The ADS CFD flow solver, Code Leo, was used to run both the steady state and unsteady simulations. Code Leo is a density-based, compressible flow code, with explicit time marching, and convergence acceleration. Code Leo handles both structured multi-block meshes and unstructured meshes with mixed tetrahedrons, pyramids, prisms and hex elements. Code Leo allows use of various turbomachinery rotor/stator interaction models including the sliding mesh, mixing plane and frozen rotor models. Code Leo is HPC-aware and uses MPI+MP for parallel computing.
+## Performance results of Code Leo on an Azure VM
 
-Code Leo can be executed on both CPUs and GPUs. Originally designed for CPUs, ADS CFD has extended it to take advantage of the advanced GPU architecture following the advent of cost-effective GPUs. Code Leo allows users to switch easily between CPU and GPU solvers.
+Code Leo was used to run both the steady state and unsteady simulations. 
 
-ADS CFD CODE LEO V8.21.08 PERFORMANCE RESULTS
+### Code Leo V8.21.08 performance results
 
-**Model Details:**
-For performance evaluation, the CC3 wheel model is considered. The CC3 wheel model has two parts: the Impeller and Diffuser.
+The CC3 wheel model is used for this performance evaluation. This model has two parts, the impeller and the diffuser, as shown here:
 
-2 images 
-**CC3 wheel: Impeller and Diffuser**
+![Image that shows the impeller and diffuser.](/media/impeller-diffuser.png)
 
-|MODEL  |NUMBER OF ELEMENTS |NUMBER OF NODES  |
+|Model  |Number of elements |Number of nodes  |
 |---------|---------|---------|
 |Impeller     |   670848      |     742968    |
 |Diffuser     |     914688    |     1012095    |
 
-Full wheel time accurate analysis results are carried out on Azure virtual machines ND96asr_v4 and NC24s_v3 respectively.
+Full wheel time analyses were performed on ND96asr_v4 and NC24s_v3 Azure VMs.
 
-ADS CFD provided CPU results, which is used as baseline to compare GPU runs on both VM instances.
+ADS CFD provided CPU results, which are used as a baseline for comparing GPU runs on both VM instances.
 
-The elapsed time for CPU simulation is 3600 minutes, which was carried out on server with Xeon 23 CPUs, clock speed of 2.4 GHz.
+The elapsed time for CPU simulation is 3,600 minutes. The simulation was performed on a server with Xeon 23 CPUs with a clock speed of 2.4 GHz.
 
-Performance Results of NDv4 A100, Diffuser and Impeller
+#### Performance results of NDv4 A100, diffuser and impeller
 
 |NO OF GPUS. |ELAPSED TIME (MINUTES)|SIMULATION SPEED-UP  |
 |---------|---------|---------|
