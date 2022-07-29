@@ -1,18 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Collaboration is critical to business efficiency and productivity. Tools like Microsoft Teams provide a great way to collaborate via chat, audio, and video. Word, Excel, and PowerPoint online make it easy to collaborate on various types of documents and spreadsheets with colleagues and customers around the world.  
-
-You can use Azure services to add real-time collaborative functionality to custom applications just as you do with  off-the-shelf solutions. This example solution shows how you can use libraries and Azure services to meet custom collaboration requirements. In addition to real-time collaboration, this solution supports user presence status. Users can work together in the custom app to collect ideas, see when new ideas are added, modified, or deleted in real time, and avoid data conflicts during collaboration sessions.
-
-To meet these requirements, the solution uses Fluid Framework and Azure Fluid Relay. It authenticates users against Azure Active Directory (Azure AD) by using the Login component of the Microsoft Graph Toolkit and the Microsoft Authentication Library (MSAL) provider.
-
-## Potential use cases
-
-This solution applies to companies that build custom application solutions that require:
-
-- Secure application access.
-- Real-time data collaboration among multiple users.
-- Built-in collaboration data-storage capabilities.
+This solution shows how you can use libraries and Azure services to meet custom collaboration requirements. In addition to real-time collaboration, this solution supports user presence status. Users can work together in the custom app to collect ideas, see when new ideas are added, modified, or deleted in real time, and avoid data conflicts during collaboration sessions.
 
 ## Architecture
 
@@ -35,6 +23,22 @@ This solution applies to companies that build custom application solutions that 
 - [Azure AD](https://azure.microsoft.com/services/active-directory) is the Microsoft cloud-based identity and access management service that helps your employees sign in and access resources.
 - [Microsoft Graph Toolkit](/graph/toolkit/overview) is a collection of reusable, framework-agnostic components and authentication providers for accessing and working with Microsoft Graph.
 - [Azure Static Web Apps](https://azure.microsoft.com/services/app-service/static) is a service that automatically builds and deploys full stack web apps to Azure from a code repository.
+
+## Scenario details
+
+Collaboration is critical to business efficiency and productivity. Tools like Microsoft Teams provide a great way to collaborate via chat, audio, and video. Word, Excel, and PowerPoint online make it easy to collaborate on various types of documents and spreadsheets with colleagues and customers around the world.  
+
+You can use Azure services to add real-time collaborative functionality to custom applications just as you do with  off-the-shelf solutions. This solution shows how you can use libraries and Azure services to meet custom collaboration requirements. In addition to real-time collaboration, this solution supports user presence status. Users can work together in the custom app to collect ideas, see when new ideas are added, modified, or deleted in real time, and avoid data conflicts during collaboration sessions.
+
+To meet these requirements, the solution uses Fluid Framework and Azure Fluid Relay. It authenticates users against Azure Active Directory (Azure AD) by using the Login component of the Microsoft Graph Toolkit and the Microsoft Authentication Library (MSAL) provider.
+
+### Potential use cases
+
+This solution applies to companies that build custom application solutions that require:
+
+- Secure application access.
+- Real-time data collaboration among multiple users.
+- Built-in collaboration data-storage capabilities.
 
 ## Deploy this scenario
 

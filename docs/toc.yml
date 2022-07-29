@@ -7,6 +7,14 @@ items:
     href: icons/index.md
   - name: What's new
     href: changelog.md
+  - name: Landing zones
+    items:
+      - name: Design guides
+        items:
+          - name: Bicep landing zone implementation
+            href: landing-zones/bicep/landing-zone-bicep.md
+          - name: Terraform landing zone implementation
+            href: landing-zones/terraform/landing-zone-terraform.md
   - name: Application architecture fundamentals
     items:
       - name: Introduction
@@ -2521,6 +2529,8 @@ items:
                 items:
                   - name: Upscale ML lifecycle with MLOps
                     href: example-scenario/mlops/mlops-technical-paper.yml
+                  - name: Machine learning operations (MLOps) v2
+                    href: data-guide/technology-choices/machine-learning-operations-v2.md
                   - name: MLOps maturity model
                     href: example-scenario/mlops/mlops-maturity-model.yml
                   - name: Azure ML service selection guide
@@ -4064,7 +4074,7 @@ items:
                     href: /azure/azure-monitor/continuous-monitoring
                     maintainContext: true
                   - name: Data sources
-                    href: /azure/azure-monitor/agents/data-sources
+                    href: /azure/azure-monitor/data-sources
                     maintainContext: true
                   - name: Data platform
                     href: /azure/azure-monitor/data-platform
@@ -4818,6 +4828,8 @@ items:
                 items:
                   - name: Mainframe data replication with Qlik
                     href: example-scenario/mainframe/mainframe-midrange-data-replication-azure-qlik.yml
+                  - name: Mainframe data replication with tcVISION
+                    href: example-scenario/mainframe/mainframe-data-replication-azure-tcvision.yml
                   - name: Model9 mainframe modernization
                     href: example-scenario/mainframe/mainframe-modernization-model9.yml
                   - name: Modernize mainframe and midrange data
@@ -4836,6 +4848,8 @@ items:
                     href: solution-ideas/articles/mainframe-azure-file-replication.yml
       - name: Management + Governance
         items:
+          - name: Get started
+            href: guide/management-governance/management-governance-start-here.md
           - name: Guides
             items:
               - name: Governance best practices
@@ -5263,6 +5277,8 @@ items:
         items:
           - name: Guides
             items:
+              - name: Azure Communication Services architecture
+                href: guide/mobile/azure-communication-services-architecture.yml
               - name: Choose a mobile development framework
                 href: /azure/developer/mobile-apps/choose-mobile-framework
                 maintainContext: true
