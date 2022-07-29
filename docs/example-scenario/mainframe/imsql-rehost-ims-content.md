@@ -31,8 +31,8 @@ I. Partitions run separate workloads and segregate work types within the environ
 
 #### Dataflow
 
-1. IBM 3270 terminal emulators connect to IMS TM applications that are deployed on Azure as is via the IMSql Terminal Server.
-1. Batch processes written in JCL are run as is via transient Azure container instances that run the Raincode JCL interpreter.
+1. IBM 3270 terminal emulators connect to IMS TM applications that are deployed on Azure unchanged via the IMSql Terminal Server.
+1. Batch processes written in JCL are run unchanged via transient Azure container instances that run the Raincode JCL interpreter.
 1. Read/write SQL Server views on the IMS data enable modern applications or business intelligence (like Power BI) to communicate directly with IMS applications, abstracting away mainframe elements like data structures and character encodings.
 1. Raincode Console provides a web-based administration environment for IMSql. 
 1. SQL Server Service Broker is the communications backbone for IMSql components.
