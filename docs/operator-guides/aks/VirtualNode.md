@@ -16,24 +16,24 @@ ms.custom:
 ---
 # Analyzing Virtual Nodes Issues deployed to AKS Cluster
 
-Installation of Virtual Nodes or workload deployment on them can have some challenges & therefore this document is created for Asministrators to know the most common issues & how the relative guidance be helpful
+Installation of Virtual Nodes or workload deployment on them can have some challenges & therefore this document is created for Administrators to know the most common issues & how the relative guidance is helpful
 
 ## General Issues & relative Guidance
 
 <br/>
 
-1. If you're deploying virtual nodes on AKS where Virtual Node is not available , its because
-   * VNET SKUs aren't available for Azure Container Instances in the region, please verify region availability from [Verify Region Availability](/azure/aks/virtual-nodes)
+1. If you're deploying virtual nodes on AKS where Virtual Node isn't available, it's because
+   * VNET SKUs aren't available for Azure Container Instances in the region, please verify region availability from [Region Availability](/azure/aks/virtual-nodes)
 
 <br/>
 
 2. Sometimes during the installation phase you can notice that Virtual Node is not available in AKS cluster even after enabling the virtual node option through portal or through Addons
-   * ACI uses a separate subnet for deploying workloads & because the virtual nodes need a dedicated subnet to spin up ACI instances (as pods) , please verify if a second subnet was created & that should not overlap with Cluster subnet range -   [Create virtual nodes using Azure CLI - Azure Kubernetes Service | Microsoft Docs](/azure/aks/virtual-nodes-cli)
+   * ACI uses a separate subnet for deploying workloads & because the virtual nodes need a dedicated subnet to spin up ACI instances (as pods) , please verify if a second subnet was created & that shouldn't overlap with Cluster subnet range -   [Create virtual nodes using Azure CLI - Azure Kubernetes Service | Microsoft Docs](/azure/aks/virtual-nodes-cli)
    
-   * Virtual Nodes utilize Azure CNI for getting IP's on demand from the subnet that is allocated to them , so a cluster identity used by the AKS cluster must have at least Network Contributor permissions on the subnet within your virtual network. If you wish to define a custom role instead of using the built-in Network Contributor role, the following permissions are required - [Pre-requistes for Azure CNI](/azure/aks/configure-azure-cni#prerequisites)
+   * Virtual Nodes utilize Azure CNI for getting IP's on demand from the subnet that is allocated to them, so a cluster identity used by the AKS cluster must have at least Network Contributor permissions on the subnet within your virtual network. If you wish to define a custom role instead of using the built-in Network Contributor role, the following permissions are required - [Prerequisites for Azure CNI](/azure/aks/configure-azure-cni#prerequisites)
         * Microsoft.Network/virtualNetworks/subnets/join/action
         * Microsoft.Network/virtualNetworks/subnets/read
-    * To monitor Virtual nodes Pods , refer [Collect & analyze resource logs - Azure Container Instances | Microsoft Docs](/azure/container-instances/container-instances-log-analytics)
+    * To monitor Virtual nodes Pods, refer [Collect & analyze resource logs - Azure Container Instances | Microsoft Docs](/azure/container-instances/container-instances-log-analytics)
 
   
 <br/>
@@ -54,7 +54,7 @@ Installation of Virtual Nodes or workload deployment on them can have some chall
 
 
     **Reference Link** : [Known limitations](/azure/aks/virtual-nodes#known-limitations)
-* Container Insights can also help in providing further insights for the pods & containers workloads on Virtual Nodes uery the Logs, For more information refer [Collect & analyze resource logs - Azure Container Instances | Microsoft Docs](/azure/azure-monitor/containers/container-insights-log-query)
+* Container Insights can also help in providing further insights for the pods & containers workloads on Virtual Nodes query the Logs, For more information refer [Collect & analyze resource logs - Azure Container Instances | Microsoft Docs](/azure/azure-monitor/containers/container-insights-log-query)
 
         
 
