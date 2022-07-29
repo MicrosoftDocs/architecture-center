@@ -4806,6 +4806,8 @@ items:
                     href: example-scenario/mainframe/mainframe-rehost-architecture-azure.yml 
                   - name: Rehost Adabas & Natural applications
                     href: example-scenario/mainframe/rehost-adabas-software-ag.yml
+                  - name: Rehost IMS workloads by using IMSql 
+                    href: example-scenario/mainframe/imsql-rehost-ims.yml
                   - name: Rehost mainframe with NTT DATA UniKix
                     href: example-scenario/mainframe/rehost-mainframe-ntt-data-unikix.yml
                   - name: Unisys CPF rehost using virtualization
