@@ -6,6 +6,8 @@ This example scenario shows how your business can use machine learning to automa
 
 ![Architectural diagram: training, evaluation, and deployment of a machine learning model for content-based personalization on Apache Spark using Azure Databricks.](./media/architecture-scalable-personalization.png)
 
+*Download a [Visio file](https://arch-center.azureedge.net/architecture-scalable-personalization.vsdx) of this architecture.*
+
 This example scenario covers the training, evaluation, and deployment of a machine learning model for content-based personalization on Apache Spark by using [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks). In this case, a model is trained with a supervised classification algorithm on a dataset that contains user and item features. The label for each example is a binary value that indicates whether a user engaged with an item, for example by selecting the item. This scenario covers a subset of the steps that are required for a full end-to-end recommendation system workload. The broader context of this scenario is based on a generic e-commerce website with a front end that serves rapidly changing content to users. The website uses cookies and user profiles to personalize the content for each user. Along with user profiles, the website sometimes has information about the items it serves to each user.
 
 ### Dataflow
