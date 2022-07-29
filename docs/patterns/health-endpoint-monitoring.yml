@@ -3,8 +3,8 @@ metadata:
   title: Health Endpoint Monitoring pattern
   description: Implement functional checks in an application that external tools can access through exposed endpoints at regular intervals.
   author: EdPrice-MSFT
-  ms.author: edprice
-  ms.date: 12/13/2021
+  ms.author: architectures
+  ms.date: 07/28/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
