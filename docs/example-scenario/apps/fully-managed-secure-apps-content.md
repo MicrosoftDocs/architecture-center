@@ -14,6 +14,8 @@ Consider this scenario for the following use cases:
 
 ![Diagram featuring the sample scenario architecture for Secure ILB ASE Deployment.][architecture]
 
+*Download a [Visio file][visio-download] of this architecture.*
+
 ### Dataflow
 
 1. HTTP/HTTPS requests first hit the Application Gateway.
@@ -187,3 +189,4 @@ Principal author:
 [secure-development]: https://www.microsoft.com/SDL/process/design.aspx
 [sql-geo-replication]: /azure/sql-database/sql-database-geo-replication-overview
 [storage-geo-redudancy]: /azure/storage/common/storage-redundancy-grs
+[visio-download]: https://arch-center.azureedge.net/fully-managed-secure-apps.vsdx

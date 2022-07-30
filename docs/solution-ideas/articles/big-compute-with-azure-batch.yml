@@ -1,11 +1,11 @@
 ### YamlMime:Architecture
 metadata:
   title: HPC system and big-compute solutions
-  titleSuffix: Azure Solution Ideas
+  titleSuffix: Azure Architecture Center
   description: Explore big-compute solutions with Azure Batch, and use HPC cloud systems for cloud-native application and batch processing.
   author: EdPrice-MSFT
-  ms.author: edprice
-  ms.date: 05/23/2022
+  ms.author: architectures
+  ms.date: 07/14/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea

@@ -18,6 +18,6 @@ products:
   - azure-cognitive-services
 name: Industrial IoT visibility patterns
 summary: Learn about common visibility patterns to build, deploy, and manage Industrial IoT (IIoT) solutions.
-thumbnailUrl: /azure/architecture/browse/thumbs/anomaly-detection.png
+thumbnailUrl: /azure/architecture/browse/thumbs/anomaly-detection-thumbnail-new.png
 content: |
   [!include[](iiot-visibility-patterns-content.md)]

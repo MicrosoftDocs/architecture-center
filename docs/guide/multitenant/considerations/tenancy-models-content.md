@@ -74,7 +74,7 @@ You can consider mixing and matching different levels of isolation at each tier.
 
 ## Common tenancy models
 
-Once you've established your requirements, evaluate them against some common tenancy models and patterns.
+Once you've established your requirements, evaluate them against some common tenancy models and corresponding deployment patterns.
 
 ### Automated single-tenant deployments
 

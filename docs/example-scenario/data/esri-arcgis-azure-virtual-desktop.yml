@@ -1,0 +1,28 @@
+### YamlMime:Architecture
+metadata:
+  title: Esri ArcGIS Platform on Azure Virtual Desktop 
+  titleSuffix: Azure Architecture Center
+  description: View a reference architecture that shows how to deploy ArcGIS Pro in Azure Virtual Desktop to support the hyperscale of Azure.
+  author: rovin-ms
+  ms.author: rovin
+  ms.date: 07/07/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.custom: fcp 
+azureCategories:
+  - analytics
+  - azure-virtual-desktop
+  - databases
+  - identity
+products:
+  - azure-virtual-desktop
+  - azure-netapp-files
+  - azure-monitor
+  - azure-policy
+  - azure-active-directory
+name: Deploy Esri ArcGIS Pro in Azure Virtual Desktop
+summary: View a reference architecture that shows how to deploy ArcGIS Pro in Azure Virtual Desktop to support the hyperscale of Azure.
+thumbnailUrl: /azure/architecture/browse/thumbs/virtual-desktop-gis-azure-network.png
+content: |
+  [!include[](esri-arcgis-azure-virtual-desktop-content.md)]

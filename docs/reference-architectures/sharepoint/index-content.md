@@ -164,7 +164,7 @@ All inbound traffic is free. All outbound traffic is billed. Internet bandwidth 
 
 Azure Virtual Network is free. Every subscription is allowed to create up to 50 virtual networks across all regions. All traffic that originates within the boundaries of a virtual network is free. So, communication between two VMs in the same virtual network is free.
 
-This architecture builds on the architecture deployed in [Run Windows VMs for an N-tier application][windows-n-tier]. See [Cost considerations](../../reference-architectures/n-tier/n-tier-sql-server.yml#cost-considerations) for more information.
+This architecture builds on the architecture deployed in [Run Windows VMs for an N-tier application][windows-n-tier].
 
 For more information, see the cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 

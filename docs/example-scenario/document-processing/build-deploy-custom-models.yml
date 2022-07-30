@@ -1,0 +1,24 @@
+### YamlMime:Architecture
+metadata:
+  title: Build and deploy custom document processing models on Azure
+  titleSuffix: Azure Architecture Center
+  description: See Azure options for orchestrating, storing, building, deploying, and using custom document processing models.
+  author: jyravi
+  ms.author: jyravi
+  ms.date: 07/08/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+azureCategories:
+  - ai-machine-learning
+products:
+  - azure-form-recognizer
+  - azure-language-understanding
+  - azure-logic-apps
+  - azure-machine-learning-studio
+  - azure-storage
+name: Custom document processing models on Azure
+summary: See Azure options for orchestrating, storing, building, deploying, and using custom document processing models.
+thumbnailUrl: /azure/architecture/browse/thumbs/build-deploy-custom-models-thumb.png
+content: |
+  [!include[](build-deploy-custom-models-content.md)]

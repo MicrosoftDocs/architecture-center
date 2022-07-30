@@ -136,7 +136,7 @@ Review the following resources to learn more about CI/CD and Azure DevOps:
 [vsts-deployment-gates]: /vsts/pipelines/release/approvals/gates?view=vsts
 [vsts-pricing-calculator]: https://azure.com/e/498aa024454445a8a352e75724f900b1
 [vsts-pricing-page]: https://azure.microsoft.com/pricing/details/visual-studio-team-services
-[vsts-release-variables]: /vsts/pipelines/release/variables?tabs=batch&view=vsts
+[vsts-release-variables]: /azure/devops/pipelines/release/variables
 [vsts-tokenization]: https://marketplace.visualstudio.com/search?term=token&target=VSTS&category=All%20categories&sortBy=Relevance
 [infra-as-code]: /archive/blogs/mvpawardprogram/infrastructure-as-code
 [azure-devops-server]: https://visualstudio.microsoft.com/tfs
