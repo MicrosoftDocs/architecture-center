@@ -1,4 +1,4 @@
-This reference architecture provides guidance for designing a mission critical workload that has network controls in place to prevent any unauthorized public access between the internet and the workload.
+This reference architecture provides guidance for designing a mission critical workload that has network controls in place to prevent any unauthorized public access between the internet and the workload. You'll need to use a combination of various network controls, Azure Firewall, network security groups (NSGs), and the Kubernetes NetworkPolicy resource.
 
  It builds on the [mission-critical baseline architecture](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro), which is focused on maximizing reliability and operational effectiveness. This architecture adds features to secure ingress and egress paths using cloud-native capabilities. It's recommended that you become familiar with the baseline before proceeding with this article.
 
@@ -110,13 +110,22 @@ The regional resources are provisioned as part of a _deployment stamp_ to a sing
 
 ## Private endpoints for PaaS services
 
-Several Azure PaaS services, global and regional, communicate with each other to process a single business operation. In the baseline architecture, that communication happens over the internet. 
+To process a single business operation, the application as well as the build agents need to reach several Azure PaaS services provisioned  globally, within the region, and even within the stamp. In the baseline architecture, that communication happens over the public internet. 
 
-In this design, ingress to those services has been secured by using private endpoints. This requires a dedicated subnet where the private IP addresses are assigned to the private endpoint.
+In this design, those services have been protected with private endpoints to prevent data exfilteration attacks.  Private endpoints require a dedicated subnet within a virtual network. Private IP addresses to the private endpoints are assigned from that subnet. Essentially, any resource in the virtual network can communicate with the service by reaching the private IP address. Make sure the address space is big enough to accomodate this subnet. 
 
-To connect over a private endpoint, you need a DNS record. It's recommended that DNS records associated with the services are in private DNS zones. Make sure that the fully qualified domain name (FQDN) resolves to the private IP address.  
+To connect over a private endpoint, you need a DNS record. It's recommended that DNS records associated with the services are in private DNS zones. Make sure that the fully qualified domain name (FQDN) resolves to the private IP address.
 
-In this architecture, private endpoints have been configured for Azure Container Registry, Cosmos DB, Key Vault, Storage resources, and Event Hubs.  
+In this architecture, private endpoints have been configured for Azure Container Registry, Cosmos DB, Key Vault, Storage resources, and Event Hubs. Also, the AKS cluster is deployed as a private cluster, which creates a private endpoint for the Kubernetes API service in the cluster's network. 
+
+There are two virtual networks provisioned in this design and both have a dedicated subnets to hold private endpoints for all those services. The network layout is descibed in [Virtual network layout](#virtual-network-layout).
+
+As you add more components to the architecture, consider adding more private endpoints. They can be created on the same or different subnets within the same virtual network. There are limits to the number of private endpoints you can create in a subscription. For more information, see [Azure limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
+
+Tighten the security further by using network security groups on the subnet to control both incoming and outgoing traffic.
+
+## Global routing
+
 
 ## Virtual network layout
 
