@@ -76,7 +76,7 @@ The regional resources are provisioned as part of a _deployment stamp_ to a sing
 
 > Refer to [Well-architected mission critical workloads: Data integrity protection](/azure/architecture/framework/mission-critical/mission-critical-security#data-integrity-protection).
 
-## Deployment pipeline
+## Deployment pipeline resources
 
 Build and release pipelines for a mission critical application must be fully automated. No action should be performed manually. This design demonstrates fully automated pipelines that deploy a validated stamp consistently every time. Another alternative approach is to only deploy rolling updates to an existing stamp.  
 
@@ -108,7 +108,17 @@ Because the compute cluster is private, additional resources are provisioned to 
 
 The regional resources are provisioned as part of a _deployment stamp_ to a single Azure region. These resources share nothing with resources in another region. They can be independently removed or replicated to additional regions. They, however, share [global resources](#global-resources) between each other.
 
-## Networking
+## Private endpoints for PaaS services
+
+Several Azure PaaS services, global and regional, communicate with each other to process a single business operation. In the baseline architecture, that communication happens over the internet. 
+
+In this design, ingress to those services has been secured by using private endpoints. This requires a dedicated subnet where the private IP addresses are assigned to the private endpoint.
+
+To connect over a private endpoint, you need a DNS record. It's recommended that DNS records associated with the services are in private DNS zones. Make sure that the fully qualified domain name (FQDN) resolves to the private IP address.  
+
+In this architecture, private endpoints have been configured for Azure Container Registry, Cosmos DB, Key Vault, Storage resources, and Event Hubs.  
+
+## Virtual network layout
 
 Isolate regional resources and management resources in separate virtual networks. They have distinct purposes. 
 
