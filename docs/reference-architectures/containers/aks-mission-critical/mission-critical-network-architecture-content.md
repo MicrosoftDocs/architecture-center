@@ -112,7 +112,9 @@ The regional resources are provisioned as part of a _deployment stamp_ to a sing
 
 To process a single business operation, the application as well as the build agents need to reach several Azure PaaS services provisioned  globally, within the region, and even within the stamp. In the baseline architecture, that communication happens over the public internet. 
 
-In this design, those services have been protected with private endpoints to prevent data exfilteration attacks.  Private endpoints require a dedicated subnet within a virtual network. Private IP addresses to the private endpoints are assigned from that subnet. Essentially, any resource in the virtual network can communicate with the service by reaching the private IP address. Make sure the address space is big enough to accomodate this subnet. 
+In this design, those services have been protected with private endpoints to prevent data exfilteration attacks. Using private endpoints increases the security of the design. However, it introduces another point of failure. Carefully consider the tradeoffs with security before adopting this approach.
+
+Private endpoints require a dedicated subnet within a virtual network. Private IP addresses to the private endpoints are assigned from that subnet. Essentially, any resource in the virtual network can communicate with the service by reaching the private IP address. Make sure the address space is big enough to accomodate this subnet. 
 
 To connect over a private endpoint, you need a DNS record. It's recommended that DNS records associated with the services are in private DNS zones. Make sure that the fully qualified domain name (FQDN) resolves to the private IP address.
 
@@ -124,8 +126,11 @@ As you add more components to the architecture, consider adding more private end
 
 Tighten the security further by using network security groups on the subnet to control both incoming and outgoing traffic.
 
-## Global routing
+## Stamp ingress points
 
+Azure Front Door (AFD) is used as the global entry point for all incoming client traffic. It uses Web Application Firewall (WAF) capabilities to allow or deny, and route traffic to the configured backend.
+
+![Diagram showing secure global routing for a mission critical workload](./images/mission-critical-global-routing-network.png)
 
 ## Virtual network layout
 
@@ -164,7 +169,7 @@ To build deployment pipelines, you need to provision additional compute to run b
 
 
 ## Global routing
-![Diagram showing secure global routing for a mission critical workload](./images/mission-critical-global-routing-network.png)
+
 
 
 ## Stamp ingress
