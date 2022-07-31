@@ -28,7 +28,7 @@ The [design strategies for mission-critical baseline](/azure/architecture/refere
 
 - **Balance tradeoffs with security**
 
-    There are significant trade-offs when security features are added to a workload architecture. You might notice some impact on performance, operational agility, and even reliability. However,_ attack vectors, such as Denial-Of-Service (DDoS), data intrusion, and others, can target the system's overall reliability and eventually cause unavailability_.
+    There are significant trade-offs when security features are added to a workload architecture. You might notice some impact on performance, operational agility, and even reliability. However, _attack vectors, such as Denial-Of-Service (DDoS), data intrusion, and others, can target the system's overall reliability and eventually cause unavailability_.
   
 > Preceding strategies are based on the guidance provided in [Well-architected mission critical workloads](/azure/architecture/framework/mission-critical/).
 
@@ -87,16 +87,15 @@ Build and release pipelines for a mission critical application must be fully aut
 
 **Self-hosted Azure DevOps build agent pools** are used to have more control over the builds and deployments. This level of autonomy is needed because the compute cluster is private. 
 
-> [!NOTE] 
->  The use of self-hosted agents is demonstrated in the [Mission Critical - Connected](https://aka.ms/mission-critical-connected) reference implementation.
-
 ### Observability resources
 
-Monitoring data for global resources and regional resources are stored independently. A single, centralized observability store isn't recommended to avoid a single point of failure.
+Monitoring data for global resources and regional resources are stored independently. A single, centralized observability store isn't recommended to avoid a single point of failure. For more information, see [Observability resources](azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro#observability-resources)
 
 - **Azure Log Analytics** is used as a unified sink to store logs and metrics for all application and infrastructure components. 
 
 - **Azure Application Insights** is used as an Application Performance Management (APM) tool to collect all application monitoring data and store it directly within Log Analytics.
+
+> Refer to [Well-architected mission critical workloads: Predictive action and AI operations](/azure/architecture/framework/mission-critical/mission-critical-health-modeling#predictive-action-and-ai-operations-aiops).
 
 ### Management resources
 
@@ -131,6 +130,8 @@ Because in this architecture, the [PaaS services have been secured by using priv
 
 ![Diagram showing secure global routing for a mission critical workload](./images/network-diagram-ingress.png)
 
+> Refer to [Well-architected mission critical workloads: Application delivery services](/azure/architecture/framework/mission-critical/mission-critical-networking-connectivity#application-delivery-services).
+
 ## Virtual network layout
 
 Isolate regional resources and management resources in separate virtual networks. They have distinct characteristics, purposes, and security considerations. 
@@ -140,6 +141,9 @@ Isolate regional resources and management resources in separate virtual networks
 - **Lifetime**: The expected lifetimes of those resources are also different. Regional resources are expected to be short-lived (ephemeral). They are created as part of the deployment stamp and destroyed when the stamp is torn down. Management resources share the lifetime of the region and out live the stamp resources.
 
 In this architecture, there are two virtual networks: stamp network and operations network. Create further isolation within each virtual network by using subnets and network security groups (NSGs) to secure communication between the subnets.
+
+> Refer to [Well-architected mission critical workloads: Isolated virtual networks](/azure/architecture/framework/mission-critical/mission-critical-networking-connectivity#isolated-virtual-networks).
+
 
 ### Regional stamp virtual network
 The deployment stamp provisions a virtual network in each region. 
@@ -184,7 +188,7 @@ But, those jump boxes need to be protected as well from unauthorized access. Dir
 
 You can secure ingress to the jump box subnet by using an NSG that only allows inbound traffic from the Bastion subnet over SSH.
 
-If the operator needs to access public endpoints, outbound traffic must also be secure. (How? NSG? UDR?)
+If the operator needs to access public endpoints, outbound traffic must also be secured. (How? NSG? UDR?)
 
 #### Deployment operations
 
