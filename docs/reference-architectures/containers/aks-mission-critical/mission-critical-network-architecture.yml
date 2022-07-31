@@ -13,7 +13,7 @@ metadata:
     - networking
     - security
     - devops
-name: Mission-critical workload architecture on Azure
+name: Mission-critical architecture with network controls
 azureCategories:
   - containers
   - networking

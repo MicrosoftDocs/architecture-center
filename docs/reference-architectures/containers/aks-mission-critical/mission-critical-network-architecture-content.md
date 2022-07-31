@@ -1,13 +1,9 @@
-This reference architecture provides guidance for designing a mission critical workload that has network controls in place to prevent any unauthorized public access between the internet and the workload. You'll need to use a combination of various network controls, Azure Firewall, network security groups (NSGs), and the Kubernetes NetworkPolicy resource.
+This reference architecture provides guidance for designing a mission critical workload that has network controls in place to prevent any unauthorized public access between the internet and the workload. 
 
- It builds on the [mission-critical baseline architecture](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro), which is focused on maximizing reliability and operational effectiveness. This architecture adds features to secure ingress and egress paths using cloud-native capabilities. It's recommended that you become familiar with the baseline before proceeding with this article.
-
-> [!IMPORTANT]
-> ![GitHub logo](../../../_images/github.svg) The guidance is backed by a production-grade [example implementation](https://github.com/Azure/Mission-Critical-Connected) which showcases mission critical application development on Azure. This implementation can be used as a basis for further solution development in your first step towards production.
+It builds on the [mission-critical baseline architecture](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro), which is focused on maximizing reliability and operational effectiveness without any private network. This architecture adds features to secure ingress and egress paths using cloud-native capabilities. It's recommended that you become familiar with the baseline before proceeding with this article.
 
 ## Reliability tier
-<!--how does security impact the overall reliablity-->
-
+TBD: how does security impact the overall reliablity -- insert blurb.
 
 > [!TIP]
 > To define a realistic SLO, it's important to understand the SLA of all Azure components within the architecture. These individual numbers should be aggregated to determine a [composite SLA](/azure/architecture/framework/resiliency/business-metrics#composite-slas) which should align with workload targets.
@@ -16,24 +12,25 @@ This reference architecture provides guidance for designing a mission critical w
 
 ## Key design strategies
 
-The [design strategies for mission-critical baseline](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro#key-design-strategies) still apply in this use case. Here are some additional points:
+The [design strategies for mission-critical baseline](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro#key-design-strategies) still apply in this use case. Here are some networking considerations:
 
-- **Secure ingress**
+- **Secure ingress traffic**
     
-    Ingress or inbound communication into the virtual network must secured. Eliminate any public connectivity to Azure services by using private endpoints. Further, inspect traffic to subnets by using network security groups (NSGs) on subnets with private endpoints.
+    Ingress or inbound communication into the virtual network must be secured. Distributed Denial of Service (DDoS) attacks can cause a targeted resource to become unavailable by overwhelming it with illegitimate traffic.
+    
+    _Eliminate public connectivity to Azure services by using private endpoints_. Further, inspect traffic by using network security groups (NSGs) on subnets with private endpoints.
 
-- **Secure egress** 
+- **Secure egress traffic** 
 
-    Egress traffic refers to traffic from a virtual network to entities outside that network. For example, Azure services used in the workload might need to access  endpoints for various management and control plane operations. That communication might be over the public internet. Lack of security controls on egress traffic might lead to data exfilteration attacks by malicious third-party services.
+    Egress traffic from a virtual network to entities outside that network must be secured. Lack of security controls might lead to data exfilteration attacks by malicious third-party services.
 
-    Consider restricting outbound traffic to the internet using Azure Firewall and network security groups (NSGs) on the subnets.
+    _Restrict outbound traffic to the internet using Azure Firewall and network security groups (NSGs) on the subnets_.
 
 - **Balance tradeoffs with security**
 
-    There are significant trade-offs security features are added to the workload architecture. You might notice some impact on performance, operational agility, and even reliability. However, attack vectors, such as Denial-Of-Service (DDoS), data intrusion, and others, can target the system's overall reliability and eventually cause unavailability.
-
+    There are significant trade-offs when security features are added to a workload architecture. You might notice some impact on performance, operational agility, and even reliability. However, attack vectors, such as Denial-Of-Service (DDoS), data intrusion, and others, can target the system's overall reliability and eventually cause unavailability.
   
-> The preceding strategies are based on the guidance provided in [Well-architected mission critical workloads](/azure/architecture/framework/mission-critical/).
+> Preceding strategies are based on the guidance provided in [Well-architected mission critical workloads](/azure/architecture/framework/mission-critical/).
 
 ## Architecture
 
@@ -43,7 +40,7 @@ The components of this architecture can be broadly categorized in this manner. F
 
 ### Global resources
 
-The global resources are long living and share the lifetime of the system. They have the capability of being globally available within the context of a multi-region deployment model. 
+The global resources are long living and share the lifetime of the system. They have the capability of being globally available within the context of a multi-region deployment model. For more information, see [Global resources](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-app-platform?branch=pr-en-us-7138#global-resources).
 
 **Azure Front Door** is used as the global load balancer for reliably routing traffic to the regional deployments with some level of guarantee based on the availability of backend services in a region. 
 
@@ -58,7 +55,7 @@ The global resources are long living and share the lifetime of the system. They 
 > Refer to [Well-architected mission critical workloads: Container registry](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing#container-registry).
 
 ### Regional resources
-The regional resources are provisioned as part of a _deployment stamp_ to a single Azure region. They are short-lived to provide more resiliency, scale, and proximity to users. These resources share nothing with resources in another region. They can be independently removed or replicated to additional regions. They, however, share [global resources](#global-resources) between each other. 
+The regional resources are provisioned as part of a _deployment stamp_ to a single Azure region. They are short-lived to provide more resiliency, scale, and proximity to users. These resources share nothing with resources in another region. They can be independently removed or replicated to other regions. They, however, share [global resources](#global-resources) between each other. For more information, see [Regional stamp resources]/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-app-platform?branch=pr-en-us-7138#deployment-stamp-resources).
 
 **Static website in an Azure Storage Account** hosts a single page application (SPA) that send requests to backend services. This component has the same configuration as the [baseline frontend](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro?branch=pr-en-us-7138#frontend).
 
@@ -102,7 +99,7 @@ Monitoring data for global resources and regional resources are stored independe
 
 ### Management resources
 
-A significant design change from the baseline architecture is the compute cluster. In this design AKS cluster is private. This change requires additional resources to be  provisioned to gain secure access to cluster. 
+A significant design change from the baseline architecture is the compute cluster. In this design AKS cluster is private. This change requires extra resources to be  provisioned to gain secure access to cluster. 
 
 **Azure Virtual Machine Scale Sets** for jump box instances to run tools against the cluster, such as kubectl.
 
@@ -110,37 +107,36 @@ A significant design change from the baseline architecture is the compute cluste
 
 ## Private endpoints for PaaS services
 
-To process a single business operation, the application as well as the build agents need to reach several Azure PaaS services provisioned  globally, within the region, and even within the stamp. In the baseline architecture, that communication happens over the public internet. 
+To process a single business operation, the application and the build agents need to reach several Azure PaaS services that are provisioned  globally, within the region, and even within the stamp. In the baseline architecture, that communication is over the public internet. 
 
-In this design, those services have been protected with private endpoints to prevent data exfilteration attacks. Using private endpoints increases the security of the design. However, it introduces another point of failure. Carefully consider the tradeoffs with security before adopting this approach.
+In this design, those services have been protected with private endpoints to prevent data exfiltration attacks. Using private endpoints increases the security of the design. However, it introduces another point of failure. Carefully consider the tradeoffs with security before adopting this approach.
 
-Private endpoints require a dedicated subnet within a virtual network. Private IP addresses to the private endpoints are assigned from that subnet. Essentially, any resource in the virtual network can communicate with the service by reaching the private IP address. Make sure the address space is big enough to accomodate this subnet. 
+Private endpoints require a dedicated subnet within a virtual network. Private IP addresses to the private endpoints are assigned from that subnet. Essentially, any resource in the virtual network can communicate with the service by reaching the private IP address. Make sure the address space is large enough to accommodate this subnet. 
 
 To connect over a private endpoint, you need a DNS record. It's recommended that DNS records associated with the services are in private DNS zones. Make sure that the fully qualified domain name (FQDN) resolves to the private IP address.
 
 In this architecture, private endpoints have been configured for Azure Container Registry, Cosmos DB, Key Vault, Storage resources, and Event Hubs. Also, the AKS cluster is deployed as a private cluster, which creates a private endpoint for the Kubernetes API service in the cluster's network. 
 
-There are two virtual networks provisioned in this design and both have a dedicated subnets to hold private endpoints for all those services. The network layout is descibed in [Virtual network layout](#virtual-network-layout).
+There are two virtual networks provisioned in this design and both have dedicated subnets to hold private endpoints for all those services. The network layout is described in [Virtual network layout](#virtual-network-layout).
 
 As you add more components to the architecture, consider adding more private endpoints. They can be created on the same or different subnets within the same virtual network. There are limits to the number of private endpoints you can create in a subscription. For more information, see [Azure limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
 
 Tighten the security further by using network security groups on the subnet to control both incoming and outgoing traffic.
 
 ## Global routing
-Azure Front Door (AFD) is used as the global entry point for all incoming client traffic. It uses Web Application Firewall (WAF) capabilities to allow or deny, and route traffic to the configured backend.
+Azure Front Door is used as the global entry point for all incoming client traffic. It uses Web Application Firewall (WAF) capabilities to allow or deny, and route traffic to the configured backend.
 
-Because in this architecture, the [PaaS services have been secured by using private endpoints](#private-endpoints-for-paas-services), the premium SKU of Front Door is used. This allows traffic to flow from the internet to Azure virtual networks without the use of public IPs on the virtual networks to allow access to backends.
+Because in this architecture, the [PaaS services have been secured by using private endpoints](#private-endpoints-for-paas-services), Front Door premium is used. This allows traffic to flow from the internet to Azure virtual networks without the use of public IPs to allow access to backends.
 
-![Diagram showing secure global routing for a mission critical workload](./images/mission-critical-global-routing-network.png)
-
+![Diagram showing secure global routing for a mission critical workload](/images/network-diagram-ingress.png)
 
 ## Virtual network layout
 
-Isolate regional resources and management resources in separate virtual networks. They have distinct purposes and security considerations. 
+Isolate regional resources and management resources in separate virtual networks. They have distinct characteristics, purposes, and security considerations. 
 
-- Type of traffic: Regional resources, which participate in processing of a business operation, need higher security controls. For example, the compute cluster must be protected from direct internet traffic. Management resources are provisioned only to access the regional resources for operations. So, they can be exposed to the public internet. 
+- **Type of traffic**: Regional resources, which participate in processing of business operations, need higher security controls. For example, the compute cluster must be protected from direct internet traffic. Management resources are provisioned only to access the regional resources for operations. So, they can be exposed to the public internet. 
 
-- Lifetime: The expected lifetimes of those resources are also different. Regional resources are expected to be short-lived (ephemeral). They are created as part of the deployment stamp and destroyed when the stamp is torn down. Management resources share the lifetime of the region and out live the stamp resources.
+- **Lifetime**: The expected lifetimes of those resources are also different. Regional resources are expected to be short-lived (ephemeral). They are created as part of the deployment stamp and destroyed when the stamp is torn down. Management resources share the lifetime of the region and out live the stamp resources.
 
 In this architecture, there are two virtual networks: stamp network and operations network. Create further isolation within each virtual network by using subnets and network security groups (NSGs) to secure communication between the subnets.
 
@@ -160,7 +156,9 @@ The virtual network is divided into these main subnets. All subnets have Network
 
 - **Application subnet**
 
-    The cluster node pools are placed in a dedicated subnet. If you need to isolate the system node pool from the worker node pool, you can place them in separate subnets. For each subnet, there are NSGs that block any malicious access from the virtual network. Traffic from the node pools is restricted to the virtual network. However, AKS clusters require some public internet access to reach the managed control plane. Using NSGs and Firewall can make sure that egress traffic is inspected.
+    The cluster node pools are placed in a dedicated subnet. If you need to isolate the system node pool from the worker node pool, you can place them in separate subnets. For each subnet, apply NSGs to block any malicious access from the virtual network.  
+    
+    Traffic from the node pools is restricted to the virtual network. However, AKS clusters require some public internet access to reach the managed control plane. Using NSGs and Firewall can make sure that egress traffic is inspected.
 
 - **Private endpoints subnet**
 
@@ -170,15 +168,18 @@ The virtual network is divided into these main subnets. All subnets have Network
 
 The operational traffic isolated in a separate virtual network. Because the cluster is private in this architecture, the network requires tighter security and segmentation through  subnetting. There are separate subnets to support, the deployment model that requires self-hosted build agents; management operations such as debugging. 
 
-Both operations need to access global PaaS services as well as those in the regional stamp. Because [all PaaS services are locked down](#private-endpoints-for-paas-services), a dedicated subnet is created for those endpoints. NSG on this subnet makes sure ingress traffic is allowed only from the management and deployment subnets.
+Both operations need to access global PaaS services as well as those in the regional stamp. Similar to the regional stamp virtual network, a dedicated subnet is created for the private endpoints to PaaS services. NSG on this subnet makes sure ingress traffic is allowed only from the management and deployment subnets.
 
 ![Diagram showing the management network flow](./images/mission-critical-network-ingress.png)
 
 #### Management operations
 
-A typical use case is when an operator needs to access the compute cluster to run management tools and commands. Nodes in a private cluster  cannot be accessed directly. That's why jump boxes are provisioned where the operator can run the tools. But, the jump boxes need to be protected from unauthorized access. Direct access to jump boxes by opening RDP/SSH ports should be avoided. Azure Bastion is recommended for this purpose and requires a dedicated subnet in this virtual network. There's a separate subnet for the jump boxes. 
+A typical use case is when an operator needs to access the compute cluster to run management tools and commands. Nodes in a private cluster  can't be accessed directly. That's why jump boxes are provisioned where the operator can run the tools. There's a separate subnet for the jump boxes.
 
-> [!NOTE] Connectivity through Azure Bastion and jump boxes can have an impact on developer productivity (like what?). Be aware of these impacts before deciding to harden security for your mission-critical workload.
+But, those jump boxes need to be protected as well from unauthorized access. Direct access to jump boxes by opening RDP/SSH ports should be avoided. Azure Bastion is recommended for this purpose and requires a dedicated subnet in this virtual network.  
+
+> [!NOTE] 
+> Connectivity through Azure Bastion and jump boxes can have an impact on developer productivity (like what?). Be aware of these impacts before deciding to harden security for your mission-critical workload.
 
 You can secure ingress to the jump box subnet by using an NSG that only allows inbound traffic from the Bastion subnet over SSH.
 
@@ -228,3 +229,4 @@ For product documentation on the Azure services used in this architecture, see t
 - [Azure Application Insights](/azure/azure-monitor/)
 - [Azure Event Hubs](/azure/event-hubs/)
 - [Azure Blob Storage](/azure/storage/blobs/)
+- [Azure Firewall](/azure/storage/firewall/)
