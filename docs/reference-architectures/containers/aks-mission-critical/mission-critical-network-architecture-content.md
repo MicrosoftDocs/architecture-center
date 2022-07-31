@@ -35,11 +35,13 @@ The [design strategies for mission-critical baseline](/azure/architecture/refere
   
 > The preceding strategies are based on the guidance provided in [Well-architected mission critical workloads](/azure/architecture/framework/mission-critical/).
 
+## Architecture
+
 ![Mission critical online](./images/mission-critical-architecture-network.svg)
 
 The components of this architecture can be broadly categorized in this manner. For product documentation about Azure services, see [Related resources](#related-resources). 
 
-## Global resources
+### Global resources
 
 The global resources are long living and share the lifetime of the system. They have the capability of being globally available within the context of a multi-region deployment model. 
 
@@ -47,7 +49,7 @@ The global resources are long living and share the lifetime of the system. They 
 
 > Refer to [Well-architected mission critical workloads: Global traffic routing](/azure/architecture/framework/mission-critical/mission-critical-networking-connectivity#global-traffic-routing).
 
-**Azure Cosmos DB with SQL API** is used to store state related to the workload outside the compute cluster. The database account is replicated to each regional stamp and also has zonal redundancy enabled. 
+**Azure Cosmos DB with SQL API** is used to store state related to the workload outside the compute cluster. The database account has multi-master write enabled. It's replicated to each regional stamp and also has zonal redundancy enabled. 
 
 > Refer to [Well-architected mission critical workloads: Globally distributed multi-write datastore](/azure/architecture/framework/mission-critical/mission-critical-data-platform#globally-distributed-multi-write-datastore).
 
@@ -55,30 +57,30 @@ The global resources are long living and share the lifetime of the system. They 
 
 > Refer to [Well-architected mission critical workloads: Container registry](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing#container-registry).
 
-## Regional resources
+### Regional resources
 The regional resources are provisioned as part of a _deployment stamp_ to a single Azure region. They are short-lived to provide more resiliency, scale, and proximity to users. These resources share nothing with resources in another region. They can be independently removed or replicated to additional regions. They, however, share [global resources](#global-resources) between each other. 
 
-**Static website in an Azure Storage Account** hosts a single page application (SPA) that send requests to backend services.
+**Static website in an Azure Storage Account** hosts a single page application (SPA) that send requests to backend services. This component has the same configuration as the [baseline frontend](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro?branch=pr-en-us-7138#frontend).
 
 **Azure Virtual Networks** provide secure environments for running the workload and management operations. 
 
-**Azure Kubernetes Service (AKS)** is the orchestrator for backend compute that runs an application and is stateless. The AKS cluster is deployed as a private cluster. So, the Kubernetes API server isn't exposed to the public internet, and traffic to the API server is limited to a private network. 
+**Azure Kubernetes Service (AKS)** is the orchestrator for backend compute that runs an application and is stateless. The AKS cluster is deployed as a private cluster. So, the Kubernetes API server isn't exposed to the public internet, and traffic to the API server is limited to a private network. For more information, see the [Compute cluster](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-app-platform?branch=pr-en-us-7138#compute-cluster) article of this architecture.
 
 > Refer to [Well-architected mission critical workloads: Container Orchestration and Kubernetes](/azure/architecture/framework/mission-critical/mission-critical-application-platform#container-orchestration-and-kubernetes).
 
-**Azure Firewall** is a network security service that protects all the Azure Virtual Network resources. The firewall allows only approved services and fully qualified domain names (FQDNs) as egress traffic.
+**Azure Firewall** is protects all egress traffic from the Azure Virtual Network resources. 
 
-**Azure Event Hubs** is used to optimize performance and maintain responsiveness during peak load, the design uses asynchronous messaging to handle intensive system flows. An additional Azure Storage account is provisioned for checkpointing. 
+**Azure Event Hubs** is used as the [message broker](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro?branch=pr-en-us-7138#regional-message-broker) to optimize performance and maintain responsiveness during peak load by using asynchronous messaging. An additional Azure Storage account is provisioned for checkpointing. 
 
 > Refer to [Well-architected mission critical workloads: Loosely coupled event-driven architecture](/azure/architecture/framework/mission-critical/mission-critical-application-design#loosely-coupled-event-driven-architecture).
 
-**Azure Key Vault** stores secrets and configuration. There are common secrets such as connection strings to the global database but there is also information unique to a single stamp, such as the Event Hubs connection string. Also, independent resources avoid a single point of failure.
+**Azure Key Vault** is used as the [regional secret store](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro?branch=pr-en-us-7138#regional-secret-store). There are common secrets such as connection strings to the global database but there is also information unique to a single stamp, such as the Event Hubs connection string. Also, independent resources avoid a single point of failure.
 
 > Refer to [Well-architected mission critical workloads: Data integrity protection](/azure/architecture/framework/mission-critical/mission-critical-security#data-integrity-protection).
 
-## Deployment pipeline resources
+### Deployment pipeline resources
 
-Build and release pipelines for a mission critical application must be fully automated. No action should be performed manually. This design demonstrates fully automated pipelines that deploy a validated stamp consistently every time. Another alternative approach is to only deploy rolling updates to an existing stamp.  
+Build and release pipelines for a mission critical application must be fully automated to guarantee a consistent way of deploying a validated stamp.  
 
 **GitHub** is used for source control, providing a highly available git-based platform for collaboration on application code and infrastructure code.
 
@@ -91,22 +93,20 @@ Build and release pipelines for a mission critical application must be fully aut
 > [!NOTE] 
 >  The use of self-hosted agents is demonstrated in the [Mission Critical - Connected](https://aka.ms/mission-critical-connected) reference implementation.
 
-## Observability resources
+### Observability resources
 
-Operational data from application and infrastructure must be available to allow for effective operations and maximize reliability. Monitoring data for global resources and regional resources should be stored independently. A single, centralized observability store isn't recommended to avoid a single point of failure.
+Monitoring data for global resources and regional resources are stored independently. A single, centralized observability store isn't recommended to avoid a single point of failure.
 
 - **Azure Log Analytics** is used as a unified sink to store logs and metrics for all application and infrastructure components. 
 - **Azure Application Insights** is used as an Application Performance Management (APM) tool to collect all application monitoring data and store it directly within Log Analytics.
 
-## Management resources
+### Management resources
 
-Because the compute cluster is private, additional resources are provisioned to gain secure access to cluster. 
+A significant design change from the baseline architecture is the compute cluster. In this design AKS cluster is private. This change requires additional resources to be  provisioned to gain secure access to cluster. 
 
 **Azure Virtual Machine Scale Sets** for jump box instances to run tools against the cluster, such as kubectl.
 
-**Azure Bastion** provides secure access to a jump box and removes the need for the jump boxes to have public IPs. Bastion host is in a dedicated subnet of the virtual network in the stamp. 
-
-The regional resources are provisioned as part of a _deployment stamp_ to a single Azure region. These resources share nothing with resources in another region. They can be independently removed or replicated to additional regions. They, however, share [global resources](#global-resources) between each other.
+**Azure Bastion** provides secure access to a jump box and removes the need for the jump boxes to have public IPs. 
 
 ## Private endpoints for PaaS services
 
@@ -126,32 +126,53 @@ As you add more components to the architecture, consider adding more private end
 
 Tighten the security further by using network security groups on the subnet to control both incoming and outgoing traffic.
 
-## Stamp ingress points
-
+## Global routing
 Azure Front Door (AFD) is used as the global entry point for all incoming client traffic. It uses Web Application Firewall (WAF) capabilities to allow or deny, and route traffic to the configured backend.
+
+Because in this architecture, the [PaaS services have been secured by using private endpoints](#private-endpoints-for-paas-services), the premium SKU of Front Door is used. This allows traffic to flow from the internet to Azure virtual networks without the use of public IPs on the virtual networks to allow access to backends.
 
 ![Diagram showing secure global routing for a mission critical workload](./images/mission-critical-global-routing-network.png)
 
+
 ## Virtual network layout
 
-Isolate regional resources and management resources in separate virtual networks. They have distinct purposes. 
+Isolate regional resources and management resources in separate virtual networks. They have distinct purposes and security considerations. 
 
-- Type of traffic: Regional resources participate in processing of a business operation and need higher security controls. For example, the compute cluster must be protected from direct internet traffic. Management resources are provisioned only to access the regional resources for operations. So, they can be exposed to the public internet. 
+- Type of traffic: Regional resources, which participate in processing of a business operation, need higher security controls. For example, the compute cluster must be protected from direct internet traffic. Management resources are provisioned only to access the regional resources for operations. So, they can be exposed to the public internet. 
 
 - Lifetime: The expected lifetimes of those resources are also different. Regional resources are expected to be short-lived (ephemeral). They are created as part of the deployment stamp and destroyed when the stamp is torn down. Management resources share the lifetime of the region and out live the stamp resources.
 
 In this architecture, there are two virtual networks: stamp network and operations network. Create further isolation within each virtual network by using subnets and network security groups (NSGs) to secure communication between the subnets.
 
+### Regional stamp virtual network
+The deployment stamp provisions a virtual network in each region. 
+![Diagram showing secure global routing for a mission critical workload](./images/mission-critical-global-routing-network.png)
+
+The virtual network is divided into these main subnets. All subnets have Network Security Groups (NSGs) assigned. NSGs will secure traffic between the application subnet and interactions with other components.  
+
+- **Stamp ingress subnet**
+
+    The entry point to each stamp is a private Azure Standard Load Balancer with one zone-redundant public IP. This approach mitigates the risk of attackers  attempting DDoS attacks against the endpoints. This resource is deployed as part of the Kubernetes Ingress Controller resource.
+
+- **Stamp egress subnet**
+
+    Azure Firewall is the single egress point and is used to inspect all outgoing traffic from the virtual network. User-defined routes (UDRs) must be considered on subnets that are capable of generating egress traffic, such as the application subnet. Traffic inspection is done through Azure Firewall rules that allow traffic from specific sources to go to specific targets.
+
+- **Application subnet**
+
+    The cluster node pools are placed in a dedicated subnet. If you need to isolate the system node pool from the worker node pool, you can place them in separate subnets. For each subnet, there are NSGs that block any malicious access from the virtual network. Traffic from the node pools is restricted to the virtual network. However, AKS clusters require some public internet access to reach the managed control plane. Using NSGs and Firewall can make sure that egress traffic is inspected.
+
+- **Private endpoints subnet**
+
+    The application subnet will need to access the PaaS services in the regional stamp, Key Vault, and others. Also, access to global resources such as the container registry is needed. In this architecture, [all PaaS service are locked down](#private-endpoints-for-paas-services) and can only be reached through private endpoints. So, another subnet is created for those endpoints. Inbound access to this subnet is secured by NSG that only allows traffic from the application.
+
 ### Operations virtual network
 
 The operational traffic isolated in a separate virtual network. Because the cluster is private in this architecture, the network requires tighter security and segmentation through  subnetting. There are separate subnets to support, the deployment model that requires self-hosted build agents; management operations such as debugging. 
 
-Both operations need to access PaaS services in the regional stamp, such as AKS, Key Vault, and others. Also, access to global resources such as the container registry is needed. In this architecture all PaaS service are locked down and can only be reached through private endpoints. So, another subnet is created for those endpoints. Inbound access to this subnet is secured by NSG that only allows traffic from the management and deployment subnets.
+Both operations need to access global PaaS services as well as those in the regional stamp. Because [all PaaS services are locked down](#private-endpoints-for-paas-services), a dedicated subnet is created for those endpoints. NSG on this subnet makes sure ingress traffic is allowed only from the management and deployment subnets.
 
-(need to mention DNS here)
-
-
-![Diagram showing secure ingress traffic to a mission critical workload](./images/mission-critical-network-ingress.png)
+![Diagram showing the management network flow](./images/mission-critical-network-ingress.png)
 
 #### Management operations
 
@@ -161,42 +182,11 @@ A typical use case is when an operator needs to access the compute cluster to ru
 
 You can secure ingress to the jump box subnet by using an NSG that only allows inbound traffic from the Bastion subnet over SSH.
 
-If the operator needs to access public endpoints, outbound traffic must also be secure. (How?)
+If the operator needs to access public endpoints, outbound traffic must also be secure. (How? NSG? UDR?)
 
 #### Deployment operations
 
 To build deployment pipelines, you need to provision additional compute to run build agents. This architecture sequesters the build agents in a separate subnet. Ingress is restricted to Azure DevOps. Egress (how?)
-
-
-## Global routing
-
-
-
-## Stamp ingress
-
-## Stamp egress
-- Egress
-
-![Diagram showing secure egress traffic from a mission critical workload](./images/mission-critical-network-egress.png)
-
-
-
-Egress flow:
-Two solutions:
-
-- New snet called azure in all stamps. there's UDR on the subnet if there's coming from AKS or private endpoint. It will be go through Firewall. 
-- Firewall rules can be very crisp and hyper local.
-
-(most aligned version but very cost inffective. )
-
-Option 2:
-
-Keep vnet the same, 2 snets (priv end, k8)
-regional vnets, has firewall. it's peered to the stamp v-net. 
-(violates principles)
-peering: when one vnet can talk to another vnet. free flowing. treat two as one. for MC perspective, peering can fail. It's weird to set up. Both sides resources need to be created. Deployment can be trickly. Not very intentional. You need non overlapping IP space. 
-
-closer to the connected story.
 
 ## Design areas
 
@@ -215,6 +205,16 @@ We suggest that you explore these design areas for recommendations and best prac
 
 ** Indicates design area considerations that are specific to this reference architecture.
 
+## Deploy this architecture
+
+The networking aspects of this architecture are illustrated in the Mission-Critical Connected implementation.
+
+> [!div class="nextstepaction"]
+> [Implementation: Mission-Critical Connected](https://github.com/Azure/Mission-Critical-Connected)
+
+> [!NOTE]
+> The Connected implementation is intended to illustrate a mission-critical workload that relies on organizational resources, integrates with other workloads, and uses shared services. It builds on this reference architecture and uses the network controls described in this article. However, the Connected scenario assumes that virtual private network or Azure Private DNS Zone already exist within the Azure landing zones connectivity subscription.
+
 ## Related resources
 
 For product documentation on the Azure services used in this architecture, see these articles. 
@@ -228,16 +228,3 @@ For product documentation on the Azure services used in this architecture, see t
 - [Azure Application Insights](/azure/azure-monitor/)
 - [Azure Event Hubs](/azure/event-hubs/)
 - [Azure Blob Storage](/azure/storage/blobs/)
-
-
-## Deploy this architecture
-
-Deploy the reference implementation to get a complete understanding of considered resources, including how they are operationalized in a mission-critical context. 
-
-> [!div class="nextstepaction"]
-> [Implementation: Mission-Critical Online](https://github.com/Azure/Mission-Critical-Online)
-
-## Next steps
-
-If you want to extend this implementation with added security measures, refer to [Mission-Critical Connected](https://github.com/Azure/Mission-Critical-Connected). It contains a security-focused reference implementation and deployment guide intended to illustrate a solution-oriented approach for mission-critical application development on Azure.
-
