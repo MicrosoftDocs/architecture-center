@@ -28,7 +28,7 @@ The [design strategies for mission-critical baseline](/azure/architecture/refere
 
 - **Balance tradeoffs with security**
 
-    There are significant trade-offs when security features are added to a workload architecture. You might notice some impact on performance, operational agility, and even reliability. However, attack vectors, such as Denial-Of-Service (DDoS), data intrusion, and others, can target the system's overall reliability and eventually cause unavailability.
+    There are significant trade-offs when security features are added to a workload architecture. You might notice some impact on performance, operational agility, and even reliability. However,_ attack vectors, such as Denial-Of-Service (DDoS), data intrusion, and others, can target the system's overall reliability and eventually cause unavailability_.
   
 > Preceding strategies are based on the guidance provided in [Well-architected mission critical workloads](/azure/architecture/framework/mission-critical/).
 
@@ -128,7 +128,7 @@ Azure Front Door is used as the global entry point for all incoming client traff
 
 Because in this architecture, the [PaaS services have been secured by using private endpoints](#private-endpoints-for-paas-services), Front Door premium is used. This allows traffic to flow from the internet to Azure virtual networks without the use of public IPs to allow access to backends.
 
-![Diagram showing secure global routing for a mission critical workload](/images/network-diagram-ingress.png)
+![Diagram showing secure global routing for a mission critical workload](./images/network-diagram-ingress.png)
 
 ## Virtual network layout
 
