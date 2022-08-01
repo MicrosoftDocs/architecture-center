@@ -20,41 +20,129 @@ categories: featured
 
 # Application design considerations for mission-critical workloads
 
-
-The Azure AKS Mission-Critical reference architecture considers a simple web shop catalog workflow where end users can browse through a catalog of items, see details of an item, and post ratings and comments for items. Although fairly straight forward, this application enables the Reference Implementation to demonstrate the asynchronous processing of requests and how to achieve high throughput within a solution. The application's design also focuses on reliability and resiliency.
+The Azure Mission-Critical reference architecture considers a simple web shop catalog workflow where end users can browse through a catalog of items, see details of an item, and post ratings and comments for items. Although fairly straight forward, this application enables the Reference Implementation to demonstrate the asynchronous processing of requests and how to achieve high throughput within a solution. The application's design also focuses on reliability and resiliency.
 
 ## Application composition
 
-The application consists of five components:
+The application consists of four components:
 
-1. **User interface (UI) application** - This is used by both requestors and reviewers.
-1. **API application** (`CatalogService`) - This is called by the the UI application, but also available as REST API for other potential clients.
-1. **Worker application** (`BackgroundProcessor`) - This processes write requests to the database by listening to new events on the message bus. This component does not expose any APIs.
-1. **Health check application** (`HealthCheck`) - This is used to check the health of the application.
-1. **Ingress application** (`Ingress`) - This is used to expose the application as a public endpoint.
-1. ?? cert manager?
+1. **User interface (UI) application** - Single-page application accessed by end users is hosted in Azure Storage Account's static website hosting.
+1. **API application** (`CatalogService`) - .NET Core REST API called by the UI application, but available for other potential client applications.
+1. **Worker application** (`BackgroundProcessor`) - .NET Core background worker, which processes write requests to the database by listening to new events on the message bus. This component does not expose any APIs.
+1. **Health check application** (`HealthCheck`) - Used to report the health of the application by checking if critical components (database, messaging bus) are working.
+
+The API, worker and health check applications are referred to as **workload** and hosted as containers in a dedicated AKS namespace (called `workload`). There's **no direct communication** between the pods, they're **stateless** and able to **scale independently**.
+
+TODO: diagram detailing the components in the cluster
+
+There are additional supporting components running on the cluster:
+
+1. **Ingress controller** - Nginx in a container is used to incoming requests to the workload and load balance between pods. It has a public IP address.
+1. **Cert manager** - Jetstack's `cert-manager` is used to auto-provision SSL/TLS certificates (using Let's Encrypt) for ingress rules.
+1. **CSI secrets driver** - To securely read secrets such as connection strings from Azure Key Vault, the open-source Azure Key Vault Provider for Secrets Store CSI Driver is used.
+1. **Monitoring agent** - The default OMSAgent configuration is adjusted to reduce the amount of monitoring data sent to the Log Analytics workspace.
 
 ![Application flow](./images/application-design-flow.png)
 
-`CatalogService`, `BackgroundProcessor`, `HealthCheck`, and `Ingress` are deployed to the Kubernetes cluster as pods, not dependent on each other, completely stateless, and independently scalable.
+## Identity and access management
 
-The `CatalogService` and `BackgroundProcessor` components are dependent on writing and reading messages from Event Hub. The `BackgroundProcessor` and `HealthCheck` components are dependent on writing data to Cosmos DB, and the `CatalogService` component is dependent on reading data from Cosmos DB. `CatalogService`, `BackgroundProcessor`, and `HealthCheck` are dependent on Azure KeyVault for the connection strings and other connection information to connect to CosmosDB and Event Hub. Each component uses the CSI Secrets Store Driver to load the connection details from Azure KeyVault when the pod is created.
+On the application level this reference architecture uses a simple authentication scheme based on API keys for some restricted operations, such as creating new catalog items or deleting comments. More advanced scenarios such as user authentication and user roles are not in scope.
 
-?? does cert manager load certs from keyvault via CSI?
+### Managed identities
 
-The `CatalogService`, `BackgroundProcessor`, and `HealthCheck` components use the Cosmos DB .NET Core SDK to connect to Cosmos DB. The SDK includes logic to maintain alternate connections to the database in case of connection failures.
+**Managed identities should be used** to access Azure resources from the AKS cluster. The reference implementation is using managed identity of the AKS agent pool ("Kubelet identity") to access the global Azure Container Registry and stamp Azure Key Vault.
 
-Within the cluster, `Ingress` load-balances requests between multiple pod instances as each component is scaled up or down. Each service only communicates with either Event Hub or Cosmos DB, and there is no direct communication between the services.
+Example of assigning the `AcrPull` role to the Kubelet identity in Terraform (stamp deployment):
 
-## Identity access management
+```
+resource "azurerm_role_assignment" "acrpull_role" {
+  scope                = data.azurerm_container_registry.global.id
+  role_definition_name = "AcrPull"
+  principal_id         = azurerm_kubernetes_cluster.stamp.kubelet_identity.0.object_id
+}
+```
 
-This reference architecture uses a simple authentication scheme based on API keys for some restricted operations, such as creating new catalog items or deleting comments. More advanced scenarios such as user authentication and user roles are not in scope. All keys and connection details are stored in Azure KeyVault.
+https://docs.microsoft.com/azure/aks/use-managed-identity
+
+### Secrets
+
+Each deployment stamp has its dedicated instance of Azure Key Vault. Some parts of the workload still use **keys** to access Azure resources (e.g. Cosmos DB) - those are created during deployment and stored in Key Vault with Terraform. **No human operator ever interacts with these secrets** as they're generated automatically and handled in Terraform. In addition, Key Vault access policies are configured in a way that **no user accounts are permitted to access** secrets.
+
+> This workload doesn't use certificates, but the same principles would apply.
+
+> This doesn't fully apply to e2e environments which are designed to be owned by the developer who is able to get secrets from their environment and use them for local debugging.
+
+In order for the application to consume secrets, the [**Azure Key Vault Provider for Secrets Store**](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver) is used. The CSI driver gets keys from Azure Key Vault and mounts them into individual pods' as files.
+
+```yml
+apiVersion: secrets-store.csi.x-k8s.io/v1
+kind: SecretProviderClass
+metadata:
+  name: azure-kv
+spec:
+  provider: azure
+  parameters:
+    usePodIdentity: "false"
+    useVMManagedIdentity: "true"
+    userAssignedIdentityID: {{ .Values.azure.managedIdentityClientId | quote }}
+    keyvaultName: {{ .Values.azure.keyVaultName | quote }}
+    tenantId: {{ .Values.azure.tenantId | quote }}
+    objects: |
+      array:
+        {{- range .Values.kvSecrets }}
+        - |
+          objectName: {{ . | quote }}
+          objectAlias: {{ . | lower | replace "-" "_" | quote }}
+          objectType: secret
+        {{- end }}
+```
+
+The reference implementation uses Helm in conjunction with Azure DevOps Pipelines to deploy the CSI driver containing all key names from Azure Key Vault. The driver is also responsible to renew secrets if they change in Key Vault.
+
+On the consuming end, both .NET applications use the built-in capability to read configuration from files (`AddKeyPerFile`):
+
+```csharp
+//
+// Program.cs
+// using Microsoft.Extensions.Configuration;
+//
+public static IHostBuilder CreateHostBuilder(string[] args) =>
+    Host.CreateDefaultBuilder(args)
+    .ConfigureAppConfiguration((context, config) =>
+    {
+        // Load values from k8s CSI Key Vault driver mount point.
+        config.AddKeyPerFile(directoryPath: "/mnt/secrets-store/", optional: true, reloadOnChange: true);
+        
+        // More configuration if needed...
+    })
+    .ConfigureWebHostDefaults(webBuilder =>
+    {
+        webBuilder.UseStartup<Startup>();
+    });
+```
+
+The combination of CSI driver's auto reload and `reloadOnChange: true` ensures that when keys change in Key Vault new values will make it to AKS. **This alone doesn't guarantee secret rotation in the application** though - the reference implementation uses singleton Cosmos DB client instance which means that pod restart is necessary for the app to apply the change.
+
+> For secret rotation procedures see the ops article..... (link)
+
+## Configuration
+
+**All application runtime configuration is stored in Azure Key Vault** - this applies to both secrets (e.g. Cosmos DB API key) and non-sensitive settings (e.g. Cosmos DB database name). Using Key Vault for runtime configuration simplifies the overall implementation by removing dependency on another configuration store (i.e. Azure App Configuration).
+
+As mentioned earlier, **Key Vaults are only populated by Terraform deployment** - required values are either sourced directly from Terraform (such as database connection strings) or passed through as Terraform variables from the deployment pipeline.
+
+**Infrastructure and deployment configuration** of individual environments (e2e, int, prod) is stored in variable files and made part of the source code repository. This has two benefits:
+
+1. All changes in environment sizing, number of instances etc. are tracked and need to go through deployment pipelines before being applied to the environment.
+1. Individual e2e environments can be configured differently, because deployment is based on code in a branch.
+
+One exception are **sensitive values** for pipelines, which aren't stored in source files, but rather as secrets in Azure DevOps variable groups.
 
 ## Asynchronous messaging
 
-In order to achieve high responsiveness for all operations, Azure Mission-Critical implements the [Queue-Based Load leveling pattern](https://docs.microsoft.com/azure/architecture/patterns/queue-based-load-leveling) combined with [Competing Consumers pattern](https://docs.microsoft.com/azure/architecture/patterns/competing-consumers) where multiple producer instances (`CatalogService` in our case) generate messages which are then asynchronously processed by consumers (`BackgroundProcessor`). This allows the API to accept the request and return to the caller quickly whilst the more demanding database write operation is processed separately. This asynchronous approach provides reliability and resiliency through the decoupling of dependencies between the components as well as through the resiliency of Event Hub. ??more detail?? 
+In order to achieve high responsiveness for all operations, Azure Mission-critical reference implementation uses the [Queue-Based Load leveling pattern](https://docs.microsoft.com/azure/architecture/patterns/queue-based-load-leveling) combined with [Competing Consumers pattern](https://docs.microsoft.com/azure/architecture/patterns/competing-consumers) where multiple producer instances (`CatalogService` in our case) generate messages which are then asynchronously processed by consumers (`BackgroundProcessor`). This allows the API to accept the request and return to the caller quickly whilst the more demanding database write operation is processed separately. This asynchronous approach provides reliability and resiliency through the decoupling of dependencies between the components as well as through the resiliency of Event Hub. ??more detail?? 
 
-This architecture uses **Azure Event Hub** as the message queue but provides interfaces in code which enable the use of other messaging services if required, such as Azure Service Bus. **ASP.NET Core API** is used to implement the producer REST API, and **.NET Core Worker Service** is used to implement the consumer service.
+This architecture uses **Azure Event Hubs** as the message queue but provides interfaces in code which enable the use of other messaging services if required, such as Azure Service Bus. **ASP.NET Core API** is used to implement the producer REST API, and **.NET Core Worker Service** is used to implement the consumer service.
 
 Read operations are processed directly by the API and immediately return data back to the user.
 
@@ -70,11 +158,32 @@ There is no back channel which communicates to the client if the operation compl
 
 ?? is de-duping required and idempotency provided directly in event hub or is it part of the catalog service?
 
+----
+
+The `CatalogService` and `BackgroundProcessor` components are dependent on writing and reading messages from Event Hub. The `BackgroundProcessor` and `HealthCheck` components are dependent on writing data to Cosmos DB, and the `CatalogService` component is dependent on reading data from Cosmos DB. `CatalogService`, `BackgroundProcessor`, and `HealthCheck` are dependent on Azure KeyVault for the connection strings and other connection information to connect to CosmosDB and Event Hub. Each component uses the CSI Secrets Store Driver to load the connection details from Azure KeyVault when the pod is created.
+
+?? does cert manager load certs from keyvault via CSI?
+
+The `CatalogService`, `BackgroundProcessor`, and `HealthCheck` components use the Cosmos DB .NET Core SDK to connect to Cosmos DB. The SDK includes logic to maintain alternate connections to the database in case of connection failures.
+
+Within the cluster, `Ingress` load-balances requests between multiple pod instances as each component is scaled up or down. Each service only communicates with either Event Hub or Cosmos DB, and there is no direct communication between the services.
+
+
+
+
+
 ## Instrumentation
 
 Each component writes logs, metrics, and telemetry to a backing log system, Azure Monitor. The components do not write log files in the runtime environment, or manage log formats or the logging environment. There are no log boundaries, such as date rollover, defined or managed by the applications. The logging is an ongoing event stream and the backing log system is where log analytics and querying are performed. The AKS cluster also has Container Insights enabled, which is a service that collects logs and metrics from the containers in the cluster and sends them to the Log Analytics workspace.
 
-Advanced instrumentation, such as distributed tracing, are not in scope.
+
+The BackgroundProcessor uses the Microsoft.ApplicationInsights.WorkerService NuGet package to get out-of-the-box instrumentation from the application. Also, Serilog is used for all logging inside the application with Azure Application Insights configured as a sink (next to the Console sink). Only when needed to track additional metrics, a TelemetryClient instance for ApplicationInsights is used directly.
+
+serilog
+
+distributed tracing
+
+TODO: AKS OMS agent config...
 
 ## Scalability
 
@@ -92,14 +201,94 @@ In addition, each component of the workload has [Pod Disruption Budgets (PDBs)](
 
 The actual minimum and maximum number of pods for each component should be determined through load testing, while still respecting the ratios defined in this section.
 
+
+The CatalogService application is packaged and deployed as a Helm chart. The chart is stored in the `src/app/charts` directory. It offers a set of parameters that can be used to customize the deployment (see `values.yaml` for all).
+
+| Parameter | Description |
+| --- | --- |
+| scale.minReplicas | Minimum number of replicas to deploy |
+| scale.maxReplicas | Maximum number of replicas to deploy |
+| networkPolicy.enabled | Whether to enable network policies |
+| networkPolicy.egressRange | Allowed egress range - defaults to `0.0.0.0/0` |
+
+
 ## Load testing
-Follow the principals outlined in [Performance testing](/azure/architecture/framework/scalability/performance-test) to determine your specific load testing needs.
 
-## Configuration
-Variable files, both general as well as per-environment, store deployment and configuration data and are stored in the source code repository. Sensitive values are stored in Azure DevOps variable groups.
+Follow the principles outlined in [Performance testing](/azure/architecture/framework/scalability/performance-test) to determine your specific load testing needs.
 
-All application runtime configuration is stored in Azure Key Vault - this applies to both, secret and non-sensitive settings. The Key Vaults are only populated by the Terraform deployment. The required values are either sourced directly by Terraform (such as database connection strings) or passed through as Terraform variables from the deployment pipeline.
 
-The applications run in containers on Azure Kubernetes Service. Containers use Container Storage Interface bindings to enable Mission-Critical applications to access Azure Key Vault configuration values, surfaced as environment variables, at runtime.
 
-Configuration values and environment variables are standalone and not reproduced in different runtime "environments", but are differentiated by target environment at deployment.
+
+
+
+
+## Application composition
+- Introduce layered approach
+- Microservices as the recommended pattern
+    - Loose coupling/high cohesion
+    - List some pros and cons
+    - 12-Factor described in the table. 
+
+![Application flow](./images/application-design-flow.png)
+
+
+## Service discoverablity
+- Service object and ClusterIP
+- Cluster DNS
+- Service-to-service communication through APIs
+
+## Networking path within the cluster
+- Load balancing
+- Ingress to service
+- Network policies
+
+## Identity and access management
+- Pod identity
+- Authentication
+
+
+
+## Asynchronous messaging
+- Technology choice
+- De-duping capability
+- Idempotency
+- Failure analysis
+    - Use case: Sender crashes after messages goes to event hubs
+    - Use case: Receiver crashes after writing to DB
+    - DLQ management
+- Resiliency 
+## Instrumentation
+- What data to capture (logs, metrics, deployment ennvironment)
+- Distributed tracing
+- Application profiling
+- Structured logging
+- APM enabling
+## Scalability
+- Independent scaling
+    - HPA
+- How to determine scale values
+
+
+The `CatalogService` as well as the `BackgroundProcessor` workload component can scale in and out individually. Both services are stateless, packaged as and deployed via Helm charts to each of the (regional) stamps, have proper requests and limits in place and have a pre-configured auto-scaling (HPA) rule in place.
+
+`CatalogService` performance has a direct impact on the end user experience. The service is expected to be able to scale out automatically to provide a positive user experience and performance at any time.
+
+The `CatalogService` has at least 3 instances per cluster to spread automatically across three Availability Zones per Azure Region. Each instance requests one CPU core and a given amount of memory based on upfront load testing. Each instance is expected to serve ~250 requests/second based on a standardized usage pattern. `CatalogService` has a 3:1 relationship to the nginx-based Ingress controller.
+
+The `BackgroundProcessor` service has very different requirements and is considered a background worker which has no direct impact on the user experience. As such, `BackgroundProcessor` has a different auto-scaling configuration than `CatalogService` and it can scale between 2 and 32 instances (which matches the max. no. of EventHub partitions). The ratio between `CatalogService` and `BackgroundProcessor` is around 20:2.
+
+All workload components as well as supporting services like the `HealthService` and dependencies like `ingress-nginx` are configured with at least 3 or in case of the `HealthService` 2 instances (replicas) per cluster. This is supposed to prevent certain availability issues and to ensure that the service is always available. The instances are automatically spread across nodes and therefore also across Availability Zones.
+
+In addition to that, each component of the workload including dependencies like `ingress-nginx` has [Pod Disruption Budgets (PDBs)](/azure/aks/operator-best-practices-scheduler#plan-for-availability-using-pod-disruption-budgets) configured to ensure that a minimum number of instances is always available.
+
+
+## Health monitoring
+- Health service
+- Health and readiness probes
+
+
+
+## Secret management
+- Application configuration
+- Certificates
+- Keys
