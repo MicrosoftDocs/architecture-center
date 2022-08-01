@@ -80,7 +80,7 @@ Use the following button to deploy the reference using the Azure portal.
 
 [![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsamples%2Fmaster%2Fsolutions%2Fazure-automation-state-configuration%2Fazuredeploy.json)
 
-Once deployed, in the Azure portal, click on the **Automation Account** resource and then **State configuration (DSC)** and notice that all virtual machines have been added to the system and are compliant. These machines have all had the PowerShell DSC configuration applied, which has installed a web server on each.
+After the VMs are deployed, in the Azure portal, select the **Automation Account** resource, and then select **State configuration (DSC)**. You'll note that all the virtual machines have been added to the system and are compliant. These machines have all had the PowerShell DSC configuration applied, which has installed a web server on each.
 
 ![Screenshot of DSC compliance results in the Azure portal.](./media/dsc-results.png)
 
