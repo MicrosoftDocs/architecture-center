@@ -4842,6 +4842,8 @@ items:
                     href: example-scenario/mainframe/move-archive-data-mainframes.yml
                   - name: Re-engineer mainframe batch apps
                     href: example-scenario/mainframe/reengineer-mainframe-batch-apps-azure.yml
+                  - name: Rehost IMS DC and IMS DB
+                    href: example-scenario/mainframe/rehost-ims-raincode-imsql.yml
                   - name: Replicate and sync mainframe data
                     href: reference-architectures/migration/sync-mainframe-data-with-azure.yml
               - name: Solution ideas
