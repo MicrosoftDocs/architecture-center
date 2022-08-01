@@ -130,18 +130,19 @@ Principal authors:
 
 Other contributors:
 
-- [Mick Alberts]() 
-- [Guy Bursell]() |
-- [Sachin Rastogi]() |
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer 
+- [Guy Bursell](https://www.linkedin.com/in/guybursell) | Director Business Strategy 
+- [Sachin Rastogi](https://www.linkedin.com/in/sachin-rastogi-907a3b5) | Manager
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
-Run a Windows VM on Azure (/azure/architecture/reference-architectures/n-tier/windows-vm)
-Run a Linux VM on Azure (/azure/architecture/reference-architectures/n-tier/linux-vm)
-[GPU Optimized Virtual Machine Sizes](/azure/virtual-machines/sizes-gpu)
-[Windows Virtual Machines in Azure](/azure/virtual-machines/windows/overview)
-[Linux Virtual Machines in Azure](/azure/virtual-machines/linux/overview)
+- [GPU Optimized Virtual Machine Sizes](/azure/virtual-machines/sizes-gpu)
+- [Windows Virtual Machines in Azure](/azure/virtual-machines/windows/overview)
+- [Linux Virtual Machines in Azure](/azure/virtual-machines/linux/overview)
 
 ## Related resources
+
+- [Run a Windows VM on Azure](/azure/architecture/reference-architectures/n-tier/windows-vm)
+- [Run a Linux VM on Azure](/azure/architecture/reference-architectures/n-tier/linux-vm)
