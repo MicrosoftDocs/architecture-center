@@ -44,6 +44,14 @@ There are additional supporting components running on the cluster:
 
 ![Application flow](./images/application-design-flow.png)
 
+### Database connection
+
+Cosmos DB presents a key dependency of the application...
+
+- direct connect mode
+- don't return object in response
+- resiliency - multi-region write, failovers
+
 ## Identity and access management
 
 On the application level this reference architecture uses a simple authentication scheme based on API keys for some restricted operations, such as creating new catalog items or deleting comments. More advanced scenarios such as user authentication and user roles are not in scope.
@@ -140,29 +148,71 @@ One exception are **sensitive values** for pipelines, which aren't stored in sou
 
 ## Asynchronous messaging
 
-In order to achieve high responsiveness for all operations, Azure Mission-critical reference implementation uses the [Queue-Based Load leveling pattern](https://docs.microsoft.com/azure/architecture/patterns/queue-based-load-leveling) combined with [Competing Consumers pattern](https://docs.microsoft.com/azure/architecture/patterns/competing-consumers) where multiple producer instances (`CatalogService` in our case) generate messages which are then asynchronously processed by consumers (`BackgroundProcessor`). This allows the API to accept the request and return to the caller quickly whilst the more demanding database write operation is processed separately. This asynchronous approach provides reliability and resiliency through the decoupling of dependencies between the components as well as through the resiliency of Event Hub. ??more detail?? 
+In order to achieve high responsiveness for all operations, Azure Mission-critical reference implementation uses the [Queue-Based Load leveling pattern](https://docs.microsoft.com/azure/architecture/patterns/queue-based-load-leveling) combined with [Competing Consumers pattern](https://docs.microsoft.com/azure/architecture/patterns/competing-consumers) where multiple producer instances (`CatalogService` in our case) generate messages which are then asynchronously processed by consumers (`BackgroundProcessor`). This allows the API to accept the request and return to the caller quickly whilst the more demanding database write operation is processed separately. This asynchronous approach provides reliability and resiliency through the decoupling of dependencies between the components.
 
-This architecture uses **Azure Event Hubs** as the message queue but provides interfaces in code which enable the use of other messaging services if required, such as Azure Service Bus. **ASP.NET Core API** is used to implement the producer REST API, and **.NET Core Worker Service** is used to implement the consumer service.
+The reference architecture uses **Azure Event Hubs** as the message queue but provides interfaces in code which enable the use of other messaging services if required, such as Azure Service Bus. **ASP.NET Core API** is used to implement the producer REST API, and **.NET Core Worker Service** is used to implement the consumer service.
+
+### Write operations
+
+Write operations, such as *post rating and post comment* are processed asynchronously. The API first sends a message with all relevant information, such as type of action and comment data, to the message queue and immediately returns `HTTP 202 (Accepted)` with additional `Location` header for the create operation.
+
+Messages from the queue are then processed by `BackgroundProcessor` instances which handle the actual database communication for write operations. `BackgroundProcessor` scales in and out dynamically based on message volume on the queue.
+
+![Post rating is asynchronous](./images/application-design-operations-2.png)
+
+The Azure EventHub Processor library in `BackgroundProcessor` uses Azure Blob Storage to manage partition ownership, load balance between different worker instances and to track progress using checkpoints. **Writing the checkpoints to the blob storage does not happen after every event** as this would add a prohibitively expensive delay for every message. Instead the checkpoint writing happens on a timer-loop (configurable duration with a current setting of 10 seconds):
+
+```csharp
+while (!stoppingToken.IsCancellationRequested)
+{
+    await Task.Delay(TimeSpan.FromSeconds(_sysConfig.BackendCheckpointLoopSeconds), stoppingToken);
+    if (!stoppingToken.IsCancellationRequested && !checkpointEvents.IsEmpty)
+    {
+        string lastPartition = null;
+        try
+        {
+            foreach (var partition in checkpointEvents.Keys)
+            {
+                lastPartition = partition;
+                if (checkpointEvents.TryRemove(partition, out ProcessEventArgs lastProcessEventArgs))
+                {
+                    if (lastProcessEventArgs.HasEvent)
+                    {
+                        _logger.LogDebug("Scheduled checkpointing for partition {partition}. Offset={offset}", partition, lastProcessEventArgs.Data.Offset);
+                        await lastProcessEventArgs.UpdateCheckpointAsync();
+                    }
+                }
+            }
+        }
+        catch (Exception e)
+        {
+            _logger.LogError(e, "Exception during checkpointing loop for partition={lastPartition}", lastPartition);
+        }
+    }
+}
+```
+
+### Read operations
 
 Read operations are processed directly by the API and immediately return data back to the user.
 
 ![List games reaches to database directly](./images/application-design-operations-1.png)
 
-High-scale write operations, such as *post rating and post comment* are processed asynchronously. The API first sends a message with all relevant information, such as type of action and comment data, to the message queue and immediately returns `HTTP 202 (Accepted)` with additional `Location` header for the create operation.
-
-Messages from the queue are then processed by BackgroundProcessor instances which handle the actual database communication for write operations. The BackgroundProcessor scales in and out dynamically based on message volume on the queue.
-
-![Post rating is asynchronous](./images/application-design-operations-2.png)
-
 There is no back channel which communicates to the client if the operation completed successfully. The client application has to proactively poll the API to for updates.
 
-?? is de-duping required and idempotency provided directly in event hub or is it part of the catalog service?
+### Failure analysis
+
+TODO
+
+- Use case: Sender crashes after messages goes to event hubs
+- Use case: Receiver crashes after writing to DB
+- DLQ management
 
 ----
+----
 
-The `CatalogService` and `BackgroundProcessor` components are dependent on writing and reading messages from Event Hub. The `BackgroundProcessor` and `HealthCheck` components are dependent on writing data to Cosmos DB, and the `CatalogService` component is dependent on reading data from Cosmos DB. `CatalogService`, `BackgroundProcessor`, and `HealthCheck` are dependent on Azure KeyVault for the connection strings and other connection information to connect to CosmosDB and Event Hub. Each component uses the CSI Secrets Store Driver to load the connection details from Azure KeyVault when the pod is created.
+DUMP ZONE
 
-?? does cert manager load certs from keyvault via CSI?
 
 The `CatalogService`, `BackgroundProcessor`, and `HealthCheck` components use the Cosmos DB .NET Core SDK to connect to Cosmos DB. The SDK includes logic to maintain alternate connections to the database in case of connection failures.
 
@@ -285,10 +335,3 @@ In addition to that, each component of the workload including dependencies like 
 ## Health monitoring
 - Health service
 - Health and readiness probes
-
-
-
-## Secret management
-- Application configuration
-- Certificates
-- Keys
