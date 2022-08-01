@@ -2,7 +2,7 @@ APIOps applies the concepts of [GitOps](https://www.gitops.tech) and [DevOps](/d
 
 APIOps places the [Azure API Management](/azure/api-management) infrastructure under version control to achieve these goals. Rather than making changes directly in API Management, most operations happen through code changes that can be reviewed and audited. This approach supports the security principle of least-privilege access.
 
-APIOps not only enforces policies within API Management, but also helps support security by providing feedback for proposed policy changes. Early feedback is more convenient for developers and reduces risks and costs. Also, the earlier in the pipeline that you can identify deviations from your standards, the faster you can resolve them.
+APIOps not only enforces policies within API Management but also helps support security by providing feedback for proposed policy changes. Early feedback is more convenient for developers and reduces risks and costs. Also, the earlier in the pipeline that you can identify deviations from your standards, the faster you can resolve them.
 
 Also, the more APIs that you build and deploy by following this approach, the greater the consistency between APIs. With greater consistency, it's less likely that the service can't or won't be consumed because of low quality. 
 
