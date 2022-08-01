@@ -24,7 +24,7 @@ This solution uses [Azure Repos](/azure/devops/repos/?view=azure-devops) to prov
 
 1.  API operators run the extractor pipeline to synchronize the Git repository with the API Management instance and populate the Git repository with API Management objects in the required format.
 
-2.  If APIs already exist in the API Management instance, and there are changes, a pull request (PR) is created for operators to review and merge the changes in the Git repository.
+2.  If APIs already exist in the API Management instance and there are changes, a pull request (PR) is created for operators to review and merge the changes in the Git repository.
 
 3.  API developers clone the Git repository, create a branch, and create API definitions by using the OpenAPI specification or tools of their choice.
 
