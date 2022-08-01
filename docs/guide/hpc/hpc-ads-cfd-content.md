@@ -1,4 +1,4 @@
-This article briefly describes the steps for running [ADS CFD's](https://new.aerodynamic-solutions.com) Code Leo application on a virtual machine deployed on Azure. It also presents performance results.
+This article briefly describes the steps for running [ADS CFD's](https://new.aerodynamic-solutions.com) Code Leo application on a virtual machine (VM) deployed on Azure. It also presents the performance results of running Code Leo on Azure.
 
 Code Leo is a URANS-based flow solver that delivers accurate and fast flow simulations for general flow configurations. Code Leo:
 
@@ -9,9 +9,9 @@ Code Leo is a URANS-based flow solver that delivers accurate and fast flow simul
 - Allows the use of various turbomachinery rotor/stator interaction models, including sliding mesh, mixing plane, and frozen rotor models.
 - Is HPC-aware and uses MPI+MP for parallel computing.
 
-Code Leo was originally designed for CPUs, but ADS CFD has extended it to take advantage of the advanced GPU architecture when GPUs became more cost-effective. It's been validated for decades by industry leaders like Air Force Research Laboratory and NASA. Code Leo users can switch easily between CPU and GPU solvers.
+Code Leo was originally designed for CPUs, but ADS CFD extended it to take advantage of the advanced GPU architecture when GPUs became more cost-effective. It's been validated for decades by industry leaders like Air Force Research Laboratory and NASA. Code Leo users can switch easily between CPU and GPU solvers.
 
-ADS CFD software is used primarily in the aerospace and turbomachinery industries for performance and durability assessments of jet engines and aircraft. One of the main use cases is the analysis and optimization of integrated engine/aircraft configurations so that next-generation aircraft designs can be closed on time and with confidence.
+ADS CFD software is used primarily in the aerospace and turbomachinery industries for performance and durability assessments of jet engines and aircraft. One of the main use cases is the analysis and optimization of integrated engine/aircraft configurations so that next-generation aircraft designs can be completed on time and with confidence.
 
 ## Architecture
 
@@ -21,10 +21,10 @@ ADS CFD software is used primarily in the aerospace and turbomachinery industrie
 
 ## Components
 
- - [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines). Create Linux and Windows virtual machines (VMs) in seconds.
+ - [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines). Create Linux and Windows virtual machines in seconds.
  - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network). Use Virtual Network to create your own private network infrastructure in the cloud.
 
-## Install Code Leo on a virtual machine
+## Install Code Leo on a VM
 
 Before you install Code Leo, you need to deploy and connect a VM and install the required NVIDIA and AMD drivers.
 
@@ -102,7 +102,7 @@ Only model running time (wall clock time) is considered for these cost calculati
 
 You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for your configuration.
 
-The following tables provide elapsed times in hours. To compute total cost, multiply by the Azure VM hourly cost, which you can find [here for Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/#pricing) and [here for Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#pricing).
+The following tables provide elapsed times in hours. To compute the total cost, multiply by the Azure VM hourly cost, which you can find [here for Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/#pricing) and [here for Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#pricing).
 
 ### ND96asr_v4
 
@@ -124,9 +124,9 @@ The following tables provide elapsed times in hours. To compute total cost, mult
 
 ## Additional notes about tests
 
-- Code Leo has been successfully tested on NDv4 and NCv3 VMs on Azure.
-- The NDv4 A100 VM demonstrated good GPU acceleration. Every added GPU provides good speed improvements. The peak performance of 80x is attained with 8 GPUs.
-- The NCv3 V100 VM also demonstrated good GPU acceleration. Every added GPU provides good speed improvements. The peak performance of 32x is attained with 4 GPUs. For complex problems, the 1 GPU memory of 16 GB might not be sufficient, so we recommend 2 GPUs for this scenario.
+- Code Leo was successfully tested on NDv4 and NCv3 VMs on Azure.
+- The NDv4 A100 VM demonstrated good GPU acceleration. Every added GPU provides speed improvements. The peak performance of 80x is attained with 8 GPUs.
+- The NCv3 V100 VM also demonstrated good GPU acceleration. Every added GPU provides good improvements. The peak performance of 32x is attained with 4 GPUs. For complex problems, the 1 GPU memory of 16 GB might not be sufficient, so we recommend 2 GPUs for this scenario.
 - The GPU technology in Code Leo provides unprecedented processing power on Azure.
 
 ## Contributors
