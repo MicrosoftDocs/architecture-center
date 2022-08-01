@@ -4,7 +4,7 @@ This example scenario shows how your business can use machine learning to automa
 
 ## Architecture
 
-![Architectural diagram: training, evaluation, and deployment of a machine learning model for content-based personalization on Apache Spark using Azure Databricks.](./media/architecture-scalable-personalization.png)
+:::image type="content" alt-text="Architectural diagram: training, evaluation, and deployment of a machine learning model for content-based personalization on Apache Spark using Azure Databricks." source="./media/architecture-scalable-personalization.png" lightbox="./media/architecture-scalable-personalization.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/architecture-scalable-personalization.vsdx) of this architecture.*
 
