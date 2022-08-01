@@ -58,7 +58,7 @@ The solution has the following components:
 
 This scenario uses a modified version of the [Azure API Management DevOps Resource Kit](https://github.com/Azure/azure-api-management-devops-resource-kit). The modifications made the resource kit a better fit to the GitOps model, such as by changing the repository structure and renaming the APIs to have friendlier names.
 
-The API Management resource kit is reliant on Azure Resource Management templates (ARM templates), while this solution is more technology-agnostic. You can now use Terraform, Azure Resource Manager, PowerShell, the REST API, and so on, to easily format and push newly extracted changes back to the portal.
+The API Management resource kit is reliant on Azure Resource Management templates (ARM templates) while this solution is more technology-agnostic. You can now use Terraform, Azure Resource Manager, PowerShell, the REST API, and so on, to easily format and push newly extracted changes back to the portal.
 
 The toolkit doesn't deploy any changes. The extractor only generates ARM templates from the portal. The creator only generates ARM templates from the config.yml file.
 
@@ -78,7 +78,7 @@ APIOps has many benefits, but as API Management landscapes grow, so does the com
 
 ### Security
 
-This solution provides several security-related benefits. With the GitOps approach, individual developers—and even operators—don't directly access the API Management instance to apply changes or updates. Instead, users push changes to a Git repository, and the extractor and publishing pipelines read them and apply them to the API Management instance. This approach follows the security best practice of _least privilege_ by not giving teams write permissions to the API Management service instance. In diagnostic or troubleshooting scenarios, you can grant elevated permissions for a limited time on a case-by-case basis.
+This solution provides several security-related benefits. With the GitOps approach, individual developers—and even operators—don't directly access the API Management instance to apply changes or updates. Instead, users push changes to a Git repository, and the extractor and publishing pipelines read and apply them to the API Management instance. This approach follows the security best practice of _least privilege_ by not giving teams write permissions to the API Management service instance. In diagnostic or troubleshooting scenarios, you can grant elevated permissions for a limited time on a case-by-case basis.
 
 To make sure the API Management instances are using best practices for security, you can extend this solution to enforce API best practices by using third-party tools and unit testing. Teams can provide early feedback via PR review if the proposed changes to an API or policy violate standards.
 
