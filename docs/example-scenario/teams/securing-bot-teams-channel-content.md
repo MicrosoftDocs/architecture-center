@@ -41,7 +41,7 @@ This example scenario helps secure the connection to a Microsoft Teams channel b
 
 ### Alternatives
 
--   [App Service Environment](/azure/app-service/environment/intro) (ASE) can provide a fully isolated and dedicated environment for securely running App Service apps at high scale. This example doesn't make use of ASE to reduce costs, but the sample architecture could support it, with modifications.
+-   An [App Service Environment](/azure/app-service/environment/intro) can provide a fully isolated and dedicated environment for securely running App Service apps at high scale. This example doesn't make use of an App Service Environment to reduce costs, but the sample architecture could support it, with modifications.
 
 ## Scenario details
 
