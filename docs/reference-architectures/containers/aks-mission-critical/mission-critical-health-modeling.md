@@ -4,7 +4,7 @@ description: Reference architecture for a workload that is accessed over a publi
 author: sebader
 categories: networking
 ms.author: allensu
-ms.date: 09/15/2022
+ms.date: 08/15/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: reference-architecture
