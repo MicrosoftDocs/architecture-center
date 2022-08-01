@@ -3,7 +3,7 @@ title: Azure Virtual Machine Spot Eviction
 description: Learn about Spot Eviction and how to architect for and handle eviction notices. 
 author: ju-shim
 ms.author: jushiman
-ms.date: 05/04/2022
+ms.date: 08/01/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -121,7 +121,10 @@ There are several conditions that affect an eviction. The following list goes in
 ### Events
 
 [Azure Scheduled Events](/azure/virtual-machines/windows/scheduled-events.md) is a metadata service in Azure that signal about forthcoming events associated to the Virtual Machine resource type. The general recommendation when using Virtual Machines is to routinely query this endpoint to discover when maintenance will occur, so you are given the opportunity to prepare for disruption. One of the platform event types being scheduled that you will want to notice is `Preempt` as this signals the imminent eviction of your spot instance. This event is scheduled with a minimum amount of time of 30 seconds in the future. Given that, you must assumme that you are going to have less than that amount of time to limit the impact. The recommended practice in here is to check this endpoint based on the periodicity your workload mandates (i.e. every 10 seconds) to attempt having a gracefully interruption.
-1. Metadata Apis: [Azure Retail Prices API]
+
+### Metadata APIs
+
+You can use the [Retail Rates Prices API](/rest/api/cost-management/retail-prices/azure-retail-prices) to get retail prices for all Azure services.
 
 <!--- RESUME HERE --->
 
