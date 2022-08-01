@@ -5587,6 +5587,10 @@ items:
               - name: SAP HANA infrastructure configurations
                 href: /azure/virtual-machines/workloads/sap/hana-vm-operations
                 maintainContext: true
+              - name: SAP NetWeaver on Windows on Azure
+                href: guide/sap/sap-netweaver.yml
+              - name: SAP S/4HANA in Linux on Azure
+                href: guide/sap/sap-s4hana.yml
               - name: SAP workload configurations with AZs
                 href: /azure/virtual-machines/workloads/sap/sap-ha-availability-zones
                 maintainContext: true
@@ -5617,10 +5621,6 @@ items:
                 maintainContext: true
               - name: SAP HANA scale-up on Linux
                 href: reference-architectures/sap/run-sap-hana-for-linux-virtual-machines.yml
-              - name: SAP NetWeaver on Windows on Azure
-                href: reference-architectures/sap/sap-netweaver.yml
-              - name: SAP S/4HANA in Linux on Azure
-                href: reference-architectures/sap/sap-s4hana.yml
           - name: Solution ideas
             items:
               - name: SAP NetWeaver on SQL Server
