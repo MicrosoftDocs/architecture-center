@@ -22,7 +22,7 @@ This article includes several tables, which may help you to make these tradeoff 
 If you're not familiar with the Azure service selected in the previous step, read the overview documentation to understand the basics of the service.
 
 - [Azure App Service](/azure/app-service). A managed service for hosting web apps, mobile app back ends, RESTful APIs, or automated business processes.
-- [Azure Spring Apps](/azure/spring-cloud). A managed service designed and optimized for hosting Spring Boot apps.
+- [Azure Spring Apps](/azure/spring-apps). A managed service designed and optimized for hosting Spring Boot apps.
 - [Azure Kubernetes Service](/azure/aks/intro-kubernetes) (AKS). A managed Kubernetes service for running containerized applications.
 - [Azure Batch](/azure/batch/batch-technical-overview). A managed service for running large-scale parallel and high-performance computing (HPC) applications
 - [Azure Container Instances](/azure/container-instances/container-instances-overview). The fastest and simplest way to run a container in Azure, without having to provision any virtual machines and without having to adopt a higher-level service.
