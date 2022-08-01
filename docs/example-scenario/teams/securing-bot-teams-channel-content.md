@@ -355,33 +355,24 @@ You must have an existing Azure account. If you don't have an Azure subscription
 
 Principal author:
 
- * [Ali Jafry](https://www.linkedin.com/in/alijafry) | Cloud Solution Architect
+- [Ali Jafry](https://www.linkedin.com/in/alijafry) | Cloud Solution Architect
 
 ## Next steps
 
--   Review the [Bot Framework SDK Documentation \| Microsoft
-    Docs](/azure/bot-service/index-bf-sdk?view=azure-bot-service-4.0) to start building bots.
+- Review the [Bot Framework SDK Documentation](/azure/bot-service/index-bf-sdk?view=azure-bot-service-4.0) to start building bots.
 
--   See [Bots Secured Behind a Firewall & Teams \| Bot Framework
-    Blog](https://blog.botframework.com/2020/11/23/bots-secured-behind-a-firewall-teams).
+- See [Bots Secured Behind a Firewall & Teams](https://blog.botframework.com/2020/11/23/bots-secured-behind-a-firewall-teams).
 
 ## Related resources
 
--   Visit the [Azure Architecture Center \| Microsoft
-    Docs](../../browse/index.yml) to review related architectures and guides.
+- Visit the [Azure Architecture Center](../../browse/index.yml) to review related architectures and guides.
 
--   [Azure Firewall Architecture Guide - Azure Architecture Center \| Microsoft
-    Docs](../firewalls/index.yml)
+- [Azure Firewall Architecture Guide - Azure Architecture Center](../firewalls/index.yml)
 
--   [Azure Active Directory IDaaS in Security Operations - Azure Example Scenarios \| Microsoft
-    Docs](../aadsec/azure-ad-security.yml)
+- [Azure Active Directory IDaaS in Security Operations - Azure Example Scenarios](../aadsec/azure-ad-security.yml)
 
--   [Threat indicators for cyber threat intelligence in Microsoft Sentinel - Azure Example Scenarios \| Microsoft
-    Docs](../data/sentinel-threat-intelligence.yml)
+- [Threat indicators for cyber threat intelligence in Microsoft Sentinel - Azure Example Scenarios](../data/sentinel-threat-intelligence.yml)
 
--   [Confidential computing on a healthcare platform - Azure Example Scenarios
-    \| Microsoft
-    Docs](../confidential/healthcare-inference.yml)
+- [Confidential computing on a healthcare platform - Azure Example Scenarios](../confidential/healthcare-inference.yml)
 
--   [Hub-spoke network topology in Azure \| Microsoft
-    Docs](../../reference-architectures/hybrid-networking/hub-spoke.yml?tabs=cli)
+- [Hub-spoke network topology in Azure](../../reference-architectures/hybrid-networking/hub-spoke.yml?tabs=cli)

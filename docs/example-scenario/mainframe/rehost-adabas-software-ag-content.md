@@ -101,20 +101,21 @@ This solution uses an Azure network security group (NSG) to manage traffic betwe
 
 Principal author:
 
- * Marlon Johnson | Senior Program Manager
+- Marlon Johnson | Senior Program Manager
 
 Other contributors:
 
- * [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
- * [Bhaskar Bandam](https://www.linkedin.com/in/bhaskar-bandam-75202a9) | Senior Program Manager
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
+- [Bhaskar Bandam](https://www.linkedin.com/in/bhaskar-bandam-75202a9) | Senior Program Manager
 
 ## Next steps  
 
 For more information, contact [legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com).  
 
 See these additional resources:
+
 - [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
-- [Microsoft Learn: Configure virtual networks](/learn/modules/configure-virtual-networks)
+- [Configure virtual networks](/learn/modules/configure-virtual-networks)
 - [What is Azure ExpressRoute?](/azure/expressroute/expressroute-introduction)
 - [What is Azure Application Gateway?](/azure/application-gateway/overview)
 - [Windows virtual machines in Azure](/azure/virtual-machines/windows/overview)

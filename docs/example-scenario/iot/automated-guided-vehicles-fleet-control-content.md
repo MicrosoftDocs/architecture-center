@@ -291,7 +291,7 @@ Product documentation:
 - [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview)
 - [GitHub](https://docs.github.com/en/get-started)
 
-Microsoft Learn learning paths:
+Microsoft learning paths:
 
 - [Introduction to Azure IoT](/learn/paths/introduction-to-azure-iot/)
 - [Introduction to Kubernetes on Azure](/learn/paths/intro-to-kubernetes-on-azure/)
