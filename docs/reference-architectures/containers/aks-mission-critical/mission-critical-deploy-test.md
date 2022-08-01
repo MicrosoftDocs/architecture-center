@@ -64,7 +64,7 @@ The zero-downtime update strategy in the reference architecture is central to th
 
 There are two main components of the reference architecture:
 
-* **Infrastructure** - Azure services and resources. Deployed with Terraform and it's associated configuration.
+* **Infrastructure** - Azure services and resources. Deployed with Terraform and its associated configuration.
 
 * **Application** - The hosted service or application that serves users. Based on Docker containers and npm built artifacts in HTML and JavaScript for the single-page application (SPA) UI.
 
