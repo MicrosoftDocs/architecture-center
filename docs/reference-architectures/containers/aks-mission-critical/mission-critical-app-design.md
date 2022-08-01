@@ -48,6 +48,8 @@ There are additional supporting components running on the cluster:
 
 Cosmos DB presents a key dependency of the application...
 
+he `CatalogService`, `BackgroundProcessor`, and `HealthCheck` components use the Cosmos DB .NET Core SDK to connect to Cosmos DB. The SDK includes logic to maintain alternate connections to the database in case of connection failures.
+
 - direct connect mode
 - don't return object in response
 - resiliency - multi-region write, failovers
@@ -208,20 +210,6 @@ TODO
 - Use case: Receiver crashes after writing to DB
 - DLQ management
 
-----
-----
-
-DUMP ZONE
-
-
-The `CatalogService`, `BackgroundProcessor`, and `HealthCheck` components use the Cosmos DB .NET Core SDK to connect to Cosmos DB. The SDK includes logic to maintain alternate connections to the database in case of connection failures.
-
-Within the cluster, `Ingress` load-balances requests between multiple pod instances as each component is scaled up or down. Each service only communicates with either Event Hub or Cosmos DB, and there is no direct communication between the services.
-
-
-
-
-
 ## Instrumentation
 
 Each component writes logs, metrics, and telemetry to a backing log system, Azure Monitor. The components do not write log files in the runtime environment, or manage log formats or the logging environment. There are no log boundaries, such as date rollover, defined or managed by the applications. The logging is an ongoing event stream and the backing log system is where log analytics and querying are performed. The AKS cluster also has Container Insights enabled, which is a service that collects logs and metrics from the containers in the cluster and sends them to the Log Analytics workspace.
@@ -262,6 +250,14 @@ The CatalogService application is packaged and deployed as a Helm chart. The cha
 | networkPolicy.egressRange | Allowed egress range - defaults to `0.0.0.0/0` |
 
 
+----
+----
+
+DUMP ZONE
+
+
+
+
 ## Load testing
 
 Follow the principles outlined in [Performance testing](/azure/architecture/framework/scalability/performance-test) to determine your specific load testing needs.
@@ -292,27 +288,13 @@ Follow the principles outlined in [Performance testing](/azure/architecture/fram
 - Ingress to service
 - Network policies
 
-## Identity and access management
-- Pod identity
-- Authentication
-
-
-
-## Asynchronous messaging
-- Technology choice
-- De-duping capability
-- Idempotency
-- Failure analysis
-    - Use case: Sender crashes after messages goes to event hubs
-    - Use case: Receiver crashes after writing to DB
-    - DLQ management
-- Resiliency 
 ## Instrumentation
 - What data to capture (logs, metrics, deployment ennvironment)
 - Distributed tracing
 - Application profiling
 - Structured logging
 - APM enabling
+
 ## Scalability
 - Independent scaling
     - HPA
