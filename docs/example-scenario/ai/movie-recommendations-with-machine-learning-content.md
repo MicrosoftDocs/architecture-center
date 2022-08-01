@@ -2,7 +2,9 @@ The solution described in this article uses machine learning to create movie rec
 
 ## Architecture
 
-![Architecture of a machine learning model for training movie recommendations][architecture]
+:::image type="content" alt-text="Architecture of a machine learning model for training movie recommendations" source="media/architecture-movie-recommender.png" lightbox="media/architecture-movie-recommender.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/architecture-movie-recommender.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -103,7 +105,6 @@ Follow these steps to run the [ALS quickstart notebook][als-quickstart]:
 - [Retail assistant with visual capabilities](../../solution-ideas/articles/retail-assistant-or-vacation-planner-with-visual-capabilities.yml)
 - [Campaign optimization with SQL Server and machine learning](../../solution-ideas/articles/campaign-optimization-with-sql-server.yml)
 
-[architecture]: media/architecture-movie-recommender.png
 [aci]: /azure/container-instances/container-instances-overview
 [aci-service]: https://azure.microsoft.com/services/container-instances
 [aks]: /azure/aks/intro-kubernetes
