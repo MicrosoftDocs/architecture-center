@@ -8,14 +8,14 @@ This architecture describes how [knowledge mining](https://azure.microsoft.com/s
 
 When organizations task employees to review and research technical data, it can be tedious to read page after page of dense text. Knowledge mining helps employees quickly review these dense materials. In industries where bidding competition is fierce, or when the diagnosis of a problem must be quick or in near real-time, companies can use knowledge mining to avoid costly mistakes and gain faster insights during content research.
 
-Industries that rely on knowledge mining:
+Industries that rely on knowledge mining include:
 
-* Education
-* Marketing
-* Banking (finance)
-* Service providers
-* Retail
-* News and media
+- Education
+- Marketing
+- Banking (finance)
+- Service providers
+- Retail
+- News and media
 
 ## Architecture
 
@@ -53,4 +53,4 @@ The following key technologies are used to implement tools for technical content
 
 - Build and Azure Cognitive Search [custom skill](/azure/search/cognitive-search-custom-skill-interface).
 
-- Explore the Microsoft Learning Path [knowledge mining with Azure Cognitive Search](/learn/paths/implement-knowledge-mining-azure-cognitive-search).
+- Explore the learning path [Knowledge mining with Azure Cognitive Search](/learn/paths/implement-knowledge-mining-azure-cognitive-search).

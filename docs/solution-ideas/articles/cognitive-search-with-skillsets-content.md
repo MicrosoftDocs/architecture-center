@@ -99,6 +99,6 @@ Read product documentation:
 - [Azure Blob storage](/azure/storage/blobs/storage-blobs-introduction)
 - [Azure Functions](/azure/azure-functions)
 
-Try the Microsoft Learn path:
+Try the learning path:
 
 - [Implement knowledge mining with Azure Cognitive Search](/learn/paths/implement-knowledge-mining-azure-cognitive-search)

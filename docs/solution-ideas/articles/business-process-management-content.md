@@ -8,10 +8,10 @@ This solution demonstrates how to use [knowledge mining](https://azure.microsoft
 
 This solution is ideal for the finance industry. When organizations task employees with the review and research of technical data, it can be tedious to read page after page of dense text. Knowledge mining helps employees quickly review these materials. Knowledge mining can help avoid costly mistakes in industries where bidding competition is fierce. Or, in scenarios when the diagnosis of a problem must be quick or in near real time.
 
-* Sales
-* IT service management
-* Finances
-* Logistics
+- Sales
+- IT service management
+- Finances
+- Logistics
 
 ## Architecture
 
@@ -53,4 +53,4 @@ Key technologies used to implement tools for technical content review and resear
 
 - Build an Azure Cognitive Search [custom skill](/azure/search/cognitive-search-custom-skill-interface).
 
-- Explore the Microsoft Learning Path [knowledge mining with Azure Cognitive Search](/learn/paths/implement-knowledge-mining-azure-cognitive-search).
+- Explore the learning path [Knowledge mining with Azure Cognitive Search](/learn/paths/implement-knowledge-mining-azure-cognitive-search).

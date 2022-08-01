@@ -10,10 +10,10 @@ Many companies create products for multiple sectors, as such the business opport
 
 Industries that rely on knowledge mining for contract management:
 
-* Marketing
-* Retail
-* Logistics
-* Manufacturing
+- Marketing
+- Retail
+- Logistics
+- Manufacturing
 
 ## Architecture
 
@@ -51,4 +51,4 @@ Key technologies used to implement tools for technical content review and resear
 
 - Build an Azure Cognitive Search [custom skill](/azure/search/cognitive-search-custom-skill-interface).
 
-- Explore the Microsoft Learning Path [knowledge mining with Azure Cognitive Search](/learn/paths/implement-knowledge-mining-azure-cognitive-search).
+- Explore the learning path [knowledge mining with Azure Cognitive Search](/learn/paths/implement-knowledge-mining-azure-cognitive-search).
