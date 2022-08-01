@@ -2,7 +2,9 @@ This article summarizes the process and components the Microsoft Commercial Soft
 
 ## Architecture
 
-![Diagram showing a full solution architecture for a banking system cloud transformation.](./images/banking-system-solution-arch.png)
+:::image type="content" border="false" source="./images/banking-system-solution-arch.png" alt-text="Diagram showing a full solution architecture for a banking system cloud transformation." lightbox="./images/banking-system-solution-arch.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/banking-system-solution-arch.vsdx) of this architecture.*
 
 Three main blocks make up the solution: back-end services, load testing, and monitoring with Event Autoscaler.
 

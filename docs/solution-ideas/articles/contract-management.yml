@@ -1,11 +1,11 @@
 ### YamlMime:Architecture
 metadata:
   title: Knowledge mining in contract management
-  titleSuffix: Azure Solution Ideas
+  titleSuffix: Azure Architecture Center
   description: Learn how to use knowledge mining in contract management to help your organization scour thousands of pages to create an accurate bid.
   author: EdPrice-MSFT
-  ms.author: edprice
-  ms.date: 05/23/2022
+  ms.author: architectures
+  ms.date: 07/22/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea

@@ -1,16 +1,6 @@
-Managing customer data from multiple sources and building a unified Customer 360 view isn't a new challenge. But it is becoming increasingly difficult with the increased number of interaction channels and touchpoints with customers. By combining Azure Synapse Analytics with Dynamics 365 Customer Insights, you can build a comprehensive view of your customers to provide the best customer experience.
+This solution combines Azure Synapse Analytics with Dynamics 365 Customer Insights, to build a comprehensive view that presents your customer data and to provide the best customer experience.
 
 *Apache®, Apache Ignite, Ignite, and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
-
-## Potential use cases
-
-This solution was created for a property management organization. It can also be applied in industries like retail, financial services, manufacturing, and health care. It can be used by any organization that needs to bring data together across systems to build a Customer 360 profile and improve the customer experience.
-
-You can use this solution to:
-- Gain better insights from your customer data. 
-- Target sources of customer churn or dissatisfaction.
-- Direct account and customer service activities.
-- Run targeted promotions that are aimed at customer retention or upselling.
 
 ## Architecture
 
@@ -35,10 +25,29 @@ You can use this solution to:
 - [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) is an analytics service that brings together data integration, enterprise data warehousing, and big data analytics. It's used here for data ingestion, storage, and processing.
 - [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) provides a massively scalable and secure data lake for your high-performance analytics workloads.  
 - [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) is an end-to-end machine learning service. It's used in this architecture to predict customer retention. 
-- [Power BI](https://powerbi.microsoft.com) can help you turn your data into coherent, visually immersive, and interactive insights. It's used here to visualize customer profiles and metrics. 
+- [Power BI](https://powerbi.microsoft.com) can help you turn your data into coherent, visually immersive, and interactive insights. It's used here to visualize customer profiles and metrics.
+
+## Scenario details
+
+Managing customer data from multiple sources and building a unified Customer 360 view isn't a new challenge. But it is becoming increasingly difficult with the increased number of interaction channels and touchpoints with customers. By combining Azure Synapse Analytics with Dynamics 365 Customer Insights, you can build a comprehensive view of your customers to provide the best customer experience.
+
+### Potential use cases
+
+This solution was created for a property management organization. It can also be applied in industries like retail, financial services, manufacturing, and health care. It can be used by any organization that needs to bring data together across systems to build a Customer 360 profile and improve the customer experience.
+
+You can use this solution to:
+- Gain better insights from your customer data. 
+- Target sources of customer churn or dissatisfaction.
+- Direct account and customer service activities.
+- Run targeted promotions that are aimed at customer retention or upselling.
 
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
 ### Security 
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 This solution uses Azure Active Directory (Azure AD) to authenticate users to the Azure solutions in the architecture. You can manage permissions via Azure AD authentication or role-based access control. 
 
@@ -53,11 +62,9 @@ This solution uses Azure Synapse Spark clusters, which can be automatically scal
 
 Azure Machine Learning training pipelines can be scaled up and down based on data size and other configuration parameters. The compute clusters support autoscaling and automatic shutdown to optimize for performance and cost. 
 
-## Deploy this scenario
+### Cost optimization
 
-To deploy this solution, follow the steps in the [Getting Started guide](https://github.com/microsoft/Azure-Synapse-Customer-Insights-Customer360-Solution-Accelerator#getting-started) and the step-by-step [Deployment Guide](https://github.com/microsoft/Azure-Synapse-Customer-Insights-Customer360-Solution-Accelerator/blob/main/Deployment/AzureSetup.md). You can find them in the [GitHub repository](https://github.com/microsoft/Azure-Synapse-Customer-Insights-Customer360-Solution-Accelerator#about-this-repository) for the solution.
-
-## Pricing
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 [Dynamics 365 Customer Insights](https://dynamics.microsoft.com/ai/customer-insights/pricing) license pricing options are based on the number of customer profiles needed.
 
@@ -75,6 +82,10 @@ You can deploy this solution with the following options.
    - Compute cluster of type Standard_D2_v2
 
 Azure services like Azure Storage accounts, Key Vault, Container Registry, Application Insights, and so on, that are deployed with Azure Synapse Analytics and Azure Machine Learning incur other costs.
+
+## Deploy this scenario
+
+To deploy this solution, follow the steps in the [Getting Started guide](https://github.com/microsoft/Azure-Synapse-Customer-Insights-Customer360-Solution-Accelerator#getting-started) and the step-by-step [Deployment Guide](https://github.com/microsoft/Azure-Synapse-Customer-Insights-Customer360-Solution-Accelerator/blob/main/Deployment/AzureSetup.md). You can find them in the [GitHub repository](https://github.com/microsoft/Azure-Synapse-Customer-Insights-Customer360-Solution-Accelerator#about-this-repository) for the solution.
 
 ## Contributors
 

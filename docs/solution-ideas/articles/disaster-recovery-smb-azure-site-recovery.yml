@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Solution Ideas
   description: Small-sized and medium-sized businesses can inexpensively implement cloud-based disaster recovery solutions by using Azure Site Recovery or Double-Take DR.
   author: EdPrice-MSFT
-  ms.author: edprice
+  ms.author: architectures
   ms.date: 05/26/2022
   ms.topic: conceptual
   ms.service: architecture-center

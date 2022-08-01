@@ -1,33 +1,10 @@
-A general technology trend is the growing popularity of citizen AI roles. Such roles are business practitioners looking to improve business processes through the application of machine learning (ML) and AI technologies. A significant contributor to this trend is the growing maturity and availability of low-code tools to develop ML models.
-
-With a well-known high failure rate to such initiatives, the ability to rapidly prototype and validate an AI application in a real-world setting becomes a key enabler to a fail fast approach. There are two key tools for developing models that modernize processes and drive transformative outcomes:
-
-- **An ML toolkit for all skill levels**
-  - Supports no-code to fully-coded ML development
-  - Has a flexible, low-code GUI
-  - Enables users to rapidly source and prep data
-  - Enables users to rapidly build and deploy models
-  - Has advanced, automated ML capabilities for ML algorithm development
-- **A low-code application development toolkit**
-  - Enables users to build custom applications and automation workflows
-  - Creates workflows so that consumers and business processes can interact with an ML model
-
-## Potential use cases
-
-These toolkits minimize the time and effort needed to prototype the benefits of an ML model on a business process. You can easily extend a prototype to a production grade application. The uses for these techniques include:
-
-- **Manufacturing Ops with legacy applications that use outdated deterministic predictions.** Such situations can benefit from the improved accuracy of an ML model. Proving improved accuracy requires both a model and development effort to integrate with legacy systems on-premises.
-- **Call Center Ops with legacy applications that don't adjust when [data drifts](/azure/machine-learning/how-to-monitor-datasets?tabs=python).** Models that automatically retrain may provide a significant uplift in churn prediction or risk profiling accuracy. Validation requires integration with existing customer relationship management and ticket management systems, and integration could prove expensive.
+The architecture below extends on the [Analytics end-to-end with Azure Synapse](../dataplate2e/data-platform-end-to-end.yml) scenario. It allows for a custom ML model to be trained in Azure Machine Learning, and implemented with a custom application built using Microsoft Power Platform.
 
 ## Architecture
 
-The architecture below extends on the [Analytics end-to-end with Azure Synapse](../dataplate2e/data-platform-end-to-end.yml) scenario. It allows for a custom ML model to be trained in Azure Machine Learning, and implemented with a custom application built using Microsoft Power Platform.
-
-[Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) fulfills the role of a low-code GUI for ML development. It has automated ML, and deployment to batch or real-time endpoints. [Microsoft Power Platform](https://powerplatform.microsoft.com), which includes [Microsoft Power Apps](https://powerapps.microsoft.com) and [Microsoft Power Automate](https://flow.microsoft.com), provides the toolkits to rapidly build a custom application and workflow that implements your ML algorithm. End business users can now build production grade ML applications to transform legacy business processes.
-
 :::image type="content" source="media/citizen-ai-power-platform.svg" alt-text="Architecture for Citizen AI with Microsoft Power Platform" lightbox="media/citizen-ai-power-platform.png" :::
 
-*Download a [SVG file](media/citizen-ai-power-platform.svg) of this architecture.*
+*Download an [SVG file](media/citizen-ai-power-platform.svg) of this architecture.*
 
 ### Workflow
 
@@ -94,6 +71,31 @@ To create a design that respects these recommendations, consider the following s
 
 An ML minimum viable product (MVP) benefits from speed to outcome. In some cases, the needs of a custom model can be met by pre-trained [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services) or [Azure Applied AI Services](https://azure.microsoft.com/product-categories/applied-ai-services). In others, [Power Apps AI Builder](https://powerapps.microsoft.com/ai-builder) may provide a fit for purpose model.
 
+## Scenario details
+
+A general technology trend is the growing popularity of citizen AI roles. Such roles are business practitioners looking to improve business processes through the application of machine learning (ML) and AI technologies. A significant contributor to this trend is the growing maturity and availability of low-code tools to develop ML models.
+
+With a well-known high failure rate to such initiatives, the ability to rapidly prototype and validate an AI application in a real-world setting becomes a key enabler to a fail fast approach. There are two key tools for developing models that modernize processes and drive transformative outcomes:
+
+- **An ML toolkit for all skill levels**
+  - Supports no-code to fully-coded ML development
+  - Has a flexible, low-code GUI
+  - Enables users to rapidly source and prep data
+  - Enables users to rapidly build and deploy models
+  - Has advanced, automated ML capabilities for ML algorithm development
+- **A low-code application development toolkit**
+  - Enables users to build custom applications and automation workflows
+  - Creates workflows so that consumers and business processes can interact with an ML model
+
+[Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) fulfills the role of a low-code GUI for ML development. It has automated ML, and deployment to batch or real-time endpoints. [Microsoft Power Platform](https://powerplatform.microsoft.com), which includes [Microsoft Power Apps](https://powerapps.microsoft.com) and [Microsoft Power Automate](https://flow.microsoft.com), provides the toolkits to rapidly build a custom application and workflow that implements your ML algorithm. End business users can now build production grade ML applications to transform legacy business processes.
+
+### Potential use cases
+
+These toolkits minimize the time and effort needed to prototype the benefits of an ML model on a business process. You can easily extend a prototype to a production grade application. The uses for these techniques include:
+
+- **Manufacturing Ops with legacy applications that use outdated deterministic predictions.** Such situations can benefit from the improved accuracy of an ML model. Proving improved accuracy requires both a model and development effort to integrate with legacy systems on-premises.
+- **Call Center Ops with legacy applications that don't adjust when [data drifts](/azure/machine-learning/how-to-monitor-datasets?tabs=python).** Models that automatically retrain may provide a significant uplift in churn prediction or risk profiling accuracy. Validation requires integration with existing customer relationship management and ticket management systems, and integration could prove expensive.
+
 ## Considerations
 
 When you use these services to create a proof of concept or MVP, you're not done. There's more work to make a production solution. Frameworks such as the [Azure Well-Architected Framework](/azure/architecture/framework) provide reference guidance and best practices to apply to your architecture.
@@ -111,6 +113,14 @@ DevOps practices are used to orchestrate the end-to-end approach used in this ex
 The [Machine Learning DevOps Guide](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-mlops#machine-learning-devops-mlops-best-practices-with-azure-machine-learning) presents best practices and learnings on adopting ML operations (MLOps) in the enterprise with Machine Learning.
 
 DevOps automation can be applied to the Power Platform solution provided in this example. For more information about Power Platform DevOps, see [Microsoft Power Platform Build Tools for Azure DevOps - Power Platform](/power-platform/alm/devops-build-tools).
+
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+
+**Azure pricing:** First party Infrastructure-as-a-Service (IaaS) and Platform-as-a-Service (PaaS) services on Azure use a consumption-based pricing model. They don't require a license or subscription fee. In general, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs. For other considerations, see [Cost Optimization](/azure/architecture/framework/cost/index) in the Well-Architected Framework.
+
+**Power Platform pricing:** [Power Apps](https://powerapps.microsoft.com/pricing), [Power Automate](https://flow.microsoft.com/pricing) and [Power BI](https://powerbi.microsoft.com/pricing) are software-as-a-service (SaaS) applications and have their own pricing models, including per app plan, and per user.
 
 ## Deploy this scenario
 
@@ -139,12 +149,6 @@ The sample app provided in the example above can also be deployed to Microsoft T
 ### Consume the API from multiple apps and automations
 
 In this example, we configure a Power Automate cloud flow to consume the REST endpoint as an HTTP action. We can instead set up a custom connector for the REST endpoint and consume it directly from Power Apps or from Power Automate. This approach is useful when we want multiple apps to consume the same endpoint. It also provides governance by using the connector DLP policy in Power Platform admin center. To create a custom connector, see [Use a custom connector from a Power Apps app](/connectors/custom-connectors/use-custom-connector-powerapps). For more information on Power Platform connector DLP, see [Data loss prevention policies - Power Platform](/power-platform/admin/wp-data-loss-prevention).
-
-## Pricing
-
-**Azure pricing:** First party Infrastructure-as-a-Service (IaaS) and Platform-as-a-Service (PaaS) services on Azure use a consumption-based pricing model. They don't require a license or subscription fee. In general, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs. For other considerations, see [Cost Optimization](/azure/architecture/framework/cost/index) in the Well-Architected Framework.
-
-**Power Platform pricing:** [Power Apps](https://powerapps.microsoft.com/pricing), [Power Automate](https://flow.microsoft.com/pricing) and [Power BI](https://powerbi.microsoft.com/pricing) are software-as-a-service (SaaS) applications and have their own pricing models, including per app plan, and per user.
 
 ## Contributors
 

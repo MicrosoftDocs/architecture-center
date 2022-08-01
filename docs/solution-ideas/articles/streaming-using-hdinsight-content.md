@@ -14,8 +14,9 @@ Companies can use this solution to retrieve (or ingest) data from multiple sourc
 
 ## Architecture
 
-![Architecture Diagram shows the flow of data through the different processes.](../media/streaming-using-hdinsight.png)
-*Download an [SVG](../media/streaming-using-hdinsight.svg) of this architecture.*
+![Architecture Diagram shows the flow of data through the different processes.](../media/streaming-using-hdinsight-new.png)
+
+*Download a [Visio file](https://arch-center.azureedge.net/streaming-using-hdinsight.vsdx) of this architecture.*
 
 ### Dataflow
 

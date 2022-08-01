@@ -76,8 +76,7 @@ To learn more about the DSVM, see [Introduction to Azure Data Science Virtual Ma
 This is an enterprise-grade solution that allows you to scale your R code across a cluster.  By using functions in Microsoft's [`RevoScaleR`](/machine-learning-server/r-reference/revoscaler/revoscaler) package, your R scripts on HDInsight can run data processing functions in parallel across many nodes in a cluster.  This allows R to crunch data on a much larger scale than is possible with single-threaded R running on a workstation.
 
 This ability to scale makes ML Services on HDInsight a great option for R developers with massive data sets.  It provides a flexible and scalable platform for running your R scripts in the cloud.
-
-For a walk-through on creating an ML Services cluster, see [Get started with ML Services on Azure HDInsight](https://azure.microsoft.com/services/hdinsight/r-server/#getting-started).
+For a walkthrough on creating an ML Services cluster, see [Get started with ML Services on Azure HDInsight](https://azure.microsoft.com/services/hdinsight/r-server/#getting-started).
 
 ## Azure Databricks
 
