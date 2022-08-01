@@ -64,7 +64,7 @@ The zero-downtime update strategy in the reference architecture is central to th
 
 There are two main components of the reference architecture:
 
-* **Infrastructure** - Azure services and resources. Deployed with Terraform and its associated configuration.
+* **Infrastructure** - Azure services and resources. Deployed with Terraform and it's associated configuration.
 
 * **Application** - The hosted service or application that serves users. Based on Docker containers and npm built artifacts in HTML and JavaScript for the single-page application (SPA) UI.
 
@@ -106,13 +106,13 @@ To avoid major issues, it's important that the hotfix contains a small number of
 
 The reference architecture uses two types of environments for the infrastructure:
 
-* **Short-lived** - The E2E validation pipeline is used to deploy short-lived environments. Short-lived environments are used for pure validation or debugging environments for developers. Validation environments can be created from the **`feature/*`** branch, subjected to tests, and then destroyed if all tests were successful. Debugging environments are deployed in the same way as validation, but aren't destroyed immediately. These environments shouldn't exist more than a few days and should be deleted when the corresponding PR of the feature branch is merged.
+* **Short-lived** - The E2E validation pipeline is used to deploy short-lived environments. Short-lived environments are used for pure validation or debugging environments for developers. Validation environments can be created from the **`feature/*`** branch, subjected to tests, and then destroyed if all tests were successful. Debugging environments are deployed in the same way as validation, but aren't destroyed immediately. These environments shouldn't exist for more than a few days and should be deleted when the corresponding PR of the feature branch is merged.
 
 * **Permanent** - In the permanent environments there are **`integration (int)`** and **`production (prod)`** versions. These environments live continuously and aren't destroyed. The environments use fixed domain names like *int.mission-critical.app*. In a real world implementation of the reference architecture, a **`staging`** (pre-prod) environment should be added. The **`staging`** environment is used to deploy and validate **`release`** branches with the same update process as **`prod`** (Blue/Green deployment).
 
     * **Integration (int)** - The **`int`** version is deployed nightly from the **`main`** branch with the same process as **`prod`**. The switchover of traffic is faster than the previous release unit. Instead of gradually switching traffic over multiple days, as in **`prod`**, the process for **`int`** completes within a few minutes or hours. This faster switchover ensures the updated environment is ready by the next morning. Old stamps are automatically deleted if all tests in the pipeline are successful.
 
-    * **Production (prod)** - The **`prod`** version is only deployed from **`release/*`** branches. The traffic switchover uses more granular steps. A manual approval gate is between each step. Each release creates new regional stamps and deploys the new application version to the stamps. Existing stamps aren't touched in the process. The most important consideration for **`prod`** is that it should be **"always on"**. No planned or unplanned downtime should ever occur. The only exception is foundational changes to the database layer.  A planned maintenance window maybe needed.
+    * **Production (prod)** - The **`prod`** version is only deployed from **`release/*`** branches. The traffic switchover uses more granular steps. A manual approval gate is between each step. Each release creates new regional stamps and deploys the new application version to the stamps. Existing stamps aren't touched in the process. The most important consideration for **`prod`** is that it should be **"always on"**. No planned or unplanned downtime should ever occur. The only exception is foundational changes to the database layer.  A planned maintenance window may be needed.
 
 ## Deployment: Shared and dedicated resources
 
@@ -138,7 +138,7 @@ The individual component configuration for the Front Door deployment is defined 
 
 * **Origins** - Front Door is configured with two types of origin groups:
 
-    1. A pool for the static storage that serves the UI. The pool contains the website storage accounts from all currently active release units. Different weights can be assigned to the backends from different release units to gradually move traffic to a newer unit. Each backend from a release unit should have the same weights assigned.
+    1. A pool for static storage that serves the UI. The pool contains the website storage accounts from all currently active release units. Different weights can be assigned to the backends from different release units to gradually move traffic to a newer unit. Each backend from a release unit should have the same weight assigned.
 
     2. A pool for the API, which is hosted on AKS. If there are release units with different API versions, then an API backend pool exists for each release unit. If all release units offer the same compatible API, all backends are added to the same backend pool and assigned different weights.
 
@@ -164,11 +164,11 @@ As a part of the addition of the new release unit, the weights of the new backen
 
 ### Release unit teardown
 
-As part of the deployment pipeline for a release unit, there is a destroy stage that removes all stamps once a release unit is no longer needed and all traffic has been moved to a new release version. This stage includes the removal of release unit references from Front Door. This is critical to enable the release of a new version at a later date. Front Door must point to a single release unit in order to be prepared for the next release in the future.
+As part of the deployment pipeline for a release unit, there is a destroy stage that removes all stamps once a release unit is no longer needed, and all traffic has been moved to a new release version. This stage includes the removal of release unit references from Front Door. This is critical to enable the release of a new version at a later date. Front Door must point to a single release unit in order to be prepared for the next release in the future.
 
 ### Checklists
 
-As part of the release cadence, a pre and post release checklist should be used. The following is an example of the items that should be in any checklist at a minimum. 
+As part of the release cadence, a pre and post release checklist should be used. The following is an example of the items that should be in any checklist at a minimum.
 
 * **Pre-release checklist** - Before starting a release, check the following:
 
@@ -223,8 +223,8 @@ The online reference implementation existing testing capabilities and frameworks
 | Framework | Test | Description |
 | --------- | ---- | ----------- |
 | **NUnit** | Unit | This framework is used for unit testing the .NET Core portion of the implementation. Unit tests are executed automatically by Azure DevOps before container builds. |
-| **JMeter with Azure Load Test** | Load | [Azure Load Test](/azure/load-testing/overview-what-is-azure-load-testing) is a managed service used to execute [Apache JMeter](https://jmeter.apache.org/) load test definitions. |
-| **Locust** | Load | Locust is an open source load testing framework written in Python. |
+| **JMeter with Azure Load Testing** | Load | [Azure Load Testing](/azure/load-testing/overview-what-is-azure-load-testing) is a managed service used to execute [Apache JMeter](https://jmeter.apache.org/) load test definitions. |
+| **Locust** | Load | Locust is an open-source load testing framework written in Python. |
 | **Playwright** | UI and Smoke | Playwright is an open source Node.js library to automate Chromium, Firefox and WebKit with a single API. The Playwright test definition can also be used independently of the reference implementation. |
 | **Azure Chaos Studio** | Failure injection | The reference implementation uses Azure Chaos Studio as an optional step in the E2E validation pipeline to inject failures for resiliency validation. |
 
@@ -238,7 +238,7 @@ Manual and automatic tests can be executed against the infrastructure to find fa
 
 ### Automatic
 
-The reference architecture integrates [Azure Chaos Studio](/azure/chaos-studio/chaos-studio-overview) to deploy and run a set of Azure Chaos Studio experiments to inject various faults at the stamp level. Chaos experiments can be executed as an optional part of the E2E deployment pipeline. When the tests are executed, the optional load test is always executed in a parallel. The load test is used to create load on the cluster to validate the impact of the injected faults.
+The reference architecture integrates [Azure Chaos Studio](/azure/chaos-studio/chaos-studio-overview) to deploy and run a set of Azure Chaos Studio experiments to inject various faults at the stamp level. Chaos experiments can be executed as an optional part of the E2E deployment pipeline. When the tests are executed, the optional load test is always executed in parallel. The load test is used to create load on the cluster to validate the impact of the injected faults.
 
 ### Manual
 
