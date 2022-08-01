@@ -1,0 +1,20 @@
+### YamlMime:Architecture
+metadata:
+  title: Deploy ADS CFD Code Leo for HPC on a virtual machine.
+  description: Learn how to deploy ADS CFD Code Leo for high performance computing (HPC) on an Azure virtual machine.
+  author: gauharjunnarkar
+  ms.author: gajunnar
+  ms.date: 08/02/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - compute
+products:
+  - azure-virtual-machines
+  - azure-virtual-network
+name: Deploy ADS CFD Code Leo for HPC on a virtual machine.
+summary: Learn how to deploy ADS CFD Code Leo for high performance computing (HPC) on an Azure virtual machine.
+thumbnailUrl: /azure/architecture/browse/thumbs/hps-code-leo-thumb.png
+content: |
+  [!include[](hpc-ads-cfd-content.md)]

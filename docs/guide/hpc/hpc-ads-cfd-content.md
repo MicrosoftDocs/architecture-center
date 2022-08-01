@@ -1,4 +1,4 @@
-This article briefly explains the steps for running [ADS CFD's](https://new.aerodynamic-solutions.com) Code Leo application on a virtual machine deployed on Azure. It also presents performance results.
+This article briefly describes the steps for running [ADS CFD's](https://new.aerodynamic-solutions.com) Code Leo application on a virtual machine deployed on Azure. It also presents performance results.
 
 Code Leo is a URANS-based flow solver that delivers accurate and fast flow simulations for general flow configurations. Code Leo:
 
@@ -13,14 +13,25 @@ Code Leo was originally designed for CPUs, but ADS CFD has extended it to take a
 
 ADS CFD software is used primarily in the aerospace and turbomachinery industries for performance and durability assessments of jet engines and aircraft. One of the main use cases is the analysis and optimization of integrated engine/aircraft configurations so that next-generation aircraft designs can be closed on time and with confidence.
 
+## Architecture
+
+:::image type="content" source="media/hps-code-leo.png" alt-text="Diagram that shows an architecture for running Code Leo on Azure." lightbox="media/hps-code-leo.png" border="false":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/HPC-CodeLeo.vsdx) of this architecture.*
+
+## Components
+
+ - [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines). Create Linux and Windows virtual machines (VMs) in seconds.
+ - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network). Use Virtual Network to create your own private network infrastructure in the cloud.
+
 ## Install Code Leo on a virtual machine
 
-Before you install Code Leo, you need to deploy and connect a virtual machine (VM) and install the required NVIDIA and AMD drivers.
+Before you install Code Leo, you need to deploy and connect a VM and install the required NVIDIA and AMD drivers.
 
 For information about deploying the VM, see one of these articles:
 
-- [Run a Windows VM on Azure](/azure/architecture/reference-architectures/n-tier/windows-vm)
-- [Run a Linux VM on Azure](/azure/architecture/reference-architectures/n-tier/linux-vm)
+- [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml)
+- [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml)
 
 
 To download Code Leo products from the ADS CFD portal:
@@ -138,11 +149,16 @@ Other contributors:
 
 ## Next steps
 
-- [GPU Optimized Virtual Machine Sizes](/azure/virtual-machines/sizes-gpu)
-- [Windows Virtual Machines in Azure](/azure/virtual-machines/windows/overview)
-- [Linux Virtual Machines in Azure](/azure/virtual-machines/linux/overview)
+- [GPU optimized virtual machine sizes](/azure/virtual-machines/sizes-gpu)
+- [Windows virtual machines in Azure](/azure/virtual-machines/windows/overview)
+- [Linux virtual machines in Azure](/azure/virtual-machines/linux/overview)
+- [Virtual networks and virtual machines in Azure](/azure/virtual-network/network-overview)
+- [Learning path: Run high-performance computing (HPC) applications on Azure](/learn/paths/run-high-performance-computing-applications-azure)
+- [Code Leo case studies](https://new.aerodynamic-solutions.com/case-studies)
 
 ## Related resources
 
-- [Run a Windows VM on Azure](/azure/architecture/reference-architectures/n-tier/windows-vm)
-- [Run a Linux VM on Azure](/azure/architecture/reference-architectures/n-tier/linux-vm)
+- [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml)
+- [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml)
+- [HPC system and big-compute solutions](../../solution-ideas/articles/big-compute-with-azure-batch.yml)
+- [HPC cluster deployed in the cloud](../../solution-ideas/articles/hpc-cluster.yml)
