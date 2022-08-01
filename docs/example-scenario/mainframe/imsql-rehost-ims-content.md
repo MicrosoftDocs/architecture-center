@@ -32,7 +32,7 @@ I. Partitions run separate workloads and segregate work types within the environ
 #### Dataflow
 
 1. IBM 3270 terminal emulators connect to IMS TM applications that are deployed on Azure unchanged via the IMSql Terminal Server.
-1. Batch processes written in JCL are run unchanged via transient Azure container instances that run the Raincode JCL interpreter.
+1. Batch processes written in JCL are run unchanged via transient Azure container instances that run the Raincode JCL interpreter. Compiled legacy programs access IMS DB by using standard IMS APIs. Raincode JCL can store its catalog on any file-based storage. 
 1. Read/write SQL Server views on the IMS data enable modern applications or business intelligence (like Power BI) to communicate directly with IMS applications, abstracting away mainframe elements like data structures and character encodings.
 1. Raincode Console provides a web-based administration environment for IMSql. 
 1. SQL Server Service Broker is the communications backbone for IMSql components.
@@ -53,7 +53,7 @@ I. Partitions run separate workloads and segregate work types within the environ
 
 This architecture shows how to seamlessly rehost to Azure a mainframe workload that has critical IMS features and capabilities. You don't need to translate or modify your existing application. The architecture uses IMSql and Azure SQL.
 
-- Raincode compilers generate 100 percent thread-safe managed code for .NET.
+- Raincode compilers generate 100 percent thread-safe managed code for .NET. The .NET assemblies are loaded dynamically and called by IMSql processing servers. 
 - IMSql is intrinsically non-transformational. It keeps the source (COBOL, PL/I) as is. The IMS-specific CBLTDLI and PLITDLI calls and EXEC DLI statements aren't changed. This capability ensures optimal maintainability of the resulting system. It extends to IMS DB data: the data is imported as is, in bulk, with no changes, cleansing, or normalization. 
 - IMSql uses the robust, versatile, and scalable SQL Server as a database, transaction processor, and execution platform.
 - IMSql operates in three modes:  
