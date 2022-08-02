@@ -18,7 +18,7 @@ As cloud-native applications and services get more complex, your deployment will
 
 That's why **continuous validation in an environment that closely resembles production is key** in identifying potential issues and bugs as early as possible in the development cycle. So, for your operations, move testing to the beginning of the development process (shift left) and make it easy for developers to do close-to-production testing.
 
-Mission-critical workloads typically have high availability targets of  3, 4 or 5 nines (99.9%, 99.99% or 99.999% respectively). Rigorous automated testing is crucial in achieving that goal. Because continuous validation is highly specific to each individual workload and architecture, consider the guidance in this article to prepare for your actual implementation.
+Mission-critical workloads typically have high availability targets of 3, 4 or 5 nines (99.9%, 99.99% or 99.999% respectively). Rigorous automated testing is crucial in achieving that goal. Because continuous validation is highly specific to each individual workload and architecture, consider the guidance in this article to prepare for your actual implementation.
 
 ## 1 – Define tests based on expected thresholds
 
