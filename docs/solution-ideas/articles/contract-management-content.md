@@ -50,7 +50,7 @@ The following key technologies are used to implement tools for technical content
 
 - To build an initial knowledge mining prototype with Azure Cognitive Search, use the [knowledge mining solution accelerator](/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining).
 - Build an Azure Cognitive Search [custom skill](/azure/search/cognitive-search-custom-skill-interface).
-- Explore the Microsoft Learning Path [knowledge mining with Azure Cognitive Search](/learn/paths/implement-knowledge-mining-azure-cognitive-search).
+- Explore the learning path [Knowledge mining with Azure Cognitive Search](/learn/paths/implement-knowledge-mining-azure-cognitive-search).
 - To learn more about the components in this solution, see these resources:
 
   - [Azure Cognitive Search documentation](/azure/search)
@@ -65,3 +65,4 @@ The following key technologies are used to implement tools for technical content
 - [Knowledge mining for content research](./content-research.yml)
 - [Knowledge mining for customer support and feedback analysis](./customer-feedback-and-analytics.yml)
 - [Knowledge mining in digital asset management](./digital-asset-management.yml)
+

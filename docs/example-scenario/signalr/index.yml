@@ -18,7 +18,7 @@ metadata:
     - fcp
     - example-scenario
     - e2e-hybrid
-name: Share a location in real time using low-cost serverless Azure services
+name: Share a location in real time by using low-cost serverless Azure services
 azureCategories:
   - devops
   - integration

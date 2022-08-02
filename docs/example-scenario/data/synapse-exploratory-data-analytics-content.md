@@ -105,11 +105,11 @@ Synapse SQL serverless uses standard T-SQL for querying and operations. You coul
 
 Principal authors:
 
-* [Dave Wentzel](https://www.linkedin.com/in/dwentzel) | Principal MTC Technical Architect
+- [Dave Wentzel](https://www.linkedin.com/in/dwentzel) | Principal MTC Technical Architect
 
 ## Next steps
 
-- Microsoft Learn [Data Engineer learning paths](/learn/roles/data-engineer)
+- [Data Engineer learning paths](/learn/roles/data-engineer)
 - [Tutorial: Get started with Azure Synapse Analytics](/azure/synapse-analytics/get-started)
 - [Create a single database - Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart)
 - [Azure Synapse SQL architecture](/azure/synapse-analytics/sql/overview-architecture)
