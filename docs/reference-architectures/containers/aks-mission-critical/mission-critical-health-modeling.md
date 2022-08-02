@@ -1,7 +1,7 @@
 ---
 title: Health modeling for mission-critical workloads on Azure
 description: Reference architecture for a workload that is accessed over a public endpoint without additional dependencies to other company resources - Health modeling.
-author: sebader
+author: nielsams
 categories: networking
 ms.author: allensu
 ms.date: 08/15/2022
