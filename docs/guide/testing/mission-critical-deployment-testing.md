@@ -81,3 +81,10 @@ The capability is available through the Azure portal, and via the load testing A
 We highly recommend **integrating these tests directly into your CI/CD pipelines** and running them during the early stages of feature development. For an example, see the sample implementation in the Azure Mission-critical reference implementation.
 
 In summary, failure is inevitable in any complex distributed system and the solution must therefore be architected (and tested) to handle failures. The [Azure Mission-critical framework](https://docs.microsoft.com/azure/architecture/framework/mission-critical/mission-critical-deployment-testing) with its guidance and reference implementations can help designing and operating highly reliable applications to derive maximum value from the Microsoft cloud.
+
+## Next step
+
+Review the deployment and testing design area for mission-critical workloads.
+
+> [!div class="nextstepaction"]
+> [Design area: Deployment and testing](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing)
