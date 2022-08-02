@@ -299,6 +299,22 @@ items:
             href: example-scenario/startups/core-startup-stack.yml
           - name: SaaS digital business journey on Azure
             href: guide/saas/saas-digital-business-journey-azure.md
+      - name: Mission critical applications
+        items:
+            - name: Mission critical architecture on Azure
+              href: reference-architectures/containers/aks-mission-critical/mission-critical-intro.yml
+            - name: Design areas
+              items:
+                - name: Application platform
+                  href: reference-architectures/containers/aks-mission-critical/mission-critical-app-platform.md
+                - name: Deployment and testing
+                  href: reference-architectures/containers/aks-mission-critical/mission-critical-deploy-test.md
+                - name: Networking and connectivity platform
+                  href: reference-architectures/containers/aks-mission-critical/mission-critical-networking.md
+            - name: Guides
+              items:
+                - name: Continuous Validation with Azure Load Testing and Azure Chaos Studio
+                  href: guide/testing/mission-critical-deployment-testing.md
       - name: Multitenant applications
         items:
           - name: Overview
