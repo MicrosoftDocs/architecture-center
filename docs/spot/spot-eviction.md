@@ -24,7 +24,7 @@ You can take advantage of Azure's unused capacity at a significant cost savings 
 
 Azure provisions its spare capacity along all its offered regions so it can respond on demand when new resources are created. While that capacity remains idle, you have an opportunity to deploy VMs in your subscription at [discount prices and capped at pay-as-you-go prices using Azure Spot VMs and virtual machine scale sets](https://azure.microsoft.com/pricing/spot-advisor/).
 
-Keeping operational expenses under control is common practice when running solutions on the cloud and the [cost optimizations pillar from the Well Architected Framework](https://docs.microsoft.com/azure/architecture/framework/cost/overview) can help you find the right strategy for your architecture.
+Keeping operational expenses under control is common practice when running solutions on the cloud and the [cost optimizations pillar from the Well Architected Framework](/azure/architecture/framework/cost/overview) can help you find the right strategy for your architecture.
 
 ## Purpose
 
@@ -66,7 +66,8 @@ Azure Spot VM and scale sets instances will transition states and your workload 
 1. Stopped or Deleted (eviction policy based)
 1. Running (based on capacity and max price you set)
 
-![State diagram depicting how Azure VM Spot VM and scale sets behaves depending on policy, capcity ad price.](./spot-statediagram.png)
+<!--- new diagram here --->
+![State diagram depicting how Azure VM Spot VM and scale sets behaves depending on policy, capacity ad price.](media/spot-statediagram.png)
 
 The following table breaks down the expected outcome and state for a Spot VM based on the VMs current state, the input it receives from the Azure infrastructure, and the conditions you set (price limits and eviction policy).
 
@@ -130,7 +131,7 @@ You can use the [Retail Rates Prices API](/rest/api/cost-management/retail-price
 
 ## The Workload
 
-One workload types to consider for Azure Spot VMs are [Batch processing apps](/azure/batch). This reference implementation guide contains a simple asynchronously queue-processing worker (C#, .NET 6) implemented in combination with [Azure Queue Storage](https://docs.microsoft.com/azure/storage/queues/storage-queues-introduction). This guide demonstrates how to query the [Azure Scheduled Events REST](/virtual-machines/linux/scheduled-events) endpoint. The endpoint allows your workload to receive a signal prior to eviction so that it can anticipate the disruption event, prepare for the interruption, and limit its impact.
+One workload types to consider for Azure Spot VMs are [Batch processing apps](/azure/batch). This reference implementation guide contains a simple asynchronously queue-processing worker (C#, .NET 6) implemented in combination with [Azure Queue Storage](/azure/storage/queues/storage-queues-introduction). This guide demonstrates how to query the [Azure Scheduled Events REST](/virtual-machines/linux/scheduled-events) endpoint. The endpoint allows your workload to receive a signal prior to eviction so that it can anticipate the disruption event, prepare for the interruption, and limit its impact.
 
 ### Planning for being Fault Tolerant
 
@@ -146,7 +147,8 @@ When building reliable and interruptible workloads, you'll be focused on four ma
 
 1. **Resume**: The application is about to continue processing after a best effort to recover the context prior to eviction. It's good idea to transition into a `warmup` state to ensure the workload is healthy and ready to start.
 
-![A workload lifecycle diagram depicting the four possible stages interruptible workloads should contemplate during their lifetime](./lifecycle-spot-vm.svg)
+<!--- new diagram here --->
+![A workload lifecycle diagram depicting the four possible stages interruptible workloads should contemplate during their lifetime]()
 
 > [!NOTE]
 > The aforementioned states are just a reduced list of possible valid conditions for a reliable interruptible workload. You might find other states that are convenient for your own workloads.
@@ -193,7 +195,7 @@ Another important orchestration related aspect to understand is how to scale you
 
 1. An Azure subscription. You can [open an account for free](https://azure.microsoft.com/free).
 
-1. Have [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) installed or you can use [Azure Cloud Shell](https://shell.azure.com).
+1. Have [Azure CLI](/cli/azure/install-azure-cli) installed or you can use [Azure Cloud Shell](https://shell.azure.com).
 
     1. Log in:
 
@@ -224,7 +226,7 @@ Another important orchestration related aspect to understand is how to scale you
 1. Download [.NET 6.0 SDK](https://dotnet.microsoft.com/download/dotnet/6.0).
 
 > [!NOTE]
-> The steps shown here and elsewhere in this reference implementation use Bash shell commands. On Windows, you can [install Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install#install) to run Bash. Then enter the following command in PowerShell or Windows Command Prompt and restart your machine: `wsl --install`
+> The steps shown here and elsewhere in this reference implementation use Bash shell commands. On Windows, you can [install Windows Subsystem for Linux](/windows/wsl/install#install) to run Bash. Then enter the following command in PowerShell or Windows Command Prompt and restart your machine: `wsl --install`
 
 #### Expected results
 
@@ -243,7 +245,8 @@ Following the steps in this guide will result in the creation of the following A
 | A Storage Account (diagnostics) | Stores the Azure Spot VM boot diagnostics. |
 | A Storage Account (queue) | A component of the interruptible workload and that represents work to be completed. |
 
-![Depict the Azure Spot VM infrastructure diagram after deployment](./spot-deploymentdiagram.png)
+<!--- new diagram here --->
+![Depict the Azure Spot VM infrastructure diagram after deployment]()
 
 > [!NOTE]
 > The expected resources for the Spot instance you're about to create are equal to what you would create for a regular Azure virtual machine. Nothing is changed except for the selected **Priority**, which is set to **Spot** instead of **Regular** for our purposes.
@@ -307,7 +310,7 @@ At this point in the guide, you should have learned that flexibility is key. As 
    ```
 
    > [!NOTE]
-   > Provided you have chosen a **Max Price and Capacity** eviction policy, it's good practice to regularly use the [Azure Retail Prices API](https://docs.microsoft.com/rest/api/cost-management/retail-prices/azure-retail-prices) to check whether the **Max Price** you set is doing well against **Current Price**. You might want to consider scheduling this query, responding with **Max Price** changes, as well as gracefully deallocate the VM accordingly.
+   > Provided you have chosen a **Max Price and Capacity** eviction policy, it's good practice to regularly use the [Azure Retail Prices API](/rest/api/cost-management/retail-prices/azure-retail-prices) to check whether the **Max Price** you set is doing well against **Current Price**. You might want to consider scheduling this query, responding with **Max Price** changes, as well as gracefully deallocate the VM accordingly.
 
 #### Clone the repository
 
@@ -375,7 +378,7 @@ At this point in the guide, you should have learned that flexibility is key. As 
 
 #### Remote SSH using Bastion into the Spot VM
 
-1. SSH into the new Spot VM. For detailed steps, see [connect to a Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux-vm-connect?tabs=Linux).
+1. SSH into the new Spot VM. For detailed steps, see [connect to a Linux VM](/azure/virtual-machines/linux-vm-connect?tabs=Linux).
 
    ```bash
    az network bastion ssh -n bh -g rg-vmspot --username azureuser --ssh-key ~/.ssh/opsvmspots.pem --auth-type ssh-key --target-resource-id $(az vm show -g rg-vmspot -n vm-spot --query id -o tsv)
