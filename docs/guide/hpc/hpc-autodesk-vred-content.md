@@ -1,99 +1,104 @@
-Autodesk VRED Overview
+Autodesk VRED is a 3D visualization application that helps automotive designers and engineers create product presentations, design reviews, and virtual prototypes by using interactive CPU and GPU ray tracing. VRED, which was previously limited to CPU, now uses GPU technology to support the high demands of consumers and provide interactive ray tracing and AI-powered denoising. This technology enables users to gain immediate visual feedback to see how a vehicle's aesthetics will interact with various environments in real time.
 
-Autodesk VRED is a 3D visualization software which helps Automotive Designers and Engineers create product presentations, design reviews and virtual prototypes using interactive CPU and GPU ray tracing. Autodesk VRED, which was previously limited to CPU, now leverages GPU technology to support the high demands of consumers and provide interactive ray tracing and AI-powered Denoising. This allows users to gain immediate visual feedback to see how a vehicle’s aesthetics will interact with different environments in real time
+By using VRED, users can create digital prototypes so they can gain insight into how vehicles will look and perform. To be effective in guiding design decisions, the digital prototypes need to look and behave as close as possible to the real vehicles.  
 
-Autodesk VRED enables users to create digital prototypes so they can gain insight into how vehicles will look and perform. To be effective in guiding design decisions, the digital prototypes need to look and behave as close as possible to the real thing  
+This article briefly describes the steps for running VRED on a virtual machine (VM) that's deployed on Azure. It also provides performance results. For more information about VRED, see the [Autodesk website](https://www.autodesk.com/products/vred/features/vred).
 
-This article briefly describes the steps to run Autodesk VRED application on a Virtual Machine deployed in Azure Cloud Platform and presents the performance results. Learn more about VRED application @ https://www.autodesk.com/products/vred/features/vred
+VRED was successfully deployed and tested on [NC64as_T4_v3](/azure/virtual-machines/nct4-v3-series) and [NV48s_v3](/azure/virtual-machines/nvv3-series) Azure VMs.  
 
-Autodesk VRED Application has been successfully deployed and tested on the Azure VM configurations  [NC64as_T4_v3](/azure/virtual-machines/hbv3-series) & [NV48s_v3](/azure/virtual-machines/hbv3-series)  
+## Install VRED on a VM
 
-Prior to installing the Autodesk VRED application, you’ll need to deploy and connect a virtual machine, and install the required NVIDIA and AMD drivers. 
+Before you install VRED, you need to deploy and connect a VM and install the required NVIDIA and AMD drivers.
 
-Run a Windows VM on Azure (/azure/architecture/reference-architectures/n-tier/windows-vm)
-Run a Linux VM on Azure (/azure/architecture/reference-architectures/n-tier/linux-vm)
+For information about deploying the VM, see one of these articles:
 
-Install Autodesk VRED application on a VM
+- [Run a Windows VM on Azure](/azure/architecture/reference-architectures/n-tier/windows-vm)
+- [Run a Linux VM on Azure](/azure/architecture/reference-architectures/n-tier/linux-vm)
 
-DOWNLOAD THE PRODUCT
+To download VRED:
 
-- Log in to **Autodesk** account
-- Search under **Products and Services**
-- Install VRED Professional
+1. Sign in to you Autodesk account.
+1. Search for VRED in **Products and Services**.
+1. Install VRED Professional.
 
-License Manager Installation
+### Install License Manager
 
-As a prerequisite to install VRED Application on Azure Virtual Machine, Autodesk Network License Manager needs to be installed on the VM. Autodesk Network License Manager for Windows can be found in the below link: https://knowledge.autodesk.com/search-result/caas/downloads/content/autodesk-network-license-manager-for-windows.html 
+Before you install VRED on an Azure VM, you need to install Autodesk Network License Manager on the VM. You can [install Autodesk Network License Manager for Windows here]( https://knowledge.autodesk.com/search-result/caas/downloads/content/autodesk-network-license-manager-for-windows.html).
 
-- Install **.msi** file
+During installation, this folder is created: C:\Autodesk\Network License Manager\.
 
-After installation, a folder with name Network License Manager will be created in the path as shown here:  C:\Autodesk\Network License Manager\ 
+Next, generate a license file from your Autodesk account and keep the license file in the Network License Manager folder. Create a text file named *debug.log* and save it in the same folder.
 
-Now generate the license file from user’s Autodesk account and keep the license file in the Network License Manager folder. Create a text file with name “debug.log” and keep it in the same Network License Manager folder.
+To generate the license file:
 
-Generating license file:
+1. While signed in to your Autodesk account, select **VRED Professional downloads**.
+1. Select **Generate network license file**.
+1. Provide the server or VM name and the physical or MAC address.
+1. Select the product.
+1. Select **Get License File**. The license file is generated.
 
-From the Autodesk account,
+To configure the license server:
 
-- Select VRED Professional downloads > click on Generate network license file
-- Fill the details of Server or VM Name and Physical address or MAC address > Select the Product > click on Get License File, the license file will be generated.
+1. From the Windows search bar, open lmtools. A GUI opens.
+1. Select **Config Services** and provide the service name, in this case, **Autodesk Network License Manager**.
+1. Provide the path of the license file and the other paths.
+1. Select **Start Server at Power Up** at bottom of the window.
+1. Select **Save Service** and follow the prompts that appear.
+1. On the **Start/Stop/Reread** tab, select **Start Server**. You should see the service name **Autodesk Network License Manager** highlighted in blue.
 
-From the windows search bar, open lmtools, a GUI will open. Select Config Services and name the service name, in this case it is named Autodesk Network License Manager. Give the license file path where we placed it and fill the other paths as shown here. Now tick mark the ‘Start Server at Power Up’ at bottom and select ‘Save Service’ button and then follow the automatic messages which will pop up. Now select the Start/Stop/Reread button from the top ribbon and then select Start Server. The service name – ‘Autodesk Network License Manager’ should be seen under blue color. Once user clicks on start server, the below GUI should show up with service name “Autodesk Network License Manager”. Now the License Manager installation is complete.
+The Network License Manager installation is complete.
 
 image 
 
-Performance results of Autodesk VRED on Azure VMs
+## VRED performance on Azure VMs
 
-When it comes to performance parameters, rendering time is one parameter which need to be carried out on visualization and design software. Often designers spend a lot of time in rendering process. With advanced capabilities like CPU & GPU ray tracing, VRED has drastically reduced the Render times over the period. To carry out these complex and heavy rendering simulations on VRED software, right hardware is must. Microsoft partners with Nvidia provides the required and suitable Infrastructure and hardware on Azure cloud platform. Microsoft Azure provides the latest and fastest compute capabilities for both CPU & GPU intensive workloads
+Rendering time is an important parameter for visualization and design software. Designers often spend a lot of time on the rendering process. By incorporating advanced capabilities like CPU and GPU ray tracing, VRED has drastically reduced render times. To perform these complex rendering simulations on VRED, you need to use the right hardware. Microsoft partners with Nvidia to provide suitable infrastructure and hardware on Azure. Azure provides the fastest compute capabilities for both CPU-intensive and GPU-intensive workloads.
 
-Rendering
+### Rendering
 
-The term rendering defines the automatic process of generating digital images from three-dimensional models, by means of a special software. These images simulate project or 3D model’s photorealistic environments, materials, lights and objects.
+The term *rendering* refers to the automatic process of generating digital images from three-dimensional models by using specialized software. The images simulate a 3D model's photorealistic environments, materials, lighting, and objects.
 
-Types of Rendering and Techniques 
+**Real-time rendering** is mainly used in gaming and interactive graphics, where images are calculated from 3D information at a fast pace. Dedicated graphics hardware has improved the performance of real-time rendering to ensure rapid image processing.
 
-**Rendering Real Time:** Real-time rendering is mainly used in gaming and interactive graphics, where images are calculated from 3D information at a very fast pace. As a result, dedicated graphics hardware has improved the performance of real-time rendering ensuring rapid image processing.
+**Offline rendering** is mainly used when less processing speed is required. Visual effects provide the highest standards of photorealism. In contrast to real-time rendering, there is no unpredictability with offline rendering.
 
-**Rendering offline:** Offline rendering is a technique mainly used in situations where the need for processing speed is lower. Visual effects work where photorealism needs to be at highest standard possible. There is no unpredictability, unlike real time
+**Ray tracing** is a rendering technique that can produce highly realistic lighting effects. Ray tracing generates lifelike shadows and reflections and much-improved translucence and scattering, taking into account light phenomena like reflection and refraction. In VRED, there are mainly two ray tracing options: CPU ray tracing and GPU ray tracing.
 
-Ray tracing
+### VRED application settings for rendering 
 
-Ray tracing is a rendering technique that can produce incredibly realistic lighting effects. Ray tracing generates lifelike shadows and reflections, along with much-improved translucence and scattering, considering light phenomena such as reflection and refraction. In VRED, there are mainly two types of Ray Tracing options, CPU ray tracing and GPU ray tracing.
+You can activate CPU and GPU ray tracing in VRED according to your requirements. To activate CPU/GPU ray tracing, select **Visualization** > **Raytracing** > **CPU/GPU Raytracing**.
 
-VRED application Settings for the Rendering 
+#### Anti-aliasing settings
 
-We can activate the CPU and GPU Raytracing options in VRED based on our Rendering requirements. To activate CPU/GPU Raytracing in VRED application,
+For CPU and GPU ray tracing rendering, we set the anti-aliasing option to high:
 
-- Visualization> Raytracing> CPU/GPU Raytracing
+- **Visualization** > **Realtime Antialiasing** > **High**
 
-Antialiasing settings
+#### Render settings
 
-For the CPU and GPU raytracing rendering, we have kept the antialiasing option to high 
-•	Visualization > Realtime Antialiasing > High
-
-Render settings
-
-For render setting select the render option in VRED as shown below
+Select the render settings as shown here:
 
 image
 
-Saving the Images
+**Saving images**
 
-User can save the image rendered in the desired location or path in desktop from selecting the option under Image option from Render settings tab. The image size like HD or 4K is also selected from the dropdown box under Image Size Presents. Here we have selected HD Image
+You can save a rendered image to the desired location by selecting the path on the **File Output** tab in the **Render Settings** window. You can also choose an image size, like **HD** or **4K**, under **Image Size Presets**. We used **HD**.
 
-**General Settings:** For CPU and GPU Raytracing, Image samples must be selected for Antialiasing, more the number of samples, better the antialiasing output. Under general settings, we have selected the maximum number, 1024 Image samples for Antialiasing. For open GL less number can be selected like 16 to 32 samples.
+**General Settings** 
+
+For CPU and GPU ray tracing, you need to select image samples for anti-aliasing. Your anti-aliasing output improves as you increase the number of samples. Under **General Settings**, we selected the maximum number: **1024**. For OpenGL, you can use a lower number, between 16 and 32 images, for example.
 
 image 
 
-Raytracing Quality:
+**Raytracing Quality**
 
-For Illumination mode for both interactive and still frame mode, Full Global Illumination option is selected under the Raytracing Quality settings
+In the **Raytracing Quality** settings, for the **Illumination Mode** for both interactive and still frame, we used **Full Global Illumination**.
 
-Benchmarking Methodology used for Autodesk VRED Performance Analysis on Azure Virtual Machines:
+## Benchmarking methodology for VRED performance analysis on VMs
 
-To Analyze the performance of VRED on Azure VMs  NC64as_T4_v3 & [NV48s_v3](/azure/virtual-machines/nvv3-series), [NV48s_v3](),  we carried out offline image rendering task and calculated the render times for CPU ray tracing and GPU Ray tracing. For this Benchmarking analysis, we have used 4k and HD images for rendering. The GPU ray tracing has been performed on both the Virtual Machines by varying the number of GPUs from 1 to 4 GPUs. For CPU ray rendering, the application will utilize all the CPU cores present in the Virtual Machine. We then calculated the relative speedup of GPU rendering compared with the CPU rendering. The performance results of VRED on both the Virtual Machines has been presented in the below sections
+To analyze the performance of VRED on [NC64as_T4_v3](/azure/virtual-machines/nct4-v3-series) and [NV48s_v3](/azure/virtual-machines/nvv3-series) VMs, we tested offline image rendering and calculated the rendering times for both CPU ray tracing and GPU ray tracing. For this analysis, we rendered 4k and HD images. We tested GPU ray tracing on both VMs by using 1, 2, 3, and 4 GPUs. For CPU ray rendering, the application uses all CPU cores on the VM. We then calculated the relative speed increase of GPU rendering as compared to CPU rendering. The results are presented in the following sections.
 
-Autodesk VRED Performance Results on NCas_T4 VM
+### VRED performance results on NCas_T4 VM
 
 CPU and GPU Rendering times
 
