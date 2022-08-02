@@ -326,7 +326,7 @@ items:
               items:
                 - name: Application platform
                   href: reference-architectures/containers/aks-mission-critical/mission-critical-app-platform.md
-                - name: Deployment and test
+                - name: Deployment and testing
                   href: reference-architectures/containers/aks-mission-critical/mission-critical-deploy-test.md
                 - name: Networking and connectivity platform
                   href: reference-architectures/containers/aks-mission-critical/mission-critical-networking.md

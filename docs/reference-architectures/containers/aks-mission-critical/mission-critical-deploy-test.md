@@ -1,6 +1,6 @@
 ---
-title: Deployment and test for mission-critical workloads on Azure
-description: Reference architecture for a workload that is accessed over a public endpoint without extra dependencies to other company resources - Deployment and test.
+title: Deployment and testing for mission-critical workloads on Azure
+description: Reference architecture for a workload that is accessed over a public endpoint without extra dependencies to other company resources - Deployment and Testing.
 author: sebader
 categories: devops
 ms.author: allensu
@@ -16,7 +16,7 @@ products:
   - azure-devops
 ---
 
-# Deployment and test for mission-critical workloads on Azure
+# Deployment and testing for mission-critical workloads on Azure
 
 The deployment and testing of the mission critical environment is a crucial piece of the overall reference architecture. The individual application stamps are deployed using infrastructure as code from a source code repository. Updates to the infrastructure, and the application on top, should be deployed with zero downtime to the application. A DevOps continuous integration pipeline is recommended to retrieve the source code from the repository and deploy the individual stamps in Azure.
 
@@ -138,17 +138,17 @@ The individual component configuration for the Front Door deployment is defined 
 
 * **Origins** - Front Door is configured with two types of origin groups:
 
-    1. A pool for static storage that serves the UI. The pool contains the website storage accounts from all currently active release units. Different weights can be assigned to the backends from different release units to gradually move traffic to a newer unit. Each backend from a release unit should have the same weight assigned.
+    1. An origin group for static storage that serves the UI. The group contains the website storage accounts from all currently active release units. Different weights can be assigned to the origins from different release units to gradually move traffic to a newer unit. Each origin from a release unit should have the same weight assigned.
 
-    2. A pool for the API, which is hosted on AKS. If there are release units with different API versions, then an API backend pool exists for each release unit. If all release units offer the same compatible API, all backends are added to the same backend pool and assigned different weights.
+    2. An origin group for the API, which is hosted on AKS. If there are release units with different API versions, then an API origin group exists for each release unit. If all release units offer the same compatible API, all origins are added to the same group and assigned different weights.
 
 * **Routing rules** - There are two types of routing rules:
 
-    1. A routing rule for the UI that is linked to the UI storage backend pool.
+    1. A routing rule for the UI that is linked to the UI storage origin group.
 
-    2. A routing rule for each API currently supported by the backends. For example: **`/api/1.0/*`** and **`/api/2.0/*`**.
+    2. A routing rule for each API currently supported by the origins. For example: **`/api/1.0/*`** and **`/api/2.0/*`**.
 
-    If a release introduces a new version of the backend APIs, the changes will reflect in the UI that is deployed as part of the release. A specific release of the UI will always call a specific version of the API URL. Users served by a UI version will automatically use the respective backend API. Specific routing rules are needed for different instances of the API version. These rules are linked to the corresponding backend pools. If a new API wasn't introduced, all API related routing rules link to the single backend pool. In this case, it doesn't matter if a user is served the UI from a different release than the API.
+    If a release introduces a new version of the backend APIs, the changes will reflect in the UI that is deployed as part of the release. A specific release of the UI will always call a specific version of the API URL. Users served by a UI version will automatically use the respective backend API. Specific routing rules are needed for different instances of the API version. These rules are linked to the corresponding origin groups. If a new API wasn't introduced, all API related routing rules link to the single origin group. In this case, it doesn't matter if a user is served the UI from a different release than the API.
 
 ## Deployment: Deployment process
 
@@ -158,9 +158,9 @@ As a first step in the deployment process of a new version, the infrastructure f
 
 After the new release unit is deployed and validated, it's added to Front Door to receive user traffic.
 
-A switch/parameter that distinguishes between releases that do and don't introduce a new API version should be planned for. Based on if the release introduces a new API version, a new backend pool with the API backends must be created. Alternatively, new API backends can be added to an existing backend pool. New UI storage accounts are added to the corresponding existing backend pool. Weights for new backends should be set according to the desired traffic split. A new routing rule as described above must be created that corresponds to the appropriate backend pool.
+A switch/parameter that distinguishes between releases that do and don't introduce a new API version should be planned for. Based on if the release introduces a new API version, a new origin group with the API backends must be created. Alternatively, new API backends can be added to an existing origin group. New UI storage accounts are added to the corresponding existing origin group. Weights for new origins should be set according to the desired traffic split. A new routing rule as described above must be created that corresponds to the appropriate origin group.
 
-As a part of the addition of the new release unit, the weights of the new backends should be set to the desired minimum user traffic. If no issues are detected, the amount of user traffic should be increased to the new backend pool over a period of time. To adjust the weight parameters, the same deployment steps should be executed again with the desired values.
+As a part of the addition of the new release unit, the weights of the new origins should be set to the desired minimum user traffic. If no issues are detected, the amount of user traffic should be increased to the new origin group over a period of time. To adjust the weight parameters, the same deployment steps should be executed again with the desired values.
 
 ### Release unit teardown
 
