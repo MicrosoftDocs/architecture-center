@@ -42,7 +42,7 @@ This guide describes a production system. It's deployed with specific virtual ma
 **Load balancers.** Load balancers are used to distribute traffic to VMs in the application-tier subnet. For SAP application high availability, use the built-in SAP Web Dispatcher, [Azure Load Balancer](/azure/load-balancer/load-balancer-overview), or network appliances. Your choice depends on the traffic types, like HTTP or SAP GUI, or the required network services, like Secure Sockets Layer (SSL) termination. When you incorporate Load Balancer in a zonal deployment of SAP, make sure you select the Standard SKU load balancer because the Basic SKU balancer doesn't come with zone redundancy.
 
 <!--
-For some internet-facing inbound/outbound design examples, see [SAP internet, outbound, and inbound solution](/azure/architecture/reference-architectures/sap/sap-internet-inbound-outbound).
+For some internet-facing inbound/outbound design examples, see [SAP internet, outbound, and inbound solution](../../reference-architectures/sap/sap-internet-inbound-outbound.yml).
 -->
 
 The Azure Standard SKU load balancer supports multiple front-end virtual IPs. This support is ideal for the ASCS/ERS cluster implementation, because both services can share one load balancer to simplify the solution.
@@ -249,7 +249,7 @@ Take these [considerations](/azure/virtual-machines/workloads/sap/sap-ha-availab
 
 **Active/inactive deployment example**
 
-In this example deployment, the [active/passive](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones#activepassive-deployment) status refers to the application service state within the zones. In the application layer, all four active application servers of the SAP system are in zone 1. Another set of four passive application servers is built in zone 2 but shut down. They're activated only when needed.
+In this example deployment, the [active/passive](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones#activepassive-deployment) status refers to the application service state within the zones. In the application layer, all four active application servers of the SAP system are in zone 1. Another set of four passive application servers is built in zone 2 but shut down. They're activated only when they're needed.
 
 The two-node clusters for Central Services and the database services are stretched across two zones. If zone 1 fails, Central Services and the database services run in zone 2. The passive application servers in zone 2 get activated. With all components of this SAP system now collocated in the same zone, network latency is minimized.
 
@@ -291,7 +291,7 @@ Many IT services, like administrative jump boxes, cloud-based directory services
 
 ### Automated DR with Site Recovery
 
-To use Site Recovery to automatically build a fully replicated production site of your original configuration, you need to run customized [deployment scripts](/azure/site-recovery/site-recovery-runbook-automation). For example, Site Recovery first deploys the VMs in availability sets. It then runs your custom scripts to attach the existing (prebuilt) load balancer, in which the backend pool is already defined, to the NIC of the failover VMs. For an example on GitHub of a custom Site Recovery automation runbooks script, see [ASR Runbooks](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/asr-automation-recovery).
+To use Site Recovery to automatically build a fully replicated production site of your original configuration, you need to run customized [deployment scripts](/azure/site-recovery/site-recovery-runbook-automation). For example, Site Recovery first deploys the VMs in availability sets. It then runs your custom scripts to attach the existing (prebuilt) load balancer, in which the back-end pool is already defined, to the NIC of the failover VMs. For an example on GitHub of a custom Site Recovery automation runbooks script, see [ASR Runbooks](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/asr-automation-recovery).
 
 > [!NOTE]
 > If there's a regional disaster that causes a mass failover event for many Azure customers in one region, the target region's resource [capacity](/azure/site-recovery/azure-to-azure-common-questions#capacity) isn't guaranteed. Like all Azure services, Site Recovery continues to improve its features and capabilities. For DR of Azure VMs from one Azure region to another, see the latest [support matrix](/azure/site-recovery/azure-to-azure-support-matrix).
@@ -366,7 +366,7 @@ There are several payment options for VMs in general:
 
 - Consider using [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) if you can commit to using a VM over a one-year or three-year term. VM reservations can significantly reduce costs. You might pay as little as 72 percent of the cost of a pay-as-you-go service.
 
-Use [Azure Spot Virtual Machines][az-spot-vms] to run workloads that can be interrupted and don't require completion within a predetermined time frame or an SLA. Azure deploys spot VMs when there's available capacity and evicts them when it needs the capacity back. Costs that are associated with spot VMs are lower than for other VMs. Consider spot VMs for these workloads:
+Use [Azure spot VMs][az-spot-vms] to run workloads that can be interrupted and don't require completion within a predetermined time frame or an SLA. Azure deploys spot VMs when there's available capacity and evicts them when it needs the capacity back. Costs that are associated with spot VMs are lower than for other VMs. Consider spot VMs for these workloads:
 
 - High-performance computing scenarios, batch processing jobs, or visual rendering applications
 - Test environments, including continuous integration and continuous delivery workloads
@@ -403,7 +403,7 @@ Communities can answer questions and help you set up a successful deployment. Co
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributor.* 
+*This article is maintained by Microsoft. It was originally written by the following contributor.*
 
 Principal author:
 
