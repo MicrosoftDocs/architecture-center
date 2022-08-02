@@ -24,7 +24,7 @@ Mission-critical workloads typically have high availability targets of 3, 4 or 5
 
 Starting planning by identifying key scenarios, dependencies, expected usage, availability, performance, and scalability targets. Then, define a set of **measurable threshold values** to quantify the expected performance of the key scenarios. The expected number of user logins, requests per second of a given API, operations per second of a background process, are applicable examples for threshold values.
 
-Next, use the numbers to define a **load test** that generates realistic traffic for testing application performance, validating expected scale operations, and so on. Threshold values should be used to develop a [health model for the application](https://docs.microsoft.com/azure/architecture/framework/mission-critical/mission-critical-health-modeling) not only for testing but also for operating the application in production.
+Next, use the numbers to define a **load test** that generates realistic traffic for testing application performance, validating expected scale operations, and so on. Threshold values should be used to develop a [health model for the application](/azure/architecture/framework/mission-critical/mission-critical-health-modeling) not only for testing but also for operating the application in production.
 
 ![Visualization of key system flows using green and red connected circles](./images/deployment-testing-key-system-flows.png)
 
@@ -45,7 +45,7 @@ Microsoft Azure provides these managed services to implement load testing and ch
 
 By using the tools in conjunction, you can observe how the system reacts to issues and its ability to self-heal in response to infrastructure or application failures.
 
-See a [demo of combined implementation of Chaos and Load Testing](https://docs.microsoft.com/azure/architecture/framework/mission-critical/mission-critical-deployment-testing#demo-continuous-validation-with-azure-load-test-and-azure-chaos-studio) integrated in Azure DevOps. It also has detailed guidance, a sample implementation, and code artifacts for extra reference.
+See a [demo of combined implementation of Chaos and Load Testing](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing#demo-continuous-validation-with-azure-load-test-and-azure-chaos-studio) integrated in Azure DevOps. It also has detailed guidance, a sample implementation, and code artifacts for extra reference.
 
 ![Diagram of the continuous validation process](./images/deployment-testing-continuous-validation.png)
 
@@ -66,7 +66,7 @@ The pipeline will automatically run a load test, with or without chaos experimen
 
 ![Chart showing increased response time during chaos experiment](./images/deployment-testing-response-time.png)
 
-Depending on whether chaos testing is enabled and the choice of experiments, baseline definitions might vary, because the tolerance for errors can be different in "normal" state and “chaos” state.
+Depending on whether chaos testing is enabled and the choice of experiments, baseline definitions might vary, because the tolerance for errors can be different in "normal" state and "chaos" state.
 
 ## 3 – Establish a baseline
 
@@ -80,7 +80,7 @@ The capability is available through the Azure portal, and via the load testing A
 
 We highly recommend **integrating these tests directly into your CI/CD pipelines** and running them during the early stages of feature development. For an example, see the sample implementation in the Azure Mission-critical reference implementation.
 
-In summary, failure is inevitable in any complex distributed system and the solution must therefore be architected (and tested) to handle failures. The [Azure Mission-critical framework](https://docs.microsoft.com/azure/architecture/framework/mission-critical/mission-critical-deployment-testing) with its guidance and reference implementations can help designing and operating highly reliable applications to derive maximum value from the Microsoft cloud.
+In summary, failure is inevitable in any complex distributed system and the solution must therefore be architected (and tested) to handle failures. The [Azure Mission-critical framework](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing) with its guidance and reference implementations can help designing and operating highly reliable applications to derive maximum value from the Microsoft cloud.
 
 ## Next step
 
