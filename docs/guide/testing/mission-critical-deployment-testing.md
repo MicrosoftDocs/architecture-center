@@ -27,11 +27,11 @@ Starting planning by identifying key scenarios, dependencies, expected usage, av
 
 Next, use the numbers to define a **load test** that generates realistic traffic for testing application performance, validating expected scale operations, and so on. Threshold values should be used to develop a [health model for the application](/azure/architecture/framework/mission-critical/mission-critical-health-modeling) not only for testing but also for operating the application in production.
 
-![Visualization of key system flows using green and red connected circles](./images/deployment-testing-key-system-flows.png)
+![Visualization of key system flows using green and red connected circles.](./images/deployment-testing-key-system-flows.png)
 
 Load testing ensures that changes made to the application or infrastructure don't cause issues and the system still meets the expected performance and test criteria. A failed test run that doesn't meet the test criteria indicates that you need to adjust the baseline, or that an unexpected error occurred.
 
-![Load test run results screen showing failed load test run](./images/deployment-testing-failed-load-test-run.png)
+![Load test run results screen showing failed load test run.](./images/deployment-testing-failed-load-test-run.png)
 
 Even though automated tests represent day-to-day usage, manual load tests should be **regularly executed** to verify how the system responds to unexpected peaks.
 
@@ -48,7 +48,7 @@ By using the tools in conjunction, you can observe how the system reacts to issu
 
 See a [demo of combined implementation of Chaos and Load Testing](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing#demo-continuous-validation-with-azure-load-test-and-azure-chaos-studio) integrated in Azure DevOps. It also has detailed guidance, a sample implementation, and code artifacts for extra reference.
 
-![Diagram of the continuous validation process](./images/deployment-testing-continuous-validation.png)
+![Diagram of the continuous validation process.](./images/deployment-testing-continuous-validation.png)
 
 Both Azure Chaos Studio and Load Testing can be deployed and configured through Azure portal, but more importantly there are APIs available to deploy, configure and execute tests in a programmatic and automated way.
 
@@ -56,16 +56,16 @@ The Azure Mission-critical online reference implementation deploys the Azure Loa
 
 One option in the reference implementation is to execute the load test directly from within the end-to-end (e2e) pipeline that is used to spin up individual (branch specific) development environments:
 
-![Run pipeline screen with the load testing checkbox ticked](./images/deployment-testing-pipeline-start.png)
+![Run pipeline screen with the load testing checkbox ticked.](./images/deployment-testing-pipeline-start.png)
 
 The pipeline will automatically run a load test, with or without chaos experiments (depending on the selection) in parallel:
 
-![Azure DevOps pipeline run with chaos and load testing](./images/deployment-testing-pipeline-run.png)
+![Azure DevOps pipeline run with chaos and load testing.](./images/deployment-testing-pipeline-run.png)
 
 > [!NOTE]
 > Running chaos experiments during a load test can result in higher latency, higher response times and temporarily increased error rates. You'll notice higher numbers until a scale-out operation completes or a failover has completed, when compared to a run without chaos experiments.
 
-![Chart showing increased response time during chaos experiment](./images/deployment-testing-response-time.png)
+![Chart showing increased response time during chaos experiment.](./images/deployment-testing-response-time.png)
 
 Depending on whether chaos testing is enabled and the choice of experiments, baseline definitions might vary, because the tolerance for errors can be different in "normal" state and "chaos" state.
 
@@ -75,7 +75,7 @@ Next, **adjust the thresholds** for regular runs to verify that the application 
 
 The Azure Load Testing service provides a built-in capability called **test criteria** that allows specifying certain criteria that a test needs to pass. This capability can be used to implement different baselines.
 
-![Test criteria screen with response time and error criteria marked as Failed](./images/deployment-testing-test-criteria.png)
+![Test criteria screen with response time and error criteria marked as Failed.](./images/deployment-testing-test-criteria.png)
 
 The capability is available through the Azure portal, and via the load testing API, and the wrapper scripts developed as part of Azure Mission-critical provide an option to handover a JSON-based baseline definition.
 
