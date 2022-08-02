@@ -174,7 +174,6 @@ Principal authors:
 Other contributors:
 
 - [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
-- [Bhaskar Bandam](https://www.linkedin.com/in/bhaskar-bandam-75202a9) |  Senior Program Manager
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
@@ -185,7 +184,7 @@ Other contributors:
 - [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
 - [What is Azure ExpressRoute?](/azure/expressroute/expressroute-introduction)
 
-For more information, contact [Mainframe modernization](mailto:mainframedatamod@microsoft.com).
+For more information, contact [Azure Data Engineering - Mainframe/Midrange Modernization](mailto:mainframedatamod@microsoft.com).
 
 ## Related resources
 
