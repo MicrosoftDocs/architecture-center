@@ -212,6 +212,17 @@ TODO
 
 ## Instrumentation
 
+Proper instrumentation is essential not only for infrastructure monitoring, but also on the application side. The Mission-critical reference implementation has full end-to-end tracing of requests.
+
+Key principles for instrumentation:
+
+1. Workload components don't rely on *stdout* (console) logging, although it can be used for immediate troubleshooting of a failing pod.
+1. Workload components write logs, metrics and additional telemetry to stamp's log system - Application Insights backed by Log Analytics Workspace.
+1. Structured logging is used, instead of plain text.
+1. Event correlation is in place to ensure end-to-end transaction view. Every API response contains **Operation ID** for traceability.
+
+> Stamp monitoring resources are deployed to a separate resource group and have different lifecycle than the stamp itself. See <link>application platform?</link> for more details.
+
 Each component writes logs, metrics, and telemetry to a backing log system, Azure Monitor. The components do not write log files in the runtime environment, or manage log formats or the logging environment. There are no log boundaries, such as date rollover, defined or managed by the applications. The logging is an ongoing event stream and the backing log system is where log analytics and querying are performed. The AKS cluster also has Container Insights enabled, which is a service that collects logs and metrics from the containers in the cluster and sends them to the Log Analytics workspace.
 
 
@@ -220,6 +231,9 @@ The BackgroundProcessor uses the Microsoft.ApplicationInsights.WorkerService NuG
 serilog
 
 distributed tracing
+operation ID returned to caller
+
+sampling
 
 TODO: AKS OMS agent config...
 
