@@ -8,6 +8,7 @@ ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: guide
 ms.custom: mission-critical
+ms.categories: azure
 products:
 - chaos-studio
 - load-testing
