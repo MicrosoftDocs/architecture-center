@@ -216,8 +216,8 @@ Proper instrumentation is essential not only for infrastructure monitoring, but 
 
 Key principles for instrumentation:
 
-1. Workload components don't rely on *stdout* (console) logging, although it can be used for immediate troubleshooting of a failing pod.
-1. Workload components write logs, metrics and additional telemetry to stamp's log system - Application Insights backed by Log Analytics Workspace.
+1. Workload components don't rely only on *stdout* (console) logging, although it can be used for immediate troubleshooting of a failing pod.
+1. Workload components send logs, metrics and additional telemetry to stamp's log system - Application Insights backed by Log Analytics Workspace.
 1. Structured logging is used, instead of plain text.
 1. Event correlation is in place to ensure end-to-end transaction view. Every API response contains **Operation ID** for traceability.
 
@@ -227,6 +227,8 @@ Each component writes logs, metrics, and telemetry to a backing log system, Azur
 
 
 The BackgroundProcessor uses the Microsoft.ApplicationInsights.WorkerService NuGet package to get out-of-the-box instrumentation from the application. Also, Serilog is used for all logging inside the application with Azure Application Insights configured as a sink (next to the Console sink). Only when needed to track additional metrics, a TelemetryClient instance for ApplicationInsights is used directly.
+
+![End-to-end tracing](./images/application-design-end-to-end-tracing.png)
 
 serilog
 
