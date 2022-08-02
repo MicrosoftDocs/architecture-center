@@ -1,20 +1,12 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution describes how retailers like grocery stores can monitor storefront events and take immediate actions to improve customer experience. In this solution, 5G-enabled internet protocol (IP) cameras capture real-time video of shelf inventory, curbside pickup, and cashier queues. On-premises IoT Edge devices analyze the video data in real time to detect the number of people in checkout queues, empty shelf space, or cars in the parking lot.
-
-Metrics analysis can trigger anomaly events to alert the store manager or stock supervisors to take corrective actions. The solution stores summary video clips or events in the cloud for long-term trend analysis.
-
-## Potential use cases
-
-This approach can also:
-
-- Monitor and maintain occupancy limits in an establishment.
-- Stop unauthorized users from tailgating others into an office building.
-- Prevent fraud at grocery store self-checkout stations.
+This solution describes how retailers like grocery stores can monitor storefront events and take immediate actions to improve customer experience. In this solution, 5G-enabled internet protocol (IP) cameras capture real-time video of shelf inventory, curbside pickup, and cashier queues.
 
 ## Architecture
 
 :::image type="content" source="../media/video-analytics-architecture.png" alt-text="Screenshot showing on-premises video capture and analysis through Azure Stack Edge with Azure Video Analyzer and Spatial Analysis. Event notifications pass through Azure IoT Hub to a web app for alerts, and to Azure Media Services Storage for long-term analysis." border="false":::
+
+### Dataflow
 
 1. 5G-enabled IP cameras capture video in real time, and send the video feed to a 5G Radio Access Network (RAN) device.
 
@@ -36,16 +28,38 @@ This approach can also:
 
 This solution uses the following Azure components:
 
-- [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) is a portfolio of devices that bring compute, storage, and intelligence to the IoT Edge. Azure Stack Edge acts as a cloud storage gateway that enables data transfers to Azure, while retaining local access to files.
-- [Azure Video Analyzer](https://azure.microsoft.com/products/video-analyzer/) helps build intelligent video-based applications using your choice of AI.
-- [Web Apps in Microsoft Azure App Service](https://azure.microsoft.com/services/app-service/web/) creates and deploys mission-critical web applications that scale with your business.
-- [Azure IoT Hub](https://azure.microsoft.com/en-us/services/iot-hub/) is a cloud-based managed service for bidirectional communication between IoT devices and Azure.
-- [Media Services Storage](https://azure.microsoft.com/services/media-services/) uses Azure Storage to store large media files.
+- [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge) is a portfolio of devices that bring compute, storage, and intelligence to the IoT Edge. Azure Stack Edge acts as a cloud storage gateway that enables data transfers to Azure, while retaining local access to files.
+- [Azure Video Analyzer](https://azure.microsoft.com/products/video-analyzer) helps build intelligent video-based applications using your choice of AI.
+- [Web Apps in Microsoft Azure App Service](https://azure.microsoft.com/services/app-service/web) creates and deploys mission-critical web applications that scale with your business.
+- [Azure IoT Hub](https://azure.microsoft.com/en-us/services/iot-hub) is a cloud-based managed service for bidirectional communication between IoT devices and Azure.
+- [Media Services Storage](https://azure.microsoft.com/services/media-services) uses Azure Storage to store large media files.
 - [Azure Network Function Manager](https://azure.microsoft.com/products/azure-network-function-manager) enables the deployment of network functions to the IoT Edge using consistent Azure tools and interfaces.
+
+## Scenario details
+
+This solution describes how retailers like grocery stores can monitor storefront events and take immediate actions to improve customer experience. In this solution, 5G-enabled internet protocol (IP) cameras capture real-time video of shelf inventory, curbside pickup, and cashier queues. On-premises IoT Edge devices analyze the video data in real time to detect the number of people in checkout queues, empty shelf space, or cars in the parking lot.
+
+Metrics analysis can trigger anomaly events to alert the store manager or stock supervisors to take corrective actions. The solution stores summary video clips or events in the cloud for long-term trend analysis.
+
+### Potential use cases
+
+This solution is ideal for the retail, automotive, and facilities/real-estate industries. This approach includes the following scenarios:
+
+- Monitor and maintain occupancy limits in an establishment.
+- Stop unauthorized users from tailgating others into an office building.
+- Prevent fraud at grocery store self-checkout stations.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Nikhil Ravi](https://www.linkedin.com/in/nikhilravi) | Product Management Leader
 
 ## Next steps
 
-- [What is the Radio Access Network?](https://www.sdxcentral.com/5g/ran/definitions/radio-access-network/)
+- [What is the Radio Access Network?](https://www.sdxcentral.com/5g/ran/definitions/radio-access-network)
 - [Live Video Analytics on IoT Edge](https://techcommunity.microsoft.com/t5/azure-video-analyzer/new-product-features-for-live-video-analytics-on-iot-edge/ba-p/2118497)
 - [Azure Network Function Manager simplifies 5G deployments (Video)](https://azure.microsoft.com/resources/videos/azure-network-function-manager-simplifies-5g-deployments)
 

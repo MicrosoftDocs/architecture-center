@@ -2,6 +2,9 @@ APIs have become increasingly prominent in how companies and customers access se
 
 With the help of Azure Application Gateway, it's now possible to protect and restrict the access of APIs that are served through Azure API Management. This article describes a solution where you can manage both internal and external APIs through a single API Management instance. You can maintain a secure posture from being exposed directly through the internet, but instead it's accessed through an Application Gateway.
 
+> [!NOTE]
+> This architecture is used as the foundation of the [Azure API Management landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/api-management/landing-zone-accelerator) in the Cloud Adoption Framework.
+
 ## Architecture
 
 :::image type="complex" source="./media/app-gateway-internal-api-management-function.png" alt-text="Diagram that shows the architecture of the API Management landing zone accelerator.":::
@@ -92,7 +95,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-- Due to the need of availability zone and virtual network support, we selected the Premium tier of API Management, following the [pricing for each region](/pricing/details/api-management). Additionally, in this workload, Azure Functions is hosted on the [Premium plan](/pricing/details/functions), due to the need of VNet access. 
+- Due to the need of availability zone and virtual network support, we selected the Premium tier of API Management, following the [pricing for each region](https://azure.microsoft.com/pricing/details/api-management). Additionally, in this workload, Azure Functions is hosted on the [Premium plan](https://azure.microsoft.com/pricing/details/functions/), due to the need of VNet access. 
 - For proof of concept or prototypes, we recommend you use other tiers of API Management (such as Developer or Standard). 
 
 ### Operational excellence

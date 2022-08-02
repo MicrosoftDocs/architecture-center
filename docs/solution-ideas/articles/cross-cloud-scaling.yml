@@ -1,11 +1,11 @@
 ### YamlMime:Architecture
 metadata:
   title: Cross-cloud scaling with Azure Functions
-  titleSuffix: Azure Solution Ideas
+  titleSuffix: Azure Architecture Center
   description: Understand how to improve cross-cloud scalability with solution architecture that includes Azure Stack.
   author: EdPrice-MSFT
-  ms.author: edprice
-  ms.date: 05/23/2022
+  ms.author: architectures
+  ms.date: 07/14/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea

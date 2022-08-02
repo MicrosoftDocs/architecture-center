@@ -158,7 +158,7 @@ Explore related architectures:
 
 - [Manage hybrid Azure workloads using Windows Admin Center](./hybrid-server-os-mgmt.yml)
 - [Hub-spoke network topology in Azure](../reference-architectures/hybrid-networking/hub-spoke.yml)
-- [Extend an on-premises network using VPN](../reference-architectures/hybrid-networking/vpn.yml)
+- [Extend an on-premises network using VPN](/azure/expressroute/expressroute-howto-coexist-resource-manager)
 - [Design a hybrid Domain Name System solution with Azure](./hybrid-dns-infra.yml)
 
 [architectual-diagram]: ./images/azure-network-adapter.png

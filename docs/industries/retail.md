@@ -3,8 +3,8 @@ title: Solutions for the retail industry
 titleSuffix: Azure Architecture Center
 description: Architectures and ideas to use Azure services for building efficient, scalable, and reliable retail solutions.
 author: EdPrice-MSFT
-ms.author: pnp
-ms.date: 12/08/2021
+ms.author: architectures
+ms.date: 07/26/2022
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -32,8 +32,6 @@ Retail is one of the fastest growing industries worldwide, generating some of th
 - creating innovative customer experiences using mixed reality, AI, and IoT, and
 - building a personalized and secure multi-channel retail experience for customers.
 
-Using Azure services, retailers can easily achieve these goals. For use cases and customer stories, visit [Azure for retail](https://azure.microsoft.com/industries/retailers/). Microsoft is also revolutionizing the retail industry, by providing a comprehensive retail package, [Microsoft Cloud for Retail](https://www.microsoft.com/industry/retail/microsoft-cloud-for-retail).
-
 <br>
 
 <!-- markdownlint-disable MD034 -->
@@ -47,17 +45,19 @@ Using Azure services, retailers can easily achieve these goals. For use cases an
 > [!NOTE]
 > Learn more about a retail company's journey to cloud adoption, in [Cloud adoption for the retail industry](/azure/cloud-adoption-framework/industry/retail).
 
+Using Azure services, retailers can easily achieve these goals. For use cases and customer stories, visit [Azure for retail](https://azure.microsoft.com/industries/retailers/). Microsoft is also revolutionizing the retail industry, by providing a comprehensive retail package, [Microsoft Cloud for Retail](https://www.microsoft.com/industry/retail/microsoft-cloud-for-retail).
+
 ## Architecture guides for retail
 
 The following articles provide more details about retail architectural topics. Although they are mostly conceptual, they can also include implementation details.
 
 | Guide | Summary | Technology focus |
 | ------- | ------- | ------- |
-| [Data Management in Retail](/previous-versions/azure/industry-marketing/retail/retail-data-management-overview?bc=https%3a%2f%2fdocs.microsoft.com%2fazure%2farchitecture%2fbread%2ftoc.json&toc=https%3a%2f%2fdocs.microsoft.com%2fazure%2farchitecture%2ftoc.json) | Primer for how to ingest, prepare, store, analyze, and take action on data, for the retail industry. | Databases |
-| [Migrate your e-commerce solution to Azure](/previous-versions/azure/industry-marketing/retail/migrating-ecommerce-solution-to-azure?bc=https%3a%2f%2fdocs.microsoft.com%2fazure%2farchitecture%2fbread%2ftoc.json&toc=https%3a%2f%2fdocs.microsoft.com%2fazure%2farchitecture%2ftoc.json) | Learn how to move an existing e-commerce solution to the cloud. The three stages are to rehost, refactor, and rebuild your solution. | Migration |
-| [Optimize and reuse an existing recommendation system](/previous-versions/azure/industry-marketing/retail/recommendation-engine-optimization?bc=https%3a%2f%2fdocs.microsoft.com%2fazure%2farchitecture%2fbread%2ftoc.json&toc=https%3a%2f%2fdocs.microsoft.com%2fazure%2farchitecture%2ftoc.json) | The process of successfully reusing and improving an existing recommendation system that is written in R. | AI/ML |
-| [Visual search in retail with CosmosDB](/previous-versions/azure/industry-marketing/retail/visual-search-use-case-overview?bc=https%3a%2f%2fdocs.microsoft.com%2fazure%2farchitecture%2fbread%2ftoc.json&toc=https%3a%2f%2fdocs.microsoft.com%2fazure%2farchitecture%2ftoc.json) | This document focuses on the AI concept of visual search and offers a few key considerations on its implementation. It provides a workflow example and maps its stages to the relevant Azure technologies. | Databases |
-| [SKU optimization for consumer brands](/previous-versions/azure/industry-marketing/retail/sku-optimization-solution-guide?bc=https%3a%2f%2fdocs.microsoft.com%2fazure%2farchitecture%2fbread%2ftoc.json&toc=https%3a%2f%2fdocs.microsoft.com%2fazure%2farchitecture%2ftoc.json) | Topics include automating decision making, SKU assortment optimization, descriptive analytics, predictive analytics, parametric models, non-parametric models, implementation details, data output and reporting, and security considerations. | Analytics |
+| [Data Management in Retail](/previous-versions/azure/industry-marketing/retail/retail-data-management-overview?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json) | Primer for how to ingest, prepare, store, analyze, and take action on data, for the retail industry. | Databases |
+| [Migrate your e-commerce solution to Azure](/previous-versions/azure/industry-marketing/retail/migrating-ecommerce-solution-to-azure?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json) | Learn how to move an existing e-commerce solution to the cloud. The three stages are to rehost, refactor, and rebuild your solution. | Migration |
+| [Optimize and reuse an existing recommendation system](/previous-versions/azure/industry-marketing/retail/recommendation-engine-optimization?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json) | The process of successfully reusing and improving an existing recommendation system that is written in R. | AI/ML |
+| [Visual search in retail with CosmosDB](/previous-versions/azure/industry-marketing/retail/visual-search-use-case-overview?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json) | This document focuses on the AI concept of visual search and offers a few key considerations on its implementation. It provides a workflow example and maps its stages to the relevant Azure technologies. | Databases |
+| [SKU optimization for consumer brands](/previous-versions/azure/industry-marketing/retail/sku-optimization-solution-guide?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json) | Topics include automating decision making, SKU assortment optimization, descriptive analytics, predictive analytics, parametric models, non-parametric models, implementation details, data output and reporting, and security considerations. | Analytics |
 
 ## Architectures for retail
 

@@ -63,7 +63,7 @@ Build your solution as per the five pillars of the [Azure Well Architected Frame
 - Multiple lab accounts can be created in an Azure subscription and multiple labs can be created in each lab account.
 - Understand the [Capacity limits in Azure Lab Services](/azure/lab-services/capacity-limits).
 
-### Availability considerations
+### Availability
 
 - Understand the [SLA for Azure Lab Services](https://azure.microsoft.com/support/legal/sla/lab-services/v1_0)
 
@@ -74,21 +74,29 @@ Build your solution as per the five pillars of the [Azure Well Architected Frame
 - Lab VMs can egress to the internet. Ingress occurs only via managed load balancer or proxy, to RDP and SSH ports on the VMs.
 - Lab Services does not expose the Availability Zone configuration for lab VMs to the customer.
 
-## Deploy the solution
-
-Because Lab Services labs are designed to be easy for teachers to deploy, the [portal deployment method](/azure/lab-services/how-to-manage-classroom-labs#create-a-classroom-lab) is simple and quick. In large scale, uniform deployments or highly customized scenarios, [REST API’s](/rest/api/labservices) can be used to automate deployment and configuration actions at scale. The [Az.LabServices PowerShell](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Modules/Library) module project facilitates various actions.
-
-## Pricing
+## Cost optimization
 
 - The two primary drivers of cost within Lab Services are how many hours the lab VMs are powered on, and what size they are. Larger sizes and GPU-enabled sizes are higher cost, so it makes sense to select the minimum size VM that's adequate for the labs.
 - Lab Services helps contain compute costs via teacher-controlled schedules and quota hours. There are no VM storage costs despite the VM’s being persistent.
 - Pricing is covered in [Azure Lab Services pricing](https://azure.microsoft.com/pricing/details/lab-services), and sample cost estimates are provided for many of the [Class Type examples](/azure/lab-services/class-types) in the product docs, in the **Cost** section towards the end of each scenario. The [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator) provides a way to build scenario pricing also.
 
+## Deploy this scenario
+
+Because Lab Services labs are designed to be easy for teachers to deploy, the [portal deployment method](/azure/lab-services/how-to-manage-classroom-labs#create-a-classroom-lab) is simple and quick. In large scale, uniform deployments or highly customized scenarios, [REST API’s](/rest/api/labservices) can be used to automate deployment and configuration actions at scale. The [Az.LabServices PowerShell](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Modules/Library) module project facilitates various actions.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+- [Manuel Garriga](https://www.linkedin.com/in/manuelgarriga) | Principal Cloud Solution Architect
+
 ## Next steps
 
 - To get started with Azure Lab Services quickly, follow these tutorials:
-  - [Set up a lab account with Azure Lab Services - Azure Lab Services | Microsoft Docs](/azure/lab-services/tutorial-setup-lab-account)
-  - [Set up a classroom lab using Azure Lab Services - Azure Lab Services | Microsoft Docs](/azure/lab-services/tutorial-setup-classroom-lab)
+  - [Set up a lab account with Azure Lab Services - Azure Lab Services](/azure/lab-services/tutorial-setup-lab-account)
+  - [Set up a classroom lab using Azure Lab Services - Azure Lab Services](/azure/lab-services/tutorial-setup-classroom-lab)
 - [What is Azure Lab Services?](/azure/lab-services/lab-services-overview)
 - [Azure Lab Services documentation](/azure/lab-services)
 - [Azure Lab Services Pricing](https://azure.microsoft.com/pricing/details/lab-services)

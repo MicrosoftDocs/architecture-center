@@ -2,8 +2,8 @@
 title: Scenarios that feature Microsoft on-premises technologies on Azure
 description: Review a list of architectures and solutions that use Microsoft on-premises technologies on Microsoft Azure.
 author: EdPrice-MSFT
-ms.author: edprice
-ms.date: 04/26/2022
+ms.author: architectures
+ms.date: 07/26/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -119,6 +119,8 @@ For information about solutions in which Azure services integrate with the other
 |[SQL Server on Azure Virtual Machines with Azure NetApp Files](../example-scenario/file-storage/sql-server-azure-netapp-files.yml) |Implement a high-bandwidth, low-latency solution for SQL Server workloads. Use Azure NetApp Files for enterprise-scale performance and reduced costs.|Storage|
 |[Web app private connectivity to Azure SQL Database](../example-scenario/private-web-app/private-web-app.yml) |Lock down access to an Azure SQL database with Azure Private Link connectivity from a multitenant web app.|Web|
 |[Windows N-tier application on Azure](../reference-architectures/n-tier/n-tier-sql-server.yml) |Implement a multitier architecture on Azure for availability, security, scalability, and manageability. SQL Server provides the data tier.|Databases|
+
+[Browse all our SQL Server solutions](/azure/architecture/browse/?products=sql-server).
 
 ## Windows Server
 

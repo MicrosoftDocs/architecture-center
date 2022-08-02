@@ -66,7 +66,7 @@ Here are some options for implementing microservices container orchestration in 
 
   For simple orchestration scenarios, you can use [Docker Compose](https://docs.docker.com/compose/) to define and run a multi-container application locally. Then, deploy the Docker containers as an ACI container group in a managed, serverless Azure environment. For full container orchestration scenarios, ACI can integrate with AKS to create virtual nodes for AKS orchestration.
 
-- [Azure Spring Cloud](https://azure.microsoft.com/services/spring-cloud/) is an enterprise-ready, fully managed service for [Spring Boot](https://spring.io/projects/spring-boot) apps. With Spring Cloud, you can focus on building and running apps without having to manage infrastructure. Spring Cloud comes with built-in lifecycle and orchestration management, ease of monitoring, and full integration with Azure.
+- [Azure Spring Apps](https://azure.microsoft.com/services/spring-cloud/) is an enterprise-ready, fully managed service for [Spring Boot](https://spring.io/projects/spring-boot) apps. With Spring Apps, you can focus on building and running apps without having to manage infrastructure. Spring Apps comes with built-in lifecycle and orchestration management, ease of monitoring, and full integration with Azure.
 
 - [Azure Red Hat OpenShift (ARO)](https://azure.microsoft.com/services/openshift/) supports deployment of fully managed [OpenShift](https://www.openshift.com/) clusters on Azure. Running Kubernetes production containers requires integration with frameworks and tools like image registries, storage management, monitoring, and DevOps. ARO extends Kubernetes by combining these components into a single container platform as a service (PaaS).
 
@@ -78,7 +78,7 @@ Here are some options for implementing microservices container orchestration in 
 - [Use API gateways in microservices](gateway.yml)
 - [Monitor a microservices architecture in AKS](../logging-monitoring.yml)
 - [Microservices architecture on Azure Service Fabric](../../reference-architectures/microservices/service-fabric.yml)
-- [Azure Spring Cloud reference architecture](/azure/spring-cloud/reference-architecture)
+- [Azure Spring Apps reference architecture](/azure/spring-cloud/reference-architecture)
 
 ## Related resources
 

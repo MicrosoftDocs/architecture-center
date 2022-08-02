@@ -12,7 +12,9 @@ This solution is optimized for the retail industry.
 
 ## Architecture
 
-:::image type="content" source="../media/big-data-azure-data-explorer.png" alt-text="Big data analytics with Azure Data Explorer" lightbox="../media/big-data-azure-data-explorer.png":::
+:::image type="content" source="../media/big-data-azure-data-explorer.png" alt-text="Diagram showing big data analytics with Azure Data Explorer." lightbox="../media/big-data-azure-data-explorer.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/big-data-azure-data-explorer.vsdx) of this architecture.*
 
 ### Dataflow
 

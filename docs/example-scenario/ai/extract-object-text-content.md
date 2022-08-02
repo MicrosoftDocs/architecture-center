@@ -1,13 +1,4 @@
-Schematic and industrial diagrams often have objects that contain text. Manually scanning documents for relevant text can be laborious and time consuming.
-
 This article presents a solution for extracting text from images so it can be indexed and retrieved in SharePoint. By using AI Builder and Azure Form Recognizer, you can configure a Power Automate workflow to use a trained model to extract text from an image. Once you've configured a workflow, you can quickly search documents for meaningful text that's embedded in shapes and objects.
-
-## Potential use cases
-
-Use cases include:
-
-- Complicated engineering schematic diagrams that contain various types of objects. By using this solution, you can quickly search for specific components on a diagram. Having access to embedded text in objects is helpful for investigations, exposing shortages, or looking for recall and failure notices.
-- Industrial diagrams that show the components in a manufacturing assembly. This solution promptly identifies pumps, valves, automated switches, and other components. Identifying components helps with preventative maintenance, isolating hazardous components, and increasing the visibility of risk management in your organization.
 
 ## Architecture
 
@@ -40,6 +31,17 @@ Use cases include:
 - Azure Cognitive Services can do a full OCR scan of documents, with the resulting metadata stored in SharePoint.
 - SharePoint can run OCR scans on documents and add content output to the index for retrieval. Use search techniques to target key information in documents.
 - If you want to process a high rate of documents, consider using Azure Logic Apps to configure the components. Azure Logic Apps prevents you from hitting consumption limits in your tenant, and is cost-effective.  For more information, see [Azure Logic Apps](/azure/logic-apps/logic-apps-overview).
+
+## Scenario details
+
+Schematic and industrial diagrams often have objects that contain text. Manually scanning documents for relevant text can be laborious and time consuming.
+
+### Potential use cases
+
+Use cases include:
+
+- Complicated engineering schematic diagrams that contain various types of objects. By using this solution, you can quickly search for specific components on a diagram. Having access to embedded text in objects is helpful for investigations, exposing shortages, or looking for recall and failure notices.
+- Industrial diagrams that show the components in a manufacturing assembly. This solution promptly identifies pumps, valves, automated switches, and other components. Identifying components helps with preventative maintenance, isolating hazardous components, and increasing the visibility of risk management in your organization.
 
 ## Considerations
 

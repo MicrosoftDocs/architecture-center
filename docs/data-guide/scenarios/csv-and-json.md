@@ -1,9 +1,10 @@
 ---
 title: Processing CSV and JSON files
 description: Learn about CSV and JSON files, the most common formats for ingesting, exchanging, and storing unstructured or semi-structured data.
-author: zoinerTejada
+author: EdPrice-MSFT
+ms.author: architectures
 categories: azure
-ms.date: 02/12/2018
+ms.date: 07/25/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -66,3 +67,11 @@ There are some challenges to consider when working with these formats:
 - Using CSV and JSON files as your cold storage solution does not scale well when working with big data. In most cases, they cannot be split into partitions for parallel processing, and cannot be compressed as well as binary formats. This often leads to processing and storing this data into read-optimized formats such as Parquet and ORC (optimized row columnar), which also provide indexes and inline statistics about the data contained.
 
 - You may need to apply a schema on the semi-structured data to make it easier to query and analyze. Typically, this requires storing the data in another form that complies with your environment's data storage needs, such as within a database.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+- [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect

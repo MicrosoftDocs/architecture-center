@@ -1,5 +1,3 @@
-
-
 This example scenario is applicable to any industry that needs a Virtual Desktop Infrastructure (VDI) for Linux Desktops. VDI refers to the process of running a user desktop inside a virtual machine that lives on a server in the datacenter. The customer in this scenario chose to use a Citrix-based solution for their VDI needs.
 
 Organizations often have heterogeneous environments with multiple devices and operating systems being used by employees. It can be challenging to provide consistent access to applications while maintaining a secure environment. A VDI solution for Linux desktops will allow your organization to provide access irrespective of the device or OS used by the end user.
@@ -11,7 +9,7 @@ Some benefits of this scenario include the following:
 - Users can access Linux applications from any device (including non-Linux devices).
 - Sensitive data can be secured in the Azure datacenter for all distributed employees.
 
-## Relevant use cases
+## Potential use cases
 
 Consider this scenario for the following use case:
 
@@ -80,18 +78,31 @@ For this scenario, the following SKUs are used:
 - For a production deployment management solution should be implemented such as [backup](/azure/backup/backup-introduction-to-azure-backup), [monitoring](/azure/monitoring-and-diagnostics/monitoring-overview) and [update management](/azure/automation/update-management/overview).
 - This example should work for about 250 concurrent (about 50-60 per VDA server) users with a mixed usage. But that will greatly depended on the type of applications being used. For production use, rigorous load testing should be performed.
 
-## Deployment
-
-For deployment information, see the official [Citrix documentation](https://docs.citrix.com/en-us/citrix-virtual-apps-desktops/install-configure.html).
-
-## Pricing
+### Cost optimization
 
 - The Citrix XenDesktop licenses are not included in Azure service charges.
 - The Citrix NetScaler license is included in a pay-as-you-go model.
 - Using reserved instances will greatly reduce the compute cost for the solution.
 - The ExpressRoute cost is not included.
 
+## Deploy this scenario
+
+For deployment information, see the official [Citrix documentation](https://docs.citrix.com/en-us/citrix-virtual-apps-desktops/install-configure.html).
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+* Miguel Angelo Pereira Dos Santos | Partner CCO HC Portugal
+
 ## Next steps
 
 - Check Citrix documentation for planning and deployment [here](https://docs.citrix.com/en-us/citrix-virtual-apps-desktops/install-configure).
 - To deploy Citrix ADC (NetScaler) in Azure, review the Resource Manager templates provided by Citrix [here](https://github.com/citrix/netscaler-azure-templates).
+
+## Related resources
+
+- [High-performance computing (HPC) for manufacturing](https://docs.microsoft.com/azure/architecture/industries/manufacturing/compute-manufacturing-overview)
+- [Conditional Access framework and policies](https://docs.microsoft.com/azure/architecture/guide/security/conditional-access-framework)

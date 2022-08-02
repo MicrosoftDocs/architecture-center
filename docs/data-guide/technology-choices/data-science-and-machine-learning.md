@@ -2,9 +2,9 @@
 title: Microsoft machine learning products
 description: Compare options for building, deploying, and managing your machine learning models. Decide which Microsoft products to choose for your solution.
 author: EdPrice-MSFT
-ms.author: pnp
+ms.author: architectures
 categories: azure
-ms.date: 09/01/2020
+ms.date: 07/25/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -169,6 +169,14 @@ MMLSpark also brings new networking capabilities to the Spark ecosystem. With th
 |**Machine learning phases** |Data preparation<br>Model training<br>Deployment|
 |**Key benefits**            |Scalability<br>Streaming + Serving compatible<br>Fault-tolerance|
 |**Considerations**          |Requires Apache Spark|
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+- [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect
 
 ## Next steps
 

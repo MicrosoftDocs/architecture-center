@@ -2,11 +2,15 @@
 
 Learn how car dealerships, manufacturers, and insurance companies can use Microsoft Azure to gain predictive insights on vehicle health and driving habits.
 
-This solution is built on the Azure managed services: [Event Hubs](https://azure.microsoft.com/services/event-hubs), [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics), [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning), [Storage Accounts](https://azure.microsoft.com/services/storage), [HDInsight](https://azure.microsoft.com/services/hdinsight), [Data Factory](https://azure.microsoft.com/services/data-factory), [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/) and [Power BI](https://powerbi.microsoft.com). These services run in a high-availability environment, patched and supported, which allows you to focus on your solution instead of the environment it runs in.
+This solution is built on the Azure managed services: [Event Hubs](https://azure.microsoft.com/services/event-hubs), [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics), [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning), [Storage Accounts](https://azure.microsoft.com/services/storage), [HDInsight](https://azure.microsoft.com/services/hdinsight), [Data Factory](https://azure.microsoft.com/services/data-factory), [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) and [Power BI](https://powerbi.microsoft.com). These services run in a high-availability environment, patched and supported, which allows you to focus on your solution instead of the environment it runs in.
+
+## Potential use cases
+
+Organizations can utilize predictive insights to determine when vehicle maintenance needs to be done and when to refurbish their fleet of company vehicles.
 
 ## Architecture
 
-![Architecture Diagram](../media/predictive-insights-with-vehicle-telematics.png)
+![Architecture Diagram show the flow of information through the different computer systems that help with the predictive insights of vehicle telematics.](../media/predictive-insights-with-vehicle-telematics.png)
 
 *Download an [SVG](../media/predictive-insights-with-vehicle-telematics.svg) of this architecture.*
 
@@ -19,7 +23,7 @@ This solution is built on the Azure managed services: [Event Hubs](https://azure
 * [Azure HDInsight](https://azure.microsoft.com/free/hdinsight). HDInsight helps you process massive amounts of data in an easy, fast, and cost-effective way. This solution has Azure Data Factory using HDInsight to run Hive queries to process data and load it into Azure SQL Database, but others can also use Azure Databricks.
 * [Data Factory](https://azure.microsoft.com/services/data-factory). Data Factory uses HDInsight to process data and load it into Azure SQL Database.
 * [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics). Azure Synapse Analytics is used to store and data processed by Data Factory and HDInsight and is accessed by Power BI for analysis of the telemetry data.
-* [Power BI](https://powerbi.microsoft.com). Power BI is used to create data visualizations for reporting needs. This solution uses Power BI, but others use [Power BI Embedded](https://azure.microsoft.com/services/power-bi-embedded/) to analyze the telemetry data.
+* [Power BI](https://powerbi.microsoft.com). Power BI is used to create data visualizations for reporting needs. This solution uses Power BI, but others use [Power BI Embedded](https://azure.microsoft.com/services/power-bi-embedded) to analyze the telemetry data.
 
 ## Next steps
 

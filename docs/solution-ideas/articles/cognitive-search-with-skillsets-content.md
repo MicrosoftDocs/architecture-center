@@ -12,7 +12,9 @@ The Azure Cognitive Search skills in this example solution include image process
 
 This diagram illustrates the process of passing unstructured data through the Cognitive Search skills pipeline to produce structured, indexable data.
 
-![Cognitive Search architecture to convert unstructured into structured data](../media/cognitive-search-for-ai-enrichment.png)
+:::image type="content" alt-text="Diagram that shows Cognitive Search architecture to convert unstructured into structured data." source="../media/cognitive-search-for-ai-enrichment.png" lightbox="../media/cognitive-search-for-ai-enrichment.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/cognitive-search-for-ai-enrichment.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -99,6 +101,6 @@ Read product documentation:
 - [Azure Blob storage](/azure/storage/blobs/storage-blobs-introduction)
 - [Azure Functions](/azure/azure-functions)
 
-Try the Microsoft Learn path:
+Try the learning path:
 
 - [Implement knowledge mining with Azure Cognitive Search](/learn/paths/implement-knowledge-mining-azure-cognitive-search)

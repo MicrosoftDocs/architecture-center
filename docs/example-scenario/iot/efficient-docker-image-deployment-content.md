@@ -362,6 +362,14 @@ The goal for this example was to make sure the system generated the needed data 
 - Time series data on successful and failed transfers.
 - Queries of deployments based on user.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+- [Kanio Dimitrov](https://www.linkedin.com/in/kanio-dimitrov-19b71a8) | Principal Software Engineering Lead
+
 ## Next steps
 
 - [Deploy your first IoT Edge module to a virtual Linux device](/azure/iot-edge/quickstart-linux)

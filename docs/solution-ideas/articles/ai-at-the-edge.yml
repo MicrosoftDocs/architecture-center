@@ -1,11 +1,11 @@
 ### YamlMime:Architecture
 metadata:
   title: AI at the edge with Azure Stack Hub
-  titleSuffix: Azure Solution Ideas
+  titleSuffix: Azure Architecture Center
   description: Bring your trained AI model to the edge with Azure Stack Hub and integrate it with your applications for low-latency intelligence.
-  author: EdPrice-MSFT
-  ms.author: edprice
-  ms.date: 04/14/2022
+  author: mahalaxminanya
+  ms.author: architectures
+  ms.date: 07/14/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
@@ -32,7 +32,6 @@ azureCategories:
 summary: Bring your trained AI model to the edge with Azure Stack Hub and integrate it with your applications for low-latency intelligence.
 products:
   - azure-container-registry
-  - azure-hdinsight
   - azure-kubernetes-service
   - azure-machine-learning
   - azure-stack-hub

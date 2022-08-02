@@ -2,7 +2,7 @@ This article presents a decision tree and examples of high-availability (HA) and
 
 ## Architecture
 
-![HA decision tree](./media/ha-decision-tree.png)
+![This diagram illustrates the high availability decision tree.](./media/ha-decision-tree.png)
 
 ### Workflow
 
@@ -12,7 +12,7 @@ This article presents a decision tree and examples of high-availability (HA) and
 
 The decision flowchart reflects the principle that HA apps should use AZs if possible. Cross-zone, and therefore cross-datacenter, HA provides > 99.99% SLA because of resilience to datacenter failure.
 
-ASs and AZs for different app tiers aren't guaranteed to be within the same datacenters. If app latency is a primary concern, you should colocate services in a single datacenter by using [proximity placement groups](https://azure.microsoft.com/blog/introducing-proximity-placement-groups/) (PPGs) with AZs and ASs.
+ASs and AZs for different app tiers aren't guaranteed to be within the same datacenters. If app latency is a primary concern, you should colocate services in a single datacenter by using [proximity placement groups](https://azure.microsoft.com/blog/introducing-proximity-placement-groups) (PPGs) with AZs and ASs.
 
 ### Components
 
@@ -24,7 +24,7 @@ ASs and AZs for different app tiers aren't guaranteed to be within the same data
 
 - As an alternative to regional DR using Azure Site Recovery, if the app can replicate data natively, you can implement *multi-region DR* using hot/cold standby servers, such as a stretched cluster for DR only. This alternative isn't specifically detailed in the examples, but could be added to any of the solutions. Note that replication between regions is asynchronous, and some data loss is expected.
 
-  Alternatively, if you have your own data replication technology, you can use it to create a secondary in-region zone for DR. Depending on the region of your workloads, it may also be possible to use Azure Site Recovery to replicate items to an alternative zone, you can check regional availability and read more about this feature at [Enable Zone to Zone Disaster Recovery for Azure virtual machines](/azure/site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery).
+  Alternatively, if you have your own data replication technology, you can use it to create a secondary in-region zone for DR. Depending on the region of your workloads, it might also be possible to use Azure Site Recovery to replicate items to an alternative zone, you can check regional availability and read more about this feature at [Enable Zone to Zone Disaster Recovery for Azure virtual machines](/azure/site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery).
 
 - Multi-region HA is possible, but requires a global load balancer such as Front Door or Traffic Manager. For more information, see [Run an N-tier application in multiple Azure regions for high availability](../../reference-architectures/n-tier/multi-region-sql-server.yml).
 
@@ -44,9 +44,15 @@ If the service-level agreement (SLA) for an IaaS app requires > 99% availability
 - Deploy an n-tier app both on-premises and to the cloud.
 - Configure high availability and disaster recovery for an IaaS app.
 
+This solution can be used for any industry, including the following scenarios:
+
+- Public sector applications
+- Banking (finance industry)
+- Healthcare
+
 ## Considerations
 
-- AZs aren't available in all [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/).
+- AZs aren't available in all [Azure regions](https://azure.microsoft.com/global-infrastructure/regions).
 
 - Decide which deployment option you want to use before you build the solution. Although possible, it's not easy to move from one option to another post-deployment. You would have to delete the VMs and recreate them from the underlying managed disks, which is an involved process.
 
@@ -58,7 +64,7 @@ If the service-level agreement (SLA) for an IaaS app requires > 99% availability
 
 If an app doesn't require > 99.9% availability, you don't need to configure it for HA, and can deploy single VMs. You can use virtual machine scale sets to automatically scale out identical VMs. Deploy single VMs without specifying a zone, so they're distributed throughout a region. These apps have an SLA of 99.9% if you use Azure Premium SSD disks.
 
-Single VMs use the default service healing functionality built into all Azure datacenters. For predictable failures, this functionality typically uses live migration, but during unpredictable events, VMs may be rebooted or made unavailable.
+Single VMs use the default service healing functionality built into all Azure datacenters. For predictable failures, this functionality typically uses live migration, but during unpredictable events, VMs might be rebooted or made unavailable.
 
 ### High availability
 
@@ -70,11 +76,11 @@ If you want to use a VM-based *cluster arbiter*, for example a *file-share witne
 
 All VMs in an AZ are in a single *fault domain* (FD) and *update domain* (UD), meaning they share a common power source and network switch, and can all be rebooted at the same time. If you create VMs across different AZs, your VMs are effectively distributed across different FDs and UDs, so they won't all fail or be rebooted at the same time. If you want to have redundant in-zone VMs as well as cross-zone VMs, you should place the in-zone VMs in ASs in PPGs to ensure they won't all be rebooted at once. Even for single-instance VM workloads that aren't redundant today, you can still optionally use ASs in the PPGs to allow for future growth and flexibility.
 
-For deploying virtual machine scale sets across AZs, consider using [Orchestration mode](/azure/virtual-machine-scale-sets/orchestration-modes), currently in public preview, which allows combining FDs and AZs.
+For deploying virtual machine scale sets across AZs, consider using [Orchestration mode](/azure/virtual-machine-scale-sets/orchestration-modes-api-comparison), currently in public preview, which allows combining FDs and AZs.
 
 AZs with in-zone PPGs allow for one of the lowest network latencies in Azure, and an SLA of at least 99.99% because of multi-datacenter resiliency. Use [accelerated networking](/azure/virtual-network/create-vm-accelerated-networking-powershell) on the VMs where possible.
 
-This solution may present a scenario where a service running on a VM in one zone needs to interact with a service in another zone. For example, there may be an active-active web tier and an active-passive database tier across zones. Some requests will cross zones, which introduces latency. While cross-zone latency is still very low, if you need to ensure the lowest possible latency, keep all network communications between app tiers within a zone.
+This solution might present a scenario where a service running on a VM in one zone needs to interact with a service in another zone. For example, there might be an active-active web tier and an active-passive database tier across zones. Some requests will cross zones, which introduces latency. While cross-zone latency is still very low, if you need to ensure the lowest possible latency, keep all network communications between app tiers within a zone.
 
 ### Latency considerations
 
@@ -84,23 +90,31 @@ You can use the following tools to gain better insight into latency conditions f
 
 - To test the latency between VMs, see [Test VM network latency](/azure/virtual-network/virtual-network-test-latency).
 - To test latency between zones, use the [AvZone-Latency-Test](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/master/AvZone-Latency-Test). This test can help you determine which logical zones have the lowest latency for your subscription.
-- To test latency between Azure regions, use [http://www.azurespeed.com/](http://www.azurespeed.com/). This regularly updated tool can be useful when considering asynchronous replication between regions.
+- To test latency between Azure regions, use [http://www.azurespeed.com/](http://www.azurespeed.com). This regularly updated tool can be useful when considering asynchronous replication between regions.
 
 ### Disaster recovery
 
 DR considerations include *availability*, the ability of the app to keep running in a healthy state, and *data durability*, the preservation of data if a disaster happens.
 
-HA failover should be fast, with no data loss, and have a very limited effect on service. In contrast, a traditional DR failover may have a longer associated *Recovery Time Objective (RTO)* and *Recovery Point Objective (RPO)*, and is asynchronous, with potential data loss.
+HA failover should be fast, with no data loss, and have a very limited effect on service. In contrast, a traditional DR failover might have a longer associated *Recovery Time Objective (RTO)* and *Recovery Point Objective (RPO)*, and is asynchronous, with potential data loss.
 
 You can take advantage of AZs for both HA and DR by using a different AZ for your DR solution. However, using a different AZ doesn't guarantee that the datacenters in each AZ will be located physically far apart.
 
-[Azure Site Recovery](/azure/site-recovery/azure-to-azure-quickstart/) lets you replicate VMs to another Azure region for regional disaster recovery and business continuity. You can use Azure Site Recovery to recover your apps in the event of source region outages, or to conduct periodic disaster recovery drills to ensure you meet compliance requirements.
+[Azure Site Recovery](/azure/site-recovery/azure-to-azure-quickstart) lets you replicate VMs to another Azure region for regional disaster recovery and business continuity. You can use Azure Site Recovery to recover your apps in the event of source region outages, or to conduct periodic disaster recovery drills to ensure you meet compliance requirements.
 
-If your app supports Azure Site Recovery, you can provide a regional DR solution for increased protection, if the criticality of the app demands it. However, cross-zone, cross-datacenter HA alone may be sufficient protection, because if an app is fully resilient to datacenter failure, there should be no downtime or data loss.
+If your app supports Azure Site Recovery, you can provide a regional DR solution for increased protection, if the criticality of the app demands it. However, cross-zone, cross-datacenter HA alone might be sufficient protection, because if an app is fully resilient to datacenter failure, there should be no downtime or data loss.
 
 ### Cost optimization
 
-There's no additional cost for VMs deployed in AZs. There may be additional inter-AZ VM-to-VM data transfer charges. For more information, see the [Bandwidth pricing page](https://azure.microsoft.com/pricing/details/bandwidth/).
+There's no additional cost for VMs deployed in AZs. There might be additional inter-AZ VM-to-VM data transfer charges. For more information, see the [Bandwidth pricing page](https://azure.microsoft.com/pricing/details/bandwidth).
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+* [Shaun Croucher](https://uk.linkedin.com/in/shaun-croucher-64b251185) | Senior Consultant
 
 ## Next steps
 

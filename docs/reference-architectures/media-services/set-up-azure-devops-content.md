@@ -344,5 +344,5 @@ Local debugging uses user impersonation, and developers sign in with their brows
 - Manage [Key Vault keys](maintain-keys.yml).
 - Set up a [local development environment](set-up-local-environment.yml).
 - Create or delete a [cloud sandbox or test environment](create-delete-cloud-environment.yml).
-- Follow [Test Azure Media Services V3 encoding](test-encoding.yml) to fully test the setup.
+- Follow [Test Azure Media Services v3 encoding](test-encoding.yml) to fully test the setup.
 - Scale [Media Services resources](media-services-setup-scale.yml#scale-media-services-resources).

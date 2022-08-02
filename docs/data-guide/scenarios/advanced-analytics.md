@@ -2,9 +2,9 @@
 title: Advanced analytics
 description: Use mathematical, probabilistic, and statistical modeling techniques to enable predictive processing and automated decision making.
 author: EdPrice-MSFT
-ms.author: pnp
+ms.author: architectures
 categories: azure
-ms.date: 02/12/2018
+ms.date: 07/25/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -64,7 +64,7 @@ There are two broad categories of machine learning:
 Relevant Azure services:
 
 - [Azure Machine Learning](/azure/machine-learning/)
-- [Machine Learning Server (R Server) on HDInsight](/azure/hdinsight/r-server/r-server-overview)
+- [Machine Learning Server (R Server) on HDInsight](https://azure.microsoft.com/services/hdinsight/r-server/#overview)
 
 ## Deep learning
 
@@ -89,7 +89,7 @@ Relevant Azure services:
 
 - [Azure Machine Learning](/azure/machine-learning/)
 
-- [Machine Learning Server (R Server) on HDInsight](/azure/hdinsight/r-server/r-server-overview)
+- [Machine Learning Server (R Server) on HDInsight](https://azure.microsoft.com/services/hdinsight/r-server/#overview)
 
 ## See also
 

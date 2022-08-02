@@ -3,18 +3,21 @@ Enterprise messaging infrastructure (EMI) is a key service for organizations. Mo
 This article describes two architectures to help you enhance your security in an Outlook mobile access scenario by using Azure AD Multi-Factor Authentication.
 
 These scenarios are described in this article:
+
 - Outlook mobile access when the user's mailbox is in Exchange Online
 - Outlook mobile access when the user's mailbox is in Exchange on-premises
 
 Both architectures cover both Outlook for iOS and Outlook for Android.
 
 For information about applying multi-factor authentication in other hybrid messaging scenarios, see these articles:
+
 - [Enhanced-security hybrid messaging infrastructure in a web access scenario](secure-hybrid-messaging-web.yml)
 - [Enhanced-security hybrid messaging infrastructure in a desktop-client access scenario](secure-hybrid-messaging-client.yml)
 
 This article doesn't discuss other protocols, like IMAP or POP. Typically, these scenarios don't use these protocols.
 
 ## Potential use cases
+
 This architecture is relevant for the following scenarios:
 
 - Enhance EMI security.
@@ -25,6 +28,7 @@ This architecture is relevant for the following scenarios:
 ## Architecture
 
 ### General notes
+
 - These architectures use the [federated](/microsoft-365/enterprise/plan-for-directory-synchronization?view=o365-worldwide#federated-authentication) Azure Active Directory (Azure AD) identity model. For the password hash synchronization and Pass-through Authentication models, the logic and flow are the same. The only difference is related to the fact that Azure AD won't redirect the authentication request to on-premises Active Directory Federation Services (AD FS).
 - In the diagrams, black dashed lines show basic interactions between local Active Directory, Azure AD Connect, Azure AD, AD FS, and Web Application Proxy components. You can learn about these interactions in [Hybrid identity required ports and protocols](/azure/active-directory/hybrid/reference-connect-ports).
 - By *Exchange on-premises*, we mean Exchange 2019 with the latest updates and a Mailbox role.
@@ -117,8 +121,9 @@ For more information about these steps, see [Using hybrid Modern Authentication 
 
 For federated domains, you can configure AD FS to trigger multi-factor authentication instead of using a Conditional Access policy. However, we recommend that you control the connection and apply restrictions at the Conditional Access policy level.
 
-### Components 
-- [Azure AD](https://azure.microsoft.com/services/active-directory). Azure AD is a Microsoft cloud-based identity and access management service. It provides modern authentication that's essentially based on EvoSTS (a Security Token Service used by Azure AD). It's used as an authentication server for Exchange Server on-premises. 
+### Components
+
+- [Azure AD](https://azure.microsoft.com/services/active-directory). Azure AD is a Microsoft cloud-based identity and access management service. It provides modern authentication that's essentially based on EvoSTS (a Security Token Service used by Azure AD). It's used as an authentication server for Exchange Server on-premises.
 
 - [Azure AD Multi-Factor Authentication](/azure/active-directory/authentication/howto-mfa-getstarted). Multi-factor authentication is a process in which users are prompted during the sign-in process for another form of identification, like a code on their cellphone or a fingerprint scan.
 
@@ -141,38 +146,45 @@ You can use third-party mobile clients that support modern authentication as an 
 ## Considerations
 
 ### Availability
+
 Overall availability depends on the availability of the components that are involved. For information about availability, see these resources:
+
 - [Advancing Azure Active Directory availability](https://azure.microsoft.com/blog/advancing-azure-active-directory-availability)
 - [Cloud services you can trust: Office 365 availability](https://www.microsoft.com/microsoft-365/blog/2013/08/08/cloud-services-you-can-trust-office-365-availability)
 - [What is the Azure Active Directory architecture?](/azure/active-directory/fundamentals/active-directory-architecture)
 
 Availability of on-premises solution components depends on the implemented design, hardware availability, and your internal operations and maintenance routines. For availability information about some of these components, see the following resources:
+
 - [Setting up an AD FS deployment with Always On availability groups](/windows-server/identity/ad-fs/operations/ad-fs-always-on)
 - [Deploying high availability and site resilience in Exchange Server](/exchange/high-availability/deploy-ha?view=exchserver-2019)
-- [Web Application Proxy in Windows Server](/windows-server/remote/remote-access/web-application-proxy/web-application-proxy-in-windows-server) 
+- [Web Application Proxy in Windows Server](/windows-server/remote/remote-access/web-application-proxy/web-application-proxy-in-windows-server)
 
 To use hybrid modern authentication, you need to ensure that all clients on your network can access Azure AD. You also need to consistently maintain Office 365 firewall ports and IP-range openings.
 
 For protocol and port requirements for Exchange Server, see "Exchange client and protocol requirements" in [Hybrid modern authentication overview for use with on-premises Skype for Business and Exchange servers](/microsoft-365/enterprise/hybrid-modern-auth-overview?view=o365-worldwide#do-you-meet-modern-authentication-prerequisites). 
 
-For Office 365 IP ranges and ports, see [Office 365 URLs and IP address ranges](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide). 
+For Office 365 IP ranges and ports, see [Office 365 URLs and IP address ranges](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide).
 
 For information about hybrid modern authentication and mobile devices, read about AutoDetect endpoint in [Other endpoints not included in the Office 365 IP Address and URL Web service](/microsoft-365/enterprise/additional-office365-ip-addresses-and-urls?view=o365-worldwide).
 
 ### Performance
+
 Performance depends on the performance of the components that are involved and your company's network performance. For more information, see [Office 365 performance tuning using baselines and performance history](/microsoft-365/enterprise/performance-tuning-using-baselines-and-history?view=o365-worldwide).
 
 For information about on-premises factors that influence performance for scenarios that include AD FS services, see these resources:
+
 - [Configure performance monitoring](/windows-server/identity/ad-fs/deployment/configure-performance-monitoring)
 - [Fine tuning SQL and addressing latency issues with AD FS](/windows-server/identity/ad-fs/operations/adfs-sql-latency)
 
 ### Scalability
+
 For information about AD FS scalability, see [Planning for AD FS server capacity](/windows-server/identity/ad-fs/design/planning-for-ad-fs-server-capacity).
 
 For information about Exchange Server on-premises scalability, see [Exchange 2019 preferred architecture](/exchange/plan-and-deploy/deployment-ref/preferred-architecture-2019).
 
 ### Security
-For general guidance about security on mobile devices, see [Protect data and devices with Microsoft Intune](/mem/intune/protect/device-protect). 
+
+For general guidance about security on mobile devices, see [Protect data and devices with Microsoft Intune](/mem/intune/protect/device-protect).
 
 For information about security and hybrid modern authentication, see [Deep Dive: How Hybrid Authentication Really Works](https://techcommunity.microsoft.com/t5/exchange-team-blog/deep-dive-how-hybrid-authentication-really-works/ba-p/606780).
 
@@ -188,32 +200,44 @@ For information about scenarios that use AD FS security, see these articles:
 ### Resiliency
 
 For information about the resiliency of the components in this architecture, see the following resources.
+
 - For Azure AD: [Advancing Azure AD availability](https://azure.microsoft.com/blog/advancing-azure-active-directory-availability)
 - For scenarios that use AD FS: [High availability cross-geographic AD FS deployment in Azure with Azure Traffic Manager](/windows-server/identity/ad-fs/deployment/active-directory-adfs-in-azure-with-azure-traffic-manager)
 - For the Exchange on-premises solution: [Exchange high availability](/exchange/high-availability/deploy-ha?view=exchserver-2019)
 
 ## Deploy this scenario
+
 To implement this infrastructure, you need to complete the steps outlined in the guidance included in the following articles.
- 
 Here are the high-level steps:
+
 1.	Secure Outlook mobile access as described in [these implementation steps for modern authentication](/exchange/clients/outlook-for-ios-and-android/use-hybrid-modern-auth?view=exchserver-2019#implementation-steps).
-2.	[Block all other legacy authentication attempts at the Azure AD level.](/azure/active-directory/conditional-access/block-legacy-authentication) 
+2.	[Block all other legacy authentication attempts at the Azure AD level.](/azure/active-directory/conditional-access/block-legacy-authentication)
 3. [Block legacy authentication attempts at the messaging services level by using authentication policy.](/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online) 
 
+## Pricing
 
-## Pricing 
 The cost of your implementation depends on your Azure AD and Microsoft 365 license costs. The total cost also includes costs for software and hardware for on-premises components, IT operations, training and education, and project implementation.
 
 These solutions require at least Azure AD Premium P1. For pricing details, see [Azure AD pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 For information about AD FS and Web Application Proxy, see [Pricing and licensing for Windows Server 2022](https://www.microsoft.com/windows-server/pricing).
 
-For more pricing information, see these resources: 
+For more pricing information, see these resources:
+
 - [Microsoft Intune pricing](/mem/intune/fundamentals/licenses)
 - [Exchange Online plans](https://www.microsoft.com/microsoft-365/exchange/compare-microsoft-exchange-online-plans)
 - [Exchange server pricing](https://www.microsoft.com/microsoft-365/exchange/microsoft-exchange-licensing-faq-email-for-business)
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+* [Pavel Kondrashov](/) | Senior Customer Engineer
+
 ## Next steps
+
 - [Announcing Hybrid Modern Authentication for Exchange On-Premises](https://techcommunity.microsoft.com/t5/exchange-team-blog/announcing-hybrid-modern-authentication-for-exchange-on-premises/ba-p/607476)
 - [Hybrid modern authentication overview and prerequisites for use with on-premises Exchange servers](/microsoft-365/enterprise/hybrid-modern-auth-overview?view=o365-worldwide)
 - [Use AD FS claims-based authentication with Outlook on the web](/exchange/clients/outlook-on-the-web/ad-fs-claims-based-auth?view=exchserver-2019)
@@ -224,5 +248,6 @@ For more pricing information, see these resources:
 - [Account setup with modern authentication in Exchange Online](/exchange/clients-and-mobile-in-exchange-online/outlook-for-ios-and-android/setup-with-modern-authentication)
 
 ## Related resources
+
 - [Enhanced-security hybrid messaging infrastructure in a web access scenario](secure-hybrid-messaging-web.yml)
 - [Enhanced-security hybrid messaging infrastructure in a desktop-client access scenario](secure-hybrid-messaging-client.yml)

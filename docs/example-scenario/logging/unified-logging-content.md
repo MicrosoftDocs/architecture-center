@@ -161,4 +161,4 @@ Incorporating the preceding changes into a distributed application allows team m
 
 - [Building microservices on Azure](../../microservices/index.yml)
 - [Microservices architecture on Azure Service Fabric](../../reference-architectures/microservices/service-fabric.yml)
-- [Azure Spring Cloud reference architecture](/azure/spring-cloud/reference-architecture)
+- [Azure Spring Apps reference architecture](/azure/spring-cloud/reference-architecture)

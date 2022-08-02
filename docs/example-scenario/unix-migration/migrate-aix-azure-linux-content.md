@@ -1,19 +1,5 @@
 This solution describes a migration from an IBM AIX Unix platform to Red Hat Enterprise Linux (RHEL) in Azure. The real-world example was a Health and Human Services application for a large customer. Low transaction time and latency were important requirements for both the legacy and the Azure systems. A key functionality is storing customer information in a database that links into a network file store containing related graphical images. Azure addresses this need with Azure NetApp Files.
 
-One distinct difference between the legacy system and the cloud implementation is in handling network segmentation. The legacy system segmented networks with firewalls. A cloud platform like Azure segments networks with virtual networks and network security groups that filter traffic based on several criteria.
-
-Another difference between the systems is their high availability (HA) and disaster recovery (DR) models. In the legacy system, HA/DR primarily used backups, and to some extent used redundant servers in the same datacenter. This configuration provided modest DR, but almost no HA capabilities. Improving HA/DR was a key driver for moving to the Azure platform. Azure uses clustering, shared storage, and Azure Site Recovery to provide a high level of HA/DR.
-
-## Potential use cases
-
-Key drivers for moving from on-premises IBM AIX to RHEL in Azure might include the following factors:
-
-- **Updated hardware and reduced costs.** On-premises, legacy hardware components continually go out of date and out of support. Cloud components are always up to date. Month-to-month costs can be less in the cloud.
-
-- **Agile DevOps environment.** Deploying compliance changes in an on-premises AIX environment can take weeks. You might have to set up similar performance engineering environments many times to test changes. In an Azure cloud environment, you can set up user acceptance testing (UAT) and development environments in hours. You can implement changes through a modern, well-defined DevOps continuous integration and continuous delivery (CI/CD) pipeline.
-
-- **Improved Business Continuity and Disaster Recovery (BCDR).** In on-premises environments, recovery time objectives (RTOs) can be long. In the example on-premises AIX environment, the RTO via traditional backups and restores was two days. Migrating to Azure reduced the RTO to two hours.
-
 ## Architecture
 
 The following diagram shows the pre-migration, on-premises AIX legacy system architecture:
@@ -45,6 +31,8 @@ The following diagram shows the Azure RHEL post-migration system architecture:
 :::image type="content" source="media/rhel-azure-system.png" alt-text="Diagram that shows the post-migration Azure architecture." border="false" lightbox="media/rhel-azure-system.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/UNIX-AIX-Azure-RHEL-migration.vsdx) of this architecture.*
+
+### Dataflow
 
 1. Traffic into the Azure system routes through Azure ExpressRoute and Azure Traffic Manager:
 
@@ -117,6 +105,22 @@ The system also contains the following components:
 - Mobile apps
 - Functions
 
+## Scenario details
+
+One distinct difference between the legacy system and the cloud implementation is in handling network segmentation. The legacy system segmented networks with firewalls. A cloud platform like Azure segments networks with virtual networks and network security groups that filter traffic based on several criteria.
+
+Another difference between the systems is their high availability (HA) and disaster recovery (DR) models. In the legacy system, HA/DR primarily used backups, and to some extent used redundant servers in the same datacenter. This configuration provided modest DR, but almost no HA capabilities. Improving HA/DR was a key driver for moving to the Azure platform. Azure uses clustering, shared storage, and Azure Site Recovery to provide a high level of HA/DR.
+
+### Potential use cases
+
+Key drivers for moving from on-premises IBM AIX to RHEL in Azure might include the following factors:
+
+- **Updated hardware and reduced costs.** On-premises, legacy hardware components continually go out of date and out of support. Cloud components are always up to date. Month-to-month costs can be less in the cloud.
+
+- **Agile DevOps environment.** Deploying compliance changes in an on-premises AIX environment can take weeks. You might have to set up similar performance engineering environments many times to test changes. In an Azure cloud environment, you can set up user acceptance testing (UAT) and development environments in hours. You can implement changes through a modern, well-defined DevOps continuous integration and continuous delivery (CI/CD) pipeline.
+
+- **Improved Business Continuity and Disaster Recovery (BCDR).** In on-premises environments, recovery time objectives (RTOs) can be long. In the example on-premises AIX environment, the RTO via traditional backups and restores was two days. Migrating to Azure reduced the RTO to two hours.
+
 ## Considerations
 
 The following considerations, based on the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework), apply to this solution:
@@ -131,7 +135,7 @@ The following considerations, based on the [Microsoft Azure Well-Architected Fra
 
 For proactive monitoring and management, consider using [Azure Monitor](https://azure.microsoft.com/services/monitor) for monitoring migrated AIX workloads.
 
-### Performance
+### Performance efficiency
 
 - The potential bottlenecks in this architecture are the storage and compute subsystems. Make sure to choose your storage and VM SKUs accordingly.
 
@@ -157,7 +161,7 @@ For proactive monitoring and management, consider using [Azure Monitor](https://
 
 - For VM or infrastructure-as-a-service (IaaS) security, follow the [Security best practices for IaaS workloads in Azure](/azure/security/fundamentals/iaas).
 
-## Pricing
+### Cost optimization
 
 - Migrating AIX workloads to Linux in Azure can bring substantial cost savings. You eliminate hardware maintenance, reduce facility costs, and can usually reduce operational costs by a factor of eight to 10. Azure can accommodate added capacity for seasonal or periodic workloads as needed, which reduces overall cost.
 
@@ -165,6 +169,14 @@ For proactive monitoring and management, consider using [Azure Monitor](https://
 
   - Using Azure App Service for the presentation tier instead of setting up multiple VMs.
   - Segmenting workloads with Azure virtual networks instead of using hardware-based firewalls.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Jonathon Frost](https://www.linkedin.com/in/jjfrost) | Principal Program Manager
 
 ## Next steps
 

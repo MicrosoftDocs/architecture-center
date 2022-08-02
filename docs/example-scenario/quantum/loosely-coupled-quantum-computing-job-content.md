@@ -98,7 +98,7 @@ Monitor job execution so you can inform the user about job status. When job exec
 
 For a description of a continuous integration and continuous delivery (CI/CD) approach for this architecture, see [CI/CD for quantum computing jobs](../../solution-ideas/articles/cicd-for-quantum-computing-jobs.yml).
 
-## Pricing
+### Cost optimization
 
 The overall cost of this solution depends on the quantum computing target that you select to run the quantum job. Calculating estimated costs for the classical components is straightforward. You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
 
@@ -113,7 +113,7 @@ For the Azure Quantum service, consider these points:
 * To get an overview of Microsoft Quantum, a full-stack, open-cloud quantum computing ecosystem, see [Microsoft Quantum](https://azure.microsoft.com/solutions/quantum-computing) and complete the [Quantum computing foundations](/learn/paths/quantum-computing-fundamentals) learning path.
 * For more information about the Azure Quantum service, see [Azure Quantum](https://azure.microsoft.com/services/quantum).
 * For general information about Azure Quantum job management, see [Work with Azure Quantum jobs](/azure/quantum/how-to-work-with-jobs).
-* For information about running algorithms on quantum hardware, see the Microsoft Learn course [Run algorithms on quantum hardware by using Azure Quantum](/learn/modules/run-algorithms-quantum-hardware-azure-quantum).
+* For information about running algorithms on quantum hardware, see the training module [Run algorithms on quantum hardware by using Azure Quantum](/learn/modules/run-algorithms-quantum-hardware-azure-quantum).
 
 ## Related resources
 

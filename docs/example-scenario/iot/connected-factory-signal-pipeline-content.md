@@ -1,6 +1,6 @@
 A manufacturing floor might have hundreds or thousands of internet of things (IoT) and industrial IoT (IIoT) devices that capture data at different intervals. Legacy *brownfield* and modern *greenfield* devices often coexist. These devices must capture and format data consistently to analyze and act on. Reliably interconnecting this landscape of heterogeneous devices can be difficult.
 
-This connected factory signal processing pipeline simplifies device interconnection. A common configuration interface connects brownfield devices through an [OPC Unified Architecture (OPC UA)](https://opcfoundation.org/about/opc-technologies/opc-ua/) gateway. OPC UA-capable greenfield devices connect to the pipeline directly.
+This connected factory signal processing pipeline simplifies device interconnection. A common configuration interface connects brownfield devices through an [OPC Unified Architecture (OPC UA)](https://opcfoundation.org/about/opc-technologies/opc-ua) gateway. OPC UA-capable greenfield devices connect to the pipeline directly.
 
 The signal processing pipeline components use Azure technologies to identify and capture *signals*, or data points, from IIoT devices. For IIoT devices that can't communicate over OPC UA, the architecture uses the [KEPServerEX](https://www.kepware.com/products/kepserverex) IoT gateway and application programming interface (API).
 
@@ -22,6 +22,8 @@ The connected factory signal processing pipeline can help manufacturing organiza
 ## Architecture
 
 [ ![Diagram showing the connected factory signal pipeline architecture.](./media/connected-factory-signal-pipeline-01.png) ](./media/connected-factory-signal-pipeline-01.png#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/connected-factory-signal-pipeline.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -76,6 +78,8 @@ Using KEPServerEX as the OPC-UA gateway lets brownfield devices connect with the
 
 [ ![Diagram showing the KEPServer gateway configuration.](./media/connected-factory-signal-pipeline-server.png) ](./media/connected-factory-signal-pipeline-server.png#lightbox)
 
+*Download a [Visio file](https://arch-center.azureedge.net/connected-factory-signal-pipeline-server.vsdx) of this architecture.*
+
 The KEPServerEX automation is the first implementation of the generic gateway configuration solution built into the solution's Asset Registry API. This extensible gateway configuration solution has the following parts:
 
 - A polymorphic, gateway-agnostic model for gateways, devices, and signals managed by the Asset Registry service.
@@ -109,7 +113,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Cost optimization
 
-Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs, and the [AKS calculator](https://azure.microsoft.com/pricing/calculator/?service=kubernetes-service) to estimate costs for running AKS in Azure. For more considerations, see [Cost optimization](/azure/architecture/framework/cost/) in the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs, and the [AKS calculator](https://azure.microsoft.com/pricing/calculator/?service=kubernetes-service) to estimate costs for running AKS in Azure. For more considerations, see [Cost optimization](/azure/architecture/framework/cost) in the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Operational excellence
 
@@ -119,7 +123,16 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 ### Performance efficiency
 
-[Autoscale](https://azure.microsoft.com/features/autoscale/) is a built-in feature of many cloud services. For example, Azure Virtual Machines, Azure App Service, and Azure Event Hubs come with autoscaling features.
+[Autoscale](https://azure.microsoft.com/features/autoscale) is a built-in feature of many cloud services. For example, Azure Virtual Machines, Azure App Service, and Azure Event Hubs come with autoscaling features.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+- [Martin Weber](https://ch.linkedin.com/in/martin-weber-ch) | Senior Software Engineer
+- [Francisco Beltrao](https://ch.linkedin.com/in/francisco-beltrao-58521a) | Principal Software Engineer Lead
 
 ## Next steps
 
@@ -128,7 +141,7 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 - [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes)
 - [Industrial IoT (IIoT) architecture patterns with Azure IoT Central](/azure/iot-central/core/concepts-iiot-architecture)
 
-Microsoft Learn learning paths:
+Microsoft learning paths:
 
 - [Implement a Data Streaming Solution with Azure Streaming Analytics](/learn/paths/implement-data-streaming-with-asa)
 - [Introduction to Kubernetes on Azure](/learn/paths/intro-to-kubernetes-on-azure)

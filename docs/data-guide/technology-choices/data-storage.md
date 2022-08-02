@@ -2,8 +2,9 @@
 title: Choose a data storage technology
 description: Compare big data storage technology options in Azure, including key selection criteria and a capability matrix.
 author: EdPrice-MSFT
+mas.author: architectures
 categories: azure
-ms.date: 11/19/2020
+ms.date: 07/25/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -149,3 +150,10 @@ The following tables summarize the key differences in capabilities.
 | Analytics workload performance | Optimized performance for parallel analytics workloads                                                                                                                         |
 | Size limits                    | Linearly scalable               |
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+- [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect

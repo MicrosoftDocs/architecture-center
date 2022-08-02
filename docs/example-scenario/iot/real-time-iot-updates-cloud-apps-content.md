@@ -1,28 +1,12 @@
-Internet of Things (IoT) applications often need real-time data from IoT devices. For instance, some apps display telemetry or alert data that they obtain from devices. With traditional polling methods, these client apps ask the devices for state changes.
-
 This guide outlines a way for clients like web pages or mobile apps to receive updates from devices in real time. Cloud apps no longer submit HTTP requests for up-to-date information. Instead, Azure SignalR Service pushes content to clients as soon as it's available. As a managed service, Azure SignalR Service simplifies the process of adding real-time communication to apps.
-
-For example, a retailer might have a dashboard app that displays the current number of customers in a store. With this guide's solution, the app doesn't request the latest customer count. Instead, Azure SignalR Service feeds that information to the app when the total changes.
-
-## Potential use cases
-
-Besides the retail industry, other areas can also benefit from this solution:
-
-- Any scenario in which servers push real-time data to clients for use in visualizations and applications.
-- Rich and highly interactive apps like customized user interfaces and maps.
-
-Specific examples that provide real-time data updates include:
-
-- Fleet monitoring that maps vehicle location.
-- Remote monitoring of temperature, pressure, and status for a manufacturing process.
-- Drilling control systems that use telemetry like revolutions per minute, torque, and hook load to optimize processes.
-- Alerting mechanisms.
 
 ## Architecture
 
 :::image type="complex" source="./media/real-time-iot-updates-cloud-apps.png" alt-text="Architecture diagram showing how Azure SignalR Service keeps clients like web pages and mobile apps updated with real-time I O T data." border="false":::
    The diagram contains several boxes. A box in the lower right corner indicates that gray arrows represent data flow, and blue arrows, control flow. On the left, two boxes have the label Devices. A gray arrow points from the upper Device box to a box for Azure I O T Hub. Another gray arrow points from the other Device box to a box for Azure I O T Edge. A label above the Azure I O T Edge box reads Field gateway. A third gray arrow points from Azure I O T Edge to the Azure I O T Hub box. A fourth gray arrow points from Azure I O T Hub to a box for Azure Functions. A fifth gray arrow points from the Functions box to an Azure SignalR Service box. On the right is a large box that contains icons and labels for web and mobile apps. Above the large box is a label that reads Presentation and interaction. A gray arrow points from Azure SignalR Service to the large box. A bidirectional blue arrow connects the large box with the Azure SignalR Service box. Another bidirectional blue arrow connects the large box with the Functions box. Numbers in the diagram correspond with numbered steps in the document.
 :::image-end:::
+
+### Workflow
 
 1. Web pages, mobile apps, and other clients request an Azure SignalR Service endpoint and token from Azure Functions, a serverless compute platform. Besides integrating data from various sources, Functions also manages Azure SignalR Service endpoints and information on client groups.
 
@@ -39,6 +23,28 @@ Specific examples that provide real-time data updates include:
 1. Azure SignalR Service supports several techniques that real-time applications use, such as WebSocket, a preferred transport protocol. But Azure SignalR Service uses techniques like server-sent events (SSE) and long polling when WebSocket isn't available. Azure SignalR Service automatically detects and initializes the appropriate transport protocol based on the features that the server and client support.
 
 1. The Azure SignalR Service message goes out to a specific client or group of clients. The clients use the data to update apps.
+
+## Scenario details
+
+Internet of Things (IoT) applications often need real-time data from IoT devices. For instance, some apps display telemetry or alert data that they obtain from devices. With traditional polling methods, these client apps ask the devices for state changes.
+
+This guide outlines a way for clients like web pages or mobile apps to receive updates from devices in real time. Cloud apps no longer submit HTTP requests for up-to-date information. Instead, Azure SignalR Service pushes content to clients as soon as it's available. As a managed service, Azure SignalR Service simplifies the process of adding real-time communication to apps.
+
+For example, a retailer might have a dashboard app that displays the current number of customers in a store. With this guide's solution, the app doesn't request the latest customer count. Instead, Azure SignalR Service feeds that information to the app when the total changes.
+
+### Potential use cases
+
+Besides the retail industry, other areas can also benefit from this solution:
+
+- Any scenario in which servers push real-time data to clients for use in visualizations and applications.
+- Rich and highly interactive apps like customized user interfaces and maps.
+
+Specific examples that provide real-time data updates include:
+
+- Fleet monitoring that maps vehicle location (automotive).
+- Remote monitoring of temperature, pressure, and status for a manufacturing process (also applicable to the energy industry).
+- Drilling control systems that use telemetry, like revolutions per minute, torque, and hook load to optimize processes.
+- Alerting mechanisms.
 
 ## Considerations
 

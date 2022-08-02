@@ -111,7 +111,7 @@ See the [deployment guide](https://github.com/microsoft/Azure-Solution-Accelerat
 See these articles for more information: 
 - [Azure Applied AI Services documentation](/azure/applied-ai-services)
 - [What is Azure Form Recognizer?](/azure/applied-ai-services/form-recognizer/overview)
-- [Microsoft Learn: Introduction to Form Recognizer](/learn/modules/intro-to-form-recognizer)
+- [Introduction to Form Recognizer](/learn/modules/intro-to-form-recognizer)
 - [What is Azure Logic Apps?](/azure/logic-apps/logic-apps-overview)
 - [What is Custom Vision?](/azure/cognitive-services/custom-vision-service/overview)
 

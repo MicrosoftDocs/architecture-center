@@ -128,7 +128,7 @@ When you use Virtual WAN as a networking platform, two main differences result:
   - Deploy the servers in a shared services virtual network that you connect to the virtual WAN.
   - Link a DNS private zone to the shared services virtual network. The DNS servers can then resolve the names that Application Gateway uses in HTTP Host headers. For more information, see [Azure Firewall DNS Settings][Azure Firewall DNS settings].
 
-- You can only use Virtual WAN to program routes in a spoke if the prefix is shorter (less specific) than the virtual network prefix. For example, in the diagrams above the spoke VNet has the prefix 172.16.0.0/16: in this case, Virtual WAN would not be able to inject a route that matches the VNet prefix (172.16.0.0/16) or any of the subnets (172.16.0.0/24, 172.16.1.0/24). In other words, Virtual WAN cannot attract traffic between two subnets that are in the same VNet. This limitation becomes apparent when Application Gateway and the destination web server are in the same virtual network: Virtual WAN can't force the traffic between Application Gateway and the web server to go thrugh Azure Firewall Premium (a workaround would be manually configuring User Defined Routes in the subnets of the Application Gateway and web server).
+- You can only use Virtual WAN to program routes in a spoke if the prefix is shorter (less specific) than the virtual network prefix. For example, in the diagrams above the spoke VNet has the prefix 172.16.0.0/16: in this case, Virtual WAN would not be able to inject a route that matches the VNet prefix (172.16.0.0/16) or any of the subnets (172.16.0.0/24, 172.16.1.0/24). In other words, Virtual WAN cannot attract traffic between two subnets that are in the same VNet. This limitation becomes apparent when Application Gateway and the destination web server are in the same virtual network: Virtual WAN can't force the traffic between Application Gateway and the web server to go through Azure Firewall Premium (a workaround would be manually configuring User Defined Routes in the subnets of the Application Gateway and web server).
 
 The following diagram shows the packet flow in a case that uses Virtual WAN. In this situation, access to Application Gateway is from an on-premises network. A site-to-site VPN or ExpressRoute connects that network to Virtual WAN. Access from the internet is similar.
 
@@ -174,6 +174,14 @@ The following diagram shows the packet flow when Route Server simplifies dynamic
 1. The gateway answers the client.
 
 As with Virtual WAN, you might need to modify the routing when you use Route Server. If you advertise the 0.0.0.0/0 route, it might propagate to the Application Gateway subnet. But Application Gateway doesn't support that route. In this case, configure a route table for the Application Gateway subnet. Include a route for 0.0.0.0/0 and a next hop type of `Internet` in that table.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+* [Jose Moreno](https://de.linkedin.com/in/erjosito) | Principal Customer Engineer
 
 ## Next steps
 

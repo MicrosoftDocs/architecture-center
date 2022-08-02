@@ -1,43 +1,25 @@
-A popular approach in digital transformation scenarios is to see whether
-existing applications and middleware tiers can run as-is in a hybrid setup where Microsoft Azure serves as the scalable, distributed data platform. This example describes a data-first approach to middleware integration that enables IBM message queues (MQs) running on mainframe or midrange systems to work with Azure services so you can find the best data platform for your workload.
-
-When using Azure as a modern data platform, you have your choice of platform as a service (PaaS) or infrastructure as a service (IaaS). PaaS provides cloud-native options for data ingestion, transformation, and storage. IaaS gives you greater control over your hybrid infrastructure, starting with the size and type of virtual machines (VM) you choose. With either approach, you can take advantage of a variety of fully managed relational, NoSQL, and in-memory databases, storage solutions, and analytics offerings that span proprietary and open-source engines.
-
-This example architecture shows both approaches:
-
--   **Cloud-native PaaS**. [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) exchanges messages with [IBM MQ](https://www.ibm.com/cloud/learn/message-queues) through the [MQ connector](/azure/connectors/connectors-create-api-mq#:~:text=The%20logic%20app%20where%20you%20want%20to%20add,For%20example,%20you%20can%20use%20the%20Recurrence%20trigger.). Additional
-    [connectors](/connectors/connector-reference/) provide quick access to events, data, and actions across other apps, services, systems, protocols, and platforms. Logic Apps also includes tools for transforming data from the queue if you need to modify the data format, structure, or values before storing it on Azure or sending it to the application layer.
-
--   **VM-based IaaS**. Running [Microsoft Host Integration Server](/host-integration-server/what-is-his) (HIS) on a VM, you can use a messaging integration component that connects to IBM MQ. You control the data transformation process by creating a .NET application to read and write messages. The application can persist data in the Azure data store of your choice, and you can choose the MQ server's polling interval.
-
-## Potential use cases
-
-Either of these approaches can be used to:
-
--   Enable loosely coupled applications that communicate through messaging systems to use the Azure data platform.
-
--   Sync or replicate data incrementally between a mainframe or midrange system and Azure.
-
--   Flow event messages between mainframe or midrange systems and Azure.
+When using Azure as a modern data platform, you have your choice of platform as a service (PaaS) or infrastructure as a service (IaaS). PaaS provides cloud-native options for data ingestion, transformation, and storage. IaaS gives you greater control over your hybrid infrastructure, starting with the size and type of virtual machines (VM) you choose. With either approach, you can take advantage of a variety of fully managed relational, NoSQL, and in-memory databases, storage solutions, and analytics offerings that span proprietary and open-source engines. This example architecture shows both approaches.
 
 ## Architecture
 
 ![Infographic showing the Azure set-up for the IBM MQ](media/integrate-ibm-message-queues-azure-01.png)
 
+### Workflow
+
 1.  IBM MQ is the middleware that acts as a loosely coupled link between a mainframe or midrange system and Azure services. Messages are received and sent according to application requirements to communicate with the mainframe application layer.
 
-2.  In a cloud-native approach, Azure Logic Apps uses the MQ connector to exchange messages with IBM MQ. The Scheduler feature orchestrates the Azure workflow, sending and receiving messages at [recurring intervals](/azure/logic-apps/concepts-schedule-automated-recurring-tasks-workflows) of one second.
+1.  In a cloud-native approach, Azure Logic Apps uses the MQ connector to exchange messages with IBM MQ. The Scheduler feature orchestrates the Azure workflow, sending and receiving messages at [recurring intervals](/azure/logic-apps/concepts-schedule-automated-recurring-tasks-workflows) of one second.
 
-3.  The MQ connector can send the messages it reads directly to storage through a connector or send them to be transformed first. Logic Apps includes several options for data transformation, such as an inline
+1.  The MQ connector can send the messages it reads directly to storage through a connector or send them to be transformed first. Logic Apps includes several options for data transformation, such as an inline
     [JavaScript](/azure/logic-apps/logic-apps-add-run-inline-code) runtime that you can use to run simple JavaScript code snippets for data transformation or [data operations](/azure/logic-apps/logic-apps-perform-data-operations) that perform transformations on JSON, CSV, and HTML table data. You can also create serverless, single-task functions using [Azure Function](/azure/logic-apps/logic-apps-azure-functions).
 
-4.  Data is loaded into storage. Azure offers many managed data storage solutions, each providing different features and capabilities.
+1.  Data is loaded into storage. Azure offers many managed data storage solutions, each providing different features and capabilities.
 
-5.  In an IaaS approach, a VM runs Microsoft Host Integration Server (HIS) with the BizTalk Adapter for WebSphere MQ. HIS exchanges messages with IBM MQ and exposes orchestration as web service to a custom .NET application.
+1.  In an IaaS approach, a VM runs Microsoft Host Integration Server (HIS) with the BizTalk Adapter for WebSphere MQ. HIS exchanges messages with IBM MQ and exposes orchestration as web service to a custom .NET application.
 
-6.  A .NET application persists the data using any supported Azure data store. For example, the application can mask data or use private endpoints for security.
+1.  A .NET application persists the data using any supported Azure data store. For example, the application can mask data or use private endpoints for security.
 
-7.  Data is loaded into storage. Azure offers many managed data storage solutions, each providing different features and capabilities.
+1.  Data is loaded into storage. Azure offers many managed data storage solutions, each providing different features and capabilities.
 
 ### Components
 
@@ -62,6 +44,30 @@ Either of these approaches can be used to:
 
 -   For the data layer, create a big data analytics platform using [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is).
 
+## Scenario details
+
+A popular approach in digital transformation scenarios is to see whether
+existing applications and middleware tiers can run as-is in a hybrid setup where Microsoft Azure serves as the scalable, distributed data platform. This example describes a data-first approach to middleware integration that enables IBM message queues (MQs) running on mainframe or midrange systems to work with Azure services so you can find the best data platform for your workload.
+
+When using Azure as a modern data platform, you have your choice of platform as a service (PaaS) or infrastructure as a service (IaaS). PaaS provides cloud-native options for data ingestion, transformation, and storage. IaaS gives you greater control over your hybrid infrastructure, starting with the size and type of virtual machines (VM) you choose. With either approach, you can take advantage of a variety of fully managed relational, NoSQL, and in-memory databases, storage solutions, and analytics offerings that span proprietary and open-source engines.
+
+This example architecture shows both approaches:
+
+-   **Cloud-native PaaS**. [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) exchanges messages with [IBM MQ](https://www.ibm.com/cloud/learn/message-queues) through the [MQ connector](/azure/connectors/connectors-create-api-mq#:~:text=The%20logic%20app%20where%20you%20want%20to%20add,For%20example,%20you%20can%20use%20the%20Recurrence%20trigger.). Additional
+    [connectors](/connectors/connector-reference/) provide quick access to events, data, and actions across other apps, services, systems, protocols, and platforms. Logic Apps also includes tools for transforming data from the queue if you need to modify the data format, structure, or values before storing it on Azure or sending it to the application layer.
+
+-   **VM-based IaaS**. Running [Microsoft Host Integration Server](/host-integration-server/what-is-his) (HIS) on a VM, you can use a messaging integration component that connects to IBM MQ. You control the data transformation process by creating a .NET application to read and write messages. The application can persist data in the Azure data store of your choice, and you can choose the MQ server's polling interval.
+
+### Potential use cases
+
+Either of these approaches can be used to:
+
+-   Enable loosely coupled applications that communicate through messaging systems to use the Azure data platform.
+
+-   Sync or replicate data incrementally between a mainframe or midrange system and Azure.
+
+-   Flow event messages between mainframe or midrange systems and Azure.
+
 ## Considerations
 
 A hybrid datacenter configuration make sense for organizations that are developing their cloud strategies. Connecting to Azure can help bridge the gaps in your datacenter, enhance performance, improve business continuity, and expand your reach globally.
@@ -72,7 +78,7 @@ For example, applications on-premises can communicate with a modern data platfor
 
 Azure service-level agreements (SLAs) describe your uptime guarantees. The SLAs for various components can vary. For example, Azure Logic Apps will be available at least 99.9 percent of the time. Configuration settings you choose can improve SLA.
 
-### Performance
+### Performance efficiency
 
 Make sure to test the throughput and performance of your data transformation layer before you finalize your architectural approach. Performance depends on several factors, including a workload's message size, latency, and the connectors that are used. Testing helps you find the most compatible target data platform.
 
@@ -99,7 +105,7 @@ Both the PaaS and IaaS architecture options support many popular managed databas
 
 -   [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is). This enterprise analytics service accelerates time to insight across data warehouses and big data systems.
 
-## Pricing
+### Cost optimization
 
 This article outlines a wide range of Azure Services to demonstrate the various possibilities and you probably won't use them all for MQ integration.
 
@@ -109,7 +115,7 @@ This article outlines a wide range of Azure Services to demonstrate the various 
 
 ## Next steps
 
--   For more information, please email [Azure Data Engineering - Mainframe & Midrange Modernization](mailto:datasqlninja@microsoft.com) (datasqlninja\@microsoft.com).
+-   For more information, email [Azure Data Engineering - Mainframe & Midrange Modernization](mailto:datasqlninja@microsoft.com) (datasqlninja\@microsoft.com).
 
 -   Read the [Azure Database Migration Guides](https://datamigration.microsoft.com/).
 

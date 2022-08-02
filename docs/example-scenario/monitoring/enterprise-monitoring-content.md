@@ -1,32 +1,12 @@
 Large enterprises need to consider many factors when modernizing their existing monitoring solution. Enterprises can achieve centralized monitoring management by using Azure Monitor features. This example scenario illustrates enterprise-level monitoring that uses Azure Monitor.
 
-Enterprise teams have different workloads, such as Windows, Linux, SQL, identity-based workloads, virtual desktop infrastructure (VDI), containers, and web apps. These workloads can be running in any cloud providers, on-premises, or a combination. With such a vast array of workloads in different environments, cloud-based monitoring is complex.
-
-Enterprise-level monitoring must also cover governance, operational best practices, effective cost management, and workspace security. Monitoring must provide enough flexibility to set up and manage team environments, and let teams manage themselves with some degree of control.
-
-Other critical monitoring design factors include:
-
-- How to spread Log Analytics workspaces across different geographical regions or teams.
-- Monitoring the workspaces themselves, as well as their workloads.
-- How to charge back different teams to optimize overall costs.
-- How to visualize and possibly archive collected data.
-- Creating separate dashboards for operations, apps, and different teams.
-- Giving leadership enough visibility into the right set of information.
-
-## Potential use cases
-
-This solution can help with the following use cases:
-
-- Consolidated monitoring for different cloud and on-premises workloads.
-- Monitoring for container, Azure SQL, and Azure Virtual Desktop workloads.
-- Expanded monitoring scope, such as connecting Monitor to Microsoft Sentinel.
-- Hybrid and heterogenous cloud monitoring across networks, identity providers, operating systems, and other domains.
-
 ## Architecture
 
 :::image type="content" source="media/enterprise-monitoring.png" alt-text="Architectural diagram that shows enterprise workspaces and monitoring capabilities." border="false" lightbox="media/enterprise-monitoring.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/EnterpriseMonitoringFinal.vsdx) of this architecture.*
+
+### Workflow
 
 - This architecture follows a resource-context log model. Every log record that an Azure resource emits automatically associates to the resource. This model helps to separate workspaces that collect and ingest from different app owners.
 
@@ -118,6 +98,30 @@ For more information, see [Connect Operations Manager to Azure Monitor](/azure/a
 
 [Grafana](https://grafana.com) is an open and composable observability and data visualization platform. Grafana helps you query, visualize, alert on, and understand your data wherever it's stored. You can build flexible dashboards to explore and share data.
 
+## Scenario details
+
+Enterprise teams have different workloads, such as Windows, Linux, SQL, identity-based workloads, virtual desktop infrastructure (VDI), containers, and web apps. These workloads can be running in any cloud providers, on-premises, or a combination. With such a vast array of workloads in different environments, cloud-based monitoring is complex.
+
+Enterprise-level monitoring must also cover governance, operational best practices, effective cost management, and workspace security. Monitoring must provide enough flexibility to set up and manage team environments, and let teams manage themselves with some degree of control.
+
+Other critical monitoring design factors include:
+
+- How to spread Log Analytics workspaces across different geographical regions or teams.
+- Monitoring the workspaces themselves, as well as their workloads.
+- How to charge back different teams to optimize overall costs.
+- How to visualize and possibly archive collected data.
+- Creating separate dashboards for operations, apps, and different teams.
+- Giving leadership enough visibility into the right set of information.
+
+### Potential use cases
+
+This solution can help with the following use cases:
+
+- Consolidated monitoring for different cloud and on-premises workloads.
+- Monitoring for container, Azure SQL, and Azure Virtual Desktop workloads.
+- Expanded monitoring scope, such as connecting Monitor to Microsoft Sentinel.
+- Hybrid and heterogenous cloud monitoring across networks, identity providers, operating systems, and other domains.
+
 ## Considerations
 
 The following considerations apply to this solution.
@@ -156,7 +160,7 @@ Logic Apps workflows help you integrate and orchestrate data between apps, cloud
   - Use Monitor Data Export for data archival to low-cost storage.
   - Follow best practices for telemetry data in Application Insights workspaces. For more information, see [Manage usage and costs for Application Insights](/azure/azure-monitor/app/pricing).
 
-### Performance
+### Performance efficiency
 
 The following performance considerations apply to this solution:
 
@@ -215,6 +219,16 @@ An integration service environment (ISE) environment keeps dedicated storage and
 
 A Log Analytics gateway sends data to Azure Automation and a Monitor Log Analytics workspace for computers that can't directly connect to the internet. For more information, see [Connect computers without internet access by using the Log Analytics gateway in Azure Monitor](/azure/azure-monitor/agents/gateway).
 
+### Cost optimization
+
+- Azure Monitor includes functionality for collecting and analyzing log data. Monitor bills by data ingestion, retention, and export. Other factors that can affect pricing include alerts, notifications, and SMS or voice calls. For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor).
+
+- The default pricing for [Application Insights](/azure/azure-monitor/app/pricing) and [Log Analytics](/services-hub/health/azure_pricing) is a Pay-As-You-Go model based on ingested data volume and, optionally, longer data retention. Log Analytics also has Commitment Tiers, which can save you as much as 30 percent compared to the Pay-As-You-Go price.
+
+- Review [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps) and [Azure Automation pricing](https://azure.microsoft.com/pricing/details/automation).
+
+- Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) for a deeper dive into pricing.
+
 ### Considerations checklist
 
 > [!div class="checklist"]
@@ -243,23 +257,13 @@ A Log Analytics gateway sends data to Azure Automation and a Monitor Log Analyti
 > - Use the Azure Monitor agent to fine tune data collection.
 > - Consider data archival to a cool storage tier. You can integrate cool data storage with data lake services.
 
-## Pricing
-
-- Monitor includes functionality for collecting and analyzing log data. Monitor bills by data ingestion, retention, and export. Other factors that can affect pricing include alerts, notifications, and SMS or voice calls. For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor).
-
-- The default pricing for [Application Insights](/azure/azure-monitor/app/pricing) and [Log Analytics](/services-hub/health/azure_pricing) is a Pay-As-You-Go model based on ingested data volume and, optionally, longer data retention. Log Analytics also has Commitment Tiers, which can save you as much as 30 percent compared to the Pay-As-You-Go price.
-
-- Review [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps) and [Azure Automation pricing](https://azure.microsoft.com/pricing/details/automation).
-
-- Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) for a deeper dive into pricing.
-
 ## Next steps
 
 - [What is monitored by Azure Monitor?](/azure/azure-monitor/monitor-reference)
 - [Azure Monitor data platform](/azure/azure-monitor/data-platform)
 - [Overview of alerts in Microsoft Azure](/azure/azure-monitor/alerts/alerts-overview)
 - [Azure Monitor best practices - Analyze and visualize data](/azure/azure-monitor/visualizations)
-- [Azure Monitor Microsoft Learning path](/learn/paths/monitor-usage-performance-availability-resources-azure-monitor)
+- [Azure Monitor learning path](/learn/paths/monitor-usage-performance-availability-resources-azure-monitor)
 
 ## Related resources
 

@@ -48,7 +48,7 @@ Automating the build process reduces the human errors that can be introduced in 
 
 #### Build stage
 
-Since the Azure Pipeline is [integrated with GitHub repository](/azure/devops/pipelines/repos/github?tabs=yaml&view=azure-devops&preserve-view=true), any changes in the tracked directory of the main branch trigger the first stage of the pipeline, the build stage:
+Since Azure Pipelines is [integrated with the GitHub repository](/azure/devops/pipelines/repos/github?tabs=yaml&view=azure-devops&preserve-view=true), any changes in the tracked directory of the main branch trigger the first stage of the pipeline, the build stage:
 
 ```yaml
 trigger:

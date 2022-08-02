@@ -17,7 +17,8 @@ Azure Cosmos DB is ideal for IoT workloads because it's capable of:
 
 ## Architecture
 
-![Diagram that shows the role of Azure Cosmos DB in an Azure IoT solution architecture.](../media/iot-using-cosmos-db.png)
+![Diagram that shows the role of Azure Cosmos DB in an Azure IoT solution architecture.](../media/iot-using-cosmos-db-new.png)
+*Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/iot-using-cosmos-db.vsdx) of this architecture.*
 
 ### Dataflow
 

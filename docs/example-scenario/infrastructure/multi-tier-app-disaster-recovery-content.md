@@ -20,6 +20,8 @@ Other relevant use cases include:
 
 ![Diagram showing the architecture overview of a highly resilient multitier web application.][architecture]
 
+*Download a [Visio file][visio-download] of this architecture.*
+
 ### Workflow
 
 - Distribute the VMs in each tier across two availability zones in regions that support zones. In other regions, deploy the VMs in each tier within one availability set.
@@ -95,6 +97,14 @@ Configuring disaster recovery for Azure VMs using Azure Site Recovery will incur
 
 We have provided a [sample cost calculator][calculator] for configuring disaster recovery for a three-tier application using six virtual machines. All of the services are pre-configured in the cost calculator. To see how the pricing would change for your particular use case, change the appropriate variables to estimate the cost.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+* [Sujay Talasila](https://in.linkedin.com/in/sujay-talasila-7b20247) | Principal Product Lead
+
 ## Next steps
 
 - [Deploy Traffic Manager in Azure][Deploy-Traffic-Manager-in-Azure]
@@ -129,3 +139,4 @@ For additional high availability and disaster recovery reference architectures, 
 [Enterprise-scale-disaster-recovery]: /azure/architecture/solution-ideas/articles/disaster-recovery-enterprise-scale-dr
 [Set-up-disaster-recovery-for-Azure-VMs]: /azure/site-recovery/azure-to-azure-tutorial-enable-replication
 [Deploy-Traffic-Manager-in-Azure]: /azure/traffic-manager/quickstart-create-traffic-manager-profile
+[visio-download]: https://arch-center.azureedge.net/architecture-disaster-recovery-multi-tier-app.vsdx

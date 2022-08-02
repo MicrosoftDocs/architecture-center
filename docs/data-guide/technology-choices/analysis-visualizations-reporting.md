@@ -2,9 +2,9 @@
 title: Choose a data analytics and reporting technology
 description: Evaluate big data analytics technology options for Azure, including key selection criteria and a capability matrix.
 author: EdPrice-MSFT
+ms.author: architectures
 categories: azure
-ms.author: edprice
-ms.date: 04/14/2022
+ms.date: 07/25/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -106,3 +106,11 @@ The following tables summarize the key differences in capabilities.
 [2] You can search the [Maven repository](https://search.maven.org/) for community-contributed packages.
 
 [3] Python packages can be installed using either pip or conda. R packages can be installed from CRAN or GitHub. Packages in F# can be installed via nuget.org using the [Paket dependency manager](https://fsprojects.github.io/Paket/).
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+- [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect

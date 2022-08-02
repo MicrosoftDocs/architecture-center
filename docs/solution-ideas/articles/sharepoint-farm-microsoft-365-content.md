@@ -8,7 +8,7 @@ This solution addresses the need to deliver a highly available intranet capabili
 
 ## Architecture
 
-![Architecture diagram](../media/sharepoint-farm-microsoft-365.png)
+![Architecture diagram shows an intranet layout to users on and off premises.](../media/sharepoint-farm-microsoft-365.png)
 *Download an [SVG](../media/sharepoint-farm-microsoft-365.svg) of this architecture.*
 
 ### Dataflow
@@ -45,8 +45,8 @@ This solution addresses the need to deliver a highly available intranet capabili
 * [Virtual Network Documentation](/azure/virtual-network/virtual-networks-overview)
 * [Storage Documentation](/azure/storage/blobs/storage-blobs-introduction)
 * [Active Directory Documentation](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines)
-* [SharePoint Server Documentation](/sharepoint/administration/intranet-sharepoint-server-2016-in-azure-dev-test-environment)
-* [SQL Server Documentation](/azure/azure-sql/virtual-machines/windows/create-sql-vm-portal)'
+* [SharePoint Server Documentation](/sharepoint/administration/intranet-sharepoint-server-in-azure-dev-test-environment)
+* [SQL Server Documentation](/azure/azure-sql/virtual-machines/windows/create-sql-vm-portal)
 * [Load Balancer Documentation](/azure/load-balancer/load-balancer-standard-overview)
 * [ExpressRoute Documentation](/azure/expressroute)
 * [VPN Gateway Documentation](/azure/vpn-gateway)

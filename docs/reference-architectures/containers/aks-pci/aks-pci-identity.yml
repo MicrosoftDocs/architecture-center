@@ -4,7 +4,7 @@ metadata:
   description: Best practices for implementing access controls as per Requirement 7, 8, and 9 of PCI-DSS 3.2.1.
   author: PageWriter-MSFT
   ms.author: prwilk
-  ms.date: 07/06/2021
+  ms.date: 11/11/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture

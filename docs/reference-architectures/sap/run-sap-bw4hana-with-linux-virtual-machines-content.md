@@ -57,7 +57,7 @@ SAP BW/4HANA is an enterprise data warehouse solution designed for the cloud and
 
 This example workload also draws on the foundation of a pair of SAP on Azure reference architectures: [SAP NetWeaver (Windows) for AnyDB on virtual machines](./sap-netweaver.yml) and [SAP S/4HANA for Linux virtual machines on Azure](./sap-s4hana.yml). A similar deployment approach is used for SAP BW/4HANA workloads. The application layer is deployed using virtual machines that can be changed in size to accommodate your organization's needs.
 
-The network layout has been simplified to demonstrate recommended architectural principals for an Azure enterprise deployment based on a [hub-spoke topology](../hybrid-networking/hub-spoke.yml).
+The network layout has been simplified to demonstrate recommended architectural principles for an Azure enterprise deployment based on a [hub-spoke topology](../hybrid-networking/hub-spoke.yml).
 
 > [!NOTE]
 > Many deployment considerations apply when deploying SAP workloads on Azure. For more ideas and further information, see the [SAP on Azure planning and deployment checklist](/azure/virtual-machines/workloads/sap/sap-deployment-checklist).
@@ -106,7 +106,7 @@ This example shows a highly available cluster that uses Azure NetApp Files as a 
 
 You can also deploy Central Services to a single virtual machine with Premium-managed disks and get a 99.9-percent availability [SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9/).
 
-The virtual machines used for the application servers support multiple IP addresses per NIC. This feature supports the SAP recommended practice of using virtual host names for installations as outlined in [SAP Note 962955](https://launchpad.support.sap.com/#/notes/962955). Virtual host names decouple the SAP services from the physical host names and make it easier to migrate services from one physical host to another. This principal also applies to cloud virtual machines.
+The virtual machines used for the application servers support multiple IP addresses per NIC. This feature supports the SAP recommended practice of using virtual host names for installations as outlined in [SAP Note 962955](https://launchpad.support.sap.com/#/notes/962955). Virtual host names decouple the SAP services from the physical host names and make it easier to migrate services from one physical host to another. This principle also applies to cloud virtual machines.
 
 Application servers are connected to the highly available Central Services on Azure through the virtual host names of the Central Services or ERS services. These host names are assigned to the cluster front-end IP configuration of the load balancer. A load balancer supports many front-end IPs. Both the Central Services and ERS virtual IPs (VIPs) can be bound to one load balancer.
 
@@ -174,9 +174,9 @@ At the SAP application layer, Azure offers a wide range of virtual machine sizes
 
 ### Availability
 
-Resource redundancy is the general theme in highly available infrastructure solutions. If your organization has a less stringent SLA, use single-instance virtual machines with Premium disks, which offer an [uptime SLA](https://buildazure.com/2016/11/24/single-instance-vms-now-with-99-9-sla/).
+Resource redundancy is the general theme in highly available infrastructure solutions. If your organization has a less stringent SLA, use single-instance virtual machines with Premium disks, which offer an [uptime SLA](https://build5nines.com/single-instance-vms-now-with-99-9-sla/).
 
-To maximize application availability, you can deploy redundant resources in an availability set or across [Availability Zones](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones). For more information, see the [SAP S/4HANA reference architecture](./sap-s4hana.yml#availability-considerations).
+To maximize application availability, you can deploy redundant resources in an availability set or across [Availability Zones](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones). For more information, see the [SAP S/4HANA reference architecture](./sap-s4hana.yml#availability).
 
 This architecture places virtual machines that do the same role into an availability set. This configuration helps meet [SLAs](https://azure.microsoft.com/support/legal/sla/virtual-machines) by guarding against downtime caused by Azure infrastructure maintenance and unplanned outages. Two or more virtual machines per availability set are required to get a higher SLA.
 
@@ -239,7 +239,7 @@ Backup of the database tier varies depending on whether SAP HANA is deployed on 
 SAP has its own User Management Engine (UME) to control role-based access and authorization within the SAP application and databases. For details, see the
 [Security Guide SAP BW∕4HANA](https://help.sap.com/viewer/d3b558c9e49d4eb495c99c63a0ae549a/1.0.4/en-US).
 
-The [SAP S/4HANA reference architecture](./sap-s4hana.yml#security-considerations) provides other infrastructure security considerations that apply to SAP BW/4HANA.
+The [SAP S/4HANA reference architecture](./sap-s4hana.yml#security) provides other infrastructure security considerations that apply to SAP BW/4HANA.
 
 ## Next steps
 

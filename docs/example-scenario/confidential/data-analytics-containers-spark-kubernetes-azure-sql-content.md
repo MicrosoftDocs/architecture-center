@@ -1,4 +1,4 @@
-There's exponential growth of datasets, which has resulted in growing scrutiny of how data is exposed, from the perspectives of both consumer data privacy and compliance. In this context, confidential computing becomes an important tool to help organizations meet their privacy and security needs for business and consumer data. Organizations can gain new insights from regulated data if the data is processed in a compliant manner. Confidential computing is especially helpful in scenarios where the scale that's provided by cloud computing is needed to process the data confidentially.
+There's exponential growth of datasets, which has resulted in growing scrutiny of how data is exposed from the perspectives of both consumer data privacy and compliance. In this context, confidential computing becomes an important tool to help organizations meet their privacy and security needs for business and consumer data. Organizations can gain new insights from regulated data if the data is processed in a compliant manner. Confidential computing is especially helpful in scenarios where the scale that's provided by cloud computing is needed to process the data confidentially.
 
 Confidential computing technology encrypts data in memory and only processes it after the cloud environment is verified, or _attested_. Confidential computing prevents data access by cloud operators, malicious admins, and privileged software, such as the hypervisor. It also helps to keep data protected throughout its lifecycle—while the data is at rest, in transit, and also now while it's in use.
 
@@ -55,7 +55,7 @@ You can easily extend this pattern to include any data sources that Spark's larg
 
 ### Workflow
 
-1. Operator persona: A DevOps engineer provisions Kubernetes clusters, [Namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/), [Service Accounts](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/), and Confidential virtual machine (VM) node pools (for example, [DC4s_v3](/azure/virtual-machines/dcv3-series)).
+1. Operator persona: A DevOps engineer provisions Kubernetes clusters, [Namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces), [Service Accounts](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account), and Confidential virtual machine (VM) node pools (for example, [DC4s_v3](/azure/virtual-machines/dcv3-series)).
 
 2. Developer persona: A data engineer uses [PySpark](https://spark.apache.org/docs/latest/api/python/index.html) to write an analytics application that's designed to analyze large volumes of data.
 
@@ -69,23 +69,21 @@ You can easily extend this pattern to include any data sources that Spark's larg
 
 7. The results of the analysis are encrypted and uploaded to an [Azure SQL Database with Always Encrypted](/azure/azure-sql/database/always-encrypted-azure-key-vault-configure?tabs=azure-powershell) (that uses column-level encryption). Access to the output data and encryption keys can be securely granted to other confidential applications (for example, in a pipeline) by using the same sort of security policies and hardware-based attestation evidence that's described in this article.
 
-
 ### Components
 
 - [Azure Attestation](/azure/attestation) is a unified solution that remotely verifies the trustworthiness of a platform. Azure Attestation also remotely verifies the integrity of the binaries that run in the platform. Use Azure Attestation to establish trust with the confidential application.
 
-- [Azure confidential computing](https://azure.microsoft.com/solutions/confidential-compute/) nodes are hosted on a specific VM series that can run sensitive workloads on AKS within a hardware-based TEE. In this environment, user-level code can allocate private regions of memory, known as [enclaves](https://sgx101.gitbook.io/sgx101/sgx-bootstrap/enclave). Confidential computing nodes can support confidential containers or enclave-aware containers.
+- [Azure confidential computing](https://azure.microsoft.com/solutions/confidential-compute) nodes are hosted on a specific VM series that can run sensitive workloads on AKS within a hardware-based TEE. In this environment, user-level code can allocate private regions of memory, known as [enclaves](https://sgx101.gitbook.io/sgx101/sgx-bootstrap/enclave). Confidential computing nodes can support confidential containers or enclave-aware containers.
 
 - [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service) simplifies the process of deploying and managing a Kubernetes cluster.
 
 - [Apache Spark](https://spark.apache.org) is an open-source, multi-language engine for executing data engineering, data science, and machine learning on both single-node machines and multi-node clusters, such as Kubernetes pods.
 
-- [Azure SQL Database](https://azure.microsoft.com/services/sql-database/campaign/) now offers [Always Encrypted with secure enclaves](/azure/azure-sql/database/always-encrypted-with-secure-enclaves-landing), expanding the confidential computing capabilities of [SQL Server's Always Encrypted technology](/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-ver15) to include in-place encryption and rich confidential queries.
+- [Azure SQL Database](https://azure.microsoft.com/services/sql-database/campaign) now offers [Always Encrypted with secure enclaves](/azure/azure-sql/database/always-encrypted-with-secure-enclaves-landing), expanding the confidential computing capabilities of [SQL Server's Always Encrypted technology](/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-ver15) to include in-place encryption and rich confidential queries.
 
 - [SCONE](https://sconedocs.github.io) supports the execution of confidential applications in containers that run inside a Kubernetes cluster.
 
 - [SCONE platform](https://azuremarketplace.microsoft.com/marketplace/apps/scontainug1595751515785.scone?tab=Overview) is a solution from Scontain, an independent software vendor and Azure partner.
-
 
 ### Alternatives
 
@@ -96,7 +94,6 @@ The SCONE engineering team maintains an [Apache Spark](https://sconedocs.github.
 ## Considerations
 
 Azure confidential enclaves that use [DCsv3 and DCdsv3-series](/azure/virtual-machines/dcv3-series) VMs offer large memory sizes to help run memory-intensive applications like analytics. This scenario uses Intel SGX-enabled DCsv3-series VMs. You can only deploy certain sizes in certain regions. For more information, see [Quickstart: Deploy an Azure Confidential Computing VM in the Marketplace](/azure/confidential-computing/quick-create-marketplace) and [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
-
 
 ### Security
 
@@ -118,7 +115,6 @@ To perform remote attestation on a SCONE application (such as Spark Driver and E
 
 This scenario uses a [public CAS](https://sconedocs.github.io/public-CAS) provided by SCONE for demonstration and simplicity, and it deploys the [LAS](https://sconedocs.github.io/LASIntro) to run as a [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset) on each AKS node.
 
-
 ## Deploy this scenario
 
 Deploying this scenario involves the following high-level steps:
@@ -133,7 +129,7 @@ Deploying this scenario involves the following high-level steps:
 
 - Deploy the SCONE Local Attestation Service to the cluster by using the included Kubernetes manifest.
 
-- Build the encrypted image with SCONE confidential computing software and push it to your own Azure Container Registry. The repo has a demo application that counts the number of lines in New York City's [Yellow Taxi trip records](/azure/open-datasets/dataset-taxi-yellow?tabs=azureml-opendatasets), an open dataset of times, locations, fares, and other data that's related to taxi trips. You can adapt this to your specific needs. 
+- Build the encrypted image with SCONE confidential computing software and push it to your own Azure Container Registry. The repo has a demo application that counts the number of lines in New York City's [Yellow Taxi trip records](/azure/open-datasets/dataset-taxi-yellow?tabs=azureml-opendatasets), an open dataset of times, locations, fares, and other data that's related to taxi trips. You can adapt this to your specific needs.
 
 - Deploy the Spark application by running the command **spark-submit**. This deploys a driver pod and a configurable number of executor pods (the demo uses three) that run the tasks and report the analysis results to the driver. All communication is encrypted.
 
@@ -141,13 +137,26 @@ Alternatively, SCONE Confidential PySpark on Kubernetes, a VM, includes the same
 
 ## Pricing
 
-To explore the cost of running this scenario, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator), which preconfigures all Azure services. Please note the additional licenses that are required by the partner to run production workloads. 
+To explore the cost of running this scenario, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator), which preconfigures all Azure services. Please note the additional licenses that are required by the partner to run production workloads.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+* [Amar Gowda](https://www.linkedin.com/in/nramar) | Principal Program Manager
+
+Other contributor:
+
+* [Gary Moore](https://www.linkedin.com/in/gwmoore) | Programmer/Writer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
 - [Azure confidential computing](/azure/confidential-computing)
 - [Confidential containers on AKS](/azure/confidential-computing/confidential-containers)
-
 
 ## Related resources
 

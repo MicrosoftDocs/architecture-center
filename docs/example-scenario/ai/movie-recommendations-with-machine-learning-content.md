@@ -1,15 +1,4 @@
-Providing personalized product recommendations to customers can be an effective way for a business to increase sales. It can also be cost effective, because in many cases you can use machine learning to provide the recommendations.
-
-The solution described in this article uses machine learning to create movie recommendations automatically and at scale. Azure Machine Learning calculates the recommendations by applying the [alternating least squares][als] (ALS) algorithm to a dataset of viewer movie ratings. A data science virtual machine (DSVM) coordinates the process of training the Machine Learning model.
-
-## Potential use cases
-
-Personalized recommendations can be useful in many industries, including retail, news, and media. Potential applications include:
-
-- Product recommendations in an online store.
-- News or post recommendations on a news or social media site.
-- Music recommendations on a streaming app or online store.
-- Movie recommendations on a movie streaming app.
+The solution described in this article uses machine learning to create movie recommendations automatically and at scale.
 
 ## Architecture
 
@@ -42,6 +31,21 @@ For an in-depth guide to building and scaling a recommender service, see the art
 ### Alternatives
 
 [Azure Databricks][databricks-service] is an alternative to Azure DSVMs. It's a managed Spark cluster for training and evaluating models. You can set up a managed Spark environment in minutes, and [autoscale][autoscale] up and down to help reduce the resources and costs associated with scaling clusters manually. Another resource-saving option is to configure inactive [clusters][clusters] to terminate automatically.
+
+## Scenario details
+
+Providing personalized product recommendations to customers can be an effective way for a business to increase sales. It can also be cost effective, because in many cases you can use machine learning to provide the recommendations.
+
+The solution described in this article uses machine learning to create movie recommendations automatically and at scale. Azure Machine Learning calculates the recommendations by applying the [alternating least squares][als] (ALS) algorithm to a dataset of viewer movie ratings. A data science virtual machine (DSVM) coordinates the process of training the Machine Learning model.
+
+### Potential use cases
+
+Personalized recommendations can be useful in many industries, including retail, news, and media/entertainment. Potential applications include:
+
+- Product recommendations in an online store.
+- News or post recommendations on a news or social media site.
+- Music recommendations on a streaming app or online store.
+- Movie recommendations on a movie streaming app.
 
 ## Considerations
 

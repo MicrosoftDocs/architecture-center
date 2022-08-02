@@ -12,7 +12,7 @@ Sending such large messages to the message bus directly is not recommended, beca
 
 Store the entire message payload into an external service, such as a database. Get the reference to the stored payload, and send just that reference to the message bus. The reference acts like a claim check used to retrieve a piece of luggage, hence the name of the pattern. Clients interested in processing that specific message can use the obtained reference to retrieve the payload, if needed.
 
-![Diagram of the Claim-Check pattern](./_images/claim-check.png)
+![Diagram of the Claim-Check pattern.](./_images/claim-check.png)
 
 ## Issues and considerations
 
@@ -32,7 +32,7 @@ The pattern can also be used if the payload should be accessed only by services 
 
 On Azure, this pattern can be implemented in several ways and with different technologies, but there are two main categories. In both cases, the receiver has the responsibility to read the claim check and use it to retrieve the payload.
 
-- **Automatic claim-check generation**. This approach uses [Azure Event Grid](/azure/event-grid/) to automatically generate the claim check and push it into the message bus.
+- **Automatic claim-check generation**. This approach uses [Azure Event Grid](/azure/event-grid) to automatically generate the claim check and push it into the message bus.
 
 - **Manual claim-check generation**. In this approach, the sender is responsible for managing the payload. The sender stores the payload using the appropriate service, gets or generates the claim check, and sends the claim check to the message bus.
 
@@ -42,7 +42,7 @@ Event Grid is an event routing service and tries to deliver events within a conf
 
 In this approach, the sender drops the message payload into a designated Azure Blob Storage container. Event Grid automatically generates a tag/reference and sends it to a supported message bus, such as Azure Storage Queues. The receiver can poll the queue, get the message, and then use the stored reference data to download the payload directly from Blob Storage.
 
-The same Event Grid message can be directly consumed by [Azure Functions](/azure/azure-functions/), without needing to go through a message bus. This approach takes full advantage of the serverless nature of both Event Grid and Functions.
+The same Event Grid message can be directly consumed by [Azure Functions](/azure/azure-functions), without needing to go through a message bus. This approach takes full advantage of the serverless nature of both Event Grid and Functions.
 
 You can find example code for this approach [here][example-1].
 
@@ -54,7 +54,7 @@ You can find example code for this approach [here][example-2].
 
 ### Claim check generation with Service Bus
 
-This solution takes advantage of a specific Service Bus plugin, [ServiceBus.AttachmentPlugin](https://www.nuget.org/packages/ServiceBus.AttachmentPlugin/), which makes the claim-check workflow easy to implement. The plugin converts any message body into an attachment that gets stored in Azure Blob Storage when the message is sent.
+This solution takes advantage of a specific Service Bus plugin, [ServiceBus.AttachmentPlugin](https://www.nuget.org/packages/ServiceBus.AttachmentPlugin), which makes the claim-check workflow easy to implement. The plugin converts any message body into an attachment that gets stored in Azure Blob Storage when the message is sent.
 
 ```csharp
 using ServiceBus.AttachmentPlugin;
@@ -97,10 +97,13 @@ You can find example code for this approach [here][example-4].
 - The examples described above are available on [GitHub][sample-code].
 - The Enterprise Integration Patterns site has a [description][enterprise-integration-patterns] of this pattern.
 - For another example, see [Dealing with large Service Bus messages using claim check pattern](https://www.serverless360.com/blog/deal-with-large-service-bus-messages-using-claim-check-pattern) (blog post).
-
-## Related guidance
-
 - An alternative pattern for handling large messages is [Split][splitter] and [Aggregate][aggregator].
+
+## Related resources
+
+- [Asynchronous Request-Reply Pattern](./async-request-reply.yml)
+- [Competing Consumers pattern](./competing-consumers.yml)
+- [Sequential Convoy pattern](./sequential-convoy.yml)
 
 <!-- links -->
 [aggregator]: https://www.enterpriseintegrationpatterns.com/patterns/messaging/Aggregator.html

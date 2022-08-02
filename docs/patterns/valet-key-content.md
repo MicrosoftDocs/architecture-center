@@ -40,7 +40,7 @@ Consider the following points when deciding how to implement this pattern:
 
 **Deliver the key securely**. It can be embedded in a URL that the user activates in a web page, or it can be used in a server redirection operation so that the download occurs automatically. Always use HTTPS to deliver the key over a secure channel.
 
-**Protect sensitive data in transit**. Sensitive data delivered through the application will usually take place using SSL or TLS, and this should be enforced for clients accessing the data store directly.
+**Protect sensitive data in transit**. Sensitive data delivered through the application will usually take place using TLS, and this should be enforced for clients accessing the data store directly.
 
 Other issues to be aware of when implementing this pattern are:
 

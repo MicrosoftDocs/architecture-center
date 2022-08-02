@@ -1794,6 +1794,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/example-scenario/apps/sap-on-oracle.yml",
+      "redirect_url": "/azure/architecture/example-scenario/apps/sap-production",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/reference-architectures/ai/defect-prevention-with-predictive-maintenance.md",
       "redirect_url": "/azure/architecture/solution-ideas/articles/defect-prevention-with-predictive-maintenance",
       "redirect_document_id": false
@@ -2345,6 +2350,16 @@
     {
       "source_path": "docs/antipatterns/noisy-neighbor/index.md",
       "redirect_url": "/azure/architecture/antipatterns/noisy-neighbor/noisy-neighbor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/hybrid-networking/vpn.yml",
+      "redirect_url": "/azure/expressroute/expressroute-howto-coexist-resource-manager",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/ai/speech-to-text-transcription-pipeline.yml",
+      "redirect_url": "/azure/architecture/example-scenario/ai/speech-to-text-transcription-analytics",
       "redirect_document_id": false
     }
   ]

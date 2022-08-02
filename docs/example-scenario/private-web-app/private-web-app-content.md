@@ -1,17 +1,5 @@
 This example scenario describes how to set up private connectivity from an Azure Web App to Azure Platform-as-a-Service (PaaS) services, or between Azure PaaS services that aren't natively deployed in isolated Azure Virtual Networks. The example shows a typical combination of hosting a web application in [Azure App Service](/azure/app-service/) and connecting to [Azure SQL Database](/azure/azure-sql/database/).
 
-The web app can securely connect to a backend database over a fully private connection. The public internet can't reach the database, which eliminates a common attack vector.
-
-## Potential use cases
-
-These similar design patterns are variations on the same underlying principle:
-
-- Connect from a Web App to Azure Storage, Azure Cosmos DB, Azure Cognitive Search, Azure Event Grid, or any other service that supports an [Azure Private Endpoint](/azure/private-link/private-endpoint-overview#private-link-resource) for inbound connectivity.
-
-- Connect from an [Azure Functions](/azure/azure-functions/functions-overview) App to any Azure service that supports an Azure Private Endpoint, as long as the Function App is deployed in a [pricing plan that supports Virtual Network integration](/azure/azure-functions/functions-networking-options#virtual-network-integration).
-
-- Connect from a Web App or Functions App to another Web App, because App Service also supports [Private Endpoints](/azure/app-service/networking/private-endpoint) for inbound connectivity. For example, connect from a website to a REST API hosted in another Azure App Service instance.
-
 ## Architecture
 
 ![Architectural diagram showing an App Service web app connecting to a backend Azure SQL Database through a Virtual Network using Private Link to an Azure Private DNS zone.](./media/appsvc-private-sql-solution-architecture.png)
@@ -61,6 +49,20 @@ This scenario uses the following Azure services:
 - As an alternative to the Private Endpoint, you can use a [Service Endpoint](/azure/virtual-network/virtual-network-service-endpoints-overview) to secure the database. With a Service Endpoint, the private endpoint, **PrivateLinkSubnet**, and configuring the **Route All** regional VNet integration setting are unnecessary. You still need regional VNet Integration to route incoming traffic through the Virtual Network.
 
   Compared to Service Endpoints, a Private Endpoint provides a private, dedicated IP address toward a specific instance, for example a logical SQL Server, rather than an entire service. Private Endpoints can help prevent data exfiltration towards other database servers. For more information, see [Comparison between Service Endpoints and Private Endpoints](/azure/virtual-network/vnet-integration-for-azure-services#compare-private-endpoints-and-service-endpoints).
+  
+## Scenario details
+
+The web app can securely connect to a backend database over a fully private connection. The public internet can't reach the database, which eliminates a common attack vector.
+
+### Potential use cases
+
+These similar design patterns are variations on the same underlying principle:
+
+- Connect from a Web App to Azure Storage, Azure Cosmos DB, Azure Cognitive Search, Azure Event Grid, or any other service that supports an [Azure Private Endpoint](/azure/private-link/private-endpoint-overview#private-link-resource) for inbound connectivity.
+
+- Connect from an [Azure Functions](/azure/azure-functions/functions-overview) App to any Azure service that supports an Azure Private Endpoint, as long as the Function App is deployed in a [pricing plan that supports Virtual Network integration](/azure/azure-functions/functions-networking-options#virtual-network-integration).
+
+- Connect from a Web App or Functions App to another Web App, because App Service also supports [Private Endpoints](/azure/app-service/networking/private-endpoint) for inbound connectivity. For example, connect from a website to a REST API hosted in another Azure App Service instance.
 
 ## Considerations
 
@@ -81,6 +83,8 @@ Without using private connectivity, you can add [firewall rules](/azure/azure-sq
 You can also add a more restrictive firewall rule to allow only your app's [outbound IP addresses](/azure/app-service/overview-inbound-outbound-ips#find-outbound-ips) to access the database. But because App Service is a multi-tenant service, these IP addresses are shared with and allow traffic from other customers on the same [deployment stamp](../../patterns/deployment-stamp.yml), which uses the same outbound IP addresses.
 
 Using private connectivity through the Virtual Network provides the following firewall options to prevent others from accessing the database:
+
+- Create the NSG and link to **PrivateLinkSubnet** in this example, to restrict inbound traffic, so that it will only be accessible from the **AppSvcSubnet** subnet. Keep in mind that the subnet that contains the private endpoint needs to enable the **PrivateEndpointNetworkPolicies** property before the link exists in the NSG. See [this article](/azure/private-link/disable-private-endpoint-network-policy) for more details.
 
 - Create a [virtual network rule](/azure/azure-sql/database/vnet-service-endpoint-rule-overview) that allows traffic only from the regional VNet Integration delegated subnet, **AppSvcSubnet** in this example. The delegated subnet must have a [Service Endpoint](/azure/virtual-network/virtual-network-service-endpoints-overview) configured for `Microsoft.Sql`, so the database can identify traffic from that subnet.
 

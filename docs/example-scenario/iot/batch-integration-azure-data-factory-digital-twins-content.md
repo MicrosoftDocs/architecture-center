@@ -116,6 +116,14 @@ Other contributors:
 - [Gary Moore](https://www.linkedin.com/in/gwmoore) | Programmer/Writer
 - [Onder Yildirim](https://www.linkedin.com/in/%C3%B6nder-yildirim-0044601) | Senior Cloud Solution Architect 
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+* [Howard Ginsburg](https://www.linkedin.com/in/howardginsburg) | Senior Cloud Solution Architect
+
 ## Next steps
 
 - [Explore Azure Digital Twins implementation](/learn/modules/explore-azure-digital-twins-implementation)

@@ -1,24 +1,6 @@
-Mainframe data that's stored in physical or virtual tape libraries is critical for customers. As this data grows, its sheer volume can require an unfathomable amount of storage. The data can then become more demanding to maintain on-premises. You can easily migrate this data to Azure storage and use it for AI, business intelligence, machine learning, and analytics applications. Azure storage carries several unique benefits over traditional on-premises storage approaches, and includes data management services, scalability, performance, reliability, and security.
-
-Model9 provides an end-to-end suite of cloud data management solutions for mainframes that solves the migration problem — elegantly, cost effectively, and with no application changes. Based on a unique, proven technology, Model9 solutions migrate mainframe data by using secure and expedited technology to access the Azure cloud.
-
-Model9 solutions are designed to save expensive mainframe CPU resources by using the mainframe zIIP engines and to connect the mainframe data to Azure cloud storage. Cloud applications can use the migrated data in Azure storage services.
-
 This article outlines a solution for migrating mainframe data to the cloud. Besides Model9, the solution's core components include Azure storage and database services.
 
 Apache®, Apache Ignite, Ignite, and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.
-
-## Potential use cases
-
-Model9 offers a suite of services that are based on the Model9 cloud data platform. These services are suitable for the following use cases:
-
-- Make mainframe data available to Azure data services, AI, machine learning, analytics, and business intelligence tools.
-
-- Protect mainframe data with backup and archive to Azure Blob Storage.
-
-- Have mainframe applications write and read data directly to and from Blob Storage.
-
-- Defend mainframe data against cyberattacks by creating an immutable third copy in Azure.
 
 ## Architecture
 
@@ -105,6 +87,28 @@ The main components of Model9 cloud data platform are:
 - Model9 data transformation service runs externally to the mainframe in an on-premises environment. This setup saves expensive mainframe resources. You can also deploy on the cloud by using either a server instance or container services.
 
 - ExpressRoute provides a private and efficient connection to Azure from on-premises, but you can also use [site-to-site VPN](/azure/vpn-gateway/tutorial-site-to-site-portal).
+
+## Scenario details
+
+Mainframe data that's stored in physical or virtual tape libraries is critical for customers. As this data grows, its sheer volume can require an unfathomable amount of storage. The data can then become more demanding to maintain on-premises. You can easily migrate this data to Azure storage and use it for AI, business intelligence, machine learning, and analytics applications. Azure storage carries several unique benefits over traditional on-premises storage approaches, and includes data management services, scalability, performance, reliability, and security.
+
+Model9 provides an end-to-end suite of cloud data management solutions for mainframes that solves the migration problem — elegantly, cost effectively, and with no application changes. Based on a unique, proven technology, Model9 solutions migrate mainframe data by using secure and expedited technology to access the Azure cloud.
+
+Model9 solutions are designed to save expensive mainframe CPU resources by using the mainframe zIIP engines and to connect the mainframe data to Azure cloud storage. Cloud applications can use the migrated data in Azure storage services. This article outlines a solution for migrating mainframe data to the cloud. Besides Model9, the solution's core components include Azure storage and database services.
+
+Apache®, Apache Ignite, Ignite, and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.
+
+## Potential use cases
+
+Model9 offers a suite of services that are based on the Model9 cloud data platform. These services are suitable for the following use cases:
+
+- Make mainframe data available to Azure data services, AI, machine learning, analytics, and business intelligence tools.
+
+- Protect mainframe data with backup and archive to Azure Blob Storage.
+
+- Have mainframe applications write and read data directly to and from Blob Storage.
+
+- Defend mainframe data against cyberattacks by creating an immutable third copy in Azure.
 
 ## Considerations
 

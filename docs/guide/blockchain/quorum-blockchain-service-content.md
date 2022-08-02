@@ -1,3 +1,5 @@
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
+
 Blockchain technology helps organizations track and trace the product life cycle and meet regulatory, financial, ethical and sustainability requirements.
 
 The need for the block chain technology started with organizations trying to understand more about the products like:
@@ -83,19 +85,19 @@ The ledger system of the QBS helps organizations get the history of low-level co
 
 - [Azure App Service](/azure/app-service/overview) is an HTTP-based service to host web applications, REST APIs, and mobile back ends. The App Service is a web application/API that allows interactive use of the data by users in the supply chain. In this article, App Services are used to read or reference the data in Input/Intake stage and all other stages.
 
-- [Service bus](https://azure.microsoft.com/services/service-bus/) is a fully managed enterprise message broker with message queues and publish-subscribe topics (in a namespace). In this article, Azure Service Bus is used by manufacturers to inject data into the blockchain ledger or off-chain data store.
+- [Service bus](https://azure.microsoft.com/services/service-bus) is a fully managed enterprise message broker with message queues and publish-subscribe topics (in a namespace). In this article, Azure Service Bus is used by manufacturers to inject data into the blockchain ledger or off-chain data store.
 
-- [Azure Managed Applications](https://azure.microsoft.com/services/managed-applications/) enable you to offer cloud solutions that are easy for consumers to deploy and operate.
+- [Azure Managed Applications](https://azure.microsoft.com/services/managed-applications) enable you to offer cloud solutions that are easy for consumers to deploy and operate.
   - Publish a managed application to the Azure market place to be available for all the customers.
   - Publish a managed application to an internal catalog to be available to only your company's users.
 
 - Event Listener: In this scenario, [Ethloggger](https://github.com/splunk/splunk-connect-for-ethereum/blob/main/docs/cli.md) is utilized to send data to off-chain data technologies, such as Azure Cosmos Database or Azure SQL Server.
 
-- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is a fully managed NoSQL database for modern app development that provides single-digit millisecond response times, automatic and instant scalability, and guaranteed speed at any scale. In this scenario Azure Cosmos DB is a data store used to house the output of events raised on the blockchain such as state changes that are used by an analytics solution or simple reporting.
+- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) is a fully managed NoSQL database for modern app development that provides single-digit millisecond response times, automatic and instant scalability, and guaranteed speed at any scale. In this scenario Azure Cosmos DB is a data store used to house the output of events raised on the blockchain such as state changes that are used by an analytics solution or simple reporting.
 
-- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database/) is a fully managed platform as a service (PaaS) database engine that handles most of the database management functions such as upgrading, patching, backups, and monitoring without user involvement. In this scenario Azure SQL Database is a data store used to house the output of events raised on the blockchain such as state changes that will ultimately be used by an analytics solution or simple reporting. Additionally, by utilizing the [ledger](/azure/azure-sql/database/ledger-landing) feature of Azure SQL Database, the integrity of output of events from the blockchain replicated to the SQL database can be maintained.
+- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) is a fully managed platform as a service (PaaS) database engine that handles most of the database management functions such as upgrading, patching, backups, and monitoring without user involvement. In this scenario Azure SQL Database is a data store used to house the output of events raised on the blockchain such as state changes that will ultimately be used by an analytics solution or simple reporting. Additionally, by utilizing the [ledger](/azure/azure-sql/database/ledger-landing) feature of Azure SQL Database, the integrity of output of events from the blockchain replicated to the SQL database can be maintained.
 
-- [Azure Monitor](https://azure.microsoft.com/services/monitor/) provides a comprehensive solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments. In this scenario Azure Monitor provides availability and performance data of the architecture components. QBS is integrated with Azure Monitor to provide additional telemetry data on blockchain nodes.
+- [Azure Monitor](https://azure.microsoft.com/services/monitor) provides a comprehensive solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments. In this scenario Azure Monitor provides availability and performance data of the architecture components. QBS is integrated with Azure Monitor to provide additional telemetry data on blockchain nodes.
 
 ## Contributors
 
@@ -106,7 +108,7 @@ Principal authors:
 - [Samrat Adhikari](https://www.linkedin.com/in/samrat-adhikari-mba-mcis-pmp-csm-8538a9169) | Senior Manager, Technology Solutions Delivery
 - [Cale Teeter](https://www.linkedin.com/in/caleteeter) | Senior Software Engineer
 
-Other contributors:
+Other contributor:
 
 - [Lavanya Kasturi](https://www.linkedin.com/in/lakshmilavanyakasturi) | Technical Writer
 

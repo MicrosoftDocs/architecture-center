@@ -3,8 +3,8 @@ title: Solutions for the media and entertainment industry
 titleSuffix: Azure Architecture Center
 description: Architectures and ideas to use Azure services for building efficient, scalable, and reliable media and entertainment solutions.
 author: dsk-2015
-ms.author: edprice
-ms.date: 03/07/2022
+ms.author: architectures
+ms.date: 07/26/2022
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -34,8 +34,6 @@ Microsoft's Azure and other offerings are committed to empower media and enterta
 - optimize and personalize content delivery,
 - modernize collaboration.
 
-To learn how Azure can provide an intelligent cloud backbone to content owners and creators, visit [Azure for media and entertainment](https://azure.microsoft.com/industries/media/). Microsoft offerings are transforming and empowering media businesses; see some case studies at [Intelligent Media and Entertainment](https://www.microsoft.com/industry/media-entertainment).
-
 <br>
 
 <!-- markdownlint-disable MD034 -->
@@ -45,6 +43,8 @@ To learn how Azure can provide an intelligent cloud backbone to content owners a
 <!-- markdownlint-enable MD034 -->
 
 <br>
+
+To learn how Azure can provide an intelligent cloud backbone to content owners and creators, visit [Azure for media and entertainment](https://azure.microsoft.com/industries/media/). Microsoft offerings are transforming and empowering media businesses; see some case studies at [Intelligent Media and Entertainment](https://www.microsoft.com/industry/media-entertainment).
 
 ## Architectures for media and entertainment
 

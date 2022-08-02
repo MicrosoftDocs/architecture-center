@@ -1,20 +1,12 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Environmental monitoring has become an important activity in the global supply chain. It provides key signals that help drive real-time decisions that can impact suppliers and logistics. Air quality, temperature, wind, humidity, and carbon dioxide (CO2) are some of the indicators that warehouse operators are interested in monitoring during natural disasters. More advanced scenarios can include the fusion of real-time and historical data from weather stations, air quality sensors, and other sources. Machine learning (ML) models can then be used to help predict the effect of these conditions and their possible impact on supply chain operations.
-
 This article describes a warehouse management scenario that monitors environmental conditions through the integration of sensor data and public datasets, processed with ML to generate predictions. The insights are then used to ensure the safety of people and optimize supply chain operations.
-
-## Potential use cases
-
-This solution is ideal for the environment, manufacturing, transportation, and agriculture industries.
-
-- **Fleet management:** This solution can be used where routes need to be optimized for safety based on the evolving conditions of surrounding areas.
-- **Agriculture:** Predicting wildfires that will impact the safety of workers and livestock is critical. By providing ample lead time for danger notifications, people in the affected area can evacuate to safety. Farms can also equip livestock areas with automated gates that can unlock and open in dire situations, allowing animals to escape.
 
 ## Architecture
 
-[ ![Architecture diagram showing the data flow for the Environmental Monitoring and the Supply Chain solution](../media/environment-monitor-supply-chain.png)](../media/environment-monitor-supply-chain.png#lightbox)
-*Download an [SVG of this architecture](../media/environment-monitor-supply-chain.svg).*
+[ ![Architecture diagram showing the data flow for the Environmental Monitoring and the Supply Chain solution.](../media/environment-monitor-supply-chain-new.png)](../media/environment-monitor-supply-chain-new.png#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/environment-monitor-supply-chain.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -56,7 +48,18 @@ This solution is ideal for the environment, manufacturing, transportation, and a
 
 For more detailed discussions, see the [Azure IoT reference architecture](../../reference-architectures/iot.yml) to understand and explore the various implementation choices available.
 
-## Challenges faced
+## Scenario details
+
+Environmental monitoring has become an important activity in the global supply chain. It provides key signals that help drive real-time decisions that can impact suppliers and logistics. Air quality, temperature, wind, humidity, and carbon dioxide (CO2) are some of the indicators that warehouse operators are interested in monitoring during natural disasters. More advanced scenarios can include the fusion of real-time and historical data from weather stations, air quality sensors, and other sources. Machine learning (ML) models can then be used to help predict the effect of these conditions and their possible impact on supply chain operations.
+
+### Potential use cases
+
+This solution is ideal for the environment, manufacturing, transportation, and agriculture industries.
+
+- **Fleet management:** This solution can be used where routes need to be optimized for safety based on the evolving conditions of surrounding areas.
+- **Agriculture:** Predicting wildfires that will impact the safety of workers and livestock is critical. By providing ample lead time for danger notifications, people in the affected area can evacuate to safety. Farms can also equip livestock areas with automated gates that can unlock and open in dire situations, allowing animals to escape.
+
+### Challenges faced
 
 There has been a significant [increase in wildfires](https://news.sciencebrief.org/wildfires-sep2020-update) in recent years, posing a growing danger to humans and the global supply chain. With the number of acres burned increasing by the year, [supply chain resilience to climate change](https://www.thebci.org/uploads/assets/e02a3e5f-82e5-4ff1-b8bc61de9657e9c8/BCI-0007h-Supply-Chain-Resilience-ReportLow-Singles.pdf) is top of mind for many leaders.
 
@@ -64,11 +67,11 @@ In the United States, the annual average of area affected by wildfires is approx
 
 Risks to businesses worldwide [continue to increase each year](https://mitsloan.mit.edu/ideas-made-to-matter/supply-chain-resilience-era-climate-change), and supply chain resiliency during natural disasters is critical to maintaining the flow of goods globally. [Integrating weather-based forecasts and predictions](https://lot.dhl.com/if-australias-bushfires-are-the-new-normal-how-should-companies-manage-risks) into supply chain capacity planning can help operators adjust production and manage shipping schedules. This system can minimize disruptions and adverse effects.
 
-### Business outcomes
+#### Business outcomes
 
 Warehouse operators and major distribution centers will benefit from a predictive way to determine if existing logistics infrastructure is in the path of a major fire. Having an early notification system would provide increased lead time to take preventive measures to protect facilities and personnel. Automated notices of changes and pauses in logistics activities would also allow rerouting of shipments with minimal human intervention.
 
-### Requirements
+#### Requirements
 
 - Automation is critical. It can't be assumed that operators and facility managers can gather data across multiple systems to make timely decisions.
 - Warehouses, distribution facilities, and operation managers need to be notified by multiple means when there's immediate danger, ensuring the information is received in a timely fashion. Examples include data dashboard, email, and text message.

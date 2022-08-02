@@ -4,7 +4,7 @@ metadata:
   description: In this scenario, an organization consolidates multiple APIs internally using Azure API Management deployed inside a Virtual Network.
   author: ssarwa
   ms.author: ssarwa
-  ms.date: 04/28/2022
+  ms.date: 06/09/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
@@ -17,7 +17,7 @@ metadata:
     - app-modernization
     - example-scenario
     - internal-intro
-  social_image_url: ./media/architecture-publish-internal-apis-externally.png
+  social_image_url: ./media/architecture-publish-internal-apis-externally-new.png
 name: Publish internal APIs to external users
 azureCategories:
   - integration
@@ -29,6 +29,6 @@ products:
   - azure-devops
   - azure-monitor
   - azure-virtual-network
-thumbnailUrl: /azure/architecture/browse/thumbs/architecture-publish-internal-apis-externally.png
+thumbnailUrl: /azure/architecture/browse/thumbs/architecture-publish-internal-apis-externally-thumbnail-new.png
 content: |
    [!include[](publish-internal-apis-externally-content.md)]
