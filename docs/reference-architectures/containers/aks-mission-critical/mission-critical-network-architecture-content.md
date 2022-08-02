@@ -89,7 +89,7 @@ Build and release pipelines for a mission critical application must be fully aut
 
 ### Observability resources
 
-Monitoring data for global resources and regional resources are stored independently. A single, centralized observability store isn't recommended to avoid a single point of failure. For more information, see [Observability resources](azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro#observability-resources)
+Monitoring data for global resources and regional resources are stored independently. A single, centralized observability store isn't recommended to avoid a single point of failure. For more information, see [Observability resources](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro#observability-resources)
 
 - **Azure Log Analytics** is used as a unified sink to store logs and metrics for all application and infrastructure components. 
 
