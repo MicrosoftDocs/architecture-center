@@ -1,6 +1,6 @@
-This reference architecture provides guidance for designing a mission critical workload that has network controls in place to prevent any unauthorized public access between the internet and the workload. 
+This reference architecture provides guidance for designing a mission critical workload that has network controls in place to prevent any unauthorized public access on a networking layer, from the internet to any of the workload resources. 
 
-It builds on the [mission-critical baseline architecture](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro), which is focused on maximizing reliability and operational effectiveness without any private network. This architecture adds features to secure ingress and egress paths using cloud-native capabilities. It's recommended that you become familiar with the baseline before proceeding with this article.
+It builds on the [mission-critical baseline architecture](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro), which is focused on maximizing reliability and operational effectiveness without additional network controls such as private endpoints. This architecture adds features to secure ingress and egress paths using cloud-native capabilities. It's recommended that you become familiar with the baseline before proceeding with this article.
 
 ## Reliability tier
 TBD: how does security impact the overall reliablity -- insert blurb.
@@ -12,7 +12,7 @@ TBD: how does security impact the overall reliablity -- insert blurb.
 
 ## Key design strategies
 
-The [design strategies for mission-critical baseline](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro#key-design-strategies) still apply in this use case. Here are some networking considerations:
+The [design strategies for mission-critical baseline](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro#key-design-strategies) still apply in this use case. Here are the additional networking considerations for this architecture:
 
 - **Secure ingress traffic**
     
@@ -22,7 +22,7 @@ The [design strategies for mission-critical baseline](/azure/architecture/refere
 
 - **Secure egress traffic** 
 
-    Egress traffic from a virtual network to entities outside that network must be secured. Lack of security controls might lead to data exfilteration attacks by malicious third-party services.
+    Egress traffic from a virtual network to entities outside that network must be restricted. Lack of controls might lead to data exfilteration attacks by malicious third-party services.
 
     _Restrict outbound traffic to the internet using Azure Firewall and network security groups (NSGs) on the subnets_.
 
@@ -109,9 +109,9 @@ A significant design change from the baseline architecture is the compute cluste
 
 To process a single business operation, the application and the build agents need to reach several Azure PaaS services that are provisioned  globally, within the region, and even within the stamp. In the baseline architecture, that communication is over the public internet. 
 
-In this design, those services have been protected with private endpoints to prevent data exfiltration attacks. Using private endpoints increases the security of the design. However, it introduces another point of failure. Carefully consider the tradeoffs with security before adopting this approach.
+In this design, those services have been protected with private endpoints to prevent data exfiltration attacks. Using private endpoints increases the security of the design. However, it introduces another point of failure and increases complexity in consuming these services. Carefully consider the tradeoffs with security before adopting this approach.
 
-Private endpoints require a dedicated subnet within a virtual network. Private IP addresses to the private endpoints are assigned from that subnet. Essentially, any resource in the virtual network can communicate with the service by reaching the private IP address. Make sure the address space is large enough to accommodate this subnet. 
+Private endpoints should be put in a dedicated subnet of a virtual network. Private IP addresses to the private endpoints are assigned from that subnet. Essentially, any resource in the virtual network can communicate with the service by reaching the private IP address. Make sure the address space is large enough to accommodate this subnet. 
 
 To connect over a private endpoint, you need a DNS record. It's recommended that DNS records associated with the services are in private DNS zones. Make sure that the fully qualified domain name (FQDN) resolves to the private IP address.
 
@@ -126,7 +126,7 @@ Tighten the security further by using network security groups on the subnet to c
 ## Global routing
 Azure Front Door is used as the global entry point for all incoming client traffic. It uses Web Application Firewall (WAF) capabilities to allow or deny, and route traffic to the configured backend.
 
-Because in this architecture, the [PaaS services have been secured by using private endpoints](#private-endpoints-for-paas-services), Front Door premium is used. This allows traffic to flow from the internet to Azure virtual networks without the use of public IPs to allow access to backends.
+Because in this architecture, the [connection from Front Door to the ingress points have been secured by using private endpoints](#private-endpoints-for-paas-services), Premium SKU of Front Door is required. This allows traffic to flow from the internet to Azure virtual networks without the use of public IPs to allow access to backends.
 
 ![Diagram showing secure global routing for a mission critical workload](./images/network-diagram-ingress.png)
 
@@ -153,7 +153,9 @@ The virtual network is divided into these main subnets. All subnets have Network
 
 - **Stamp ingress subnet**
 
-    The entry point to each stamp is a private Azure Standard Load Balancer with one zone-redundant public IP. This approach mitigates the risk of attackers  attempting DDoS attacks against the endpoints. This resource is deployed as part of the Kubernetes Ingress Controller resource.
+    The entry point to each stamp is a private Azure Standard Load Balancer  This approach mitigates the risk of attackers attempting DDoS attacks against the endpoints. This resource is deployed as part of the Kubernetes Ingress Controller resource.
+    
+    On top of this private Load Balancer, a Private Link service is created by AKS which is used for the private connection from Front Door.
 
 - **Stamp egress subnet**
 
@@ -179,7 +181,7 @@ Both operations need to access global PaaS services as well as those in the regi
 
 #### Management operations
 
-A typical use case is when an operator needs to access the compute cluster to run management tools and commands. Nodes in a private cluster  can't be accessed directly. That's why jump boxes are provisioned where the operator can run the tools. There's a separate subnet for the jump boxes.
+A typical use case is when an operator needs to access the compute cluster to run management tools and commands. The API service in a private cluster  can't be accessed directly. That's why jump boxes are provisioned where the operator can run the tools. There's a separate subnet for the jump boxes.
 
 But, those jump boxes need to be protected as well from unauthorized access. Direct access to jump boxes by opening RDP/SSH ports should be avoided. Azure Bastion is recommended for this purpose and requires a dedicated subnet in this virtual network.  
 
