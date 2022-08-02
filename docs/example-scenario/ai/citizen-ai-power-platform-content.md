@@ -112,7 +112,7 @@ DevOps practices are used to orchestrate the end-to-end approach used in this ex
 
 The [Machine Learning DevOps Guide](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-mlops#machine-learning-devops-mlops-best-practices-with-azure-machine-learning) presents best practices and learnings on adopting ML operations (MLOps) in the enterprise with Machine Learning.
 
-DevOps automation can be applied to the Power Platform solution provided in this example. For more information about Power Platform DevOps, see [Microsoft Power Platform Build Tools for Azure DevOps - Power Platform | Microsoft Docs](/power-platform/alm/devops-build-tools).
+DevOps automation can be applied to the Power Platform solution provided in this example. For more information about Power Platform DevOps, see [Microsoft Power Platform Build Tools for Azure DevOps - Power Platform](/power-platform/alm/devops-build-tools).
 
 ### Cost optimization
 
@@ -144,11 +144,11 @@ To deploy this end-to-end example, follow [step by step instructions using this 
 
 ### Deploy to Microsoft Teams
 
-The sample app provided in the example above can also be deployed to Microsoft Teams. Teams provides a great distribution channel for your apps and provides your users with a collaborative app experience. For more information about deploying a Power Apps to Teams, see [Publish your app using Power Apps app in Teams - Power Apps | Microsoft Docs](/powerapps/teams/publish-and-share-apps).
+The sample app provided in the example above can also be deployed to Microsoft Teams. Teams provides a great distribution channel for your apps and provides your users with a collaborative app experience. For more information about deploying a Power Apps to Teams, see [Publish your app using Power Apps app in Teams - Power Apps](/powerapps/teams/publish-and-share-apps).
 
 ### Consume the API from multiple apps and automations
 
-In this example, we configure a Power Automate cloud flow to consume the REST endpoint as an HTTP action. We can instead set up a custom connector for the REST endpoint and consume it directly from Power Apps or from Power Automate. This approach is useful when we want multiple apps to consume the same endpoint. It also provides governance by using the connector DLP policy in Power Platform admin center. To create a custom connector, see [Use a custom connector from a Power Apps app | Microsoft Docs](/connectors/custom-connectors/use-custom-connector-powerapps). For more information on Power Platform connector DLP, see [Data loss prevention policies - Power Platform | Microsoft Docs](/power-platform/admin/wp-data-loss-prevention).
+In this example, we configure a Power Automate cloud flow to consume the REST endpoint as an HTTP action. We can instead set up a custom connector for the REST endpoint and consume it directly from Power Apps or from Power Automate. This approach is useful when we want multiple apps to consume the same endpoint. It also provides governance by using the connector DLP policy in Power Platform admin center. To create a custom connector, see [Use a custom connector from a Power Apps app](/connectors/custom-connectors/use-custom-connector-powerapps). For more information on Power Platform connector DLP, see [Data loss prevention policies - Power Platform](/power-platform/admin/wp-data-loss-prevention).
 
 ## Contributors
 

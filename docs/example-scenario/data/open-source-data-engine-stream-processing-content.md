@@ -76,7 +76,7 @@ You can replace the open-source-compatible products and services in this solutio
 
 ## Considerations
 
-Design and implement each service with best practices in mind. For guidelines on each service, see [Microsoft Docs][Microsoft Docs]. Also review the information in the following sections:
+Design and implement each service with best practices in mind. For guidelines on each service, see the [Microsoft documentation site](/). Also review the information in the following sections:
 
 ### Performance
 
@@ -218,7 +218,6 @@ To learn about related solutions, see the following information:
 [Introduction to Azure Data Lake Storage Gen2]: /azure/storage/blobs/data-lake-storage-introduction
 [Key rotation and regeneration]: /azure/cosmos-db/secure-access-to-data?tabs=using-primary-key#key-rotation
 [Kubernetes]: https://kubernetes.io
-[Microsoft Docs]: /
 [MongoDB]: https://www.mongodb.com
 [Open source on Azure]: https://azure.microsoft.com/en-au/overview/open-source
 [Overview of Event Hubs Dedicated]: /azure/event-hubs/event-hubs-dedicated-overview

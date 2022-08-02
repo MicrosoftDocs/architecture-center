@@ -10,12 +10,12 @@ When organizations task employees to review and research technical data, it can 
 
 Industries that rely on knowledge mining include:
 
-- Education.
-- Marketing.
-- Banking (finance).
-- Service providers.
-- Retail.
-- News and media.
+- Education
+- Marketing
+- Banking (finance)
+- Service providers
+- Retail
+- News and media
 
 ## Architecture
 
@@ -52,7 +52,7 @@ The following key technologies are used to implement tools for technical content
 
 - To build an initial knowledge mining prototype with Azure Cognitive Search, use the [knowledge mining solution accelerator](/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining).
 - Build and Azure Cognitive Search [custom skill](/azure/search/cognitive-search-custom-skill-interface).
-- Explore the Microsoft Learning Path [knowledge mining with Azure Cognitive Search](/learn/paths/implement-knowledge-mining-azure-cognitive-search).
+- Explore the learning path [Knowledge mining with Azure Cognitive Search](/learn/paths/implement-knowledge-mining-azure-cognitive-search).
 - To learn more about the components in this solution, see these resources:
 
   - [Azure Cognitive Search documentation](/azure/search)
