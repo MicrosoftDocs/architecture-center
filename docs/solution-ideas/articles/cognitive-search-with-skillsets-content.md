@@ -1,4 +1,4 @@
-The Azure Cognitive Search skills in this example solution include image processing, natural language processing, and custom skills that capture domain-specific data.
+Azure Cognitive Search is a search service with AI enrichment capabilities, to help identify and explore relevant content at scale. This article provides an example solution to enrich text and image documents, by using image processing, natural language processing, and custom skills that capture domain-specific data.
 
 ## Potential use cases
 
@@ -18,10 +18,14 @@ This diagram illustrates the process of passing unstructured data through the Co
 
 ### Dataflow
 
-1. Blob storage provides the unstructured document and image data to Cognitive Search.
-1. Cognitive Search applies pre-built cognitive skill sets to the data, including OCR, text and handwriting recognition, image analysis, entity recognition, and full-text search.
-1. The Cognitive Search extensibility mechanism uses an Azure Function to apply the CIA Cryptonyms custom skill to the data.
-1. The pre-built and custom skill sets deliver structured knowledge that Azure Cognitive Search can index.
+1. Unstructured data, such as documents and images, is stored in Azure Blob Storage, from where data is ingested into Cognitive Search.
+1. The indexing process is initiated with the "Document Cracking" step, where images and text are extracted from the data, followed by by the content enrichment. The enrichment steps that occur in this process depend on the data and type of skills selected.
+1. [**Built-in skills**](/azure/search/cognitive-search-predefined-skills) are based on Cognitive Services APIs: Computer Vision and Language Service. These skills enable AI enrichments, such as image OCR, image analysis, text translation, entity recognition, and full-text search.
+1. [**Custom Skills**](/azure/search/cognitive-search-custom-skill-interface) provide support to more complex scenarios, where more complex AI models or services might be required. Examples of custom skills include Forms Recognizer, Azure Machine Learning models, and Azure Functions.
+1. Following the enrichment process, the indexer saves the outputs into a [**searchable index**](/azure/search/search-what-is-an-index). This index contains the enriched and indexed documents, and it's used for full text search and other query forms.
+1. Additionally, the enriched documents can also be projected into a [**knowledge store**](/azure/search/knowledge-store-concept-intro), which can be used for downstream apps, like knowledge mining or data science.
+1. The search index can be queried to access the enriched content. The index supports custom analyzers, fuzzy search queries, filters, and a scoring profile to tune search relevance.
+1. Access to the knowledge store can be achieved by any application that connects to Blob Storage or to Table Storage.  
 
 ### Components
 
@@ -39,7 +43,7 @@ Azure Cognitive Search works with other Azure components to provide this solutio
 
 - The [Text Analytics API](/azure/cognitive-services/text-analytics/overview) extracts text information from unstructured documents by using capabilities like [Named Entity Recognition (NER)](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking), [key phrase extraction](/azure/search/cognitive-search-skill-keyphrases), and [full-text search](/azure/search/search-lucene-query-architecture).
 
-- [Custom skills](/azure/search/cognitive-search-custom-skill-interface) extend Cognitive Search to apply specific enrichment transformations to content. The current example solution creates a custom skill to apply [CIA Cryptonyms](https://www.maryferrell.org/php/cryptdb.php), which decode uppercase code names in CIA documents. For example, the CIA assigned the cryptonym `GPFLOOR` to Lee Harvey Oswald, so the custom CIA Cryptonym skill links any JFK files containing that cryptonym with Oswald.
+- [Custom skills](/azure/search/cognitive-search-custom-skill-interface) extend Cognitive Search to apply specific enrichment transformations to content.
 
 #### Azure Functions
 
@@ -51,6 +55,8 @@ This example solution also builds a standalone web app in [Azure App Service](/a
 
 ## Scenario details
 
+The following scenario exemplifies the implementation of the example solution described above. 
+ 
 Large, unstructured datasets like the [JFK Files](https://www.archives.gov/research/jfk/2017-release), which contains over 34,000 pages of documents about the CIA investigation of the 1963 JFK assassination, include typewritten and handwritten notes, photos and diagrams, and other unstructured data that standard search solutions can't parse.
 
 *AI enrichment* in Azure Cognitive Search can extract and enhance searchable, indexable text from images, blobs, and other unstructured data sources like the JFK Files by using pre-trained machine learning skill sets from the Cognitive Services [Computer Vision](/azure/cognitive-services/computer-vision/home) and [Text Analytics](/azure/cognitive-services/text-analytics/overview) APIs. You can also create and attach [custom skills](/azure/search/cognitive-search-custom-skill-interface) to add special processing for domain-specific data like CIA Cryptonyms. Azure Cognitive Search can then index and search the context.
@@ -80,6 +86,7 @@ This example solution uses Azure Cognitive Search AI enrichment to extract meani
 
 Principal author:
 
+ * [Carlos Alexandre Santos](https://www.linkedin.com/in/carlosafsantos) | Senior Specialized AI Cloud Solution Architect
  * [Jose Contreras](https://www.linkedin.com/in/josedanielcontreras) | Principal Software Engineering Manager
 
 ## Next steps
@@ -104,3 +111,14 @@ Read product documentation:
 Try the learning path:
 
 - [Implement knowledge mining with Azure Cognitive Search](/learn/paths/implement-knowledge-mining-azure-cognitive-search)
+
+## Related resources
+
+See the related architectures and guidance:
+
+- [Intelligent product search engine for e-commerce](/azure/architecture/example-scenario/apps/ecommerce-search)
+- [Process free-form text for search](/azure/architecture/data-guide/scenarios/search)
+- [Keyword search and speech-to-text with OCR digital media](/azure/architecture/solution-ideas/articles/digital-media-speech-text)
+- [Suggest content tags with NLP using deep learning](/azure/architecture/solution-ideas/articles/website-content-tag-suggestion-with-deep-learning-and-nlp)
+- [Knowledge mining for content research](/azure/architecture/solution-ideas/articles/content-research)
+- [Knowledge mining in digital asset management](/azure/architecture/solution-ideas/articles/digital-asset-management)
