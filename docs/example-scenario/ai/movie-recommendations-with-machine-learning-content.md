@@ -2,7 +2,7 @@ The solution described in this article uses machine learning to create movie rec
 
 ## Architecture
 
-:::image type="content" alt-text="Architecture of a machine learning model for training movie recommendations" source="media/architecture-movie-recommender.png" lightbox="media/architecture-movie-recommender.png":::
+:::image type="content" alt-text="Diagram of the architecture of a machine learning model for training movie recommendations." source="media/architecture-movie-recommender.png" lightbox="media/architecture-movie-recommender.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/architecture-movie-recommender.vsdx) of this architecture.*
 
