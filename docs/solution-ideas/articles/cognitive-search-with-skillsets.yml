@@ -5,7 +5,7 @@ metadata:
   description: Transform latent information in your image and text data into full text searchable content with Azure Cognitive Search pre-built and custom skills.
   author: carlosasantos
   ms.author: cfernandesdo
-  ms.date: 08/02/2022
+  ms.date: 08/03/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
@@ -25,6 +25,6 @@ products:
   - azure-blob-storage
   - azure-cognitive-search
   - azure-functions
-thumbnailUrl: /azure/architecture/browse/thumbs/cognitive-search-for-ai-enrichment-thumbnail.png
+thumbnailUrl: /azure/architecture/browse/thumbs/cognitive-search-for-ai-enrichment.png
 content: |
   [!include[](cognitive-search-with-skillsets-content.md)]
