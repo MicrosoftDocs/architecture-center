@@ -381,4 +381,4 @@ In addition to front-end testing, the [Azure DevTest Labs](https://azure.microso
 
 ## More learning
 
-If you are new to Azure, review the interactive [Core Cloud Services - Introduction to Azure](/learn/modules/welcome-to-azure) module on [Microsoft Learn](/learn).
+If you are new to Azure, review the interactive [Core Cloud Services - Introduction to Azure](/learn/modules/welcome-to-azure) module.

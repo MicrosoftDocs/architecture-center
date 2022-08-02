@@ -8,10 +8,10 @@ This solution address the capability to deliver agile development architecture t
 
 ## Architecture
 
-![Architecture diagram](../media/sharepoint-farm-devtest.png)
+![Architecture diagram shows resource groups of storage, network, and virtual machines to SharePoint, Load Balancer, V P N gateway and finally to users.](../media/sharepoint-farm-devtest.png)
 *Download an [SVG](../media/sharepoint-farm-devtest.svg) of this architecture.*
 
-### Data flow
+### Dataflow
 
 1. Create resource group for the storage, network, and virtual machine, plus other dependent elements.
 1. Create a virtual network to host the virtual machines and load balancers for the deployment. Ensure the network has appropriate Network Security Groups implement to protect network traffic flow.
@@ -43,7 +43,7 @@ This solution address the capability to deliver agile development architecture t
 * [Virtual Network Documentation](/azure/virtual-network/virtual-networks-overview)
 * [Storage Documentation](/azure/storage/blobs/storage-blobs-introduction)
 * [Active Directory Documentation](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines)
-* [SharePoint Server Documentation](/sharepoint/administration/intranet-sharepoint-server-2016-in-azure-dev-test-environment)
+* [SharePoint Server Documentation](/sharepoint/administration/intranet-sharepoint-server-in-azure-dev-test-environment)
 * [SQL Server Documentation](/azure/azure-sql/virtual-machines/windows/create-sql-vm-portal)
 * [Load Balancer Documentation](/azure/load-balancer/load-balancer-standard-overview)
 * [ExpressRoute Documentation](/azure/expressroute)

@@ -14,7 +14,9 @@ In this scenario, the application consists of three layers:
 - **Business tier:** Processes the user interactions and determines the next steps. It connects the web and data tiers.
 - **Data tier:** Stores the application data, typically in a database, object storage, or files.
 
-:::image type="content" source="images/high-availability-multi-region.png" alt-text="Multi-region load balancing with Application Gateway and Traffic Manager." lightbox="images/high-availability-multi-region.png":::
+:::image type="content" source="images/high-availability-multi-region.png" alt-text="Diagram showing multi-region load balancing with Application Gateway and Traffic Manager." lightbox="images/high-availability-multi-region.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/high-availability-multi-region.vsdx) of this architecture.*
 
 > [!NOTE]
 > Azure provides a suite of fully managed load-balancing solutions. If you're looking for Transport Layer Security (TLS) protocol termination ("SSL offload") or per-HTTP/HTTPS request, application-layer processing, review [What is Azure Application Gateway?](/azure/application-gateway/overview). If you're looking for regional load balancing, review [Azure Load Balancer](/azure/load-balancer/load-balancer-overview). Your end-to-end scenarios might benefit from combining these solutions as needed.
@@ -123,7 +125,7 @@ For considerations about designing a health probe endpoint, see [Health Endpoint
 
 ## Security considerations
 
-- Use [DDoS Protection Standard](/azure/ddos-protection/ddos-protection-overview) for greater DDoS protection than the basic protection that Azure provides. For more information, see [Security considerations](../reference-architectures/n-tier/n-tier-sql-server.yml#security-considerations).
+- Use [DDoS Protection Standard](/azure/ddos-protection/ddos-protection-overview) for greater DDoS protection than the basic protection that Azure provides. For more information, see [Security considerations](../reference-architectures/n-tier/n-tier-sql-server.yml#security).
 - Use [Network Security Groups (NSGs)](/azure/virtual-network/network-security-groups-overview) to restrict network traffic within the virtual network. For example, in the three-tier architecture shown here, the database tier accepts traffic only from the business tier and the Bastion subnet, not from the web front end.
 
 ### Network Security Groups

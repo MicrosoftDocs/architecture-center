@@ -6,6 +6,8 @@ Other Microsoft security components can integrate with Azure AD to provide addit
 
 These Microsoft security solutions are extensible and have multiple levels of protection. Organizations can implement one or more of these solutions along with other types of protection for a full security architecture that protects current and future AWS deployments.
 
+## Potential use cases
+
 This article provides AWS identity architects, administrators, and security analysts with immediate insights and detailed guidance for deploying several Microsoft security solutions.
 
 ## Architecture
@@ -13,6 +15,8 @@ This article provides AWS identity architects, administrators, and security anal
 This diagram summarizes how AWS installations can benefit from key Microsoft security components:
 
 ![Diagram showing the benefits of implementing Azure security for AWS.](media/benefits.png)
+
+### Workflow
 
 - Azure AD provides centralized *single sign-on (SSO)* and strong authentication through *multi-factor authentication (MFA)* and *Conditional Access*. Azure AD supports AWS role-based identities and authorization for access to AWS resources. For more information and detailed instructions, see [Azure AD identity and access management for AWS](aws-azure-ad-security.yml).
 
@@ -43,7 +47,9 @@ Threats can come from a wide range of devices, applications, locations, and user
 
 Connect both AWS and Defender for Cloud Apps into Microsoft Sentinel to get Defender for Cloud Apps alerts and run additional threat checks using multiple Threat Intelligence feeds. Microsoft Sentinel can initiate a coordinated response outside of Defender for Cloud Apps, integrate with IT Service Management (ITSM) solutions, and retain data long term for compliance purposes.
 
-## Security recommendations
+## Recommendations
+
+### Security recommendations
 
 The following principles and guidelines are important for any cloud security solution:
 
@@ -59,7 +65,7 @@ The following principles and guidelines are important for any cloud security sol
 
 - Take advantage of solutions you might already own like Azure AD Premium P2 that can increase security without additional expense.
 
-### Basic AWS account security
+#### Basic AWS account security
 
 To ensure basic security hygiene for AWS accounts and resources:
 
@@ -72,7 +78,9 @@ To ensure basic security hygiene for AWS accounts and resources:
   - Specific workload platforms, like Windows Server, Linux Server, or containers.
   - Devices that administrators and developers use to access the AWS Management Console.
 
-## Plan and prepare
+## Deploy this scenario
+
+### Plan and prepare
 
 To prepare for deployment of Azure security solutions, review and record current AWS and Azure AD account information. If you have more than one AWS account deployed, repeat these steps for each account.
 
@@ -90,7 +98,7 @@ To prepare for deployment of Azure security solutions, review and record current
    - Assess **Tenant information** to see whether the tenant has an Azure AD Premium P1 or P2 license. A P2 license provides [Advanced Azure AD identity management](aws-azure-ad-security.yml#advanced-azure-ad-identity-management-with-aws-accounts) features.
    - Assess **Enterprise applications** to see whether any existing applications use the AWS application type, as shown by `http://aws.amazon.com/` in the **Homepage URL** column.
 
-## Deploy Defender for Cloud Apps
+### Deploy Defender for Cloud Apps
 
 Once you deploy the central management and strong authentication that modern identity and access management require, you can implement Defender for Cloud Apps to:
 - Collect security data and carry out threat detections for AWS accounts.
@@ -105,7 +113,7 @@ To deploy Defender for Cloud Apps, you:
 1. Configure Azure AD session policies for AWS activities.
 1. Test Defender for Cloud Apps policies for AWS.
 
-### Add an AWS app connector
+#### Add an AWS app connector
 
 1. In the [Defender for Cloud Apps portal](https://portal.cloudappsecurity.com), expand **Investigate** and then select **Connected apps**.
 
@@ -123,7 +131,7 @@ The initial connection may take some time, depending on the AWS account log size
 
 :::image type="content" source="media/connect-app.png" alt-text="Screenshot of a successfully completed app connection.":::
 
-### Configure Defender for Cloud Apps monitoring policies for AWS activities
+#### Configure Defender for Cloud Apps monitoring policies for AWS activities
 
 Once the app connector is enabled, Defender for Cloud Apps shows new templates and options in the policy configuration builder. You can create policies directly from the templates and modify them for your needs, or develop a policy without using the templates.
 
@@ -151,7 +159,7 @@ As Defender for Cloud Apps detects alerts, it displays them on the **Alerts** pa
 
 :::image type="content" source="media/alerts.png" alt-text="Screenshot showing alerts in the Defender for Cloud Apps portal.":::
 
-### Create an Enterprise Application for Single Sign On to AWS
+#### Create an Enterprise Application for Single Sign On to AWS
 
 Follow the instructions at [Tutorial: Azure Active Directory Single sign-on (SSO) integration with AWS Single Sign-on](/azure/active-directory/saas-apps/aws-single-sign-on-tutorial?WT.mc_id=wwc_spark) to create an enterprise application for single sign-on to AWS.
 
@@ -162,7 +170,7 @@ Follow the instructions at [Tutorial: Azure Active Directory Single sign-on (SSO
    1. Create an AWS Single Sign-on test user.
    1. Test SSO.
 
-### Create a Conditional Acccess App Control Application in Defender for Cloud Apps
+#### Create a Conditional Acccess App Control Application in Defender for Cloud Apps
 
 1. Go to [Defender for Cloud Apps portal](https://portal.cloudappsecurity.com), select **Investigate**, and select **Connected Apps**.
 
@@ -200,7 +208,7 @@ Follow the instructions at [Tutorial: Azure Active Directory Single sign-on (SSO
 
     ![Screenshot of selecting Close.](https://user-images.githubusercontent.com/90685955/135986146-f607b677-c5eb-4ef0-9a2a-3bff86a05022.png)
 
-### Configure Azure AD session policies for AWS activities
+#### Configure Azure AD session policies for AWS activities
 
 Session policies are a powerful combination of Azure AD Conditional Access policies and Defender for Cloud Apps reverse proxy capability that provide real-time suspicious behavior monitoring and control.
 
@@ -233,7 +241,7 @@ After you create the Azure AD Conditional Access policy, set up a Defender for C
 
 1. Review the other settings, and then select **Create**.
 
-### Test Defender for Cloud Apps policies for AWS
+#### Test Defender for Cloud Apps policies for AWS
 
 Test all policies regularly to ensure they're still effective and relevant. Here are a few recommended tests:
 
@@ -245,11 +253,11 @@ Test all policies regularly to ensure they're still effective and relevant. Here
 
 - **Malware detection policy**: If you configured malware detection as a session policy, you can test it by uploading a file to an AWS S3 storage account. You can download a safe test file from the [European Institute for Computer Anti-Virus Research (EICAR)](https://www.eicar.org/). The policy should immediately block you from uploading the file, and you should see the alert trigger in the Defender for Cloud Apps portal shortly afterwards.
 
-## Deploy Microsoft Sentinel
+### Deploy Microsoft Sentinel
 
 Connecting an AWS account and Defender for Cloud Apps to Microsoft Sentinel enables monitoring capabilities that compare events across multiple firewalls, network devices, and servers.
 
-### Enable the Microsoft Sentinel AWS connector
+#### Enable the Microsoft Sentinel AWS connector
 
 After you enable the Microsoft Sentinel Connector for AWS, you can monitor AWS incidents and data ingestion.
 
@@ -294,7 +302,7 @@ Enabled templates have an **IN USE** indicator on the connector details page:
 
 :::image type="content" source="media/templates.png" alt-text="Screenshot showing templates in use on the connector details page.":::
 
-### Monitor AWS incidents
+#### Monitor AWS incidents
 
 Microsoft Sentinel creates incidents based on the enabled analyses and detections. Each incident can include one or more events, which reduces the overall number of investigations necessary to detect and respond to potential threats.
 
@@ -302,7 +310,7 @@ Microsoft Sentinel shows incidents generated by Defender for Cloud Apps, if conn
 
 :::image type="content" source="media/incidents.png" alt-text="Screenshot showing incident source in the Product names column.":::
 
-### Check data ingestion
+#### Check data ingestion
 
 Check that data is continuously ingested into Microsoft Sentinel by regularly viewing the connector details. The following graph shows a new connection:
 
@@ -310,13 +318,16 @@ Check that data is continuously ingested into Microsoft Sentinel by regularly vi
 
 If the data stops ingesting and the graph drops, check the credentials used to connect to the AWS account, and check that AWS CloudTrail can still collect the events.
 
-## See also
+## Next steps
 
-- For in-depth coverage and comparison of Azure and AWS features, see the [Azure for AWS professionals](../../aws-professional/index.md) content set.
 - For security guidance from AWS, see [Best practices for securing AWS accounts and resources](https://aws.amazon.com/premiumsupport/knowledge-center/security-best-practices/).
 - For the latest Microsoft security information, see [www.microsoft.com/security](https://www.microsoft.com/security).
 - For full details of how to implement and manage Azure AD, see [Securing Azure environments with Azure Active Directory](https://aka.ms/AzureADSecuredAzure).
-- [Azure AD identity and access management for AWS](aws-azure-ad-security.yml).
-- [Connect AWS to Microsoft Defender for Cloud Apps](/cloud-app-security/connect-aws-to-microsoft-cloud-app-security).
-- [How Defender for Cloud Apps helps protect your Amazon Web Services (AWS) environment](/cloud-app-security/protect-aws).
-- [Connect Microsoft Sentinel to AWS CloudTrail](/azure/sentinel/connect-aws).
+- [Connect AWS to Microsoft Defender for Cloud Apps](/cloud-app-security/connect-aws-to-microsoft-cloud-app-security)
+- [How Defender for Cloud Apps helps protect your Amazon Web Services (AWS) environment](/cloud-app-security/protect-aws)
+- [Connect Microsoft Sentinel to AWS CloudTrail](/azure/sentinel/connect-aws)
+
+## Related resources
+
+- For in-depth coverage and comparison of Azure and AWS features, see the [Azure for AWS professionals](../../aws-professional/index.md) content set.
+- [Azure AD identity and access management for AWS](aws-azure-ad-security.yml)

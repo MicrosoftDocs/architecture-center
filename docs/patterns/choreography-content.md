@@ -136,7 +136,7 @@ public async Task<IActionResult> Post([FromBody] EventGridEvent[] events)
 }
 ```
 
-## Related guidance
+## Related resources
 
 Consider these patterns in your design for choreography.
 

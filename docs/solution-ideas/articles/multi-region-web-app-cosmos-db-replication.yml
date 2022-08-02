@@ -5,7 +5,7 @@ metadata:
   description: Architecture for a high-availability solution that handles massive amounts of data. It uses Azure Cosmos DB and serves multiple regions.
   author: nabilshams
   ms.author: nasiddi
-  ms.date: 05/31/2022
+  ms.date: 06/17/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea

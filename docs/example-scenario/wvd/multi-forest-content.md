@@ -2,20 +2,22 @@ Many organizations desire to leverage Azure Virtual Desktop (AVD) and create env
 
 ## Architecture
 
-:::image type="content" source="images/wvd-multi-forest-adds.png" alt-text="Azure Virtual Desktop with AD Domain Services" lightbox="images/wvd-multi-forest-adds.png":::
+:::image type="content" source="images/azure-virtual-desktop-multi-forest-adds.png" alt-text="Diagram showing Azure Virtual Desktop with AD Domain Services." lightbox="images/azure-virtual-desktop-multi-forest-adds.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/azure-virtual-desktop-multi-forest-adds.vsdx) of this architecture.*
 
 ### Dataflow
 
 In this architecture, the identity flow works as follows.
 
 1. Azure AD Connect syncs users from both CompanyA.com and CompanyB.com to Azure AD tenant (NewCompanyAB.onmicrosoft.com).
-2. Host pools, workspaces, and app groups are created in the respective subscriptions and spoke virtual networks.
-3. Users are assigned to the app groups.
-4. AVD session hosts in the host pools join the domains CompanyA.com and CompanyB.com using the domain controllers in Azure.
-5. Users sign in using either the [AVD Desktop](/azure/virtual-desktop/connect-windows-7-10#install-the-windows-desktop-client) or a [web client](/azure/virtual-desktop/connect-web) with the corresponding format: user@NewCompanyA.com, user@CompanyB.com, or user@NewCompanyAB.com, depending on the UPN suffix configured.
-6. Users are presented with their respective virtual desktops or apps. For example, users in CompanyA will be presented with virtual desktops or apps in Workspace A, host pool 1 or 2.
-7. FSLogix user profiles are created in Azure Files shares on the corresponding storage accounts.
-8. Group Policy Objects (GPO) synced from on-premises are applied to users and AVD session hosts.
+1. Host pools, workspaces, and app groups are created in the respective subscriptions and spoke virtual networks.
+1. Users are assigned to the app groups.
+1. AVD session hosts in the host pools join the domains CompanyA.com and CompanyB.com using the domain controllers in Azure.
+1. Users sign in using either the [AVD Desktop](/azure/virtual-desktop/connect-windows-7-10#install-the-windows-desktop-client) or a [web client](/azure/virtual-desktop/connect-web) with the corresponding format: user@NewCompanyA.com, user@CompanyB.com, or user@NewCompanyAB.com, depending on the UPN suffix configured.
+1. Users are presented with their respective virtual desktops or apps. For example, users in CompanyA will be presented with virtual desktops or apps in Workspace A, host pool 1 or 2.
+1. FSLogix user profiles are created in Azure Files shares on the corresponding storage accounts.
+1. Group Policy Objects (GPO) synced from on-premises are applied to users and AVD session hosts.
 
 ### Components
 
@@ -44,6 +46,10 @@ This architecture diagram shows a typical scenario that involves the following:
 - The AVD session hosts are joined to domain controllers in Azure, that is, companyA session hosts join the companyA.local domain, and CompanyB session hosts join the CompanyB.local domain.
 - Azure Storage accounts can leverage [Azure Files for FSLogix profiles](/azure/virtual-desktop/FSLogix-containers-azure-files). One account is created per company domain (that is, companyA.local and companyB.local), and joined to the corresponding domain.
 
+> [!NOTE]
+  > Active Directory Domain Services (AD DS) is a self-managed, on-premises component in many hybrid environments, whereas Azure Active Directory Domain Services (Azure AD DS) provides managed domain services with a subset of fully-compatible traditional AD DS features such as domain join, group policy, *LDAP*, and *Kerberos*/*NTLM* authentication. Read a detailed comparison of these components in [Compare self-managed Active Directory Domain Services, Azure Active Directory, and managed Azure Active Directory Domain Services](/azure/active-directory-domain-services/compare-identity-solutions). </br>
+  > The solution idea [Multiple AVD forests using Azure Active Directory Domain Services](./multi-forest-azure-managed.yml) discusses this architecture using the cloud-managed [Azure AD DS](/azure/active-directory-domain-services/overview).
+
 ### Potential use cases
 
 The following are some relevant use cases for this architecture:
@@ -51,10 +57,6 @@ The following are some relevant use cases for this architecture:
 - Mergers and acquisitions, organization rebranding, and multiple on-premises identities.
 - [Complex on-premises active directory environments (multi-forest, multi-domains, group policy (or GPO) requirements, and legacy authentication)](/azure/active-directory-domain-services/concepts-resource-forest).
 - Use of on-premises GPO infrastructure with AVD.
-
-> [!NOTE]
-  > Active Directory Domain Services (AD DS) is a self-managed, on-premises component in many hybrid environments, whereas Azure Active Directory Domain Services (Azure AD DS) provides managed domain services with a subset of fully-compatible traditional AD DS features such as domain join, group policy, *LDAP*, and *Kerberos*/*NTLM* authentication. Read a detailed comparison of these components in [Compare self-managed Active Directory Domain Services, Azure Active Directory, and managed Azure Active Directory Domain Services](/azure/active-directory-domain-services/compare-identity-solutions). </br>
-  > The solution idea [Multiple AVD forests using Azure Active Directory Domain Services](./multi-forest-azure-managed.yml) discusses this architecture using the cloud-managed [Azure AD DS](/azure/active-directory-domain-services/overview).
 
 ## Considerations
 
@@ -90,6 +92,14 @@ The following identity topologies are supported:
 - A full mesh topology allows users and resources to be in any forest. Commonly, there are two-way trusts between the forests.
 
 For more details, read the [Staging server section of Azure AD Connect topologies](/azure/active-directory/hybrid/plan-connect-topologies#staging-server).
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Tom Maher](https://www.linkedin.com/in/tommaherlink) | Senior Security and Identity Engineer
 
 ## Next steps
 

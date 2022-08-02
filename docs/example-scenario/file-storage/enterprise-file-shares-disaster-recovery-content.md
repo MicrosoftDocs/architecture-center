@@ -79,6 +79,14 @@ The cost of the solution depends on the size of the volume that's replicated, th
 
 See [Cost model for cross-region replication](/azure/azure-netapp-files/cross-region-replication-introduction#cost-model-for-cross-region-replication) for more examples.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+ * [Max Melcher](https://de.linkedin.com/in/maxmelcher) | Cloud Solution Architect
+
 ## Next steps
 
 - [Register for NetApp Resource Provider](/azure/azure-netapp-files/azure-netapp-files-register)

@@ -1,24 +1,10 @@
-
-
-This article summarizes the process and components the Microsoft Commercial Software Engineering (CSE) team used to build a solution for a banking customer. For the sake of anonymity, the article refers to the customer as Contoso Bank. It's a major international Financial Services Industry (FSI) organization that wanted to modernize one of its financial transaction systems.
-
-Contoso Bank wanted to use simulated and actual applications and existing workloads to monitor the reaction of the solution infrastructure for scalability and performance. The solution had to be compatible with the requirements of the existing payment system.
-
-## Potential use cases
-
-Contoso Bank wanted to use a set of simulations to:
-
-* Determine the impact of infrastructure scalability.
-
-* Determine the reaction to failures in the existing architectural design of specific mainframe software.
-
-The proposed solution would use a virtual application to simulate functional scenarios. Its purpose would be to monitor the performance and scalability of the infrastructure. The aim was to determine the impact of failures in the mainframe Electronic Funds Transfer (EFT) system workloads through this set of simulations.
-
-There was also a requirement to propose a smooth DevOps transition from on-premises to the cloud. The transition had to include the bank's process and methodology, and it had to  use Contoso Bank's existing tools. Using existing technologies would reduce the up-skill impact for the developers. The transition would assist Contoso Bank in reviewing current and future design decisions. The transition would also provide confidence that Azure is an environment robust enough to host the new distributed systems.
+This article summarizes the process and components the Microsoft Commercial Software Engineering (CSE) team used to build a solution for a banking customer. For the sake of anonymity, the article refers to the customer as Contoso Bank. It's a major international financial services industry (FSI) organization that wanted to modernize one of its financial transaction systems.
 
 ## Architecture
 
-![Diagram showing a full solution architecture for a banking system cloud transformation.](./images/banking-system-solution-arch.png)
+:::image type="content" border="false" source="./images/banking-system-solution-arch.png" alt-text="Diagram showing a full solution architecture for a banking system cloud transformation." lightbox="./images/banking-system-solution-arch.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/banking-system-solution-arch.vsdx) of this architecture.*
 
 Three main blocks make up the solution: back-end services, load testing, and monitoring with Event Autoscaler.
 
@@ -32,7 +18,7 @@ The actual Contoso microservices containers were manually pushed through Docker 
 
 * Azure Kubernetes Services (AKS) for the node autoscaler for Channel Holder.
 
- The CSE team created the other microservices as stubs to specifically isolate the actual Contoso microservices from other external mainframe services that the solution pushed through AzureDevOps Pipelines.
+ The CSE team created the other microservices as stubs to specifically isolate the actual Contoso microservices from other external mainframe services that the solution pushed through Azure Pipelines.
 
 ### Workflow
 
@@ -52,7 +38,7 @@ At the core, the backend services provide the necessary logic for an EFT to happ
 
 1. One of these services is the EFT Processor, where the solution effectuates the actual transaction, carrying out credit and debit operations.
 
-    The CSE team used [KEDA](https://keda.sh/). It's a framework that automatically scales applications based on the load of messages the solution processed. In the solution, it was used to scale the EFT Processor as the solution processed new EFTs.
+    The CSE team used [KEDA](https://keda.sh). It's a framework that automatically scales applications based on the load of messages the solution processed. In the solution, it was used to scale the EFT Processor as the solution processed new EFTs.
 
     KEDA is only supported on AKS.
 
@@ -161,6 +147,24 @@ The list below summarizes the technologies that the CSE team used to create this
   * [Apache JMeter](https://jmeter.apache.org)
 
   * [Redis](https://redis.io)
+
+## Scenario details
+
+Contoso Bank is a major international financial services industry (FSI) organization that wanted to modernize one of its financial transaction systems.
+
+Contoso Bank wanted to use simulated and actual applications and existing workloads to monitor the reaction of the solution infrastructure for scalability and performance. The solution had to be compatible with the requirements of the existing payment system.
+
+### Potential use cases
+
+Contoso Bank wanted to use a set of simulations to:
+
+* Determine the impact of infrastructure scalability.
+
+* Determine the reaction to failures in the existing architectural design of specific mainframe software.
+
+The proposed solution would use a virtual application to simulate functional scenarios. Its purpose would be to monitor the performance and scalability of the infrastructure. The aim was to determine the impact of failures in the mainframe Electronic Funds Transfer (EFT) system workloads through this set of simulations.
+
+There was also a requirement to propose a smooth DevOps transition from on-premises to the cloud. The transition had to include the bank's process and methodology, and it had to  use Contoso Bank's existing tools. Using existing technologies would reduce the up-skill impact for the developers. The transition would assist Contoso Bank in reviewing current and future design decisions. The transition would also provide confidence that Azure is an environment robust enough to host the new distributed systems.
 
 ## Considerations
 
@@ -280,7 +284,7 @@ At the end of the project, the CSE team shared the following insights:
 
   * The load testing potential to find microservices side effects is frequently underestimated by customers.
 
-  * Creating a test environment may require an infrastructure disposal strategy to avoid unnecessary infrastructure cost.
+  * Creating a test environment might require an infrastructure disposal strategy to avoid unnecessary infrastructure cost.
 
 * Key learnings
 
@@ -288,13 +292,13 @@ At the end of the project, the CSE team shared the following insights:
 
   * The node autoscaling feature wasn't available on Red Hat OpenShift version 3.11, which was the version used during the engagement. As such, the CSE team carried out node autoscaling testing scenarios through AKS.
 
-  * A product's end-of-life may require creative customizations. A preparation phase plays an important role when the team delivers a successful solution.
+  * A product's end-of-life might require creative customizations. A preparation phase plays an important role when the team delivers a successful solution.
 
-  * The CSE team recommended the use of the [Cloud Load Testing (CLT)](/rest/api/azure/devops/clt) functionality in [Azure Test Plans](https://azure.microsoft.com/services/devops/test-plans/) with Apache JMeter tests. Unfortunately, during the investigation phase, the team identified that the Azure Test Plans team deprecated this functionality. The team had to create a new solution integrating ACI and JMeter in the pipeline.
+  * The CSE team recommended the use of the [Cloud Load Testing (CLT)](/rest/api/azure/devops/clt) functionality in [Azure Test Plans](https://azure.microsoft.com/services/devops/test-plans) with Apache JMeter tests. Unfortunately, during the investigation phase, the team identified that the Azure Test Plans team deprecated this functionality. The team had to create a new solution integrating ACI and JMeter in the pipeline.
 
   * The team recommended the use of the Azure Event Hubs for Kafka, but for Contoso Bank, schema registry was an important feature. To attend to Contoso Bank in the requested time frame, the team had to consider the use of schema registry in another instance of AKS.
 
-  * The Kafka protocol with Schema Registry was not supported by Event Hub Scaler in KEDA.
+  * The Kafka protocol with Schema Registry was not supported by Event Hubs Scaler in KEDA.
 
 ## Next steps
 

@@ -3,8 +3,8 @@ metadata:
   title: Deploy highly available NVAs
   description: Learn how to deploy network virtual appliances for high availability architectures for ingress, egress, and both in Azure.
   author: telmosampaio
-  ms.author: pnp
-  ms.date: 12/08/2018
+  ms.author: telmosampaio
+  ms.date: 06/23/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture
@@ -25,6 +25,6 @@ products:
   - azure-functions
   - azure-traffic-manager
   - azure-virtual-machines
-thumbnailUrl: /azure/architecture/browse/thumbs/pip-udr-without-snat.png
+thumbnailUrl: /azure/architecture/browse/thumbs/nvaha-load-balancer-internet-thumb.png
 content: |
    [!include[](nva-ha-content.md)]

@@ -4,8 +4,6 @@ This reference architecture shows how to connect an on-premises network to virtu
 
 ![[0]][0]
 
-*Download a [Visio file][visio-download] of this architecture.*
-
 ### Workflow
 
 The architecture consists of the following components.
@@ -253,14 +251,6 @@ All application tiers are hosted in a single virtual network and are segmented u
 
 Azure Virtual Network is free. Every subscription is allowed to create up to 50 virtual networks across all regions. All traffic that occurs within the boundaries of a virtual network is free. So, communication between two VMs in the same virtual network is free.
 
-#### Virtual machine and internal load balancers
-
-In this architecture, internal load balancers are used to load balance traffic inside a virtual network. Basic load balancing between virtual machines that reside in the same virtual network is free.
-
-Virtual machine scale sets are available on all Linux and windows VM sizes. You are only charged for the Azure VMs you deploy and underlying infrastructure resources consumed such as storage and networking. There are no incremental charges for the virtual machine scale sets service.
-
-For more information, see [Azure VM pricing][linux-vms-pricing].
-
 ## Next steps
 
 Product documentation:
@@ -280,7 +270,7 @@ Microsoft Learn modules:
 
 - [Hybrid architecture design](../../hybrid/hybrid-start-here.md)
 - [Connect an on-premises network to Azure using ExpressRoute](../../reference-architectures/hybrid-networking/expressroute-vpn-failover.yml)
-- [Extend an on-premises network using VPN](../../reference-architectures/hybrid-networking/vpn.yml)
+- [Extend an on-premises network using VPN](/azure/expressroute/expressroute-howto-coexist-resource-manager)
 
 <!-- links -->
 
@@ -297,9 +287,7 @@ Microsoft Learn modules:
 [expressroute-pricing]: https://azure.microsoft.com/pricing/details/expressroute/
 [aaf-cost]: /azure/architecture/framework/cost/overview
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
-[linux-vms-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/linux
 [azurect]: https://github.com/Azure/NetworkMonitoring/tree/master/AzureCT
-[visio-download]: https://arch-center.azureedge.net/hybrid-network-architectures.vsdx
 [0]: ./images/expressroute.png "Hybrid network architecture using Azure ExpressRoute"
 [1]: ../_images/guidance-hybrid-network-expressroute/figure2.png "Using redundant routers with ExpressRoute primary and secondary circuits"
 [2]: ../_images/guidance-hybrid-network-expressroute/figure3.png "Adding security devices to the on-premises network"

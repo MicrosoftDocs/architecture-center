@@ -222,7 +222,7 @@ Martin Fowler's blog posts:
 - [What do you mean by "Event-Driven"?](https://martinfowler.com/articles/201701-event-driven.html)
 - [CQRS](https://martinfowler.com/bliki/CQRS.html)
 
-## Related guidance
+## Related resources
 
 - [Event Sourcing pattern](./event-sourcing.yml). Describes in more detail how Event Sourcing can be used with the CQRS pattern to simplify tasks in complex domains while improving performance, scalability, and responsiveness. As well as how to provide consistency for transactional data while maintaining full audit trails and history that can enable compensating actions.
 

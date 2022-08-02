@@ -2,8 +2,8 @@
 title: Choose an analytical data store
 description: Evaluate analytical data store options for big data in Azure, including key selection criteria and a capability matrix.
 author: EdPrice-MSFT
-ms.author: pnp
-ms.date: 5/18/2021
+ms.author: architectures
+ms.date: 07/25/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -104,3 +104,11 @@ The following tables summarize the key differences in capabilities.
 [3] Filter predicates only. See [Row-Level Security](/sql/relational-databases/security/row-level-security)
 
 [4] When used within an Azure Virtual Network. See [Extend Azure HDInsight using an Azure Virtual Network](/azure/hdinsight/hdinsight-extend-hadoop-virtual-network).
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+- [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect

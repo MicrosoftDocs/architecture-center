@@ -160,7 +160,7 @@ This table adds scheduling options to the triggers.
 | Azure Monitor | Application Insights<br>Azure Dashboards |
 | Power BI | Analytics and Reports |
 
-## Resources
+## Related resources
 
 * [Technical Paper: MLOps framework to upscale machine learning lifecycle with Azure Machine Learning](mlops-technical-paper.yml)
 * [MLOps maturity model](mlops-maturity-model.yml)

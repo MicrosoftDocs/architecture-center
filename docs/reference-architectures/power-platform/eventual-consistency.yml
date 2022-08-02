@@ -4,8 +4,8 @@ metadata:
   titleSuffix: Azure Architecture Center
   description: Handle dependent data in a resilient way in Power Apps.
   author: EdPrice-MSFT
-  ms.author: pnp
-  ms.date: 11/22/2021
+  ms.author: architectures
+  ms.date: 07/28/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture

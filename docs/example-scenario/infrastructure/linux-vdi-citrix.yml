@@ -2,10 +2,10 @@
 metadata:
   title: Linux virtual desktops with Citrix
   titleSuffix: Azure Example Scenarios
-  description: This example uses a Citrix-based solution to create a Virtual Desktop Infrastructure for Linux desktops on Azure.
+  description: Use a Citrix-based solution to create a Virtual Desktop Infrastructure for Linux desktops on Azure.
   author: miguelangelopereira
   ms.author: v-mpereirado
-  ms.date: 09/12/2018
+  ms.date: 06/16/2012
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
@@ -20,7 +20,7 @@ metadata:
 name: Linux virtual desktops with Citrix
 azureCategories:
   - compute
-summary: This example uses a Citrix-based solution to create a Virtual Desktop Infrastructure for Linux desktops on Azure.
+summary: Use a Citrix-based solution to create a Virtual Desktop Infrastructure for Linux desktops on Azure.
 products:
   - azure-load-balancer
   - azure-sql-database

@@ -2,15 +2,19 @@
 
 Get insights from live streaming data with ease. Capture data continuously from any IoT device, or logs from website clickstreams, and process it in near-real time.
 
+## Potential use cases
+
+This solution is ideal for the media and entertainment industry. The scenario is for building analytics from live streaming data. It can be implemented by various organizations.
+
 ## Architecture
 
-:::image type="content" source="../media/real-time-analytics.png" alt-text="Diagram of a real time analytics on big data architecture using Azure Synapse Analytics with Azure Data Lake Storage Gen2, Event Hub, Azure Analysis Services, Azure Cosmos DB, and Power BI." border="false":::
+:::image type="content" source="../media/real-time-analytics.png" alt-text="Diagram of a real-time analytics solution on big data architecture using Azure Synapse Analytics with Azure Data Lake Storage Gen2, Event Hub, Azure Analysis Services, Azure Cosmos DB, and Power BI." border="false":::
 
-*Download an [SVG](../media/real-time-analytics.svg) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/real-time-analytics.vsdx) of this architecture.*
 
 ### Dataflow
 
-1. Easily ingest live streaming data for an application using Azure Event Hubs.
+1. Easily ingest live streaming data for an application, by using Azure Event Hubs.
 1. Bring together all your structured data using Synapse Pipelines to Azure Blob Storage.
 1. Take advantage of Apache Spark pools to clean, transform, and analyze the streaming data, and combine it with structured data from operational databases or data warehouses.
 1. Use scalable machine learning/deep learning techniques, to derive deeper insights from this data, using Python, Scala, or .NET, with notebook experiences in Apache Spark pools.
@@ -49,3 +53,11 @@ Get insights from live streaming data with ease. Capture data continuously from 
 * [Azure Cosmos DB Documentation](/azure/cosmos-db)
 * [Analysis Services Documentation](/azure/analysis-services)
 * [Power BI Documentation](/power-bi)
+
+## Related resources
+
+* [Analytics end-to-end with Azure Synapse](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end)
+* [Geospatial analysis with Azure Synapse Analytics](/azure/architecture/industries/aerospace/geospatial-processing-analytics)
+* [Big data analytics with enterprise-grade security using Azure Synapse](/azure/architecture/solution-ideas/articles/big-data-analytics-enterprise-grade-security)
+* [High throughput stream ingestion to Azure Synapse](/azure/architecture/example-scenario/data/stream-ingestion-synapse)
+* [Query a data lake or lakehouse by using Azure Synapse serverless](/azure/architecture/example-scenario/data/synapse-exploratory-data-analytics)

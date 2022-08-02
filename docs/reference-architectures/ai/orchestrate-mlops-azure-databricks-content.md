@@ -1,18 +1,10 @@
-This scenario describes an approach to [machine learning operations
-(MLOps)](/azure/machine-learning/concept-model-management-and-deployment) that involves running model training and batch scoring on Azure Databricks using Databricks Notebook as an orchestrator, as well as managing the end-to-end machine learning life cycle using the open-source
-[MLflow](/azure/databricks/applications/mlflow/) platform.
-
-## Potential use cases
-
-While using large datasets (millions of records) for model training and batch scoring, MLOps stages like feature engineering, model training, and others can become long-running processes. To ensure that these long-running tasks are handled properly and that each stage proceeds resiliently, it is critically important to manage, monitor, and operate the MLOps stages with a high degree of control and flexibility.
-
-Using an MLflow project is a common approach to orchestrating different MLOps stages. However, limitations in hosting and deployment systems may make it difficult to operate stages resiliently using MLflow. As an alternative, you can use Databricks Notebook as an orchestrator that manages the different MLOps stages needed for model training or batch scoring.
-
-A Databricks Notebook orchestrator can be executed using a Databricks job on an existing Databricks cluster or a new cluster, an approach that allows you to gain more control over orchestration by taking advantage of additional Databricks features such as widgets, notebook-scoped libraries, jobs, and more.
+This scenario describes an approach to [machine learning operations (MLOps)](/azure/machine-learning/concept-model-management-and-deployment) that involves running model training and batch scoring on Azure Databricks using Databricks Notebook as an orchestrator, as well as managing the end-to-end machine learning life cycle using the open-source [MLflow](/azure/databricks/applications/mlflow/) platform.
 
 ## Architecture
 
-![](_images/orchestrate-mlops-azure-databricks-01.jpg)
+![Diagram showing how to orchestrate MLOps on Azure.](_images/orchestrate-mlops-azure-databricks-01.jpg)
+
+### Workflow
 
 The process in this scenario works as follows:
 
@@ -32,7 +24,7 @@ The process in this scenario works as follows:
 
 3. Trigger or schedule model training or batch scoring of Azure Databricks jobs with required parameters.
 
-4. Azure Databricks job invokes it's respective orchestrator notebook.
+4. Azure Databricks job invokes its respective orchestrator notebook.
 
 5. The orchestrator notebook executes a magic Python "pip" command to install ML and MLOps wheel packages as notebook-scoped libraries.
 
@@ -60,6 +52,40 @@ The process in this scenario works as follows:
 
     4. Azure Monitor is used for overall monitoring of Azure Databricks clusters.
 
+### Components
+
+This scenario uses the following components:
+
+-  [MLOps](/azure/machine-learning/concept-model-management-and-deployment), based on DevOps principles and practices that increase the efficiency of workflows.
+
+-  [MLflow](/azure/databricks/applications/mlflow/), an open-source platform for managing the end-to-end machine learning life cycle.
+
+-  [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks), a data analytics platform optimized for the Microsoft Azure cloud services platform.
+
+-  [Azure Blob storage](/azure/storage/blobs/storage-blobs-overview), Microsoft's object storage solution for the cloud. Blob storage is optimized for storing massive amounts of unstructured data.
+
+-  [Azure Monitor](/azure/azure-monitor/overview), a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments.
+
+### Alternatives
+
+If you are able to create new Databricks clusters and can interact with external systems like MLflow CLI, you can also consider running these types of workloads using MLflow projects. See [Run MLflow Projects on Azure Databricks](/azure/databricks/applications/mlflow/projects).
+
+If your workloads heavily rely on remote execution using Azure Machine Learning and a containerized deployment solution like Azure Kubernetes Service (AKS), MLflow may also be a better fit for your needs. See [MLflow and Azure Machine Learning](/azure/machine-learning/concept-mlflow#train-mlflow-projects).
+
+## Scenario details
+
+This scenario describes an approach to [machine learning operations
+(MLOps)](/azure/machine-learning/concept-model-management-and-deployment) that involves running model training and batch scoring on Azure Databricks using Databricks Notebook as an orchestrator, as well as managing the end-to-end machine learning life cycle using the open-source
+[MLflow](/azure/databricks/applications/mlflow/) platform.
+
+### Potential use cases
+
+While using large datasets (millions of records) for model training and batch scoring, MLOps stages like feature engineering, model training, and others can become long-running processes. To ensure that these long-running tasks are handled properly and that each stage proceeds resiliently, it is critically important to manage, monitor, and operate the MLOps stages with a high degree of control and flexibility.
+
+Using an MLflow project is a common approach to orchestrating different MLOps stages. However, limitations in hosting and deployment systems may make it difficult to operate stages resiliently using MLflow. As an alternative, you can use Databricks Notebook as an orchestrator that manages the different MLOps stages needed for model training or batch scoring.
+
+A Databricks Notebook orchestrator can be executed using a Databricks job on an existing Databricks cluster or a new cluster, an approach that allows you to gain more control over orchestration by taking advantage of additional Databricks features such as widgets, notebook-scoped libraries, jobs, and more.
+
 ### Advantages
 
 In addition to addressing the issue of long-running process, this approach also adds potential benefits:
@@ -77,31 +103,11 @@ In addition to addressing the issue of long-running process, this approach also 
     -  By using notebooks for orchestration, orchestrator code can be tested using integration tests with the help of a test framework, like
         [Nutter](https://github.com/microsoft/nutter).
 
-### Components
-
-This scenario uses the following components:
-
--  [MLOps](/azure/machine-learning/concept-model-management-and-deployment), based on DevOps principles and practices that increase the efficiency of workflows.
-
--  [MLflow](/azure/databricks/applications/mlflow/), an open-source platform for managing the end-to-end machine learning life cycle.
-
--  [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks), a data analytics platform optimized for the Microsoft Azure cloud services platform.
-
--  [Azure Blob storage](/azure/storage/blobs/storage-blobs-overview), Microsoft's object storage solution for the cloud. Blob storage is optimized for storing massive amounts of unstructured data.
-
--  [Azure Monitor](/azure/azure-monitor/overview), a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments.
-
 ## Considerations
 
 This architecture does not provide in-build support for executing in remote environments.
 
-## Alternatives
-
-If you are able to create new Databricks clusters and can interact with external systems like MLflow CLI, you can also consider running these types of workloads using MLflow projects. See [Run MLflow Projects on Azure Databricks](/azure/databricks/applications/mlflow/projects).
-
-If your workloads heavily rely on remote execution using Azure Machine Learning and a containerized deployment solution like Azure Kubernetes Service (AKS), MLflow may also be a better fit for your needs. See [MLflow and Azure Machine Learning](/azure/machine-learning/concept-mlflow#train-mlflow-projects).
-
-## Pricing
+### Cost optimization
 
 Costs related to this use case will depend on the standard pricing for the following services, based on your usage:
 

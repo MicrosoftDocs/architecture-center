@@ -3,8 +3,8 @@ title: Choose a batch processing technology
 description: Compare technology choices for big data batch processing in Azure, including key selection criteria and a capability matrix.
 author: EdPrice-MSFT
 categories: azure
-ms.author: edprice
-ms.date: 01/19/2021
+ms.author: architectures
+ms.date: 07/25/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -116,7 +116,15 @@ The following tables summarize the key differences in capabilities.
 
 [3] Supported when [used within an Azure Virtual Network](/azure/hdinsight/hdinsight-extend-hadoop-virtual-network).
 
-## Next steps
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+- [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect
+
+## Related resources
 
 - [Analytics architecture design](/azure/architecture/solution-ideas/articles/analytics-start-here)
 - [Choose an analytical data store in Azure](/azure/architecture/data-guide/technology-choices/analytical-data-stores)

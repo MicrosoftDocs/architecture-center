@@ -12,7 +12,9 @@ Other relevant use cases include:
 
 ## Architecture
 
-!["Architecture Diagram"](./images/architecture-diagram-app-monitoring.svg)
+!["Diagram demonstrating the architecture of using Azure's PaaS services to monitor your application."](./images/architecture-diagram-app-monitoring-new.png)
+
+*Download a [Visio file](https://arch-center.azureedge.net/architecture-diagram-app-monitoring.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -62,7 +64,7 @@ This article describes conveniently available monitoring options with popular fe
 
 For more information see [Monitoring For DevOps][devops-monitoring] in the Azure Well-Architected Framework.
 
-### Scalability and availability considerations
+### Scalability and availability
 
 This scenario focuses on PaaS solutions for monitoring in large part because they conveniently handle availability and scalability for you and are backed by service-level agreements (SLAs). For example, App Services provides a guaranteed [SLA][SLA] for its availability.
 
@@ -70,7 +72,7 @@ Application Insights has [limits][app-insights-limits] on how many requests can 
 
 High availability considerations for the app you run, however, are the developer's responsibility. For information about scale, for example, see the [Scalability considerations](./basic-web-app.yml#scalability) section in the basic web application reference architecture. After an app is deployed, you can set up tests to [monitor its availability][monitor its availability] using Application Insights.
 
-#### Security considerations
+### Security
 
 Sensitive information and compliance requirements affect data collection, retention, and storage. Learn more about how [Application Insights][application-insights] and [Log Analytics][log-analytics] handle telemetry.
 
@@ -83,7 +85,7 @@ The following security considerations may also apply:
 - Add [governance](/azure/security/governance-in-azure) mechanisms to enforce policy or cost controls over Azure resources if needed. For example, use Log Analytics for security-related monitoring such as policies and role-based access control, or use [Azure Policy](/azure/azure-policy/azure-policy-introduction) to create, assign and, manage policy definitions.
 - To monitor potential security issues and get a central view of the security state of your Azure resources, consider using [Microsoft Defender for Cloud](/azure/security-center/security-center-intro).
 
-## Pricing
+### Cost optimization
 
 Monitoring charges can add up quickly. Consider pricing up front, understand what you are monitoring, and check the associated fees for each service. Azure Monitor provides [basic metrics][basic metrics] at no cost, while monitoring costs for [Application Insights][application-insights-pricing] and [Log Analytics][log-analytics] are based on the amount of data ingested and the number of tests you run.
 
@@ -101,17 +103,21 @@ For more guidance please refer to the cost section in [Microsoft Azure Well-Arch
 
 Check out these resources designed to help you get started with your own monitoring solution:
 
-- [Basic web application reference architecture][Basic web application reference architecture]
-
 - [Start monitoring your ASP.NET Web Application][Start monitoring your ASP.NET Web Application]
 
 - [Collect data about Azure Virtual Machines][Collect data about Azure Virtual Machines]
 
-## Related resources
-
 - [Monitoring Azure applications and resources][Monitoring Azure applications and resources]
 
 - [Find and diagnose run-time exceptions with Azure Application Insights][Find and diagnose run-time exceptions with Azure Application Insights]
+
+## Related resources
+
+- [Basic web application reference architecture][Basic web application reference architecture]
+- [Web application monitoring on Azure](/azure/architecture/reference-architectures/app-service-web-app/app-monitoring)
+- [Extract actionable insights from IoT data](/azure/architecture/industries/manufacturing/extract-insights-iot-data)
+- [Hybrid availability and performance monitoring](/azure/architecture/hybrid/hybrid-perf-monitoring)
+- [High availability enterprise deployment using App Service Environment](/azure/architecture/reference-architectures/enterprise-integration/ase-high-availability-deployment)
 
 <!-- links -->
 

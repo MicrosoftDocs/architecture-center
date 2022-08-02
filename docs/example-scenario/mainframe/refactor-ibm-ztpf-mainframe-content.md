@@ -1,23 +1,6 @@
-Mainframe systems are expensive to maintain, and the pool of developers who understand these systems is diminishing. But organizations migrating from z/TPF mainframes to the cloud need a robust platform that can process high volume transactions.
+Organizations migrating from z/TPF mainframes to the cloud need a robust platform that can process high volume transactions. This solution delivers cloud-enabled applications and databases that are functionally equivalent to the z/TPF legacy counterparts. 
 
-This solution delivers cloud-enabled applications and databases that are functionally equivalent to the z/TPF legacy counterparts. 
-
-The solution is designed to meet these requirements:
-- Refactored applications must remain functionally equivalent to their original counterparts.
-- Refactored applications must perform as well as or better than the original applications.
-- Refactored applications must be cloud-ready and delivered via a standard DevOps toolchain and implement DevOps best practices.
-
-## Potential use cases
- 
-Here are some scenarios that can benefit from refactoring to Azure:
-- Modernize infrastructure and avoid the high costs, limitations, and rigidity that are associated with mainframes.
-- Reduce operational and capital expenditure. 
-- Move mainframe workloads to the cloud without the side effects of rewrites.
-- Migrate mission-critical applications but maintain continuity with other on-premises applications.
-- Take advantage of the horizontal and vertical scalability that Azure provides.
-- Implement solutions that provide disaster recovery.
-
-## Mainframe architecture (before migration)
+## Mainframe architecture
 
 :::image type="content" border="false" source="media/mainframe-migration-before.png" alt-text="Diagram that shows the mainframe architecture before migration." lightbox="media/mainframe-migration-before.png":::
 
@@ -32,7 +15,7 @@ Here are some scenarios that can benefit from refactoring to Azure:
 - Partitions are used to run separate workloads or segregate work types within the environment.
 - Operating systems provide interfaces between the engine and the software it runs.
 
-## Azure architecture (after migration)
+## Azure architecture
 
 :::image type="content" border="false" source="media/mainframe-migration-after.png" alt-text="Diagram that shows the Azure architecture, after the migration." lightbox="media/mainframe-migration-after.png"::: 
 
@@ -73,6 +56,25 @@ This solution features the following Azure components:
 This solution supports deployment in containers, VMs, or virtual machine scale sets. Unlike VMs, containers and scale sets can scale in and out rapidly. Because the unit of scaling is containers, infrastructure utilization is optimized. 
 
 You can use the legacy web-application presentation layer virtually unchanged to minimize user retraining. Alternatively, you can update the web-application presentation layer with modern UX frameworks.
+
+## Scenario details
+
+Mainframe systems are expensive to maintain, and the pool of developers who understand these systems is diminishing. But organizations migrating from z/TPF mainframes to the cloud need a robust platform that can process high volume transactions. This solution delivers cloud-enabled applications and databases that are functionally equivalent to the z/TPF legacy counterparts. 
+
+The solution is designed to meet these requirements:
+- Refactored applications must remain functionally equivalent to their original counterparts.
+- Refactored applications must perform as well as or better than the original applications.
+- Refactored applications must be cloud-ready and delivered via a standard DevOps toolchain and implement DevOps best practices.
+
+### Potential use cases
+ 
+Here are some scenarios that can benefit from refactoring to Azure:
+- Modernize infrastructure and avoid the high costs, limitations, and rigidity that are associated with mainframes.
+- Reduce operational and capital expenditure. 
+- Move mainframe workloads to the cloud without the side effects of rewrites.
+- Migrate mission-critical applications but maintain continuity with other on-premises applications.
+- Take advantage of the horizontal and vertical scalability that Azure provides.
+- Implement solutions that provide disaster recovery.
 
 ## Considerations
 
@@ -127,8 +129,8 @@ See these additional resources:
 
 ## Related resources
 
-- [Mainframe application migration](/azure/cloud-adoption-framework/infrastructure/mainframe-migration/application-strategies?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
-- [Make the switch from mainframes to Azure](/azure/cloud-adoption-framework/infrastructure/mainframe-migration/migration-strategies?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
+- [Mainframe application migration](/azure/cloud-adoption-framework/infrastructure/mainframe-migration/application-strategies?toc=%2Fazure%2Farchitecture%2Ftoc.json&bc=%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
+- [Make the switch from mainframes to Azure](/azure/cloud-adoption-framework/infrastructure/mainframe-migration/migration-strategies?toc=%2Fazure%2Farchitecture%2Ftoc.json&bc=%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
 - [Mainframe access to Azure databases](../../solution-ideas/articles/mainframe-access-azure-databases.yml)
 - [Modernize mainframe and midrange data](../../reference-architectures/migration/modernize-mainframe-data-to-azure.yml)
 - [Moving archive data from mainframe systems to Azure](../../example-scenario/mainframe/move-archive-data-mainframes.yml)

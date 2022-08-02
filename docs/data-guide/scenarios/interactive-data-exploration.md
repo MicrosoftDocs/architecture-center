@@ -2,9 +2,9 @@
 title: Interactive data exploration
 description: Learn about interactive data exploration tools and platforms that provide low-latency batch processing for ad-hoc queries and data visualizations.
 author: EdPrice-MSFT
-ms.author: pnp
+ms.author: architectures
 categories: azure
-ms.date: 02/12/2018
+ms.date: 07/25/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide

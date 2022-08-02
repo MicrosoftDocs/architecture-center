@@ -14,9 +14,9 @@ Consider this scenario for the following use cases:
 
 ![Diagram featuring the sample scenario architecture for Secure ILB ASE Deployment.][architecture]
 
-### Dataflow
+*Download a [Visio file][visio-download] of this architecture.*
 
-Data flows through the scenario as follows:
+### Dataflow
 
 1. HTTP/HTTPS requests first hit the Application Gateway.
 2. Optionally (not shown in the diagram), you can have Azure Active Directory (Azure AD) authentication enabled for the Web App. After the traffic first hits the Application Gateway, the user is then prompted to supply credentials to authenticate with the application.
@@ -120,6 +120,14 @@ We have provided three sample cost profiles based on amount of traffic you expec
 - [Medium][medium-pricing]: This pricing example represents the components indicative of a moderate size deployment. Here we estimate approximately 100,000 users using the system over the course of a month. The expected traffic is handled in a single app service instance with a moderate standard tier. Additionally, moderate tiers of cognitive and search services are added to the calculator.
 - [Large][large-pricing]: This pricing example represents an application meant for high scale, at the order of millions of users per month, when moving terabytes of data. At this level of usage high performance, premium tier web apps deployed in multiple regions fronted by traffic manager is required. Data consists of the following components: storage, databases, and CDN, are configured for terabytes of data.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+* Faisal Mustafa | Senior Customer Engineer
+
 ## Next steps
 
 - [Step-by-step deployment tutorial][end-to-end-walkthrough]
@@ -181,3 +189,4 @@ We have provided three sample cost profiles based on amount of traffic you expec
 [secure-development]: https://www.microsoft.com/SDL/process/design.aspx
 [sql-geo-replication]: /azure/sql-database/sql-database-geo-replication-overview
 [storage-geo-redudancy]: /azure/storage/common/storage-redundancy-grs
+[visio-download]: https://arch-center.azureedge.net/fully-managed-secure-apps.vsdx

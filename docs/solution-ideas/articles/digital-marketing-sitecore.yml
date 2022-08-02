@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Solution Ideas
   description: The Sitecore Experience Platform (xP) provides the data, integrated tools, and automation needed to engage customers throughout an iterative life cycle.
   author: EdPrice-MSFT
-  ms.author: edprice
+  ms.author: architectures
   ms.date: 05/30/2022
   ms.topic: conceptual
   ms.service: architecture-center

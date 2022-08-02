@@ -1,17 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Collaboration tools play a significant role in creating productive workspaces for teams. Microsoft 365 tools like Microsoft Teams, Word, and PowerPoint online bring people together and help them to work more effectively. In addition to supporting real-time changes to documents and data, these tools support real-time presence information. Presence makes it easy to know your teammates' availability and see when they join a collaboration session.
-
-You can also add presence to custom collaboration applications by using Microsoft Cloud services. This solution uses Microsoft Cloud APIs and services to enable real-time presence capabilities in custom applications. As people become available in Microsoft Teams, they can be invited to a collaboration session.
-
-The solution provides presence for a JavaScript front-end application. It uses Microsoft Graph and Azure Active Directory (Azure AD) to provide real-time presence information. It also uses Power Automate, Azure Event Hubs, Azure Functions, and Azure SignalR Service.
-
-## Potential use cases
-This solution applies to companies that use custom applications that require:
-- Real-time change tracking on Microsoft 365 data.
-- Broadcasting of data to the browser in real time.
-- Notifications to application users when a person's availability changes.
-- A secure way to retrieve secrets that are used in an application.
+This solution provides presence for a JavaScript front-end application. It uses Microsoft Graph and Azure Active Directory (Azure AD) to provide real-time presence information. It also uses Power Automate, Azure Event Hubs, Azure Functions, and Azure SignalR Service.
 
 ## Architecture
 
@@ -19,14 +8,14 @@ This solution applies to companies that use custom applications that require:
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/real-time-presence.pptx) of this architecture.*
 
-### Workflow
+### Dataflow
 
 1. A Power Automate flow gets an access token for Microsoft Graph by using Azure AD.
 2. The Power Automate flow retrieves members of the selected team who are on Microsoft Teams. The flow creates a Microsoft Graph presence API subscription and updates it every hour to track changes in presence for the selected team members.
-3. When there's a change in member presence, the Microsoft Graph Change Tracking application policy gets a connection string to Event Hubs from Key Vault.         
+3. When there's a change in member presence, the Microsoft Graph Change Tracking application policy gets a connection string to Event Hubs from Key Vault.
 4. When a Microsoft Graph change notification is processed, the message is placed in Event Hubs.
-5. Azure Functions takes the Microsoft Graph messages from Event Hubs as input. 
-6. Azure SignalR Service is defined as an output in Azure Functions. This allows a browser to subscribe to Azure SignalR Service and receive messages in real time. 
+5. Azure Functions takes the Microsoft Graph messages from Event Hubs as input.
+6. Azure SignalR Service is defined as an output in Azure Functions. This allows a browser to subscribe to Azure SignalR Service and receive messages in real time.
 7. To receive the presence messages in the browser, an app subscribes to Azure SignalR Service.
 
 ### Components
@@ -42,9 +31,32 @@ This solution applies to companies that use custom applications that require:
 - [Azure SignalR Service](https://azure.microsoft.com/services/signalr-service) simplifies the process of adding real-time web functionality to applications over HTTP.
 - [Azure Static Web Apps](https://azure.microsoft.com/services/app-service/static) automatically builds and deploys full stack web apps to Azure from a code repository.
 
+## Scenario details
+
+Collaboration tools play a significant role in creating productive workspaces for teams. Microsoft 365 tools like Microsoft Teams, Word, and PowerPoint online bring people together and help them to work more effectively. In addition to supporting real-time changes to documents and data, these tools support real-time presence information. Presence makes it easy to know your teammates' availability and see when they join a collaboration session.
+
+You can also add presence to custom collaboration applications by using Microsoft Cloud services. This solution uses Microsoft Cloud APIs and services to enable real-time presence capabilities in custom applications. As people become available in Microsoft Teams, they can be invited to a collaboration session.
+
+### Potential use cases
+
+This solution applies to companies that use custom applications that require:
+
+- Real-time change tracking on Microsoft 365 data.
+- Broadcasting of data to the browser in real time.
+- Notifications to application users when a person's availability changes.
+- A secure way to retrieve secrets that are used in an application.
+
 ## Deploy this scenario
 
 Get a [code sample](https://github.com/microsoft/brainstorm-fluidframework-m365-azure) that demonstrates this solution.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+* [Dan Wahlin](https://www.linkedin.com/in/danwahlin) | Principal Cloud Developer
 
 ## Next steps
 
@@ -56,7 +68,7 @@ For more information about the services and products that are used in this solut
 - [Key Vault](/azure/key-vault/general/overview)
 - [Event Hubs](/azure/event-hubs/event-hubs-features)
 - [Azure Functions](/azure/azure-functions/functions-overview)
-- [Azure SignalR Service](/azure/azure-signalr) 
+- [Azure SignalR Service](/azure/azure-signalr)
 
 ## Related resources
 

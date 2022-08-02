@@ -1,18 +1,6 @@
-Applications running on mainframe computers have been at the core of most business operations for almost 50 years. While these mainframe systems have provided remarkable reliability over the years, they've become somewhat problematic because they're rigid and, in some cases, hard to maintain and costly to operate. 
-
-Many organizations are looking for ways to modernize these systems. They're looking for ways to free up the constrained resources that are required to maintain these systems, control their costs, and gain more flexibility in interactions with the systems.  
-
 Software AG provides a popular 4GL mainframe platform that's based on the Natural programming language and the Adabas database. This article provides an architecture for organizations that are using mainframe computers that run Adabas & Natural and that are looking for ways to modernize these workloads and move them to the cloud.
 
-There are two patterns that allow you to run Adabas & Natural applications on Azure: [rehost and refactor](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-overview#migration-patterns). This article describes how to refactor an application by using containers that are managed in Azure Kubernetes Service (AKS). For more information, see [Container-based approach](#container-based-approach), later in this article. 
-
-## Potential use cases
- 
-This architecture applies to any organization that uses mainframe computers running Adabas & Natural and that plans to modernize these workloads and move them to the cloud. 
-
-## Architecture 
-
-### Mainframe architecture, before migration 
+## Mainframe architecture 
 
 This diagram illustrates an example of a mainframe with Software AG's Adabas & Natural modules installed, before migration to Azure. This example shows an IBM z/OS architecture.
 
@@ -20,7 +8,7 @@ This diagram illustrates an example of a mainframe with Software AG's Adabas & N
 
 *Download a [Visio file](https://arch-center.azureedge.net/mainframe-pre-migration.vsdx) of this architecture.*
 
-#### Workflow
+### Workflow
 
 A. Input occurs over TCP/IP, including TN3270 and HTTP(S). Input into the mainframe uses standard mainframe protocols. 
 
@@ -38,7 +26,7 @@ G. Operating systems provide the interface between the engine and the software t
 
 H. Partitions are needed to run separate workloads and to segregate work types within the environment. 
 
-### Refactored Azure architecture
+## Azure architecture
 
 This diagram shows how you can migrate the legacy architecture to Azure by using a refactoring approach to modernize the system:
 
@@ -46,7 +34,7 @@ This diagram shows how you can migrate the legacy architecture to Azure by using
 
 *Download a [Visio file](https://arch-center.azureedge.net/mainframe-SoftwareAG-azure-refactor-r1.vsdx) of this architecture.*
 
-#### Workflow
+### Workflow
 
 1. **Input.** Input typically occurs either via Azure ExpressRoute from remote clients or via other applications currently running Azure. In either case, TCP/IP connections are the primary means of connection to the system. TLS port 443 provides access to web-based applications. You can leave the web-based applications presentation layer virtually unchanged to minimize user retraining. Alternatively, you can update this layer with modern UX frameworks per your requirements. For admin access to the VMs, you can use Azure Bastion hosts to maximize security by minimizing open ports.
 
@@ -73,6 +61,20 @@ This diagram shows how you can migrate the legacy architecture to Azure by using
 - [Azure managed disks](/azure/virtual-machines/managed-disks-overview) are block-level storage volumes that are managed by Azure and used with Azure Virtual Machines. Various types are available: ultra disks, premium SSD, standard SSD, and standard HDD. SSD disks are used in this architecture. 
 
 - [Azure NetApp Files](https://azure.microsoft.com/services/netapp) provides enterprise-grade Azure file shares powered by NetApp. Azure NetApp Files makes it easy to migrate and run complex, file-based applications without changing code. 
+
+## Scenario details
+
+Applications running on mainframe computers have been at the core of most business operations for almost 50 years. While these mainframe systems have provided remarkable reliability over the years, they've become somewhat problematic because they're rigid and, in some cases, hard to maintain and costly to operate. 
+
+Many organizations are looking for ways to modernize these systems. They're looking for ways to free up the constrained resources that are required to maintain these systems, control their costs, and gain more flexibility in interactions with the systems.  
+
+Software AG provides a popular 4GL mainframe platform that's based on the Natural programming language and the Adabas database.
+
+There are two patterns that allow you to run Adabas & Natural applications on Azure: [rehost and refactor](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-overview#migration-patterns). This article describes how to refactor an application by using containers that are managed in Azure Kubernetes Service (AKS). For more information, see [Container-based approach](#container-based-approach), later in this article. 
+
+### Potential use cases
+ 
+This architecture applies to any organization that uses mainframe computers running Adabas & Natural and that plans to modernize these workloads and move them to the cloud.
 
 ## Considerations 
 
@@ -108,12 +110,12 @@ Here are some additional resources:
 - [Adabas & Natural](https://www.softwareag.com/en_corporate/platform/adabas-natural.html)
 - [Azure Kubernetes Service](/azure/aks/intro-kubernetes)
 - [Azure NetApp Files documentation](/azure/azure-netapp-files)
+- [Mainframe rehosting on Azure virtual machines](/azure/virtual-machines/workloads/mainframe-rehosting/overview)
+- [Move mainframe compute to Azure Virtual Machines](/azure/virtual-machines/workloads/mainframe-rehosting/concepts/mainframe-compute-azure)
 
 ## Related resources
 
 - [Azure mainframe and midrange architecture concepts and patterns](../../mainframe/mainframe-midrange-architecture.md)
-- [Mainframe migration overview](/azure/cloud-adoption-framework/infrastructure/mainframe-migration/?toc=https:%2f%2fdocs.microsoft.com%2fazure%2farchitecture%2ftoc.json&bc=https:%2f%2fdocs.microsoft.com%2fazure%2farchitecture%2fbread%2ftoc.json)
-- [Mainframe rehosting on Azure virtual machines](/azure/virtual-machines/workloads/mainframe-rehosting/overview)
-- [Move mainframe compute to Azure Virtual Machines](/azure/virtual-machines/workloads/mainframe-rehosting/concepts/mainframe-compute-azure)
+- [Mainframe migration overview](/azure/cloud-adoption-framework/infrastructure/mainframe-migration/?toc=%2fazure%2farchitecture%2ftoc.json&bc=%2fazure%2farchitecture%2fbread%2ftoc.json)
 - [General mainframe refactor to Azure](general-mainframe-refactor.yml)
 - [AIX UNIX on-premises to Azure Linux migration](../../example-scenario/unix-migration/migrate-aix-azure-linux.yml)

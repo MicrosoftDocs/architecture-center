@@ -52,7 +52,7 @@ Data scientists who are testing this solution can work with the provided R code 
 ## Next steps
 
 * [Analyze Apache Spark data using Power BI in HDInsight](/azure/hdinsight/spark/apache-spark-use-bi-tools): How to use Microsoft Power BI to visualize data in an Apache Spark cluster in Azure HDInsight.
-* [Operationalize ML Services cluster on Azure HDInsight](/azure/hdinsight/r-server/r-server-operationalize): Operationalize the model to make predictions using an ML Services cluster on Azure HDInsight.
+* [Operationalize ML Services cluster on Azure HDInsight](https://azure.microsoft.com/services/hdinsight/r-server/): Operationalize the model to make predictions using an ML Services cluster on Azure HDInsight.
 
 ## Related resources
 

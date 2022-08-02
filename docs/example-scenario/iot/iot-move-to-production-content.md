@@ -61,7 +61,7 @@ The following example shows how to implement a test-to-production environment tr
 ![A diagram showing how to implement a test-to-production environment transition workflow by using DPS.](./media/late-binding-with-dps.png)
 
 1. The solution developer links the Test and Production IoT clouds to the provisioning service.
-1. The device implements the DPS protocol to find the IoT Hub if it's no longer provisioned. The device is initially provisioned to the Test environment.
+1. The device implements the DPS protocol to find the IoT Hub, if it's no longer provisioned. The device is initially provisioned to the Test environment.
 1. Since the device is registered with the Test environment, it connects there and testing occurs.
 1. The developer re-provisions the device to the Production environment and removes it from the Test hub. The Test hub rejects the device the next time it reconnects.
 1. The device connects and re-negotiates the provisioning flow. DPS now directs the device to the Production environment, and the device connects and authenticates there.

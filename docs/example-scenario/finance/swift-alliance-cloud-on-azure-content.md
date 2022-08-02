@@ -113,9 +113,17 @@ We recommend deploying SWIFT components in a subscription that's separate from a
 
 Consider using the latest implementation of SWIFT CSP controls in Azure. But first consult with the Microsoft team that's working with you.
 
-## Pricing
+### Cost optimization
 
 To explore the cost of running this scenario, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator), which preconfigures all Azure services.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+* [Mahesh Kshirsagar](https://uk.linkedin.com/in/mahesh-kshirsagar-msft) | Senior Cloud Solution Architect
 
 ## Next steps
 

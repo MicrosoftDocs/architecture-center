@@ -18,6 +18,7 @@ Other relevant use cases include:
 
 ![Architecture overview of the Azure components of a real-time fraud detection scenario][architecture]
 
+*Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/architecture-fraud-detection.vsdx) of this architecture.*
 ### Dataflow
 
 This scenario covers the back-end components of a real-time analytics pipeline. Data flows through the scenario as follows:
@@ -75,6 +76,14 @@ We have provided three sample cost profiles based on amount of traffic you expec
 - [Medium][medium-pricing]: process 100M events through five standard streaming units per month.
 - [Large][large-pricing]: process 999 million events through 20 standard streaming units per month.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+* [Alex Buck](https://www.linkedin.com/in/alex-buck-0161575) | Senior Content Developer
+
 ## Next steps
 
 More complex fraud detection scenarios can benefit from a machine learning model. For scenarios built using Machine Learning Server, see [Fraud detection using Machine Learning Server][r-server-fraud-detection]. For other solution templates using Machine Learning Server, see [Data science scenarios and solution templates][docs-r-server-sample-solutions].
@@ -91,7 +100,7 @@ More complex fraud detection scenarios can benefit from a machine learning model
 [small-pricing]: https://azure.com/e/74149ec312c049ccba79bfb3cfa67606
 [medium-pricing]: https://azure.com/e/4fc94f7376de484d8ae67a6958cae60a
 [large-pricing]: https://azure.com/e/7da8804396f9428a984578700003ba42
-[architecture]: ./media/architecture-fraud-detection.png
+[architecture]: ./media/architecture-fraud-detection-new.png
 [docs-event-hubs]: /azure/event-hubs/event-hubs-what-is-event-hubs
 [docs-event-hubs-security-model]: /azure/event-hubs/event-hubs-authentication-and-security-model-overview
 [docs-stream-analytics]: /azure/stream-analytics/stream-analytics-introduction

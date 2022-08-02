@@ -46,7 +46,7 @@ This solution address the capability to deliver highly available intranet capabi
 * [Virtual Network documentation](/azure/virtual-network/virtual-networks-overview)
 * [Storage Documentation](/azure/storage/blobs/storage-blobs-introduction)
 * [Microsoft server software support for VMs](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines)
-* [SharePoint Server 2016 in Azure DevTest environment](/sharepoint/administration/intranet-sharepoint-server-2016-in-azure-dev-test-environment)
+* [SharePoint Server 2016 in Azure DevTest environment](/sharepoint/administration/intranet-sharepoint-server-in-azure-dev-test-environment)
 * [Deploy a SQL Server database to an Azure VM](/azure/azure-sql/virtual-machines/windows/create-sql-vm-portal)
 * [Load Balancer documentation](/azure/load-balancer/load-balancer-standard-overview)
 * [ExpressRoute documentation](/azure/expressroute)

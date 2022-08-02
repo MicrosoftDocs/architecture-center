@@ -4,8 +4,8 @@ metadata:
   titleSuffix: Azure Solution Ideas
   description: Generate personalized recommendations for customers in real time by using low-latency and tunable consistency settings for immediate insights.
   author: EdPrice-MSFT
-  ms.author: pnp
-  ms.date: 02/16/2019
+  ms.author: architectures
+  ms.date: 06/07/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
@@ -17,7 +17,7 @@ metadata:
     - Cosmos DB
     - ai-ml
     - data
-    - "https://azure.microsoft.com/solutions/architecture/personalization-using-cosmos-db/"
+    - "https://azure.microsoft.com/solutions/architecture/personalization-using-cosmos-db"
     - ai-machine-learning
   social_image_url: /azure/architecture/solution-ideas/articles/media/personalization-using-cosmos-db.png
 name: Personalization using Cosmos DB

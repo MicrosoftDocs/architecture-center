@@ -2,9 +2,9 @@ In this solution, [Azure Web Application Firewall (WAF)](/azure/web-application-
 
 ## Architecture
 
-![Displays an architecture diagram of this Application Gateway Ingress Controller solution.](./media/aks-agic.png)
+:::image type="content" border="false" source="./media/aks-agic.png" alt-text="Diagram displays a diagram of this Application Gateway Ingress Controller solution." lightbox="./media/aks-agic.png":::
 
-*Download an [SVG file](./media/aks-agic.svg) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/aks-agic.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -133,7 +133,9 @@ When you plan to build a multitenant Azure Kubernetes Service (AKS) cluster, you
 
 Although Kubernetes cannot guarantee perfectly secure isolation between tenants, it does offer features that may be sufficient for specific use cases. As a best practice, you should separate each tenant and its Kubernetes resources into their own namespaces. You can then use [Kubernetes RBAC](https://kubernetes.io/docs/reference/access-authn-authz/rbac) and [Network Policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/) to enforce tenant isolation. (_RBAC_ stands for role-based access control.) For example, the following picture shows the typical SaaS Provider Model that hosts multiple instances of the same application on the same cluster, one for each tenant. Each application lives in a separate namespace.
 
-![Multitenancy](./media/aks-agic-multi-tenancy.png)
+:::image type="content" border="false" source="./media/aks-agic-multi-tenancy.png" alt-text="Diagram of multitenancy" lightbox="./media/aks-agic-multi-tenancy.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/aks-agic.vsdx) of this architecture.*
 
 In general, every tenant initiates the deployment of a dedicated instance of an application, through a SaaS-provider management portal or API. At this point, the SaaS provider provisioning system creates a dedicated namespace for the tenant and creates all the necessary entities (deployments, services, secrets, ingress, and so on). This process is fully transparent to the tenant that does not directly deploy the application to the shared cluster. If the application makes use of an ingress controller to expose its services, a subdomain may be created in the public domain name system (DNS) zone for the new tenant, along with a certificate for transport layer security (TLS) termination. When tenants need a higher level of physical isolation and guaranteed performance, their workloads can be deployed to a dedicated set of nodes, dedicated pool, or even a dedicated cluster.
 
@@ -312,7 +314,10 @@ After you assess these aspects, go to the [Azure pricing calculator](https://azu
 
 The source code for this scenario is available [on GitHub](https://github.com/Azure-Samples/aks-agic). This solution is open source and provided with an [MIT License](https://github.com/Azure-Samples/aks-agic/blob/main/LICENSE.md). You can also find a demo application, as shown in the following figure, in [this GitHub repository](https://github.com/Azure-Samples/aks-multi-tenant-agic).
 
-![The diagram shows the deployment of this AGIC with AKS architecture.](./media/aks-agic-sample.png)
+:::image type="content" border="false" source="./media/aks-agic-sample.png" alt-text="The diagram shows the deployment of this AGIC with AKS architecture." lightbox="./media/aks-agic-sample.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/aks-agic.vsdx) of this architecture.*
+
 
 ### Prerequisites
 
@@ -388,7 +393,7 @@ Principal authors:
 ### Architectural guidance
 
 - [Azure Kubernetes Service (AKS) solution journey](../../reference-architectures/containers/aks-start-here.md)
-- [AKS cluster best practices](/Azure/aks/best-practices?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
+- [AKS cluster best practices](/Azure/aks/best-practices?toc=%2Fazure%2Farchitecture%2Ftoc.json&bc=%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
 - [Azure Kubernetes Services (AKS) day-2 operations guide](../../operator-guides/aks/day-2-operations-guide.md)
 - [Choosing a Kubernetes at the edge compute option](../../operator-guides/aks/choose-kubernetes-edge-compute-option.md)
 

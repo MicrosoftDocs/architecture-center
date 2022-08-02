@@ -1,26 +1,6 @@
 <!-- cSpell:ignore xlink -->
 
-The Price Analytics solution utilizes your transactional history data to show you how the demand for your products responds to the prices you offer. It recommends pricing changes and allows you to simulate how changes in price would affect your demand, at a fine granularity.
-
-The solution provides a dashboard where you can see:
-
-- Optimal pricing recommendations.
-- Item elasticities at an item-site-channel-segment level.
-- Estimates of related-product effects such as cannibalization.
-- Forecasts given current process.
-- Model performance metrics.
-
-Using direct interaction with the pricing model in Excel, you can:
-
-- Paste your sales data there and analyze your prices without the need to integrate the data into the solution database first.
-- Simulate promotions and plot demand curves (showing demand response to price).
-- Work with dashboard data in numerical form.
-
-The rich functionality isn't confined to Excel. It's driven by web services that you or your implementation partner can call directly from your business applications, integrating price analysis into your business applications.
-
-## Potential use cases
-
-This architecture is ideal for the retail industry, providing pricing recommendations, estimations, and forecasts.
+The Price Analytics solution utilizes your transactional history data to show you how the demand for your products responds to the prices you offer.
 
 ## Architecture
 
@@ -46,7 +26,31 @@ This architecture is ideal for the retail industry, providing pricing recommenda
 - [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database)
 - [Dashboard](https://powerbi.microsoft.com/diad) in [Power BI](https://powerbi.microsoft.com)
 
-## Solution description
+## Solution details
+
+The Price Analytics solution utilizes your transactional history data to show you how the demand for your products responds to the prices you offer. It recommends pricing changes and allows you to simulate how changes in price would affect your demand, at a fine granularity.
+
+The solution provides a dashboard where you can see:
+
+- Optimal pricing recommendations.
+- Item elasticities at an item-site-channel-segment level.
+- Estimates of related-product effects such as cannibalization.
+- Forecasts given current process.
+- Model performance metrics.
+
+Using direct interaction with the pricing model in Excel, you can:
+
+- Paste your sales data there and analyze your prices without the need to integrate the data into the solution database first.
+- Simulate promotions and plot demand curves (showing demand response to price).
+- Work with dashboard data in numerical form.
+
+The rich functionality isn't confined to Excel. It's driven by web services that you or your implementation partner can call directly from your business applications, integrating price analysis into your business applications.
+
+### Potential use cases
+
+This architecture is ideal for the retail industry, providing pricing recommendations, estimations, and forecasts.
+
+### Solution description
 
 At the core of a rigorous price analysis workflow is price elasticity modeling and optimal pricing recommendations. The state-of-the-art modeling approach mitigates the two worst pitfalls of modeling price sensitivity from historical data: confounding and data sparsity.
 

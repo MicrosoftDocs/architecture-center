@@ -3,8 +3,8 @@ metadata:
   title: Authentication in multitenant applications
   description: Learn about how a multitenant application can authenticate users from Azure Active Directory (Azure AD) and the OpenID Connect protocol.
   author: EdPrice-MSFT
-  ms.author: edprice
-  ms.date: 10/06/2021
+  ms.author: architectures
+  ms.date: 07/28/22
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
@@ -16,6 +16,6 @@ products:
   - azure-app-service-web
 name: Authenticate using Azure AD and OpenID Connect
 summary: Learn about how a multitenant application can authenticate users from Azure Active Directory (Azure AD) and the OpenID Connect protocol.
-thumbnailUrl: /azure/architecture/browse/thumbs/authentication-flow.png
+thumbnailUrl: /azure/architecture/browse/thumbs/auth-flow-thumbnail-new.png
 content: |
   [!include[](authenticate-content.md)]

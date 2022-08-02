@@ -2,9 +2,9 @@
 title: Choose a data transfer technology
 description: Learn about Azure data transfer options like Import/Export, Data Box, Data Factory, and command line and graphical interface tools.
 author: EdPrice-MSFT
-ms.author: edprice
+ms.author: architectures
 categories: azure
-ms.date: 05/06/2022
+ms.date: 07/25/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -153,3 +153,11 @@ The following tables summarize the key differences in capabilities.
 | Pricing model | Free | Free | Pay per usage |
 
 \* Azure portal in this case means using the web-based exploration tools for Blob storage and Data Lake Store.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+- [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect

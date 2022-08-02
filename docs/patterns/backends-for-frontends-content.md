@@ -49,7 +49,7 @@ This pattern may not be suitable:
 
 - [Pattern: Backends For Frontends](https://samnewman.io/patterns/architectural/bff/)
 
-## Related guidance
+## Related resources
 
 - [Gateway Aggregation pattern](./gateway-aggregation.yml)
 - [Gateway Offloading pattern](./gateway-offloading.yml)

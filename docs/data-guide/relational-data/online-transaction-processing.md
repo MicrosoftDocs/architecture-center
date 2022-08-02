@@ -2,8 +2,8 @@
 title: Online transaction processing (OLTP)
 description: Learn about atomicity, consistency, and other features of online transaction processing (OLTP), which manages transactional data while supporting querying.
 author: EdPrice-MSFT
-ms.author: pnp
-ms.date: 07/27/2019
+ms.author: architectures
+ms.date: 07/25/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -151,3 +151,11 @@ The following tables summarize the key differences in capabilities.
 |                                         Multi-factor authentication                                         |        Yes         |                  No                    |            Yes           |              Yes              |
 | Supports [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) |        Yes         |                  Yes                   |            No            |              No               |
 |                                                 Private IP                                                  |         No         |                  Yes                   |            No            |              No               |
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+- [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect

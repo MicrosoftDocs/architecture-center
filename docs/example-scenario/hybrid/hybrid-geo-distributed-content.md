@@ -4,7 +4,7 @@ This solution illustrates geographic traffic routing, a process for implementing
 
 Organizations that have wide-reaching geographies strive to distribute data and enable access to that data while ensuring required levels of security, compliance, and performance per user, location, and device across borders.
 
-Use this solution when: 
+Use this solution when:
 
 * Your organization has international branches that require custom regional security and distribution policies.
 * Each of your organization's offices pulls employee, business, and facility data, and that necessitates reporting activity per local regulations and time zone.
@@ -23,6 +23,7 @@ _Download an [SVG file](https://arch-center.azureedge.net/geo-distributed.svg) o
 1. The instance of the cloud application selected by Traffic Manager processes the request.
 
 ### Components
+
 * [Azure Stack Hub](https://azure.microsoft.com/products/azure-stack/hub). Azure Stack Hub is an extension of Azure. It brings the agility of cloud computing to your on-premises environment. In this architecture, it hosts the on-premises version of the app.
 * [Traffic Manager](https://azure.microsoft.com/services/traffic-manager). Traffic Manager is a DNS-based traffic load balancer. It's used here to direct client requests to the appropriate endpoint.
 * **Domain Name System (DNS)**. DNS translates (or resolves) a website or service name to its IP address.
@@ -51,17 +52,25 @@ The operational excellence pillar of the Azure Well-Architected Framework covers
 
 The key benefit of cross-cloud scaling is the ability to deliver on-demand scaling. Scaling must happen between public and local cloud infrastructure and provide a consistent, reliable service that's based on demand. To learn more about implementing scalability in Azure, see [Performance efficiency](/azure/architecture/framework/scalability).
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+* [Bryan Lamos](https://www.linkedin.com/in/bryanlamos) | Senior Content Developer
+
 ## Next steps
 
 * See the [Azure Traffic Manager documentation](/azure/traffic-manager/traffic-manager-overview) to learn more about how this DNS-based traffic load balancer works.
 * See [Hybrid app design considerations](/hybrid/app-solutions/overview-app-design-considerations) to learn more about best practices.
 * Learn about the [Azure Stack portfolio of products and solutions](/azure-stack).
-* When you're ready to deploy this solution, use the [Geo-distributed app solution deployment guide](/azure/architecture/hybrid/deployments/solution-deployment-guide-geo-distributed). It provides step-by-step instructions for deploying and testing the solution's components. 
+* When you're ready to deploy this solution, use the [Geo-distributed app solution deployment guide](/azure/architecture/hybrid/deployments/solution-deployment-guide-geo-distributed). It provides step-by-step instructions for deploying and testing the solution's components.
 
 ## Related resources
 
 * [Highly available multi-region web application](../../reference-architectures/app-service-web-app/multi-region.yml)
 * [Architecting Azure applications for resiliency and availability](/azure/architecture/reliability/architect)
 * [Hybrid architecture design](../../hybrid/hybrid-start-here.md)
-* [Extend an on-premises network using VPN](../../reference-architectures/hybrid-networking/vpn.yml)
+* [Extend an on-premises network using VPN](/azure/expressroute/expressroute-howto-coexist-resource-manager)
 * [Hybrid availability and performance monitoring](../../hybrid/hybrid-containers.yml)

@@ -123,7 +123,7 @@ Use [Transparent Data Encryption][sql-encryption] if you need to encrypt data at
 
 This architecture builds on the one shown in [Basic web application][basic-web-app], see the [DevOps considerations section][basic-web-app-devops].
 
-## Pricing
+### Cost optimization
 
 Use caching to reduce the load on servers that serve content that doesn't change frequently. Every render cycle of a page can impact cost because it consumes compute, memory, and bandwidth. Those costs can be reduced significantly by using caching, especially for static content services, such as JavaScript single-page apps and media streaming content.
 
