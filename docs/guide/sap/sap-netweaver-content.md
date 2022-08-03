@@ -158,13 +158,13 @@ Some organizations use standard storage for their application servers. Standard 
 
 Application servers don't host business data. So you can also use the smaller P4 and P6 premium disks to help minimize costs. By doing so, you can benefit from the [single-instance VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_6) if you have a central SAP stack installation.
 
-For high-availability scenarios, you can use [Azure file shares](/azure/storage/files/storage-files-introduction) and [Azure shared disks](/azure/virtual-machines/disks-shared). Premium SSD and ultra SSD [Azure managed disks](/azure/storage/storage-managed-disks-overview) are available for Azure shared disks, and premium SSD is available for Azure file shares.
+For high-availability scenarios, you can use [Azure file shares](/azure/storage/files/storage-files-introduction) and [Azure shared disks](/azure/virtual-machines/disks-shared). [Azure Premium SSD managed disks and Azure Ultra Disk Storage](/azure/storage/storage-managed-disks-overview) are available for Azure shared disks, and Premium SSD is available for Azure file shares.
 
 Storage is also used by [Cloud Witness](/windows-server/failover-clustering/deploy-cloud-witness) to maintain quorum with a device in a remote Azure region, away from the primary region where the cluster resides.
 
 For the backup data store, we recommend Azure [cool and archive access tiers](/azure/storage/blobs/access-tiers-overview). These storage tiers provide a cost-effective way to store long-lived data that's infrequently accessed.
 
-[Ultra disks](/azure/virtual-machines/linux/disks-enable-ultra-ssd) greatly reduce disk latency and benefit performance-critical applications like the SAP database servers. To compare block storage options in Azure, see [Azure managed disk types](/azure/virtual-machines/windows/disks-types).
+[Ultra Disk Storage](/azure/virtual-machines/linux/disks-enable-ultra-ssd) greatly reduces disk latency and benefits performance-critical applications like the SAP database servers. To compare block storage options in Azure, see [Azure managed disk types](/azure/virtual-machines/windows/disks-types).
 
 For a high-availability, high-performance shared data store, use [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction). This technology is particularly useful for the database tier when you use [Oracle](/azure/azure-netapp-files/performance-oracle-single-volumes), and also when you [host application data](/azure/virtual-machines/workloads/sap/high-availability-guide-windows-netapp-files-smb).
 
@@ -174,7 +174,7 @@ SAP application servers communicate constantly with the database servers. For pe
 
 To achieve high IOPS and disk throughput, the common practices in storage volume [performance optimization](/azure/virtual-machines/linux/premium-storage-performance) apply to Azure storage layout. For example, you can position multiple disks together to create a striped disk volume to improve I/O performance. Enabling the read cache on storage content that changes infrequently enhances the speed of data retrieval.
 
-[Ultra disks](/azure/virtual-machines/linux/disks-enable-ultra-ssd) are now available for I/O-demanding applications. Where they're available, we recommend them over [Write Accelerator](/azure/virtual-machines/windows/how-to-enable-write-accelerator) premium storage. You can individually increase or decrease performance metrics, like IOPS and MBps, without needing to reboot.
+[Ultra Disk Storage](/azure/virtual-machines/linux/disks-enable-ultra-ssd) is now available for I/O-demanding applications. Where these disks are available, we recommend them over [Write Accelerator](/azure/virtual-machines/windows/how-to-enable-write-accelerator) premium storage. You can individually increase or decrease performance metrics, like IOPS and MBps, without needing to reboot.
 
 When you use SAP on Azure, for excellent advice about optimizing Azure storage for SAP workloads on SQL Server, see [Azure Virtual Machines planning and implementation for SAP NetWeaver](/azure/virtual-machines/workloads/sap/planning-guide).
 
@@ -329,7 +329,7 @@ Support access within the applications themselves by using the services that SAP
 
 [Azure Monitor](/azure/azure-monitor/overview) provides sophisticated tools for collecting and analyzing telemetry. These tools help you maximize the performance and availability of your cloud and on-premises resources and applications. Monitor now includes Log Analytics and Application Insights. You can use Monitor to monitor infrastructure and application anomalies, alert administrators, and automate reactions to predefined conditions.
 
-To provide SAP-based monitoring of resources and service performance of the SAP infrastructure, use the [Azure SAP Enhanced Monitoring](/azure/virtual-machines/workloads/sap/deployment-guide) extension. This extension feeds Azure monitoring statistics into the SAP application for operating system monitoring and DBA Cockpit functions. SAP Enhanced Monitoring is required for running SAP on Azure. For details, see [SAP note 2191498](https://launchpad.support.sap.com/#/notes/2191498), "SAP on Linux with Azure: Enhanced Monitoring." To access SAP notes, you need an SAP Service Marketplace account.
+To provide SAP-based monitoring of resources and service performance of the SAP infrastructure, use the [Azure SAP enhanced monitoring](/azure/virtual-machines/workloads/sap/deployment-guide) extension. This extension feeds Azure monitoring statistics into the SAP application for operating system monitoring and DBA Cockpit functions. SAP enhanced monitoring is required for running SAP on Azure. For details, see [SAP note 2191498](https://launchpad.support.sap.com/#/notes/2191498), "SAP on Linux with Azure: Enhanced Monitoring." To access SAP notes, you need an SAP Service Marketplace account.
 
 [Azure Monitor for SAP Solutions](/azure/virtual-machines/workloads/sap/azure-monitor-overview) is the future direction for an Azure-native, end-to-end monitoring solution for SAP NetWeaver. This solution is currently in preview and is available only in a limited set of regions. Carefully evaluate whether it meets your requirements.
 

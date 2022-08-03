@@ -163,7 +163,7 @@ For traffic from SAP GUI clients that connects to an SAP server via the DIAG pro
 
 Some customers use standard storage for their application servers. Because standard managed disks aren't supported, as stated in SAP note 1928533, we recommend using premium [Azure managed disks](/azure/storage/storage-managed-disks-overview) or [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) in all cases. Note that a recent update to [SAP note 2015553](https://launchpad.support.sap.com/#/notes/2015553) excludes the use of standard HDD storage and standard SSD storage for a few specific use cases.
 
-Because application servers don't host any business data, you can also use the smaller P4 and P6 premium disks to help manage cost. To understand how the storage type affects the VM availability SLA, see [SLA for Virtual Machines](/support/legal/sla/virtual-machines/v1_9/). For high-availability scenarios, [Azure shared disk](/azure/virtual-machines/disks-shared) features are available on premium SSD and ultra SSD. For more information, see [Azure managed disks](/azure/storage/storage-managed-disks-overview).
+Because application servers don't host any business data, you can also use the smaller P4 and P6 premium disks to help manage cost. To understand how the storage type affects the VM availability SLA, see [SLA for Virtual Machines](/support/legal/sla/virtual-machines/v1_9/). For high-availability scenarios, [Azure shared disk](/azure/virtual-machines/disks-shared) features are available on Azure Premium SSD and Azure Ultra Disk Storage. For more information, see [Azure managed disks](/azure/storage/storage-managed-disks-overview).
 
 You can use Azure shared disks with Windows Server, SLES 15 SP 1 and later, or SLES for SAP. When you use an Azure shared disk in Linux clusters, the Azure shared disk serves as a STONITH block device (SBD). It offers a quorum vote in a cluster network partitioning situation. This shared disk doesn't have a file system on it and doesn't support simultaneous writes from multiple cluster member VMs.
 
@@ -173,7 +173,7 @@ For NFS share scenarios, [Azure NetApp Files](/azure/virtual-machines/workloads/
 
 For the backup data store, we recommend that you use Azure [cool and archive access tiers](/azure/storage/blobs/access-tiers-overview). These storage tiers are cost-effective ways to store long-lived data that's infrequently accessed. You can also consider using [Azure NetApp Files standard tier](/azure/azure-netapp-files/azure-netapp-files-service-levels#supported-service-levels) as a backup target or [Azure NetApp Files backup option](/azure/azure-netapp-files/backup-introduction). For a managed disk, the recommended backup data tier is the Azure cool or archive access tier.
 
-[Ultra SSDs](/azure/virtual-machines/linux/disks-enable-ultra-ssd) and Azure NetApp Files [ultra performance tier](/azure/azure-netapp-files/azure-netapp-files-service-levels) greatly reduce disk latency and benefit performance-critical applications and the SAP database servers.
+[Ultra Disk Storage](/azure/virtual-machines/linux/disks-enable-ultra-ssd) and Azure NetApp Files [ultra performance tier](/azure/azure-netapp-files/azure-netapp-files-service-levels) greatly reduce disk latency and benefit performance-critical applications and the SAP database servers.
 
 ## Performance considerations
 
@@ -185,7 +185,7 @@ For details about SAP HANA performance requirements, see [SAP note 1943937 - Har
 
 To achieve high IOPS and disk bandwidth throughput, the common practices in storage volume [performance optimization](/azure/virtual-machines/linux/premium-storage-performance) apply to your Storage layout. For example, if you combine multiple disks to create a striped disk volume, you can improve IO performance. By enabling the read cache on storage content that changes infrequently, you can enhance the speed of data retrieval. For recommendations about storage configurations for various VM sizes when you run SAP HANA, see [SAP HANA Azure virtual machine storage configurations](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage).
 
-[Ultra disk](/azure/virtual-machines/linux/disks-enable-ultra-ssd) is a new generation of storage that meets intensive IOPS and the transfer bandwidth demands of applications such as SAP HANA. You can dynamically change the performance of ultra disks and independently configure metrics like IOPS and MB/s without rebooting your VM. When Ultra SSD is available, we recommend Ultra SSD over Write Accelerator.
+[Ultra Disk Storage](/azure/virtual-machines/linux/disks-enable-ultra-ssd) is a new generation of storage that meets intensive IOPS and the transfer bandwidth demands of applications such as SAP HANA. You can dynamically change the performance of ultra disks and independently configure metrics like IOPS and MB/s without rebooting your VM. When Ultra Disk Storage is available, we recommend Ultra Disk Storage over Write Accelerator.
 
 Some SAP applications require frequent communication with the database. Network latency between the application and database layers, due to proximity distance, can adversely impact application performance. Azure [proximity placement groups](/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios) set a placement constraint for VMs that are deployed in availability sets. Within the logical construct of a group, colocation and performance are favored over scalability, availability, and cost. Proximity placement groups can greatly improve the user experience for most SAP applications. For scripts and utilities that are available on GitHub for proximity placement groups, see [Azure Proximity Placement Groups](https://github.com/msftphleiten/proximity-placement-groups).
 
@@ -359,7 +359,7 @@ To help keep your system running in production, consider the following points.
 
 ### Backup
 
-You can back up SAP HANA data in many ways. After you migrate to Azure, continue to use any existing backup solutions that you already have. Azure provides two native approaches to backup. You can back up [SAP HANA on VMs, or use Azure Backup on the file level](/azure/virtual-machines/workloads/sap/sap-hana-backup-guide). Azure Backup is [BackInt certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions?id=s:e062231e-9fb7-4ea8-b7d2-e6fe448c592d) by SAP. For more information, see [Azure Backup FAQ](/azure/backup/backup-azure-backup-faq).
+You can back up SAP HANA data in many ways. After you migrate to Azure, continue to use any existing backup solutions that you already have. Azure provides two native approaches to backup. You can back up [SAP HANA on VMs, or use Azure Backup at the file level](/azure/virtual-machines/workloads/sap/sap-hana-backup-guide). Azure Backup is [BackInt certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions?id=s:e062231e-9fb7-4ea8-b7d2-e6fe448c592d) by SAP. For more information, see [Azure Backup FAQ](/azure/backup/backup-azure-backup-faq).
 
 > [!NOTE]
 > Currently only HANA single container deployments support Azure storage snapshots.
@@ -370,15 +370,15 @@ Use a centralized identity management system to control access to resources at a
 
 - Provide access to Azure resources through [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview).
 
-- Grant access to Azure VMs through LDAP, Azure Active Directory (Azure AD), Kerberos, or another system.
+- Grant access to Azure VMs through Lightweight Directory Access Protocol (LDAP), Azure Active Directory (Azure AD), Kerberos, or another system.
 
 - Support access within the apps themselves through the services that SAP provides, or use [OAuth 2.0 and Azure AD](/azure/active-directory/develop/active-directory-protocols-oauth-code).
 
 ### Monitoring
 
-To maximize the availability and performance of applications and services, use [Azure Monitor](/azure/azure-monitor/overview), a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. Azure Monitor shows how applications are performing and proactively identifies issues that affect them and the resources that they depend on.
+To maximize the availability and performance of applications and services, use [Azure Monitor](/azure/azure-monitor/overview), a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. Monitor shows how applications are performing and proactively identifies issues that affect them and the resources that they depend on.
 
-To provide SAP-based monitoring of resources and service performance of the SAP infrastructure, use the [Azure SAP Enhanced Monitoring](/azure/virtual-machines/workloads/sap/deployment-guide#d98edcd3-f2a1-49f7-b26a-07448ceb60ca) extension. This extension feeds Azure monitoring statistics into the SAP application for operating system monitoring and DBA Cockpit functions. SAP enhanced monitoring is a mandatory prerequisite to run SAP on Azure. For details, see "SAP on Linux with Azure: Enhanced Monitoring" in [SAP Note 2191498](https://launchpad.support.sap.com/#/notes/2191498). To access SAP notes, you need an SAP Service Marketplace account.
+To provide SAP-based monitoring of resources and service performance of the SAP infrastructure, use the [Azure SAP enhanced monitoring](/azure/virtual-machines/workloads/sap/deployment-guide#d98edcd3-f2a1-49f7-b26a-07448ceb60ca) extension. This extension feeds Azure monitoring statistics into the SAP application for operating system monitoring and DBA Cockpit functions. SAP enhanced monitoring is a mandatory prerequisite to run SAP on Azure. For details, see "SAP on Linux with Azure: Enhanced Monitoring" in [SAP Note 2191498](https://launchpad.support.sap.com/#/notes/2191498). To access SAP notes, you need an SAP Service Marketplace account.
 
 ## Security considerations
 
@@ -388,7 +388,7 @@ To improve network security, consider using a [perimeter network](../../referenc
 
 For infrastructure security, data is encrypted in transit and at rest. The "Security considerations" section of [SAP NetWeaver on Azure Virtual Machines–Planning and Implementation Guide](/azure/virtual-machines/workloads/sap/planning-guide) contains information on network security that applies to S/4HANA. That guide also specifies the network ports that you must open on the firewalls to allow application communication.
 
-To encrypt Linux VM disks, you have various choices, as described in [Disk Encryption Overview](/azure/virtual-machines/disk-encryption-overview). For SAP HANA data-at-rest encryption, we recommend that you use the SAP HANA native encryption technology. For support of Azure disk encryption on specific Linux distributions, versions, and images, see [Azure Disk Encryption for Linux VMs](/azure/virtual-machines/linux/disk-encryption-overview).
+To encrypt Linux VM disks, you have various choices, as described in [Disk encryption overview](/azure/virtual-machines/disk-encryption-overview). For SAP HANA data-at-rest encryption, we recommend that you use the SAP HANA native encryption technology. For support of Azure disk encryption on specific Linux distributions, versions, and images, see [Azure disk encryption for Linux VMs](/azure/virtual-machines/linux/disk-encryption-overview).
 
 For SAP HANA data-at-rest encryption, we recommend that you use the SAP HANA native encryption technology.
 
