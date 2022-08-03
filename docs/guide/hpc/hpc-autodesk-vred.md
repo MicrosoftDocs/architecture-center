@@ -102,7 +102,7 @@ Select the rendering settings as shown here:
 
 You can save a rendered image to the desired location by selecting the path on the **File Output** tab in the **Render Settings** window. You can also choose an image size, like **HD** or **4K**, under **Image Size Presets**. We used **HD**.
 
-**General Settings** 
+**General Settings**
 
 For CPU and GPU ray tracing, you need to select image samples for anti-aliasing. Your anti-aliasing output improves as you increase the number of samples. Under **General Settings**, we selected the maximum number: **1024**. For OpenGL, you can use a lower number, between 16 and 32 images, for example.
 
