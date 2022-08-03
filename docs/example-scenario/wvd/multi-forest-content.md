@@ -1,6 +1,6 @@
 Many organizations want to take advantage of Azure Virtual Desktop (AVD) to create environments that have multiple on-premises Active Directory forests. 
 
-This article expands on the architecture that's described in the [Azure Virtual Desktop at enterprise scale](./windows-virtual-desktop-content.md) article. It's intended to help you understand how to integrate multiple domains and AVD by using [Azure Active Directory (Azure AD) Connect](/azure/active-directory/hybrid/whatis-hybrid-identity) to sync users from on-premises [Active Directory Domain Services (AD DS)](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) to [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis).
+This article expands on the architecture that's described in the [Azure Virtual Desktop at enterprise scale](./windows-virtual-desktop.yml) article. It's intended to help you understand how to integrate multiple domains and AVD by using [Azure Active Directory (Azure AD) Connect](/azure/active-directory/hybrid/whatis-hybrid-identity) to sync users from on-premises [Active Directory Domain Services (AD DS)](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) to [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis).
 
 ## Architecture
 
@@ -23,7 +23,7 @@ In this architecture, the identity flow works as follows:
 
 ### Components
 
-This architecture uses the same [components](./windows-virtual-desktop-content.md#components-you-manage) as those listed in [AVD at enterprise scale architecture](./windows-virtual-desktop-content.md).
+This architecture uses the same [components](./windows-virtual-desktop.yml#components-you-manage) as those listed in [AVD at enterprise scale architecture](./windows-virtual-desktop.yml).
 
 Additionally, this architecture uses the following components:
 
@@ -38,12 +38,12 @@ This architecture diagram shows a typical scenario that illustrates the followin
 - The Azure AD tenant is available for a new company named *NewCompanyAB.onmicrosoft.com*.
 - [Azure AD Connect](/azure/active-directory/hybrid/whatis-hybrid-identity) syncs users from on-premises AD DS to Azure Active Directory (Azure AD).
 - Company A and Company B have separate Azure subscriptions. They also have a [shared services subscription](/azure/cloud-adoption-framework/ready/azure-best-practices/initial-subscriptions#shared-services-subscription), referred to as the *Subscription 1* in the diagram.
-- [An Azure hub-spoke architecture](../../reference-architectures/hybrid-networking/hub-spoke-content.md) is implemented with a shared services hub virtual network.
+- [An Azure hub-spoke architecture](../../reference-architectures/hybrid-networking/hub-spoke.yml) is implemented with a shared services hub virtual network.
 - Complex hybrid on-premises Active Directory environments are present with two or more Active Directory forests. Domains live in separate forests, each with a different [UPN suffix](/microsoft-365/enterprise/prepare-a-non-routable-domain-for-directory-synchronization?view=o365-worldwide#add-upn-suffixes-and-update-your-users-to-them). For example, *CompanyA.local* with the UPN suffix CompanyA.com, *CompanyB.local* with the UPN suffix CompanyB.com, and an additional UPN suffix *NewCompanyAB.com*.
 - Domain controllers for both forests are located on-premises and in Azure.
 - Verified domains are present in Azure for CompanyA.com, CompanyB.com, and NewCompanyAB.com.
 - GPO and legacy authentication, such as [Kerberos](/windows-server/security/kerberos/kerberos-authentication-overview), [NTLM (Windows New Technology LAN Manager)](/windows-server/security/kerberos/ntlm-overview), and [LDAP (Lightweight Directory Access Protocol)](https://social.technet.microsoft.com/wiki/contents/articles/2980.ldap-over-ssl-ldaps-certificate.aspx), is used.
-- Azure environments that still have dependency on-premises infrastructure, private connectivity ([Site-to-site VPN or Azure ExpressRoute](../../reference-architectures/hybrid-networking/index-content.md)) is set up between on-premises and Azure.
+- Azure environments that still have dependency on-premises infrastructure, private connectivity ([Site-to-site VPN or Azure ExpressRoute](../../reference-architectures/hybrid-networking/index.yml)) is set up between on-premises and Azure.
 - The [AVD environment](/azure/virtual-desktop/environment-setup) consists of an AVD workspace for each business unit and two host pools per workspace.
 - The AVD session hosts are joined to domain controllers in Azure. That is, CompanyA session hosts join the CompanyA.local domain, and CompanyB session hosts join the CompanyB.local domain.
 - Azure storage accounts can use [Azure Files for FSLogix profiles](/azure/virtual-desktop/FSLogix-containers-azure-files). One account is created per company domain (that is, CompanyA.local and CompanyB.local), and the account is joined to the corresponding domain.
@@ -51,7 +51,7 @@ This architecture diagram shows a typical scenario that illustrates the followin
 > [!NOTE]
 > Active Directory Domain Services is a self-managed, on-premises component in many hybrid environments, and Azure Active Directory Domain Services (Azure AD DS) provides managed domain services with a subset of fully compatible, traditional AD DS features such as domain join, group policy, LDAP, and Kerberos/NTLM authentication. For a detailed comparison of these components, see [Compare self-managed AD DS, Azure AD, and managed Azure AD DS](/azure/active-directory-domain-services/compare-identity-solutions). </br>
 > 
-> The solution idea [Multiple AVD forests using Azure Active Directory Domain Services](./multi-forest-azure-managed-content.md) discusses architecture that uses cloud-managed [Azure AD DS](/azure/active-directory-domain-services/overview).
+> The solution idea [Multiple AVD forests using Azure Active Directory Domain Services](./multi-forest-azure-managed.yml) discusses architecture that uses cloud-managed [Azure AD DS](/azure/active-directory-domain-services/overview).
 
 ### Potential use cases
 
@@ -73,7 +73,7 @@ When you're designing your workload based on this architecture, keep the followi
 
 ### Network and connectivity
 
-- The domain controllers are shared components, so they need to be deployed in a shared services hub virtual network in this [hub-spoke architecture](../../reference-architectures/hybrid-networking/hub-spoke-content.md).
+- The domain controllers are shared components, so they need to be deployed in a shared services hub virtual network in this [hub-spoke architecture](../../reference-architectures/hybrid-networking/hub-spoke.yml).
 
 - AVD session hosts join the domain controller in Azure over their respective hub-spoke virtual network peering.
 
@@ -117,5 +117,5 @@ For more information, see the following articles:
 
 ## Related resources
 
-- [Azure Virtual Desktop for the enterprise](./windows-virtual-desktop-content.md)
-- [Solution idea: Multiple forests with Azure AD DS](./multi-forest-azure-managed-content.md)
+- [Azure Virtual Desktop for the enterprise](./windows-virtual-desktop.yml)
+- [Solution idea: Multiple forests with Azure AD DS](./multi-forest-azure-managed.yml)
