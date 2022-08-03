@@ -383,9 +383,21 @@ app.Use(async (context, next) =>
 
 Besides the use of diagnostic settings to send AKS logs and metrics to Log Analytics, AKS is also configured to use **Container Insights**. Enabling Container Insights deploys the OMSAgentForLinux via a Kubernetes DaemonSet on each of the nodes in AKS clusters. The OMSAgentForLinux is capable of collecting additional logs and metrics from within the Kubernetes cluster and sends them to its corresponding Log Analytics workspace. This contains more granular data about pods, deployments, services and the overall cluster health.
 
+Extensive logging can negatively affect cost while providing no benefit. For this reason, **stdout log collection and Prometheus scraping is disabled** in the Container Insights configuration, because all traces are already captured through Application Insights - generating duplicate records.
 
+```yaml
+#
+# container-azm-ms-agentconfig.yaml
+# This is just a snippet showing the relevant part.
+#
+[log_collection_settings]
+    [log_collection_settings.stdout]
+        enabled = false
 
-TODO: AKS OMS agent config...
+        exclude_namespaces = ["kube-system"]
+```
+
+See the [full configuration file](https://github.com/Azure/Mission-Critical-Online/blob/ae62624a9aaf3e5673ec39bdfadb25a257278dde/src/config/monitoring/container-azm-ms-agentconfig.yaml) for reference.
 
 ## Health monitoring
 
