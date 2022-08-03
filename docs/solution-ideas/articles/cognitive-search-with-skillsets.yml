@@ -2,7 +2,7 @@
 metadata:
   title: AI enrichment with image and text processing
   titleSuffix: Azure Architecture Center
-  description: Transform latent information in your image and text data into full text searchable content with Azure Cognitive Search pre-built and custom skills.
+  description: Transform unstructured image and text data into full text searchable content with Azure Cognitive Search pre-built and custom skills.
   author: carlosasantos
   ms.author: cfernandesdo
   ms.date: 08/03/2022
@@ -16,10 +16,10 @@ metadata:
     - internal-intro
     - ai-machine-learning
     - aml-project-improvement
-name: AI enrichment with image and natural language processing
+name: AI enrichment with image and text processing
 azureCategories:
   - ai-machine-learning
-summary: Transform latent information in your image and text data into full text searchable content with Azure Cognitive Search pre-built and custom skills.
+summary: Transform unstructured image and text data into full text searchable content with Azure Cognitive Search pre-built and custom skills.
 products:
   - azure-app-service
   - azure-blob-storage
