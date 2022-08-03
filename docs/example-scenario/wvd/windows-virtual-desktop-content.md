@@ -32,7 +32,7 @@ The diagram's dataflow elements are described here:
 
 - To increase capacity, the customer uses two Azure subscriptions in a hub-spoke architecture and connects them via virtual network peering.
 
-For more information about FSLogix Profile Container - Azure Files and Azure NetApp Files best practices, see [FSLogix for the enterprise](./windows-virtual-desktop-fslogix-content.md).
+For more information about FSLogix Profile Container - Azure Files and Azure NetApp Files best practices, see [FSLogix for the enterprise](./windows-virtual-desktop-fslogix.yml).
 
 ### Components
 
@@ -195,5 +195,5 @@ Principal author:
 
 ## Related resources
 
-- For best practices documentation, see [FSLogix for the enterprise](./windows-virtual-desktop-fslogix-content.md).
-- For more information about multiple Active Directory forests architecture, see [Multiple Active Directory forests architecture in Azure Virtual Desktop](./multi-forest-content.md).
+- For best practices documentation, see [FSLogix for the enterprise](./windows-virtual-desktop-fslogix.yml).
+- For more information about multiple Active Directory forests architecture, see [Multiple Active Directory forests architecture in Azure Virtual Desktop](./multi-forest.yml).
