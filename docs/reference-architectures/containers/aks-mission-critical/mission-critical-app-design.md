@@ -401,6 +401,16 @@ See the [full configuration file](https://github.com/Azure/Mission-Critical-Onli
 
 ## Health monitoring
 
+Every API publishes a basic liveness probe, which responds with successful HTTP code when the API is working, or throws an error if not......
+
+### Health service
+
+`HealthService` is a workload component that is running along other components (`CatalogService` and `BackgroundProcessor`) on the compute cluster. It provides a REST API that is called by Azure Front Door to determine the health of a stamp (region). Unlike basic liveness probes, health service is a more complex component which adds the state of dependencies in addition to its own.
+
+![Conceptual diagram of the health service querying Cosmos DB, Event Hub and Storage](./images/application-design-health-service.png)
+
+
+
 - Health service
 - Health and readiness probes
 
