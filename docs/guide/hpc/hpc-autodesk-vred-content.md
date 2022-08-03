@@ -1,4 +1,21 @@
-Autodesk VRED is a 3D visualization application that helps automotive designers and engineers create product presentations, design reviews, and virtual prototypes by using interactive CPU and GPU ray tracing. VRED, which was previously limited to CPU, now uses GPU technology to support the high demands of consumers and provide interactive ray tracing and AI-powered denoising. This technology enables users to gain immediate visual feedback to see how a vehicle's aesthetics will interact with various environments in real time.
+---
+title: Deploy Autodesk VRED for HPC on Azure
+description: Learn how to deploy Autodesk VRED on Azure. Review performance results on two Azure virtual machines. 
+author: gauharjunnarkar
+ms.author: gajunnar
+ms.date: 08/04/2022
+ms.topic: conceptual
+ms.service: architecture-center
+ms.subservice: azure-guide
+products:
+  - azure-virtual-machines
+categories:
+  - compute
+---
+
+# Deploy Autodesk VRED for HPC on Azure
+
+Autodesk VRED is a 3D visualization application that helps automotive designers and engineers create product presentations, design reviews, and virtual prototypes by using interactive CPU and GPU ray tracing. VRED, which was previously limited to CPU, now uses GPU technology to support the high demands of consumers and provide interactive ray tracing and AI-powered denoising.
 
 By using VRED, users can create digital prototypes so they can gain insight into how vehicles will look and perform. To be effective in guiding design decisions, the digital prototypes need to look and behave as close as possible to the real vehicles.  
 
@@ -12,12 +29,12 @@ Before you install VRED, you need to deploy and connect a VM and install the req
 
 For information about deploying the VM, see one of these articles:
 
-- [Run a Windows VM on Azure](/azure/architecture/reference-architectures/n-tier/windows-vm)
-- [Run a Linux VM on Azure](/azure/architecture/reference-architectures/n-tier/linux-vm)
+- [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml)
+- [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml)
 
 To download VRED:
 
-1. Sign in to you Autodesk account.
+1. Sign in to your Autodesk account.
 1. Search for VRED in **Products and Services**.
 1. Install VRED Professional.
 
@@ -41,14 +58,14 @@ To configure the license server:
 
 1. From the Windows search bar, open lmtools. A GUI opens.
 1. Select **Config Services** and provide the service name, in this case, **Autodesk Network License Manager**.
-1. Provide the path of the license file and the other paths.
-1. Select **Start Server at Power Up** at bottom of the window.
+1. Provide the path of the license file and the other requested paths.
+1. Select **Start Server at Power Up** at the bottom of the window.
 1. Select **Save Service** and follow the prompts that appear.
 1. On the **Start/Stop/Reread** tab, select **Start Server**. You should see the service name **Autodesk Network License Manager** highlighted in blue.
 
 The Network License Manager installation is complete.
 
-image 
+:::image type="content" source="media/license-manager-installation.png" alt-text="Screenshot that shows the LMTOOLS interface." lightbox="media/license-manager-installation.png" border="false":::
 
 ## VRED performance on Azure VMs
 
@@ -62,23 +79,24 @@ The term *rendering* refers to the automatic process of generating digital image
 
 **Offline rendering** is mainly used when less processing speed is required. Visual effects provide the highest standards of photorealism. In contrast to real-time rendering, there is no unpredictability with offline rendering.
 
-**Ray tracing** is a rendering technique that can produce highly realistic lighting effects. Ray tracing generates lifelike shadows and reflections and much-improved translucence and scattering, taking into account light phenomena like reflection and refraction. In VRED, there are mainly two ray tracing options: CPU ray tracing and GPU ray tracing.
+**Ray tracing** is a rendering technique that can produce highly realistic lighting effects. Ray tracing generates lifelike shadows and reflections and much-improved translucence and scattering, taking into account light phenomena like reflection and refraction. In VRED, there are two primary ray tracing options: CPU ray tracing and GPU ray tracing.
 
-### VRED application settings for rendering 
+### VRED application settings for rendering
 
 You can activate CPU and GPU ray tracing in VRED according to your requirements. To activate CPU/GPU ray tracing, select **Visualization** > **Raytracing** > **CPU/GPU Raytracing**.
 
 #### Anti-aliasing settings
 
-For CPU and GPU ray tracing rendering, we set the anti-aliasing option to high:
+For CPU and GPU ray tracing rendering in these tests, we set the anti-aliasing option to high:
 
 - **Visualization** > **Realtime Antialiasing** > **High**
 
-#### Render settings
+#### Rendering settings
 
-Select the render settings as shown here:
+Select the rendering settings as shown here:
 
-image
+:::image type="content" source="media/render-settings.png" alt-text="Screenshot that shows the rendering settings." lightbox="media/render-settings.png" border="false":::
+
 
 **Saving images**
 
@@ -88,7 +106,7 @@ You can save a rendered image to the desired location by selecting the path on t
 
 For CPU and GPU ray tracing, you need to select image samples for anti-aliasing. Your anti-aliasing output improves as you increase the number of samples. Under **General Settings**, we selected the maximum number: **1024**. For OpenGL, you can use a lower number, between 16 and 32 images, for example.
 
-image 
+:::image type="content" source="media/general-settings-tab.png" alt-text="Screenshot that shows the general settings tab in Render Settings." lightbox="media/general-settings-tab.png" border="false":::
 
 **Raytracing Quality**
 
@@ -98,64 +116,89 @@ In the **Raytracing Quality** settings, for the **Illumination Mode** for both i
 
 To analyze the performance of VRED on [NC64as_T4_v3](/azure/virtual-machines/nct4-v3-series) and [NV48s_v3](/azure/virtual-machines/nvv3-series) VMs, we tested offline image rendering and calculated the rendering times for both CPU ray tracing and GPU ray tracing. For this analysis, we rendered 4k and HD images. We tested GPU ray tracing on both VMs by using 1, 2, 3, and 4 GPUs. For CPU ray rendering, the application uses all CPU cores on the VM. We then calculated the relative speed increase of GPU rendering as compared to CPU rendering. The results are presented in the following sections.
 
-### VRED performance results on NCas_T4 VM
+### VRED performance results on the NC64as_T4_v3 VM
 
-CPU and GPU Rendering times
+#### CPU and GPU rendering times
 
-2 images 
+:::image type="content" source="media/ncas-t4-render-times.png" alt-text="Graphs that show CPU and GPU rendering times for NCas_T4." lightbox="media/ncas-t4-render-times.png" border="false":::
 
-Relative speedup between CPU and GPU raytracing:
+#### Relative speed increases between CPU and GPU ray tracing
 
-2 images 
+:::image type="content" source="media/ncas-t4-speed-increase.png" alt-text="Graphs that show the relative speed increases for NCas_T4." lightbox="media/ncas-t4-speed-increase.png" border="false"::: 
 
-Autodesk VRED Performance Results on NVv3 VM
-CPU and GPU rendering times
+### VRED performance results on the NV48s_v3 VM
 
-2 images 
+#### CPU and GPU rendering times
 
-Note: GPU Rendering with 1 GPU settings on NVv3 VMs, application produced an error while rendering with 4K and higher resolution setting. It works fine with HD image rendering. It depends on the model complexity and environment setting for the model. For larger scale models, 1 GPU setting is not recommended.
+:::image type="content" source="media/nv48s-v3-render-times.png" alt-text="Graphs that show CPU and GPU rendering times for NV48s_v3." lightbox="media/nv48s-v3-render-times.png" border="false":::
+ 
+> [!NOTE]
+> During GPU rendering on a NV48s_v3 VM with 1 GPU, the application produced an error when rendering with 4K and higher resolution. HD image rendering works fine. The results depend on the model's complexity and environment setting. For large-scale models, we don't recommend the 1-GPU setting.
 
-Relative speedup between CPU and GPU raytracing:
+#### Relative speed increases between CPU and GPU ray tracing
 
-2 images 
+:::image type="content" source="media/nv48s-v3-speed-increase.png" alt-text="Graphs that show the relative speed increases for NV48s_v3." lightbox="media/nv48s-v3-speed-increase.png" border="false"::: 
 
-Pricing
+## Pricing
 
-The application installation time not considered for Azure cost calculation, only model run time (wall clock time) considered for cost calculation. Please note following calculation is indicative, the actuals would depend on the model size.
+Only model running time (wall clock time) is considered for these cost calculations. Application installation time isn't considered. The calculations are indicative. The actual numbers depend on the size of the model.
 
-For the cost estimate, [Azure calculator](https://azure.microsoft.com/pricing/calculator) can be used for the required configuration.
+You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for your configuration.
 
-GPU Rendering cost
+### GPU rendering costs
 
+You can use the rendering times provided here and the Azure hourly costs to compute rendering costs. For example, if the Azure VM hourly cost is $8.60 and the rendering time is 11 minutes and 47 seconds, the cost is $1.69. For current Azure hourly costs, see [Windows Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/#pricing) or [Linux Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#pricing).  
 
-|VM Name  |# GPUs on VM  |Azure VM hourly cost ($)  |4K Image Render time  |Total Azure consumption of 4k Image|HD Image Render time|Total Azure consumption of HD Image|
-|---------|---------|---------|---------|---|---|----|
-|NC64as_T4_v3     |    4     |  $8.60       |  11 min 47 sec       |$1.69|3 min 48 sec|$0.54|
-|NV48s_v3     |    4     |  $8.59       |   49 min 21 sec      |$7.06|15 min 49 sec|$2.26|
+|VM  |Number of GPUs on VM  |  4K image render time  |HD image render time|
+|---------|---------|---------|---|
+|NC64as_T4_v3     |    4     |         11 minutes and 47 seconds       |3 minutes and 48 seconds|
+|NV48s_v3     |    4     |         49 minutes and 21 seconds      |15 minutes and 49 seconds|
 
-CPU Rendering cost
+### CPU rendering costs
 
-|VM Name  | No. of CPU cores |Azure VM hourly cost ($)  |4K Image Render time  |Total Azure consumption of 4k Image|HD Image Render time|Total Azure consumption of HD Image|
-|---------|---------|---------|---------|---|---|----|
-|NC64as_T4_v3     |    64     |  $8.60       |  21 min 13 sec       |$3.04|5 min 48 sec|$0.83|
-|NV48s_v3     |  48    |  $8.59       | 55 min 48 sec  |$8.00|14 min 27 sec|$2.07|
+|VM   | Number of CPU cores  |4K image render time  |HD image render time|
+|---------|---------|---------|---|
+|NC64as_T4_v3     |    64            |  21 minutes and 13 seconds       |5 minutes and 48 seconds|
+|NV48s_v3     |  48           | 55 minutes and 48 seconds  |14 minutes and 27 seconds|
 
-Summary
+## Additional notes about the tests
 
-- VRED Application is successfully deployed and tested on NCas_T4_v3 series VMs and NVv3 series Virtual Machines on Azure Platform
-- NC64as_T4 VM, GPU rendering is 1.8 times faster than the CPU rendering. 
-- NC64as_T4 Virtual Machine is recommended for VRED application as it demonstrated a better performance for both CPU and GPU rendering timelines.
-- For NVv3 VM, it was observed that there isn’t much improvement in GPU rendering times compared to CPU rendering time.
+- VRED was successfully deployed and tested on NCas_T4_v3 and NVv3 series VMs on Azure.
+- On NC64as_T4, GPU rendering is 1.8 times faster than CPU rendering.
+- We recommend NC64as_T4 for VRED because it provides better performance for both CPU and GPU rendering.
+- On NVv3, there isn't much improvement in GPU rendering times as compared to CPU rendering times.
 
 ## Contributors
 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+
+- [Hari Bagudu](https://www.linkedin.com/in/hari-bagudu-88732a19) | Senior Manager
+- [Gauhar Junnarkar](https://www.linkedin.com/in/gauharjunnarkar) | Principal Program Manager
+- [Vinod Pamulapati](https://www.linkedin.com/in/vinod-reddy-20481a104) | HPC Performance Engineer
+
+Other contributors:
+
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer 
+- [Guy Bursell](https://www.linkedin.com/in/guybursell) | Director Business Strategy 
+- [Sachin Rastogi](https://www.linkedin.com/in/sachin-rastogi-907a3b5) | Manager
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
-- [GPU Optimized Virtual Machine Sizes](/azure/virtual-machines/sizes-gpu)
-- [Windows Virtual Machines in Azure](/azure/virtual-machines/windows/overview)
-- [Linux Virtual Machines in Azure](/azure/virtual-machines/linux/overview)
+- [GPU optimized virtual machine sizes](/azure/virtual-machines/sizes-gpu)
+- [Windows virtual machines on Azure](/azure/virtual-machines/windows/overview)
+- [Linux virtual machines on Azure](/azure/virtual-machines/linux/overview)
+- [Learning path: Run high-performance computing (HPC) applications on Azure](/learn/paths/run-high-performance-computing-applications-azure)
+- [Virtual networks and virtual machines in Azure](/azure/virtual-network/network-overview)
+- [VRED Render Settings and Modes](https://knowledge.autodesk.com/support/vred-products/learn-explore/caas/CloudHelp/cloudhelp/2018/ENU/VRED/files/GUID-281BFE63-D833-431C-95E3-4EA418201954-htm.html)
 
 ## Related resources
 
-- [Run a Windows VM on Azure](/azure/architecture/reference-architectures/n-tier/windows-vm)
-- [Run a Linux VM on Azure](/azure/architecture/reference-architectures/n-tier/linux-vm) 
+- [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml)
+- [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml)
+- [Deploy ADS CFD Code Leo for HPC on a virtual machine](hpc-ads-cfd.yml)
+- [HPC system and big-compute solutions](../../solution-ideas/articles/big-compute-with-azure-batch.yml)
+- [HPC cluster deployed in the cloud](../../solution-ideas/articles/hpc-cluster.yml)

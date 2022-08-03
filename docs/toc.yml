@@ -3076,6 +3076,10 @@ items:
                 href: guide/technology-choices/compute-decision-tree.yml
               - name: SAS on Azure architecture
                 href: guide/sas/sas-overview.yml
+              - name: HPC deployments 
+                items: 
+                  - name: Deploy Autodesk VRED
+                    href: guide/hpc/hpc-autodesk-vred.yml  
               - name: Industry guidance
                 items:
                   - name: HPC for manufacturing
