@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This article presents a solution that enriches text and image documents by using image processing, natural language processing, and custom skills to capture domain-specific data. The solution uses Azure Cognitive Search with AI enrichment to help identify and explore relevant content at scale. AI enrichment extracts meaning from the original complex, unstructured JFK Files dataset.
+This article presents a solution that enriches text and image documents by using image processing, natural language processing, and custom skills to capture domain-specific data. Azure Cognitive Search with AI enrichment can help identify and explore relevant content at scale. This solution uses AI enrichment to extract meaning from the original complex, unstructured JFK Assassination Records dataset.
 
 ## Architecture
 
@@ -45,7 +45,7 @@ The [legacy OCR API](https://westus.dev.cognitive.microsoft.com/docs/services/co
 
 #### Azure Functions
 
-[Azure Functions](/azure/azure-functions/functions-overview) is a serverless compute service that lets you run small pieces of event-triggered code without having to explicitly provision or manage infrastructure. This solution uses an Azure Functions method to apply the CIA Cryptonyms list to the JFK Files as a custom skill.
+[Azure Functions](/azure/azure-functions/functions-overview) is a serverless compute service that lets you run small pieces of event-triggered code without having to explicitly provision or manage infrastructure. This solution uses an Azure Functions method to apply the CIA Cryptonyms list to the JFK Assassination Records as a custom skill.
 
 #### Azure App Service
 
@@ -53,9 +53,9 @@ This solution idea also builds a standalone web app in [Azure App Service](https
 
 ## Scenario details
 
-Large, unstructured datasets can include typewritten and handwritten notes, photos and diagrams, and other unstructured data that standard search solutions can't parse. The [JFK Files](https://www.archives.gov/research/jfk/2017-release) used in this solution contain over 34,000 pages of documents about the CIA investigation of the 1963 JFK assassination.
+Large, unstructured datasets can include typewritten and handwritten notes, photos and diagrams, and other unstructured data that standard search solutions can't parse. The [JFK Assassination Records](https://www.archives.gov/research/jfk/2017-release) contain over 34,000 pages of documents about the CIA investigation of the 1963 JFK assassination.
 
-The JFK Files sample project and demo showcase a particular Cognitive Search use case. This solution idea isn't intended to be a framework or scalable architecture for all scenarios, but to provide a general guideline and example. The code project and demo create a public website and publicly readable storage container for extracted images, so you shouldn't use this solution with non-public data.
+The JFK Files [sample project](https://github.com/microsoft/AzureSearch_JFK_Files) and [online demo](https://aka.ms/jfkfiles-demo) showcase a particular Cognitive Search use case. This solution idea isn't intended to be a framework or scalable architecture for all scenarios, but to provide a general guideline and example. The code project and demo create a public website and publicly readable storage container for extracted images, so you shouldn't use this solution with non-public data.
 
 *AI enrichment* in Azure Cognitive Search can extract and enhance searchable, indexable text from images, blobs, and other unstructured data sources like the JFK Files. AI enrichment uses pre-trained machine learning skill sets from the Cognitive Services [Computer Vision](/azure/cognitive-services/computer-vision/home) and [Cognitive Service for Language](/azure/cognitive-services/text-analytics/overview) APIs. You can also create and attach [custom skills](/azure/search/cognitive-search-custom-skill-interface) to add special processing for domain-specific data like CIA Cryptonyms. Azure Cognitive Search can then index and search that context.
 
