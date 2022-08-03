@@ -4,6 +4,8 @@ This reference architecture shows how to connect an on-premises network to virtu
 
 ![[0]][0]
 
+*Download a [Visio file][visio-download] of this architecture.*
+
 ### Workflow
 
 The architecture consists of the following components.
@@ -288,7 +290,9 @@ Microsoft Learn modules:
 [aaf-cost]: /azure/architecture/framework/cost/overview
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [azurect]: https://github.com/Azure/NetworkMonitoring/tree/master/AzureCT
-[0]: ./images/expressroute.png "Hybrid network architecture using Azure ExpressRoute"
+[0]: ./images/expressroute.png "Diagram showing hybrid network architecture using Azure ExpressRoute"
 [1]: ../_images/guidance-hybrid-network-expressroute/figure2.png "Using redundant routers with ExpressRoute primary and secondary circuits"
 [2]: ../_images/guidance-hybrid-network-expressroute/figure3.png "Adding security devices to the on-premises network"
 [3]: ../_images/guidance-hybrid-network-expressroute/figure4.png "Using forced tunneling to audit Internet-bound traffic"
+[visio-download]: https://arch-center.azureedge.net/hybrid-networking-expressroute.vsdx
+

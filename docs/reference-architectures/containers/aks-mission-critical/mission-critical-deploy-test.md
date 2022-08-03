@@ -1,6 +1,6 @@
 ---
-title: Deployment and test for mission-critical workloads on Azure
-description: Reference architecture for a workload that is accessed over a public endpoint without additional dependencies to other company resources - Deployment and test.
+title: Deployment and testing for mission-critical workloads on Azure
+description: Reference architecture for a workload that is accessed over a public endpoint without extra dependencies to other company resources - Deployment and Testing.
 author: sebader
 categories: devops
 ms.author: allensu
@@ -16,21 +16,21 @@ products:
   - azure-devops
 ---
 
-# Deployment and test for mission-critical workloads on Azure
+# Deployment and testing for mission-critical workloads on Azure
 
-The deployment and testing of the mission critical environment is a crucial piece of the overall reference architecture. The individual application stamps are deployed using infrastructure as code from a source code repository. Updates to the infrastructure, as well as the application on top, should be deployed with zero downtime to the application. A DevOps continuous integration pipeline is recommended to retrieve the source code from the repository and deploy the individual stamps in Azure.
+The deployment and testing of the mission critical environment is a crucial piece of the overall reference architecture. The individual application stamps are deployed using infrastructure as code from a source code repository. Updates to the infrastructure, and the application on top, should be deployed with zero downtime to the application. A DevOps continuous integration pipeline is recommended to retrieve the source code from the repository and deploy the individual stamps in Azure.
 
 Deployment and updates are the central process in the architecture. Infrastructure and application related updates should be deployed to fully independent stamps. Only the global infrastructure components in the architecture are shared across the stamps. Existing stamps in the infrastructure aren't touched. Infrastructure updates will only be deployed to these new stamps. Likewise, the new application version will only be deployed to these new stamps.
 
 The new stamps are added to Azure Front Door. Traffic is gradually moved over to the new stamps. When it's determined that traffic is served from the new stamps without issue, the previous stamps are deleted.
 
-Penetration, chaos, and stress testing are recommended for the deployed environment. Proactive testing of the infrastructure discovers weaknesses and how the deployed application will behave in the event of a failure.
+Penetration, chaos, and stress testing are recommended for the deployed environment. Proactive testing of the infrastructure discovers weaknesses and how the deployed application will behave if there's a failure.
 
 ## Deployment
 
 The deployment of the infrastructure in the reference architecture is dependent upon the following processes and components:
 
-* **DevOps** - The source code from GitHub and pipelines in Azure DevOps for the infrastructure.
+* **DevOps** - The source code from GitHub and pipelines for the infrastructure.
 
 * **Zero downtime updates** - Updates and upgrades are deployed to the environment with zero downtime to the deployed application.
 
@@ -40,7 +40,7 @@ The deployment of the infrastructure in the reference architecture is dependent 
 
 :::image type="content" source="./images/mission-critical-ref-flowchart.png" alt-text="Diagram of flowchart of deployment process.":::
 
-For more information, refer to [Deployment and testing for mission-critical workloads on Azure: Design considerations](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing#design-considerations)
+For more information, see [Deployment and testing for mission-critical workloads on Azure: Design considerations](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing#design-considerations)
 
 ## Deployment: DevOps
 
@@ -48,15 +48,15 @@ The DevOps components provide the source code repository and CI/CD pipelines for
 
 * **GitHub** - Contains the source code repositories for the application and infrastructure.
 
-* **Azure Pipelines** - The pipelines in the Azure DevOps service are used by the architecture for all build, test and release tasks.
+* **Azure Pipelines** - The pipelines used by the architecture for all build, test and release tasks.
 
-An additional component in the design used for the deployment is build agents. Microsoft Hosted build agents are used as part of Azure Pipelines to deploy the infrastructure and updates. The use of Microsoft Hosted build agents removes the management burden for developers to maintain and update the build agent.
+An extra component in the design used for the deployment is build agents. Microsoft Hosted build agents are used as part of Azure Pipelines to deploy the infrastructure and updates. The use of Microsoft Hosted build agents removes the management burden for developers to maintain and update the build agent.
 
-For more information about Azure Pipelines and Azure DevOps, see [What is Azure DevOps?](/azure/devops/user-guide/what-is-azure-devops).
+For more information about Azure Pipelines, see [What is Azure DevOps Services?](/azure/devops/user-guide/what-is-azure-devops).
 
 :::image type="content" source="./images/deployment-pipeline-prod.png" alt-text="Diagram of flowchart of DevOps pipeline." lightbox="./images/deployment-pipeline-prod-big.png":::
 
-For more information, refer to [Deployment and testing for mission-critical workloads on Azure: Infrastructure-as-Code deployments](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing#infrastructure-as-code-deployments)
+For more information, see [Deployment and testing for mission-critical workloads on Azure: Infrastructure-as-Code deployments](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing#infrastructure-as-code-deployments)
 
 ## Deployment: Zero downtime updates
 
@@ -68,7 +68,7 @@ There are two main components of the reference architecture:
 
 * **Application** - The hosted service or application that serves users. Based on Docker containers and npm built artifacts in HTML and JavaScript for the single-page application (SPA) UI.
 
-In many systems, there is an assumption that application updates will be more frequent than infrastructure updates. As a result, different update procedures are developed for each. With a public cloud infrastructure, changes can happen at a faster pace. One deployment process for application updates and infrastructure updates was chosen. One approach ensures infrastructure and application updates are always in sync. This allows for:
+In many systems, there's an assumption that application updates will be more frequent than infrastructure updates. As a result, different update procedures are developed for each. With a public cloud infrastructure, changes can happen at a faster pace. One deployment process for application updates and infrastructure updates was chosen. One approach ensures infrastructure and application updates are always in sync. This approach allows for:
 
 * **One consistent process** - Fewer chances for mistakes if infrastructure and application updates are mixed together in a release, intentionally or not.
 
@@ -80,7 +80,7 @@ In many systems, there is an assumption that application updates will be more fr
 
 * **Elimination of manual changes and configuration drift** - Every environment is a fresh deployment.
 
-For more information, refer to [Deployment and testing for mission-critical workloads on Azure: Ephemeral blue/green deployments](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing#ephemeral-bluegreen-deployments)
+For more information, see [Deployment and testing for mission-critical workloads on Azure: Ephemeral blue/green deployments](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing#ephemeral-bluegreen-deployments)
 
 ### Branching strategy
 
@@ -89,18 +89,18 @@ The foundation of the update strategy is the use of branches within the Git repo
 | Branch | Description |
 | ------ | ----------- |
 | **`feature/*`** and **`fix/*`** | The entry points for any change. These branches are created by developers and should be given a descriptive name, like **`feature/catalog-update`** or **`fix/worker-timeout-bug`**. When changes are ready to be merged, a pull request (PR) against the **`main`** branch is created. Every PR must be approved by at least one reviewer. With limited exceptions, every change that is proposed in a PR must run through the end-to-end (E2E) validation pipeline. The E2E pipeline should be used by developers to test and debug changes to a complete environment. |
-| **`main`** | The continuously forward moving and stable branch. Mostly used for integration testing. Changes to main are made only through pull requests. A branch policy prohibits direct writes. Nightly releases against the permanent **`integration (int)`** environment are automatically executed from the **`main`** branch. The **`main`** branch is considered stable. It should be safe to assume that at any given time, a release can be created from it. |
+| **`main`** | The continuously forward moving and stable branch. Mostly used for integration testing. Changes to **`main`** are made only through pull requests. A branch policy prohibits direct writes. Nightly releases against the permanent **`integration (int)`** environment are automatically executed from the **`main`** branch. The **`main`** branch is considered stable. It should be safe to assume that at any given time, a release can be created from it. |
 | **`release/*`** | Release branches are only created from the **`main`** branch. The branches follow the format **`release/2021.7.X`**. Branch policies are used so that only repo administrators are allowed to create **`release/*`** branches. Only these branches are used to deploy to the **`prod`** environment.
 
-For more information, refer to [Deployment and testing for mission-critical workloads on Azure: Branching strategy](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing#branching-strategy)
+For more information, see [Deployment and testing for mission-critical workloads on Azure: Branching strategy](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing#branching-strategy)
 
 ### Hotfixes
 
-In the event that a hotfix is required urgently because of a bug or other issue and can't go through the regular release process, a hotfix path is available. Critical security updates and fixes to the user experience that weren't discovered during initial testing are considered valid examples of hotfixes.
+When a hotfix is required urgently because of a bug or other issue and can't go through the regular release process, a hotfix path is available. Critical security updates and fixes to the user experience that weren't discovered during initial testing are considered valid examples of hotfixes.
 
-The hotfix must be created in a new **`fix`** branch and then merged into **`main`** using a regular PR. Instead of creating a new release branch, the hotfix is "cherry-picked" into an existing release branch. This branch is usually already deployed to the **`prod`** environment. The CI/CD pipeline that originally deployed the release branch with all the tests is executed again and will now deploy the hotfix as part of the pipeline.
+The hotfix must be created in a new **`fix`** branch and then merged into **`main`** using a regular PR. Instead of creating a new release branch, the hotfix is "cherry-picked" into an existing release branch. This branch is already deployed to the **`prod`** environment. The CI/CD pipeline that originally deployed the release branch with all the tests is executed again and will now deploy the hotfix as part of the pipeline.
 
-To avoid major issues, it's important that the hotfix contains a small number of isolated commits that can easily be cherry-picked and integrated into the release branch. If this isn't the case with the hotfix, it's an indication that the change doesn't qualify as a hotfix. The change should be deployed as a full new release and potentially combined with a rollback to a former stable version until the new release can be deployed.
+To avoid major issues, it's important that the hotfix contains a few isolated commits that can easily be cherry-picked and integrated into the release branch. If isolated commits can't be cherry-picked to integrate into the release branch, it's an indication that the change doesn't qualify as a hotfix. The change should be deployed as a full new release and potentially combined with a rollback to a former stable version until the new release can be deployed.
 
 ## Deployment: Environments
 
@@ -116,15 +116,15 @@ The reference architecture uses two types of environments for the infrastructure
 
 ## Deployment: Shared and dedicated resources
 
-The permanent environments (**`int`** and **`prod`**) within the reference architecture have different types of resources depending on if they are shared with the entire infrastructure or dedicated to an individual stamp. Resources can be dedicated to a particular release and exist only until the next release unit has taken over.
+The permanent environments (**`int`** and **`prod`**) within the reference architecture have different types of resources depending on if they're shared with the entire infrastructure or dedicated to an individual stamp. Resources can be dedicated to a particular release and exist only until the next release unit has taken over.
 
 ### Release units
 
-A release unit is several regional stamps per specific release version. Stamps contain all the resources which aren't shared with the other stamps. These resources are virtual networks, Azure Kubernetes Service cluster, Event Hubs, and Azure Key Vault. Cosmos DB and ACR are configured with Terraform data sources.
+A release unit is several regional stamps per specific release version. Stamps contain all the resources that aren't shared with the other stamps. These resources are virtual networks, Azure Kubernetes Service cluster, Event Hubs, and Azure Key Vault. Cosmos DB and ACR are configured with Terraform data sources.
 
 ### Globally shared resources
 
-All resources shared between release units are defined in an independent Terraform template. These resources are Front Door, Cosmos DB, Container registry (ACR), and the Log Analytics workspaces as well as other monitoring-related resources. These resources are deployed before the first regional stamp of a release unit is deployed. The resources are referenced in the Terraform templates for the stamps.
+All resources shared between release units are defined in an independent Terraform template. These resources are Front Door, Cosmos DB, Container registry (ACR), and the Log Analytics workspaces and other monitoring-related resources. These resources are deployed before the first regional stamp of a release unit is deployed. The resources are referenced in the Terraform templates for the stamps.
 
 ### Front Door
 
@@ -138,17 +138,17 @@ The individual component configuration for the Front Door deployment is defined 
 
 * **Origins** - Front Door is configured with two types of origin groups:
 
-    1. A pool for static storage that serves the UI. The pool contains the website storage accounts from all currently active release units. Different weights can be assigned to the backends from different release units to gradually move traffic to a newer unit. Each backend from a release unit should have the same weight assigned.
+    1. An origin group for static storage that serves the UI. The group contains the website storage accounts from all currently active release units. Different weights can be assigned to the origins from different release units to gradually move traffic to a newer unit. Each origin from a release unit should have the same weight assigned.
 
-    2. A pool for the API, which is hosted on AKS. If there are release units with different API versions, then an API backend pool exists for each release unit. If all release units offer the same compatible API, all backends are added to the same backend pool and assigned different weights.
+    2. An origin group for the API, which is hosted on AKS. If there are release units with different API versions, then an API origin group exists for each release unit. If all release units offer the same compatible API, all origins are added to the same group and assigned different weights.
 
 * **Routing rules** - There are two types of routing rules:
 
-    1. A routing rule for the UI that is linked to the UI storage backend pool.
+    1. A routing rule for the UI that is linked to the UI storage origin group.
 
-    2. A routing rule for each API currently supported by the backends. For example: **`/api/1.0/*`** and **`/api/2.0/*`**.
+    2. A routing rule for each API currently supported by the origins. For example: **`/api/1.0/*`** and **`/api/2.0/*`**.
 
-    If a release introduces a new version of the backend APIs, the changes will reflect in the UI that is deployed as part of the release. A specific release of the UI will always call a specific version of the API URL. Users served by a UI version will automatically use the respective backend API. Specific routing rules are needed for different instances of the API version. These rules are linked to the corresponding backend pools. In the event that a new API wasn't introduced, all API related routing rules link to the single backend pool. In this case, it doesn't matter if a user is served the UI from a different release than the API.
+    If a release introduces a new version of the backend APIs, the changes will reflect in the UI that is deployed as part of the release. A specific release of the UI will always call a specific version of the API URL. Users served by a UI version will automatically use the respective backend API. Specific routing rules are needed for different instances of the API version. These rules are linked to the corresponding origin groups. If a new API wasn't introduced, all API related routing rules link to the single origin group. In this case, it doesn't matter if a user is served the UI from a different release than the API.
 
 ## Deployment: Deployment process
 
@@ -158,17 +158,17 @@ As a first step in the deployment process of a new version, the infrastructure f
 
 After the new release unit is deployed and validated, it's added to Front Door to receive user traffic.
 
-A switch/parameter that distinguishes between releases that do and don't introduce a new API version should be planned for. Based on if the release introduces a new API version, a new backend pool with the API backends must be created. Alternatively, new API backends can be added to an existing backend pool. New UI storage accounts are added to the corresponding existing backend pool. Weights for new backends should be set according to the desired traffic split. A new routing rule as described above must be created that corresponds to the appropriate backend pool.
+A switch/parameter that distinguishes between releases that do and don't introduce a new API version should be planned for. Based on if the release introduces a new API version, a new origin group with the API backends must be created. Alternatively, new API backends can be added to an existing origin group. New UI storage accounts are added to the corresponding existing origin group. Weights for new origins should be set according to the desired traffic split. A new routing rule as described above must be created that corresponds to the appropriate origin group.
 
-As a part of the addition of the new release unit, the weights of the new backends should be set to the desired minimum user traffic. If no issues are detected, the amount of user traffic should be increased to the new backend pool over a period of time. To adjust the weight parameters, the same deployment steps should be executed again with the desired values.
+As a part of the addition of the new release unit, the weights of the new origins should be set to the desired minimum user traffic. If no issues are detected, the amount of user traffic should be increased to the new origin group over a period of time. To adjust the weight parameters, the same deployment steps should be executed again with the desired values.
 
 ### Release unit teardown
 
-As part of the deployment pipeline for a release unit, there is a destroy stage that removes all stamps once a release unit is no longer needed and all traffic has been moved to a new release version. This stage includes the removal of release unit references from Front Door. This is critical to enable the release of a new version at a later date. Front Door must point to a single release unit in order to be prepared for the next release in the future.
+As part of the deployment pipeline for a release unit, there's a destroy stage that removes all stamps once a release unit is no longer needed. All traffic is moved to a new release version. This stage includes the removal of release unit references from Front Door. This removal is critical to enable the release of a new version at a later date. Front Door must point to a single release unit in order to be prepared for the next release in the future.
 
 ### Checklists
 
-As part of the release cadence, a pre and post release checklist should be used. The following is an example of the items that should be in any checklist at a minimum.
+As part of the release cadence, a pre and post release checklist should be used. The following example is of items that should be in any checklist at a minimum.
 
 * **Pre-release checklist** - Before starting a release, check the following:
 
@@ -192,11 +192,11 @@ The update strategy described in this reference architecture has some limitation
 
 * Front Door complexity - The update process in Front Door is complex to implement and maintain. The ability to execute effective blue/green deployments with zero downtime is dependent on it working properly.
 
-* Small changes time consuming - The update process results in a longer release process for small changes. This can be partially mitigated with the hotfix process described in the previous section.
+* Small changes time consuming - The update process results in a longer release process for small changes. This limitation can be partially mitigated with the hotfix process described in the previous section.
 
 ## Deployment: Application data forward compatibility considerations
 
-The update strategy can support multiple versions of an API and work components executing concurrently. Because Cosmos DB is shared between two or more versions, there is a possibility that data elements changed by one version might not always match the version of the API or workers consuming it. The API layers and workers must implement forward compatibility design. Earlier versions of the API or worker components processes data that was inserted by a later API or worker component version. It ignores parts it doesn't understand.
+The update strategy can support multiple versions of an API and work components executing concurrently. Because Cosmos DB is shared between two or more versions, there's a possibility that data elements changed by one version might not always match the version of the API or workers consuming it. The API layers and workers must implement forward compatibility design. Earlier versions of the API or worker components processes data that was inserted by a later API or worker component version. It ignores parts it doesn't understand.
 
 ## Testing
 
@@ -204,7 +204,7 @@ The reference architecture contains different tests used at different stages wit
 
 These tests include:
 
-* **Unit tests** - These tests validate that the business logic of the application works as expected. The reference architecture contains a sample suite of unit tests executed automatically before every container build by Azure DevOps. If any test fails, the pipeline will stop and build and deployment won't proceed.
+* **Unit tests** - These tests validate that the business logic of the application works as expected. The reference architecture contains a sample suite of unit tests executed automatically before every container build by Azure Pipelines. If any test fails, the pipeline will stop. Build and deployment won't proceed.
 
 * **Load tests** - These tests help to evaluate the capacity, scalability, and potential bottlenecks for a given workload or stack. The reference implementation contains a user load generator to create synthetic load patterns that can be used to simulate real traffic. The load generator can also be used independently of the reference implementation.
 
@@ -214,7 +214,7 @@ These tests include:
 
 * **Failure injection tests** - These tests can be automated or executed manually. Automated testing in the architecture integrates Azure Chaos Studio as part of the deployment pipelines.
 
-For more information, refer to [Deployment and testing for mission-critical workloads on Azure: Continuous validation and testing](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing#continuous-validation-and-testing)
+For more information, see [Deployment and testing for mission-critical workloads on Azure: Continuous validation and testing](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing#continuous-validation-and-testing)
 
 ## Testing: Frameworks
 
@@ -222,7 +222,7 @@ The online reference implementation existing testing capabilities and frameworks
 
 | Framework | Test | Description |
 | --------- | ---- | ----------- |
-| **NUnit** | Unit | This framework is used for unit testing the .NET Core portion of the implementation. Unit tests are executed automatically by Azure DevOps before container builds. |
+| **NUnit** | Unit | This framework is used for unit testing the .NET Core portion of the implementation. Unit tests are executed automatically by Azure Pipelines before container builds. |
 | **JMeter with Azure Load Testing** | Load | [Azure Load Testing](/azure/load-testing/overview-what-is-azure-load-testing) is a managed service used to execute [Apache JMeter](https://jmeter.apache.org/) load test definitions. |
 | **Locust** | Load | Locust is an open-source load testing framework written in Python. |
 | **Playwright** | UI and Smoke | Playwright is an open source Node.js library to automate Chromium, Firefox and WebKit with a single API. The Playwright test definition can also be used independently of the reference implementation. |
@@ -238,7 +238,7 @@ Manual and automatic tests can be executed against the infrastructure to find fa
 
 ### Automatic
 
-The reference architecture integrates [Azure Chaos Studio](/azure/chaos-studio/chaos-studio-overview) to deploy and run a set of Azure Chaos Studio experiments to inject various faults at the stamp level. Chaos experiments can be executed as an optional part of the E2E deployment pipeline. When the tests are executed, the optional load test is always executed in parallel. The load test is used to create load on the cluster to validate the impact of the injected faults.
+The reference architecture integrates [Azure Chaos Studio](/azure/chaos-studio/chaos-studio-overview) to deploy and run a set of Azure Chaos Studio experiments to inject various faults at the stamp level. Chaos experiments can be executed as an optional part of the E2E deployment pipeline. When the tests are executed, the optional load test is always executed in parallel. The load test is used to create load on the cluster to validate the effect of the injected faults.
 
 ### Manual
 
@@ -246,20 +246,20 @@ Manual failure injection testing should be done in an E2E validation environment
 
 Two examples of failure injection tests performed against the reference architecture are:
 
-* **DNS-based failure injection** - A test case that can simulate multiple issues. DNS resolution failures due to either the failure of a DNS server or Azure DNS. DNS based testing can help simulate general connections issues between a client and a service, for example when the **BackgroundProcessor** can't connect to the Event Hub.
+* **DNS-based failure injection** - A test case that can simulate multiple issues. DNS resolution failures due to either the failure of a DNS server or Azure DNS. DNS based testing can help simulate general connections issues between a client and a service, for example when the **BackgroundProcessor** can't connect to the Event Hubs.
 
-    In single-host scenarios you can modify the local **`hosts`** file to overwrite DNS resolution. In a larger environment with multiple dynamic servers like AKS, a **`hosts`** file isn't feasible. [Azure Private DNS Zones](/azure/dns/private-dns-privatednszone) can be used as an alternative to test failure scenarios.
+    In single-host scenarios, you can modify the local **`hosts`** file to overwrite DNS resolution. In a larger environment with multiple dynamic servers like AKS, a **`hosts`** file isn't feasible. [Azure Private DNS Zones](/azure/dns/private-dns-privatednszone) can be used as an alternative to test failure scenarios.
 
     Azure Event Hubs and Azure Cosmos DB are two of the Azure services used within the reference implementation that can be used to inject DNS-based failures. Event Hubs DNS resolution can be manipulated with an Azure Private DNS zone tied to the virtual network of one of the stamps. Cosmos DB is a globally replicated service with specific regional endpoints. Manipulation of the DNS records for those endpoints can simulate a failure for a specific region and test the failover of clients.
 
-* **Firewall blocking** - Most Azure services support firewall access restrictions based on virtual networks and/or IP addresses. In the reference infrastructure these restrictions are used to restrict access to Cosmos DB or Event Hubs. A simple procedure is to remove existing **Allow** rules or adding new **Block** rules. This procedure can simulate firewall misconfigurations or service outages.
+* **Firewall blocking** - Most Azure services support firewall access restrictions based on virtual networks and/or IP addresses. In the reference infrastructure, these restrictions are used to restrict access to Cosmos DB or Event Hubs. A simple procedure is to remove existing **Allow** rules or adding new **Block** rules. This procedure can simulate firewall misconfigurations or service outages.
 
     The following example services in the reference implementation can be tested with a firewall test:
 
     | Service | Result |
     | ------- | ------ |
-    | **Key Vault** | When access to Key Vault is blocked, the most direct impact was the failure of new pods to spawn. The Key Vault CSI driver that fetches secrets on pod startup can't perform its tasks and prevents the pod from starting. Corresponding error messages can be observed with **`kubectl describe po CatalogService-deploy-my-new-pod -n workload`**. Existing pods will continue to work, although the same error message will be observed. The error message is generated by the results of the periodic update check for secrets. Though untested, it's assumed that executing a deployment won't work while Key Vault is inaccessible. Terraform and Azure CLI tasks within the pipeline run makes requests to Key Vault. |
+    | **Key Vault** | When access to Key Vault is blocked, the most direct effect was the failure of new pods to spawn. The Key Vault CSI driver that fetches secrets on pod startup can't perform its tasks and prevents the pod from starting. Corresponding error messages can be observed with **`kubectl describe po CatalogService-deploy-my-new-pod -n workload`**. Existing pods will continue to work, although the same error message will be observed. The error message is generated by the results of the periodic update check for secrets. Though untested, it's assumed that executing a deployment won't work while Key Vault is inaccessible. Terraform and Azure CLI tasks within the pipeline run makes requests to Key Vault. |
     | **Event Hubs** | When access to Event Hubs is blocked, new messages sent by the **CatalogService** and **HealthService** will fail. Retrieval of messages by the **BackgroundProcess** will slowly fail, with total failure within a few minutes. |
-    | **Cosmos DB** | Removal of the existing firewall policy for a virtual network results in the Health Service to begin to fail with minimum lag. This only simulates a specific case, an entire Cosmos DB outage. Most failure cases that occur on a regional level should be mitigated automatically by transparent failover of the client to a different Cosmos DB region. The DNS-based failure injection testing described previously is a more meaningful test for Cosmos DB. |
+    | **Cosmos DB** | Removal of the existing firewall policy for a virtual network results in the Health Service to begin to fail with minimum lag. This procedure only simulates a specific case, an entire Cosmos DB outage. Most failure cases that occur on a regional level should be mitigated automatically by transparent failover of the client to a different Cosmos DB region. The DNS-based failure injection testing described previously is a more meaningful test for Cosmos DB. |
     | **Container registry (ACR)** | When the access to ACR is blocked, the creation of new pods that have been pulled and cached previously on an AKS node will continue to work. The creation still works due to the **k8s** deployment flag **`pullPolicy=IfNotPresent`**. Nodes that haven't pulled and cached an image before the block can't spawn a new pod and fails immediately with **`ErrImagePull`** errors. **`kubectl describe pod`** displays the corresponding **`403 Forbidden`** message. |
     | **AKS ingress Load Balancer** | The alteration of the inbound rules for HTTP(S)(ports 80 and 443) in the AKS managed Network Security Group (NSG) to **Deny** results in user or health probe traffic fail to reach the cluster. The test of this failure is difficult to pinpoint the root cause, which was simulated as blockage between the network path of Front Door and a regional stamp. Front Door immediately detects this failure and takes the stamp out of rotation. |

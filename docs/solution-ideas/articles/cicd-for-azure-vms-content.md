@@ -12,8 +12,9 @@ Azure DevOps provides the CI/CD pipeline. It starts with a Git repository for ma
 
 ## Architecture
 
-![Architecture diagram](../media/cicd-for-azure-vms.png)
-*Download an [SVG](../media/cicd-for-azure-vms.svg) of this architecture.*
+![Diagram showing continuous integration and continuous deployment pipeline for virtual machines.](../media/cicd-for-azure-vms.png)
+
+*Download a [Visio file](https://arch-center.azureedge.net/cicd-for-azure-vms.vsdx) of this architecture.*
 
 ### Dataflow
 
