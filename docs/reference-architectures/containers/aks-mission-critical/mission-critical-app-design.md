@@ -53,13 +53,17 @@ The application has the following **data access characteristics**:
 - Read pattern:
   - Point reads, e.g. fetching a single record. These use item ID and partition key directly for maximum optimization (1 RU per request).
   - List reads, e.g. getting catalog items to display in a list. `FeedIterator` with limit on number of results is used.
-- Write pattern: Small writes e.g. requests which usually insert a single or a very small number of records in a transaction.
+- Write pattern:
+  - Small writes e.g. requests which usually insert a single or a very small number of records in a transaction.
 - Designed to handle high traffic from end-users with the ability to scale to handle traffic demand in the order of millions of users.
 - Small payload or dataset size - usually in order of KB.
 - Low response time (in order of milliseconds).
 - Low latency (in order of milliseconds).
 
 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) was chosen as the main database as it provides the ability of **multi-region writes**: each stamp can write to the Cosmos DB replica in the same region with Cosmos DB internally handling data replication and synchronization between regions.
+
+> [!TIP]
+> For applications that prioritize availability before performance **single-region write and multi-region read** with *Strong consistency* level are recommended.
 
 Data model of the Mission-critical reference implementation is designed so that it doesn't require features offered by traditional relational databases (i.e. foreign keys, strict row/column schema, views, etc.) and is fully compatible with the NoSQL nature of Cosmos DB. **SQL API** is used, because it's feature rich and supports all capabilities of the database engine.
 
@@ -94,14 +98,29 @@ indexing_policy {
 }
 ```
 
-- **Database structure**
+All workload components use the Cosmos DB .NET Core SDK to communicate with the database. The SDK includes robust logic to maintain database connections and handle failures. The configuration is as follows:
 
+- Uses **Direct connectivity mode** (default for .NET SDK v3) as this offers better performance because there are fewer network hops compared to Gateway mode which uses HTTP.
+- **`EnableContentResponseOnWrite`** is set to **`false`** to prevent the Cosmos DB client from returning the document from Create, Upsert, Patch and Replace operations to reduce network traffic and because this is not needed for further processing on the client.
+- **Custom serialization** is used to set the JSON property naming policy to `JsonNamingPolicy.CamelCase` (to translate .NET-style properties to standard JSON-style and vice-versa) and the default ignore condition to ignore properties with null values when serializing (`JsonIgnoreCondition.WhenWritingNull`).
+- **Application region** is set to the region of the stamp, because the application is using multi-region writes.
 
-The `CatalogService`, `BackgroundProcessor`, and `HealthCheck` components use the Cosmos DB .NET Core SDK to connect to Cosmos DB. The SDK includes logic to maintain alternate connections to the database in case of connection failures.
+```csharp
+// CosmosDbService.cs
+CosmosClientBuilder clientBuilder = new CosmosClientBuilder(sysConfig.CosmosEndpointUri, sysConfig.CosmosApiKey)
+    .WithConnectionModeDirect()
+    .WithContentResponseOnWrite(false)
+    .WithRequestTimeout(TimeSpan.FromSeconds(sysConfig.ComsosRequestTimeoutSeconds))
+    .WithThrottlingRetryOptions(TimeSpan.FromSeconds(sysConfig.ComsosRetryWaitSeconds), sysConfig.ComsosMaxRetryCount)
+    .WithCustomSerializer(new CosmosNetSerializer(Globals.JsonSerializerOptions));
 
-- direct connect mode
-- don't return object in response
-- resiliency - multi-region write, failovers
+if (sysConfig.AzureRegion != "unknown")
+{
+    clientBuilder = clientBuilder.WithApplicationRegion(sysConfig.AzureRegion);
+}
+
+_dbClient = clientBuilder.Build();
+```
 
 ## Identity and access management
 
