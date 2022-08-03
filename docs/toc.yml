@@ -3079,7 +3079,7 @@ items:
               - name: HPC deployments 
                 items: 
                   - name: Deploy Autodesk VRED
-                    href: guide/hpc/hpc-autodesk-vred.yml  
+                    href: guide/hpc/hpc-autodesk-vred.md  
               - name: Industry guidance
                 items:
                   - name: HPC for manufacturing
