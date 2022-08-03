@@ -4,7 +4,7 @@ This article presents a solution that enriches text and image documents by using
 
 ## Architecture
 
-This diagram illustrates the process of passing unstructured data through the Cognitive Search skills pipeline to produce structured, indexable data.
+This diagram illustrates the process of passing the unstructured JFK Files dataset through the Cognitive Search skills pipeline to produce structured, indexable data.
 
 :::image type="content" alt-text="Diagram that shows Cognitive Search architecture to convert unstructured into structured data." source="../media/cognitive-search-for-ai-enrichment.png" lightbox="../media/cognitive-search-for-ai-enrichment.png":::
 
@@ -12,14 +12,14 @@ This diagram illustrates the process of passing unstructured data through the Co
 
 ### Dataflow
 
-1. Unstructured data in Azure Blob storage, such as documents and images, ingest into Cognitive Search.
+1. Unstructured data in Azure Blob Storage, such as documents and images, ingest into Cognitive Search.
 1. The *document cracking* step initiates the indexing process by extracting images and text from the data, followed by content enrichment. The enrichment steps that occur in this process depend on the data and type of skills selected.
 1. [*Built-in skills*](/azure/search/cognitive-search-predefined-skills) based on the Computer Vision and Language Service APIs enable AI enrichments including image optical character recognition (OCR), image analysis, text translation, entity recognition, and full-text search.
 1. [*Custom skills*](/azure/search/cognitive-search-custom-skill-interface) support scenarios that require more complex AI models or services. Examples include Forms Recognizer, Azure Machine Learning models, and Azure Functions.
 1. Following the enrichment process, the indexer saves the outputs into a [*search index*](/azure/search/search-what-is-an-index) that contains the enriched and indexed documents. Full-text search and other query forms can use this index.
 1. The enriched documents can also project into a [*knowledge store*](/azure/search/knowledge-store-concept-intro), which downstream apps like knowledge mining or data science can use.
 1. Queries access the enriched content in the search index. The index supports custom analyzers, fuzzy search queries, filters, and a scoring profile to tune search relevance.
-1. Any application that connects to Blob storage or to Table storage can access the knowledge store.
+1. Any application that connects to Blob Storage or to Azure Table Storage can access the knowledge store.
 
 ### Components
 
@@ -39,9 +39,11 @@ The [legacy OCR API](https://westus.dev.cognitive.microsoft.com/docs/services/co
 
 [Azure Cognitive Service for Language](https://azure.microsoft.com/services/cognitive-services/language-service) extracts text information from unstructured documents by using [text analytics](/azure/cognitive-services/language-service/overview#available-features) capabilities like [Named Entity Recognition (NER)](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking), [key phrase extraction](/azure/search/cognitive-search-skill-keyphrases), and [full-text search](/azure/search/search-lucene-query-architecture).
 
-#### Azure Blob Storage
+#### Azure Storage
 
 [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) is REST-based object storage for data that you can access from anywhere in the world via HTTPS. You can use Blob Storage to expose data publicly to the world or to store application data privately. Blob Storage is ideal for large amounts of unstructured data like text or graphics.
+
+[Azure Table Storage](https://azure.microsoft.com/services/storage/tables) stores highly available, scalable, structured or semi-structured NoSQL data in the cloud.
 
 #### Azure Functions
 
@@ -57,15 +59,15 @@ Large, unstructured datasets can include typewritten and handwritten notes, phot
 
 The JFK Files [sample project](https://github.com/microsoft/AzureSearch_JFK_Files) and [online demo](https://aka.ms/jfkfiles-demo) showcase a particular Cognitive Search use case. This solution idea isn't intended to be a framework or scalable architecture for all scenarios, but to provide a general guideline and example. The code project and demo create a public website and publicly readable storage container for extracted images, so you shouldn't use this solution with non-public data.
 
-*AI enrichment* in Azure Cognitive Search can extract and enhance searchable, indexable text from images, blobs, and other unstructured data sources like the JFK Files. AI enrichment uses pre-trained machine learning skill sets from the Cognitive Services [Computer Vision](/azure/cognitive-services/computer-vision/home) and [Cognitive Service for Language](/azure/cognitive-services/text-analytics/overview) APIs. You can also create and attach [custom skills](/azure/search/cognitive-search-custom-skill-interface) to add special processing for domain-specific data like CIA Cryptonyms. Azure Cognitive Search can then index and search that context.
+AI enrichment in Azure Cognitive Search can extract and enhance searchable, indexable text from images, blobs, and other unstructured data sources like the JFK Files. AI enrichment uses pre-trained machine learning skill sets from the Cognitive Services [Computer Vision](/azure/cognitive-services/computer-vision/home) and [Cognitive Service for Language](/azure/cognitive-services/text-analytics/overview) APIs. You can also create and attach [custom skills](/azure/search/cognitive-search-custom-skill-interface) to add special processing for domain-specific data like CIA Cryptonyms. Azure Cognitive Search can then index and search that context.
 
-The Azure Cognitive Search skills in this solution idea fall into the following categories:
+The Azure Cognitive Search skills in this solution fall into the following categories:
 
-- *Image processing* [OCR](/azure/search/cognitive-search-skill-ocr), [text extraction](/azure/cognitive-services/computer-vision/concept-recognizing-text#read-api), and [image analysis](/azure/search/cognitive-search-skill-image-analysis) built-in skills include object and face detection, tag and caption generation, and celebrity and landmark identification. These skills create text representations of image content, which are searchable using the query capabilities of Azure Cognitive Search. *Document cracking* is the process of extracting or creating text content from non-text sources.
+- *Image processing* built-in [text extraction](/azure/cognitive-services/computer-vision/concept-recognizing-text#read-api) and [image analysis](/azure/search/cognitive-search-skill-image-analysis) skills include object and face detection, tag and caption generation, and celebrity and landmark identification. These skills create text representations of image content, which are searchable using the query capabilities of Azure Cognitive Search. *Document cracking* is the process of extracting or creating text content from non-text sources.
 
-- *Natural language processing* built-in skills like [entity recognition](/azure/search/cognitive-search-skill-entity-recognition), [language detection](/azure/search/cognitive-search-skill-language-detection), and [key phrase extraction](/azure/search/cognitive-search-skill-keyphrases), and [OCR](/azure/cognitive-services/computer-vision/overview-ocr) map unstructured text to searchable and filterable fields in an index.
+- *Natural language processing* built-in skills like [entity recognition](/azure/search/cognitive-search-skill-entity-recognition), [language detection](/azure/search/cognitive-search-skill-language-detection), and [key phrase extraction](/azure/search/cognitive-search-skill-keyphrases) map unstructured text to searchable and filterable fields in an index.
 
-- *Custom skills* that capture domain-specific data are built with a [custom skills interface](/azure/search/cognitive-search-custom-skill-interface) that uses the [Custom Web API skill](/azure/search/cognitive-search-custom-skill-web-api).
+- *Custom skills* extend Cognitive Search to apply specific enrichment transformations to content. You [specify the interface for a custom skill](/azure/search/cognitive-search-custom-skill-interface) through the [Custom Web API skill](/azure/search/cognitive-search-custom-skill-web-api).
 
 ## Potential use cases
 
@@ -99,7 +101,7 @@ Read product documentation:
 - [What is Azure Cognitive Service for Language?](/azure/cognitive-services/language-service/overview)
 - [What is optical character recognition?](/azure/cognitive-services/computer-vision/overview-ocr)
 - [What is Named Entity Recognition (NER) in Azure Cognitive Service for Language?](/azure/cognitive-services/language-service/named-entity-recognition/overview)
-- [Introduction to Azure Blob storage](/azure/storage/blobs/storage-blobs-introduction)
+- [Introduction to Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction)
 - [Introduction to Azure Functions](/azure/azure-functions/functions-overview)
 
 Try the learning path:
