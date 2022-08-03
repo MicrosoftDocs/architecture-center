@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Highly available multi-zone web application
+  title: Highly available zone-redundant web application
   description: Learn how to run an Azure App Service application in a zone-redundant configuration to achieve high availability.
   author: DanielLarsenNZ
   ms.author: pnp
@@ -14,7 +14,7 @@ metadata:
   ms.custom:
     - reference-architecture
     - internal-intro
-name: Highly available multi-zone web application
+name: Highly available zone-redundant web application
 azureCategories:
   - web
   - management-and-governance
@@ -25,6 +25,6 @@ products:
   - azure-front-door
   - azure-storage
   - azure-sql-database
-thumbnailUrl: /azure/architecture/browse/thumbs/multi-zone-web-app-diagram.png
+thumbnailUrl: /azure/architecture/browse/thumbs/zone-redundant-web-app-diagram.png
 content: |
-   [!include[](multi-zone-content.md)]
+   [!include[](zone-redundant-content.md)]
