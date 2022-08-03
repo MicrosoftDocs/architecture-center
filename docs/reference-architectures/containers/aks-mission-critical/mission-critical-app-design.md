@@ -20,7 +20,7 @@ categories: featured
 
 # Application design considerations for mission-critical workloads
 
-The Azure Mission-Critical reference architecture considers a simple web shop catalog workflow where end users can browse through a catalog of items, see details of an item, and post ratings and comments for items. Although fairly straight forward, this application enables the Reference Implementation to demonstrate the asynchronous processing of requests and how to achieve high throughput within a solution. The application's design also focuses on reliability and resiliency.
+The Azure Mission-critical reference architecture considers a simple web shop catalog workflow where end users can browse through a catalog of items, see details of an item, and post ratings and comments for items. Although fairly straight forward, this application enables the Reference Implementation to demonstrate the asynchronous processing of requests and how to achieve high throughput within a solution. The application's design also focuses on reliability and resiliency.
 
 ## Application composition
 
@@ -30,6 +30,8 @@ The application consists of four components:
 1. **API application** (`CatalogService`) - .NET Core REST API called by the UI application, but available for other potential client applications.
 1. **Worker application** (`BackgroundProcessor`) - .NET Core background worker, which processes write requests to the database by listening to new events on the message bus. This component does not expose any APIs.
 1. **Health check application** (`HealthCheck`) - Used to report the health of the application by checking if critical components (database, messaging bus) are working.
+
+![Application flow](./images/application-design-flow.png)
 
 The API, worker and health check applications are referred to as **workload** and hosted as containers in a dedicated AKS namespace (called `workload`). There's **no direct communication** between the pods, they're **stateless** and able to **scale independently**.
 
@@ -41,8 +43,6 @@ There are additional supporting components running on the cluster:
 1. **Cert manager** - Jetstack's `cert-manager` is used to auto-provision SSL/TLS certificates (using Let's Encrypt) for ingress rules.
 1. **CSI secrets driver** - To securely read secrets such as connection strings from Azure Key Vault, the open-source Azure Key Vault Provider for Secrets Store CSI Driver is used.
 1. **Monitoring agent** - The default OMSAgent configuration is adjusted to reduce the amount of monitoring data sent to the Log Analytics workspace.
-
-![Application flow](./images/application-design-flow.png)
 
 ### Database connection
 
@@ -106,7 +106,9 @@ All workload components use the Cosmos DB .NET Core SDK to communicate with the 
 - **Application region** is set to the region of the stamp, because the application is using multi-region writes.
 
 ```csharp
+//
 // CosmosDbService.cs
+//
 CosmosClientBuilder clientBuilder = new CosmosClientBuilder(sysConfig.CosmosEndpointUri, sysConfig.CosmosApiKey)
     .WithConnectionModeDirect()
     .WithContentResponseOnWrite(false)
@@ -314,25 +316,70 @@ TODO
 
 ## Instrumentation
 
-Proper instrumentation is essential not only for infrastructure monitoring, but also on the application side. The Mission-critical reference implementation has full end-to-end tracing of requests.
+Azure Mission-critical reference implementation uses Azure Log Analytics for logs and metrics of all workload and infrastructure components, and Azure Application Insights for all application monitoring data. The workload implements **full end-to-end tracing** of requests coming from the API, through Event Hubs, to Cosmos DB.
 
-Key principles for instrumentation:
+Key principles of instrumentation:
 
 1. Workload components don't rely only on *stdout* (console) logging, although it can be used for immediate troubleshooting of a failing pod.
 1. Workload components send logs, metrics and additional telemetry to stamp's log system - Application Insights backed by Log Analytics Workspace.
 1. Structured logging is used, instead of plain text.
 1. Event correlation is in place to ensure end-to-end transaction view. Every API response contains **Operation ID** for traceability.
 
-> Stamp monitoring resources are deployed to a separate resource group and have different lifecycle than the stamp itself. See <link>application platform?</link> for more details.
+> [!IMPORTANT]
+> Stamp monitoring resources are deployed to a separate monitoring resource group and have different lifecycle than the stamp itself. See (LINK TO application platform?) for more details.
 
-Each component writes logs, metrics, and telemetry to a backing log system, Azure Monitor. The components do not write log files in the runtime environment, or manage log formats or the logging environment. There are no log boundaries, such as date rollover, defined or managed by the applications. The logging is an ongoing event stream and the backing log system is where log analytics and querying are performed. The AKS cluster also has Container Insights enabled, which is a service that collects logs and metrics from the containers in the cluster and sends them to the Log Analytics workspace.
+![Diagram of separate global services, monitoring services and stamp deployment](./images/application-design-monitoring-overview.png)
 
+### Application monitoring
 
-The BackgroundProcessor uses the Microsoft.ApplicationInsights.WorkerService NuGet package to get out-of-the-box instrumentation from the application. Also, Serilog is used for all logging inside the application with Azure Application Insights configured as a sink (next to the Console sink). Only when needed to track additional metrics, a TelemetryClient instance for ApplicationInsights is used directly.
+The `BackgroundProcessor` component uses the `Microsoft.ApplicationInsights.WorkerService` NuGet package to get out-of-the-box instrumentation from the application. Also, Serilog is used for all logging inside the application with Azure Application Insights configured as a sink (next to the console sink). Only when needed to track additional metrics, a `TelemetryClient` instance for Application Insights is used directly.
+
+```csharp
+//
+// Program.cs
+//
+public static IHostBuilder CreateHostBuilder(string[] args) =>
+    Host.CreateDefaultBuilder(args)
+    .ConfigureServices((hostContext, services) =>
+    {
+        Log.Logger = new LoggerConfiguration()
+                            .ReadFrom.Configuration(hostContext.Configuration)
+                            .Enrich.FromLogContext()
+                            .WriteTo.Console(outputTemplate: "[{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} {Level:u3}] {Message:lj} {Properties:j}{NewLine}{Exception}")
+                            .WriteTo.ApplicationInsights(hostContext.Configuration[SysConfiguration.ApplicationInsightsConnStringKeyName], TelemetryConverter.Traces)
+                            .CreateLogger();
+    }
+```
 
 ![End-to-end tracing](./images/application-design-end-to-end-tracing.png)
 
-serilog
+To demonstrate practical request traceability, every API request (successful or not) returns the Correlation ID header to the caller. With this identifier the **application support team is able to search Application Insights** and get a detailed view of the full transaction.
+
+```csharp
+//
+// Startup.cs
+//
+app.Use(async (context, next) =>
+{
+    context.Response.OnStarting(o =>
+    {
+        if (o is HttpContext ctx)
+        {
+            // ... code omitted for brevity
+            context.Response.Headers.Add("X-Server-Location", sysConfig.AzureRegion);
+            context.Response.Headers.Add("X-Correlation-ID", Activity.Current?.RootId);
+            context.Response.Headers.Add("X-Requested-Api-Version", ctx.GetRequestedApiVersion()?.ToString());
+        }
+        return Task.CompletedTask;
+    }, context);
+    await next();
+});
+```
+
+### Kubernetes monitoring
+
+Besides the use of diagnostic settings to send AKS logs and metrics to Log Analytics, AKS is also configured to use **Container Insights**. Enabling Container Insights deploys the OMSAgentForLinux via a Kubernetes DaemonSet on each of the nodes in AKS clusters. The OMSAgentForLinux is capable of collecting additional logs and metrics from within the Kubernetes cluster and sends them to its corresponding Log Analytics workspace. This contains more granular data about pods, deployments, services and the overall cluster health.
+
 
 distributed tracing
 operation ID returned to caller
@@ -340,6 +387,11 @@ operation ID returned to caller
 sampling
 
 TODO: AKS OMS agent config...
+
+## Health monitoring
+
+- Health service
+- Health and readiness probes
 
 ## Scalability
 
@@ -432,6 +484,4 @@ All workload components as well as supporting services like the `HealthService` 
 In addition to that, each component of the workload including dependencies like `ingress-nginx` has [Pod Disruption Budgets (PDBs)](/azure/aks/operator-best-practices-scheduler#plan-for-availability-using-pod-disruption-budgets) configured to ensure that a minimum number of instances is always available.
 
 
-## Health monitoring
-- Health service
-- Health and readiness probes
+
