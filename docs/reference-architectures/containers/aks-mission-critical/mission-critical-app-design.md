@@ -44,7 +44,7 @@ There are additional supporting components running on the cluster:
 1. **CSI secrets driver** - To securely read secrets such as connection strings from Azure Key Vault, the open-source Azure Key Vault Provider for Secrets Store CSI Driver is used.
 1. **Monitoring agent** - The default OMSAgent configuration is adjusted to reduce the amount of monitoring data sent to the Log Analytics workspace.
 
-### Database connection
+## Database connection
 
 No state is persisted within stamps and Cosmos DB serves as the main data store for the application.
 
@@ -405,14 +405,60 @@ Every API publishes a basic liveness probe, which responds with successful HTTP 
 
 ### Health service
 
-`HealthService` is a workload component that is running along other components (`CatalogService` and `BackgroundProcessor`) on the compute cluster. It provides a REST API that is called by Azure Front Door to determine the health of a stamp (region). Unlike basic liveness probes, health service is a more complex component which adds the state of dependencies in addition to its own.
+`HealthService` is a workload component that is running along other components (`CatalogService` and `BackgroundProcessor`) on the compute cluster. It provides a REST API that is called by Azure Front Door health check to determine the availability of a stamp. Unlike basic liveness probes, health service is a more complex component which adds the state of dependencies in addition to its own.
 
 ![Conceptual diagram of the health service querying Cosmos DB, Event Hub and Storage](./images/application-design-health-service.png)
 
+First of all, if the AKS cluster is down, the health service wouldn't respond, rendering the workload unhealthy. When the service is running, it performs periodic checks against critical components of the solution:
 
+1. Perform a simple query to **Cosmos DB**.
+1. Send a message to **Event Hub** (filtered out by the backend worker).
+1. Lookup a specific file on the **Storage Account** (also serves as a kill switch).
 
-- Health service
-- Health and readiness probes
+All checks are done **asynchronously and in parallel**. If any of them fails, the whole stamp will be considered unavailable.
+
+Check results are **cached in memory**, using the standard, non-distributed ASP.NET Core `MemoryCache`. Cache expiration is controlled by `SysConfig.HealthServiceCacheDurationSeconds` and is set to 10 seconds by default. There's not need for external cache in this case.
+
+> [!WARNING]
+> Azure Front Door health probes can generate significant load on the health service, because requests come from multiple pop locations. To prevent overloading the downstream components, appropriate caching needs to take place.
+
+#### Cosmos DB check
+
+To minimize impact on the overall load, the read check is a simple query which doesn't manipulate with data:
+
+```sql
+SELECT GetCurrentDateTime()
+```
+
+The write request creates a dummy document with minimum content and short time-to-live (TTL):
+
+```csharp
+var testRating = new ItemRating()
+{
+    Id = Guid.NewGuid(),
+    CatalogItemId = Guid.NewGuid(), // create some random (= non-existing) item id
+    CreationDate = DateTime.UtcNow,
+    Rating = 1,
+    TimeToLive = 10 // will be auto-deleted after 10 seconds
+};
+
+await AddNewRatingAsync(testRating);
+```
+
+### Event Hub check
+
+The health service reports healthy if it's able to send a message to Event Hub. It contains additional property `HEALTHCHECK=TRUE` and the background processor ignores it.
+
+### Blob check
+
+The blob check serves two purposes:
+
+1. Test if it's possible to reach Blob Storage. This storage account is also used by other components in the stamp and hence considered a critical resource.
+1. Manually "turn off" a region by manipulating (i.e. deleting) the state file.
+
+The reference implementation looks for presence of the state file in the specified Blob Container. If it cannot connect to the Storage Account, or if the file is not found, stamp is considered unhealthy.
+
+**Remove** the file to disable a stamp.
 
 ## Scalability
 
