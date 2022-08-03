@@ -44,15 +44,13 @@ Microsoft Azure provides these managed services to implement load testing and ch
 - **Azure Load Testing** produces synthetic user load on applications and services.
 - **Azure Chaos Studio** provides the ability to perform chaos experimentation, by systematically injecting failures into application components and infrastructure.
 
-By using the tools in conjunction, you can observe how the system reacts to issues and its ability to self-heal in response to infrastructure or application failures.
+Both Azure Chaos Studio and Load Testing can be deployed and configured through Azure portal, but more importantly there are APIs available to deploy, configure and execute tests in a programmatic and automated way. By using the tools in conjunction, you can observe how the system reacts to issues and its ability to self-heal in response to infrastructure or application failures. 
 
-See a [demo of combined implementation of Chaos and Load Testing](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing#demo-continuous-validation-with-azure-load-test-and-azure-chaos-studio) integrated in Azure DevOps. It also has detailed guidance, a sample implementation, and code artifacts for extra reference.
+The following video shows a [combined implementation of Chaos and Load Testing](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing#demo-continuous-validation-with-azure-load-test-and-azure-chaos-studio) integrated in Azure DevOps:
 
-![Diagram of the continuous validation process.](./images/deployment-testing-continuous-validation.png)
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4Y50k]
 
-Both Azure Chaos Studio and Load Testing can be deployed and configured through Azure portal, but more importantly there are APIs available to deploy, configure and execute tests in a programmatic and automated way.
-
-The Azure Mission-critical online reference implementation deploys the Azure Load Testing service through Terraform. It contains a [collection of PowerShell Core wrapper scripts](https://github.com/Azure/Mission-Critical-Online/tree/main/src/testing/loadtest-azure/scripts) to interact with the service that can be embedded directly into a deployment pipeline.
+The Azure Mission-critical framework and reference implementation contains detailed guidance, a sample implementation, and code artifacts for extra reference. It deploys the Azure Load Testing service through Terraform and contains a [collection of PowerShell Core wrapper scripts](https://github.com/Azure/Mission-Critical-Online/tree/main/src/testing/loadtest-azure/scripts) to interact with the service via its API. These scripts can be embedded directly into a deployment pipeline.
 
 One option in the reference implementation is to execute the load test directly from within the end-to-end (e2e) pipeline that is used to spin up individual (branch specific) development environments:
 
