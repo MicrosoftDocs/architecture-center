@@ -144,13 +144,12 @@ https://docs.microsoft.com/azure/aks/use-managed-identity
 
 ### Secrets
 
-Each deployment stamp has its dedicated instance of Azure Key Vault. Some parts of the workload still use **keys** to access Azure resources (e.g. Cosmos DB) - those are created during deployment and stored in Key Vault with Terraform. **No human operator ever interacts with these secrets** as they're generated automatically and handled in Terraform. In addition, Key Vault access policies are configured in a way that **no user accounts are permitted to access** secrets.
+Each deployment stamp has its dedicated instance of Azure Key Vault. Some parts of the workload still use **keys** to access Azure resources (e.g. Cosmos DB) - those are created during deployment and stored in Key Vault with Terraform. With the exception of end-to-end environments for developers, **no human operator ever interacts with these secrets** as they're generated automatically and handled in Terraform. In addition, Key Vault access policies are configured in a way that **no user accounts are permitted to access** secrets.
 
+> [!NOTE]
 > This workload doesn't use certificates, but the same principles would apply.
 
-> This doesn't fully apply to e2e environments which are designed to be owned by the developer who is able to get secrets from their environment and use them for local debugging.
-
-In order for the application to consume secrets, the [**Azure Key Vault Provider for Secrets Store**](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver) is used. The CSI driver gets keys from Azure Key Vault and mounts them into individual pods' as files.
+The [**Azure Key Vault Provider for Secrets Store**](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver) is used in order for the application to consume secret. The CSI driver loads keys from Azure Key Vault and mounts them into individual pods' as files.
 
 ```yml
 apiVersion: secrets-store.csi.x-k8s.io/v1
@@ -220,7 +219,42 @@ One exception are **sensitive values** for pipelines, which aren't stored in sou
 
 In order to achieve high responsiveness for all operations, Azure Mission-critical reference implementation uses the [Queue-Based Load leveling pattern](https://docs.microsoft.com/azure/architecture/patterns/queue-based-load-leveling) combined with [Competing Consumers pattern](https://docs.microsoft.com/azure/architecture/patterns/competing-consumers) where multiple producer instances (`CatalogService` in our case) generate messages which are then asynchronously processed by consumers (`BackgroundProcessor`). This allows the API to accept the request and return to the caller quickly whilst the more demanding database write operation is processed separately. This asynchronous approach provides reliability and resiliency through the decoupling of dependencies between the components.
 
-The reference architecture uses **Azure Event Hubs** as the message queue but provides interfaces in code which enable the use of other messaging services if required, such as Azure Service Bus. **ASP.NET Core API** is used to implement the producer REST API, and **.NET Core Worker Service** is used to implement the consumer service.
+The reference architecture uses **Azure Event Hubs** as the message queue between the API service and background worker. It was chosen because it's capable of handling higher throughput than Azure Service Bus (with the tradeoff of missing functionality). There are interfaces in code, which enable the use of other messaging services if required. **ASP.NET Core API** is used to implement the producer REST API, and **.NET Core Worker Service** is used to implement the consumer service.
+
+Every message needs to contain the `action` metadata property which directs the route of processing:
+
+```csharp
+// `action` is a string:
+//  - AddCatalogItem
+//  - AddComment
+//  - AddRating
+//  - DeleteObject
+switch (action)
+{
+    case Constants.AddCatalogItemActionName:
+        await AddCatalogItemAsync(messageBody);
+        break;
+    case Constants.AddCommentActionName:
+        await AddItemCommentAsync(messageBody);
+        break;
+    case Constants.AddRatingActionName:
+        await AddItemRatingAsync(messageBody);
+        break;
+    case Constants.DeleteObjectActionName:
+        await DeleteObjectAsync(messageBody);
+        break;
+    default:
+        _logger.LogWarning("Unknown event, action={action}. Ignoring message", action);
+        break;
+}
+```
+
+Besides standard user flow messages (database CRUD operations),there are also health check messages identified by the `HEALTHCHECK=TRUE` metadata value. Currently health check messages are dropped and not processed further.
+
+If a message isn't a health check and doesn't contain `action`, it's also dropped.
+
+> [!IMPORTANT]
+> Messaging queue is not intended to be used as a persistent data store for an long periods of time. The Event Hubs service supports [Capture feature](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-enable-through-portal) which allows an Event Hub to automatically write a copy of messages to a linked Azure Storage account. This keeps utilization in-check but it also serves as a mechanism to backup messages.
 
 ### Write operations
 
