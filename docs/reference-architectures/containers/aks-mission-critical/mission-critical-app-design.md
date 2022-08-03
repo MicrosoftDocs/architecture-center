@@ -46,9 +46,58 @@ There are additional supporting components running on the cluster:
 
 ### Database connection
 
-Cosmos DB presents a key dependency of the application...
+No state is persisted within stamps and Cosmos DB serves as the main data store for the application.
 
-he `CatalogService`, `BackgroundProcessor`, and `HealthCheck` components use the Cosmos DB .NET Core SDK to connect to Cosmos DB. The SDK includes logic to maintain alternate connections to the database in case of connection failures.
+The application has the following **data access characteristics**:
+
+- Read pattern:
+  - Point reads, e.g. fetching a single record. These use item ID and partition key directly for maximum optimization (1 RU per request).
+  - List reads, e.g. getting catalog items to display in a list. `FeedIterator` with limit on number of results is used.
+- Write pattern: Small writes e.g. requests which usually insert a single or a very small number of records in a transaction.
+- Designed to handle high traffic from end-users with the ability to scale to handle traffic demand in the order of millions of users.
+- Small payload or dataset size - usually in order of KB.
+- Low response time (in order of milliseconds).
+- Low latency (in order of milliseconds).
+
+[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) was chosen as the main database as it provides the ability of **multi-region writes**: each stamp can write to the Cosmos DB replica in the same region with Cosmos DB internally handling data replication and synchronization between regions.
+
+Data model of the Mission-critical reference implementation is designed so that it doesn't require features offered by traditional relational databases (i.e. foreign keys, strict row/column schema, views, etc.) and is fully compatible with the NoSQL nature of Cosmos DB. **SQL API** is used, because it's feature rich and supports all capabilities of the database engine.
+
+> [!NOTE]
+> New applications should use the Cosmos DB SQL API. For legacy applications that already use another NoSQL protocol (Mongo DB) the migration to Cosmos DB SQL API should be at least evaluated.
+
+Cosmos DB is configured as follows:
+
+- **Consistency level** is set to the default *Session consistency* as the most widely used level for single region and globally distributed applications. Azure Mission-critical does not use weaker consistency with higher throughput because the asynchronous nature of write processing doesn't require low latency on database write.
+
+- **Partition key** is set to `/id` for all collections. This decision is based on the usage pattern which is mostly *"writing new documents with random GUID as ID"* and *"reading wide range of documents by ID"*. Providing the application code maintains its ID uniqueness, new data will be evenly distributed into partitions by Cosmos DB, enabling virtually infinite scale.
+
+- **Indexing policy** is configured on collections to optimize queries. To optimize RU cost and performance a custom indexing policy is used and this only indexes properties used in query predicates. For example, the application doesn't use the comment text field as a filter in queries and so it was excluded from the custom indexing policy.
+
+```
+// Example of setting indexing policy in Terraform:
+
+indexing_policy {
+
+  excluded_path {
+    path = "/description/?"
+  }
+
+  excluded_path {
+    path = "/comments/text/?"
+  }
+
+  included_path {
+    path = "/*"
+  }
+
+}
+```
+
+- **Database structure**
+
+
+The `CatalogService`, `BackgroundProcessor`, and `HealthCheck` components use the Cosmos DB .NET Core SDK to connect to Cosmos DB. The SDK includes logic to maintain alternate connections to the database in case of connection failures.
 
 - direct connect mode
 - don't return object in response
