@@ -4,7 +4,7 @@ This article presents a solution that enriches text and image documents by using
 
 ## Architecture
 
-This diagram illustrates the process of passing the unstructured JFK Files dataset through the Cognitive Search skills pipeline to produce structured, indexable data.
+The following diagram illustrates the process of passing the unstructured JFK Files dataset through the Cognitive Search skills pipeline to produce structured, indexable data.
 
 :::image type="content" alt-text="Diagram that shows Cognitive Search architecture to convert unstructured into structured data." source="../media/cognitive-search-for-ai-enrichment.png" lightbox="../media/cognitive-search-for-ai-enrichment.png":::
 
@@ -63,9 +63,9 @@ AI enrichment in Azure Cognitive Search can extract and enhance searchable, inde
 
 The Azure Cognitive Search skills in this solution fall into the following categories:
 
-- *Image processing* built-in [text extraction](/azure/cognitive-services/computer-vision/concept-recognizing-text#read-api) and [image analysis](/azure/search/cognitive-search-skill-image-analysis) skills include object and face detection, tag and caption generation, and celebrity and landmark identification. These skills create text representations of image content, which are searchable using the query capabilities of Azure Cognitive Search. *Document cracking* is the process of extracting or creating text content from non-text sources.
+- *Image processing*. Built-in [text extraction](/azure/cognitive-services/computer-vision/concept-recognizing-text#read-api) and [image analysis](/azure/search/cognitive-search-skill-image-analysis) skills include object and face detection, tag and caption generation, and celebrity and landmark identification. These skills create text representations of image content, which are searchable using the query capabilities of Azure Cognitive Search. *Document cracking* is the process of extracting or creating text content from non-text sources.
 
-- *Natural language processing* built-in skills like [entity recognition](/azure/search/cognitive-search-skill-entity-recognition), [language detection](/azure/search/cognitive-search-skill-language-detection), and [key phrase extraction](/azure/search/cognitive-search-skill-keyphrases) map unstructured text to searchable and filterable fields in an index.
+- *Natural language processing*. Built-in skills like [entity recognition](/azure/search/cognitive-search-skill-entity-recognition), [language detection](/azure/search/cognitive-search-skill-language-detection), and [key phrase extraction](/azure/search/cognitive-search-skill-keyphrases) map unstructured text to searchable and filterable fields in an index.
 
 - *Custom skills* extend Cognitive Search to apply specific enrichment transformations to content. You [specify the interface for a custom skill](/azure/search/cognitive-search-custom-skill-interface) through the [Custom Web API skill](/azure/search/cognitive-search-custom-skill-web-api).
 
@@ -85,6 +85,8 @@ Principal author:
 
  * [Carlos Alexandre Santos](https://www.linkedin.com/in/carlosafsantos) | Senior Specialized AI Cloud Solution Architect
  * [Jose Contreras](https://www.linkedin.com/in/josedanielcontreras) | Principal Software Engineering Manager
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
