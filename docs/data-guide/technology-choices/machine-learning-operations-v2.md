@@ -69,11 +69,11 @@ The base architecture for MLOps v2 for Machine Learning is the classical machine
 
 The architectures currently covered by MLOps v2 and discussed in this article are:
 
-- [Machine Learning classical machine learning architecture](#machine-learning-classical-machine-learning-architecture)
+- [Classical machine learning architecture](#machine-learning-classical-machine-learning-architecture)
 - [Machine Learning CV architecture](#machine-learning-cv-architecture)
 - [Machine Learning NLP architecture](#machine-learning-nlp-architecture)
 
-### Machine Learning classical machine learning architecture
+### Classical machine learning architecture
 
 :::image type="content" source="../images/classical-ml-architecture.png" lightbox="../images/classical-ml-architecture.png" alt-text="Diagram for the classical machine learning architecture." border="false":::
 
