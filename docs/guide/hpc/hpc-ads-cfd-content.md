@@ -1,11 +1,11 @@
-This article briefly describes the steps for running [ADS CFD's](https://new.aerodynamic-solutions.com) Code Leo application on a virtual machine (VM) deployed on Azure. It also presents the performance results of running Code Leo on Azure.
+This article briefly describes the steps for running [ADS CFD's](https://new.aerodynamic-solutions.com) Code Leo application on a virtual machine (VM) that's deployed on Azure. It also presents the performance results of running Code Leo on Azure.
 
 Code Leo is a URANS-based flow solver that delivers accurate and fast flow simulations for general flow configurations. Code Leo:
 
 - Is density based and compressible and has explicit time marching and convergence acceleration.
 - Is second-order accurate in time and space with low numerical smoothing.
-- Is used to run both steady-state and unsteady simulations.
-- Can handle structured multi-block meshes and unstructured meshes with mixed tetrahedrons, pyramids, prisms, and hex elements.
+- Runs both steady-state and unsteady simulations.
+- Handles structured multi-block meshes and unstructured meshes with mixed tetrahedrons, pyramids, prisms, and hex elements.
 - Allows the use of various turbomachinery rotor/stator interaction models, including sliding mesh, mixing plane, and frozen rotor models.
 - Is HPC-aware and uses MPI+MP for parallel computing.
 
@@ -37,7 +37,7 @@ For information about deploying the VM, see one of these articles:
 To download Code Leo products from the ADS CFD portal:
 
 1. Open the ADS CFD portal in a web browser and sign in.
-1. Select **Support tab** on the home page.
+1. Select the **Support** tab on the home page.
 1. Select **Download**.
 1. Select the download link for the latest version of Linux.
 
@@ -62,7 +62,7 @@ The CC3 wheel model is used for this performance evaluation. This model has two 
 
 Full wheel time analyses were performed on ND96asr_v4 and NC24s_v3 Azure VMs.
 
-ADS CFD provided CPU results, which are used as a baseline for comparing GPU runs on both VM instances.
+ADS CFD provided CPU results, which provide a baseline for comparing GPU runs on both VM instances.
 
 The elapsed time for CPU simulation is 3,600 minutes. The simulation was performed on a server with Xeon 23 CPUs with a clock speed of 2.4 GHz.
 
