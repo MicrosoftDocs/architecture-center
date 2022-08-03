@@ -376,15 +376,14 @@ app.Use(async (context, next) =>
 });
 ```
 
+> [!NOTE]
+> The Application Insights SDK has adaptive sampling enabled by default. That means that not every request is sent to the cloud and searchable by ID. The reference implementation has **adaptive sampling disabled in production environment**.
+
 ### Kubernetes monitoring
 
 Besides the use of diagnostic settings to send AKS logs and metrics to Log Analytics, AKS is also configured to use **Container Insights**. Enabling Container Insights deploys the OMSAgentForLinux via a Kubernetes DaemonSet on each of the nodes in AKS clusters. The OMSAgentForLinux is capable of collecting additional logs and metrics from within the Kubernetes cluster and sends them to its corresponding Log Analytics workspace. This contains more granular data about pods, deployments, services and the overall cluster health.
 
 
-distributed tracing
-operation ID returned to caller
-
-sampling
 
 TODO: AKS OMS agent config...
 
@@ -433,21 +432,6 @@ DUMP ZONE
 Follow the principles outlined in [Performance testing](/azure/architecture/framework/scalability/performance-test) to determine your specific load testing needs.
 
 
-
-
-
-
-
-## Application composition
-- Introduce layered approach
-- Microservices as the recommended pattern
-    - Loose coupling/high cohesion
-    - List some pros and cons
-    - 12-Factor described in the table. 
-
-![Application flow](./images/application-design-flow.png)
-
-
 ## Service discoverablity
 - Service object and ClusterIP
 - Cluster DNS
@@ -458,12 +442,6 @@ Follow the principles outlined in [Performance testing](/azure/architecture/fram
 - Ingress to service
 - Network policies
 
-## Instrumentation
-- What data to capture (logs, metrics, deployment ennvironment)
-- Distributed tracing
-- Application profiling
-- Structured logging
-- APM enabling
 
 ## Scalability
 - Independent scaling
@@ -482,6 +460,3 @@ The `BackgroundProcessor` service has very different requirements and is conside
 All workload components as well as supporting services like the `HealthService` and dependencies like `ingress-nginx` are configured with at least 3 or in case of the `HealthService` 2 instances (replicas) per cluster. This is supposed to prevent certain availability issues and to ensure that the service is always available. The instances are automatically spread across nodes and therefore also across Availability Zones.
 
 In addition to that, each component of the workload including dependencies like `ingress-nginx` has [Pod Disruption Budgets (PDBs)](/azure/aks/operator-best-practices-scheduler#plan-for-availability-using-pod-disruption-budgets) configured to ensure that a minimum number of instances is always available.
-
-
-
