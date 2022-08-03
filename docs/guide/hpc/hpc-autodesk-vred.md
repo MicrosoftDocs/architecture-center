@@ -40,11 +40,11 @@ To download VRED:
 
 ### Install License Manager
 
-Before you install VRED on an Azure VM, you need to install Autodesk Network License Manager on the VM. You can [install Autodesk Network License Manager for Windows here]( https://knowledge.autodesk.com/search-result/caas/downloads/content/autodesk-network-license-manager-for-windows.html).
+Before you install VRED on an Azure VM, you need to install Autodesk Network License Manager on the VM. You can [install Network License Manager for Windows here]( https://knowledge.autodesk.com/search-result/caas/downloads/content/autodesk-network-license-manager-for-windows.html).
 
 During installation, this folder is created: C:\Autodesk\Network License Manager\.
 
-Next, generate a license file from your Autodesk account and keep the license file in the Network License Manager folder. Create a text file named *debug.log* and save it in the same folder.
+Next, generate a license file from your Autodesk account and save it in the Network License Manager folder. Create a text file named *debug.log* and save it in the same folder.
 
 To generate the license file:
 
@@ -132,7 +132,7 @@ To analyze the performance of VRED on [NC64as_T4_v3](/azure/virtual-machines/nct
 :::image type="content" source="media/nv48s-v3-render-times.png" alt-text="Graphs that show CPU and GPU rendering times for NV48s_v3." lightbox="media/nv48s-v3-render-times.png" border="false":::
  
 > [!NOTE]
-> During GPU rendering on a NV48s_v3 VM with 1 GPU, the application produced an error when rendering with 4K and higher resolution. HD image rendering works fine. The results depend on the model's complexity and environment setting. For large-scale models, we don't recommend the 1-GPU setting.
+> During GPU rendering on a NV48s_v3 VM with 1 GPU, the application produced an error when rendering with 4K and higher resolution. HD image rendering works fine. The results depend on the model's complexity and environment settings. For large-scale models, we don't recommend the 1-GPU setting.
 
 #### Relative speed increases between CPU and GPU ray tracing
 
@@ -180,7 +180,7 @@ Principal authors:
 Other contributors:
 
 - [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer 
-- [Guy Bursell](https://www.linkedin.com/in/guybursell) | Director Business Strategy 
+- [Guy Bursell](https://www.linkedin.com/in/guybursell) | Director, Business Strategy 
 - [Sachin Rastogi](https://www.linkedin.com/in/sachin-rastogi-907a3b5) | Manager
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
