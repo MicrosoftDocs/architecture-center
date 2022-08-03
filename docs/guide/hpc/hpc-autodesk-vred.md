@@ -95,7 +95,7 @@ For CPU and GPU ray tracing rendering in these tests, we set the anti-aliasing o
 
 Select the rendering settings as shown here:
 
-:::image type="content" source="media/render-settings.png" alt-text="Screenshot that shows the rendering settings." lightbox="media/rendering-settings.png" border="false":::
+:::image type="content" source="media/rendering-settings.png" alt-text="Screenshot that shows the rendering settings." lightbox="media/rendering-settings.png" border="false":::
 
 **Saving images**
 
