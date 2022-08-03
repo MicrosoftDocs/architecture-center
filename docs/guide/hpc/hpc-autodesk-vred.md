@@ -77,7 +77,7 @@ The term *rendering* refers to the automatic process of generating digital image
 
 **Real-time rendering** is mainly used in gaming and interactive graphics, where images are calculated from 3D information at a fast pace. Dedicated graphics hardware has improved the performance of real-time rendering to ensure rapid image processing.
 
-**Offline rendering** is mainly used when less processing speed is required. Visual effects provide the highest standards of photorealism. In contrast to real-time rendering, there is no unpredictability with offline rendering.
+**Offline rendering** is used when less processing speed is required. Visual effects provide the highest standards of photorealism. In contrast to real-time rendering, there's no unpredictability with offline rendering.
 
 **Ray tracing** is a rendering technique that can produce highly realistic lighting effects. Ray tracing generates lifelike shadows and reflections and much-improved translucence and scattering, taking into account light phenomena like reflection and refraction. In VRED, there are two primary ray tracing options: CPU ray tracing and GPU ray tracing.
 
