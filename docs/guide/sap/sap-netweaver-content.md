@@ -39,13 +39,13 @@ This guide describes a production system. The system is deployed with specific v
 
 **Private DNS service.** [Azure Private DNS](/azure/dns/private-dns-overview) provides a reliable and secure DNS service for your virtual network. Azure Private DNS manages and resolves domain names in the virtual network, without the need to configure a custom DNS solution.
 
-**Load balancers.** Load balancers are used to distribute traffic to VMs in the application-tier subnet. For SAP application high availability, use the built-in SAP Web Dispatcher, [Azure Load Balancer](/azure/load-balancer/load-balancer-overview), or network appliances. Your choice depends on the traffic types, like HTTP or SAP GUI, or the required network services, like Secure Sockets Layer (SSL) termination. When you incorporate Load Balancer in a zonal deployment of SAP, make sure you select the Standard SKU load balancer because the Basic SKU balancer doesn't come with zone redundancy.
+**Load balancers.** Load balancers are used to distribute traffic to VMs in the application-tier subnet. For SAP application high availability, use the built-in SAP Web Dispatcher, [Azure Load Balancer](/azure/load-balancer/load-balancer-overview), or network appliances. Your choice depends on the traffic types, like HTTP or SAP GUI, or the required network services, like Secure Sockets Layer (SSL) termination. When you incorporate Load Balancer in a zonal deployment of SAP, make sure you select Standard Load Balancer because the Basic SKU balancer doesn't come with zone redundancy.
 
 <!--
 For some internet-facing inbound/outbound design examples, see [SAP internet, outbound, and inbound solution](../../reference-architectures/sap/sap-internet-inbound-outbound.yml).
 -->
 
-The Azure Standard SKU load balancer supports multiple front-end virtual IPs. This support is ideal for cluster implementations that involve these components:
+Standard Load Balancer supports multiple front-end virtual IPs. This support is ideal for cluster implementations that involve these components:
 
 - Advanced Business Application Programming (ABAP) SAP Central Service (ASCS)
 - Evaluated receipt settlement (ERS)
@@ -148,7 +148,7 @@ FastPath doesn't support virtual network peering. If other virtual networks are 
 
 [Load Balancer](https://azure.microsoft.com/blog/azure-load-balancer-new-distribution-mode) is a network transmission layer service (layer 4) that balances traffic by using a five-tuple hash from the data streams. The hash is based on source IP, source port, destination IP, destination port, and protocol type. In SAP deployments on Azure, Load Balancer is used in cluster setups to direct traffic to the primary service instance or to the healthy node if there's a fault.
 
-We recommend that you use an [Azure Standard load balancer](/azure/load-balancer/load-balancer-standard-overview) for all SAP scenarios. If VMs in the back-end pool require public outbound connectivity, or if they're used in an Azure zone deployment, the Standard load balancers require [additional configurations](/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections) because they're secure by default. They don't allow outbound connectivity unless you explicitly configure it.
+We recommend that you use [Standard Load Balancer](/azure/load-balancer/load-balancer-standard-overview) for all SAP scenarios. If VMs in the back-end pool require public outbound connectivity, or if they're used in an Azure zone deployment, Standard Load Balancer requires [additional configurations](/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections) because they're secure by default. They don't allow outbound connectivity unless you explicitly configure it.
 
 For traffic from SAP GUI clients that connect to an SAP server via DIAG protocol or RFC, the Central Services message server balances the load through SAP application server [logon groups](https://wiki.scn.sap.com/wiki/display/SI/ABAP+Logon+Group+based+Load+Balancing). For this type of setup, you don't need another load balancer.
 
@@ -225,7 +225,7 @@ High availability of the Central Services is implemented with a Windows server f
 
   For implementation details, see [Clustering SAP ASCS on Azure with SIOS](https://techcommunity.microsoft.com/t5/Running-SAP-Applications-on-the/Clustering-SAP-ASCS-Instance-using-Windows-Server-Failover/ba-p/367898).
 
-With the introduction of the Azure Standard load balancer, you can enable the [high availability port](/azure/load-balancer/load-balancer-ha-ports-overview). By doing so, you can avoid configuring load-balancing rules for many SAP ports. Also, when you set up load balancers in general, whether on-premises or on Azure, enable the direct server return feature, which is also called _Floating IP_ or _DSR_. Doing so provides a way for server responses to bypass the load balancer. This direct connection keeps the load balancer from becoming a bottleneck in the path of data transmission. For the ASCS and database clusters, we recommend that you enable DSR.
+With the introduction of Standard Load Balancer, you can enable the [high availability port](/azure/load-balancer/load-balancer-ha-ports-overview). By doing so, you can avoid configuring load-balancing rules for many SAP ports. Also, when you set up load balancers in general, whether on-premises or on Azure, enable the direct server return feature, which is also called _Floating IP_ or _DSR_. Doing so provides a way for server responses to bypass the load balancer. This direct connection keeps the load balancer from becoming a bottleneck in the path of data transmission. For the ASCS and database clusters, we recommend that you enable DSR.
 
 ### Application services in the application servers tier
 
@@ -329,7 +329,7 @@ Support access within the applications themselves by using the services that SAP
 
 [Azure Monitor](/azure/azure-monitor/overview) provides sophisticated tools for collecting and analyzing telemetry. These tools help you maximize the performance and availability of your cloud and on-premises resources and applications. Monitor now includes Log Analytics and Application Insights. You can use Monitor to monitor infrastructure and application anomalies, alert administrators, and automate reactions to predefined conditions.
 
-To provide SAP-based monitoring of resources and service performance of the SAP infrastructure, use the [Azure SAP enhanced monitoring](/azure/virtual-machines/workloads/sap/deployment-guide) extension. This extension feeds Azure monitoring statistics into the SAP application for operating system monitoring and DBA Cockpit functions. SAP enhanced monitoring is required for running SAP on Azure. For details, see [SAP note 2191498](https://launchpad.support.sap.com/#/notes/2191498), "SAP on Linux with Azure: Enhanced Monitoring." To access SAP notes, you need an SAP Service Marketplace account.
+To provide SAP-based monitoring of resources and service performance of the SAP infrastructure, use the [Azure SAP enhanced monitoring](/azure/virtual-machines/workloads/sap/deployment-guide#d98edcd3-f2a1-49f7-b26a-07448ceb60ca) extension. This extension feeds Azure monitoring statistics into the SAP application for operating system monitoring and DBA Cockpit functions. SAP enhanced monitoring is required for running SAP on Azure. For details, see [SAP note 2191498](https://launchpad.support.sap.com/#/notes/2191498), "SAP on Linux with Azure: Enhanced Monitoring." To access SAP notes, you need an SAP Service Marketplace account.
 
 [Azure Monitor for SAP Solutions](/azure/virtual-machines/workloads/sap/azure-monitor-overview) is the future direction for an Azure-native, end-to-end monitoring solution for SAP NetWeaver. This solution is currently in preview and is available only in a limited set of regions. Carefully evaluate whether it meets your requirements.
 
@@ -389,7 +389,7 @@ If you're deploying a workload across availability zones, availability sets aren
 
 In this scenario, Load Balancer is used to distribute traffic to VMs in the application-tier subnet.
 
-You're charged only for the number of configured load-balancing and outbound rules, plus the data that's processed through the load balancer. Inbound network address translation (NAT) rules are free. There's no hourly charge for the Standard load balancer when no rules are configured.
+You're charged only for the number of configured load-balancing and outbound rules, plus the data that's processed through the load balancer. Inbound network address translation (NAT) rules are free. There's no hourly charge for Standard Load Balancer when no rules are configured.
 
 ### ExpressRoute
 
@@ -425,8 +425,8 @@ For more information and for examples of SAP workloads that use some of the same
 
 ## Related resources
 
-- [Running SAP production workloads using an Oracle Database on Azure](../../example-scenario/apps/sap-production.yml)
-- [Dev/test environments for SAP workloads on Azure](../../example-scenario/apps/sap-dev-test.yml)
+- [Run SAP production workloads using an Oracle Database on Azure](../../example-scenario/apps/sap-production.yml)
+- [Development and test environments for SAP workloads on Azure](../../example-scenario/apps/sap-dev-test.yml)
 
 <!-- links -->
 

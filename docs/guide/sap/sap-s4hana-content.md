@@ -34,19 +34,19 @@ The architecture uses the following components. Some shared services are optiona
 
 **Private DNS service.** [Azure Private DNS](/azure/dns/private-dns-overview) provides a reliable and secure DNS service for your virtual network. Azure Private DNS manages and resolves domain names in the virtual network without the need to configure a custom DNS solution.
 
-**Load balancers.** To distribute traffic to VMs in the SAP application tier subnet for high availability, we recommend that you use [Azure Standard load balancers](/azure/load-balancer/load-balancer-standard-availability-zones). It's important to note that the Standard load balancer is secure by default, and no VMs behind a Standard load balancer have outbound internet connectivity. To enable outbound internet in the VMs, you must update your [Standard load balancer configuration](/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections). For SAP web-based application high availability, use the built-in [SAP Web Dispatcher](https://help.sap.com/doc/saphelp_em900/9.0/48/8fe37933114e6fe10000000a421937/content.htm?no_cache=true), or another commercially available load balancer. Base your selection on:
+**Load balancers.** To distribute traffic to VMs in the SAP application tier subnet for high availability, we recommend that you use [Azure Standard Load Balancer](/azure/load-balancer/load-balancer-standard-availability-zones). It's important to note that Standard Load Balancer is secure by default, and no VMs behind Standard Load Balancer have outbound internet connectivity. To enable outbound internet in the VMs, you must update your [Standard Load Balancer configuration](/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections). For SAP web-based application high availability, use the built-in [SAP Web Dispatcher](https://help.sap.com/doc/saphelp_em900/9.0/48/8fe37933114e6fe10000000a421937/content.htm?no_cache=true), or another commercially available load balancer. Base your selection on:
 
 - Your traffic type, such as HTTP or SAP GUI.
 - The network services that you require, such as Secure Sockets Layer (SSL) termination.
 
-The Standard load balancer supports multiple front-end virtual IPs. This support is ideal for cluster implementations that involve these components:
+Standard Load Balancer supports multiple front-end virtual IPs. This support is ideal for cluster implementations that involve these components:
 
 - Advanced Business Application Programming (ABAP) SAP Central Service (ASCS)
 - Evaluated receipt settlement (ERS)
 
 Both services can share one load balancer to simplify the solution.
 
-The Standard load balancer also supports multi–security identifier (multi-SID) SAP clusters. In other words, multiple SAP systems on [SLES](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid) or [RHEL](/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-multi-sid) can share a common high availability infrastructure to reduce costs. We recommend that you evaluate the cost savings and avoid placing too many systems in one cluster. Azure supports no more than five SIDs per cluster.
+Standard Load Balancer also supports multi–security identifier (multi-SID) SAP clusters. In other words, multiple SAP systems on [SLES](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid) or [RHEL](/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-multi-sid) can share a common high availability infrastructure to reduce costs. We recommend that you evaluate the cost savings and avoid placing too many systems in one cluster. Azure supports no more than five SIDs per cluster.
 
 **Application gateway.** Azure Application Gateway is a web traffic load balancer that you can use to manage traffic to your web applications. Traditional load balancers operate at the transport layer (OSI layer 4 - TCP and UDP). They route traffic based on the source IP address and port to a destination IP address and port. Application Gateway can make routing decisions based on additional attributes of an HTTP request, such as the URI path or host headers. This type of routing is known as application layer (OSI layer 7) load balancing. S/4HANA offers web application services through Fiori. You can load balance this Fiori front end, which consists of web apps, by using Application Gateway.
 
@@ -102,7 +102,7 @@ To manage logon groups for ABAP application servers, it's common to use the SMLG
 
 ### SAP Central Services cluster
 
-You can deploy Central Services to a single VM when the Azure single-instance VM availability service-level agreement (SLA) meets your requirement. However, the VM becomes a potential single point of failure (SPOF) for the SAP environment. For a highly available Central Services deployment, use either [NFS over AFS](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs-azure-files) or the [Azure NetApp Files service and a Central Services cluster](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files).
+You can deploy Central Services to a single VM when the Azure single-instance VM availability service-level agreement (SLA) meets your requirement. However, the VM becomes a potential single point of failure (SPOF) for the SAP environment. For a highly available Central Services deployment, use either [NFS over Azure Files](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs-azure-files) or the [Azure NetApp Files service and a Central Services cluster](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files).
 
 Another option is to use [Azure shared disks](/azure/virtual-machines/disks-shared) to achieve high availability. On SLES 15 SP1 and later or SLES for SAP Applications, you can set up a Pacemaker cluster by using [Azure shared disks for Linux](/azure/virtual-machines/disks-shared#linux).
 
@@ -155,7 +155,7 @@ FastPath doesn't support virtual network peering. If other virtual networks are 
 
 [SAP Web Dispatcher](https://help.sap.com/viewer/683d6a1797a34730a6e005d1e8de6f22/202110.001/488fe37933114e6fe10000000a421937.html?q=SAP%20Web%20Dispatcher) handles load balancing of HTTP(S) traffic to a pool of SAP application servers. This software load balancer offers application layer services (referred to as layer 7 in the ISO networking model) that are capable of SSL termination and other offloading functions.
 
-[Load Balancer](https://azure.microsoft.com/blog/azure-load-balancer-new-distribution-mode) is a network transmission layer service (layer 4) that balances traffic by using a five-tuple hash from data streams. The hash is based on source IP, source port, destination IP, destination port, and protocol type. Load Balancer is used in cluster setups to direct traffic to the primary service instance or the healthy node if there's a fault. We recommend that you use [Azure Standard load balancer](/azure/load-balancer/load-balancer-standard-overview) for all SAP scenarios. It's important to note that the Standard load balancer is secure by default, and no VMs behind the Standard load balancer have outbound internet connectivity. To enable outbound internet in the VMs, you must adjust your [Standard load balancer](/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections) configuration.
+[Load Balancer](https://azure.microsoft.com/blog/azure-load-balancer-new-distribution-mode) is a network transmission layer service (layer 4) that balances traffic by using a five-tuple hash from data streams. The hash is based on source IP, source port, destination IP, destination port, and protocol type. Load Balancer is used in cluster setups to direct traffic to the primary service instance or the healthy node if there's a fault. We recommend that you use [Azure Standard Load Balancer](/azure/load-balancer/load-balancer-standard-overview) for all SAP scenarios. It's important to note that Standard Load Balancer is secure by default, and no VMs behind Standard Load Balancer have outbound internet connectivity. To enable outbound internet in the VMs, you must adjust your [Standard Load Balancer](/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections) configuration.
 
 For traffic from SAP GUI clients that connects to an SAP server via the DIAG protocol or RFC, the Central Services message server balances the load through SAP application server [logon groups](https://wiki.scn.sap.com/wiki/display/SI/ABAP+Logon+Group+based+Load+Balancing). No extra load balancer is needed.
 
@@ -163,7 +163,7 @@ For traffic from SAP GUI clients that connects to an SAP server via the DIAG pro
 
 Some customers use standard storage for their application servers. Because standard managed disks aren't supported, as stated in SAP note 1928533, we recommend using premium [Azure managed disks](/azure/storage/storage-managed-disks-overview) or [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) in all cases. A recent update to [SAP note 2015553](https://launchpad.support.sap.com/#/notes/2015553) excludes the use of standard HDD storage and standard SSD storage for a few specific use cases.
 
-Because application servers don't host any business data, you can also use the smaller P4 and P6 premium disks to help manage costs. To understand how the storage type affects the VM availability SLA, see [SLA for Virtual Machines](/support/legal/sla/virtual-machines/v1_9). For high-availability scenarios, [Azure shared disk](/azure/virtual-machines/disks-shared) features are available on Azure Premium SSD and Azure Ultra Disk Storage. For more information, see [Azure managed disks](/azure/storage/storage-managed-disks-overview).
+Because application servers don't host any business data, you can also use the smaller P4 and P6 premium disks to help manage costs. To understand how the storage type affects the VM availability SLA, see [SLA for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9). For high-availability scenarios, [Azure shared disk](/azure/virtual-machines/disks-shared) features are available on Azure Premium SSD and Azure Ultra Disk Storage. For more information, see [Azure managed disks](/azure/storage/storage-managed-disks-overview).
 
 You can use Azure shared disks with Windows Server, SLES 15 SP 1 and later, or SLES for SAP. When you use an Azure shared disk in Linux clusters, the Azure shared disk serves as a STONITH block device (SBD). It offers a quorum vote in a cluster network partitioning situation. This shared disk doesn't have a file system and doesn't support simultaneous writes from multiple cluster member VMs.
 
@@ -227,7 +227,7 @@ The improved Azure Fence Agent is available for both
 
 Another option is to use [Azure shared disks](/azure/virtual-machines/disks-shared) to achieve high availability. On SLES 15 SP 1 and later, or SLES for SAP, you can set up a Pacemaker cluster by using [Azure shared disks](/azure/virtual-machines/disks-shared#linux) to achieve high availability.
 
-With the Azure Standard SKU load balancer, you can enable the [high availability port](/azure/load-balancer/load-balancer-ha-ports-overview) and avoid the need to configure load balancing rules for many SAP ports. In general, if you enable the direct server return (DSR) feature when you set up a load balancer, server responses to client inquiries can bypass the load balancer. This feature is also known as Floating IP. The load balancer can be on-premises or on Azure. This direct connection keeps the load balancer from becoming the bottleneck in the path of data transmission. For the ASCS and HANA DB clusters, we recommend that you enable DSR. If VMs in the back-end pool require public outbound connectivity, more [configuration](/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections) is required.
+With Azure Standard Load Balancer, you can enable the [high availability port](/azure/load-balancer/load-balancer-ha-ports-overview) and avoid the need to configure load balancing rules for many SAP ports. In general, if you enable the direct server return (DSR) feature when you set up a load balancer, server responses to client inquiries can bypass the load balancer. This feature is also known as Floating IP. The load balancer can be on-premises or on Azure. This direct connection keeps the load balancer from becoming the bottleneck in the path of data transmission. For the ASCS and HANA DB clusters, we recommend that you enable DSR. If VMs in the back-end pool require public outbound connectivity, more [configuration](/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections) is required.
 
 For traffic from SAP GUI clients that connects to an SAP server via DIAG protocol or RFC, the Central Services message server balances the load through SAP application server [logon groups](https://wiki.scn.sap.com/wiki/display/SI/ABAP+Logon+Group+based+Load+Balancing). No extra load balancer is needed.
 
@@ -287,7 +287,7 @@ You can also use Azure Site Recovery to set up DR for a [multi-tier SAP NetWeave
 
 This component of the SAP application stack also doesn't persist business data. You can build a VM in the DR region to run the Central Services role.
 
-The ASCS global host files, namely the `/sapmnt` share, are commonly served by either NFS over AFS or [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction). To protect this content in the case of NFS over AFS, use a custom replication script, such as rsync. This script runs on a scheduled basis by copying content to another file share in the DR region. For the case of Azure NetApp Files, make use of its native cross-region replication feature to replicate content for the `/sapmnt` share of the DR SAP system.
+The ASCS global host files, namely the `/sapmnt` share, are commonly served by either NFS over Azure Files or [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction). To protect this content when you use NFS over Azure Files, use a custom replication script, such as rsync. This script runs on a scheduled basis by copying content to another file share in the DR region. When you use Azure NetApp Files, make use of its native cross-region replication feature to replicate content for the `/sapmnt` share of the DR SAP system.
 
 Site Recovery supports the replication of STONITH devices that are created with iSCSI targets.
 
@@ -344,7 +344,7 @@ For all pools and clusters (Web Dispatcher, SAP application servers, Central Ser
 
 In this scenario, Azure load balancers are used to distribute traffic to VMs in the application tier subnet.
 
-You're charged only for the number of configured load-balancing and outbound rules. Inbound network address translation (NAT) rules are free. There's no hourly charge for the Standard load balancer when no rules are configured.
+You're charged only for the number of configured load-balancing and outbound rules. Inbound network address translation (NAT) rules are free. There's no hourly charge for Standard Load Balancer when no rules are configured.
 
 ### ExpressRoute
 
@@ -381,7 +381,7 @@ To provide SAP-based monitoring of resources and service performance of the SAP 
 
 ## Security considerations
 
-SAP has its own Users Management Engine (UME) to control role-based access and authorization within the SAP application and databases. For details, see [SAP HANA Security: An Overview](https://archive.sap.com/documents/docs/DOC-62943).
+SAP has its own Users Management Engine (UME) to control role-based access and authorization within the SAP application and databases. For details, see [SAP HANA Security: An Overview](https://help.sap.com/docs/HANA_CLOUD_DATABASE/c82f8d6a84c147f8b78bf6416dae7290/3530b7329a314052a50e12b0ae501068.html).
 
 To improve network security, consider using a [perimeter network](../../reference-architectures/dmz/secure-vnet-dmz.yml) that uses an NVA to create a firewall in front of the subnet for Web Dispatcher and the Fiori front-end server pools. The cost of data transfer is a reason to place active Fiori apps front-end servers in the same virtual network as the S/4 systems. The alternative is to place them in the perimeter network and connect them to S/4 through a virtual network peering.
 
@@ -423,8 +423,8 @@ For more information and for examples of SAP workloads that use some of the same
 
 ## Related resources
 
-- [Running SAP production workloads using an Oracle Database on Azure](../../example-scenario/apps/sap-production.yml)
-- [Dev/test environments for SAP workloads on Azure](../../example-scenario/apps/sap-dev-test.yml)
+- [Run SAP production workloads using an Oracle Database on Azure](../../example-scenario/apps/sap-production.yml)
+- [Development and test environments for SAP workloads on Azure](../../example-scenario/apps/sap-dev-test.yml)
 
 <!-- links -->
 
