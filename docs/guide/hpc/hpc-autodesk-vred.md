@@ -27,7 +27,10 @@ VRED was successfully deployed and tested on [NC64as_T4_v3](/azure/virtual-machi
 
 Before you install VRED, you need to deploy and connect a VM and install the required NVIDIA and AMD drivers.
 
-For information about deploying the VM, see one of these articles:
+> [!IMPORTANT]
+> NVIDIA Fabric Manager installation is required for VMs that use NVLink or NVSwitch.
+
+For information about deploying the VM and installing the drivers, see one of these articles:
 
 - [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml)
 - [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml)
