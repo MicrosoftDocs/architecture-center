@@ -17,7 +17,7 @@ categories:
 
 Autodesk VRED is a 3D visualization application that helps automotive designers and engineers create product presentations, design reviews, and virtual prototypes by using interactive CPU and GPU ray tracing. VRED, which was previously limited to CPU, now uses GPU technology to support the high demands of consumers and provide interactive ray tracing and AI-powered denoising.
 
-By using VRED, users can create digital prototypes so they can gain insight into how vehicles will look and perform. To be effective in guiding design decisions, the digital prototypes need to look and behave as close as possible to the real vehicles.  
+By using VRED, users can create digital prototypes to gain insight into how vehicles will look and perform. To be effective in guiding design decisions, the digital prototypes need to look and behave as close as possible to the real vehicles.  
 
 This article briefly describes the steps for running VRED on a virtual machine (VM) that's deployed on Azure. It also provides performance results. For more information about VRED, see the [Autodesk website](https://www.autodesk.com/products/vred/features/vred).
 
@@ -44,7 +44,7 @@ Before you install VRED on an Azure VM, you need to install Autodesk Network Lic
 
 During installation, this folder is created: C:\Autodesk\Network License Manager\.
 
-Next, generate a license file from your Autodesk account and save it in the Network License Manager folder. Create a text file named *debug.log* and save it in the same folder.
+After installation, generate a license file from your Autodesk account and save it in the Network License Manager folder. Create a text file named *debug.log* and save it in the same folder.
 
 To generate the license file:
 
@@ -54,7 +54,7 @@ To generate the license file:
 1. Select the product.
 1. Select **Get License File**. The license file is generated.
 
-To configure the license server:
+To configure the license server on Windows:
 
 1. From the Windows search bar, open lmtools. A GUI opens.
 1. Select **Config Services** and provide the service name, in this case, **Autodesk Network License Manager**.
@@ -64,6 +64,9 @@ To configure the license server:
 1. On the **Start/Stop/Reread** tab, select **Start Server**. You should see the service name **Autodesk Network License Manager** highlighted in blue.
 
 The Network License Manager installation is complete.
+
+> [!NOTE]
+> For Linux configuration instructions, see [Configure and start your license server](https://www.autodesk.com/support/download-install/admins/network-licenses/configure-and-start-your-license-server).
 
 :::image type="content" source="media/license-manager-installation.png" alt-text="Screenshot that shows the LMTOOLS interface." lightbox="media/license-manager-installation.png" border="false":::
 
