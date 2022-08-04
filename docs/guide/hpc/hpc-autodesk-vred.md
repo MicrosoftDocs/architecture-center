@@ -56,7 +56,7 @@ To generate the license file:
 
 To configure the license server on Windows:
 
-1. From the Windows search bar, open lmtools. A GUI opens.
+1. 1.	Open Network License Manager by typing **lmtools** in the Windows search bar and selecting it in the results. A GUI opens.
 1. Select **Config Services** and provide the service name, in this case, **Autodesk Network License Manager**.
 1. Provide the path of the license file and the other requested paths.
 1. Select **Start Server at Power Up** at the bottom of the window.
@@ -65,14 +65,14 @@ To configure the license server on Windows:
 
 The Network License Manager installation is complete.
 
+:::image type="content" source="media/license-manager-installation.png" alt-text="Screenshot that shows the LMTOOLS interface." lightbox="media/license-manager-installation.png" border="false":::
+
 > [!NOTE]
 > For Linux configuration instructions, see [Configure and start your license server](https://www.autodesk.com/support/download-install/admins/network-licenses/configure-and-start-your-license-server).
 
-:::image type="content" source="media/license-manager-installation.png" alt-text="Screenshot that shows the LMTOOLS interface." lightbox="media/license-manager-installation.png" border="false":::
-
 ## VRED performance on Azure VMs
 
-Rendering time is an important parameter for visualization and design software. Designers often spend a lot of time on the rendering process. By incorporating advanced capabilities like CPU and GPU ray tracing, VRED has drastically reduced render times. To perform these complex rendering simulations on VRED, you need to use the right hardware. Microsoft partners with Nvidia to provide suitable infrastructure and hardware on Azure. Azure provides the fastest compute capabilities for both CPU-intensive and GPU-intensive workloads.
+Rendering time is an important parameter for visualization and design software. Designers often spend a lot of time on the rendering process. By incorporating advanced capabilities like CPU and GPU ray tracing, VRED drastically reduces rendering times. To perform these complex rendering simulations on VRED, you need to use the right hardware. Microsoft partners with Nvidia to provide suitable infrastructure and hardware on Azure. Azure provides the fastest compute capabilities for both CPU-intensive and GPU-intensive workloads.
 
 ### Rendering
 
@@ -90,9 +90,7 @@ You can activate CPU and GPU ray tracing in VRED according to your requirements.
 
 #### Anti-aliasing settings
 
-For CPU and GPU ray tracing rendering in these tests, we set the anti-aliasing option to high:
-
-- **Visualization** > **Realtime Antialiasing** > **High**
+For CPU and GPU ray tracing rendering in these tests, we set the anti-aliasing option to high: **Visualization** > **Realtime Antialiasing** > **High**
 
 #### Rendering settings
 
@@ -147,9 +145,9 @@ Only model running time (wall clock time) is considered for these cost calculati
 
 You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for your configuration.
 
-### GPU rendering costs
+You can use the rendering times provided in the following tables and the Azure hourly costs to compute rendering costs. For example, if the Azure VM hourly cost is $8.60 and the rendering time is 11 minutes and 47 seconds, the cost is $1.69. For current Azure hourly costs, see [Windows Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/#pricing) or [Linux Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#pricing). 
 
-You can use the rendering times provided here and the Azure hourly costs to compute rendering costs. For example, if the Azure VM hourly cost is $8.60 and the rendering time is 11 minutes and 47 seconds, the cost is $1.69. For current Azure hourly costs, see [Windows Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/#pricing) or [Linux Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#pricing).  
+### GPU rendering costs 
 
 |VM  |Number of GPUs on VM  |  4K image render time  |HD image render time|
 |---------|---------|---------|---|
@@ -163,12 +161,12 @@ You can use the rendering times provided here and the Azure hourly costs to comp
 |NC64as_T4_v3     |    64            |  21 minutes and 13 seconds       |5 minutes and 48 seconds|
 |NV48s_v3     |  48           | 55 minutes and 48 seconds  |14 minutes and 27 seconds|
 
-## Additional notes about the tests
+## Results and recommendations
 
 - VRED was successfully deployed and tested on NCas_T4_v3 and NVv3 series VMs on Azure.
 - On NC64as_T4, GPU rendering is 1.8 times faster than CPU rendering.
 - We recommend NC64as_T4 for VRED because it provides better performance for both CPU and GPU rendering.
-- On NVv3, there isn't much improvement in GPU rendering times as compared to CPU rendering times.
+- On NVv3, GPU rendering doesn't significantly improve rendering time as compared to CPU rendering.
 
 ## Contributors
 
