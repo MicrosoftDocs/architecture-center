@@ -17,7 +17,7 @@ In this architecture, the identity flow works as follows:
 1. Users are assigned to the app groups.
 1. AVD session hosts in the host pools join the domains CompanyA.com and CompanyB.com by using the domain controllers in Azure.
 1. Users sign in by using either the [Azure Virtual Desktop](/azure/virtual-desktop/connect-windows-7-10#install-the-windows-desktop-client) instance or a [web client](/azure/virtual-desktop/connect-web) with a User Principal Name (UPN) in the following format: user@NewCompanyA.com, user@CompanyB.com, or user@NewCompanyAB.com, depending on their configured UPN suffix.
-1. Users are presented with their respective virtual desktop or app. For example, users in CompanyA will be presented with a virtual desktop or app in Workspace A, host pool 1 or 2.
+1. Users are presented with their respective virtual desktop or app. For example, users in CompanyA are presented with a virtual desktop or app in Workspace A, host pool 1 or 2.
 1. FSLogix user profiles are created in Azure Files shares on the corresponding storage accounts.
 1. Group Policy Objects (GPOs) that are synced from on-premises are applied to users and AVD session hosts.
 
@@ -33,17 +33,17 @@ Additionally, this architecture uses the following components:
 
 ## Scenario details
 
-This architecture diagram shows a typical scenario that illustrates the following elements:
+This architecture diagram represents a typical scenario that contains the following elements:
 
 - The Azure AD tenant is available for a new company named *NewCompanyAB.onmicrosoft.com*.
 - [Azure AD Connect](/azure/active-directory/hybrid/whatis-hybrid-identity) syncs users from on-premises AD DS to Azure Active Directory (Azure AD).
 - Company A and Company B have separate Azure subscriptions. They also have a [shared services subscription](/azure/cloud-adoption-framework/ready/azure-best-practices/initial-subscriptions#shared-services-subscription), referred to as the *Subscription 1* in the diagram.
 - [An Azure hub-spoke architecture](../../reference-architectures/hybrid-networking/hub-spoke.yml) is implemented with a shared services hub virtual network.
-- Complex hybrid on-premises Active Directory environments are present with two or more Active Directory forests. Domains live in separate forests, each with a different [UPN suffix](/microsoft-365/enterprise/prepare-a-non-routable-domain-for-directory-synchronization?view=o365-worldwide#add-upn-suffixes-and-update-your-users-to-them). For example, *CompanyA.local* with the UPN suffix CompanyA.com, *CompanyB.local* with the UPN suffix CompanyB.com, and an additional UPN suffix *NewCompanyAB.com*.
+- Complex hybrid on-premises Active Directory environments are present with two or more Active Directory forests. Domains live in separate forests, each with a different [UPN suffix](/microsoft-365/enterprise/prepare-a-non-routable-domain-for-directory-synchronization?view=o365-worldwide#add-upn-suffixes-and-update-your-users-to-them). For example, *CompanyA.local* with the UPN suffix *CompanyA.com*, *CompanyB.local* with the UPN suffix *CompanyB.com*, and an additional UPN suffix, *NewCompanyAB.com*.
 - Domain controllers for both forests are located on-premises and in Azure.
 - Verified domains are present in Azure for CompanyA.com, CompanyB.com, and NewCompanyAB.com.
 - GPO and legacy authentication, such as [Kerberos](/windows-server/security/kerberos/kerberos-authentication-overview), [NTLM (Windows New Technology LAN Manager)](/windows-server/security/kerberos/ntlm-overview), and [LDAP (Lightweight Directory Access Protocol)](https://social.technet.microsoft.com/wiki/contents/articles/2980.ldap-over-ssl-ldaps-certificate.aspx), is used.
-- Azure environments that still have dependency on-premises infrastructure, private connectivity ([Site-to-site VPN or Azure ExpressRoute](../../reference-architectures/hybrid-networking/index.yml)) is set up between on-premises and Azure.
+- For Azure environments that still have dependency on-premises infrastructure, private connectivity ([Site-to-site VPN or Azure ExpressRoute](../../reference-architectures/hybrid-networking/index.yml)) is set up between on-premises and Azure.
 - The [AVD environment](/azure/virtual-desktop/environment-setup) consists of an AVD workspace for each business unit and two host pools per workspace.
 - The AVD session hosts are joined to domain controllers in Azure. That is, CompanyA session hosts join the CompanyA.local domain, and CompanyB session hosts join the CompanyB.local domain.
 - Azure storage accounts can use [Azure Files for FSLogix profiles](/azure/virtual-desktop/FSLogix-containers-azure-files). One account is created per company domain (that is, CompanyA.local and CompanyB.local), and the account is joined to the corresponding domain.
@@ -83,7 +83,7 @@ The following design considerations apply to user profile containers, cloud cach
 
 - You can use both [Azure Files and Azure NetApp Files](/azure/virtual-desktop/store-FSLogix-profile#azure-platform-details) in this scenario. You choose the right solution based on factors such as expected performance, cost, and so on.
 
-- Both Azure storage accounts and Azure NetApp Files are limited to being able to join to one single AD DS at a time. In these cases, multiple Azure storage accounts or Azure NetApp Files instances will be required.
+- Both Azure storage accounts and Azure NetApp Files are limited to joining to one single AD DS at a time. In these cases, multiple Azure storage accounts or Azure NetApp Files instances are required.
 
 ### Azure Active Directory
 
