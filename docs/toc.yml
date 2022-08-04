@@ -2380,6 +2380,8 @@ items:
                     href: example-scenario/iot/smart-places.yml
           - name: Aerospace
             items:
+              - name: Overview
+                href: industries/aerospace.md
               - name: Guides
                 items:
                   - name: Azure Orbital for space communication

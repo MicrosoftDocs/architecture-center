@@ -1,11 +1,37 @@
+---
+title: Solutions for the aerospace industry
+description: See architectures and ideas that use Azure services to build efficient, scalable, and reliable solutions in the aerospace industry.
+author: EdPrice-MSFT
+ms.author: architectures
+ms.date: 08/04/2022
+ms.topic: conceptual
+ms.service: architecture-center
+ms.subservice: azure-guide
+products:
+  - azure-machine-learning
+  - azure-speech
+  - azure-cognitive-services
+  - azure-anomaly-detector
+  - azure-synapse-analytics
+categories:
+  - ai-machine-learning
+  - analytics
+  - containers
+---
+
 # Solutions for the aerospace industry
 
-intro w links to vids
+Intelligent cloud analytics, AI and machine learning, speech capabilities, and improved security are just some of the benefits that aerospace enterprises have gained by using Azure.
 
-intro to vid: 
+Airbus is a leader in designing, manufacturing, and servicing commercial and military aircraft, helicopters, satellites, and launch vehicles. Watch this [video to learn how they use AI to improve pilot training and satellite operations](https://www.youtube.com/watch?v=QRprKorsDFQ).
+
+Airbus also uses Azure to fine-tune processes for designing, building, and operating complex products. Watch the [How Airbus is transforming aerospace with Microsoft Azure Stack](https://www.youtube.com/watch?v=S5kuKEfKkkg) video to learn more.
+
+In this video, you can learn about the Microsoft partnership with SpaceX to bring worldwide satellite connectivity to cloud services:
+
 <br>
 
-> [!VIDEO https://www.youtube.com/embed/S5kuKEfKkkg]
+> [!VIDEO https://www.youtube.com/embed/OWYYo2VGkHQ]
 
 ## Architectures for aerospace
 
