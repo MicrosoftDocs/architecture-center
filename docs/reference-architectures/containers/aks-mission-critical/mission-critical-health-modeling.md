@@ -75,7 +75,7 @@ The following table details the health checks for the components in the infrastr
 | Component | Health check |
 | --------- | ------------ |
 | **Storage account Blob** | The blob check currently serves two purposes: </br> 1. Test if it's possible to reach Blob Storage. The storage account is used by other components in the stamp and is considered a critical resource. </br> 2. Manually "turn off" a region by manipulating (i.e. deleting) the state file. </br> A design decision was made that the check would **only look for a presence of a state file** in the specified blob container. The content of the file isn't processed. There is a possibility to setup a more sophisticated system that reads the content of the file and return different status based on the content of the file. </br> Examples of content are **HEALTHY**, **UNHEALTHY**, and **MAINTENANCE**. </br> Removal of the state file will disable the stamp. Ensure the health file is present after deploying the application. Absence of the health file will cause the service to always respond with **UNHEALTHY**. Front Door won't recognize the backend as available. </br> The file is created by Terraform and should be present after the infrastructure deployment. |
-| **Event Hub** | Event Hub health reporting is handled by the **`EventHubProducerService`**. This service reports healthy if it's able to send a new message to Event Hub. For filtering, this message has an identifying property added to it: </br> **`HEALTHCHECK=TRUE`** </br> This message is ignored on the receiving end. The **`AlwaysOn.BackgroundProcessor.EventHubProcessorService.ProcessEventHanderAsync()`** configuration setting checks for the **`HEALTHCHECK`** property. |
+| **Event Hub** | Event Hub health reporting is handled by the **`EventHubProducerService`**. This service reports healthy if it's able to send a new message to Event Hub. For filtering, this message has an identifying property added to it: </br> **`HEALTHCHECK=TRUE`** </br> This message is ignored on the receiving end. The **`AlwaysOn.BackgroundProcessor.EventHubProcessorService.ProcessEventHandlerAsync()`** configuration setting checks for the **`HEALTHCHECK`** property. |
 | **Cosmos DB** | Cosmos DB health reporting is handled by the **`CosmosDbService`**, which reports healthy if it is: </br> 1. Able to connect to Cosmos DB database and perform a simple query. </br> 2. Able to write a test document to the database. </br> The test document has a very short Time-to-Live set, Cosmos DB automatically removes it. </br> The **HealthService** performs two separate probes. The two probes ensure that if Cosmos DB is in a state where reads still work, but writing documents doesn't', an alert can be triggered. |
 
 #### Cosmos DB queries
@@ -132,6 +132,55 @@ This approach separates the query logic from the visualization layer. It allows 
 The visualization of the Kusto Queries described previously are implemented with Grafana. Grafana is used to show the results of Log Analytics queries and doesn't contain any logic itself. The Grafana stack isn't part of the solution's deployment lifecycle, but released separately.
 
 ## Alerting
+
+Alerts are an important part of the overall operations strategy. Proactive monitoring such as the use of dashboards should be used in conjunction with alerts that raise immediate attention to issues.
+
+While most critical alert rules should be defined during the building of an application, rules will always require refinement over time. Outages caused by errors that went undetected, often lead to the creation of additional monitoring point and alert rules. Alerts could be delivered as emails, mobile push notifications, or tickets created in an IT Service Management system. The important part is that they get routed to a place where they will be noticed and acted upon quickly.
+
+A full definition and implementation of alert rules would go beyond the scope of the reference implementation. Only a couple of examples are implemented. In the reference implementation it uses email notifications. oOher alert sinks can be configured using Terraform. To avoid unnecessary noise, alerts are not created in the E2E environments.
+
+Alerts in Azure can be configured at various levels. For each category we define a couple of sample alerts which we consider most valuable. Not all of the samples are actually implemented in the reference implementation, but other alerts can follow the same route.
+
+### Resource level alerts
+
+Resource level alerts are configured on an Azure resource itself. The alerts are scoped to only that resource and does not correlate with signals from other resources.
+
+The following table lists example metric alerts for different components of the reference architecture.Metric alerts are limited to the built-in metrics that Azure provides for a given resource.
+
+| Service | Alert |
+| ------- | ----- |
+| **Front Door** | Health of backend drops under a set threshold. |
+| **Cosmos DB** | Availability drops under a set threshold. |
+| **Cosmos DB** | RU consumption percentage reaching a set threshold. |
+| **Event Hub Namespace** | Quota exceeded errors or throttled requests greater than 0. |
+| **Event Hub Namespace** | Outgoing messages drop to 0. |
+| **Key Vault** | Overall vault availability drops under a set threshold. |
+| **AKS** | Unschedulable pods greater than 0 for sustained period. |
+| **Storage account** | Availability drops under a set threshold. |
+
+#### Front Door - Backend health
+
+A backend health alert is implemented as a sample as part of the reference implementation. A metric alert is configured a part of the infrastructure deployment on Front Door. The alert uses the **Backend health percentage** metric to create an alert when of the backend's health falls under a set threshold within a minute.
+
+Many causes for the backend health to drop should be detected on other levels or potentially earlier. Anything that causes the Health Service to report unhealthy to Front Door's health probes should be logged to Application Insights. Issues with the static storage accounts should be detected through collected diagnostic logs. Even with increased visibility with logging and alerting, there can still be outages which aren't showing up in other signals.
+
+Front Door doesn't provide any further insight in to why the backend health for a given backend drops. The reference infrastructure implements URL ping tests in each stamp's Application Insights resource. The URL test calls the same URL of the cluster **HealthService** and checks the static website storage account. Front Door provides detailed logging and tracing. The logging and tracing can be used to help determine the cause of an outage.
+
+### Log Analytics / Application Insights query-based alerts
+
+Alerts based on the data stored in a Log Analytics can be created with any arbitrary query. Queries in Log Analytics are well suited for correlation of events from multiple sources. Log Analytics queries can be used to create alerts based on application level signals as opposed to only resource level events and metrics.
+
+#### Valuable alerts
+
+- Percentage of 5xx responses / failed requests exceeding a threshold.
+
+- The result of the **`AksClusterHealthScore()`** function dropping below 1.
+
+- Spike in entries in the exception table. Not all errors are correlated to incoming requests so they won't be covered by the previous alert, for instance exceptions in the **BackgroundProcessor**.
+
+#### Percentage of 5xx responses / failed requests exceeding a threshold
+
+The 5xx responses alert is created as part of the reference implementation. To demonstrate their setup and usage, a query-based alert on Application Insights is configured as part of the infrastructure deployment within each stamp. The alert looks at the number of responses sent by the **CatalogService** which start with a 5xx status code. If the 5xx status code exceed the set threshold within a five minute window, it will fire an alert.
 
 ## Failure analysis
 
