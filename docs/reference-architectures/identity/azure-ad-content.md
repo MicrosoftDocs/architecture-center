@@ -41,7 +41,7 @@ The architecture has the following components.
 
 The following recommendations apply for most scenarios. Follow these recommendations unless you have a specific requirement that overrides them.
 
-### Azure AD Connect sync service
+### Configure Azure AD Connect sync service
 
 The Azure AD Connect sync service ensures that identity information stored in the cloud is consistent with the identity information stored on-premises. You install this service using the Azure AD Connect software.
 
@@ -55,7 +55,7 @@ Use filtering so that only necessary data is stored in Azure AD. For example, yo
 
 To implement high availability for the AD Connect sync service, run a secondary staging server. For more information, see the Topology recommendations section.
 
-### Security recommendations
+### Validate security configuration and policy
 
 **User password management**. The Azure AD Premium editions support password writeback, enabling your on-premises users to perform self-service password resets from within the Azure portal. This feature should be enabled only after reviewing your organization's password security policy. For example, you can restrict which users can change their passwords, and you can tailor the password management experience. For more information, see [Customizing Password Management to fit your organization's needs][aad-password-management].
 
@@ -65,7 +65,7 @@ To implement high availability for the AD Connect sync service, run a secondary 
 
 You can use the reporting feature of Azure AD in the Azure portal to monitor security-related activities occurring in your system. For more information about using these reports, see [Azure Active Directory Reporting Guide][aad-reporting-guide].
 
-### Topology recommendations
+### Validate network topology
 
 Configure Azure AD Connect to implement a topology that most closely matches the requirements of your organization. Topologies that Azure AD Connect supports include:
 
