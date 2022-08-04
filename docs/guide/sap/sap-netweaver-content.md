@@ -6,13 +6,13 @@ This guide presents a set of proven practices for running SAP NetWeaver in a Win
 
 The following diagram shows SAP NetWeaver in a Windows environment in an availability set scenario. The architecture uses Azure NetApp Files for the shared files layer and a proximity placement group for improved performance.
 
-:::image type="content" source="media/sap-netweaver-avset-afs-ppg.png" alt-text="Architecture diagram that shows a solution for SAP NetWeaver on Windows. The database is AnyDB on Azure VMs with availability sets." lightbox="media/sap-netweaver-avset-afs-ppg.png border="false":::
+:::image type="content" source="media/sap-netweaver-avset-afs-ppg.png" alt-text="Architecture diagram that shows a solution for SAP NetWeaver on Windows. The database is AnyDB on Azure VMs with availability sets." lightbox="media/sap-netweaver-avset-afs-ppg.png" border="false":::
 
 _Download a [Visio file](https://arch-center.azureedge.net/sap-netweaver-avset-afs-ppg.vsdx) of this architecture._
 
 The following diagram shows SAP NetWeaver in a Windows environment. Availability zones are used for improved resilience.
 
-:::image type="content" source="media/sap-netweaver-avzones.png" alt-text="Architecture diagram that shows a solution for SAP NetWeaver on Windows. The database is AnyDB on Azure VMs with availability zones." lightbox="media/sap-netweaver-avzones.png border="false":::
+:::image type="content" source="media/sap-netweaver-avzones.png" alt-text="Architecture diagram that shows a solution for SAP NetWeaver on Windows. The database is AnyDB on Azure VMs with availability zones." lightbox="media/sap-netweaver-avzones.png" border="false":::
 
 _Download a [Visio file](https://arch-center.azureedge.net/sap-netweaver-avzones.vsdx) of this architecture._
 
