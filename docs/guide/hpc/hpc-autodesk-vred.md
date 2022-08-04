@@ -179,7 +179,8 @@ Principal authors:
 
 Other contributors:
 
-- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer 
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
+- [Jason Bouska](https://www.linkedin.com/in/jasonbouska) | Senior Software Development Engineer
 - [Guy Bursell](https://www.linkedin.com/in/guybursell) | Director, Business Strategy 
 - [Sachin Rastogi](https://www.linkedin.com/in/sachin-rastogi-907a3b5) | Manager
 
