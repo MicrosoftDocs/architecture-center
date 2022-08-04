@@ -184,6 +184,14 @@ The 5xx responses alert is created as part of the reference implementation. To d
 
 ## Failure analysis
 
+Composing the failure analysis is mostly a theoretical planning exercise. It can, and should be complemented by actual failure injection testing. Through testing, at least some of the failure cases and their impact can be simulated and thus validate the theoretical analysis.
+
+The following table list possible failure scenarios of the various components of the Azure Mission-Critical reference implementation. The table lists risks for the individual components and evaluates if their failure can cause an outage of the entire application. This list isn't a complete list, as there can be failure cases which haven't been thought of.
+
+| Service | Impact/Mitigation/Comment | Outage |
+| ------- | ------------------------- | ------ |
+
+
 
 ## Next steps
 
