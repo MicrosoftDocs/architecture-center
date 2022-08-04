@@ -80,13 +80,13 @@ The following table details the health checks for the components in the infrastr
 
 #### Cosmos DB queries
 
-For the Read-only query, the following query is being used, which doesn't fetch any data and doesn't have large impact on overall load:
+For the Read-only query, the following query is being used, which doesn't fetch any data and doesn't have a large impact on overall load:
 
 ```sql
 SELECT GetCurrentDateTime ()
 ```
 
-The write query creates a dummy ItemRating with minimum content:
+The write query creates a dummy `ItemRating` with minimum content:
 
 ```csharp
 var testRating = new ItemRating()
@@ -102,6 +102,34 @@ await AddNewRatingAsync(testRating);
 ```
 
 ## Monitoring
+
+Azure Log Analytics is used as the central store fo logs and metrics for all application and infrastructure components. Azure Application Insights is used for all application monitoring data. Each stamp in the infrastructure has a dedicated Log Analytics workspace and Application Insights instance. A separate Log Analytics workspace is used for the globally shared resources such as Front Door and Cosmos DB.
+
+All stamps are short-lived and continuously replaced with each new release. The per-stamp Log Analytics workspaces are deployed as a global resource in a separate monitoring resource group as the stamp Log Analytics resources. These resources don't share the lifecycle of a stamp.
+
+## Monitoring: Data sources
+
+- **Diagnostic settings**: All Azure services used for Azure Mission-Critical are configured to send all their Diagnostic data including logs and metrics to the deployment specific (global or stamp) Log Analytics Workspace. This happens automatically as part of the Terraform deployment. New options will be identified automatically and added as part of `terraform apply`.
+
+- **Kubernetes monitoring**: Diagnostic settings are used to send AKS logs and metrics to Log Analytics. AKS is configured to use **Container Insights**. Container Insights deploys the **OMSAgentForLinus** via a Kubernetes DaemonSet on each node in the AKS clusters. The OMSAgentForLinux is capable of collecting additional logs and metrics from within the Kubernetes cluster and sends them to its corresponding Log Analytics workspace. This contains more granular data about pods, deployments, services and the overall cluster health. To gain more insights form the various components like ingress-nginx, cert-manager, and other components deployed to Kubernetes next to the mission-critical workload, it's possible to use [Prometheus scraping](/azure/azure-monitor/containers/container-insights-prometheus-integration). Prometheus scraping configures the OMSAgentForLinux to scrape Prometheus metrics from various endpoints within the cluster. |
+ 
+## Monitoring: Application Insights availability tests
+
+To monitor the availability of the individual stamps and the overall solution from an outside point of view, [Application Insights Availability Tests](/azure/azure-monitor/app/availability-overview) are set up in two places:
+
+- **Regional availability tests**: These tests are setup in the regional Application Insights instances and are used to monitor the availability of the stamps. These tests target the clusters as well as the static storage accounts of the stamps directly. To call the ingress points of the clusters directly, requests need to carry the correct Front Door ID header, otherwise they are rejected by the ingress controller.
+
+- **Global availability test**: These tests are setup in the global Application Insights instance and are used to monitor the availability of the overall solution by pinging Front Door. Two tests are used: One to test an API call against the **CatalogService** and one to test the home page of the website.
+
+## Monitoring: Queries
+
+Azure Mission-Critical uses different Kusto Query Language (KQL) queries to implement complex, custom queries as functions to retrieve data from Log Analytics. These queries are stored as individual files in the separated into global and stamp and are imported and applied automatically via Terraform as part of each infrastructure pipeline run.
+
+This approach separates the query logic from the visualization layer. It allows calls to these functions individually and use them either directly to retrieve data from Log Analytics or to visualize the results in Azure Dashboards, Azure Monitor Workbooks or 3rd-Party dashboard solutions like Grafana.
+
+## Monitoring: Visualization
+
+The visualization of the Kusto Queries described previously are implemented with Grafana. Grafana is used to show the results of Log Analytics queries and doesn't contain any logic itself. The Grafana stack isn't part of the solution's deployment lifecycle, but released separately.
 
 ## Alerting
 
