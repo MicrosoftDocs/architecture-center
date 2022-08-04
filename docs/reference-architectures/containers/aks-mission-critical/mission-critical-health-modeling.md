@@ -188,8 +188,14 @@ Composing the failure analysis is mostly a theoretical planning exercise. It can
 
 The following table list possible failure scenarios of the various components of the Azure Mission-Critical reference implementation. The table lists risks for the individual components and evaluates if their failure can cause an outage of the entire application. This list isn't a complete list, as there can be failure cases which haven't been thought of.
 
-| Service | Impact/Mitigation/Comment | Outage |
-| ------- | ------------------------- | ------ |
+| Service | Risk | Impact/Mitigation/Comment | Outage |
+| ------- | ---- |-------------------------- | ------ |
+| **Azure Active Directory** | Azure AD becomes unavailable. | Currently no possible mitigation in place. Multi-region approach will likely not (fully) mitigate any outages here as it's a global service. This is a hard dependency. AAD is being used for control plane operations like the creation of new AKS nodes, pulling container images from ACR or to access Key Vault on pod startup. It's expected that existing, running components should be able to keep running when AAD experiences issues. It's likely that new pods or AKS nodes will be unable to spawn. In scale operations are required during this time, it could lead to a decreased user experience and potentially to outages. | Partial |
+| **Azure DNS** | Azure DNS becomes unavailable and DNS resolution fails. | If Azure DNS becomes unavailable, the DNS resolution for user requests and between different components of the application will likely fail. Currently no possible mitigation in place for this scenario. Multi-region approach will likely not (fully) mitigate any outages here as it's a global service. Azure DNS is a hard dependency. External DNS services as backup would not help, since all the PaaS components used rely on Azure DNS. Bypassing DNS by switching to IP isn't an option. Azure services don’t have static, guaranteed IP addresses. | Full |
+| **Front Door** | General Front Door outage. | If Front Door goes down entirely, there isn't a mitigation. This is a hard dependency. | Yes |
+| **Front Door** | Routing/frontend/backend configuration errors. | Can happen due to mismatch in configuration when deploying. Should be caught in testing stages. Some things like frontend configuration with DNS is specific to each environment. **Mitigation: Rolling back to previous configuration should fix most issues.**. As changes take a couple of minutes in Front Door to deploy, it will cause an outage. | Full |
+| **Front Door** | Managed SSL certificate is deleted. | Can happen due to mismatch in configuration when deploying. Should be caught in testing stages. Technically the site would still work, but SSL cert errors will prevent users from accessing it. **Mitigation: Re-issuing the cert can take around 20 minutes, plus fixing and re-running the pipeline.**. | Full |
+| **Cosmos DB** | 
 
 
 
