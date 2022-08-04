@@ -20,24 +20,28 @@ categories: featured
 
 # Application design considerations for mission-critical workloads
 
-The Azure Mission-critical reference architecture considers a simple web shop catalog workflow where end users can browse through a catalog of items, see details of an item, and post ratings and comments for items. Although fairly straight forward, this application enables the Reference Implementation to demonstrate the asynchronous processing of requests and how to achieve high throughput within a solution. The application's design also focuses on reliability and resiliency.
+The Azure Mission-critical reference architecture considers a simple web shop catalog workflow where end users can browse through a catalog of items, see details of an item, and post ratings and comments for items. Although fairly straight forward, this application enables the **Reference Implementation (RI)** to demonstrate the asynchronous processing of requests and how to achieve high throughput within a solution. The application's design also focuses on reliability and resiliency.
 
 ## Application composition
 
-The application consists of four components:
+For high-scale mission-critical applications it's essential to **optimize the architecture for end-to-end scalability and resilience**. This can be achieved through separation of components into functional units that can operate independently. This split should be applied at all levels on the application stack, allowing each part of the system to scale independently and meet changes in demand.
 
-1. **User interface (UI) application** - Single-page application accessed by end users is hosted in Azure Storage Account's static website hosting.
-1. **API application** (`CatalogService`) - .NET Core REST API called by the UI application, but available for other potential client applications.
-1. **Worker application** (`BackgroundProcessor`) - .NET Core background worker, which processes write requests to the database by listening to new events on the message bus. This component does not expose any APIs.
-1. **Health check application** (`HealthCheck`) - Used to report the health of the application by checking if critical components (database, messaging bus) are working.
+The reference implementation (RI) sample flow uses stateless API endpoints, which communicate asynchronously through a messaging bus. The workload is composed in a way that the whole AKS cluster and other dependencies in the stamp can be deleted and recreated at any time.
+
+The RI application consists of four components:
+
+1. **User interface (UI):** single-page application accessed by end users is hosted in Azure Storage Account's static website hosting.
+1. **API** (`CatalogService`): .NET Core REST API called by the UI application, but available for other potential client applications.
+1. **Worker** (`BackgroundProcessor`): .NET Core background worker, which processes write requests to the database by listening to new events on the message bus. This component does not expose any APIs.
+1. **Health service API** (`HealthService`): used to report the health of the application by checking if critical components (database, messaging bus) are working.
 
 ![Application flow](./images/application-design-flow.png)
 
 The API, worker and health check applications are referred to as **workload** and hosted as containers in a dedicated AKS namespace (called `workload`). There's **no direct communication** between the pods, they're **stateless** and able to **scale independently**.
 
-TODO: diagram detailing the components in the cluster
+![Detailed composition of the workload](./images/application-design-workload-composition.png)
 
-There are additional supporting components running on the cluster:
+In addition to the workload there are other, supporting components running on the cluster:
 
 1. **Ingress controller** - Nginx in a container is used to incoming requests to the workload and load balance between pods. It has a public IP address.
 1. **Cert manager** - Jetstack's `cert-manager` is used to auto-provision SSL/TLS certificates (using Let's Encrypt) for ingress rules.
@@ -45,6 +49,8 @@ There are additional supporting components running on the cluster:
 1. **Monitoring agent** - The default OMSAgent configuration is adjusted to reduce the amount of monitoring data sent to the Log Analytics workspace.
 
 ## Database connection
+
+Mission-critical workloads shouldn't persist any state within stamps and should use an externalized data store.....
 
 No state is persisted within stamps and Cosmos DB serves as the main data store for the application.
 
@@ -219,9 +225,19 @@ One exception are **sensitive values** for pipelines, which aren't stored in sou
 
 ## Asynchronous messaging
 
-In order to achieve high responsiveness for all operations, Azure Mission-critical reference implementation uses the [Queue-Based Load leveling pattern](https://docs.microsoft.com/azure/architecture/patterns/queue-based-load-leveling) combined with [Competing Consumers pattern](https://docs.microsoft.com/azure/architecture/patterns/competing-consumers) where multiple producer instances (`CatalogService` in our case) generate messages which are then asynchronously processed by consumers (`BackgroundProcessor`). This allows the API to accept the request and return to the caller quickly whilst the more demanding database write operation is processed separately. This asynchronous approach provides reliability and resiliency through the decoupling of dependencies between the components.
+Loose coupling provides the cornerstone of a microservice architecture by allowing services to be designed in a way that **each service has little or no knowledge of surrounding services**. The *loose* aspect allows a service to operate independently. The *coupling* aspect allows for inter-service communication through well-defined interfaces. In the context of a mission critical application it further facilitates high-availability by preventing downstream failures from cascading to frontends or different deployment stamps.
 
-The reference architecture uses **Azure Event Hubs** as the message queue between the API service and background worker. It was chosen because it's capable of handling higher throughput than Azure Service Bus (with the tradeoff of missing functionality). There are interfaces in code, which enable the use of other messaging services if required. **ASP.NET Core API** is used to implement the producer REST API, and **.NET Core Worker Service** is used to implement the consumer service.
+Key characteristics:
+
+- Services aren't constrained to use the same compute platform, programming language, or operating system.
+- Services scale independently.
+- Downstream failures don't affect client transactions.
+- Transactional integrity is more difficult to maintain, because data creation and persistence happens in separate services.
+- End-to-end tracing requires more complex orchestration.
+
+Azure Mission-critical RI uses the [Queue-Based Load leveling pattern](https://docs.microsoft.com/azure/architecture/patterns/queue-based-load-leveling) combined with [Competing Consumers pattern](https://docs.microsoft.com/azure/architecture/patterns/competing-consumers) where multiple producer instances (`CatalogService` in our case) generate messages which are then asynchronously processed by consumers (`BackgroundProcessor`). This allows the API to accept the request and return to the caller quickly whilst the more demanding database write operation is processed separately.
+
+**Azure Event Hubs** is used as the message queue between the API service and background worker. It was chosen because it's capable of handling higher throughput than Azure Service Bus (with the tradeoff of missing functionality). There are interfaces in code, which enable the use of other messaging services if required. **ASP.NET Core API** is used to implement the producer REST API, and **.NET Core Worker Service** is used to implement the consumer service.
 
 Every message needs to contain the `action` metadata property which directs the route of processing:
 
@@ -422,6 +438,8 @@ Check results are **cached in memory**, using the standard, non-distributed ASP.
 > [!WARNING]
 > Azure Front Door health probes can generate significant load on the health service, because requests come from multiple pop locations. To prevent overloading the downstream components, appropriate caching needs to take place.
 
+The health service is also used for explicitly configured URL ping tests with each stamp's Application Insights resounrce
+
 #### Cosmos DB check
 
 To minimize impact on the overall load, the read check is a simple query which doesn't manipulate with data:
@@ -491,13 +509,6 @@ The CatalogService application is packaged and deployed as a Helm chart. The cha
 ----
 
 DUMP ZONE
-
-
-
-
-## Load testing
-
-Follow the principles outlined in [Performance testing](/azure/architecture/framework/scalability/performance-test) to determine your specific load testing needs.
 
 
 ## Service discoverablity
