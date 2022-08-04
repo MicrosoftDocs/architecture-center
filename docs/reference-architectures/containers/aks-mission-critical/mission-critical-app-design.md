@@ -225,7 +225,7 @@ One exception are **sensitive values** for pipelines, which aren't stored in sou
 
 ## Asynchronous messaging
 
-Loose coupling provides the cornerstone of a microservice architecture by allowing services to be designed in a way that **each service has little or no knowledge of surrounding services**. The *loose* aspect allows a service to operate independently. The *coupling* aspect allows for inter-service communication through well-defined interfaces. In the context of a mission critical application it further facilitates high-availability by preventing downstream failures from cascading to frontends or different deployment stamps.
+Loose coupling allows services to be designed in a way that **each service has little or no knowledge of surrounding services**. The *loose* aspect allows a service to operate independently. The *coupling* aspect allows for inter-service communication through well-defined interfaces. In the context of a mission critical application it further facilitates high-availability by preventing downstream failures from cascading to frontends or different deployment stamps.
 
 Key characteristics:
 
@@ -239,46 +239,16 @@ Azure Mission-critical RI uses the [Queue-Based Load leveling pattern](https://d
 
 **Azure Event Hubs** is used as the message queue between the API service and background worker. It was chosen because it's capable of handling higher throughput than Azure Service Bus (with the tradeoff of missing functionality). There are interfaces in code, which enable the use of other messaging services if required. **ASP.NET Core API** is used to implement the producer REST API, and **.NET Core Worker Service** is used to implement the consumer service.
 
-Every message needs to contain the `action` metadata property which directs the route of processing:
-
-```csharp
-// `action` is a string:
-//  - AddCatalogItem
-//  - AddComment
-//  - AddRating
-//  - DeleteObject
-switch (action)
-{
-    case Constants.AddCatalogItemActionName:
-        await AddCatalogItemAsync(messageBody);
-        break;
-    case Constants.AddCommentActionName:
-        await AddItemCommentAsync(messageBody);
-        break;
-    case Constants.AddRatingActionName:
-        await AddItemRatingAsync(messageBody);
-        break;
-    case Constants.DeleteObjectActionName:
-        await DeleteObjectAsync(messageBody);
-        break;
-    default:
-        _logger.LogWarning("Unknown event, action={action}. Ignoring message", action);
-        break;
-}
-```
-
-Besides standard user flow messages (database CRUD operations),there are also health check messages identified by the `HEALTHCHECK=TRUE` metadata value. Currently health check messages are dropped and not processed further.
-
-If a message isn't a health check and doesn't contain `action`, it's also dropped.
+Besides standard user flow messages (database CRUD operations - `AddCatalogItem`, `AddComment`, `AddRating`, `DeleteObject`...),there are also health check messages identified by the `HEALTHCHECK=TRUE` metadata value. Currently health check messages are dropped by the worker and not processed further. The same applies to any other messages that don't specify the `action` property.
 
 > [!IMPORTANT]
-> Messaging queue is not intended to be used as a persistent data store for an long periods of time. The Event Hubs service supports [Capture feature](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-enable-through-portal) which allows an Event Hub to automatically write a copy of messages to a linked Azure Storage account. This keeps utilization in-check but it also serves as a mechanism to backup messages.
+> Messaging queue is not intended to be used as a persistent data store for an long periods of time. The Event Hubs service supports [capture feature](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-enable-through-portal) which allows an Event Hub to automatically write a copy of messages to a linked Azure Storage account. This keeps utilization in-check but it also serves as a mechanism to backup messages.
 
 ### Write operations
 
-Write operations, such as *post rating and post comment* are processed asynchronously. The API first sends a message with all relevant information, such as type of action and comment data, to the message queue and immediately returns `HTTP 202 (Accepted)` with additional `Location` header for the create operation.
+Write operations, such as *post rating and post comment* are processed asynchronously. The API first sends a message with all relevant information, such as type of action and comment data, to the message queue and immediately returns `HTTP 202 (Accepted)` with additional `Location` header of the to-be-created object.
 
-Messages from the queue are then processed by `BackgroundProcessor` instances which handle the actual database communication for write operations. `BackgroundProcessor` scales in and out dynamically based on message volume on the queue.
+Messages in the queue are then processed by `BackgroundProcessor` instances which handle the actual database communication for write operations. `BackgroundProcessor` scales in and out dynamically based on message volume on the queue. The scale out limit of processor instances is defined by the [maximum number of Event Hub partitions](https://docs.microsoft.com/azure/event-hubs/event-hubs-quotas#basic-vs-standard-vs-premium-vs-dedicated-tiers) (which is 32 for Basic and Standard tiers, 100 for Premium tier and 1024 for Dedicated tier).
 
 ![Post rating is asynchronous](./images/application-design-operations-2.png)
 
@@ -314,25 +284,23 @@ while (!stoppingToken.IsCancellationRequested)
 }
 ```
 
+In case the processor application encounters an error or is stopped before processing the message, then the following will occur:
+
+1. **Another instance will pick up the message for reprocessing**, because it wasn't properly checkpointed in Storage.
+1. **If the previous worker managed to persist the document** in the database before failing, a conflict will happen (because the same ID and partition key is used) and the processor can safely ignore the message, as it has been already persisted.
+1. **If the previous worker was terminated before writing to the database**, new instance will repeat the steps and finalize persistence.
+
 ### Read operations
 
 Read operations are processed directly by the API and immediately return data back to the user.
 
 ![List games reaches to database directly](./images/application-design-operations-1.png)
 
-There is no back channel which communicates to the client if the operation completed successfully. The client application has to proactively poll the API to for updates.
-
-### Failure analysis
-
-TODO
-
-- Use case: Sender crashes after messages goes to event hubs
-- Use case: Receiver crashes after writing to DB
-- DLQ management
+There is no back channel which communicates to the client if the operation completed successfully. The client application has to proactively poll the API to for updates of the item specified in the `Location` HTTP header.
 
 ## Instrumentation
 
-Azure Mission-critical reference implementation uses Azure Log Analytics for logs and metrics of all workload and infrastructure components, and Azure Application Insights for all application monitoring data. The workload implements **full end-to-end tracing** of requests coming from the API, through Event Hubs, to Cosmos DB.
+Azure Mission-critical RI uses Azure Log Analytics for logs and metrics of all workload and infrastructure components, and Azure Application Insights for all application monitoring data. The workload implements **full end-to-end tracing** of requests coming from the API, through Event Hubs, to Cosmos DB.
 
 Key principles of instrumentation:
 
@@ -417,7 +385,12 @@ See the [full configuration file](https://github.com/Azure/Mission-Critical-Onli
 
 ## Health monitoring
 
-Every API publishes a basic liveness probe, which responds with successful HTTP code when the API is working, or throws an error if not......
+Application monitoring and observability are commonly used to quickly identify issues with a system and inform the [health model](https://docs.microsoft.com/azure/architecture/framework/mission-critical/mission-critical-health-modeling) about current application state. Health monitoring, surfaced through *health endpoints* and used by *health probes* provides information, which is immediately actionable - typically instructing the main load balancer to take the unhealthy component out of rotation.
+
+There are multiple levels of health monitoring in the Mission-critical RI:
+
+- Workload pods running on AKS have health and liveness probes, therefore AKS is able to manage their lifecycle.
+- There's a dedicated component on the cluster, called **Health service**. Azure Front Door is configured to probe health services in each stamp and remove unhealthy stamps from load balancing automatically.
 
 ### Health service
 
@@ -480,9 +453,30 @@ The reference implementation looks for presence of the state file in the specifi
 
 ## Scalability
 
-Individual workload services should be able to scale out independently (insert why? from reliability perspective). In this design the services are packaged and deployed by using Helm charts to each stamp. They are configured to have the expected requests and limits and a pre-configured auto-scaling (HPA) rule in place. (what is preconfigured? like built-in?) 
+Individual workload services should be able to scale out independently, because they each have different load patterns. The scaling requirements depend on the functionality of the service. Some services have a direct impact on end user and are expected to be able to scale out agressively to provide fast response for a positive user experience and performance at any time.
 
-The scaling requirements depend on the functionality of the service. Some services have a direct impact on end user is  expected to be able to scale out automatically to provide a positive user experience and performance at any time.
+ In this RI the services are packaged as Docker containers and deployed by using Helm charts to each stamp. They are configured to have the expected Kubernetes requests and limits and a pre-configured auto-scaling rule in place. The `CatalogService` as well as the `BackgroundProcessor` workload component can scale in and out individually, both services are stateless.
+
+End users interact directly with the `CatalogService`,....
+
+ (what is preconfigured? like built-in?) 
+
+
+
+`CatalogService` performance has a direct impact on the end user experience. The service is expected to be able to scale out automatically to provide a positive user experience and performance at any time.
+
+The `CatalogService` has at least 3 instances per cluster to spread automatically across three Availability Zones per Azure Region. Each instance requests one CPU core and a given amount of memory based on upfront load testing. Each instance is expected to serve ~250 requests/second based on a standardized usage pattern. `CatalogService` has a 3:1 relationship to the nginx-based Ingress controller.
+
+The `BackgroundProcessor` service has very different requirements and is considered a background worker which has no direct impact on the user experience. As such, `BackgroundProcessor` has a different auto-scaling configuration than `CatalogService` and it can scale between 2 and 32 instances (which matches the max. no. of EventHub partitions). The ratio between `CatalogService` and `BackgroundProcessor` is around 20:2.
+
+All workload components as well as supporting services like the `HealthService` and dependencies like `ingress-nginx` are configured with at least 3 or in case of the `HealthService` 2 instances (replicas) per cluster. This is supposed to prevent certain availability issues and to ensure that the service is always available. The instances are automatically spread across nodes and therefore also across Availability Zones.
+
+In addition to that, each component of the workload including dependencies like `ingress-nginx` has [Pod Disruption Budgets (PDBs)](/azure/aks/operator-best-practices-scheduler#plan-for-availability-using-pod-disruption-budgets) configured to ensure that a minimum number of instances is always available.
+
+
+
+
+
 
 In this reference architecture, the `CatalogService` has at least 3 instances per cluster to spread automatically across three Availability Zones per Azure Region. Each instance requests one CPU core and a given amount of memory based on upfront load testing. Each instance is expected to serve approximately 250 requests per second based on a standardized usage pattern. `CatalogService` has a 3:1 relationship to `Ingress`.
 
@@ -528,14 +522,3 @@ DUMP ZONE
 - How to determine scale values
 
 
-The `CatalogService` as well as the `BackgroundProcessor` workload component can scale in and out individually. Both services are stateless, packaged as and deployed via Helm charts to each of the (regional) stamps, have proper requests and limits in place and have a pre-configured auto-scaling (HPA) rule in place.
-
-`CatalogService` performance has a direct impact on the end user experience. The service is expected to be able to scale out automatically to provide a positive user experience and performance at any time.
-
-The `CatalogService` has at least 3 instances per cluster to spread automatically across three Availability Zones per Azure Region. Each instance requests one CPU core and a given amount of memory based on upfront load testing. Each instance is expected to serve ~250 requests/second based on a standardized usage pattern. `CatalogService` has a 3:1 relationship to the nginx-based Ingress controller.
-
-The `BackgroundProcessor` service has very different requirements and is considered a background worker which has no direct impact on the user experience. As such, `BackgroundProcessor` has a different auto-scaling configuration than `CatalogService` and it can scale between 2 and 32 instances (which matches the max. no. of EventHub partitions). The ratio between `CatalogService` and `BackgroundProcessor` is around 20:2.
-
-All workload components as well as supporting services like the `HealthService` and dependencies like `ingress-nginx` are configured with at least 3 or in case of the `HealthService` 2 instances (replicas) per cluster. This is supposed to prevent certain availability issues and to ensure that the service is always available. The instances are automatically spread across nodes and therefore also across Availability Zones.
-
-In addition to that, each component of the workload including dependencies like `ingress-nginx` has [Pod Disruption Budgets (PDBs)](/azure/aks/operator-best-practices-scheduler#plan-for-availability-using-pod-disruption-budgets) configured to ensure that a minimum number of instances is always available.
