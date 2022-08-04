@@ -3,7 +3,7 @@ title: Machine learning operations (MLOps) v2
 description: Learn about a single  deployable set of repeatable, and maintainable patterns for creating machine learning CI/CD and retraining pipelines.
 author: sdonohoo
 ms.author: sdonohoo
-ms.date: 07/31/2022
+ms.date: 08/04/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -69,19 +69,22 @@ The base architecture for MLOps v2 for Machine Learning is the classical machine
 
 The architectures currently covered by MLOps v2 and discussed in this article are:
 
-- [Machine Learning classical machine learning architecture](#machine-learning-classical-machine-learning-architecture)
+- [Classical machine learning architecture](#classical-machine-learning-architecture)
 - [Machine Learning CV architecture](#machine-learning-cv-architecture)
 - [Machine Learning NLP architecture](#machine-learning-nlp-architecture)
 
-### Machine Learning classical machine learning architecture
+### Classical machine learning architecture
 
 :::image type="content" source="../images/classical-ml-architecture.png" lightbox="../images/classical-ml-architecture.png" alt-text="Diagram for the classical machine learning architecture." border="false":::
 
-### Workflow for the classical machine learning architecture
+*Download a [Visio file](https://arch-center.azureedge.net/machine-learning-operation-classical-ml.vsdx) of this architecture.*
+
+#### Workflow for the classical machine learning architecture
 
 1. Data estate
 
    This element illustrates the data estate of the organization, and potential data sources and targets for a data science project. Data engineers are the primary owners of this element of the MLOps v2 lifecycle. The Azure data platforms in this diagram are neither exhaustive nor prescriptive. The data sources and targets that represent recommended best practices based on the customer use case are indicated by a green check mark.
+   
 1. Administration and setup
 
    This element is the first step in the MLOps v2 accelerator deployment. It consists of all tasks related to creation and management of resources and roles associated with the project. These can include the following tasks, and perhaps others:
@@ -93,11 +96,13 @@ The architectures currently covered by MLOps v2 and discussed in this article ar
    1. Creation of monitors for collection and notification of model and infrastructure metrics
 
    The primary persona associated with this phase is the infrastructure team, but there can also be data engineers, machine learning engineers, and data scientists.
+   
 1. Model development (inner loop)
 
    The inner loop element consists of your iterative data science workflow that acts within a dedicated, secure Machine Learning workspace. A typical workflow is illustrated in the diagram. It proceeds from data ingestion, exploratory data analysis, experimentation, model development and evaluation, to registration of a candidate model for production. This modular element as implemented in the MLOps v2 accelerator is agnostic and adaptable to the process your data science team uses to develop models.
 
    Personas associated with this phase include data scientists and machine learning engineers.
+   
 1. Machine Learning registries
 
    After the data science team develops a model that's a candidate for deploying to production, the model can be registered in the Machine Learning workspace registry. CI pipelines that are triggered, either automatically by model registration or by gated human-in-the-loop approval, promote the model and any other model dependencies to the model deployment phase.
@@ -109,18 +114,23 @@ The architectures currently covered by MLOps v2 and discussed in this article ar
    The model deployment or outer loop phase consists of pre-production staging and testing, production deployment, and monitoring of model, data, and infrastructure. CD pipelines manage the promotion of the model and related assets through production, monitoring, and potential retraining, as criteria that are appropriate to your organization and use case are satisfied.
 
    Personas associated with this phase are primarily machine learning engineers.
+   
 1. Staging and test
 
    The staging and test phase can vary with customer practices but typically includes operations such as retraining and testing of the model candidate on production data, test deployments for endpoint performance, data quality checks, unit testing, and responsible AI checks for model and data bias. This phase takes place in one or more dedicated, secure Machine Learning workspaces.
+   
 1. Production deployment
 
    After a model passes the staging and test phase, it can be promoted to production by using a human-in-the-loop gated approval. Model deployment options include a managed batch endpoint for batch scenarios or, for online, near-real-time scenarios, either a managed online endpoint or Kubernetes deployment by using Azure Arc. Production typically takes place in one or more dedicated, secure Machine Learning workspaces.
+   
 1. Monitoring
 
    Monitoring in staging, test, and production makes it possible for you to collect metrics for, and act on, changes in performance of the model, data, and infrastructure. Model and data monitoring can include checking for model and data drift, model performance on new data, and responsible AI issues. Infrastructure monitoring can watch for slow endpoint response, inadequate compute capacity, or network problems.
+   
 1. Data and model monitoring: events and actions
 
    Based on criteria for model and data matters of concern such as metric thresholds or schedules, automated triggers and notifications can implement appropriate actions to take. This can be regularly scheduled automated retraining of the model on newer production data and a loopback to staging and test for pre-production evaluation. Or, it can be due to triggers on model or data issues that require a loopback to the model development phase where data scientists can investigate and potentially develop a new model.
+   
 1. Infrastructure monitoring: events and actions
 
    Based on criteria for infrastructure matters of concern such as endpoint response lag or insufficient compute for the deployment, automated triggers and notifications can implement appropriate actions to take. They trigger a loopback to the setup and administration phase where the infrastructure team can investigate and potentially reconfigure the compute and network resources.
@@ -129,44 +139,57 @@ The architectures currently covered by MLOps v2 and discussed in this article ar
 
 :::image type="content" source="../images/computer-vision-architecture.png" lightbox="../images/computer-vision-architecture.png" alt-text="Diagram for the computer vision architecture." border="false":::
 
-### Workflow for the CV architecture
+*Download a [Visio file](https://arch-center.azureedge.net/machine-learning-operation-computer-vision.vsdx) of this architecture.*
+
+#### Workflow for the CV architecture
 
 The Machine Learning CV architecture is based on the classical machine learning architecture, but it has modifications that are particular to supervised CV scenarios.
 
 1. Data estate
 
    This element illustrates the data estate of the organization and potential data sources and targets for a data science project. Data engineers are the primary owners of this element of the MLOps v2 lifecycle. The Azure data platforms in this diagram are neither exhaustive nor prescriptive. Images for CV scenarios can come from many different data sources. For efficiency when developing and deploying CV models with Machine Learning, recommended Azure data sources for images are Azure Blob Storage and Azure Data Lake Storage.
+   
 1. Administration and setup
 
    This element is the first step in the MLOps v2 accelerator deployment. It consists of all tasks related to creation and management of resources and roles associated with the project. For CV scenarios, administration and setup of the MLOps v2 environment is largely the same as for classical machine learning, but with an additional step: create image labeling and annotation projects by using the labeling feature of Machine Learning or another tool.
+   
 1. Model development (inner loop)
 
    The inner loop element consists of your iterative data science workflow performed within a dedicated, secure Machine Learning workspace. The primary difference between this workflow and the classical machine learning scenario is that image labeling and annotation is a key element of this development loop.
+   
 1. Machine Learning registries
 
    After the data science team develops a model that's a candidate for deploying to production, the model can be registered in the Machine Learning workspace registry. CI pipelines that are triggered either automatically by model registration or by gated human-in-the-loop approval promote the model and any other model dependencies to the model deployment phase.
+   
 1. Model deployment (outer loop)
 
    The model deployment or outer loop phase consists of pre-production staging and testing, production deployment, and monitoring of model, data, and infrastructure. CD pipelines manage the promotion of the model and related assets through production, monitoring, and potential retraining as criteria appropriate to your organization and use case are satisfied.
+   
 1. Staging and test
 
    The staging and test phase can vary with customer practices but typically includes operations such as test deployments for endpoint performance, data quality checks, unit testing, and responsible AI checks for model and data bias. For CV scenarios, retraining of the model candidate on production data can be omitted due to resource and time constraints. Instead, the data science team can use production data for model development, and the candidate model that's registered from the development loop is the model that's evaluated for production. This phase takes place in one or more dedicated, secure Machine Learning workspaces.
+   
 1. Production deployment
 
    After a model passes the staging and test phase, it can be promoted to production via human-in-the-loop gated approvals. Model deployment options include a managed batch endpoint for batch scenarios or, for online, near-real-time scenarios, either a managed online endpoint or Kubernetes deployment by using Azure Arc. Production typically takes place in one or more dedicated, secure Machine Learning workspaces.
+   
 1. Monitoring
 
    Monitoring in staging, test, and production makes it possible for you to collect metrics for, and act on, changes in the performance of the model, data, and infrastructure. Model and data monitoring can include checking for model performance on new images. Infrastructure monitoring can watch for slow endpoint response, inadequate compute capacity, or network problems.
+   
 1. Data and model monitoring: events and actions
 
    The data and model monitoring and event and action phases of MLOps for NLP are the key differences from classical machine learning. Automated retraining is typically not done in CV scenarios when model performance degradation on new images is detected. In this case, new images for which the model performs poorly must be reviewed and annotated by a human-in-the-loop process, and often the next action goes back to the model development loop for updating the model with the new images.
+   
 1. Infrastructure monitoring: events and actions
 
    Based on criteria for infrastructure matters of concern such as endpoint response lag or insufficient compute for the deployment, automated triggers and notifications can implement appropriate actions to take. This triggers a loopback to the setup and administration phase where the infrastructure team can investigate and potentially reconfigure environment, compute, and network resources.
 
 ### Machine Learning NLP architecture
 
-:::image type="content" source="../images/natural-language-processing-architecture.png" lightbox="../images/natural-language-processing-architecture.png" alt-text="Diagram for the NLP architecture." border="false":::
+:::image type="content" source="../images/natural-language-processing-architecture.png" lightbox="../images/natural-language-processing-architecture.png" alt-text="Diagram for the N L P architecture." border="false":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/machine-learning-operation-natural-language-processing.vsdx) of this architecture.*
 
 #### Workflow for the NLP architecture
 

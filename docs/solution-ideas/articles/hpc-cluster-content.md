@@ -1,17 +1,11 @@
-High performance computing (HPC) applications can scale to thousands of compute cores, extend on-premises compute, or run as a 100% cloud native solution. This HPC solution is built on the Azure managed service: [Azure Batch](https://azure.microsoft.com/services/batch), and initiated by an [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) job. These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
-
-## Potential use cases
-
-Industries that benefit from HPC in the cloud include:
-
-- Media and entertainment (edit videos, render special effects, and livestream events)
-- Artificial intelligence and machine learning (detect credit card fraud)
-- Financial services and the finance industry (track real-time stock trends and automate trading)
+This solution shows you how to run high performance computing (HPC) applications in Azure with a low-maintenance.
 
 ## Architecture
 
 ![Architecture Diagram](../media/hpc-cluster.png)
 *Download an [SVG](../media/hpc-cluster.svg) of this architecture.*
+
+### Workflow
 
 The solution involves the following steps:
 
@@ -32,13 +26,25 @@ The solution involves the following steps:
 * [Virtual Network](https://azure.microsoft.com/services/virtual-network) provides IP connectivity between the compute resources and the other cloud services, above and beyond any native Infiniband or RDMA communication.
 * [Azure Monitor](https://azure.microsoft.com/services/monitor) collects performance metrics and logs from the cloud resources for reports, alerting, and automated response.
 
+## Scenario details
+
+High performance computing (HPC) applications can scale to thousands of compute cores, extend on-premises compute, or run as a 100% cloud native solution. This HPC solution is built on the Azure managed service: [Azure Batch](https://azure.microsoft.com/services/batch), and initiated by an [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) job. These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
+
+### Potential use cases
+
+Industries that benefit from HPC in the cloud include:
+
+- Media and entertainment (edit videos, render special effects, and livestream events)
+- Artificial intelligence and machine learning (detect credit card fraud)
+- Financial services and the finance industry (track real-time stock trends and automate trading)
+
 ## Considerations
 
 Batch compute pools don't need commodity hardware. Specialized virtual machines with GPU processors and advanced networking exist to be used by Azure Batch. [GPU-optimized virtual machines](/azure/virtual-machines/sizes-gpu) with NVIDIA Tesla GPUs and [high-throughput Infiniband networking](/azure/virtual-machines/workloads/hpc/enable-infiniband) are available.
 
 Batch compute pools can [autoscale](/azure/batch/batch-automatic-scaling), which grows and shrinks the number of nodes in the pool as the amount of work changes. Rather than paying for unused pool members, autoscaling can reduce the compute costs of a job to only the resources that are performing tasks.
 
-## Pricing
+### Cost optimization
 
 To explore the cost of running this scenario, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator), which preconfigures all Azure services.
 
