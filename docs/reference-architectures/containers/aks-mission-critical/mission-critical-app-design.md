@@ -24,7 +24,7 @@ The Azure Mission-critical reference architecture considers a simple web shop ca
 
 ## Application composition
 
-For high-scale mission-critical applications it's essential to **optimize the architecture for end-to-end scalability and resilience**. This can be achieved through separation of components into functional units that can operate independently. This split should be applied at all levels on the application stack, allowing each part of the system to scale independently and meet changes in demand.
+For high-scale mission-critical applications it's essential to **optimize the architecture for end-to-end scalability and resilience**. This state can be achieved through separation of components into functional units that can operate independently. Apply this split at all levels on the application stack, allowing each part of the system to scale independently and meet changes in demand.
 
 The reference implementation (RI) sample flow uses stateless API endpoints, which communicate asynchronously through a messaging bus. The workload is composed in a way that the whole AKS cluster and other dependencies in the stamp can be deleted and recreated at any time.
 
@@ -43,18 +43,18 @@ The API, worker and health check applications are referred to as **workload** an
 
 In addition to the workload there are other, supporting components running on the cluster:
 
-1. **Ingress controller** - Nginx in a container is used to incoming requests to the workload and load balance between pods. It has a public IP address.
-1. **Cert manager** - Jetstack's `cert-manager` is used to auto-provision SSL/TLS certificates (using Let's Encrypt) for ingress rules.
-1. **CSI secrets driver** - To securely read secrets such as connection strings from Azure Key Vault, the open-source Azure Key Vault Provider for Secrets Store CSI Driver is used.
-1. **Monitoring agent** - The default OMSAgent configuration is adjusted to reduce the amount of monitoring data sent to the Log Analytics workspace.
+1. **Ingress controller**: Nginx in a container is used to incoming requests to the workload and load balance between pods. It has a public IP address.
+1. **Cert manager**: Jetstack's `cert-manager` is used to auto-provision SSL/TLS certificates (using Let's Encrypt) for ingress rules.
+1. **CSI secrets driver**: To securely read secrets such as connection strings from Azure Key Vault, the open-source Azure Key Vault Provider for Secrets Store CSI Driver is used.
+1. **Monitoring agent**: The default OMSAgent configuration is adjusted to reduce the amount of monitoring data sent to the Log Analytics workspace.
 
 ## Database connection
 
-Mission-critical workloads shouldn't persist any state within stamps and should use an externalized data store.....
+Due to the ephemeral nature of deployment stamps, which can be destroyed and recreated at any time, mission-critical workloads shouldn't persist any state within stamps and should use externalized data store for persistence. Databases need to be resilient too, which can be achieved with managed (PaaS) services, combined with native SDK libraries that automatically handle timeouts, disconnects and other failure states.
 
-No state is persisted within stamps and Cosmos DB serves as the main data store for the application.
+In the reference implementation **Cosmos DB** serves as the main data store for the application. **Azure Storage** is then used for Event Hub checkpointing and UI application hosting.
 
-The application has the following **data access characteristics**:
+The workload has the following **data access characteristics**:
 
 - Read pattern:
   - Point reads, e.g. fetching a single record. These use item ID and partition key directly for maximum optimization (1 RU per request).
@@ -74,7 +74,7 @@ The application has the following **data access characteristics**:
 Data model of the Mission-critical reference implementation is designed so that it doesn't require features offered by traditional relational databases (i.e. foreign keys, strict row/column schema, views, etc.) and is fully compatible with the NoSQL nature of Cosmos DB. **SQL API** is used, because it's feature rich and supports all capabilities of the database engine.
 
 > [!NOTE]
-> New applications should use the Cosmos DB SQL API. For legacy applications that already use another NoSQL protocol (Mongo DB) the migration to Cosmos DB SQL API should be at least evaluated.
+> New applications should use the Cosmos DB **SQL API**. For legacy applications that already use another NoSQL protocol (Mongo DB) the migration to Cosmos DB SQL API should be at least evaluated.
 
 Cosmos DB is configured as follows:
 
