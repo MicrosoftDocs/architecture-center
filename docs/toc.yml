@@ -326,10 +326,14 @@ items:
               items:
                 - name: Application platform
                   href: reference-architectures/containers/aks-mission-critical/mission-critical-app-platform.md
-                - name: Deployment and test
+                - name: Deployment and testing
                   href: reference-architectures/containers/aks-mission-critical/mission-critical-deploy-test.md
                 - name: Networking and connectivity platform
                   href: reference-architectures/containers/aks-mission-critical/mission-critical-networking.md
+            - name: Guides
+              items:
+                - name: Continuous Validation with Azure Load Testing and Azure Chaos Studio
+                  href: guide/testing/mission-critical-deployment-testing.md
       - name: Multitenant applications
         items:
           - name: Overview
