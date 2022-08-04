@@ -23,7 +23,7 @@ In this architecture, the identity flow works as follows:
 
 ### Components
 
-This architecture uses the same [components](./windows-virtual-desktop.yml#components-you-manage) as those listed in [AVD at enterprise scale architecture](./windows-virtual-desktop.yml).
+This architecture uses the same [components](./windows-virtual-desktop.yml#components-that-you-manage) as those listed in [AVD at enterprise scale architecture](./windows-virtual-desktop.yml).
 
 Additionally, this architecture uses the following components:
 
