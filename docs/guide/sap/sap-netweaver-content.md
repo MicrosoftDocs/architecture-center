@@ -19,19 +19,19 @@ _Download a [Visio file](https://arch-center.azureedge.net/sap-netweaver-avzones
 > [!NOTE]
 > To deploy this architecture, you need appropriate licensing of SAP products and other non-Microsoft technologies.
 
-This guide describes a production system. It's deployed with specific virtual machine (VM) sizes that you can change to accommodate your organization's needs. The system can be reduced to a single VM. In this guide, the network layout is greatly simplified to demonstrate the architectural principles. It's not intended to describe a full enterprise network.
+This guide describes a production system. The system is deployed with specific virtual machine (VM) sizes that you can change to accommodate your organization's needs. The system can be reduced to a single VM. In this guide, the network layout is greatly simplified to demonstrate architectural principles. It's not intended to describe a full enterprise network.
 
 ### Workflow
 
 **Virtual networks.** The [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) service connects Azure resources to each other with enhanced security. In this architecture, the virtual network connects to an on-premises environment via a virtual private network (VPN) gateway that's deployed in the hub of a [hub-spoke topology](../../reference-architectures/hybrid-networking/hub-spoke.yml). The spoke is the virtual network that's used for the SAP applications and the database tiers.
 
-**Virtual network peering.** This architecture uses a hub-and-spoke networking topology with multiple virtual networks that are [peered together](/azure/virtual-network/virtual-network-peering-overview). This topology provides network segmentation and isolation for services that are deployed on Azure. Peering enables transparent connectivity between peered virtual networks through the Microsoft backbone network. It doesn't incur a performance penalty if deployed within a single region. The virtual network is subdivided into separate subnets for each tier application (SAP NetWeaver), the database, and shared services like a jump box and Windows Server Active Directory.
+**Virtual network peering.** This architecture uses a hub-and-spoke networking topology with multiple virtual networks that are [peered together](/azure/virtual-network/virtual-network-peering-overview). This topology provides network segmentation and isolation for services that are deployed on Azure. Peering enables transparent connectivity between peered virtual networks through the Microsoft backbone network. It doesn't incur a performance penalty if deployed within a single region. The virtual network is divided into separate subnets for each tier application (SAP NetWeaver), the database, and shared services like a jump box and Windows Server Active Directory.
 
 **VMs.** This architecture uses VMs for the application tier and database tier, grouped in the following way:
 
 - **SAP NetWeaver.** The application tier uses Windows VMs to run SAP Central Services and SAP application servers. The VMs that run Central Services are configured as a Windows server failover cluster for high availability. They're supported by either Azure file shares or Azure shared disks.
 
-- **AnyDB.** The database tier runs AnyDB as the database, such as Microsoft SQL Server, Oracle, or IBM Db2.
+- **AnyDB.** The database tier runs AnyDB as the database, which might be Microsoft SQL Server, Oracle, or IBM Db2.
 
 - **Jump box/bastion host** Administrators use an improved-security VM that's called a jump box, or bastion host, to connect to other VMs. It's typically a part of shared services, like domain controllers and backup services. If Secure Shell Protocol (SSH) and Remote Desktop Protocol (RDP) are the only services that are used for server administration, an [Azure Bastion](/azure/bastion/bastion-overview) host is an alternative. If you use other management tools, like SQL Server Management Studio or SAP Front End, use a traditional, self-deployed jump box.
 
