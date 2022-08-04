@@ -56,7 +56,7 @@ To generate the license file:
 
 To configure the license server on Windows:
 
-1. 1.	Open Network License Manager by typing **lmtools** in the Windows search bar and selecting it in the results. A GUI opens.
+1. Open Network License Manager by typing **lmtools** in the Windows search bar and selecting it in the results. A GUI opens.
 1. Select **Config Services** and provide the service name, in this case, **Autodesk Network License Manager**.
 1. Provide the path of the license file and the other requested paths.
 1. Select **Start Server at Power Up** at the bottom of the window.
