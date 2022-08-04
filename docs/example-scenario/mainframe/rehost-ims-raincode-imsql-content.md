@@ -4,6 +4,8 @@ This architecture describes how to implement an Information Management System (I
 
 :::image type="content" source="media/pre-migration.png" alt-text="Diagram that shows the pre-migration IMS DB/DC workload architecture." lightbox="media/pre-migration.png" border="false":::
 
+*Download a [Visio file](https://arch-center.azureedge.net/rehost-ims-raincode-imsql-ibm-ims-dbdc-zos.vsdx) of this architecture.*
+
 ### Dataflow
 
 1. Users connect to the mainframe over TCP/IP by using standard mainframe protocols like TN3270 and HTTPS.
@@ -17,7 +19,7 @@ This architecture describes how to implement an Information Management System (I
 
 :::image type="content" source="media/imsql.png" alt-text="Diagram that shows the IMSql architecture on Azure." lightbox="media/imsql.png" border="false":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/IMSql.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/rehost-ims-raincode-imsql.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -55,6 +57,8 @@ This architecture describes how to implement an Information Management System (I
 ## Data migration via IMSql
 
 :::image type="content" source="media/data-migration.png" alt-text="Diagram that shows the data migration via IMSql." lightbox="media/data-migration.png" border="false":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/rehost-ims-raincode-imsql-data-migration.vsdx) of this architecture.*
 
 ### Database object migration
 
