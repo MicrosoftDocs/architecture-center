@@ -457,68 +457,15 @@ Individual workload services should be able to scale out independently, because 
 
  In this RI the services are packaged as Docker containers and deployed by using Helm charts to each stamp. They are configured to have the expected Kubernetes requests and limits and a pre-configured auto-scaling rule in place. The `CatalogService` as well as the `BackgroundProcessor` workload component can scale in and out individually, both services are stateless.
 
-End users interact directly with the `CatalogService`,....
+End users interact directly with the `CatalogService`, so this part of the workload must respond under any load. There are at least 3 instances per cluster to spread across three Availability Zones in an Azure region. AKS horizontal pod autoscaler (HPA) takes care of automatically adding more pods if needed and Cosmos DB auto-scale is able to dynamically increase and reduce RUs available for the collection. Together, the `CatalogService` and Cosmos DB form a **scale unit** within a stamp.
 
- (what is preconfigured? like built-in?) 
+ ... HPA configuration
 
+During a load test it was identified that each instance is expected to handle ~250 requests/second with a standard usage pattern.
 
+The `BackgroundProcessor` service has very different requirements and is considered a background worker which has limited impact on the user experience. As such, `BackgroundProcessor` has a different auto-scaling configuration than `CatalogService` and it can scale between 2 and 32 instances (which matches the max. no. of EventHub partitions for the Standard tier). The ratio between `CatalogService` and `BackgroundProcessor` is around 20:2.
 
-`CatalogService` performance has a direct impact on the end user experience. The service is expected to be able to scale out automatically to provide a positive user experience and performance at any time.
+In addition to that, each component of the workload including dependencies like `ingress-nginx` has [Pod Disruption Budgets (PDBs)](/azure/aks/operator-best-practices-scheduler#plan-for-availability-using-pod-disruption-budgets) configured to ensure that a minimum number of instances is always available when changes are rolled out on clusters.
 
-The `CatalogService` has at least 3 instances per cluster to spread automatically across three Availability Zones per Azure Region. Each instance requests one CPU core and a given amount of memory based on upfront load testing. Each instance is expected to serve ~250 requests/second based on a standardized usage pattern. `CatalogService` has a 3:1 relationship to the nginx-based Ingress controller.
-
-The `BackgroundProcessor` service has very different requirements and is considered a background worker which has no direct impact on the user experience. As such, `BackgroundProcessor` has a different auto-scaling configuration than `CatalogService` and it can scale between 2 and 32 instances (which matches the max. no. of EventHub partitions). The ratio between `CatalogService` and `BackgroundProcessor` is around 20:2.
-
-All workload components as well as supporting services like the `HealthService` and dependencies like `ingress-nginx` are configured with at least 3 or in case of the `HealthService` 2 instances (replicas) per cluster. This is supposed to prevent certain availability issues and to ensure that the service is always available. The instances are automatically spread across nodes and therefore also across Availability Zones.
-
-In addition to that, each component of the workload including dependencies like `ingress-nginx` has [Pod Disruption Budgets (PDBs)](/azure/aks/operator-best-practices-scheduler#plan-for-availability-using-pod-disruption-budgets) configured to ensure that a minimum number of instances is always available.
-
-
-
-
-
-
-In this reference architecture, the `CatalogService` has at least 3 instances per cluster to spread automatically across three Availability Zones per Azure Region. Each instance requests one CPU core and a given amount of memory based on upfront load testing. Each instance is expected to serve approximately 250 requests per second based on a standardized usage pattern. `CatalogService` has a 3:1 relationship to `Ingress`.
-
-In other cases, the service might not have negative impact on user experience but may cause performance bottlenecks. For instance, the `BackgroundProcessor` service is a background worker that should be able  to<ask Martin what the requirement is>. It can scale between 3 and 32 instances, which matches the maximum number of event hub partitions. The ratio between `CatalogService` and `BackgroundProcessor` is around 10:1.
-
-There are also overall scalability considerations that are applicable to all workload services to prevent availability issues and ensure that the service is always available. For example, supporting services like the `HealthService` and `Ingress` are configured with minimum of three replicas.  The instances are automatically spread across nodes and therefore also across Availability Zones.
-
-In addition, each component of the workload has [Pod Disruption Budgets (PDBs)](/azure/aks/operator-best-practices-scheduler#plan-for-availability-using-pod-disruption-budgets) configured to ensure that a minimum number of instances is always available.
-
-The actual minimum and maximum number of pods for each component should be determined through load testing, while still respecting the ratios defined in this section.
-
-
-The CatalogService application is packaged and deployed as a Helm chart. The chart is stored in the `src/app/charts` directory. It offers a set of parameters that can be used to customize the deployment (see `values.yaml` for all).
-
-| Parameter | Description |
-| --- | --- |
-| scale.minReplicas | Minimum number of replicas to deploy |
-| scale.maxReplicas | Maximum number of replicas to deploy |
-| networkPolicy.enabled | Whether to enable network policies |
-| networkPolicy.egressRange | Allowed egress range - defaults to `0.0.0.0/0` |
-
-
-----
-----
-
-DUMP ZONE
-
-
-## Service discoverablity
-- Service object and ClusterIP
-- Cluster DNS
-- Service-to-service communication through APIs
-
-## Networking path within the cluster
-- Load balancing
-- Ingress to service
-- Network policies
-
-
-## Scalability
-- Independent scaling
-    - HPA
-- How to determine scale values
-
-
+> [!NOTE]
+> The actual minimum and maximum number of pods for each component should be determined through load testing and can differ per workload.
