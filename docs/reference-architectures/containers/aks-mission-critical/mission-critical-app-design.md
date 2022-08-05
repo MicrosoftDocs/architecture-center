@@ -113,7 +113,7 @@ All workload components use the Cosmos DB .NET Core SDK to communicate with the 
 
 ```csharp
 //
-// CosmosDbService.cs
+// /src/app/AlwaysOn.Shared/Services/CosmosDbService.cs
 //
 CosmosClientBuilder clientBuilder = new CosmosClientBuilder(sysConfig.CosmosEndpointUri, sysConfig.CosmosApiKey)
     .WithConnectionModeDirect()
@@ -136,7 +136,7 @@ On the application level this reference architecture uses a simple authenticatio
 
 ### Managed identities
 
-**Managed identities should be used** to access Azure resources from the AKS cluster. The reference implementation is using managed identity of the AKS agent pool ("Kubelet identity") to access the global Azure Container Registry and stamp Azure Key Vault.
+**[Managed identities](https://docs.microsoft.com/azure/aks/use-managed-identity) should be used** to access Azure resources from the AKS cluster. The reference implementation is using managed identity of the AKS agent pool ("Kubelet identity") to access the global Azure Container Registry and stamp Azure Key Vault.
 
 Example of assigning the `AcrPull` role to the Kubelet identity in Terraform (stamp deployment):
 
@@ -148,8 +148,6 @@ resource "azurerm_role_assignment" "acrpull_role" {
 }
 ```
 
-https://docs.microsoft.com/azure/aks/use-managed-identity
-
 ### Secrets
 
 Each deployment stamp has its dedicated instance of Azure Key Vault. Some parts of the workload still use **keys** to access Azure resources (e.g. Cosmos DB) - those are created during deployment and stored in Key Vault with Terraform. With the exception of end-to-end environments for developers, **no human operator ever interacts with these secrets** as they're generated automatically and handled in Terraform. In addition, Key Vault access policies are configured in a way that **no user accounts are permitted to access** secrets.
@@ -160,6 +158,9 @@ Each deployment stamp has its dedicated instance of Azure Key Vault. Some parts 
 The [**Azure Key Vault Provider for Secrets Store**](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver) is used in order for the application to consume secret. The CSI driver loads keys from Azure Key Vault and mounts them into individual pods' as files.
 
 ```yml
+#
+# /src/config/csi-secrets-driver/chart/csi-secrets-driver-config/templates/csi-secrets-driver.yaml
+#
 apiVersion: secrets-store.csi.x-k8s.io/v1
 kind: SecretProviderClass
 metadata:
@@ -188,8 +189,8 @@ On the consuming end, both .NET applications use the built-in capability to read
 
 ```csharp
 //
-// Program.cs
-// using Microsoft.Extensions.Configuration;
+// /src/app/AlwaysOn.BackgroundProcessor/Program.cs
+// + using Microsoft.Extensions.Configuration;
 //
 public static IHostBuilder CreateHostBuilder(string[] args) =>
     Host.CreateDefaultBuilder(args)
@@ -320,7 +321,7 @@ The `BackgroundProcessor` component uses the `Microsoft.ApplicationInsights.Work
 
 ```csharp
 //
-// Program.cs
+// /src/app/AlwaysOn.BackgroundProcessor/Program.cs
 //
 public static IHostBuilder CreateHostBuilder(string[] args) =>
     Host.CreateDefaultBuilder(args)
@@ -341,7 +342,7 @@ To demonstrate practical request traceability, every API request (successful or 
 
 ```csharp
 //
-// Startup.cs
+// /src/app/AlwaysOn.CatalogService/Startup.cs
 //
 app.Use(async (context, next) =>
 {
@@ -371,7 +372,7 @@ Extensive logging can negatively affect cost while providing no benefit. For thi
 
 ```yaml
 #
-# container-azm-ms-agentconfig.yaml
+# /src/config/monitoring/container-azm-ms-agentconfig.yaml
 # This is just a snippet showing the relevant part.
 #
 [log_collection_settings]
@@ -459,13 +460,36 @@ Individual workload services should be able to scale out independently, because 
 
 End users interact directly with the `CatalogService`, so this part of the workload must respond under any load. There are at least 3 instances per cluster to spread across three Availability Zones in an Azure region. AKS horizontal pod autoscaler (HPA) takes care of automatically adding more pods if needed and Cosmos DB auto-scale is able to dynamically increase and reduce RUs available for the collection. Together, the `CatalogService` and Cosmos DB form a **scale unit** within a stamp.
 
- ... HPA configuration
+HPA is deployed with a Helm chart with configurable maximum and minimum number of replicas. The values are configured as:
 
 During a load test it was identified that each instance is expected to handle ~250 requests/second with a standard usage pattern.
 
-The `BackgroundProcessor` service has very different requirements and is considered a background worker which has limited impact on the user experience. As such, `BackgroundProcessor` has a different auto-scaling configuration than `CatalogService` and it can scale between 2 and 32 instances (which matches the max. no. of EventHub partitions for the Standard tier). The ratio between `CatalogService` and `BackgroundProcessor` is around 20:2.
+The `BackgroundProcessor` service has very different requirements and is considered a background worker which has limited impact on the user experience. As such, `BackgroundProcessor` has a different auto-scaling configuration than `CatalogService` and it can scale between 2 and 32 instances (which matches the max. no. of EventHub partitions for the Standard tier).
+
+-- TODO: Heyko check
+
+|Component           |`minReplicas`  |`maxReplicas`      |
+|--------------------|---------------|-------------------|
+|CatalogService      |3              |20                 |
+|BackgroundProcessor |2              |8                  |
 
 In addition to that, each component of the workload including dependencies like `ingress-nginx` has [Pod Disruption Budgets (PDBs)](/azure/aks/operator-best-practices-scheduler#plan-for-availability-using-pod-disruption-budgets) configured to ensure that a minimum number of instances is always available when changes are rolled out on clusters.
+
+```yml
+#
+# /src/app/charts/healthservice/templates/pdb.yaml
+# Example pod distribution budget configuration.
+#
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: {{ .Chart.Name }}-pdb
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: {{ .Chart.Name }}
+```
 
 > [!NOTE]
 > The actual minimum and maximum number of pods for each component should be determined through load testing and can differ per workload.
