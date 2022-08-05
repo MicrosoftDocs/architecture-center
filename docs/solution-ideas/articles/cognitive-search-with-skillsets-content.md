@@ -1,18 +1,18 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This article presents a solution that enriches text and image documents by using image processing, natural language processing, and custom skills to capture domain-specific data. Azure Cognitive Search with AI enrichment can help identify and explore relevant content at scale. This solution uses AI enrichment to extract meaning from the original complex, unstructured JFK Assassination Records dataset.
+This article presents a solution that enriches text and image documents by using image processing, natural language processing, and custom skills to capture domain-specific data. Azure Cognitive Search with AI enrichment can help identify and explore relevant content at scale. This solution uses AI enrichment to extract meaning from the original complex, unstructured JFK Assassination Records (JFK Files) dataset.
 
 ## Architecture
 
-The following diagram illustrates the process of passing the unstructured JFK Files dataset through the Cognitive Search skills pipeline to produce structured, indexable data.
+The following diagram illustrates the process of passing the unstructured JFK Files dataset through the Azure Cognitive Search skills pipeline to produce structured, indexable data.
 
-:::image type="content" alt-text="Diagram that shows Cognitive Search architecture to convert unstructured into structured data." source="../media/cognitive-search-for-ai-enrichment.png" lightbox="../media/cognitive-search-for-ai-enrichment.png":::
+:::image type="content" alt-text="Diagram that shows Azure Cognitive Search architecture to convert unstructured into structured data." source="../media/cognitive-search-for-ai-enrichment.png" lightbox="../media/cognitive-search-for-ai-enrichment.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/cognitive-search-for-ai-enrichment.vsdm) of this architecture.*
 
 ### Dataflow
 
-1. Unstructured data in Azure Blob Storage, such as documents and images, ingest into Cognitive Search.
+1. Unstructured data in Azure Blob Storage, such as documents and images, ingest into Azure Cognitive Search.
 1. The *document cracking* step initiates the indexing process by extracting images and text from the data, followed by content enrichment. The enrichment steps that occur in this process depend on the data and type of skills selected.
 1. [*Built-in skills*](/azure/search/cognitive-search-predefined-skills) based on the Computer Vision and Language Service APIs enable AI enrichments including image optical character recognition (OCR), image analysis, text translation, entity recognition, and full-text search.
 1. [*Custom skills*](/azure/search/cognitive-search-custom-skill-interface) support scenarios that require more complex AI models or services. Examples include Forms Recognizer, Azure Machine Learning models, and Azure Functions.
@@ -27,7 +27,7 @@ Azure Cognitive Search works with other Azure components to provide this solutio
 
 #### Azure Cognitive Search
 
-[Azure Cognitive Search](https://azure.microsoft.com/services/search) indexes the content and powers the user experience in this solution. Cognitive Search can apply [pre-built cognitive skills](/azure/search/cognitive-search-predefined-skills) to the content, and the extensibility mechanism can add [custom skills](/azure/search/cognitive-search-custom-skill-interface) for specific enrichment transformations.
+[Azure Cognitive Search](https://azure.microsoft.com/services/search) indexes the content and powers the user experience in this solution. Azure Cognitive Search can apply [pre-built cognitive skills](/azure/search/cognitive-search-predefined-skills) to the content, and the extensibility mechanism can add [custom skills](/azure/search/cognitive-search-custom-skill-interface) for specific enrichment transformations.
 
 #### Azure Computer Vision
 
@@ -47,7 +47,7 @@ The [legacy OCR API](https://westus.dev.cognitive.microsoft.com/docs/services/co
 
 #### Azure Functions
 
-[Azure Functions](/azure/azure-functions/functions-overview) is a serverless compute service that lets you run small pieces of event-triggered code without having to explicitly provision or manage infrastructure. This solution uses an Azure Functions method to apply the CIA Cryptonyms list to the JFK Assassination Records as a custom skill.
+[Azure Functions](https://azure.microsoft.com/services/functions) is a serverless compute service that lets you run small pieces of event-triggered code without having to explicitly provision or manage infrastructure. This solution uses an Azure Functions method to apply the CIA Cryptonyms list to the JFK Assassination Records as a custom skill.
 
 #### Azure App Service
 
@@ -57,24 +57,24 @@ This solution idea also builds a standalone web app in [Azure App Service](https
 
 Large, unstructured datasets can include typewritten and handwritten notes, photos and diagrams, and other unstructured data that standard search solutions can't parse. The [JFK Assassination Records](https://www.archives.gov/research/jfk/2017-release) contain over 34,000 pages of documents about the CIA investigation of the 1963 JFK assassination.
 
-The JFK Files [sample project](https://github.com/microsoft/AzureSearch_JFK_Files) and [online demo](https://aka.ms/jfkfiles-demo) showcase a particular Cognitive Search use case. This solution idea isn't intended to be a framework or scalable architecture for all scenarios, but to provide a general guideline and example. The code project and demo create a public website and publicly readable storage container for extracted images, so you shouldn't use this solution with non-public data.
+The JFK Files [sample project](https://github.com/microsoft/AzureSearch_JFK_Files) and [online demo](https://aka.ms/jfkfiles-demo) showcase a particular Azure Cognitive Search use case. This solution idea isn't intended to be a framework or scalable architecture for all scenarios, but to provide a general guideline and example. The code project and demo create a public website and publicly readable storage container for extracted images, so you shouldn't use this solution with non-public data.
 
 AI enrichment in Azure Cognitive Search can extract and enhance searchable, indexable text from images, blobs, and other unstructured data sources like the JFK Files. AI enrichment uses pre-trained machine learning skill sets from the Cognitive Services [Computer Vision](/azure/cognitive-services/computer-vision/home) and [Cognitive Service for Language](/azure/cognitive-services/text-analytics/overview) APIs. You can also create and attach [custom skills](/azure/search/cognitive-search-custom-skill-interface) to add special processing for domain-specific data like CIA Cryptonyms. Azure Cognitive Search can then index and search that context.
 
 The Azure Cognitive Search skills in this solution fall into the following categories:
 
-- *Image processing*. Built-in [text extraction](/azure/cognitive-services/computer-vision/concept-recognizing-text#read-api) and [image analysis](/azure/search/cognitive-search-skill-image-analysis) skills include object and face detection, tag and caption generation, and celebrity and landmark identification. These skills create text representations of image content, which are searchable using the query capabilities of Azure Cognitive Search. *Document cracking* is the process of extracting or creating text content from non-text sources.
+- *Image processing*. Built-in [text extraction](/azure/cognitive-services/computer-vision/concept-recognizing-text#read-api) and [image analysis](/azure/search/cognitive-search-skill-image-analysis) skills include object and face detection, tag and caption generation, and celebrity and landmark identification. These skills create text representations of image content, which are searchable by using the query capabilities of Azure Cognitive Search. *Document cracking* is the process of extracting or creating text content from non-text sources.
 
 - *Natural language processing*. Built-in skills like [entity recognition](/azure/search/cognitive-search-skill-entity-recognition), [language detection](/azure/search/cognitive-search-skill-language-detection), and [key phrase extraction](/azure/search/cognitive-search-skill-keyphrases) map unstructured text to searchable and filterable fields in an index.
 
-- *Custom skills* extend Cognitive Search to apply specific enrichment transformations to content. You [specify the interface for a custom skill](/azure/search/cognitive-search-custom-skill-interface) through the [Custom Web API skill](/azure/search/cognitive-search-custom-skill-web-api).
+- *Custom skills* extend Azure Cognitive Search to apply specific enrichment transformations to content. You [specify the interface for a custom skill](/azure/search/cognitive-search-custom-skill-interface) through the [Custom Web API skill](/azure/search/cognitive-search-custom-skill-web-api).
 
 ## Potential use cases
 
 - Increase the value and utility of unstructured text and image content in search and data science apps.
 - Use custom skills to integrate open-source, third-party, or first-party code into indexing pipelines.
 - Make scanned JPG, PNG, or bitmap documents full-text searchable.
-- Produce better outcomes than standard PDF text extraction for PDFs with combined image and text. Some scanned and native PDF formats might not parse correctly in Cognitive Search.
+- Produce better outcomes than standard PDF text extraction for PDFs with combined image and text. Some scanned and native PDF formats might not parse correctly in Azure Cognitive Search.
 - Create new information from inherently meaningful raw content or context that's hidden in larger unstructured or semi-structured documents.
 
 ## Contributors
@@ -84,7 +84,6 @@ The Azure Cognitive Search skills in this solution fall into the following categ
 Principal author:
 
  * [Carlos Alexandre Santos](https://www.linkedin.com/in/carlosafsantos) | Senior Specialized AI Cloud Solution Architect
- * [Jose Contreras](https://www.linkedin.com/in/josedanielcontreras) | Principal Software Engineering Manager
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
