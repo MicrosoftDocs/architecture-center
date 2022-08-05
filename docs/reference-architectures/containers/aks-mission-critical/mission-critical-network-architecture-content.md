@@ -1,6 +1,6 @@
-This reference architecture provides guidance for designing a mission critical workload that has network controls in place to prevent any unauthorized public access on a networking layer, from the internet to any of the workload resources. 
+This reference architecture provides guidance for designing a mission critical workload that has network controls in place to prevent unauthorized public access from the internet to any of the workload resources. The intent is to stop attack vectors at the networking layer so that the overall reliability of the system isn't impacted. For example, a Distributed Denial of Service (DDoS) attack, if left unchecked, can cause a resource to become unavailable by overwhelming it with illegitimate traffic.
 
-It builds on the [mission-critical baseline architecture](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro), which is focused on maximizing reliability and operational effectiveness without additional network controls such as private endpoints. This architecture adds features to secure ingress and egress paths using cloud-native capabilities. It's recommended that you become familiar with the baseline before proceeding with this article.
+It builds on the [mission-critical baseline architecture](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro), which is focused on maximizing reliability and operational effectiveness without additional network controls such as private endpoints. This architecture adds features to control the ingress and egress paths using cloud-native capabilities. It's recommended that you become familiar with the baseline before proceeding with this article.
 
 ## Reliability tier
 TBD: how does security impact the overall reliablity -- insert blurb.
@@ -16,19 +16,23 @@ The [design strategies for mission-critical baseline](/azure/architecture/refere
 
 - **Control ingress traffic**
     
-    Ingress or inbound communication into the virtual network must be secured. Distributed Denial of Service (DDoS) attacks can cause a targeted resource to become unavailable by overwhelming it with illegitimate traffic.
+    Ingress or inbound communication into the virtual network must be restricted to prevent malicious attacks.
+
+    Apply Web Application Firewall (WAF) capabilities at the global level to _stop attacks at the network edge closer to the attack source_.
     
-    _Eliminate public connectivity to Azure services by using private endpoints_. Further, inspect traffic by using network security groups (NSGs) on subnets with private endpoints.
+    _Eliminate public connectivity to Azure services_. One approach is to use private endpoints. 
+    
+    _Inspect traffic before they enter your network_. Network security groups (NSGs) on subnets help filter traffic by allowing or denying flow to the configured IP addresses and ports. This level of control also helps in granular logging.
 
 - **Control egress traffic** 
 
     Egress traffic from a virtual network to entities outside that network must be restricted. Lack of controls might lead to data exfilteration attacks by malicious third-party services.
 
-    _Restrict outbound traffic to the internet using Azure Firewall and network security groups (NSGs) on the subnets_.
+    _Restrict outbound traffic to the internet using Azure Firewall_. Firewall can filter traffic granularly using fully qualified domain name (FQDN).
 
 - **Balance tradeoffs with security**
 
-    There are significant trade-offs when security features are added to a workload architecture. You might notice some impact on performance, operational agility, and even reliability. However, _attack vectors, such as Denial-Of-Service (DDoS), data intrusion, and others, can target the system's overall reliability and eventually cause unavailability_.
+    There are significant trade-offs when security features are added to a workload architecture. You might notice some impact on performance, operational agility, and even reliability. However, _attacks, such as Denial-Of-Service (DDoS), data intrusion, and others, can target the system's overall reliability and eventually cause unavailability_.
   
 > Preceding strategies are based on the guidance provided in [Well-architected mission critical workloads](/azure/architecture/framework/mission-critical/).
 
@@ -38,7 +42,7 @@ The [design strategies for mission-critical baseline](/azure/architecture/refere
 
 The components of this architecture can be broadly categorized in this manner. For product documentation about Azure services, see [Related resources](#related-resources). 
 
-### Global resources
+#### Global resources
 
 The global resources are long living and share the lifetime of the system. They have the capability of being globally available within the context of a multi-region deployment model. For more information, see [Global resources](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-app-platform?branch=pr-en-us-7138#global-resources).
 
@@ -54,14 +58,14 @@ The global resources are long living and share the lifetime of the system. They 
 
 > Refer to [Well-architected mission critical workloads: Container registry](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing#container-registry).
 
-### Regional resources
+#### Regional resources
 The regional resources are provisioned as part of a _deployment stamp_ to a single Azure region. They are short-lived to provide more resiliency, scale, and proximity to users. These resources share nothing with resources in another region. They can be independently removed or replicated to other regions. They, however, share [global resources](#global-resources) between each other. For more information, see [Regional stamp resources](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-app-platform#deployment-stamp-resources).
 
 **Static website in an Azure Storage Account** hosts a single page application (SPA) that send requests to backend services. This component has the same configuration as the [baseline frontend](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro?branch=pr-en-us-7138#frontend).
 
 **Azure Virtual Networks** provide secure environments for running the workload and management operations. 
 
-**Azure Kubernetes Service (AKS)** is the orchestrator for backend compute that runs an application and is stateless. The AKS cluster is deployed as a private cluster. So, the Kubernetes API server isn't exposed to the public internet, and traffic to the API server is limited to a private network. For more information, see the [Compute cluster](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-app-platform#compute-cluster) article of this architecture.
+**Azure Kubernetes Service (AKS)** is the orchestrator for backend compute that runs an application and is stateless. The AKS cluster is deployed as a private cluster. So, the Kubernetes API server isn't exposed to the public internet. Access to the API server is limited to a private network. For more information, see the [Compute cluster](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-app-platform#compute-cluster) article of this architecture.
 
 > Refer to [Well-architected mission critical workloads: Container Orchestration and Kubernetes](/azure/architecture/framework/mission-critical/mission-critical-application-platform#container-orchestration-and-kubernetes).
 
@@ -75,7 +79,7 @@ The regional resources are provisioned as part of a _deployment stamp_ to a sing
 
 > Refer to [Well-architected mission critical workloads: Data integrity protection](/azure/architecture/framework/mission-critical/mission-critical-security#data-integrity-protection).
 
-### Deployment pipeline resources
+#### Deployment pipeline resources
 
 Build and release pipelines for a mission critical application must be fully automated to guarantee a consistent way of deploying a validated stamp.  
 
@@ -87,7 +91,7 @@ Build and release pipelines for a mission critical application must be fully aut
 
 **Self-hosted Azure DevOps build agent pools** are used to have more control over the builds and deployments. This level of autonomy is needed because the compute cluster is private. 
 
-### Observability resources
+#### Observability resources
 
 Monitoring data for global resources and regional resources are stored independently. A single, centralized observability store isn't recommended to avoid a single point of failure. For more information, see [Observability resources](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro#observability-resources)
 
@@ -97,9 +101,9 @@ Monitoring data for global resources and regional resources are stored independe
 
 > Refer to [Well-architected mission critical workloads: Predictive action and AI operations](/azure/architecture/framework/mission-critical/mission-critical-health-modeling#predictive-action-and-ai-operations-aiops).
 
-### Management resources
+#### Management resources
 
-A significant design change from the baseline architecture is the compute cluster. In this design AKS cluster is private. This change requires extra resources to be  provisioned to gain secure access to cluster. 
+A significant design change from the baseline architecture is the compute cluster. In this design AKS cluster is private. This change requires extra resources to be provisioned to gain access to cluster. 
 
 **Azure Virtual Machine Scale Sets** for jump box instances to run tools against the cluster, such as kubectl.
 
@@ -109,7 +113,7 @@ A significant design change from the baseline architecture is the compute cluste
 
 To process business or deployment operations, the application and the build agents need to reach several Azure PaaS services that are provisioned  globally, within the region, and even within the stamp. In the baseline architecture, that communication is over the public internet. 
 
-In this design, those services have been protected with private endpoints to prevent data exfiltration attacks. Using private endpoints increases the security of the design. However, it introduces another potential point of failure and increases complexity in consuming these services. Carefully consider the tradeoffs with security before adopting this approach.
+In this design, those services have been protected with private endpoints to prevent data exfiltration attacks. However, it introduces another potential point of failure and increases complexity. Carefully consider the tradeoffs with security before adopting this approach.
 
 Private endpoints should be put in a dedicated subnet of a virtual network. Private IP addresses to the private endpoints are assigned from that subnet. Essentially, any resource in the virtual network can communicate with the service by reaching the private IP address. Make sure the address space is large enough to accommodate this subnet. 
 
@@ -121,12 +125,12 @@ There are two virtual networks provisioned in this design and both have dedicate
 
 As you add more components to the architecture, consider adding more private endpoints. They can be created on the same or different subnets within the same virtual network. There are limits to the number of private endpoints you can create in a subscription. For more information, see [Azure limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
 
-Tighten the security further by using network security groups on the subnet to control both incoming and outgoing traffic.
+Control access to the services further by using network security groups on the subnet.
 
-## Global routing
-Azure Front Door is used as the global entry point for all incoming client traffic. It uses Web Application Firewall (WAF) capabilities to allow or deny, and route traffic to the configured backend.
+## Private ingress
+Azure Front Door is used as the global entry point for all incoming client traffic. It uses Web Application Firewall (WAF) capabilities to allow or deny, and traffic at the network edge. The configured rules prevent attacks that close to the source of attack.
 
-Because in this architecture, the [connection from Front Door to the ingress points have been secured by using private endpoints](#private-endpoints-for-paas-services), Premium SKU of Front Door is required. This allows traffic to flow from the internet to Azure virtual networks without the use of public IPs/endpoints on the backends.
+Because in this architecture, the [connection from Front Door to the ingress points uses private endpoints](#private-endpoints-for-paas-services), Premium SKU of Front Door is required. This allows traffic to flow from the internet to Azure virtual networks without the use of public IPs/endpoints on the backends.
 
 ![Diagram showing secure global routing for a mission critical workload](./images/network-diagram-ingress.png)
 
@@ -190,8 +194,6 @@ But, those jump boxes need to be protected as well from unauthorized access. Dir
 
 You can secure ingress to the jump box subnet by using an NSG that only allows inbound traffic from the Bastion subnet over SSH.
 
-If the operator needs to access public endpoints, outbound traffic must also be secured. (How? NSG? UDR?)
-
 #### Deployment operations
 
 To build deployment pipelines, you need to provision additional compute to run build agents. This architecture sequesters the build agents in a separate subnet. Ingress is restricted to Azure DevOps. Egress (how?)
@@ -207,7 +209,7 @@ We suggest that you explore these design areas for recommendations and best prac
 |[Data platform](/azure/architecture/framework/mission-critical/mission-critical-data-platform)|Choices in data store technologies, informed by evaluating required volume, velocity, variety, and veracity characteristics.|
 |**[Networking and connectivity](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-networking)|Network considerations for routing incoming traffic to stamps.|
 |[Health modeling](/azure/architecture/framework/mission-critical/mission-critical-health-modeling)|Observability considerations through customer impact analysis correlated monitoring to determine overall application health.|
-|[Deployment and testing](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing)|Strategies for CI/CD pipelines and automation considerations, with incorporated testing scenarios, such as synchronized load testing and failure injection (chaos) testing.|
+|**[Deployment and testing](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing)|Strategies for CI/CD pipelines and automation considerations, with incorporated testing scenarios, such as synchronized load testing and failure injection (chaos) testing.|
 |[Security](/azure/architecture/framework/mission-critical/mission-critical-security)|Mitigation of attack vectors through Microsoft Zero Trust model.|
 |[Operational procedures](/azure/architecture/framework/mission-critical/mission-critical-operational-procedures)|Processes related to deployment, key management, patching and updates.|
 
