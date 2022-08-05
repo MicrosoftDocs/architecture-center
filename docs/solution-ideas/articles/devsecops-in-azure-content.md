@@ -12,9 +12,9 @@ Some organizations utilize DevSecOps:
 
 ## Architecture
 
-![Architecture diagram shows the flow from the developer to the end user and where devsecops can be employed: devsecops in Azure.](../media/devsecops-in-azure.png)
+:::image type="content" alt-text="Architecture diagram shows the flow from the developer to the end user and where devsecops can be employed, devsecops in Azure." source="../media/devsecops-in-azure.png" lightbox="../media/devsecops-in-azure.png":::
 
-*Download an [SVG](../media/devsecops-in-azure.svg) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/devsecops-in-azure.vsdx) of this architecture.*
 
 ### Dataflow
 
