@@ -568,3 +568,4 @@ Review these articles to learn more:
 - [Azure Service Bus: Message de-duplication](/azure/service-bus-messaging/duplicate-detection)
 - [Change feed processor library](/azure/cosmos-db/sql/change-feed-processor)
 - [Jimmy Bogard: A better domain events pattern](https://lostechies.com/jimmybogard/2014/05/13/a-better-domain-events-pattern)
+- [How to implement an outbox](https://particular.net/webinars/implementing-an-outbox)
