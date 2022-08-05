@@ -214,9 +214,9 @@ The following table list possible failure scenarios of the various components of
 | **Key Vault** | Key Vault unavailable for `GetSecret` operations. | At the start of new pods, the AKS CSI driver will fetch all secrets from Key Vault. This won't work. Pods will be unable to start. There is an automatic update currently every 5 minutes. The update will fail. Errors should show up in `kubectl describe pod` but the pod keeps working. | No |
 | **Key Vault** | Key Vault unavailable for `GetSecret` or `SetSecret` operations. | New deployments can't be executed. Currently, this might cause the entire deployment pipeline to stop, even if only one region is affected. | No |
 | **Key Vault**  | Key Vault throttling | Key Vault has a limit of 1000 operations per 10 seconds. Because of the automatic update of secrets, you could in theory hit this limit if you had many (thousands) of pods in a stamp. **Possible mitigation: Decrease update frequency even further or turn it off completely.** | No |
-
-
-
+| **Application** | Misconfiguration | Incorrect connection strings or secrets injected to the app. Should be mitigated by automated deployment (pipeline handles configuration automatically) and blue-green rollout of updates. | No |
+| **Application** | Expired credentials (stamp resource) | If, for example, the Event Hub SAS token or Storage Account key was changed without properly updating them in Key Vault so that the pods can use them, the respective application component will fail. This should then also affect the Health Service and the stamp should be taken out of rotation automatically. **Mitigation: Use AAD-based authentication for all services which support it.** When using AKS, this requires the use of Pod Identity to use Managed Identities within the pods. This was considered in the reference implementation. It was found that pod identity wasn't stable enough currently and was decided against using it for the current reference architecture. This could be a solution in the future. | No |
+| **Application** | Expired credentials (globally shared resource) | If, for example, the Cosmos DB API key was changed without properly updating it in all stamp Key Vaults so that the pods can use them, the respective application components will fail. This would likely bring all stamps down at same time and cause a workload-wide outage. For a possible way around the need for keys and secrets using AAD auth, see the previous item. | Full |
 
 ## Next steps
 
