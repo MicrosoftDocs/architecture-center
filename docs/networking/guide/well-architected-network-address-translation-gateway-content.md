@@ -46,7 +46,7 @@ NAT gateway is recommended as the default for enabling outbound connectivity for
 
 ## Reliability
 
-NAT gateway resources are highly available and span multiple fault domains. NAT gateway can be deployed to "no zone" in which Azure automatically selects a zone to place NAT gateway. NAT gateway can also be isolated to a specific zone by a user.
+NAT gateway resources are highly available in one Availability Zone and span multiple fault domains. NAT gateway can be deployed to "no zone" in which Azure automatically selects a zone to place NAT gateway. NAT gateway can also be isolated to a specific zone by a user.
 
 Availability zone isolation cannot be provided, unless each subnet only has resources within a specific zone. Instead, deploy a subnet for each of the availability zones where VMs are deployed, align the zonal VMs with matching zonal NAT gateways, and build separate zonal stacks.  For example, a virtual machine in availability zone 1 is on a subnet with other resources that are also only in availability zone 1. A NAT gateway is configured in availability zone 1 to serve that subnet. See the following diagram.
 
