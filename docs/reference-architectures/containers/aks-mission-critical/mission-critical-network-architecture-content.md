@@ -22,7 +22,7 @@ The [design strategies for mission-critical baseline](/azure/architecture/refere
     
     _Eliminate public connectivity to Azure services_. One approach is to use private endpoints. 
     
-    _Inspect traffic before they enter your network_. Network security groups (NSGs) on subnets help filter traffic by allowing or denying flow to the configured IP addresses and ports. This level of control also helps in granular logging.
+    _Inspect traffic before it enters the network_. Network security groups (NSGs) on subnets help filter traffic by allowing or denying flow to the configured IP addresses and ports. This level of control also helps in granular logging.
 
 - **Control egress traffic** 
 
@@ -64,6 +64,8 @@ The regional resources are provisioned as part of a _deployment stamp_ to a sing
 **Static website in an Azure Storage Account** hosts a single page application (SPA) that send requests to backend services. This component has the same configuration as the [baseline frontend](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro?branch=pr-en-us-7138#frontend).
 
 **Azure Virtual Networks** provide secure environments for running the workload and management operations. 
+
+**Internal load balancer** is the application origin to Front Door for establishing a private and direct connectivity to the backend using Private Link. 
 
 **Azure Kubernetes Service (AKS)** is the orchestrator for backend compute that runs an application and is stateless. The AKS cluster is deployed as a private cluster. So, the Kubernetes API server isn't exposed to the public internet. Access to the API server is limited to a private network. For more information, see the [Compute cluster](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-app-platform#compute-cluster) article of this architecture.
 
@@ -128,11 +130,14 @@ As you add more components to the architecture, consider adding more private end
 Control access to the services further by using network security groups on the subnet.
 
 ## Private ingress
-Azure Front Door is used as the global entry point for all incoming client traffic. It uses Web Application Firewall (WAF) capabilities to allow or deny, and traffic at the network edge. The configured rules prevent attacks that close to the source of attack.
 
-Because in this architecture, the [connection from Front Door to the ingress points uses private endpoints](#private-endpoints-for-paas-services), Premium SKU of Front Door is required. This allows traffic to flow from the internet to Azure virtual networks without the use of public IPs/endpoints on the backends.
+Azure Front Door Premium SKU is used as the global entry point for all incoming client traffic. It uses Web Application Firewall (WAF) capabilities to allow or deny, and traffic at the network edge. The configured WAF rules prevent attacks even before they enter the virtual network. 
 
-![Diagram showing secure global routing for a mission critical workload](./images/network-diagram-ingress.png)
+This architecture also takes advantage of Front Door's capability to use Azure Private Link to access application origin without the use of public IPs/endpoints on the backends. This requires an internal load balancer in the stamp virtual network. After connection is established, Private endpoints on Front Door network have direct connectivity with the load balancer and static web site in the stamp network over Private Link. 
+
+For more information, see [How Private Link works](/azure/frontdoor/private-link#how-private-link-works).
+
+![Diagram showing Private Link access from Front Door to application backend](./images/network-diagram-ingress.png)
 
 > Refer to [Well-architected mission critical workloads: Application delivery services](/azure/architecture/framework/mission-critical/mission-critical-networking-connectivity#application-delivery-services).
 
