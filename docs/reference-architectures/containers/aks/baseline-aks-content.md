@@ -313,7 +313,7 @@ spec:
     http:
       paths:
       - path: /
-        pathType: Prefxi
+        pathType: Prefix
         backend:
           service:
             name: aspnetapp-service
