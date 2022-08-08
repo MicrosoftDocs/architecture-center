@@ -3077,9 +3077,11 @@ items:
               - name: SAS on Azure architecture
                 href: guide/sas/sas-overview.yml
               - name: HPC deployments 
-                items: 
+                items:
+                  - name: Deploy ADS CFD Code Leo
+                    href: guide/hpc/hpc-ads-cfd.yml 
                   - name: Deploy Autodesk VRED
-                    href: guide/hpc/hpc-autodesk-vred.md  
+                    href: guide/hpc/hpc-autodesk-vred.md 
               - name: Industry guidance
                 items:
                   - name: HPC for manufacturing
