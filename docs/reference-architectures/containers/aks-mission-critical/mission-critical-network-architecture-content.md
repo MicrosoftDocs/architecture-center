@@ -210,7 +210,7 @@ But, those jump boxes need to be protected as well from unauthorized access. Dir
 > [!CAUTION] 
 > Connectivity through Azure Bastion and jump boxes can have an impact on developer productivity, such as running debugging tools requires additional process. Be aware of these impacts before deciding to harden security for your mission-critical workload.
 
-You can secure ingress to the jump box subnet by using an NSG that only allows inbound traffic from the Bastion subnet over SSH.
+You can further restrict access to the jump box subnet by using an NSG that only allows inbound traffic from the Bastion subnet over SSH.
 
 #### Deployment operations
 
