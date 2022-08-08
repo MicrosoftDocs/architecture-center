@@ -158,7 +158,7 @@ Keep these points in mind when you deploy this solution:
 
 Principal authors:
 
-* [Ajit Ananthram](https://www.linkedin.com/in/alex-hieng-8476352) | Cloud Solution Architect
+* [Ajit Ananthram](https://www.linkedin.com/in/ajit-ananthram/) | Cloud Solution Architect
 
 ## Next steps
 
