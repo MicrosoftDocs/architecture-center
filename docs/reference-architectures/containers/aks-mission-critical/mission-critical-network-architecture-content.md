@@ -149,12 +149,13 @@ For more information, see [How Private Link works](/azure/frontdoor/private-link
 
 ## Restricted egress
 
-Private clusters require some public internet access to reach the managed control plane. Using Network Security Groups (NSGs) and firewall can make sure that outbound traffic from the application is inspected.
+Applications might require some outbound internet connectivity. Using firewall and Network Security Groups (NSGs) can make sure that outbound traffic from the application is inspected.
 
 In this architecture, Azure Firewall is the single egress point and is used to inspect all outgoing traffic that originates from the virtual network. User-defined routes (UDRs) are used on subnets that are capable of generating egress traffic, such as the application subnet. 
 
 ![Diagram showing Azure Firewall used to restrict egress traffic](./images/mission-critical-firewall-egress.png)
 
+For information about restricting outbound traffic, see [Control egress traffic for cluster nodes in Azure Kubernetes Service (AKS)](/azure/aks/limit-egress-traffic).
 ## Virtual network layout
 
 Isolate regional resources and management resources in separate virtual networks. They have distinct characteristics, purposes, and security considerations. 
@@ -176,7 +177,7 @@ The virtual network is divided into these main subnets. All subnets have Network
 
 - **Stamp ingress subnet**
 
-    The entry point to each stamp is an internal Azure Standard Load Balancer that is placed in a dedicated subnet. This subnet also has Private Link service used for the private connection from Front Door.
+    The entry point to each stamp is an internal Azure Standard Load Balancer that is placed in a dedicated subnet. There's also a subnet for the Private Link service used for the private connection from Front Door.
 
     Both resources are provisioned as part of AKS deployment. 
 
@@ -186,7 +187,7 @@ The virtual network is divided into these main subnets. All subnets have Network
 
 - **Application subnet**
 
-    The cluster node pools are sequestered in a  subnet. If you need to isolate the system node pool from the worker node pool, you can place them in separate subnets. 
+    The cluster node pools are isolated in a subnet. If you need to further isolate the system node pool from the worker node pool, you can place them in separate subnets. 
     
 - **Private endpoints subnet**
 
