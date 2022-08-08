@@ -29,10 +29,10 @@ The [baseline mission critical reference architecture](/azure/architecture/refer
 
 For high-scale mission critical applications, it's essential to **optimize the architecture for end-to-end scalability and resilience**. This state can be achieved through separation of components into functional units that can operate independently. Apply this separation at all levels on the application stack, allowing each part of the system to scale independently and meet changes in demand.
 
-An example of that approach is shown in the implementation. The application uses stateless API endpoints, which communicate asynchronously through a messaging broker. The workload is composed in a way that the whole AKS cluster and other dependencies in the stamp can be deleted and recreated at any time. The main components are: 
-- **User interface (UI):** single-page application accessed by end users is hosted in Azure Storage Account's static website hosting.
-- **API** (`CatalogService`): .NET Core REST API called by the UI application, but available for other potential client applications.
-- **Worker** (`BackgroundProcessor`): .NET Core background worker, which processes write requests to the database by listening to new events on the message bus. 
+An example of that approach is shown in the implementation. The application uses stateless API endpoints, which decouples long-running write requests asynchronously through a messaging broker. The workload is composed in a way that the whole AKS cluster and other dependencies in the stamp can be deleted and recreated at any time. The main components are: 
+- **User interface (UI):** single-page web application accessed by end users is hosted in Azure Storage Account's static website hosting.
+- **API** (`CatalogService`): REST API called by the UI application, but available for other potential client applications.
+- **Worker** (`BackgroundProcessor`): background worker, which processes write requests to the database by listening to new events on the message bus. 
 This component does not expose any APIs.
 - **Health service API** (`HealthService`): used to report the health of the application by checking if critical components (database, messaging bus) are working.
 
@@ -44,7 +44,7 @@ The API, worker, and health check applications are referred to as **workload** a
 
 There are other supporting components running in the cluster:
 
-1. **Ingress controller**: Nginx is used to route incoming requests to the workload and load balance between pods. It has a public IP address.
+1. **Ingress controller**: Nginx Ingress Controller is used to route incoming requests to the workload and load balance between pods. It is exposed through Azure Load Balancer with a public IP address (but only accessed through Azure Front Door).
 1. **Cert manager**: Jetstack's `cert-manager` is used to auto-provision SSL/TLS certificates (using Let's Encrypt) for the ingress rules.
 1. **CSI secrets driver**: Azure Key Vault Provider for Secrets Store CSI is used to securely read secrets such as connection strings from Azure Key Vault.
 1. **Monitoring agent**: The default OMSAgent configuration is adjusted to reduce the amount of monitoring data sent to the Log Analytics workspace.
@@ -53,7 +53,7 @@ There are other supporting components running in the cluster:
 
 Due to the ephemeral nature of deployment stamps, avoid persisting state within the stamp as much as possible. State should be persisted in an externalized data store. To support the reliability SLO, that data store needs to be resilient. It's recommended that you use managed (PaaS) services combined with native SDK libraries that automatically handle timeouts, disconnects and other failure states.
 
-In the reference implementation **Azure Cosmos DB** serves as the main data store for the application.  [Azure Cosmos DB](/azure/cosmos-db/) was chosen because it provides **multi-region writes**. Each stamp can write to the Cosmos DB replica in the same region with Cosmos DB internally handling data replication and synchronization between regions. **SQL API** is used because it supports all capabilities of the database engine.
+In the reference implementation **Azure Cosmos DB** serves as the main data store for the application. [Azure Cosmos DB](/azure/cosmos-db/) was chosen because it provides **multi-region writes**. Each stamp can write to the Cosmos DB replica in the same region with Cosmos DB internally handling data replication and synchronization between regions. **SQL API** is used because it supports all capabilities of the database engine.
 
 > [!NOTE]
 > New applications should use the Cosmos DB **SQL API**. For legacy applications that use another NoSQL protocol, evaluate the migration path to Cosmos DB SQL API.
@@ -108,9 +108,9 @@ indexing_policy {
 All workload components use the Cosmos DB .NET Core SDK to communicate with the database. The SDK includes robust logic to maintain database connections and handle failures. Here are some key configuration settings:
 
 - Uses **Direct connectivity mode**. This is the default setting for .NET SDK v3 because it offers better performance. There are fewer network hops compared to Gateway mode which uses HTTP.
-- **`EnableContentResponseOnWrite`** is set to **`false`** to prevent the Cosmos DB client from returning the document from Create, Upsert, Patch and Replace operations to reduce network traffic. Also, this is not needed for further processing on the client.
+- **Return content response on write** is disabled to prevent the Cosmos DB client from returning the document from Create, Upsert, Patch and Replace operations to reduce network traffic. Also, this is not needed for further processing on the client.
 - **Custom serialization** is used to set the JSON property naming policy to `JsonNamingPolicy.CamelCase` to translate .NET-style properties to standard JSON-style and vice-versa. The default ignore condition ignores properties with null values during serialization (`JsonIgnoreCondition.WhenWritingNull`).
-- **Application region** is set to the region of the stamp because of multi-region writes.
+- **Application region** is set to the region of the stamp, which enables the SDK to find the closest connection endpoint (preferrably within the same region).
 
 ```csharp
 //
@@ -182,7 +182,7 @@ spec:
         {{- end }}
 ```
 
-The reference implementation uses Helm in conjunction with Azure DevOps Pipelines to deploy the CSI driver containing all key names from Azure Key Vault. The driver is also responsible to renew secrets if they change in Key Vault.
+The reference implementation uses Helm in conjunction with Azure DevOps Pipelines to deploy the CSI driver containing all key names from Azure Key Vault. The driver is also responsible to refresh mounted secrets if they change in Key Vault.
 
 On the consumer end, both .NET applications use the built-in capability to read configuration from files (`AddKeyPerFile`):
 
@@ -290,7 +290,7 @@ If the processor application encounters an error or is stopped before processing
 
 Read operations are processed directly by the API and immediately return data back to the user.
 
-![List games reaches to database directly](./images/application-design-operations-1.png)
+![List Catalog Items reads from the database directly](./images/application-design-operations-1.png)
 
 There is no back channel that communicates to the client if the operation completed successfully. The client application has to proactively poll the API to for updates of the item specified in the `Location` HTTP header.
 
@@ -345,7 +345,7 @@ Instrumentation is an important mechanism in evaluating performance bottle necks
 1. Implement event correlation to ensure end-to-end transaction view. In the RI, every API response contains **Operation ID** for traceability.
 1. Don't rely only on *stdout* (console) logging. However, these logs can be used for immediate troubleshooting of a failing pod.
 
-This architecture uses Application Insights backed by Log Analytics Workspace for all application monitoring data. Azure Log Analytics is ised for logs and metrics of all workload and infrastructure components. The workload implements **full end-to-end tracing** of requests coming from the API, through Event Hubs, to Cosmos DB.
+This architecture implements distributed tracing with Application Insights backed by Log Analytics Workspace for all application monitoring data. Azure Log Analytics is ised for logs and metrics of all workload and infrastructure components. The workload implements **full end-to-end tracing** of requests coming from the API, through Event Hubs, to Cosmos DB.
 
 
 > [!IMPORTANT]
@@ -400,13 +400,13 @@ app.Use(async (context, next) =>
 ```
 
 > [!NOTE]
-> The Application Insights SDK has adaptive sampling enabled by default. That means that not every request is sent to the cloud and searchable by ID. The reference implementation has **adaptive sampling disabled in production environment**.
+> The Application Insights SDK has adaptive sampling enabled by default. That means that not every request is sent to the cloud and searchable by ID. Mission-critical application teams need to be able to reliably trace every request, therefore **the reference implementation has adaptive sampling disabled in production environment**.
 
 ### Kubernetes monitoring implementation details
 
 Besides the use of diagnostic settings to send AKS logs and metrics to Log Analytics, AKS is also configured to use **Container Insights**. Enabling Container Insights deploys the OMSAgentForLinux via a Kubernetes DaemonSet on each of the nodes in AKS clusters. The OMSAgentForLinux is capable of collecting additional logs and metrics from within the Kubernetes cluster and sends them to its corresponding Log Analytics workspace. This contains more granular data about pods, deployments, services and the overall cluster health.
 
-Extensive logging can negatively affect cost while providing no benefit. For this reason, **stdout log collection and Prometheus scraping is disabled** in the Container Insights configuration, because all traces are already captured through Application Insights - generating duplicate records.
+Extensive logging can negatively affect cost while providing no benefit. For this reason, **stdout log collection and Prometheus scraping is disabled** for the workload pods in the Container Insights configuration, because all traces are already captured through Application Insights - generating duplicate records.
 
 ```yaml
 #
