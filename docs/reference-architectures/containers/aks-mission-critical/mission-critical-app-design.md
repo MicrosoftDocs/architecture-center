@@ -341,7 +341,7 @@ Instrumentation is an important mechanism in evaluating performance bottle necks
 
 1. Send logs, metrics and additional telemetry to the stamp's log system. 
 1. Use structured logging instead of plain text so that information can be queried.
-1. Implement event correlation to ensure end-to-end transaction view. In the RI, every API response contains **Operation ID** for traceability.
+1. Implement event correlation to ensure end-to-end transaction view. In the RI, every API response contains **Operation ID** as an HTTP header for traceability.
 1. Don't rely only on *stdout* (console) logging. However, these logs can be used for immediate troubleshooting of a failing pod.
 
 This architecture implements distributed tracing with Application Insights backed by Log Analytics Workspace for all application monitoring data. Azure Log Analytics is ised for logs and metrics of all workload and infrastructure components. The workload implements **full end-to-end tracing** of requests coming from the API, through Event Hubs, to Cosmos DB.
