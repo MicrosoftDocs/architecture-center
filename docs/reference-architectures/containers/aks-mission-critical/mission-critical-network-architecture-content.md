@@ -1,6 +1,6 @@
-This reference architecture provides guidance for designing a mission critical workload that has network controls in place to prevent unauthorized public access from the internet to any of the workload resources. The intent is to stop attack vectors at the networking layer so that the overall reliability of the system isn't impacted. For example, a Distributed Denial of Service (DDoS) attack, if left unchecked, can cause a resource to become unavailable by overwhelming it with illegitimate traffic.
+This reference architecture provides guidance for designing a mission critical workload that has strict network controls in place to prevent unauthorized public access from the internet to any of the workload resources. The intent is to stop attack vectors at the networking layer so that the overall reliability of the system isn't impacted. For example, a Distributed Denial of Service (DDoS) attack, if left unchecked, can cause a resource to become unavailable by overwhelming it with illegitimate traffic.
 
-It builds on the **[mission-critical baseline architecture](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro)**, which is focused on maximizing reliability and operational effectiveness without network controls. This architecture adds features to retrict ingress and egress paths using the appropriate cloud-native capabilities, such as Azure Virtual Network(VNet) and private endpoints, Azure Private Link, Azure Private DNS Zone, and others.
+It builds on the **[mission-critical baseline architecture](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro)**, which is focused on maximizing reliability and operational effectiveness without network controls. This architecture adds features to restrict ingress and egress paths using the appropriate cloud-native capabilities, such as Azure Virtual Network(VNet) and private endpoints, Azure Private Link, Azure Private DNS Zone, and others.
 
 It's recommended that you become familiar with the baseline before proceeding with this article.
 
@@ -14,7 +14,7 @@ TBD: how does security impact the overall reliablity -- insert blurb.
 
 ## Key design strategies
 
-The [design strategies for mission-critical baseline](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro#key-design-strategies) still apply in this use case. Here are the networking considerations for this architecture:
+The [design strategies for mission-critical baseline](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro#key-design-strategies) still apply in this use case. Here are the additional networking considerations for this architecture:
 
 - **Control ingress traffic**
     
@@ -93,7 +93,7 @@ Build and release pipelines for a mission critical application must be fully aut
 
 > Refer to [Well-architected mission critical workloads: DevOps processes](/azure/architecture/framework/mission-critical/mission-critical-operational-procedures#devops-processes).
 
-**Self-hosted Azure DevOps build agent pools** are used to have more control over the builds and deployments. This level of autonomy is needed because the compute cluster is private. 
+**Self-hosted Azure DevOps build agent pools** are used to have more control over the builds and deployments. This level of autonomy is needed because the compute cluster and all PaaS resources are private, which requires a level network integration that is not possible on Microsoft-hosted build agents.
 
 #### Observability resources
 
@@ -109,7 +109,7 @@ Monitoring data for global resources and regional resources are stored independe
 
 A significant design change from the baseline architecture is the compute cluster. In this design AKS cluster is private. This change requires extra resources to be provisioned to gain access to cluster. 
 
-**Azure Virtual Machine Scale Sets** for jump box instances to run tools against the cluster, such as kubectl.
+**Azure Virtual Machine Scale Sets** for the private build agents and jump box instances to run tools against the cluster, such as kubectl.
 
 **Azure Bastion** provides secure access to a jump box and removes the need for the jump boxes to have public IPs. 
 
@@ -135,7 +135,7 @@ Control access to the services further by using network security groups on the s
 
 ## Private ingress
 
-Azure Front Door Premium SKU is used as the global entry point for all incoming client traffic. It uses Web Application Firewall (WAF) capabilities to allow or deny, and traffic at the network edge. The configured WAF rules prevent attacks even before they enter the virtual network. 
+Azure Front Door Premium SKU is used as the global entry point for all incoming client traffic. It uses Web Application Firewall (WAF) capabilities to allow or deny traffic at the network edge. The configured WAF rules prevent attacks even before they enter the virtual network. 
 
 This architecture also takes advantage of Front Door's capability to use Azure Private Link to access application origin without the use of public IPs/endpoints on the backends. This requires an internal load balancer in the stamp virtual network. This resource is deployed as part of the Kubernetes Ingress Controller resource. On top of this private Load Balancer, a Private Link service is created by AKS, which is used for the private connection from Front Door.
 
@@ -218,7 +218,7 @@ To build deployment pipelines, you need to provision additional compute to run b
 
 ## Deploy this architecture
 
-The networking aspects of this architecture are illustrated in the Mission-Critical Connected implementation.
+The networking aspects of this architecture are implemented in the Mission-Critical Connected implementation.
 
 > [!div class="nextstepaction"]
 > [Implementation: Mission-Critical Connected](https://github.com/Azure/Mission-Critical-Connected)
