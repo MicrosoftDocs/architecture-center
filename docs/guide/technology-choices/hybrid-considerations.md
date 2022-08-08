@@ -15,7 +15,7 @@ Besides the hosting location and the type of infrastructure that is being used, 
 
 ## Decide based on Azure Services
 
-Based on these previously described concepts you can see that there are different criteria or approaches you can use to select the hybrid solution that fits your needs, if you are a developer, you will very likely be looking into criteria like: mass deployments, restricted hardware or purpose built, etc. whereas if you are DevOps or systems administrator, you will focus more on the hosting location, hardware and hypervisors being used, etc.
+Based on these previously described concepts you can see that there are different criteria or approaches you can use to select the hybrid solution that fits your needs, if you are a developer, you will very likely be looking into criteria like: mass deployments, restricted hardware or purpose built, whereas if you are DevOps or systems administrator, you will focus more on the hosting location, hardware and hypervisors being used, etc.
 
 Use the following flowcharts to select a candidate hybrid service, you can choose depending on your background and selection criteria:
 
