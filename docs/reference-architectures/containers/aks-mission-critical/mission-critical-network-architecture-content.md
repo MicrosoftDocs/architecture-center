@@ -1,6 +1,6 @@
 This reference architecture provides guidance for designing a mission critical workload that has network controls in place to prevent unauthorized public access from the internet to any of the workload resources. The intent is to stop attack vectors at the networking layer so that the overall reliability of the system isn't impacted. For example, a Distributed Denial of Service (DDoS) attack, if left unchecked, can cause a resource to become unavailable by overwhelming it with illegitimate traffic.
 
-It builds on the [mission-critical baseline architecture](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro), which is focused on maximizing reliability and operational effectiveness without additional network controls such as private endpoints. This architecture adds features to control the ingress and egress paths using cloud-native capabilities. It's recommended that you become familiar with the baseline before proceeding with this article.
+It builds on the **[mission-critical baseline architecture](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro)**, which is focused on maximizing reliability and operational effectiveness without network controls, such as private endpoints. This architecture adds features to retrict ingress and egress paths using the appropriate cloud-native capabilities. It's recommended that you become familiar with the baseline before proceeding with this article.
 
 ## Reliability tier
 TBD: how does security impact the overall reliablity -- insert blurb.
@@ -12,7 +12,7 @@ TBD: how does security impact the overall reliablity -- insert blurb.
 
 ## Key design strategies
 
-The [design strategies for mission-critical baseline](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro#key-design-strategies) still apply in this use case. Here are the additional networking considerations for this architecture:
+The [design strategies for mission-critical baseline](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro#key-design-strategies) still apply in this use case. Here are the the networking considerations for this architecture:
 
 - **Control ingress traffic**
     
@@ -26,7 +26,7 @@ The [design strategies for mission-critical baseline](/azure/architecture/refere
 
 - **Control egress traffic** 
 
-    Egress traffic from a virtual network to entities outside that network must be restricted. Lack of controls might lead to data exfilteration attacks by malicious third-party services.
+    Egress traffic from a virtual network to entities outside that network must be restricted. Lack of controls might lead to data exfiltration attacks by malicious third-party services.
 
     _Restrict outbound traffic to the internet using Azure Firewall_. Firewall can filter traffic granularly using fully qualified domain name (FQDN).
 
@@ -65,7 +65,7 @@ The regional resources are provisioned as part of a _deployment stamp_ to a sing
 
 **Azure Virtual Networks** provide secure environments for running the workload and management operations. 
 
-**Internal load balancer** is the application origin to Front Door for establishing a private and direct connectivity to the backend using Private Link. 
+**Internal load balancer** is the application origin. Front Door uses this origin for establishing a private and direct connectivity to the backend using Private Link. 
 
 **Azure Kubernetes Service (AKS)** is the orchestrator for backend compute that runs an application and is stateless. The AKS cluster is deployed as a private cluster. So, the Kubernetes API server isn't exposed to the public internet. Access to the API server is limited to a private network. For more information, see the [Compute cluster](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-app-platform#compute-cluster) article of this architecture.
 
@@ -77,7 +77,7 @@ The regional resources are provisioned as part of a _deployment stamp_ to a sing
 
 > Refer to [Well-architected mission critical workloads: Loosely coupled event-driven architecture](/azure/architecture/framework/mission-critical/mission-critical-application-design#loosely-coupled-event-driven-architecture).
 
-**Azure Key Vault** is used as the [regional secret store](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro#regional-secret-store). There are common secrets such as connection strings to the global database but there is also information unique to a single stamp, such as the Event Hubs connection string. Also, independent resources avoid a single point of failure.
+**Azure Key Vault** is used as the [regional secret store](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro#regional-secret-store). There are common secrets such as connection strings to the global database but there's also information unique to a single stamp, such as the Event Hubs connection string. Also, independent resources avoid a single point of failure.
 
 > Refer to [Well-architected mission critical workloads: Data integrity protection](/azure/architecture/framework/mission-critical/mission-critical-security#data-integrity-protection).
 
@@ -164,7 +164,7 @@ The virtual network is divided into these main subnets. All subnets have Network
 
     The entry point to each stamp is an internal Azure Standard Load Balancer  This approach mitigates the risk of attackers attempting DDoS attacks against the endpoints. This resource is deployed as part of the Kubernetes Ingress Controller resource.
     
-    On top of this private Load Balancer, a Private Link service is created by AKS which is used for the private connection from Front Door.
+    On top of this private Load Balancer, a Private Link service is created by AKS, which is used for the private connection from Front Door.
 
 - **Stamp egress subnet**
 
@@ -184,7 +184,7 @@ The virtual network is divided into these main subnets. All subnets have Network
 
 The operational traffic isolated in a separate virtual network. Because the AKS cluster's API service is private in this architecture, all deployment and operational traffic must also come from private resources such as self-hosted build agents and jump boxes. Those resources are deployed in a separate virtual network with direct connectivity to the application resources through their own set of private endpoints. The build agents and jump boxes are in separate subnets. 
 
-Both operations need to access global PaaS services as well as those in the regional stamp. Similar to the regional stamp virtual network, a dedicated subnet is created for the private endpoints to PaaS services. NSG on this subnet makes sure ingress traffic is allowed only from the management and deployment subnets.
+Both operations need to access PaaS services that are located globally and within the regional stamp. Similar to the regional stamp virtual network, a dedicated subnet is created for the private endpoints to PaaS services. NSG on this subnet makes sure ingress traffic is allowed only from the management and deployment subnets.
 
 ![Diagram showing the management network flow](./images/mission-critical-network-ingress.png)
 
