@@ -1,0 +1,52 @@
+Azure offers several ways to host your application code in a hybrid environment, these solutions will allow you to extend Azure services to the on-premises, edge and in some cases even other cloud providers. The following flowchart will help you to choose a hybrid service for your application.
+
+## Choose a candidate service
+
+Before selecting a hybrid service to run your workloads it is important to establish certain criteria and concepts that will guide the decision-making process. First, it is important to understand the differences hybrid, multi-cloud and edge.
+
+- **Hybrid cloud:** is a cloud environment that combines public clouds and on-premises infrastructure. This is a strategy common across organizations that have strict data sovereignty regulations to meet, low latency requirements or that are enhancing their resiliency and business continuity strategy.
+- **Multi-cloud:** in these types of environments multiple cloud computing services and providers are being used. This strategy is common across organizations that are looking for more flexibility, reduce risk or looking into different cloud providers to hosts specific applications. This usually requires cloud specific knowledge and tends to add complexity in management, operations and security.
+- **Edge computing:** in this cloud environment the compute and data storage power is provided by devices hosted on-premises. This is a common approach for organizations and applications that need to run close to the data, reduced latency or compute data in near real time.
+
+Besides the hosting location and the type of infrastructure that is being used, there are another set of concepts that will play an important role like [control plane and data plane](/azure/azure-resource-manager/management/control-plane-and-data-plane). Understanding the differences between the control plane and the data plane is key as these Azure Hybrid solutions will extend Azure's operations outside of a Microsoft data center extending capabilities of its control plane or you running a dedicated instance of it.
+
+- **Control Plane:**  the control plane is used and accessed every time you manage resources. In the case of Azure, these requests are handled by Azure Resource Manager (ARM). The control plane for example is used to create a Virtual Machine.
+- **Data Plane:** the data plane however is used to access capabilities exposed by the instance of a resource type you deployed via the control plane, for example once you access a Virtual Machine over RDP.
+
+## Decide based on Azure Services
+
+Based on these previously described concepts you can see that there are different criteria or approaches you can use to select the hybrid solution that fits your needs, if you are a developer, you will very likely be looking into criteria like: mass deployments, restricted hardware or purpose built, etc. whereas if you are DevOps or systems administrator, you will focus more on the hosting location, hardware and hypervisors being used, etc.
+
+Use the following flowcharts to select a candidate hybrid service, you can choose depending on your background and selection criteria:
+
+![Decision tree for Azure hybrid services](./images/hybrid-choices.png)
+
+## Decide based on hardware constraints
+
+In brown field scenarios existing hardware needs to be included and represented in modern hybrid workload approaches. The following decision matrix will guide you on selecting Azure services to include existing hardware.
+
+![Decision tree for Azure hybrid services](./images/hybrid-decision-tree.png)
+
+## Disclaimer
+
+The output from this flowchart is a **starting point** for consideration. Next, perform a more detailed evaluation of the service to see if it meets your needs. Review the contents of this article as it includes an overview of the different services as well as resources which may help you to make these tradeoff decisions.
+
+## Understand the hybrid solutions
+
+If you're not familiar with one Azure hybrid services selected in the previous step, read the overview documentation to understand the basics of the service.
+
+- [Azure Stack](/azure-stack/):Azure Stack is a family of products and solutions that extend Azure to your data center or the edge. Within Azure Stack you can find several solutions for different use cases:
+  - [Azure Stack Hub](/azure-stack/operator/azure-stack-overview?view=azs-2108): is an extension of Azure that provides a way to run apps in an on-premises environment and deliver Azure services in your data center with integrated systems and that can run on connected or disconnected environments.
+  - [Azure Stack HCI](/azure-stack/hci/): is a hyperconverged solution that uses validated hardware to run virtualized and containerized workloads on-premises, while being able to connect them to Azure for cloud services and management.
+  - [Azure Stack Edge](/azure/databox-online/): allows you to deliver Azure capabilities such as compute, storage, networking, and hardware-accelerated machine learning at an edge location.
+- [Azure Arc](/azure/azure-arc/overview): simplifies governance and management by delivering a consistent multi-cloud and on-premises management platform and Azure services. Within Azure Arc there are several offers that can be classified into:
+  - Azure Arc enabled infrastructure allows you to project your existing infrastructure resources both bare metal, VMs and Kubernetes clusters into Azure so its operations can be handled with Azure’s management and security tools.  This simplifies management, application delivery and consistency. This includes:
+    - [Azure Arc-enabled servers](/azure/azure-arc/servers/overview)
+    - [SQL Server on Azure Arc-enabled servers](/sql/sql-server/azure-arc/overview?view=sql-server-ver16)
+    - [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overview)
+    - [Azure Arc-enabled vSphere](/azure/azure-arc/vmware-vsphere/overview)
+    - [Arc-enabled System Center Virtual Machine Manager](/azure/azure-arc/system-center-virtual-machine-manager/overview)
+    - [Azure Arc-enabled VMs on Azure Stack HCI](/azure-stack/hci/manage/azure-arc-enabled-virtual-machines)
+  - Azure Arc enabled Services: allows you to create on-premises and multi-cloud applications faster with Azure PaaS and data services such as [App Service, Functions, Logic Apps](/azure/app-service/overview-arc-integration), [Azure SQL Managed Instance](/azure/azure-arc/data/managed-instance-overview), [PostgreSQL Hyperscale](/azure/azure-arc/data/what-is-azure-arc-enabled-postgres-hyperscale), [Azure Machine Learning](/azure/machine-learning/how-to-attach-kubernetes-anywhere?tabs=deploy-extension-with-cli%2Ccli) amongst other solutions and run them
+ anywhere while using existing infrastructure.
+- [Azure IoT Edge](/azure/iot-edge/?view=iotedge-2020-11): Allows developers to mass deploy custom functionality to devices. IoT Edge is natively integrated with [IoT Hub](/azure/iot-hub/) and provides a natural DevOps experience to developers. Azure IoT Edge addresses IoT workloads but isn't reduced to it.
