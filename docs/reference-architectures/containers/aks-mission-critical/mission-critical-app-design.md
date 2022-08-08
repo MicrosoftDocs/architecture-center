@@ -306,14 +306,13 @@ HPA is deployed with a Helm chart with configurable maximum and minimum number o
 
 During a load test it was identified that each instance is expected to handle ~250 requests/second with a standard usage pattern.
 
-The `BackgroundProcessor` service has very different requirements and is considered a background worker which has limited impact on the user experience. As such, `BackgroundProcessor` has a different auto-scaling configuration than `CatalogService` and it can scale between 2 and 32 instances (which matches the max. no. of EventHub partitions for the Standard tier).
+The `BackgroundProcessor` service has very different requirements and is considered a background worker which has limited impact on the user experience. As such, `BackgroundProcessor` has a different auto-scaling configuration than `CatalogService` and it can scale between 2 and 32 instances (this limit should be based on the number of partitions used in the Event Hub - there's no benefit in having more workers than partitions).
 
--- TODO: Heyko check
 
 |Component           |`minReplicas`  |`maxReplicas`      |
 |--------------------|---------------|-------------------|
 |CatalogService      |3              |20                 |
-|BackgroundProcessor |2              |8                  |
+|BackgroundProcessor |2              |32                  |
 
 In addition to that, each component of the workload including dependencies like `ingress-nginx` has [Pod Disruption Budgets (PDBs)](/azure/aks/operator-best-practices-scheduler#plan-for-availability-using-pod-disruption-budgets) configured to ensure that a minimum number of instances is always available when changes are rolled out on clusters.
 
