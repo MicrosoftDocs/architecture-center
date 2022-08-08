@@ -5039,7 +5039,7 @@ items:
       - name: Migration
         items:
           - name: Get started
-            href: guide/migration/get-started.md
+            href: guide/migration/start-here.md
           - name: Guides
             items:
               - name: Migration deployments

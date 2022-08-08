@@ -27,7 +27,7 @@ These are just some of the key migration services available on Azure:
 
 ## Introduction to migration on Azure
 
-If you're new to migration on Azure, the best way to learn more is with [Microsoft Learn](https://docs.microsoft.com/learn/?WT.mc_id=learnaka), a free online training platform. Microsoft Learn provides interactive training for Microsoft products and more.
+If you're new to migration on Azure, the best way to learn more is with [Microsoft Learn](/learn/?WT.mc_id=learnaka), a free online training platform. Microsoft Learn provides interactive training for Microsoft products and more.
 
 Here are some learning paths and modules to get you started:
 
@@ -73,7 +73,7 @@ The following sections provide links to reference architectures in a few high-le
 - [Migrate workloads for Azure VMware Solution](/azure/cloud-adoption-framework/scenarios/azure-vmware/migrate?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
 - [Azure Migrate agentless migration of VMware virtual machines](/azure/migrate/concepts-vmware-agentless-migration?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
 - [Prepare for VMware agentless migration](/azure/migrate/prepare-for-agentless-migration?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
-- [VMware Agent-based migration architecture](https://docs.microsoft.com/azure/migrate/agent-based-migration-architecture?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
+- [VMware Agent-based migration architecture](/azure/migrate/agent-based-migration-architecture?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
 
 ### Mainframe migrations
 
