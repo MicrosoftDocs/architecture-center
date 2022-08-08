@@ -467,6 +467,7 @@ var testRating = new ItemRating()
 
 await AddNewRatingAsync(testRating);
 ```
+
 #### Event Hub example
 
 The health service reports healthy if it's able to send a message to Event Hubs. It contains additional property `HEALTHCHECK=TRUE` and the background processor ignores it.
