@@ -116,7 +116,7 @@ For example, suppose your tenants' administrators need to add IP address-based a
 
 ## Related resources
 
-[!include[](includes/private-link-resources.md)]
+[!include[](../includes/private-link-resources.md)]
 
 ## Next steps
 
