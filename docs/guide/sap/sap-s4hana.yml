@@ -28,6 +28,6 @@ products:
   - azure-virtual-machines
   - azure-virtual-network
   - azure-netapp-files
-thumbnailUrl: /azure/architecture/browse/thumbs/sap-s-4hana-thumb.png
+thumbnailUrl: /azure/architecture/browse/thumbs/sap-s4hana-thumb.png
 content: |
    [!include[](sap-s4hana-content.md)]
