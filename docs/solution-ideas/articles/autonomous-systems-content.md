@@ -1,33 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Artificial intelligence (AI) and machine learning offer unique opportunities and challenges for automating complex industrial systems. *Machine teaching* is a new paradigm for building machine learning systems that moves the focus away from algorithms and towards successful model generation and deployment.
-
-Machine teaching infuses subject matter expertise into automated AI system training with *deep reinforcement learning (DRL)* and *simulations*. Abstracting away AI complexity to focus on subject matter expertise and real-world conditions creates models that turn automated control systems into *autonomous systems*.
-
-Autonomous systems are automated control systems that:
-
-- Use machine teaching to combine human domain knowledge with AI and machine learning.
-- Automate the generation and management of DRL algorithms and models.
-- Integrate simulations for model optimization and scalability during training.
-- Deploy and scale for real-world use.
-
-## Potential use cases
-
-Project Bonsai speeds the creation of AI-powered automation to improve product quality and efficiency while reducing downtime. It's now available in preview, and you can use it to automate systems. Consider Bonsai when you face issues such as:
-
-- Existing control systems are fragile when deployed.
-- Machine learning logic doesn't adequately cover all scenarios.
-- Describing the desired system behavior requires subject matter experts who understand the problem domain.
-- Generating sufficient real-world data to cover all scenarios is difficult or impossible.
-- Traditional control systems are difficult to deploy and scale to the real world.
-
-Machine teaching bridges AI science and software with traditional engineering and domain expertise. Example applications include:
-
-- Motion control
-- Machine calibration
-- Smart buildings
-- Industrial robotics
-- Process control
+Learn how Project Bonsai builds and deploys autonomous systems using machine teaching, deep reinforcement learning, and simulations.
 
 ## Architecture
 
@@ -61,8 +34,39 @@ Project Bonsai speeds the creation of AI-powered automation. Development and dep
 - [Azure Storage](https://azure.microsoft.com/services/storage) is a cloud storage solution that includes object, blob, file, disk, queue, and table storage.
 
   This architecture uses Storage for storing uploaded simulators as ZIP files.
+  
+## Scenario details
 
-## Deployments
+Artificial intelligence (AI) and machine learning offer unique opportunities and challenges for automating complex industrial systems. *Machine teaching* is a new paradigm for building machine learning systems that moves the focus away from algorithms and towards successful model generation and deployment.
+
+Machine teaching infuses subject matter expertise into automated AI system training with *deep reinforcement learning (DRL)* and *simulations*. Abstracting away AI complexity to focus on subject matter expertise and real-world conditions creates models that turn automated control systems into *autonomous systems*.
+
+Autonomous systems are automated control systems that:
+
+- Use machine teaching to combine human domain knowledge with AI and machine learning.
+- Automate the generation and management of DRL algorithms and models.
+- Integrate simulations for model optimization and scalability during training.
+- Deploy and scale for real-world use.
+
+### Potential use cases
+
+This solution is ideal for the education, facilities, real-estate, manufacturing, government, automotive, and media and entertainment industries. Project Bonsai speeds the creation of AI-powered automation to improve product quality and efficiency while reducing downtime. It's now available in preview, and you can use it to automate systems. Consider Bonsai when you face issues such as:
+
+- Existing control systems are fragile when deployed.
+- Machine learning logic doesn't adequately cover all scenarios.
+- Describing the desired system behavior requires subject matter experts who understand the problem domain.
+- Generating sufficient real-world data to cover all scenarios is difficult or impossible.
+- Traditional control systems are difficult to deploy and scale to the real world.
+
+Machine teaching bridges AI science and software with traditional engineering and domain expertise. Example applications include:
+
+- Motion control
+- Machine calibration
+- Smart buildings
+- Industrial robotics
+- Process control
+
+## Deploy this scenario
 
 The following implementations are example deployments. You can follow the resources to understand how these solutions were designed. Use Project Bonsai to build and deploy your own solution.
 
@@ -176,10 +180,10 @@ Principal author:
 - [Microsoft Autonomous Systems](/autonomous-systems)
 - [Bonsai documentation](/bonsai)
 - [Aerial Informatics and Robotics Platform (AirSim)](https://www.microsoft.com/research/project/aerial-informatics-robotics-platform)
+- [How Azure Machine Learning works: Architecture and concepts](/azure/machine-learning/concept-azure-machine-learning-architecture)
 
 ## Related resources
 
 - [Use subject matter expertise in machine teaching and reinforcement learning](machine-teaching.yml)
 - [Building blocks for autonomous-driving simulation environments](../../industries/automotive/building-blocks-autonomous-driving-simulation-environments.yml)
 - [Compare the machine learning products and technologies from Microsoft](../../data-guide/technology-choices/data-science-and-machine-learning.md)
-- [How Azure Machine Learning works: Architecture and concepts](/azure/machine-learning/concept-azure-machine-learning-architecture)

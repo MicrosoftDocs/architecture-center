@@ -23,13 +23,13 @@ The example workload discussed below describes building out a simulation that ru
 
 This solution is ideal for the automotive and transportation industries. Typical uses for this workload include:
 
--   Automating driving tests.
+- Automating driving tests.
 
--   Prototyping, development, integration, testing, validation, and verification of control systems in the automotive industry.
+- Prototyping, development, integration, testing, validation, and verification of control systems in the automotive industry.
 
--   Recording vehicle data for visualization.
+- Recording vehicle data for visualization.
 
--   Simulating complex driving scenarios in the automotive industry.
+- Simulating complex driving scenarios in the automotive industry.
 
 ## Architecture
 
@@ -48,29 +48,29 @@ The developer will only interact with this layer. It contains the developer work
 
 However, it's important to break down the black box of "orchestration" into smaller components.
 
--   Simulation API: This API receives a specification file and is the entry point for controlling simulation environments and simulation runs with the Orchestration Layer.
+- Simulation API: This API receives a specification file and is the entry point for controlling simulation environments and simulation runs with the Orchestration Layer.
 
--   Interpreter: This component interprets the specification file into a logical structure for the Simulation Manager.
+- Interpreter: This component interprets the specification file into a logical structure for the Simulation Manager.
 
--   Simulation Manager: This is the state machine that converts the logical simulation environment object into desired states and actions to be used by other components. This is the component that triggers build, execute, and teardown of the simulation. It also manages internal dependencies and failure modes.
+- Simulation Manager: This is the state machine that converts the logical simulation environment object into desired states and actions to be used by other components. This is the component that triggers build, execute, and teardown of the simulation. It also manages internal dependencies and failure modes.
 
--   Scheduler: This component assigns building blocks to infrastructure resources and starts them there. It accounts for hardware and access requirements, available resources, and resource limits.
+- Scheduler: This component assigns building blocks to infrastructure resources and starts them there. It accounts for hardware and access requirements, available resources, and resource limits.
 
--   Environment Manager: This component watches the underlying infrastructure and responds to problems, such as when a container host goes down.
+- Environment Manager: This component watches the underlying infrastructure and responds to problems, such as when a container host goes down.
 
--   Network Manager: This component manages the networks and routing for simulation environments. Each environment must live in an isolated network environment, with isolated building blocks receiving incoming connections for interactivity. This component will also be used to resolve building blocks within a simulation (for example, through an internal DNS).
+- Network Manager: This component manages the networks and routing for simulation environments. Each environment must live in an isolated network environment, with isolated building blocks receiving incoming connections for interactivity. This component will also be used to resolve building blocks within a simulation (for example, through an internal DNS).
 
--   Access Manager: This component reflects authorization/authentication from Azure Active Directory (Azure AD) into the rest of the system.
+- Access Manager: This component reflects authorization/authentication from Azure Active Directory (Azure AD) into the rest of the system.
 
--   Configuration Manager: This component acts as a persistent storage mechanism for the state of the infrastructure and simulation environments.
+- Configuration Manager: This component acts as a persistent storage mechanism for the state of the infrastructure and simulation environments.
 
--   Infrastructure Abstraction: This is an abstraction layer that translates generic commands into specific Azure API commands for containers versus VMs.
+- Infrastructure Abstraction: This is an abstraction layer that translates generic commands into specific Azure API commands for containers versus VMs.
 
--   Storage Manager: This component manages provisioning and attaching storage for simulation environments (for example, VM root devices or container attached volumes).
+- Storage Manager: This component manages provisioning and attaching storage for simulation environments (for example, VM root devices or container attached volumes).
 
--   Resource Monitor: This component monitors infrastructure-level resource usage into a time series database, for export into the ADP's core monitoring.
+- Resource Monitor: This component monitors infrastructure-level resource usage into a time series database, for export into the ADP's core monitoring.
 
--   Log Manager: This component aggregates logs from building blocks for user inspection. It also exports logs into ADP core logging.
+- Log Manager: This component aggregates logs from building blocks for user inspection. It also exports logs into ADP core logging.
 
 The Orchestration Layer is the primary focus of this example workload.
 
@@ -78,23 +78,23 @@ The Orchestration Layer is the primary focus of this example workload.
 
 This layer represents all running simulation environments.
 
--   Simulation environment: The combination of building blocks defined by the Definition File and Parameters are created here, in network isolation from any other simulation environments.
+- Simulation environment: The combination of building blocks defined by the Definition File and Parameters are created here, in network isolation from any other simulation environments.
 
--   Building Block Contract: The written standard that defines how all building blocks send output, errors, and status to the Orchestration Layer.
+- Building Block Contract: The written standard that defines how all building blocks send output, errors, and status to the Orchestration Layer.
 
--   Building Block Pipeline: This area manages the creation and storage of building blocks.
+- Building Block Pipeline: This area manages the creation and storage of building blocks.
 
--   Building Block Repository: This is the storage and retrieval system for building-block images, such as a container registry and/or an Azure image gallery.
+- Building Block Repository: This is the storage and retrieval system for building-block images, such as a container registry and/or an Azure image gallery.
 
--   Building Block Factory: The continuous integration and continuous deployment (CI/CD) pipeline which creates building block images using immutable, verifiable component packages (for example, dpkg or apt) in a declarative configuration language (for example, Chef or Ansible).
+- Building Block Factory: The continuous integration and continuous deployment (CI/CD) pipeline which creates building block images using immutable, verifiable component packages (for example, dpkg or apt) in a declarative configuration language (for example, Chef or Ansible).
 
 ### Storage Layer
 
 This layer durably and accessibly stores the results of the simulation. It's primarily the responsibility of the mobile application development platform (MADP) Data Lake workstream, though your output has to be manageable by that team.
 
--   Storage interface: The interface that allows users to work with simulation result storage. This works in close concert with, or could be supplanted by, the Storage Manager orchestration component above.
+- Storage interface: The interface that allows users to work with simulation result storage. This works in close concert with, or could be supplanted by, the Storage Manager orchestration component above.
 
--   Storage: The storage mechanism used for saving simulation results (for example, Azure Blob Storage or Azure Disk Storage resources).
+- Storage: The storage mechanism used for saving simulation results (for example, Azure Blob Storage or Azure Disk Storage resources).
 
 ## Components
 
@@ -157,51 +157,51 @@ In general, use the [Azure pricing calculator](https://azure.microsoft.com/prici
 
 Product documentation:
 
--   [Azure Container Registry](/azure/container-registry/container-registry-intro)
+- [Azure Container Registry](/azure/container-registry/container-registry-intro)
 
--   [Azure Container Instances](/azure/container-instances/container-instances-overview)
+- [Azure Container Instances](/azure/container-instances/container-instances-overview)
 
--   [Azure Kubernetes Service](/azure/aks/intro-kubernetes)
+- [Azure Kubernetes Service](/azure/aks/intro-kubernetes)
 
--   [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis)
+- [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis)
 
--   [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview)
+- [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview)
 
--   [Azure Virtual Machines](/azure/virtual-machines/linux/overview)
+- [Azure Virtual Machines](/azure/virtual-machines/linux/overview)
 
--   [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops?view=azure-devops)
+- [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops?view=azure-devops)
     / [GitHub](https://docs.github.com/en/get-started)
 
--   [Azure Monitor](/azure/azure-monitor/overview)
+- [Azure Monitor](/azure/azure-monitor/overview)
 
-Microsoft Learn learning paths:
+Microsoft learning paths:
 
--   [Implement and manage storage for Azure administrators](/learn/paths/azure-administrator-manage-storage)
+- [Implement and manage storage for Azure administrators](/learn/paths/azure-administrator-manage-storage)
 
--   [Deploy and manage compute resources for Azure administrators](/learn/paths/azure-administrator-manage-compute-resources)
+- [Deploy and manage compute resources for Azure administrators](/learn/paths/azure-administrator-manage-compute-resources)
 
--   [Configure and manage virtual networks for Azure administrators](/learn/paths/azure-administrator-manage-virtual-networks)
+- [Configure and manage virtual networks for Azure administrators](/learn/paths/azure-administrator-manage-virtual-networks)
 
--   [Manage identities and governance for Azure administrators](/learn/paths/azure-administrator-manage-identities-governance)
+- [Manage identities and governance for Azure administrators](/learn/paths/azure-administrator-manage-identities-governance)
 
--   [Monitor and back up resources for Azure administrators](/learn/paths/azure-administrator-monitor-backup-resources)
+- [Monitor and back up resources for Azure administrators](/learn/paths/azure-administrator-monitor-backup-resources)
 
 ## Related resources
 
 Azure Architecture Center overview articles:
 
--   [Choose an Azure compute service for your application](/azure/architecture/guide/technology-choices/compute-decision-tree)
+- [Choose an Azure compute service for your application](/azure/architecture/guide/technology-choices/compute-decision-tree)
 
--   [Select an Azure data store for your application](/azure/architecture/guide/technology-choices/data-store-decision-tree)
+- [Select an Azure data store for your application](/azure/architecture/guide/technology-choices/data-store-decision-tree)
 
--   [Big compute architecture style](/azure/architecture/guide/architecture-styles/big-compute)
+- [Big compute architecture style](/azure/architecture/guide/architecture-styles/big-compute)
 
 Relevant architectures:
 
--   [Process real-time vehicle data using IoT](/azure/architecture/example-scenario/data/realtime-analytics-vehicle-iot)
+- [Process real-time vehicle data using IoT](/azure/architecture/example-scenario/data/realtime-analytics-vehicle-iot)
 
--   [Real-time asset tracking and management](/azure/architecture/solution-ideas/articles/real-time-asset-tracking-mgmt-iot-central)
+- [Real-time asset tracking and management](/azure/architecture/solution-ideas/articles/real-time-asset-tracking-mgmt-iot-central)
 
--   [Machine teaching with the Microsoft Autonomous Systems platform](/azure/architecture/solution-ideas/articles/autonomous-systems)
+- [Machine teaching with the Microsoft Autonomous Systems platform](/azure/architecture/solution-ideas/articles/autonomous-systems)
 
--   [IoT and data analytics](/azure/architecture/example-scenario/data/big-data-with-iot)
+- [IoT and data analytics](/azure/architecture/example-scenario/data/big-data-with-iot)

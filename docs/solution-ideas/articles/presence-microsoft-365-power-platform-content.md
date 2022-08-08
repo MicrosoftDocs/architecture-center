@@ -1,19 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Collaboration tools play a significant role in creating productive workspaces for teams. Microsoft 365 tools like Microsoft Teams, Word, and PowerPoint online bring people together and help them to work more effectively. In addition to supporting real-time changes to documents and data, these tools support real-time presence information. Presence makes it easy to know your teammates' availability and see when they join a collaboration session.
-
-You can also add presence to custom collaboration applications by using Microsoft Cloud services. This solution uses Microsoft Cloud APIs and services to enable real-time presence capabilities in custom applications. As people become available in Microsoft Teams, they can be invited to a collaboration session.
-
-The solution provides presence for a JavaScript front-end application. It uses Microsoft Graph and Azure Active Directory (Azure AD) to provide real-time presence information. It also uses Power Automate, Azure Event Hubs, Azure Functions, and Azure SignalR Service.
-
-## Potential use cases
-
-This solution applies to companies that use custom applications that require:
-
-- Real-time change tracking on Microsoft 365 data.
-- Broadcasting of data to the browser in real time.
-- Notifications to application users when a person's availability changes.
-- A secure way to retrieve secrets that are used in an application.
+This solution provides presence for a JavaScript front-end application. It uses Microsoft Graph and Azure Active Directory (Azure AD) to provide real-time presence information. It also uses Power Automate, Azure Event Hubs, Azure Functions, and Azure SignalR Service.
 
 ## Architecture
 
@@ -43,6 +30,21 @@ This solution applies to companies that use custom applications that require:
   - [Azure SignalR Service output binding for Azure Functions](/azure/azure-functions/functions-bindings-signalr-service-output) enables you to send messages by using Azure SignalR Service.
 - [Azure SignalR Service](https://azure.microsoft.com/services/signalr-service) simplifies the process of adding real-time web functionality to applications over HTTP.
 - [Azure Static Web Apps](https://azure.microsoft.com/services/app-service/static) automatically builds and deploys full stack web apps to Azure from a code repository.
+
+## Scenario details
+
+Collaboration tools play a significant role in creating productive workspaces for teams. Microsoft 365 tools like Microsoft Teams, Word, and PowerPoint online bring people together and help them to work more effectively. In addition to supporting real-time changes to documents and data, these tools support real-time presence information. Presence makes it easy to know your teammates' availability and see when they join a collaboration session.
+
+You can also add presence to custom collaboration applications by using Microsoft Cloud services. This solution uses Microsoft Cloud APIs and services to enable real-time presence capabilities in custom applications. As people become available in Microsoft Teams, they can be invited to a collaboration session.
+
+### Potential use cases
+
+This solution applies to companies that use custom applications that require:
+
+- Real-time change tracking on Microsoft 365 data.
+- Broadcasting of data to the browser in real time.
+- Notifications to application users when a person's availability changes.
+- A secure way to retrieve secrets that are used in an application.
 
 ## Deploy this scenario
 

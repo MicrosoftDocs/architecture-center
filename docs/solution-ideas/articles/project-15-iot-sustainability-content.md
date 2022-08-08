@@ -136,7 +136,7 @@ Principal author:
 - Visit [Project 15 on GitHub][Project 15 on GitHub] to deploy to Azure and learn more about customizing conservation and ecological sustainability solutions.
 - [Microsoft & Sustainability][Microsoft & Sustainability]
 - [AI for Earth][AI for Earth]
-- The Project 15 team periodically adds content to the [Project 15 YouTube Channel][Project 15 YouTube Channel] and other [Microsoft learning channels][Microsoft learning channels].
+- The Project 15 team periodically adds content to the [Project 15 YouTube Channel][Project 15 YouTube Channel] and other [Microsoft channels](/learn).
 - See [Introduction to Azure IoT][Introduction to Azure IoT].
 
 ## Related resources
@@ -163,7 +163,6 @@ Principal author:
 [IoT Hub]: https://azure.microsoft.com/services/iot-hub
 [Logic Apps]: https://azure.microsoft.com/services/logic-apps
 [Machine Learning]: /azure/machine-learning/overview-what-is-azure-ml
-[Microsoft learning channels]: /learn
 [Microsoft & Sustainability]: https://www.microsoft.com/sustainability
 [Notification Hubs]: /azure/notification-hubs/notification-hubs-push-notification-overview
 [Power BI]: /power-bi/fundamentals/power-bi-overview

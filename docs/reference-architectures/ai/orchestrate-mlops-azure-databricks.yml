@@ -4,8 +4,8 @@ metadata:
   titleSuffix: Azure Architecture Center
   description: This scenario describes an approach to machine learning operations (MLOps) that involves running model training and batch scoring on Azure Databricks using Databricks Notebook as an orchestrator.
   author: Prabal
-  ms.author: edprice 
-  ms.date: 07/02/2022
+  ms.author: architectures 
+  ms.date: 07/28/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture

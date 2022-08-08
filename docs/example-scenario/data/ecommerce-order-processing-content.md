@@ -82,11 +82,11 @@ We have provided three sample cost profiles based on amount of activity you expe
 
 Principal authors:
 
-* [Alex Buck](https://www.linkedin.com/in/alex-buck-0161575) | Senior Content Developer
+- [Alex Buck](https://www.linkedin.com/in/alex-buck-0161575) | Senior Content Developer
 
 ## Next steps
 
-This example scenario is based on a more extensive version of this architecture built by [Jet.com](https://jet.com), for its end-to-end order processing pipeline. For more information, see the [jet.com technical customer profile][source-document] and [jet.com's presentation at Build][source-presentation].
+This example scenario is based on a more extensive version of this architecture built by jet.com for its end-to-end order processing pipeline. For more information, see the [jet.com technical customer profile][source-document] and [jet.com's presentation at Build][source-presentation].
 
 See this other content:
 

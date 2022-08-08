@@ -1,18 +1,8 @@
-Microsoft Power Automate is part of the no-code or low-code Microsoft Power Platform. Microsoft 365 customers use Power Automate for workflow automation and business process flows. This architecture is for Power Automate workflows that replace SharePoint 2010 workflows, and for new SharePoint Online sites. With this solution, you can:
+This architecture is for Power Automate workflows that replace SharePoint 2010 workflows, and for new SharePoint Online sites. With this solution, you can:
 
 - Carefully plan your Power Automate deployment, governance, and operation strategy.
 - Meet organizational needs like data residency requirements, data loss prevention (DLP), and flexible and minimal licensing requirements.
 - Stay within the scalable thresholds of Power Platform.
-
-## Potential use cases
-
-Customer-designed Power Automate workflows fall into two categories:
-
-- SharePoint site owners usually create ad-hoc workflows. Site owners take full responsibility for workflow design, deployment, and maintenance.
-
-- IT teams create workflows that they fully own, manage, and support over the workflow lifetime.
-
-This architecture applies to workflows where IT teams fully control the workflow and component life cycles.
 
 ## Architecture
 
@@ -56,6 +46,20 @@ This scenario uses the following components:
   Logic Apps supports the consumption model, where you pay for what you use. A hybrid model using both Power Automate and Logic Apps is also feasible. If you don't want to worry about thresholds, Logic Apps is the recommended solution.
 
 - You can improve the hub-and-spoke model by using a single init flow per region instead of creating one flow per SharePoint Online site. This strategy is possible only if you trigger the flow manually. You can orchestrate the flow to be invoked from any SharePoint Online site in a tenant.
+
+## Scenario details
+
+Microsoft Power Automate is part of the no-code or low-code Microsoft Power Platform. Microsoft 365 customers use Power Automate for workflow automation and business process flows.
+
+### Potential use cases
+
+Customer-designed Power Automate workflows fall into two categories:
+
+- SharePoint site owners usually create ad-hoc workflows. Site owners take full responsibility for workflow design, deployment, and maintenance.
+
+- IT teams create workflows that they fully own, manage, and support over the workflow lifetime.
+
+This architecture applies to workflows where IT teams fully control the workflow and component life cycles.
 
 ## Considerations
 
@@ -112,6 +116,7 @@ Otherwise, you need to purchase premium licenses, per user or per flow plan, for
 - [Power Automate Licensing FAQ](/power-platform/admin/powerapps-flow-licensing-faq)
 
 ## Related resources
+
 - [CI/CD for Azure Power Platform](../../solution-ideas/articles/azure-devops-continuous-integration-for-power-platform.yml)
 - [Citizen AI with the Power Platform](../ai/citizen-ai-power-platform.yml)
 - [Hub-spoke network topology in Azure](../../reference-architectures/hybrid-networking/hub-spoke.yml)
