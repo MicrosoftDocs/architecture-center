@@ -120,7 +120,7 @@ Following are some additional migration architectures to consider:
 #### AWS
 
 - [Azure Migrate](/azure/migrate/migrate-services-overview) is comparable to [AWS Application Discovery Service](https://aws.amazon.com/application-discovery). Azure Migrate assesses on-premises workloads for migration to Azure, performs performance-based sizing, and provides cost estimations.
-- [Azure Database Migration Service](/azure/dms/index.yml) is comparable to [AWS Database Migration Service](https://aws.amazon.com/dms). Azure Database Migration Service enables seamless migrations from multiple database sources to Azure Data platforms with minimal downtime.
+- [Azure Database Migration Service](/azure/dms/dms-overview) is comparable to [AWS Database Migration Service](https://aws.amazon.com/dms). Azure Database Migration Service enables seamless migrations from multiple database sources to Azure Data platforms with minimal downtime.
 
 #### Google Cloud
 - [Google Cloud to Azure services comparison - Migration tools](../../gcp-professional/services.md#migration-tools)
