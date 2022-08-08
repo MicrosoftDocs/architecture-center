@@ -38,7 +38,7 @@ This component does not expose any APIs.
 
 ![Application flow](./images/application-design-flow.png)
 
-The API, worker, and health check applications are referred to as **workload** and hosted as containers in a dedicated AKS namespace (called `workload`). There's **no direct communication** between the pods. The pods **stateless** and able to **scale independently**.
+The API, worker, and health check applications are referred to as **workload** and hosted as containers in a dedicated AKS namespace (called `workload`). There's **no direct communication** between the pods. The pods are **stateless** and able to **scale independently**.
 
 ![Detailed composition of the workload](./images/application-design-workload-composition.png)
 
@@ -59,9 +59,9 @@ In the reference implementation **Azure Cosmos DB** serves as the main data stor
 > New applications should use the Cosmos DB **SQL API**. For legacy applications that use another NoSQL protocol, evaluate the migration path to Cosmos DB SQL API.
 
 > [!TIP]
-> Because mission-critical applications prioritize availability over performance, **single-region write and multi-region read** with *Strong consistency* level are recommended.
+> For mission-critical applications that prioritize availability over performance, **single-region write and multi-region read** with *Strong consistency* level are recommended.
 
-In this architecture, there's a need to store state temporarily in the stamp for Event Hubs checkpointing and UI application hosting. **Azure Storage** is used for that purpose.
+In this architecture, there's a need to store state temporarily in the stamp for Event Hubs checkpointing. **Azure Storage** is used for that purpose.
 
 Data model should be designed such that features offered by traditional relational databases aren't required. For example, foreign keys, strict row/column schema, views, and others.
 
@@ -149,7 +149,7 @@ resource "azurerm_role_assignment" "acrpull_role" {
 
 ### Secrets
 
-Each deployment stamp has its dedicated instance of Azure Key Vault. Some parts of the workload use **keys** to access Azure resources, such as Cosmos DB. Those keys are created during deployment and stored in Key Vault with Terraform. There's an exception for the end-to-end environments for developers; **no human operator ever interacts with these secrets** as they're generated automatically and managed in Terraform. In addition, Key Vault access policies are configured in a way that **no user accounts are permitted to access** secrets.
+Each deployment stamp has its dedicated instance of Azure Key Vault. Some parts of the workload use **keys** to access Azure resources, such as Cosmos DB. Those keys are created during deployment and stored in Key Vault with Terraform. There's an exception, **"no human operator interacts with secrets, except developers in e2e environments** as they're generated automatically and managed in Terraform. In addition, Key Vault access policies are configured in a way that **no user accounts are permitted to access** secrets.
 
 > [!NOTE]
 > This workload doesn't use certificates, but the same principles apply.
@@ -342,7 +342,7 @@ Instrumentation is an important mechanism in evaluating performance bottle necks
 
 1. Send logs, metrics and additional telemetry to the stamp's log system. 
 1. Use structured logging instead of plain text so that information can be queried.
-1. Event correlation is implemented to ensure end-to-end transaction view. In the implementation, every API response contains **Operation ID** for traceability.
+1. Implement event correlation to ensure end-to-end transaction view. In the RI, every API response contains **Operation ID** for traceability.
 1. Don't rely only on *stdout* (console) logging. However, these logs can be used for immediate troubleshooting of a failing pod.
 
 This architecture uses Application Insights backed by Log Analytics Workspace for all application monitoring data. Azure Log Analytics is ised for logs and metrics of all workload and infrastructure components. The workload implements **full end-to-end tracing** of requests coming from the API, through Event Hubs, to Cosmos DB.
@@ -429,7 +429,7 @@ Application monitoring and observability are commonly used to quickly identify i
 In the architecture, health monitoring is applied at these levels:
 
 - Workload pods running on AKS. These pods have health and liveness probes, therefore AKS is able to manage their lifecycle.
-- **Health service** is a dedicated component on the cluste. Azure Front Door is configured to probe health services in each stamp and remove unhealthy stamps from load balancing automatically.
+- **Health service** is a dedicated component on the cluster. Azure Front Door is configured to probe health services in each stamp and remove unhealthy stamps from load balancing automatically.
 
 ### Health service implementation details
 
