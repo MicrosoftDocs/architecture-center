@@ -219,7 +219,7 @@ To learn about related solutions, see the following information:
 [Key rotation and regeneration]: /azure/cosmos-db/secure-access-to-data?tabs=using-primary-key#key-rotation
 [Kubernetes]: https://kubernetes.io
 [MongoDB]: https://www.mongodb.com
-[Open source on Azure]: https://azure.microsoft.com/en-au/overview/open-source
+[Open source on Azure]: https://azure.microsoft.com/overview/open-source/
 [Overview of Event Hubs Dedicated]: /azure/event-hubs/event-hubs-dedicated-overview
 [Overview of Event Hubs Premium (Preview)]: /azure/event-hubs/event-hubs-premium-overview
 [Parquet]: https://parquet.apache.org
@@ -242,5 +242,5 @@ To learn about related solutions, see the following information:
 [What is Azure Database for MySQL?]: /azure/mysql/overview
 [What is Azure Database for PostgreSQL?]: /azure/postgresql/overview
 [What is Azure Private Link?]: /azure/private-link/private-link-overview
-[What is PaaS?]: https://azure.microsoft.com/en-au/overview/what-is-paas
+[What is PaaS?]: https://azure.microsoft.com/overview/what-is-paas/
 [What is Power BI?]: /power-bi/fundamentals/power-bi-overview
