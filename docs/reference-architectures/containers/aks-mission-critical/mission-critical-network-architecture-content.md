@@ -14,7 +14,7 @@ TBD: how does security impact the overall reliablity -- insert blurb.
 
 ## Key design strategies
 
-The [design strategies for mission-critical baseline](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro#key-design-strategies) still apply in this use case. Here are the the networking considerations for this architecture:
+The [design strategies for mission-critical baseline](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro#key-design-strategies) still apply in this use case. Here are the networking considerations for this architecture:
 
 - **Control ingress traffic**
     
@@ -36,7 +36,7 @@ The [design strategies for mission-critical baseline](/azure/architecture/refere
 
     There are significant trade-offs when security features are added to a workload architecture. You might notice some impact on performance, operational agility, and even reliability. However, _attacks, such as Denial-Of-Service (DDoS), data intrusion, and others, can target the system's overall reliability and eventually cause unavailability_.
   
-> Preceding strategies are based on the guidance provided in [Well-architected mission critical workloads](/azure/architecture/framework/mission-critical/).
+> The strategies are based on the overall guidance provided for mission-critical workloads in [Well-architected mission critical workloads](/azure/architecture/framework/mission-critical/). We suggest that you explore the [design area of networking and connectivity](/azure/architecture/framework/mission-critical/mission-critical-networking-connectivity) for recommendations and best practices when defining your own mission critical architecture.
 
 ## Architecture
 
@@ -212,23 +212,6 @@ You can secure ingress to the jump box subnet by using an NSG that only allows i
 #### Deployment operations
 
 To build deployment pipelines, you need to provision additional compute to run build agents. This architecture isolates the build agents in a separate subnet. Ingress is restricted to Azure DevOps. 
-
-## Design areas
-
-We suggest that you explore these design areas for recommendations and best practice guidance when defining your own mission critical architecture.
-
-|Design area|Description|
-|---|---|
-|[Application design](/azure/architecture/framework/mission-critical/mission-critical-application-design)|Design patterns that allow for scaling, and error handling.|
-|**[Application platform](mission-critical-app-platform.md)|Infrastructure choices and mitigations for potential failure cases.|
-|[Data platform](/azure/architecture/framework/mission-critical/mission-critical-data-platform)|Choices in data store technologies, informed by evaluating required volume, velocity, variety, and veracity characteristics.|
-|**[Networking and connectivity](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-networking)|Network considerations for routing incoming traffic to stamps.|
-|[Health modeling](/azure/architecture/framework/mission-critical/mission-critical-health-modeling)|Observability considerations through customer impact analysis correlated monitoring to determine overall application health.|
-|**[Deployment and testing](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing)|Strategies for CI/CD pipelines and automation considerations, with incorporated testing scenarios, such as synchronized load testing and failure injection (chaos) testing.|
-|[Security](/azure/architecture/framework/mission-critical/mission-critical-security)|Mitigation of attack vectors through Microsoft Zero Trust model.|
-|[Operational procedures](/azure/architecture/framework/mission-critical/mission-critical-operational-procedures)|Processes related to deployment, key management, patching and updates.|
-
-** Indicates design area considerations that are specific to this reference architecture.
 
 ## Deploy this architecture
 
