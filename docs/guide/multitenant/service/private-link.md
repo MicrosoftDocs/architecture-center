@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes the features of Azure Private Link that are useful when working with multitenanted systems, and it provides links to guidance and examples.
 author: johndowns
 ms.author: jodowns
-ms.date: 07/21/2022
+ms.date: 08/07/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -49,11 +49,13 @@ Additionally, some services require specialized networking configuration to use 
 
 Carefully test your solution, including your deployment and diagnostic configuration, with your Private Link configuration enabled. Some Azure services block public internet traffic when a private endpoint is enabled, which can require that you change your deployment and management processes.
 
-### Internet-facing applications
+### Traffic paths
 
-You might choose to deploy your solution to be both internet-facing and also exposed through private endpoints. Consider your overall network topology, and the paths that each tenants' traffic follows.
+You might choose to deploy your solution to be both internet-facing and also exposed through private endpoints. Consider your overall network topology, and the paths that each tenant's traffic follows.
 
-For example, suppose you build an internet-facing application that runs on a virtual machine scale set. You use Azure Front Door, including its web application firewall (WAF), for security and traffic acceleration, and you [configure Front Door to send its traffic through a private endpoint](/azure/frontdoor/private-link). Tenant A uses this path to access your service:
+For example, suppose you build an internet-facing application that runs on a virtual machine scale set. You use Azure Front Door, including its web application firewall (WAF), for security and traffic acceleration, and you [configure Front Door to send its traffic through a private endpoint to your backend (origin) service](/azure/frontdoor/private-link).
+
+Suppose tenant A uses this path to access your service:
 
 ![Diagram showing requests from one tenant coming into Front Door through the internet.](media/private-link/private-link-internet.png)
 
@@ -61,7 +63,7 @@ If you provide tenant B with a private endpoint to access your solution, their t
 
 ![Diagram showing requests from a second tenant coming into the application through a private endpoint, bypassing Front Door.](media/private-link/private-link-private-endpoint.png)
 
-In some solutions, this behavior might be problematic because your WAF might be an important security component. You might also embed traffic routing or caching functionality in your Front Door profile, and traffic flowing through private endpoints won't use these features.
+Consider whether you need your WAF to inspect private traffic, or if you need to use other Front Door features for traffic routing or caching. If you do, you'll need to consider how to replicate this functionality for your private traffic.
 
 ## Isolation models
 
@@ -114,7 +116,7 @@ For example, suppose your tenants' administrators need to add IP address-based a
 
 ## Related resources
 
-- [SaaS Private Connectivity pattern](https://github.com/Azure/SaaS-Private-Connectivity)
+[!include[](includes/private-link-resources.md)]
 
 ## Next steps
 
