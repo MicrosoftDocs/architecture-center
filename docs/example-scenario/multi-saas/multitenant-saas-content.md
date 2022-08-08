@@ -4,7 +4,7 @@ When you identify a portion of your business's software solution that can be unb
 
 ![Diagram showing a multitenant SaaS architecture set up in Azure in two different regions.](./media/multitenant-saas.png)
 
-*Download an [SVG file](./media/multitenant-saas.svg) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/multitenant-saas.vsdx) of this architecture.*
 
 ### Workflow
 

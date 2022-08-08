@@ -2,7 +2,9 @@ The solution described in this article uses machine learning to create movie rec
 
 ## Architecture
 
-![Architecture of a machine learning model for training movie recommendations][architecture]
+:::image type="content" alt-text="Diagram of the architecture of a machine learning model for training movie recommendations." source="media/architecture-movie-recommender.png" lightbox="media/architecture-movie-recommender.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/architecture-movie-recommender.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -103,7 +105,6 @@ Follow these steps to run the [ALS quickstart notebook][als-quickstart]:
 - [Retail assistant with visual capabilities](../../solution-ideas/articles/retail-assistant-or-vacation-planner-with-visual-capabilities.yml)
 - [Campaign optimization with SQL Server and machine learning](../../solution-ideas/articles/campaign-optimization-with-sql-server.yml)
 
-[architecture]: media/architecture-movie-recommender.png
 [aci]: /azure/container-instances/container-instances-overview
 [aci-service]: https://azure.microsoft.com/services/container-instances
 [aks]: /azure/aks/intro-kubernetes
@@ -131,7 +132,6 @@ Follow these steps to run the [ALS quickstart notebook][als-quickstart]:
 [mls-service]: https://azure.microsoft.com/services/machine-learning
 [ms-learn]: /learn/modules/intro-to-azure-data-science-virtual-machine
 [ndcg]: https://en.wikipedia.org/wiki/Discounted_cumulative_gain
-[notebook]: https://github.com/microsoft/recommenders/blob/master/notebooks/00_quick_start/als_movielens.ipynb
 [ref-arch]: ../../reference-architectures/ai/real-time-recommendation.yml
 [ref-sol-idea]: ../../solution-ideas/articles/product-recommendations.yml
 [regions]: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines&regions=all

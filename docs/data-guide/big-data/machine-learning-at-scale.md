@@ -2,8 +2,8 @@
 title: Machine learning at scale
 description: Learn how machine learning uses mathematical algorithms to analyze data relationships, train predictive models, and deploy and iterate on models at scale.
 author: EdPrice-MSFT
-ms.author: edprice
-ms.date: 06/21/2022
+ms.author: architectures
+ms.date: 07/25/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide

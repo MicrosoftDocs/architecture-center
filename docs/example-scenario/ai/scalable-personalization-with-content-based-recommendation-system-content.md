@@ -74,11 +74,7 @@ Principal author:
 <!-- links -->
 
 [Azure Databricks]: https://azure.microsoft.com/services/databricks
-[Azure Data Lake Storage v2]: https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction
+[Azure Data Lake Storage v2]: /azure/storage/blobs/data-lake-storage-introduction
 [Azure Machine Learning]: https://azure.microsoft.com/services/machine-learning-service
 [Microsoft Recommenders]: https://github.com/Microsoft/Recommenders
 [Azure Synapse]: https://azure.microsoft.com/en-us/services/synapse-analytics/
-[LightGBM]: https://github.com/Microsoft/LightGBM
-[1]: https://azure.microsoft.com/support/legal/sla/summary
-
->>>>>>> 46612d5e391c15961ec836c9ef549bdac4462d8c

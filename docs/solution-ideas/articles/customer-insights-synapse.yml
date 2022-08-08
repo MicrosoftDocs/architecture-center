@@ -1,11 +1,11 @@
 ### YamlMime:Architecture
 metadata:
   title: Enhanced customer dimension with Dynamics 365 Customer Insights
-  titleSuffix: Azure Solution Ideas
+  titleSuffix: Azure Architecture Center
   description: Use Dynamics 365 Customer Insights to create an enhanced customer dataset and make it available in Azure Data Lake for consumption by Azure Synapse Analytics. 
   author: jondobrzeniecki 
   ms.author: jodobrze
-  ms.date: 05/24/2022
+  ms.date: 07/28/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea

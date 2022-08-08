@@ -87,7 +87,7 @@ You can easily extend this pattern to include any data sources that Spark's larg
 
 ### Alternatives
 
-[Occlum]( https://occlum.io) is a memory-safe, multi-process library OS (LibOS) for Intel SGX. Occlum makes it possible for legacy applications to run on Intel SGX with little to no modifications to source code. Occlum transparently protects the confidentiality of user workloads while allowing easy migration to existing Docker applications. Occlum supports Java apps.
+[Occlum](https://occlum.io) is a memory-safe, multi-process library OS (LibOS) for Intel SGX. Occlum makes it possible for legacy applications to run on Intel SGX with little to no modifications to source code. Occlum transparently protects the confidentiality of user workloads while allowing easy migration to existing Docker applications. Occlum supports Java apps.
 
 The SCONE engineering team maintains an [Apache Spark](https://sconedocs.github.io/sconeapps_spark) container image that runs the latest version of Spark. An alternative that isn't specific to Apache Spark is [Fortanix](https://www.fortanix.com), with which you can deploy confidential containers to use with your containerized application. Fortanix provides the flexibility required to run and manage the broadest set of applications: existing applications, new enclave-native applications, and pre-packaged applications.
 

@@ -5,7 +5,7 @@ metadata:
   description: Optimize inventory and forecast demand by using Azure Machine Learning, Ray, and Power BI. Enable users to configure and run simulations in Power BI.
   author: gallogiulia
   ms.author: giuliagallo
-  ms.date: 06/23/2022
+  ms.date: 07/29/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario

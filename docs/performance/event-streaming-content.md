@@ -14,7 +14,7 @@ These processing requirements are simple enough that they don't require a full-f
 
 ## Monitoring throughput
 
-This scenario presents an interesting performance challenge. The data rate *per device* is known, but the number of devices may fluctuate. For this business scenario, the latency requirements are not particularly stringent. The reported position of a drone only needs to be accurate within a minute. That said, the function app must keep up with the average ingestion rate over time.
+This scenario presents an interesting performance challenge. The data rate *per device* is known, but the number of devices might fluctuate. For this business scenario, the latency requirements are not particularly stringent. The reported position of a drone only needs to be accurate within a minute. That said, the function app must keep up with the average ingestion rate over time.
 
 IoT Hub stores messages in a log stream. Incoming messages are appended to the tail of the stream. A reader of the stream &mdash; in this case, the function app &mdash; controls its own rate of traversing the stream. This decoupling of the read and write paths makes IoT Hub very efficient, but also means that a slow reader can fall behind. To detect this condition, the development team added a custom metric to measure message lateness. This metric records the delta between when a message arrives at IoT Hub, and when the function receives the message for processing.
 
@@ -76,6 +76,7 @@ foreach (var message in messages)
         droppedMessages++;
         continue;
     }
+}
 ```
 
 You can see this in the graph when the lateness metric drops back to zero. In the meantime, data has been lost, because the function was throwing away messages.
@@ -127,8 +128,9 @@ Note that race conditions are possible with approach. Suppose that two messages 
 
 After deploying this code change, the application was able to ingest more than 2500 requests/sec, using an IoT Hub with 32 partitions.
 
-## Client-side Consideration
-Overall client experience may be diminished by aggressive parallelization on server side.  Consider leveraging [Azure Cosmos DB bulk executor library]( /azure/cosmos-db/bulk-executor-overview) (not shown in this implementation) which significantly reduces the client-side compute resources needed to saturate the throughput allocated to a Cosmos DB container. A single threaded application that writes data using the bulk import API achieves nearly ten times greater write throughput when compared to a multi-threaded application that writes data in parallel while saturating the client machine's CPU.
+## Client-side considerations
+
+Overall client experience might be diminished by aggressive parallelization on server side.  Consider using [Azure Cosmos DB bulk executor library](/azure/cosmos-db/bulk-executor-overview) (not shown in this implementation) which significantly reduces the client-side compute resources needed to saturate the throughput allocated to a Cosmos DB container. A single threaded application that writes data using the bulk import API achieves nearly ten times greater write throughput when compared to a multi-threaded application that writes data in parallel while saturating the client machine's CPU.
 
 ## Summary
 
