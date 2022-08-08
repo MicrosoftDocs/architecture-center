@@ -60,15 +60,15 @@ Installation of Virtual Nodes or workload deployment on them can have some chall
      The below snippet can be used to schedule to virtual node
 
 ```yaml
-        nodeSelector:
-          kubernetes.io/role: agent
-          beta.kubernetes.io/os: linux
-          type: virtual-kubelet
-        tolerations:
-        - key: virtual-kubelet.io/provider
-          operator: Exists
-        - key: azure.com/aci
-          effect: NoSchedule
+nodeSelector:
+  kubernetes.io/role: agent
+  beta.kubernetes.io/os: linux
+  type: virtual-kubelet
+tolerations:
+- key: virtual-kubelet.io/provider
+  operator: Exists
+- key: azure.com/aci
+  effect: NoSchedule
 ```
 
 **Reference Link**: [Tolerations & NodeSelector](/azure/aks/virtual-nodes-cli#deploy-a-sample-app)
