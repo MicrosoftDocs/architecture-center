@@ -4,13 +4,7 @@ It builds on the **[mission-critical baseline architecture](/azure/architecture/
 
 It's recommended that you become familiar with the baseline before proceeding with this article.
 
-## Reliability tier
-TBD: how does security impact the overall reliablity -- insert blurb.
 
-> [!TIP]
-> To define a realistic SLO, it's important to understand the SLA of all Azure components within the architecture. These individual numbers should be aggregated to determine a [composite SLA](/azure/architecture/framework/resiliency/business-metrics#composite-slas) which should align with workload targets.
->
-> Refer to [Well-architected mission critical workloads: Design for business requirements](/azure/architecture/framework/mission-critical/mission-critical-design-methodology#1design-for-business-requirements).
 
 ## Key design strategies
 
@@ -115,7 +109,7 @@ A significant design change from the baseline architecture is the compute cluste
 
 ## Private endpoints for PaaS services
 
-To process business or deployment operations, the application and the build agents need to reach several Azure PaaS services that are provisioned  globally, within the region, and even within the stamp. In the baseline architecture, that communication is over the public internet. 
+To process business or deployment operations, the application and the build agents need to reach several Azure PaaS services that are provisioned globally, within the region, and even within the stamp. In the baseline architecture, that communication is over the services public endpoints. 
 
 In this design, those services have been protected with private endpoints to prevent data exfiltration attacks. However, it introduces another potential point of failure and increases complexity. Carefully consider the tradeoffs with security before adopting this approach.
 
