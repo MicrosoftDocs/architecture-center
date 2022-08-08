@@ -123,6 +123,8 @@ Private endpoints should be put in a dedicated subnet of a virtual network. Priv
 
 To connect over a private endpoint, you need a DNS record. It's recommended that DNS records associated with the services are kept in Azure Private DNS zones. Make sure that the fully qualified domain name (FQDN) resolves to the private IP address.
 
+![Diagram showing private endpoint subnet in the regional stamp virtual network](./images/mission-critical-private-endpoint-snet.png)
+
 In this architecture, private endpoints have been configured for Azure Container Registry, Cosmos DB, Key Vault, Storage resources, and Event Hubs. Also, the AKS cluster is deployed as a private cluster, which creates a private endpoint for the Kubernetes API service in the cluster's network. 
 
 There are two virtual networks provisioned in this design and both have dedicated subnets to hold private endpoints for all those services. The network layout is described in [Virtual network layout](#virtual-network-layout).
@@ -204,7 +206,7 @@ A typical use case is when an operator needs to access the compute cluster to ru
 
 But, those jump boxes need to be protected as well from unauthorized access. Direct access to jump boxes by opening RDP/SSH ports should be avoided. Azure Bastion is recommended for this purpose and requires a dedicated subnet in this virtual network.  
 
-> [!NOTE] 
+> [!CAUTION] 
 > Connectivity through Azure Bastion and jump boxes can have an impact on developer productivity, such as running debugging tools requires additional process. Be aware of these impacts before deciding to harden security for your mission-critical workload.
 
 You can secure ingress to the jump box subnet by using an NSG that only allows inbound traffic from the Bastion subnet over SSH.
