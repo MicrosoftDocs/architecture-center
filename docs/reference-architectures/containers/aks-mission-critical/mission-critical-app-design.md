@@ -149,7 +149,7 @@ resource "azurerm_role_assignment" "acrpull_role" {
 
 ### Secrets
 
-Each deployment stamp has its dedicated instance of Azure Key Vault. Some parts of the workload use **keys** to access Azure resources, such as Cosmos DB. Those keys are created during deployment and stored in Key Vault with Terraform. There's an exception, **"no human operator interacts with secrets, except developers in e2e environments** as they're generated automatically and managed in Terraform. In addition, Key Vault access policies are configured in a way that **no user accounts are permitted to access** secrets.
+Each deployment stamp has its dedicated instance of Azure Key Vault. Some parts of the workload use **keys** to access Azure resources, such as Cosmos DB. Those keys are created automatically during deployment and stored in Key Vault with Terraform. **No human operator interacts with secrets, except developers in e2e environments.** In addition, Key Vault access policies are configured in a way that **no user accounts are permitted to access** secrets.
 
 > [!NOTE]
 > This workload doesn't use certificates, but the same principles apply.
