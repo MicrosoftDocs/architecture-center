@@ -132,7 +132,6 @@ Follow these steps to run the [ALS quickstart notebook][als-quickstart]:
 [mls-service]: https://azure.microsoft.com/services/machine-learning
 [ms-learn]: /learn/modules/intro-to-azure-data-science-virtual-machine
 [ndcg]: https://en.wikipedia.org/wiki/Discounted_cumulative_gain
-[notebook]: https://github.com/microsoft/recommenders/blob/master/notebooks/00_quick_start/als_movielens.ipynb
 [ref-arch]: ../../reference-architectures/ai/real-time-recommendation.yml
 [ref-sol-idea]: ../../solution-ideas/articles/product-recommendations.yml
 [regions]: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines&regions=all
