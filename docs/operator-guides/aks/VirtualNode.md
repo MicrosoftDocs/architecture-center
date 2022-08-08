@@ -20,12 +20,10 @@ Installation of Virtual Nodes or workload deployment on them can have some chall
 
 ## General Issues & relative Guidance
 
-<br/>
 
 1. If you're deploying virtual nodes on AKS where Virtual Node isn't available, it's because
    * VNET SKUs aren't available for Azure Container Instances in the region, please verify region availability from [Region Availability](/azure/aks/virtual-nodes)
 
-<br/>
 
 2. Sometimes during the installation phase you can notice that Virtual Node is not available in AKS cluster even after enabling the virtual node option through portal or through Addons
    * ACI uses a separate subnet for deploying workloads & because the virtual nodes need a dedicated subnet to spin up ACI instances (as pods) , please verify if a second subnet was created & that shouldn't overlap with Cluster subnet range -   [Create virtual nodes using Azure CLI - Azure Kubernetes Service | Microsoft Docs](/azure/aks/virtual-nodes-cli)
@@ -36,9 +34,6 @@ Installation of Virtual Nodes or workload deployment on them can have some chall
     * To monitor Virtual nodes Pods, refer [Collect & analyze resource logs - Azure Container Instances | Microsoft Docs](/azure/container-instances/container-instances-log-analytics)
 
   
-<br/>
-
-
 3. There could be scenarios where the installation of Virtual node on Kubenet enabled AKS clusters can face some issues like below & then how can you fix that up
 
     **Error** 
