@@ -1,6 +1,8 @@
 This reference architecture provides guidance for designing a mission critical workload that has network controls in place to prevent unauthorized public access from the internet to any of the workload resources. The intent is to stop attack vectors at the networking layer so that the overall reliability of the system isn't impacted. For example, a Distributed Denial of Service (DDoS) attack, if left unchecked, can cause a resource to become unavailable by overwhelming it with illegitimate traffic.
 
-It builds on the **[mission-critical baseline architecture](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro)**, which is focused on maximizing reliability and operational effectiveness without network controls, such as private endpoints. This architecture adds features to retrict ingress and egress paths using the appropriate cloud-native capabilities. It's recommended that you become familiar with the baseline before proceeding with this article.
+It builds on the **[mission-critical baseline architecture](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro)**, which is focused on maximizing reliability and operational effectiveness without network controls. This architecture adds features to retrict ingress and egress paths using the appropriate cloud-native capabilities, such as Azure Virtual Network(VNet) and private endpoints, Azure Private Link, Azure Private DNS Zone, and others.
+
+It's recommended that you become familiar with the baseline before proceeding with this article.
 
 ## Reliability tier
 TBD: how does security impact the overall reliablity -- insert blurb.
@@ -133,13 +135,23 @@ Control access to the services further by using network security groups on the s
 
 Azure Front Door Premium SKU is used as the global entry point for all incoming client traffic. It uses Web Application Firewall (WAF) capabilities to allow or deny, and traffic at the network edge. The configured WAF rules prevent attacks even before they enter the virtual network. 
 
-This architecture also takes advantage of Front Door's capability to use Azure Private Link to access application origin without the use of public IPs/endpoints on the backends. This requires an internal load balancer in the stamp virtual network. After connection is established, Private endpoints on Front Door network have direct connectivity with the load balancer and static web site in the stamp network over Private Link. 
+This architecture also takes advantage of Front Door's capability to use Azure Private Link to access application origin without the use of public IPs/endpoints on the backends. This requires an internal load balancer in the stamp virtual network. This resource is deployed as part of the Kubernetes Ingress Controller resource. On top of this private Load Balancer, a Private Link service is created by AKS, which is used for the private connection from Front Door.
+
+After connection is established, Private endpoints on Front Door network have direct connectivity with the load balancer and static web site in the stamp network over Private Link. 
 
 For more information, see [How Private Link works](/azure/frontdoor/private-link#how-private-link-works).
 
 ![Diagram showing Private Link access from Front Door to application backend](./images/network-diagram-ingress.png)
 
 > Refer to [Well-architected mission critical workloads: Application delivery services](/azure/architecture/framework/mission-critical/mission-critical-networking-connectivity#application-delivery-services).
+
+## Restricted egress
+
+Private clusters require some public internet access to reach the managed control plane. Using Network Security Groups (NSGs) and firewall can make sure that outbound traffic from the application is inspected.
+
+In this architecture, Azure Firewall is the single egress point and is used to inspect all outgoing traffic that originates from the virtual network. User-defined routes (UDRs) are used on subnets that are capable of generating egress traffic, such as the application subnet. 
+
+![Diagram showing Azure Firewall used to restrict egress traffic](./images/mission-critical-firewall-egress.png)
 
 ## Virtual network layout
 
@@ -156,26 +168,24 @@ In this architecture, there are two virtual networks: stamp network and operatio
 
 ### Regional stamp virtual network
 The deployment stamp provisions a virtual network in each region. 
-![Diagram showing secure global routing for a mission critical workload](./images/mission-critical-global-routing-network.png)
+![Diagram showing secure global routing for a mission critical workload](./images/mission-critical-private-ingress.png)
 
-The virtual network is divided into these main subnets. All subnets have Network Security Groups (NSGs) assigned. NSGs will secure traffic between the application subnet and interactions with other components.  
+The virtual network is divided into these main subnets. All subnets have Network Security Groups (NSGs) assigned to block any unauthorized access from the virtual network. NSGs will restrict traffic between the application subnet and other components in the network.
 
 - **Stamp ingress subnet**
 
-    The entry point to each stamp is an internal Azure Standard Load Balancer  This approach mitigates the risk of attackers attempting DDoS attacks against the endpoints. This resource is deployed as part of the Kubernetes Ingress Controller resource.
-    
-    On top of this private Load Balancer, a Private Link service is created by AKS, which is used for the private connection from Front Door.
+    The entry point to each stamp is an internal Azure Standard Load Balancer that is placed in a dedicated subnet. This subnet also has Private Link service used for the private connection from Front Door.
+
+    Both resources are provisioned as part of AKS deployment. 
 
 - **Stamp egress subnet**
 
-    Azure Firewall is the single egress point and is used to inspect all outgoing traffic that originates from the virtual network. User-defined routes (UDRs) must be considered on subnets that are capable of generating egress traffic, such as the application subnet. 
+    Azure Firewall is placed in a separate subnet and inspects egress traffic from application subnet by using a user-defined route (UDR). 
 
 - **Application subnet**
 
-    The cluster node pools are placed in a dedicated subnet. If you need to isolate the system node pool from the worker node pool, you can place them in separate subnets. For each subnet, apply NSGs to block any malicious access from the virtual network.  
+    The cluster node pools are sequestered in a  subnet. If you need to isolate the system node pool from the worker node pool, you can place them in separate subnets. 
     
-    Traffic from the node pools is restricted to the virtual network. However, AKS clusters require some public internet access to reach the managed control plane. Using NSGs and Firewall can make sure that egress traffic is inspected.
-
 - **Private endpoints subnet**
 
     The application subnet will need to access the PaaS services in the regional stamp, Key Vault, and others. Also, access to global resources such as the container registry is needed. In this architecture, [all PaaS service are locked down](#private-endpoints-for-paas-services) and can only be reached through private endpoints. So, another subnet is created for those endpoints. Inbound access to this subnet is secured by NSG that only allows traffic from the application.
@@ -201,7 +211,7 @@ You can secure ingress to the jump box subnet by using an NSG that only allows i
 
 #### Deployment operations
 
-To build deployment pipelines, you need to provision additional compute to run build agents. This architecture sequesters the build agents in a separate subnet. Ingress is restricted to Azure DevOps. Egress (how?)
+To build deployment pipelines, you need to provision additional compute to run build agents. This architecture isolates the build agents in a separate subnet. Ingress is restricted to Azure DevOps. 
 
 ## Design areas
 
@@ -229,6 +239,13 @@ The networking aspects of this architecture are illustrated in the Mission-Criti
 
 > [!NOTE]
 > The Connected implementation is intended to illustrate a mission-critical workload that relies on organizational resources, integrates with other workloads, and uses shared services. It builds on this reference architecture and uses the network controls described in this article. However, the Connected scenario assumes that virtual private network or Azure Private DNS Zone already exist within the Azure landing zones connectivity subscription.
+
+## Next steps
+For details on the design decisons made in this architecture, review the networking and connectivity design area for mission-critical workloads in Azure Well-architected Framework.
+
+> [!div class="nextstepaction"]
+> [Design area: Networking and connectivity](/azure/architecture/framework/mission-critical/mission-critical-networking-connectivity)
+
 
 ## Related resources
 
