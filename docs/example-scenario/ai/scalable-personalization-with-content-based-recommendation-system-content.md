@@ -1,23 +1,17 @@
-<<<<<<< HEAD
-=======
-<!-- Building a content recommendation system -->
->>>>>>> 46612d5e391c15961ec836c9ef549bdac4462d8c
 
-<<<<<<< HEAD
-=======
 Recommendations are a key revenue driver for many businesses and are used in different kinds of industries, including retail, news, and media. With the availability of large amounts of data, you can now provide highly relevant recommendations using machine learning.
 
 There are three main types of recommendation systems in supervised learning techniques: collaborative filtering, content-based & the hybrid method approach.
 
-Collaborative filtering: Collaborative filtering identifies similar patterns in customer behavior and recommends items that other similar customers have interacted with. An advantage of using the collaborative filtering approach is the ease of data generation - users create data while interacting with the items / products. Moreover, the customers could discover new items / products outside of those curated from their historical profile. However, the downside of using a collaborative filtering approach is dealing with the cold-start problem. Since there is a scarcity of user-new product interactions, introducing new products to the system is difficult. 
+**Collaborative filtering**: Collaborative filtering identifies similar patterns in customer behavior and recommends items that other similar customers have interacted with. An advantage of using the collaborative filtering approach is the ease of data generation - users create data while interacting with the items / products. Moreover, the customers could discover new items / products outside of those curated from their historical profile. However, the downside of using a collaborative filtering approach is dealing with the "cold-start" problem. Since there is a scarcity of user-new product interactions, introducing new products to the system is difficult. 
 
-Content based: Content-based recommendation uses information about the items to learn customer preferences and recommends items that share properties with items that a customer has previously interacted with. Content based recommendation systems are resilient to the cold-start problem and can adapt to the novel product introduction. However, the recommendations are limited to the features of the original item. 
+**Content-based**: Content-based recommendation uses information about the items to learn customer preferences and recommends items that share properties with items that a customer has previously interacted with. Content based recommendation systems are resilient to the cold-start problem and can adapt to the novel product introduction. However, the recommendations are limited to the features of the original item. 
 
-Hybrid method: Another approach of building recommendation systems is an amalgamation of content-based and collaborative filtering. This system recommends based on the user ratings in similar space and the features of the product. The hybrid approach extracts the advantages of both the approaches. 
+**Hybrid method**: Another approach of building recommendation systems is an amalgamation of content-based and collaborative filtering. This system recommends based on the user ratings in similar space and the features of the product. The hybrid approach extracts the advantages of both the approaches. 
 
 ## Scenario details
 
-The approach described in this article focuses on building a content-based recommendation system. More details on the best practices of building recommendation systems can be found here: Best Practices on Recommendation Systems (https://github.com/microsoft/recommenders)
+The approach described in this article focuses on building a content-based recommendation system. More details on the best practices of building recommendation systems can be found at [Best Practices on Recommendation Systems](https://github.com/microsoft/recommenders).
 
 This example scenario shows how your business can use machine learning to automate content-based personalization for your customers. At a high level, you use [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) to train a model that predicts the probability a user will engage with an item. That model is deployed to production as a prediction service using managed endpoints. In turn, you can use this prediction to create personalized recommendations by ranking items based on the content that a user is most likely to consume. 
 
