@@ -76,6 +76,7 @@ foreach (var message in messages)
         droppedMessages++;
         continue;
     }
+}
 ```
 
 You can see this in the graph when the lateness metric drops back to zero. In the meantime, data has been lost, because the function was throwing away messages.
