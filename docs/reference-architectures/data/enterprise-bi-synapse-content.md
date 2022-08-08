@@ -1,6 +1,6 @@
 
 
-This reference architecture implements the [Analytics end-to-end with Azure Synapse][e2e-analytics] pattern, using a Synapse Pipeline to ingest data from an Azure SQL Database into Synapse SQL Pools, before transforming the data for analysis.
+This reference architecture implements the [Analytics end-to-end with Azure Synapse][e2e-analytics] pattern, focusing on BI specifically, using a Synapse Pipeline to ingest data from an Azure SQL Database into Synapse SQL Pools, before transforming the data for analysis.
 
 <!-- Requires update
 ![GitHub logo](../../_images/github.png) A reference implementation for this architecture is available on [GitHub][github-folder].
@@ -153,10 +153,6 @@ Because the sample database is not very large, we created replicated tables with
 
 ### Use Power BI Premium to access, model and visualize the data - Galina
 
-TODO: connect mode, security, data gateways, authorization
-Power BI premium components
-links to deployment guides
-
 Power BI supports several options for connecting to data sources on Azure, in particular Azure Synapse Provisioned Pool:
 
 - Import. The data is imported into the Power BI model.
@@ -195,6 +191,7 @@ For a dedicated SQL pool in development, begin by selecting a smaller number of 
 Monitor your application performance, observing the number of data warehouse units selected compared to the performance you observe.
 Assume a linear scale, and determine how much you need to increase or decrease the data warehouse units.
 Continue making adjustments until you reach an optimum performance level for your business requirements.
+
 **Scaling**
 - [Scale compute for Synapse SQL pool with the Azure portal](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/quickstart-scale-compute-portal)
 - [Scale compute for dedicated SQL pool with Azure PowerShell](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/quickstart-scale-compute-powershell)
@@ -202,10 +199,11 @@ Continue making adjustments until you reach an optimum performance level for you
 - [Pausing, monitoring and automation](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview)
 
 <!-- ### Azure Synapse Pipelines -->
-
-<!-- ### Azure Synapse Provisioned Pool -->
-
+### Azure Synapse Pipelines 
+For scalability and performance optimization features of Azure Synapse Pipelines please refer to this [guide](https://docs.microsoft.com/en-us/azure/data-factory/copy-activity-performance).
 <!-- ### Power BI premium -->
+### Power BI Premium 
+This article uses [Power BI Premiun Gen 2](https://docs.microsoft.com/en-us/power-bi/enterprise/service-premium-architecture) to demonstrate BI capabilities of the solution. [Capacity SKUs for PBI Premium](https://docs.microsoft.com/en-us/power-bi/enterprise/service-premium-gen2-what-is) range from P1 (8 v-cores) to P5 (128 v-cores) currently. The best way to select needed capacity is to undergo [capacity loading evaluation](https://docs.microsoft.com/en-us/power-bi/enterprise/service-premium-concepts), install Gen 2 [metrics app](https://docs.microsoft.com/en-us/power-bi/enterprise/service-premium-install-gen2-app?tabs=1st) for ongoing monitoring and consider using [Autoscale with PBI Premium](https://docs.microsoft.com/en-us/power-bi/enterprise/service-premium-auto-scale). 
 
 ## Security considerations
 Frequent headlines of data breaches, malware infections, and malicious code injection are among an extensive list of security concerns for companies looking to cloud modernization. The enterprise customer requires a cloud provider or service solution that can address their concerns as they can't afford to get it wrong.
