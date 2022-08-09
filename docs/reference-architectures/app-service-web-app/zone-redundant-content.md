@@ -32,7 +32,7 @@ A SPA (single page application) running in a browser requests static assets incl
 * [Azure Blob Storage][storage] stores meta-data and trigger state for Function Apps.
 * [Private Endpoints][peps] allow connections to back-end Azure services from private VNets, and allow the public endpoints on these services to be disabled.
 * [Azure Key Vault][akv] securely stores secrets and certificates to be accessed by Azure services.
-* [Azure Monitor - Application Insights][insights] collects application performance metrics for observability.
+* [Azure Monitor][azmon] and [Application Insights][insights] collects service logs and application performance metrics for observability.
 
 ### Alternatives
 
@@ -74,7 +74,6 @@ Azure Static Web Apps is a global service resilient to zone and region failures.
 [App Service Premium v2, Premium v3][app-services-zr] and [Isolated v3][ise-zr] App Service Plans offer zone redundancy with a minimum of three instances. In this configuration App Service Plan instances are distributed across multiple availability zones to protect from zone failure.
 
 * Deploy a minimum of three instances for zone-redundancy.
-* Practice [staging slot deployments][app-service-staging] for zero-downtime releases.
 * Enable [Virtual Network (VNet) Integration][appservice-vnet] for private networking with backend services.
 
 ### Azure Functions
@@ -233,7 +232,7 @@ Some cost optimization considerations include:
 
 > An example bill of materials for this architecture can be viewed in [Azure Pricing Calculator][bom].
 
-<!-- 
+
 ### Operational excellence
 
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
@@ -243,7 +242,20 @@ Operational excellence covers the operations processes that deploy an applicatio
 > This includes DevOps, monitoring, and diagnostics considerations.
 > How do I need to think about operating this solution?
 
--- >
+-->
+
+All Azure PaaS (Platform as a Service) services are integrated with [Azure Monitor][azmon]. Follow [Azure monitor best practices][azmon-bp] to:
+
+* Configure the right amount of log data collection.
+* Create Azure Dashboards for "single pane of glass" views for operations teams.
+* Create a successful alerting strategy.
+* Integrate [Application Insights][insights] into apps to track application performance metrics.  
+
+Azure App Services and Azure Functions provide deployment slots. Practice [staged deployments][app-service-staging] for zero-downtime releases.
+
+Automate service deployments with [Bicep][bicep], a template language for deploying Infrastructure as Code. A [Quickstart bicep template][quickstart] is provided for this architecture that can be used to automatically deploy the entire solution.
+
+Test the performance and resilience of the entire solution with [Azure Load Testing][load-tests] and [Azure Chaos Studio][chaos].
 
 ### Performance efficiency
 
@@ -255,9 +267,18 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 > Are there any key performance considerations (past the typical)?
 > Are there any size considerations around this specific solution? What scale does this work at? At what point do things break or not make sense for this architecture?
 
--- >
-
 -->
+
+This architecture can be highly optimized for performance and scale:
+
+* Develop web apps as Single page applications (SPAs)
+* Host SPAs in Azure Static Web Apps
+* Cache SPA assets in Azure Front Door to distribute workloads to the Azure Edge.
+* Use premium services for maximum performance and scale, including App Services Premium and Azure Functions Premium.
+* Use Azure Front Door as a global HTTP load balancer in front of multiple Premium App Service Plans to unlock even greater scale.
+* Review [subscription limits and quotas][quotas] to ensure services will scale to demand.
+* Consider [Azure monitor autoscale][autoscale] rules to scale App Service and Functions instances based on a schedule and/or CPU load.
+* Monitor application performance using [Azure Monitor - Application Insights][insights]
 
 ## Deploy this scenario
 
@@ -303,7 +324,6 @@ Other contributors:
 
  - [John Downs](https://www.linkedin.com/in/john-downs/) | FastTrack for Azure Customer Engineer
 
-<!-- 
 ## Next steps
 
 <!-- 
@@ -314,7 +334,11 @@ Examples:
 * [Azure Machine Learning documentation](/azure/machine-learning)
 * [What are Azure Cognitive Services?](/azure/cognitive-services/what-are-cognitive-services)
 
--- >
+-->
+
+* [Microsoft Azure Well-Architected Framework - Reliability][learn-ha] - Learn module.
+* [Find an Availability Zone region near you][region-roadmap]
+
 
 ## Related resources
 
@@ -331,9 +355,10 @@ Fully deployable architectures:
 * [Build an enterprise-grade conversational bot](/azure/architecture/reference-architectures/ai/conversational-bot)
 * [Speech-to-text conversion](/azure/architecture/reference-architectures/ai/speech-ai-ingestion)
 
--- >
 -->
 
+* [Highly available multi-region web app](./multi-region.yml)
+* [Design principles for Azure applications](/azure/architecture/guide/design-principles)
 
 
 <!-- links -->
@@ -398,3 +423,12 @@ Fully deployable architectures:
 [reservations]:https://azure.microsoft.com/reservations/
 [bom]:https://azure.com/e/888e1c7e5e814e998da8364b612c292a
 [msi]:https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview
+[azmon]:https://azure.microsoft.com/services/monitor/
+[azmon-bp]:https://docs.microsoft.com/azure/azure-monitor/best-practices
+[quickstart]:https://azure.microsoft.com/resources/templates/zone-redundant-web-app
+[load-tests]:https://azure.microsoft.com/services/load-testing/
+[chaos]:https://azure.microsoft.com/services/chaos-studio/
+[quotas]:https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits
+[autoscale]:https://docs.microsoft.com/azure/azure-monitor/autoscale/autoscale-get-started
+[learn-ha]:https://docs.microsoft.com/learn/modules/azure-well-architected-reliability/
+[region-roadmap]:https://azure.microsoft.com/global-infrastructure/geographies/
