@@ -32,7 +32,7 @@ The reference architecture below provides a template for a robust MLOps process 
 
 - **Lakehouse - Production Data**: Data scientists work in the development environment, where they have read-only access to production data (alternatively, data can be mirrored or redacted). They also have read-write access to a dev storage environment for development and experimentation. We recommend a [Lakehouse](https://databricks.com/blog/2020/01/30/what-is-a-data-lakehouse.html) architecture for data, in which data are stored in [Azure Data Lake Storage](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction) in [Delta Lake](https://docs.microsoft.com/en-us/azure/databricks/delta/) format, with access controls defined using [Azure Active Directory credential passthrough](https://docs.microsoft.com/en-us/azure/databricks/security/credential-passthrough/adls-passthrough) or [Table Access Controls](https://docs.microsoft.com/en-us/azure/databricks/administration-guide/access-control/table-acl).
 
-### Dev
+### Development 
 
 In the development environment, data scientists and engineers develop ML pipelines.
 
