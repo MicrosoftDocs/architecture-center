@@ -34,7 +34,7 @@ The [design strategies for mission-critical baseline](/azure/architecture/refere
 
 ## Architecture
 
-![Mission critical online](./images/mission-critical-architecture-network.svg)
+:::image type="content" source="./images/mission-critical-architecture-network.svg" alt-text="Architecture diagram of mission critical networking." lightbox="./images/mission-critical-architecture-network.svg":::
 
 The components of this architecture can be broadly categorized in this manner. For product documentation about Azure services, see [Related resources](#related-resources). 
 
@@ -117,7 +117,7 @@ Private endpoints should be put in a dedicated subnet of the stamp's virtual net
 
 To connect over a private endpoint, you need a DNS record. It's recommended that DNS records associated with the services are kept in Azure Private DNS zones serviced by Azure DNS. Make sure that the fully qualified domain name (FQDN) resolves to the private IP address.
 
-![Diagram showing private endpoint subnet in the regional stamp virtual network](./images/mission-critical-private-endpoint-snet.png)
+:::image type="content" source="./images/mission-critical-private-endpoint-snet.png" alt-text="Diagram showing private endpoint subnet in the regional stamp virtual network." lightbox="./images/mission-critical-private-endpoint-snet.png":::
 
 In this architecture, private endpoints have been configured for Azure Container Registry, Cosmos DB, Key Vault, Storage resources, and Event Hubs. Also, the AKS cluster is deployed as a private cluster, which creates a private endpoint for the Kubernetes API service in the cluster's network. 
 
@@ -141,6 +141,7 @@ For more information, see [How Private Link works](/azure/frontdoor/private-link
 
 ![Diagram showing Private Link access from Front Door to application backend](./images/network-diagram-ingress.png)
 
+
 > Refer to [Well-architected mission critical workloads: Application delivery services](/azure/architecture/framework/mission-critical/mission-critical-networking-connectivity#application-delivery-services).
 
 ## Restricted egress
@@ -151,9 +152,11 @@ Using firewall and Network Security Groups (NSGs) can make sure that outbound tr
 
 In this architecture, Azure Firewall is the single egress point and is used to inspect all outgoing traffic that originates from the virtual network. User-defined routes (UDRs) are used on subnets that are capable of generating egress traffic, such as the application subnet. 
 
-![Diagram showing Azure Firewall used to restrict egress traffic](./images/mission-critical-secure-network-egress.svg)
+:::image type="content" source="./images/mission-critical-secure-network-egress.svg" alt-text="Diagram showing Azure Firewall used to restrict egress traffic." lightbox="./images/mission-critical-secure-network-egress.svg":::
 
 For information about restricting outbound traffic, see [Control egress traffic for cluster nodes in Azure Kubernetes Service (AKS)](/azure/aks/limit-egress-traffic).
+
+
 ## Virtual network layout
 
 Isolate regional resources and management resources in separate virtual networks. They have distinct characteristics, purposes, and security considerations. 
@@ -169,7 +172,9 @@ In this architecture, there are two virtual networks: stamp network and operatio
 
 ### Regional stamp virtual network
 The deployment stamp provisions a virtual network in each region. 
-![Diagram showing secure global routing for a mission critical workload](./images/mission-critical-secure-network-ingress.svg)
+
+
+:::image type="content" source="./images/mission-critical-secure-network-ingress.svg" alt-text="Diagram showing secure global routing for a mission critical workload." lightbox="./images/mission-critical-secure-network-ingress.svg":::
 
 The virtual network is divided into these main subnets. All subnets have Network Security Groups (NSGs) assigned to block any unauthorized access from the virtual network. NSGs will restrict traffic between the application subnet and other components in the network.
 
@@ -201,7 +206,8 @@ Instead of using private endpoints, an alternate approach is to use virtual netw
 
 Both the build agents (and optionally jump boxes) need to access PaaS services that are located globally and within the regional stamp. Similar to the regional stamp virtual network, a dedicated subnet is created for the private endpoints to the necessary PaaS services. NSG on this subnet makes sure ingress traffic is allowed only from the management and deployment subnets.
 
-![Diagram showing the management network flow](./images/mission-critical-ops.png)
+
+:::image type="content" source="./images//mission-critical-ops.png" alt-text="Diagram showing the management network flow." lightbox="./images//mission-critical-ops.png":::
 
 #### Management operations
 
