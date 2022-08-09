@@ -34,7 +34,7 @@ The [design strategies for mission-critical baseline](/azure/architecture/refere
 
 ## Architecture
 
-:::image type="content" source="./images/mission-critical-architecture-network.svg" alt-text="Architecture diagram of mission critical networking." lightbox="./images/mission-critical-architecture-network.svg":::
+:::image type="content" source="./images/mission-critical-architecture-network.png" alt-text="Architecture diagram of mission critical networking." lightbox="./images/mission-critical-architecture-network.png":::
 
 The components of this architecture can be broadly categorized in this manner. For product documentation about Azure services, see [Related resources](#related-resources). 
 
@@ -174,7 +174,7 @@ In this architecture, there are two virtual networks: stamp network and operatio
 The deployment stamp provisions a virtual network in each region. 
 
 
-:::image type="content" source="./images/mission-critical-secure-network-ingress.svg" alt-text="Diagram showing secure global routing for a mission critical workload." lightbox="./images/mission-critical-secure-network-ingress.svg":::
+:::image type="content" source="./images/mission-critical-secure-network-ingress.png" alt-text="Diagram showing secure global routing for a mission critical workload." lightbox="./images/mission-critical-secure-network-ingress.png":::
 
 The virtual network is divided into these main subnets. All subnets have Network Security Groups (NSGs) assigned to block any unauthorized access from the virtual network. NSGs will restrict traffic between the application subnet and other components in the network.
 
