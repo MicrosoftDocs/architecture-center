@@ -95,7 +95,8 @@ Often, configuring the proxy server requires complex files, which can be hard to
 
 On the other hand, if you need complete control over the settings, you may want to bypass this abstraction and configure the proxy server manually. For more information, see [Deploying Nginx or HAProxy to Kubernetes](../../../microservices/design/gateway.yml#deploying-nginx-or-haproxy-to-kubernetes).
 
-> For AKS, you can also use Azure Application Gateway, using the [Application Gateway Ingress Controller](https://azure.github.io/application-gateway-kubernetes-ingress/). This option requires [CNI networking](/azure/aks/configure-azure-cni) to be enabled when you configure the AKS cluster, because Application Gateway is deployed into a subnet of the AKS virtual network.  Azure Application Gateway can perform layer-7 routing and SSL termination. It also has built-in support for web application firewall (WAF).
+> For AKS, you can also use Azure Application Gateway, using the [Application Gateway Ingress Controller](https://azure.github.io/application-gateway-kubernetes-ingress/). If your AKS cluster is using  [CNI networking](https://docs.microsoft.com/en-us/azure/aks/configure-azure-cni/), when you configure AGIC, Application Gateway can be deployed into a subnet of the AKS virtual network. When using CNI enabled AKS clusters, Application Gateway can also be deployed in different virtual network from AKS virtual network, however, the two virtual networks must be peered together. When you create a virtual network peering between two virtual networks, a route is added by Azure for each address range within the address space of each virtual network a peering is created for. In addition to that, we also support the use of AGIC with Kubenet network plugin. When using Kubenet mode, only nodes receive an IP address from subnet. Pods are assigned IP addresses from the PodIPCidr and a route table is created by AKS. This route table helps the packets destined for a POD IP reach the node which is hosting the pod. When packets leave Application Gateway instances, Application Gateway's subnet need to aware of these routes’ setup by the AKS in the route table. [A simple way](https://azure.github.io/application-gateway-kubernetes-ingress/how-tos/networking/) to achieve this is by associating the same route table created by AKS to the Application Gateway's subnet.
+
 
 For information about load-balancing services in Azure, see [Overview of load-balancing options in Azure](../../../guide/technology-choices/load-balancing-overview.yml).
 
@@ -166,6 +167,9 @@ Kubernetes and Azure both have mechanisms for role-based access control (RBAC):
 
   - There is also a ClusterRole object, which is like a Role but applies to the entire cluster, across all namespaces. To assign users or groups to a ClusterRole, create a ClusterRoleBinding.
 
+
+- In addition to that, you can also use [Azure RBAC for Kubernetes Authorization](https://docs.microsoft.com/en-us/azure/aks/manage-azure-rbac) that allows for the unified management and access control across Azure Resources, AKS, and Kubernetes resources. The ability to manage RBAC for Kubernetes resources from Azure gives you the choice to manage RBAC for the cluster resources either using Azure or native Kubernetes mechanisms. When enabled, Azure AD principals will be validated exclusively by Azure RBAC while regular Kubernetes users and service accounts are exclusively validated by Kubernetes RBAC.
+
 AKS integrates these two RBAC mechanisms. When you create an AKS cluster, you can configure it to use Azure AD for user authentication. For details on how to set this up, see [Integrate Azure Active Directory with Azure Kubernetes Service](/azure/aks/aad-integration).
 
 Once this is configured, a user who wants to access the Kubernetes API (for example, through kubectl) must sign in using their Azure AD credentials.
@@ -203,6 +207,7 @@ Even with managed identities, you'll probably need to store some credentials or 
 - Azure Key Vault. In AKS, you can mount one or more secrets from Key Vault as a volume. The volume reads the secrets from Key Vault. The pod can then read the secrets just like a regular volume. For more information, see the [secrets-store-csi-driver-provider-azure](https://github.com/Azure/secrets-store-csi-driver-provider-azure) project on GitHub.
 
     The pod authenticates itself by using either a pod identity (described above) or by using an Azure AD Service Principal along with a client secret. Using pod identities is recommended because the client secret isn't needed in that case.
+    Another method you can start considering is [Azure Active Directory (Azure AD) workload identity for Kubernetes](https://docs.microsoft.com/en-ca/azure/active-directory/develop/workload-identity-federation). With this federation, developers can use native Kubernetes concepts of service accounts and federation to access Azure AD protected resources, such as Azure and Microsoft Graph, without needing secrets.
 
 - HashiCorp Vault. Kubernetes applications can authenticate with HashiCorp Vault using Azure AD managed identities. See [HashiCorp Vault speaks Azure Active Directory](https://open.microsoft.com/2018/04/10/scaling-tips-hashicorp-vault-azure-active-directory/). You can deploy Vault itself to Kubernetes, consider running it in a separate dedicated cluster from your application cluster.
 
