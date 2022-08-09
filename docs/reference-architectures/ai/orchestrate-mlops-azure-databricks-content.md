@@ -52,7 +52,7 @@ In the staging environment, CI infrastructure tests changes to ML pipelines in a
 
 6. **Cut Release Branch**: When ready to deploy the updated ML pipelines to production, an ML engineer can cut a new release. A deployment pipeline in the CI/CD tool redeploys the updated pipelines as new [Workflows](https://docs.microsoft.com/en-us/azure/databricks/jobs).
 
-### Prod
+### Production
 
 ML engineers manage the production environment, where ML pipelines directly serve end applications. The key pipelines in production refresh feature tables, train and deploy new models, run inference or serving, and monitor model performance.
 
