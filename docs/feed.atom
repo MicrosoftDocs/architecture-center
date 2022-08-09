@@ -2,12 +2,84 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2022-08-01T13:37:46.527Z</updated>
+    <updated>2022-08-08T14:20:03.295Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://docs.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Deploy ADS CFD Code Leo for HPC on a virtual machine]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/hpc/hpc-ads-cfd</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/hpc/hpc-ads-cfd"/>
+        <updated>2022-08-05T07:49:43.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to deploy ADS CFD Code Leo for high performance computing (HPC) on an Azure virtual machine.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Continuous Validation with Azure Load Testing and Azure Chaos Studio]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/testing/mission-critical-deployment-testing</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/testing/mission-critical-deployment-testing"/>
+        <updated>2022-08-02T18:44:57.000Z</updated>
+        <summary type="html"><![CDATA[Guide on performing automated continuous validation in production-like environments with Azure Load Testing and Chaos Studio.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Rehost IMS DC and IMS DB on Azure by using Raincode IMSql]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/mainframe/rehost-ims-raincode-imsql</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/mainframe/rehost-ims-raincode-imsql"/>
+        <updated>2022-08-01T21:36:02.000Z</updated>
+        <summary type="html"><![CDATA[Rehost IBM IMS DC and IMS DB on Azure by using Raincode IMSql. Rehost seamlessly without translating or changing your application.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Rehost IMS workloads to virtual machines by using IMSql]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/mainframe/imsql-rehost-ims</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/mainframe/imsql-rehost-ims"/>
+        <updated>2022-08-01T20:09:00.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use IMSql to rehost IMS DB and IMS TM systems on .NET and SQL Server by using virtual machines.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deployment and testing for mission-critical workloads on Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-deploy-test</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-deploy-test"/>
+        <updated>2022-08-01T16:47:08.000Z</updated>
+        <summary type="html"><![CDATA[Reference architecture for a workload that is accessed over a public endpoint without extra dependencies to other company resources - Deployment and Testing.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[HPC cluster deployed in the cloud]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/hpc-cluster</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/hpc-cluster"/>
+        <updated>2022-08-04T02:33:11.000Z</updated>
+        <summary type="html"><![CDATA[Run high performance computing (HPC) applications in Azure with a low-maintenance solution that includes the head node, compute nodes, and storage nodes.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Machine learning operations (MLOps) v2]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/machine-learning-operations-v2</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/machine-learning-operations-v2"/>
+        <updated>2022-08-03T23:22:07.000Z</updated>
+        <summary type="html"><![CDATA[Learn about a single  deployable set of repeatable, and maintainable patterns for creating machine learning CI/CD and retraining pipelines.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Real-time location sharing]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/signalr/index</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/signalr/index"/>
+        <updated>2022-08-01T18:51:09.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to architect a solution that processes changes to underlying data within a web view, without the need for a page refresh, by using real-time services.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Secure your Microsoft Teams channel bot and web app behind a firewall]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/teams/securing-bot-teams-channel</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/teams/securing-bot-teams-channel"/>
+        <updated>2022-08-01T18:51:09.000Z</updated>
+        <summary type="html"><![CDATA[Help secure the connection to a Microsoft Teams channel bot’s web app by using Azure Private Link and Azure Private Endpoint.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Build a speech-to-text transcription pipeline to analyze recorded conversations]]></title>
         <id>https://docs.microsoft.com/azure/architecture/example-scenario/ai/speech-to-text-transcription-analytics</id>
@@ -989,7 +1061,7 @@
         <id>https://docs.microsoft.com/azure/architecture/example-scenario/teams/securing-bot-teams-channel</id>
         <link href="https://docs.microsoft.com/azure/architecture/example-scenario/teams/securing-bot-teams-channel"/>
         <updated>2022-06-24T22:10:34.000Z</updated>
-        <summary type="html"><![CDATA[Secure the connection to a Microsoft Teams channel bot’s web app, using Azure Private Link and Azure Private Endpoint.]]></summary>
+        <summary type="html"><![CDATA[Help secure the connection to a Microsoft Teams channel bot’s web app by using Azure Private Link and Azure Private Endpoint.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>

@@ -49,7 +49,3 @@ The following diagram shows an application making a request to a remote service 
 ## Related resources
 
 - [Sidecar pattern](./sidecar.yml)
-
-<!-- links -->
-
-[resiliency-patterns]: ../../resiliency/resiliency-patterns.md

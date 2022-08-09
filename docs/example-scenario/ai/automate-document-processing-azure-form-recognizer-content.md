@@ -327,7 +327,7 @@ Principal author:
 [Set up authentication for Azure Machine Learning resources and workflows]: /azure/machine-learning/how-to-setup-authentication
 [SLA for App Service]: https://azure.microsoft.com/support/legal/sla/app-service/v1_4
 [SLA for Application Gateway]: https://azure.microsoft.com/support/legal/sla/application-gateway/v1_2
-[SLA for Azure Applied AI Services]: https://azure.microsoft.com/en-gb/support/legal/sla/azure-applied-ai-services/v1_0
+[SLA for Azure Applied AI Services]: https://azure.microsoft.com/support/legal/sla/azure-applied-ai-services/v1_0/
 [SLA for Azure Cognitive Services]: https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1
 [SLA for Azure Functions]: https://azure.microsoft.com/support/legal/sla/functions/v1_2
 [SLA for Azure Kubernetes Service (AKS)]: https://azure.microsoft.com/support/legal/sla/kubernetes-service/v1_1
