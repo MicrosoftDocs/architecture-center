@@ -34,7 +34,7 @@ The [design strategies for mission-critical baseline](/azure/architecture/refere
 
 ## Architecture
 
-:::image type="content" source="./images/mission-critical-architecture-network.png" alt-text="Architecture diagram of mission critical networking." lightbox="./images/mission-critical-architecture-network.png":::
+![Architecture diagram of mission critical networking.](./images/mission-critical-architecture-network.svg)
 
 The components of this architecture can be broadly categorized in this manner. For product documentation about Azure services, see [Related resources](#related-resources). 
 
@@ -152,7 +152,7 @@ Using firewall and Network Security Groups (NSGs) can make sure that outbound tr
 
 In this architecture, Azure Firewall is the single egress point and is used to inspect all outgoing traffic that originates from the virtual network. User-defined routes (UDRs) are used on subnets that are capable of generating egress traffic, such as the application subnet. 
 
-:::image type="content" source="./images/mission-critical-secure-network-egress.svg" alt-text="Diagram showing Azure Firewall used to restrict egress traffic." lightbox="./images/mission-critical-secure-network-egress.svg":::
+![Diagram showing Azure Firewall used to restrict egress traffic.](./images/mission-critical-secure-network-egress.svg)
 
 For information about restricting outbound traffic, see [Control egress traffic for cluster nodes in Azure Kubernetes Service (AKS)](/azure/aks/limit-egress-traffic).
 
@@ -173,8 +173,7 @@ In this architecture, there are two virtual networks: stamp network and operatio
 ### Regional stamp virtual network
 The deployment stamp provisions a virtual network in each region. 
 
-
-:::image type="content" source="./images/mission-critical-secure-network-ingress.png" alt-text="Diagram showing secure global routing for a mission critical workload." lightbox="./images/mission-critical-secure-network-ingress.png":::
+![Diagram showing secure global routing for a mission critical workload.](./images/mission-critical-secure-network-ingress.svg)
 
 The virtual network is divided into these main subnets. All subnets have Network Security Groups (NSGs) assigned to block any unauthorized access from the virtual network. NSGs will restrict traffic between the application subnet and other components in the network.
 
