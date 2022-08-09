@@ -351,7 +351,7 @@ This architecture implements distributed tracing with Application Insights backe
 > [!IMPORTANT]
 > Stamp monitoring resources are deployed to a separate monitoring resource group and have different lifecycle than the stamp itself. For more information, see [Monitoring data for stamp resources](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-app-platform#monitoring-data-for-stamp-resources).
 
-![Diagram of separate global services, monitoring services and stamp deployment.](./images/application-design-monitoring-overview.png)
+![Diagram of separate global services, monitoring services and stamp deployment.](./images/mission-critical-monitoring-resources.svg)
 
 ### Implementation details for application monitoring
 
