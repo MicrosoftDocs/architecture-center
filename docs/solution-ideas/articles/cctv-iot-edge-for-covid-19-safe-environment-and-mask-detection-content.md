@@ -19,7 +19,7 @@ This article showcases a COVID-19 safe solution that is being implemented in wor
 
 ## Architecture
 
-![Architecture diagram: Bosch COVID-19 Safe Solution for monitoring and alerting with Azure IoT Edge.](../media/bosch-cctv-iot-edge-covid-19-safe-environment-mask-detection.png)
+:::image type="content" alt-text="Architecture diagram: Bosch COVID-19 Safe Solution for monitoring and alerting with Azure IoT Edge." source="../media/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.png" lightbox="../media/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/bosch-cctv-iot-edge-covid-19-safe-environment-mask-detection.vsdx) of this architecture.*
 
