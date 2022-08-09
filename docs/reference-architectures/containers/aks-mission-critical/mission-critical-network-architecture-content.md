@@ -40,24 +40,24 @@ The components of this architecture can be broadly categorized in this manner. F
 
 #### Global resources
 
-The global resources are long living and share the lifetime of the system. They have the capability of being globally available within the context of a multi-region deployment model. For more information, see [Global resources](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-app-platform?branch=pr-en-us-7138#global-resources).
+The global resources are long living and share the lifetime of the system. They have the capability of being globally available within the context of a multi-region deployment model. For more information, see [**Global resources**](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-app-platform#global-resources).
 
-**Azure Front Door** is used as the global load balancer for reliably routing traffic to the regional deployments with some level of guarantee based on the availability of backend services in a region. 
+**Azure Front Door Premium SKU** is used as the global load balancer for reliably routing traffic to the regional deployments, which are exposed through private endpoints. 
 
 > Refer to [Well-architected mission critical workloads: Global traffic routing](/azure/architecture/framework/mission-critical/mission-critical-networking-connectivity#global-traffic-routing).
 
-**Azure Cosmos DB with SQL API** is used to store state related to the workload outside the compute cluster. The database account has multi-master write enabled. It's replicated to each regional stamp and also has zonal redundancy enabled. 
+**Azure Cosmos DB with SQL API** is still used to store state outside the compute cluster and has baseline configuration settings for reliability. Access is limited to authorized private endpoint connections.
 
 > Refer to [Well-architected mission critical workloads: Globally distributed multi-write datastore](/azure/architecture/framework/mission-critical/mission-critical-data-platform#globally-distributed-multi-write-datastore).
 
-**Azure Container Registry** is used to store all container images. It has geo-replication capabilities that allow the resources to function as a single registry, serving multiple regions with multi-master regional registries.
+**Azure Container Registry** is used to store all container images with geo-replication capabilities. Access is limited to authorized private endpoint connections.
 
 > Refer to [Well-architected mission critical workloads: Container registry](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing#container-registry).
 
 #### Regional resources
-The regional resources are provisioned as part of a _deployment stamp_ to a single Azure region. They are short-lived to provide more resiliency, scale, and proximity to users. These resources share nothing with resources in another region. They can be independently removed or replicated to other regions. They, however, share [global resources](#global-resources) between each other. For more information, see [Regional stamp resources](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-app-platform#deployment-stamp-resources).
+The regional resources are provisioned as part of a _deployment stamp_ to a single Azure region. They are short-lived to provide more resiliency, scale, and proximity to users. These resources share nothing with resources in another region. They can be independently removed or replicated to other regions. They, however, share [global resources](#global-resources) between each other. For more information, see [**Regional stamp resources**](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-app-platform#deployment-stamp-resources).
 
-**Static website in an Azure Storage Account** hosts a single page application (SPA) that send requests to backend services. This component has the same configuration as the [baseline frontend](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro?branch=pr-en-us-7138#frontend).
+**Static website in an Azure Storage Account** hosts a single page application (SPA) that send requests to backend services. This component has the same configuration as the [baseline frontend](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro#frontend). Access is limited to authorized private endpoint connections.
 
 **Azure Virtual Networks** provide secure environments for running the workload and management operations. 
 
@@ -69,11 +69,11 @@ The regional resources are provisioned as part of a _deployment stamp_ to a sing
 
 **Azure Firewall** inspects and protects all egress traffic from the Azure Virtual Network resources. 
 
-**Azure Event Hubs** is used as the [message broker](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro#regional-message-broker) to optimize performance and maintain responsiveness during peak load by using asynchronous messaging. An additional Azure Storage account is provisioned for checkpointing. 
+**Azure Event Hubs** is used as the [message broker](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro#regional-message-broker). Access is limited to authorized private endpoint connections. 
 
 > Refer to [Well-architected mission critical workloads: Loosely coupled event-driven architecture](/azure/architecture/framework/mission-critical/mission-critical-application-design#loosely-coupled-event-driven-architecture).
 
-**Azure Key Vault** is used as the [regional secret store](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro#regional-secret-store). There are common secrets such as connection strings to the global database but there's also information unique to a single stamp, such as the Event Hubs connection string. Also, independent resources avoid a single point of failure.
+**Azure Key Vault** is used as the [regional secret store](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro#regional-secret-store). Access is limited to authorized private endpoint connections.
 
 > Refer to [Well-architected mission critical workloads: Data integrity protection](/azure/architecture/framework/mission-critical/mission-critical-security#data-integrity-protection).
 
@@ -81,7 +81,7 @@ The regional resources are provisioned as part of a _deployment stamp_ to a sing
 
 Build and release pipelines for a mission critical application must be fully automated to guarantee a consistent way of deploying a validated stamp.  
 
-**GitHub** is used for source control, providing a highly available git-based platform for collaboration on application code and infrastructure code.
+**GitHub** is still used for source control as a highly available git-based platform.
 
 **Azure Pipelines** is chosen to automate pipelines are required for building, testing, and deploying a mission workload in preproduction _and_ production environments. 
 
@@ -105,17 +105,17 @@ A significant design change from the baseline architecture is the compute cluste
 
 **Azure Virtual Machine Scale Sets** for the private build agents and jump box instances to run tools against the cluster, such as kubectl.
 
-**Azure Bastion** provides secure access to a jump box and removes the need for the jump boxes to have public IPs. 
+**Azure Bastion** provides secure access to the jump box VMs and removes the need for the VMs to have public IPs. 
 
 ## Private endpoints for PaaS services
 
-To process business or deployment operations, the application and the build agents need to reach several Azure PaaS services that are provisioned globally, within the region, and even within the stamp. In the baseline architecture, that communication is over the services public endpoints. 
+To process business or deployment operations, the application and the build agents need to reach several Azure PaaS services that are provisioned globally, within the region, and even within the stamp. In the baseline architecture, that communication is over the services' public endpoints. 
 
-In this design, those services have been protected with private endpoints to prevent data exfiltration attacks. However, it introduces another potential point of failure and increases complexity. Carefully consider the tradeoffs with security before adopting this approach.
+In this design, those services have been protected with private endpoints to remove the services from public internet access. This approach reduces the overall attack surface area to mitigate direct service tampering from unexpected sources. However, it introduces another potential point of failure and increases complexity. Carefully consider the tradeoffs with security before adopting this approach.
 
-Private endpoints should be put in a dedicated subnet of a virtual network. Private IP addresses to the private endpoints are assigned from that subnet. Essentially, any resource in the virtual network can communicate with the service by reaching the private IP address. Make sure the address space is large enough to accommodate this subnet. 
+Private endpoints should be put in a dedicated subnet of the stamp's virtual network. Private IP addresses to the private endpoints are assigned from that subnet. Essentially, any resource in the virtual network can communicate with the service by reaching the private IP address. Make sure the address space is large enough to accommodate all private endpoints necessary for that stamp. 
 
-To connect over a private endpoint, you need a DNS record. It's recommended that DNS records associated with the services are kept in Azure Private DNS zones. Make sure that the fully qualified domain name (FQDN) resolves to the private IP address.
+To connect over a private endpoint, you need a DNS record. It's recommended that DNS records associated with the services are kept in Azure Private DNS zones serviced by Azure DNS. Make sure that the fully qualified domain name (FQDN) resolves to the private IP address.
 
 ![Diagram showing private endpoint subnet in the regional stamp virtual network](./images/mission-critical-private-endpoint-snet.png)
 
@@ -123,15 +123,17 @@ In this architecture, private endpoints have been configured for Azure Container
 
 There are two virtual networks provisioned in this design and both have dedicated subnets to hold private endpoints for all those services. The network layout is described in [Virtual network layout](#virtual-network-layout).
 
-As you add more components to the architecture, consider adding more private endpoints. They can be created on the same or different subnets within the same virtual network. There are limits to the number of private endpoints you can create in a subscription. For more information, see [Azure limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
+As you add more components to the architecture, consider adding more private endpoints. For example, you can add restrictions to the [observability resources](#observability-resources). Both Azure Log Analytics and Azure Application Insights support the use of private endpoints.
 
-Control access to the services further by using network security groups on the subnet.
+They can be created on the same or different subnets within the same virtual network. There are limits to the number of private endpoints you can create in a subscription. For more information, see [Azure limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
+
+Control access to the services further by using [network security groups on the subnet](/azure/private-link/disable-private-endpoint-network-policy).
 
 ## Private ingress
 
-Azure Front Door Premium SKU is used as the global entry point for all incoming client traffic. It uses Web Application Firewall (WAF) capabilities to allow or deny traffic at the network edge. The configured WAF rules prevent attacks even before they enter the virtual network. 
+Azure Front Door Premium SKU is used as the global entry point for all incoming client traffic. It uses Web Application Firewall (WAF) capabilities to allow or deny traffic at the network edge. The configured WAF rules prevent attacks even before they enter the stamp virtual networks. 
 
-This architecture also takes advantage of Front Door's capability to use Azure Private Link to access application origin without the use of public IPs/endpoints on the backends. This requires an internal load balancer in the stamp virtual network. This resource is deployed as part of the Kubernetes Ingress Controller resource. On top of this private Load Balancer, a Private Link service is created by AKS, which is used for the private connection from Front Door.
+This architecture also takes advantage of Front Door's capability to use Azure Private Link to access application origin without the use of public IPs/endpoints on the backends. This requires an internal load balancer in the stamp virtual network. This resource is in front of the  the Kubernetes Ingress Controller running in the cluster. On top of this private Load Balancer, a Private Link service is created by AKS, which is used for the private connection from Front Door.
 
 After connection is established, Private endpoints on Front Door network have direct connectivity with the load balancer and static web site in the stamp network over Private Link. 
 
@@ -143,11 +145,13 @@ For more information, see [How Private Link works](/azure/frontdoor/private-link
 
 ## Restricted egress
 
-Applications might require some outbound internet connectivity. Using firewall and Network Security Groups (NSGs) can make sure that outbound traffic from the application is inspected.
+Applications might require some outbound internet connectivity. Controlling that traffic provides a way to limit, monitor, and restrict egress traffic. Otherwise, unexpected inside-out access might lead to a compromise and potentially an unreliable system state. 
+
+Using firewall and Network Security Groups (NSGs) can make sure that outbound traffic from the application is inspected and logged.
 
 In this architecture, Azure Firewall is the single egress point and is used to inspect all outgoing traffic that originates from the virtual network. User-defined routes (UDRs) are used on subnets that are capable of generating egress traffic, such as the application subnet. 
 
-![Diagram showing Azure Firewall used to restrict egress traffic](./images/mission-critical-firewall-egress.png)
+![Diagram showing Azure Firewall used to restrict egress traffic](./images/mission-critical-secure-network-egress.svg)
 
 For information about restricting outbound traffic, see [Control egress traffic for cluster nodes in Azure Kubernetes Service (AKS)](/azure/aks/limit-egress-traffic).
 ## Virtual network layout
@@ -165,35 +169,39 @@ In this architecture, there are two virtual networks: stamp network and operatio
 
 ### Regional stamp virtual network
 The deployment stamp provisions a virtual network in each region. 
-![Diagram showing secure global routing for a mission critical workload](./images/mission-critical-private-ingress.png)
+![Diagram showing secure global routing for a mission critical workload](./images/mission-critical-secure-network-ingress.svg)
 
 The virtual network is divided into these main subnets. All subnets have Network Security Groups (NSGs) assigned to block any unauthorized access from the virtual network. NSGs will restrict traffic between the application subnet and other components in the network.
 
+- **Application subnet**
+
+    The AKS cluster node pools are isolated in a subnet. If you need to further isolate the system node pool from the worker node pool, you can place them in separate subnets. 
+
 - **Stamp ingress subnet**
 
-    The entry point to each stamp is an internal Azure Standard Load Balancer that is placed in a dedicated subnet. There's also a subnet for the Private Link service used for the private connection from Front Door.
+    The entry point to each stamp is an internal Azure Standard Load Balancer that is placed in a dedicated subnet. The Private Link service used for the private connection from Front Door is also placed here.
 
-    Both resources are provisioned as part of AKS deployment. 
+    Both resources are provisioned as part of the stamp deployment. 
 
 - **Stamp egress subnet**
 
     Azure Firewall is placed in a separate subnet and inspects egress traffic from application subnet by using a user-defined route (UDR). 
-
-- **Application subnet**
-
-    The cluster node pools are isolated in a subnet. If you need to further isolate the system node pool from the worker node pool, you can place them in separate subnets. 
-    
+   
 - **Private endpoints subnet**
 
     The application subnet will need to access the PaaS services in the regional stamp, Key Vault, and others. Also, access to global resources such as the container registry is needed. In this architecture, [all PaaS service are locked down](#private-endpoints-for-paas-services) and can only be reached through private endpoints. So, another subnet is created for those endpoints. Inbound access to this subnet is secured by NSG that only allows traffic from the application.
+
+    You can add further restriction by using [UDR support for private endpoints](https://azure.microsoft.com/updates/public-preview-of-private-link-udr-support/), so that this traffic could also egress through the stamp egress subnet. 
 
 ### Operations virtual network
 
 The operational traffic isolated in a separate virtual network. Because the AKS cluster's API service is private in this architecture, all deployment and operational traffic must also come from private resources such as self-hosted build agents and jump boxes. Those resources are deployed in a separate virtual network with direct connectivity to the application resources through their own set of private endpoints. The build agents and jump boxes are in separate subnets. 
 
-Both operations need to access PaaS services that are located globally and within the regional stamp. Similar to the regional stamp virtual network, a dedicated subnet is created for the private endpoints to PaaS services. NSG on this subnet makes sure ingress traffic is allowed only from the management and deployment subnets.
+Instead of using private endpoints, an alternate approach is to use virtual network peering. However, peering adds complexity that can be hard to manage especially when virtual networks are designed to be ephemeral.
 
-![Diagram showing the management network flow](./images/mission-critical-network-ingress.png)
+Both the build agents (and optionally jump boxes) need to access PaaS services that are located globally and within the regional stamp. Similar to the regional stamp virtual network, a dedicated subnet is created for the private endpoints to the necessary PaaS services. NSG on this subnet makes sure ingress traffic is allowed only from the management and deployment subnets.
+
+![Diagram showing the management network flow](./images/mission-critical-ops.png)
 
 #### Management operations
 
@@ -208,7 +216,9 @@ You can further restrict access to the jump box subnet by using an NSG that only
 
 #### Deployment operations
 
-To build deployment pipelines, you need to provision additional compute to run build agents. This architecture isolates the build agents in a separate subnet. Ingress is restricted to Azure DevOps. 
+To build deployment pipelines, you need to provision additional compute to run build agents. These resources won't directly impact the runtime availability of the workload but a reliability failure can jeopardize the ability to deploy or service your mission critical environment. So, reliability features should be extended to these resources.
+
+This architecture uses virtual machine scale sets for both build agens and jump boxes (as opposed to single VMs). Also, network segmentation is provided through the use of subnets. Ingress is restricted to Azure DevOps. 
 
 ## Deploy this architecture
 
