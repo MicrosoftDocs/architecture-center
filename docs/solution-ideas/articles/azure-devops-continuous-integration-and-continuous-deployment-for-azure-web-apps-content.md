@@ -15,7 +15,8 @@ Azure Web Apps offer numerous benefits that include:
 ## Architecture
 
 ![Architecture diagram](../media/azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps.png)
-*Download an [SVG](../media/azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps.svg) of this architecture.*
+
+*Download a [Visio file](https://arch-center.azureedge.net/azure-devops-cicd-for-web-apps.vsdx) of this architecture.*
 
 ### Dataflow
 
