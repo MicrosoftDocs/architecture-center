@@ -2,7 +2,7 @@
 title: Application design considerations for mission-critical workloads on Azure
 description: Reference architecture for a workload that is accessed over a public endpoint without additional dependencies to other company resources - App Design.
 author: msimecek
-ms.author: zarhods
+ms.author: zr-msft
 ms.date: 07/20/2022
 ms.topic: conceptual
 ms.service: architecture-center
@@ -137,7 +137,7 @@ At the application level, this architecture uses a simple authentication scheme 
 
 ### Managed identities
 
-**[Managed identities](https://docs.microsoft.com/azure/aks/use-managed-identity) should be used** to access Azure resources from the AKS cluster. The implementation uses managed identity of the AKS agent pool ("Kubelet identity") to access the global Azure Container Registry and stamp Azure Key Vault. Appropriate built-in roles are used to restrict access. For example, the `AcrPull` role is assigned to the Kubelet identity:
+**[Managed identities](/azure/aks/use-managed-identity) should be used** to access Azure resources from the AKS cluster. The implementation uses managed identity of the AKS agent pool ("Kubelet identity") to access the global Azure Container Registry and stamp Azure Key Vault. Appropriate built-in roles are used to restrict access. For example, the `AcrPull` role is assigned to the Kubelet identity:
 
 ```
 resource "azurerm_role_assignment" "acrpull_role" {
