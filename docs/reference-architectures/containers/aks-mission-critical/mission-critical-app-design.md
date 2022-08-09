@@ -29,18 +29,19 @@ The [baseline mission critical reference architecture](/azure/architecture/refer
 
 For high-scale mission critical applications, it's essential to **optimize the architecture for end-to-end scalability and resilience**. This state can be achieved through separation of components into functional units that can operate independently. Apply this separation at all levels on the application stack, allowing each part of the system to scale independently and meet changes in demand.
 
-An example of that approach is shown in the implementation. The application uses stateless API endpoints, which decouples long-running write requests asynchronously through a messaging broker. The workload is composed in a way that the whole AKS cluster and other dependencies in the stamp can be deleted and recreated at any time. The main components are: 
+An example of that approach is shown in the implementation. The application uses stateless API endpoints, which decouple long-running write requests asynchronously through a messaging broker. The workload is composed in a way that the whole AKS cluster and other dependencies in the stamp can be deleted and recreated at any time. The main components are: 
+
 - **User interface (UI):** single-page web application accessed by end users is hosted in Azure Storage Account's static website hosting.
 - **API** (`CatalogService`): REST API called by the UI application, but available for other potential client applications.
 - **Worker** (`BackgroundProcessor`): background worker, which processes write requests to the database by listening to new events on the message bus. 
 This component does not expose any APIs.
 - **Health service API** (`HealthService`): used to report the health of the application by checking if critical components (database, messaging bus) are working.
 
-![Application flow](./images/application-design-flow.png)
+![Diagram of Application flow.](./images/application-design-flow.png)
 
 The API, worker, and health check applications are referred to as **workload** and hosted as containers in a dedicated AKS namespace (called `workload`). There's **no direct communication** between the pods. The pods are **stateless** and able to **scale independently**.
 
-![Detailed composition of the workload](./images/application-design-workload-composition.png)
+![Diagram of Detailed composition of the workload.](./images/application-design-workload-composition.png)
 
 There are other supporting components running in the cluster:
 
@@ -79,7 +80,7 @@ The workload has these **data access characteristics**:
 
 Cosmos DB is configured as follows:
 
-- **Consistency level** is set to the default *Session consistency* because it's the most widely-used level for single region and globally distributed applications. Weaker consistency with higher throughput isn't needed because of the asynchronous nature of write processing and doesn't require low latency on database write.
+- **Consistency level** is set to the default *Session consistency* because it's the most widely used level for single region and globally distributed applications. Weaker consistency with higher throughput isn't needed because of the asynchronous nature of write processing and doesn't require low latency on database write.
 
 - **Partition key** is set to `/id` for all collections. This decision is based on the usage pattern which is mostly *"writing new documents with GUID as the ID"* and *"reading wide range of documents by IDs"*. Providing the application code maintains its ID uniqueness, new data is evenly distributed into partitions by Cosmos DB, enabling virtually infinite scale.
 
@@ -110,7 +111,7 @@ All workload components use the Cosmos DB .NET Core SDK to communicate with the 
 - Uses **Direct connectivity mode**. This is the default setting for .NET SDK v3 because it offers better performance. There are fewer network hops compared to Gateway mode which uses HTTP.
 - **Return content response on write** is disabled to prevent the Cosmos DB client from returning the document from Create, Upsert, Patch and Replace operations to reduce network traffic. Also, this is not needed for further processing on the client.
 - **Custom serialization** is used to set the JSON property naming policy to `JsonNamingPolicy.CamelCase` to translate .NET-style properties to standard JSON-style and vice-versa. The default ignore condition ignores properties with null values during serialization (`JsonIgnoreCondition.WhenWritingNull`).
-- **Application region** is set to the region of the stamp, which enables the SDK to find the closest connection endpoint (preferrably within the same region).
+- **Application region** is set to the region of the stamp, which enables the SDK to find the closest connection endpoint (preferably within the same region).
 
 ```csharp
 //
@@ -182,7 +183,7 @@ spec:
         {{- end }}
 ```
 
-The reference implementation uses Helm in conjunction with Azure DevOps Pipelines to deploy the CSI driver containing all key names from Azure Key Vault. The driver is also responsible to refresh mounted secrets if they change in Key Vault.
+The reference implementation uses Helm in conjunction with Azure Pipelines to deploy the CSI driver containing all key names from Azure Key Vault. The driver is also responsible to refresh mounted secrets if they change in Key Vault.
 
 On the consumer end, both .NET applications use the built-in capability to read configuration from files (`AddKeyPerFile`):
 
@@ -216,8 +217,8 @@ The combination of CSI driver's auto reload and `reloadOnChange: true` ensures t
 
 **Infrastructure and deployment configuration** of individual environments (e2e, int, prod) is stored in variable files that are part of the source code repository. This has two benefits:
 
-1. All changes in environment are tracked and go through deployment pipelines before they are applied to the environment.
-1. Individual e2e environments can be configured differently, because deployment is based on code in a branch.
+- All changes in environment are tracked and go through deployment pipelines before they are applied to the environment.
+- Individual e2e environments can be configured differently, because deployment is based on code in a branch.
 
 The exception is the storage of **sensitive values** for the pipelines. These values are stored as secrets in Azure DevOps variable groups.
 
@@ -244,9 +245,9 @@ Using well-known design patterns, such as [Queue-Based Load leveling pattern](/a
 
 Write operations, such as *post rating and post comment* are processed asynchronously. The API first sends a message with all relevant information, such as type of action and comment data, to the message queue and immediately returns `HTTP 202 (Accepted)` with additional `Location` header of the to-be-created object.
 
-Messages in the queue are then processed by `BackgroundProcessor` instances which handle the actual database communication for write operations. `BackgroundProcessor` scales in and out dynamically based on message volume on the queue. The scale out limit of processor instances is defined by the [maximum number of Event Hub partitions](/azure/event-hubs/event-hubs-quotas#basic-vs-standard-vs-premium-vs-dedicated-tiers) (which is 32 for Basic and Standard tiers, 100 for Premium tier and 1024 for Dedicated tier).
+Messages in the queue are then processed by `BackgroundProcessor` instances which handle the actual database communication for write operations. `BackgroundProcessor` scales in and out dynamically based on message volume on the queue. The scale out limit of processor instances is defined by the [maximum number of Event Hubs partitions](/azure/event-hubs/event-hubs-quotas#basic-vs-standard-vs-premium-vs-dedicated-tiers) (which is 32 for Basic and Standard tiers, 100 for Premium tier and 1024 for Dedicated tier).
 
-![The image shows the asynchronous nature of the post rating feature in the implemenation](./images/application-design-operations-2.png)
+![Diagram showing the asynchronous nature of the post rating feature in the implementation.](./images/application-design-operations-2.png)
 
 The Azure EventHub Processor library in `BackgroundProcessor` uses Azure Blob Storage to manage partition ownership, load balance between different worker instances, and to track progress using checkpoints. **Writing the checkpoints to the blob storage does not occur after every event** because this would add a prohibitively expensive delay for every message. Instead, the checkpoint writing occurs on a timer-loop (configurable duration with a current setting of 10 seconds):
 
@@ -282,21 +283,21 @@ while (!stoppingToken.IsCancellationRequested)
 
 If the processor application encounters an error or is stopped before processing the message, then:
 
-1. **Another instance will pick up the message for reprocessing**, because it wasn't properly checkpointed in Storage.
-1. **If the previous worker managed to persist the document** in the database before failing, a conflict will happen (because the same ID and partition key is used) and the processor can safely ignore the message, as it has been already persisted.
-1. **If the previous worker was terminated before writing to the database**, new instance will repeat the steps and finalize persistence.
+- **Another instance will pick up the message for reprocessing**, because it wasn't properly checkpointed in Storage.
+- **If the previous worker managed to persist the document** in the database before failing, a conflict will happen (because the same ID and partition key is used) and the processor can safely ignore the message, as it has been already persisted.
+- **If the previous worker was terminated before writing to the database**, new instance will repeat the steps and finalize persistence.
 
 ### Implementation details for read operations
 
 Read operations are processed directly by the API and immediately return data back to the user.
 
-![List Catalog Items reads from the database directly](./images/application-design-operations-1.png)
+![Diagram of list Catalog Items reads from the database directly.](./images/application-design-operations-1.png)
 
 There is no back channel that communicates to the client if the operation completed successfully. The client application has to proactively poll the API to for updates of the item specified in the `Location` HTTP header.
 
 ## Scalability
 
-Individual workload components should scale out independently because each have different load patterns. The scaling requirements depend on the functionality of the service. Some services have a direct impact on end user and are expected to be able to scale out agressively to provide fast response for a positive user experience and performance at any time.
+Individual workload components should scale out independently because each has different load patterns. The scaling requirements depend on the functionality of the service. Some services have a direct impact on end user and are expected to be able to scale out aggressively to provide fast response for a positive user experience and performance at any time.
 
 In the implementation, the services are packaged as Docker containers and deployed by using Helm charts to each stamp. They are configured to have the expected Kubernetes requests and limits and a pre-configured auto-scaling rule in place. The `CatalogService` and the `BackgroundProcessor` workload component can scale in and out individually, both services are stateless.
 
@@ -306,7 +307,7 @@ HPA is deployed with a Helm chart with configurable maximum and minimum number o
 
 During a load test it was identified that each instance is expected to handle ~250 requests/second with a standard usage pattern.
 
-The `BackgroundProcessor` service has very different requirements and is considered a background worker which has limited impact on the user experience. As such, `BackgroundProcessor` has a different auto-scaling configuration than `CatalogService` and it can scale between 2 and 32 instances (this limit should be based on the number of partitions used in the Event Hub - there's no benefit in having more workers than partitions).
+The `BackgroundProcessor` service has very different requirements and is considered a background worker which has limited impact on the user experience. As such, `BackgroundProcessor` has a different auto-scaling configuration than `CatalogService` and it can scale between 2 and 32 instances (this limit should be based on the number of partitions used in the Event Hubs - there's no benefit in having more workers than partitions).
 
 
 |Component           |`minReplicas`  |`maxReplicas`      |
@@ -339,18 +340,18 @@ spec:
 
 Instrumentation is an important mechanism in evaluating performance bottle necks and health issues that workload components can introduce in the system. Each component should emit sufficient information through metrics and trace logs to help quantify decisions. Here are some key considerations for instrumenting your application.
 
-1. Send logs, metrics and additional telemetry to the stamp's log system. 
-1. Use structured logging instead of plain text so that information can be queried.
-1. Implement event correlation to ensure end-to-end transaction view. In the RI, every API response contains **Operation ID** as an HTTP header for traceability.
-1. Don't rely only on *stdout* (console) logging. However, these logs can be used for immediate troubleshooting of a failing pod.
+- Send logs, metrics and additional telemetry to the stamp's log system. 
+- Use structured logging instead of plain text so that information can be queried.
+-  Implement event correlation to ensure end-to-end transaction view. In the RI, every API response contains **Operation ID** as an HTTP header for traceability.
+- Don't rely only on *stdout* (console) logging. However, these logs can be used for immediate troubleshooting of a failing pod.
 
-This architecture implements distributed tracing with Application Insights backed by Log Analytics Workspace for all application monitoring data. Azure Log Analytics is ised for logs and metrics of all workload and infrastructure components. The workload implements **full end-to-end tracing** of requests coming from the API, through Event Hubs, to Cosmos DB.
+This architecture implements distributed tracing with Application Insights backed by Log Analytics Workspace for all application monitoring data. Azure Log Analytics is used for logs and metrics of all workload and infrastructure components. The workload implements **full end-to-end tracing** of requests coming from the API, through Event Hubs, to Cosmos DB.
 
 
 > [!IMPORTANT]
 > Stamp monitoring resources are deployed to a separate monitoring resource group and have different lifecycle than the stamp itself. For more information, see [Monitoring data for stamp resources](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-app-platform#monitoring-data-for-stamp-resources).
 
-![Diagram of separate global services, monitoring services and stamp deployment](./images/application-design-monitoring-overview.png)
+![Diagram of separate global services, monitoring services and stamp deployment.](./images/application-design-monitoring-overview.png)
 
 ### Implementation details for application monitoring
 
@@ -373,7 +374,7 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
     }
 ```
 
-![This image shows end-to-end tracing capability.](./images/application-design-end-to-end-tracing.png)
+![Screenshot of the end-to-end tracing capability.](./images/application-design-end-to-end-tracing.png)
 
 To demonstrate practical request traceability, every API request (successful or not) returns the Correlation ID header to the caller. With this identifier the **application support team is able to search Application Insights** and get a detailed view of the full transaction.
 
@@ -434,7 +435,7 @@ In the architecture, health monitoring is applied at these levels:
 
 `HealthService` is a workload component that is running along other components (`CatalogService` and `BackgroundProcessor`) on the compute cluster. It provides a REST API that is called by Azure Front Door health check to determine the availability of a stamp. Unlike basic liveness probes, health service is a more complex component which adds the state of dependencies in addition to its own.
 
-![Conceptual diagram of the health service querying Cosmos DB, Event Hub and Storage](./images/application-design-health-service.png)
+![Diagram of the health service querying Cosmos DB, Event Hubs and Storage.](./images/application-design-health-service.png)
 
 If the AKS cluster is down, the health service won't respond, rendering the workload unhealthy. When the service is running, it performs periodic checks against critical components of the solution. All checks are done **asynchronously and in parallel**. If any of them fail, the whole stamp will be considered unavailable.
 
@@ -468,14 +469,14 @@ var testRating = new ItemRating()
 await AddNewRatingAsync(testRating);
 ```
 
-#### Event Hub example
+#### Event Hubs example
 
 The health service reports healthy if it's able to send a message to Event Hubs. It contains additional property `HEALTHCHECK=TRUE` and the background processor ignores it.
 
 #### Blob Storage account example
 
-1. Test if it's possible to reach Blob Storage. This storage account is also used by other components in the stamp and hence considered a critical resource.
-1. Manually "turn off" a region by manipulating (i.e. deleting) the state file.
+- Test if it's possible to reach Blob Storage. This storage account is also used by other components in the stamp and hence considered a critical resource.
+- Manually "turn off" a region by manipulating (i.e. deleting) the state file.
 
 The reference implementation looks for presence of the state file in the specified Blob Container. If it cannot connect to the Storage Account, or if the file is not found, stamp is considered unhealthy.
 
