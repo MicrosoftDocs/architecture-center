@@ -1,4 +1,3 @@
-# MLOps using Azure Databricks
 
 This document provides a [Machine Learning Operations (MLOps)](https://databricks.com/glossary/mlops) architecture and process for Azure Databricks. This MLOps process defines a standardized way of moving machine learning models and pipelines from development to production, with options for automation and humans in the loop. The architecture is pluggable; while Azure Databricks provides most architecture components, you can also integrate with your existing infrastructure for one or components.
 
