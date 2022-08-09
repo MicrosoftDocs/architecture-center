@@ -2,7 +2,7 @@
 title: Application design considerations for mission-critical workloads on Azure
 description: Reference architecture for a workload that is accessed over a public endpoint without additional dependencies to other company resources - App Design.
 author: msimecek
-ms.author: zr-msft
+ms.author: zarhoads
 ms.date: 07/20/2022
 ms.topic: conceptual
 ms.service: architecture-center
