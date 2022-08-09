@@ -130,8 +130,6 @@ To get started, our top recommendations are:
 
 - Read &quot;[The Big Book of MLOps](https://databricks.com/p/ebook/the-big-book-of-mlops),&quot; which explores the architecture described above in more detail.
 
-- Try the example [IDE-based MLOps workflow (GitHub repo)](https://github.com/niall-turbitt/e2e-mlops) from Data+AI Summit talk &quot;[MLOps on Databricks: A How-To Guide](https://databricks.com/dataaisummit/session/mlops-databricks-how-guide)&quot; → This matches the architecture described here.
-
 Documentation and quickstarts
 
 - [Databricks Machine Learning in-product quickstart](https://docs.microsoft.com/en-us/azure/databricks/applications/machine-learning/ml-quickstart)
@@ -144,7 +142,6 @@ Webinars, talks, and e-books
 - 2022-06 Data+AI Summit talk &quot;[MLOps on Databricks: A How-To Guide](https://databricks.com/dataaisummit/session/mlops-databricks-how-guide)&quot;
 - 2022 eBook &quot;[The Big Book of MLOps](https://databricks.com/p/ebook/the-big-book-of-mlops)&quot;
 - 2021-09 webinar &quot;[Automating the ML Lifecycle With Databricks Machine Learning](https://databricks.com/p/webinar/automating-the-ml-lifecycle-with-databricks-machine-learning)&quot;
-  - Also see the demo code: [Notebook-based MLOps workflow (GitHub)](https://github.com/RafiKurlansik/dais2021_full_ml_lifecycle)
 - 2021-02 tech talk &quot;[MLOps on Azure Databricks with MLflow](https://www.youtube.com/watch?v=l36u1_9Gopk)&quot;
 - 2021 eBook &quot;[Machine Learning Engineering for the Real World](https://databricks.com/p/ebook/machine-learning-engineering-in-action)&quot;
 - 2021 eBook &quot;[Automate Your Machine Learning Pipeline](https://databricks.com/p/ebook/automate-your-machine-learning-pipeline)&quot;
