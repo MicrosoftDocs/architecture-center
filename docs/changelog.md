@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: alexhart11
-ms.date: 08/01/2022
+ms.date: 08/08/2022
 ms.topic: article
 ms.service: architecture-center
 categories: 
@@ -24,6 +24,20 @@ The following new and updated articles have recently been published in the Azure
 
 ## August 2022
 
+### New articles
+
+- [Deploy ADS CFD Code Leo for HPC on a virtual machine](./guide/hpc/hpc-ads-cfd.yml)
+- [Continuous Validation with Azure Load Testing and Azure Chaos Studio](./guide/testing/mission-critical-deployment-testing.md)
+- [Rehost IMS DC and IMS DB on Azure by using Raincode IMSql](./example-scenario/mainframe/rehost-ims-raincode-imsql.yml)
+- [Rehost IMS workloads to virtual machines by using IMSql](./example-scenario/mainframe/imsql-rehost-ims.yml)
+- [Deployment and testing for mission-critical workloads on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-deploy-test.md)
+
+### Updated articles
+
+- [HPC cluster deployed in the cloud](./solution-ideas/articles/hpc-cluster.yml)  ([#714d98ef0](https://github.com/MicrosoftDocs/architecture-center/commit/714d98ef0))
+- [Machine learning operations (MLOps) v2](./data-guide/technology-choices/machine-learning-operations-v2.md)  ([#0a9f4cb28](https://github.com/MicrosoftDocs/architecture-center/commit/0a9f4cb28))
+- [Real-time location sharing](./example-scenario/signalr/index.yml)  ([#c2f08c272](https://github.com/MicrosoftDocs/architecture-center/commit/c2f08c272))
+- [Secure your Microsoft Teams channel bot and web app behind a firewall](./example-scenario/teams/securing-bot-teams-channel.yml)  ([#c2f08c272](https://github.com/MicrosoftDocs/architecture-center/commit/c2f08c272))
 
 ## July 2022
 
