@@ -141,7 +141,7 @@ Principal authors:
 - [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes)
 - [Industrial IoT (IIoT) architecture patterns with Azure IoT Central](/azure/iot-central/core/concepts-iiot-architecture)
 
-Microsoft Learn learning paths:
+Microsoft learning paths:
 
 - [Implement a Data Streaming Solution with Azure Streaming Analytics](/learn/paths/implement-data-streaming-with-asa)
 - [Introduction to Kubernetes on Azure](/learn/paths/intro-to-kubernetes-on-azure)

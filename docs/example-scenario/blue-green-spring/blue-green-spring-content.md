@@ -34,7 +34,7 @@ _Download a [Visio file](https://arch-center.azureedge.net/blue-green-deployment
     - Deploys the code to a non-production environment. If this environment doesn't exist, GitHub creates it. At this point, the old version in the production deployment still gets all production traffic.
     - Waits for the deployment to be reviewed and approved. This step gives the newly deployed application time to start and warm up. Before approval, you can use the non-production URL of the application to verify the new version and ensure that it's ready.
     - Switches the production deployment and the non-production deployment, if you approve the new deployment. All production traffic is now routed to the new version of the application.
-    
+
        If you reject the new deployment, GitHub doesn't switch the environments. The previous version continues to receive production traffic.
     - Deletes the old production deployment, after the approval and switch-over of the traffic. This cleanup step leads to a more cost-effective setup.
 
@@ -68,17 +68,17 @@ If you want a solution to increase the overall SLA of your configuration, look i
 
 ### Scalability
 
-This solution works on a per-application basis, so it's well suited for microservices applications. It also allows application teams to work independently of other application teams without influencing the uptime of the overall solution. 
+This solution works on a per-application basis, so it's well suited for microservices applications. It also allows application teams to work independently of other application teams without influencing the uptime of the overall solution.
 
-This solution also works best on a per-application basis, where each application has its own blue/green deployment workflow. If you combine applications in the same workflow, this configuration becomes complex quickly, so we don't recommend that approach. 
+This solution also works best on a per-application basis, where each application has its own blue/green deployment workflow. If you combine applications in the same workflow, this configuration becomes complex quickly, so we don't recommend that approach.
 
 ### Security
 
-Apart from setting up repository permissions, consider implementing the following security measures in Git repositories that hold code that you want to deploy to Azure Spring Apps: 
+Apart from setting up repository permissions, consider implementing the following security measures in Git repositories that hold code that you want to deploy to Azure Spring Apps:
 
 - **Branch protection.** Protect the branches that represent the production state of your application from having changes pushed to them directly. Require that every change is proposed by a pull request (PR). Use PRs to do automatic checks. For example, those checks might build all code and run unit tests on the code that a PR creates or modifies.
 
-- **PR review.** To enforce the four-eyes principle, require that PRs have at least one reviewer. You can also use the GitHub [code owners](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-code-owners) feature to define individuals or teams that are responsible for reviewing specific files in a repository.
+- **PR review.** To enforce the four-eyes principle, require that PRs have at least one reviewer. You can also use the GitHub [code owners](https://docs.github.com/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-code-owners) feature to define individuals or teams that are responsible for reviewing specific files in a repository.
 
 - **Immutable history.** Only allow new commits on top of existing changes. Immutable history is especially important for auditing purposes.
 
@@ -90,7 +90,7 @@ For information about getting extra security on your Azure Spring Apps service, 
 
 ### DevOps
 
-Automation of this setup via GitHub Action workflows increases DevOps productivity. One of the most useful features is the ability to quickly roll back changes that behave unexpectedly. Just reject the new deployment.
+Automation of this setup via GitHub Actions workflows increases DevOps productivity. One of the most useful features is the ability to quickly roll back changes that behave unexpectedly. Just reject the new deployment.
 
 Teams often manage multiple environments for the same application. It's typical to have several versions of an application deployed to different Azure Spring Apps services. The Git repository, which is the single source of truth, shows which versions of applications are currently deployed to a cluster.
 
@@ -112,7 +112,7 @@ GitHub offers a free service. But to use advanced security-related features like
 
 Principal authors:
 
-* [Gitte Vermeiren](https://be.linkedin.com/in/gitte-vermeiren-b1b2221) | Senior Service Engineer
+- [Gitte Vermeiren](https://www.linkedin.com/in/gitte-vermeiren-b1b2221) | Senior Service Engineer
 
 ## Next steps
 
@@ -120,7 +120,7 @@ Principal authors:
 - [Blue/green deployment strategies in Azure Spring Apps](/azure/spring-cloud/concepts-blue-green-deployment-strategies)
 - [Quickstart: Build and deploy apps to Azure Spring Apps](/azure/spring-cloud/quickstart-deploy-apps)
 - [Set up a staging environment in Azure Spring Apps](/azure/spring-cloud/how-to-staging-environment)
-- [GitHub: Understanding GitHub Actions](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions)
+- [GitHub: Understanding GitHub Actions](https://docs.github.com/actions/learn-github-actions/understanding-github-actions)
 - [GitHub: Using environments for deployment](https://docs.github.com/actions/deployment/targeting-different-environments/using-environments-for-deployment)
 - [GitHub: Reusing workflows](https://docs.github.com/actions/learn-github-actions/reusing-workflows)
 

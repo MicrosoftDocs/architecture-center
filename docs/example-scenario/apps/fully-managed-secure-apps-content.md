@@ -126,7 +126,7 @@ We have provided three sample cost profiles based on amount of traffic you expec
 
 Principal author:
 
-* Faisal Mustafa | Senior Customer Engineer
+- Faisal Mustafa | Senior Customer Engineer
 
 ## Next steps
 
@@ -161,7 +161,7 @@ Principal author:
 [availability]: ../../checklist/resiliency-per-service.md
 
 [design-patterns-availability]: /azure/architecture/framework/resiliency/reliability-patterns
-[design-patterns-resiliency]: /azure/architecture/framework/resiliency/resiliency-patterns
+[design-patterns-resiliency]: /azure/architecture/framework/resiliency/reliability-patterns
 [design-patterns-performance-efficiency]: /azure/architecture/framework/scalability/performance-efficiency-patterns
 [design-patterns-security]: /azure/architecture/framework/security/security-patterns
 [design-geo-distributed-ase]: /azure/app-service/environment/app-service-app-service-environment-geo-distributed-scale

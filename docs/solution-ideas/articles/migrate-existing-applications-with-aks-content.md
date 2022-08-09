@@ -8,8 +8,9 @@ This solution is for migrating current applications.
 
 ## Architecture
 
-![Architecture Diagram](../media/migrate-existing-applications-with-aks.png)
-*Download an [SVG](../media/migrate-existing-applications-with-aks.svg) of this architecture.*
+![Diagram shows existing application migration to containers in Azure Kubernetes Service with Open Service Broker for Azure to access Azure databases.](../media/migrate-existing-applications-with-aks.png)
+
+*Download a [Visio file](https://arch-center.azureedge.net/migrate-existing-applications-with-aks.vsdx) of this architecture.*
 
 ### Dataflow
 

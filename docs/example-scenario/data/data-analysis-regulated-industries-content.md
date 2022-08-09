@@ -52,7 +52,7 @@ Implementation of this pattern requires these skills:
 
 ### Alternatives
 
-The functionality provided by this pattern overlaps with functionality that's available in Azure Synapse Analytics. We recommend that you use Azure Synapse whenever you can. However, in regulated industries in particular, some organizations can't use Azure Synapse for various reasons. In those cases, you might want to implement this pattern rather than manually deploying a custom data-analytics stack.
+The functionality provided by this pattern overlaps with functionality that's available in Azure Synapse Analytics. We recommend that you use Azure Synapse whenever you can. However, in regulated industries in particular, some organizations can have longer adoption time for some services (such as Azure Synapse), for various reasons. For example, most organizations in a regulated industry require their security teams to create an _allow_ list of services, before they can be used. This process requires a deep technical, security-centric review of the service, which can often take months to complete. As a result, services can be unavailable for use while they wait. In those cases, you might want to implement this pattern, rather than manually deploying a custom data-analytics stack.
 
 See [Enterprise data warehouse architecture](/azure/architecture/solution-ideas/articles/enterprise-data-warehouse) for an alternative solution to this pattern.
 
@@ -260,9 +260,10 @@ You can automatically deploy the Data Analytical Workspace by using the provided
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal author:
+Principal authors:
 
-* [Jiri Binko](https://cz.linkedin.com/in/jiribinko) | Senior Cloud Solution Architect
+* [Jiri Binko](https://cz.linkedin.com/in/jiribinko) | Principal Cloud Solution Architect
+* [DJ Dean](https://www.linkedin.com/in/deandaniel)  | Principal Cloud Solution Architect
 
 ## Next steps
 

@@ -10,6 +10,8 @@ This solution demonstrates how you can accelerate frontend and business process 
 
 ![Architecture Diagram](../media/front-end.png)
 
+*Download a [Visio file](https://arch-center.azureedge.net/front-end.vsdx)* of this architecture.
+
 ### Dataflow
 
 The data flows through the solution as follows:
