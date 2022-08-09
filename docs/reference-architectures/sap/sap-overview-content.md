@@ -280,7 +280,7 @@ The following scenarios outline a few of the common ways SAP solutions are built
     </li>
     <li class="column is-one-third has-padding-top-small-mobile has-padding-bottom-small">
         <a class="is-undecorated is-full-height is-block"
-            href="/azure/architecture/reference-architectures/sap/sap-netweaver">
+            href="/azure/architecture/guide/sap/sap-netweaver">
             <article class="card has-outline-hover is-relative is-fullheight">
                     <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
                         <img role="presentation" alt="Diagram shows infrastructure needed to run S A P NetWeaver in Windows on Azure." src="./images/sap-netweaver.png">
@@ -298,7 +298,7 @@ The following scenarios outline a few of the common ways SAP solutions are built
     </li>
     <li class="column is-one-third has-padding-top-small-mobile has-padding-bottom-small">
         <a class="is-undecorated is-full-height is-block"
-            href="/azure/architecture/reference-architectures/sap/sap-s4hana">
+            href="/azure/architecture/guide/sap/sap-s4hana">
             <article class="card has-outline-hover is-relative is-fullheight">
                     <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
                         <img role="presentation" alt="Diagram shows infrastructure needed to run S A P S/4HANA in Linux on Azure." src="./images/sap-s4hana.png">
