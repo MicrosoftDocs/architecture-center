@@ -34,7 +34,7 @@ The architecture uses the following components. Some shared services are optiona
 
 **Private DNS service.** [Azure Private DNS](/azure/dns/private-dns-overview) provides a reliable and secure DNS service for your virtual network. Azure Private DNS manages and resolves domain names in the virtual network without the need to configure a custom DNS solution.
 
-**Load balancers.** To distribute traffic to VMs in the SAP application tier subnet for high availability, we recommend that you use [Azure Standard Load Balancer](/azure/load-balancer/load-balancer-standard-availability-zones). It's important to note that Standard Load Balancer is secure by default, and no VMs that are behind Standard Load Balancer have outbound internet connectivity. To enable outbound internet in the VMs, you must update your [Standard Load Balancer configuration](/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections). For SAP web-based application high availability, use the built-in [SAP Web Dispatcher](https://help.sap.com/doc/saphelp_em900/9.0/48/8fe37933114e6fe10000000a421937/content.htm?no_cache=true), or another commercially available load balancer. Base your selection on:
+**Load balancers.** To distribute traffic to VMs in the SAP application tier subnet for high availability, we recommend that you use [Azure Standard Load Balancer](/azure/load-balancer/load-balancer-standard-availability-zones). It's important to note that Standard Load Balancer is secure by default, and no VMs that are behind Standard Load Balancer have outbound internet connectivity. To enable outbound internet in the VMs, you must update your [Standard Load Balancer configuration](/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections). For SAP web-based application high availability, use the built-in [SAP Web Dispatcher](https://help.sap.com/doc/saphelp_em900/9.0/en-US/48/8fe37933114e6fe10000000a421937/content.htm?no_cache=true), or another commercially available load balancer. Base your selection on:
 
 - Your traffic type, such as HTTP or SAP GUI.
 - The network services that you need, such as Secure Sockets Layer (SSL) termination.
@@ -80,7 +80,7 @@ For details about SAP support for Azure VM types and for throughput metrics (SAP
 
 ### SAP Web Dispatcher
 
-The Web Dispatcher component is used for load balancing SAP traffic among the SAP application servers. To achieve [high availability of SAP Web Dispatcher](https://help.sap.com/doc/saphelp_nw73ehp1/7.31.19/48/9a9a6b48c673e8e10000000a42189b/frameset.htm), Azure Load Balancer implements either a failover cluster or the parallel Web Dispatcher setup. For internet-facing communications, a stand-alone solution in the perimeter network is the recommended architecture to satisfy security concerns. [Embedded Web Dispatcher on ASCS](https://help.sap.com/viewer/00b4e4853ef3494da20ebcaceb181d5e/LATEST/2e708e2d42134b4baabdfeae953b24c5.html) is a special option. If you use this option, consider proper sizing because of the extra workload on ASCS.
+The Web Dispatcher component is used for load balancing SAP traffic among the SAP application servers. To achieve [high availability of SAP Web Dispatcher](https://help.sap.com/doc/saphelp_nw73ehp1/7.31.19/48/9a9a6b48c673e8e10000000a42189b/frameset.htm), Azure Load Balancer implements either a failover cluster or the parallel Web Dispatcher setup. For internet-facing communications, a stand-alone solution in the perimeter network is the recommended architecture to satisfy security concerns. [Embedded Web Dispatcher on ASCS](https://help.sap.com/viewer/00b4e4853ef3494da20ebcaceb181d5e/LATEST/en-US/2e708e2d42134b4baabdfeae953b24c5.html) is a special option. If you use this option, consider proper sizing because of the extra workload on ASCS.
 
 ### Fiori front-end server (FES)
 
@@ -153,7 +153,7 @@ FastPath doesn't support virtual network peering. If other virtual networks are 
 
 ### Load balancers
 
-[SAP Web Dispatcher](https://help.sap.com/viewer/683d6a1797a34730a6e005d1e8de6f22/202110.001/488fe37933114e6fe10000000a421937.html?q=SAP%20Web%20Dispatcher) handles load balancing of HTTP(S) traffic to a pool of SAP application servers. This software load balancer offers application layer services (referred to as layer 7 in the ISO networking model) that are capable of SSL termination and other offloading functions.
+[SAP Web Dispatcher](https://help.sap.com/viewer/683d6a1797a34730a6e005d1e8de6f22/202110.001/en-US/488fe37933114e6fe10000000a421937.html?q=SAP%20Web%20Dispatcher) handles load balancing of HTTP(S) traffic to a pool of SAP application servers. This software load balancer offers application layer services (referred to as layer 7 in the ISO networking model) that are capable of SSL termination and other offloading functions.
 
 [Load Balancer](https://azure.microsoft.com/blog/azure-load-balancer-new-distribution-mode) is a network transmission layer service (layer 4) that balances traffic by using a five-tuple hash from data streams. The hash is based on source IP, source port, destination IP, destination port, and protocol type. Load Balancer is used in cluster setups to direct traffic to the primary service instance or the healthy node if there's a fault. We recommend that you use [Azure Standard Load Balancer](/azure/load-balancer/load-balancer-standard-overview) for all SAP scenarios. It's important to note that Standard Load Balancer is secure by default, and no VMs behind Standard Load Balancer have outbound internet connectivity. To enable outbound internet in the VMs, you must adjust your [Standard Load Balancer](/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections) configuration.
 
@@ -212,7 +212,7 @@ In this distributed installation of the SAP application, the base installation i
 
 ### Web Dispatcher in the application servers tier
 
-You can achieve high availability by using redundant Web Dispatcher instances. For more information, see [SAP Web Dispatcher](https://help.sap.com/viewer/683d6a1797a34730a6e005d1e8de6f22/202110.001/488fe37933114e6fe10000000a421937.html?q=SAP%20Web%20Dispatcher) in the SAP documentation. The availability level depends on the size of the application that's behind Web Dispatcher. In small deployments with few scalability concerns, you can co-locate Web Dispatcher with the ASCS VMs. This way, you save on independent OS maintenance and gain high availability at the same time.
+You can achieve high availability by using redundant Web Dispatcher instances. For more information, see [SAP Web Dispatcher](https://help.sap.com/viewer/683d6a1797a34730a6e005d1e8de6f22/202110.001/en-US/488fe37933114e6fe10000000a421937.html?q=SAP%20Web%20Dispatcher) in the SAP documentation. The availability level depends on the size of the application that's behind Web Dispatcher. In small deployments with few scalability concerns, you can co-locate Web Dispatcher with the ASCS VMs. This way, you save on independent OS maintenance and gain high availability at the same time.
 
 ### Central Services in the application servers tier
 
@@ -299,7 +299,7 @@ For step-by-step guidance, see [Building a Disaster Recovery Solution for SAP us
 
 Use HSR for HANA-supported replication. In addition to a local, two-node high availability setup, HSR supports multi-tier replication where a third node in a separate Azure region acts as a foreign entity, not part of the cluster. That third node registers with the secondary replica of the clustered HSR pair as its replication target. This setup forms a replication daisy chain.
 
-The failover to the DR node is a manual process. With HANA 2.0 SPS 03 and later, it's possible to configure [multi-target system replication](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.03/ba457510958241889a459e606bbcf3d3.html), which supports additional replicas by replicating the primary node in the DR region asynchronously. In addition, if you use Azure NetApp Files for either the Central Services or the HANA database layer, use rsync or a content replication tool of choice.
+The failover to the DR node is a manual process. With HANA 2.0 SPS 03 and later, it's possible to configure [multi-target system replication](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.03/en-US/ba457510958241889a459e606bbcf3d3.html), which supports additional replicas by replicating the primary node in the DR region asynchronously. In addition, if you use Azure NetApp Files for either the Central Services or the HANA database layer, use rsync or a content replication tool of choice.
 
 ### DR for shared services
 
@@ -381,7 +381,7 @@ To provide SAP-based monitoring of resources and service performance of the SAP 
 
 ## Security considerations
 
-SAP has its own Users Management Engine (UME) to control role-based access and authorization within the SAP application and databases. For details, see [SAP HANA Security: An Overview](https://help.sap.com/docs/HANA_CLOUD_DATABASE/c82f8d6a84c147f8b78bf6416dae7290/3530b7329a314052a50e12b0ae501068.html).
+SAP has its own Users Management Engine (UME) to control role-based access and authorization within the SAP application and databases. For details, see [SAP HANA Security: An Overview](https://www.tutorialspoint.com/sap_hana/sap_hana_security_overview.htm).
 
 To improve network security, consider using a [perimeter network](../../reference-architectures/dmz/secure-vnet-dmz.yml) that uses an NVA to create a firewall in front of the subnet for Web Dispatcher and the Fiori front-end server pools. The cost of data transfer is a reason to place active front-end servers that run Fiori apps in the same virtual network as the S/4 systems. The alternative is to place them in the perimeter network and connect them to S/4 through a virtual network peering.
 

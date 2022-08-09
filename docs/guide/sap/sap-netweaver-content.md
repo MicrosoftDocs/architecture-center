@@ -82,7 +82,7 @@ For details about SAP support for Azure VM types and throughput metrics (SAPS), 
 
 ### SAP Web Dispatcher
 
-The Web Dispatcher component is used for load-balancing SAP traffic among the SAP application servers. To achieve high availability for the Web Dispatcher component, Load Balancer is used to implement either the failover cluster of Web Dispatcher instances or the parallel Web Dispatcher setup. For a detailed description of the solution, see [High Availability of SAP Web Dispatcher](https://help.sap.com/doc/saphelp_nw73ehp1/7.31.19/48/9a9a6b48c673e8e10000000a42189b/frameset.htm).
+The Web Dispatcher component is used for load-balancing SAP traffic among the SAP application servers. To achieve high availability for the Web Dispatcher component, Load Balancer is used to implement either the failover cluster of Web Dispatcher instances or the parallel Web Dispatcher setup. For a detailed description of the solution, see [High Availability of SAP Web Dispatcher](https://help.sap.com/doc/saphelp_nw73ehp1/7.31.19/en-US/CA/6FBD35746DBD2DE10000009B38F889/frameset.htm).
 
 ### Application servers pool
 
@@ -144,7 +144,7 @@ FastPath doesn't support virtual network peering. If other virtual networks are 
 
 ### Load balancers
 
-[SAP Web Dispatcher](https://help.sap.com/doc/saphelp_nw73ehp1/7.31.19/48/8fe37933114e6fe10000000a421937/frameset.htm) handles load balancing of HTTP(S) traffic to a pool of SAP application servers. This software load balancer provides application layer services (referred to as layer 7 in the ISO networking model) that can perform SSL termination and other offloading functions.
+[SAP Web Dispatcher](https://help.sap.com/doc/saphelp_nw73ehp1/7.31.19/en-US/CA/6FBD35746DBD2DE10000009B38F889/frameset.htm) handles load balancing of HTTP(S) traffic to a pool of SAP application servers. This software load balancer provides application layer services (referred to as layer 7 in the ISO networking model) that can perform SSL termination and other offloading functions.
 
 [Load Balancer](https://azure.microsoft.com/blog/azure-load-balancer-new-distribution-mode) is a network transmission layer service (layer 4) that balances traffic by using a five-tuple hash from the data streams. The hash is based on source IP, source port, destination IP, destination port, and protocol type. In SAP deployments on Azure, Load Balancer is used in cluster setups to direct traffic to the primary service instance or to the healthy node if there's a fault.
 
@@ -210,7 +210,7 @@ The Web Dispatcher component is used as a load balancer for SAP traffic among th
 
 For internet-facing communications, we recommend a stand-alone solution in the perimeter network, which is also known as _DMZ_, to satisfy security concerns.
 
-[Embedded Web Dispatcher](https://help.sap.com/viewer/00b4e4853ef3494da20ebcaceb181d5e/LATEST/2e708e2d42134b4baabdfeae953b24c5.html) on ASCS is a special option. If you use this option, consider proper sizing because of the extra workload on ASCS.
+[Embedded Web Dispatcher](https://help.sap.com/viewer/00b4e4853ef3494da20ebcaceb181d5e/LATEST/en-US/2e708e2d42134b4baabdfeae953b24c5.html) on ASCS is a special option. If you use this option, consider proper sizing because of the extra workload on ASCS.
 
 ### Central Services in the application servers tier
 
