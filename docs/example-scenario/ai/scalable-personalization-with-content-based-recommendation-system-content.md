@@ -13,7 +13,7 @@ There are three main types of recommendation systems in supervised learning tech
 
 The approach described in this article focuses on building a content-based recommendation system. More details on the best practices of building recommendation systems can be found at [Best Practices on Recommendation Systems](https://github.com/microsoft/recommenders).
 
-This example scenario shows how your business can use machine learning to automate content-based personalization for your customers. At a high level, you use [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) to train a model that predicts the probability a user will engage with an item. That model is deployed to production as a prediction service using [Batched Managed Endpoints](https://docs.microsoft.com/en-us/azure/machine-learning/concept-endpoints). In turn, you can use this prediction to create personalized recommendations by ranking items based on the content that a user is most likely to consume. 
+This example scenario shows how your business can use machine learning to automate content-based personalization for your customers. At a high level, you use [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) to train a model that predicts the probability a user will engage with an item. That model is deployed to production as a prediction service using [Batched Managed Endpoints](/azure/machine-learning/concept-endpoints). In turn, you can use this prediction to create personalized recommendations by ranking items based on the content that a user is most likely to consume. 
 
 ### Potential use cases
 
@@ -34,7 +34,7 @@ This solution is ideal for the retail industry. This scenario is relevant to the
 1. Data preprocessing involves data cleansing, transformations, and how the data should be fed to the recommendations system model. 
 1. Training is a two-step process: Feature Engineering and Model training. During the training stage, Azure Databricks uses the preprocessed dataset to train and explain the best recommendation model. 
 1. Postprocessing involves model evaluation and selection of the best performing model. 
-1. The model is maintained with Azure Databricks and deployed utilizing [Batch Managed Endpoints](https://docs.microsoft.com/en-us/azure/machine-learning/concept-endpoints)for exposure to front-end display. As the model is deployed, the new data is accessible via new endpoints – Batch and near-real time recommendations will be supported.  
+1. The model is maintained with Azure Databricks and deployed utilizing [Batch Managed Endpoints](/azure/machine-learning/concept-endpoints) for exposure to front-end display. As the model is deployed, the new data is accessible via new endpoints – Batch and near-real time recommendations will be supported.  
 1. The stored model results can be consumed through user interfaces, such as a web application. The results are written to and captured in Azure Synapse. The model runs as batch inference and stores the results in the respective datastore. 
 
 ### Components
