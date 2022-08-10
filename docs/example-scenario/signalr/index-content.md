@@ -95,7 +95,7 @@ SignalRFunctionApp is a function app that creates an Azure Functions instance, w
 
 #### Negotiate.cs
 
-This function is triggered by an HTTP request. It's used by client applications to get a token from the SignalR service, which clients can use to subscribe to a hub. This function should be named `negotiate`. For more information, see [Azure Functions development and configuration with Azure SignalR Service](/azure/azure-signalr/signalr-concept-serverless-development-config.md),
+This function is triggered by an HTTP request. It's used by client applications to get a token from the SignalR service, which clients can use to subscribe to a hub. This function should be named `negotiate`. For more information, see [Azure Functions development and configuration with Azure SignalR Service](/azure/azure-signalr/signalr-concept-serverless-development-config),
 
 #### Message.cs
 
@@ -108,7 +108,7 @@ Before you begin:
 * Make sure that you have a SignalR service provisioned in serverless mode on Azure.
 
 1. Enter your connection strings (Service Bus and SignalR) in the *local.settings.json* file.
-1. Enter the URL of the client application (SignalR client) in CORS (Cross-Origin Resource Sharing). For the most recent syntax, see [Azure Functions development and configuration with Azure SignalR Service](/azure/azure-signalr/signalr-concept-serverless-development-config.md).
+1. Enter the URL of the client application (SignalR client) in CORS (Cross-Origin Resource Sharing). For the most recent syntax, see [Azure Functions development and configuration with Azure SignalR Service](/azure/azure-signalr/signalr-concept-serverless-development-config).
 1. Enter your service bus queue name in the service bus trigger in the *Message.cs* file.
 
 Now, let's configure the client application to test it. First, grab the example sources from the [solution-architectures](https://github.com/mspnp/solution-architectures/tree/master/signalr) GitHub page.

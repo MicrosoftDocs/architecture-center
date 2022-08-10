@@ -149,7 +149,7 @@ Other contributors:
 ## Next steps
 
 -   [Copy and ingest data using Azure Data Factory](/azure/data-factory/data-factory-tutorials#copy-and-ingest-data)
--   [Deploy machine learning models to Azure](/azure/machine-learning/how-to-deploy-and-where?tabs=azcli)
+-   [Deploy machine learning models to Azure](/azure/machine-learning/how-to-deploy-managed-online-endpoints)
 -   [Install Ray on Kubernetes cluster](https://docs.ray.io/en/latest/cluster/kubernetes.html)
 -   [Ray.io framework documentation](https://docs.ray.io/en/latest/index.html)
 -   [Ray installation on Kubernetes](https://docs.ray.io/en/latest/cluster/kubernetes.html)

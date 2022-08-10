@@ -44,7 +44,7 @@ The following are features of QBS:
 QBS is currently accessible as a Private offering on Azure. You can access QBS using one of the following ways:
 
 - Sign-up directly on the [ConsenSys Quorum Blockchain Service](https://consensys.net/quorum/qbs/#qbs-private-preview) page.
-- Click “Contact Me” on [Microsoft Azure market place](https://azuremarketplace.microsoft.com/marketplace/apps/consensys.qbs-contact-me?tab=Overview).
+- Click “Contact Me” on [Microsoft Azure market place](https://azuremarketplace.microsoft.com/marketplace/apps/consensys.quorum-blockchain-service?tab=Overview).
 - Inquire directly with [QBS Support](https://quorum-support.zendesk.com).
 
 The elements of the architectural diagram are explained below:
