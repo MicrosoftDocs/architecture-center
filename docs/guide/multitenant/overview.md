@@ -21,15 +21,15 @@ ms.custom:
 
 # Architect multitenant solutions on Azure
 
-A multitenant solution is one used by multiple customers, or *tenants*. Tenants are distinct from users. Multiple users from a single organization, company, or group form a single tenant. Examples of multitenant applications include:
+A multitenant solution is one used by multiple customers or tenants. Tenants are distinct from users. Numerous users from a single organization, company, or group form a single tenant. Examples of multitenant applications include:
 
 * Business-to-business (B2B) solutions, such as accounting software, work tracking, and other software as a service (SaaS) products.
 * Business-to-consumer (B2C) solutions, such as music streaming, photo sharing, and social network services.
-* Enterprise-wide platform solutions, such as a shared Kubernetes cluster that's used by multiple business units within an organization.
+* Enterprise-wide platform solutions, such as a shared Kubernetes cluster used by multiple business units within an organization.
 
-When you build your own multitenant solution in Azure, there are several elements you need to consider that factor into your architecture.
+When you build your multi-tenant solution in Azure, there are several elements you need to consider that factor into your architecture.
 
-In this series, we provide guidance about how to design, build, and operate your own multitenant solutions in Azure.
+This series guides how to design, build, and operate your multitenant solutions in Azure.
 
 > [!NOTE]
 > In this series, we use the term *tenant* to refer to **your** tenants, which might be your customers or groups of users. Our guidance is intended to help you to build your own multitenant software solutions on top of the Azure platform.
@@ -38,13 +38,13 @@ In this series, we provide guidance about how to design, build, and operate your
 
 ## Scope
 
-While Azure is itself a multitenant service, and some of our guidance is based on our experience with running large multitenant solutions, the focus of this series is on helping you build your own multitenant services, while harnessing the power of the Azure platform.
+While Azure is a multitenant service, and some of our guidance is based on our experience running large multitenant solutions, this series focuses on helping you build your multitenant services while harnessing the power of the Azure platform.
 
-Additionally, when you design a solution, there are many areas you need to consider. The content in this section is specific to how you design for multitenancy. We don't cover all of the features of the Azure services, or all of the architectural design considerations for every application. You should read this guide in conjunction with the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index) and the documentation for each Azure service that you use.
+Additionally, when you design a solution, there are many areas you need to consider. The content in this section is specific to how you plan for multitenancy. We don't cover all of the features of the Azure services or the architectural design considerations for every application. You should read this guide in conjunction with the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/index) and the documentation for each Azure service that you use.
 
 ## Intended audience
 
-The guidance provided in this series is applicable to anyone building a multitenant application in Azure. The audience also includes independent software vendors (ISVs) and startups who are building SaaS products, whether they are targeted for businesses or consumers. It also includes anyone building a product or platform that's intended to be used by multiple customers or tenants.
+The guidance provided in this series applies to anyone building a multitenant application in Azure. The audience also includes independent software vendors (ISVs) and startups who are building SaaS products, whether they are targeted at businesses or consumers. It also includes anyone building a product or platform intended to be used by multiple customers or tenants.
 
 The content throughout this series is designed to be useful for technical decision-makers, like chief technology officers (CTOs) and architects, and anyone designing or implementing a multitenant solution on Microsoft Azure.
 
@@ -59,7 +59,7 @@ The content in this series is composed of three main sections:
 
 * [**Architectural considerations for a multitenant solution:**](considerations/overview.yml) This section provides an overview of the key requirements and considerations you need to be aware of when planning and designing a multitenant solution.
 
-  The pages in this section are particularly relevant for technical decision-makers, like chief technology officers (CTOs) and architects. Product managers will also find it valuable to understand how multitenancy affects their solutions. Additionally, anyone who works with multitenant architectures should have some familiarity with these principles and tradeoffs.
+  The pages in this section are particularly relevant for technical decision-makers, like chief technology officers (CTOs) and architects. However, product managers will also find it valuable to understand how multitenancy affects their solutions. Additionally, anyone working with multitenant architectures should be familiar with these principles and tradeoffs.
 
 * [**Architectural approaches for multitenancy:**](approaches/overview.yml) This section describes the approaches you can consider when designing and building multitenant solutions, by using key cloud resource types. The section includes a discussion how to build multitenant solutions with compute, networking, storage, and data components, as well as deployment, configuration, governance, and cost management.
 
