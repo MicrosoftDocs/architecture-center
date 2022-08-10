@@ -22,7 +22,7 @@ categories:
 
 These design patterns are useful for building reliable, scalable, secure applications in the cloud.
 
-Each pattern describes the problem that the pattern addresses, considerations for applying the pattern, and an example based on Microsoft Azure. Most of the patterns include code samples or snippets that show how to implement the pattern on Azure. However, most of the patterns are relevant to any distributed system, whether hosted on Azure or on other cloud platforms.
+Each pattern describes the problem that the pattern addresses, considerations for applying the pattern, and an example based on Microsoft Azure. Most patterns include code samples or snippets showing how to implement the pattern on Azure. However, most patterns are relevant to any distributed system, whether hosted on Azure or other cloud platforms.
 
 ## Challenges in cloud development
 
@@ -31,21 +31,21 @@ Each pattern describes the problem that the pattern addresses, considerations fo
     <td><a href="./category/data-management.md"><img src="_images/category/data-management.svg" alt="Data management" /></a></td>
     <td>
         <h3><a href="./category/data-management.md">Data Management</a></h3>
-        <p>Data management is the key element of cloud applications, and influences most of the quality attributes. Data is typically hosted in different locations and across multiple servers for reasons such as performance, scalability or availability, and this can present a range of challenges. For example, data consistency must be maintained, and data will typically need to be synchronized across different locations.</p>
+        <p>Data management is the key element of cloud applications and influences most quality attributes. Data is typically hosted in different locations and across multiple servers for performance, scalability or availability, and this can present various challenges. For example, data consistency must be maintained, and data will typically need to be synchronized across different locations.</p>
     </td>
 </tr>
 <tr>
     <td><a href="./category/design-implementation.md"><img src="_images/category/design-implementation.svg" alt="Design and implementation" /></a></td>
     <td>
         <h3><a href="./category/design-implementation.md">Design and Implementation</a></h3>
-        <p>Good design encompasses factors such as consistency and coherence in component design and deployment, maintainability to simplify administration and development, and reusability to allow components and subsystems to be used in other applications and in other scenarios. Decisions made during the design and implementation phase have a huge impact on the quality and the total cost of ownership of cloud hosted applications and services.</p>
+        <p>Good design encompasses consistency and coherence in component design and deployment, maintainability to simplify administration and development, and reusability to allow components and subsystems to be used in other applications and scenarios. Decisions made during the design and implementation phase significantly impact the quality and total cost of ownership of cloud-hosted applications and services.</p>
     </td>
 </tr>
 <tr>
     <td><a href="./category/messaging.md"><img src="_images/category/messaging.svg" alt="Messaging icon" /></a></td>
     <td>
         <h3><a href="./category/messaging.md">Messaging</a></h3>
-        <p>The distributed nature of cloud applications requires a messaging infrastructure that connects the components and services, ideally in a loosely coupled manner in order to maximize scalability. Asynchronous messaging is widely used, and provides many benefits, but also brings challenges such as the ordering of messages, poison message management, idempotency, and more.</p>
+        <p>The distributed nature of cloud applications requires a messaging infrastructure that connects the components and services, ideally loosely coupled to maximize scalability. Asynchronous messaging is widely used and provides many benefits, but it also brings challenges such as ordering messages, poison message management, idempotency, and more.</p>
     </td>
 </tr>
 </table>
