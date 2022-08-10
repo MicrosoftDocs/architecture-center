@@ -34,7 +34,7 @@ The [design strategies for mission-critical baseline](/azure/architecture/refere
 
 ## Architecture
 
-![Architecture diagram of mission critical networking.](./images/mission-critical-architecture-network.png)
+![Architecture diagram of mission critical networking.](./images/mission-critical-architecture-network.svg)
 
 The components of this architecture can be broadly categorized in this manner. For product documentation about Azure services, see [Related resources](#related-resources). 
 
