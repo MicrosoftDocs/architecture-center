@@ -61,7 +61,7 @@ The regional resources are provisioned as part of a _deployment stamp_ to a sing
 
 **Azure Virtual Networks** provide secure environments for running the workload and management operations. 
 
-**Internal load balancer** is the application origin. Front Door uses this origin for establishing a private and direct connectivity to the backend using Private Link. 
+**Internal load balancer** is the application origin. Front Door uses this origin for establishing private and direct connectivity to the backend using Private Link. 
 
 **Azure Kubernetes Service (AKS)** is the orchestrator for backend compute that runs an application and is stateless. The AKS cluster is deployed as a private cluster. So, the Kubernetes API server isn't exposed to the public internet. Access to the API server is limited to a private network. For more information, see the [Compute cluster](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-app-platform#compute-cluster) article of this architecture.
 
@@ -123,7 +123,7 @@ In this architecture, private endpoints have been configured for Azure Container
 
 There are two virtual networks provisioned in this design and both have dedicated subnets to hold private endpoints for all those services. The network layout is described in [Virtual network layout](#virtual-network-layout).
 
-As you add more components to the architecture, consider adding more private endpoints. For example, you can add restrictions to the [observability resources](#observability-resources). Both Azure Log Analytics and Azure Application Insights support the use of private endpoints.
+As you add more components to the architecture, consider adding more private endpoints. For example, you can add restrictions to the [observability resources](#observability-resources). Both Azure Log Analytics and Azure Application Insights support the use of private endpoints. For details, see [Use Azure Private Link to connect networks to Azure Monitor](/azure/azure-monitor/logs/private-link-security).
 
 They can be created on the same or different subnets within the same virtual network. There are limits to the number of private endpoints you can create in a subscription. For more information, see [Azure limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
 
@@ -146,7 +146,7 @@ For more information, see [How Private Link works](/azure/frontdoor/private-link
 
 ## Restricted egress
 
-Applications might require some outbound internet connectivity. Controlling that traffic provides a way to limit, monitor, and restrict egress traffic. Otherwise, unexpected inside-out access might lead to a compromise and potentially an unreliable system state. 
+Applications might require some outbound internet connectivity. Controlling that traffic provides a way to limit, monitor, and restrict egress traffic. Otherwise, unexpected inside-out access might lead to compromise and potentially an unreliable system state. Restricted egress can also solve for other security concerns, such as data exfiltration.
 
 Using firewall and Network Security Groups (NSGs) can make sure that outbound traffic from the application is inspected and logged.
 
@@ -223,7 +223,11 @@ You can further restrict access to the jump box subnet by using an NSG that only
 
 To build deployment pipelines, you need to provision additional compute to run build agents. These resources won't directly impact the runtime availability of the workload but a reliability failure can jeopardize the ability to deploy or service your mission critical environment. So, reliability features should be extended to these resources.
 
-This architecture uses virtual machine scale sets for both build agens and jump boxes (as opposed to single VMs). Also, network segmentation is provided through the use of subnets. Ingress is restricted to Azure DevOps. 
+This architecture uses virtual machine scale sets for both build agents and jump boxes (as opposed to single VMs). Also, network segmentation is provided through the use of subnets. Ingress is restricted to Azure DevOps. 
+
+## Cost considerations
+
+There's is a significant impact on cost for mission-critical workloads. In this architecture, technology choices such as using Azure Front Door Premium SKU and provisioning Azure Firewall in each stamp will lead to increased costs. There are also added costs related to maintenance and operational resources. Such tradeoffs must be carefully considered before adopting a network-controlled version of the baseline architecture. 
 
 ## Deploy this architecture
 
@@ -236,7 +240,7 @@ The networking aspects of this architecture are implemented in the Mission-Criti
 > The Connected implementation is intended to illustrate a mission-critical workload that relies on organizational resources, integrates with other workloads, and uses shared services. It builds on this reference architecture and uses the network controls described in this article. However, the Connected scenario assumes that virtual private network or Azure Private DNS Zone already exist within the Azure landing zones connectivity subscription.
 
 ## Next steps
-For details on the design decisons made in this architecture, review the networking and connectivity design area for mission-critical workloads in Azure Well-architected Framework.
+For details on the design decisions made in this architecture, review the networking and connectivity design area for mission-critical workloads in Azure Well-architected Framework.
 
 > [!div class="nextstepaction"]
 > [Design area: Networking and connectivity](/azure/architecture/framework/mission-critical/mission-critical-networking-connectivity)
