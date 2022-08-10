@@ -326,6 +326,8 @@ items:
               items:
                 - name: Application platform
                   href: reference-architectures/containers/aks-mission-critical/mission-critical-app-platform.md
+                - name: Application design
+                  href: reference-architectures/containers/aks-mission-critical/mission-critical-app-design.md
                 - name: Deployment and testing
                   href: reference-architectures/containers/aks-mission-critical/mission-critical-deploy-test.md
                 - name: Networking and connectivity platform
@@ -2380,6 +2382,8 @@ items:
                     href: example-scenario/iot/smart-places.yml
           - name: Aerospace
             items:
+              - name: Overview
+                href: industries/aerospace.md
               - name: Guides
                 items:
                   - name: Azure Orbital for space communication
