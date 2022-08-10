@@ -7,7 +7,7 @@ Moodle strives to meet the demands of home workers and to provide the best possi
 - Consistent high-throughput, low-latency access to shared storage.
 - A way to scale up the solution to accommodate an increasing number of concurrent users. Customers prefer autoscaling configurations.
 
-This article outlines a solution that meets Moodle's needs. At the core of the solution is Azure NetApp Files, a first-party Azure file storage service. You can use this service to migrate and run the most demanding enterprise-scale file workloads in the cloud:
+This article outlines a solution that meets Moodle's needs. At the core of the solution is Azure NetApp Files, a first-party Azure File Storage service. You can use this service to migrate and run the most demanding enterprise-scale file workloads in the cloud:
 
 - Native Server Message Block (SMB) version 3, NFSv3, and NFSv4.1 file shares
 - Database workloads
