@@ -5,9 +5,9 @@ This reference architecture provides guidance for designing a mission critical w
 
 ## Reliability tier
 
-Reliability is a relative concept and for a workload to be appropriately reliable it should reflect the business requirements surrounding it, including Service Level Objectives (SLO) and Service Level Agreements (SLA) to capture the percentage of time the application should be available.
+Reliability is a relative concept, and for a workload to be appropriately reliable, it should reflect the business requirements surrounding it, including Service Level Objectives (SLO) and Service Level Agreements (SLA), to capture the percentage of time the application should be available.
 
-This reference architecture targets an SLO of 99.99%, which corresponds to a permitted annual downtime of 52 minutes and 35 seconds. All encompassed design decisions are therefore intended to accomplish this target SLO.
+This reference architecture targets an SLO of 99.99%, corresponding to a permitted annual downtime of 52 minutes and 35 seconds. All encompassed design decisions are therefore intended to accomplish this target SLO.
 
 > [!TIP]
 > To define a realistic SLO, it's important to understand the SLA of all Azure components within the architecture. These individual numbers should be aggregated to determine a [composite SLA](/azure/architecture/framework/resiliency/business-metrics#composite-slas) which should align with workload targets.
@@ -16,7 +16,7 @@ This reference architecture targets an SLO of 99.99%, which corresponds to a per
 
 ## Key design strategies
 
-Many factors can affect the reliability of an application, such as the ability to recover from failure, regional availability, deployment efficacy, and security. This reference architecture applies a set of overarching design strategies intended to address these factors and ensure the target reliability tier is achieved.
+Many factors can affect the reliability of an application, such as the ability to recover from failure, regional availability, deployment efficacy, and security. This reference architecture applies overarching design strategies to address these factors and ensure the target reliability tier is achieved.
 
 - **Redundancy in layers**
     - Deploy to _multiple regions in an active-active model_. The application is distributed across two or more Azure regions that handle active user traffic. 
@@ -56,8 +56,7 @@ The components of this architecture can be broadly categorized in this manner. F
 
 ### Global resources
 
-The global resources are long living and share the lifetime of the system. They have the capability of being globally available within the context of a multi-region deployment model. 
-
+The global resources are long living and share the lifetime of the system. Therefore, they can be globally available within a multi-region deployment model.
 
 #### Global load balancer
 
@@ -102,7 +101,7 @@ In this architecture, a unified deployment pipeline deploys a stamp with these r
 
 This architecture uses a single page application (SPA) that send requests to backend services. An advantage is that the compute needed for the website experience is offloaded to the client instead of your servers. The SPA is hosted as a **static website in an Azure Storage Account**.
 
-Another choice is Azure Static Web Apps, which introduces additional considerations, such as how the certificates are exposed, connectivity to global load balancer, and other factors.
+Another choice is Azure Static Web Apps, which introduces additional considerations, such as how the certificates are exposed, connectivity to a global load balancer, and other factors.
 
 Static content is typically cached in a store close to the client, using a content delivery network (CDN), so that the data can be served quickly without communicating directly with backend servers. It's a cost-effective way to increase reliability and reduce network latency. In this architecture, the **built-in CDN capabilities of Azure Front Door** are used to cache static website content at the edge network.
 
@@ -110,7 +109,7 @@ Static content is typically cached in a store close to the client, using a conte
 
 The backend compute runs an application composed of three microservices and is stateless. So, containerization is an appropriate strategy to host the application. **Azure Kubernetes Service (AKS)** was chosen because it meets most business requirements and Kubernetes is widely adopted across many industries. AKS supports advanced scalability and deployment topologies. The AKS [Uptime SLA tier](/azure/aks/uptime-sla) is highly recommended for hosting mission critical applications because it provides availability guarantees for the Kubernetes control plane. 
 
-Azure offers other compute services such as Azure Functions, Azure App Services. Those options offload additional management responsibilities to Azure at the cost of flexibility and density. 
+Azure offers other compute services such as Azure Functions and Azure App Services. Those options offload additional management responsibilities to Azure at the cost of flexibility and density. 
 
 > [!NOTE] 
 >  Avoid storing state on the compute cluster, keeping in mind the ephemeral nature of the stamps. As much as possible, persist state in an external database to keep scaling and recovery operations lightweight. For example in AKS, pods change frequently. Attaching state to pods will add the burden of data consistency.
@@ -121,7 +120,7 @@ Azure offers other compute services such as Azure Functions, Azure App Services.
 
 To optimize performance and maintain responsiveness during peak load, the design uses asynchronous messaging to handle intensive system flows. As a request is quickly acknowledged back to the frontend APIs, the request is also queued in a message broker. These messages are subsequently consumed by a backend service that, for instance, handles a write operation to a database. 
 
-The entire stamp is stateless except for at certain points, such as this message broker. Data is queued in the broker for a short period of time. The message broker must guarantee at least once delivery. This means even if the broker becomes unavailable, messages will be in the queue after the service is restored. However, it's the consumer's responsibility to determine whether those messages still need processing. The queue is drained after the message is processed and stored in a global database.
+The entire stamp is stateless except at certain points, such as this message broker. Data is queued in the broker for a short period of time. The message broker must guarantee at least once delivery. This means messages will be in the queue if the broker becomes unavailable after the service is restored. However, it's the consumer's responsibility to determine whether those messages still need processing. The queue is drained after the message is processed and stored in a global database.
 
 In this design, **Azure Event Hubs** is used. An additional Azure Storage account is provisioned for checkpointing. Event Hubs is the recommended choice for use cases that require high throughput, such as event streaming.
 
@@ -137,7 +136,7 @@ Each stamp has its own **Azure Key Vault** that stores secrets and configuration
 
 ### Deployment pipeline
 
-Build and release pipelines for a mission critical application must be fully automated. No action should be performed manually. This design demonstrates fully automated pipelines that deploy a validated stamp consistently every time. Another alternative approach is to only deploy rolling updates to an existing stamp.  
+Build and release pipelines for a mission-critical application must be fully automated. Therefore no action should need to be performed manually. This design demonstrates fully automated pipelines that deploy a validated stamp consistently every time. Another alternative approach is to only deploy rolling updates to an existing stamp.  
 
 #### Source code repository
 
@@ -176,7 +175,8 @@ In this architecture, monitoring resources within a region must be independent f
 Similarly, data from shared services such as, Azure Front Door, Cosmos DB, and Container Registry are stored in dedicated instance of Log Analytics Workspace. 
 
 #### Data archiving and analytics
-Operational data that isn't required for active operations is exported from Log Analytics to Azure Storage Accounts for both data retention purposes and to provide an analytical source for AIOps, which can be applied to optimize the application health model and operational procedures.
+
+Operational data that isn't required for active operations are exported from Log Analytics to Azure Storage Accounts for both data retention purposes and to provide an analytical source for AIOps, which can be applied to optimize the application health model and operational procedures.
 
 > Refer to [Well-architected mission critical workloads: Predictive action and AI operations](/azure/architecture/framework/mission-critical/mission-critical-health-modeling#predictive-action-and-ai-operations-aiops).
 
@@ -219,7 +219,7 @@ The description of this flow is in the following sections.
 
 ## Design areas
 
-We suggest that you explore these design areas for recommendations and best practice guidance when defining your own mission critical architecture.
+We suggest you explore these design areas for recommendations and best practice guidance when defining your mission-critical architecture.
 
 |Design area|Description|
 |---|---|
