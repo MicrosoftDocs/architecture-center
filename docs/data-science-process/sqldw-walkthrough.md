@@ -976,7 +976,7 @@ In this exercise, we have already explored and engineered the data in Azure Syna
 
 ## <a name="mldeploy"></a>Deploy models in Azure Machine Learning
 
-When your model is ready, you can easily deploy it as a web service directly from the model stored in the experiment run.  For details on the options for deployment, see [Deploy machine learning models to Azure](/azure/machine-learning/how-to-deploy-and-where)
+When your model is ready, you can easily deploy it as a web service directly from the model stored in the experiment run.  For details on the options for deployment, see [Deploy machine learning models to Azure](/azure/machine-learning/how-to-deploy-managed-online-endpoints)
 
 ## Summary
 
