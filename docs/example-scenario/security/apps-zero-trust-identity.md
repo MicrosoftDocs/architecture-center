@@ -1,77 +1,77 @@
-Contoso Media Product team has already migrated a couple of their applications into Azure App Service. These applications are currently using custom implemented Authentication and Authorization. 
+The Contoso Media product team has migrated some applications into Azure App Service. These applications use custom-implemented authentication and authorization.
 
 Contoso Media applications and data are moving from on-premises to hybrid and cloud environments. Contoso Media can no longer rely on traditional network controls for security. Controls need to move to where the data is: on devices, inside apps, and with partners.
 
-The Contoso Media team would like to increase their developers velocity and decrease costs while using serverless and PaaS technologies such as Azure Functions and Azure SQL Database. They have heard about Microsoft Zero Trust concept and would like to implement modern and more secure access to their services:
+The Contoso Media team wants to increase developer speed and decrease costs while using serverless and PaaS technologies like Azure Functions and Azure SQL Database. They've heard about Microsoft Zero Trust and want to implement more modern and secure access to their services:
 
-- Expose and provide their APIs to the partners through the Azure API Management (APIM). Partner developers shall have a limited access to the APIs during the development, partner pre-production and production environments, however should have unlimited access to the Contoso Media APIs
-- Protect access to the API back-end so that only one particular APIM instance can access it
-- Protect access to the Azure SQL database used by the API back-end so that only one particular identity of the REST API back-end can access it
+- Expose and provide their APIs to partners through Azure API Management. Partner developers need to have limited access to the APIs during the development. Partner pre-production and production environments, however, should have unlimited access to the Contoso Media APIs.
+- Protect access to the API back end so that only one specific API Management instance can access it.
+- Protect access to the Azure SQL database used by the API back end so that only one specific identity of the REST API back end can access it.
 
-Zero Trust will become a unified approach for Contoso Media operations team ensuring all their [applications, and the data they contain, are protected by](/security/zero-trust/deploy/applications):
+Zero Trust provides a unified approach for the Contoso Media operations team to ensure all their [applications, and the data they contain, are protected](/security/zero-trust/deploy/applications). Zero Trust:
 
-- Applying controls and technologies to discover shadow IT.
-- Ensuring appropriate in-app permissions.
-- Limiting access based on real-time analytics.
-- Monitoring for abnormal behavior.
-- Controlling user actions.
-- Validating secure configuration options.
+- Applies controls and technologies to discover shadow IT.
+- Ensures appropriate in-app permissions.
+- Limits access based on real-time analytics.
+- Monitors for abnormal behavior.
+- Controls user actions.
+- Validates secure configuration options.
 
-Protecting API implementation and Azure SQL as described here, is just one scenario covering “Verify Explicitly” Zero Trust principle, further scenarios include user identity and device protection, but all of them will use the same framework and services provided by Azure Active Directory.
+Protecting API implementation and Azure SQL, as described here, is just one facet of the *verify explicitly* Zero Trust principle. Other elements include user identity and device protection. All elements use the framework and services provided by Azure Active Directory (Azure AD).
 
 ### Potential use cases
 
-As [this document](/azure/active-directory/develop/zero-trust-for-developers) states "A secure network perimeter around the applications that are developed can't be assumed. Nearly every developed application, by design, will be accessed from outside the network perimeter. Applications can't be guaranteed to be secure when they're developed or will remain so after they're deployed. It's the responsibility of the application developer to not only maximize the security of the application, but also minimize the damage the application can cause if it's compromised."
+You can't assume a secure network perimeter around applications. Nearly every application, by design, is accessed from outside the network perimeter. You also can't assume that applications are secure when they're developed or will remain secure after they're deployed. It's the responsibility of the application developer to maximize the security of the application and also to minimize the damage that can occur if it's compromised. For more information, see [Increase application security using Zero Trust principles](/azure/active-directory/develop/zero-trust-for-developers).
 
-This pattern can be applied for the variety of industries and architectures:
+This pattern can be applied for many industries and architectures:
 
-- A database service needs to trust only to a limited number of Web Applications or APIs
-- An API back-end needs to trust only to a limited number of the API Management instances
-- An API back-end needs to trust only to a limited number of the Web Applications
+- A database service needs to trust only a limited number of web applications or APIs.
+- An API back end needs to trust only a limited number of the API Management instances.
+- An API back end needs to trust only a limited number of the web applications.
 
-In all these cases the architecture needs implement identity based ["Verify explicitly"](/security/zero-trust/user-access-productivity-validate-trust#deployment-objectives-2) Zero Trust guiding principle – not only for the end-user identities, but also for the services included into the architecture.
+In all of these cases, the architecture needs to implement the identity-based [verify explicitly](/security/zero-trust/user-access-productivity-validate-trust#deployment-objectives-2) Zero Trust principle, for end-user identities and also for the services included in the architecture.
 
 ## Architecture
 
-image 
+alt text Diagram that shows an architecture for building apps with a Zero Trust approach to identity.
 
-Figure 1. Building apps with a Zero Trust approach to identity. API Management
+*Download a [Visio file]() of this architecture.*
 
-download link 
+### Workflow
 
-1a. After Contoso Media organization provided APIs through the APIM, external partner developers from the Fabrikam organization can start testing it by using APIM “Fabrikam Developer” Product key issued for the non-production purposes.
+(1a) After Contoso Media provides APIs through API Management, external partner developers from Fabrikam can test it by using the API Management Fabrikam Developer product key, issued for non-production purposes.
 
-2a. Fabrikam can run developer tests through the APIM Developer Portal or through any HTTP client software and integrate it into their “Fabrikam Analytics” service. The requests will hit Contoso Media APIM Gateway which in turn will validate the “Fabrikam Developer” Product keys and apply associated policies. One of the common policies for such cases is a throttling policy.
+(2a) Fabrikam runs developer tests through the API Management developer portal or through any HTTP client software. They can integrate it into the Fabrikam Analytics service. The requests hit the Contoso Media API Management gateway, which validates the Fabrikam Developer product key and applies associated policies. A [throttling policy](/azure/api-management/api-management-sample-flexible-throttling#rate-limits-and-quotas) is commonly used in cases like this one.
 
-1b. After the tests and the integration work is done by the Fabrikam developers, the “Fabrikam Analytics” solution will be deployed to the Fabrikam pre-production and production environments. These external services will be configured by the Fabrikam operations teams and will use “Production” APIM Product keys, provided to them by Contoso Media.
+(1b) After Fabrikam developers complete the tests and the integration work, the Fabrikam Analytics solution is deployed to the Fabrikam pre-production and production environments. These external services are configured by the Fabrikam operations teams and use Production API Management product keys, provided by Contoso Media.
 
-2b. The requests from “Fabrikam Analytics” will also hit Contoso Media APIM Gateway validating the “Fabrikam Production” APIM Product keys and applying associated APIM policies.   
+(2b) The requests from Fabrikam Analytics also hit the Contoso Media API Management gateway, which validates the Fabrikam Production API Management product keys and applies associated API Management policies.
 
-3. APIM Gateway accesses the back-end API for both request sources – 2a and 2b. Since Azure Function based HTTP API backend is configured for the Active Directory authentication and trusts only the managed identity of the APIM Gateway, it can successfully access the Function. No other services can access Function apart of this particular APIM instance.
+(3) The API Management gateway accesses the back-end API for both request sources: 2a and 2b. Because the HTTP API back end, which is based on Azure Functions, is configured for Active Directory authentication and trusts only the managed identity of the API Management gateway, it can access the function. No services can access the function, other than this particular API Management instance.
 
-4. Azure Function accesses Azure SQL database. Since managed identity of the Azure Function was granted access to the Azure SQL database, only Azure Function can access the database 
+(4) Azure Functions accesses Azure SQL Database. Because the managed identity of the Azure function was granted access to the SQL database, only the Azure function can access the database.
 
-Steps 3 and 4 demonstrate identity-based implementation of the Zero Trust principle.
+Steps 3 and 4 demonstrate an identity-based implementation of the Zero Trust principle.
 
-Implementation steps
+### Implementation steps
 
-In order to implement this architecture manually and test it, you will need to implement the following steps
+To implement this architecture manually and test it, you need to complete these steps:
 
-- [Create Azure Functions in VS Code](/azure/azure-functions/functions-develop-vs-code?tabs=csharp)
-- [Create SQL Database](/azure/azure-sql/database/single-database-create-quickstart) and add [SQL Bindings to the Functions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Sql).
-- Deploy Azure Function based back-end API into Azure [from VS Code](/azure/azure-functions/functions-develop-vs-code?tabs=csharp#republish-project-files)
-- [Create an APIM instance](/azure/api-management/get-started-create-service-instance) and expose the [Azure Function based API back-end through the APIM](/azure/api-management/import-function-app-as-api). 
-- Secure the back-end API through Azure Active Directory so that only this APIM identity can access the back-end API
-  - Make sure that your APIM instance is assigned to a [Managed Identity](/azure/api-management/api-management-howto-use-managed-service-identity#create-a-system-assigned-managed-identity)
-  - [Configure your Azure Functions app to use Azure AD login](https://microsoft-my.sharepoint.com/personal/chkittel_microsoft_com/Documents/Microsoft Teams Chat Files/Azure Functions app to use Azure AD login)
-  - [Allow APIM to access the Function](/azure/api-management/api-management-authentication-policies#use-managed-identity-to-authenticate-with-a-backend-service)
-  - Allow *APIM identity only* to access your Azure Function based back-end by [creating an App Role in Azure AD for it](/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#usage-scenario-of-app-roles)
-  - [Limit access to the Function only to the users/roles in the App Role](/azure/active-directory/develop/howto-restrict-your-app-to-a-set-of-users#update-the-app-to-require-user-assignment)
-  - [Add your APIM Managed Identity to the App Role](/azure/active-directory/managed-identities-azure-resources/how-to-assign-app-role-managed-identity-cli#assign-a-managed-identity-access-to-another-applications-app-role)
-- Two APIM Products with two different API key sets need to be created
-  - "Fabrikam Developer" for the partner developers and being exposed through the APIM Developer Portal with the [corresponding policies](/azure/api-management/api-management-sample-flexible-throttling#product-based-throttling)
-  - "Fabrikam Production" for the partner IT department
-- Protect access to Azure SQL through Azure AD while using Functions. [Based on this](/azure/azure-functions/functions-identity-access-azure-sql-with-managed-identity) and [this tutorial](/azure/azure-functions/functions-identity-access-azure-sql-with-managed-identity)
+1. [Create Azure functions in Visual Studio Code](/azure/azure-functions/functions-develop-vs-code?tabs=csharp).
+2. [Create a SQL database](/azure/azure-sql/database/single-database-create-quickstart) and add [SQL bindings to the functions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Sql).
+3. Deploy the back-end API, based on Azure Functions, into Azure [from Visual Studio Code](/azure/azure-functions/functions-develop-vs-code?tabs=csharp#republish-project-files).
+4. [Create an API Management instance](/azure/api-management/get-started-create-service-instance) and expose the [API back end by using API Management](/azure/api-management/import-function-app-as-api). 
+5. Secure the back-end API via Azure AD so that only this API Management identity can access the back-end API.
+   - Be sure that your API Management instance is assigned to a [managed identity](/azure/api-management/api-management-howto-use-managed-service-identity#create-a-system-assigned-managed-identity).
+   - [Configure your Azure Functions app to use Azure AD login](https://microsoft-my.sharepoint.com/personal/chkittel_microsoft_com/Documents/Microsoft Teams Chat Files/Azure Functions app to use Azure AD login)
+   - [Allow API Management to access the Function](/azure/api-management/api-management-authentication-policies#use-managed-identity-to-authenticate-with-a-backend-service)
+   - Allow *API Management identity only* to access your Azure Function based back-end by [creating an App Role in Azure AD for it](/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#usage-scenario-of-app-roles)
+   - [Limit access to the Function only to the users/roles in the App Role](/azure/active-directory/develop/howto-restrict-your-app-to-a-set-of-users#update-the-app-to-require-user-assignment)
+   - [Add your API Management Managed Identity to the App Role](/azure/active-directory/managed-identities-azure-resources/how-to-assign-app-role-managed-identity-cli#assign-a-managed-identity-access-to-another-applications-app-role)
+6. Two API Management Products with two different API key sets need to be created
+   - "Fabrikam Developer" for the partner developers and being exposed through the API Management Developer Portal with the [corresponding policies](/azure/api-management/api-management-sample-flexible-throttling#product-based-throttling)
+   - "Fabrikam Production" for the partner IT department
+7. Protect access to Azure SQL through Azure AD while using Functions. [Based on this](/azure/azure-functions/functions-identity-access-azure-sql-with-managed-identity) and [this tutorial](/azure/azure-functions/functions-identity-access-azure-sql-with-managed-identity)
 
 ### Components
 
