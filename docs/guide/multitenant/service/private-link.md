@@ -37,7 +37,7 @@ When you use Private Link, it's important to consider the service that you want 
 
 - An application hosting platform, like Azure App Service.
 - A network or API gateway, like Azure Application Gateway or Azure API Management.
-- Virtual machines.
+- Virtual machines behind a standard load balancer.
 
 The application platform you use determines many aspects of your Private Link configuration, and the limits that apply. Additionally, some services don't support Private Link for inbound traffic.
 
