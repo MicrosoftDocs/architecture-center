@@ -3,7 +3,7 @@ title: Migration architecture design
 description: Get an overview of Azure migration technologies, guidance offerings, solution ideas, and reference architectures.
 author: EdPrice-MSFT
 ms.author: architectures
-ms.date: 08/10/2022
+ms.date: 08/11/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -16,7 +16,7 @@ categories:
 ---
 # Migration architecture design
 
-Azure provides resources for every stage of your cloud migration with tools and guidance to help you move and manage your workloads.
+Azure provides resources for every stage of your cloud migration, with tools and guidance to help you move and manage your workloads.
 
 These are just some of the key migration services available on Azure:
 
@@ -73,7 +73,7 @@ The following sections provide links to reference architectures in a few high-le
 - [Migrate workloads for Azure VMware Solution](/azure/cloud-adoption-framework/scenarios/azure-vmware/migrate?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
 - [Azure Migrate agentless migration of VMware virtual machines](/azure/migrate/concepts-vmware-agentless-migration?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
 - [Prepare for VMware agentless migration](/azure/migrate/prepare-for-agentless-migration?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
-- [VMware Agent-based migration architecture](/azure/migrate/agent-based-migration-architecture?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
+- [VMware agent-based migration architecture](/azure/migrate/agent-based-migration-architecture?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
 
 ### Mainframe migrations
 
@@ -110,7 +110,7 @@ Following are some additional migration architectures to consider:
 - [Migrate an e-commerce solution to Azure](../../industries/retail/migrate-ecommerce-solution.md)
 - [Lift and shift to containers with AKS](../../solution-ideas/articles/migrate-existing-applications-with-aks.yml)
 - [Migrate an Azure Cloud Services application to Azure Service Fabric](../../service-fabric/migrate-from-cloud-services.yml)
-- [Migrate a monolith application to microservices using domain-driven design](../../microservices/migrate-monolith.yml)
+- [Migrate a monolithic application to microservices using domain-driven design](../../microservices/migrate-monolith.yml)
 - [Support matrix for migration of physical servers, AWS VMs, and GCP VMs](/azure/migrate/migrate-support-matrix-physical-migration?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
 - [Migrate a web app using Azure API Management](../../example-scenario/apps/apim-api-scenario.yml)
 - [JMeter implementation for a load testing pipeline](../../example-scenario/banking/jmeter-load-testing-pipeline-implementation-reference.yml)
@@ -120,7 +120,7 @@ Following are some additional migration architectures to consider:
 #### AWS
 
 - [Azure Migrate](/azure/migrate/migrate-services-overview) is comparable to [AWS Application Discovery Service](https://aws.amazon.com/application-discovery). Azure Migrate assesses on-premises workloads for migration to Azure, performs performance-based sizing, and provides cost estimations.
-- [Azure Database Migration Service](/azure/dms/dms-overview) is comparable to [AWS Database Migration Service](https://aws.amazon.com/dms). Azure Database Migration Service enables seamless migrations from multiple database sources to Azure Data platforms with minimal downtime.
+- [Azure Database Migration Service](/azure/dms/dms-overview) is comparable to [AWS Database Migration Service](https://aws.amazon.com/dms). Azure Database Migration Service enables seamless migrations from multiple database sources to Azure data platforms with minimal downtime.
 
 #### Google Cloud
 - [Google Cloud to Azure services comparison - Migration tools](../../gcp-professional/services.md#migration-tools)
