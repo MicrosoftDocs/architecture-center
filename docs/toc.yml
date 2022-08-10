@@ -5042,6 +5042,8 @@ items:
                 href: solution-ideas/articles/digital-media-video.yml
       - name: Migration
         items:
+          - name: Get started
+            href: guide/migration/migration-start-here.md
           - name: Guides
             items:
               - name: Migration deployments
