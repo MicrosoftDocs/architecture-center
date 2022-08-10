@@ -133,7 +133,7 @@ Control access to the services further by using [network security groups on the 
 
 Azure Front Door Premium SKU is used as the global entry point for all incoming client traffic. It uses Web Application Firewall (WAF) capabilities to allow or deny traffic at the network edge. The configured WAF rules prevent attacks even before they enter the stamp virtual networks. 
 
-This architecture also takes advantage of Front Door's capability to use Azure Private Link to access application origin without the use of public IPs/endpoints on the backends. This requires an internal load balancer in the stamp virtual network. This resource is in front of the  the Kubernetes Ingress Controller running in the cluster. On top of this private Load Balancer, a Private Link service is created by AKS, which is used for the private connection from Front Door.
+This architecture also takes advantage of Front Door's capability to use Azure Private Link to access application origin without the use of public IPs/endpoints on the backends. This requires an internal load balancer in the stamp virtual network. This resource is in front of the Kubernetes Ingress Controller running in the cluster. On top of this private Load Balancer, a Private Link service is created by AKS, which is used for the private connection from Front Door.
 
 After connection is established, Private endpoints on Front Door network have direct connectivity with the load balancer and static web site in the stamp network over Private Link. 
 
@@ -227,7 +227,7 @@ This architecture uses virtual machine scale sets for both build agents and jump
 
 ## Cost considerations
 
-There's is a significant impact on cost for mission-critical workloads. In this architecture, technology choices such as using Azure Front Door Premium SKU and provisioning Azure Firewall in each stamp will lead to increased costs. There are also added costs related to maintenance and operational resources. Such tradeoffs must be carefully considered before adopting a network-controlled version of the baseline architecture. 
+There's is a significant impact on cost for mission-critical workloads. In this architecture, technology choices such as using Azure Front Door Premium SKU and provisioning Azure Firewall in each stamp will lead to increased costs. There are also added cost related to maintenance and operational resources. Such tradeoffs must be carefully considered before adopting a network-controlled version of the baseline architecture. 
 
 ## Deploy this architecture
 

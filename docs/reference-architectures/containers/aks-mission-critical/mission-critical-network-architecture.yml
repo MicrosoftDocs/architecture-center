@@ -24,6 +24,7 @@ products:
   - azure-front-door
   - azure-firewall
   - azure-virtual-network
+  - azure-kubernetes-service  
 thumbnailUrl: /azure/architecture/browse/thumbs/mission-critical-architecture-network.svg
 content: |
    [!include[](mission-critical-network-architecture-content.md)]
