@@ -77,36 +77,36 @@ For example, suppose you build an internet-facing application that runs on a vir
 
 ## Isolation models
 
-Private Link is designed to support scenarios where a single application tier can be used by multiple separate clients, such as your tenants. When you consider isolation for Private Link, the main concern is around the number of resources you need to deploy to support your requirements. The tenant isolation models you can use for Private Link depend on the type of service that you use.
+Private Link is designed to support scenarios where a single application tier can be used by multiple separate clients, such as your tenants. When you consider isolation for Private Link, the main concern is around the number of resources you need to deploy to support your requirements. The tenant isolation models you can use for Private Link depend on the service that you use.
 
 ### Isolation models for Private Link service
 
-If you use Private Link service in conjunction with virtual machines behind a standard load balancer, there are several isolation models to consider.
+If you use Private Link service in conjunction with virtual machines behind a standard load balancer, there are several isolation models that you can consider.
 
-| Consideration | Shared private link service and shared load balancer | Dedicated private link service and dedicated load balancer | Dedicated Private Link service and shared load balancer |
+| Consideration | Shared Private Link service and shared load balancer | Dedicated Private Link service and dedicated load balancer | Dedicated Private Link service and shared load balancer |
 |-|-|-|-|
 | **Deployment complexity** | Low | Medium-high depending on the number of tenants. | Medium-high depending on the number of tenants. |
 | **Operational complexity** | Low | Medium-high depending on the number of resources. | Medium-high depending on the number of resources. |
-| **Limits to consider** | Number of private endpoints on the same private link service | Number of private link services per subscription | Number of private link services per standard load balancer | 
+| **Limits to consider** | Number of private endpoints on the same Private Link service | Number of Private Link services per subscription | Number of Private Link services per standard load balancer | 
 | **Example scenario** | Large multitenant solution with shared application tier | Separate deployment stamps for each tenant | Shared application tier in a single stamp with large numbers of tenants |
 
 In all three models, the level of data isolation and performance depends on the other elements of your solution, and the Private Link service deployment doesn't materially affect these factors.
 
 ### Shared Private Link service and shared standard load balancer
 
-You might consider deploying a shared private link service, which is connected to a standard load balancer. Each of your tenants can create a private endpoint and use it connect to your solution.
+You might consider deploying a shared Private Link service, which is connected to a standard load balancer. Each of your tenants can create a private endpoint and use it connect to your solution.
 
-A single Private Link service instance supports a large number of private endpoints. If you do exhaust the limit, you can deploy more Private Link service instances, although there are also limits to the number of Private Link services you can deploy on a single load balancer. If you expect that you'll approach these limits, consider using a Deployment Stamps-based approach, and deploy shared load balancers and private link service instances into each stamp.
+A single Private Link service instance supports a large number of private endpoints. If you do exhaust the limit, you can deploy more Private Link service instances, although there are also limits to the number of Private Link services you can deploy on a single load balancer. If you expect that you'll approach these limits, consider using a Deployment Stamps-based approach, and deploy shared load balancers and Private Link service instances into each stamp.
 
 ### Dedicated Private Link service and dedicated standard load balancer per tenant
 
-You can deploy a dedicated private link service and dedicated load balancer for each tenant. This approach makes sense when you have a dedicated set of virtual machines for each tenant, such as when your tenants have strict compliance requirements.
+You can deploy a dedicated Private Link service and dedicated load balancer for each tenant. This approach makes sense when you have a dedicated set of virtual machines for each tenant, such as when your tenants have strict compliance requirements.
 
 ### Dedicated Private Link service per tenant and shared standard load balancer
 
-You can also deploy dedicated Private Link service instances for each tenant, with a shared standard load balancer. However, this model is unlikely to provide much benefit. Additionally, because there is a limit to the number of private link services that you can deploy on a single standard load balancer, this model is not likely to scale beyond a small multitenant solution.
+You can also deploy dedicated Private Link service instances for each tenant, with a shared standard load balancer. However, this model is unlikely to provide much benefit. Additionally, because there is a limit to the number of Private Link services that you can deploy on a single standard load balancer, this model is not likely to scale beyond a small multitenant solution.
 
-More commonly, you can deploy multiple shared private link services, which enables you to expand the number of private endpoints that your solution can support on one shared load balancer.
+More commonly, you can deploy multiple shared Private Link services, which enables you to expand the number of private endpoints that your solution can support on one shared load balancer.
 
 ### Isolation models for Azure PaaS services with private endpoints
 
