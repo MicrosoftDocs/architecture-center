@@ -82,17 +82,17 @@ Build and release pipelines for a mission critical application must be fully aut
 
 **GitHub** is still used for source control as a highly available git-based platform.
 
-**Azure Pipelines** is chosen to automate pipelines are required for building, testing, and deploying a mission workload in preproduction _and_ production environments. 
+**Azure Pipelines** is chosen to automate pipelines that are required for building, testing, and deploying a workload in preproduction _and_ production environments.
 
 > Refer to [Well-architected mission critical workloads: DevOps processes](/azure/architecture/framework/mission-critical/mission-critical-operational-procedures#devops-processes).
 
-**Self-hosted Azure DevOps build agent pools** are used to have more control over the builds and deployments. This level of autonomy is needed because the compute cluster and all PaaS resources are private, which requires a level network integration that is not possible on Microsoft-hosted build agents.
+**Self-hosted Azure DevOps build agent pools** are used to have more control over the builds and deployments. This level of autonomy is needed because the compute cluster and all PaaS resources are private, which requires a network level integration that is not possible on Microsoft-hosted build agents.
 
 ### Observability resources
 
-Monitoring data for global resources and regional resources are stored independently. A single, centralized observability store isn't recommended to avoid a single point of failure. For more information, see [Observability resources](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro#observability-resources)
+Monitoring data for global resources and regional resources are stored independently. A single, centralized observability store isn't recommended to avoid a single point of failure. For more information, see [Observability resources](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro#observability-resources).
 
-- **Azure Log Analytics** is used as a unified sink to store logs and metrics for all application and infrastructure components. 
+- **Azure Log Analytics** is used as a unified sink to store logs and metrics for all application and infrastructure components.
 
 - **Azure Application Insights** is used as an Application Performance Management (APM) tool to collect all application monitoring data and store it directly within Log Analytics.
 
@@ -100,7 +100,7 @@ Monitoring data for global resources and regional resources are stored independe
 
 ### Management resources
 
-A significant design change from the baseline architecture is the compute cluster. In this design AKS cluster is private. This change requires extra resources to be provisioned to gain access to cluster.
+A significant design change from the baseline architecture is the compute cluster. In this design the AKS cluster is private. This change requires extra resources to be provisioned to gain access.
 
 **Azure Virtual Machine Scale Sets** for the private build agents and jump box instances to run tools against the cluster, such as kubectl.
 
@@ -110,7 +110,7 @@ A significant design change from the baseline architecture is the compute cluste
 
 To process business or deployment operations, the application and the build agents need to reach several Azure PaaS services that are provisioned globally, within the region, and even within the stamp. In the baseline architecture, that communication is over the services' public endpoints.
 
-In this design, those services have been protected with private endpoints to remove the services from public internet access. This approach reduces the overall attack surface area to mitigate direct service tampering from unexpected sources. However, it introduces another potential point of failure and increases complexity. Carefully consider the tradeoffs with security before adopting this approach.
+In this design, those services have been protected with private endpoints to remove them from public internet access. This approach reduces the overall attack surface area to mitigate direct service tampering from unexpected sources. However, it introduces another potential point of failure and increases complexity. Carefully consider the tradeoffs with security before adopting this approach.
 
 Private endpoints should be put in a dedicated subnet of the stamp's virtual network. Private IP addresses to the private endpoints are assigned from that subnet. Essentially, any resource in the virtual network can communicate with the service by reaching the private IP address. Make sure the address space is large enough to accommodate all private endpoints necessary for that stamp.
 
@@ -130,7 +130,7 @@ Control access to the services further by using [network security groups on the 
 
 ## Private ingress
 
-Azure Front Door Premium SKU is used as the global entry point for all incoming client traffic. It uses Web Application Firewall (WAF) capabilities to allow or deny traffic at the network edge. The configured WAF rules prevent attacks even before they enter the stamp virtual networks. 
+Azure Front Door Premium SKU is used as the global entry point for all incoming client traffic. It uses Web Application Firewall (WAF) capabilities to allow or deny traffic at the network edge. The configured WAF rules prevent attacks even before they enter the stamp virtual networks.
 
 This architecture also takes advantage of Front Door's capability to use Azure Private Link to access application origin without the use of public IPs/endpoints on the backends. This requires an internal load balancer in the stamp virtual network. This resource is in front of the Kubernetes Ingress Controller running in the cluster. On top of this private Load Balancer, a Private Link service is created by AKS, which is used for the private connection from Front Door.
 
@@ -196,7 +196,7 @@ The virtual network is divided into these main subnets. All subnets have Network
 
 ### Operations virtual network
 
-The operational traffic isolated in a separate virtual network. Because the AKS cluster's API service is private in this architecture, all deployment and operational traffic must also come from private resources such as self-hosted build agents and jump boxes. Those resources are deployed in a separate virtual network with direct connectivity to the application resources through their own set of private endpoints. The build agents and jump boxes are in separate subnets.
+The operational traffic is isolated in a separate virtual network. Because the AKS cluster's API service is private in this architecture, all deployment and operational traffic must also come from private resources such as self-hosted build agents and jump boxes. Those resources are deployed in a separate virtual network with direct connectivity to the application resources through their own set of private endpoints. The build agents and jump boxes are in separate subnets.
 
 Instead of using private endpoints, an alternate approach is to use virtual network peering. However, peering adds complexity that can be hard to manage especially when virtual networks are designed to be ephemeral.
 
@@ -227,10 +227,10 @@ There's is a significant impact on cost for mission-critical workloads. In this 
 
 ## Deploy this architecture
 
-The networking aspects of this architecture are implemented in the Mission-Critical Connected implementation.
+The networking aspects of this architecture are implemented in the Mission-critical Connected implementation.
 
 > [!div class="nextstepaction"]
-> [Implementation: Mission-Critical Connected](https://github.com/Azure/Mission-Critical-Connected)
+> [Implementation: Mission-critical Connected](https://github.com/Azure/Mission-Critical-Connected)
 
 > [!NOTE]
 > The Connected implementation is intended to illustrate a mission-critical workload that relies on organizational resources, integrates with other workloads, and uses shared services. It builds on this reference architecture and uses the network controls described in this article. However, the Connected scenario assumes that virtual private network or Azure Private DNS Zone already exist within the Azure landing zones connectivity subscription.
