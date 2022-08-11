@@ -5144,9 +5144,6 @@ items:
               - name: Design for holographic display
                 href: /windows/mixed-reality/design/designing-content-for-holographic-display
                 maintainContext: true
-              - name: Mixed reality prototyping for manufacturing
-                href: /windows/mixed-reality/enthusiast-guide/prototyping-manufacturing
-                maintainContext: true
               - name: Choose a mixed reality engine
                 href: /windows/mixed-reality/develop/choosing-an-engine
                 maintainContext: true
@@ -5171,7 +5168,7 @@ items:
               - name: Free-roaming multiuser VR experiences
                 href: /windows/mixed-reality/enthusiast-guide/free-roam-vr-multiuser-experiences
                 maintainContext: true
-              - name: Education and entertainment mixed reality scenarios
+              - name: Education and entertainment scenarios
                 items:
                   - name: Immersive education
                     href: /windows/mixed-reality/enthusiast-guide/immersive-education
@@ -5188,6 +5185,9 @@ items:
                   - name: Virtual reality arcades
                     href: /windows/mixed-reality/enthusiast-guide/virtual-reality-arcades
                     maintainContext: true
+              - name: Prototyping and manufacturing for enterprises
+                href: /windows/mixed-reality/enthusiast-guide/prototyping-manufacturing
+                maintainContext: true
           - name: Solution ideas
             items:
               - name: Design review with mixed reality

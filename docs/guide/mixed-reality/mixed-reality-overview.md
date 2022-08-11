@@ -20,7 +20,7 @@ ms.custom:
   - overview
 ---
 
-# Mixed-reality overview
+# Mixed reality overview
 
 Mixed reality is a blend of physical and digital worlds that unlocks natural and intuitive 3D human, computer, and environmental interactions. This new reality is based on advancements in computer vision, graphical processing, display technologies, input systems, and cloud computing.
 
@@ -38,7 +38,7 @@ Paul Milgram and Fumio Kishino introduced the term *mixed reality* in a 1994 pap
 
 ## Azure mixed reality services
 
-Several Azure cloud services help developers build compelling immersive experiences on various platforms. Azure mixed reality services help people create, learn, and collaborate within their own context by bringing 3D to mobile devices, headsets, and other untethered devices. Azure services always have comprehensive security and compliance built in.
+Several Azure cloud services help developers build compelling mixed reality experiences on various platforms. Azure mixed reality services help people create, learn, and collaborate within their own context by bringing 3D to mobile devices, headsets, and other untethered devices. Azure services always have comprehensive security and compliance built in.
 
 - [Azure Remote Rendering](https://azure.microsoft.com/services/remote-rendering) lets you render highly complex 3D models in real time and stream them to a device. You can add Azure Remote Rendering to your Unity or native C++ projects targeting HoloLens 2 or Windows desktop PC.
 
@@ -61,7 +61,7 @@ If you're new to mixed reality, the best place to learn about the ecosystem is w
 
 ### Build a mixed-reality experience
 
-If you're an intermediate-to-advanced developer with some previous experience in mixed, augmented, or virtual reality, check out the **HoloLens 2 fundamentals: develop mixed reality applications**  tutorial series. You can build a mixed-reality experience where users explore a hologram modeled after NASA's Mars Curiosity Rover. This tutorial gives you a firm grasp of the [Mixed Reality Toolkit (MRTK)](/windows/mixed-reality/mrtk-unity/mrtk2), and shows how the MRTK can speed up your development process.
+If you're an intermediate-to-advanced developer with some previous experience in mixed, augmented, or virtual reality, check out the **HoloLens 2 fundamentals: develop mixed reality applications**  tutorial series. You can build a mixed-reality experience for users to explore a hologram modeled after NASA's Mars Curiosity Rover. This tutorial gives you a firm grasp of the [Mixed Reality Toolkit (MRTK)](/windows/mixed-reality/mrtk-unity/mrtk2), and shows how the MRTK can speed up your development process.
 
 > [!div class="nextstepaction"]
 > [HoloLens 2 fundamentals](/learn/paths/beginner-hololens-2-tutorials)
@@ -82,58 +82,37 @@ Get the tools you need to build applications for Microsoft HoloLens and Windows 
 
 The following articles offer a process for designing and prototyping effective mixed reality apps.
 
-1. Understand the basic objectives of mixed reality design.
-
-   > [!div class="nextstepaction"]
-   > [Mixed reality design guidance](/windows/mixed-reality/design/about-this-design-guidance)
-
-1. Understand mixed reality core concepts.
-
-   > [!div class="nextstepaction"]
-   > [Mixed reality core concepts](/windows/mixed-reality/design/core-concepts-landingpage)
-
-1. Understand the types of mixed reality apps.
-
-   > [!div class="nextstepaction"]
-   > [Types of mixed reality apps](/windows/mixed-reality/discover/types-of-mixed-reality-apps)
-
-1. Understand interaction models.
-
-   > [!div class="nextstepaction"]
-   > [Mixed reality interaction design](/windows/mixed-reality/design/interaction-fundamentals)
-
-1. Understand user experience elements.
-
-   > [!div class="nextstepaction"]
-   > [Mixed reality UX elements](/windows/mixed-reality/design/app-patterns-landingpage)
-
-1. Start designing and prototyping.
-
-   > [!div class="nextstepaction"]
-   > [Start designing and prototyping](/windows/mixed-reality/design)
+1. [Understand the basic objectives of mixed reality design](/windows/mixed-reality/design/about-this-design-guidance).
+1. [Understand mixed reality core concepts](/windows/mixed-reality/design/core-concepts-landingpage).
+1. [Understand the types of mixed reality apps](/windows/mixed-reality/discover/types-of-mixed-reality-apps).
+1. [Understand interaction modes.](/windows/mixed-reality/design/interaction-fundamentals).
+1. [Understand user experience elements](/windows/mixed-reality/design/app-patterns-landingpage).
+1. [Start designing and prototyping](/windows/mixed-reality/design).
 
 ## Scenarios and solution ideas
 
-The following implementations and ideas illustrate how you can adopt and configure mixed reality for various scenarios.
+The following implementations and ideas illustrate how to adopt and configure mixed reality for various scenarios.
 
-- [Mixed reality prototyping for manufacturing](/windows/mixed-reality/enthusiast-guide/prototyping-manufacturing)
+- [Prototyping and manufacturing for enterprises](/windows/mixed-reality/enthusiast-guide/prototyping-manufacturing)
 - [Shared experiences in mixed reality](/windows/mixed-reality/design/shared-experiences-in-mixed-reality)
 - [Free-roaming multiuser VR experiences](/windows/mixed-reality/enthusiast-guide/free-roam-vr-multiuser-experiences)
 - [Immersive education](/windows/mixed-reality/enthusiast-guide/immersive-education)
-- [Theme parks and family entertainment](/windows/mixed-reality/enthusiast-guide/theme-parks-family-entertainment)
-- [Training and simulation](/windows/mixed-reality/enthusiast-guide/training-simulation)
-- [Virtual museums and exhibits](/windows/mixed-reality/enthusiast-guide/virtual-museums)
+- [Theme parks and family entertainment centers](/windows/mixed-reality/enthusiast-guide/theme-parks-family-entertainment)
+- [Training and simulation for enterprises](/windows/mixed-reality/enthusiast-guide/training-simulation)
+- [Virtual museums, exhibits, and tourism](/windows/mixed-reality/enthusiast-guide/virtual-museums)
 - [Virtual reality arcades](/windows/mixed-reality/enthusiast-guide/virtual-reality-arcades)
 - [Design review with mixed reality](../../solution-ideas/articles/collaborative-design-review-powered-by-mixed-reality.yml)
-- [Facilities management with mixed reality](../../solution-ideas/articles/facilities-management-powered-by-mixed-reality-and-iot.yml)
-- [Training powered by mixed reality](../../solution-ideas/articles/training-and-procedural-guidance-powered-by-mixed-reality.yml)
+- [Facilities management with mixed reality and IoT](../../solution-ideas/articles/facilities-management-powered-by-mixed-reality-and-iot.yml)
+- [Training and procedural guidance with mixed reality](../../solution-ideas/articles/training-and-procedural-guidance-powered-by-mixed-reality.yml)
 
 ## Best practices
 
-- [Designing content for holographic display](/windows/mixed-reality/design/designing-content-for-holographic-display) describes elements you need to consider to achieve the best holographic experience.
-- [Comfort](/windows/mixed-reality/design/comfort) explains how to create and present content that mimics cues in the natural world, and doesn't require fatiguing motions.
-- [Spatial sound best practices](/windows/mixed-reality/design/spatial-sound-design) discusses how to use sound in the mixed-reality world to inform and reinforce the user's mental model.
-- [App quality criteria overview](/windows/mixed-reality/develop/advanced-concepts/app-quality-criteria-overview) describes the top factors that impact the quality of mixed reality apps.
+Follow these best practices to design, develop, and deliver high-quality, user-friendly mixed reality apps.
+
+- [Designing content for holographic display](/windows/mixed-reality/design/designing-content-for-holographic-display) describes elements you need to consider to deliver the best holographic experience.
+- [Comfort](/windows/mixed-reality/design/comfort) explains how to create and present content that mimics cues in the natural world and doesn't require fatiguing motions.
+- [Spatial sound best practices](/windows/mixed-reality/design/spatial-sound-design) discusses how to use sound to inform and reinforce the user's mental model in the mixed-reality world.
+- [App quality criteria overview](/windows/mixed-reality/develop/advanced-concepts/app-quality-criteria-overview) presents the top factors that impact the quality of mixed reality apps.
 
 ## Stay current with mixed reality
 
