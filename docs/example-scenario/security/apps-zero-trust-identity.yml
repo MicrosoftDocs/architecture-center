@@ -20,4 +20,4 @@ name: Build apps with a Zero Trust approach to identity
 summary: Use a Zero Trust approach to help ensure that your applications, and the data they contain, are protected.
 thumbnailUrl: /azure/architecture/browse/thumbs/functions-api-management-thumb.png
 content: |
-  [!include[](functions-api-management.md)]
+  [!include[](apps-zero-trust-identity-content.md)]
