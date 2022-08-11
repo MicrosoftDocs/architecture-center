@@ -41,7 +41,7 @@ When you use Private Link to enable connectivity from each tenant to the multite
 
 ![Diagram showing connectivity between two tenants and a multitenant service, all of which use the same IP address space.](media/private-link/overlapping-ranges.png)
 
-When traffic arrives into the multitenant solution, it's already been translated. This means traffic appears to originate from within the multitenant service's own virtual network IP address space.
+When traffic arrives into the multitenant solution, it's already been translated. This means traffic appears to originate from within the multitenant service's own virtual network IP address space. Private Link provides the [TCP Proxy v2](#proxy-protocol-v2) feature, which enables a multitenant service to know the tenant that sent the request, and even the original IP address from the source network.
 
 ### Service selection
 
