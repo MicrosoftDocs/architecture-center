@@ -31,6 +31,18 @@ In this article, we review how you can configure Private Link for an Azure-hoste
 
 ## Key considerations
 
+### Overlapping IP address spaces
+
+Private Link provides powerful capabilities for multitenant solutions where tenants can access the service through private address spaces.
+
+Different tenants frequently use the same or overlapping private IP address spaces. For example, your multitenant solution might use the IP address space of `10.1.0.0/16`. Suppose tenant A uses their own on-premises network with the same IP address space, and coincidentally tenant B also uses the same IP address space. You can't directly connect or peer your networks together because the IP address ranges overlap.
+
+When you use Private Link to enable connectivity from each tenant to the multitenant solution, each tenant's traffic automatically has network address translation (NAT) applied. Each tenant can use a private IP address within their own respective network, and the traffic flows to the multitenant solution transparently. Private Link performs NAT on traffic, even when tenants and the service provider all use overlapping IP address ranges:
+
+![Diagram showing connectivity between two tenants and a multitenant service, all of which use the same IP address space.](media/private-link/overlapping-ranges.png)
+
+When traffic arrives into the multitenant solution, it's already been translated. This means traffic appears to originate from within the multitenant service's own virtual network IP address space.
+
 ### Service selection
 
 When you use Private Link, it's important to consider the service that you want to allow inbound connectivity to. In most solutions, the service is one of the following types:
