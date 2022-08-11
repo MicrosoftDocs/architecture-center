@@ -6,6 +6,8 @@ You can find a code sample in the [Container Apps Example Scenario](https://gith
 
 ![Diagram showing microservices deployed with Azure Container Apps.](./media/microservices-with-container-apps-deployment.png)
 
+*Download a [Visio file](https://arch-center.azureedge.net/microservices-with-container-apps.vsdx) of this architecture.*
+
 In this scenario, the container images are sourced from Azure Container Registry and deployed to a Container Apps environment.  
 
 The services sharing the same environment benefit from:
@@ -21,6 +23,8 @@ The workflow uses a hybrid approach to managing secrets.  Managed identities are
 ![Diagram showing the runtime architecture for the solution.](./media/microservices-with-container-apps-runtime-diagram.png)
 
 This diagram illustrates the runtime architecture for the solution.  
+
+*Download a [Visio file](https://arch-center.azureedge.net/microservices-with-container-apps.vsdx) of this architecture.*
 
 ### Dataflow
 
