@@ -49,7 +49,7 @@ When you use Private Link, it's important to consider the service that you want 
 
 *Azure Private Link service* is used with virtual machines behind a standard load balancer.
 
-You can also use Private Link with other Azure services, including application hosting platforms like Azure App Service, and network or API gateways, like Azure Application Gateway or Azure API Management.
+You can also use Private Link with other Azure services. These services include application hosting platforms like Azure App Service. They also include Azure Application Gateway or Azure API Management. which are network and API gateways.
 
 The application platform you use determines many aspects of your Private Link configuration, and the limits that apply. Additionally, some services don't support Private Link for inbound traffic.
 
@@ -81,7 +81,7 @@ Private Link is designed to support scenarios where a single application tier ca
 
 ### Isolation models for Private Link service
 
-If you use Private Link service in conjunction with virtual machines behind a standard load balancer, there are several isolation models that you can consider.
+If you use Private Link service with virtual machines behind a standard load balancer, there are several isolation models that you can consider.
 
 | Consideration | Shared Private Link service and shared load balancer | Dedicated Private Link service and dedicated load balancer | Dedicated Private Link service and shared load balancer |
 |-|-|-|-|
@@ -104,9 +104,9 @@ You can deploy a dedicated Private Link service and dedicated load balancer for 
 
 ### Dedicated Private Link service per tenant and shared standard load balancer
 
-You can also deploy dedicated Private Link service instances for each tenant, with a shared standard load balancer. However, this model is unlikely to provide much benefit. Additionally, because there is a limit to the number of Private Link services that you can deploy on a single standard load balancer, this model is not likely to scale beyond a small multitenant solution.
+You can also deploy dedicated Private Link service instances for each tenant, with a shared standard load balancer. However, this model is unlikely to provide much benefit. Additionally, because there's a limit to the number of Private Link services that you can deploy on a single standard load balancer, this model isn't likely to scale beyond a small multitenant solution.
 
-More commonly, you can deploy multiple shared Private Link services, which enables you to expand the number of private endpoints that your solution can support on one shared load balancer.
+More commonly, you can deploy multiple shared Private Link services. This approach enables you to expand the number of private endpoints that your solution can support on one shared load balancer.
 
 ### Isolation models for Azure PaaS services with private endpoints
 
