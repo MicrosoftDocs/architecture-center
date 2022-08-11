@@ -138,7 +138,7 @@ After connection is established, Private endpoints on Front Door network have di
 
 For more information, see [How Private Link works](/azure/frontdoor/private-link#how-private-link-works).
 
-![Diagram showing Private Link access from Front Door to application backend](./images/network-diagram-ingress.png)
+![Diagram showing Private Link access from Front Door to application backend.](./images/network-diagram-ingress.png)
 
 > Refer to [Well-architected mission critical workloads: Application delivery services](/azure/architecture/framework/mission-critical/mission-critical-networking-connectivity#application-delivery-services).
 
@@ -223,7 +223,7 @@ This architecture uses virtual machine scale sets for both build agents and jump
 
 ## Cost considerations
 
-There's is a significant impact on cost for mission-critical workloads. In this architecture, technology choices such as using Azure Front Door Premium SKU and provisioning Azure Firewall in each stamp will lead to increased costs. There are also added cost related to maintenance and operational resources. Such tradeoffs must be carefully considered before adopting a network-controlled version of the baseline architecture.
+There's a significant impact on cost for mission-critical workloads. In this architecture, technology choices such as using Azure Front Door Premium SKU and provisioning Azure Firewall in each stamp will lead to increased costs. There are also added costs related to maintenance and operational resources. Such tradeoffs must be carefully considered before adopting a network-controlled version of the baseline architecture.
 
 ## Deploy this architecture
 
