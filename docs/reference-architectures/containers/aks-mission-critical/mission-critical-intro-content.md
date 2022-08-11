@@ -251,12 +251,19 @@ For product documentation on the Azure services used in this architecture, see t
 
 ## Deploy this architecture
 
-Deploy the reference implementation to get a complete understanding of considered resources, including how they are operationalized in a mission-critical context. 
+Deploy the reference implementation to get a complete understanding of considered resources, including how they are operationalized in a mission-critical context. It contains a deployment guide intended to illustrate a solution-oriented approach for mission-critical application development on Azure.
 
 > [!div class="nextstepaction"]
 > [Implementation: Mission-Critical Online](https://github.com/Azure/Mission-Critical-Online)
 
 ## Next steps
 
-If you want to extend this implementation with added security measures, refer to [Mission-Critical Connected](https://github.com/Azure/Mission-Critical-Connected). It contains a security-focused reference implementation and deployment guide intended to illustrate a solution-oriented approach for mission-critical application development on Azure.
+If you want to extend the baseline architecture with network controls on ingress and egress traffic, see this architecture. 
+
+> [!div class="nextstepaction"]
+> [Architecture: Mission-critical baseline with network controls](./mission-critical-network-architecture.yml)
+
+> [!div class="nextstepaction"]
+> [Implementation: Mission-Critical Connected](https://github.com/Azure/Mission-Critical-Connected)
+
 

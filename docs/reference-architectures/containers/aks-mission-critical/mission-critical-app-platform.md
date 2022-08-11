@@ -117,7 +117,7 @@ In both cases, both Azure services will be impacted if Azure DNS is unavailable.
 
 Similarly, Azure AD is used for control plane operations such as creating new AKS nodes, pulling images from Container Registry, or accessing Key Vault on pod startup. If Azure AD is unavailable, existing components shouldn't be affected, but overall performance may be degraded. New pods or AKS nodes won't be functional. So, in case scale out operations are required during this time, expect decreased user experience.
 
-## Deployment stamp resources
+## Regional deployment stamp resources
 
 In this architecture, the deployment stamp deploys the workload and provisions resources that participate in completing business transactions. A stamp typically corresponds to a deployment to an Azure region. Although a region can have more than one stamp.
 
