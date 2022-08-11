@@ -135,7 +135,7 @@ To implement this architecture manually and test it, you need to complete these 
 4. [Create an API Management instance](/azure/api-management/get-started-create-service-instance) and expose the [API back end by using API Management](/azure/api-management/import-function-app-as-api). 
 5. Secure the back-end API via Azure AD so that only this API Management identity can access the back-end API.
    - Be sure that your API Management instance is assigned to a [managed identity](/azure/api-management/api-management-howto-use-managed-service-identity#create-a-system-assigned-managed-identity).
-   - Configure your Azure Functions app to use Azure AD sign in.
+   - Configure your Azure Functions app to use Azure AD sign-in.
    - [Allow API Management to access the function.](/azure/api-management/api-management-authentication-policies#use-managed-identity-to-authenticate-with-a-backend-service)
    - Allow *API Management identity only* to access your back end by [creating an app role in Azure AD for it](/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#usage-scenario-of-app-roles).
    - [Limit access to the function to only the users/roles in the app role](/azure/active-directory/develop/howto-restrict-your-app-to-a-set-of-users#update-the-app-to-require-user-assignment).
