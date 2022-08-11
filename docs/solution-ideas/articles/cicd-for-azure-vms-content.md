@@ -8,7 +8,7 @@ Azure Pipelines can automatically build application source code and infrastructu
 
 The Azure VM Applications service is recommended for simplified deployment of application changes. When there's a new version of an application, you can just deploy the VM app package without ever affecting the VM image. The application package can be deployed using Azure Pipelines.
 
-For VMs, using Azure DevTest Labs is highly recommended for running automated test pipelines. DevTest Labs can quickly  provision development and test stages and automatically tear down test resources that aren't in use. DevTest Labs is integrated with Azure Pipelines.
+For VMs, using Azure DevTest Labs is highly recommended for running automated test pipelines. DevTest Labs can quickly provision development and test stages and automatically tear down test resources that aren't in use. DevTest Labs is integrated with Azure Pipelines.
 
 ## Architecture
 
@@ -29,10 +29,11 @@ For VMs, using Azure DevTest Labs is highly recommended for running automated te
 
 1. The developer pushes code changes to a feature branch in the code repository. 
 1. Continuous integration triggers automated build and test jobs.
+    1. VM Aapplication builds packages with new application version already installed.
 1. Continuous deployment trigger orchestrates deployment of application artifacts and infrastructure changes with environment-specific parameters.
-    1. VM application builds the VM image with the application already installed.
+    1. Azure Dev Test Labs provisions development and test stages.
 1. The changes are deployed to pre-production and production environments.
-1. 1. Azure Monitor collects logs and metrics so that an operator can analyze health, performance, and usage data.
+1. Azure Monitor collects logs and metrics so that an operator can analyze health, performance, and usage data.
 
 
 ## Next steps
