@@ -67,7 +67,7 @@ You might choose to deploy your solution to be both internet-facing and also exp
 
 When your solution is based on virtual machines behind a standard load balancer, you can expose your endpoint via the Private Link service. In this case, web application firewall and application routing are likely already part of your virtual machine-based workload.
 
-When you use Azure platform services that support Private Link for inbound connectivity, like Application Gateway, you can use its Private Link capabilities.
+Many Azure PaaS services support Private Link for inbound connectivity, even across different Azure subscriptions and Azure Active Directory tenants. You can use that service's Private Link capabilities to expose your endpoint.
 
 When you use other internet-facing services, like Azure Front Door, it's important to consider whether they support Private Link for inbound traffic. If they don't, consider how your traffic flows through each path to your solution.
 
@@ -88,7 +88,7 @@ If you use Private Link service in conjunction with virtual machines behind a st
 | **Deployment complexity** | Low | Medium-high depending on the number of tenants. | Medium-high depending on the number of tenants. |
 | **Operational complexity** | Low | Medium-high depending on the number of resources. | Medium-high depending on the number of resources. |
 | **Limits to consider** | Number of private endpoints on the same private link service | Number of private link services per subscription | Number of private link services per standard load balancer | 
-| **Example scenario** | Large multitenant solution with shared application tier |Separate deployment stamps for each tenant | Shared application tier in a single stamp with large numbers of tenants |
+| **Example scenario** | Large multitenant solution with shared application tier | Separate deployment stamps for each tenant | Shared application tier in a single stamp with large numbers of tenants |
 
 In all three models, the level of data isolation and performance depends on the other elements of your solution, and the Private Link service deployment doesn't materially affect these factors.
 
@@ -96,11 +96,11 @@ In all three models, the level of data isolation and performance depends on the 
 
 You might consider deploying a shared private link service, which is connected to a standard load balancer. Each of your tenants can create a private endpoint and use it connect to your solution.
 
-A single Private Link service instance supports a large number of private endpoints. If you do exhaust the limit, you can deploy more Private Link service instances, although there are also limits to the number of Private Link services you can deploy on a single load balancer.
+A single Private Link service instance supports a large number of private endpoints. If you do exhaust the limit, you can deploy more Private Link service instances, although there are also limits to the number of Private Link services you can deploy on a single load balancer. If you expect that you'll approach these limits, consider using a Deployment Stamps-based approach, and deploy shared load balancers and private link service instances into each stamp.
 
 ### Dedicated Private Link service and dedicated standard load balancer per tenant
 
-You can deploy a dedicated private link service and dedicated load balancer for each tenant. This approach makes sense when you have dedicated virtual machines for each tenant, or for a group of tenants.
+You can deploy a dedicated private link service and dedicated load balancer for each tenant. This approach makes sense when you have a dedicated set of virtual machines for each tenant, such as when your tenants have strict compliance requirements.
 
 ### Dedicated Private Link service per tenant and shared standard load balancer
 
