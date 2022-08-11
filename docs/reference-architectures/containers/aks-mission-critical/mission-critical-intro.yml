@@ -13,7 +13,7 @@ metadata:
     - networking
     - security
     - devops
-name: Mission-critical basline architecture on Azure
+name: Mission-critical baseline architecture on Azure
 azureCategories:
   - containers
   - networking
