@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Mission-critical basline architecture on Azure
+  title: Mission-critical baseline architecture on Azure
   description: Reference architecture for a highly reliable workload that is accessed over a public endpoint and does not require private network connectivity to other company resources.
   author: calcof
   ms.author: prwilk
