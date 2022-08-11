@@ -35,12 +35,12 @@ Managed identities provide an automatically managed identity for applications to
 - [API Management](https://azure.microsoft.com/services/api-management) is a hybrid, multicloud management platform for APIs.
   - [API Management developer portal](/azure/api-management/api-management-howto-developer-portal). 
 The developer portal is a website that provides the documentation of your APIs. On the portal, API consumers can discover your APIs, learn how to use them, request access, and try them out.
-  - [API Management gateway](/azure/api-management/api-management-howto-developer-portal).
+  - [API Management gateway](/azure/api-management/api-management-key-concepts#api-gateway).
 All requests from client applications first reach the API gateway, which then forwards them to appropriate back-end services. The API gateway acts as a facade to the back-end services, allowing you to abstract API implementations and evolve back-end architecture without affecting API consumers. The gateway enables consistent configuration of routing, security, throttling, caching, and observability.
 - [Azure Functions](https://azure.microsoft.com/services/functions)
 is a serverless solution that enables you to write less code, maintain less infrastructure, and save money. The cloud infrastructure provides all the up-to-date resources needed to keep your applications running so you don't have to deploy and maintain servers.
 - [SQL Database](https://azure.microsoft.com/products/azure-sql/database)
-is a family of managed, improved-security products that use the SQL Server database engine on Azure.
+is an always-up-to-date, fully managed relational database service built for the cloud.
 
 ### Alternatives
 
@@ -73,7 +73,7 @@ The Contoso Media team wants to increase developer speed and decrease costs whil
 - Protect access to the API back end so that only one specific API Management instance can access it.
 - Protect access to the Azure SQL database used by the API back end so that only one specific identity of the REST API back end can access it.
 
-Zero Trust provides a unified approach for the Contoso Media operations team to help ensure that their [applications, and the data they contain, are protected](/security/zero-trust/deploy/applications). Zero Trust:
+Zero Trust provides a unified approach to help the Contoso Media operations team ensure that their [applications, and the data they contain, are protected](/security/zero-trust/deploy/applications). Zero Trust:
 
 - Applies controls and technologies to discover shadow IT.
 - Ensures appropriate in-app permissions.
@@ -100,7 +100,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+Reliability ensures that your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
 API Management supports [zone redundancy](/azure/api-management/zone-redundancy) and [multi-region deployment](/azure/api-management/api-management-howto-deploy-multi-region).
 
