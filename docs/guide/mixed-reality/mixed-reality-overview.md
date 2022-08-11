@@ -38,7 +38,7 @@ Paul Milgram and Fumio Kishino introduced the term *mixed reality* in a 1994 pap
 
 ## Azure mixed reality services
 
-Several Azure cloud services help developers build compelling immersive experiences on a variety of platforms. Azure mixed reality services help people create, learn, and collaborate within their own context by bringing 3D to mobile devices, headsets, and other untethered devices. Azure services always have comprehensive security and compliance built in.
+Several Azure cloud services help developers build compelling immersive experiences on various platforms. Azure mixed reality services help people create, learn, and collaborate within their own context by bringing 3D to mobile devices, headsets, and other untethered devices. Azure services always have comprehensive security and compliance built in.
 
 - [Azure Remote Rendering](https://azure.microsoft.com/services/remote-rendering) lets you render highly complex 3D models in real time and stream them to a device. You can add Azure Remote Rendering to your Unity or native C++ projects targeting HoloLens 2 or Windows desktop PC.
 

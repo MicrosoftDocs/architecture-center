@@ -5129,7 +5129,7 @@ items:
       - name: Mixed Reality
         items:
           - name: Get started
-            href: reference-architectures/containers/mixed-reality-start-here.md
+            href: guide/mixed-reality/mixed-reality-overview.md
           - name: Guides
             items:
               - name: Mixed reality core concepts
