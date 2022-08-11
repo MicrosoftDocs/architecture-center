@@ -41,7 +41,7 @@ When you use Private Link to enable connectivity from each tenant to the multite
 
 ![Diagram showing connectivity between two tenants and a multitenant service, all of which use the same IP address space.](media/private-link/overlapping-ranges.png)
 
-When traffic arrives into the multitenant solution, it's already been translated. This means traffic appears to originate from within the multitenant service's own virtual network IP address space. Private Link provides the [TCP Proxy v2](#proxy-protocol-v2) feature, which enables a multitenant service to know the tenant that sent the request, and even the original IP address from the source network.
+When traffic arrives into the multitenant solution, it's already been translated. This means traffic appears to originate from within the multitenant service's own virtual network IP address space. Private Link provides the [TCP Proxy Protocol v2](#proxy-protocol-v2) feature, which enables a multitenant service to know the tenant that sent the request, and even the original IP address from the source network.
 
 ### Service selection
 
@@ -61,11 +61,11 @@ Additionally, some services require specialized networking configuration to use 
 
 Carefully test your solution, including your deployment and diagnostic configuration, with your Private Link configuration enabled. Some Azure services block public internet traffic when a private endpoint is enabled, which can require that you change your deployment and management processes.
 
-### Use Private Link in combination with public-facing services
+### Private Link in combination with public-facing services
 
-You might choose to deploy your solution to be both internet-facing and also exposed through private endpoints. Consider your overall network topology, and the paths that each tenant's traffic follows.
+You might choose to deploy your solution to be both internet-facing and also exposed through private endpoints. Consider your overall network topology and the paths that each tenant's traffic follows.
 
-When you use Private Link service, your solution is based on virtual machines with standard load balancers. Web application firewalls and application routing are likely to be part of your workload.
+When your solution is based on virtual machines behind a standard load balancer, you can expose your endpoint via the Private Link service. In this case, web application firewall and application routing are likely already part of your virtual machine-based workload.
 
 When you use Azure platform services that support Private Link for inbound connectivity, like Application Gateway, you can use its Private Link capabilities.
 
@@ -81,16 +81,16 @@ Private Link is designed to support scenarios where a single application tier ca
 
 ### Isolation models for Private Link service
 
-If you deploy Private Link service in conjunction with virtual machines and a standard load balancer, there are several isolation models to consider.
+If you use Private Link service in conjunction with virtual machines behind a standard load balancer, there are several isolation models to consider.
 
 | Consideration | Shared private link service and shared load balancer | Dedicated private link service and dedicated load balancer | Dedicated Private Link service and shared load balancer |
 |-|-|-|-|
 | **Deployment complexity** | Low | Medium-high depending on the number of tenants. | Medium-high depending on the number of tenants. |
 | **Operational complexity** | Low | Medium-high depending on the number of resources. | Medium-high depending on the number of resources. |
-| **Key limits** | Number of private endpoints on the same private link service | Number of private link services per subscription | Number of private link services per standard load balancer | 
+| **Limits to consider** | Number of private endpoints on the same private link service | Number of private link services per subscription | Number of private link services per standard load balancer | 
 | **Example scenario** | Large multitenant solution with shared application tier |Separate deployment stamps for each tenant | Shared application tier in a single stamp with large numbers of tenants |
 
-In all three models, the level of data isolation and performance depends on the other elements of your solution, and the Private Link service deployment doesn't affect these factors.
+In all three models, the level of data isolation and performance depends on the other elements of your solution, and the Private Link service deployment doesn't materially affect these factors.
 
 ### Shared Private Link service and shared standard load balancer
 
@@ -106,7 +106,7 @@ You can deploy a dedicated private link service and dedicated load balancer for 
 
 You can also deploy dedicated Private Link service instances for each tenant, with a shared standard load balancer. However, this model is unlikely to provide much benefit. Additionally, because there is a limit to the number of private link services that you can deploy on a single standard load balancer, this model is not likely to scale beyond a small multitenant solution.
 
-More commonly, you can deploy multiple shared private link services, which enables you to expand the number of private endpoints that your solution can support.
+More commonly, you can deploy multiple shared private link services, which enables you to expand the number of private endpoints that your solution can support on one shared load balancer.
 
 ### Isolation models for Azure PaaS services with private endpoints
 
