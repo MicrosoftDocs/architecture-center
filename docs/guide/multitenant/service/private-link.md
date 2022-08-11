@@ -45,11 +45,11 @@ When traffic arrives into the multitenant solution, it's already been translated
 
 ### Service selection
 
-When you use Private Link, it's important to consider the service that you want to allow inbound connectivity to. In most solutions, the service is one of the following types:
+When you use Private Link, it's important to consider the service that you want to allow inbound connectivity to.
 
-- An application hosting platform, like Azure App Service.
-- A network or API gateway, like Azure Application Gateway or Azure API Management.
-- Virtual machines behind a standard load balancer.
+*Azure Private Link service* is used with virtual machines behind a standard load balancer.
+
+You can also use Private Link with other Azure services, including application hosting platforms like Azure App Service, and network or API gateways, like Azure Application Gateway or Azure API Management.
 
 The application platform you use determines many aspects of your Private Link configuration, and the limits that apply. Additionally, some services don't support Private Link for inbound traffic.
 
@@ -61,21 +61,19 @@ Additionally, some services require specialized networking configuration to use 
 
 Carefully test your solution, including your deployment and diagnostic configuration, with your Private Link configuration enabled. Some Azure services block public internet traffic when a private endpoint is enabled, which can require that you change your deployment and management processes.
 
-### Traffic paths
+### Use Private Link in combination with public-facing services
 
 You might choose to deploy your solution to be both internet-facing and also exposed through private endpoints. Consider your overall network topology, and the paths that each tenant's traffic follows.
 
-For example, suppose you build an internet-facing application that runs on a virtual machine scale set. You use Azure Front Door, including its web application firewall (WAF), for security and traffic acceleration, and you [configure Front Door to send its traffic through a private endpoint to your backend (origin) service](/azure/frontdoor/private-link).
+When you use Private Link service, your solution is based on virtual machines with standard load balancers. Web application firewalls and application routing are likely to be part of your workload.
 
-Suppose tenant A uses this path to access your service:
+When you use Azure platform services that support Private Link for inbound connectivity, like Application Gateway, you can use its Private Link capabilities.
 
-![Diagram showing requests from one tenant coming into Front Door through the internet.](media/private-link/private-link-internet.png)
+When you use other internet-facing services, like Azure Front Door, it's important to consider whether they support Private Link for inbound traffic. If they don't, consider how your traffic flows through each path to your solution.
 
-If you provide tenant B with a private endpoint to access your solution, their traffic bypasses your Front Door profile and the WAF:
+For example, suppose you build an internet-facing application that runs on a virtual machine scale set. You use Azure Front Door, including its web application firewall (WAF), for security and traffic acceleration, and you [configure Front Door to send its traffic through a private endpoint to your backend (origin) service](/azure/frontdoor/private-link). Tenant A connects to your solution by using a public endpoint, and tenant B connects by using a private endpoint. Because Front Door doesn't support Private Link for incoming connections, tenant B's traffic bypasses your Front Door and its WAF:
 
-![Diagram showing requests from a second tenant coming into the application through a private endpoint, bypassing Front Door.](media/private-link/private-link-private-endpoint.png)
-
-Consider whether you need your WAF to inspect private traffic, or if you need to use other Front Door features for traffic routing or caching. If you do, you'll need to consider how to replicate this functionality for your private traffic.
+![Diagram showing requests coming through Front Door, and also through a private endpoint, which bypasses Front Door.](media/private-link/internet-private-endpoint.png)
 
 ## Isolation models
 
