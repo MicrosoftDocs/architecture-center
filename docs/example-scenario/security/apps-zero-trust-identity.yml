@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Protect your API implementation with the verify explicitly Zero Trust principle 
+  title: Apply the verify explicitly Zero Trust principle to your API implementation 
   titleSuffix: Azure Architecture Center
   description: Use a Zero Trust approach to help ensure that your applications, and the data they contain, are protected.
   author: EdPrice-MSFT
@@ -16,7 +16,7 @@ products:
   - azure-active-directory
   - azure-functions
   - azure-sql-database
-name: Protect your API implementation with the verify explicitly Zero Trust principle 
+name: Apply the verify explicitly Zero Trust principle to your API implementation 
 summary: Use a Zero Trust approach to help ensure that your applications, and the data they contain, are protected.
 thumbnailUrl: /azure/architecture/browse/thumbs/functions-api-management-thumb.png
 content: |

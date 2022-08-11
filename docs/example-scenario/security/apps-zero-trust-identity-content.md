@@ -18,9 +18,9 @@ This scenario is based on a fictional company named Contoso Media that works wit
 
 (2b) The requests from Fabrikam Analytics also reach the Contoso Media API Management gateway, which validates the Fabrikam production API Management product keys and applies associated API Management policies.
 
-(3) The API Management gateway accesses the back-end API for both request sources: 2a and 2b. Because the HTTP API back end, which is based on Azure Functions, is configured for Active Directory authentication and trusts only the managed identity of the API Management gateway, it can access the function. No services can access the function, other than this particular API Management instance.
+(3) The API Management gateway accesses the back-end API for both request sources: 2a and 2b. Because the HTTP API back end, which is based on Azure Functions, is configured for Active Directory authentication and trusts only the managed identity of the API Management gateway, it can access the function. No services, other than this particular API Management instance, can access the function.
 
-(4) Azure Functions accesses SQL Database. Because the managed identity of the Azure function is granted access to the SQL database, only the Azure function can access the database.
+(4) Azure Functions accesses Azure SQL Database. Because the managed identity of the Azure function is granted access to the SQL database, only the Azure function can access the database.
 
 Steps 3 and 4 demonstrate an identity-based implementation of the Zero Trust principle.
 
@@ -32,7 +32,7 @@ provides critical functionality for your Zero Trust strategy. It enables strong 
 To delegate identity and access management functions to Azure AD, an application must be registered with an Azure AD tenant. When you register your application with Azure AD, you create an identity configuration for your application that allows it to integrate with Azure AD.
   - [Azure AD managed identities](/azure/active-directory/managed-identities-azure-resources/overview).
 Managed identities provide an automatically managed identity for applications to use when they connect to resources that support Azure AD authentication. Applications can use managed identities to obtain Azure AD tokens. You don't need to manage credentials.
-- [API Management](https://azure.microsoft.com/services/api-management) is a hybrid, multicloud management platform for APIs across all environments.
+- [API Management](https://azure.microsoft.com/services/api-management) is a hybrid, multicloud management platform for APIs.
   - [API Management developer portal](/azure/api-management/api-management-howto-developer-portal). 
 The developer portal is a website that provides the documentation of your APIs. On the portal, API consumers can discover your APIs, learn how to use them, request access, and try them out.
   - [API Management gateway](/azure/api-management/api-management-howto-developer-portal).
@@ -67,7 +67,7 @@ The Contoso Media product team has migrated some applications into Azure App Ser
 
 Contoso Media applications and data are moving from on-premises to hybrid and cloud environments. Contoso Media can no longer rely on traditional network controls for security. Controls need to move to where the data is: on devices, inside apps, and with partners.
 
-The Contoso Media team wants to increase developer speed and decrease costs while using serverless and platform as a service (PaaS) technologies like Azure Functions and Azure SQL Database. They've heard about Microsoft Zero Trust and want to implement more modern and secure access to their services. They want to:
+The Contoso Media team wants to increase developer speed and decrease costs while using serverless and platform as a service (PaaS) technologies like Azure Functions and SQL Database. They've heard about Microsoft Zero Trust and want to implement more modern and secure access to their services. They want to:
 
 - Expose and provide their APIs to partners through API Management. Partner developers need to have limited access to the APIs during development. Partner pre-production and production environments, however, should have unlimited access to the Contoso Media APIs.
 - Protect access to the API back end so that only one specific API Management instance can access it.
@@ -82,7 +82,7 @@ Zero Trust provides a unified approach for the Contoso Media operations team to 
 - Controls user actions.
 - Validates secure configuration options.
 
-Protecting API implementation and Azure SQL, as described here, is just one facet of the *verify explicitly* Zero Trust principle. Other elements include user identity and device protection. All elements use the framework and services provided by Azure AD.
+Applying protection to an API implementation and to Azure SQL, as described here, is just one facet of the *verify explicitly* Zero Trust principle. Other elements include user identity and device protection. All elements use the framework and services provided by Azure AD.
 
 ### Potential use cases
 
