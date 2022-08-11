@@ -5124,166 +5124,65 @@ items:
                 href: solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml
       - name: Mixed Reality
         items:
+          - name: Get started
+            href: reference-architectures/containers/mixed-reality-start-here.md
           - name: Guides
             items:
-              - name: Azure mixed reality cloud services
-                href: /windows/mixed-reality/develop/mixed-reality-cloud-services
+              - name: Mixed reality core concepts
+                href: /windows/mixed-reality/design/core-concepts-landingpage
                 maintainContext: true
-              - name: Choose a mixed reality engine
-                href: /windows/mixed-reality/develop/choosing-an-engine
+              - name: Mixed reality design guidance
+                href: /windows/mixed-reality/design/about-this-design-guidance
                 maintainContext: true
               - name: Design and prototype for mixed reality
                 href: /windows/mixed-reality/design/design
                 maintainContext: true
-              - name: MR core concepts
-                items:
-                  - name: App model
-                    href: /windows/mixed-reality/design/app-model
-                    maintainContext: true
-                  - name: App views
-                    href: /windows/mixed-reality/design/app-views
-                    maintainContext: true
-                  - name: Audio in mixed reality
-                    href: /windows/mixed-reality/design/spatial-sound
-                    maintainContext: true
-                  - name: Comfort
-                    href: /windows/mixed-reality/design/comfort
-                    maintainContext: true
-                  - name: Coordinate systems
-                    href: /windows/mixed-reality/design/coordinate-systems
-                    maintainContext: true
-                  - name: Eye tracking
-                    href:  /windows/mixed-reality/design/eye-tracking
-                    maintainContext: true
-                  - name: Holographic frame
-                    href: /windows/mixed-reality/design/holographic-frame
-                    maintainContext: true
-                  - name: Room scan visualization
-                    href: /windows/mixed-reality/design/room-scan-visualization
-                    maintainContext: true
-                  - name: Scene understanding
-                    href: /windows/mixed-reality/design/scene-understanding
-                    maintainContext: true
-                  - name: Spatial anchors
-                    href: /windows/mixed-reality/design/spatial-anchors
-                    maintainContext: true
-                  - name: Spatial mapping
-                    href: /windows/mixed-reality/design/spatial-mapping
-                    maintainContext: true
-                  - name: Start gesture
-                    href: /windows/mixed-reality/design/system-gesture
-                    maintainContext: true
+              - name: Design for holographic display
+                href: /windows/mixed-reality/design/designing-content-for-holographic-display
+                maintainContext: true
+              - name: Mixed reality prototyping for manufacturing
+                href: /windows/mixed-reality/enthusiast-guide/prototyping-manufacturing
+                maintainContext: true
+              - name: Choose a mixed reality engine
+                href: /windows/mixed-reality/develop/choosing-an-engine
+                maintainContext: true
+              - name: Install the tools
+                href: /windows/mixed-reality/develop/install-the-tools
+                maintainContext: true
+              - name: Mixed reality interactions
+                href: /windows/mixed-reality/design/interaction-fundamentals
+                maintainContext: true
+              - name: Mixed reality UX elements
+                href: /windows/mixed-reality/design/app-patterns-landingpage
+                maintainContext: true
               - name: Types of mixed reality apps
                 href: /windows/mixed-reality/discover/types-of-mixed-reality-apps
                 maintainContext: true
-              - name: Design content for holographic display
-                href: /windows/mixed-reality/design/designing-content-for-holographic-display
+              - name: Azure mixed reality cloud services
+                href: /windows/mixed-reality/develop/mixed-reality-cloud-services
                 maintainContext: true
               - name: Shared experiences in mixed reality
                 href: /windows/mixed-reality/design/shared-experiences-in-mixed-reality
                 maintainContext: true
-              - name: Interaction models
+              - name: Free-roaming multiuser VR experiences
+                href: /windows/mixed-reality/enthusiast-guide/free-roam-vr-multiuser-experiences
+                maintainContext: true
+              - name: Education and entertainment mixed reality scenarios
                 items:
-                  - name: Instinctual interactions
-                    href: /windows/mixed-reality/design/interaction-fundamentals
+                  - name: Immersive education
+                    href: /windows/mixed-reality/enthusiast-guide/immersive-education
                     maintainContext: true
-                  - name: Hands and motion controllers
-                    items:
-                      - name: Direct manipulation with hands
-                        href: /windows/mixed-reality/design/direct-manipulation
-                        maintainContext: true
-                      - name: Motion controllers
-                        href: /windows/mixed-reality/design/motion-controllers
-                        maintainContext: true
-                      - name: Point and commit with hands
-                        href: /windows/mixed-reality/design/point-and-commit
-                        maintainContext: true
-                  - name: Hands-free model
-                    items:
-                      - name: Hands-free
-                        href: /windows/mixed-reality/design/hands-free
-                        maintainContext: true
-                      - name: Voice input
-                        href: /windows/mixed-reality/design/voice-input
-                        maintainContext: true
-                      - name: Eye-gaze and dwell
-                        href: /windows/mixed-reality/design/gaze-and-dwell-eyes
-                        maintainContext: true
-                      - name: Head-gaze and dwell
-                        href: /windows/mixed-reality/design/gaze-and-dwell-head
-                        maintainContext: true
-                      - name: Eye-gaze-based interaction
-                        href: /windows/mixed-reality/design/eye-gaze-interaction
-                        maintainContext: true
-                  - name: Gaze and commit model
-                    items:
-                      - name: Gaze and commit
-                        href: /windows/mixed-reality/design/gaze-and-commit
-                        maintainContext: true
-                      - name: Head-gaze and commit
-                        href: /windows/mixed-reality/design/gaze-and-commit-head
-                        maintainContext: true
-              - name: UI controls and behaviors
-                items:
-                  - name: Cursors
-                    href: /windows/mixed-reality/design/cursors
+                  - name: Theme parks and family entertainment
+                    href: /windows/mixed-reality/enthusiast-guide/theme-parks-family-entertainment
                     maintainContext: true
-                  - name: Point and commit with hands
-                    href: /windows/mixed-reality/design/point-and-commit
+                  - name: Training and simulation
+                    href: /windows/mixed-reality/enthusiast-guide/training-simulation
                     maintainContext: true
-                  - name: Button
-                    href: /windows/mixed-reality/design/button
+                  - name: Virtual museums and exhibits
+                    href: /windows/mixed-reality/enthusiast-guide/virtual-museums
                     maintainContext: true
-                  - name: Interactable object
-                    href: /windows/mixed-reality/design/interactable-object
-                    maintainContext: true
-                  - name: Bounding box and App bar
-                    href: /windows/mixed-reality/design/app-bar-and-bounding-box
-                    maintainContext: true
-                  - name: Direct manipulation with hands
-                    href: /windows/mixed-reality/design/direct-manipulation
-                    maintainContext: true
-                  - name: Hand menu
-                    href: /windows/mixed-reality/design/hand-menu
-                    maintainContext: true
-                  - name: Near menu
-                    href: /windows/mixed-reality/design/near-menu
-                    maintainContext: true
-                  - name: Object collection
-                    href: /windows/mixed-reality/design/object-collection
-                    maintainContext: true
-                  - name: Keyboard
-                    href: /windows/mixed-reality/design/keyboard
-                    maintainContext: true
-                  - name: Tooltip
-                    href: /windows/mixed-reality/design/tooltip
-                    maintainContext: true
-                  - name: Slate
-                    href: /windows/mixed-reality/design/slate
-                    maintainContext: true
-                  - name: Slider
-                    href: /windows/mixed-reality/design/slider
-                    maintainContext: true
-                  - name: Shader
-                    href: /windows/mixed-reality/design/shader
-                    maintainContext: true
-                  - name: Dialog
-                    href: /windows/mixed-reality/design/dialog-ui
-                    maintainContext: true
-                  - name: Hand coach
-                    href: /windows/mixed-reality/design/hand-coach
-                    maintainContext: true
-                  - name: Spatial mesh
-                    href: /windows/mixed-reality/design/spatial-mesh-ux
-                    maintainContext: true
-                  - name: Billboarding and tag-along
-                    href: /windows/mixed-reality/design/billboarding-and-tag-along
-                    maintainContext: true
-                  - name: Progress indicator
-                    href: /windows/mixed-reality/design/progress
-                    maintainContext: true
-                  - name: Surface magnetism
-                    href: /windows/mixed-reality/design/surface-magnetism
+                  - name: Virtual reality arcades
+                    href: /windows/mixed-reality/enthusiast-guide/virtual-reality-arcades
                     maintainContext: true
           - name: Solution ideas
             items:
