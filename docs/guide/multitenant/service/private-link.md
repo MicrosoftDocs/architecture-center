@@ -94,7 +94,7 @@ In all three models, the level of data isolation and performance depends on the 
 
 ### Shared Private Link service and shared standard load balancer
 
-You might consider deploying a shared Private Link service, which is connected to a standard load balancer. Each of your tenants can create a private endpoint and use it connect to your solution.
+You might consider deploying a shared Private Link service, which is connected to a standard load balancer. Each of your tenants can create a private endpoint and use it to connect to your solution.
 
 A single Private Link service instance supports a large number of private endpoints. If you do exhaust the limit, you can deploy more Private Link service instances, although there are also limits to the number of Private Link services you can deploy on a single load balancer. If you expect that you'll approach these limits, consider using a Deployment Stamps-based approach, and deploy shared load balancers and Private Link service instances into each stamp.
 
