@@ -8,8 +8,9 @@ Put guardrails around the development processes, by using CI/CD with dynamic pol
 
 ## Architecture
 
-![Architecture diagram shows Inner loop to source code through C I / C D pipelines to Helm chart and Azure Container to A K S production cluster.](../media/secure-devops-for-kubernetes.png)
-*Download an [SVG](../media/secure-devops-for-kubernetes.svg) of this architecture.*
+:::image type="content" border="false" source="../media/secure-devops-for-kubernetes.png" alt-text="Architecture diagram shows Inner loop to source code through C I / C D pipelines to Helm chart and Azure Container to A K S production cluster." lightbox="../media/secure-devops-for-kubernetes.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/secure-devops-for-kubernetes.vsdx) of this architecture.*
 
 ### Dataflow
 
