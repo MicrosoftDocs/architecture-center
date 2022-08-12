@@ -315,6 +315,19 @@ Manage remote access to your VMs through [Azure Bastion](https://azure.microsoft
 - Secure Shell Protocol (SSH) ports
 - Remote Desktop Protocol (RDP) ports
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors:
+- [Kevin Raines](https://www.linkedin.com/in/kevingraines) | Director of Azure Marketing
+- [David Baumgarten](https://www.linkedin.com/in/baumgarten-david) | Senior Cloud Solution Architect
+
+Other contributors:
+- [Roeland Nieuwenhuis](https://www.linkedin.com/in/roelandnieuwenhuis) | Principal Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 For help getting started, see the following resources:

@@ -4541,6 +4541,8 @@ items:
             items:
               - name: AD DS resource forests in Azure
                 href: reference-architectures/identity/adds-forest.yml
+              - name: Apply Zero Trust to your API implementation
+                href: example-scenario/security/apps-zero-trust-identity.yml  
               - name: Azure AD identity management for AWS
                 href: reference-architectures/aws/aws-azure-ad-security.yml
               - name: Deploy AD DS in an Azure virtual network
@@ -5301,6 +5303,8 @@ items:
                 href: solution-ideas/articles/training-and-procedural-guidance-powered-by-mixed-reality.yml
       - name: Mobile
         items:
+          - name: Get started
+            href: guide/mobile/mobile-start-here.md
           - name: Guides
             items:
               - name: Azure Communication Services architecture
