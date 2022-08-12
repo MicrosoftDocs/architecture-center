@@ -1,29 +1,32 @@
 
-This article provides a [Machine Learning Operations (MLOps)](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-mlops) architecture and process for Azure Databricks. This MLOps process defines a standardized way of moving machine learning models and pipelines from development to production, with options for automation and humans in the loop. The architecture is pluggable; while Azure Databricks provides most architecture components, you can also integrate with your existing infrastructure for one or components.
+This article provides a [machine learning operations (MLOps)](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-mlops) architecture and process for Azure Databricks. This process defines a standardized way for moving machine learning models and pipelines from development to production, with options for automation and humans in the loop. The architecture is pluggable. Azure Databricks provides most of the architecture components, but you can also integrate with your existing infrastructure for one or more components.
 
-MLOps helps to reduce risk of failures in ML and AI systems and to improve efficiency in collaboration and tooling. For an introduction to MLOps, see the blog post &quot;[Architecting MLOps on the Lakehouse](https://databricks.com/blog/2022/06/22/architecting-mlops-on-the-lakehouse.html).&quot;
+MLOps helps to reduce the risk of failures in machine learning and AI systems and to improve the efficiency of collaboration and tooling. For an introduction to MLOps, see [Architecting MLOps on the Lakehouse](https://databricks.com/blog/2022/06/22/architecting-mlops-on-the-lakehouse.html).
 
 ## Potential use cases
 
-This architecture is general to all types of machine learning, deep learning, and advanced analytics. Common ML/AI techniques used in this architecture include classical machine learning (linear models, tree-based models, boosting, etc.), modern deep learning (TensorFlow, PyTorch, etc.), and custom analytics (statistics, Bayesian methods, graph analytics, etc.).
+This architecture is general to all types of machine learning, deep learning, and advanced analytics. Common machine learning / AI techniques used in this architecture include:
+- Classical machine learning, like linear models, tree-based models, and boosting.
+- Modern deep learning, like TensorFlow and PyTorch.
+-  Custom analytics, like statistics, Bayesian methods, and graph analytics.
 
-This architecture supports both small data (single-machine) and large data (distributed computing and GPU-accelerated). In each stage of the architecture, flexible choices for compute resources and libraries can be made to adapt to the data and problem dimensions.
+The architecture supports both small data (single machine) and large data (distributed computing and GPU accelerated). In each stage of the architecture, you can choose compute resources and libraries to adapt to your data and problem dimensions.
 
-This architecture applies to all types of business use cases and industries. Azure Databricks customers leveraging this and similar architectures include both small and large organizations in:
+The architecture applies to all types of industries and business use cases. Azure Databricks customers using this and similar architectures include both small and large organizations in industries like these:
 
 - Consumer goods and retail services
 - Financial services
 - Healthcare and life sciences
 - Information technology
-- and many more
 
-See the [Databricks Customers website](https://databricks.com/customers) for examples.
+
+For examples, see the [Databricks website](https://databricks.com/customers).
 
 ## Architecture
 
-The reference architecture below provides a template for a robust MLOps process using Azure Databricks. All elements in the architecture are pluggable, so other Azure and 3rd-party services may integrate throughout the architecture as needed. This architecture and description are adapted from the eBook, "The Big Book of MLOps", available directly from © Databricks, Inc.
+The reference architecture below provides a template for a robust MLOps process that uses Azure Databricks. All elements in the architecture are pluggable, so you can integrate other Azure and third-party services throughout the architecture as needed. This architecture and description are adapted from the e-book [The Big Book of MLOps](https://www.databricks.com/p/ebook/the-big-book-of-mlops?itm_data=home-promocard3-bigbookmlops).
 
-![](_images/orchestrate-mlops-azure-databricks-01.png)
+:::image type="content" source="../media/orchestrate-mlops-azure-databricks-01.png" alt-text="Diagram that shows a solution for using Azure Databricks for MLOps." lightbox="../media/orchestrate-mlops-azure-databricks-01.png" border="false":::
 
 ## Workflow
 
