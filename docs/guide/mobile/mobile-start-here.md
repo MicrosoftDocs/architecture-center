@@ -32,7 +32,7 @@ These are just some of the services that Azure provides to help you with mobile 
 
 - [Azure Communication Services](https://azure.microsoft.com/services/communication-services). Use a set of rich communication APIs, video APIs, and SMS APIs to deploy your applications across any device, on any platform.
 
-- [Notification Hubs](https://azure.microsoft.com/services/notification-hubs). Use this massively scalable mobile push notification engine for sending notifications to iOS, Android, Windows, or Kindle devices.
+- [Azure Notification Hubs](https://azure.microsoft.com/services/notification-hubs). Use this massively scalable mobile push notification engine for sending notifications to iOS, Android, Windows, or Kindle devices.
 
 - [Azure Maps](https://azure.microsoft.com/services/azure-maps). Easily incorporate location-based data into mobile solutions.
 
@@ -42,7 +42,7 @@ These are just some of the services that Azure provides to help you with mobile 
 
 Azure provides various options for development platforms and back-end services.
 
-To learn about single-platform, cross-platform, and hybrid development frameworks, see [Choose a mobile development framework](/azure/developer/mobile-apps/choose-mobile-framework?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json).
+To learn about single-platform, cross-platform, and hybrid development frameworks, see [Choose a mobile development framework](/azure/developer/mobile-apps/choose-mobile-framework).
 
 For information about source-code management, see [Cloud-hosted mobile application source code management](/azure/developer/mobile-apps/serverless-compute?toc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json).
 
@@ -55,8 +55,8 @@ To start exploring options for other back-end services, see these articles:
 
 Automate your development lifecycle to ship faster and with more confidence. See these articles for information about CI/CD:
 
-- [Automate the lifecycle of your apps with continuous build and integration](/azure/developer/mobile-apps/continuous-integration?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
-- [Automate the deployment and release of your mobile applications with continuous delivery services](/azure/developer/mobile-apps/continuous-delivery?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
+- [Automate the lifecycle of your apps with continuous build and integration](/azure/developer/mobile-apps/continuous-integration)
+- [Automate the deployment and release of your mobile applications with continuous delivery services](/azure/developer/mobile-apps/continuous-delivery)
 
 ## Architectures for mobile apps
 
@@ -64,8 +64,8 @@ The following sections provide links to reference architectures in some key cate
 
 ### Storage
 
-- [Store, sync, and query mobile application data from the cloud](/azure/developer/mobile-apps/data-storage?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
-- [Cloud storage for highly secure, durable, scalable apps with Azure Storage](/azure/developer/mobile-apps/azure-storage?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
+- [Store, sync, and query mobile application data from the cloud](/azure/developer/mobile-apps/data-storage)
+- [Cloud storage for highly secure, durable, scalable apps with Azure Storage](/azure/developer/mobile-apps/azure-storage)
 
 ### Scalability
 
@@ -91,7 +91,7 @@ Following are a few more architectures to consider:
 
 - [Add a mobile front end to a legacy app](../../solution-ideas/articles/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application.yml)
 - [Azure Communication Services architecture design](../../guide/mobile/azure-communication-services-architecture.yml)
-- [Analyze and understand mobile application use](/azure/developer/mobile-apps/analytics?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
+- [Analyze and understand mobile application use](/azure/developer/mobile-apps/analytics)
 
 #### AWS professionals
 
