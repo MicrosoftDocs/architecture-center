@@ -4,7 +4,7 @@ Azure Active Directory (Azure AD) is a cloud-based multi-tenant directory and id
 
 ![Cloud identity architecture using Azure Active Directory](./images/azure-ad.png)
 
-*Download a [Visio file][visio-download] of this architecture.*
+*Download a [Visio file - tab "Azure AD"][visio-download] of this architecture.*
 
 > [!NOTE]
 > For simplicity, this diagram only shows the connections directly related to Azure AD, and not protocol-related traffic that may occur as part of authentication and identity federation. For example, a web application may redirect the web browser to authenticate the request through Azure AD. Once authenticated, the request can be passed back to the web application, with the appropriate identity information.
@@ -100,7 +100,7 @@ Configure Azure AD Connect to implement a topology that most closely matches the
 
 For more information about these topologies, see [Topologies for Azure AD Connect][aad-topologies].
 
-### User authentication
+### Configure user authentication method
 
 By default, the Azure AD Connect sync server configures password hash synchronization between the on-premises domain and Azure AD. The Azure AD service assumes that users authenticate by providing the same password that they use on-premises. For many organizations, this is appropriate, but you should consider your organization's existing policies and infrastructure. For example:
 
@@ -110,7 +110,7 @@ By default, the Azure AD Connect sync server configures password hash synchroniz
 
 For more information, see [Azure AD Connect User Sign-on options][aad-user-sign-in].
 
-### Azure AD application proxy
+### Configure Azure AD application proxy
 
 Use Azure AD to provide access to on-premises applications.
 
@@ -118,7 +118,7 @@ Expose your on-premises web applications using application proxy connectors mana
 
 For more information, see [Publish applications using Azure AD Application proxy][aad-application-proxy].
 
-### Object synchronization
+### Configure Azure AD object synchronization
 
 The default configuration for Azure AD Connect synchronizes objects from your local Active Directory directory based on the rules specified in the article [Azure AD Connect sync: Understanding the default configuration][aad-connect-sync-default-rules]. Objects that satisfy these rules are synchronized while all other objects are ignored. Some example rules:
 
@@ -129,7 +129,7 @@ Azure AD Connect applies several rules to User, Contact, Group, ForeignSecurityP
 
 You can also define your own filters to limit the objects to be synchronized by domain or OU. Alternatively, you can implement more complex custom filtering such as that described in [Azure AD Connect sync: Configure Filtering][aad-filtering].
 
-### Monitoring
+### Configure monitoring agents
 
 Health monitoring is performed by the following agents installed on-premises:
 
@@ -139,13 +139,13 @@ Health monitoring is performed by the following agents installed on-premises:
 
 For more information on installing the AD Connect Health agents and their requirements, see [Azure AD Connect Health Agent Installation][aad-agent-installation].
 
-## Scalability considerations
+## Considerations
 
-The Azure AD service supports scalability based on replicas, with a single primary replica that handles write operations plus multiple read-only secondary replicas. Azure AD transparently redirects attempted writes made against secondary replicas to the primary replica and provides eventual consistency. All changes made to the primary replica are propagated to the secondary replicas. This architecture scales well because most operations against Azure AD are reads rather than writes. For more information, see [What is the Azure Active Directory architecture?][aad-scalability]
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
-For the Azure AD Connect sync server, determine how many objects you're likely to synchronize from your local directory. If you have less than 100,000 objects, you can use the default SQL Server Express LocalDB software provided with Azure AD Connect. If you have a larger number of objects, you should install a production version of SQL Server and perform a custom installation of Azure AD Connect, specifying that it should use an existing instance of SQL Server.
+### Reliability
 
-## Availability considerations
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
 The Azure AD service is geo-distributed and runs in multiple datacenters spread around the world with automated failover. If a datacenter becomes unavailable, Azure AD ensures that your directory data is available for instance access in at least two more regionally dispersed datacenters.
 
@@ -159,7 +159,41 @@ If you aren't using the SQL Server Express LocalDB instance that comes with Azur
 
 For additional considerations about achieving high availability of the Azure AD Connect sync server and also how to recover after a failure, see [Azure AD Connect sync: Operational tasks and considerations - Disaster Recovery][aad-sync-disaster-recovery].
 
-## Manageability considerations
+### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
+Use conditional access control to deny authentication requests from unexpected sources:
+
+- Trigger [Azure Active Directory Multi-Factor Authentication (MFA)][azure-multifactor-authentication] if a user attempts to connect from an untrusted location such as across the Internet instead of a trusted network.
+
+- Use the device platform type of the user (iOS, Android, Windows Mobile, Windows) to determine access policy to applications and features.
+
+- Record the enabled/disabled state of users' devices, and incorporate this information into the access policy checks. For example, if a user's phone is lost or stolen it should be recorded as disabled to prevent it from being used to gain access.
+
+- Control user access to resources based on group membership. Use [Azure AD dynamic membership rules][aad-dynamic-membership-rules] to simplify group administration. For a brief overview of how this works, see [Introduction to Dynamic Memberships for Groups][aad-dynamic-memberships].
+
+- Use conditional access risk policies with Azure AD Identity Protection to provide advanced protection based on unusual sign-in activities or other events.
+
+For more information, see [Azure Active Directory conditional access][aad-conditional-access].
+
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+
+#### Azure AD Connect
+
+The Azure AD Connect synchronization feature is available in all editions of Azure Active Directory.
+
+#### VMs for N-Tier application
+
+For cost information about these resources, see [Run VMs for an N-tier architecture][implementing-a-multi-tier-architecture-on-Azure].
+
+### Operational excellence
+
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+
+#### Manageability
 
 There are two aspects to managing Azure AD:
 
@@ -179,33 +213,17 @@ Azure AD Connect installs the following tools to maintain Azure AD Connect sync 
 
 For more information and tips for managing Azure AD Connect, see [Azure AD Connect sync: Best practices for changing the default configuration][aad-sync-best-practices].
 
-## Security considerations
-
-Use conditional access control to deny authentication requests from unexpected sources:
-
-- Trigger [Azure Active Directory Multi-Factor Authentication (MFA)][azure-multifactor-authentication] if a user attempts to connect from an untrusted location such as across the Internet instead of a trusted network.
-
-- Use the device platform type of the user (iOS, Android, Windows Mobile, Windows) to determine access policy to applications and features.
-
-- Record the enabled/disabled state of users' devices, and incorporate this information into the access policy checks. For example, if a user's phone is lost or stolen it should be recorded as disabled to prevent it from being used to gain access.
-
-- Control user access to resources based on group membership. Use [Azure AD dynamic membership rules][aad-dynamic-membership-rules] to simplify group administration. For a brief overview of how this works, see [Introduction to Dynamic Memberships for Groups][aad-dynamic-memberships].
-
-- Use conditional access risk policies with Azure AD Identity Protection to provide advanced protection based on unusual sign-in activities or other events.
-
-For more information, see [Azure Active Directory conditional access][aad-conditional-access].
-
-## DevOps considerations
+#### DevOps 
 
 For DevOps considerations, see [DevOps: Extending Active Directory Domain Services (AD DS) to Azure](adds-extend-domain.yml#devops-considerations).
 
-### Azure AD Connect
+### Performance efficiency
 
-The Azure AD Connect synchronization feature is available in all editions of Azure Active Directory.
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
-### VMs for N-Tier application
+The Azure AD service supports scalability based on replicas, with a single primary replica that handles write operations plus multiple read-only secondary replicas. Azure AD transparently redirects attempted writes made against secondary replicas to the primary replica and provides eventual consistency. All changes made to the primary replica are propagated to the secondary replicas. This architecture scales well because most operations against Azure AD are reads rather than writes. For more information, see [What is the Azure Active Directory architecture?][aad-scalability]
 
-For cost information about these resources, see [Run VMs for an N-tier architecture][implementing-a-multi-tier-architecture-on-Azure].
+For the Azure AD Connect sync server, determine how many objects you're likely to synchronize from your local directory. If you have less than 100,000 objects, you can use the default SQL Server Express LocalDB software provided with Azure AD Connect. If you have a larger number of objects, you should install a production version of SQL Server and perform a custom installation of Azure AD Connect, specifying that it should use an existing instance of SQL Server.
 
 ## Pricing
 
