@@ -4,7 +4,7 @@ Azure Active Directory (Azure AD) is a cloud-based multi-tenant directory and id
 
 :::image type="content" source="./images/azure-ad.png" alt-text="Cloud identity architecture using Azure Active Directory" lightbox="./images/azure-ad.png" :::
 
-*Download a [Visio file - tab "Azure AD"][visio-download] of this architecture.*
+*Download a [Visio file][visio-download] of this architecture (see Visio tab "Azure AD").*
 
 > [!NOTE]
 > For simplicity, this diagram only shows the connections directly related to Azure AD, and not protocol-related traffic that may occur as part of authentication and identity federation. For example, a web application may redirect the web browser to authenticate the request through Azure AD. Once authenticated, the request can be passed back to the web application, with the appropriate identity information.
@@ -201,7 +201,7 @@ There are two aspects to managing Azure AD:
 Azure AD provides the following options for managing domains and directories in the cloud:
 
 - **[Azure Active Directory PowerShell Module][aad-powershell]** - used to script common Azure AD administrative tasks such as user management, domain management, and configuring single sign-on.
-- **Azure AD management blade in the Azure portal** - provides an interactive management view of the directory, and enables you to control and configure most aspects of Azure AD.
+- **[Azure AD management blade in the Azure portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade)** - provides an interactive management view of the directory, and enables you to control and configure most aspects of Azure AD.
 
 Azure AD Connect installs the following tools to maintain Azure AD Connect sync services from your on-premises machines:
 
