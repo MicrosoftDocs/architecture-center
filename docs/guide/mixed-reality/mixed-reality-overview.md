@@ -1,10 +1,10 @@
 ---
 title: Microsoft mixed reality overview
 titleSuffix: Azure Architecture Center
-description: See an overview of Microsoft mixed-reality concepts, product offerings, and Azure services.
+description: See an overview of Microsoft mixed-reality concepts, training, best practices, and Azure services.
 author: v-thepet
 ms.author: v-thepet
-ms.date: 08/11/2022
+ms.date: 08/12/2022
 ms.topic: overview
 ms.service: architecture-center
 categories:
@@ -14,7 +14,6 @@ products:
   - azure-remote-rendering
   - azure-spatial-anchors
   - hololens
-  - mrtk
   - windows-mixed-reality
 ms.custom:
   - overview
@@ -22,31 +21,33 @@ ms.custom:
 
 # Mixed reality overview
 
-Mixed reality is a blend of physical and digital worlds that unlocks natural and intuitive 3D human, computer, and environmental interactions. This new reality is based on advancements in computer vision, graphical processing, display technologies, input systems, and cloud computing.
+Mixed reality is a blend of physical and digital worlds that unlocks natural and intuitive 3D human, computer, and environmental interactions. This new reality is based on advancements in computer vision, graphical processing, display technologies, input systems, and cloud computing. The following Venn diagram illustrates the interaction between computers, humans, and the environment in mixed reality.
 
 :::image type="content" source="media/mixed-reality-venn-diagram.png" alt-text="Venn diagram showing interactions between computers, humans, and environments.":::
 
 Paul Milgram and Fumio Kishino introduced the term *mixed reality* in a 1994 paper, [A Taxonomy of Mixed reality Visual Displays](https://search.ieice.org/bin/summary.php?id=e77-d_12_1321). The paper explored the concept of a *virtuality continuum* and the taxonomy of visual displays. Since then, the application of mixed reality has gone beyond displays to include:
 
-- Environmental understanding with spatial mapping and anchors.
-- Human understanding with hand-tracking, eye-tracking, and speech input.
+- Environmental awareness with spatial mapping and anchors.
+- Human responses like hand-tracking, eye-tracking, and speech input.
 - Spatial sound.
 - Locations and positioning in both physical and virtual spaces.
 - Collaboration on 3D assets in mixed reality spaces.
 
 Mixed reality consists of several [different types of apps](/windows/mixed-reality/discover/types-of-mixed-reality-apps):
 
-- *Enhanced environment apps* (HoloLens only) let developers place digital information or content in a user's current environment.
-- *Blended environment apps* recognize and map the user's environment and create a digital layer that overlays the user's space.
+- *Enhanced environment apps* (HoloLens only) place digital information or content in a user's current environment.
+- *Blended environment apps* create a digital layer that overlays the user's space.
 - *Immersive apps* create an environment that completely changes the user's world and can place them in a different time and space.
 
-  :::image type="content" source="media/mixed-reality-spectrum.png" alt-text="Image showing the mixed reality spectrum.":::
+The following image shows the continuum of mixed-reality apps from physical to digital reality:
+
+:::image type="content" source="media/mixed-reality-spectrum.png" alt-text="Image showing the mixed reality spectrum.":::
 
 ## Azure mixed reality services
 
-Several Azure cloud services help developers build compelling mixed reality experiences on various platforms. Azure mixed reality services help people create, learn, and collaborate within their own context by bringing 3D to mobile devices, headsets, and other untethered devices. Azure services have built-in comprehensive security and compliance capabilities.
+Several Azure cloud services help developers build compelling mixed reality experiences on various platforms. Azure mixed reality services help people create, learn, and collaborate within their own context by bringing 3D to mobile devices, headsets, and other untethered devices. All Azure services build in comprehensive security and compliance capabilities.
 
-- [Azure Remote Rendering](https://azure.microsoft.com/services/remote-rendering) lets you render highly complex 3D models in real time and stream them to a device. You can add Azure Remote Rendering to your Unity or native C++ projects targeting HoloLens 2 or Windows desktop PC.
+- [Azure Remote Rendering](https://azure.microsoft.com/services/remote-rendering) lets you render highly complex 3D models in real time and stream them to a device. You can add Azure Remote Rendering to Unity or native C++ projects that target HoloLens 2 or Windows desktop PC.
 
 - [Azure Spatial Anchors](https://azure.microsoft.com/services/spatial-anchors) is a cross-platform service that lets you build spatially aware mixed reality applications. With Azure Spatial Anchors, you can map, persist, and share holographic content across multiple devices at real-world scale.
 
@@ -68,7 +69,7 @@ If you're new to mixed reality, the best place to learn about the ecosystem is t
 
 ### Build a mixed-reality experience
 
-If you're an intermediate-to-advanced developer with previous experience with mixed, augmented, or virtual reality, check out the **HoloLens 2 fundamentals: develop mixed reality applications**  tutorial series. You can build a mixed-reality experience that lets users explore a hologram modeled after NASA's Mars Curiosity Rover. This tutorial gives you a firm grasp of the [Mixed Reality Toolkit (MRTK)](/windows/mixed-reality/mrtk-unity/mrtk2), and shows how the MRTK can speed up your development process.
+If you're an intermediate-to-advanced developer with previous experience with mixed, augmented, or virtual reality, check out the **HoloLens 2 fundamentals: develop mixed reality applications**  tutorial series. With this tutorial, you can build a mixed-reality experience that lets users explore a hologram modeled after NASA's Mars Curiosity Rover. The tutorial gives you a firm grasp of the [Mixed Reality Toolkit (MRTK)](/windows/mixed-reality/mrtk-unity/mrtk2), and shows how the MRTK can speed up your development process.
 
 > [!div class="nextstepaction"]
 > [HoloLens 2 fundamentals](/learn/paths/beginner-hololens-2-tutorials)
@@ -92,7 +93,7 @@ Before you start designing and prototyping mixed reality software, read and unde
 - [Mixed reality design guidance](/windows/mixed-reality/design/about-this-design-guidance)
 - [Mixed reality structural elements](/windows/mixed-reality/design/core-concepts-landingpage)
 - [Types of mixed reality apps](/windows/mixed-reality/discover/types-of-mixed-reality-apps)
-- [Instinctual interactions](/windows/mixed-reality/design/interaction-fundamentals)
+- [Interaction models](/windows/mixed-reality/design/interaction-fundamentals)
 - [UX elements overview](/windows/mixed-reality/design/app-patterns-landingpage)
 
 > [!div class="nextstepaction"]
@@ -102,7 +103,7 @@ Before you start designing and prototyping mixed reality software, read and unde
 
 Follow these best practices to design, develop, and deliver high-quality, user-friendly mixed reality apps.
 
-- [Designing content for holographic display](/windows/mixed-reality/design/designing-content-for-holographic-display) describes elements you need to consider to deliver the best holographic experience.
+- [Designing content for holographic display](/windows/mixed-reality/design/designing-content-for-holographic-display) describes elements to consider for delivering the best holographic experience.
 - [Comfort](/windows/mixed-reality/design/comfort) explains how to create and present content that mimics cues in the natural world and avoids fatiguing motions.
 - [Spatial sound best practices](/windows/mixed-reality/design/spatial-sound-design) discusses how to use sound to inform and reinforce the user's mental model in the mixed-reality world.
 - [App quality criteria overview](/windows/mixed-reality/develop/advanced-concepts/app-quality-criteria-overview) presents the top factors that affect mixed reality app quality.
