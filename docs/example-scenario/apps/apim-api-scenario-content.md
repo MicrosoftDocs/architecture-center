@@ -24,6 +24,8 @@ You can use this scenario to:
 
 ![Architecture diagram][architecture]
 
+*Download a [Visio file][visio-download] of this architecture.*
+
 The new UI will be hosted as a platform as a service (PaaS) application on Azure, and will depend on both existing and new HTTP APIs. These APIs will ship with a better-designed set of interfaces enabling better performance, easier integration, and future extensibility.
 
 ### Workflow
@@ -142,3 +144,4 @@ Learn modules:
 [azure-quickstart-templates-apim]: https://azure.microsoft.com/resources/templates/?term=API+Management&pageNumber=1
 [soap]: https://en.wikipedia.org/wiki/SOAP
 [pricing-calculator]: https://azure.com/e/0e916a861fac464db61342d378cc0bd6
+[visio-download]: https://arch-center.azureedge.net/architecture-apim-api-scenario.vsdx
