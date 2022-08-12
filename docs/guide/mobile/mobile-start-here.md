@@ -1,31 +1,42 @@
+---
+title: Mobile architecture design
+description: Review resources to help you learn about mobile development and back-end infrastructure on Azure. Includes solution ideas and reference architectures.
+author: EdPrice-MSFT
+ms.author: architectures
+ms.date: 08/15/2022
+ms.topic: conceptual
+ms.service: architecture-center
+ms.subservice: azure-guide
+products:
+  - azure-app-service
+  - vs-app-center
+  - xamarin
+  - azure-communication-services
+  - azure-notification-hubs
+categories:
+  - mobile
+  - developer-tools
+---
+
 # Mobile architecture design
 
 The Azure platform can help you quickly build Android, iOS, and Windows apps that fit your business needs. You can use Azure to power your apps with intelligent back-end services and automate your development lifecycle to ship faster and with more confidence.
 
 These are just some of the services that Azure provides to help you with mobile development and back-end infrastructure:
 
-- [Azure App Service](https://azure.microsoft.com/services/app-service). Azure App Service enables you to build and host web apps, mobile back ends, and RESTful APIs in the programming language of your choice without managing infrastructure. Use [Mobile Apps](https://azure.microsoft.com/services/app-service/mobile), a feature of App Service, to create mobile apps for any device.
+- [Azure App Service](https://azure.microsoft.com/services/app-service). Build and host web apps, mobile back ends, and RESTful APIs in the programming language of your choice without managing infrastructure. Use [Mobile Apps](https://azure.microsoft.com/services/app-service/mobile), a feature of App Service, to create mobile apps for any device.
 
 - [Visual Studio App Center](https://azure.microsoft.com/services/app-center). Build, test, release, and monitor your mobile apps.
 
-- [Xamarin](https://azure.microsoft.com/features/xamarin). Create cloud-powered mobile apps faster.
+- [Xamarin](https://azure.microsoft.com/features/xamarin). Quickly create cloud-powered mobile apps.
 
-- [Azure Communication Services](https://azure.microsoft.com/services/communication-services). Azure Communication Services is a set of rich communication APIs, video APIs, and SMS APIs for deploying your applications across any device, on any platform.
+- [Azure Communication Services](https://azure.microsoft.com/services/communication-services). Use a set of rich communication APIs, video APIs, and SMS APIs to deploy your applications across any device, on any platform.
 
-- [Notification Hubs](https://azure.microsoft.com/services/notification-hubs). Azure Notification Hubs is a massively scalable mobile push notification engine for sending notifications to iOS, Android, Windows, or Kindle devices.
+- [Notification Hubs](https://azure.microsoft.com/services/notification-hubs). Use this massively scalable mobile push notification engine for sending notifications to iOS, Android, Windows, or Kindle devices.
 
-- [Azure Maps](https://azure.microsoft.com/services/azure-maps). Azure Maps is a suite of geospatial services that can help you easily incorporate location-based data into mobile solutions.
+- [Azure Maps](https://azure.microsoft.com/services/azure-maps). Easily incorporate location-based data into mobile solutions.
 
 - [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services). Add cognitive capabilities to apps by using APIs and AI services.
-
-## Introduction to mobile architecture on Azure
-
-Continuous integration and continuous delivery (CI/CD) play an important part in a mobile development strategy. 
-
-To learn more, check out these Microsoft Learn resources:
-
-- [Learning path: Define and implement continuous integration](/learn/paths/az-400-define-implement-continuous-integration)
-- [Module: Introduction to continuous delivery](/learn/modules/introduction-to-continuous-delivery)
 
 ## Path to production
 
@@ -47,11 +58,26 @@ Automate your development lifecycle to ship faster and with more confidence. See
 - [Automate the lifecycle of your apps with continuous build and integration](/azure/developer/mobile-apps/continuous-integration?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
 - [Automate the deployment and release of your mobile applications with continuous delivery services](/azure/developer/mobile-apps/continuous-delivery?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
 
-## Other high-level sections
+## Architectures for mobile apps
 
-storage
+The following sections provide links to reference architectures in some key categories.
 
-scalability 
+### Storage
+
+- [Store, sync, and query mobile application data from the cloud](/azure/developer/mobile-apps/data-storage?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
+- [Cloud storage for highly secure, durable, scalable apps with Azure Storage](/azure/developer/mobile-apps/azure-storage?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
+
+### Scalability
+
+- [Scalable web and mobile applications using Azure Database for MySQL](../../solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-mysql.yml)
+- [Scalable web and mobile applications using Azure Database for PostgreSQL](../../solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-postgresql.yml)
+
+### Scenario-specific apps
+
+- [Custom mobile workforce app](../../solution-ideas/articles/custom-mobile-workforce-app.yml)
+- [Modern customer support portal](../../solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process.yml)
+- [Social app for mobile and web with authentication](../../solution-ideas/articles/social-mobile-and-web-app-with-authentication.yml)
+- [Task-based consumer mobile app](../../solution-ideas/articles/task-based-consumer-mobile-app.yml)
 
 ## Stay current with mobile development on Azure
 
@@ -61,6 +87,12 @@ Get the latest updates on [Azure mobile development services and features](https
 
 ### Example solutions
 
+Following are a few more architectures to consider:
+
+- [Add a mobile front end to a legacy app](../../solution-ideas/articles/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application.yml)
+- [Azure Communication Services architecture design](../../guide/mobile/azure-communication-services-architecture.yml)
+- [Analyze and understand mobile application use](/azure/developer/mobile-apps/analytics?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
+
 #### AWS professionals
 
-- [AWS to Azure services comparison - Mobile services](/azure/architecture/aws-professional/services#mobile-services)
+- [AWS to Azure services comparison - Mobile services](../../aws-professional/services.md#mobile-services)

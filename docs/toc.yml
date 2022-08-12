@@ -5299,6 +5299,8 @@ items:
                 href: solution-ideas/articles/training-and-procedural-guidance-powered-by-mixed-reality.yml
       - name: Mobile
         items:
+          - name: Get started
+            href: guide/mobile/mobile-start-here.md
           - name: Guides
             items:
               - name: Azure Communication Services architecture
