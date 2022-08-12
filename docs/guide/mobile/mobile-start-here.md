@@ -42,7 +42,7 @@ These are just some of the services that Azure provides to help you with mobile 
 
 Azure provides various options for development platforms and back-end services.
 
-To learn about single-platform, cross-platform, and hybrid development frameworks, see [Choose a mobile development framework](/azure/developer/mobile-apps/choose-mobile-framework).
+To learn about single-platform, cross-platform, and hybrid development frameworks, see [Choose a mobile development framework](/azure/developer/mobile-apps/choose-mobile-framework?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json).
 
 For information about source-code management, see [Cloud-hosted mobile application source code management](/azure/developer/mobile-apps/serverless-compute?toc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json).
 
