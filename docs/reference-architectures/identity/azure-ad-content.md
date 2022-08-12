@@ -61,7 +61,7 @@ To implement high availability for the AD Connect sync service, run a secondary 
 
 **Protect on-premises applications that can be accessed externally.** Use the Azure AD Application Proxy to provide controlled access to on-premises web applications for external users through Azure AD. Only users that have valid credentials in your Azure directory have permission to use the application. For more information, see the article [Enable Application Proxy in the Azure portal][aad-application-proxy].
 
-**Actively monitor Azure AD for signs of suspicious activity.** Consider using Azure AD Premium P2 edition, which includes Azure AD Identity Protection. Identity Protection uses adaptive machine learning algorithms and heuristics to detect anomalies and risk events that may indicate that an identity has been compromised. For example, it can detect potentially unusual activity such as irregular sign-in activities, sign-ins from unknown sources or from IP addresses with suspicious activity, or sign-ins from devices that may be infected. Using this data, Identity Protection generates reports and alerts that enable you to investigate these risk events and take appropriate action. For more information, see [Azure Active Directory Identity Protection][aad-identity-protection].
+**Actively monitor Azure AD for signs of suspicious activity.** Consider using Azure AD Premium P2 edition, which includes Azure AD Identity Protection. Identity Protection uses adaptive machine learning algorithms and heuristics to detect anomalies and risk events that may indicate that an identity has been compromised. For example, it can detect potentially unusual activity such as irregular sign-in activities, sign-ins from unknown sources or from IP addresses with suspicious activity, or sign-ins from devices that may be infected. Identity Protection uses this data to generate reports and alerts that enable you to investigate these risk events and take appropriate action. For more information, see [Azure Active Directory Identity Protection][aad-identity-protection].
 
 You can use the reporting feature of Azure AD in the Azure portal to monitor security-related activities occurring in your system. For more information about using these reports, see [Azure Active Directory Reporting Guide][aad-reporting-guide].
 
@@ -69,14 +69,14 @@ You can use the reporting feature of Azure AD in the Azure portal to monitor sec
 
 Configure Azure AD Connect to implement a topology that most closely matches the requirements of your organization. Topologies that Azure AD Connect supports include:
 
-- **Single forest, single Azure AD directory**. In this topology, Azure AD Connect synchronizes objects and identity information from one or more domains in a single on-premises forest into a single Azure AD tenant. This is the default topology implemented by the express installation of Azure AD Connect.
+- **Single forest, single Azure AD directory**. In this topology, Azure AD Connect synchronizes objects and identity information from one or more domains in a single on-premises forest into a single Azure AD tenant. This topology is the default implementation  by the express installation of Azure AD Connect.
 
   > [!NOTE]
   > Don't use multiple Azure AD Connect sync servers to connect different domains in the same on-premises forest to the same Azure AD tenant, unless you are running a server in staging mode, described below.
   >
   >
 
-- **Multiple forests, single Azure AD directory**. In this topology, Azure AD Connect synchronizes objects and identity information from multiple forests into a single Azure AD tenant. Use this topology if your organization has more than one on-premises forest. You can consolidate identity information so that each unique user is represented once in the Azure AD directory, even if the same user exists in more than one forest. All forests use the same Azure AD Connect sync server. The Azure AD Connect sync server doesn't have to be part of any domain, but it must be reachable from all forests.
+- **Multiple forests, single Azure AD directory**. In this topology, Azure AD Connect synchronizes objects and identity information from multiple forests into a single Azure AD tenant. Use this topology if your organization has more than one on-premises forest. You can consolidate identity information so that each unique user is represented once in the Azure AD directory, even if the user exists in more than one forest. All forests use the same Azure AD Connect sync server. The Azure AD Connect sync server doesn't have to be part of any domain, but it must be reachable from all forests.
 
   > [!NOTE]
   > In this topology, don't use separate Azure AD Connect sync servers to connect each on-premises forest to a single Azure AD tenant. This can result in duplicated identity information in Azure AD if users are present in more than one forest.
@@ -96,13 +96,13 @@ Configure Azure AD Connect to implement a topology that most closely matches the
 
     In these scenarios, the second instance runs in *staging mode*. The server records imported objects and synchronization data in its database, but doesn't pass the data to Azure AD. If you disable staging mode, the server starts writing data to Azure AD, and also starts performing password write-backs into the on-premises directories where appropriate. For more information, see [Azure AD Connect sync: Operational tasks and considerations][aad-connect-sync-operational-tasks].
 
-- **Multiple Azure AD directories**. It's recommended that you create a single Azure AD directory for an organization, but there may be situations where you need to partition information across separate Azure AD directories. In this case, avoid synchronization and password write-back issues by ensuring that each object from the on-premises forest appears in only one Azure AD directory. To implement this scenario, configure separate Azure AD Connect sync servers for each Azure AD directory, and use filtering so that each Azure AD Connect sync server operates on a mutually exclusive set of objects.
+- **Multiple Azure AD directories**. Typically you create a single Azure AD directory for an organization, but there may be situations where you need to partition information across separate Azure AD directories. In this case, avoid synchronization and password write-back issues by ensuring that each object from the on-premises forest appears in only one Azure AD directory. To implement this scenario, configure separate Azure AD Connect sync servers for each Azure AD directory, and use filtering so that each Azure AD Connect sync server operates on a mutually exclusive set of objects.
 
 For more information about these topologies, see [Topologies for Azure AD Connect][aad-topologies].
 
 ### Configure user authentication method
 
-By default, the Azure AD Connect sync server configures password hash synchronization between the on-premises domain and Azure AD. The Azure AD service assumes that users authenticate by providing the same password that they use on-premises. For many organizations, this is appropriate, but you should consider your organization's existing policies and infrastructure. For example:
+By default, the Azure AD Connect sync server configures password hash synchronization between the on-premises domain and Azure AD. The Azure AD service assumes that users authenticate by providing the same password that they use on-premises. For many organizations, this strategy is appropriate, but you should consider your organization's existing policies and infrastructure. For example:
 
 - The security policy of your organization may prohibit synchronizing password hashes to the cloud. In this case, your organization should consider [pass-through authentication](/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication).
 - You might require that users experience seamless single sign-on (SSO) when accessing cloud resources from domain-joined machines on the corporate network.
@@ -114,7 +114,7 @@ For more information, see [Azure AD Connect User Sign-on options][aad-user-sign-
 
 Use Azure AD to provide access to on-premises applications.
 
-Expose your on-premises web applications using application proxy connectors managed by the Azure AD application proxy component. The application proxy connector opens an outbound network connection to the Azure AD application proxy, and remote users' requests are routed back from Azure AD through this connection to the web apps. This removes the need to open inbound ports in the on-premises firewall and reduces the attack surface exposed by your organization.
+Expose your on-premises web applications using application proxy connectors managed by the Azure AD application proxy component. The application proxy connector opens an outbound network connection to the Azure AD application proxy. Remote users' requests are routed back from Azure AD through this proxy connection to the web apps. This configuration removes the need to open inbound ports in the on-premises firewall and reduces the attack surface exposed by your organization.
 
 For more information, see [Publish applications using Azure AD Application proxy][aad-application-proxy].
 
@@ -181,13 +181,11 @@ For more information, see [Azure Active Directory conditional access][aad-condit
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-#### Azure AD Connect
+Cost considerations include:
 
-The Azure AD Connect synchronization feature is available in all editions of Azure Active Directory.
+- **Azure AD Connect** - The Azure AD Connect synchronization feature is available in all editions of Azure Active Directory.
 
-#### VMs for N-Tier application
-
-For cost information about these resources, see [Run VMs for an N-tier architecture][implementing-a-multi-tier-architecture-on-Azure].
+- **VMs for N-Tier application** - For cost information about these resources, see [Run VMs for an N-tier architecture][implementing-a-multi-tier-architecture-on-Azure].
 
 ### Operational excellence
 
@@ -202,14 +200,14 @@ There are two aspects to managing Azure AD:
 
 Azure AD provides the following options for managing domains and directories in the cloud:
 
-- **Azure Active Directory PowerShell Module**. Use this [module][aad-powershell] if you need to script common Azure AD administrative tasks such as user management, domain management, and configuring single sign-on.
-- **Azure AD management blade in the Azure portal**. This blade provides an interactive management view of the directory, and enables you to control and configure most aspects of Azure AD.
+- **[Azure Active Directory PowerShell Module][aad-powershell]** - used to script common Azure AD administrative tasks such as user management, domain management, and configuring single sign-on.
+- **Azure AD management blade in the Azure portal** - provides an interactive management view of the directory, and enables you to control and configure most aspects of Azure AD.
 
 Azure AD Connect installs the following tools to maintain Azure AD Connect sync services from your on-premises machines:
 
-- **Microsoft Azure Active Directory Connect console**. This tool enables you to modify the configuration of the Azure AD Sync server, customize how synchronization occurs, enable or disable staging mode, and switch the user sign-in mode. You can enable Active Directory FS sign-in using your on-premises infrastructure.
-- **Synchronization Service Manager**. Use the *Operations* tab in this tool to manage the synchronization process and detect whether any parts of the process have failed. You can trigger synchronizations manually using this tool. The *Connectors* tab enables you to control the connections for the domains that the synchronization engine is attached to.
-- **Synchronization Rules Editor**. Use this tool to customize the way objects are transformed when they're copied between an on-premises directory and Azure AD. This tool enables you to specify additional attributes and objects for synchronization, then executes filters to determine which objects should or should not be synchronized. For more information, see the Synchronization Rule Editor section in the document [Azure AD Connect sync: Understanding the default configuration][aad-connect-sync-default-rules].
+- **Microsoft Azure Active Directory Connect console** - allows you to modify the configuration of the Azure AD Sync server, customize how synchronization occurs, enable or disable staging mode, and switch the user sign-in mode. You can enable Active Directory FS sign-in using your on-premises infrastructure.
+- **Synchronization Service Manager** - use the *Operations* tab in this tool to manage the synchronization process and detect whether any parts of the process have failed. You can trigger synchronizations manually using this tool. The *Connectors* tab enables you to control the connections for the domains that the synchronization engine is attached to.
+- **Synchronization Rules Editor** - allows you to customize the way objects are transformed when they're copied between an on-premises directory and Azure AD. This tool enables you to specify additional attributes and objects for synchronization, then executes filters to determine which objects should or shouldn't be synchronized. For more information, see the Synchronization Rule Editor section in the document [Azure AD Connect sync: Understanding the default configuration][aad-connect-sync-default-rules].
 
 For more information and tips for managing Azure AD Connect, see [Azure AD Connect sync: Best practices for changing the default configuration][aad-sync-best-practices].
 
