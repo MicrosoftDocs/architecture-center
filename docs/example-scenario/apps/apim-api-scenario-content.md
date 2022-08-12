@@ -24,6 +24,8 @@ You can use this scenario to:
 
 ![Architecture diagram][architecture]
 
+*Download a [Visio file][visio-download] of this architecture.*
+
 The new UI will be hosted as a platform as a service (PaaS) application on Azure, and will depend on both existing and new HTTP APIs. These APIs will ship with a better-designed set of interfaces enabling better performance, easier integration, and future extensibility.
 
 ### Workflow
@@ -32,7 +34,7 @@ The new UI will be hosted as a platform as a service (PaaS) application on Azure
 2. Calls from the existing web app to the existing HTTP services will remain unchanged. These calls are internal to the corporate network.
 3. Inbound calls are made from Azure to the existing internal services:
     - The security team allows traffic from the APIM instance to pass through the corporate firewall to the existing on-premises services [using secure transport (HTTPS/SSL)][apim-ssl].
-    - The operations team will allow inbound calls to the services only from the APIM instance. This requirement is met by [adding the IP address of the APIM instance to the allow list][apim-allow-ip] within the corporate network perimeter.
+    - The operations team will allow inbound calls to the services only from the APIM instance. This requirement is met by [adding the IP address of the APIM instance to the allowlist][apim-allow-ip] within the corporate network perimeter.
     - A new module is configured into the on-premises HTTP services request pipeline (to act on **only** those connections originating externally), which will validate [a certificate which APIM will provide][apim-mutualcert-auth].
 4. The new API:
     - Is surfaced only through the APIM instance, which will provide the API facade. The new API won't be accessed directly.
@@ -96,7 +98,7 @@ Principal author:
 
 ## Next steps
 
-Product documention:
+Product documentation:
 
 - [Azure App Service overview](/azure/app-service/overview)
 - [About About API Management](/azure/api-management/api-management-key-concepts)
@@ -142,3 +144,4 @@ Learn modules:
 [azure-quickstart-templates-apim]: https://azure.microsoft.com/resources/templates/?term=API+Management&pageNumber=1
 [soap]: https://en.wikipedia.org/wiki/SOAP
 [pricing-calculator]: https://azure.com/e/0e916a861fac464db61342d378cc0bd6
+[visio-download]: https://arch-center.azureedge.net/architecture-apim-api-scenario.vsdx
