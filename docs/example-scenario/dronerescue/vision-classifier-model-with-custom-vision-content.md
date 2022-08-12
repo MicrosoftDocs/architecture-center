@@ -6,6 +6,8 @@ This architecture uses Custom Vision to classify images taken by a simulated dro
 
 ![Diagram of the Search and Rescue Lab architecture to create an image classifier model.](media/drone-rescue.png)
 
+*Download a [Visio file](https://arch-center.azureedge.net/vision-classifier-model-with-custom-vision.vsdx) of this architecture.*
+
 ### Workflow
 
 1. Use AirSim's 3D-rendered environment to take images taken with the drone. Use the images as the training dataset.
