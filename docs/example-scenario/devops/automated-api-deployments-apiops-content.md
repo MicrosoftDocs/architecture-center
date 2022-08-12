@@ -17,7 +17,7 @@ _Download a [Visio file](https://arch-center.azureedge.net/automated-api-deploym
 
 1. API operators run the extractor pipeline to synchronize the Git repository with the API Management instance and populate the Git repository with API Management objects in the required format.
 
-2. If APIs already exist in the API Management instance and there are changes, a pull request (PR) is created for operators to review and merge the changes in the Git repository.
+2. If an API in the API Management instance has been changed, a pull request (PR) is created for operators to review and merge the changes in the Git repository.
 
 3. API developers clone the Git repository, create a branch, and create API definitions by using the OpenAPI specification or tools of their choice.
 
@@ -45,7 +45,7 @@ _Download a [Visio file](https://arch-center.azureedge.net/automated-api-deploym
 
 ### Alternatives
 
-This architecture uses Azure Resource Management (ARM) templates from the [Azure API Management DevOps Resource Kit](https://github.com/Azure/azure-api-management-devops-resource-kit). You can replace ARM templates with Terraform, Azure Resource Manager, PowerShell, the REST API instead of the Azure Resource Management templates (ARM) to format and push newly extracted changes back to the portal.
+This architecture uses Azure Resource Management (ARM) templates from the [Azure API Management DevOps Resource Kit](https://github.com/Azure/azure-api-management-devops-resource-kit). You can replace ARM templates with Terraform, Azure Resource Manager, PowerShell, the REST API to format and push newly extracted changes back to the portal.
 
 This solution uses [Azure Repos](/azure/devops/repos/?view=azure-devops) to provide Git functionality and [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) provides the pipelines. Any similar technology could be used to provide those services.
 
