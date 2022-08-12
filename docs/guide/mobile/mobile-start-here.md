@@ -44,7 +44,7 @@ Azure provides various options for development platforms and back-end services.
 
 To learn about single-platform, cross-platform, and hybrid development frameworks, see [Choose a mobile development framework](/azure/developer/mobile-apps/choose-mobile-framework?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json).
 
-For information about source-code management, see [Cloud-hosted mobile application source-code management](/azure/developer/mobile-apps/serverless-compute?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json).
+For information about source-code management, see [Cloud-hosted mobile application source-code management](/azure/developer/mobile-apps/code-hosting-services?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json).
 
 To start exploring options for other back-end services, see these articles:
 
@@ -53,7 +53,7 @@ To start exploring options for other back-end services, see these articles:
 
 ## Best practices
 
-Automate your development lifecycle to ship faster and with more confidence. See these articles for information about CI/CD:
+Automate your development lifecycle to ship faster and with more confidence. See these articles for information about continuous integration and continuous delivery (CI/CD):
 
 - [Automate the lifecycle of your apps with continuous build and integration](/azure/developer/mobile-apps/continuous-integration?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [Automate the deployment and release of your mobile applications with continuous delivery services](/azure/developer/mobile-apps/continuous-delivery?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
