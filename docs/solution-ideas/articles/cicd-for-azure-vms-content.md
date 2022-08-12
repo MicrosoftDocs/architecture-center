@@ -65,6 +65,7 @@ An observability resource  that collects and stores metrics and logs, applicatio
 
 * [Run a Linux VM on Azure](/azure/architecture/reference-architectures/n-tier/linux-vm)
 * [Integrate DevTest Labs into Azure Pipelines](/azure/devtest-labs/devtest-lab-integrate-ci-cd)
+* [Create and deploy VM Applications](/azure/virtual-machines/vm-applications-how-to?tabs=portal)
 
 
 
