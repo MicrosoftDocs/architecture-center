@@ -1,16 +1,11 @@
-APIOps applies the concepts of [GitOps](https://www.gitops.tech) and [DevOps](/devops) to API deployment. By using practices from these two methodologies, APIOps can enable everyone involved in the lifecycle of API design, development, and deployment with self-service and automated tools to ensure the quality of the specifications and APIs that they're building.
+APIOps applies GitOps and [DevOps](/devops) to API deployment. It uses version control to manage APIs and creates an audit trail of changes to APIs, policies, and operations. API developers can review and audit APIs earlier and more frequently so they can identify deviations from your standards resolve them faster. The result is better specifications and API quality. The more APIs that you build and deploy by following this approach, the greater the consistency between APIs. With greater consistency, it's less likely that the service will be consumed.
 
-APIOps places the [Azure API Management](/azure/api-management) infrastructure under version control to achieve these goals. Rather than making changes directly in API Management, most operations happen through code changes that can be reviewed and audited. This approach supports the security principle of least-privilege access.
-
-APIOps not only enforces policies within API Management but also helps support security by providing feedback for proposed policy changes. Early feedback is more convenient for developers and reduces risks and costs. Also, the earlier in the pipeline that you can identify deviations from your standards, the faster you can resolve them.
-
-Also, the more APIs that you build and deploy by following this approach, the greater the consistency between APIs. With greater consistency, it's less likely that the service can't or won't be consumed because of low quality. 
-
-This article describes a solution for using APIOps with an API Management instance. This solution provides full audit capabilities, policy enforcement, and early feedback.
+This APIOps architecture uses [Azure API Management](/azure/api-management) as the API management platform. [Azure DevOps](https://azure.microsoft.com/solutions/devops) organizes API management. [Azure Repos](/azure/devops/repos/?view=azure-devops) provides Git functionality and [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) creates the CI/CD pipeline.
 
 ## Potential use cases
 
-This solution benefits any organization that wants the advantages of deploying APIs and the API Management infrastructure as code. It provides an audit trail of every change that's made to the individual APIs, policies, operations, and so on. This solution is especially suitable for highly regulated industries like insurance, banking, and finance. It's also appropriate for other businesses that want to apply the concept of APIOps to an API and the application lifecycle.
+- Any organization developing and managing APIs
+- Highly regulated industries: insurance, banking, finance, government.
 
 ## Architecture
 
@@ -20,35 +15,29 @@ _Download a [Visio file](https://arch-center.azureedge.net/automated-api-deploym
 
 ### Workflow
 
-This solution uses [Azure Repos](/azure/devops/repos/?view=azure-devops) to provide Git functionality. [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) provides the pipelines. Any similar technology could be used to provide those services.
+1. API operators run the extractor pipeline to synchronize the Git repository with the API Management instance and populate the Git repository with API Management objects in the required format.
 
-1.  API operators run the extractor pipeline to synchronize the Git repository with the API Management instance and populate the Git repository with API Management objects in the required format.
+2. If APIs already exist in the API Management instance and there are changes, a pull request (PR) is created for operators to review and merge the changes in the Git repository.
 
-2.  If APIs already exist in the API Management instance and there are changes, a pull request (PR) is created for operators to review and merge the changes in the Git repository.
+3. API developers clone the Git repository, create a branch, and create API definitions by using the OpenAPI specification or tools of their choice.
 
-3.  API developers clone the Git repository, create a branch, and create API definitions by using the OpenAPI specification or tools of their choice.
+4. API developers push the changes to the repository and create a PR for review.
 
-4.  API developers push the changes to the repository and create a PR for review.
+5. The PR can be automatically approved or reviewed, depending on the level of control that's required.
 
-5.  The PR can be automatically approved or reviewed, depending on the level of control that's required.
+6. After changes are approved and merged, the publishing pipeline deploys the latest changes to the API Management instance.
 
-6.  After changes are approved and merged, the publishing pipeline deploys the latest changes to the API Management instance.
+7. API operators create and modify API Management policies, diagnostics, products, and other relevant objects, and then commit the changes.
 
-7.  API operators create and modify API Management policies, diagnostics, products, and other relevant objects, and then commit the changes.
+8. The changes are reviewed, and they're merged after approval.
 
-8.  The changes are reviewed, and they're merged after approval.
-
-9.  After the changes are merged, the publishing pipeline deploys the changes by using the same process that was used for API definitions.
+9. After the changes are merged, the publishing pipeline deploys the changes by using the same process that was used for API definitions.
 
 ### Components
 
-The solution has the following components:
-
 - [Azure API Management](https://azure.microsoft.com/services/api-management) creates consistent, modern API gateways for back-end services. Besides routing API calls to back ends, this platform also verifies credentials, enforces usage quotas, and logs metadata.
 
-- [Azure DevOps](https://azure.microsoft.com/solutions/devops) is a service for managing your development lifecycle end-to-end—from planning and project management, to code management, and continuing to build and release.
-
-- [API Management DevOps Resource Kit](https://github.com/Azure/azure-api-management-devops-resource-kit) provides guidance, examples, and tools to help you achieve API DevOps with Azure API Management. 
+- [Azure DevOps](https://azure.microsoft.com/solutions/devops) is a service for managing your development lifecycle end-to-end, including planning and project management, code management, and continuing to build and release.
 
 - [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) enables continuous integration (CI) and continuous delivery (CD) to test and build your code and ship it to any target.
 
@@ -56,17 +45,13 @@ The solution has the following components:
 
 ### Alternatives
 
-This scenario uses a modified version of the [Azure API Management DevOps Resource Kit](https://github.com/Azure/azure-api-management-devops-resource-kit). The modifications made the resource kit a better fit to the GitOps model, such as by changing the repository structure and renaming the APIs to have friendlier names.
-
-The API Management resource kit is reliant on Azure Resource Management templates (ARM templates) while this solution is more technology-agnostic. You can now use Terraform, Azure Resource Manager, PowerShell, the REST API, and so on, to easily format and push newly extracted changes back to the portal.
-
-The toolkit doesn't deploy any changes. The extractor only generates ARM templates from the portal. The creator only generates ARM templates from the config.yml file.
+This architecture uses Azure Resource Management (ARM) templates from the [Azure API Management DevOps Resource Kit](https://github.com/Azure/azure-api-management-devops-resource-kit). You can replace ARM templates with Terraform, Azure Resource Manager, PowerShell, the REST API instead of the Azure Resource Management templates (ARM) to format and push newly extracted changes back to the portal.
 
 This solution uses [Azure Repos](/azure/devops/repos/?view=azure-devops) to provide Git functionality and [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) provides the pipelines. Any similar technology could be used to provide those services.
 
 ## Considerations
 
-This solution has the following considerations: scalability, security, and operations.
+Scalability, security, and operations are important considerations and three pillars of the Azure Well-Architected Framework that can be used to improve the quality of a workload. For more information, see the [Azure Well-Architected Framework](/azure/architecture/framework/).
 
 ### Scalability
 
@@ -84,13 +69,10 @@ To make sure the API Management instances are using best practices for security,
 
 Apart from the task of setting up repository permissions, consider implementing the following security measures in Git repositories that synchronize to API Management instances:
 
-- **Branch protection**: Protect the branches that represent the state of the API Management instances from having changes pushed to them directly. Require every change to be proposed by a PR that is reviewed by at least one other person. Also use PRs to do automatic checks.
-
-- **PR review**: Require PRs to have at least one reviewer, to enforce the four-eyes principle. You can also use the [GitHub code owners](https://docs.github.com/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners) feature to define individuals or teams that are responsible for reviewing specific files in a repository.
-
+- **Pull Request (PR) Review**: Use branches and protect the branches that represent the state of the API Management instances from having changes pushed to them directly. Require PRs to have at least one reviewer, to enforce the four-eyes principle. You can also use the [GitHub code owners](https://docs.github.com/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners) feature to define individuals or teams that are responsible for reviewing specific files in a repository.
 - **Immutable history**: Only allow new commits on top of existing changes. Immutable history is especially important for auditing purposes.
-
-- **Further security measures**: Require your GitHub users to activate two-factor authentication. Also, allow only signed commits, which can't be altered after the fact.
+- **Multi-factor authentication**: Require your GitHub users to activate two-factor authentication.
+- **Signed Commits**: Allow only signed commits that can't be altered after the fact.
 
 ### Operations
 
@@ -105,27 +87,26 @@ When someone makes a PR in the Git repository, the API operator knows they have 
 Deploying this solution involves these steps:
 
 - Develop the API in the portal or make changes to the OpenAPI specification by using a tool of your choice.
-
-  If you make changes in the portal, you can run the extractor to automatically extract all the APIs and other relevant policies, operations, and configurations from API Management. You can synchronize this information to the git repository.
-
-- Optionally, use the [Create pull request](/azure/devops/repos/Git/pull-requests?view=azure-devops&tabs=azure-devops-cli#create-a-pull-request) script, which is written in Azure DevOps CLI, to create new PRs.
+  - If you make changes in the portal, you can run the extractor to automatically extract all the APIs and other relevant policies, operations, and configurations from API Management. You can synchronize this information to the git repository.
+  
+  - Optionally, use the [Create pull request](/azure/devops/repos/Git/pull-requests?view=azure-devops&tabs=azure-devops-cli#create-a-pull-request) script, which is written in Azure DevOps CLI, to create new PRs.
 
 - The extractor workflow includes the following steps that you take:
 
-    - Run a pipeline that downloads changes in the portal to the API Management instance.
+  - Run a pipeline that downloads changes in the portal to the API Management instance.
       <!--Pipeline named _APIM-download-portal-changes_ in the scenario.-->
 
-    - Enter the names of the branch, the API Management instance, and the resource group.
+  - Enter the names of the branch, the API Management instance, and the resource group.
 
       :::image type="content" alt-text="Screenshot of 'Run pipeline', where you enter the names of the API Management instance and the resource group." source="media/automated-api-deployments-run-pipeline.png":::
 
 - In our scenario, the pipeline that downloads changes in the portal to the API Management instance has the following stages: _Build extractor_, _Create artifacts from portal_, and _Create template branch_.
 
-    - _Build extractor_
+  - _Build extractor_
 
       This stage builds the extractor code.
 
-    - _Create artifacts from portal_
+  - _Create artifacts from portal_
 
       This stage runs the extractor and creates artifacts that resemble a Git repository structure like that shown in the following screenshot:
 
@@ -140,7 +121,6 @@ Deploying this solution involves these steps:
       Later extractions have only changes that were made before the extraction in the PR. Sometimes changes might be only to the specification of an API, which is the case in the following example of a PR.
 
       :::image type="content" alt-text="Screenshot of an example pull request after an extraction that shows proposed changes to a file named 'specification.yml'." source="media/automated-api-deployment-subsequent-extraction-pr.png" lightbox="media/automated-api-deployment-subsequent-extraction-pr.png":::
-
 
 - A reviewer goes to **Pull Requests** and views the pull requests to be reviewed. This step can also be automatically approved if the changes that are discovered by the extractor should always be pulled in.
 
@@ -160,7 +140,7 @@ Deploying this solution involves these steps:
 
 ## Pricing
 
-- Use the [Azure pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator) to estimate costs.
+- Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs.
 
 - API Management offers the following tiers: Consumption, Developer, Basic, Standard, and Premium.
 
@@ -168,17 +148,18 @@ Deploying this solution involves these steps:
 
 ## Contributors
 
-*This article is being updated and maintained by Microsoft. It was originally written by the following contributors.*
+_This article is being updated and maintained by Microsoft. It was originally written by the following contributors._
 
 Principal authors:
 
-* [Rishabh Saha](https://www.linkedin.com/in/rishabhsaha) | Senior Cloud Solution Architect
+[Rishabh Saha](https://www.linkedin.com/in/rishabhsaha) | Senior Cloud Solution Architect
 
 ## Next steps
 
 - [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines)
 - [API Management DevOps Resource Kit](https://github.com/Azure/azure-api-management-devops-resource-kit)
 - [CI/CD for API Management using Azure Resource Manager templates](/azure/api-management/devops-api-development-templates)
+- [GitOps Overview](https://www.gitops.tech)
 - [Guide to GitOps](https://www.weave.works/technologies/gitops)
 - [Tutorial: Deploy configurations using GitOps on an Azure Arc-enabled Kubernetes cluster](/azure/azure-arc/kubernetes/tutorial-use-gitops-connected-cluster)
 
