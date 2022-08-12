@@ -5188,6 +5188,9 @@ items:
               - name: Prototyping and manufacturing for enterprises
                 href: /windows/mixed-reality/enthusiast-guide/prototyping-manufacturing
                 maintainContext: true
+              - name: Mixed reality samples and apps
+                href: /windows/mixed-reality/develop/features-and-samples
+                maintainContext: true
           - name: Solution ideas
             items:
               - name: Design review with mixed reality

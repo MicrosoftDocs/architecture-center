@@ -26,13 +26,19 @@ Mixed reality is a blend of physical and digital worlds that unlocks natural and
 
 :::image type="content" source="media/mixed-reality-venn-diagram.png" alt-text="Venn diagram showing interactions between computers, humans, and environments.":::
 
-Paul Milgram and Fumio Kishino introduced the term *mixed reality* in a 1994 paper, [A Taxonomy of Mixed reality Visual Displays](https://search.ieice.org/bin/summary.php?id=e77-d_12_1321). Their paper explored the concept of a *virtuality continuum* and the taxonomy of visual displays. Since then, the application of mixed reality has gone beyond displays to include:
+Paul Milgram and Fumio Kishino introduced the term *mixed reality* in a 1994 paper, [A Taxonomy of Mixed reality Visual Displays](https://search.ieice.org/bin/summary.php?id=e77-d_12_1321). The paper explored the concept of a *virtuality continuum* and the taxonomy of visual displays. Since then, the application of mixed reality has gone beyond displays to include:
 
 - Environmental understanding with spatial mapping and anchors.
 - Human understanding with hand-tracking, eye-tracking, and speech input.
 - Spatial sound.
 - Locations and positioning in both physical and virtual spaces.
 - Collaboration on 3D assets in mixed reality spaces.
+
+Mixed reality consists of several [different types of apps](/windows/mixed-reality/discover/types-of-mixed-reality-apps):
+
+- *Enhanced environment apps* (HoloLens only) let developers place digital information or content in a user's current environment.
+- *Blended environment apps* recognize and map the user's environment, and can create a digital layer that overlays the user's space.
+- *Immersive apps* create an environment that completely changes the user's world and can place them in a different time and space.
 
 :::image type="content" source="media/mixed-reality-spectrum.png" alt-text="Image showing the mixed reality spectrum.":::
 
@@ -46,7 +52,8 @@ Several Azure cloud services help developers build compelling mixed reality expe
 
 - [Azure Object Anchors](https://azure.microsoft.com/services/object-anchors) is a mixed reality service that helps you create rich, immersive experiences by automatically aligning 3D content with physical objects. Azure Object Anchors lets you gain contextual understanding of objects without the need for markers or manual alignment.
 
-For more information, see [Azure mixed reality cloud services](/windows/mixed-reality/develop/mixed-reality-cloud-services).
+> [!div class="nextstepaction"]
+> [Azure mixed reality services](/windows/mixed-reality/develop/mixed-reality-cloud-services)
 
 ## Microsoft Learn training resources
 
@@ -80,30 +87,16 @@ Get the tools you need to build applications for Microsoft HoloLens and Windows 
 
 ## Mixed reality design and prototyping
 
-The following articles offer a process for designing and prototyping effective mixed reality apps.
+Before you start designing and prototyping mixed reality software, read and understand the following articles:
 
-1. [Understand the basic objectives of mixed reality design](/windows/mixed-reality/design/about-this-design-guidance).
-1. [Understand mixed reality core concepts](/windows/mixed-reality/design/core-concepts-landingpage).
-1. [Understand the types of mixed reality apps](/windows/mixed-reality/discover/types-of-mixed-reality-apps).
-1. [Understand interaction modes.](/windows/mixed-reality/design/interaction-fundamentals).
-1. [Understand user experience elements](/windows/mixed-reality/design/app-patterns-landingpage).
-1. [Start designing and prototyping](/windows/mixed-reality/design).
+- [About this design guidance](/windows/mixed-reality/design/about-this-design-guidance)
+- [Mixed reality structural elements](/windows/mixed-reality/design/core-concepts-landingpage)
+- [Types of mixed reality apps](/windows/mixed-reality/discover/types-of-mixed-reality-apps)
+- [Instinctual interactions](/windows/mixed-reality/design/interaction-fundamentals)
+- [UX elements overview](/windows/mixed-reality/design/app-patterns-landingpage)
 
-## Scenarios and solution ideas
-
-The following implementations and ideas illustrate how to adopt and configure mixed reality for various scenarios.
-
-- [Prototyping and manufacturing for enterprises](/windows/mixed-reality/enthusiast-guide/prototyping-manufacturing)
-- [Shared experiences in mixed reality](/windows/mixed-reality/design/shared-experiences-in-mixed-reality)
-- [Free-roaming multiuser VR experiences](/windows/mixed-reality/enthusiast-guide/free-roam-vr-multiuser-experiences)
-- [Immersive education](/windows/mixed-reality/enthusiast-guide/immersive-education)
-- [Theme parks and family entertainment centers](/windows/mixed-reality/enthusiast-guide/theme-parks-family-entertainment)
-- [Training and simulation for enterprises](/windows/mixed-reality/enthusiast-guide/training-simulation)
-- [Virtual museums, exhibits, and tourism](/windows/mixed-reality/enthusiast-guide/virtual-museums)
-- [Virtual reality arcades](/windows/mixed-reality/enthusiast-guide/virtual-reality-arcades)
-- [Design review with mixed reality](../../solution-ideas/articles/collaborative-design-review-powered-by-mixed-reality.yml)
-- [Facilities management with mixed reality and IoT](../../solution-ideas/articles/facilities-management-powered-by-mixed-reality-and-iot.yml)
-- [Training and procedural guidance with mixed reality](../../solution-ideas/articles/training-and-procedural-guidance-powered-by-mixed-reality.yml)
+> [!div class="nextstepaction"]
+> [Start designing and prototyping](/windows/mixed-reality/design).
 
 ## Best practices
 
@@ -113,6 +106,28 @@ Follow these best practices to design, develop, and deliver high-quality, user-f
 - [Comfort](/windows/mixed-reality/design/comfort) explains how to create and present content that mimics cues in the natural world and doesn't require fatiguing motions.
 - [Spatial sound best practices](/windows/mixed-reality/design/spatial-sound-design) discusses how to use sound to inform and reinforce the user's mental model in the mixed-reality world.
 - [App quality criteria overview](/windows/mixed-reality/develop/advanced-concepts/app-quality-criteria-overview) presents the top factors that impact the quality of mixed reality apps.
+
+## Scenarios and solution ideas
+
+The following implementations and ideas illustrate some ways to adapt and configure mixed reality for various scenarios.
+
+- [Shared experiences in mixed reality](/windows/mixed-reality/design/shared-experiences-in-mixed-reality)
+- [Free-roaming multiuser VR experiences](/windows/mixed-reality/enthusiast-guide/free-roam-vr-multiuser-experiences)
+- [Prototyping and manufacturing for enterprises](/windows/mixed-reality/enthusiast-guide/prototyping-manufacturing)
+- [Training and simulation for enterprises](/windows/mixed-reality/enthusiast-guide/training-simulation)
+- [Immersive education](/windows/mixed-reality/enthusiast-guide/immersive-education)
+- [Theme parks and family entertainment centers](/windows/mixed-reality/enthusiast-guide/theme-parks-family-entertainment)
+- [Virtual museums, exhibits, and tourism](/windows/mixed-reality/enthusiast-guide/virtual-museums)
+- [Virtual reality arcades](/windows/mixed-reality/enthusiast-guide/virtual-reality-arcades)
+
+Solution ideas:
+
+- [Design review with mixed reality](../../solution-ideas/articles/collaborative-design-review-powered-by-mixed-reality.yml)
+- [Facilities management with mixed reality and IoT](../../solution-ideas/articles/facilities-management-powered-by-mixed-reality-and-iot.yml)
+- [Training and procedural guidance with mixed reality](../../solution-ideas/articles/training-and-procedural-guidance-powered-by-mixed-reality.yml)
+
+> [!div class="nextstepaction"]
+> [Mixed reality samples and apps](/windows/mixed-reality/develop/features-and-samples)
 
 ## Stay current with mixed reality
 
