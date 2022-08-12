@@ -2,9 +2,9 @@
 title: Microsoft mixed reality overview
 titleSuffix: Azure Architecture Center
 description: See an overview of Microsoft mixed-reality concepts, training, best practices, and Azure services.
-author: v-thepet
-ms.author: v-thepet
-ms.date: 08/12/2022
+author: EdPrice-MSFT
+ms.author: architectures
+ms.date: 08/16/2022
 ms.topic: overview
 ms.service: architecture-center
 categories:
@@ -35,7 +35,7 @@ Paul Milgram and Fumio Kishino introduced the term *mixed reality* in a 1994 pap
 - Locations and positioning in both physical and virtual spaces.
 - Collaboration on 3D assets in mixed reality spaces.
 
-Mixed reality consists of several [different types of apps](/windows/mixed-reality/discover/types-of-mixed-reality-apps):
+Mixed reality consists of several [types of apps](/windows/mixed-reality/discover/types-of-mixed-reality-apps?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json):
 
 - *Enhanced environment apps* (HoloLens only) place digital information or content in a user's current environment.
 - *Blended environment apps* create a digital layer that overlays the user's space.
@@ -51,12 +51,12 @@ Several Azure cloud services help developers build compelling mixed reality expe
 
 - [Azure Remote Rendering](https://azure.microsoft.com/services/remote-rendering) lets you render highly complex 3D models in real time and stream them to a device. You can add Azure Remote Rendering to Unity or native C++ projects that target HoloLens 2 or Windows desktop PC.
 
-- [Azure Spatial Anchors](https://azure.microsoft.com/services/spatial-anchors) is a cross-platform service that lets you build spatially aware mixed reality applications. With Azure Spatial Anchors, you can map, persist, and share holographic content across multiple devices at real-world scale.
+- [Azure Spatial Anchors](https://azure.microsoft.com/services/spatial-anchors) is a cross-platform service that lets you build spatially aware mixed reality applications. With Spatial Anchors, you can map, persist, and share holographic content across multiple devices at real-world scale.
 
-- [Azure Object Anchors](https://azure.microsoft.com/services/object-anchors) is a mixed reality service that helps you create rich, immersive experiences by automatically aligning 3D content with physical objects. Azure Object Anchors lets you gain contextual understanding of objects without the need for markers or manual alignment.
+- [Azure Object Anchors](https://azure.microsoft.com/services/object-anchors) is a mixed reality service that helps you create rich, immersive experiences by automatically aligning 3D content with physical objects. Object Anchors lets you gain contextual understanding of objects without the need for markers or manual alignment.
 
 > [!div class="nextstepaction"]
-> [Azure mixed reality services](/windows/mixed-reality/develop/mixed-reality-cloud-services)
+> [Azure mixed reality services](/windows/mixed-reality/develop/mixed-reality-cloud-services?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 
 ## Microsoft Learn training resources
 
@@ -81,47 +81,47 @@ If you're an intermediate-to-advanced developer with previous experience with mi
 Choose the mixed reality engine you want to use for development. You can select from Unity, Unreal, native, or web development paths.
 
 > [!div class="nextstepaction"]
-> [Choose a mixed reality engine](/windows/mixed-reality/develop/choosing-an-engine)
+> [Choose a mixed reality engine](/windows/mixed-reality/develop/choosing-an-engine?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 
 Get the tools you need to build applications for Microsoft HoloLens and Windows Mixed Reality immersive headsets, and get set up.
 
 > [!div class="nextstepaction"]
-> [Install the tools](/windows/mixed-reality/develop/install-the-tools)
+> [Install the tools](/windows/mixed-reality/develop/install-the-tools?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 
 ## Mixed reality design and prototyping
 
 Before you start designing and prototyping mixed reality software, read and understand the following articles:
 
-- [Mixed reality design guidance](/windows/mixed-reality/design/about-this-design-guidance)
-- [Mixed reality structural elements](/windows/mixed-reality/design/core-concepts-landingpage)
-- [Types of mixed reality apps](/windows/mixed-reality/discover/types-of-mixed-reality-apps)
-- [Interaction models](/windows/mixed-reality/design/interaction-fundamentals)
-- [UX elements overview](/windows/mixed-reality/design/app-patterns-landingpage)
+- [Mixed reality design guidance](/windows/mixed-reality/design/about-this-design-guidance?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+- [Mixed reality core concepts](/windows/mixed-reality/design/core-concepts-landingpage?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+- [Types of mixed reality apps](/windows/mixed-reality/discover/types-of-mixed-reality-apps?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+- [Interaction models](/windows/mixed-reality/design/interaction-fundamentals?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+- [UX elements overview](/windows/mixed-reality/design/app-patterns-landingpage?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 
 > [!div class="nextstepaction"]
-> [Start designing and prototyping](/windows/mixed-reality/design).
+> [Start designing and prototyping](/windows/mixed-reality/design?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json).
 
 ## Best practices
 
 Follow these best practices to design, develop, and deliver high-quality, user-friendly mixed reality apps.
 
-- [Designing content for holographic display](/windows/mixed-reality/design/designing-content-for-holographic-display) describes elements to consider for delivering the best holographic experience.
-- [Comfort](/windows/mixed-reality/design/comfort) explains how to create and present content that mimics cues in the natural world and avoids fatiguing motions.
-- [Spatial sound best practices](/windows/mixed-reality/design/spatial-sound-design) discusses how to use sound to inform and reinforce the user's mental model in the mixed-reality world.
-- [App quality criteria overview](/windows/mixed-reality/develop/advanced-concepts/app-quality-criteria-overview) presents the top factors that affect mixed reality app quality.
+- [Design content for holographic display](/windows/mixed-reality/design/designing-content-for-holographic-display?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json) describes elements to consider for the best holographic experience.
+- [Comfort](/windows/mixed-reality/design/comfort?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json) explains how to create and present content that mimics cues in the natural world and avoids fatiguing motions.
+- [Spatial sound best practices](/windows/mixed-reality/design/spatial-sound-design?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json) discusses how to use sound to inform and reinforce the user's mental model in the mixed-reality world.
+- [App quality criteria overview](/windows/mixed-reality/develop/advanced-concepts/app-quality-criteria-overview?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json) presents the top factors that affect mixed reality app quality.
 
 ## Scenarios and solution ideas
 
 The following implementations and ideas illustrate some ways to adapt and configure mixed reality for various scenarios.
 
-- [Shared experiences in mixed reality](/windows/mixed-reality/design/shared-experiences-in-mixed-reality)
-- [Free-roaming multiuser VR experiences](/windows/mixed-reality/enthusiast-guide/free-roam-vr-multiuser-experiences)
-- [Prototyping and manufacturing for enterprises](/windows/mixed-reality/enthusiast-guide/prototyping-manufacturing)
-- [Training and simulation for enterprises](/windows/mixed-reality/enthusiast-guide/training-simulation)
-- [Immersive education](/windows/mixed-reality/enthusiast-guide/immersive-education)
-- [Theme parks and family entertainment centers](/windows/mixed-reality/enthusiast-guide/theme-parks-family-entertainment)
-- [Virtual museums, exhibits, and tourism](/windows/mixed-reality/enthusiast-guide/virtual-museums)
-- [Virtual reality arcades](/windows/mixed-reality/enthusiast-guide/virtual-reality-arcades)
+- [Shared experiences in mixed reality](/windows/mixed-reality/design/shared-experiences-in-mixed-reality?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+- [Free-roaming multiuser VR experiences](/windows/mixed-reality/enthusiast-guide/free-roam-vr-multiuser-experiences?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+- [Prototyping and manufacturing for enterprises](/windows/mixed-reality/enthusiast-guide/prototyping-manufacturing?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+- [Training and simulation for enterprises](/windows/mixed-reality/enthusiast-guide/training-simulation?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+- [Immersive education](/windows/mixed-reality/enthusiast-guide/immersive-education?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+- [Theme parks and family entertainment centers](/windows/mixed-reality/enthusiast-guide/theme-parks-family-entertainment?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+- [Virtual museums, exhibits, and tourism](/windows/mixed-reality/enthusiast-guide/virtual-museums?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+- [Virtual reality arcades](/windows/mixed-reality/enthusiast-guide/virtual-reality-arcades?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 
 Solution ideas:
 
@@ -130,7 +130,7 @@ Solution ideas:
 - [Training and procedural guidance with mixed reality](../../solution-ideas/articles/training-and-procedural-guidance-powered-by-mixed-reality.yml)
 
 > [!div class="nextstepaction"]
-> [Mixed reality samples and apps](/windows/mixed-reality/develop/features-and-samples)
+> [Mixed reality samples and apps](/windows/mixed-reality/develop/features-and-samples?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 
 ## Stay current with mixed reality
 

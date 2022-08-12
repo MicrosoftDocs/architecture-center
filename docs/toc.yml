@@ -5156,8 +5156,17 @@ items:
               - name: Mixed reality UX elements
                 href: /windows/mixed-reality/design/app-patterns-landingpage
                 maintainContext: true
+              - name: Comfort
+                href: /windows/mixed-reality/design/comfort
+                maintainContext: true
+              - name: Spatial sound best practices
+                href: /windows/mixed-reality/design/spatial-sound-design
+                maintainContext: true
               - name: Types of mixed reality apps
                 href: /windows/mixed-reality/discover/types-of-mixed-reality-apps
+                maintainContext: true
+              - name: App quality criteria overview
+                href: /windows/mixed-reality/develop/advanced-concepts/app-quality-criteria-overview
                 maintainContext: true
               - name: Azure mixed reality cloud services
                 href: /windows/mixed-reality/develop/mixed-reality-cloud-services
@@ -5167,6 +5176,9 @@ items:
                 maintainContext: true
               - name: Free-roaming multiuser VR experiences
                 href: /windows/mixed-reality/enthusiast-guide/free-roam-vr-multiuser-experiences
+                maintainContext: true
+              - name: Prototyping and manufacturing for enterprises
+                href: /windows/mixed-reality/enthusiast-guide/prototyping-manufacturing
                 maintainContext: true
               - name: Education and entertainment scenarios
                 items:
@@ -5185,9 +5197,6 @@ items:
                   - name: Virtual reality arcades
                     href: /windows/mixed-reality/enthusiast-guide/virtual-reality-arcades
                     maintainContext: true
-              - name: Prototyping and manufacturing for enterprises
-                href: /windows/mixed-reality/enthusiast-guide/prototyping-manufacturing
-                maintainContext: true
               - name: Mixed reality samples and apps
                 href: /windows/mixed-reality/develop/features-and-samples
                 maintainContext: true
