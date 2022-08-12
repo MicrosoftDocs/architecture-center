@@ -12,17 +12,17 @@ This article describes a high-level DevOps workflow for deploying application ch
 
 ### Components
 
-#### Azure Virtual Machines
+#### GitHub repository
 
-Infrastructure-as-a-Service (IaaS) compute with Linux or Windows image that runs the application.
-
-> For product documentation, see [Virtual Machines](https://azure.microsoft.com/services/virtual-machines).
+GitHub serves as the code respository that provides version control and the ability to build, test, and deploy the application. 
 
 #### Azure Pipelines
 
 Azure Pipelines can automatically build application source code and infrastructure code from your code repository. It has a Build system for producing packages and other build artifacts and a Release Management system for setting up a pipeline to deploy your changes through dev, test, and production environments. The pipeline uses Infrastructure-as-Code (IaC) templates to provision or update your infrastructure as necessary in each environment, and then deploys the updated build. 
 
 > For product documentation, see [Azure Pipelines](https://azure.microsoft.com/services/devops): runs automated builds, tests, and deployments.
+
+An alternate technology option for CI/CD pipelines is GitHub Actions. There are advantages because the source code and the pipeline are set side-by-side. However, in this design, Azure Pipelines was chosen because of its integration with Azure Dev Test Labs and VM Applications (discussed next). 
 
 #### VM Applications
 
@@ -32,9 +32,15 @@ The Azure VM Applications is recommended for simplified deployment of applicatio
 
 #### Azure Dev Test Labs
 
-For VMs, using Azure DevTest Labs is highly recommended for running automated test pipelines. DevTest Labs can quickly provision development and test stages with reusable templates and artifacts. Also, automatically tear down test resources that aren't in use. DevTest Labs is integrated with Azure Pipelines.
+For VMs, using Azure Dev Test Labs is highly recommended for running automated test pipelines. Dev Test Labs can quickly provision development and test stages with reusable templates and artifacts. Also, automatically tear down test resources that aren't in use. Dev Test Labs is integrated with Azure Pipelines.
 
 > For product documentation, see [Azure Dev Test Labs](https://azure.microsoft.com/services/devtest-lab).
+
+#### Azure Virtual Machines
+
+Infrastructure-as-a-Service (IaaS) compute with Linux or Windows image that runs the application.
+
+> For product documentation, see [Virtual Machines](https://azure.microsoft.com/services/virtual-machines).
 
 #### Azure Monitor
 
@@ -45,19 +51,18 @@ An observability resource  that collects and stores metrics and logs, applicatio
 
 ### Workflow
 
-1. The developer pushes code changes to a feature branch in the code repository. 
 1. Azure Pipelines triggers automated build and test jobs (continuous integration).
-    1. VM Aapplication builds packages with new application version already installed.
-1. Continuous deployment trigger orchestrates deployment of application artifacts and infrastructure changes with environment-specific parameters.
-    1. Azure Dev Test Labs provisions development and test stages.
+1. The application is packaged through VM Application. Its versioned and pushed to VM application registry.
+1. Azure Pipelines orchestrates the deployment of infrastructure changes and the updated VM application (continuous deployment). 
+1. Azure Dev Test Labs provisions the compute and orchestrates the application deployment development and test environments.
 1. The changes are deployed to pre-production and production environments.
-1. Azure Monitor collects logs and metrics so that an operator can analyze health, performance, and usage data.
+1. Azure Monitor collects oberserability data such as, logs and metrics so that an operator can analyze health, performance, and usage data. Application Insights collects all application-specific monitoring data, such as traces. Azure Log Analytics is used to store all that data. 
 
 
 ## Next steps
 
 * [Run a Linux VM on Azure](/azure/architecture/reference-architectures/n-tier/linux-vm)
-* [Integrate DevTest Labs into Azure Pipelines](https://docs.microsoft.com/en-us/azure/devtest-labs/devtest-lab-integrate-ci-cd)
-* [Create and deploy VM Applications](/azure/devtest-labs/devtest-lab-integrate-ci-cd)
+* [Integrate DevTest Labs into Azure Pipelines](/azure/devtest-labs/devtest-lab-integrate-ci-cd)
+
 
 
