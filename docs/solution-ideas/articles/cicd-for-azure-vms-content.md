@@ -12,7 +12,7 @@ This article describes a high-level DevOps workflow for deploying application ch
 
 The architecture uses these components.
 
-#### GitHub repository
+##### GitHub repository
 
 GitHub serves as the code repository that provides version control and a platform for collaborative projects. 
 
