@@ -4,7 +4,9 @@ This scenario describes how to architect a solution that processes changes to un
 
 ## Architecture
 
-![Architectural diagram showing Azure service bus queue, Azure Functions, and SignalR sharing live location data.](./archdiagram.jpg)
+:::image type="content" alt-text="Architectural diagram showing Azure service bus queue, Azure Functions, and SignalR sharing live location data." source="./archdiagram.png" lightbox="./archdiagram.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/archdiagram.vsdx) of this architecture.*
 
 ### Components
 
@@ -61,7 +63,9 @@ Each Azure region is paired with another region within the same geography. In ge
 
 #### Azure Front Door
 
-![Architectural diagram showing how Azure Front Page works to provide high availability for a mobile app.](./haarchitecture.jpg)
+:::image type="content" alt-text="Architectural diagram showing how Azure Front Page works to provide high availability for a mobile app." source="./haarchitecture.png" lightbox="./haarchitecture.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/haarchitecture.vsdx) of this architecture.*
 
 Azure Front Door is a scalable and secure entry point for fast delivery of your global applications. When you use *priority routing*, it automatically fails over if the primary region becomes unavailable. A multi-region architecture can provide higher availability than deploying to a single region. If a regional outage affects the primary region, you can use Front Door to fail over to the secondary region. 
 
