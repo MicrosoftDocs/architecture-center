@@ -21,7 +21,9 @@ ms.custom:
 
 # Mixed reality overview
 
-Mixed reality is a blend of physical and digital worlds that unlocks natural and intuitive 3D human, computer, and environmental interactions. This new reality is based on advancements in computer vision, graphical processing, display technologies, input systems, and cloud computing. The following Venn diagram illustrates the interaction between computers, humans, and the environment in mixed reality.
+Mixed reality is a blend of physical and digital worlds that unlocks natural and intuitive 3D human, computer, and environmental interactions. This new reality is based on advancements in computer vision, graphical processing, display technologies, input systems, and cloud computing.
+
+The following Venn diagram illustrates the interaction between computers, humans, and the environment in mixed reality:
 
 :::image type="content" source="media/mixed-reality-venn-diagram.png" alt-text="Venn diagram showing interactions between computers, humans, and environments.":::
 
