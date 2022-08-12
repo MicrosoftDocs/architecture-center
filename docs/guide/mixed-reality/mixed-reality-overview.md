@@ -76,18 +76,6 @@ If you're an intermediate-to-advanced developer with previous experience with mi
 > [!div class="nextstepaction"]
 > [HoloLens 2 fundamentals](/learn/paths/beginner-hololens-2-tutorials)
 
-## Path to production
-
-Choose the mixed reality engine you want to use for development. You can select from Unity, Unreal, native, or web development paths.
-
-> [!div class="nextstepaction"]
-> [Choose a mixed reality engine](/windows/mixed-reality/develop/choosing-an-engine?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
-
-Get the tools you need to build applications for Microsoft HoloLens and Windows Mixed Reality immersive headsets, and get set up.
-
-> [!div class="nextstepaction"]
-> [Install the tools](/windows/mixed-reality/develop/install-the-tools?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
-
 ## Mixed reality design and prototyping
 
 Before you start designing and prototyping mixed reality software, read and understand the following articles:
@@ -100,6 +88,18 @@ Before you start designing and prototyping mixed reality software, read and unde
 
 > [!div class="nextstepaction"]
 > [Start designing and prototyping](/windows/mixed-reality/design?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json).
+
+## Path to production
+
+Choose the mixed reality engine you want to use for development. You can select from Unity, Unreal, native, or web development paths.
+
+> [!div class="nextstepaction"]
+> [Choose a mixed reality engine](/windows/mixed-reality/develop/choosing-an-engine?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+
+Get the tools you need to build applications for Microsoft HoloLens and Windows Mixed Reality immersive headsets, and get set up.
+
+> [!div class="nextstepaction"]
+> [Install the tools](/windows/mixed-reality/develop/install-the-tools?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 
 ## Best practices
 
