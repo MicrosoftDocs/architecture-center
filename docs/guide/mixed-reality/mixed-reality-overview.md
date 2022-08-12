@@ -37,14 +37,14 @@ Paul Milgram and Fumio Kishino introduced the term *mixed reality* in a 1994 pap
 Mixed reality consists of several [different types of apps](/windows/mixed-reality/discover/types-of-mixed-reality-apps):
 
 - *Enhanced environment apps* (HoloLens only) let developers place digital information or content in a user's current environment.
-- *Blended environment apps* recognize and map the user's environment, and can create a digital layer that overlays the user's space.
+- *Blended environment apps* recognize and map the user's environment and create a digital layer that overlays the user's space.
 - *Immersive apps* create an environment that completely changes the user's world and can place them in a different time and space.
 
-:::image type="content" source="media/mixed-reality-spectrum.png" alt-text="Image showing the mixed reality spectrum.":::
+  :::image type="content" source="media/mixed-reality-spectrum.png" alt-text="Image showing the mixed reality spectrum.":::
 
 ## Azure mixed reality services
 
-Several Azure cloud services help developers build compelling mixed reality experiences on various platforms. Azure mixed reality services help people create, learn, and collaborate within their own context by bringing 3D to mobile devices, headsets, and other untethered devices. Azure services always have comprehensive security and compliance built in.
+Several Azure cloud services help developers build compelling mixed reality experiences on various platforms. Azure mixed reality services help people create, learn, and collaborate within their own context by bringing 3D to mobile devices, headsets, and other untethered devices. Azure services have built-in comprehensive security and compliance capabilities.
 
 - [Azure Remote Rendering](https://azure.microsoft.com/services/remote-rendering) lets you render highly complex 3D models in real time and stream them to a device. You can add Azure Remote Rendering to your Unity or native C++ projects targeting HoloLens 2 or Windows desktop PC.
 
@@ -61,14 +61,14 @@ Microsoft Learn is a free, online training platform that provides interactive le
 
 ### Introduction to mixed reality
 
-If you're new to mixed reality, the best place to learn about the ecosystem is with Microsoft Learn. The **Introduction to mixed reality** learning path provides foundational knowledge about the core concepts of mixed reality, virtual reality, augmented reality, holograms, and creating 3D applications.
+If you're new to mixed reality, the best place to learn about the ecosystem is the Microsoft Learn **Introduction to mixed reality** learning path. This learning path provides foundational knowledge about the core concepts of mixed reality, virtual reality, augmented reality, holograms, and creating 3D applications.
 
 > [!div class="nextstepaction"]
 > [Introduction to mixed reality](/learn/modules/intro-to-mixed-reality)
 
 ### Build a mixed-reality experience
 
-If you're an intermediate-to-advanced developer with some previous experience in mixed, augmented, or virtual reality, check out the **HoloLens 2 fundamentals: develop mixed reality applications**  tutorial series. You can build a mixed-reality experience for users to explore a hologram modeled after NASA's Mars Curiosity Rover. This tutorial gives you a firm grasp of the [Mixed Reality Toolkit (MRTK)](/windows/mixed-reality/mrtk-unity/mrtk2), and shows how the MRTK can speed up your development process.
+If you're an intermediate-to-advanced developer with previous experience with mixed, augmented, or virtual reality, check out the **HoloLens 2 fundamentals: develop mixed reality applications**  tutorial series. You can build a mixed-reality experience that lets users explore a hologram modeled after NASA's Mars Curiosity Rover. This tutorial gives you a firm grasp of the [Mixed Reality Toolkit (MRTK)](/windows/mixed-reality/mrtk-unity/mrtk2), and shows how the MRTK can speed up your development process.
 
 > [!div class="nextstepaction"]
 > [HoloLens 2 fundamentals](/learn/paths/beginner-hololens-2-tutorials)
@@ -89,7 +89,7 @@ Get the tools you need to build applications for Microsoft HoloLens and Windows 
 
 Before you start designing and prototyping mixed reality software, read and understand the following articles:
 
-- [About this design guidance](/windows/mixed-reality/design/about-this-design-guidance)
+- [Mixed reality design guidance](/windows/mixed-reality/design/about-this-design-guidance)
 - [Mixed reality structural elements](/windows/mixed-reality/design/core-concepts-landingpage)
 - [Types of mixed reality apps](/windows/mixed-reality/discover/types-of-mixed-reality-apps)
 - [Instinctual interactions](/windows/mixed-reality/design/interaction-fundamentals)
@@ -103,9 +103,9 @@ Before you start designing and prototyping mixed reality software, read and unde
 Follow these best practices to design, develop, and deliver high-quality, user-friendly mixed reality apps.
 
 - [Designing content for holographic display](/windows/mixed-reality/design/designing-content-for-holographic-display) describes elements you need to consider to deliver the best holographic experience.
-- [Comfort](/windows/mixed-reality/design/comfort) explains how to create and present content that mimics cues in the natural world and doesn't require fatiguing motions.
+- [Comfort](/windows/mixed-reality/design/comfort) explains how to create and present content that mimics cues in the natural world and avoids fatiguing motions.
 - [Spatial sound best practices](/windows/mixed-reality/design/spatial-sound-design) discusses how to use sound to inform and reinforce the user's mental model in the mixed-reality world.
-- [App quality criteria overview](/windows/mixed-reality/develop/advanced-concepts/app-quality-criteria-overview) presents the top factors that impact the quality of mixed reality apps.
+- [App quality criteria overview](/windows/mixed-reality/develop/advanced-concepts/app-quality-criteria-overview) presents the top factors that affect mixed reality app quality.
 
 ## Scenarios and solution ideas
 
