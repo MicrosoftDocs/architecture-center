@@ -1,12 +1,10 @@
-
-
 This reference architecture implements the [Analytics end-to-end with Azure Synapse][e2e-analytics] pattern, focusing on BI specifically, using a Synapse Pipeline to ingest data from an Azure SQL Database into Synapse SQL Pools, before transforming the data for analysis.
 
 <!-- Requires update
 ![GitHub logo](../../_images/github.png) A reference implementation for this architecture is available on [GitHub][github-folder].
 -->
 
-### Enterprise Architecture
+## Architecture
 
 ![Architecture diagram for Enterprise BI in Azure with Azure Synapse](./images/aac-scoped-architecture-new-grayed.png)
 <!-- ![Architecture diagram for Enterprise BI in Azure with Azure Synapse](./images/analytics-with-azure-synapse-pbi.png)
@@ -16,20 +14,15 @@ This reference architecture implements the [Analytics end-to-end with Azure Syna
 TODO - may be grey out the background more and only circle the Synapse Provisioned Pools without ADLS? asterisk? 
 -->
 
-**Scenario**: An organization has a large on-premises Data Warehouse stored in a SQL Database. The organization wants to use Azure Synapse to perform analysis, using Power BI to serve these insights.
-
-This reference architecture shows on-premises Data Warehouse as a source of ongoing ingestion with cloud based processing and serving of BI Model.
-This approach could be an end goal or a first step towards full modernization with cloud based components.
-
-## Architecture
+### Workflow
 
 The architecture consists of the following components.
 
-### Data source
+#### Data source
 
 **SQL Database**. The source data is located in an Azure SQL Server database. To simulate the on-premises environment, the deployment scripts for this architecture provision an Azure SQL Database. The [Adventure Works DW][adventureworksdw-sample-link] is used as the source data schema and sample data. For information on how to copy data from an on premises database, see [copy and transform data to and from SQL Server](/azure/data-factory/connector-sql-server?tabs=data-factory).
 
-### Ingestion and data storage
+#### Ingestion and data storage
 
 **Azure Data Lake Gen2 (ADLS)**. [ADLS](/azure/databricks/data/data-sources/azure/adls-gen2/) is used as a temporary 'staging' area during PolyBase copy into Azure Synapse Dedicated SQL Pool.
 
@@ -37,7 +30,7 @@ The architecture consists of the following components.
 
 **Azure Synapse Pipelines**. [Synapse Pipelines](/azure/data-factory/concepts-pipelines-activities) are used as a tool to orchestrate data ingestion and transformation within your Azure Synapse workspace.
 
-### Analysis and reporting
+#### Analysis and reporting
 
 Data modeling approach in this use case is presented by composition of Enterprise model and BI Semantic model. [Enterprise model][enterprise-model] is stored in [Synapse Dedicated SQL Pool][synapse-dedicated-pool] and the [BI Semantic model][bi-model] is stored in [Power BI Premium Capacities][pbi-premium-capacities]. Power BI accesses the data via Direct Query mode.
 
@@ -69,6 +62,12 @@ Here is the general flow for the ELT pipeline:
 2. During the data export step, the cutoff time is passed as a parameter to a set of stored procedures in the source database. These stored procedures query for any records that were changed or created after the cutoff time. For all tables in our example, we can use the `ModifiedDate` column.
 
 3. When the data migration is complete, update the table that stores the cutoff times.
+
+## Scenario details
+
+An organization has a large on-premises Data Warehouse stored in a SQL Database. The organization wants to use Azure Synapse to perform analysis, using Power BI to serve these insights.
+
+This reference architecture shows on-premises Data Warehouse as a source of ongoing ingestion with cloud based processing and serving of BI Model. This approach could be an end goal or a first step towards full modernization with cloud based components.
 
 ## Data pipeline
 
@@ -285,7 +284,7 @@ Power BI Premium pricing details can be found on the product pricing page (https
 
 This usecase leverages PBI Premium workspaces (https://docs.microsoft.com/en-us/power-bi/admin/service-premium-what-is) with a range of performance enhancements build in to accomodate demanding Analytical requirment.
 
-## Deploy the solution
+## Deploy this solution
 
 
 ## Next steps
