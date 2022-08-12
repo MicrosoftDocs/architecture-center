@@ -148,7 +148,7 @@ These alerts form an extension of the health model, by alerting the operator to 
 
 Composing the failure analysis is mostly a theoretical planning exercise. This theoretical exercise should be used as input for the automated failure injections that are part of the continuous validation process. By simulating the failure modes defined here, we can validate the resiliency of the solution against these failures to ensure they won't lead to outages.
 
-The following table lists possible failure scenarios of the various components of the Azure Mission-Critical reference implementation. The table lists risks for the individual components and evaluates if their failure can cause an outage of the entire application. This list isn't a complete list, as there can be failure cases that haven't been thought of.
+The following table lists example failure cases of the various components of the Azure Mission-Critical reference implementation. 
 
 | Service | Risk | Impact/Mitigation/Comment | Outage |
 | ------- | ---- |-------------------------- | ------ |
