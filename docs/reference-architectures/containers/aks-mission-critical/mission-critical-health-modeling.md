@@ -119,7 +119,7 @@ All stamps are short-lived and continuously replaced with each new release. The 
 
 - **Application Insights telemetry**: Application Insights is used to collect telemetry data from the application. 
 The code has been instrumented to collect data on the performance of the application with the Application Insights SDK. Critical information, such as the resulting status code and duration of dependency calls and counters for unhandled exceptions is collected. This information is used in the Health Model and is available for alerting and troubleshooting.
- 
+
 ## Monitoring: Application Insights availability tests
 
 To monitor the availability of the individual stamps and the overall solution from an outside point of view, [Application Insights Availability Tests](/azure/azure-monitor/app/availability-overview) are set up in two places:
