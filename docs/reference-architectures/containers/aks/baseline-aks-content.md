@@ -417,7 +417,12 @@ To learn more about storage options, see [Storage options for applications in Az
 
 ## Policy management
 
-An effective way to manage an AKS cluster is by enforcing governance through policies. Kubernetes implements policies through OPA Gatekeeper. For AKS, the policies are delivered through Azure Policy. Each policy is applied to all clusters in its scope. Azure Policy enforcement is ultimately handled by OPA Gatekeeper in the cluster and all policy checks are logged. Policy changes are not immediately reflected in your cluster. Expect to see some delays.
+An effective way to manage an AKS cluster is by enforcing governance through policies. Kubernetes implements policies through OPA Gatekeeper. For AKS, policies are delivered through Azure Policy. Each policy is applied to all clusters in its scope. Azure Policy enforcement is ultimately handled by OPA Gatekeeper in the cluster and all policy checks are logged. Policy changes are not immediately reflected in your cluster, expect to see some delays.
+
+There are two different scenarios that Azure Policy delivers for managing your AKS clusters:
+
+* Preventing or restricting deployment of AKS clusters in a resource group or subscription by evaluating your organizations standards. For example, follow a naming convention, specify a tag, etc.
+* Secure your AKS cluster through Azure Policy for Kubernetes.
 
 When setting policies, apply them based on the requirements of the workload. Consider these factors:
 
@@ -427,13 +432,13 @@ When setting policies, apply them based on the requirements of the workload. Con
 
 - Do you have areas in your workload that shouldn't be compliant by design? Azure Policy has the capability to specify Kubernetes namespaces which are exempt from policy enforcement. It's recommended that still apply policies in **Audit** mode so that you are aware of those instances.
 
-- Do you have requirements that are not covered by the built-in policies? In these rare cases, create a custom Azure Policy definition that applies your custom OPA Gatekeeper policies. Do not apply policies directly to the cluster.
+- Do you have requirements that are not covered by the built-in policies? You can create a custom Azure Policy definition that applies your custom OPA Gatekeeper policies. Do not apply policies directly to the cluster. To learn more about creating custom policies, see [Create and assign custom policy definitions](https://docs.microsoft.com/en-us/azure/aks/use-azure-policy#create-and-assign-a-custom-policy-definition-preview) (preview).
 
 - Do you have organization-wide requirements? If so, add those policies at the management group level. Your cluster should also assign its own workload-specific policies, even if the organization has generic policies.
 
 - Azure policies are assigned to specific scopes. Ensure the *production* policies are also validated against your *pre-production* environment. Otherwise, when deploying to your production environment, you might run into unexpected additional restrictions that weren't accounted for in pre-production.
 
-In this reference implementation Azure Policy is enabled when the AKS cluster is created and assigns the restrictive initiative in **Audit** mode to gain visibility into non-compliance.
+In this reference implementation, Azure Policy is enabled when the AKS cluster is created and assigns the restrictive initiative in **Audit** mode to gain visibility into non-compliance.
 
 The implementation also sets additional policies that are not part of any built-in initiatives. Those policies are set in **Deny** mode. For example, there is a policy in place to make sure images are only pulled from the deployed ACR. Consider creating your own custom initiatives. Combine the policies that are applicable for your workload into a single assignment.
 
@@ -714,7 +719,7 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 ### Provision
 
-- There aren't any costs associated with AKS in deployment, management, and operations of the Kubernetes cluster. What does influence cost are the virtual machine instances, storage, and networking resources consumed by the cluster. Consider choosing cheaper VMs for system node pools. The recommended SKU is DS2_v2.
+- There aren't any costs associated with AKS in deployment, management, and operations of the Kubernetes cluster. What does influence cost are the virtual machine instances, storage, and networking resources consumed by the cluster. Consider choosing cheaper VMs for system node pools. The [DS2_v2](/azure/virtual-machines/dv2-dsv2-series) SKU is a typical VM type for the system node pool.
 
 - Don't have the same configuration for dev/test and production environments. Production workloads have extra requirements for high availability and are typically more expensive. This configuration isn't necessary in the dev/test environment.
 
