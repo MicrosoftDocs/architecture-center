@@ -49,7 +49,7 @@ For information about source-code management, see [Cloud-hosted mobile applicati
 To start exploring options for other back-end services, see these articles:
 
 - [Build mobile back-end components with compute services](/azure/developer/mobile-apps/serverless-compute?toc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json) 
-- [Add authentication and manage user identities in your mobile apps](https://review.docs.microsoft.com/en-us/azure/developer/mobile-apps/authentication?toc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
+- [Add authentication and manage user identities in your mobile apps](/azure/developer/mobile-apps/authentication?toc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Freview.docs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
 
 ## Best practices
 
