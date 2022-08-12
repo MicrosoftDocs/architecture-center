@@ -18,12 +18,12 @@ Zone-redundant Azure services automatically manage and mitigate failures, includ
 
 A SPA (single page application) running in a browser requests static assets including scripts, stylesheets and media assets. Once loaded, the SPA makes API calls that provide functionality.
 
-* SPA users are authenticated by [Azure Active Directory (Azure AD)][aad] or [Azure AD B2C][aad-b2c]. The browser performs DNS lookups to resolve addresses to Azure Front Door front-ends.
-* [Azure Front Door][afd] is the public front-end for all internet requests, acting as a global HTTP reverse proxy and cache in front of several back-end (origin) services. Front Door also provides automatic protection from layer 4 DDoS attacks.
+* SPA users are authenticated by [Azure Active Directory (Azure AD)][aad] or [Azure AD B2C][aad-b2c]. The browser performs DNS lookups to resolve addresses to Azure Front Door.
+* [Azure Front Door][afd] is the public front-end for all internet requests, acting as a global HTTP reverse proxy and cache in front of several back-end (origin) services. Front Door also provides automatic protection from layer 4 DDoS attacks, and a range of other features to enhance the security and performance of your application.
 * [Azure Static Web Apps][swa] hosts all of the SPA assets, including scripts, stylesheets and media.
-* [Azure App Services][app-services] hosts the API applications and services, also providing a front-end for back-end services. Deployment slots are used to provide zero-downtime releases.
+* [Azure App Service][app-services] hosts the API applications and services, also providing a front-end for back-end services. Deployment slots are used to provide zero-downtime releases.
 * App Services and Functions Apps use [Virtual Network (VNet) Integration][vnet-integration] to connect to backend services over a private VNet.
-* [Azure Functions Apps][functions] host backend Functions that connect to backend services and databases.
+* [Azure Functions][functions] host backend Functions that connect to backend services and databases.
 * [Azure Cache for Redis][redis] provides a high-performance distributed cache for output, session and general-purpose caching.
 * [Azure Service Bus][service-bus] acts as a high-speed bus between front-end and back-end services for asynchronous messaging.
 * [Azure Cosmos DB][cosmos-db] provides "no-sql" document databases for front-end services.
@@ -36,22 +36,24 @@ A SPA (single page application) running in a browser requests static assets incl
 
 ### Alternatives
 
-* Either Azure Active Directory (Azure AD) or Azure AD B2C can be used as an IDP in this scenario. Azure AD is designed for business-to-business (B2B) scenarios, while Azure AD B2C is designed for business-to-consumer (B2C) scenarios.
-* You can choose Azure-managed DNS, which is recommended, or you can choose to use your own DNS provider.
-* [Azure Application Gateway][appgw] could be used instead of Azure Front Door if most internet users were located close by, and content caching wasn't an important requirement.
+* Either Azure Active Directory (Azure AD) or Azure AD B2C can be used as an IDP in this scenario. Azure AD is designed for internal applications and business-to-business (B2B) scenarios, while Azure AD B2C is designed for business-to-consumer (B2C) scenarios.
+* You can choose to use Azure-managed DNS, which we recommend, or your own DNS provider.
+* [Azure Application Gateway][appgw] could be used instead of Azure Front Door if most of your users are located close to the Azure region that hosts your workload, and you don't need content caching.
 * [Azure Content Delivery Network][cdn] (Azure CDN) could be used alongside Application Gateway to cache static assets. Azure Front Door was chosen for this architecture due to its global network presence, improved performance through WAN acceleration, and built-in content cache. Operational excellence is also improved with a single configuration point for custom domain names, TLS/SSL certificates, Web Application Firewall and routing rules.
 * [Static website hosting in Azure Storage][storage-spa] may be considered in place of Azure Static Web Apps, if already using Azure CDN for example. However static website hosting in Azure Storage does have limitations. For more information, see [Static website hosting in Azure Storage][storage-spa]. Azure Static Web Apps was chosen for its global high availability, and its simple deployment and configuration.
-* In this architecture, Functions are hosted in a zone-redundant Premium Functions plan. Azure Static Web Apps also has the capability to host Functions, either fully managed or bring-your-own. For more information about hosting Functions in Static Web Apps, see [API support in Azure Static Web Apps with Azure Functions][swa-apis]. 
+* In this architecture, Functions are hosted in a zone-redundant elastic premium Functions plan. Azure Static Web Apps also has the capability to host Functions, either fully managed or bring-your-own. For more information about hosting Functions in Static Web Apps, see [API support in Azure Static Web Apps with Azure Functions][swa-apis]. 
 
 ### Solution details
 
-Customers want the convenience of websites and apps that are available when they need them. Keeping hosting platforms highly available at scale has been problematic in the past, requiring complex and expensive multi-region deployments. These problems are resolved with [Availability Zones][azs], physically separate locations within each Azure region that are tolerant to local failures. With zone-redundant deployments a customer can spread workloads across multiple independent zones, improving availability. 
+Customers want the convenience of websites and apps that are available when they need them. Traditionally, it's been hard to keep hosting platforms highly available at scale. High availability has historically required complex and expensive multi-region deployments, and require considering tradeoffs between data consistency and high performance.
 
-This architecture shows how to combine zone-redundant services into a solution that provides exceptional availability and is resilient to zone failure. The solution is less complex than multi-region alternatives, offering more cost-optimization opportunities simplifying operational requirements. There are many more benefits including:
+[Availability zones][azs] resolve these issues. Availability zones are physically separate locations within each Azure region that are tolerant to local failures. By using zone-redundant deployments, a customer can spread workloads across multiple independent zones, improving availability. Azure automatically replicates data between the zones, and automatically fails over in the event of a zone failure.
 
-* No zone pinning or zonal deployments required. Zone-redundancy is configured at deployment time and is automatically managed by services throughout their lifetime.
-* Recovery time from zone failure is much shorter than a multi-region deployment. Recovery time from zone-failure for zone-redundant services is practically zero.
-* Simplified networking. All VNet traffic can remain in the same Azure region.
+This architecture shows how to combine zone-redundant services into a solution that provides very high availability and is resilient to zone failure. The solution is less complex than multi-region alternatives, offering more cost-optimization opportunities and simplifying operational requirements. There are many more benefits including:
+
+* **You don't need to manage zone pinning or zonal deployments.** Zone redundancy is configured at deployment time and is automatically managed by services throughout their lifetime.
+* **Recovery time from a zone failure is much shorter than a cross-region failover.** Recovery time from zone-failure for zone-redundant services is practically zero. In a multi-region deployment, you need to carefully manage the failover process, and deal with any data replication delays that might result in data loss.
+* **Simplified networking.** All VNet traffic can remain in the same Azure region.
 
 ## Recommendations
 
@@ -62,8 +64,8 @@ The following recommendations apply for most scenarios. Follow these recommendat
 Azure Front Door is a global service offering resilience to zone and region failures. 
 
 * Use [Azure managed certificates][afd-certs] on all frontends to prevent certificate mis-configuration and expiration issues.
-* Enable [Caching][afd-cache] on routes where appropriate to improve availability by distributing content to the Azure POP (point of presence) edge nodes.
-* Deploy Azure Front Door Premium and configure a [WAF policy][afd-waf] with a Microsoft-managed ruleset. Apply the policy to all frontends in Prevention mode to mitigate DDOS attacks that may cause an origin service to become unavailable.
+* Enable [Caching][afd-cache] on routes where appropriate to improve availability. Front Door's cache distributes your content to the Azure PoP (point of presence) edge nodes. In addition to improving your performance, caching reduces the load on your origin servers.
+* Deploy Azure Front Door Premium and configure a [WAF policy][afd-waf] with a Microsoft-managed ruleset. Apply the policy to all custom domains. Use Prevention mode to mitigate web attacks that might cause an origin service to become unavailable.
 
 ### Azure Static Web Apps
 
@@ -71,14 +73,14 @@ Azure Static Web Apps is a global service resilient to zone and region failures.
 
 ### App Services
 
-[App Service Premium v2, Premium v3][app-services-zr] and [Isolated v3][ise-zr] App Service Plans offer zone redundancy with a minimum of three instances. In this configuration App Service Plan instances are distributed across multiple availability zones to protect from zone failure.
+[App Service Premium v2, Premium v3][app-services-zr] and [Isolated v3][ise-zr] App Service Plans offer zone redundancy. You must deploy a minimum of three instances of the plan. In this configuration, App Service Plan instances are distributed across multiple availability zones to protect from zone failure. App Service automatically balances your load across the instances and zones.
 
 * Deploy a minimum of three instances for zone-redundancy.
 * Enable [Virtual Network (VNet) Integration][appservice-vnet] for private networking with backend services.
 
 ### Azure Functions
 
-[Azure Functions Elastic Premium][functions-zr] offers zone redundancy with a minimum of three instances.
+[Azure Functions Elastic Premium][functions-zr] offers zone redundancy  when you deploy a minimum of three instances of your plan and opt into zone redundancy.
 
 * Deploy a minimum of three instances for zone-redundancy.
 * Enable a Private endpoint and deny access to public endpoint traffic.
@@ -102,16 +104,16 @@ Enable [zone-redundancy in Azure Cosmos DB][cosmos-ha] when selecting a region t
 
 * Enable zone-redundancy when adding the local read/write region to the Azure Cosmos account.
 * [Enable continuous backups][cosmos-backup].
-* [Configure private link for the Cosmos account][cosmos-pep]. Enabling the private endpoint will disable the public endpoint.
+* [Configure private link for the Cosmos DB account][cosmos-pep]. Enabling the private endpoint will disable the public endpoint.
 * Integrate the Private endpoint with an Azure Private DNS zone.
 
 ### Blob Storage
 
 Azure [Zone-Redundant Storage][zrs] (ZRS) replicates your data synchronously across three Azure availability zones in the region.
 
-* Create a Standard ZRS or Standard GZRS storage account for hosting web assets.
+* Create a Standard ZRS or Standard GZRS storage account for hosting web assets. By using these storage account SKUs, you ensure that your data is replicated across availability zones.
 * Create separate storage accounts for web assets, Azure Functions meta-data, and other data, so that the accounts can be managed and configured separately.
-* [Use private endpoints for Azure Storage][storage-pep]
+* [Use private endpoints for Azure Storage][storage-pep].
 * Configure the Storage firewall to deny public internet traffic.
 * Integrate the Private endpoint with an Azure Private DNS zone.
 
@@ -126,12 +128,7 @@ Azure [Zone-Redundant Storage][zrs] (ZRS) replicates your data synchronously acr
 
 ### Cache for Redis
 
-Cache for Redis supports [zone-redundancy][redis-zr] in the Premium, Enterprise and Enterprise Flash tiers. To enable zone redundancy for Azure Cache for Redis:
-
-* Configure a minimum of three replicas.
-* Select all three Availability Zones.
-
-For more information, see [Enable zone redundancy for Azure Cache for Redis][enable-redis-zr].
+Cache for Redis supports [zone-redundancy][redis-zr] in certain tiers. To enable zone redundancy for Azure Cache for Redis, follow the instructions in [Enable zone redundancy for Azure Cache for Redis][enable-redis-zr].
 
 In this architecture, Azure Cache for Redis is deployed with a private endpoint and the public endpoint is disabled.
 
