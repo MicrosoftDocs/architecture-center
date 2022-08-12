@@ -20,11 +20,11 @@ categories:
 
 # Mobile architecture design
 
-The Azure platform can help you quickly build Android, iOS, and Windows apps that fit your business needs. You can use Azure to power your apps with intelligent back-end services and automate your development lifecycle to ship faster and with more confidence.
+The Azure platform can help you quickly build Android, iOS, and Windows apps that fit your business needs. You can also use Azure to power your apps with intelligent back-end services and automate your development lifecycle to ship faster and with more confidence.
 
 These are just some of the services that Azure provides to help you with mobile development and back-end infrastructure:
 
-- [Azure App Service](https://azure.microsoft.com/services/app-service). Build and host web apps, mobile back ends, and RESTful APIs in the programming language of your choice without managing infrastructure. Use [Mobile Apps](https://azure.microsoft.com/services/app-service/mobile), a feature of App Service, to create mobile apps for any device.
+- [Azure App Service](https://azure.microsoft.com/services/app-service). Build and host mobile back ends and RESTful APIs in the programming language of your choice without managing infrastructure. Use [Mobile Apps](https://azure.microsoft.com/services/app-service/mobile), a feature of App Service, to create mobile apps for any device.
 
 - [Visual Studio App Center](https://azure.microsoft.com/services/app-center). Build, test, release, and monitor your mobile apps.
 
@@ -32,7 +32,7 @@ These are just some of the services that Azure provides to help you with mobile 
 
 - [Azure Communication Services](https://azure.microsoft.com/services/communication-services). Use a set of rich communication APIs, video APIs, and SMS APIs to deploy your applications across any device, on any platform.
 
-- [Azure Notification Hubs](https://azure.microsoft.com/services/notification-hubs). Use this massively scalable mobile push notification engine for sending notifications to iOS, Android, Windows, or Kindle devices.
+- [Azure Notification Hubs](https://azure.microsoft.com/services/notification-hubs). Use this massively scalable mobile push notification engine to send notifications to iOS, Android, Windows, or Kindle devices.
 
 - [Azure Maps](https://azure.microsoft.com/services/azure-maps). Easily incorporate location-based data into mobile solutions.
 
@@ -44,7 +44,7 @@ Azure provides various options for development platforms and back-end services.
 
 To learn about single-platform, cross-platform, and hybrid development frameworks, see [Choose a mobile development framework](/azure/developer/mobile-apps/choose-mobile-framework?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json).
 
-For information about source-code management, see [Cloud-hosted mobile application source code management](/azure/developer/mobile-apps/serverless-compute?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json).
+For information about source-code management, see [Cloud-hosted mobile application source-code management](/azure/developer/mobile-apps/serverless-compute?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json).
 
 To start exploring options for other back-end services, see these articles:
 
