@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Azure Virtual Machines is a valid choice for hosting applications when you want flexible and granular management of your compute. Virtual machines (VMs) should be subject to the same level of engineering rigor as Platform-as-a-Service (PaaS) offerings throughout the development lifecycle. For example, implementing automated build and release pipelines to push changes to the VMs.
+Azure Virtual Machines is an option for hosting custom applications when you want flexible and granular management of your compute. Virtual machines (VMs) should be subject to the same level of engineering rigor as Platform-as-a-Service (PaaS) offerings throughout the development lifecycle. For example, implementing automated build and release pipelines to push changes to the VMs.
 
 This article describes a high-level DevOps workflow for deploying application changes to VMs using continuous integration (CI) and continuous deployment (CD) practices using Azure Pipelines. 
 
@@ -46,7 +46,7 @@ An observability resource  that collects and stores metrics and logs, applicatio
 ### Workflow
 
 1. The developer pushes code changes to a feature branch in the code repository. 
-1. Continuous integration triggers automated build and test jobs.
+1. Azure Pipelines triggers automated build and test jobs (continuous integration).
     1. VM Aapplication builds packages with new application version already installed.
 1. Continuous deployment trigger orchestrates deployment of application artifacts and infrastructure changes with environment-specific parameters.
     1. Azure Dev Test Labs provisions development and test stages.
