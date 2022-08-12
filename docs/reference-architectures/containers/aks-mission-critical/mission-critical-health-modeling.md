@@ -35,6 +35,8 @@ Health modeling can be expanded into the following operational tasks for the mis
 
 These tasks make up a comprehensive health model for the mission-critical infrastructure. Development of a health model can and should be an exhaustive and integral part of any mission-critical deployment.
 
+For more information, see [Health modeling and observability of mission-critical workloads on Azure](/azure/architecture/framework/mission-critical/mission-critical-health-modeling).
+
 ## Application Health Service
 
 The Application Health Service (HealthService) is an application component that resides with the Catalog Service (CatalogService) and the Background Processor (BackgroundProcessor) within the compute cluster. The **HealthService** provides a REST API for Azure Front Door to call to determine the health of a stamp. The **HealthService** is a complex component that reflects the state of dependencies, in addition to its own.
@@ -111,6 +113,8 @@ Azure Log Analytics is used as the central store fo logs and metrics for all app
 
 All stamps are short-lived and continuously replaced with each new release. The per-stamp Log Analytics workspaces are deployed as a global resource in a separate monitoring resource group as the stamp Log Analytics resources. These resources don't share the lifecycle of a stamp.
 
+For more information, see [Unified data sink for correlated analysis](/azure/architecture/framework/mission-critical/mission-critical-health-modeling#unified-data-sink-for-correlated-analysis).
+
 ## Monitoring: Data sources
 
 - **Diagnostic settings**: All Azure services used for Azure Mission-Critical are configured to send all their Diagnostic data including logs and metrics to the deployment specific (global or stamp) Log Analytics Workspace. This process happens automatically as part of the Terraform deployment. New options will be identified automatically and added as part of `terraform apply`.
@@ -138,17 +142,21 @@ This approach separates the query logic from the visualization layer. The Log An
 
 For visualizing the results of our Log Analytics health queries, we've used Grafana in our reference implementation. Grafana is used to show the results of Log Analytics queries and doesn't contain any logic itself. The Grafana stack isn't part of the solution's deployment lifecycle, but released separately.
 
+For more information, see [Visualization](/azure/architecture/framework/mission-critical/mission-critical-health-modeling#visualization).
+
 ## Alerting
 
 Alerts are an important part of the overall operations strategy. Proactive monitoring such as the use of dashboards should be used with alerts that raise immediate attention to issues.
 
 These alerts form an extension of the health model, by alerting the operator to a change in health state, either to degraded/yellow state or to unhealthy/red state. By setting the alert to the root node of the Health Model, the operator is immediately aware of any business level affect to the state of the solution: After all, this root node will turn yellow or red if any of the underlying user flows or resources report yellow or red metrics. The operator can direct their attention to the Health Model visualization for troubleshooting.
 
+For more information, see [Automated incident response](/azure/architecture/framework/mission-critical/mission-critical-health-modeling#automated-incident-response).
+
 ## Failure analysis
 
 Composing the failure analysis is mostly a theoretical planning exercise. This theoretical exercise should be used as input for the automated failure injections that are part of the continuous validation process. By simulating the failure modes defined here, we can validate the resiliency of the solution against these failures to ensure they won't lead to outages.
 
-The following table lists example failure cases of the various components of the Azure Mission-Critical reference implementation. 
+The following table lists example failure cases of the various components of the Azure Mission-Critical reference implementation.
 
 | Service | Risk | Impact/Mitigation/Comment | Outage |
 | ------- | ---- |-------------------------- | ------ |
