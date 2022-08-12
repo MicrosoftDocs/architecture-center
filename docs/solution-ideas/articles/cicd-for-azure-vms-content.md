@@ -16,7 +16,7 @@ The architecture uses these components.
 
 GitHub serves as the code repository that provides version control and a platform for collaborative projects. 
 
-#### Azure Pipelines
+##### Azure Pipelines
 
 Azure Pipelines can automatically build application source code and infrastructure code from your code repository. It has a Build system for producing packages and other build artifacts and a Release Management system for setting up a pipeline to deploy your changes through dev, test, and production environments. The pipeline uses Infrastructure-as-Code (IaC) templates to provision or update your infrastructure as necessary in each environment, and then deploys the updated build. 
 
@@ -24,25 +24,25 @@ Azure Pipelines can automatically build application source code and infrastructu
 
 An alternate technology option for CI/CD pipelines is GitHub Actions. There are advantages because the source code and the pipeline are set side-by-side. However, in this design, Azure Pipelines was chosen because of its integration with Azure DevTest Labs and VM Applications (discussed next). 
 
-#### VM Applications
+##### VM Applications
 
 Azure VM Applications is recommended for simplified deployment of application changes. When there's a new version of an application, you can just deploy the VM application package without ever affecting the VM image. VM Applications facilitate CI/CD processes for package deployment through Azure Pipelines.
 
 > For product documentation, see [VM Applications](/azure/virtual-machines/vm-applications). 
 
-#### Azure DevTest Labs
+##### Azure DevTest Labs
 
 For VMs, using Azure DevTest Labs is highly recommended for running automated test pipelines. DevTest Labs can quickly provision development and test stages with reusable templates and artifacts. Also, automatically tear down test resources that aren't in use. DevTest Labs is integrated with Azure Pipelines.
 
 > For product documentation, see [Azure DevTest Labs](https://azure.microsoft.com/services/devtest-lab).
 
-#### Azure Virtual Machines
+##### Azure Virtual Machines
 
 Infrastructure-as-a-Service (IaaS) compute with Linux or Windows image that runs the application.
 
 > For product documentation, see [Virtual Machines](https://azure.microsoft.com/services/virtual-machines).
 
-#### Azure Monitor
+##### Azure Monitor
 
 An observability resource  that collects and stores metrics and logs, application telemetry, and platform metrics for the Azure services. Use this data to monitor the application, set up alerts, dashboards, and perform root cause analysis of failures. 
 
