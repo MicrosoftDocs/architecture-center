@@ -15,8 +15,9 @@ Your organizations backup strategy will differ depending on the workload you nee
 
 ## Architecture
 
-![Architecture Diagram](../media/backup-archive-cloud-application.png)
-*Download an [SVG](../media/backup-archive-cloud-application.svg) of this architecture.*
+![Diagram that shows backup strategy with Azure Backup or a partner solution.](../media/backup-archive-cloud-application.png)
+
+*Download a [Visio file](https://arch-center.azureedge.net/backup-archive-cloud-application.vsdx) of this architecture.*
 
 ### Components
 

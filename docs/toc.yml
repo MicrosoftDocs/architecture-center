@@ -320,12 +320,16 @@ items:
             href: guide/saas/saas-digital-business-journey-azure.md
       - name: Mission critical applications
         items:
-            - name: Mission critical architecture on Azure
+            - name: Mission-critical baseline architecture
               href: reference-architectures/containers/aks-mission-critical/mission-critical-intro.yml
+            - name: Mission-critical baseline architecture with network controls
+              href: reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture.yml
             - name: Design areas
               items:
                 - name: Application platform
                   href: reference-architectures/containers/aks-mission-critical/mission-critical-app-platform.md
+                - name: Application design
+                  href: reference-architectures/containers/aks-mission-critical/mission-critical-app-design.md
                 - name: Deployment and testing
                   href: reference-architectures/containers/aks-mission-critical/mission-critical-deploy-test.md
                 - name: Networking and connectivity platform
@@ -2380,6 +2384,8 @@ items:
                     href: example-scenario/iot/smart-places.yml
           - name: Aerospace
             items:
+              - name: Overview
+                href: industries/aerospace.md
               - name: Guides
                 items:
                   - name: Azure Orbital for space communication
@@ -3076,6 +3082,12 @@ items:
                 href: guide/technology-choices/compute-decision-tree.yml
               - name: SAS on Azure architecture
                 href: guide/sas/sas-overview.yml
+              - name: HPC deployments 
+                items:
+                  - name: Deploy ADS CFD Code Leo
+                    href: guide/hpc/hpc-ads-cfd.yml 
+                  - name: Deploy Autodesk VRED
+                    href: guide/hpc/hpc-autodesk-vred.md 
               - name: Industry guidance
                 items:
                   - name: HPC for manufacturing
@@ -5032,6 +5044,8 @@ items:
                 href: solution-ideas/articles/digital-media-video.yml
       - name: Migration
         items:
+          - name: Get started
+            href: guide/migration/migration-start-here.md
           - name: Guides
             items:
               - name: Migration deployments

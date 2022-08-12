@@ -52,7 +52,7 @@ The solution uses the following Azure services:
 
 Consider adding an [Azure Application Gateway](/azure/application-gateway/overview) before the App Service instance, to provide Web Application Firewall (WAF) functionality to protect web applications from common exploits and vulnerabilities.
 
-A [self-hosted GitHub runner](https://docs.github.com/en/enterprise-server@3.5/actions/using-github-hosted-runners) can be used in place of the Azure DevOps self-hosted agent.
+A [self-hosted GitHub runner](https://docs.github.com/enterprise-server@3.5/actions/using-github-hosted-runners) can be used in place of the Azure DevOps self-hosted agent.
 
 ## Considerations
 
