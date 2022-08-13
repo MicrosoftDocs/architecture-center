@@ -36,65 +36,58 @@ The reference architecture below provides a template for a robust MLOps process 
 
 ### Development 
 
-In the development environment, data scientists and engineers develop ML pipelines.
+In the development environment, data scientists and engineers develop machine learning pipelines.
 
-1. **Exploratory Data Analysis (EDA)**: Data scientists explore data in an interactive, iterative process. This ad hoc work might not be deployed to staging or production. Tools may include [Databricks SQL](https://docs.microsoft.com/en-us/azure/databricks/sql/get-started/), [dbutils.data.summarize](https://docs.microsoft.com/en-us/azure/databricks/dev-tools/databricks-utils#dbutils-data-summarize) and [AutoML](https://docs.microsoft.com/en-us/azure/databricks/applications/machine-learning/automl).
+1. **Exploratory data analysis (EDA)**: Data scientists explore data in an interactive, iterative process. This ad hoc work might not be deployed to staging or production. Tools might include [Databricks SQL](/azure/databricks/sql/get-started), [dbutils.data.summarize](/azure/databricks/dev-tools/databricks-utils#dbutils-data-summarize), and [AutoML](/azure/databricks/applications/machine-learning/automl).
 
-1. [**Model Training**](https://docs.microsoft.com/en-us/azure/databricks/applications/machine-learning/train-model/) **and Other ML Pipelines**: ML pipelines are developed as modular code in notebooks and/or IDEs. For example, the Model Training pipeline reads data from the feature store and other Lakehouse tables. Training and tuning log model parameters and metrics to the [MLflow tracking server](https://docs.microsoft.com/en-us/azure/databricks/applications/mlflow/tracking), and the final model is logged using the [Feature Store APIs](https://docs.microsoft.com/en-us/azure/databricks/applications/machine-learning/feature-store/python-api). These logs link the model, its inputs, and the training code.
+1. [**Model training**](/azure/databricks/applications/machine-learning/train-model) **and other machine learning pipelines**: Machine learning pipelines are developed as modular code in notebooks and/or IDEs. For example, the model training pipeline reads data from the feature store and other Lakehouse tables. Training and tuning log model parameters and metrics to the [MLflow tracking server](/azure/databricks/applications/mlflow/tracking). The [Feature Store API](/azure/databricks/applications/machine-learning/feature-store/python-api) is used to log the final model. These logs link the model, its inputs, and the training code.
 
-1. **Commit Code**: To promote the ML workflow towards production, the data scientist commits the code for featurization, training, and other pipelines to source control.
+1. **Commit code**: To promote the machine learning workflow toward production, the data scientist commits the code for featurization, training, and other pipelines to source control.
 
 ### Staging
 
-In the staging environment, CI infrastructure tests changes to ML pipelines in an environment which mimics production.
+In the staging environment, CI infrastructure tests changes to machine learning pipelines in an environment that mimics production.
 
-4. **Merge Request**: When a merge (or pull) request is submitted against the staging (main) branch of the project in source control, then a CI/CD tool such as [Azure DevOps](https://docs.microsoft.com/en-us/azure/devops/?view=azure-devops) runs tests.
+4. **Merge request**: When a merge (or pull) request is submitted against the staging (main) branch of the project in source control, a continuous integration and continuous delivery (CI/CD) tool like [Azure DevOps](/azure/devops/?view=azure-devops) runs tests.
 
-5. **Unit and Continuous Integration (CI) tests**: Unit tests can run in CI infrastructure, and integration tests can run end-to-end [Workflows](https://docs.microsoft.com/en-us/azure/databricks/jobs) on Databricks. If tests pass, the code changes are merged.
+5. **Unit and CI) tests**: Unit tests run in CI infrastructure, and integration tests run end-to-end [Workflows](https://docs.microsoft.com/en-us/azure/databricks/jobs) on Azure Databricks. If tests pass, the code changes merge.
 
-6. **Cut Release Branch**: When ready to deploy the updated ML pipelines to production, an ML engineer can cut a new release. A deployment pipeline in the CI/CD tool redeploys the updated pipelines as new [Workflows](https://docs.microsoft.com/en-us/azure/databricks/jobs).
+6. **Cut release branch**: When machine learning engineers are ready to deploy the updated machine learning pipelines to production, they can cut a new release. A deployment pipeline in the CI/CD tool redeploys the updated pipelines as new [Workflows](/azure/databricks/jobs).
 
 ### Production
 
-ML engineers manage the production environment, where ML pipelines directly serve end applications. The key pipelines in production refresh feature tables, train and deploy new models, run inference or serving, and monitor model performance.
+Machine learning engineers manage the production environment, where machine learning pipelines directly serve end applications. The key pipelines in production refresh feature tables, train and deploy new models, run inference or serving, and monitor model performance.
 
-7. **Feature Table Refresh**: This pipeline reads data, computes features, and writes to [Feature Store](https://docs.microsoft.com/en-us/azure/databricks/applications/machine-learning/feature-store/) tables. It can run continuously in streaming mode, run on a schedule, or be triggered.
+7. **Feature table refresh**: This pipeline reads data, computes features, and writes to [feature store](/azure/databricks/applications/machine-learning/feature-store) tables. It runs continuously in streaming mode, runs on a schedule, or is triggered.
 
-1. **Model Training**: In production, the model (re)training pipeline can be triggered or scheduled to train a fresh model on the latest production data. Models are registered to the [MLflow Model Registry](https://docs.microsoft.com/en-us/azure/databricks/applications/mlflow/model-registry).
+1. **Model training**: In production, the model training or retraining pipeline is triggered or scheduled to train a fresh model on the latest production data. Models are registered to the [MLflow Model Registry](/azure/databricks/applications/mlflow/model-registry).
 
-1. **Continuous Deployment (CD)**: Registering new model versions triggers the CD pipeline, which runs tests to ensure that the model will perform well in production. As the model passes tests, its progress is tracked in the Model Registry via model stage transitions, and [registry webhooks](https://docs.microsoft.com/en-us/azure/databricks/applications/mlflow/model-registry-webhooks) may be used for automation. Tests can include compliance checks, A/B tests to compare the new model with the current production model, and infrastructure tests. Test results and metrics are recorded in Lakehouse tables. Manual sign-offs can optionally be required before models are transitioned to production.
+1. **Continuous deployment**: Registering new model versions triggers the CD pipeline, which runs tests to ensure that the model will perform well in production. As the model passes tests, its progress is tracked in the Model Registry via model stage transitions. [Registry webhooks](/azure/databricks/applications/mlflow/model-registry-webhooks) can be used for automation. Tests can include compliance checks, A/B tests to compare the new model with the current production model, and infrastructure tests. Test results and metrics are recorded in Lakehouse tables. You can optionally require manual sign-offs before models are transitioned to production.
 
-1. **Model Deployment**: As a model enters production, it is deployed for scoring or serving. The most common deployment modes are:
-    1. [**Batch or Streaming Scoring**](https://docs.microsoft.com/en-us/azure/databricks/applications/machine-learning/model-inference/#offline-batch-predictions): For latencies of minutes or higher, batch and streaming are the most cost-effective options. The scoring pipeline reads the latest data from the Feature Store, loads the latest production model version from the Model Registry, and performs inference in a Databricks Job. It can publish predictions to Lakehouse tables, a JDBC connection, flat files, message queues, or other downstream systems.
-    2. **Online Serving (REST APIs)**: For low-latency use cases, online serving is generally necessary. MLflow can deploy models to [MLflow Model Serving on Azure Databricks](https://docs.microsoft.com/en-us/azure/databricks/applications/mlflow/model-serving), cloud provider serving systems, and other systems. In all cases, the serving system is initialized with the latest production model from the Model Registry. For each request, it fetches features from an online Feature Store and makes predictions.
+1. **Model deployment**: As a model enters production, it's deployed for scoring or serving. The most common deployment modes are:
+    1. [**Batch or streaming scoring**](/azure/databricks/applications/machine-learning/model-inference/#offline-batch-predictions): For latencies of minutes or longer, batch and streaming are the most cost-effective options. The scoring pipeline reads the latest data from the Feature Store, loads the latest production model version from the Model Registry, and performs inference in a Databricks job. It can publish predictions to Lakehouse tables, a Java Database Connectivity (JDBC) connection, flat files, message queues, or other downstream systems.
+    2. **Online serving (REST APIs)**: For low-latency use cases, online serving is generally necessary. MLflow can deploy models to [MLflow Model Serving on Azure Databricks](https://docs.microsoft.com/en-us/azure/databricks/applications/mlflow/model-serving), cloud provider serving systems, and other systems. In all cases, the serving system is initialized with the latest production model from the Model Registry. For each request, it fetches features from an online Feature Store and makes predictions.
 
-1. **Monitoring**: Continuous or periodic [Workflows](https://docs.microsoft.com/en-us/azure/databricks/jobs) monitor input data and model predictions for drift, performance, and other metrics. [Delta Live Tables](https://docs.microsoft.com/en-us/azure/databricks/data-engineering/delta-live-tables/) can simplify automation of monitoring pipelines, storing the metrics in Lakehouse tables. [Databricks SQL](https://docs.microsoft.com/en-us/azure/databricks/sql/), [Power BI](https://docs.microsoft.com/en-us/power-bi/) or other tools can read from those tables to create dashboards and alerts.
+1. **Monitoring**: Continuous or periodic [workflows](/azure/databricks/jobs) monitor input data and model predictions for drift, performance, and other metrics. [Delta Live Tables](https://docs.microsoft.com/en-us/azure/databricks/data-engineering/delta-live-tables/) can simplify the automation of monitoring pipelines, storing the metrics in Lakehouse tables. [Databricks SQL](/azure/databricks/sql), [Power BI](/power-bi/) and other tools can read from those tables to create dashboards and alerts.
 
-1. **Retraining**: This architecture supports both manual and automatic retraining. Scheduled retraining jobs are the simplest option to keep models fresh.
+1. **Retraining**: This architecture supports both manual and automatic retraining. Scheduled retraining jobs are the easiest way to keep models fresh.
 
 ## Components
 
-[**Data Lakehouse**](https://databricks.com/blog/2020/01/30/what-is-a-data-lakehouse.html)
+- [**Data Lakehouse**](https://databricks.com/blog/2020/01/30/what-is-a-data-lakehouse.html). A Lakehouse architecture unifies the best elements of data lakes and data warehouses, delivering data management and performance typically found in data warehouses with the low-cost, flexible object stores offered by data lakes.
 
-A Lakehouse architecture unifies the best elements of data lakes and data warehouses — delivering data management and performance typically found in data warehouses with the low-cost, flexible object stores offered by data lakes.
+  - [**Delta Lake**](https://delta.io/) is the recommended choice for an open-source data format for a Lakehouse. Azure Databricks stores data in in Data Lake Storage and provides a high-performance query engine.
 
-- [**Delta**](https://delta.io/) is the recommended choice for an open-source data format for a Lakehouse. Azure Databricks stores data in your Azure Data Lake Storage (ADLS) and provides a high-performance query engine.
+- [**MLflow**](https://www.mlflow.org). MLflow is an open-source project for managing the end-to-end machine learning lifecycle. These are its main components:
+  - [**Tracking**](/azure/databricks/applications/mlflow/tracking): Allows you to track experiments to record and compare parameters, metrics, and model artifacts.
+    - [**Databricks Autologging**](/azure/databricks/applications/mlflow/databricks-autologging): Azure Databricks extends [MLflow automatic logging](https://mlflow.org/docs/latest/tracking.html#automatic-logging) to track machine learning experiments, automatically logging model parameters, metrics, files, and lineage information.
+  - [**Models**](/azure/databricks/applications/mlflow/models): Allow you to store and deploy models from any machine learning library to a variety of model serving and inference platforms.
+  - [**Model Registry**](/azure/databricks/applications/mlflow/model-registry): Provides a centralized model store for managing model lifecycle stage transitions from development to production.
+  - [**Model Serving**](/azure/databricks/applications/mlflow/model-serving): Enables you to host MLflow models as REST endpoints.
 
-[**MLflow**](https://www.mlflow.org/)
+- [Azure Databricks](https://azure.microsoft.com/services/databricks) provides a managed MLflow service with enterprise security features, high availability, and integrations with other Azure Databricks workspace features.
 
-MLflow is an open-source project for managing the end-to-end machine learning lifecycle. It has the following primary components:
-
-- [**Tracking**](https://docs.microsoft.com/en-us/azure/databricks/applications/mlflow/tracking): Allows you to track experiments to record and compare parameters, metrics and model artifacts.
-  - [**MLflow Autologging**](https://docs.microsoft.com/en-us/azure/databricks/applications/mlflow/databricks-autologging): Azure Databricks extends [MLflow automatic logging](https://mlflow.org/docs/latest/tracking.html#automatic-logging) to track ML experiments, automatically logging model parameters, metrics, files, and lineage information.
-- [**Models**](https://docs.microsoft.com/en-us/azure/databricks/applications/mlflow/models): Allows you to store and deploy models from any ML library to a variety of model serving and inference platforms.
-- [**Model Registry**](https://docs.microsoft.com/en-us/azure/databricks/applications/mlflow/model-registry): Provides a centralized model store for managing models&#39; lifecycle stage transitions from development to production.
-- [**Model Serving**](https://docs.microsoft.com/en-us/azure/databricks/applications/mlflow/model-serving): Enables you to host MLflow Models as REST endpoints.
-
-Azure Databricks provides a managed MLflow service with enterprise security features, high availability, and integrations with other Azure Databricks workspace features.
-
-[**Databricks Runtime for Machine Learning**](https://docs.microsoft.com/en-us/azure/databricks/runtime/mlruntime#mlruntime)
-
-The &quot;ML Runtime&quot; automates the creation of a cluster optimized for machine learning, preinstalling popular ML libraries like TensorFlow, PyTorch and XGBoost as well as Azure Databricks ML tools like AutoML and Feature Store clients.
+- [**Databricks Runtime for Machine Learning**](https://docs.microsoft.com/en-us/azure/databricks/runtime/mlruntime#mlruntime). Automates the creation of a cluster optimized for machine learning, preinstalling popular machine learning libraries like TensorFlow, PyTorch, and XGBoost as well as Azure Databricks ML tools like AutoML and Feature Store clients.
 
 [**Feature Store**](https://docs.microsoft.com/en-us/azure/databricks/applications/machine-learning/feature-store/)
 
