@@ -4,7 +4,9 @@ You can find a code sample in the [Container Apps Example Scenario](https://gith
 
 ## Architecture
 
-![Diagram showing microservices deployed with Azure Container Apps.](./media/microservices-with-container-apps-deployment.png)
+:::image type="content" border="false" source="./media/microservices-with-container-apps-deployment.png" alt-text="Diagram showing microservices deployed with Azure Container Apps." lightbox="./media/microservices-with-container-apps-deployment.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/microservices-with-container-apps.vsdx) of this architecture.*
 
 In this scenario, the container images are sourced from Azure Container Registry and deployed to a Container Apps environment.  
 
@@ -18,9 +20,11 @@ The workflow service container app is running in single revision mode.  A contai
 
 The workflow uses a hybrid approach to managing secrets.  Managed identities are used in the services where such implementation required no code changes.  The Drone Scheduler and Delivery services use user-assigned managed identities to authenticate with Azure Key Vault to access the secrets stored there.  The remaining services store secrets via Container Apps service at the application level.
  
-![Diagram showing the runtime architecture for the solution.](./media/microservices-with-container-apps-runtime-diagram.png)
+:::image type="content" border="false" source="./media/microservices-with-container-apps-runtime-diagram.png" alt-text="Diagram showing the runtime architecture for the solution." lightbox="./media/microservices-with-container-apps-runtime-diagram.png":::
 
 This diagram illustrates the runtime architecture for the solution.  
+
+*Download a [Visio file](https://arch-center.azureedge.net/microservices-with-container-apps.vsdx) of this architecture.*
 
 ### Dataflow
 
