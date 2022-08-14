@@ -49,7 +49,7 @@ Production deployment enables a model to play an active role in a business. Pred
 There are various approaches and platforms to put models into production.  We recommend [deployment to Azure Machine Learning](/azure/machine-learning/how-to-deploy-managed-online-endpoints).
 
 > [!NOTE]
-> Prior to deployment, one has to insure the latency of model scoring is low enough to use in production.
+> Prior to deployment, one has to ensure the latency of model scoring is low enough to use in production.
 >
 >
 
