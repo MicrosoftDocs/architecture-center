@@ -2,7 +2,7 @@
 
 Blockchain technology helps organizations track and trace the product life cycle and meet regulatory, financial, ethical and sustainability requirements.
 
-The need for the block chain technology started with organizations trying to understand more about the products like:
+The need for the blockchain technology started with organizations trying to understand more about the products like:
 
 - Where did the product originate from?
 - How was a product built?
