@@ -18,7 +18,7 @@ Some organizations utilize DevSecOps:
 
 ### Dataflow
 
-1. [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis) (Azure AD) is configured as the identity provider for GitHub. Multi-factor authentication (MFA) gives extra authenitcation security.
+1. [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis) (Azure AD) is configured as the identity provider for GitHub. Multi-factor authentication (MFA) gives extra authentication security.
 1. Developers commit to GitHub Enterprise, driven by work items and bugs tracked with [Azure Boards](/azure/devops/boards/github/connect-to-github?view=azure-devops).
 1. GitHub Enterprise integrates automatic security and dependency scanning through GitHub Advanced Security and GitHub Open Source Security.
 1. Pull requests trigger CI builds and automated testing in [Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-get-started?view=azure-devops).
