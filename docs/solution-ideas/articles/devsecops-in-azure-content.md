@@ -18,7 +18,7 @@ Some organizations utilize DevSecOps:
 
 ### Dataflow
 
-1. [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis) (Azure AD) is configured as the identity provider for GitHub. Multi-factor authentication (MFA) gives extra authenitcation security.
+1. [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis) (Azure AD) is configured as the identity provider for GitHub. Multi-factor authentication (MFA) gives extra authentication security.
 1. Developers commit to GitHub Enterprise, driven by work items and bugs tracked with [Azure Boards](/azure/devops/boards/github/connect-to-github?view=azure-devops).
 1. GitHub Enterprise integrates automatic security and dependency scanning through GitHub Advanced Security and GitHub Open Source Security.
 1. Pull requests trigger CI builds and automated testing in [Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-get-started?view=azure-devops).
@@ -34,8 +34,8 @@ Some organizations utilize DevSecOps:
 
 ### Components
 
-- [Azure AD](https://azure.microsoft.com/services/active-directory) provides identity and access management services for your organization, providing authorization control over the resources inside Azure, GitHub Enterprise, and Azure DevOps.
-- Source code is hosted on [GitHub Enterprise](https://help.github.com/en/github), where developers can collaborate within your organization and the open-source communities. GitHub Enterprise offers advanced security features to identify vulnerabilities in the code you write and in open-source dependencies
+- [Azure AD](https://azure.microsoft.com/services/active-directory) provides identity and access management services for your organization, allowing control over access to the resources inside Azure, GitHub Enterprise, and Azure DevOps.
+- Source code is hosted on [GitHub Enterprise](https://docs.github.com/), where developers can collaborate within your organization and the open-source communities. GitHub Enterprise offers advanced security features to identify vulnerabilities in the code you write and in open-source dependencies
 - Use [Azure Boards](https://azure.microsoft.com/services/devops/boards/) to plan work and track its progress, using Agile tools such as Kanban boards.
 - [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) is a service that provides Continuous Integration and Continuous Delivery jobs to build and release your application automatically.
 - Host your Docker container images on [Azure Container Registry](https://azure.microsoft.com/services/container-registry/). This service includes container image scanning with the integration with Microsoft Defender for Cloud.
