@@ -39,7 +39,7 @@ A SPA (single page application) running in a browser requests static assets incl
 
 * Either Azure Active Directory (Azure AD) or Azure AD B2C can be used as an IDP in this scenario. Azure AD is designed for internal applications and business-to-business (B2B) scenarios, while Azure AD B2C is designed for business-to-consumer (B2C) scenarios.
 * You can choose to use Azure-managed DNS, which we recommend, or your own DNS provider.
-* [Azure Application Gateway][appgw] could be used instead of Azure Front Door if most of your users are located close to the Azure region that hosts your workload, and you don't need content caching.
+* [Azure Application Gateway][appgw] can be used instead of Azure Front Door when most users are located close to the Azure region that hosts your workload, and content caching is not required.
 * [Static website hosting in Azure Storage][storage-spa] may be considered in place of Azure Static Web Apps, if already using Azure CDN for example. However static website hosting in Azure Storage does have limitations. For more information, see [Static website hosting in Azure Storage][storage-spa]. Azure Static Web Apps was chosen for its global high availability, and its simple deployment and configuration.
 * In this architecture, Functions are hosted in a zone-redundant elastic premium Functions plan. Azure Static Web Apps also has the capability to host Functions, either fully managed or bring-your-own. For more information about hosting Functions in Static Web Apps, see [API support in Azure Static Web Apps with Azure Functions][swa-apis]. 
 * A premium [Azure API Manager][apim] instance deployed with zone-redundancy enabled is a good alternative for hosting frontend APIs, backend APIs or both. For more information about zone-redundancy in API Manager, see [availability zone support][apim-zr].
@@ -48,9 +48,9 @@ A SPA (single page application) running in a browser requests static assets incl
 
 Customers want the convenience of websites and apps that are available when they need them. Traditionally, it's been hard to keep hosting platforms highly available at scale. High availability has historically required complex and expensive multi-region deployments, and require considering tradeoffs between data consistency and high performance.
 
-[Availability zones][azs] resolve these issues. Availability zones are physically separate locations within each Azure region that are tolerant to local failures. By using zone-redundant deployments, a customer can spread workloads across multiple independent zones, improving availability. Azure automatically replicates data between the zones, and automatically fails over in the event of a zone failure.
+[Availability zones][azs] resolve these issues. Availability zones are physically separate locations within each Azure region that are tolerant to local failures. Use zone-redundant deployments to spread workloads across multiple independent zones, improving availability. Azure automatically replicates data between the zones, and automatically fails over if a zone fails.
 
-This architecture shows how to combine zone-redundant services into a solution that provides very high availability and is resilient to zone failure. The solution is less complex than multi-region alternatives, offering more cost-optimization opportunities and simplifying operational requirements. There are many more benefits including:
+This architecture shows how to combine zone-redundant services into a solution that provides high availability and is resilient to zone failure. The solution is less complex than multi-region alternatives, offering more cost-optimization opportunities and simplifying operational requirements. There are many more benefits including:
 
 * **You don't need to manage zone pinning or zonal deployments.** Zone redundancy is configured at deployment time and is automatically managed by services throughout their lifetime.
 * **Recovery time from a zone failure is much shorter than a cross-region failover.** Recovery time from zone-failure for zone-redundant services is practically zero. In a multi-region deployment, you need to carefully manage the failover process, and deal with any data replication delays that might result in data loss.
@@ -77,7 +77,7 @@ Azure Static Web Apps is a global service resilient to zone and region failures.
 [App Service Premium v2, Premium v3][app-services-zr] and [Isolated v3][ise-zr] App Service Plans offer zone redundancy. You must deploy a minimum of three instances of the plan. In this configuration, App Service Plan instances are distributed across multiple availability zones to protect from zone failure. App Service automatically balances your load across the instances and zones.
 
 * Deploy a minimum of three instances for zone-redundancy.
-* Add App Service access restrictions so that only Front Door traffic is allowed. This ensures that requests are not able to bypass the Azure Front Door WAF (Web Application Firewall). For more information about restricting access to a specific Azure Front Door instance, see [App Service access restrictions][app-service-controls].
+* Add App Service access restrictions so that only Front Door traffic is allowed. Access restrictions ensure that requests aren't able to bypass the Azure Front Door WAF (Web Application Firewall). For more information about restricting access to a specific Azure Front Door instance, see [App Service access restrictions][app-service-controls].
 * Enable [Virtual Network (VNet) Integration][appservice-vnet] for private networking with backend services.
 
 ### Azure Functions
@@ -183,7 +183,7 @@ This reference architecture is designed to provide high availability through ava
 
 Region failures are unlikely, but possible. Region failures are where services are unavailable throughout all availability zones in a region. It's important to understand the types of risks that you mitigate by using multi-zone and multi-region architectures.
 
-You can mitigate the impact of region failures by combining this zone-redundant architecture with a multi-region architecture. You should understand how to plan your multi-region architecture to reduce your solution's recovery time if an entire region is impacted.
+Mitigate the risk of region failure by combining this zone-redundant architecture with a multi-region architecture. You should understand how to plan your multi-region architecture to reduce your solution's recovery time if an entire region is unavailable.
 
 Multi-region designs are more complex and often more expensive than multi-zone designs within a single region.
 
@@ -200,7 +200,7 @@ For example, Azure Storage supports [object replication for block blobs][object-
 
 Failures in global services like Azure Front Door and Azure Active Directory (Azure AD) are rare, but impact can be high. Improve recovery by preparing and rehearsing runbooks to be used if failure occurs. 
 
-For example, Front Door service downtime can be mitigated with a runbook that deploys an [Azure Application Gateway][appgw] and changes DNS records to point to it until Front Door service is restored.
+For example, Front Door service downtime can be mitigated with a runbook that deploys an [Azure Application Gateway][appgw] and changes DNS records, redirecting traffic until Front Door service is restored.
 
 See also this important guidance for increasing resilience to Azure AD failures by [building resilience in identity and access management infrastructure][aad-resilience].
 
@@ -208,7 +208,7 @@ See also this important guidance for increasing resilience to Azure AD failures 
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-This architecture establishes network segmentation boundaries along public and private lines. Azure Front Door, Azure Static Web Apps and Azure App Services are designed to operate on the public internet. These services have their public endpoints enabled. However, App Services have access restrictions in place to ensure that only traffic allowed by Front Door WAF (Web Application Firewall) is allowed to ingress into App Services. Backend services have their public endpoints disabled and private endpoints are used instead.
+This architecture establishes network segmentation boundaries along public and private lines. Azure Front Door, Azure Static Web Apps and Azure App Service are designed to operate on the public internet. These services have their public endpoints enabled. However, App Service has access restrictions in place to ensure that only traffic allowed by Front Door WAF (Web Application Firewall) is allowed to ingress into the App Service. Backend services use private endpoints and public endpoints are disabled.
 
 All service to service communication in Azure is TLS (transport layer security) encrypted by default. Azure Front Door, Azure App Services and Azure Static Web Apps are configured to only accept HTTPS traffic.
 
