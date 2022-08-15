@@ -6,7 +6,7 @@ This reference architecture shows how to run a web-app workload on Azure App Ser
 
 ![Reference architecture for a web application with high availability](./images/zone-redundant-web-app-diagram.png)
 
-_Download a [Visio file](https://arch-center.azureedge.net/architecture.vsdx) that contains this architecture diagram. This file must be uploaded to `https://arch-center.azureedge.net/`_
+_Download a [Visio file](https://arch-center.azureedge.net/architecture.vsdx) that contains this architecture diagram._
 
 This architecture builds on [Availability zones infrastructure][azs] found in many Azure regions today. For a list of Azure regions that support Availability Zones, see [Azure regions with Availability Zones][az-regions].
 
@@ -447,3 +447,4 @@ Fully deployable architectures:
 [apim-zr]:https://docs.microsoft.com/azure/availability-zones/migrate-api-mgt
 [app-service-controls]:https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions#restrict-access-to-a-specific-azure-front-door-instance
 [private-dns]:https://docs.microsoft.com/azure/dns/private-dns-overview
+[apim]:https://azure.microsoft.com/en-us/services/api-management/
