@@ -8,7 +8,7 @@ This reference architecture shows how to run a web-app workload on Azure App Ser
 
 _Download a [Visio file](https://arch-center.azureedge.net/architecture.vsdx) that contains this architecture diagram. This file must be uploaded to `https://arch-center.azureedge.net/`_
 
-This architecture builds on [Availability zones infrastructure][azs] found in many Azure regions today. For a list of Azure regions that support Availability Zones see [Azure regions with Availability Zones][az-regions].
+This architecture builds on [Availability zones infrastructure][azs] found in many Azure regions today. For a list of Azure regions that support Availability Zones, see [Azure regions with Availability Zones][az-regions].
 
 Availability zones spread a solution across multiple independent zones within a region, allowing for an application to continue functioning when one zone fails. Most foundational and mainstream Azure services, and many specialized Azure services provide support for availability zones today. All of the Azure services in this architecture are zone-redundant, simplifying deployment and management. For a list of Azure services that support availability zones see [Azure Services that support Availability Zones][az-services].
 
@@ -26,11 +26,12 @@ A SPA (single page application) running in a browser requests static assets incl
 * [Azure Functions][functions] host backend Functions that connect to backend services and databases.
 * [Azure Cache for Redis][redis] provides a high-performance distributed cache for output, session and general-purpose caching.
 * [Azure Service Bus][service-bus] acts as a high-speed bus between front-end and back-end services for asynchronous messaging.
-* [Azure Cosmos DB][cosmos-db] provides "no-sql" document databases for front-end services.
+* [Azure Cosmos DB][cosmos-db] provides NoSQL document databases for front-end services.
 * [Azure SQL DB][sql-db] provides relational databases for back-end services.
 * [Azure Cognitive Search][cog-search] indexes Cosmos DB documents, allowing them to be searched via front-end APIs.
 * [Azure Blob Storage][storage] stores meta-data and trigger state for Function Apps.
 * [Private Endpoints][peps] allow connections to back-end Azure services from private VNets, and allow the public endpoints on these services to be disabled.
+* [Azure private DNS][private-dns] automatically configures and updates the DNS records required by private endpoint services.
 * [Azure Key Vault][akv] securely stores secrets and certificates to be accessed by Azure services.
 * [Azure Monitor][azmon] and [Application Insights][insights] collects service logs and application performance metrics for observability.
 
@@ -39,9 +40,9 @@ A SPA (single page application) running in a browser requests static assets incl
 * Either Azure Active Directory (Azure AD) or Azure AD B2C can be used as an IDP in this scenario. Azure AD is designed for internal applications and business-to-business (B2B) scenarios, while Azure AD B2C is designed for business-to-consumer (B2C) scenarios.
 * You can choose to use Azure-managed DNS, which we recommend, or your own DNS provider.
 * [Azure Application Gateway][appgw] could be used instead of Azure Front Door if most of your users are located close to the Azure region that hosts your workload, and you don't need content caching.
-* [Azure Content Delivery Network][cdn] (Azure CDN) could be used alongside Application Gateway to cache static assets. Azure Front Door was chosen for this architecture due to its global network presence, improved performance through WAN acceleration, and built-in content cache. Operational excellence is also improved with a single configuration point for custom domain names, TLS/SSL certificates, Web Application Firewall and routing rules.
 * [Static website hosting in Azure Storage][storage-spa] may be considered in place of Azure Static Web Apps, if already using Azure CDN for example. However static website hosting in Azure Storage does have limitations. For more information, see [Static website hosting in Azure Storage][storage-spa]. Azure Static Web Apps was chosen for its global high availability, and its simple deployment and configuration.
 * In this architecture, Functions are hosted in a zone-redundant elastic premium Functions plan. Azure Static Web Apps also has the capability to host Functions, either fully managed or bring-your-own. For more information about hosting Functions in Static Web Apps, see [API support in Azure Static Web Apps with Azure Functions][swa-apis]. 
+* A premium [Azure API Manager][apim] instance deployed with zone-redundancy enabled is a good alternative for hosting frontend APIs, backend APIs or both. For more information about zone-redundancy in API Manager, see [availability zone support][apim-zr].
 
 ### Solution details
 
@@ -76,6 +77,7 @@ Azure Static Web Apps is a global service resilient to zone and region failures.
 [App Service Premium v2, Premium v3][app-services-zr] and [Isolated v3][ise-zr] App Service Plans offer zone redundancy. You must deploy a minimum of three instances of the plan. In this configuration, App Service Plan instances are distributed across multiple availability zones to protect from zone failure. App Service automatically balances your load across the instances and zones.
 
 * Deploy a minimum of three instances for zone-redundancy.
+* Add App Service access restrictions so that only Front Door traffic is allowed. This ensures that requests are not able to bypass the Azure Front Door WAF (Web Application Firewall). For more information about restricting access to a specific Azure Front Door instance, see [App Service access restrictions][app-service-controls].
 * Enable [Virtual Network (VNet) Integration][appservice-vnet] for private networking with backend services.
 
 ### Azure Functions
@@ -194,15 +196,19 @@ Multi-zone designs based on Availability zones offer levels of availability and 
 
 For example, Azure Storage supports [object replication for block blobs][object-replication]. Azure data services like Cosmos DB also offer replication of data to other Azure regions with continuous backup. You can use these features to restore your solution if a disaster occurs. For more information, see [Continuous backup with point-in-time restore in Azure Cosmos DB][cosmos-continuous-backup].
 
-Global services can also fail, although the likelihood is increasingly unlikely. Customers can improve recovery times from global service failure by preparing and rehearsing a runbook to be used if a failure occurs. For example, the risk of Front Door service downtime can be mitigated with a runbook that changes DNS CNAME records to point to an alternative reverse HTTP Proxy like [Azure App Gateway][appgw]. 
+#### Global services
 
-Architects can increase resilience to Azure Active Directory (Azure AD) failures by following important guidance. For more information, see [Build resilience in your identity and access management infrastructure][aad-resilience].
+Failures in global services like Azure Front Door and Azure Active Directory (Azure AD) are rare, but impact can be high. Improve recovery by preparing and rehearsing runbooks to be used if failure occurs. 
+
+For example, Front Door service downtime can be mitigated with a runbook that deploys an [Azure Application Gateway][appgw] and changes DNS records to point to it until Front Door service is restored.
+
+See also this important guidance for increasing resilience to Azure AD failures by [building resilience in identity and access management infrastructure][aad-resilience].
 
 ### Security
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-This architecture establishes network segmentation boundaries along public and private lines. Azure Front Door, Azure Static Web Apps and Azure App Services are designed to operate on the public internet. These services have their public endpoints enabled. Backend services have their public endpoints disabled and private endpoints are used instead.
+This architecture establishes network segmentation boundaries along public and private lines. Azure Front Door, Azure Static Web Apps and Azure App Services are designed to operate on the public internet. These services have their public endpoints enabled. However, App Services have access restrictions in place to ensure that only traffic allowed by Front Door WAF (Web Application Firewall) is allowed to ingress into App Services. Backend services have their public endpoints disabled and private endpoints are used instead.
 
 All service to service communication in Azure is TLS (transport layer security) encrypted by default. Azure Front Door, Azure App Services and Azure Static Web Apps are configured to only accept HTTPS traffic.
 
@@ -233,7 +239,7 @@ Zone-redundant architectures are less expensive than multi-region alternatives b
 Some cost optimization considerations include:
 
 * Save money when you reserve resources in advance. Several services in this architecture are eligible for Reserved capacity pricing. For more information about Reserved capacity, see [Reservations][reservations].
-* Function Apps can be hosted in the same dedicated App Service Plan as the API Apps. Combining the plans removes the segmentation of frontend and backend services and introduces risk of noisy neighbor effect; backend services could consume resources needed by frontend services, and vice-versa.
+* Function Apps can be hosted in the same dedicated App Service Plan as the API Apps. Combining the plans removes the segmentation of frontend and backend services and introduces risk of noisy neighbor effect; backend services could consume resources needed by frontend services, and vice-versa. Hosting Functions in an App Service plans also negates the elasticity benefits the Elastic Premium plan.
 * Private endpoints can be removed to save costs. Conduct a risk assessment to determine the risk of enabling public endpoints on backend services. Use [Managed Identities][msi] and enable service firewalls to provide defense in depth.
 
 > An example bill of materials for this architecture can be viewed in [Azure Pricing Calculator][bom].
@@ -438,3 +444,6 @@ Fully deployable architectures:
 [autoscale]:https://docs.microsoft.com/azure/azure-monitor/autoscale/autoscale-get-started
 [learn-ha]:https://docs.microsoft.com/learn/modules/azure-well-architected-reliability/
 [region-roadmap]:https://azure.microsoft.com/global-infrastructure/geographies/
+[apim-zr]:https://docs.microsoft.com/azure/availability-zones/migrate-api-mgt
+[app-service-controls]:https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions#restrict-access-to-a-specific-azure-front-door-instance
+[private-dns]:https://docs.microsoft.com/azure/dns/private-dns-overview
