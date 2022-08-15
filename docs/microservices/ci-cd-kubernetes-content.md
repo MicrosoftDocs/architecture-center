@@ -364,7 +364,7 @@ Based on the CI flow described earlier in this article, a build pipeline might c
         az acr helm push $(System.ArtifactsDirectory)/$(repositoryName)-$(Build.SourceBranchName).tgz --name $(AzureContainerRegistry);
     ```
 
-The output from the CI pipeline is a production-ready container image and an updated Helm chart for the microservice. At this point, the release pipeline can take over. There will be a unique release pipeline for each microservice that is configured with a trigger source, which is set to the CI pipeline that published the artifact. It performs the following steps:
+The output from the CI pipeline is a production-ready container image and an updated Helm chart for the microservice. At this point, the release pipeline can take over. There will be a unique release pipeline for each microservice, the release pipeline will be configured to have a trigger source set to the CI pipeline that published the artifact. This allows for independent deployments of each microservice. The release pipeline performs the following steps:
 
 - Deploy to dev/QA/staging environments.
 - Wait for an approver to approve or reject the deployment.
