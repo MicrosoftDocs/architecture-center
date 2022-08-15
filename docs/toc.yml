@@ -2759,8 +2759,6 @@ items:
                 href: reference-architectures/ai/mlops-python.yml
               - name: Movie recommendations
                 href: example-scenario/ai/movie-recommendations-with-machine-learning.yml
-              - name: Orchestrate MLOps on Azure Databricks
-                href: reference-architectures/ai/orchestrate-mlops-azure-databricks.yml
               - name: Predict hospital readmissions with ML
                 href: example-scenario/ai/predict-hospital-readmissions-machine-learning.yml
               - name: Predict student attrition
@@ -2843,6 +2841,8 @@ items:
                 href: solution-ideas/articles/optimize-marketing-with-machine-learning.yml
               - name: Model deployment to AKS
                 href: solution-ideas/articles/machine-learning-model-deployment-aks.yml
+              - name: Orchestrate MLOps on Azure Databricks
+                href: reference-architectures/ai/orchestrate-mlops-azure-databricks.yml
               - name: Personalized marketing solutions
                 href: solution-ideas/articles/personalized-marketing.yml
               - name: Personalized offers

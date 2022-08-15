@@ -10,6 +10,8 @@ The following diagram provides a template for a robust MLOps process that uses A
 
 :::image type="content" source="_images/orchestrate-mlops-azure-databricks-01.png" alt-text="Diagram that shows a solution for using Azure Databricks for MLOps." lightbox="_images/orchestrate-mlops-azure-databricks-01.png" border="false":::
 
+*Download a [Visio file](https://arch-center.azureedge.net/orchestrate-mlops-azure-databricks-01.vsdx) of this architecture.*
+
 ## Workflow
 
 - **Source control**: This project's code repository organizes the notebooks, modules, and pipelines. Data scientists can create development branches to test updates and new models. Code can be developed in notebooks or in IDEs, backed by Git, with [Databricks Repos](/azure/databricks/repos) integration for syncing with your Azure Databricks workspaces. Source control promotes machine learning pipelines from development, through staging (for testing), to production (for deployment).
@@ -54,7 +56,7 @@ Machine learning engineers manage the production environment, where machine lear
 
 1. **Retraining**: This architecture supports both manual and automatic retraining. Scheduled retraining jobs are the easiest way to keep models fresh.
 
-## Components
+### Components
 
 - [**Data Lakehouse**](https://databricks.com/blog/2020/01/30/what-is-a-data-lakehouse.html). A Lakehouse architecture unifies the best elements of data lakes and data warehouses, delivering data management and performance typically found in data warehouses with the low-cost, flexible object stores offered by data lakes.
   - [**Delta Lake**](https://delta.io) is the recommended choice for an open-source data format for a Lakehouse. Azure Databricks stores data in Data Lake Storage and provides a high-performance query engine.
@@ -108,9 +110,17 @@ For examples, see the [Databricks website](https://databricks.com/customers).
 
 ## Contributors
 
-Principal author:
-Brandon Cowen | <brandoncowen@microsoft.com> | Senior Cloud Solution Architect | https://www.linkedin.com/in/brandon-cowen-1658211b/
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
+Principal author:
+
+- [Brandon Cowen](https://www.linkedin.com/in/brandon-cowen-1658211b) | Senior Cloud Solution Architect 
+
+Other contributor:
+
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer 
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
@@ -143,3 +153,7 @@ Brandon Cowen | <brandoncowen@microsoft.com> | Senior Cloud Solution Architect |
 - [Deploy to Azure Kubernetes Service (AKS)](/azure/machine-learning/how-to-deploy-mlflow-models#deploy-to-azure-kubernetes-service-aks)
 
 ## Related resources
+
+- [MLOps framework to upscale machine learning lifecycle with Azure Machine Learning](../../example-scenario/mlops/mlops-technical-paper.yml)
+- [MLOps v2](../../data-guide/technology-choices/machine-learning-operations-v2.md)
+- [MLOps maturity model](../../example-scenario/mlops/mlops-maturity-model.yml)
