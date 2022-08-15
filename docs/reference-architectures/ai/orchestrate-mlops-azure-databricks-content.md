@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This article provides a [machine learning operations (MLOps)](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-mlops) architecture and process for Azure Databricks. This process defines a standardized way to move machine learning models and pipelines from development to production, with options to include automation and manual processes.
+This article provides a [machine learning operations (MLOps)](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-mlops) architecture and process for Azure Databricks. This process defines a standardized way to move machine learning models and pipelines from development to production, with options to include automated and manual processes.
 
 MLOps helps to reduce the risk of failures in machine learning and AI systems and to improve the efficiency of collaboration and tooling. For an introduction to MLOps and an overview of this architecture, see [Architecting MLOps on the Lakehouse](https://databricks.com/blog/2022/06/22/architecting-mlops-on-the-lakehouse.html).
 
@@ -52,7 +52,7 @@ Machine learning engineers manage the production environment, where machine lear
     - [**Batch or streaming scoring**](/azure/databricks/applications/machine-learning/model-inference/#offline-batch-predictions): For latencies of minutes or longer, batch and streaming are the most cost-effective options. The scoring pipeline reads the latest data from the Feature Store, loads the latest production model version from the Model Registry, and performs inference in a Databricks job. It can publish predictions to Lakehouse tables, a Java Database Connectivity (JDBC) connection, flat files, message queues, or other downstream systems.
     - **Online serving (REST APIs)**: For low-latency use cases, online serving is generally necessary. MLflow can deploy models to [MLflow Model Serving on Azure Databricks](https://docs.microsoft.com/en-us/azure/databricks/applications/mlflow/model-serving), cloud provider serving systems, and other systems. In all cases, the serving system is initialized with the latest production model from the Model Registry. For each request, it fetches features from an online Feature Store and makes predictions.
 
-1. **Monitoring**: Continuous or periodic [workflows](/azure/databricks/jobs) monitor input data and model predictions for drift, performance, and other metrics. [Delta Live Tables](/azure/databricks/data-engineering/delta-live-tables) can simplify the automation of monitoring pipelines, storing the metrics in Lakehouse tables. [Databricks SQL](/azure/databricks/sql), [Power BI](/power-bi) and other tools can read from those tables to create dashboards and alerts.
+1. **Monitoring**: Continuous or periodic [workflows](/azure/databricks/jobs) monitor input data and model predictions for drift, performance, and other metrics. [Delta Live Tables](/azure/databricks/data-engineering/delta-live-tables) can simplify the automation of monitoring pipelines, storing the metrics in Lakehouse tables. [Databricks SQL](/azure/databricks/sql), [Power BI](/power-bi), and other tools can read from those tables to create dashboards and alerts.
 
 1. **Retraining**: This architecture supports both manual and automatic retraining. Scheduled retraining jobs are the easiest way to keep models fresh.
 
@@ -63,13 +63,13 @@ Machine learning engineers manage the production environment, where machine lear
 - [**MLflow**](https://www.mlflow.org) is an open-source project for managing the end-to-end machine learning lifecycle. These are its main components:
   - [**Tracking**](/azure/databricks/applications/mlflow/tracking) allows you to track experiments to record and compare parameters, metrics, and model artifacts.
     - [**Databricks Autologging**](/azure/databricks/applications/mlflow/databricks-autologging) extends [MLflow automatic logging](https://mlflow.org/docs/latest/tracking.html#automatic-logging) to track machine learning experiments, automatically logging model parameters, metrics, files, and lineage information.
-  - [**MLFlow Model**](/azure/databricks/applications/mlflow/models) allows you to store and deploy models from any machine learning library to a variety of model serving and inference platforms.
+  - [**MLFlow Model**](/azure/databricks/applications/mlflow/models) allows you to store and deploy models from any machine learning library to various model serving and inference platforms.
   - [**Model Registry**](/azure/databricks/applications/mlflow/model-registry) provides a centralized model store for managing model lifecycle stage transitions from development to production.
   - [**Model Serving**](/azure/databricks/applications/mlflow/model-serving) enables you to host MLflow models as REST endpoints.
 - [**Azure Databricks**](https://azure.microsoft.com/services/databricks). Azure Databricks provides a managed MLflow service with enterprise security features, high availability, and integrations with other Azure Databricks workspace features.
   - [**Databricks Runtime for Machine Learning**](/azure/databricks/runtime/mlruntime#mlruntime) automates the creation of a cluster that's optimized for machine learning, preinstalling popular machine learning libraries like TensorFlow, PyTorch, and XGBoost in addition to Azure Databricks for Machine Learning tools like AutoML and Feature Store clients.
   - [**Feature Store**](/azure/databricks/applications/machine-learning/feature-store) is a centralized repository of features. It enables feature sharing and discovery, and it helps to avoid data skew between model training and inference.
-  - [**Databricks SQL**](/azure/databricks/sql). Databricks SQL provides a simple experience for SQL queries on Lakehouse data, visualizations, dashboards, and alerts.
+  - [**Databricks SQL**](/azure/databricks/sql). Databricks SQL provides a simple experience for SQL queries on Lakehouse data, and for visualizations, dashboards, and alerts.
   - [**Databricks Repos**](/azure/databricks/repos) provides integration with your Git provider in the Azure Databricks workspace, simplifying collaborative development of notebooks or code and IDE integration.
   - [**Workflows**](/azure/databricks/data-engineering) and [**jobs**](/azure/databricks/jobs) provide a way to run non-interactive code in an Azure Databricks cluster. For machine learning, jobs provide automation for data preparation, featurization, training, inference, and monitoring.
 
@@ -137,7 +137,7 @@ Other contributor:
 - [Automate Your Machine Learning Pipeline](https://databricks.com/p/ebook/automate-your-machine-learning-pipeline)
 - [Databricks Academy](https://databricks.com/learn/training/home)
 - [Databricks Academy GitHub project](https://github.com/databricks-academy) (free training)
-- [MLOps Glossary](https://databricks.com/glossary/mlops)
+- [MLOps glossary](https://databricks.com/glossary/mlops)
 - [Three Principles for Selecting Machine Learning Platforms](https://databricks.com/blog/2021/06/24/three-principles-for-selecting-machine-learning-platforms.html)
 - [What is a Lakehouse?](https://databricks.com/blog/2020/01/30/what-is-a-data-lakehouse.html)
 - [Delta Lake home page](https://delta.io)
