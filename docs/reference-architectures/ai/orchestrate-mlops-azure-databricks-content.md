@@ -34,7 +34,7 @@ In the staging environment, CI infrastructure tests changes to machine learning 
 
 4. **Merge request**: When a merge (or pull) request is submitted against the staging (main) branch of the project in source control, a continuous integration and continuous delivery (CI/CD) tool like [Azure DevOps](/azure/devops/?view=azure-devops) runs tests.
 
-5. **Unit and CI tests**: Unit tests run in CI infrastructure, and integration tests run end-to-end [workflows](https://docs.microsoft.com/en-us/azure/databricks/jobs) on Azure Databricks. If tests pass, the code changes merge.
+5. **Unit and CI tests**: Unit tests run in CI infrastructure, and integration tests run end-to-end [workflows](/azure/databricks/jobs) on Azure Databricks. If tests pass, the code changes merge.
 
 6. **Build a release branch**: When machine learning engineers are ready to deploy the updated machine learning pipelines to production, they can build a new release. A deployment pipeline in the CI/CD tool redeploys the updated pipelines as new [workflows](/azure/databricks/jobs).
 
@@ -78,7 +78,7 @@ Machine learning engineers manage the production environment, where machine lear
 You can tailor this solution to your Azure infrastructure. Common customizations include:
 
 - Multiple development workspaces that share a common production workspace.
-- Exchanging one or more architecture components for your existing infrastructure. For example, you can use [Azure Data Factory](/services/data-factory) to orchestrate Databricks jobs.
+- Exchanging one or more architecture components for your existing infrastructure. For example, you can use [Azure Data Factory](https://azure.microsoft.com/services/data-factory) to orchestrate Databricks jobs.
 - Integrating with your existing CI/CD tooling via Git and Azure Databricks REST APIs.
 
 ## Scenario details
