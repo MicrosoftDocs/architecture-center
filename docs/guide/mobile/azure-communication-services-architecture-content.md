@@ -40,7 +40,7 @@ Communication Services clients present user access tokens to access, with improv
 
 1. A user starts the client application.
 2. The client application contacts your identity management service. The identity management service maintains a mapping between application identities and  Communication Services identities. (Application identities include your users and other addressable objects, like services or bots.)
-3. The identity management service uses the mapping to [issue a user access token](/rest/api/communication/communicationidentity/communication-identity/issue-access-token) for the applicable identity.
+3. The identity management service uses the mapping to [issue a user access token](/rest/api/communication/communication-identity/issue-access-token) for the applicable identity.
 
 Azure App Service or Azure Functions are two alternatives for operating the identity management service. These services scale easily and have built-in features to [authenticate](/azure/app-service/overview-authentication-authorization) users. They're integrated with [OpenID](/azure/app-service/configure-authentication-provider-openid-connect) and third-party identity providers like [Facebook](/azure/app-service/configure-authentication-provider-facebook).
 

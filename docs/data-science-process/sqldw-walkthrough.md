@@ -95,7 +95,7 @@ To set up your Azure Data Science environment, follow these steps.
   * **Storage Account Key**
   * **Container Name** (which you want the data to be stored in the Azure blob storage)
 
-**Provision your Azure Synapse Analytics instance.** Follow the documentation at [Create and query an Azure Synapse Analytics in the Azure portal](/azure/synapse-analytics/sql-data-warehouse/create-data-warehouse-portal) to provision a Azure Synapse Analytics instance. Make sure that you make notations on the following Azure Synapse Analytics credentials that will be used in later steps.
+**Provision your Azure Synapse Analytics instance.** Follow the documentation at [Create and query an Azure Synapse Analytics in the Azure portal](/azure/synapse-analytics/sql-data-warehouse/create-data-warehouse-portal) to provision an Azure Synapse Analytics instance. Make sure that you make notations on the following Azure Synapse Analytics credentials that will be used in later steps.
 
 * **Server Name**: \<server Name>.database.windows.net
 * **SQLDW (Database) Name**
@@ -976,7 +976,7 @@ In this exercise, we have already explored and engineered the data in Azure Syna
 
 ## <a name="mldeploy"></a>Deploy models in Azure Machine Learning
 
-When your model is ready, you can easily deploy it as a web service directly from the model stored in the experiment run.  For details on the options for deployment, see [Deploy machine learning models to Azure](/azure/machine-learning/how-to-deploy-and-where)
+When your model is ready, you can easily deploy it as a web service directly from the model stored in the experiment run.  For details on the options for deployment, see [Deploy machine learning models to Azure](/azure/machine-learning/how-to-deploy-managed-online-endpoints)
 
 ## Summary
 
