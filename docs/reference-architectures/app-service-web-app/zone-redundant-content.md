@@ -179,11 +179,20 @@ Reliability ensures your application can meet the commitments you make to your c
 
 This reference architecture is designed to provide high availability through availability zone infrastructure. When implemented properly this architecture will provide excellent availability for lower cost and operational overhead than other solutions. However, improvements can always be made. The risk of a zone failure in an Azure region is mitigated by this design. Zone redundant services in Azure are designed to withstand a zone failure while still operating within SLA. 
 
-Region failures; where services are unavailable for any reason are unlikely, but possible. Region failures can be mitigated by combining this zone-redundant architecture with a multi-region architecture, to reduce recovery time if an entire region was impacted. Multi-region designs are more complex and often more expensive than single region - multi-zone designs. A risk assessment should be made to determine if a multi-region architecture is required for the assessed risk.
+Region failures are unlikely, but possible. Region failures are where services are unavailable throughout all availability zones in a region. It's important to understand the types of risks that you mitigate by using multi-zone and multi-region architectures.
+
+You can mitigate the impact of region failures by combining this zone-redundant architecture with a multi-region architecture. You should understand how to plan your multi-region architecture to reduce your solution's recovery time if an entire region is impacted.
+
+Multi-region designs are more complex and often more expensive than multi-zone designs within a single region.
+
+> [!NOTE]
+> You should perform a risk assessment to determine if a multi-region architecture is required for your solution.
 
 #### Resilience
 
-Multi-zone designs based on Availability zones offer levels of availability and resilience that meet or exceed the business requirements of most customers. However, for customers who want to replicate data to a secondary region for disaster recovery, several options are available including [Object replication for block blobs][object-replication]. Azure data services like Cosmos DB also offer replication of data to other Azure regions with continuous backup to be used if a disaster occurs. For more information, see [Continuous backup with point-in-time restore in Azure Cosmos DB][cosmos-continuous-backup].
+Multi-zone designs based on Availability zones offer levels of availability and resilience that meet or exceed the business requirements of most customers. However, for customers who want to replicate data to a secondary region for disaster recovery, the options you have available depend on the Azure services that you use.
+
+For example, Azure Storage supports [object replication for block blobs][object-replication]. Azure data services like Cosmos DB also offer replication of data to other Azure regions with continuous backup. You can use these features to restore your solution if a disaster occurs. For more information, see [Continuous backup with point-in-time restore in Azure Cosmos DB][cosmos-continuous-backup].
 
 Global services can also fail, although the likelihood is increasingly unlikely. Customers can improve recovery times from global service failure by preparing and rehearsing a runbook to be used if a failure occurs. For example, the risk of Front Door service downtime can be mitigated with a runbook that changes DNS CNAME records to point to an alternative reverse HTTP Proxy like [Azure App Gateway][appgw]. 
 
