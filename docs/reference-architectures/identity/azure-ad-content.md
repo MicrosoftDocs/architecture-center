@@ -227,6 +227,7 @@ For the Azure AD Connect sync server, determine how many objects you're likely t
 
 Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs.
 
+- There a no additional license requirements for using Azure AD Connect and is included in your Azure subscription.
 - Other considerations are described in the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 - For pricing information about the editions of Azure Active Directory, see [Azure AD pricing][Azure-AD-pricing].
 
