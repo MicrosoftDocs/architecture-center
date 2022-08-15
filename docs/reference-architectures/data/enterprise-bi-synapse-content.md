@@ -1,18 +1,10 @@
 This reference architecture implements the [Analytics end-to-end with Azure Synapse][e2e-analytics] pattern, focusing on BI specifically, using a Synapse Pipeline to ingest data from an Azure SQL Database into Synapse SQL Pools, before transforming the data for analysis.
 
-<!-- Requires update
-![GitHub logo](../../_images/github.png) A reference implementation for this architecture is available on [GitHub][github-folder].
--->
-
 ## Architecture
 
 ![Architecture diagram for Enterprise BI in Azure with Azure Synapse](./images/aac-scoped-architecture-new-grayed.png)
-<!-- ![Architecture diagram for Enterprise BI in Azure with Azure Synapse](./images/analytics-with-azure-synapse-pbi.png)
--->
-*Diagram: [Analytics end-to-end with Azure Synapse][e2e-analytics].*
-<!--
-TODO - may be grey out the background more and only circle the Synapse Provisioned Pools without ADLS? asterisk? 
--->
+
+*Diagram: [Analytics end-to-end with Azure Synapse][e2e-analytics] with relevant components highligted in blue*
 
 ### Workflow
 
