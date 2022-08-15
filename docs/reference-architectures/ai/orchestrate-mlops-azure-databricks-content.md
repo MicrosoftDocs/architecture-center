@@ -14,7 +14,7 @@ The following diagram provides a template for a robust MLOps process that uses A
 
 ## Workflow
 
-- **Source control**: This project's code repository organizes the notebooks, modules, and pipelines. Data scientists can create development branches to test updates and new models. Code can be developed in notebooks or in IDEs, backed by Git, with [Databricks Repos](/azure/databricks/repos) integration for syncing with your Azure Databricks workspaces. Source control promotes machine learning pipelines from development, through staging (for testing), to production (for deployment).
+- **Source control**: This project's code repository organizes the notebooks, modules, and pipelines. Data scientists create development branches to test updates and new models. Code is developed in notebooks or in IDEs, backed by Git, with [Databricks Repos](/azure/databricks/repos) integration for syncing with your Azure Databricks workspaces. Source control promotes machine learning pipelines from development, through staging (for testing), to production (for deployment).
 
 - **Lakehouse - production data**: Data scientists work in the development environment, where they have read-only access to production data. (Alternatively, data can be mirrored or redacted.) They also have read/write access to a dev storage environment for development and experimentation. We recommend a [Lakehouse](https://databricks.com/blog/2020/01/30/what-is-a-data-lakehouse.html) architecture for data, in which data is stored in [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) in [Delta Lake](/azure/databricks/delta) format. Access controls are defined with [Azure Active Directory credential passthrough](/azure/databricks/security/credential-passthrough/adls-passthrough) or [table access controls](/azure/databricks/administration-guide/access-control/table-acl).
 
@@ -59,7 +59,7 @@ Machine learning engineers manage the production environment, where machine lear
 ### Components
 
 - [**Data Lakehouse**](https://databricks.com/blog/2020/01/30/what-is-a-data-lakehouse.html). A Lakehouse architecture unifies the best elements of data lakes and data warehouses, delivering data management and performance typically found in data warehouses with the low-cost, flexible object stores offered by data lakes.
-  - [**Delta Lake**](https://delta.io) is the recommended choice for an open-source data format for a Lakehouse. Azure Databricks stores data in Data Lake Storage and provides a high-performance query engine.
+  - [**Delta Lake**](https://delta.io) is the recommended choice for an open-source data format for a lakehouse. Azure Databricks stores data in Data Lake Storage and provides a high-performance query engine.
 - [**MLflow**](https://www.mlflow.org) is an open-source project for managing the end-to-end machine learning lifecycle. These are its main components:
   - [**Tracking**](/azure/databricks/applications/mlflow/tracking) allows you to track experiments to record and compare parameters, metrics, and model artifacts.
     - [**Databricks Autologging**](/azure/databricks/applications/mlflow/databricks-autologging) extends [MLflow automatic logging](https://mlflow.org/docs/latest/tracking.html#automatic-logging) to track machine learning experiments, automatically logging model parameters, metrics, files, and lineage information.
