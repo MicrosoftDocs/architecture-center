@@ -265,7 +265,7 @@ All Azure PaaS (Platform as a Service) services are integrated with [Azure Monit
 
 Azure App Services and Azure Functions provide deployment slots. Practice [staged deployments][app-service-staging] for zero-downtime releases.
 
-Automate service deployments with [Bicep][bicep], a template language for deploying Infrastructure as Code. A [Quickstart bicep template][quickstart] is provided for this architecture that can be used to automatically deploy the entire solution.
+Automate service deployments with [Bicep][bicep], a template language for deploying Infrastructure as Code. A [Quickstart Bicep file][quickstart] is provided for this architecture that can be used to automatically deploy the entire solution.
 
 Test the performance and resilience of the entire solution with [Azure Load Testing][load-tests] and [Azure Chaos Studio][chaos].
 
