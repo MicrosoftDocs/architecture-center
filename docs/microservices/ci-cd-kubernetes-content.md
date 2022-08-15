@@ -21,6 +21,7 @@ For purposes of this example, here are some assumptions about the development te
 - The CI/CD process uses [Azure Pipelines](/azure/devops/pipelines/?view=azure-devops&preserve-view=true) to build, test, and deploy the microservices to AKS.
 - The container images for each microservice are stored in [Azure Container Registry](/azure/container-registry/).
 - The team uses Helm charts to package each microservice.
+- A push deployment model is used, where Azure DevOps pipelines and agents perform deployments to the AKS cluster, instead of a [GitOps or Pull deployment model](/azure/architecture/example-scenario/gitops-aks/gitops-blueprint-aks).
 
 These assumptions drive many of the specific details of the CI/CD pipeline. However, the basic approach described here be adapted for other processes, tools, and services, such as Jenkins or Docker Hub.
 
@@ -187,9 +188,6 @@ Consider using Helm to manage building and deploying services. Here are some of 
 - Charts can be stored in a Helm repository, such as Azure Container Registry, and integrated into the build pipeline.
 
 For more information about using Container Registry as a Helm repository, see [Use Azure Container Registry as a Helm repository for your application charts](/azure/container-registry/container-registry-helm-repos).
-
-> [!IMPORTANT]
-> This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
 
 A single microservice may involve multiple Kubernetes configuration files. Updating a service can mean touching all of these files to update selectors, labels, and image tags. Helm treats these as a single package called a chart and allows you to easily update the YAML files by using variables. Helm uses a template language (based on Go templates) to let you write parameterized YAML configuration files.
 
@@ -366,7 +364,7 @@ Based on the CI flow described earlier in this article, a build pipeline might c
         az acr helm push $(System.ArtifactsDirectory)/$(repositoryName)-$(Build.SourceBranchName).tgz --name $(AzureContainerRegistry);
     ```
 
-The output from the CI pipeline is a production-ready container image and an updated Helm chart for the microservice. At this point, the release pipeline can take over. It performs the following steps:
+The output from the CI pipeline is a production-ready container image and an updated Helm chart for the microservice. At this point, the release pipeline can take over. There will be a unique release pipeline for each microservice that is configured with a trigger source, which is set to the CI pipeline that published the artifact. It performs the following steps:
 
 - Deploy to dev/QA/staging environments.
 - Wait for an approver to approve or reject the deployment.
@@ -379,3 +377,11 @@ For more information about creating a release pipeline, see [Release pipelines, 
 The following diagram shows the end-to-end CI/CD process described in this article:
 
 ![CD/CD pipeline](./images/aks-cicd-flow.png)
+
+## Next steps
+
+- [Monitor a microservices architecture in Azure Kubernetes Service (AKS)](./logging-monitoring-content.md)
+
+## Related resources
+
+- [CI/CD for microservices](./ci-cd-content.md)
