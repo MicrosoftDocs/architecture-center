@@ -332,6 +332,8 @@ items:
                   href: reference-architectures/containers/aks-mission-critical/mission-critical-app-design.md
                 - name: Deployment and testing
                   href: reference-architectures/containers/aks-mission-critical/mission-critical-deploy-test.md
+                - name: Health modeling
+                  href: reference-architectures/containers/aks-mission-critical/mission-critical-health-modeling.md
                 - name: Networking and connectivity platform
                   href: reference-architectures/containers/aks-mission-critical/mission-critical-networking.md
             - name: Guides
