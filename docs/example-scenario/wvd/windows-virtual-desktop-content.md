@@ -1,4 +1,4 @@
-[Azure Virtual Desktop (AVD)](https://azure.microsoft.com/services/virtual-desktop/) is a desktop and application virtualization service that runs in Azure. This article is intended to help desktop infrastructure architects, cloud architects, desktop administrators, and system administrators explore Azure Virtual Desktop and build virtualized desktop infrastructure (VDI) solutions at enterprise scale. Enterprise-scale solutions generally cover 1,000 or more virtual desktops.
+[Azure Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/) is a desktop and application virtualization service that runs in Azure. This article is intended to help desktop infrastructure architects, cloud architects, desktop administrators, and system administrators explore Azure Virtual Desktop and build virtualized desktop infrastructure (VDI) solutions at enterprise scale. Enterprise-scale solutions generally cover 1,000 or more virtual desktops.
 
 ## Potential use cases
 
@@ -28,7 +28,7 @@ The diagram's dataflow elements are described here:
 
 - The Azure Virtual Desktop control plane handles web access, gateway, broker, diagnostics, and extensibility components such as REST APIs.
 
-- The customer manages AD DS and Azure AD, Azure subscriptions, virtual networks, [Azure Files or Azure NetApp Files](/azure/virtual-desktop/store-fslogix-profile), and the AVD host pools and workspaces.
+- The customer manages AD DS and Azure AD, Azure subscriptions, virtual networks, [Azure Files or Azure NetApp Files](/azure/virtual-desktop/store-fslogix-profile), and the Azure Virtual Desktop host pools and workspaces.
 
 - To increase capacity, the customer uses two Azure subscriptions in a hub-spoke architecture and connects them via virtual network peering.
 
@@ -107,14 +107,14 @@ The relationships between host pools, workspaces, and other key logical componen
 - *(4)* It's possible to have an empty workspace, but it can't service users.
 - *(5)* It's possible to have an empty host pool, but it can't service users.
 - *(6)* It's possible for a host pool not to have any application groups assigned to it but it can't service users.
-- *(7)* Azure AD is required for AVD. This is because Azure AD user accounts and groups must always be used to assign users to AVD application groups. Azure AD is also used to authenticate users into the AVD service. AVD session hosts can also be members of an Azure AD domain, and in this situation the AVD-published applications and desktop sessions will also be launched and run (not just assigned) by using Azure AD accounts. 
-    - *(7)* Alternatively, AVD session hosts can be members of an AD DS domain, and in this situation the AVD published applications and desktop sessions will be launched and run (but not assigned) by using AD DS accounts. To reduce user and administrative overhead, AD DS can be synchronized with Azure AD through Azure AD Connect.
-    - *(7)* Finally, AVD session hosts can, instead, be members of an Azure AD DS domain, and in this situation the AVD-published applications and desktop sessions will be launched and run (but not assigned) by using Azure AD DS accounts. Azure AD is automatically synchronized with Azure AD DS, one way, from Azure AD to Azure AD DS only.
+- *(7)* Azure AD is required for Azure Virtual Desktop. This is because Azure AD user accounts and groups must always be used to assign users to Azure Virtual Desktop application groups. Azure AD is also used to authenticate users into the Azure Virtual Desktop service. Azure Virtual Desktop session hosts can also be members of an Azure AD domain, and in this situation the Azure Virtual Desktop-published applications and desktop sessions will also be launched and run (not just assigned) by using Azure AD accounts. 
+    - *(7)* Alternatively, Azure Virtual Desktop session hosts can be members of an AD DS domain, and in this situation the Azure Virtual Desktop-published applications and desktop sessions will be launched and run (but not assigned) by using AD DS accounts. To reduce user and administrative overhead, AD DS can be synchronized with Azure AD through Azure AD Connect.
+    - *(7)* Finally, Azure Virtual Desktop session hosts can, instead, be members of an Azure AD DS domain, and in this situation the Azure Virtual Desktop-published applications and desktop sessions will be launched and run (but not assigned) by using Azure AD DS accounts. Azure AD is automatically synchronized with Azure AD DS, one way, from Azure AD to Azure AD DS only.
 
 | Resource | Purpose | Logical relationships |
 |--- |--- |--- |
-| Published desktop | A Windows desktop environment that runs on AVD session hosts and is delivered to users over the network | Member of one and only one application group *(1)* |
-| Published application | A Windows application that runs on AVD session hosts and is delivered to users over the network | Member of one and only one application group |
+| Published desktop | A Windows desktop environment that runs on Azure Virtual Desktop session hosts and is delivered to users over the network | Member of one and only one application group *(1)* |
+| Published application | A Windows application that runs on Azure Virtual Desktop session hosts and is delivered to users over the network | Member of one and only one application group |
 | Application group | A logical grouping of published applications or a published desktop |  - Contains a published desktop *(1)* or one or more published applications<br> - Assigned to one and only one host pool *(2)*<br> - Member of one and only one workspace *(2)*<br> - One or more Azure AD user accounts or groups are assigned to it *(3)* |
 | Azure AD user account/group | Identifies the users who are permitted to launch published desktops or applications | - Member of one and only one Azure Active Directory <br> - Assigned to one or more application groups *(3)* |
 | Azure AD *(7)* | Identity provider | - Contains one or more user accounts or groups, which must be used to assign users to application groups, and can also be used to log in to the session hosts<br> - Can hold the memberships of the session hosts <br> - Can be synchronized with AD DS or Azure AD DS |
@@ -143,7 +143,7 @@ Azure Virtual Desktop, much like Azure, has certain service limitations that you
 | HostPool | Workspace | 400 |
 | Application group | Azure AD tenant | 500\* |
 | RemoteApp | Application group | 500 |
-| Role assignment | Any AVD object | 200 |
+| Role assignment | Any Azure Virtual Desktop object | 200 |
 | Session host | HostPool | 10,000 |
 
 \*If you require more than 500 application groups, submit a support ticket via the Azure portal.
